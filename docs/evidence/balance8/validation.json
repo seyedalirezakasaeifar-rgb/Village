@@ -1,0 +1,67 @@
+{
+  "completeHistories": 45,
+  "annualAndMonthlySamples": 1845,
+  "simulatedInterventionDays": 486000,
+  "seeds": [
+    42,
+    101,
+    909
+  ],
+  "source_commit": "525e47dd3967741fb59d2fd06921c1647a29a24a",
+  "source_sha256": "293fe306631099dfaacdd37e724d4c6e3b89991f56a1e15c50f872606f662c90",
+  "maximumCashDrift": 0.00022726692259311676,
+  "maximumGoodsError": 6.937625585123897e-09,
+  "allTownValidationsPassed": true,
+  "pageErrors": [],
+  "lateRecoveryMatchedPreintervention": [
+    {
+      "seed": 42,
+      "sameMatchedSave": true,
+      "identicalMeasuredTrajectoryThroughYears": 25
+    },
+    {
+      "seed": 101,
+      "sameMatchedSave": true,
+      "identicalMeasuredTrajectoryThroughYears": 25
+    },
+    {
+      "seed": 909,
+      "sameMatchedSave": true,
+      "identicalMeasuredTrajectoryThroughYears": 25
+    }
+  ],
+  "noProductionChanges": true,
+  "finalHarnessSmoke": [
+    {
+      "seed": 42,
+      "mode": "bus-investment",
+      "firstYearSamplesIdentical": 12,
+      "sameMatchedSave": true
+    },
+    {
+      "seed": 42,
+      "mode": "import-bridge",
+      "firstYearSamplesIdentical": 12,
+      "sameMatchedSave": true
+    },
+    {
+      "seed": 42,
+      "mode": "local-producer",
+      "firstYearSamplesIdentical": 12,
+      "sameMatchedSave": true
+    },
+    {
+      "seed": 42,
+      "mode": "supplier-contracts",
+      "firstYearSamplesIdentical": 12,
+      "sameMatchedSave": true
+    },
+    {
+      "seed": 42,
+      "mode": "credit-late-recovery",
+      "firstYearSamplesIdentical": 12,
+      "sameMatchedSave": true
+    }
+  ],
+  "finalHarnessSmokeErrors": []
+}
