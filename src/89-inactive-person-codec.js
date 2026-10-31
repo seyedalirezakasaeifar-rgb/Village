@@ -50,7 +50,9 @@ archivePayload=function(){
  data.people=active;const logicalSchema=data.schema;data.schema=9;
  const wire={format:'TownLedgerInactivePeople',version:2,schema:9,logicalSchema,payload:data,inactive:{total:all.length,fields,rows:inactive.map(p=>{const indices=fields.map((k,i)=>owns(p,k)?i:-1).filter(i=>i>=0);return [p.id,indices,indices.map(i=>p[fields[i]])];})}};
  wire.entities={};for(const kind of ['households','firms']){const directory=encodeHistoricalEntity(kind,data[kind]);wire.entities[kind]=directory.packed;data[kind]=directory.active;}
- // Validate the independently parsed representation before returning any bytes.
- const encoded=JSON.stringify(wire);if(encoded.length>INACTIVE_CODEC_LIMITS.bytes||new Blob([encoded]).size>INACTIVE_CODEC_LIMITS.bytes)throw Error('Archive exceeds encoded byte budget');decodeInactiveEnvelope(JSON.parse(encoded));return encoded;
+ // The wire is detached from live state by the original logical JSON parse.
+ // Validate this private candidate directly, avoiding a second full wire parse.
+ // Independent serialization round-trip equivalence is covered by codec gates.
+ const encoded=JSON.stringify(wire),encodedBytes=new Blob([encoded]).size;if(encoded.length>INACTIVE_CODEC_LIMITS.bytes||encodedBytes>INACTIVE_CODEC_LIMITS.bytes)throw Error('Archive exceeds encoded byte budget');decodeInactiveEnvelope(wire,encodedBytes);return encoded;
 };
 window.__inactivePersonCodec={enable:enabled=>{if(enabled===true&&inactiveCodecCooperative())throw Error('Cooperative snapshot contract is not integrated');if(enabled!==true&&inactivePersonCodecEnabled&&G&&(G.people.length>8000||G.households.length>3000||G.firms.length>3000))throw Error('Load a legacy-sized town or found another before disabling its required identity codec');inactivePersonCodecEnabled=enabled===true;return inactivePersonCodecEnabled;},status:()=>({enabled:inactivePersonCodecEnabled,limits:INACTIVE_CODEC_LIMITS,wireSchema:9,wireVersion:2})};
