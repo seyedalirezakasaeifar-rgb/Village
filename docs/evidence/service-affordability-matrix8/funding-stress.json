@@ -1,0 +1,1727 @@
+{
+  "source_sha256": "3bf1b09324f77ad8fb09c617c115070ebfad6ab18c750bc36d2b4617be073a85",
+  "rows": [
+    {
+      "seed": 42,
+      "scenario": "settlement",
+      "entry": "An entrepreneur has financed a new service site.",
+      "fire": "A private service site is already under construction.",
+      "absent": [
+        {
+          "id": 10,
+          "liquidity": 943.2535081563137,
+          "forecast": {
+            "health": 0.6730769230769231,
+            "school": 0,
+            "forecastOnly": true
+          },
+          "publicSchool": 0.6568348000757396,
+          "privateSchool": 0.6568348000757396,
+          "fire": 0.6753570470013762,
+          "migration": {
+            "health": 0.6730769230769231,
+            "school": 0,
+            "forecastOnly": true
+          }
+        },
+        {
+          "id": 58,
+          "liquidity": 4221.396432057431,
+          "forecast": {
+            "health": 0.6730769230769231,
+            "school": 0,
+            "forecastOnly": true
+          },
+          "publicSchool": 0,
+          "privateSchool": 0,
+          "fire": 0.6470160363730314,
+          "migration": {
+            "health": 0.6730769230769231,
+            "school": 0,
+            "forecastOnly": true
+          }
+        },
+        {
+          "id": 23,
+          "liquidity": 7282.426677815505,
+          "forecast": {
+            "health": 0.6730769230769231,
+            "school": 0,
+            "forecastOnly": true
+          },
+          "publicSchool": 0,
+          "privateSchool": 0,
+          "fire": 0.6171200183561212,
+          "migration": {
+            "health": 0.6730769230769231,
+            "school": 0,
+            "forecastOnly": true
+          }
+        }
+      ],
+      "funded": [
+        {
+          "id": 10,
+          "liquidity": 943.4291387830357,
+          "forecast": {
+            "health": 0.8284023668639053,
+            "school": 0,
+            "forecastOnly": true
+          },
+          "publicSchool": 0.6568348000757396,
+          "privateSchool": 0.6568348000757396,
+          "fire": 0.6753570470013762,
+          "migration": {
+            "health": 0.8284023668639053,
+            "school": 0,
+            "forecastOnly": true
+          }
+        },
+        {
+          "id": 58,
+          "liquidity": 4230.894300922083,
+          "forecast": {
+            "health": 0.8284023668639053,
+            "school": 0,
+            "forecastOnly": true
+          },
+          "publicSchool": 0,
+          "privateSchool": 0,
+          "fire": 0.6470160363730314,
+          "migration": {
+            "health": 0.8284023668639053,
+            "school": 0,
+            "forecastOnly": true
+          }
+        },
+        {
+          "id": 23,
+          "liquidity": 7297.352618452984,
+          "forecast": {
+            "health": 0.8284023668639053,
+            "school": 0,
+            "forecastOnly": true
+          },
+          "publicSchool": 0,
+          "privateSchool": 0,
+          "fire": 0.6171200183561212,
+          "migration": {
+            "health": 0.8284023668639053,
+            "school": 0,
+            "forecastOnly": true
+          }
+        }
+      ],
+      "fundedCash": 15493516.999995138,
+      "payroll": {
+        "eligible": true,
+        "providerCash": 8942.508800000332,
+        "removedToFiniteRegion": 8942.508800000332,
+        "migration": [
+          null,
+          null,
+          null
+        ],
+        "providerCashAfter": 0,
+        "books": 15493516.999995166
+      },
+      "disconnected": {
+        "cut": [
+          3471,
+          3727
+        ],
+        "forecast": {
+          "health": 0.6730769230769231,
+          "school": 0,
+          "forecastOnly": true
+        },
+        "migration": {
+          "eligible": false,
+          "reasons": [
+            "No unreserved vacant household unit",
+            "No funded reachable job remains after local jobseekers",
+            "Expected take-home pay does not cover rent, food, utilities and fares"
+          ],
+          "home": 44,
+          "housing": {
+            "building": 44,
+            "capacity": 1,
+            "households": [
+              10
+            ],
+            "occupied": 1,
+            "available": 0,
+            "overcrowded": false,
+            "reviewRequired": false,
+            "legacySharedTenants": [],
+            "reserved": false,
+            "underConstruction": false
+          },
+          "offers": [],
+          "expectedNet": 0,
+          "essentials": 14.574948562729011,
+          "budget": {
+            "rent": 5.294516525353578,
+            "food": 6.617932037375433,
+            "utilities": 2.295,
+            "commuting": 0,
+            "shopping": 0.36750000000000005,
+            "propertyTax": 0,
+            "debtService": 0,
+            "privateFees": 0
+          },
+          "foodShop": 17,
+          "rent": 5.294516525353578,
+          "surplus": -14.574948562729011,
+          "outside": {
+            "market": "ridge",
+            "name": "Ironridge Works",
+            "net": 0,
+            "essentials": 12.719397950324746,
+            "surplus": -12.719397950324746,
+            "referenceOnly": true,
+            "carriedObligations": 0
+          },
+          "services": {
+            "health": 0.6730769230769231,
+            "school": 0,
+            "forecastOnly": true
+          },
+          "pullProbability": 0,
+          "capital": 2500,
+          "note": "Outside wages/rents are a founding-policy reference; market food prices are live. Funded vacancies, route capacity and quoted private learning places can change before arrival; any private fee forecast is included in essentials, without assumed vouchers."
+        }
+      },
+      "reconnected": {
+        "health": 0.6730769230769231,
+        "school": 0,
+        "forecastOnly": true
+      },
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15493516.999994913,
+        "population": 169,
+        "day": 251
+      },
+      "cashDrift": -2.5331974029541016e-07,
+      "goods": [
+        {
+          "good": "grain",
+          "opening": 960,
+          "produced": 102791,
+          "consumed": 38598,
+          "imports": 31962.032,
+          "exports": 92692.55314292655,
+          "stock": 4422.478857073445,
+          "error": 4.547473508864641e-12,
+          "price": 1.7162242016588285
+        },
+        {
+          "good": "flour",
+          "opening": 960,
+          "produced": 64330,
+          "consumed": 41046.6,
+          "imports": 3969.471,
+          "exports": 24288.97959748272,
+          "stock": 3923.891402517278,
+          "error": -1.8189894035458565e-12,
+          "price": 2.6405466192296836
+        },
+        {
+          "good": "food",
+          "opening": 1920,
+          "produced": 90780,
+          "consumed": 66656.85475407912,
+          "imports": 21857.907,
+          "exports": 42009.57100068109,
+          "stock": 5891.481245239806,
+          "error": 2.091837814077735e-11,
+          "price": 2.8317699327370676
+        },
+        {
+          "good": "logs",
+          "opening": 720,
+          "produced": 67776,
+          "consumed": 29472.30769230769,
+          "imports": 543.707,
+          "exports": 37228.847886362106,
+          "stock": 2338.5514213302026,
+          "error": -4.547473508864641e-13,
+          "price": 1.7162242016588285
+        },
+        {
+          "good": "timber",
+          "opening": 720,
+          "produced": 38314,
+          "consumed": 15634.823529411764,
+          "imports": 4084.046,
+          "exports": 25756.16803506089,
+          "stock": 1727.0544355273414,
+          "error": -1.3642420526593924e-12,
+          "price": 3.432448403317657
+        },
+        {
+          "good": "stone",
+          "opening": 720,
+          "produced": 26538,
+          "consumed": 69.3,
+          "imports": 102.45,
+          "exports": 26196.047768680164,
+          "stock": 1095.1022313198346,
+          "error": -6.821210263296962e-13,
+          "price": 2.5743363024882426
+        },
+        {
+          "good": "manufactures",
+          "opening": 0,
+          "produced": 22739,
+          "consumed": 4983.968249469293,
+          "imports": 0,
+          "exports": 17424.03236451832,
+          "stock": 330.9993860123883,
+          "error": 5.115907697472721e-13,
+          "price": 7.4429828012437325
+        }
+      ]
+    },
+    {
+      "seed": 101,
+      "scenario": "settlement",
+      "entry": "An entrepreneur has financed a new service site.",
+      "fire": "A private service site is already under construction.",
+      "absent": [
+        {
+          "id": 11,
+          "liquidity": 975.0621927827311,
+          "forecast": {
+            "health": 0.6613372093023255,
+            "school": 0,
+            "forecastOnly": true
+          },
+          "publicSchool": 0.6431161541162265,
+          "privateSchool": 0.6431161541162265,
+          "fire": 0.5984733188360581,
+          "migration": {
+            "health": 0.6613372093023255,
+            "school": 0,
+            "forecastOnly": true
+          }
+        },
+        {
+          "id": 63,
+          "liquidity": 4127.642807961905,
+          "forecast": {
+            "health": 0.6613372093023255,
+            "school": 0,
+            "forecastOnly": true
+          },
+          "publicSchool": 0,
+          "privateSchool": 0,
+          "fire": 0.7702177342138603,
+          "migration": {
+            "health": 0.6613372093023255,
+            "school": 0,
+            "forecastOnly": true
+          }
+        },
+        {
+          "id": 49,
+          "liquidity": 9472.46531818906,
+          "forecast": {
+            "health": 0.6613372093023255,
+            "school": 0,
+            "forecastOnly": true
+          },
+          "publicSchool": 0,
+          "privateSchool": 0,
+          "fire": 0.6655640836055933,
+          "migration": {
+            "health": 0.6613372093023255,
+            "school": 0,
+            "forecastOnly": true
+          }
+        }
+      ],
+      "funded": [
+        {
+          "id": 11,
+          "liquidity": 974.1841239632206,
+          "forecast": {
+            "health": 0.813953488372093,
+            "school": 0,
+            "forecastOnly": true
+          },
+          "publicSchool": 0.6431161541162265,
+          "privateSchool": 0.6431161541162265,
+          "fire": 0.5984733188360581,
+          "migration": {
+            "health": 0.813953488372093,
+            "school": 0,
+            "forecastOnly": true
+          }
+        },
+        {
+          "id": 63,
+          "liquidity": 4144.227835457612,
+          "forecast": {
+            "health": 0.813953488372093,
+            "school": 0,
+            "forecastOnly": true
+          },
+          "publicSchool": 0,
+          "privateSchool": 0,
+          "fire": 0.7702177342138603,
+          "migration": {
+            "health": 0.813953488372093,
+            "school": 0,
+            "forecastOnly": true
+          }
+        },
+        {
+          "id": 49,
+          "liquidity": 9507.577193355472,
+          "forecast": {
+            "health": 0.813953488372093,
+            "school": 0,
+            "forecastOnly": true
+          },
+          "publicSchool": 0,
+          "privateSchool": 0,
+          "fire": 0.6655640836055933,
+          "migration": {
+            "health": 0.813953488372093,
+            "school": 0,
+            "forecastOnly": true
+          }
+        }
+      ],
+      "fundedCash": 15489571.999995708,
+      "payroll": {
+        "eligible": true,
+        "providerCash": 8942.508800000216,
+        "removedToFiniteRegion": 8942.508800000216,
+        "migration": [
+          null,
+          null,
+          null
+        ],
+        "providerCashAfter": 0,
+        "books": 15489571.999995729
+      },
+      "disconnected": {
+        "cut": [
+          3493,
+          3495
+        ],
+        "forecast": {
+          "health": 0,
+          "school": 0,
+          "forecastOnly": true
+        },
+        "migration": {
+          "eligible": false,
+          "reasons": [
+            "No unreserved vacant household unit",
+            "The home has no connected road gateway",
+            "No reachable staffed food shop or funded entry-staffed shop",
+            "No funded reachable job remains after local jobseekers",
+            "Expected take-home pay does not cover rent, food, utilities and fares"
+          ],
+          "home": 45,
+          "housing": {
+            "building": 45,
+            "capacity": 1,
+            "households": [
+              11
+            ],
+            "occupied": 1,
+            "available": 0,
+            "overcrowded": false,
+            "reviewRequired": false,
+            "legacySharedTenants": [],
+            "reserved": false,
+            "underConstruction": false
+          },
+          "offers": [],
+          "expectedNet": 0,
+          "essentials": 13.86085009442259,
+          "budget": {
+            "rent": 5.239319170542538,
+            "food": 6.326530923880051,
+            "utilities": 2.295,
+            "commuting": 0,
+            "shopping": 0,
+            "propertyTax": 0,
+            "debtService": 0,
+            "privateFees": 0
+          },
+          "foodShop": null,
+          "rent": 5.239319170542538,
+          "surplus": -13.86085009442259,
+          "outside": {
+            "market": "ridge",
+            "name": "Ironridge Works",
+            "net": 0,
+            "essentials": 12.31776500562478,
+            "surplus": -12.31776500562478,
+            "referenceOnly": true,
+            "carriedObligations": 0
+          },
+          "services": {
+            "health": 0,
+            "school": 0,
+            "forecastOnly": true
+          },
+          "pullProbability": 0,
+          "capital": 2500,
+          "note": "Outside wages/rents are a founding-policy reference; market food prices are live. Funded vacancies, route capacity and quoted private learning places can change before arrival; any private fee forecast is included in essentials, without assumed vouchers."
+        }
+      },
+      "reconnected": {
+        "health": 0.6613372093023255,
+        "school": 0,
+        "forecastOnly": true
+      },
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15489571.999995466,
+        "population": 172,
+        "day": 251
+      },
+      "cashDrift": -2.6263296604156494e-07,
+      "goods": [
+        {
+          "good": "grain",
+          "opening": 960,
+          "produced": 97788,
+          "consumed": 40641.6,
+          "imports": 37730.156,
+          "exports": 91229.97150879774,
+          "stock": 4606.584491202268,
+          "error": 6.366462912410498e-12,
+          "price": 1.7154110005785137
+        },
+        {
+          "good": "flour",
+          "opening": 960,
+          "produced": 67736,
+          "consumed": 42241.5,
+          "imports": 3878.104,
+          "exports": 25515.07369667154,
+          "stock": 4817.530303328464,
+          "error": 4.547473508864641e-12,
+          "price": 2.6355688289543546
+        },
+        {
+          "good": "food",
+          "opening": 1920,
+          "produced": 92893,
+          "consumed": 66592.79201631648,
+          "imports": 19247.994,
+          "exports": 41900.66621438127,
+          "stock": 5567.535769302267,
+          "error": 2.8194335754960775e-11,
+          "price": 2.830428150954548
+        },
+        {
+          "good": "logs",
+          "opening": 720,
+          "produced": 66305,
+          "consumed": 28498.46153846154,
+          "imports": 497.71500000000003,
+          "exports": 36761.12815113366,
+          "stock": 2263.125310404807,
+          "error": -4.547473508864641e-13,
+          "price": 1.7154110005785137
+        },
+        {
+          "good": "timber",
+          "opening": 720,
+          "produced": 37048,
+          "consumed": 15243.035294117646,
+          "imports": 4770.725,
+          "exports": 25744.4746371469,
+          "stock": 1551.2150687354474,
+          "error": -3.410605131648481e-12,
+          "price": 3.4308220011570274
+        },
+        {
+          "good": "stone",
+          "opening": 720,
+          "produced": 26282,
+          "consumed": 95.89999999999999,
+          "imports": 129.05,
+          "exports": 25951.70510563199,
+          "stock": 1083.44489436801,
+          "error": -1.1368683772161603e-12,
+          "price": 2.573116500867771
+        },
+        {
+          "good": "manufactures",
+          "opening": 0,
+          "produced": 22098,
+          "consumed": 4526.091243836648,
+          "imports": 0,
+          "exports": 17257.174008495105,
+          "stock": 314.7347476682464,
+          "error": -1.4210854715202004e-12,
+          "price": 7.438221656017058
+        }
+      ]
+    },
+    {
+      "seed": 909,
+      "scenario": "settlement",
+      "entry": "An entrepreneur has financed a new service site.",
+      "fire": "A private service site is already under construction.",
+      "absent": [
+        {
+          "id": 11,
+          "liquidity": 956.3831361464938,
+          "forecast": {
+            "health": 0.6463068181818182,
+            "school": 0,
+            "forecastOnly": true
+          },
+          "publicSchool": 1,
+          "privateSchool": 1,
+          "fire": 0.6112217598097504,
+          "migration": {
+            "health": 0.6463068181818182,
+            "school": 0,
+            "forecastOnly": true
+          }
+        },
+        {
+          "id": 66,
+          "liquidity": 3503.9837087090946,
+          "forecast": {
+            "health": 0.6463068181818182,
+            "school": 0,
+            "forecastOnly": true
+          },
+          "publicSchool": 0,
+          "privateSchool": 0,
+          "fire": 0.7051270808561237,
+          "migration": {
+            "health": 0.6463068181818182,
+            "school": 0,
+            "forecastOnly": true
+          }
+        },
+        {
+          "id": 37,
+          "liquidity": 7945.925582279624,
+          "forecast": {
+            "health": 0.6463068181818182,
+            "school": 0,
+            "forecastOnly": true
+          },
+          "publicSchool": 0,
+          "privateSchool": 0,
+          "fire": 0.5507951843043996,
+          "migration": {
+            "health": 0.6463068181818182,
+            "school": 0,
+            "forecastOnly": true
+          }
+        }
+      ],
+      "funded": [
+        {
+          "id": 11,
+          "liquidity": 953.3047015570032,
+          "forecast": {
+            "health": 0.7954545454545455,
+            "school": 0,
+            "forecastOnly": true
+          },
+          "publicSchool": 1,
+          "privateSchool": 1,
+          "fire": 0.6112217598097504,
+          "migration": {
+            "health": 0.7954545454545455,
+            "school": 0,
+            "forecastOnly": true
+          }
+        },
+        {
+          "id": 66,
+          "liquidity": 3507.2004636516085,
+          "forecast": {
+            "health": 0.7954545454545455,
+            "school": 0,
+            "forecastOnly": true
+          },
+          "publicSchool": 0,
+          "privateSchool": 0,
+          "fire": 0.7051270808561237,
+          "migration": {
+            "health": 0.7954545454545455,
+            "school": 0,
+            "forecastOnly": true
+          }
+        },
+        {
+          "id": 37,
+          "liquidity": 7967.341255926494,
+          "forecast": {
+            "health": 0.7954545454545455,
+            "school": 0,
+            "forecastOnly": true
+          },
+          "publicSchool": 0,
+          "privateSchool": 0,
+          "fire": 0.5507951843043996,
+          "migration": {
+            "health": 0.7954545454545455,
+            "school": 0,
+            "forecastOnly": true
+          }
+        }
+      ],
+      "fundedCash": 15484590.999996051,
+      "payroll": {
+        "eligible": true,
+        "providerCash": 8942.508800000274,
+        "removedToFiniteRegion": 8942.508800000274,
+        "migration": [
+          null,
+          null,
+          null
+        ],
+        "providerCashAfter": 0,
+        "books": 15484590.999996059
+      },
+      "disconnected": {
+        "cut": [
+          3493,
+          3495
+        ],
+        "forecast": {
+          "health": 0,
+          "school": 0,
+          "forecastOnly": true
+        },
+        "migration": {
+          "eligible": false,
+          "reasons": [
+            "No unreserved vacant household unit",
+            "The home has no connected road gateway",
+            "No reachable staffed food shop or funded entry-staffed shop",
+            "No funded reachable job remains after local jobseekers",
+            "Expected take-home pay does not cover rent, food, utilities and fares"
+          ],
+          "home": 45,
+          "housing": {
+            "building": 45,
+            "capacity": 1,
+            "households": [
+              11
+            ],
+            "occupied": 1,
+            "available": 0,
+            "overcrowded": false,
+            "reviewRequired": false,
+            "legacySharedTenants": [],
+            "reserved": false,
+            "underConstruction": false
+          },
+          "offers": [],
+          "expectedNet": 0,
+          "essentials": 14.075596941734041,
+          "budget": {
+            "rent": 5.249661123118795,
+            "food": 6.530935818615246,
+            "utilities": 2.295,
+            "commuting": 0,
+            "shopping": 0,
+            "propertyTax": 0,
+            "debtService": 0,
+            "privateFees": 0
+          },
+          "foodShop": null,
+          "rent": 5.249661123118795,
+          "surplus": -14.075596941734041,
+          "outside": {
+            "market": "ridge",
+            "name": "Ironridge Works",
+            "net": 0,
+            "essentials": 12.513163207930535,
+            "surplus": -12.513163207930535,
+            "referenceOnly": true,
+            "carriedObligations": 0
+          },
+          "services": {
+            "health": 0,
+            "school": 0,
+            "forecastOnly": true
+          },
+          "pullProbability": 0,
+          "capital": 2500,
+          "note": "Outside wages/rents are a founding-policy reference; market food prices are live. Funded vacancies, route capacity and quoted private learning places can change before arrival; any private fee forecast is included in essentials, without assumed vouchers."
+        }
+      },
+      "reconnected": {
+        "health": 0.6463068181818182,
+        "school": 0,
+        "forecastOnly": true
+      },
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15484590.999995954,
+        "population": 176,
+        "day": 251
+      },
+      "cashDrift": -1.043081283569336e-07,
+      "goods": [
+        {
+          "good": "grain",
+          "opening": 960,
+          "produced": 107119,
+          "consumed": 38480.4,
+          "imports": 34498.996,
+          "exports": 100375.36726527338,
+          "stock": 3722.228734726625,
+          "error": 5.002220859751105e-12,
+          "price": 1.7238296258453678
+        },
+        {
+          "good": "flour",
+          "opening": 960,
+          "produced": 64134,
+          "consumed": 41237.7,
+          "imports": 5145.223,
+          "exports": 25270.24938135166,
+          "stock": 3731.2736186483357,
+          "error": -4.547473508864641e-12,
+          "price": 2.6610660357944402
+        },
+        {
+          "good": "food",
+          "opening": 1920,
+          "produced": 92055,
+          "consumed": 67829.85476495678,
+          "imports": 24424.059,
+          "exports": 44960.22694678285,
+          "stock": 5608.977288260396,
+          "error": 2.3646862246096134e-11,
+          "price": 2.844318882644856
+        },
+        {
+          "good": "logs",
+          "opening": 720,
+          "produced": 74383,
+          "consumed": 33182.307692307695,
+          "imports": 780,
+          "exports": 40216.33956695898,
+          "stock": 2484.3527407333336,
+          "error": 4.092726157978177e-12,
+          "price": 1.7238296258453678
+        },
+        {
+          "good": "timber",
+          "opening": 720,
+          "produced": 43137,
+          "consumed": 16347.941176470587,
+          "imports": 2475.598,
+          "exports": 28140.783208631314,
+          "stock": 1843.8736148980977,
+          "error": -1.8189894035458565e-12,
+          "price": 3.4476592516907356
+        },
+        {
+          "good": "stone",
+          "opening": 720,
+          "produced": 28519,
+          "consumed": 86.44999999999999,
+          "imports": 119.95,
+          "exports": 28143.15648820446,
+          "stock": 1129.3435117955382,
+          "error": -1.8189894035458565e-12,
+          "price": 2.5857444387680517
+        },
+        {
+          "good": "manufactures",
+          "opening": 0,
+          "produced": 23741,
+          "consumed": 4579.372389719342,
+          "imports": 0,
+          "exports": 18812.39601956,
+          "stock": 349.23159072065806,
+          "error": 2.2737367544323206e-12,
+          "price": 7.4069361653702925
+        }
+      ]
+    },
+    {
+      "seed": 42,
+      "scenario": "regional",
+      "entry": "An entrepreneur has financed a new service site.",
+      "fire": "A private service site is already under construction.",
+      "absent": [
+        {
+          "id": 276,
+          "liquidity": 876.8682087949052,
+          "forecast": {
+            "health": 0.4359165424739196,
+            "school": 0,
+            "forecastOnly": true
+          },
+          "publicSchool": 0.8101523196091875,
+          "privateSchool": 0.8101523196091875,
+          "fire": 0,
+          "migration": {
+            "health": 0.4359165424739196,
+            "school": 0,
+            "forecastOnly": true
+          }
+        },
+        {
+          "id": 209,
+          "liquidity": 4623.085654024711,
+          "forecast": {
+            "health": 0.4359165424739196,
+            "school": 0,
+            "forecastOnly": true
+          },
+          "publicSchool": 0,
+          "privateSchool": 0,
+          "fire": 0,
+          "migration": {
+            "health": 0.4359165424739196,
+            "school": 0,
+            "forecastOnly": true
+          }
+        },
+        {
+          "id": 262,
+          "liquidity": 29234.362712502614,
+          "forecast": {
+            "health": 0.4359165424739196,
+            "school": 0,
+            "forecastOnly": true
+          },
+          "publicSchool": 0,
+          "privateSchool": 0,
+          "fire": 0,
+          "migration": {
+            "health": 0.4359165424739196,
+            "school": 0,
+            "forecastOnly": true
+          }
+        }
+      ],
+      "funded": [
+        {
+          "id": 276,
+          "liquidity": 872.2613072320046,
+          "forecast": {
+            "health": 0.4359165424739196,
+            "school": 0,
+            "forecastOnly": true
+          },
+          "publicSchool": 0.8101523196091875,
+          "privateSchool": 0.8101523196091875,
+          "fire": 0,
+          "migration": {
+            "health": 0.4359165424739196,
+            "school": 0,
+            "forecastOnly": true
+          }
+        },
+        {
+          "id": 209,
+          "liquidity": 4630.638355034118,
+          "forecast": {
+            "health": 0.4359165424739196,
+            "school": 0,
+            "forecastOnly": true
+          },
+          "publicSchool": 0,
+          "privateSchool": 0,
+          "fire": 0,
+          "migration": {
+            "health": 0.4359165424739196,
+            "school": 0,
+            "forecastOnly": true
+          }
+        },
+        {
+          "id": 262,
+          "liquidity": 29238.95193958128,
+          "forecast": {
+            "health": 0.4359165424739196,
+            "school": 0,
+            "forecastOnly": true
+          },
+          "publicSchool": 0,
+          "privateSchool": 0,
+          "fire": 0,
+          "migration": {
+            "health": 0.4359165424739196,
+            "school": 0,
+            "forecastOnly": true
+          }
+        }
+      ],
+      "fundedCash": 15493516.999996329,
+      "payroll": {
+        "eligible": true,
+        "providerCash": 8867.8575892058,
+        "removedToFiniteRegion": 8867.8575892058,
+        "migration": [
+          null,
+          null,
+          null
+        ],
+        "providerCashAfter": 0,
+        "books": 15493516.999996394
+      },
+      "disconnected": {
+        "cut": [
+          5541,
+          5543
+        ],
+        "forecast": {
+          "health": 0,
+          "school": 0,
+          "forecastOnly": true
+        },
+        "migration": {
+          "eligible": false,
+          "reasons": [
+            "No unreserved vacant household unit",
+            "The home has no connected road gateway",
+            "No reachable staffed food shop or funded entry-staffed shop",
+            "No funded reachable job remains after local jobseekers",
+            "Expected take-home pay does not cover rent, food, utilities and fares"
+          ],
+          "home": 211,
+          "housing": {
+            "building": 211,
+            "capacity": 4,
+            "households": [
+              275,
+              276,
+              277,
+              278
+            ],
+            "occupied": 4,
+            "available": 0,
+            "overcrowded": false,
+            "reviewRequired": false,
+            "legacySharedTenants": [],
+            "reserved": false,
+            "underConstruction": false
+          },
+          "offers": [],
+          "expectedNet": 0,
+          "essentials": 14.382958230883684,
+          "budget": {
+            "rent": 5.035106838435461,
+            "food": 7.052851392448223,
+            "utilities": 2.295,
+            "commuting": 0,
+            "shopping": 0,
+            "propertyTax": 0,
+            "debtService": 0,
+            "privateFees": 0
+          },
+          "foodShop": null,
+          "rent": 5.035106838435461,
+          "surplus": -14.382958230883684,
+          "outside": {
+            "market": "ridge",
+            "name": "Ironridge Works",
+            "net": 0,
+            "essentials": 13.012081616975761,
+            "surplus": -13.012081616975761,
+            "referenceOnly": true,
+            "carriedObligations": 0
+          },
+          "services": {
+            "health": 0,
+            "school": 0,
+            "forecastOnly": true
+          },
+          "pullProbability": 0,
+          "capital": 2500,
+          "note": "Outside wages/rents are a founding-policy reference; market food prices are live. Funded vacancies, route capacity and quoted private learning places can change before arrival; any private fee forecast is included in essentials, without assumed vouchers."
+        }
+      },
+      "reconnected": {
+        "health": 0.4359165424739196,
+        "school": 0,
+        "forecastOnly": true
+      },
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15493516.999995718,
+        "population": 671,
+        "day": 251
+      },
+      "cashDrift": -6.761401891708374e-07,
+      "goods": [
+        {
+          "good": "grain",
+          "opening": 960,
+          "produced": 212237,
+          "consumed": 103727.4,
+          "imports": 81967.565,
+          "exports": 180520.9890362085,
+          "stock": 10916.175963791497,
+          "error": 0,
+          "price": 1.7035724379178445
+        },
+        {
+          "good": "flour",
+          "opening": 960,
+          "produced": 172879,
+          "consumed": 125512.8,
+          "imports": 14988.245,
+          "exports": 51922.21616736611,
+          "stock": 11392.228832633884,
+          "error": -9.094947017729282e-12,
+          "price": 2.5553586568767663
+        },
+        {
+          "good": "food",
+          "opening": 1920,
+          "produced": 269017,
+          "consumed": 203430.68459494272,
+          "imports": 53291.048,
+          "exports": 102805.05217967684,
+          "stock": 17992.31122537925,
+          "error": -1.1677911970764399e-09,
+          "price": 2.8257139728402727
+        },
+        {
+          "good": "logs",
+          "opening": 720,
+          "produced": 173598,
+          "consumed": 102916.92307692308,
+          "imports": 4682.901,
+          "exports": 70307.57387163704,
+          "stock": 5776.404051439876,
+          "error": -9.094947017729282e-12,
+          "price": 1.7035724379178445
+        },
+        {
+          "good": "timber",
+          "opening": 720,
+          "produced": 133792,
+          "consumed": 103856.21176470588,
+          "imports": 32406.044,
+          "exports": 55445.47769331603,
+          "stock": 7616.3545419780685,
+          "error": -1.4551915228366852e-11,
+          "price": 3.407144875835689
+        },
+        {
+          "good": "stone",
+          "opening": 720,
+          "produced": 45886,
+          "consumed": 431.9,
+          "imports": 2254.3,
+          "exports": 45472.44227545012,
+          "stock": 2955.95772454988,
+          "error": 4.547473508864641e-13,
+          "price": 2.5553586568767663
+        },
+        {
+          "good": "manufactures",
+          "opening": 0,
+          "produced": 151118,
+          "consumed": 22327.034002304354,
+          "imports": 0,
+          "exports": 127648.98304513191,
+          "stock": 1141.9829525637322,
+          "error": -1.1368683772161603e-12,
+          "price": 7.360053899111296
+        }
+      ]
+    },
+    {
+      "seed": 101,
+      "scenario": "regional",
+      "entry": "An entrepreneur has financed a new service site.",
+      "fire": "An entrepreneur has financed a new service site.",
+      "absent": [
+        {
+          "id": 297,
+          "liquidity": 974.2651395967632,
+          "forecast": {
+            "health": 0.44051204819277107,
+            "school": 0,
+            "forecastOnly": true
+          },
+          "publicSchool": 0.903561550958289,
+          "privateSchool": 0.903561550958289,
+          "fire": 0.49160523186682525,
+          "migration": {
+            "health": 0.44051204819277107,
+            "school": 0,
+            "forecastOnly": true
+          }
+        },
+        {
+          "id": 239,
+          "liquidity": 4958.877112457449,
+          "forecast": {
+            "health": 0.44051204819277107,
+            "school": 0,
+            "forecastOnly": true
+          },
+          "publicSchool": 0,
+          "privateSchool": 0,
+          "fire": 0.12068965517241378,
+          "migration": {
+            "health": 0.44051204819277107,
+            "school": 0,
+            "forecastOnly": true
+          }
+        },
+        {
+          "id": 0,
+          "liquidity": 31635.505501736934,
+          "forecast": {
+            "health": 0.44051204819277107,
+            "school": 0,
+            "forecastOnly": true
+          },
+          "publicSchool": 0,
+          "privateSchool": 0,
+          "fire": 0.2025862068965517,
+          "migration": {
+            "health": 0.44051204819277107,
+            "school": 0,
+            "forecastOnly": true
+          }
+        }
+      ],
+      "funded": [
+        {
+          "id": 297,
+          "liquidity": 968.776836936776,
+          "forecast": {
+            "health": 0.4405120481927711,
+            "school": 0,
+            "forecastOnly": true
+          },
+          "publicSchool": 0.903561550958289,
+          "privateSchool": 0.903561550958289,
+          "fire": 0.49160523186682525,
+          "migration": {
+            "health": 0.4405120481927711,
+            "school": 0,
+            "forecastOnly": true
+          }
+        },
+        {
+          "id": 239,
+          "liquidity": 4967.913443177548,
+          "forecast": {
+            "health": 0.4405120481927711,
+            "school": 0,
+            "forecastOnly": true
+          },
+          "publicSchool": 0,
+          "privateSchool": 0,
+          "fire": 0.12068965517241378,
+          "migration": {
+            "health": 0.4405120481927711,
+            "school": 0,
+            "forecastOnly": true
+          }
+        },
+        {
+          "id": 0,
+          "liquidity": 31690.11217485628,
+          "forecast": {
+            "health": 0.4405120481927711,
+            "school": 0,
+            "forecastOnly": true
+          },
+          "publicSchool": 0,
+          "privateSchool": 0,
+          "fire": 0.2025862068965517,
+          "migration": {
+            "health": 0.4405120481927711,
+            "school": 0,
+            "forecastOnly": true
+          }
+        }
+      ],
+      "fundedCash": 15489571.999996256,
+      "payroll": {
+        "eligible": true,
+        "providerCash": 8868.07622134053,
+        "removedToFiniteRegion": 8868.07622134053,
+        "migration": [
+          null,
+          null,
+          null
+        ],
+        "providerCashAfter": 0,
+        "books": 15489571.999996215
+      },
+      "disconnected": {
+        "cut": [
+          1704,
+          1706
+        ],
+        "forecast": {
+          "health": 0.44051204819277107,
+          "school": 0,
+          "forecastOnly": true
+        },
+        "migration": {
+          "eligible": false,
+          "reasons": [
+            "No unreserved vacant household unit",
+            "No funded reachable job remains after local jobseekers",
+            "Expected take-home pay does not cover rent, food, utilities and fares"
+          ],
+          "home": 216,
+          "housing": {
+            "building": 216,
+            "capacity": 4,
+            "households": [
+              295,
+              296,
+              297,
+              298
+            ],
+            "occupied": 4,
+            "available": 0,
+            "overcrowded": false,
+            "reviewRequired": false,
+            "legacySharedTenants": [],
+            "reserved": false,
+            "underConstruction": false
+          },
+          "offers": [],
+          "expectedNet": 0,
+          "essentials": 14.216449004453386,
+          "budget": {
+            "rent": 4.964197331298463,
+            "food": 6.207251673154924,
+            "utilities": 2.295,
+            "commuting": 0,
+            "shopping": 0.7500000000000001,
+            "propertyTax": 0,
+            "debtService": 0,
+            "privateFees": 0
+          },
+          "foodShop": 53,
+          "rent": 4.964197331298463,
+          "surplus": -14.216449004453386,
+          "outside": {
+            "market": "ridge",
+            "name": "Ironridge Works",
+            "net": 0,
+            "essentials": 12.602613266715787,
+            "surplus": -12.602613266715787,
+            "referenceOnly": true,
+            "carriedObligations": 0
+          },
+          "services": {
+            "health": 0.44051204819277107,
+            "school": 0,
+            "forecastOnly": true
+          },
+          "pullProbability": 0,
+          "capital": 2500,
+          "note": "Outside wages/rents are a founding-policy reference; market food prices are live. Funded vacancies, route capacity and quoted private learning places can change before arrival; any private fee forecast is included in essentials, without assumed vouchers."
+        }
+      },
+      "reconnected": {
+        "health": 0.44051204819277107,
+        "school": 0,
+        "forecastOnly": true
+      },
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15489571.999996347,
+        "population": 664,
+        "day": 251
+      },
+      "cashDrift": 1.3597309589385986e-07,
+      "goods": [
+        {
+          "good": "grain",
+          "opening": 960,
+          "produced": 205620,
+          "consumed": 100891.2,
+          "imports": 88845.44,
+          "exports": 183465.5029397428,
+          "stock": 11068.73706025721,
+          "error": 0,
+          "price": 1.7130311756144099
+        },
+        {
+          "good": "flour",
+          "opening": 960,
+          "produced": 168152,
+          "consumed": 117954.375,
+          "imports": 11324.747,
+          "exports": 52313.89209143715,
+          "stock": 10168.479908562851,
+          "error": -1.8189894035458565e-12,
+          "price": 2.569546763421615
+        },
+        {
+          "good": "food",
+          "opening": 1920,
+          "produced": 255358,
+          "consumed": 172777.8889871314,
+          "imports": 37232.808,
+          "exports": 105633.40501008462,
+          "stock": 16099.514002782793,
+          "error": -1.1805241229012609e-09,
+          "price": 2.831979287251943
+        },
+        {
+          "good": "logs",
+          "opening": 720,
+          "produced": 182470,
+          "consumed": 111570,
+          "imports": 5479.715,
+          "exports": 71446.79762733643,
+          "stock": 5652.9173726635745,
+          "error": 9.094947017729282e-12,
+          "price": 1.7130311756144099
+        },
+        {
+          "good": "timber",
+          "opening": 720,
+          "produced": 145041,
+          "consumed": 100682.41176470589,
+          "imports": 25978.818,
+          "exports": 63303.16681349631,
+          "stock": 7754.2394217977935,
+          "error": -1.546140993013978e-11,
+          "price": 3.4260623512288197
+        },
+        {
+          "good": "stone",
+          "opening": 720,
+          "produced": 52494,
+          "consumed": 461.65,
+          "imports": 2262.798,
+          "exports": 51959.356182541116,
+          "stock": 3055.791817458887,
+          "error": 0,
+          "price": 2.569546763421615
+        },
+        {
+          "good": "manufactures",
+          "opening": 0,
+          "produced": 146392,
+          "consumed": 23130.90572418962,
+          "imports": 0,
+          "exports": 119651.03133536158,
+          "stock": 3610.0629404487954,
+          "error": -9.094947017729282e-13,
+          "price": 7.493432800897018
+        }
+      ]
+    },
+    {
+      "seed": 909,
+      "scenario": "regional",
+      "entry": "An entrepreneur has financed a new service site.",
+      "fire": "A private service site is already under construction.",
+      "absent": [
+        {
+          "id": 291,
+          "liquidity": 829.7136389707473,
+          "forecast": {
+            "health": 0.43333333333333335,
+            "school": 0,
+            "forecastOnly": true
+          },
+          "publicSchool": 0.5,
+          "privateSchool": 0.5,
+          "fire": 0,
+          "migration": {
+            "health": 0.43333333333333335,
+            "school": 0,
+            "forecastOnly": true
+          }
+        },
+        {
+          "id": 274,
+          "liquidity": 4598.317983190007,
+          "forecast": {
+            "health": 0.43333333333333335,
+            "school": 0,
+            "forecastOnly": true
+          },
+          "publicSchool": 0,
+          "privateSchool": 0,
+          "fire": 0,
+          "migration": {
+            "health": 0.43333333333333335,
+            "school": 0,
+            "forecastOnly": true
+          }
+        },
+        {
+          "id": 32,
+          "liquidity": 41059.610552642465,
+          "forecast": {
+            "health": 0.43333333333333335,
+            "school": 0,
+            "forecastOnly": true
+          },
+          "publicSchool": 0,
+          "privateSchool": 0,
+          "fire": 0,
+          "migration": {
+            "health": 0.43333333333333335,
+            "school": 0,
+            "forecastOnly": true
+          }
+        }
+      ],
+      "funded": [
+        {
+          "id": 291,
+          "liquidity": 822.3801306111243,
+          "forecast": {
+            "health": 0.4333333333333334,
+            "school": 0,
+            "forecastOnly": true
+          },
+          "publicSchool": 0.5,
+          "privateSchool": 0.5,
+          "fire": 0,
+          "migration": {
+            "health": 0.4333333333333334,
+            "school": 0,
+            "forecastOnly": true
+          }
+        },
+        {
+          "id": 274,
+          "liquidity": 4608.103344669034,
+          "forecast": {
+            "health": 0.4333333333333334,
+            "school": 0,
+            "forecastOnly": true
+          },
+          "publicSchool": 0,
+          "privateSchool": 0,
+          "fire": 0,
+          "migration": {
+            "health": 0.4333333333333334,
+            "school": 0,
+            "forecastOnly": true
+          }
+        },
+        {
+          "id": 32,
+          "liquidity": 41075.623652967915,
+          "forecast": {
+            "health": 0.4333333333333334,
+            "school": 0,
+            "forecastOnly": true
+          },
+          "publicSchool": 0,
+          "privateSchool": 0,
+          "fire": 0,
+          "migration": {
+            "health": 0.4333333333333334,
+            "school": 0,
+            "forecastOnly": true
+          }
+        }
+      ],
+      "fundedCash": 15484590.99999516,
+      "payroll": {
+        "eligible": true,
+        "providerCash": 7781.69565167312,
+        "removedToFiniteRegion": 7781.69565167312,
+        "migration": [
+          null,
+          null,
+          null
+        ],
+        "providerCashAfter": 0,
+        "books": 15484590.999995274
+      },
+      "disconnected": {
+        "cut": [
+          3506,
+          3508
+        ],
+        "forecast": {
+          "health": 0,
+          "school": 0,
+          "forecastOnly": true
+        },
+        "migration": {
+          "eligible": false,
+          "reasons": [
+            "No unreserved vacant household unit",
+            "The home has no connected road gateway",
+            "No reachable staffed food shop or funded entry-staffed shop",
+            "No funded reachable job remains after local jobseekers",
+            "Expected take-home pay does not cover rent, food, utilities and fares"
+          ],
+          "home": 215,
+          "housing": {
+            "building": 215,
+            "capacity": 4,
+            "households": [
+              291,
+              292,
+              293,
+              294
+            ],
+            "occupied": 4,
+            "available": 0,
+            "overcrowded": false,
+            "reviewRequired": false,
+            "legacySharedTenants": [],
+            "reserved": false,
+            "underConstruction": false
+          },
+          "offers": [],
+          "expectedNet": 0,
+          "essentials": 14.034089292213334,
+          "budget": {
+            "rent": 5.038267017057047,
+            "food": 6.700822275156288,
+            "utilities": 2.295,
+            "commuting": 0,
+            "shopping": 0,
+            "propertyTax": 0,
+            "debtService": 0,
+            "privateFees": 0
+          },
+          "foodShop": null,
+          "rent": 5.038267017057047,
+          "surplus": -14.034089292213334,
+          "outside": {
+            "market": "ridge",
+            "name": "Ironridge Works",
+            "net": 0,
+            "essentials": 12.675563957908755,
+            "surplus": -12.675563957908755,
+            "referenceOnly": true,
+            "carriedObligations": 0
+          },
+          "services": {
+            "health": 0,
+            "school": 0,
+            "forecastOnly": true
+          },
+          "pullProbability": 0,
+          "capital": 2500,
+          "note": "Outside wages/rents are a founding-policy reference; market food prices are live. Funded vacancies, route capacity and quoted private learning places can change before arrival; any private fee forecast is included in essentials, without assumed vouchers."
+        }
+      },
+      "reconnected": {
+        "health": 0.43333333333333335,
+        "school": 0,
+        "forecastOnly": true
+      },
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15484590.99999511,
+        "population": 675,
+        "day": 251
+      },
+      "cashDrift": -1.6391277313232422e-07,
+      "goods": [
+        {
+          "good": "grain",
+          "opening": 960,
+          "produced": 225736,
+          "consumed": 99686.40000000001,
+          "imports": 74035.284,
+          "exports": 191167.85424749815,
+          "stock": 9877.029752501849,
+          "error": 9.094947017729282e-12,
+          "price": 1.7071450114949307
+        },
+        {
+          "good": "flour",
+          "opening": 960,
+          "produced": 166144,
+          "consumed": 131441.625,
+          "imports": 16683.277,
+          "exports": 40869.44851372766,
+          "stock": 11476.203486272343,
+          "error": -1.8189894035458565e-12,
+          "price": 2.560717517242395
+        },
+        {
+          "good": "food",
+          "opening": 1920,
+          "produced": 272511,
+          "consumed": 204496.77782587777,
+          "imports": 53958.325,
+          "exports": 104233.07936770914,
+          "stock": 19659.46780641187,
+          "error": -1.2332748156040907e-09,
+          "price": 2.81823537499921
+        },
+        {
+          "good": "logs",
+          "opening": 720,
+          "produced": 169952,
+          "consumed": 102687.69230769231,
+          "imports": 5680.244,
+          "exports": 67918.02511046831,
+          "stock": 5746.526581839391,
+          "error": 1.000444171950221e-11,
+          "price": 1.7071450114949307
+        },
+        {
+          "good": "timber",
+          "opening": 720,
+          "produced": 133494,
+          "consumed": 111880.23529411765,
+          "imports": 41222.971,
+          "exports": 55366.03134753901,
+          "stock": 8190.704358343335,
+          "error": -1.000444171950221e-11,
+          "price": 3.4142900229898614
+        },
+        {
+          "good": "stone",
+          "opening": 720,
+          "produced": 37714,
+          "consumed": 459.9,
+          "imports": 2329.099,
+          "exports": 37457.55800592821,
+          "stock": 2845.6409940717913,
+          "error": -9.094947017729282e-13,
+          "price": 2.560717517242395
+        },
+        {
+          "good": "manufactures",
+          "opening": 0,
+          "produced": 162807,
+          "consumed": 21977.89990191026,
+          "imports": 0,
+          "exports": 138863.18949288543,
+          "stock": 1965.9106052042944,
+          "error": -1.5916157281026244e-12,
+          "price": 7.26994956074351
+        }
+      ]
+    }
+  ],
+  "errors": []
+}

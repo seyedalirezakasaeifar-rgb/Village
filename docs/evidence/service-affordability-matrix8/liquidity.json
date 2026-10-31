@@ -1,0 +1,3156 @@
+{
+  "source_sha256": "3bf1b09324f77ad8fb09c617c115070ebfad6ab18c750bc36d2b4617be073a85",
+  "matrix": "3 seeds x settlement/regional; private-provider entry under absent public service funding; low/middle/high spendable wallets; exact replay",
+  "rows": [
+    {
+      "seed": 42,
+      "scenario": "settlement",
+      "start": 15493516.999995166,
+      "end": 15493516.999995137,
+      "cashDrift": -2.9802322387695312e-08,
+      "school": "An entrepreneur has financed a new service site.",
+      "fire": "A private service site is already under construction.",
+      "offers": [
+        {
+          "band": "low",
+          "cash": 923.9235607969844,
+          "spendable": 943.2535081563137,
+          "fees": 7.650766697403562,
+          "publicSchool": 0.6568348000757396,
+          "publicServiceForecast": {
+            "health": 0.6730769230769231,
+            "school": 0,
+            "forecastOnly": true
+          },
+          "realizedPrivateSchool": 0.6568348000757396,
+          "schoolCapacity": 0,
+          "privateFire": 0.6753570470013762,
+          "assessment": {
+            "eligible": false,
+            "reasons": [
+              "No unreserved vacant household unit",
+              "No funded reachable job remains after local jobseekers",
+              "Expected take-home pay does not cover rent, food, utilities and fares"
+            ],
+            "services": {
+              "health": 0.6730769230769231,
+              "school": 0,
+              "forecastOnly": true
+            },
+            "budget": {
+              "rent": 5.294516525353578,
+              "food": 6.617932037375433,
+              "utilities": 2.295,
+              "commuting": 0,
+              "shopping": 0.49000000000000005,
+              "propertyTax": 0,
+              "debtService": 0,
+              "privateFees": 0
+            },
+            "schoolOffer": null
+          }
+        },
+        {
+          "band": "middle",
+          "cash": 2178.0192392171843,
+          "spendable": 4221.396432057431,
+          "fees": 1.1365085063336904,
+          "publicSchool": 0,
+          "publicServiceForecast": {
+            "health": 0.6730769230769231,
+            "school": 0,
+            "forecastOnly": true
+          },
+          "realizedPrivateSchool": 0,
+          "schoolCapacity": 0,
+          "privateFire": 0.6470160363730314,
+          "assessment": {
+            "eligible": false,
+            "reasons": [
+              "No unreserved vacant household unit",
+              "No funded reachable job remains after local jobseekers",
+              "Expected take-home pay does not cover rent, food, utilities and fares"
+            ],
+            "services": {
+              "health": 0.6730769230769231,
+              "school": 0,
+              "forecastOnly": true
+            },
+            "budget": {
+              "rent": 5.197965982092572,
+              "food": 6.617932037375433,
+              "utilities": 2.295,
+              "commuting": 0,
+              "shopping": 0.6125,
+              "propertyTax": 0,
+              "debtService": 0,
+              "privateFees": 0
+            },
+            "schoolOffer": null
+          }
+        },
+        {
+          "band": "high",
+          "cash": 3451.0949345654267,
+          "spendable": 7282.426677815505,
+          "fees": 1.7002745732096172,
+          "publicSchool": 0,
+          "publicServiceForecast": {
+            "health": 0.6730769230769231,
+            "school": 0,
+            "forecastOnly": true
+          },
+          "realizedPrivateSchool": 0,
+          "schoolCapacity": 0,
+          "privateFire": 0.6171200183561212,
+          "assessment": {
+            "eligible": false,
+            "reasons": [
+              "No unreserved vacant household unit",
+              "No funded reachable job remains after local jobseekers",
+              "Expected take-home pay does not cover rent, food, utilities and fares"
+            ],
+            "services": {
+              "health": 0.6730769230769231,
+              "school": 0,
+              "forecastOnly": true
+            },
+            "budget": {
+              "rent": 5.2488027987483665,
+              "food": 6.617173832657183,
+              "utilities": 2.295,
+              "commuting": 0,
+              "shopping": 0.9187500000000001,
+              "propertyTax": 0,
+              "debtService": 0,
+              "privateFees": 0
+            },
+            "schoolOffer": null
+          }
+        }
+      ],
+      "actual": [
+        {
+          "id": 10,
+          "privateFees": 7.650766697403562,
+          "privateReceipts": 186.35150722654774,
+          "voucherSpend": 0.9113093230750391,
+          "coverage": {
+            "health": 0.6730769230769231,
+            "school": 0
+          },
+          "privateSchool": 0.6568348000757396,
+          "fire": 0.6753570470013762
+        },
+        {
+          "id": 58,
+          "privateFees": 1.1365085063336904,
+          "privateReceipts": 186.35150722654774,
+          "voucherSpend": 0.9113093230750391,
+          "coverage": {
+            "health": 0.6730769230769231,
+            "school": 0
+          },
+          "privateSchool": 0,
+          "fire": 0.6470160363730314
+        },
+        {
+          "id": 23,
+          "privateFees": 1.7002745732096172,
+          "privateReceipts": 186.35150722654774,
+          "voucherSpend": 0.9113093230750391,
+          "coverage": {
+            "health": 0.6730769230769231,
+            "school": 0
+          },
+          "privateSchool": 0,
+          "fire": 0.6171200183561212
+        }
+      ],
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15493516.999994306,
+        "population": 171,
+        "day": 272
+      },
+      "goods": [
+        {
+          "good": "grain",
+          "opening": 960,
+          "produced": 111271,
+          "consumed": 42391.2,
+          "imports": 35434.582,
+          "exports": 101137.69610135516,
+          "stock": 4136.685898644838,
+          "error": 4.547473508864641e-12,
+          "price": 1.6980832510435895
+        },
+        {
+          "good": "flour",
+          "opening": 960,
+          "produced": 70652,
+          "consumed": 45110.1,
+          "imports": 3969.471,
+          "exports": 26886.932462730336,
+          "stock": 3584.4385372696643,
+          "error": -1.8189894035458565e-12,
+          "price": 2.605389955297852
+        },
+        {
+          "good": "food",
+          "opening": 1920,
+          "produced": 99487,
+          "consumed": 72341.65475407912,
+          "imports": 21857.907,
+          "exports": 45915.1045094342,
+          "stock": 5008.147736486691,
+          "error": 1.8189894035458565e-11,
+          "price": 2.801837364221923
+        },
+        {
+          "good": "logs",
+          "opening": 720,
+          "produced": 73312,
+          "consumed": 31461.53846153846,
+          "imports": 543.707,
+          "exports": 40613.26660454935,
+          "stock": 2500.901933912187,
+          "error": 0,
+          "price": 1.6980832510435895
+        },
+        {
+          "good": "timber",
+          "opening": 720,
+          "produced": 40900,
+          "consumed": 17084.141176470588,
+          "imports": 5269.392,
+          "exports": 28229.01872507771,
+          "stock": 1576.2320984517007,
+          "error": -1.3642420526593924e-12,
+          "price": 3.396166502087179
+        },
+        {
+          "good": "stone",
+          "opening": 720,
+          "produced": 28886,
+          "consumed": 69.3,
+          "imports": 102.45,
+          "exports": 28535.44468077109,
+          "stock": 1103.7053192289127,
+          "error": -4.547473508864641e-13,
+          "price": 2.5471248765653844
+        },
+        {
+          "good": "manufactures",
+          "opening": 0,
+          "produced": 24863,
+          "consumed": 5539.61550228144,
+          "imports": 0,
+          "exports": 18983.579357545335,
+          "stock": 339.8051401732259,
+          "error": 1.0231815394945443e-12,
+          "price": 7.348000167825722
+        }
+      ],
+      "migration": {
+        "day": 272,
+        "recent": [
+          {
+            "day": 270,
+            "kind": "household-arrival",
+            "household": 71,
+            "people": 2,
+            "capital": 2500,
+            "assessment": {
+              "eligible": true,
+              "reasons": [],
+              "home": 83,
+              "housing": {
+                "building": 83,
+                "capacity": 1,
+                "households": [],
+                "occupied": 0,
+                "available": 1,
+                "overcrowded": false,
+                "reviewRequired": false,
+                "legacySharedTenants": [],
+                "reserved": false,
+                "underConstruction": false
+              },
+              "offers": [
+                {
+                  "person": 0,
+                  "firm": 0,
+                  "wage": 35.712862848576,
+                  "distance": 13,
+                  "fare": 0.39812500000000006,
+                  "mode": "road"
+                },
+                {
+                  "person": 1,
+                  "firm": 7,
+                  "wage": 34.54784018174594,
+                  "distance": 24,
+                  "fare": 0.6737500000000001,
+                  "mode": "road"
+                }
+              ],
+              "expectedNet": 61.82941866668331,
+              "essentials": 29.39454031576194,
+              "budget": {
+                "rent": 10.372496110758295,
+                "food": 12.563919205003648,
+                "utilities": 4.59,
+                "commuting": 1.0718750000000001,
+                "shopping": 0.7962500000000001,
+                "propertyTax": 0,
+                "debtService": 0,
+                "privateFees": 0
+              },
+              "foodShop": 0,
+              "rent": 10.372496110758295,
+              "surplus": 32.434878350921366,
+              "outside": {
+                "market": "ridge",
+                "name": "Ironridge Works",
+                "net": 49.28,
+                "essentials": 25.085974880245093,
+                "surplus": 24.194025119754908,
+                "referenceOnly": true,
+                "carriedObligations": 0
+              },
+              "services": {
+                "health": 0.6730769230769231,
+                "school": 0,
+                "forecastOnly": true
+              },
+              "pullProbability": 0.5576923076923077,
+              "capital": 2500,
+              "note": "Outside wages/rents are a founding-policy reference; market food prices are live. Funded vacancies, route capacity and quoted private learning places can change before arrival; any private fee forecast is included in essentials, without assumed vouchers."
+            }
+          }
+        ],
+        "observedSinceDay": 243,
+        "sessionCounts": {
+          "births": 0,
+          "deaths": 0,
+          "immigration": 2,
+          "emigration": 0
+        },
+        "historyPersisted": false,
+        "retainedDecisionLimit": 80,
+        "overcrowdedHomes": [],
+        "reviewRequired": false,
+        "legacyPolicy": "Preserve every family and financial claim. Existing overcrowding requires a rehousing review; it never creates another arrival slot.",
+        "outsideReference": {
+          "market": "ridge",
+          "name": "Ironridge Works",
+          "net": 49.28,
+          "essentials": 25.087182795183324,
+          "surplus": 24.192817204816677,
+          "referenceOnly": true
+        },
+        "retainedDecisionCounts": {
+          "householdArrivals": 2,
+          "familyArrivals": 0,
+          "emigration": 0
+        }
+      },
+      "publicFundingInitially": "absent"
+    },
+    {
+      "seed": 101,
+      "scenario": "settlement",
+      "start": 15489571.999995729,
+      "end": 15489571.999995708,
+      "cashDrift": -2.0489096641540527e-08,
+      "school": "An entrepreneur has financed a new service site.",
+      "fire": "A private service site is already under construction.",
+      "offers": [
+        {
+          "band": "low",
+          "cash": 913.9210703095802,
+          "spendable": 975.0621927827311,
+          "fees": 7.586392928463339,
+          "publicSchool": 0.6431161541162265,
+          "publicServiceForecast": {
+            "health": 0.6613372093023255,
+            "school": 0,
+            "forecastOnly": true
+          },
+          "realizedPrivateSchool": 0.6431161541162265,
+          "schoolCapacity": 0,
+          "privateFire": 0.5984733188360581,
+          "assessment": {
+            "eligible": false,
+            "reasons": [
+              "No unreserved vacant household unit",
+              "No funded reachable job remains after local jobseekers",
+              "Expected take-home pay does not cover rent, food, utilities and fares"
+            ],
+            "services": {
+              "health": 0.6613372093023255,
+              "school": 0,
+              "forecastOnly": true
+            },
+            "budget": {
+              "rent": 5.239319170542538,
+              "food": 6.159968733311402,
+              "utilities": 2.295,
+              "commuting": 0,
+              "shopping": 0.7962500000000001,
+              "propertyTax": 0,
+              "debtService": 0,
+              "privateFees": 0
+            },
+            "schoolOffer": null
+          }
+        },
+        {
+          "band": "middle",
+          "cash": 2510.841989709627,
+          "spendable": 4122.457531870024,
+          "fees": 1.6992768787642634,
+          "publicSchool": 0,
+          "publicServiceForecast": {
+            "health": 0.6613372093023255,
+            "school": 0,
+            "forecastOnly": true
+          },
+          "realizedPrivateSchool": 0,
+          "schoolCapacity": 0,
+          "privateFire": 0.6115906489226899,
+          "assessment": {
+            "eligible": false,
+            "reasons": [
+              "No unreserved vacant household unit",
+              "No funded reachable job remains after local jobseekers",
+              "Expected take-home pay does not cover rent, food, utilities and fares"
+            ],
+            "services": {
+              "health": 0.6613372093023255,
+              "school": 0,
+              "forecastOnly": true
+            },
+            "budget": {
+              "rent": 5.119311970833632,
+              "food": 6.159968733311402,
+              "utilities": 2.295,
+              "commuting": 0,
+              "shopping": 0.7350000000000001,
+              "propertyTax": 0,
+              "debtService": 0,
+              "privateFees": 0
+            },
+            "schoolOffer": null
+          }
+        },
+        {
+          "band": "high",
+          "cash": 4138.721124221005,
+          "spendable": 9472.46531818906,
+          "fees": 1.1348474661703187,
+          "publicSchool": 0,
+          "publicServiceForecast": {
+            "health": 0.6613372093023255,
+            "school": 0,
+            "forecastOnly": true
+          },
+          "realizedPrivateSchool": 0,
+          "schoolCapacity": 0,
+          "privateFire": 0.6655640836055933,
+          "assessment": {
+            "eligible": false,
+            "reasons": [
+              "No unreserved vacant household unit",
+              "No funded reachable job remains after local jobseekers",
+              "Expected take-home pay does not cover rent, food, utilities and fares"
+            ],
+            "services": {
+              "health": 0.6613372093023255,
+              "school": 0,
+              "forecastOnly": true
+            },
+            "budget": {
+              "rent": 5.149665745944237,
+              "food": 6.159968733311402,
+              "utilities": 2.295,
+              "commuting": 0,
+              "shopping": 0.7350000000000001,
+              "propertyTax": 0,
+              "debtService": 0,
+              "privateFees": 0
+            },
+            "schoolOffer": null
+          }
+        }
+      ],
+      "actual": [
+        {
+          "id": 11,
+          "privateFees": 7.586392928463339,
+          "privateReceipts": 182.20471850121794,
+          "voucherSpend": 5.250639225210982,
+          "coverage": {
+            "health": 0.6613372093023255,
+            "school": 0
+          },
+          "privateSchool": 0.6431161541162265,
+          "fire": 0.5984733188360581
+        },
+        {
+          "id": 19,
+          "privateFees": 1.6992768787642634,
+          "privateReceipts": 182.20471850121794,
+          "voucherSpend": 5.250639225210982,
+          "coverage": {
+            "health": 0.6613372093023255,
+            "school": 0
+          },
+          "privateSchool": 0,
+          "fire": 0.6115906489226899
+        },
+        {
+          "id": 49,
+          "privateFees": 1.1348474661703187,
+          "privateReceipts": 182.20471850121794,
+          "voucherSpend": 5.250639225210982,
+          "coverage": {
+            "health": 0.6613372093023255,
+            "school": 0
+          },
+          "privateSchool": 0,
+          "fire": 0.6655640836055933
+        }
+      ],
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15489571.999995008,
+        "population": 176,
+        "day": 272
+      },
+      "goods": [
+        {
+          "good": "grain",
+          "opening": 960,
+          "produced": 105636,
+          "consumed": 44476.2,
+          "imports": 41049.296,
+          "exports": 99049.78568845529,
+          "stock": 4119.310311544718,
+          "error": 5.4569682106375694e-12,
+          "price": 1.6958809050658699
+        },
+        {
+          "good": "flour",
+          "opening": 960,
+          "produced": 74127,
+          "consumed": 46704,
+          "imports": 3878.104,
+          "exports": 27922.14715265562,
+          "stock": 4338.956847344382,
+          "error": 2.7284841053187847e-12,
+          "price": 2.5987794063149985
+        },
+        {
+          "good": "food",
+          "opening": 1920,
+          "produced": 102288,
+          "consumed": 72384.79201631648,
+          "imports": 19247.994,
+          "exports": 45523.71567866799,
+          "stock": 5547.486305015555,
+          "error": 3.001332515850663e-11,
+          "price": 2.7982034933586855
+        },
+        {
+          "good": "logs",
+          "opening": 720,
+          "produced": 71363,
+          "consumed": 30262.30769230769,
+          "imports": 497.71500000000003,
+          "exports": 39972.52778840063,
+          "stock": 2345.8795192916823,
+          "error": -4.547473508864641e-13,
+          "price": 1.6958809050658699
+        },
+        {
+          "good": "timber",
+          "opening": 720,
+          "produced": 39341,
+          "consumed": 16591.929411764704,
+          "imports": 6171.676,
+          "exports": 28037.70931488031,
+          "stock": 1603.0372733549793,
+          "error": -2.9558577807620168e-12,
+          "price": 3.3917618101317397
+        },
+        {
+          "good": "stone",
+          "opening": 720,
+          "produced": 28449,
+          "consumed": 102.19999999999999,
+          "imports": 135.35,
+          "exports": 28117.354886314908,
+          "stock": 1084.7951136850902,
+          "error": -9.094947017729282e-13,
+          "price": 2.543821357598805
+        },
+        {
+          "good": "manufactures",
+          "opening": 0,
+          "produced": 24059,
+          "consumed": 5032.918792130604,
+          "imports": 0,
+          "exports": 18706.234870910444,
+          "stock": 319.8463369589507,
+          "error": -2.1600499167107046e-12,
+          "price": 7.337491761661317
+        }
+      ],
+      "migration": {
+        "day": 272,
+        "recent": [
+          {
+            "day": 270,
+            "kind": "family-arrival-deferred",
+            "household": 12,
+            "assessment": {
+              "eligible": false,
+              "reasons": [
+                "Expected take-home pay does not cover rent, food, utilities and fares"
+              ],
+              "home": 46,
+              "housing": {
+                "building": 46,
+                "capacity": 1,
+                "households": [
+                  12
+                ],
+                "occupied": 1,
+                "available": 0,
+                "overcrowded": false,
+                "reviewRequired": false,
+                "legacySharedTenants": [],
+                "reserved": false,
+                "underConstruction": false
+              },
+              "offers": [
+                {
+                  "person": 0,
+                  "firm": 0,
+                  "wage": 29.820359760000002,
+                  "distance": 12,
+                  "fare": 0.30625,
+                  "mode": "road"
+                }
+              ],
+              "expectedNet": 58.420893050642604,
+              "essentials": 59.34333011430705,
+              "budget": {
+                "rent": 21.10962690633599,
+                "food": 24.11120320797106,
+                "utilities": 9.18,
+                "commuting": 0.30625,
+                "shopping": 0.7962500000000001,
+                "propertyTax": 0,
+                "debtService": 0,
+                "privateFees": 3.84
+              },
+              "foodShop": 2,
+              "rent": 21.10962690633599,
+              "surplus": -0.9224370636644466,
+              "outside": {
+                "market": "ridge",
+                "name": "Ironridge Works",
+                "net": 24.64,
+                "essentials": 48.7472239743641,
+                "surplus": -24.107223974364096,
+                "referenceOnly": true,
+                "carriedObligations": 0
+              },
+              "services": {
+                "health": 0.6613372093023255,
+                "school": 0,
+                "forecastOnly": true
+              },
+              "pullProbability": 0,
+              "capital": 0,
+              "note": "Outside wages/rents are a founding-policy reference; market food prices are live. Funded vacancies, route capacity and quoted private learning places can change before arrival; any private fee forecast is included in essentials, without assumed vouchers."
+            }
+          },
+          {
+            "day": 270,
+            "kind": "outside-option-preferred",
+            "home": 104,
+            "assessment": {
+              "eligible": true,
+              "reasons": [],
+              "home": 104,
+              "housing": {
+                "building": 104,
+                "capacity": 1,
+                "households": [],
+                "occupied": 0,
+                "available": 1,
+                "overcrowded": false,
+                "reviewRequired": false,
+                "legacySharedTenants": [],
+                "reserved": false,
+                "underConstruction": false
+              },
+              "offers": [
+                {
+                  "person": 0,
+                  "firm": 0,
+                  "wage": 29.820359760000002,
+                  "distance": 7,
+                  "fare": 0.214375,
+                  "mode": "road"
+                },
+                {
+                  "person": 1,
+                  "firm": 20,
+                  "wage": 28.636658191628882,
+                  "distance": 0,
+                  "fare": 0.061250000000000006,
+                  "mode": "road"
+                }
+              ],
+              "expectedNet": 51.44217579743342,
+              "essentials": 27.460017958164155,
+              "budget": {
+                "rent": 10.048791354178627,
+                "food": 12.05560160398553,
+                "utilities": 4.59,
+                "commuting": 0.275625,
+                "shopping": 0.49000000000000005,
+                "propertyTax": 0,
+                "debtService": 0,
+                "privateFees": 0
+              },
+              "foodShop": 2,
+              "rent": 10.048791354178627,
+              "surplus": 23.982157839269266,
+              "outside": {
+                "market": "ridge",
+                "name": "Ironridge Works",
+                "net": 49.28,
+                "essentials": 24.37361198718205,
+                "surplus": 24.906388012817953,
+                "referenceOnly": true,
+                "carriedObligations": 0
+              },
+              "services": {
+                "health": 0.6613372093023255,
+                "school": 0,
+                "forecastOnly": true
+              },
+              "pullProbability": 0.5332293487281893,
+              "capital": 2500,
+              "note": "Outside wages/rents are a founding-policy reference; market food prices are live. Funded vacancies, route capacity and quoted private learning places can change before arrival; any private fee forecast is included in essentials, without assumed vouchers."
+            }
+          },
+          {
+            "day": 270,
+            "kind": "outside-option-preferred",
+            "home": 108,
+            "assessment": {
+              "eligible": true,
+              "reasons": [],
+              "home": 108,
+              "housing": {
+                "building": 108,
+                "capacity": 1,
+                "households": [],
+                "occupied": 0,
+                "available": 1,
+                "overcrowded": false,
+                "reviewRequired": false,
+                "legacySharedTenants": [],
+                "reserved": false,
+                "underConstruction": false
+              },
+              "offers": [
+                {
+                  "person": 0,
+                  "firm": 0,
+                  "wage": 29.820359760000002,
+                  "distance": 1,
+                  "fare": 0.09187500000000001,
+                  "mode": "road"
+                },
+                {
+                  "person": 1,
+                  "firm": 20,
+                  "wage": 28.636658191628882,
+                  "distance": 6,
+                  "fare": 0.18375000000000002,
+                  "mode": "road"
+                }
+              ],
+              "expectedNet": 51.44217579743342,
+              "essentials": 27.824931173599385,
+              "budget": {
+                "rent": 10.781204569613855,
+                "food": 12.05560160398553,
+                "utilities": 4.59,
+                "commuting": 0.275625,
+                "shopping": 0.12250000000000001,
+                "propertyTax": 0,
+                "debtService": 0,
+                "privateFees": 0
+              },
+              "foodShop": 2,
+              "rent": 10.781204569613855,
+              "surplus": 23.617244623834036,
+              "outside": {
+                "market": "ridge",
+                "name": "Ironridge Works",
+                "net": 49.28,
+                "essentials": 24.37361198718205,
+                "surplus": 24.906388012817953,
+                "referenceOnly": true,
+                "carriedObligations": 0
+              },
+              "services": {
+                "health": 0.6613372093023255,
+                "school": 0,
+                "forecastOnly": true
+              },
+              "pullProbability": 0.5251157153548729,
+              "capital": 2500,
+              "note": "Outside wages/rents are a founding-policy reference; market food prices are live. Funded vacancies, route capacity and quoted private learning places can change before arrival; any private fee forecast is included in essentials, without assumed vouchers."
+            }
+          },
+          {
+            "day": 270,
+            "kind": "household-arrival",
+            "household": 70,
+            "people": 2,
+            "capital": 2500,
+            "assessment": {
+              "eligible": true,
+              "reasons": [],
+              "home": 109,
+              "housing": {
+                "building": 109,
+                "capacity": 1,
+                "households": [],
+                "occupied": 0,
+                "available": 1,
+                "overcrowded": false,
+                "reviewRequired": false,
+                "legacySharedTenants": [],
+                "reserved": false,
+                "underConstruction": false
+              },
+              "offers": [
+                {
+                  "person": 0,
+                  "firm": 0,
+                  "wage": 29.820359760000002,
+                  "distance": 5,
+                  "fare": 0.153125,
+                  "mode": "road"
+                },
+                {
+                  "person": 1,
+                  "firm": 20,
+                  "wage": 28.636658191628882,
+                  "distance": 2,
+                  "fare": 0.12250000000000001,
+                  "mode": "road"
+                }
+              ],
+              "expectedNet": 51.44217579743342,
+              "essentials": 27.538342748826118,
+              "budget": {
+                "rent": 10.249616144840585,
+                "food": 12.05560160398553,
+                "utilities": 4.59,
+                "commuting": 0.275625,
+                "shopping": 0.36750000000000005,
+                "propertyTax": 0,
+                "debtService": 0,
+                "privateFees": 0
+              },
+              "foodShop": 2,
+              "rent": 10.249616144840585,
+              "surplus": 23.903833048607304,
+              "outside": {
+                "market": "ridge",
+                "name": "Ironridge Works",
+                "net": 49.28,
+                "essentials": 24.37361198718205,
+                "surplus": 24.906388012817953,
+                "referenceOnly": true,
+                "carriedObligations": 0
+              },
+              "services": {
+                "health": 0.6613372093023255,
+                "school": 0,
+                "forecastOnly": true
+              },
+              "pullProbability": 0.5314878425053604,
+              "capital": 2500,
+              "note": "Outside wages/rents are a founding-policy reference; market food prices are live. Funded vacancies, route capacity and quoted private learning places can change before arrival; any private fee forecast is included in essentials, without assumed vouchers."
+            }
+          },
+          {
+            "day": 270,
+            "kind": "birth",
+            "household": 7,
+            "person": 179,
+            "people": 1
+          },
+          {
+            "day": 270,
+            "kind": "birth",
+            "household": 10,
+            "person": 180,
+            "people": 1
+          }
+        ],
+        "observedSinceDay": 243,
+        "sessionCounts": {
+          "births": 2,
+          "deaths": 0,
+          "immigration": 2,
+          "emigration": 0
+        },
+        "historyPersisted": false,
+        "retainedDecisionLimit": 80,
+        "overcrowdedHomes": [],
+        "reviewRequired": false,
+        "legacyPolicy": "Preserve every family and financial claim. Existing overcrowding requires a rehousing review; it never creates another arrival slot.",
+        "outsideReference": {
+          "market": "ridge",
+          "name": "Ironridge Works",
+          "net": 49.28,
+          "essentials": 24.38104044401076,
+          "surplus": 24.89895955598924,
+          "referenceOnly": true
+        },
+        "retainedDecisionCounts": {
+          "householdArrivals": 2,
+          "familyArrivals": 0,
+          "emigration": 0
+        }
+      },
+      "publicFundingInitially": "absent"
+    },
+    {
+      "seed": 909,
+      "scenario": "settlement",
+      "start": 15484590.999996059,
+      "end": 15484590.999996051,
+      "cashDrift": -7.450580596923828e-09,
+      "school": "An entrepreneur has financed a new service site.",
+      "fire": "A private service site is already under construction.",
+      "offers": [
+        {
+          "band": "low",
+          "cash": 912.5653317074023,
+          "spendable": 956.3831361464938,
+          "fees": 6.862504209676416,
+          "publicSchool": 1,
+          "publicServiceForecast": {
+            "health": 0.6463068181818182,
+            "school": 0,
+            "forecastOnly": true
+          },
+          "realizedPrivateSchool": 1,
+          "schoolCapacity": 0,
+          "privateFire": 0.6112217598097504,
+          "assessment": {
+            "eligible": false,
+            "reasons": [
+              "No unreserved vacant household unit",
+              "No funded reachable job remains after local jobseekers",
+              "Expected take-home pay does not cover rent, food, utilities and fares"
+            ],
+            "services": {
+              "health": 0.6463068181818182,
+              "school": 0,
+              "forecastOnly": true
+            },
+            "budget": {
+              "rent": 5.249661123118795,
+              "food": 6.132414214257935,
+              "utilities": 2.295,
+              "commuting": 0,
+              "shopping": 0.9187500000000001,
+              "propertyTax": 0,
+              "debtService": 0,
+              "privateFees": 0
+            },
+            "schoolOffer": null
+          }
+        },
+        {
+          "band": "middle",
+          "cash": 1615.7101063217694,
+          "spendable": 3503.9837087090946,
+          "fees": 1.1208404213714112,
+          "publicSchool": 0,
+          "publicServiceForecast": {
+            "health": 0.6463068181818182,
+            "school": 0,
+            "forecastOnly": true
+          },
+          "realizedPrivateSchool": 0,
+          "schoolCapacity": 0,
+          "privateFire": 0.7051270808561237,
+          "assessment": {
+            "eligible": false,
+            "reasons": [
+              "No unreserved vacant household unit",
+              "No funded reachable job remains after local jobseekers",
+              "Expected take-home pay does not cover rent, food, utilities and fares"
+            ],
+            "services": {
+              "health": 0.6463068181818182,
+              "school": 0,
+              "forecastOnly": true
+            },
+            "budget": {
+              "rent": 5.116788344409348,
+              "food": 6.132414214257935,
+              "utilities": 2.295,
+              "commuting": 0,
+              "shopping": 1.2862500000000001,
+              "propertyTax": 0,
+              "debtService": 0,
+              "privateFees": 0
+            },
+            "schoolOffer": null
+          }
+        },
+        {
+          "band": "high",
+          "cash": 3687.5935029149864,
+          "spendable": 7945.925582279624,
+          "fees": 1.1178921344234813,
+          "publicSchool": 0,
+          "publicServiceForecast": {
+            "health": 0.6463068181818182,
+            "school": 0,
+            "forecastOnly": true
+          },
+          "realizedPrivateSchool": 0,
+          "schoolCapacity": 0,
+          "privateFire": 0.5507951843043996,
+          "assessment": {
+            "eligible": false,
+            "reasons": [
+              "No unreserved vacant household unit",
+              "No funded reachable job remains after local jobseekers",
+              "Expected take-home pay does not cover rent, food, utilities and fares"
+            ],
+            "services": {
+              "health": 0.6463068181818182,
+              "school": 0,
+              "forecastOnly": true
+            },
+            "budget": {
+              "rent": 5.173733820999111,
+              "food": 6.132414214257935,
+              "utilities": 2.295,
+              "commuting": 0,
+              "shopping": 1.16375,
+              "propertyTax": 0,
+              "debtService": 0,
+              "privateFees": 0
+            },
+            "schoolOffer": null
+          }
+        }
+      ],
+      "actual": [
+        {
+          "id": 11,
+          "privateFees": 6.862504209676416,
+          "privateReceipts": 184.189588756978,
+          "voucherSpend": 4.892027705219227,
+          "coverage": {
+            "health": 0.6463068181818182,
+            "school": 0
+          },
+          "privateSchool": 1,
+          "fire": 0.6112217598097504
+        },
+        {
+          "id": 66,
+          "privateFees": 1.1208404213714112,
+          "privateReceipts": 184.189588756978,
+          "voucherSpend": 4.892027705219227,
+          "coverage": {
+            "health": 0.6463068181818182,
+            "school": 0
+          },
+          "privateSchool": 0,
+          "fire": 0.7051270808561237
+        },
+        {
+          "id": 37,
+          "privateFees": 1.1178921344234813,
+          "privateReceipts": 184.189588756978,
+          "voucherSpend": 4.892027705219227,
+          "coverage": {
+            "health": 0.6463068181818182,
+            "school": 0
+          },
+          "privateSchool": 0,
+          "fire": 0.5507951843043996
+        }
+      ],
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15484590.999995753,
+        "population": 178,
+        "day": 272
+      },
+      "goods": [
+        {
+          "good": "grain",
+          "opening": 960,
+          "produced": 116138,
+          "consumed": 42510,
+          "imports": 38538.741,
+          "exports": 109371.14667036886,
+          "stock": 3755.5943296311452,
+          "error": 4.547473508864641e-12,
+          "price": 1.7058127093589595
+        },
+        {
+          "good": "flour",
+          "opening": 960,
+          "produced": 70850,
+          "consumed": 45931.2,
+          "imports": 5145.223,
+          "exports": 27276.58763624451,
+          "stock": 3747.4353637554877,
+          "error": -3.183231456205249e-12,
+          "price": 2.625002069421661
+        },
+        {
+          "good": "food",
+          "opening": 1920,
+          "produced": 102029,
+          "consumed": 73749.85476495678,
+          "imports": 24424.059,
+          "exports": 49136.131486982114,
+          "stock": 5487.072748061134,
+          "error": 2.7284841053187847e-11,
+          "price": 2.8145909704422825
+        },
+        {
+          "good": "logs",
+          "opening": 720,
+          "produced": 81607,
+          "consumed": 36306.153846153844,
+          "imports": 780,
+          "exports": 43823.12077968371,
+          "stock": 2977.725374162446,
+          "error": 5.9117155615240335e-12,
+          "price": 1.7058127093589595
+        },
+        {
+          "good": "timber",
+          "opening": 720,
+          "produced": 47198,
+          "consumed": 17854.917647058825,
+          "imports": 2482.81,
+          "exports": 30782.9220624907,
+          "stock": 1762.9702904504745,
+          "error": -1.8189894035458565e-12,
+          "price": 3.411625418717919
+        },
+        {
+          "good": "stone",
+          "opening": 720,
+          "produced": 31016,
+          "consumed": 96.6,
+          "imports": 129.4,
+          "exports": 30633.095082723146,
+          "stock": 1135.7049172768534,
+          "error": -2.0463630789890885e-12,
+          "price": 2.558719064038439
+        },
+        {
+          "good": "manufactures",
+          "opening": 0,
+          "produced": 25924,
+          "consumed": 5077.97109113567,
+          "imports": 0,
+          "exports": 20487.852593106425,
+          "stock": 358.1763157579085,
+          "error": 2.5579538487363607e-12,
+          "price": 7.320685039639759
+        }
+      ],
+      "migration": {
+        "day": 272,
+        "recent": [
+          {
+            "day": 270,
+            "kind": "outside-option-preferred",
+            "home": 78,
+            "assessment": {
+              "eligible": true,
+              "reasons": [],
+              "home": 78,
+              "housing": {
+                "building": 78,
+                "capacity": 1,
+                "households": [],
+                "occupied": 0,
+                "available": 1,
+                "overcrowded": false,
+                "reviewRequired": false,
+                "legacySharedTenants": [],
+                "reserved": false,
+                "underConstruction": false
+              },
+              "offers": [
+                {
+                  "person": 0,
+                  "firm": 0,
+                  "wage": 30.814371751999996,
+                  "distance": 15,
+                  "fare": 0.39812500000000006,
+                  "mode": "road"
+                },
+                {
+                  "person": 1,
+                  "firm": 6,
+                  "wage": 29.94,
+                  "distance": 14,
+                  "fare": 0.36750000000000005,
+                  "mode": "road"
+                }
+              ],
+              "expectedNet": 53.46384714176,
+              "essentials": 28.573950112700235,
+              "budget": {
+                "rent": 10.302727042119342,
+                "food": 12.119348070580891,
+                "utilities": 4.59,
+                "commuting": 0.7656250000000001,
+                "shopping": 0.7962500000000001,
+                "propertyTax": 0,
+                "debtService": 0,
+                "privateFees": 0
+              },
+              "foodShop": 2,
+              "rent": 10.302727042119342,
+              "surplus": 24.889897029059764,
+              "outside": {
+                "market": "ridge",
+                "name": "Ironridge Works",
+                "net": 49.28,
+                "essentials": 24.74331325031859,
+                "surplus": 24.53668674968141,
+                "referenceOnly": true,
+                "carriedObligations": 0
+              },
+              "services": {
+                "health": 0.6463068181818182,
+                "school": 0,
+                "forecastOnly": true
+              },
+              "pullProbability": 0.8821022727272728,
+              "capital": 2500,
+              "note": "Outside wages/rents are a founding-policy reference; market food prices are live. Funded vacancies, route capacity and quoted private learning places can change before arrival; any private fee forecast is included in essentials, without assumed vouchers."
+            }
+          },
+          {
+            "day": 270,
+            "kind": "outside-option-preferred",
+            "home": 81,
+            "assessment": {
+              "eligible": true,
+              "reasons": [],
+              "home": 81,
+              "housing": {
+                "building": 81,
+                "capacity": 1,
+                "households": [],
+                "occupied": 0,
+                "available": 1,
+                "overcrowded": false,
+                "reviewRequired": false,
+                "legacySharedTenants": [],
+                "reserved": false,
+                "underConstruction": false
+              },
+              "offers": [
+                {
+                  "person": 0,
+                  "firm": 0,
+                  "wage": 30.814371751999996,
+                  "distance": 20,
+                  "fare": 0.6125,
+                  "mode": "road"
+                },
+                {
+                  "person": 1,
+                  "firm": 6,
+                  "wage": 29.94,
+                  "distance": 21,
+                  "fare": 0.6431250000000001,
+                  "mode": "road"
+                }
+              ],
+              "expectedNet": 53.46384714176,
+              "essentials": 29.536003194857823,
+              "budget": {
+                "rent": 10.22353012427693,
+                "food": 12.119348070580891,
+                "utilities": 4.59,
+                "commuting": 1.2556250000000002,
+                "shopping": 1.3475000000000001,
+                "propertyTax": 0,
+                "debtService": 0,
+                "privateFees": 0
+              },
+              "foodShop": 2,
+              "rent": 10.22353012427693,
+              "surplus": 23.927843946902176,
+              "outside": {
+                "market": "ridge",
+                "name": "Ironridge Works",
+                "net": 49.28,
+                "essentials": 24.74331325031859,
+                "surplus": 24.53668674968141,
+                "referenceOnly": true,
+                "carriedObligations": 0
+              },
+              "services": {
+                "health": 0.6463068181818182,
+                "school": 0,
+                "forecastOnly": true
+              },
+              "pullProbability": 0.5351520227112853,
+              "capital": 2500,
+              "note": "Outside wages/rents are a founding-policy reference; market food prices are live. Funded vacancies, route capacity and quoted private learning places can change before arrival; any private fee forecast is included in essentials, without assumed vouchers."
+            }
+          },
+          {
+            "day": 270,
+            "kind": "outside-option-preferred",
+            "home": 111,
+            "assessment": {
+              "eligible": true,
+              "reasons": [],
+              "home": 111,
+              "housing": {
+                "building": 111,
+                "capacity": 1,
+                "households": [],
+                "occupied": 0,
+                "available": 1,
+                "overcrowded": false,
+                "reviewRequired": false,
+                "legacySharedTenants": [],
+                "reserved": false,
+                "underConstruction": false
+              },
+              "offers": [
+                {
+                  "person": 0,
+                  "firm": 0,
+                  "wage": 30.814371751999996,
+                  "distance": 6,
+                  "fare": 0.18375000000000002,
+                  "mode": "road"
+                },
+                {
+                  "person": 1,
+                  "firm": 6,
+                  "wage": 29.94,
+                  "distance": 1,
+                  "fare": 0.09187500000000001,
+                  "mode": "road"
+                }
+              ],
+              "expectedNet": 53.46384714176,
+              "essentials": 28.190158955596612,
+              "budget": {
+                "rent": 10.921933809932618,
+                "food": 12.218850145663994,
+                "utilities": 4.59,
+                "commuting": 0.275625,
+                "shopping": 0.18375000000000002,
+                "propertyTax": 0,
+                "debtService": 0,
+                "privateFees": 0
+              },
+              "foodShop": 17,
+              "rent": 10.921933809932618,
+              "surplus": 25.273688186163387,
+              "outside": {
+                "market": "ridge",
+                "name": "Ironridge Works",
+                "net": 49.28,
+                "essentials": 24.74331325031859,
+                "surplus": 24.53668674968141,
+                "referenceOnly": true,
+                "carriedObligations": 0
+              },
+              "services": {
+                "health": 0.6463068181818182,
+                "school": 0,
+                "forecastOnly": true
+              },
+              "pullProbability": 0.8821022727272728,
+              "capital": 2500,
+              "note": "Outside wages/rents are a founding-policy reference; market food prices are live. Funded vacancies, route capacity and quoted private learning places can change before arrival; any private fee forecast is included in essentials, without assumed vouchers."
+            }
+          },
+          {
+            "day": 270,
+            "kind": "birth",
+            "household": 56,
+            "person": 178,
+            "people": 1
+          },
+          {
+            "day": 270,
+            "kind": "birth",
+            "household": 67,
+            "person": 179,
+            "people": 1
+          }
+        ],
+        "observedSinceDay": 243,
+        "sessionCounts": {
+          "births": 2,
+          "deaths": 0,
+          "immigration": 0,
+          "emigration": 0
+        },
+        "historyPersisted": false,
+        "retainedDecisionLimit": 80,
+        "overcrowdedHomes": [],
+        "reviewRequired": false,
+        "legacyPolicy": "Preserve every family and financial claim. Existing overcrowding requires a rehousing review; it never creates another arrival slot.",
+        "outsideReference": {
+          "market": "ridge",
+          "name": "Ironridge Works",
+          "net": 49.28,
+          "essentials": 24.686353763050896,
+          "surplus": 24.593646236949105,
+          "referenceOnly": true
+        },
+        "retainedDecisionCounts": {
+          "householdArrivals": 0,
+          "familyArrivals": 0,
+          "emigration": 0
+        }
+      },
+      "publicFundingInitially": "absent"
+    },
+    {
+      "seed": 42,
+      "scenario": "regional",
+      "start": 15493516.999996394,
+      "end": 15493516.999996329,
+      "cashDrift": -6.51925802230835e-08,
+      "school": "An entrepreneur has financed a new service site.",
+      "fire": "A private service site is already under construction.",
+      "offers": [
+        {
+          "band": "low",
+          "cash": 660.9747604738391,
+          "spendable": 876.8682087949052,
+          "fees": 3.9018737146442453,
+          "publicSchool": 0.8101523196091875,
+          "publicServiceForecast": {
+            "health": 0.4359165424739196,
+            "school": 0,
+            "forecastOnly": true
+          },
+          "realizedPrivateSchool": 0.8101523196091875,
+          "schoolCapacity": 3.552713678800501e-15,
+          "privateFire": 0,
+          "assessment": {
+            "eligible": false,
+            "reasons": [
+              "No unreserved vacant household unit",
+              "No funded reachable job remains after local jobseekers",
+              "Expected take-home pay does not cover rent, food, utilities and fares"
+            ],
+            "services": {
+              "health": 0.4359165424739196,
+              "school": 0,
+              "forecastOnly": true
+            },
+            "budget": {
+              "rent": 5.035106838435461,
+              "food": 6.145508021776577,
+              "utilities": 2.295,
+              "commuting": 0,
+              "shopping": 0.9000000000000001,
+              "propertyTax": 0,
+              "debtService": 0,
+              "privateFees": 0
+            },
+            "schoolOffer": null
+          }
+        },
+        {
+          "band": "middle",
+          "cash": 2405.404081531928,
+          "spendable": 4623.085654024711,
+          "fees": 0,
+          "publicSchool": 0,
+          "publicServiceForecast": {
+            "health": 0.4359165424739196,
+            "school": 0,
+            "forecastOnly": true
+          },
+          "realizedPrivateSchool": 0,
+          "schoolCapacity": 3.552713678800501e-15,
+          "privateFire": 0,
+          "assessment": {
+            "eligible": false,
+            "reasons": [
+              "No funded reachable job remains after local jobseekers",
+              "Expected take-home pay does not cover rent, food, utilities and fares"
+            ],
+            "services": {
+              "health": 0.4359165424739196,
+              "school": 0,
+              "forecastOnly": true
+            },
+            "budget": {
+              "rent": 5.2037377350294545,
+              "food": 6.145508021776577,
+              "utilities": 2.295,
+              "commuting": 0,
+              "shopping": 0.9000000000000001,
+              "propertyTax": 0,
+              "debtService": 0,
+              "privateFees": 0
+            },
+            "schoolOffer": null
+          }
+        },
+        {
+          "band": "high",
+          "cash": 24273.443634608313,
+          "spendable": 29234.362712502614,
+          "fees": 0,
+          "publicSchool": 0,
+          "publicServiceForecast": {
+            "health": 0.4359165424739196,
+            "school": 0,
+            "forecastOnly": true
+          },
+          "realizedPrivateSchool": 0,
+          "schoolCapacity": 3.552713678800501e-15,
+          "privateFire": 0,
+          "assessment": {
+            "eligible": false,
+            "reasons": [
+              "No unreserved vacant household unit",
+              "No funded reachable job remains after local jobseekers",
+              "Expected take-home pay does not cover rent, food, utilities and fares"
+            ],
+            "services": {
+              "health": 0.4359165424739196,
+              "school": 0,
+              "forecastOnly": true
+            },
+            "budget": {
+              "rent": 5.170087174946797,
+              "food": 6.145508021776577,
+              "utilities": 2.295,
+              "commuting": 0,
+              "shopping": 0.39000000000000007,
+              "propertyTax": 0,
+              "debtService": 0,
+              "privateFees": 0
+            },
+            "schoolOffer": null
+          }
+        }
+      ],
+      "actual": [
+        {
+          "id": 276,
+          "privateFees": 3.9018737146442453,
+          "privateReceipts": 232.20079371464425,
+          "voucherSpend": 3.9131262853557542,
+          "coverage": {
+            "health": 0.4359165424739196,
+            "school": 0
+          },
+          "privateSchool": 0.8101523196091875,
+          "fire": 0
+        },
+        {
+          "id": 209,
+          "privateFees": 0,
+          "privateReceipts": 232.20079371464425,
+          "voucherSpend": 3.9131262853557542,
+          "coverage": {
+            "health": 0.4359165424739196,
+            "school": 0
+          },
+          "privateSchool": 0,
+          "fire": 0
+        },
+        {
+          "id": 262,
+          "privateFees": 0,
+          "privateReceipts": 232.20079371464425,
+          "voucherSpend": 3.9131262853557542,
+          "coverage": {
+            "health": 0.4359165424739196,
+            "school": 0
+          },
+          "privateSchool": 0,
+          "fire": 0
+        }
+      ],
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15493516.999994665,
+        "population": 677,
+        "day": 272
+      },
+      "goods": [
+        {
+          "good": "grain",
+          "opening": 960,
+          "produced": 227144,
+          "consumed": 116351.4,
+          "imports": 95017.317,
+          "exports": 195381.9709638134,
+          "stock": 11387.946036186617,
+          "error": 0,
+          "price": 1.679778528325871
+        },
+        {
+          "good": "flour",
+          "opening": 960,
+          "produced": 193919,
+          "consumed": 140862.225,
+          "imports": 15028.245,
+          "exports": 56357.0445833427,
+          "stock": 12687.975416657297,
+          "error": -5.4569682106375694e-12,
+          "price": 2.519667792488806
+        },
+        {
+          "good": "food",
+          "opening": 1920,
+          "produced": 302223,
+          "consumed": 225995.48459494274,
+          "imports": 54178.37,
+          "exports": 110710.90184764196,
+          "stock": 21614.983557413976,
+          "error": -1.331500243395567e-09,
+          "price": 2.784675687980417
+        },
+        {
+          "good": "logs",
+          "opening": 720,
+          "produced": 181962,
+          "consumed": 105901.53846153845,
+          "imports": 4856.647,
+          "exports": 75695.0129118453,
+          "stock": 5942.095626616234,
+          "error": -8.185452315956354e-12,
+          "price": 1.679778528325871
+        },
+        {
+          "good": "timber",
+          "opening": 720,
+          "produced": 137672,
+          "consumed": 115614.5294117647,
+          "imports": 43319.83,
+          "exports": 59055.062213383106,
+          "stock": 7042.238374852177,
+          "error": -1.3642420526593924e-11,
+          "price": 3.359557056651742
+        },
+        {
+          "good": "stone",
+          "opening": 720,
+          "produced": 48515,
+          "consumed": 443.45,
+          "imports": 2293.75,
+          "exports": 47917.8675265297,
+          "stock": 3167.4324734703023,
+          "error": 4.547473508864641e-13,
+          "price": 2.519667792488806
+        },
+        {
+          "good": "manufactures",
+          "opening": 0,
+          "produced": 168321,
+          "consumed": 24350.785084683972,
+          "imports": 0,
+          "exports": 142637.90011058858,
+          "stock": 1332.3148047274508,
+          "error": -9.094947017729282e-13,
+          "price": 7.244545258790154
+        }
+      ],
+      "migration": {
+        "day": 272,
+        "recent": [
+          {
+            "day": 270,
+            "kind": "outside-option-preferred",
+            "home": 167,
+            "assessment": {
+              "eligible": true,
+              "reasons": [],
+              "home": 167,
+              "housing": {
+                "building": 167,
+                "capacity": 9,
+                "households": [
+                  99,
+                  100,
+                  101,
+                  102,
+                  312,
+                  313
+                ],
+                "occupied": 6,
+                "available": 3,
+                "overcrowded": false,
+                "reviewRequired": false,
+                "legacySharedTenants": [],
+                "reserved": false,
+                "underConstruction": false
+              },
+              "offers": [
+                {
+                  "person": 0,
+                  "firm": 27,
+                  "wage": 32.46691391782531,
+                  "distance": 14,
+                  "fare": 0.21000000000000005,
+                  "mode": "road"
+                },
+                {
+                  "person": 1,
+                  "firm": 27,
+                  "wage": 32.46691391782531,
+                  "distance": 14,
+                  "fare": 0.21000000000000005,
+                  "mode": "road"
+                }
+              ],
+              "expectedNet": 56.492430217016036,
+              "essentials": 28.834950221681172,
+              "budget": {
+                "rent": 11.065900709598074,
+                "food": 12.609049512083098,
+                "utilities": 4.59,
+                "commuting": 0.4200000000000001,
+                "shopping": 0.15000000000000002,
+                "propertyTax": 0,
+                "debtService": 0,
+                "privateFees": 0
+              },
+              "foodShop": 1,
+              "rent": 11.065900709598074,
+              "surplus": 27.657479995334864,
+              "outside": {
+                "market": "ridge",
+                "name": "Ironridge Works",
+                "net": 49.28,
+                "essentials": 25.830238411438877,
+                "surplus": 23.449761588561124,
+                "referenceOnly": true,
+                "carriedObligations": 0
+              },
+              "services": {
+                "health": 0.4359165424739196,
+                "school": 0,
+                "forecastOnly": true
+              },
+              "pullProbability": 0.47863884749130653,
+              "capital": 2500,
+              "note": "Outside wages/rents are a founding-policy reference; market food prices are live. Funded vacancies, route capacity and quoted private learning places can change before arrival; any private fee forecast is included in essentials, without assumed vouchers."
+            }
+          },
+          {
+            "day": 270,
+            "kind": "outside-option-preferred",
+            "home": 194,
+            "assessment": {
+              "eligible": true,
+              "reasons": [],
+              "home": 194,
+              "housing": {
+                "building": 194,
+                "capacity": 4,
+                "households": [
+                  207,
+                  209,
+                  210
+                ],
+                "occupied": 3,
+                "available": 1,
+                "overcrowded": false,
+                "reviewRequired": false,
+                "legacySharedTenants": [],
+                "reserved": false,
+                "underConstruction": false
+              },
+              "offers": [
+                {
+                  "person": 0,
+                  "firm": 27,
+                  "wage": 32.46691391782531,
+                  "distance": 21,
+                  "fare": 0.31500000000000006,
+                  "mode": "road"
+                },
+                {
+                  "person": 1,
+                  "firm": 27,
+                  "wage": 32.46691391782531,
+                  "distance": 21,
+                  "fare": 0.31500000000000006,
+                  "mode": "road"
+                }
+              ],
+              "expectedNet": 56.492430217016036,
+              "essentials": 28.461642485609858,
+              "budget": {
+                "rent": 10.412454120760483,
+                "food": 12.289188364849377,
+                "utilities": 4.59,
+                "commuting": 0.6300000000000001,
+                "shopping": 0.5400000000000001,
+                "propertyTax": 0,
+                "debtService": 0,
+                "privateFees": 0
+              },
+              "foodShop": 52,
+              "rent": 10.412454120760483,
+              "surplus": 28.03078773140618,
+              "outside": {
+                "market": "ridge",
+                "name": "Ironridge Works",
+                "net": 49.28,
+                "essentials": 25.830238411438877,
+                "surplus": 23.449761588561124,
+                "referenceOnly": true,
+                "carriedObligations": 0
+              },
+              "services": {
+                "health": 0.4359165424739196,
+                "school": 0,
+                "forecastOnly": true
+              },
+              "pullProbability": 0.81197218082464,
+              "capital": 2500,
+              "note": "Outside wages/rents are a founding-policy reference; market food prices are live. Funded vacancies, route capacity and quoted private learning places can change before arrival; any private fee forecast is included in essentials, without assumed vouchers."
+            }
+          },
+          {
+            "day": 270,
+            "kind": "household-arrival",
+            "household": 314,
+            "people": 2,
+            "capital": 2500,
+            "assessment": {
+              "eligible": true,
+              "reasons": [],
+              "home": 195,
+              "housing": {
+                "building": 195,
+                "capacity": 4,
+                "households": [
+                  211,
+                  212,
+                  213
+                ],
+                "occupied": 3,
+                "available": 1,
+                "overcrowded": false,
+                "reviewRequired": false,
+                "legacySharedTenants": [],
+                "reserved": false,
+                "underConstruction": false
+              },
+              "offers": [
+                {
+                  "person": 0,
+                  "firm": 27,
+                  "wage": 32.46691391782531,
+                  "distance": 19,
+                  "fare": 0.28500000000000003,
+                  "mode": "road"
+                },
+                {
+                  "person": 1,
+                  "firm": 27,
+                  "wage": 32.46691391782531,
+                  "distance": 19,
+                  "fare": 0.28500000000000003,
+                  "mode": "road"
+                }
+              ],
+              "expectedNet": 56.492430217016036,
+              "essentials": 28.42282600049624,
+              "budget": {
+                "rent": 10.433637635646866,
+                "food": 12.289188364849377,
+                "utilities": 4.59,
+                "commuting": 0.5700000000000001,
+                "shopping": 0.5400000000000001,
+                "propertyTax": 0,
+                "debtService": 0,
+                "privateFees": 0
+              },
+              "foodShop": 52,
+              "rent": 10.433637635646866,
+              "surplus": 28.069604216519796,
+              "outside": {
+                "market": "ridge",
+                "name": "Ironridge Works",
+                "net": 49.28,
+                "essentials": 25.830238411438877,
+                "surplus": 23.449761588561124,
+                "referenceOnly": true,
+                "carriedObligations": 0
+              },
+              "services": {
+                "health": 0.4359165424739196,
+                "school": 0,
+                "forecastOnly": true
+              },
+              "pullProbability": 0.81197218082464,
+              "capital": 2500,
+              "note": "Outside wages/rents are a founding-policy reference; market food prices are live. Funded vacancies, route capacity and quoted private learning places can change before arrival; any private fee forecast is included in essentials, without assumed vouchers."
+            }
+          },
+          {
+            "day": 270,
+            "kind": "birth",
+            "household": 16,
+            "person": 675,
+            "people": 1
+          },
+          {
+            "day": 270,
+            "kind": "birth",
+            "household": 43,
+            "person": 676,
+            "people": 1
+          },
+          {
+            "day": 270,
+            "kind": "birth",
+            "household": 121,
+            "person": 677,
+            "people": 1
+          },
+          {
+            "day": 270,
+            "kind": "birth",
+            "household": 233,
+            "person": 678,
+            "people": 1
+          }
+        ],
+        "observedSinceDay": 243,
+        "sessionCounts": {
+          "births": 4,
+          "deaths": 0,
+          "immigration": 2,
+          "emigration": 0
+        },
+        "historyPersisted": false,
+        "retainedDecisionLimit": 80,
+        "overcrowdedHomes": [],
+        "reviewRequired": false,
+        "legacyPolicy": "Preserve every family and financial claim. Existing overcrowding requires a rehousing review; it never creates another arrival slot.",
+        "outsideReference": {
+          "market": "ridge",
+          "name": "Ironridge Works",
+          "net": 49.28,
+          "essentials": 25.780867115118284,
+          "surplus": 23.499132884881718,
+          "referenceOnly": true
+        },
+        "retainedDecisionCounts": {
+          "householdArrivals": 2,
+          "familyArrivals": 0,
+          "emigration": 0
+        }
+      },
+      "publicFundingInitially": "absent"
+    },
+    {
+      "seed": 101,
+      "scenario": "regional",
+      "start": 15489571.999996211,
+      "end": 15489571.999996256,
+      "cashDrift": 4.470348358154297e-08,
+      "school": "An entrepreneur has financed a new service site.",
+      "fire": "An entrepreneur has financed a new service site.",
+      "offers": [
+        {
+          "band": "low",
+          "cash": 821.7338268598451,
+          "spendable": 974.2651395967632,
+          "fees": 3.921430976957952,
+          "publicSchool": 0.903561550958289,
+          "publicServiceForecast": {
+            "health": 0.44051204819277107,
+            "school": 0,
+            "forecastOnly": true
+          },
+          "realizedPrivateSchool": 0.903561550958289,
+          "schoolCapacity": 0,
+          "privateFire": 0.49160523186682525,
+          "assessment": {
+            "eligible": false,
+            "reasons": [
+              "No unreserved vacant household unit",
+              "No funded reachable job remains after local jobseekers",
+              "Expected take-home pay does not cover rent, food, utilities and fares"
+            ],
+            "services": {
+              "health": 0.44051204819277107,
+              "school": 0,
+              "forecastOnly": true
+            },
+            "budget": {
+              "rent": 4.964197331298463,
+              "food": 6.207251673154924,
+              "utilities": 2.295,
+              "commuting": 0,
+              "shopping": 0.7200000000000001,
+              "propertyTax": 0,
+              "debtService": 0,
+              "privateFees": 0
+            },
+            "schoolOffer": null
+          }
+        },
+        {
+          "band": "middle",
+          "cash": 2568.809399477069,
+          "spendable": 4958.877112457449,
+          "fees": 0,
+          "publicSchool": 0,
+          "publicServiceForecast": {
+            "health": 0.44051204819277107,
+            "school": 0,
+            "forecastOnly": true
+          },
+          "realizedPrivateSchool": 0,
+          "schoolCapacity": 0,
+          "privateFire": 0.12068965517241378,
+          "assessment": {
+            "eligible": false,
+            "reasons": [
+              "No unreserved vacant household unit",
+              "No funded reachable job remains after local jobseekers",
+              "Expected take-home pay does not cover rent, food, utilities and fares"
+            ],
+            "services": {
+              "health": 0.44051204819277107,
+              "school": 0,
+              "forecastOnly": true
+            },
+            "budget": {
+              "rent": 4.930242493191086,
+              "food": 6.207251673154924,
+              "utilities": 2.295,
+              "commuting": 0,
+              "shopping": 0.4800000000000001,
+              "propertyTax": 0,
+              "debtService": 0,
+              "privateFees": 0
+            },
+            "schoolOffer": null
+          }
+        },
+        {
+          "band": "high",
+          "cash": 19055.897272000235,
+          "spendable": 31635.505501736934,
+          "fees": 0,
+          "publicSchool": 0,
+          "publicServiceForecast": {
+            "health": 0.44051204819277107,
+            "school": 0,
+            "forecastOnly": true
+          },
+          "realizedPrivateSchool": 0,
+          "schoolCapacity": 0,
+          "privateFire": 0.2025862068965517,
+          "assessment": {
+            "eligible": false,
+            "reasons": [
+              "No unreserved vacant household unit",
+              "No funded reachable job remains after local jobseekers",
+              "Expected take-home pay does not cover rent, food, utilities and fares"
+            ],
+            "services": {
+              "health": 0.44051204819277107,
+              "school": 0,
+              "forecastOnly": true
+            },
+            "budget": {
+              "rent": 5.035071321860544,
+              "food": 6.1474281062940435,
+              "utilities": 2.295,
+              "commuting": 0,
+              "shopping": 0.21000000000000005,
+              "propertyTax": 0,
+              "debtService": 0,
+              "privateFees": 0
+            },
+            "schoolOffer": null
+          }
+        }
+      ],
+      "actual": [
+        {
+          "id": 297,
+          "privateFees": 3.921430976957952,
+          "privateReceipts": 327.76961594381163,
+          "voucherSpend": 3.129520056188416,
+          "coverage": {
+            "health": 0.44051204819277107,
+            "school": 0
+          },
+          "privateSchool": 0.903561550958289,
+          "fire": 0.49160523186682525
+        },
+        {
+          "id": 239,
+          "privateFees": 0,
+          "privateReceipts": 327.76961594381163,
+          "voucherSpend": 3.129520056188416,
+          "coverage": {
+            "health": 0.44051204819277107,
+            "school": 0
+          },
+          "privateSchool": 0,
+          "fire": 0.12068965517241378
+        },
+        {
+          "id": 0,
+          "privateFees": 0,
+          "privateReceipts": 327.76961594381163,
+          "voucherSpend": 3.129520056188416,
+          "coverage": {
+            "health": 0.44051204819277107,
+            "school": 0
+          },
+          "privateSchool": 0,
+          "fire": 0.2025862068965517
+        }
+      ],
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15489571.99999565,
+        "population": 667,
+        "day": 272
+      },
+      "goods": [
+        {
+          "good": "grain",
+          "opening": 960,
+          "produced": 218242,
+          "consumed": 112400.4,
+          "imports": 100718.374,
+          "exports": 196131.19429997177,
+          "stock": 11388.779700028228,
+          "error": -1.8189894035458565e-12,
+          "price": 1.6912143133201796
+        },
+        {
+          "good": "flour",
+          "opening": 960,
+          "produced": 187334,
+          "consumed": 132067.425,
+          "imports": 11324.747,
+          "exports": 55302.62246356008,
+          "stock": 12248.699536439912,
+          "error": -3.637978807091713e-12,
+          "price": 2.5368214699802696
+        },
+        {
+          "good": "food",
+          "opening": 1920,
+          "produced": 285222,
+          "consumed": 195097.8889871314,
+          "imports": 37232.808,
+          "exports": 111151.52442923463,
+          "stock": 18125.39458363258,
+          "error": -1.3860699255019426e-09,
+          "price": 2.795324122767883
+        },
+        {
+          "good": "logs",
+          "opening": 720,
+          "produced": 185421,
+          "consumed": 112613.84615384616,
+          "imports": 5479.715,
+          "exports": 73408.66185367416,
+          "stock": 5598.206992479689,
+          "error": 1.000444171950221e-11,
+          "price": 1.6912143133201796
+        },
+        {
+          "good": "timber",
+          "opening": 720,
+          "produced": 146398,
+          "consumed": 109904.07058823529,
+          "imports": 34057.148,
+          "exports": 64320.894621299165,
+          "stock": 6950.182790465526,
+          "error": -1.6370904631912708e-11,
+          "price": 3.382428626640359
+        },
+        {
+          "good": "stone",
+          "opening": 720,
+          "produced": 56224,
+          "consumed": 471.79999999999995,
+          "imports": 2272.598,
+          "exports": 55333.60511669225,
+          "stock": 3411.1928833077486,
+          "error": -4.547473508864641e-13,
+          "price": 2.5368214699802696
+        },
+        {
+          "good": "manufactures",
+          "opening": 0,
+          "produced": 159881,
+          "consumed": 25187.229962706017,
+          "imports": 0,
+          "exports": 132087.76721556793,
+          "stock": 2606.002821726054,
+          "error": 1.3642420526593924e-12,
+          "price": 7.375145099602246
+        }
+      ],
+      "migration": {
+        "day": 272,
+        "recent": [
+          {
+            "day": 270,
+            "kind": "family-arrival",
+            "household": 86,
+            "people": 1,
+            "assessment": {
+              "eligible": true,
+              "reasons": [],
+              "home": 163,
+              "housing": {
+                "building": 163,
+                "capacity": 4,
+                "households": [
+                  83,
+                  84,
+                  85,
+                  86
+                ],
+                "occupied": 4,
+                "available": 0,
+                "overcrowded": false,
+                "reviewRequired": false,
+                "legacySharedTenants": [],
+                "reserved": false,
+                "underConstruction": false
+              },
+              "offers": [
+                {
+                  "person": 0,
+                  "firm": 83,
+                  "wage": 30.72815697741035,
+                  "distance": 45,
+                  "fare": 0.7050000000000002,
+                  "mode": "road"
+                }
+              ],
+              "expectedNet": 83.33563011346833,
+              "essentials": 41.47359504131123,
+              "budget": {
+                "rent": 15.18764956062195,
+                "food": 18.06594548068928,
+                "utilities": 6.885,
+                "commuting": 1.0350000000000001,
+                "shopping": 0.30000000000000004,
+                "propertyTax": 0,
+                "debtService": 0,
+                "privateFees": 0
+              },
+              "foodShop": 53,
+              "rent": 15.18764956062195,
+              "surplus": 41.8620350721571,
+              "outside": {
+                "market": "ridge",
+                "name": "Ironridge Works",
+                "net": 73.92,
+                "essentials": 37.427956718122026,
+                "surplus": 36.492043281877976,
+                "referenceOnly": true,
+                "carriedObligations": 0
+              },
+              "services": {
+                "health": 0.44051204819277107,
+                "school": 0,
+                "forecastOnly": true
+              },
+              "pullProbability": 0.813504016064257,
+              "capital": 0,
+              "note": "Outside wages/rents are a founding-policy reference; market food prices are live. Funded vacancies, route capacity and quoted private learning places can change before arrival; any private fee forecast is included in essentials, without assumed vouchers."
+            }
+          },
+          {
+            "day": 270,
+            "kind": "outside-option-preferred",
+            "home": 69,
+            "assessment": {
+              "eligible": true,
+              "reasons": [],
+              "home": 69,
+              "housing": {
+                "building": 69,
+                "capacity": 9,
+                "households": [
+                  35,
+                  314
+                ],
+                "occupied": 2,
+                "available": 7,
+                "overcrowded": false,
+                "reviewRequired": false,
+                "legacySharedTenants": [],
+                "reserved": false,
+                "underConstruction": false
+              },
+              "offers": [
+                {
+                  "person": 0,
+                  "firm": 17,
+                  "wage": 30.56859533733918,
+                  "distance": 17,
+                  "fare": 0.25500000000000006,
+                  "mode": "road"
+                },
+                {
+                  "person": 1,
+                  "firm": 16,
+                  "wage": 30.36189568064403,
+                  "distance": 18,
+                  "fare": 0.24000000000000005,
+                  "mode": "road"
+                }
+              ],
+              "expectedNet": 53.00952718564539,
+              "essentials": 28.377155842543498,
+              "budget": {
+                "rent": 10.978192188750647,
+                "food": 12.04396365379285,
+                "utilities": 4.59,
+                "commuting": 0.4950000000000001,
+                "shopping": 0.2700000000000001,
+                "propertyTax": 0,
+                "debtService": 0,
+                "privateFees": 0
+              },
+              "foodShop": 53,
+              "rent": 10.978192188750647,
+              "surplus": 24.63237134310189,
+              "outside": {
+                "market": "ridge",
+                "name": "Ironridge Works",
+                "net": 49.28,
+                "essentials": 24.951971145414685,
+                "surplus": 24.328028854585316,
+                "referenceOnly": true,
+                "carriedObligations": 0
+              },
+              "services": {
+                "health": 0.4398496240601504,
+                "school": 0,
+                "forecastOnly": true
+              },
+              "pullProbability": 0.4799498746867168,
+              "capital": 2500,
+              "note": "Outside wages/rents are a founding-policy reference; market food prices are live. Funded vacancies, route capacity and quoted private learning places can change before arrival; any private fee forecast is included in essentials, without assumed vouchers."
+            }
+          },
+          {
+            "day": 270,
+            "kind": "outside-option-preferred",
+            "home": 196,
+            "assessment": {
+              "eligible": true,
+              "reasons": [],
+              "home": 196,
+              "housing": {
+                "building": 196,
+                "capacity": 4,
+                "households": [
+                  215,
+                  217,
+                  218
+                ],
+                "occupied": 3,
+                "available": 1,
+                "overcrowded": false,
+                "reviewRequired": false,
+                "legacySharedTenants": [],
+                "reserved": false,
+                "underConstruction": false
+              },
+              "offers": [
+                {
+                  "person": 0,
+                  "firm": 17,
+                  "wage": 30.56859533733918,
+                  "distance": 33,
+                  "fare": 0.49500000000000005,
+                  "mode": "road"
+                },
+                {
+                  "person": 1,
+                  "firm": 16,
+                  "wage": 30.36189568064403,
+                  "distance": 24,
+                  "fare": 0.36000000000000004,
+                  "mode": "road"
+                }
+              ],
+              "expectedNet": 53.00952718564539,
+              "essentials": 27.957206613336044,
+              "budget": {
+                "rent": 9.958242959543194,
+                "food": 12.04396365379285,
+                "utilities": 4.59,
+                "commuting": 0.8550000000000001,
+                "shopping": 0.5100000000000001,
+                "propertyTax": 0,
+                "debtService": 0,
+                "privateFees": 0
+              },
+              "foodShop": 53,
+              "rent": 9.958242959543194,
+              "surplus": 25.052320572309345,
+              "outside": {
+                "market": "ridge",
+                "name": "Ironridge Works",
+                "net": 49.28,
+                "essentials": 24.951971145414685,
+                "surplus": 24.328028854585316,
+                "referenceOnly": true,
+                "carriedObligations": 0
+              },
+              "services": {
+                "health": 0.4398496240601504,
+                "school": 0,
+                "forecastOnly": true
+              },
+              "pullProbability": 0.4799498746867168,
+              "capital": 2500,
+              "note": "Outside wages/rents are a founding-policy reference; market food prices are live. Funded vacancies, route capacity and quoted private learning places can change before arrival; any private fee forecast is included in essentials, without assumed vouchers."
+            }
+          },
+          {
+            "day": 270,
+            "kind": "household-arrival",
+            "household": 317,
+            "people": 2,
+            "capital": 2500,
+            "assessment": {
+              "eligible": true,
+              "reasons": [],
+              "home": 206,
+              "housing": {
+                "building": 206,
+                "capacity": 4,
+                "households": [
+                  255,
+                  256,
+                  257
+                ],
+                "occupied": 3,
+                "available": 1,
+                "overcrowded": false,
+                "reviewRequired": false,
+                "legacySharedTenants": [],
+                "reserved": false,
+                "underConstruction": false
+              },
+              "offers": [
+                {
+                  "person": 0,
+                  "firm": 17,
+                  "wage": 30.56859533733918,
+                  "distance": 25,
+                  "fare": 0.4050000000000001,
+                  "mode": "road"
+                },
+                {
+                  "person": 1,
+                  "firm": 16,
+                  "wage": 30.36189568064403,
+                  "distance": 26,
+                  "fare": 0.39000000000000007,
+                  "mode": "road"
+                }
+              ],
+              "expectedNet": 53.00952718564539,
+              "essentials": 27.929127058343287,
+              "budget": {
+                "rent": 9.893378239818835,
+                "food": 11.930748818524451,
+                "utilities": 4.59,
+                "commuting": 0.7950000000000002,
+                "shopping": 0.7200000000000001,
+                "propertyTax": 0,
+                "debtService": 0,
+                "privateFees": 0
+              },
+              "foodShop": 2,
+              "rent": 9.893378239818835,
+              "surplus": 25.080400127302102,
+              "outside": {
+                "market": "ridge",
+                "name": "Ironridge Works",
+                "net": 49.28,
+                "essentials": 24.951971145414685,
+                "surplus": 24.328028854585316,
+                "referenceOnly": true,
+                "carriedObligations": 0
+              },
+              "services": {
+                "health": 0.4398496240601504,
+                "school": 0,
+                "forecastOnly": true
+              },
+              "pullProbability": 0.8132832080200502,
+              "capital": 2500,
+              "note": "Outside wages/rents are a founding-policy reference; market food prices are live. Funded vacancies, route capacity and quoted private learning places can change before arrival; any private fee forecast is included in essentials, without assumed vouchers."
+            }
+          }
+        ],
+        "observedSinceDay": 243,
+        "sessionCounts": {
+          "births": 0,
+          "deaths": 0,
+          "immigration": 3,
+          "emigration": 0
+        },
+        "historyPersisted": false,
+        "retainedDecisionLimit": 80,
+        "overcrowdedHomes": [],
+        "reviewRequired": false,
+        "legacyPolicy": "Preserve every family and financial claim. Existing overcrowding requires a rehousing review; it never creates another arrival slot.",
+        "outsideReference": {
+          "market": "ridge",
+          "name": "Ironridge Works",
+          "net": 49.28,
+          "essentials": 24.94026538165871,
+          "surplus": 24.339734618341293,
+          "referenceOnly": true
+        },
+        "retainedDecisionCounts": {
+          "householdArrivals": 2,
+          "familyArrivals": 1,
+          "emigration": 0
+        }
+      },
+      "publicFundingInitially": "absent"
+    },
+    {
+      "seed": 909,
+      "scenario": "regional",
+      "start": 15484590.999995274,
+      "end": 15484590.99999516,
+      "cashDrift": -1.1362135410308838e-07,
+      "school": "An entrepreneur has financed a new service site.",
+      "fire": "A private service site is already under construction.",
+      "offers": [
+        {
+          "band": "low",
+          "cash": 618.6033286113033,
+          "spendable": 829.7136389707473,
+          "fees": 2.97375,
+          "publicSchool": 0.5,
+          "publicServiceForecast": {
+            "health": 0.43333333333333335,
+            "school": 0,
+            "forecastOnly": true
+          },
+          "realizedPrivateSchool": 0.5,
+          "schoolCapacity": 0,
+          "privateFire": 0,
+          "assessment": {
+            "eligible": false,
+            "reasons": [
+              "No unreserved vacant household unit",
+              "No funded reachable job remains after local jobseekers",
+              "Expected take-home pay does not cover rent, food, utilities and fares"
+            ],
+            "services": {
+              "health": 0.43333333333333335,
+              "school": 0,
+              "forecastOnly": true
+            },
+            "budget": {
+              "rent": 5.038267017057047,
+              "food": 6.2447912157444705,
+              "utilities": 2.295,
+              "commuting": 0,
+              "shopping": 0.5100000000000001,
+              "propertyTax": 0,
+              "debtService": 0,
+              "privateFees": 0
+            },
+            "schoolOffer": null
+          }
+        },
+        {
+          "band": "middle",
+          "cash": 2406.383524815334,
+          "spendable": 4595.45370011964,
+          "fees": 0,
+          "publicSchool": 0,
+          "publicServiceForecast": {
+            "health": 0.43333333333333335,
+            "school": 0,
+            "forecastOnly": true
+          },
+          "realizedPrivateSchool": 0,
+          "schoolCapacity": 0,
+          "privateFire": 0,
+          "assessment": {
+            "eligible": false,
+            "reasons": [
+              "No funded reachable job remains after local jobseekers",
+              "Expected take-home pay does not cover rent, food, utilities and fares"
+            ],
+            "services": {
+              "health": 0.43333333333333335,
+              "school": 0,
+              "forecastOnly": true
+            },
+            "budget": {
+              "rent": 5.117841045853338,
+              "food": 6.2447912157444705,
+              "utilities": 2.295,
+              "commuting": 0,
+              "shopping": 0.45000000000000007,
+              "propertyTax": 0,
+              "debtService": 0,
+              "privateFees": 0
+            },
+            "schoolOffer": null
+          }
+        },
+        {
+          "band": "high",
+          "cash": 22749.433986280917,
+          "spendable": 41059.610552642465,
+          "fees": 0,
+          "publicSchool": 0,
+          "publicServiceForecast": {
+            "health": 0.43333333333333335,
+            "school": 0,
+            "forecastOnly": true
+          },
+          "realizedPrivateSchool": 0,
+          "schoolCapacity": 0,
+          "privateFire": 0,
+          "assessment": {
+            "eligible": false,
+            "reasons": [
+              "No unreserved vacant household unit",
+              "No funded reachable job remains after local jobseekers",
+              "Expected take-home pay does not cover rent, food, utilities and fares"
+            ],
+            "services": {
+              "health": 0.43333333333333335,
+              "school": 0,
+              "forecastOnly": true
+            },
+            "budget": {
+              "rent": 5.104074842368747,
+              "food": 6.0492395955372515,
+              "utilities": 2.295,
+              "commuting": 0,
+              "shopping": 0.33,
+              "propertyTax": 0,
+              "debtService": 0,
+              "privateFees": 0
+            },
+            "schoolOffer": null
+          }
+        }
+      ],
+      "actual": [
+        {
+          "id": 291,
+          "privateFees": 2.97375,
+          "privateReceipts": 143.8988373448287,
+          "voucherSpend": 2.5011626551713073,
+          "coverage": {
+            "health": 0.43333333333333335,
+            "school": 0
+          },
+          "privateSchool": 0.5,
+          "fire": 0
+        },
+        {
+          "id": 218,
+          "privateFees": 0,
+          "privateReceipts": 143.8988373448287,
+          "voucherSpend": 2.5011626551713073,
+          "coverage": {
+            "health": 0.43333333333333335,
+            "school": 0
+          },
+          "privateSchool": 0,
+          "fire": 0
+        },
+        {
+          "id": 32,
+          "privateFees": 0,
+          "privateReceipts": 143.8988373448287,
+          "voucherSpend": 2.5011626551713073,
+          "coverage": {
+            "health": 0.43333333333333335,
+            "school": 0
+          },
+          "privateSchool": 0,
+          "fire": 0
+        }
+      ],
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15484590.99999565,
+        "population": 687,
+        "day": 272
+      },
+      "goods": [
+        {
+          "good": "grain",
+          "opening": 960,
+          "produced": 242000,
+          "consumed": 109999.8,
+          "imports": 84132.235,
+          "exports": 207000.65665237993,
+          "stock": 10091.778347620062,
+          "error": 3.637978807091713e-12,
+          "price": 1.6845929864273887
+        },
+        {
+          "good": "flour",
+          "opening": 960,
+          "produced": 183333,
+          "consumed": 147099.225,
+          "imports": 17043.277,
+          "exports": 42468.197380647536,
+          "stock": 11768.854619352467,
+          "error": 5.4569682106375694e-12,
+          "price": 2.526889479641082
+        },
+        {
+          "good": "food",
+          "opening": 1920,
+          "produced": 303389,
+          "consumed": 227215.17782587776,
+          "imports": 53958.325,
+          "exports": 112504.37256999151,
+          "stock": 19547.774604129296,
+          "error": -1.44427758641541e-09,
+          "price": 2.7808510009138567
+        },
+        {
+          "good": "logs",
+          "opening": 720,
+          "produced": 179811,
+          "consumed": 105910.76923076923,
+          "imports": 5680.244,
+          "exports": 74387.6804665539,
+          "stock": 5912.794302676891,
+          "error": 1.0913936421275139e-11,
+          "price": 1.6845929864273887
+        },
+        {
+          "good": "timber",
+          "opening": 720,
+          "produced": 137684,
+          "consumed": 124792.17647058824,
+          "imports": 52857.191,
+          "exports": 58775.598531547854,
+          "stock": 7693.415997863902,
+          "error": -1.1823431123048067e-11,
+          "price": 3.3691859728547775
+        },
+        {
+          "good": "stone",
+          "opening": 720,
+          "produced": 39322,
+          "consumed": 463.75,
+          "imports": 2329.099,
+          "exports": 39059.26978321779,
+          "stock": 2848.0792167822124,
+          "error": -9.094947017729282e-13,
+          "price": 2.526889479641082
+        },
+        {
+          "good": "manufactures",
+          "opening": 0,
+          "produced": 181720,
+          "consumed": 24024.454270286933,
+          "imports": 0,
+          "exports": 155569.3062851374,
+          "stock": 2126.239444575675,
+          "error": -4.547473508864641e-13,
+          "price": 7.1723534627796495
+        }
+      ],
+      "migration": {
+        "day": 272,
+        "recent": [
+          {
+            "day": 246,
+            "kind": "outside-option-preferred",
+            "home": 162,
+            "assessment": {
+              "eligible": true,
+              "reasons": [],
+              "home": 162,
+              "housing": {
+                "building": 162,
+                "capacity": 9,
+                "households": [
+                  79,
+                  80,
+                  81,
+                  82
+                ],
+                "occupied": 4,
+                "available": 5,
+                "overcrowded": false,
+                "reviewRequired": false,
+                "legacySharedTenants": [],
+                "reserved": false,
+                "underConstruction": false
+              },
+              "offers": [
+                {
+                  "person": 0,
+                  "firm": 89,
+                  "wage": 36,
+                  "distance": 43,
+                  "fare": 0.6450000000000001,
+                  "mode": "road"
+                },
+                {
+                  "person": 1,
+                  "firm": 89,
+                  "wage": 36,
+                  "distance": 43,
+                  "fare": 0.6450000000000001,
+                  "mode": "road"
+                }
+              ],
+              "expectedNet": 62.64,
+              "essentials": 29.190736852569945,
+              "budget": {
+                "rent": 10.863971230863738,
+                "food": 12.056765621706209,
+                "utilities": 4.59,
+                "commuting": 1.2900000000000003,
+                "shopping": 0.39000000000000007,
+                "propertyTax": 0,
+                "debtService": 0,
+                "privateFees": 0
+              },
+              "foodShop": 17,
+              "rent": 10.863971230863738,
+              "surplus": 33.44926314743006,
+              "outside": {
+                "market": "ridge",
+                "name": "Ironridge Works",
+                "net": 49.28,
+                "essentials": 25.269984340340624,
+                "surplus": 24.010015659659377,
+                "referenceOnly": true,
+                "carriedObligations": 0
+              },
+              "services": {
+                "health": 0.43333333333333335,
+                "school": 0,
+                "forecastOnly": true
+              },
+              "pullProbability": 0.8111111111111112,
+              "capital": 2836,
+              "note": "Outside wages/rents are a founding-policy reference; market food prices are live. Funded vacancies, route capacity and quoted private learning places can change before arrival; any private fee forecast is included in essentials, without assumed vouchers."
+            }
+          },
+          {
+            "day": 270,
+            "kind": "family-arrival",
+            "household": 212,
+            "people": 1,
+            "assessment": {
+              "eligible": true,
+              "reasons": [],
+              "home": 195,
+              "housing": {
+                "building": 195,
+                "capacity": 4,
+                "households": [
+                  211,
+                  212,
+                  213,
+                  214
+                ],
+                "occupied": 4,
+                "available": 0,
+                "overcrowded": false,
+                "reviewRequired": false,
+                "legacySharedTenants": [],
+                "reserved": false,
+                "underConstruction": false
+              },
+              "offers": [
+                {
+                  "person": 0,
+                  "firm": 26,
+                  "wage": 32.53197787357245,
+                  "distance": 31,
+                  "fare": 0.46500000000000014,
+                  "mode": "road"
+                }
+              ],
+              "expectedNet": 80.96793583383945,
+              "essentials": 42.042220657410205,
+              "budget": {
+                "rent": 15.445682544402088,
+                "food": 18.06153811300812,
+                "utilities": 6.885,
+                "commuting": 0.9600000000000002,
+                "shopping": 0.6900000000000001,
+                "propertyTax": 0,
+                "debtService": 0,
+                "privateFees": 0
+              },
+              "foodShop": 2,
+              "rent": 15.445682544402088,
+              "surplus": 38.92571517642924,
+              "outside": {
+                "market": "ridge",
+                "name": "Ironridge Works",
+                "net": 73.92,
+                "essentials": 37.52954955564567,
+                "surplus": 36.39045044435433,
+                "referenceOnly": true,
+                "carriedObligations": 0
+              },
+              "services": {
+                "health": 0.43333333333333335,
+                "school": 0,
+                "forecastOnly": true
+              },
+              "pullProbability": 0.8111111111111112,
+              "capital": 0,
+              "note": "Outside wages/rents are a founding-policy reference; market food prices are live. Funded vacancies, route capacity and quoted private learning places can change before arrival; any private fee forecast is included in essentials, without assumed vouchers."
+            }
+          },
+          {
+            "day": 270,
+            "kind": "household-arrival",
+            "household": 318,
+            "people": 2,
+            "capital": 2500,
+            "assessment": {
+              "eligible": true,
+              "reasons": [],
+              "home": 162,
+              "housing": {
+                "building": 162,
+                "capacity": 9,
+                "households": [
+                  79,
+                  80,
+                  81,
+                  82
+                ],
+                "occupied": 4,
+                "available": 5,
+                "overcrowded": false,
+                "reviewRequired": false,
+                "legacySharedTenants": [],
+                "reserved": false,
+                "underConstruction": false
+              },
+              "offers": [
+                {
+                  "person": 0,
+                  "firm": 27,
+                  "wage": 32.51561428870205,
+                  "distance": 14,
+                  "fare": 0.21000000000000005,
+                  "mode": "road"
+                },
+                {
+                  "person": 1,
+                  "firm": 27,
+                  "wage": 32.51561428870205,
+                  "distance": 14,
+                  "fare": 0.21000000000000005,
+                  "mode": "road"
+                }
+              ],
+              "expectedNet": 56.57716886234156,
+              "essentials": 28.126899001675238,
+              "budget": {
+                "rent": 10.863126749031737,
+                "food": 11.863772252643496,
+                "utilities": 4.59,
+                "commuting": 0.4200000000000001,
+                "shopping": 0.39000000000000007,
+                "propertyTax": 0,
+                "debtService": 0,
+                "privateFees": 0
+              },
+              "foodShop": 17,
+              "rent": 10.863126749031737,
+              "surplus": 28.45026986066632,
+              "outside": {
+                "market": "ridge",
+                "name": "Ironridge Works",
+                "net": 49.28,
+                "essentials": 25.019699703763784,
+                "surplus": 24.260300296236217,
+                "referenceOnly": true,
+                "carriedObligations": 0
+              },
+              "services": {
+                "health": 0.43269230769230776,
+                "school": 0,
+                "forecastOnly": true
+              },
+              "pullProbability": 0.8108974358974358,
+              "capital": 2500,
+              "note": "Outside wages/rents are a founding-policy reference; market food prices are live. Funded vacancies, route capacity and quoted private learning places can change before arrival; any private fee forecast is included in essentials, without assumed vouchers."
+            }
+          },
+          {
+            "day": 270,
+            "kind": "birth",
+            "household": 3,
+            "person": 685,
+            "people": 1
+          },
+          {
+            "day": 270,
+            "kind": "birth",
+            "household": 45,
+            "person": 686,
+            "people": 1
+          },
+          {
+            "day": 270,
+            "kind": "birth",
+            "household": 101,
+            "person": 687,
+            "people": 1
+          },
+          {
+            "day": 270,
+            "kind": "birth",
+            "household": 134,
+            "person": 688,
+            "people": 1
+          },
+          {
+            "day": 270,
+            "kind": "birth",
+            "household": 143,
+            "person": 689,
+            "people": 1
+          },
+          {
+            "day": 270,
+            "kind": "birth",
+            "household": 178,
+            "person": 690,
+            "people": 1
+          },
+          {
+            "day": 270,
+            "kind": "birth",
+            "household": 248,
+            "person": 691,
+            "people": 1
+          },
+          {
+            "day": 270,
+            "kind": "birth",
+            "household": 298,
+            "person": 692,
+            "people": 1
+          },
+          {
+            "day": 270,
+            "kind": "birth",
+            "household": 307,
+            "person": 693,
+            "people": 1
+          }
+        ],
+        "observedSinceDay": 243,
+        "sessionCounts": {
+          "births": 9,
+          "deaths": 0,
+          "immigration": 3,
+          "emigration": 0
+        },
+        "historyPersisted": false,
+        "retainedDecisionLimit": 80,
+        "overcrowdedHomes": [],
+        "reviewRequired": false,
+        "legacyPolicy": "Preserve every family and financial claim. Existing overcrowding requires a rehousing review; it never creates another arrival slot.",
+        "outsideReference": {
+          "market": "ridge",
+          "name": "Ironridge Works",
+          "net": 49.28,
+          "essentials": 24.9871854354741,
+          "surplus": 24.2928145645259,
+          "referenceOnly": true
+        },
+        "retainedDecisionCounts": {
+          "householdArrivals": 2,
+          "familyArrivals": 1,
+          "emigration": 0
+        }
+      },
+      "publicFundingInitially": "absent"
+    }
+  ],
+  "errors": []
+}
