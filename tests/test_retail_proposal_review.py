@@ -19,8 +19,10 @@ with sync_playwright() as pw:
     before=page.evaluate('__retailReview.setup()')
     page.locator('[data-panel=construction]').click();page.locator('#urbanPlanningOffice>summary').click();page.locator('[data-urban-retail]').click()
     text=page.locator('#eventText').inner_text()
-    assert 'six-tile site' in text and '534 residents' in text and 'counts centres double' in text and '854 units/day' in text and '640' in text and '$635/day net' in text and 'Affordability varies by household' in text and 'working capital' in text,text
+    assert 'six-tile site' in text and '534 residents' in text and 'counts centres double' in text and '854 units/day' in text and '640' in text and '$635/day net' in text and 'Affordability varies by household' in text and 'working capital' in text and 'townwide food snapshot' in text and 'potential bids, not reserved hires' in text,text
     quote=page.evaluate('__retailReview.preview()');assert abs(quote['units']-854.4)<1e-6 and quote['physicalCapacity']==640 and round(quote['capacityNet'],2)==634.56 and quote['net']>quote['capacityNet'],quote
+    assert quote['foodNeed']['day']>0 and quote['foodNeed']['unmetUnits']>=0 and quote['foodNeed']['residentsWithoutReachableGrocer']>=0,quote
+    assert quote['labour']['required']==8 and quote['labour']['eligible']>=8 and quote['labour']['jobseekers']+quote['labour']['employedPremium']==quote['labour']['eligible'],quote['labour']
     cases=page.evaluate('__retailReview.storeCases()');assert cases['live']['competitionWeight']==1 and cases['live']['stockAndStaff']>0;assert cases['closed']['competitionWeight']==0 and cases['closed']['stockAndStaff']==0;assert cases['unstaffed']['competitionWeight']==1 and cases['unstaffed']['stockAndStaff']==0;assert cases['unstocked']['competitionWeight']==1 and cases['unstocked']['stockAndStaff']==0;assert cases['unaffordable']['competitionWeight']==1 and cases['unaffordable']['price']==10000 and cases['unaffordable']['stockAndStaff']>0,cases
     assert 'Invite investors at this site' in page.locator('#eventChoices').inner_text()
     beforeReview=page.evaluate('__townTest.save()')
@@ -44,7 +46,7 @@ with sync_playwright() as pw:
     assert page.evaluate('s=>__townTest.load(s)',archive);page.evaluate('__townTest.step(2)');assert page.evaluate('__townTest.save()')==continuation
     natural=gzip.decompress((ROOT/'tests/fixtures/urban-retail-unfunded-labour.json.gz').read_bytes()).decode();assert page.evaluate('s=>__townTest.load(s)',natural)
     page.evaluate('__townTest.step(40)');beforeForecast=page.evaluate('__townTest.save()');blocked=page.evaluate('__retailReview.preview()')
-    assert not blocked['ok'] and 'Connected legal sites do not have 180 residents' in blocked['reason'],blocked
+    assert not blocked['ok'] and 'Connected legal sites do not have 180 residents' in blocked['reason'] and blocked['foodNeed']['day']>0 and blocked['labourProspect']['site'] is None,blocked
     afterForecast=page.evaluate('__townTest.save()');assert afterForecast==beforeForecast,(set(json.loads(afterForecast))^set(json.loads(beforeForecast)),[(k,json.loads(beforeForecast).get(k),json.loads(afterForecast).get(k)) for k in json.loads(beforeForecast) if json.loads(beforeForecast).get(k)!=json.loads(afterForecast).get(k)][:8])
     assert not errors,errors
     print(json.dumps({'reviewShownBeforeCapitalCommit':True,'cancelReadOnly':True,'staleQuoteRejected':True,'ordinaryInvestorCommit':opened['projects'][0], 'existingSmallGrocersPreserved':len(opened['shops']),'titlesHouseholdsFieldsPreserved':True,'footprintTiles':tiles,'capacityAudit':{'forecastUnits':quote['units'],'staffCapacity':quote['physicalCapacity'],'capacityLimitedNet':quote['capacityNet'],'uncappedNet':quote['net']},'shopStatusCases':cases,'cashConserved':True,'exactReplay':True,'naturalSixYearCityBlocker':blocked,'blockedForecastReadOnly':True,'errors':errors},indent=2))

@@ -27,3 +27,11 @@ python tests/test_retail_labour_viability.py
 python tests/test_urban_trajectory_checkpoints.py
 python tests/test_urban_evolution.py
 ```
+
+### Food need versus viable hiring (Oct 31 follow-up)
+
+The proposal review now reports the latest townwide unmet-food and disconnected-resident counters separately from the candidate site’s modeled wage/commute-qualified labour bids. A successful quote distinguishes currently job-seeking people from already-employed bidders who would need a wage premium, gives the roles and offered wage, and explicitly says candidates are not reserved hires. These are a snapshot of the existing labor filter, not a promise of recruitment. No jobs, wages, investment gates, customer allocation, or market rules changed.
+
+If no centre can be proposed, the review surfaces the precise candidate-site blocker and (when a site passes the local demand gate) the number of eligible candidates against required staff. It explicitly warns that unmet food can reflect household affordability, disconnected access, inventory, staffing/capacity, and does not establish a profitable, recruitable opportunity. The `unmetFood` and `foodDisconnected` counters are townwide current/previous daily economy snapshots; they are not attributed to the proposed site. Natural six-year seed-42 review remains blocked because its 39 connected permitted sites have no 180-resident local catchment; the preview records that blocker, current food snapshot and that no demand-qualified site exists for labor assessment, without changing the save/RNG.
+
+Validation: `tests/test_retail_proposal_review.py` checks the displayed and structured food/labour snapshots, separates jobseekers from employed bidders, preserves read-only cancel/stale behavior, ordinary-investor authorization, accounting and exact replay. A deterministic shortage-with-zero-recruitable-labour macro fixture was not available in the source tree; no claim is made that the review has been accepted against that separate macro fixture.

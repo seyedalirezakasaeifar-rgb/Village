@@ -13,11 +13,12 @@ function urbanRetailLabour(site,offered=null){
  }
  return bids.sort((a,b)=>a.wage-b.wage||a.distance-b.distance||a.person-b.person);
 }
-function urbanRetailPlan(site,customers){
- const units=customers*1.6,staff=clamp(Math.ceil(units/65),2,8),bids=urbanRetailLabour(site);if(bids.length<staff)return null;
+function urbanRetailPlan(site,customers,offers=null){
+ const units=customers*1.6,staff=clamp(Math.ceil(units/65),2,8),bids=offers||urbanRetailLabour(site);if(bids.length<staff)return null;
  const wage=Math.ceil(bids[staff-1].wage*100)/100,price=G.market?.baseFoodPrice||5.2,cost=marketPrice('food')*1.12,margin=price-cost;
  const rates=220000*(G.policy.commercialRate||0)/100/360,overhead=2+staff*(.6+G.policy.businessRegulation*.035),profit=units*margin-staff*wage-overhead-rates,net=profit*(1-G.policy.profitTax/100);
- return {staff,wage,customers,units,price,cost,profit,net};
+ const atOffer=bids.filter(b=>b.wage<=wage+1e-7),jobseekers=atOffer.filter(b=>G.people[b.person]?.job<0).length;
+ return {staff,wage,customers,units,price,cost,profit,net,eligibleAtOffer:atOffer.length,jobseekersAtOffer:jobseekers,employedPremiumAtOffer:atOffer.length-jobseekers};
 }
 function recruitUrbanRetailStaff(only=null){
  for(const f of only?[only]:G.firms.filter(f=>f.retailCentre&&!f.closed)){
