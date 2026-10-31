@@ -642,6 +642,19 @@ function outwardMigration(){
  }return 0;
 }
 
+// Preserve filter, assessment, sort and random-departure order across yields.
+function* stagedOutwardMigration(){
+ if(G.day%30!==0)return 0;
+ const candidates=[];for(const h of G.households){if(h.people.length&&h.home>=0&&((h.stress||0)>42||(h.worklessness||0)>20)&&migrationSpendable(h).spendable<90*Math.max(1,expectedHouseholdEssentials(h)+migrationDebtDue(h)))candidates.push(h);yield 'migration-filter';}
+ const assessed=[];for(const h of candidates){assessed.push({h,assessment:migrationEmigrationAssessment(h)});yield 'migration-assessment';}
+ const choices=assessed.filter(x=>x.assessment.eligible).sort((a,b)=>a.assessment.runwayDays-b.assessment.runwayDays||a.h.id-b.h.id);
+ for(const {h,assessment} of choices){if(random()>=assessment.probability)continue;const home=readBuild(h.home),departures=h.people.slice();
+  for(const id of departures){const p=G.people[id];if(!p)continue;p.movedAway=true;p.job=-1;for(const f of G.firms)if(f.workers.includes(id))f.workers=f.workers.filter(n=>n!==id);}
+  h.people=[];G.region+=Math.max(0,h.cash);h.cash=0;migrationReleaseTenancy(h);migrationRecord('departure',{household:h.id,people:departures.length,assessment});
+  story('The '+h.name+' family left after a persistent budget shortfall and a better outside reference. Their financial claims and property titles remain recorded.','bad',home?.id||0);recompute();return departures.length;
+ }return 0;
+}
+
 function reverseRedevelopment(){
  if(G.day%60!==0||!G.autoBuild)return false;
  const d=cityDemand();
@@ -3404,11 +3417,75 @@ function tick(){if(!G||pendingEvent)return;ensureSystems();ensureMarketModel();G
  dirty=true;
 }
 
+// Experimental continuation: tick above remains the unchanged synchronous oracle.
+function* stagedTick(){if(!G||pendingEvent)return;ensureSystems();yield 'ensureSystems';ensureMarketModel();yield 'ensureMarketModel';G.day++;if(G.day%30===0){G.month++;if(G.month>12){G.month=1;G.year++}};
+ regionalFreightDay();yield 'regionalFreightDay';freightDay();yield 'freightDay';completeEquipmentOrders();yield 'completeEquipmentOrders';completeDevelopmentProjects();yield 'completeDevelopmentProjects';dailyEconomy();yield 'dailyEconomy';urbanMunicipalHousingDay();yield 'urbanMunicipalHousingDay';bankDaily();yield 'bankDaily';metroOperatingDay();yield 'metroOperatingDay';airfieldOperatingDay();yield 'airfieldOperatingDay';incidents();yield 'incidents';investigateCases();yield 'investigateCases';extendedCivicDay();yield 'extendedCivicDay';maintainRoads();yield 'maintainRoads';finalizeMarketBooks();yield 'finalizeMarketBooks';if(G.day%30===0&&G.debt>0){const interest=G.debt*((G.policy.policyRate||0)/100+.015)/12,paid=Math.min(G.treasury,interest);G.treasury-=paid;G.region+=paid;G.debt+=interest-paid;story('Interest on municipal borrowing: '+money(interest)+'.')}if(G.day%10===0){assignJobs();yield 'assignJobs';}if(G.day%30===0){privateInvestmentAndHousing();yield 'privateInvestmentAndHousing';}
+
+ if(G.day%30===0){yield* stagedOutwardMigration();yield 'outwardMigration';autonomousDevelopment();yield 'autonomousDevelopment';}
+ migrationFamilyArrivalDay();yield 'migrationFamilyArrivalDay';
+
+ recompute();yield 'recompute';updateCouncilAndMissions();yield 'updateCouncilAndMissions';systemsDay();yield 'systemsDay';
+ if(G.day%30===0){monthlyReview();yield 'monthlyReview';}
+ if(G.day%360===0){yearlyDemographics();yield 'yearlyDemographics';electionReview();yield 'electionReview';}
+ if(!pendingEvent&&G.day%45===0&&G.day-G.lastEventDay>=37)offerCouncilEvent();
+ // Publish and save one canonical end-of-day snapshot after demographic and civic changes.
+ recompute();yield 'recompute';G.stats.approval=Math.round(G.council.approval);G.rngState=rngState;
+ privateServiceInvestmentDay();yield 'privateServiceInvestmentDay';districtProgrammeDay();yield 'districtProgrammeDay';urbanEvolutionDay();yield 'urbanEvolutionDay';migrationTenancyDay();yield 'migrationTenancyDay';updateScenarioProgramme();yield 'updateScenarioProgramme';mayorJourneyDay();yield 'mayorJourneyDay';civicProjectsDay();yield 'civicProjectsDay';civicCampaignDay();yield 'civicCampaignDay';G.rngState=rngState;if(G.day%10===0){recordObservation();yield 'recordObservation';}
+ G.history.push({day:G.day,employment:G.stats.employment,hardship:G.stats.hardship,safety:G.stats.safety,treasury:Math.round(G.treasury),businesses:G.stats.businesses,deposits:(G.banks||[]).reduce((n,b)=>n+bankDeposits(b.id),0),crime:G.stats.dailyCrime,approval:G.council.approval,education:G.education,health:G.health});if(G.history.length>240)G.history.shift();
+ if(G.day%60===0){const signal=marketSignal();if(signal.kind!=='normal'&&signal.title!==G.lastEconomicSignal){story(signal.title+'. '+signal.description,signal.kind==='good'?'good':'bad');G.lastEconomicSignal=signal.title;}}
+ // Autosaves are scheduled in wall time by the frame controller.
+ dirty=true;
+}
+
 function resetTownTransientUI(){
  cancelTransitDraft();resetTransitForecasts();transitTopologyCache=null;transitDailyCache=null;
  clearTimeout(toastTimeout);toastTimeout=0;$('toast').style.display='none';pendingEvent=null;$('eventDialog').style.display='none';councilOpener=null;panelOpener=null;parcelFocus=null;selected=null;inspectedTrip=null;buildMode='';pointer.down=false;pointer.activeId=null;pointer.hover=null;touches.clear();roadPainted.clear();$('placementHint').style.display='none';$('hint').textContent='DRAG TO PAN · TAP TO INSPECT · PINCH TO ZOOM';
 }
 function toast(msg){const el=$('toast');el.textContent=msg;el.style.display='block';clearTimeout(toastTimeout);toastTimeout=setTimeout(()=>el.style.display='none',3300)}
+
+// SOURCE: 51-cooperative-day.js
+// Experimental scheduler. Never persisted or enabled by an ordinary founding/load.
+const COOPERATIVE_DAY_DEFAULT=false;
+let cooperativeEnabled=COOPERATIVE_DAY_DEFAULT,cooperativeJob=null,cooperativeToken=0,cooperativeReplaying=false;
+const cooperativeEffects=new Map(),cooperativeCommands=[],cooperativeSamples={slices:[],days:[],commands:[],errors:[]};
+const cooperativeChannel=new MessageChannel();
+function cooperativeDayBusy(){return !!cooperativeJob;}
+function cooperativeLastCommittedDay(){return cooperativeJob?.day??G?.day;}
+function cooperativeEffect(name,fn,args){if(!cooperativeJob)return fn(...args);cooperativeEffects.set(name,()=>fn(...args));}
+function afterCommittedDay(fn){if(!cooperativeJob){try{return Promise.resolve(fn());}catch(e){return Promise.reject(e);}}return new Promise((resolve,reject)=>cooperativeJob.waiters.push({fn,resolve,reject,town:G}));}
+function cooperativeBanner(){let el=$('cooperativeStatus');if(!el){el=document.createElement('div');el.id='cooperativeStatus';el.setAttribute('role','status');el.style.cssText='position:fixed;top:76px;left:50%;transform:translateX(-50%);z-index:11000;max-width:90vw;padding:6px 12px;background:#203e34;color:#fff3d5;border:1px solid #d4b873;font:12px sans-serif;pointer-events:none';document.body.appendChild(el);}el.hidden=!cooperativeJob;if(cooperativeJob)el.textContent='Finishing day '+(cooperativeJob.day+1)+' · displaying completed day '+cooperativeJob.day+(cooperativeCommands.length?' · '+cooperativeCommands.length+' input events queued':'');}
+function cooperativePost(){cooperativeChannel.port2.postMessage(cooperativeJob?.token);}
+cooperativeChannel.port1.onmessage=e=>{if(cooperativeJob&&e.data===cooperativeJob.token)cooperativePump(false);};
+function beginCooperativeDay(){
+ if(cooperativeJob||!G||pendingEvent||pointer.down||touches.size)return false;
+ // Recovery/export authority is a completed-day snapshot; never a suspended generator.
+ const began=performance.now(),snapshot=JSON.stringify({...G,rngState,trafficState:{vehicles:traffic,clock:frameClock,elapsed:trafficElapsed,gates:[...intersectionGates],serial:vehicleSerial},visualState});
+ cooperativeJob={town:G,day:G.day,token:++cooperativeToken,iterator:stagedTick(),snapshot,rng:rngState,started:began,cpu:performance.now()-began,stage:'begin',waiters:[]};cooperativeBanner();cooperativePost();return true;
+}
+function cooperativePump(synchronous=false){
+ const job=cooperativeJob;if(!job)return;const start=performance.now(),deadline=start+4;let done=false;
+ try{do{const next=job.iterator.next();job.stage=next.value||'commit';if(next.done){done=true;break;}}while(synchronous||performance.now()<deadline);}
+ catch(error){job.cpu+=performance.now()-start;cooperativeFail(job,error);return;}
+ const spent=performance.now()-start;job.cpu+=spent;cooperativeSamples.slices.push({day:job.day+1,stage:job.stage,ms:spent});if(cooperativeSamples.slices.length>1000)cooperativeSamples.slices.shift();
+ if(done)cooperativeCommit(job);else if(!synchronous)cooperativePost();
+}
+function cooperativeCommit(job){
+ if(cooperativeJob!==job)return;cooperativeJob=null;cooperativeToken++;cooperativeSamples.days.push({day:G.day,cpuMs:job.cpu,elapsedMs:performance.now()-job.started});if(cooperativeSamples.days.length>240)cooperativeSamples.days.shift();
+ if(typeof cooperativeClockCommit==='function')cooperativeClockCommit(job.cpu);cooperativeClearPreview();cooperativeBanner();
+ for(const fn of cooperativeEffects.values())try{fn();}catch(e){console.error(e);}cooperativeEffects.clear();
+ cooperativeFlushCommands();for(const w of job.waiters){try{w.resolve(w.town===G?w.fn():false);}catch(e){w.reject(e);}}
+}
+function cooperativeFail(job,error){
+ cooperativeJob=null;cooperativeToken++;G=JSON.parse(job.snapshot);rngState=job.rng;roadsVersion++;roadNetwork=null;transitTopologyCache=null;transitDailyCache=null;cacheBuildingsFor=null;staticDirty=true;dirty=true;paused=true;acc=0;cooperativeEnabled=false;
+ cooperativeClearPreview();pointer.down=false;pointer.activeId=null;touches.clear();roadPainted.clear();cooperativeSamples.errors.push(String(error));cooperativeEffects.clear();const declined=cooperativeCommands.length;for(const c of cooperativeCommands)c.reject?.(error);cooperativeCommands.length=0;cooperativeBanner();for(const w of job.waiters)w.reject(error);updateHeader();toast('Experimental scheduler stopped and restored completed day '+G.day+'. '+declined+' queued input events were declined; review them again.');console.error(error);
+}
+function finishCooperativeDaySync(reason='explicit barrier'){if(!cooperativeJob)return;cooperativeToken++;cooperativeJob.token=cooperativeToken;cooperativePump(true);}
+function cooperativeQueueCommand(command){command.town=G;cooperativeCommands.push(command);cooperativeBanner();}
+function cooperativeFlushCommands(){
+ cooperativeReplaying=true;try{while(cooperativeCommands.length&&!cooperativeJob){const c=cooperativeCommands.shift();try{if(c.town!==G)throw Error('The town was replaced; review this action in the current town.');c.run();cooperativeSamples.commands.push({label:c.label,status:'replayed',day:G?.day});}catch(e){c.reject?.(e);cooperativeSamples.commands.push({label:c.label,status:'declined',day:G?.day,reason:String(e)});toast('Queued '+c.label+' needs renewed review: '+e.message);}}}finally{cooperativeReplaying=false;}
+ if(cooperativeSamples.commands.length>200)cooperativeSamples.commands.splice(0,cooperativeSamples.commands.length-200);
+}
+function setCooperativeSimulation(enabled){return afterCommittedDay(()=>{cooperativeEnabled=!!enabled;acc=0;return cooperativeEnabled;});}
 
 // SOURCE: 60-renderer.js
 function headerText(id,value){const el=$(id),text=String(value);if(el&&el.textContent!==text)el.textContent=text;}
@@ -4525,29 +4602,33 @@ try{if(localStorage.getItem('townledger-v6')||localStorage.getItem('townledger-v
 window.addEventListener('resize',fit);fit();
 let last=performance.now(),acc=0,lastMapDraw=0,lastHeader=0,lastPanel=0,lastAutosave=performance.now(),speedSample=0,sampleDays=0,sampleSeconds=0;
 function frame(now){
- const raw=Math.max(0,(now-last)/1000);last=now;
+ const raw=Math.max(0,(now-last)/1000);last=now;let cooperativeWantsDay=false;
  if(G&&!paused&&!hostSuspended&&!pendingEvent&&!document.hidden){
   // Admit requested wall time, then do a bounded amount of real simulation work.
   // A bounded queue avoids a multi-minute catchup after an interrupted phone frame.
   const dt=Math.min(raw,.25);acc=Math.min(acc+dt*speed,1.65*8);
   const budget=speed>=16?10:6,end=performance.now()+budget;let completed=0;
-  while(acc>=1.65&&(!completed||performance.now()<end)&&!pendingEvent){const t=performance.now();tick();perfStats.ticks.push(performance.now()-t);if(perfStats.ticks.length>180)perfStats.ticks.shift();acc-=1.65;completed++;}
+  if(cooperativeEnabled)cooperativeWantsDay=!cooperativeDayBusy()&&acc>=1.65;
+  else {  while(acc>=1.65&&(!completed||performance.now()<end)&&!pendingEvent){const t=performance.now();tick();perfStats.ticks.push(performance.now()-t);if(perfStats.ticks.length>180)perfStats.ticks.shift();acc-=1.65;completed++;}
+  }
   perfStats.days+=completed;perfStats.elapsed+=dt;perfStats.backlog=acc/1.65;
   sampleDays+=completed;sampleSeconds+=raw;
   if(sampleSeconds>=1){perfStats.effective=sampleDays*1.65/sampleSeconds;sampleDays=0;sampleSeconds=0;}
-  if(!gameOptions.reducedMotion){frameClock+=dt;if(gameOptions.traffic)trafficUpdate(dt);}dirty=true;
+  if(!cooperativeDayBusy()&&!gameOptions.reducedMotion){frameClock+=dt;if(gameOptions.traffic)trafficUpdate(dt);}dirty=true;
  }else{sampleDays=0;sampleSeconds=0;if(document.hidden)acc=0;}
  // Native activity transitions can suspend a still-visible WebView. Park all
  // recurring presentation/save work until resume; suspend already saved once.
- if(G&&!document.hidden&&!hostSuspended){
+ if(G&&!document.hidden&&!hostSuspended&&!cooperativeDayBusy()){
   if(now-lastHeader>=250){updateHeader();lastHeader=now;}
   if(active&&!paused&&now-lastPanel>=1500&&!['policies','citizens','settings','construction'].includes(active)&&!$('panelBody').contains(document.activeElement)){renderPanel(active);lastPanel=now;}
   if(!paused&&now-lastAutosave>=gameOptions.autoSave*1000){save();lastAutosave=now;}
   const fps=speed>=32?Math.min(20,gameOptions.fps):gameOptions.fps;
   if(dirty&&now-lastMapDraw>=1000/fps){const t=performance.now();draw();perfStats.frames.push(performance.now()-t);if(perfStats.frames.length>600)perfStats.frames.shift();lastMapDraw=now;}
  }
+ if(cooperativeWantsDay&&beginCooperativeDay())acc-=1.65;
  requestAnimationFrame(frame);
 }requestAnimationFrame(frame);
+function cooperativeClockCommit(cpu){perfStats.ticks.push(cpu);if(perfStats.ticks.length>180)perfStats.ticks.shift();perfStats.days++;sampleDays++;}
 window.addEventListener('beforeunload',()=>save());document.addEventListener('visibilitychange',()=>{last=performance.now();acc=0;if(document.hidden){save();stopGameAudio()}else refreshAmbience()});
 window.addEventListener('error',e=>{console.error(e.error||e.message);toast('Runtime issue: '+(e.message||'Unknown'))});
 
@@ -7190,6 +7271,64 @@ waterfrontFirmReport=function(f){
  return base+head('Greyhaven trade prospects')+strip('Owned named-market consignments',pending.length+' travelling / queued')+strip('Retained actual arrival sample',recent.length+' loads · '+policyNumber(recent.reduce((n,o)=>n+o.qty,0))+' units')+(p?.water?strip('Example: '+esc(buyer.name),policyNumber(p.units)+' affordable food units · '+mayorUnitMoney(p.water.freight)+'/unit carriage · '+p.water.days+' days'):tip('No current staffed, connected import quote through this dock.'))+tip('This dock can handle real named Greyhaven imports and exports as well as spot exports. The retained arrival sample is bounded, not a daily demand forecast. Existing competing docks and cheaper road/commodity quotes can still leave a replacement underused.')+'<button data-port-prospects="'+f.id+'">Compare actual river orders and competing docks</button>';
 };
 document.addEventListener('click',e=>{const b=e.target.closest('[data-port-prospects]');if(!b)return;openPanel('economy');const office=$('portFreightOffice');if(office){office.open=true;office.scrollIntoView({block:'start'});}});
+
+// SOURCE: 98zzzzzzzzzz-cooperative-ui.js
+// Final wrappers encompass the existing renderer/UI decorators. Off by default.
+for(const name of ['draw','updateHeader','renderPanel','refreshAmbience','toast']){
+ const original=eval(name);eval(name+'=function(...args){return cooperativeEffect("'+name+'",original,args);}');
+}
+const cooperativeOriginalSave=save;
+save=function(){return cooperativeDayBusy()?afterCommittedDay(()=>cooperativeOriginalSave()):cooperativeOriginalSave();};
+const cooperativeOriginalArchive=archivePayload;
+archivePayload=function(){finishCooperativeDaySync('synchronous export');return cooperativeOriginalArchive();};
+const cooperativeOriginalHydrate=hydrateSave;
+hydrateSave=function(...args){finishCooperativeDaySync('import');cooperativeToken++;return cooperativeOriginalHydrate(...args);};
+const cooperativeOriginalSeed=seed;
+seed=function(...args){finishCooperativeDaySync('founding');cooperativeToken++;return cooperativeOriginalSeed(...args);};
+const cooperativeOriginalSuspend=window.__townArchive.suspend,cooperativeOriginalPrepareExit=window.__townArchive.prepareExit,cooperativeOriginalBack=window.__townArchive.back;
+window.__townArchive.suspend=function(){finishCooperativeDaySync('native suspension');return cooperativeOriginalSuspend();};
+window.__townArchive.prepareExit=function(){if(!cooperativeDayBusy())return cooperativeOriginalPrepareExit();hostSuspended=true;return afterCommittedDay(()=>cooperativeOriginalPrepareExit());};
+window.__townArchive.back=function(){finishCooperativeDaySync('native Back');return cooperativeOriginalBack();};
+window.addEventListener('beforeunload',()=>finishCooperativeDaySync('document unload'),{capture:true});
+function cooperativeResolveTarget(record){
+ if(record.target.isConnected)return record.target;if(record.id){const el=$(record.id);if(el)return el;}
+ if(Object.keys(record.data).length)for(const el of document.querySelectorAll('button,input,select,[data-house],[data-firm],[data-inspect],[data-panel]'))if(el.tagName===record.tag&&Object.keys(record.data).every(k=>el.dataset[k]===record.data[k]))return el;
+ throw Error('The control changed while the day completed. Select the current control again.');
+}
+let cooperativePanPreview=null;
+function cooperativeClearPreview(){cv.style.transform='';cooperativePanPreview=null;for(const el of document.querySelectorAll('[data-cooperative-pending]')){el.removeAttribute('data-cooperative-pending');el.removeAttribute('aria-busy');}}
+function cooperativePreviewInput(e,target){
+ if(target===cv&&!buildMode&&!transitDraft){
+  if(e.type==='pointerdown'&&!cooperativePanPreview)cooperativePanPreview={id:e.pointerId,x:e.clientX,y:e.clientY};
+  if(e.type==='pointermove'&&cooperativePanPreview?.id===e.pointerId){const dx=e.clientX-cooperativePanPreview.x,dy=e.clientY-cooperativePanPreview.y;if(Math.abs(dx)>7||Math.abs(dy)>7)cv.style.transform='translate('+dx+'px,'+dy+'px)';}
+ }
+ if(target.tagName==='BUTTON'){target.setAttribute('data-cooperative-pending','true');target.setAttribute('aria-busy','true');}
+}
+function cooperativeCaptureInput(e){
+ if(!cooperativeDayBusy()||cooperativeReplaying)return;
+ const target=e.target.closest?.('button,input,select,textarea,a,canvas')||e.target;if(!(target instanceof Element))return;
+ if(e.type==='keydown'&&e.key!=='Escape')return;
+ // Native focus, typing, slider and button activation stay functional. Their
+ // model-facing input/change/click handlers are fenced below.
+ if(target!==cv&&/^(pointer|touch)/.test(e.type))return;
+ if(e.type==='click'&&target.id==='pause'){
+  e.preventDefault();e.stopImmediatePropagation();paused=!paused;const el=$('pause');el.textContent=paused?'►':'Ⅱ';el.setAttribute('aria-label',paused?'Resume simulation':'Pause simulation');el.title=paused?'Resume':'Pause';$('pauseBanner').style.display=paused?'block':'none';if(paused)afterCommittedDay(()=>save());cooperativeBanner();return;
+ }
+ cooperativePreviewInput(e,target);if(e.type==='input'&&target.dataset.policy){const button=$('enactPolicy');if(button)button.disabled=false;}e.preventDefault();e.stopImmediatePropagation();
+ const record={target,id:target.id,tag:target.tagName,data:{...target.dataset},value:target.value,checked:target.checked},type=e.type;
+ let init={bubbles:true,cancelable:true,composed:true,clientX:e.clientX,clientY:e.clientY,screenX:e.screenX,screenY:e.screenY,button:e.button,buttons:e.buttons,ctrlKey:e.ctrlKey,shiftKey:e.shiftKey,altKey:e.altKey,metaKey:e.metaKey,pointerId:e.pointerId,pointerType:e.pointerType,isPrimary:e.isPrimary,pressure:e.pressure,key:e.key,code:e.code,repeat:e.repeat,deltaX:e.deltaX,deltaY:e.deltaY,deltaMode:e.deltaMode,touches:e.touches?Array.from(e.touches):undefined,targetTouches:e.targetTouches?Array.from(e.targetTouches):undefined,changedTouches:e.changedTouches?Array.from(e.changedTouches):undefined};
+ const Constructor=e.constructor;
+ cooperativeQueueCommand({label:type+' '+(record.id||record.tag.toLowerCase()),run:()=>{const el=cooperativeResolveTarget(record);if(el.disabled)throw Error('This action is no longer available with the current town state.');if(type==='input'||type==='change'){el.value=record.value;if(record.checked!==undefined)el.checked=record.checked;}el.dispatchEvent(new Constructor(type,init));}});
+}
+for(const type of ['click','input','change','keydown','pointerdown','pointermove','pointerup','pointercancel','pointerleave','touchstart','touchmove','touchend','touchcancel','wheel'])window.addEventListener(type,cooperativeCaptureInput,{capture:true,passive:false});
+window.__cooperativeSimulation={
+ enable:setCooperativeSimulation,
+ status:()=>({enabled:cooperativeEnabled,busy:cooperativeDayBusy(),displayedDay:cooperativeLastCommittedDay(),workingDay:cooperativeJob?cooperativeJob.day+1:null,stage:cooperativeJob?.stage||null,queued:cooperativeCommands.length,token:cooperativeToken}),
+ afterCommit:afterCommittedDay,
+ command:(label,fn)=>cooperativeDayBusy()?new Promise((resolve,reject)=>cooperativeQueueCommand({label,reject,run:()=>{try{resolve(fn());}catch(e){reject(e);throw e;}}})):afterCommittedDay(fn),
+ finish:finishCooperativeDaySync,
+ samples:()=>JSON.parse(JSON.stringify(cooperativeSamples))
+};
 
 // SOURCE: 99-instrumentation.js
 // Read-only / test instrumentation. No remote telemetry is used.

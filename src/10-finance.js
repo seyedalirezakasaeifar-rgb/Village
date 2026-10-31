@@ -283,6 +283,19 @@ function outwardMigration(){
  }return 0;
 }
 
+// Preserve filter, assessment, sort and random-departure order across yields.
+function* stagedOutwardMigration(){
+ if(G.day%30!==0)return 0;
+ const candidates=[];for(const h of G.households){if(h.people.length&&h.home>=0&&((h.stress||0)>42||(h.worklessness||0)>20)&&migrationSpendable(h).spendable<90*Math.max(1,expectedHouseholdEssentials(h)+migrationDebtDue(h)))candidates.push(h);yield 'migration-filter';}
+ const assessed=[];for(const h of candidates){assessed.push({h,assessment:migrationEmigrationAssessment(h)});yield 'migration-assessment';}
+ const choices=assessed.filter(x=>x.assessment.eligible).sort((a,b)=>a.assessment.runwayDays-b.assessment.runwayDays||a.h.id-b.h.id);
+ for(const {h,assessment} of choices){if(random()>=assessment.probability)continue;const home=readBuild(h.home),departures=h.people.slice();
+  for(const id of departures){const p=G.people[id];if(!p)continue;p.movedAway=true;p.job=-1;for(const f of G.firms)if(f.workers.includes(id))f.workers=f.workers.filter(n=>n!==id);}
+  h.people=[];G.region+=Math.max(0,h.cash);h.cash=0;migrationReleaseTenancy(h);migrationRecord('departure',{household:h.id,people:departures.length,assessment});
+  story('The '+h.name+' family left after a persistent budget shortfall and a better outside reference. Their financial claims and property titles remain recorded.','bad',home?.id||0);recompute();return departures.length;
+ }return 0;
+}
+
 function reverseRedevelopment(){
  if(G.day%60!==0||!G.autoBuild)return false;
  const d=cityDemand();

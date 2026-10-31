@@ -231,28 +231,32 @@ try{if(localStorage.getItem('townledger-v6')||localStorage.getItem('townledger-v
 window.addEventListener('resize',fit);fit();
 let last=performance.now(),acc=0,lastMapDraw=0,lastHeader=0,lastPanel=0,lastAutosave=performance.now(),speedSample=0,sampleDays=0,sampleSeconds=0;
 function frame(now){
- const raw=Math.max(0,(now-last)/1000);last=now;
+ const raw=Math.max(0,(now-last)/1000);last=now;let cooperativeWantsDay=false;
  if(G&&!paused&&!hostSuspended&&!pendingEvent&&!document.hidden){
   // Admit requested wall time, then do a bounded amount of real simulation work.
   // A bounded queue avoids a multi-minute catchup after an interrupted phone frame.
   const dt=Math.min(raw,.25);acc=Math.min(acc+dt*speed,1.65*8);
   const budget=speed>=16?10:6,end=performance.now()+budget;let completed=0;
-  while(acc>=1.65&&(!completed||performance.now()<end)&&!pendingEvent){const t=performance.now();tick();perfStats.ticks.push(performance.now()-t);if(perfStats.ticks.length>180)perfStats.ticks.shift();acc-=1.65;completed++;}
+  if(cooperativeEnabled)cooperativeWantsDay=!cooperativeDayBusy()&&acc>=1.65;
+  else {  while(acc>=1.65&&(!completed||performance.now()<end)&&!pendingEvent){const t=performance.now();tick();perfStats.ticks.push(performance.now()-t);if(perfStats.ticks.length>180)perfStats.ticks.shift();acc-=1.65;completed++;}
+  }
   perfStats.days+=completed;perfStats.elapsed+=dt;perfStats.backlog=acc/1.65;
   sampleDays+=completed;sampleSeconds+=raw;
   if(sampleSeconds>=1){perfStats.effective=sampleDays*1.65/sampleSeconds;sampleDays=0;sampleSeconds=0;}
-  if(!gameOptions.reducedMotion){frameClock+=dt;if(gameOptions.traffic)trafficUpdate(dt);}dirty=true;
+  if(!cooperativeDayBusy()&&!gameOptions.reducedMotion){frameClock+=dt;if(gameOptions.traffic)trafficUpdate(dt);}dirty=true;
  }else{sampleDays=0;sampleSeconds=0;if(document.hidden)acc=0;}
  // Native activity transitions can suspend a still-visible WebView. Park all
  // recurring presentation/save work until resume; suspend already saved once.
- if(G&&!document.hidden&&!hostSuspended){
+ if(G&&!document.hidden&&!hostSuspended&&!cooperativeDayBusy()){
   if(now-lastHeader>=250){updateHeader();lastHeader=now;}
   if(active&&!paused&&now-lastPanel>=1500&&!['policies','citizens','settings','construction'].includes(active)&&!$('panelBody').contains(document.activeElement)){renderPanel(active);lastPanel=now;}
   if(!paused&&now-lastAutosave>=gameOptions.autoSave*1000){save();lastAutosave=now;}
   const fps=speed>=32?Math.min(20,gameOptions.fps):gameOptions.fps;
   if(dirty&&now-lastMapDraw>=1000/fps){const t=performance.now();draw();perfStats.frames.push(performance.now()-t);if(perfStats.frames.length>600)perfStats.frames.shift();lastMapDraw=now;}
  }
+ if(cooperativeWantsDay&&beginCooperativeDay())acc-=1.65;
  requestAnimationFrame(frame);
 }requestAnimationFrame(frame);
+function cooperativeClockCommit(cpu){perfStats.ticks.push(cpu);if(perfStats.ticks.length>180)perfStats.ticks.shift();perfStats.days++;sampleDays++;}
 window.addEventListener('beforeunload',()=>save());document.addEventListener('visibilitychange',()=>{last=performance.now();acc=0;if(document.hidden){save();stopGameAudio()}else refreshAmbience()});
 window.addEventListener('error',e=>{console.error(e.error||e.message);toast('Runtime issue: '+(e.message||'Unknown'))});
