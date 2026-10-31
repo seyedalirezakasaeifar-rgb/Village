@@ -230,6 +230,26 @@ $('newTown').onclick=()=>{start(true);refreshAmbience()};$('continue').onclick=(
 try{if(localStorage.getItem('townledger-v6')||localStorage.getItem('townledger-v6-backup')||localStorage.getItem('townledger-village-founder-3')||localStorage.getItem('townledger-village-civic-2'))$('continue').style.display='block'}catch(e){}
 window.addEventListener('resize',fit);fit();
 let last=performance.now(),acc=0,lastMapDraw=0,lastHeader=0,lastPanel=0,lastAutosave=performance.now(),speedSample=0,sampleDays=0,sampleSeconds=0;
+// Periodic report DOM replacement and autosave serialization each run in their
+// own task after the frame. Immediate controls keep their synchronous paths.
+// One pending request per kind bounds work before any archive is serialized.
+let periodicPanelTimer=0,periodicSaveTimer=0;
+function queuePeriodicPanel(requestedAt=performance.now()){
+ if(periodicPanelTimer)return;const town=G,tab=active;
+ periodicPanelTimer=setTimeout(()=>{periodicPanelTimer=0;
+  if(G!==town||active!==tab||!active||paused||simulationBusy||hostSuspended||document.hidden||$('panelBody').contains(document.activeElement))return;
+  renderPanel(tab);lastPanel=requestedAt;
+ },0);
+}
+function queuePeriodicSave(requestedAt=performance.now()){
+ if(periodicSaveTimer)return;const town=G,epoch=saveEpoch,revision=saveRevision;
+ periodicSaveTimer=setTimeout(()=>{periodicSaveTimer=0;
+  if(G!==town||saveEpoch!==epoch||paused||simulationBusy||hostSuspended||document.hidden)return;
+  // A successful immediate save while queued already covers this request.
+  if(saveRevision===revision||!autoSaveOK)save();
+  lastAutosave=requestedAt;
+ },0);
+}
 function frame(now){
  const raw=Math.max(0,(now-last)/1000);last=now;
  if(G&&!paused&&!hostSuspended&&!pendingEvent&&!document.hidden){
@@ -247,8 +267,8 @@ function frame(now){
  // recurring presentation/save work until resume; suspend already saved once.
  if(G&&!document.hidden&&!hostSuspended){
   if(now-lastHeader>=250){updateHeader();lastHeader=now;}
-  if(active&&!paused&&now-lastPanel>=1500&&!['policies','citizens','settings','construction'].includes(active)&&!$('panelBody').contains(document.activeElement)){renderPanel(active);lastPanel=now;}
-  if(!paused&&now-lastAutosave>=gameOptions.autoSave*1000){save();lastAutosave=now;}
+  if(active&&!paused&&now-lastPanel>=1500&&!['policies','citizens','settings','construction'].includes(active)&&!$('panelBody').contains(document.activeElement))queuePeriodicPanel(now);
+  if(!paused&&now-lastAutosave>=gameOptions.autoSave*1000)queuePeriodicSave(now);
   const fps=speed>=32?Math.min(20,gameOptions.fps):gameOptions.fps;
   if(dirty&&now-lastMapDraw>=1000/fps){const t=performance.now();draw();perfStats.frames.push(performance.now()-t);if(perfStats.frames.length>600)perfStats.frames.shift();lastMapDraw=now;}
  }
