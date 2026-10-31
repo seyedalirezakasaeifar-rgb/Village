@@ -1,0 +1,11 @@
+"""Controlled historical records verify recoverable, dated UI evidence without economy changes."""
+from test_mobile_rendering import ROOT,html
+from playwright.sync_api import sync_playwright
+import json,hashlib
+source=(ROOT/'assets/game.js').read_text();probe='''
+window.__recentTradeFeedback=()=>{const original=G;try{G={...G,day:400,regionalTrade:{...G.regionalTrade,contracts:[]}};const missed={id:10,market:'upland',status:'missed',quantity:200,delivered:0,deadline:399,name:'Upland delivery'};G.regionalTrade.contracts=[missed];if(recentTradeSetbacks().length!==1)throw Error('Recent miss lost');const title=mayorPressureCards().find(i=>i.panel==='economy'&&i.title.includes('missed'))?.title;if(title!=='Review a recent missed window')throw Error('UI invents a reputation score');G.regionalTrade.contracts.push({...missed,id:11,deadline:430,status:'fulfilled',delivered:200});if(recentTradeSetbacks().length)throw Error('Later same-buyer success did not recover');G.regionalTrade.contracts=[{...missed,deadline:309}];if(recentTradeSetbacks().length)throw Error('Old miss stayed urgent forever');G.regionalTrade.contracts=[{...missed,delivered:200}];const text=mayorPressureCards().find(i=>i.title.includes('missed'))?.evidence;if(!text?.includes('recorded arrivals')||text.includes('arrived by'))throw Error('Late receipts presented as on-time');return{recentTitle:title,lateReceiptEvidence:text,oldMissRetainedInHistory:G.regionalTrade.contracts.length===1};}finally{G=original;}};
+'''
+with sync_playwright() as pw:
+ b=pw.chromium.launch(executable_path='/usr/bin/chromium',args=['--no-sandbox']);p=b.new_page(viewport={'width':844,'height':390});p.set_content(html);p.add_script_tag(content=source.replace('// SOURCE: 99-instrumentation.js',probe+'\n// SOURCE: 99-instrumentation.js'));p.locator('#newTown').click();p.locator('#pause').click();result=p.evaluate('__recentTradeFeedback()');b.close()
+out=ROOT/'reports/civic-turnarounds';out.mkdir(parents=True,exist_ok=True);(out/'recent-trade.json').write_text(json.dumps({'source_sha256':hashlib.sha256(source.encode()).hexdigest(),'controlledHistoricalFixture':True,**result},indent=2)+'\n')
+print('PASS recent actual miss, same-buyer recovery, old history without permanent pressure, no fictional reputation and no on-time claim for late receipts')

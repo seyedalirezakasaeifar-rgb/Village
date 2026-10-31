@@ -44,7 +44,7 @@ with sync_playwright() as pw:
  page.locator('[data-civic-project-charter]').click();page.locator('[data-event-choice="0"]').click()
  assert state()['districtProgrammes']['county-ridge']['focus']=='industry'
  assert page.locator('[data-civic-project-road]').count()==1
- before_road=state();page.locator('[data-civic-project-road]').click();assert page.locator('.civic-project-plan').count()==1
+ before_road=state();page.locator('[data-civic-project-road]').click();assert page.locator('.civic-blueprint-layout').count()==1
  page.screenshot(path=str(OUT/'landscape-gateway-survey.png'))
  page.keyboard.press('Escape');assert page.locator('.civic-project-survey').count()==0;assert state()['treasury']==before_road['treasury']
  page.locator('[data-civic-project-road]').click();page.locator('[data-event-choice="0"]').click();after_road=state()
@@ -52,7 +52,7 @@ with sync_playwright() as pw:
  assert abs(before_road['treasury']-after_road['treasury']-added*150)<.001
  assert all(a==b or a in [0,3] and b==1 for a,b in zip(before_road['tiles'],after_road['tiles']))
  # Commission a visible named factory using the normal construction transaction.
- before_factory=state();page.locator('[data-civic-project-build=factory]').click();assert page.locator('.civic-project-plan').count()==1
+ before_factory=state();page.locator('[data-civic-project-build=factory]').click();assert page.locator('.civic-blueprint-layout').count()==1
  page.keyboard.press('Escape');assert state()['treasury']==before_factory['treasury']
  page.locator('[data-civic-project-build=factory]').click();page.locator('[data-event-choice="0"]').click();factory_state=state()
  factories=[f for f in factory_state['firms'] if f['kind']=='factory'];assert len(factories)>len([f for f in before_factory['firms'] if f['kind']=='factory'])

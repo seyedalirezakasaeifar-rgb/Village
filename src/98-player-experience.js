@@ -48,6 +48,9 @@ function validateMayorJourney(data){
  if(p.review!=null){const v=p.review;if(!Number.isInteger(v.day)||v.day<1||v.day>data.day||!v.metrics||!['employment','food','hardship','medical','school','reserve'].every(k=>Number.isFinite(v.metrics[k])&&v.metrics[k]>=0&&v.metrics[k]<=1000))return false;}
  return true;
 }
+function recentTradeSetbacks(){
+ const contracts=G.regionalTrade?.contracts||[];return contracts.filter(c=>c.status==='missed'&&G.day>=c.deadline&&G.day-c.deadline<=90&&!contracts.some(next=>next.status==='fulfilled'&&next.market===c.market&&next.id>c.id&&next.deadline>=c.deadline)).sort((a,b)=>b.deadline-a.deadline);
+}
 function mayorPressureCards(){
  const m=mayorMetrics(),s=G.regionalTrade||{shipments:[],contracts:[]},issues=[];
  const add=(score,title,evidence,cause,panel,label)=>issues.push({score,title,evidence,cause,panel,label});
@@ -57,7 +60,7 @@ function mayorPressureCards(){
  if(m.hardship>15)add(85,'A pay packet is not enough',fmt(m.hardship)+'% of households in hardship','Inspect a family’s wages, rent, essentials and savings before choosing tax relief or targeted support.','citizens','Follow household accounts');
  if(G.day>1&&(m.medical<65||m.school<60))add(75,'Places need people and access','Care '+fmt(m.medical)+'% · learning '+fmt(m.school)+'%','More funding cannot instantly create a qualified worker or a road. Compare public capacity and available private providers before building.','community','Compare provision');
  const delayed=(s.shipments||[]).filter(o=>o.due<G.day);if(delayed.length)add(92,'Cargo is taking longer',delayed.length+' consignments past expected arrival','Expected arrival is a plan. Review access, loading and buyer liquidity before promising another agreement.','economy','Trace the delay');
- const missed=(s.contracts||[]).filter(c=>c.status==='missed');if(missed.length)add(70,'Rebuild a trading reputation',missed.length+' agreement windows missed','Past cargo still travels. Keep a smaller promise next time; allow for stock reserves and the whole delivery lag.','economy','Review agreements');
+ const missed=recentTradeSetbacks();if(missed.length){const c=missed[0],market=OUTSIDE_MARKETS.find(m=>m.id===c.market);add(70,'Review a recent missed window',(market?.name||c.name)+' · '+fmt(c.delivered)+' / '+fmt(c.quantity)+' recorded arrivals; window ended day '+c.deadline,'The past window remains in history. Review uncommitted stock and handling before another promise. This is recent delivery evidence, not a hidden reputation score.','economy','Review the actual agreement');}
  if(G.day===1)add(40,'Take the first council session','Awaiting the first daily settlement','Trace food stocks and enterprise cash now. Let one simulated day finish before judging food and funded service coverage.','economy','Trace the supply chain');
  if(!issues.length)add(30,'Choose what growth is for',fmt(m.employment)+'% employment · '+fmt(m.reserve)+' reserve days','Compare a trade park, a mixed neighbourhood and river frontage. Land choice changes eligible activities and operating needs.','construction','Compare district commitments');
  return issues.sort((a,b)=>b.score-a.score).slice(0,3);

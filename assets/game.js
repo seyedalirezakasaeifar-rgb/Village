@@ -1770,6 +1770,60 @@ function urbanHousingMobility(){
  if(moved){ensureUrban().revision++;invalidateUrban();invalidateRoads(false);staticDirty=true;dirty=true;story(moved+' households moved voluntarily to vacant homes after comparing rent, work access and local conditions. Moving costs were paid from their savings.','neutral');}return moved;
 }
 
+// SOURCE: 28-civic-blueprints.js
+// Read-only physical district surveys. Existing placement and accounting stay authoritative.
+const CIVIC_BLUEPRINT_KINDS={industry:['factory','warehouse'],neighbourhood:['grocer','bakery'],waterfront:['fishery','wharf']};
+function civicBlueprintInside(p,x,y){return x>=p.x&&x<p.x+p.w&&y>=p.y&&y<p.y+p.h;}
+function civicBlueprintExisting(parcel,kind){return G.firms.filter(f=>!f.closed&&f.kind===kind).map(f=>({f,b:readBuild(f.building)})).find(v=>v.b&&civicBlueprintInside(parcel,v.b.x,v.b.y));}
+function civicBlueprintRoadAllowed(id,blocked){
+ const x=id%T,y=id/T|0;if(x<0||x>=T||y<0||y>=T||blocked.has(id))return false;
+ return charterOwns(x,y)&&[0,1,3].includes(G.tiles[id])&&!buildingAt(x,y)&&!G.landUse?.[id];
+}
+function civicBlueprintNeighbours(id){const x=id%T,y=id/T|0,result=[];for(const [dx,dy]of roadOffsets){const xx=x+dx,yy=y+dy;if(xx>=0&&xx<T&&yy>=0&&yy<T)result.push(roadId(xx,yy));}return result;}
+function civicBlueprintPathToLot(site,roads,blocked){
+ const targets=new Set();for(const id of site.footprint)for(const n of civicBlueprintNeighbours(id))if(!site.footprint.includes(n)&&civicBlueprintRoadAllowed(n,blocked))targets.add(n);
+ const prev=new Int32Array(T*T);prev.fill(-2);const queue=[];
+ for(const id of roads){if(blocked.has(id))continue;prev[id]=-1;queue.push(id);}
+ let end=null;for(let n=0;n<queue.length;n++){const id=queue[n];if(targets.has(id)){end=id;break;}for(const next of civicBlueprintNeighbours(id)){if(prev[next]!==-2||!civicBlueprintRoadAllowed(next,blocked))continue;prev[next]=id;queue.push(next);}}
+ if(end==null)return null;const path=[];for(let id=end;id>=0;id=prev[id])path.push(id);path.reverse();return path;
+}
+function civicBlueprintRoadDistances(roads,blocked=new Set()){const distance=new Int32Array(T*T);distance.fill(-1);const queue=[];for(const id of roads){distance[id]=0;queue.push(id);}for(let n=0;n<queue.length;n++){const id=queue[n];for(const next of civicBlueprintNeighbours(id))if(distance[next]<0&&civicBlueprintRoadAllowed(next,blocked)){distance[next]=distance[id]+1;queue.push(next);}}return distance;}
+function civicBlueprintCandidates(parcel,kind,roads,blocked=new Set(),preferred=null){
+ const distance=civicBlueprintRoadDistances(roads,blocked),center={x:parcel.x+parcel.w/2,y:parcel.y+parcel.h/2},result=[];
+ for(let y=parcel.y;y<parcel.y+parcel.h;y++)for(let x=parcel.x;x<parcel.x+parcel.w;x++){
+  if(!canPlace(x,y,false,kind))continue;const footprint=footprintFor(x,y,kind);
+  if(footprint.some(id=>blocked.has(id)||roads.has(id)||!civicBlueprintInside(parcel,id%T,id/T|0)))continue;
+  const adjacent=footprint.flatMap(civicBlueprintNeighbours).filter(id=>!footprint.includes(id)),reach=Math.min(...adjacent.filter(id=>distance[id]>=0).map(id=>distance[id]));if(!Number.isFinite(reach))continue;
+  result.push({kind,x,y,footprint,score:reach+Math.abs(x-center.x)*(kind==='fishery'||kind==='wharf'?.35:2)+Math.abs(y-center.y)*2,preferred:!!preferred&&preferred.x===x&&preferred.y===y});
+ }
+ result.sort((a,b)=>Number(b.preferred)-Number(a.preferred)||a.score-b.score||a.y-b.y||a.x-b.x);return result.slice(0,8);
+}
+let civicBlueprintCacheTown=null,civicBlueprintCache=new Map();
+function civicDistrictBlueprint(project,fresh=false){
+ const parcel=ANNEX_PARCELS.find(p=>p.id===project.target),kinds=CIVIC_BLUEPRINT_KINDS[project.branch];if(!parcel||!kinds)return {ok:false,reason:'No supported district purpose is selected.'};
+ if(!G.charter.owned.includes(parcel.id))return {ok:false,reason:'Acquire this district’s development rights before commissioning its roads.'};
+ if(G.districtProgrammes?.[parcel.id]?.focus!==project.branch)return {ok:false,reason:'Record the intended district charter before commissioning its physical plan.'};
+ if(civicBlueprintCacheTown!==G){civicBlueprintCacheTown=G;civicBlueprintCache=new Map();}
+ const net=graph(),key=parcel.id+':'+project.branch,existing=kinds.map(kind=>civicBlueprintExisting(parcel,kind)),revision=[roadsVersion,G.buildings.length,Object.keys(G.landUse||{}).length,existing.map(v=>v?.f.id??'-').join(','),(project.sitePlans||[]).map(s=>s.kind+':'+s.x+','+s.y).join('|')].join('/'),cached=civicBlueprintCache.get(key);
+ if(!fresh&&cached?.net===net&&cached.revision===revision)return cached.plan;
+ const roads=new Set([...net.neighbors.keys()].filter(id=>net.parts[id]===net.mainPart)),fixed=existing.filter(Boolean).map(v=>({kind:v.f.kind,x:v.b.x,y:v.b.y,footprint:footprintOf(v.b),existing:v.b.id,firm:v.f.id})),fixedCells=new Set(fixed.flatMap(s=>s.footprint));
+ const preferred=kind=>(project.sitePlans||[]).find(s=>s.kind===kind),firsts=existing[0]?[fixed.find(s=>s.kind===kinds[0])]:civicBlueprintCandidates(parcel,kinds[0],roads,fixedCells,preferred(kinds[0]));let best=null;
+ for(const first of firsts){
+  const blocked=new Set([...fixedCells,...first.footprint]),path=civicBlueprintPathToLot(first,roads,blocked);if(!path)continue;
+  const connected=new Set([...roads,...path]),roadCells=path.filter(id=>G.tiles[id]!==1),seconds=existing[1]?[fixed.find(s=>s.kind===kinds[1])]:civicBlueprintCandidates(parcel,kinds[1],connected,blocked,preferred(kinds[1]));
+  for(const second of seconds){const both=new Set([...blocked,...second.footprint]),path2=civicBlueprintPathToLot(second,connected,both);if(!path2)continue;const cells=[...new Set([...roadCells,...path2.filter(id=>G.tiles[id]!==1)])],candidate={ok:true,parcel:parcel.id,focus:project.branch,roads:cells,sites:[first,second],cost:cells.length*buildCost.road};if(!best||cells.length<best.roads.length)best=candidate;break;}
+  if(best?.cost===0)break;
+ }
+ const plan=best||{ok:false,parcel:parcel.id,focus:project.branch,reason:'No pair of legally vacant, connected sites fits this purpose without crossing existing buildings, reservations or water. Review another tract or draw an alternative street connection.'};civicBlueprintCache.set(key,{net,revision,plan});return plan;
+}
+function civicBlueprintSignature(plan){return plan.ok?plan.roads.join(',')+'|'+plan.sites.map(s=>s.kind+':'+s.x+','+s.y+':'+(s.existing||0)).join('|'):'';}
+
+function civicBlueprintSites(plan){return plan.sites.map(s=>({kind:s.kind,x:s.x,y:s.y}));}
+function validateCivicSitePlans(project){
+ if(project.sitePlans==null)return true;if(!Array.isArray(project.sitePlans)||project.sitePlans.length>2||project.kind!=='district')return false;const cells=new Set();
+ return project.sitePlans.every((s,i,a)=>s&&CIVIC_BLUEPRINT_KINDS[project.branch]?.includes(s.kind)&&a.findIndex(v=>v.kind===s.kind)===i&&Number.isInteger(s.x)&&Number.isInteger(s.y)&&s.x>=2&&s.y>=2&&s.x<T-2&&s.y<T-2&&footprintFor(s.x,s.y,s.kind).every(id=>{const p=ANNEX_PARCELS.find(p=>p.id===project.target);if(!p||!civicBlueprintInside(p,id%T,id/T|0)||cells.has(id))return false;cells.add(id);return true;}));
+}
+
 // SOURCE: 28-urban-rehousing.js
 // Replacement housing is actual municipal property, commissioned before clearing
 // tenants' homes. No household is spawned to occupy this reserved dwelling.
@@ -2924,7 +2978,7 @@ function tick(){if(!G||pendingEvent)return;ensureSystems();ensureMarketModel();G
  if(!pendingEvent&&G.day%45===0&&G.day-G.lastEventDay>=37)offerCouncilEvent();
  // Publish and save one canonical end-of-day snapshot after demographic and civic changes.
  recompute();G.stats.approval=Math.round(G.council.approval);G.rngState=rngState;
- privateServiceInvestmentDay();districtProgrammeDay();urbanEvolutionDay();updateScenarioProgramme();mayorJourneyDay();civicProjectsDay();G.rngState=rngState;if(G.day%10===0)recordObservation();
+ privateServiceInvestmentDay();districtProgrammeDay();urbanEvolutionDay();updateScenarioProgramme();mayorJourneyDay();civicProjectsDay();civicCampaignDay();G.rngState=rngState;if(G.day%10===0)recordObservation();
  G.history.push({day:G.day,employment:G.stats.employment,hardship:G.stats.hardship,safety:G.stats.safety,treasury:Math.round(G.treasury),businesses:G.stats.businesses,deposits:(G.banks||[]).reduce((n,b)=>n+bankDeposits(b.id),0),crime:G.stats.dailyCrime,approval:G.council.approval,education:G.education,health:G.health});if(G.history.length>240)G.history.shift();
  if(G.day%60===0){const signal=marketSignal();if(signal.kind!=='normal'&&signal.title!==G.lastEconomicSignal){story(signal.title+'. '+signal.description,signal.kind==='good'?'good':'bad');G.lastEconomicSignal=signal.title;}}
  // Autosaves are scheduled in wall time by the frame controller.
@@ -4377,8 +4431,9 @@ function updateObjectiveMini(){if(!G)return;let m=AMBITIONS.find(m=>m.id===G.amb
 
 $('eventDefer').onclick=()=>closeCouncilDialog(true);
 $('eventDialog').addEventListener('keydown',e=>{
- if(e.key!=='Tab')return;const controls=[...$('eventDialog').querySelectorAll('button:not([disabled])')];const first=controls[0],last=fromEnd(controls);
- if(e.shiftKey&&document.activeElement===first){last.focus();e.preventDefault();}else if(!e.shiftKey&&document.activeElement===last){first.focus();e.preventDefault();}
+ if(e.key!=='Tab'||!pendingEvent||$('helpDialog').style.display!=='none')return;
+ const controls=[...$('eventDialog').querySelectorAll('button:not([disabled]),select:not([disabled]),input:not([disabled]),textarea:not([disabled]),summary,[href],[tabindex]:not([tabindex="-1"])')].filter(el=>el.offsetParent!==null),first=controls[0],last=fromEnd(controls);
+ if(!first)return;if(e.shiftKey&&document.activeElement===first){last.focus();e.preventDefault();}else if(!e.shiftKey&&document.activeElement===last){first.focus();e.preventDefault();}
 });
 
 // SOURCE: 90-archive-panels.js
@@ -4403,7 +4458,7 @@ function hydrateSave(raw){
    if(idSet.has(b.id))return false;idSet.add(b.id);
   }
   for(const h of data.households)for(const id of h.people){if(memberSet.has(id)||data.people[id].hh!==h.id||data.people[id].deceased||data.people[id].movedAway)return false;memberSet.add(id)}
-  if(!validateUrbanRehousing(data)||!validateUrban(data)||!validateCivicProjects(data)||!validateMayorJourney(data)||!validatePrivateServices(data)||!validateDistrictProgrammes(data)||!validateRegionalTrade(data)||!validateWaterfrontArchive(data)||!validateGoodsAccounting(data))return false;
+  if(!validateCivicCampaign(data)||!validateUrbanRehousing(data)||!validateUrban(data)||!validateCivicProjects(data)||!validateMayorJourney(data)||!validatePrivateServices(data)||!validateDistrictProgrammes(data)||!validateRegionalTrade(data)||!validateWaterfrontArchive(data)||!validateGoodsAccounting(data))return false;
   if(!validateTransit(data)||!validateCivicState(data)||!validateCreditState(data)||!validateScenarioProgramme(data)||!validateCharter(data))return false;
   data.version=3;data.policy={...defaults,...data.policy};
   data.banks=Array.isArray(data.banks)?data.banks.filter(b=>b&&Number.isInteger(b.id)&&b.id>=0&&b.id<12&&Number.isFinite(b.cash)&&b.cash>=0&&Number.isFinite(b.depositAPY)&&Number.isFinite(b.loanAPY)).slice(0,12):[];
@@ -5002,6 +5057,9 @@ function validateMayorJourney(data){
  if(p.review!=null){const v=p.review;if(!Number.isInteger(v.day)||v.day<1||v.day>data.day||!v.metrics||!['employment','food','hardship','medical','school','reserve'].every(k=>Number.isFinite(v.metrics[k])&&v.metrics[k]>=0&&v.metrics[k]<=1000))return false;}
  return true;
 }
+function recentTradeSetbacks(){
+ const contracts=G.regionalTrade?.contracts||[];return contracts.filter(c=>c.status==='missed'&&G.day>=c.deadline&&G.day-c.deadline<=90&&!contracts.some(next=>next.status==='fulfilled'&&next.market===c.market&&next.id>c.id&&next.deadline>=c.deadline)).sort((a,b)=>b.deadline-a.deadline);
+}
 function mayorPressureCards(){
  const m=mayorMetrics(),s=G.regionalTrade||{shipments:[],contracts:[]},issues=[];
  const add=(score,title,evidence,cause,panel,label)=>issues.push({score,title,evidence,cause,panel,label});
@@ -5011,7 +5069,7 @@ function mayorPressureCards(){
  if(m.hardship>15)add(85,'A pay packet is not enough',fmt(m.hardship)+'% of households in hardship','Inspect a family’s wages, rent, essentials and savings before choosing tax relief or targeted support.','citizens','Follow household accounts');
  if(G.day>1&&(m.medical<65||m.school<60))add(75,'Places need people and access','Care '+fmt(m.medical)+'% · learning '+fmt(m.school)+'%','More funding cannot instantly create a qualified worker or a road. Compare public capacity and available private providers before building.','community','Compare provision');
  const delayed=(s.shipments||[]).filter(o=>o.due<G.day);if(delayed.length)add(92,'Cargo is taking longer',delayed.length+' consignments past expected arrival','Expected arrival is a plan. Review access, loading and buyer liquidity before promising another agreement.','economy','Trace the delay');
- const missed=(s.contracts||[]).filter(c=>c.status==='missed');if(missed.length)add(70,'Rebuild a trading reputation',missed.length+' agreement windows missed','Past cargo still travels. Keep a smaller promise next time; allow for stock reserves and the whole delivery lag.','economy','Review agreements');
+ const missed=recentTradeSetbacks();if(missed.length){const c=missed[0],market=OUTSIDE_MARKETS.find(m=>m.id===c.market);add(70,'Review a recent missed window',(market?.name||c.name)+' · '+fmt(c.delivered)+' / '+fmt(c.quantity)+' recorded arrivals; window ended day '+c.deadline,'The past window remains in history. Review uncommitted stock and handling before another promise. This is recent delivery evidence, not a hidden reputation score.','economy','Review the actual agreement');}
  if(G.day===1)add(40,'Take the first council session','Awaiting the first daily settlement','Trace food stocks and enterprise cash now. Let one simulated day finish before judging food and funded service coverage.','economy','Trace the supply chain');
  if(!issues.length)add(30,'Choose what growth is for',fmt(m.employment)+'% employment · '+fmt(m.reserve)+' reserve days','Compare a trade park, a mixed neighbourhood and river frontage. Land choice changes eligible activities and operating needs.','construction','Compare district commitments');
  return issues.sort((a,b)=>b.score-a.score).slice(0,3);
@@ -5068,7 +5126,7 @@ function civicProjectTargetHousehold(privateOnly=false){
  return best?.h;
 }
 function civicProjectGrocer(){return G.firms.filter(f=>!f.closed&&f.kind==='grocer'&&readBuild(f.building)).sort((a,b)=>((a.stock.food||0)+pendingGoods(a,'food'))/Math.max(1,reachableRetailDemand(a))-((b.stock.food||0)+pendingGoods(b,'food'))/Math.max(1,reachableRetailDemand(b))||a.id-b.id)[0];}
-function civicProjectTitle(p){return p.kind==='food'?'The fresh-food circuit':p.kind==='district'?'A gateway worth building':'The school-to-work promise';}
+function civicProjectTitle(p){return p.kind==='food'?'The fresh-food circuit':p.kind==='district'?'A gateway worth building':'Learning within reach';}
 function civicProjectStart(kind,branch,target){
  if(!CIVIC_PROJECT_KINDS.includes(kind))return false;
  if(kind==='food'&&(!['bridge','local'].includes(branch)||!G.firms[target]||G.firms[target].closed||G.firms[target].kind!=='grocer'))return false;
@@ -5151,23 +5209,33 @@ construct=function(kind,x,y,quiet=false){
  if(p?.id===target.id&&b){p.building=b.id;if(p.kind==='food')p.firm=b.firm;civicProjectSurveyTarget=null;save();}
 };
 const projectCloseBuildBase=closeBuildTool;closeBuildTool=function(){civicProjectSurveyTarget=null;projectCloseBuildBase();};
+function civicBlueprintSurveyMarkup(plan){
+ if(!plan.ok)return tip(plan.reason);const cells=[...plan.roads,...plan.sites.flatMap(s=>s.footprint)],xs=cells.map(id=>id%T),ys=cells.map(id=>id/T|0),x0=Math.max(0,Math.min(...xs)-1),y0=Math.max(0,Math.min(...ys)-1),w=Math.min(T-1,Math.max(...xs)+1)-x0+1,h=Math.min(T-1,Math.max(...ys)+1)-y0+1,roads=new Set(plan.roads),sites=new Map(plan.sites.flatMap((s,i)=>s.footprint.map(id=>[id,i])));let tiles='';
+ for(let y=y0;y<y0+h;y++)for(let x=x0;x<x0+w;x++){const id=roadId(x,y),index=sites.get(id),b=buildingAt(x,y),color=index!=null?index===0?'#bc8b45':'#8a719c':roads.has(id)?'#e5c77b':b?'#796958':G.tiles[id]===1?'#81938b':G.tiles[id]===2?'#74a8ad':G.tiles[id]===3?'#6e9069':'#d6dfbd';tiles+=`<rect x="${(x-x0)*10}" y="${(y-y0)*10}" width="9" height="9" fill="${color}"/>`;}
+ return `<details class="civic-blueprint-layout"><summary>Actual footprints and street survey</summary><svg viewBox="0 0 ${w*10} ${h*10}" role="img" aria-label="Complete surveyed road connection and two non-overlapping business footprints; north at top">${tiles}</svg><p class="desc">Gold roads: new purchases. Brown/purple: the two planned footprints. Grey: existing streets. Blue: water. The full connection is shown; existing titles are retained. Surveyed plots remain available to other development until purchased.</p></details>`+plan.sites.map((site,i)=>strip((i+1)+'. '+types[site.kind].n,`(${site.x}, ${site.y}) · ${site.footprint.length} tile(s) · ${site.existing?'existing site':money(buildCost[site.kind])+' separate site purchase'}`)).join('');
+}
 function civicProjectReviewBuild(kind,projectKind){
- const project=G.civicProjects?.active[projectKind];if(!project||project.status!=='active')return;
- const parcel=projectKind==='district'?ANNEX_PARCELS.find(a=>a.id===project.target):null,anchor=parcel?{x:parcel.x+Math.floor(parcel.w/2),y:parcel.y+Math.floor(parcel.h/2)}:projectKind==='skills'?readBuild(G.households[project.target]?.home):readBuild(G.firms[project.target]?.building);
- if(!anchor)return;const lot=civicProjectLot(kind,anchor,parcel?.id);if(!lot){toast('No connected, legally vacant site fits this project. Build a street connection or choose a site manually in Public Works.');return;}
- const cost=buildCost[kind],town=G,pid=project.id;
- showCustomEvent('CIVIC PROJECT',types[kind].n+' at grid '+lot.x+', '+lot.y,'Authorize the existing construction purchase: '+money(cost)+' from municipal cash. Treasury after purchase '+money(G.treasury-cost)+'. '+(kind==='school'?'The school still needs reachable pupils, qualified staff and recurring funding.':'The enterprise still needs workers, inputs and customers. The current workforce includes '+Math.max(0,G.stats.workforce-G.stats.employed)+' residents without a job; this is not a guarantee they can reach or staff this firm. Normal regional startup investment and permit settlement apply; this is not a guarantee of profit.')+' Existing titles and reservations are preserved.',[
-  {title:'Commission this exact site',cost:0,apply:()=>{const p=G.civicProjects?.active[projectKind];if(G!==town||p?.id!==pid||!canPlace(lot.x,lot.y,true,kind)||G.treasury<cost){toast('The site or quote changed. Review the project again.');return;}const id=G.nextId;construct(kind,lot.x,lot.y);const b=G.buildings.find(b=>b.id>=id&&b.kind===kind&&b.x===lot.x&&b.y===lot.y);if(b){p.building=b.id;if(projectKind==='food')p.firm=b.firm;save();}openCivicProjects(projectKind);}},
-  {title:'Survey the site first',cost:0,apply:()=>civicProjectVisit(lot.x,lot.y,kind,projectKind)}
+ const project=G.civicProjects?.active[projectKind];if(!project)return;
+ const district=projectKind==='district',parcel=district&&ANNEX_PARCELS.find(a=>a.id===project.target),anchor=parcel?{x:parcel.x+Math.floor(parcel.w/2),y:parcel.y+Math.floor(parcel.h/2)}:projectKind==='skills'?readBuild(G.households[project.target]?.home):readBuild(G.firms[project.target]?.building);if(!anchor)return;
+ if(project.status!=='active'&&!district)return;
+ const blueprint=district?civicDistrictBlueprint(project,true):null,site=district&&blueprint.ok?blueprint.sites.find(s=>s.kind===kind):null;
+ if(district&&(!blueprint.ok||blueprint.roads.length)){civicProjectReviewRoad();return;}
+ if(site?.existing){selected={id:site.existing};openPanel('inspect');return;}
+ const lot=district?site:civicProjectLot(kind,anchor);if(!lot){toast('No legally vacant, connected footprint fits. Review the purpose blueprint or another site in Public Works.');return;}
+ const cost=buildCost[kind],town=G,pid=project.id,signature=blueprint?civicBlueprintSignature(blueprint):'';
+ const remember=()=>{if(blueprint)project.sitePlans=civicBlueprintSites(blueprint);};
+ showCustomEvent('CIVIC PROJECT',types[kind].n+' at grid '+lot.x+', '+lot.y,'Authorize the existing construction purchase: '+money(cost)+' from municipal cash. Treasury after purchase '+money(G.treasury-cost)+'. '+(kind==='school'?'The school still needs reachable pupils, qualified staff and recurring funding.':'The enterprise still needs workers, inputs and customers. The current workforce includes '+Math.max(0,G.stats.workforce-G.stats.employed)+' residents without a job; this is not a guarantee they can reach or staff this firm. Normal regional startup investment and permit settlement apply; profit is uncertain.')+' Existing titles and the other surveyed footprint are retained.',[
+  {title:'Commission this exact site',cost:0,apply:()=>{const p=G.civicProjects?.active[projectKind],current=blueprint&&civicDistrictBlueprint(project,true);if(G!==town||p?.id!==pid||current&&civicBlueprintSignature(current)!==signature||!canPlace(lot.x,lot.y,true,kind)||G.treasury<cost){toast('The site, companion footprint or funds changed. Review the project again.');return;}remember();const id=G.nextId;construct(kind,lot.x,lot.y);const b=G.buildings.find(b=>b.id>=id&&b.kind===kind&&b.x===lot.x&&b.y===lot.y);if(b){p.building=b.id;if(projectKind==='food')p.firm=b.firm;save();}openCivicProjects(projectKind);}},
+  {title:'Survey the site first',cost:0,apply:()=>{remember();save();civicProjectVisit(lot.x,lot.y,kind,projectKind);}}
  ]);
- const cells=footprintFor(lot.x,lot.y,kind);$('eventText').insertAdjacentHTML('afterend','<div class="civic-project-survey">'+civicProjectPlanSvg(cells,lot)+'</div>');
+ $('eventText').insertAdjacentHTML('afterend','<div class="civic-project-survey">'+(blueprint?civicBlueprintSurveyMarkup(blueprint):civicProjectPlanSvg(footprintFor(lot.x,lot.y,kind),lot))+'</div>');
 }
 function civicProjectReviewRoad(){
- const p=G.civicProjects?.active.district;if(!p||!G.charter.owned.includes(p.target)){toast('Acquire the district deed before commissioning its road.');return;}
- const plan=civicProjectRoadPlan(p.target);if(!plan){toast('Private titles or terrain block this corridor. Draw an alternative connection in Public Works.');return;}if(!plan.cells.length){toast('The district’s surveyed gateway is already connected.');return;}
- const town=G,pid=p.id,signature=plan.cells.join(',');
- showCustomEvent('CIVIC PROJECT','Commission the district gateway',plan.cells.length+' vacant road tiles to the district interior. Cost '+money(plan.cost)+'; municipal cash afterwards '+money(G.treasury-plan.cost)+'. This opens access, not guaranteed investment. Further streets, staffing and operating services remain separate.',[{title:'Build the surveyed connection',cost:0,apply:()=>{const current=G.civicProjects?.active.district,next=civicProjectRoadPlan(p.target);if(G!==town||current?.id!==pid||!next||next.cells.join(',')!==signature||G.treasury<next.cost){toast('The corridor or funds changed. Review the gateway again.');return;}for(const id of next.cells)construct('road',id%T,id/T|0,true);flushRoadBatch();story('Civic gateway commissioned: '+next.cells.length+' paid road tiles into '+ANNEX_PARCELS.find(a=>a.id===p.target).name+'.','good');openCivicProjects('district');}}]);
- $('eventText').insertAdjacentHTML('afterend','<div class="civic-project-survey">'+civicProjectPlanSvg(plan.cells,{x:plan.end%T,y:plan.end/T|0})+'</div>');
+ const project=G.civicProjects?.active.district;if(!project||!G.charter.owned.includes(project.target)){toast('Acquire the district deed before commissioning its connection.');return;}
+ const plan=civicDistrictBlueprint(project,true);if(!plan.ok){showCustomEvent('CIVIC PROJECT','A buildable purpose needs a different plan',plan.reason,[{title:'Review this district on the map',cost:0,apply:()=>previewParcel(project.target)}]);return;}
+ const town=G,pid=project.id,signature=civicBlueprintSignature(plan),label=DISTRICT_FOCI[project.branch].name;
+ showCustomEvent('CIVIC PROJECT','A complete '+label.toLowerCase()+' connection',plan.roads.length+' vacant road tiles connect both real business footprints to the town’s street network. Road purchase '+money(plan.cost)+'; municipal cash afterwards '+money(G.treasury-plan.cost)+'. Business sites are separate purchases. This survey does not grant exclusive rights to an unpurchased plot or guarantee workers, customers or profit.',[{title:plan.roads.length?'Build the complete surveyed connection':'Record the two surveyed sites',cost:0,apply:()=>{const current=G.civicProjects?.active.district,next=civicDistrictBlueprint(project,true);if(G!==town||current?.id!==pid||!next.ok||civicBlueprintSignature(next)!==signature||G.treasury<next.cost){toast('The footprints, corridor or funds changed. Review the complete survey again.');return;}for(const id of next.roads)construct('road',id%T,id/T|0,true);flushRoadBatch();current.sitePlans=civicBlueprintSites(next);save();if(next.roads.length)story('Purpose connection commissioned: '+next.roads.length+' paid road tiles serving two surveyed '+label.toLowerCase()+' sites.','good');openCivicProjects('district');}}]);
+ $('eventText').insertAdjacentHTML('afterend','<div class="civic-project-survey civic-blueprint-survey">'+civicBlueprintSurveyMarkup(plan)+'</div>');
 }
 function civicProjectReviewFood(){
  const p=G.civicProjects?.active.food,f=p&&G.firms[p.target];if(!p||p.branch!=='bridge'||p.status!=='active'||!f||f.closed)return;
@@ -5181,10 +5249,10 @@ function civicProjectSchoolBudget(){
  showCustomEvent('CIVIC PROJECT','A recurring teaching promise','Prepare education authorization '+money(target)+'/day, '+money(increase)+'/day above the current setting. Over 120 fully purchased days the additional authorization is '+money(increase*120)+'. Actual purchases depend on reachable places and staff. New buildings are not included. This drafts one policy for review; it does not enact it.',[{title:'Draft the teaching allocation',cost:0,apply:()=>{draftPolicy.educationBudget=target;openPanel('policies');const input=document.querySelector('[data-policy="educationBudget"]');if(input){input.closest('details').open=true;input.scrollIntoView({block:'center'});input.focus();}}}]);
 }
 function civicProjectOffers(){
- const s=civicProjectState(),offers=[];if(CIVIC_PROJECT_KINDS.every(k=>s.active[k]))return offers;const m=programmeMetrics(),grocer=!s.active.food?civicProjectGrocer():null,h=!s.active.skills&&G.day>1?civicProjectTargetHousehold():null;
+ const s=civicProjectState(),offers=[];const m=programmeMetrics(),grocer=!s.active.food?civicProjectGrocer():null,h=!s.active.skills&&G.day>1?civicProjectTargetHousehold():null;
  if(!s.active.food&&grocer)offers.push({kind:'food',title:'The fresh-food circuit',signal:G.day===1?'A shop can commission a paid buffer before its shelves run low.':fmt(m.food)+'% of observed food need supplied. '+grocer.name+' holds '+fmt(grocer.stock.food||0)+' food.',text:'Bridge the next deliveries with outside stock, or commission a local producer that must find workers and earn its costs. The routes compete for enterprise cash, municipal capital and labour.',target:grocer.id});
  if(!s.active.district&&(G.regionalTrade?.delivered>0||G.day>=30))offers.push({kind:'district',title:'A gateway worth building',signal:'The town has '+G.charter.owned.length+' acquired outer districts and '+fmt(m.reserve)+' authorized spending days in reserve.',text:'Choose a specific tract and its purpose. Buy its deed, connect its interior, then establish actual activity. A trade park excludes new homes; a neighbourhood excludes heavy industry; a waterfront protects scarce shore lots.'});
- if(!s.active.skills&&h&&G.day>1)offers.push({kind:'skills',title:'The school-to-work promise',signal:fmt(localCivicCoverage('school',h.id)*100)+'% teaching access for the '+h.name+' household.',text:'Fund reachable schools and a full adult training term, or investigate a new campus if places cannot reach this family. Capital and recurring spending compete with the district gateway.',target:h.id});
+ if(!s.active.skills&&h&&G.day>1)offers.push({kind:'skills',title:'Learning within reach',signal:fmt(localCivicCoverage('school',h.id)*100)+'% teaching access for the '+h.name+' household.',text:'Fund reachable schools and a full adult training term, or investigate a new campus if places cannot reach this family. Capital and recurring spending compete with the district gateway.',target:h.id});
  return offers;
 }
 function civicProjectActions(p){
@@ -5194,32 +5262,32 @@ function civicProjectActions(p){
  const parcel=ANNEX_PARCELS.find(a=>a.id===p.target),owned=G.charter.owned.includes(p.target),focus=G.districtProgrammes?.[p.target]?.focus;
  if(!owned)return `<button data-civic-project-deed>Review the deed · ${money(parcelSurvey(parcel).price)}</button><button data-parcel-preview="${p.target}">Survey the tract</button>`;
  if(focus!==p.branch)return `<button data-civic-project-charter>Review the ${esc(DISTRICT_FOCI[p.branch].name.toLowerCase())} charter</button>`;
- const plan=civicProjectRoadPlan(p.target);if(plan?.cells.length)return `<button data-civic-project-road>Review interior road · ${money(plan.cost)}</button><button data-parcel-preview="${p.target}">Survey the connection</button>`;
- const kinds=p.branch==='industry'?['factory','warehouse']:p.branch==='waterfront'?['fishery','wharf']:['grocer','bakery'];return kinds.map(kind=>{const district=ANNEX_PARCELS.find(a=>a.id===p.target),f=G.firms.find(f=>{const b=readBuild(f.building);return !f.closed&&f.kind===kind&&b&&parcelForTile(b.x,b.y)?.id===district.id;});return f?`<button data-firm="${f.id}">Inspect ${esc(types[kind].n.toLowerCase())} · ${workingStaff(f).length} attending workers</button>`:`<button data-civic-project-build="${kind}" data-civic-project-kind="district">Survey ${esc(types[kind].n.toLowerCase())} · ${money(buildCost[kind])}</button>`;}).join('')+'<button data-civic-project-plan>Plan housing, streets & services</button>';
+ const plan=civicDistrictBlueprint(p);if(!plan.ok||plan.roads.length)return `<p class="desc">${esc(plan.ok?'The surveyed connection serves both required business footprints.':plan.reason)}</p><button data-civic-project-road>${plan.ok?'Review purpose connection · '+money(plan.cost):'Review a buildable purpose plan'}</button><button data-parcel-preview="${p.target}">Survey the district</button>`;
+ const kinds=p.branch==='industry'?['factory','warehouse']:p.branch==='waterfront'?['fishery','wharf']:['grocer','bakery'];return '<button data-civic-project-road>Review the two-site blueprint</button>'+kinds.map(kind=>{const district=ANNEX_PARCELS.find(a=>a.id===p.target),f=G.firms.find(f=>{const b=readBuild(f.building);return !f.closed&&f.kind===kind&&b&&parcelForTile(b.x,b.y)?.id===district.id;});return f?`<button data-firm="${f.id}">Inspect ${esc(types[kind].n.toLowerCase())} · ${workingStaff(f).length} attending workers</button>`:`<button data-civic-project-build="${kind}" data-civic-project-kind="district">Survey ${esc(types[kind].n.toLowerCase())} · ${money(buildCost[kind])}</button>`;}).join('')+'<button data-civic-project-plan>Plan housing, streets & services</button>';
 }
 function civicProjectCard(p){
  const o=civicProjectObservation(p),target=p.kind==='district'?ANNEX_PARCELS.find(a=>a.id===p.target).name:p.kind==='food'?G.firms[p.target]?.name:'The '+(G.households[p.target]?.name||'departed')+' household';
  return `<article class="civic-project-card ${p.status==='complete'?'delivered':''}" data-project-card="${p.kind}"><small>${p.status==='complete'?'DELIVERED DAY '+p.completed:'ADOPTED DAY '+p.started} · ${esc(target)}</small><h3>${esc(civicProjectTitle(p))}</h3><b>${esc(p.status==='complete'?(p.proof||o.evidence):o.evidence)}</b>${o.setback&&p.status==='active'?`<p class="civic-project-setback">${esc(o.setback)}</p>`:''}<p class="desc">${esc(p.status==='complete'?'A working result recorded on day '+p.completed+'. Current conditions can still change; the delivered project remains part of the town’s record.':o.detail)}</p><div class="btnrow">${civicProjectActions(p)}</div>${p.status==='active'?`<details><summary>Reconsider this commitment</summary><p class="desc">Replanning or withdrawing changes this project record. Existing deeds, buildings, charter rules, paid cargo and policy commitments remain in force.</p><button data-civic-project-withdraw="${p.kind}">Review withdrawal</button></details>`:''}</article>`;
 }
 function civicProjectsPanel(){
- const s=civicProjectState(),offers=civicProjectOffers();return `<section id="civicProjects" class="civic-project-board"><small>CONCRETE WORK · COMPETING COMMITMENTS</small><h3>Build something the town can use</h3><p class="desc">Choose what deserves capital, working cash and people. Projects can run together, but draw on the same real economy. They earn a permanent delivery record, not a cash prize.</p>${Object.values(s.active).map(civicProjectCard).join('')}${offers.filter(o=>!s.declined.includes(o.kind)).map(o=>`<article class="civic-project-card"><small>CONDITION-DRIVEN OPPORTUNITY</small><h3>${o.title}</h3><b>${esc(o.signal)}</b><p class="desc">${esc(o.text)}</p><button data-civic-project-review="${o.kind}">Compare the project routes</button><button class="small" data-civic-project-decline="${o.kind}">Pass for now</button></article>`).join('')}${s.declined.length?'<button data-civic-project-restore>Show passed opportunities</button>':''}${s.history.length?'<details><summary>Earlier commitments</summary>'+s.history.map(p=>`<p class="desc">${esc(civicProjectTitle(p))} · ${esc(p.status)} on day ${p.closed}. Existing assets and liabilities continue normally.</p>`).join('')+'</details>':''}</section>`;
+ const s=civicProjectState(),offers=civicProjectOffers();return `<section id="civicProjects" class="civic-project-board"><small>CONCRETE WORK · COMPETING COMMITMENTS</small><h3>Build something the town can use</h3><p class="desc">Choose what deserves capital, working cash and people. Projects can run together, but draw on the same real economy. They earn a permanent delivery record, not a cash prize.</p>${Object.values(s.active).filter(p=>p.status!=='complete'||!civicCampaignUnlocked()||civicWatchForProject(p).length).map(civicProjectCard).join('')}${civicCampaignUnlocked()&&Object.values(s.active).some(p=>p.status==='complete'&&!civicWatchForProject(p).length)?'<details class="civic-delivery-archive"><summary>Delivered project records</summary>'+Object.values(s.active).filter(p=>p.status==='complete'&&!civicWatchForProject(p).length).map(civicProjectCard).join('')+'</details>':''}${offers.filter(o=>!s.declined.includes(o.kind)).map(o=>`<article class="civic-project-card"><small>CONDITION-DRIVEN OPPORTUNITY</small><h3>${o.title}</h3><b>${esc(o.signal)}</b><p class="desc">${esc(o.text)}</p><button data-civic-project-review="${o.kind}">Compare the project routes</button><button class="small" data-civic-project-decline="${o.kind}">Pass for now</button></article>`).join('')}${s.declined.length?'<button data-civic-project-restore>Show passed opportunities</button>':''}${s.history.length?'<details><summary>Earlier commitments</summary>'+s.history.map(p=>`<p class="desc">${esc(civicProjectTitle(p))} · ${esc(p.status)} on day ${p.closed}. Existing assets and liabilities continue normally.</p>`).join('')+'</details>':''}</section>`;
 }
 function openCivicProjects(kind=''){openPanel('agenda');const target=kind?document.querySelector('[data-project-card="'+kind+'"]'):$('civicProjects');target?.scrollIntoView({block:'start'});}
-function civicProjectReview(kind,replan=false){
- const old=G.civicProjects?.active[kind],offer=civicProjectOffers().find(o=>o.kind===kind),target=old?.target??offer?.target;
+function civicProjectReview(kind,replan=false,explicitTarget=null){
+ const old=G.civicProjects?.active[kind],offer=civicProjectOffers().find(o=>o.kind===kind),target=explicitTarget??(replan?old?.target:offer?.target??old?.target);
  if(kind==='food'){if(target==null)return;showCustomEvent('CIVIC PROJECT','The fresh-food circuit','Choose a route for '+G.firms[target].name+'. Imports pay a finite food buffer from the shop’s cash and arrive after transit. A local bakery needs a '+money(buildCost.bakery)+' municipal site, regional startup capital, workers, flour and profitable buyers. Either route can disappoint; no artificial reward pays for the decision.',[
   {title:'Adopt the import bridge',desc:'Commission 180 food for the named shop, then verify actual arrivals and food access.',apply:()=>{civicProjectStart('food','bridge',target);openCivicProjects('food');}},
   {title:'Adopt a viable local producer',desc:'Survey and commission a bakery; produce 120, sell 100 and recover operating costs while food need is supplied.',apply:()=>{civicProjectStart('food','local',target);openCivicProjects('food');}}
  ]);return;}
- if(kind==='skills'){if(target==null)return;const access=serviceAccess('school'),privateTarget=civicProjectTargetHousehold(true);showCustomEvent('CIVIC PROJECT','The school-to-work promise','The '+G.households[target].name+' household needs usable teaching. Existing facilities can reach '+fmt(access.coverage*100)+'% of residents before funding and staffing. An adult term requires 120 equivalent funded days. Plan operating funds alongside capital; a private provider also needs viable customers and staff.',[
-  {title:'Use the existing school network',desc:'Prioritize funded access and an adult training term; review the recurring allocation before enactment.',apply:()=>{civicProjectStart('skills','network',target);openCivicProjects('skills');}},
+ if(kind==='skills'){if(target==null)return;const renewal=old?.continuity||old?.status==='complete'&&civicCampaignUnlocked()||explicitTarget!=null,access=serviceAccess('school'),privateTarget=(offer?.mode==='renewal'||old?.continuity||explicitTarget!=null)&&G.households[target]?.people.some(id=>privateEligiblePupil(G.people[id]))?G.households[target]:civicProjectTargetHousehold(true);showCustomEvent('CIVIC PROJECT','Learning within reach','The '+G.households[target].name+' household needs usable teaching. Existing facilities can reach '+fmt(access.coverage*100)+'% of residents before funding and staffing. '+(renewal?'This later household plan records 30 actual learning-day equivalents and 60% usable learner access.':'An adult term requires 120 equivalent funded days.')+' Plan operating funds alongside capital; a private provider also needs viable customers and staff.',[
+  {title:'Use the existing school network',desc:renewal?'Restore usable access for this different learner household; review recurring funds before enactment.':'Prioritize funded access and an adult training term; review the recurring allocation before enactment.',apply:()=>{civicProjectStart('skills','network',target);openCivicProjects('skills');}},
   ...(privateTarget?[{title:'Invite independent teaching',desc:'For the '+privateTarget.name+' household: investors assess demand, qualified labour, financing and fees. No municipal site grant; fees and targeted vouchers must fund real teaching.',apply:()=>{civicProjectStart('skills','private',privateTarget.id);openCivicProjects('skills');}}]:[]),
   ...(access.coverage<.95?[{title:'Investigate an additional campus',desc:'Survey a '+money(buildCost.school)+' site; teaching, staffing and maintenance remain recurring commitments.',apply:()=>{civicProjectStart('skills','campus',target);openCivicProjects('skills');}}]:[])
  ]);return;}
  showCustomEvent('CIVIC PROJECT','Choose the district and its purpose','A larger boundary is useful only when it can be reached and supported. Review a tract below; then choose a binding charter. No land is bought in this review.',[{title:'Compare district geography',apply:()=>{openPanel('construction');revealCharterOffice();}}]);
  const candidates=ANNEX_PARCELS.filter(p=>(G.charter.owned.includes(p.id)||parcelAdjacent(p))&&!G.districtProgrammes?.[p.id]?.completed);if(!candidates.length){closeCouncilDialog();toast('Every adjoining district already has an established programme. Review the borough’s completed work.');return;}$('eventText').insertAdjacentHTML('afterend','<div class="civic-project-survey civic-project-choice"><label>Project tract <select id="projectParcel">'+candidates.map(p=>`<option value="${p.id}">${esc(p.name)} · ${G.charter.owned.includes(p.id)?'owned':money(parcelSurvey(p).price)}</option>`).join('')+'</select></label><label>Purpose <select id="projectFocus">'+Object.entries(DISTRICT_FOCI).map(([id,a])=>`<option value="${id}">${esc(a.name)}</option>`).join('')+'</select></label><p class="desc" id="projectDistrictFacts"></p><p class="desc">Trade park: commuters and paid freight. Mixed neighbourhood: homes, local work and care. Working waterfront: scarce shore lots and a real river outlet.</p><button id="projectDistrictAdopt">Adopt this district project</button></div>');
- const surveyFacts=()=>{const parcel=ANNEX_PARCELS.find(p=>p.id===$('projectParcel').value),q=parcelSurvey(parcel),road=civicProjectRoadPlan(parcel.id),option=$('projectFocus').querySelector('option[value="waterfront"]');option.disabled=parcel.id!=='river-reach';if(option.disabled&&$('projectFocus').value==='waterfront')$('projectFocus').value='neighbourhood';$('projectDistrictFacts').textContent=q.land+' land tiles, '+q.water+' water tiles, '+q.forest+' woodland tiles. '+(G.charter.owned.includes(parcel.id)?'Deed already owned.':'Deed '+money(q.price)+'.')+' Surveyed interior connection '+(road?money(road.cost)+' for '+road.cells.length+' new road tiles.':'blocked by terrain or existing titles; an alternative route is needed.')+' '+(parcel.id==='river-reach'?'This is a regional river cargo outlet.':parcel.id==='east-meadow'?'The lake supports fishing, but cannot fulfil a regional cargo-wharf project.':'This inland tract has no regional shipping outlet; choose trade or neighbourhood use.');};
- $('projectParcel').onchange=surveyFacts;surveyFacts();
+ const surveyFacts=()=>{const parcel=ANNEX_PARCELS.find(p=>p.id===$('projectParcel').value),q=parcelSurvey(parcel),road=civicProjectRoadPlan(parcel.id),option=$('projectFocus').querySelector('option[value="waterfront"]');option.disabled=parcel.id!=='river-reach';if(option.disabled&&$('projectFocus').value==='waterfront')$('projectFocus').value='neighbourhood';$('projectDistrictFacts').textContent=q.land+' land tiles, '+q.water+' water tiles, '+q.forest+' woodland tiles. '+(G.charter.owned.includes(parcel.id)?'Deed already owned.':'Deed '+money(q.price)+'.')+' Preliminary interior trunk '+(road?money(road.cost)+' for '+road.cells.length+' new road tiles; this excludes purpose-specific spurs. The complete paired-site blueprint follows deed and charter review.':'blocked by terrain or existing titles; an alternative route is needed.')+' '+(parcel.id==='river-reach'?'This is a regional river cargo outlet.':parcel.id==='east-meadow'?'The lake supports fishing, but cannot fulfil a regional cargo-wharf project.':'This inland tract has no regional shipping outlet; choose trade or neighbourhood use.');};
+ $('projectParcel').onchange=surveyFacts;$('projectFocus').onchange=surveyFacts;surveyFacts();
  $('projectDistrictAdopt').onclick=()=>{const parcel=$('projectParcel').value,focus=$('projectFocus').value;closeCouncilDialog();if(civicProjectStart('district',focus,parcel))openCivicProjects('district');};
 }
 const projectCloseCouncilBase=closeCouncilDialog;closeCouncilDialog=function(defer=false){
@@ -5255,19 +5323,11 @@ document.addEventListener('click',e=>{
 });
 function validateCivicProjects(data){
  const s=data.civicProjects;if(s==null)return true;if(s.version!==1||!Number.isSafeInteger(s.serial)||s.serial<0||!Number.isInteger(s.lastDay)||s.lastDay<1||s.lastDay>data.day||!s.active||typeof s.active!=='object'||Array.isArray(s.active)||Object.keys(s.active).length>3||!Array.isArray(s.history)||s.history.length>9||!Array.isArray(s.declined)||s.declined.length>3||new Set(s.declined).size!==s.declined.length||s.declined.some(k=>!CIVIC_PROJECT_KINDS.includes(k)))return false;
- const seen=new Set(),valid=(p,history)=>{if(!p||!CIVIC_PROJECT_KINDS.includes(p.kind)||!Number.isSafeInteger(p.id)||p.id<1||p.id>s.serial||seen.has(p.id)||!Number.isInteger(p.started)||p.started<1||p.started>data.day||!Number.isInteger(p.lastDay)||p.lastDay<p.started||p.lastDay>data.day||!['active','complete','withdrawn','replanned'].includes(p.status)||!Array.isArray(p.orders)||p.orders.length>24||p.orders.some(id=>!Number.isSafeInteger(id)||id<1||(!data.regionalTrade||id>data.regionalTrade.serial))||new Set(p.orders).size!==p.orders.length||!['arrived','output','sales','trainingBaseline'].every(k=>Number.isFinite(p[k])&&p[k]>=0)||!Number.isFinite(p.net)||p.learning!=null&&(!Number.isFinite(p.learning)||p.learning<0)||p.firm!=null&&!data.firms[p.firm]||p.building!=null&&!data.buildings.some(b=>b.id===p.building)||p.trainingScope!=null&&!['all','private'].includes(p.trainingScope)||p.proof!=null&&(typeof p.proof!=='string'||p.proof.length>800)||p.completed!=null&&(!Number.isInteger(p.completed)||p.completed<p.started||p.completed>data.day)||p.status==='complete'&&p.completed==null||history&&(!Number.isInteger(p.closed)||p.closed<p.started||p.closed>data.day)||!history&&!['active','complete'].includes(p.status))return false;
+ const seen=new Set(),valid=(p,history)=>{if(!p||!validateCivicSitePlans(p)||!CIVIC_PROJECT_KINDS.includes(p.kind)||!Number.isSafeInteger(p.id)||p.id<1||p.id>s.serial||seen.has(p.id)||!Number.isInteger(p.started)||p.started<1||p.started>data.day||!Number.isInteger(p.lastDay)||p.lastDay<p.started||p.lastDay>data.day||!['active','complete','withdrawn','replanned'].includes(p.status)||!Array.isArray(p.orders)||p.orders.length>24||p.orders.some(id=>!Number.isSafeInteger(id)||id<1||(!data.regionalTrade||id>data.regionalTrade.serial))||new Set(p.orders).size!==p.orders.length||!['arrived','output','sales','trainingBaseline'].every(k=>Number.isFinite(p[k])&&p[k]>=0)||!Number.isFinite(p.net)||p.learning!=null&&(!Number.isFinite(p.learning)||p.learning<0)||p.firm!=null&&!data.firms[p.firm]||p.building!=null&&!data.buildings.some(b=>b.id===p.building)||p.trainingScope!=null&&!['all','private'].includes(p.trainingScope)||p.proof!=null&&(typeof p.proof!=='string'||p.proof.length>800)||p.completed!=null&&(!Number.isInteger(p.completed)||p.completed<p.started||p.completed>data.day)||p.status==='complete'&&p.completed==null||history&&(!Number.isInteger(p.closed)||p.closed<p.started||p.closed>data.day)||!history&&!['active','complete'].includes(p.status))return false;
  seen.add(p.id);if(p.kind==='district')return owns(DISTRICT_FOCI,p.branch)&&ANNEX_PARCELS.some(a=>a.id===p.target)&&(p.branch!=='waterfront'||p.target==='river-reach');if(!Number.isInteger(p.target)||p.target<0)return false;return p.kind==='food'?['bridge','local'].includes(p.branch)&&!!data.firms[p.target]&&data.firms[p.target].kind==='grocer':['network','campus','private'].includes(p.branch)&&!!data.households[p.target];};
  return Object.entries(s.active).every(([kind,p])=>p.kind===kind&&valid(p,false))&&s.history.every(p=>valid(p,true));
 }
 
-// Keep keyboard navigation in the topmost council/project dialog, including surveys.
-$('eventDialog').addEventListener('keydown',e=>{
- if(e.key!=='Tab'||!pendingEvent||$('helpDialog').style.display!=='none')return;
- const items=[...$('eventDialog').querySelectorAll('button:not([disabled]),select:not([disabled]),input:not([disabled]),textarea:not([disabled]),[tabindex]:not([tabindex="-1"])')].filter(el=>el.offsetParent!==null);
- if(!items.length)return;const first=items[0],last=fromEnd(items);
- if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}
- else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
-});
 
 // SOURCE: 98-status-deck.js
 // One compact, optional map signal replaces three simultaneous opaque overlays.
@@ -5291,6 +5351,144 @@ const statusDeckBackBase=window.__townArchive.back;window.__townArchive.back=()=
  return statusDeckBackBase();
 };
 const statusDeckResetBase=resetTownTransientUI;resetTownTransientUI=function(){setMapStatusExpanded(false);statusDeckResetBase();};
+
+// SOURCE: 98-stewardship.js
+// Dated achievements remain history; current district services still deserve attention.
+let civicWatchCache=null;
+function civicStewardship(force=false){
+ if(!G)return [];const projects=Object.values(G.civicProjects?.active||{}).filter(p=>p.kind==='district'&&p.status==='complete');if(!projects.length)return [];
+ const net=graph(),key=[G.day,G.buildings.length,G.finance?.insolvencies||0,projects.map(p=>p.id+':'+p.target+':'+G.districtProgrammes?.[p.target]?.focus).join('|')].join('/');
+ if(!force&&civicWatchCache?.town===G&&civicWatchCache.net===net&&civicWatchCache.key===key)return civicWatchCache.issues;
+ const issues=[];
+ for(const project of projects){
+  const parcel=ANNEX_PARCELS.find(p=>p.id===project.target),focus=G.districtProgrammes?.[project.target]?.focus;if(!parcel||focus!==project.branch)continue;
+  const companies=G.firms.filter(f=>{const b=readBuild(f.building);return b&&civicBlueprintInside(parcel,b.x,b.y);}),metrics=districtMetrics(parcel.id);
+  const add=(title,detail,firm,kind,severity='watch')=>issues.push({project:project.id,parcel:parcel.id,title:parcel.name+': '+title,detail,firm:firm?.id??null,building:firm?.building??null,kind,severity,closedDay:firm?.closedDay??null});
+  const role=(kind,label)=>{
+   const active=companies.filter(f=>f.kind===kind&&!f.closed),attending=active.find(f=>workingStaff(f).length>0);
+   if(attending){if(attending.netProfit<0&&attending.cash<Math.max(1,-attending.netProfit)*30)add(label+' has a thin cash cushion','Latest operating loss '+money(-attending.netProfit)+'; cash '+money(attending.cash)+'. Compare paid traffic with payroll. This is a recent observation, not a forecast.',attending,kind);return;}
+   const closed=companies.filter(f=>f.kind===kind&&f.closed).sort((a,b)=>(b.closedDay||0)-(a.closedDay||0))[0];
+   if(!active.length&&closed)add(label+' closed',closed.name+' is closed; its operating account shows '+money(closed.cash)+'. The delivered project record stays intact; inspect the account, replace the missing activity, or review a different future charter.',closed,kind,'urgent');
+   else if(active.length)add(label+' has no attending crew','The structure exists, but no workers currently attend. Inspect jobs and road access before buying another building.',active[0],kind);
+   else add(label+' is no longer present','The district’s earlier record includes this activity. Review current structures and a complete recovery blueprint.',null,kind,'urgent');
+  };
+  if(project.branch==='waterfront'){role('fishery','Fishery');role('wharf','Cargo wharf');}
+  else if(metrics.staffed<2){const closed=companies.filter(f=>f.closed).sort((a,b)=>(b.closedDay||0)-(a.closedDay||0))[0];add('local workplaces need attention',metrics.staffed+' firms currently have attending staff. The district’s earlier delivery record does not guarantee continuing operation.',closed,null,closed?'urgent':'watch');}
+  else if(project.branch==='neighbourhood'&&metrics.pop>=8&&(metrics.care<.4||metrics.school<.4))add('local care or teaching has slipped','Current resident access: care '+fmt(metrics.care*100)+'%, teaching '+fmt(metrics.school*100)+'%. Compare local public places, qualified staff and purchased private teaching.',null,'school');
+ }
+ issues.sort((a,b)=>Number(b.severity==='urgent')-Number(a.severity==='urgent')||(b.closedDay||0)-(a.closedDay||0));civicWatchCache={town:G,net,key,issues};return issues;
+}
+function civicWatchForProject(project){return civicStewardship().filter(i=>i.project===project.id);}
+function civicReviewRecharter(parcelId){
+ const p=G.civicProjects?.active.district,plan=G.districtProgrammes?.[parcelId];if(!p||p.target!==parcelId||!plan)return;
+ showCustomEvent('CIVIC PROJECT','A different future for '+ANNEX_PARCELS.find(a=>a.id===parcelId).name,'Revising this charter costs $1,200 and requires 30 days since its prior designation. Existing private titles, buildings, cargo and debts remain. New permissions do not convert or demolish an old business. A new district project will record the chosen purpose; the earlier certificate remains in history.',Object.entries(DISTRICT_FOCI).filter(([key])=>key!==plan.focus&&!(key==='waterfront'&&parcelId!=='river-reach')).map(([focus,definition])=>({title:'Recharter as '+definition.name,desc:definition.description,cost:1200,apply:()=>{if(!chooseDistrictFocus(parcelId,focus)){toast('The revision interval or funds do not permit this charter yet.');return;}civicProjectStart('district',focus,parcelId);openCivicProjects('district');}})));
+}
+const civicWatchCardBase=civicProjectCard;civicProjectCard=function(project){
+ let html=civicWatchCardBase(project);const issues=civicWatchForProject(project);if(!issues.length)return html;
+ const content=`<section class="civic-watch-line" aria-label="Current district stewardship"><strong>Current operating check</strong>${issues.map(i=>`<p class="desc"><b>${esc(i.title)}</b><br>${esc(i.detail)}</p>${i.building?`<button data-inspect="${i.building}">Inspect the actual business</button>`:''}`).join('')}<div class="btnrow"><button data-civic-project-road>Review a recovery blueprint</button>${[...new Set(issues.map(i=>i.kind).filter(k=>CIVIC_BLUEPRINT_KINDS[project.branch].includes(k)))].map(kind=>`<button data-civic-project-build="${kind}" data-civic-project-kind="district">Survey replacement ${esc(types[kind].n.toLowerCase())}</button>`).join('')}<button data-civic-recharter="${project.target}">Compare a different future charter</button><button data-mayor-panel="community">Review local service provision</button></div></section>`;
+ return html.replace('<div class="btnrow">',content+'<div class="btnrow">');
+};
+const civicWatchStatusBase=updateMapStatusDeck;const civicWatchSignal=document.createElement('div');civicWatchSignal.id='civicWatchSignal';civicWatchSignal.hidden=true;$('mapStatusDetails').prepend(civicWatchSignal);
+updateMapStatusDeck=function(){
+ civicWatchStatusBase();if(!G)return;const issue=civicStewardship()[0],caption=$('mapStatusToggle').querySelector('.map-status-caption'),label=issue?.severity==='urgent'?'TOWN SIGNALS · OPERATING ALERT':'TOWN SIGNALS';if(caption.textContent!==label)caption.textContent=label;
+ if(issue){headerText('mapStatusHeadline',issue.title);const text=issue.title+' — '+issue.detail;if(civicWatchSignal.dataset.issue!==text){civicWatchSignal.dataset.issue=text;civicWatchSignal.innerHTML=`<p>${esc(issue.detail)}</p><button data-civic-watch-project="${issue.project}">Review ${esc(ANNEX_PARCELS.find(p=>p.id===issue.parcel).name)}</button>`;}civicWatchSignal.hidden=false;}
+ else{civicWatchSignal.hidden=true;}
+ const urgent=issue?.severity==='urgent';if($('mapStatusToggle').classList.contains('operating-alert')!==!!urgent)$('mapStatusToggle').classList.toggle('operating-alert',!!urgent);
+};
+document.addEventListener('click',e=>{const b=e.target.closest('button');if(!b||!G)return;if(b.dataset.civicRecharter)civicReviewRecharter(b.dataset.civicRecharter);if(b.dataset.civicWatchProject)openCivicProjects('district');});
+
+const civicWatchResetBase=resetTownTransientUI;resetTownTransientUI=function(){civicWatchCache=null;civicBlueprintCacheTown=null;civicBlueprintCache.clear();civicWatchResetBase();};
+
+// SOURCE: 98-sustained-projects.js
+// Later chapters pin actual obligations. All purchases/queues remain with their existing owners.
+function civicCampaignUnlocked(){return G?.mayorJourney?.stage===4||Object.values(G?.civicProjects?.active||{}).filter(p=>p.status==='complete').length>=2;}
+function civicCampaignView(){return G.civicCampaign||{version:1,serial:0,active:null,history:[]};}
+function ensureCivicCampaign(){if(!G.civicCampaign)G.civicCampaign=civicCampaignView();return G.civicCampaign;}
+function civicCampaignReference(item,kind){return {kind,id:item.id,firm:item.firm,market:item.market,good:item.good,quantity:kind==='shipment'?item.qty:item.quantity,price:item.price||0};}
+function civicCampaignWaitingFood(){return (G.regionalTrade?.shipments||[]).filter(o=>o.direction==='import'&&o.good==='food'&&!o.cancelRequested&&['outside','collecting','loading','unloading'].includes(o.stage)&&(o.stageDue<=G.day+2||o.due<=G.day+3||logisticsQueue(o.depot)>logisticsDepots().find(d=>d.id===o.depot)?.capacity)).sort((a,b)=>a.due-b.due||a.id-b.id)[0]||null;}
+function civicCampaignTitle(p){return p.mode==='promise'?'A supplier promise that reaches its buyer':'Keep the household delivery moving';}
+function civicCampaignArchive(status){const s=ensureCivicCampaign(),p=s.active;if(!p)return;const c=p.reference?.kind==='contract'?(G.regionalTrade?.contracts||[]).find(c=>c.id===p.reference.id):null;s.history.unshift({...p,status:status||(c?.status==='missed'?'missed':p.status==='complete'?'complete':'withdrawn'),closed:G.day});s.history.length=Math.min(8,s.history.length);s.active=null;}
+function civicCampaignAdopt(mode,shipment=null){
+ if(!civicCampaignUnlocked()||!['promise','essentials'].includes(mode))return false;if(mode==='essentials'&&(!shipment||!ensureRegionalTrade().shipments.some(o=>o===shipment&&o.direction==='import'&&o.good==='food')))return false;
+ const s=ensureCivicCampaign();if(s.active)civicCampaignArchive();s.active={id:++s.serial,mode,started:G.day,lastDay:G.day,status:'active',baselineSerial:ensureRegionalTrade().serial,reference:shipment?civicCampaignReference(shipment,'shipment'):null,arrived:0,receiptDay:null,completed:null,proof:''};save();return true;
+}
+function civicCampaignSync(){const p=G.civicCampaign?.active;if(!p||p.status!=='active'||p.mode!=='promise'||p.reference)return false;const c=(G.regionalTrade?.contracts||[]).filter(c=>c.id>p.baselineSerial&&c.status==='active').sort((a,b)=>a.id-b.id)[0];if(!c)return false;p.reference=civicCampaignReference(c,'contract');return true;}
+function civicCampaignObservation(p){
+ const s=G.regionalTrade||{},r=p.reference;if(!r)return {met:false,evidence:'No new supplier agreement has been signed for this chapter.',detail:'Compare the actual buyer quotes, uncommitted stock and full lead time. The next agreement you sign is pinned here. Existing fulfilled agreements cannot finish this chapter.',setback:''};
+ const f=G.firms[r.firm],market=OUTSIDE_MARKETS.find(m=>m.id===r.market);
+ if(p.mode==='promise'){const c=(s.contracts||[]).find(c=>c.id===r.id);return {met:c?.status==='fulfilled',evidence:(market?.name||r.market)+' · '+fmt(c?.delivered||0)+' / '+fmt(r.quantity)+' '+r.good+' paid arrivals',detail:'Supplier '+(f?.name||'former enterprise')+'. '+(c?'Window ends day '+c.deadline+'. Payment is earned by actual delivery.':'The agreement record is no longer available; no completion is inferred.')+' Compare balanced, food-first and agreement-first ready queues. A paid extra shift or staffed depot has a real cost.',setback:c&&['missed','cancelled'].includes(c.status)?'This agreement '+(c.status==='missed'?'missed its window':'was cancelled')+'. Paid cargo continues under its existing terms. Pin a genuinely new agreement to recover; the old outcome remains in history.':''};}
+ const order=(s.shipments||[]).find(o=>o.id===r.id),recent=(s.recent||[]).find(o=>o.id===r.id),food=programmeMetrics().food;
+ return {met:p.arrived+.001>=r.quantity&&food>=95,evidence:fmt(p.arrived)+' / '+fmt(r.quantity)+' '+r.good+' delivered to '+(f?.name||'the original shop'),detail:(order?'Current stage: '+order.stage+'; estimated day '+order.due+'. ':'Verified arrival '+(p.receiptDay?'on day '+p.receiptDay:'not yet recorded')+'. ')+'Observed food need supplied '+fmt(food)+'%. Queue/routing changes affect real competing cargo; they do not create stock or guarantee a causal improvement.',setback:!order&&!p.receiptDay?'The load is no longer pending without a verified usable arrival'+(recent?': '+recent.status:'')+'. Return, cancellation or loss does not complete this chapter.':''};
+}
+const campaignReceiptBase=civicProjectRecordArrival;civicProjectRecordArrival=function(order){
+ campaignReceiptBase(order);const p=G.civicCampaign?.active,r=p?.reference;if(!p||p.status!=='active'||p.mode!=='essentials'||p.receiptDay||!r||!order||order.status!=='Delivered'||order.direction!=='import'||order.good!==r.good||order.firm!==r.firm||order.market!==r.market||order.id!==r.id||Math.abs(order.qty-r.quantity)>.001)return;p.arrived=order.qty;p.receiptDay=G.day;
+};
+function civicCampaignDay(){
+ const p=G.civicCampaign?.active;if(!p||p.status!=='active'||p.lastDay===G.day)return;p.lastDay=G.day;civicCampaignSync();const o=civicCampaignObservation(p);if(!o.met)return;p.status='complete';p.completed=G.day;p.proof=o.evidence;story('Operating chapter delivered: '+civicCampaignTitle(p)+'. '+o.evidence+'. The delivery is recorded in the town’s operating history.','good');
+}
+function openCivicCampaign(){openPanel('agenda');$('civicCampaign')?.scrollIntoView({block:'start'});}
+function openCivicOperations(){openPanel('economy');const d=$('logisticsOffice');if(d){d.open=true;d.scrollIntoView({block:'start'});}}
+function civicCampaignReview(mode){
+ const shipment=mode==='essentials'?civicCampaignWaitingFood():null;if(mode==='essentials'&&!shipment){toast('No qualifying approaching food load is present. Current orders remain in the regional exchange.');return;}
+ const old=G.civicCampaign?.active,warning=old?' Pinning this plan closes the previous tracking record; existing contracts, paid cargo and queue choices remain in force.':'';
+ showCustomEvent('CIVIC PROJECT',mode==='promise'?'Back a real new supplier promise':'Choose how to protect the approaching food load',mode==='promise'?'Pin the next supplier agreement you actually sign. Choose its buyer and feasible quantity in the exchange, then compare operating priorities. Food-first protects inputs; agreement-first can postpone those same imports. Private depot payroll/capital and temporary public extra shifts compete with schools and expansion.'+warning:fmt(shipment.qty)+' food for '+G.firms[shipment.firm].name+' is '+shipment.stage+' at '+(shipment.depot<0?'the interchange':G.firms[shipment.depot]?.name)+'. Estimated day '+shipment.due+'. Select its real ready-queue/routing controls, a paid extra shift or staffed capacity. Completion needs this load’s usable delivery and 95% town food supply.'+warning,[{title:'Pin this operating plan',cost:0,apply:()=>{if(civicCampaignAdopt(mode,shipment))openCivicCampaign();}}]);
+}
+function civicCampaignPanel(){
+ if(!civicCampaignUnlocked()&&!G.civicCampaign)return '';const s=civicCampaignView(),p=s.active,waiting=civicCampaignWaitingFood();
+ let html='<section id="civicCampaign" class="civic-operating-chapter"><small>THE NEXT OPERATING CHAPTER</small><h3>A growing town needs a new decision</h3><p class="desc">A completed direction opens an ongoing city. Pin actual promises or a approaching delivery; keep public capacity, private working cash and district commitments in view. Delivered work remains in the city’s operating record.</p>';
+ if(p){const o=civicCampaignObservation(p);html+=`<article class="civic-project-card ${p.status==='complete'?'delivered':''}"><small>${p.status==='complete'?'DELIVERED DAY '+p.completed:'PINNED DAY '+p.started}</small><h3>${esc(civicCampaignTitle(p))}</h3><b>${esc(p.status==='complete'?p.proof:o.evidence)}</b><p class="desc">${esc(o.detail)}</p>${o.setback&&p.status!=='complete'?`<p class="civic-project-setback">${esc(o.setback)}</p>`:''}<div class="btnrow">${p.status==='complete'?'':`<button data-campaign-exchange>Compare actual supplier agreements</button><button data-campaign-operations>Review competing depot priorities</button><button data-campaign-shift>Review the paid extra shift</button>${p.mode==='essentials'&&p.reference&&ensureRegionalTrade().shipments.some(o=>o.id===p.reference.id&&!['delivering','awaiting-payment','returning','return-outside'].includes(o.stage))?`<button data-regional-cargo="${p.reference.id}">Follow this consignment</button><button data-logistics-cancel="${p.reference.id}">Review this load’s return</button>`:''}${p.mode==='essentials'&&p.reference&&ensureRegionalTrade().shipments.some(o=>o.id===p.reference.id&&['loading','unloading'].includes(o.stage))?`<button data-logistics-transfer="${p.reference.id}">Review this load’s depot transfer</button>`:''}`}<button data-campaign-review="promise">${p.status==='complete'?'Pin the next real promise':'Reconsider with a new agreement'}</button>${p.status!=='complete'?'<button data-campaign-withdraw>Withdraw this tracking plan</button>':''}</div></article>`;}
+ if(!p||p.status==='complete')html+=`<div class="btnrow"><button data-campaign-review="promise">Back the next supplier agreement</button>${waiting?'<button data-campaign-review="essentials">Protect the approaching food load</button>':''}<button data-mayor-panel="community">Compare public and private service needs</button></div>`;
+ if(s.history.length)html+='<details><summary>Earlier operating chapters</summary>'+s.history.map(p=>`<p class="desc">${esc(civicCampaignTitle(p))} · ${esc(p.status)} on day ${p.closed}${p.proof?' · '+esc(p.proof):''}</p>`).join('')+'</details>';
+ return html+'</section>';
+}
+const campaignPanelBase=civicProjectsPanel;civicProjectsPanel=function(){return civicCampaignPanel()+campaignPanelBase();};
+const campaignDeskBase=mayorDesk;mayorDesk=function(){let html=campaignDeskBase();if(civicCampaignUnlocked()){const p=G.civicCampaign?.active;html=html.replace('</section>',`<button class="civic-campaign-shortcut" data-open-campaign>${p?.status==='active'?'Operating plan: '+esc(civicCampaignTitle(p)):'Choose the next operating chapter'}</button></section>`);}return html;};
+document.addEventListener('click',e=>{
+ if(!G)return;const b=e.target.closest('button');if(!b)return;
+ if(b.hasAttribute('data-open-campaign'))openCivicCampaign();
+ if(b.dataset.campaignReview)civicCampaignReview(b.dataset.campaignReview);
+ if(b.hasAttribute('data-campaign-exchange')){openPanel('economy');document.querySelector('[data-trade-offer]:not([disabled])')?.scrollIntoView({block:'center'});}
+ if(b.hasAttribute('data-campaign-operations'))openCivicOperations();
+ if(b.hasAttribute('data-campaign-shift')){openCivicOperations();$('logisticsRelief')?.click();}
+ if(b.hasAttribute('data-campaign-withdraw'))showCustomEvent('CIVIC PROJECT','Withdraw this operating plan?','Only the tracking chapter closes. Actual orders, signed agreements and operating priorities retain their existing terms.',[{title:'Withdraw the tracking plan',cost:0,apply:()=>{civicCampaignArchive('withdrawn');save();openCivicCampaign();}}]);
+ if(b.dataset.eventChoice!==undefined&&civicCampaignSync())save();
+});
+function validateCivicCampaign(data){
+ const s=data.civicCampaign;if(s==null)return true;if(s.version!==1||!Number.isSafeInteger(s.serial)||s.serial<0||s.serial>1e9||!Array.isArray(s.history)||s.history.length>8)return false;const ids=new Set(),trade=data.regionalTrade;
+ const valid=(p,history)=>{if(!p||!Number.isSafeInteger(p.id)||p.id<1||p.id>s.serial||ids.has(p.id)||!['promise','essentials'].includes(p.mode)||!['active','complete','withdrawn','missed'].includes(p.status)||!Number.isInteger(p.started)||p.started<1||p.started>data.day||!Number.isInteger(p.lastDay)||p.lastDay<p.started||p.lastDay>data.day||!Number.isSafeInteger(p.baselineSerial)||p.baselineSerial<0||!trade||p.baselineSerial>trade.serial||!Number.isFinite(p.arrived)||p.arrived<0||typeof p.proof!=='string'||p.proof.length>800||p.receiptDay!=null&&(!Number.isInteger(p.receiptDay)||p.receiptDay<p.started||p.receiptDay>data.day)||p.completed!=null&&(!Number.isInteger(p.completed)||p.completed<p.started||p.completed>data.day)||p.status==='complete'&&p.completed==null||!history&&!['active','complete'].includes(p.status)||history&&(!Number.isInteger(p.closed)||p.closed<p.started||p.closed>data.day))return false;
+  ids.add(p.id);const r=p.reference;if(!r)return p.mode==='promise'&&p.arrived===0&&p.receiptDay==null&&p.status!=='complete';return r.kind===(p.mode==='promise'?'contract':'shipment')&&Number.isSafeInteger(r.id)&&r.id>0&&r.id<=trade.serial&&Number.isInteger(r.firm)&&!!data.firms[r.firm]&&OUTSIDE_MARKETS.some(m=>m.id===r.market)&&owns(goods,r.good)&&Number.isFinite(r.quantity)&&r.quantity>0&&r.quantity<=1e12&&Number.isFinite(r.price)&&r.price>=0&&r.price<=1e12&&p.arrived<=r.quantity+.001&&(p.mode!=='essentials'||r.good==='food')&&(p.receiptDay==null||p.arrived+.001>=r.quantity);
+ };
+ return (s.active==null||valid(s.active,false))&&s.history.every(p=>valid(p,true));
+}
+
+// A later service gap is a new household decision, rather than another badge on old access.
+function civicLearnerAccess(h){
+ const eligible=h?.people.filter(id=>privateEligiblePupil(G.people[id])).length||0;if(!eligible)return {eligible:0,coverage:1,publicEquivalents:0,privateEquivalents:0};
+ const publicEquivalents=eligible*clamp(publicCivicCoverage('school',h.id),0,1),privateEquivalents=Math.min(Math.max(0,eligible-publicEquivalents),(G.privateServiceProvision?.school?.[h.id]||0)*h.people.length);
+ return {eligible,coverage:clamp((publicEquivalents+privateEquivalents)/eligible,0,1),publicEquivalents,privateEquivalents};
+}
+function civicRenewalHousehold(retarget=false){
+ const s=G.civicProjects,p=s?.active.skills;if(!civicCampaignUnlocked()||!p||(!retarget&&p.status!=='complete'))return null;
+ const seen=new Set([p.target,...(s.history||[]).filter(p=>p.kind==='skills'&&p.status==='complete').map(p=>p.target)]);let best=null;
+ for(const h of G.households){if(!h.people.length||seen.has(h.id)||!readBuild(h.home))continue;const access=civicLearnerAccess(h);if(!access.eligible||access.coverage>=.4)continue;const liquidity=householdLiquidity(h)/h.people.length;if(!best||access.coverage<best.access.coverage||access.coverage===best.access.coverage&&liquidity<best.liquidity)best={h,access,liquidity};}
+ return best;
+}
+const continuityOffersBase=civicProjectOffers;civicProjectOffers=function(){const offers=continuityOffersBase(),next=civicRenewalHousehold();if(next)offers.push({kind:'skills',mode:'renewal',title:'Teaching for the next learner household',signal:'The '+next.h.name+' household: '+next.access.eligible+' eligible learners; estimated usable access '+fmt(next.access.coverage*100)+'%.',text:'Earlier teaching remains recorded. Choose current public funding, a reachable campus or affordable independent teaching for this different household. The new record needs actual paid learning access; it competes with regional handling and district recovery.',target:next.h.id});return offers;};
+const continuityStartBase=civicProjectStart;civicProjectStart=function(kind,branch,target){
+ const previous=G.civicProjects?.active.skills,renewal=kind==='skills'&&!!previous&&(previous.continuity||previous.status==='complete'&&civicCampaignUnlocked()),access=renewal?civicLearnerAccess(G.households[target]):null,result=continuityStartBase(kind,branch,target);
+ if(result&&renewal&&access?.eligible){const p=G.civicProjects.active.skills;p.continuity=true;p.learnerBaseline=access.coverage;p.learnerDays=0;p.publicLearnerDays=0;p.privateLearnerDays=0;save();}return result;
+};
+const continuityObservationBase=civicProjectObservation;civicProjectObservation=function(p){
+ if(!p.continuity)return continuityObservationBase(p);const h=G.households[p.target],a=civicLearnerAccess(h),m=programmeMetrics(),appropriate=p.branch==='private'?p.privateLearnerDays>0:p.publicLearnerDays>0;
+ return {met:(a.coverage>=.6||a.eligible===0)&&p.learnerDays>=30&&appropriate&&m.reserve>=20,evidence:fmt(a.coverage*100)+'% estimated learner access · '+fmt(p.learnerDays)+' paid learning-day equivalents',detail:'Different household: '+(h?.name||'departed')+'. Current eligible learners '+a.eligible+'; public '+fmt(p.publicLearnerDays)+' and purchased private '+fmt(p.privateLearnerDays)+' learning-day equivalents recorded. Restore at least 60% usable learner access, provide 30 observed equivalents and retain 20 authorized spending days. No employment outcome is implied.',setback:a.eligible===0&&p.learnerDays<30?'This household no longer has eligible learners. Review another household or withdraw the unused plan; no completion is inferred.':!appropriate&&p.learnerDays>0?'The selected provision route has not supplied this household yet. Compare actual public and private purchases before continuing.':''};
+};
+const continuityDayBase=civicProjectsDay;civicProjectsDay=function(){
+ const p=G.civicProjects?.active.skills;if(p?.status==='active'&&p.continuity&&p.lastDay!==G.day){const a=civicLearnerAccess(G.households[p.target]);p.publicLearnerDays+=a.publicEquivalents;p.privateLearnerDays+=a.privateEquivalents;p.learnerDays+=a.publicEquivalents+a.privateEquivalents;}
+ continuityDayBase();
+};
+const continuityActionBase=civicProjectActions;civicProjectActions=function(p){return continuityActionBase(p)+(p.kind==='skills'&&p.status==='active'?'<button data-civic-project-replan="skills">Compare the teaching routes</button>'+(p.continuity&&civicRenewalHousehold(true)?'<button data-civic-retarget-teaching>Review a different learner household</button>':''):'');};
+const continuityValidatorBase=validateCivicProjects;validateCivicProjects=function(data){if(!continuityValidatorBase(data))return false;return [...Object.values(data.civicProjects?.active||{}),...(data.civicProjects?.history||[])].every(p=>p.continuity==null||typeof p.continuity==='boolean'&&(!p.continuity||p.kind==='skills'&&Number.isFinite(p.learnerBaseline)&&p.learnerBaseline>=0&&p.learnerBaseline<=1&&['learnerDays','publicLearnerDays','privateLearnerDays'].every(k=>Number.isFinite(p[k])&&p[k]>=0&&p[k]<=1e12)&&Math.abs(p.learnerDays-p.publicLearnerDays-p.privateLearnerDays)<.01));};
+document.addEventListener('click',e=>{if(e.target.closest('[data-civic-retarget-teaching]')){const next=civicRenewalHousehold(true);if(next)civicProjectReview('skills',false,next.h.id);}});
 
 // SOURCE: 98-trade-ui.js
 function regionalTradePanel(){const s=ensureRegionalTrade(),activeContracts=s.contracts.filter(c=>c.status==='active');return head('The regional exchange')+tip('Imports are paid inventories on the road, not instant shelf stock. Road exports earn receipts on arrival; river buyers take title at dock collection. Market quotes change monthly; road capacity and working capital limit dispatch. Regional buyers share the conserved external cash account.')+
