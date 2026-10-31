@@ -1,0 +1,560 @@
+{
+  "source_sha256": "432e00545fd63ee80979adec6ec2af277710f980733c40fd0f9434b3c71aeb0f",
+  "checkpoint_sha256": "ad6256fd85d4146fda9eeac0b16d5b182ed352c23bbd96af3b320553c29ce786",
+  "cacheBaseline": false,
+  "hostChromiumOnly": true,
+  "physicalAndroid": false,
+  "errors": [],
+  "actions": [
+    {
+      "kind": "touch",
+      "index": 0
+    },
+    {
+      "kind": "touch",
+      "index": 1
+    },
+    {
+      "kind": "touch",
+      "index": 2
+    },
+    {
+      "kind": "touch",
+      "index": 3
+    },
+    {
+      "kind": "touch",
+      "index": 4
+    },
+    {
+      "kind": "touch",
+      "index": 5
+    },
+    {
+      "kind": "explicit-save",
+      "index": 5
+    },
+    {
+      "kind": "touch",
+      "index": 6
+    },
+    {
+      "kind": "touch",
+      "index": 7
+    },
+    {
+      "kind": "touch",
+      "index": 8
+    },
+    {
+      "kind": "touch",
+      "index": 9
+    },
+    {
+      "kind": "touch",
+      "index": 10
+    },
+    {
+      "kind": "touch",
+      "index": 11
+    },
+    {
+      "kind": "explicit-save",
+      "index": 11
+    }
+  ],
+  "initialHeapAfterGC": {
+    "usedSize": 16265880,
+    "totalSize": 17321984,
+    "embedderHeapUsedSize": 4170776,
+    "backingStorageSize": 2310245
+  },
+  "initial": {
+    "day": 41681,
+    "population": 778,
+    "people": 3108,
+    "households": 876,
+    "firms": 81,
+    "buildings": 797,
+    "total": 15493517.000209823,
+    "valid": {
+      "ok": true,
+      "issues": [],
+      "total": 15493517.000209823,
+      "population": 778,
+      "day": 41681
+    },
+    "goodsError": 3.684908733703196e-08,
+    "autoBuild": true,
+    "privateEntry": 1,
+    "requestedSpeed": 64,
+    "routes": 48,
+    "operating": 9,
+    "drivers": 18,
+    "atlasBytes": 12224512,
+    "serviceCaches": 0,
+    "backlog": 0,
+    "musicError": "",
+    "musicTrack": 3,
+    "musicDecks": 1,
+    "roadCache": {
+      "aggregate": {
+        "graphs": 99,
+        "queries": 21,
+        "hits": 0,
+        "builds": 21,
+        "evictions": 0,
+        "maxBytes": 14630
+      },
+      "baseline": null,
+      "current": {
+        "roads": 5666,
+        "compactRows": 0,
+        "compactBytes": 0,
+        "denseRows": 0
+      }
+    }
+  },
+  "end": {
+    "day": 42509,
+    "population": 770,
+    "people": 3161,
+    "households": 889,
+    "firms": 84,
+    "buildings": 800,
+    "total": 15493517.000208957,
+    "valid": {
+      "ok": true,
+      "issues": [],
+      "total": 15493517.000208957,
+      "population": 770,
+      "day": 42509
+    },
+    "goodsError": 3.603781806305051e-08,
+    "autoBuild": true,
+    "privateEntry": 1,
+    "requestedSpeed": 64,
+    "routes": 48,
+    "operating": 9,
+    "drivers": 18,
+    "atlasBytes": 28537856,
+    "serviceCaches": 2,
+    "backlog": 4.564363636363454,
+    "musicError": "",
+    "musicTrack": 3,
+    "musicDecks": 1,
+    "roadCache": {
+      "aggregate": {
+        "graphs": 110,
+        "queries": 4716004,
+        "hits": 4714220,
+        "builds": 1784,
+        "evictions": 0,
+        "maxBytes": 2277732
+      },
+      "baseline": null,
+      "current": {
+        "roads": 5666,
+        "compactRows": 170,
+        "compactBytes": 1926440,
+        "denseRows": 32
+      }
+    }
+  },
+  "browserMetricDeltas": {
+    "LayoutCount": 305,
+    "RecalcStyleCount": 375,
+    "LayoutDuration": 0.141404,
+    "RecalcStyleDuration": 0.08855,
+    "DevToolsCommandDuration": 0.103359,
+    "ScriptDuration": 28.823185000000002,
+    "V8CompileDuration": 0,
+    "TaskDuration": 30.095815,
+    "TaskOtherDuration": 0.9393170000000001
+  },
+  "seconds": 30.024800000000745,
+  "days": 825,
+  "actualRate": 45.33752098265322,
+  "components": {
+    "draw": {
+      "count": 394,
+      "totalMs": 2496.9999999962747,
+      "p50Ms": 4.700000001117587,
+      "p95Ms": 12.800000000745058,
+      "p99Ms": 32.70000000111759,
+      "maxMs": 199.5
+    },
+    "frame": {
+      "count": 826,
+      "totalMs": 28230.800000041723,
+      "p50Ms": 22.700000001117587,
+      "p95Ms": 59,
+      "p99Ms": 316.5,
+      "maxMs": 444.40000000037253
+    },
+    "dailyEconomy": {
+      "count": 825,
+      "totalMs": 14959.89999999106,
+      "p50Ms": 16.5,
+      "p95Ms": 26.40000000037253,
+      "p99Ms": 51,
+      "maxMs": 136.09999999962747
+    },
+    "maintainRoads": {
+      "count": 825,
+      "totalMs": 611.3000000212342,
+      "p50Ms": 0.6999999992549419,
+      "p95Ms": 1,
+      "p99Ms": 1.799999998882413,
+      "maxMs": 3.299999998882413
+    },
+    "recompute": {
+      "count": 1696,
+      "totalMs": 675.0999999400228,
+      "p50Ms": 0.3999999985098839,
+      "p95Ms": 0.599999999627471,
+      "p99Ms": 1.300000000745058,
+      "maxMs": 7
+    },
+    "systemsDay": {
+      "count": 825,
+      "totalMs": 2055.000000016764,
+      "p50Ms": 0.09999999962747097,
+      "p95Ms": 0.2999999988824129,
+      "p99Ms": 111.79999999888241,
+      "maxMs": 137.5
+    },
+    "privateServiceInvestmentDay": {
+      "count": 825,
+      "totalMs": 2594.500000005588,
+      "p50Ms": 0,
+      "p95Ms": 0,
+      "p99Ms": 101,
+      "maxMs": 188.2999999988824
+    },
+    "urbanEvolutionDay": {
+      "count": 825,
+      "totalMs": 913.8999999966472,
+      "p50Ms": 0,
+      "p95Ms": 0,
+      "p99Ms": 82.19999999925494,
+      "maxMs": 103
+    },
+    "tick": {
+      "count": 825,
+      "totalMs": 25471.000000018626,
+      "p50Ms": 20.899999998509884,
+      "p95Ms": 46.20000000111759,
+      "p99Ms": 287.09999999962747,
+      "maxMs": 444.30000000074506
+    },
+    "updateHeader": {
+      "count": 97,
+      "totalMs": 145.29999999515712,
+      "p50Ms": 1.400000000372529,
+      "p95Ms": 2.400000000372529,
+      "p99Ms": 4.799999998882413,
+      "maxMs": 4.799999998882413
+    },
+    "assignJobs": {
+      "count": 249,
+      "totalMs": 80.20000000298023,
+      "p50Ms": 0.19999999925494194,
+      "p95Ms": 1,
+      "p99Ms": 2.5,
+      "maxMs": 8.400000000372529
+    },
+    "renderPanel": {
+      "count": 13,
+      "totalMs": 192.90000000409782,
+      "p50Ms": 13,
+      "p95Ms": 31.5,
+      "p99Ms": 31.5,
+      "maxMs": 31.5
+    },
+    "archivePayload": {
+      "count": 3,
+      "totalMs": 65.79999999888241,
+      "p50Ms": 21.59999999962747,
+      "p95Ms": 24.59999999962747,
+      "p99Ms": 24.59999999962747,
+      "maxMs": 24.59999999962747
+    },
+    "checksum": {
+      "count": 15,
+      "totalMs": 81.60000000707805,
+      "p50Ms": 6.5,
+      "p95Ms": 7.700000001117587,
+      "p99Ms": 7.700000001117587,
+      "maxMs": 7.700000001117587
+    },
+    "readSaveEnvelope": {
+      "count": 12,
+      "totalMs": 130.10000000707805,
+      "p50Ms": 14.200000001117587,
+      "p95Ms": 19.100000001490116,
+      "p99Ms": 19.100000001490116,
+      "maxMs": 19.100000001490116
+    },
+    "persistSnapshot": {
+      "count": 3,
+      "totalMs": 243.80000000074506,
+      "p50Ms": 81.10000000149012,
+      "p95Ms": 88,
+      "p99Ms": 88,
+      "maxMs": 88
+    },
+    "save": {
+      "count": 3,
+      "totalMs": 309.69999999925494,
+      "p50Ms": 102.80000000074506,
+      "p95Ms": 112.59999999962747,
+      "p99Ms": 112.59999999962747,
+      "maxMs": 112.59999999962747
+    }
+  },
+  "raf": {
+    "count": 825,
+    "totalMs": 29998.9,
+    "p50Ms": 33.29999999999927,
+    "p95Ms": 83.29999999999927,
+    "p99Ms": 316.60000000000036,
+    "maxMs": 450
+  },
+  "touchDelivery": {
+    "count": 22,
+    "totalMs": 1210.2999999988824,
+    "p50Ms": 53.09999999962747,
+    "p95Ms": 130.30000000074506,
+    "p99Ms": 154.80000000074506,
+    "maxMs": 154.80000000074506
+  },
+  "touchNextRAF": {
+    "count": 22,
+    "totalMs": 2070.099999995902,
+    "p50Ms": 87.59999999962747,
+    "p95Ms": 168.89999999850988,
+    "p99Ms": 179.40000000037253,
+    "maxMs": 179.40000000037253
+  },
+  "longtasks": [
+    {
+      "start": 3449.4000000003725,
+      "duration": 132
+    },
+    {
+      "start": 3581.5,
+      "duration": 197
+    },
+    {
+      "start": 3983.5,
+      "duration": 51
+    },
+    {
+      "start": 4322.60000000149,
+      "duration": 51
+    },
+    {
+      "start": 4401.700000001118,
+      "duration": 338
+    },
+    {
+      "start": 4740.200000001118,
+      "duration": 102
+    },
+    {
+      "start": 5780.4000000003725,
+      "duration": 170
+    },
+    {
+      "start": 5951,
+      "duration": 51
+    },
+    {
+      "start": 6777,
+      "duration": 268
+    },
+    {
+      "start": 7046.200000001118,
+      "duration": 88
+    },
+    {
+      "start": 8003.5,
+      "duration": 278
+    },
+    {
+      "start": 8945.10000000149,
+      "duration": 143
+    },
+    {
+      "start": 9088.300000000745,
+      "duration": 53
+    },
+    {
+      "start": 9816.400000000373,
+      "duration": 242
+    },
+    {
+      "start": 10831.10000000149,
+      "duration": 239
+    },
+    {
+      "start": 11073.200000001118,
+      "duration": 50
+    },
+    {
+      "start": 11789,
+      "duration": 225
+    },
+    {
+      "start": 12274,
+      "duration": 60
+    },
+    {
+      "start": 12858.300000000745,
+      "duration": 324
+    },
+    {
+      "start": 13932.800000000745,
+      "duration": 240
+    },
+    {
+      "start": 14928.900000000373,
+      "duration": 242
+    },
+    {
+      "start": 15171.900000000373,
+      "duration": 52
+    },
+    {
+      "start": 15271.5,
+      "duration": 51
+    },
+    {
+      "start": 16027.800000000745,
+      "duration": 316
+    },
+    {
+      "start": 16614.300000000745,
+      "duration": 116
+    },
+    {
+      "start": 17330.400000000373,
+      "duration": 249
+    },
+    {
+      "start": 18275.200000001118,
+      "duration": 234
+    },
+    {
+      "start": 19120.5,
+      "duration": 219
+    },
+    {
+      "start": 19410.800000000745,
+      "duration": 323
+    },
+    {
+      "start": 20430.5,
+      "duration": 240
+    },
+    {
+      "start": 21410.900000000373,
+      "duration": 444
+    },
+    {
+      "start": 21855.800000000745,
+      "duration": 87
+    },
+    {
+      "start": 22718.10000000149,
+      "duration": 107
+    },
+    {
+      "start": 22839,
+      "duration": 367
+    },
+    {
+      "start": 23209.10000000149,
+      "duration": 68
+    },
+    {
+      "start": 24071.60000000149,
+      "duration": 239
+    },
+    {
+      "start": 24311.700000001118,
+      "duration": 87
+    },
+    {
+      "start": 25047.10000000149,
+      "duration": 349
+    },
+    {
+      "start": 25397.800000000745,
+      "duration": 82
+    },
+    {
+      "start": 26117.400000000373,
+      "duration": 439
+    },
+    {
+      "start": 26556.800000000745,
+      "duration": 103
+    },
+    {
+      "start": 26862.700000001118,
+      "duration": 89
+    },
+    {
+      "start": 27260.900000000373,
+      "duration": 51
+    },
+    {
+      "start": 27463.900000000373,
+      "duration": 258
+    },
+    {
+      "start": 27723,
+      "duration": 97
+    },
+    {
+      "start": 27844.60000000149,
+      "duration": 86
+    },
+    {
+      "start": 28624.60000000149,
+      "duration": 275
+    },
+    {
+      "start": 29558.300000000745,
+      "duration": 238
+    },
+    {
+      "start": 30235.800000000745,
+      "duration": 102
+    },
+    {
+      "start": 30635.300000000745,
+      "duration": 157
+    },
+    {
+      "start": 30936.10000000149,
+      "duration": 97
+    },
+    {
+      "start": 31627.200000001118,
+      "duration": 226
+    },
+    {
+      "start": 32519.300000000745,
+      "duration": 320
+    }
+  ],
+  "heap": {
+    "usedSize": 134448276,
+    "totalSize": 176054272,
+    "embedderHeapUsedSize": 10697592,
+    "backingStorageSize": 13233737
+  }
+}

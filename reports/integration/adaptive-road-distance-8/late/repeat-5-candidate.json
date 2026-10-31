@@ -1,0 +1,592 @@
+{
+  "source_sha256": "432e00545fd63ee80979adec6ec2af277710f980733c40fd0f9434b3c71aeb0f",
+  "checkpoint_sha256": "ad6256fd85d4146fda9eeac0b16d5b182ed352c23bbd96af3b320553c29ce786",
+  "cacheBaseline": false,
+  "hostChromiumOnly": true,
+  "physicalAndroid": false,
+  "errors": [],
+  "actions": [
+    {
+      "kind": "touch",
+      "index": 0
+    },
+    {
+      "kind": "touch",
+      "index": 1
+    },
+    {
+      "kind": "touch",
+      "index": 2
+    },
+    {
+      "kind": "touch",
+      "index": 3
+    },
+    {
+      "kind": "touch",
+      "index": 4
+    },
+    {
+      "kind": "touch",
+      "index": 5
+    },
+    {
+      "kind": "explicit-save",
+      "index": 5
+    },
+    {
+      "kind": "touch",
+      "index": 6
+    },
+    {
+      "kind": "touch",
+      "index": 7
+    },
+    {
+      "kind": "touch",
+      "index": 8
+    },
+    {
+      "kind": "touch",
+      "index": 9
+    },
+    {
+      "kind": "touch",
+      "index": 10
+    },
+    {
+      "kind": "touch",
+      "index": 11
+    },
+    {
+      "kind": "explicit-save",
+      "index": 11
+    }
+  ],
+  "initialHeapAfterGC": {
+    "usedSize": 16262884,
+    "totalSize": 17584128,
+    "embedderHeapUsedSize": 4049168,
+    "backingStorageSize": 2310322
+  },
+  "initial": {
+    "day": 41681,
+    "population": 778,
+    "people": 3108,
+    "households": 876,
+    "firms": 81,
+    "buildings": 797,
+    "total": 15493517.000209823,
+    "valid": {
+      "ok": true,
+      "issues": [],
+      "total": 15493517.000209823,
+      "population": 778,
+      "day": 41681
+    },
+    "goodsError": 3.684908733703196e-08,
+    "autoBuild": true,
+    "privateEntry": 1,
+    "requestedSpeed": 64,
+    "routes": 48,
+    "operating": 9,
+    "drivers": 18,
+    "atlasBytes": 12412160,
+    "serviceCaches": 0,
+    "backlog": 0,
+    "musicError": "",
+    "musicTrack": 4,
+    "musicDecks": 1,
+    "roadCache": {
+      "aggregate": {
+        "graphs": 99,
+        "queries": 22,
+        "hits": 0,
+        "builds": 22,
+        "evictions": 0,
+        "maxBytes": 15400
+      },
+      "baseline": null,
+      "current": {
+        "roads": 5666,
+        "compactRows": 0,
+        "compactBytes": 0,
+        "denseRows": 0
+      }
+    }
+  },
+  "end": {
+    "day": 42504,
+    "population": 770,
+    "people": 3161,
+    "households": 889,
+    "firms": 84,
+    "buildings": 800,
+    "total": 15493517.000208952,
+    "valid": {
+      "ok": true,
+      "issues": [],
+      "total": 15493517.000208952,
+      "population": 770,
+      "day": 42504
+    },
+    "goodsError": 3.604509402066469e-08,
+    "autoBuild": true,
+    "privateEntry": 1,
+    "requestedSpeed": 64,
+    "routes": 48,
+    "operating": 10,
+    "drivers": 20,
+    "atlasBytes": 29650176,
+    "serviceCaches": 2,
+    "backlog": 6.041696969697131,
+    "musicError": "",
+    "musicTrack": 4,
+    "musicDecks": 1,
+    "roadCache": {
+      "aggregate": {
+        "graphs": 110,
+        "queries": 4691783,
+        "hits": 4689999,
+        "builds": 1784,
+        "evictions": 0,
+        "maxBytes": 2277732
+      },
+      "baseline": null,
+      "current": {
+        "roads": 5666,
+        "compactRows": 169,
+        "compactBytes": 1915108,
+        "denseRows": 32
+      }
+    }
+  },
+  "browserMetricDeltas": {
+    "LayoutCount": 311,
+    "RecalcStyleCount": 377,
+    "LayoutDuration": 0.15262,
+    "RecalcStyleDuration": 0.09727,
+    "DevToolsCommandDuration": 0.10136200000000001,
+    "ScriptDuration": 29.065806,
+    "V8CompileDuration": 0,
+    "TaskDuration": 30.418156999999997,
+    "TaskOtherDuration": 1.001099
+  },
+  "seconds": 30.0145,
+  "days": 819,
+  "actualRate": 45.02323876792883,
+  "components": {
+    "dailyEconomy": {
+      "count": 819,
+      "totalMs": 14954.699999991804,
+      "p50Ms": 16.59999999962747,
+      "p95Ms": 28.699999999254942,
+      "p99Ms": 46.30000000074506,
+      "maxMs": 79.69999999925494
+    },
+    "maintainRoads": {
+      "count": 819,
+      "totalMs": 648.7000000234693,
+      "p50Ms": 0.7000000011175871,
+      "p95Ms": 1.199999999254942,
+      "p99Ms": 2.400000000372529,
+      "maxMs": 3.799999998882413
+    },
+    "recompute": {
+      "count": 1684,
+      "totalMs": 667.1999999210238,
+      "p50Ms": 0.3999999985098839,
+      "p95Ms": 0.6000000014901161,
+      "p99Ms": 1.400000000372529,
+      "maxMs": 4.599999999627471
+    },
+    "systemsDay": {
+      "count": 819,
+      "totalMs": 2079.9000000543892,
+      "p50Ms": 0.09999999962747097,
+      "p95Ms": 0.40000000037252903,
+      "p99Ms": 111.80000000074506,
+      "maxMs": 131.80000000074506
+    },
+    "privateServiceInvestmentDay": {
+      "count": 819,
+      "totalMs": 2556.800000000745,
+      "p50Ms": 0,
+      "p95Ms": 0,
+      "p99Ms": 95.29999999888241,
+      "maxMs": 176.60000000149012
+    },
+    "urbanEvolutionDay": {
+      "count": 819,
+      "totalMs": 923.1999999992549,
+      "p50Ms": 0,
+      "p95Ms": 0,
+      "p99Ms": 78.40000000037253,
+      "maxMs": 107.5
+    },
+    "tick": {
+      "count": 819,
+      "totalMs": 25499.59999998659,
+      "p50Ms": 21.09999999962747,
+      "p95Ms": 49.90000000037253,
+      "p99Ms": 281.7999999988824,
+      "maxMs": 426
+    },
+    "updateHeader": {
+      "count": 100,
+      "totalMs": 145.69999998994172,
+      "p50Ms": 1.3999999985098839,
+      "p95Ms": 2.900000000372529,
+      "p99Ms": 4.399999998509884,
+      "maxMs": 4.399999998509884
+    },
+    "draw": {
+      "count": 395,
+      "totalMs": 2369.3000000361353,
+      "p50Ms": 4.699999999254942,
+      "p95Ms": 12.799999998882413,
+      "p99Ms": 22,
+      "maxMs": 189.59999999962747
+    },
+    "frame": {
+      "count": 819,
+      "totalMs": 28124.100000020117,
+      "p50Ms": 22.899999998509884,
+      "p95Ms": 64.40000000037253,
+      "p99Ms": 308.8999999985099,
+      "maxMs": 478.80000000074506
+    },
+    "assignJobs": {
+      "count": 248,
+      "totalMs": 82.59999998472631,
+      "p50Ms": 0.19999999925494194,
+      "p95Ms": 1,
+      "p99Ms": 3.099999999627471,
+      "maxMs": 7.799999998882413
+    },
+    "renderPanel": {
+      "count": 14,
+      "totalMs": 221.40000000037253,
+      "p50Ms": 13.700000001117587,
+      "p95Ms": 32.5,
+      "p99Ms": 32.5,
+      "maxMs": 32.5
+    },
+    "archivePayload": {
+      "count": 3,
+      "totalMs": 63.0,
+      "p50Ms": 21.5,
+      "p95Ms": 22,
+      "p99Ms": 22,
+      "maxMs": 22
+    },
+    "checksum": {
+      "count": 15,
+      "totalMs": 86.59999999776483,
+      "p50Ms": 6.5,
+      "p95Ms": 10.899999998509884,
+      "p99Ms": 10.899999998509884,
+      "maxMs": 10.899999998509884
+    },
+    "readSaveEnvelope": {
+      "count": 12,
+      "totalMs": 134.3000000026077,
+      "p50Ms": 15.900000000372529,
+      "p95Ms": 22.199999999254942,
+      "p99Ms": 22.199999999254942,
+      "maxMs": 22.199999999254942
+    },
+    "persistSnapshot": {
+      "count": 3,
+      "totalMs": 251.80000000074506,
+      "p50Ms": 80.80000000074506,
+      "p95Ms": 91.70000000111759,
+      "p99Ms": 91.70000000111759,
+      "maxMs": 91.70000000111759
+    },
+    "save": {
+      "count": 3,
+      "totalMs": 314.80000000074506,
+      "p50Ms": 102.30000000074506,
+      "p95Ms": 113.70000000111759,
+      "p99Ms": 113.70000000111759,
+      "maxMs": 113.70000000111759
+    }
+  },
+  "raf": {
+    "count": 818,
+    "totalMs": 29982.100000000002,
+    "p50Ms": 33.29999999999927,
+    "p95Ms": 66.70000000000073,
+    "p99Ms": 316.60000000000036,
+    "maxMs": 466.59999999999854
+  },
+  "touchDelivery": {
+    "count": 22,
+    "totalMs": 1161.8000000044703,
+    "p50Ms": 57.40000000037253,
+    "p95Ms": 113.69999999925494,
+    "p99Ms": 130.69999999925494,
+    "maxMs": 130.69999999925494
+  },
+  "touchNextRAF": {
+    "count": 22,
+    "totalMs": 1998.8000000044703,
+    "p50Ms": 87.80000000074506,
+    "p95Ms": 149.19999999925494,
+    "p99Ms": 151.69999999925494,
+    "maxMs": 151.69999999925494
+  },
+  "longtasks": [
+    {
+      "start": 3774.7999999988824,
+      "duration": 56
+    },
+    {
+      "start": 3964,
+      "duration": 50
+    },
+    {
+      "start": 4447.39999999851,
+      "duration": 282
+    },
+    {
+      "start": 4731,
+      "duration": 135
+    },
+    {
+      "start": 5226.699999999255,
+      "duration": 52
+    },
+    {
+      "start": 5814.5,
+      "duration": 217
+    },
+    {
+      "start": 6032.199999999255,
+      "duration": 69
+    },
+    {
+      "start": 6911.799999998882,
+      "duration": 310
+    },
+    {
+      "start": 7222.89999999851,
+      "duration": 89
+    },
+    {
+      "start": 7386.799999998882,
+      "duration": 53
+    },
+    {
+      "start": 7441,
+      "duration": 50
+    },
+    {
+      "start": 8234.199999999255,
+      "duration": 259
+    },
+    {
+      "start": 8494.39999999851,
+      "duration": 59
+    },
+    {
+      "start": 9064.5,
+      "duration": 56
+    },
+    {
+      "start": 9279.5,
+      "duration": 154
+    },
+    {
+      "start": 9434.5,
+      "duration": 68
+    },
+    {
+      "start": 10237.199999999255,
+      "duration": 252
+    },
+    {
+      "start": 10490.199999999255,
+      "duration": 56
+    },
+    {
+      "start": 10547.299999998882,
+      "duration": 54
+    },
+    {
+      "start": 10717,
+      "duration": 55
+    },
+    {
+      "start": 10806.099999999627,
+      "duration": 64
+    },
+    {
+      "start": 11370.699999999255,
+      "duration": 243
+    },
+    {
+      "start": 11615.299999998882,
+      "duration": 66
+    },
+    {
+      "start": 12374.099999999627,
+      "duration": 241
+    },
+    {
+      "start": 12615.39999999851,
+      "duration": 55
+    },
+    {
+      "start": 12806.299999998882,
+      "duration": 54
+    },
+    {
+      "start": 13493.199999999255,
+      "duration": 63
+    },
+    {
+      "start": 13557.799999998882,
+      "duration": 354
+    },
+    {
+      "start": 13913,
+      "duration": 53
+    },
+    {
+      "start": 14717,
+      "duration": 227
+    },
+    {
+      "start": 15683.89999999851,
+      "duration": 234
+    },
+    {
+      "start": 16772.89999999851,
+      "duration": 324
+    },
+    {
+      "start": 17335.599999999627,
+      "duration": 106
+    },
+    {
+      "start": 17945.89999999851,
+      "duration": 236
+    },
+    {
+      "start": 18889.89999999851,
+      "duration": 228
+    },
+    {
+      "start": 19864.599999999627,
+      "duration": 209
+    },
+    {
+      "start": 20098.89999999851,
+      "duration": 312
+    },
+    {
+      "start": 21074.5,
+      "duration": 220
+    },
+    {
+      "start": 21965.89999999851,
+      "duration": 445
+    },
+    {
+      "start": 22411.89999999851,
+      "duration": 63
+    },
+    {
+      "start": 23203.799999998882,
+      "duration": 107
+    },
+    {
+      "start": 23311,
+      "duration": 367
+    },
+    {
+      "start": 23679.699999999255,
+      "duration": 61
+    },
+    {
+      "start": 24459.599999999627,
+      "duration": 227
+    },
+    {
+      "start": 24686.699999999255,
+      "duration": 82
+    },
+    {
+      "start": 25413.699999999255,
+      "duration": 337
+    },
+    {
+      "start": 25752.39999999851,
+      "duration": 79
+    },
+    {
+      "start": 26454.099999999627,
+      "duration": 480
+    },
+    {
+      "start": 26934.299999998882,
+      "duration": 73
+    },
+    {
+      "start": 27205.599999999627,
+      "duration": 84
+    },
+    {
+      "start": 27742.5,
+      "duration": 249
+    },
+    {
+      "start": 27992.699999999255,
+      "duration": 69
+    },
+    {
+      "start": 28084.89999999851,
+      "duration": 70
+    },
+    {
+      "start": 28822.099999999627,
+      "duration": 255
+    },
+    {
+      "start": 29077.299999998882,
+      "duration": 50
+    },
+    {
+      "start": 29773.099999999627,
+      "duration": 258
+    },
+    {
+      "start": 30248.39999999851,
+      "duration": 113
+    },
+    {
+      "start": 30957.89999999851,
+      "duration": 172
+    },
+    {
+      "start": 31217.099999999627,
+      "duration": 101
+    },
+    {
+      "start": 32010,
+      "duration": 243
+    },
+    {
+      "start": 32930.79999999888,
+      "duration": 337
+    }
+  ],
+  "heap": {
+    "usedSize": 115259568,
+    "totalSize": 184901632,
+    "embedderHeapUsedSize": 10943888,
+    "backingStorageSize": 14035765
+  }
+}

@@ -1,0 +1,404 @@
+[
+  {
+    "file": "repeat-0-base.json",
+    "kind": "base",
+    "source": "852b9950845a6563c600be5eced6188e11edeccda495ec778ca3f4ebe3e9ff61",
+    "rate": 44.84427406166365,
+    "rafP99": 316.6000000000022,
+    "touchMax": 157.40000000037253,
+    "touchMedian": 101.40000000037253,
+    "actions": [
+      {
+        "kind": "touch",
+        "index": 0
+      },
+      {
+        "kind": "touch",
+        "index": 1
+      },
+      {
+        "kind": "touch",
+        "index": 2
+      },
+      {
+        "kind": "touch",
+        "index": 3
+      },
+      {
+        "kind": "touch",
+        "index": 4
+      },
+      {
+        "kind": "touch",
+        "index": 5
+      },
+      {
+        "kind": "explicit-save",
+        "index": 5
+      },
+      {
+        "kind": "touch",
+        "index": 6
+      },
+      {
+        "kind": "touch",
+        "index": 7
+      },
+      {
+        "kind": "touch",
+        "index": 8
+      },
+      {
+        "kind": "touch",
+        "index": 9
+      },
+      {
+        "kind": "touch",
+        "index": 10
+      },
+      {
+        "kind": "touch",
+        "index": 11
+      },
+      {
+        "kind": "explicit-save",
+        "index": 11
+      }
+    ]
+  },
+  {
+    "file": "repeat-1-candidate.json",
+    "kind": "candidate",
+    "source": "432e00545fd63ee80979adec6ec2af277710f980733c40fd0f9434b3c71aeb0f",
+    "rate": 44.61627604947373,
+    "rafP99": 316.59999999999854,
+    "touchMax": 396.40000000037253,
+    "touchMedian": 98.19999999925494,
+    "actions": [
+      {
+        "kind": "touch",
+        "index": 0
+      },
+      {
+        "kind": "touch",
+        "index": 1
+      },
+      {
+        "kind": "touch",
+        "index": 2
+      },
+      {
+        "kind": "touch",
+        "index": 3
+      },
+      {
+        "kind": "touch",
+        "index": 4
+      },
+      {
+        "kind": "touch",
+        "index": 5
+      },
+      {
+        "kind": "explicit-save",
+        "index": 5
+      },
+      {
+        "kind": "touch",
+        "index": 6
+      },
+      {
+        "kind": "touch",
+        "index": 7
+      },
+      {
+        "kind": "touch",
+        "index": 8
+      },
+      {
+        "kind": "touch",
+        "index": 9
+      },
+      {
+        "kind": "touch",
+        "index": 10
+      },
+      {
+        "kind": "touch",
+        "index": 11
+      },
+      {
+        "kind": "explicit-save",
+        "index": 11
+      }
+    ]
+  },
+  {
+    "file": "repeat-2-candidate.json",
+    "kind": "candidate",
+    "source": "432e00545fd63ee80979adec6ec2af277710f980733c40fd0f9434b3c71aeb0f",
+    "rate": 45.33752098265322,
+    "rafP99": 316.60000000000036,
+    "touchMax": 179.40000000037253,
+    "touchMedian": 87.59999999962747,
+    "actions": [
+      {
+        "kind": "touch",
+        "index": 0
+      },
+      {
+        "kind": "touch",
+        "index": 1
+      },
+      {
+        "kind": "touch",
+        "index": 2
+      },
+      {
+        "kind": "touch",
+        "index": 3
+      },
+      {
+        "kind": "touch",
+        "index": 4
+      },
+      {
+        "kind": "touch",
+        "index": 5
+      },
+      {
+        "kind": "explicit-save",
+        "index": 5
+      },
+      {
+        "kind": "touch",
+        "index": 6
+      },
+      {
+        "kind": "touch",
+        "index": 7
+      },
+      {
+        "kind": "touch",
+        "index": 8
+      },
+      {
+        "kind": "touch",
+        "index": 9
+      },
+      {
+        "kind": "touch",
+        "index": 10
+      },
+      {
+        "kind": "touch",
+        "index": 11
+      },
+      {
+        "kind": "explicit-save",
+        "index": 11
+      }
+    ]
+  },
+  {
+    "file": "repeat-3-base.json",
+    "kind": "base",
+    "source": "852b9950845a6563c600be5eced6188e11edeccda495ec778ca3f4ebe3e9ff61",
+    "rate": 45.14536898795147,
+    "rafP99": 316.5,
+    "touchMax": 562.0999999996275,
+    "touchMedian": 92.40000000037253,
+    "actions": [
+      {
+        "kind": "touch",
+        "index": 0
+      },
+      {
+        "kind": "touch",
+        "index": 1
+      },
+      {
+        "kind": "touch",
+        "index": 2
+      },
+      {
+        "kind": "touch",
+        "index": 3
+      },
+      {
+        "kind": "touch",
+        "index": 4
+      },
+      {
+        "kind": "touch",
+        "index": 5
+      },
+      {
+        "kind": "explicit-save",
+        "index": 5
+      },
+      {
+        "kind": "touch",
+        "index": 6
+      },
+      {
+        "kind": "touch",
+        "index": 7
+      },
+      {
+        "kind": "touch",
+        "index": 8
+      },
+      {
+        "kind": "touch",
+        "index": 9
+      },
+      {
+        "kind": "touch",
+        "index": 10
+      },
+      {
+        "kind": "touch",
+        "index": 11
+      },
+      {
+        "kind": "explicit-save",
+        "index": 11
+      }
+    ]
+  },
+  {
+    "file": "repeat-4-base.json",
+    "kind": "base",
+    "source": "852b9950845a6563c600be5eced6188e11edeccda495ec778ca3f4ebe3e9ff61",
+    "rate": 46.64974974275011,
+    "rafP99": 283.39999999999964,
+    "touchMax": 155.30000000074506,
+    "touchMedian": 90.10000000149012,
+    "actions": [
+      {
+        "kind": "touch",
+        "index": 0
+      },
+      {
+        "kind": "touch",
+        "index": 1
+      },
+      {
+        "kind": "touch",
+        "index": 2
+      },
+      {
+        "kind": "touch",
+        "index": 3
+      },
+      {
+        "kind": "touch",
+        "index": 4
+      },
+      {
+        "kind": "touch",
+        "index": 5
+      },
+      {
+        "kind": "explicit-save",
+        "index": 5
+      },
+      {
+        "kind": "touch",
+        "index": 6
+      },
+      {
+        "kind": "touch",
+        "index": 7
+      },
+      {
+        "kind": "touch",
+        "index": 8
+      },
+      {
+        "kind": "touch",
+        "index": 9
+      },
+      {
+        "kind": "touch",
+        "index": 10
+      },
+      {
+        "kind": "touch",
+        "index": 11
+      },
+      {
+        "kind": "explicit-save",
+        "index": 11
+      }
+    ]
+  },
+  {
+    "file": "repeat-5-candidate.json",
+    "kind": "candidate",
+    "source": "432e00545fd63ee80979adec6ec2af277710f980733c40fd0f9434b3c71aeb0f",
+    "rate": 45.02323876792883,
+    "rafP99": 316.60000000000036,
+    "touchMax": 151.69999999925494,
+    "touchMedian": 87.80000000074506,
+    "actions": [
+      {
+        "kind": "touch",
+        "index": 0
+      },
+      {
+        "kind": "touch",
+        "index": 1
+      },
+      {
+        "kind": "touch",
+        "index": 2
+      },
+      {
+        "kind": "touch",
+        "index": 3
+      },
+      {
+        "kind": "touch",
+        "index": 4
+      },
+      {
+        "kind": "touch",
+        "index": 5
+      },
+      {
+        "kind": "explicit-save",
+        "index": 5
+      },
+      {
+        "kind": "touch",
+        "index": 6
+      },
+      {
+        "kind": "touch",
+        "index": 7
+      },
+      {
+        "kind": "touch",
+        "index": 8
+      },
+      {
+        "kind": "touch",
+        "index": 9
+      },
+      {
+        "kind": "touch",
+        "index": 10
+      },
+      {
+        "kind": "touch",
+        "index": 11
+      },
+      {
+        "kind": "explicit-save",
+        "index": 11
+      }
+    ]
+  }
+]

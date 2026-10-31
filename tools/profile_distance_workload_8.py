@@ -33,21 +33,23 @@ def stats(a):
  a=sorted(a);return {'count':len(a),'totalMs':sum(a),'p50Ms':a[len(a)//2] if a else 0,'p95Ms':a[min(len(a)-1,int(len(a)*.95))] if a else 0,'p99Ms':a[min(len(a)-1,int(len(a)*.99))] if a else 0,'maxMs':max(a) if a else 0}
 class Quiet(http.server.SimpleHTTPRequestHandler):
  def log_message(self,*args):pass
-out=ROOT/'reports/integration/adaptive-road-distance-8/late';out.mkdir(parents=True,exist_ok=True);server=http.server.ThreadingHTTPServer(('127.0.0.1',0),functools.partial(Quiet,directory=str(ROOT/'assets')));threading.Thread(target=server.serve_forever,daemon=True).start();result={'source_sha256':sha,'checkpoint_sha256':checkpoint_sha,'cacheBaseline':os.environ.get('LATE_DISTANCE_BASELINE')=='1','hostChromiumOnly':True,'physicalAndroid':False,'errors':[]}
+out=ROOT/'reports/integration/adaptive-road-distance-8/late';out.mkdir(parents=True,exist_ok=True);server=http.server.ThreadingHTTPServer(('127.0.0.1',0),functools.partial(Quiet,directory=str(ROOT/'assets')));threading.Thread(target=server.serve_forever,daemon=True).start();result={'source_sha256':sha,'checkpoint_sha256':checkpoint_sha,'cacheBaseline':os.environ.get('LATE_DISTANCE_BASELINE')=='1','hostChromiumOnly':True,'physicalAndroid':False,'errors':[],'actions':[]}
 with sync_playwright() as pw:
  b=pw.chromium.launch(executable_path='/usr/bin/chromium',args=['--no-sandbox','--disable-dev-shm-usage']);p=b.new_page(viewport={'width':844,'height':390},has_touch=True);p.on('pageerror',lambda e:result['errors'].append(str(e)));p.route('**/game.js',lambda r:r.fulfill(content_type='application/javascript',body=source.replace('// SOURCE: 99-instrumentation.js',probe+'\n// SOURCE: 99-instrumentation.js')));p.goto('http://127.0.0.1:'+str(server.server_port)+'/index.html');p.locator('#newTown').click();p.locator('#pause').click();assert p.evaluate('s=>__townArchive.restore(s)',archive);p.locator('#panelClose').click();p.locator('#speedRange').fill('6');p.evaluate('__late.zoom(.85)');p.wait_for_timeout(1500);cdp=p.context.new_cdp_session(p);cdp.send('Performance.enable');cdp.send('HeapProfiler.collectGarbage');result['initialHeapAfterGC']=cdp.send('Runtime.getHeapUsage');result['initial']=p.evaluate('__late.state()');metrics=cdp.send('Performance.getMetrics');p.locator('#pause').click();p.evaluate('__late.begin()')
  if os.environ.get('LATE_CPU')=='1':cdp.send('Profiler.enable');cdp.send('Profiler.start')
  start=time.monotonic();index=0;panels=['economy','community','businesses','treasury'];panel=False
- while time.monotonic()-start<duration:
-  p.wait_for_timeout(1500);p.locator('#panelTitle' if panel else '#mapStatusToggle').tap()
+ while index<12:
+  p.wait_for_timeout(1500);p.locator('#panelTitle' if panel else '#mapStatusToggle').tap();result['actions'].append({'kind':'touch','index':index})
   if index%3==1:
    if panel:p.locator('#panelClose').click();panel=False
    else:p.locator('[data-panel='+panels[index//3%len(panels)]+']').click();panel=True
-  if index%8==7:
+  if index in [5,11]:
    if panel:p.locator('#panelClose').click();panel=False
-   p.locator('[data-panel=settings]').click();p.locator('#saveNow').click();p.wait_for_function('!document.querySelector("#saveNow").disabled');p.locator('#panelClose').click()
-  if time.monotonic()-start>duration/2:p.evaluate('__late.zoom(.23)')
+   p.locator('[data-panel=settings]').click();p.locator('#saveNow').click();p.wait_for_function('!document.querySelector("#saveNow").disabled');p.locator('#panelClose').click();result['actions'].append({'kind':'explicit-save','index':index})
+  if index>=6:p.evaluate('__late.zoom(.23)')
   index+=1
+ remaining=duration-(time.monotonic()-start)
+ if remaining>0:p.wait_for_timeout(remaining*1000)
  raw=p.evaluate('__late.end()');result['end']=p.evaluate('__late.state()');after=cdp.send('Performance.getMetrics');old={x['name']:x['value'] for x in metrics['metrics']};result['browserMetricDeltas']={x['name']:x['value']-old.get(x['name'],0) for x in after['metrics'] if x['name'].endswith('Duration') or x['name'].endswith('Count')};result['seconds']=raw['seconds'];result['days']=raw['days'];result['actualRate']=raw['days']*1.65/raw['seconds'];result['components']={k:stats(v) for k,v in raw['calls'].items()};result['raf']=stats(raw['raf']);result['touchDelivery']=stats([v['handlerMs'] for v in raw['input']]);result['touchNextRAF']=stats([v['nextFrameMs'] for v in raw['input']]);result['longtasks']=raw['longtasks'];result['heap']=cdp.send('Runtime.getHeapUsage')
  if os.environ.get('LATE_CPU')=='1':
   cpu=cdp.send('Profiler.stop')['profile'];nodes={n['id']:n for n in cpu['nodes']};counts=collections.Counter();inclusive=collections.Counter()

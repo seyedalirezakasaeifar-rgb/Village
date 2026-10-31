@@ -1,0 +1,30 @@
+{
+  "sourceHashes": {
+    "base": "852b9950845a6563c600be5eced6188e11edeccda495ec778ca3f4ebe3e9ff61",
+    "candidate": "432e00545fd63ee80979adec6ec2af277710f980733c40fd0f9434b3c71aeb0f"
+  },
+  "excludedFields": [
+    "trafficState",
+    "visualState"
+  ],
+  "rows": [
+    {
+      "test": "test_civic_calendar.py",
+      "completeModelAndRngEqual": true,
+      "day": 4,
+      "rngState": 84373950
+    },
+    {
+      "test": "test_brownfield_renewal.py",
+      "completeModelAndRngEqual": true,
+      "day": 23,
+      "rngState": 2503610893
+    },
+    {
+      "test": "test_procurement.py",
+      "completeModelAndRngEqual": true,
+      "day": 96,
+      "rngState": 2207169960
+    }
+  ]
+}
