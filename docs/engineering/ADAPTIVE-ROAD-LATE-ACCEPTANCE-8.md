@@ -1,0 +1,13 @@
+# Exact retained late-town cache acceptance
+
+Candidate: b4f6fe4d0a4d8a78ddfeed59df118560d68646af; assembled SHA-256 7f09488dc346be1a9dd1a08a03119fbcbd6fd211e2b47e963d6beae1fc5cf851. Both cases load exact generated day-41,681 checkpoint ad6256fd85d4146fda9eeac0b16d5b182ed352c23bbd96af3b320553c29ce786. Growth, private entry, audio and surviving cargo/transit remain enabled. The baseline replaces only distance functions with the original implementation, keeping the current model/rendering.
+
+The controlled pair executes the same twelve touches, panel sequence and two explicit saves. The driver now uses fixed action counts and an index-based zoom switch, rather than allowing faster cases to execute extra actions. Reports record the actual elapsed windows and simulated days. Separate exact replay compares 180 days of full model/RNG continuation from this same checkpoint against the original oracle; it passed, followed by 12,000 distance checks on the retained town. The test's generic final print mentions 72,000 pairs, but this checkpoint-mode run reports 12,000; do not inflate the count.
+
+Original/candidate observed rates: **16.08 / 42.38x**. RAF P99: **466.7 / 333.4 ms**. Maximum trusted input to next RAF: **394.6 / 506.2 ms**. Thus the cache materially improves throughput but does not establish improved worst input latency or smooth play. All money/goods/town invariants passed; the work was not reduced or its backlog hidden.
+
+The original shared cache built 97,306 rows during its window. Candidate compact-row builds were 1,759, despite advancing more real days; candidate compact evictions were zero. Compact bytes peaked at 2,277,732 (below 4 MiB), with 32 bounded dense compatibility rows additional. The original baseline counter does not expose eviction counts in this driver; prior source-bound cache evidence separately measures those. Do not manufacture a paired original eviction count.
+
+CPU attribution lists about 22.99 seconds exclusive in original roadDistancesFrom. Candidate roadDistancesFrom does not appear in its top 50 CPU nodes, so the summary records zero listed time, not proof of literal zero cost. Inspect the compressed CPU profiles for complete attribution. Source/checkpoint hashes, initial/end counters, heap readings, identical action sequence and retained unfavorable input samples are in reports/integration/adaptive-road-distance-8/late/paired-summary.json and individual receipts. Earlier time-driven diagnostic pairs are preserved too and must not be presented as fixed-action comparisons.
+
+This is host Chromium acceptance, not Android certification. The separate periodic-presentation candidate remains uninvolved. Cooperative scheduling/long atomic stages remain relevant to the unfavorable touch tail.

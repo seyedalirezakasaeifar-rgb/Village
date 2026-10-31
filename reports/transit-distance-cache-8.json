@@ -1,0 +1,39 @@
+{
+  "source_sha256": "7f09488dc346be1a9dd1a08a03119fbcbd6fd211e2b47e963d6beae1fc5cf851",
+  "reference_commit": "525e47d",
+  "models": [
+    {
+      "dense": false,
+      "days": 180,
+      "exactCheckpoints": [
+        41711,
+        41741,
+        41771,
+        41801,
+        41831,
+        41861
+      ],
+      "oracle": {
+        "checked": 12000,
+        "cachedTrees": 32,
+        "cacheBytes": 1048576,
+        "unchanged": true
+      },
+      "closure": {
+        "before": {
+          "checked": 12000,
+          "cachedTrees": 32,
+          "cacheBytes": 1048576,
+          "unchanged": true
+        },
+        "after": {
+          "checked": 12000,
+          "cachedTrees": 0,
+          "cacheBytes": 0,
+          "unchanged": true
+        },
+        "disconnected": true
+      }
+    }
+  ]
+}

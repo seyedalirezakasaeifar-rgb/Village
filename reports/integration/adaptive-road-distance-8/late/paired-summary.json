@@ -1,0 +1,276 @@
+{
+  "sameOrderedActions": true,
+  "rows": [
+    {
+      "name": "scripted-original",
+      "source_sha256": "7f09488dc346be1a9dd1a08a03119fbcbd6fd211e2b47e963d6beae1fc5cf851",
+      "checkpoint_sha256": "ad6256fd85d4146fda9eeac0b16d5b182ed352c23bbd96af3b320553c29ce786",
+      "baselineOverride": true,
+      "seconds": 45.242099999999624,
+      "days": 441,
+      "rate": 16.083470926416016,
+      "raf": {
+        "count": 441,
+        "totalMs": 45164.8,
+        "p50Ms": 83.39999999999782,
+        "p95Ms": 150.10000000000036,
+        "p99Ms": 466.7000000000007,
+        "maxMs": 566.6000000000004
+      },
+      "touch": {
+        "count": 22,
+        "totalMs": 6119.5999999996275,
+        "p50Ms": 308.40000000037253,
+        "p95Ms": 388.8999999985099,
+        "p99Ms": 394.59999999962747,
+        "maxMs": 394.59999999962747
+      },
+      "roadDistancesFromExclusiveMsTop50": 22990.342999999943,
+      "cacheInitial": {
+        "aggregate": {
+          "graphs": 98,
+          "queries": 0,
+          "hits": 0,
+          "builds": 0,
+          "evictions": 0,
+          "maxBytes": 0
+        },
+        "baseline": {
+          "hits": 5,
+          "builds": 21
+        },
+        "current": {
+          "roads": 5666,
+          "compactRows": 0,
+          "compactBytes": 0,
+          "denseRows": 0
+        }
+      },
+      "cacheEnd": {
+        "aggregate": {
+          "graphs": 100,
+          "queries": 0,
+          "hits": 0,
+          "builds": 0,
+          "evictions": 0,
+          "maxBytes": 0
+        },
+        "baseline": {
+          "hits": 2319610,
+          "builds": 97327
+        },
+        "current": {
+          "roads": 5666,
+          "compactRows": 0,
+          "compactBytes": 0,
+          "denseRows": 32
+        }
+      },
+      "heap": {
+        "usedSize": 43812680,
+        "totalSize": 106643456,
+        "embedderHeapUsedSize": 6540080,
+        "backingStorageSize": 10851898
+      },
+      "actions": [
+        {
+          "kind": "touch",
+          "index": 0
+        },
+        {
+          "kind": "touch",
+          "index": 1
+        },
+        {
+          "kind": "touch",
+          "index": 2
+        },
+        {
+          "kind": "touch",
+          "index": 3
+        },
+        {
+          "kind": "touch",
+          "index": 4
+        },
+        {
+          "kind": "touch",
+          "index": 5
+        },
+        {
+          "kind": "explicit-save",
+          "index": 5
+        },
+        {
+          "kind": "touch",
+          "index": 6
+        },
+        {
+          "kind": "touch",
+          "index": 7
+        },
+        {
+          "kind": "touch",
+          "index": 8
+        },
+        {
+          "kind": "touch",
+          "index": 9
+        },
+        {
+          "kind": "touch",
+          "index": 10
+        },
+        {
+          "kind": "touch",
+          "index": 11
+        },
+        {
+          "kind": "explicit-save",
+          "index": 11
+        }
+      ],
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15493517.000209786,
+        "population": 769,
+        "day": 42123
+      },
+      "goodsError": 3.6328856367617846e-08
+    },
+    {
+      "name": "scripted-compact",
+      "source_sha256": "7f09488dc346be1a9dd1a08a03119fbcbd6fd211e2b47e963d6beae1fc5cf851",
+      "checkpoint_sha256": "ad6256fd85d4146fda9eeac0b16d5b182ed352c23bbd96af3b320553c29ce786",
+      "baselineOverride": false,
+      "seconds": 30.370300000000746,
+      "days": 780,
+      "rate": 42.37692745873331,
+      "raf": {
+        "count": 780,
+        "totalMs": 30332.100000000002,
+        "p50Ms": 33.29999999999927,
+        "p95Ms": 100,
+        "p99Ms": 333.40000000000055,
+        "maxMs": 483.40000000000146
+      },
+      "touch": {
+        "count": 22,
+        "totalMs": 2866.60000000149,
+        "p50Ms": 102.70000000111759,
+        "p95Ms": 352.7000000011176,
+        "p99Ms": 506.19999999925494,
+        "maxMs": 506.19999999925494
+      },
+      "roadDistancesFromExclusiveMsTop50": 0,
+      "cacheInitial": {
+        "aggregate": {
+          "graphs": 98,
+          "queries": 20,
+          "hits": 0,
+          "builds": 20,
+          "evictions": 0,
+          "maxBytes": 13860
+        },
+        "baseline": null,
+        "current": {
+          "roads": 5666,
+          "compactRows": 0,
+          "compactBytes": 0,
+          "denseRows": 0
+        }
+      },
+      "cacheEnd": {
+        "aggregate": {
+          "graphs": 109,
+          "queries": 4463282,
+          "hits": 4461500,
+          "builds": 1782,
+          "evictions": 0,
+          "maxBytes": 2277732
+        },
+        "baseline": null,
+        "current": {
+          "roads": 5666,
+          "compactRows": 169,
+          "compactBytes": 1915108,
+          "denseRows": 32
+        }
+      },
+      "heap": {
+        "usedSize": 104866556,
+        "totalSize": 150491136,
+        "embedderHeapUsedSize": 10250624,
+        "backingStorageSize": 13252329
+      },
+      "actions": [
+        {
+          "kind": "touch",
+          "index": 0
+        },
+        {
+          "kind": "touch",
+          "index": 1
+        },
+        {
+          "kind": "touch",
+          "index": 2
+        },
+        {
+          "kind": "touch",
+          "index": 3
+        },
+        {
+          "kind": "touch",
+          "index": 4
+        },
+        {
+          "kind": "touch",
+          "index": 5
+        },
+        {
+          "kind": "explicit-save",
+          "index": 5
+        },
+        {
+          "kind": "touch",
+          "index": 6
+        },
+        {
+          "kind": "touch",
+          "index": 7
+        },
+        {
+          "kind": "touch",
+          "index": 8
+        },
+        {
+          "kind": "touch",
+          "index": 9
+        },
+        {
+          "kind": "touch",
+          "index": 10
+        },
+        {
+          "kind": "touch",
+          "index": 11
+        },
+        {
+          "kind": "explicit-save",
+          "index": 11
+        }
+      ],
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15493517.00020898,
+        "population": 776,
+        "day": 42463
+      },
+      "goodsError": 3.60851117875427e-08
+    }
+  ],
+  "limitations": "CPU top-50 aggregation is a lower bound if nodes fall below listing. Different rates advance different numbers of real days; exact 180-day model/RNG replay is separate. Host Chromium only."
+}

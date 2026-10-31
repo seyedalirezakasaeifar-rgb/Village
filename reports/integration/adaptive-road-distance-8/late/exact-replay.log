@@ -1,0 +1,2 @@
+PASS exact model False 180 {'checked': 12000, 'cachedTrees': 32, 'cacheBytes': 1048576, 'unchanged': True}
+PASS complete-model equality and 72,000 distance pairs across original and rebuilt 128-grid networks; bounded cache and no account writes
