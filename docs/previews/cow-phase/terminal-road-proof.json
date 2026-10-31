@@ -1,0 +1,139 @@
+{
+  "source_sha256": "bd4c718d1e8d393fec94581590394267c7e13da711a99f683d2f5350b2c1ab78",
+  "prototype_sha256": "6da0f3eb9cc8540cfc4fd6e215bd2689379bcddd90090a2b100033f37193e2e6",
+  "fixture_sha256": "ad6256fd85d4146fda9eeac0b16d5b182ed352c23bbd96af3b320553c29ce786",
+  "hostChromium": true,
+  "physicalAndroid": false,
+  "auditMs": 12.100000001490116,
+  "rows": [
+    {
+      "round": 0,
+      "beginMs": 0.29999999701976776,
+      "oracleWarmMs": 8.800000000745058,
+      "oraclePhaseMs": 2.800000000745058,
+      "draftWarmMs": 32.30000000074506,
+      "draftPhaseMs": 24.300000000745058,
+      "commitMs": 0.6999999992549419,
+      "metrics": {
+        "reads": 180543,
+        "writes": 5894,
+        "copies": 81,
+        "copiedSlots": 20608
+      }
+    },
+    {
+      "round": 1,
+      "beginMs": 0,
+      "oracleWarmMs": 5.900000002235174,
+      "oraclePhaseMs": 2.099999997764826,
+      "draftWarmMs": 26.300000000745058,
+      "draftPhaseMs": 14.199999999254942,
+      "commitMs": 0.10000000149011612,
+      "metrics": {
+        "reads": 180543,
+        "writes": 5894,
+        "copies": 81,
+        "copiedSlots": 20608
+      }
+    },
+    {
+      "round": 2,
+      "beginMs": 0,
+      "oracleWarmMs": 2.199999999254942,
+      "oraclePhaseMs": 1.5,
+      "draftWarmMs": 26.299999997019768,
+      "draftPhaseMs": 14.800000000745058,
+      "commitMs": 0.09999999776482582,
+      "metrics": {
+        "reads": 180543,
+        "writes": 5894,
+        "copies": 81,
+        "copiedSlots": 20608
+      }
+    },
+    {
+      "round": 3,
+      "beginMs": 0,
+      "oracleWarmMs": 1.5,
+      "oraclePhaseMs": 1.300000000745058,
+      "draftWarmMs": 25.200000002980232,
+      "draftPhaseMs": 13,
+      "commitMs": 0.19999999925494194,
+      "metrics": {
+        "reads": 180543,
+        "writes": 5894,
+        "copies": 81,
+        "copiedSlots": 20608
+      }
+    },
+    {
+      "round": 4,
+      "beginMs": 0.09999999776482582,
+      "oracleWarmMs": 1.5,
+      "oraclePhaseMs": 1.1000000014901161,
+      "draftWarmMs": 37.600000001490116,
+      "draftPhaseMs": 12.599999997764826,
+      "commitMs": 0,
+      "metrics": {
+        "reads": 180543,
+        "writes": 5894,
+        "copies": 81,
+        "copiedSlots": 20608
+      }
+    },
+    {
+      "round": 5,
+      "beginMs": 0,
+      "oracleWarmMs": 1.6000000014901161,
+      "oraclePhaseMs": 1.199999999254942,
+      "draftWarmMs": 24.199999999254942,
+      "draftPhaseMs": 13,
+      "commitMs": 0,
+      "metrics": {
+        "reads": 180543,
+        "writes": 5894,
+        "copies": 81,
+        "copiedSlots": 20608
+      }
+    },
+    {
+      "round": 6,
+      "beginMs": 0,
+      "oracleWarmMs": 1.5,
+      "oraclePhaseMs": 1.199999999254942,
+      "draftWarmMs": 22.699999999254942,
+      "draftPhaseMs": 11.600000001490116,
+      "commitMs": 0.09999999776482582,
+      "metrics": {
+        "reads": 180543,
+        "writes": 5894,
+        "copies": 81,
+        "copiedSlots": 20608
+      }
+    },
+    {
+      "round": 7,
+      "beginMs": 0,
+      "oracleWarmMs": 1.6000000014901161,
+      "oraclePhaseMs": 1,
+      "draftWarmMs": 23,
+      "draftPhaseMs": 11.699999999254942,
+      "commitMs": 0.09999999776482582,
+      "metrics": {
+        "reads": 180543,
+        "writes": 5894,
+        "copies": 81,
+        "copiedSlots": 20608
+      }
+    }
+  ],
+  "faults": 4,
+  "committedIsolation": true,
+  "exactEightPhaseContinuation": true,
+  "postFaultContinuationExact": true,
+  "aliasRejected": true,
+  "cycleRejected": true,
+  "unsupportedDailyEconomy": "Unsupported container replacement at workers",
+  "existingEnsureOnReadModel": "Cannot assign to read only property 'climateSeasons' of object '#<Object>'",
+  "defaultGameUnchanged": true
+}
