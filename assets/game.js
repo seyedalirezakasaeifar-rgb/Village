@@ -4960,6 +4960,10 @@ $('eventDialog').addEventListener('keydown',e=>{
 });
 
 // SOURCE: 90-archive-panels.js
+function archiveRestoreError(raw){
+ try{const data=typeof raw==='string'?JSON.parse(raw):raw;if(Number.isSafeInteger(data?.schema)&&data.schema>RELEASE.schema)return 'This backup uses newer save schema '+data.schema+'. Update TownLedger to a compatible version. The current town is unchanged.';}catch(_){}
+ return 'The backup is invalid, truncated or incompatible. The current town is unchanged.';
+}
 // Imported legacy occupants are history, not additional housing capacity.
 function normalizeArchiveTenancies(data){
  if(data.tenancyVersion!=null&&data.tenancyVersion!==1)return false;
@@ -5088,7 +5092,7 @@ function openTutorialDialog(opener=document.activeElement){helpOpener=opener;$('
 function exportSave(){
  const text=archivePayload();const dialog=$('helpDialog');helpOpener=document.activeElement;dialog.querySelector('.paper').innerHTML=`<h2 id="helpTitle">YOUR TOWN ARCHIVE</h2><p>Copy this backup into a text file. Paste it here later to restore the village, even after reinstalling.</p><textarea id="saveText" style="display:block;width:100%;height:145px;background:#f7efd9;color:#183425;font:11px monospace;touch-action:pan-y;border:1px solid #8a8c6c;padding:9px"></textarea><button id="copySave" class="menu-primary">SELECT AND COPY</button><button id="archiveClose">CLOSE</button>`;dialog.style.display='flex';$('saveText').value=text;$('saveText').focus();$('copySave').onclick=()=>{$('saveText').focus();$('saveText').select();try{document.execCommand('copy')}catch(e){};toast('Backup text selected for copying.')};$('archiveClose').onclick=hideHelpDialog;
 }
-function importSave(){const dialog=$('helpDialog');helpOpener=document.activeElement;dialog.querySelector('.paper').innerHTML=`<h2 id="helpTitle">RESTORE A TOWN</h2><p>Paste a TownLedger backup below. Your current game will be replaced after validation.</p><textarea id="importText" style="display:block;width:100%;height:145px;background:#f7efd9;color:#183425;font:11px monospace;touch-action:pan-y;border:1px solid #8a8c6c;padding:9px"></textarea><button id="restoreGo" class="menu-primary">RESTORE THIS TOWN</button><button id="restoreCancel">CANCEL</button>`;dialog.style.display='flex';$('importText').focus();$('restoreGo').onclick=()=>{if(hydrateSave($('importText').value)){centerTownCamera(.68);save();dialog.style.display='none';restoreHelpMarkup();toast('Town archive restored.');renderPanel('overview');$('tabs').querySelector('button[data-panel="overview"]')?.focus();helpOpener=null;}else toast('The backup is invalid or incompatible.')};$('restoreCancel').onclick=hideHelpDialog;}
+function importSave(){const dialog=$('helpDialog');helpOpener=document.activeElement;dialog.querySelector('.paper').innerHTML=`<h2 id="helpTitle">RESTORE A TOWN</h2><p>Paste a TownLedger backup below. Your current game will be replaced after validation.</p><textarea id="importText" style="display:block;width:100%;height:145px;background:#f7efd9;color:#183425;font:11px monospace;touch-action:pan-y;border:1px solid #8a8c6c;padding:9px"></textarea><button id="restoreGo" class="menu-primary">RESTORE THIS TOWN</button><button id="restoreCancel">CANCEL</button>`;dialog.style.display='flex';$('importText').focus();$('restoreGo').onclick=()=>{if(hydrateSave($('importText').value)){centerTownCamera(.68);save();dialog.style.display='none';restoreHelpMarkup();toast('Town archive restored.');renderPanel('overview');$('tabs').querySelector('button[data-panel="overview"]')?.focus();helpOpener=null;}else toast(archiveRestoreError($('importText').value))};$('restoreCancel').onclick=hideHelpDialog;}
 const originalHelp=$('helpDialog').querySelector('.paper').innerHTML;
 function restoreHelpMarkup(){$('helpDialog').querySelector('.paper').innerHTML=originalHelp;$('helpClose').onclick=hideHelpDialog}
 $('helpClose').onclick=hideHelpDialog;$('howTo').onclick=()=>openTutorialDialog($('howTo'));
@@ -5280,7 +5284,7 @@ window.__townArchive={
  prepareExit:()=>G?window.__townArchive.suspend():Promise.resolve(true),
  resume:()=>{hostSuspended=false;acc=0;last=performance.now();refreshAmbience();},
  export:()=>archivePayload(),
- restore:text=>{const ok=hydrateSave(text);if(ok){save();$('welcome').style.display='none';dirty=true;staticDirty=true;toast('Town restored with its property, bank, cargo and resident records.');}else toast('Archive rejected. The current town is unchanged.');return ok;},
+ restore:text=>{const ok=hydrateSave(text);if(ok){save();$('welcome').style.display='none';dirty=true;staticDirty=true;toast('Town restored with its property, bank, cargo and resident records.');}else toast(archiveRestoreError(text));return ok;},
  back:()=>{if($('helpDialog').style.display!=='none'){hideHelpDialog();return true;}if(pendingEvent){closeCouncilDialog(true);return true;}if(active){closePanel();return true;}if(buildMode){closeBuildTool();return true;}return false;}
 };
 const originalExport=exportSave,originalImport=importSave;
