@@ -181,7 +181,9 @@ function streetProp(g,kind){
 }
 function spriteFor(item){
  const season=Math.floor((visualMonth()-1)/3),b=item.b,variant=b?(b.kind==='home'?b.id%120:b.id%24):0;
- const key=item.kind==='streetprop'?`prop:${item.id%3}:${nightMode}`:item.kind==='tree'?`tree:${season}:${item.id%11}`:`${b.kind}:${variant}:${item.w}:${item.d}:${season}:${nightMode}:${b.condition<45}:${b.firm>=0&&G.firms[b.firm]?.closed}:${b.redevelopment?'renewal':''}:${appearanceKey(b)}:${parcelForTile(b.x,b.y)?.id||'founding'}`;
+ // IDs with identical authored massing, paving and night windows share pixels.
+ const cacheVariant=b?.kind==='home'&&!b.redevelopment?[houseStyleId(variant),variant%2,nightMode?variant%3:0].join(':'):variant;
+ const key=item.kind==='streetprop'?`prop:${item.id%3}:${nightMode}`:item.kind==='tree'?`tree:${season}:${item.id%11}`:`${b.kind}:${cacheVariant}:${item.w}:${item.d}:${season}:${nightMode}:${b.condition<45}:${b.firm>=0&&G.firms[b.firm]?.closed}:${b.redevelopment?'renewal':''}:${appearanceKey(b)}:${parcelForTile(b.x,b.y)?.id||'founding'}`;
  if(atlas.has(key)){const cached=atlas.get(key);atlas.delete(key);atlas.set(key,cached);return cached;}
  // Tight, conservative sprite envelopes avoid uploading acres of transparent
  // pixels whenever a dense viewport changes. Geometry keeps its world anchor.

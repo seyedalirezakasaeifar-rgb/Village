@@ -6,7 +6,7 @@ function urbanArtState(b){
 }
 function mallArtStatus(b){const f=G.firms[b.firm];return f?.closed?'closed':f&&workingStaff(f).length&&(f.stock?.food||0)>0?'stocked':'preparing';}
 const urbanArtAppearanceBase=appearanceKey;
-appearanceKey=function(b){const s=urbanArtState(b);return urbanArtAppearanceBase(b)+(b.retailCentre?':market-hall:'+mallArtStatus(b):['home','apartment','tower'].includes(b.kind)?':'+s.band+':'+(s.rent>.45)+':'+(s.condition<60)+':'+s.agricultural:'');};
+appearanceKey=function(b){const base=urbanArtAppearanceBase(b);if(b.retailCentre)return base+':market-hall:'+mallArtStatus(b);if(!['home','apartment','tower'].includes(b.kind))return base;const s=urbanArtState(b);return base+':'+s.band+':'+(s.condition<60)+':'+s.agricultural;};
 function shoppingCentreArt(g,b,w,d){
  const state=mallArtStatus(b),closed=state==='closed',wall=closed?'#ada68c':'#d0c4a1',roof=visualMonth()>=10?'#d4dbcb':'#5e7f7d',u=-w*.41,v=-d*.35;
  slab(g,-w*.48,-d*.48,w*.96,d*.96,0,'#b8b295');

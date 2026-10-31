@@ -3373,7 +3373,9 @@ function streetProp(g,kind){
 }
 function spriteFor(item){
  const season=Math.floor((visualMonth()-1)/3),b=item.b,variant=b?(b.kind==='home'?b.id%120:b.id%24):0;
- const key=item.kind==='streetprop'?`prop:${item.id%3}:${nightMode}`:item.kind==='tree'?`tree:${season}:${item.id%11}`:`${b.kind}:${variant}:${item.w}:${item.d}:${season}:${nightMode}:${b.condition<45}:${b.firm>=0&&G.firms[b.firm]?.closed}:${b.redevelopment?'renewal':''}:${appearanceKey(b)}:${parcelForTile(b.x,b.y)?.id||'founding'}`;
+ // IDs with identical authored massing, paving and night windows share pixels.
+ const cacheVariant=b?.kind==='home'&&!b.redevelopment?[houseStyleId(variant),variant%2,nightMode?variant%3:0].join(':'):variant;
+ const key=item.kind==='streetprop'?`prop:${item.id%3}:${nightMode}`:item.kind==='tree'?`tree:${season}:${item.id%11}`:`${b.kind}:${cacheVariant}:${item.w}:${item.d}:${season}:${nightMode}:${b.condition<45}:${b.firm>=0&&G.firms[b.firm]?.closed}:${b.redevelopment?'renewal':''}:${appearanceKey(b)}:${parcelForTile(b.x,b.y)?.id||'founding'}`;
  if(atlas.has(key)){const cached=atlas.get(key);atlas.delete(key);atlas.set(key,cached);return cached;}
  // Tight, conservative sprite envelopes avoid uploading acres of transparent
  // pixels whenever a dense viewport changes. Geometry keeps its world anchor.
@@ -6256,7 +6258,7 @@ function drawDistrictLife(g,visible){
    g.fillStyle='#344f45e8';g.fillRect(p[0]-width/2,p[1]-16/z,width,12/z);g.fillStyle='#f2dfaa';g.textAlign='center';g.fillText(text,p[0],p[1]-7/z);
   }
   // These are active consignments, not invented trucks or instantaneous sales.
-  if(rows.length){g.setTransform(dpr,0,0,dpr,0,0);g.font='7px Arial';g.fillStyle='#e9dfbf';g.textAlign='center';g.fillText(rows.reduce((n,r)=>n+r.inbound+r.outbound,0)+' OWNED LOADS · queues/outside legs included',cw*.53,12);transform();}
+  if(rows.length){const legendX=cw<640?cw/2:cw*.53,legendTop=cw<640?88:1;g.setTransform(dpr,0,0,dpr,0,0);g.fillStyle='#344f45e8';g.fillRect(legendX-135,legendTop,270,15);g.font='8px Arial';g.fillStyle='#e9dfbf';g.textAlign='center';g.fillText(rows.reduce((n,r)=>n+r.inbound+r.outbound,0)+' OWNED LOADS · queues/outside legs included',legendX,legendTop+11);transform();}
   g.restore();
  }
  if(z>=.45&&z<1){
@@ -6369,7 +6371,7 @@ function urbanArtState(b){
 }
 function mallArtStatus(b){const f=G.firms[b.firm];return f?.closed?'closed':f&&workingStaff(f).length&&(f.stock?.food||0)>0?'stocked':'preparing';}
 const urbanArtAppearanceBase=appearanceKey;
-appearanceKey=function(b){const s=urbanArtState(b);return urbanArtAppearanceBase(b)+(b.retailCentre?':market-hall:'+mallArtStatus(b):['home','apartment','tower'].includes(b.kind)?':'+s.band+':'+(s.rent>.45)+':'+(s.condition<60)+':'+s.agricultural:'');};
+appearanceKey=function(b){const base=urbanArtAppearanceBase(b);if(b.retailCentre)return base+':market-hall:'+mallArtStatus(b);if(!['home','apartment','tower'].includes(b.kind))return base;const s=urbanArtState(b);return base+':'+s.band+':'+(s.condition<60)+':'+s.agricultural;};
 function shoppingCentreArt(g,b,w,d){
  const state=mallArtStatus(b),closed=state==='closed',wall=closed?'#ada68c':'#d0c4a1',roof=visualMonth()>=10?'#d4dbcb':'#5e7f7d',u=-w*.41,v=-d*.35;
  slab(g,-w*.48,-d*.48,w*.96,d*.96,0,'#b8b295');

@@ -1,0 +1,64 @@
+{
+  "unchanged": true,
+  "stable": true,
+  "far": 0,
+  "reduced": 0,
+  "actors": 3,
+  "structures": 21,
+  "validStructures": true,
+  "doubleDrawRemoved": true,
+  "routes": [
+    {
+      "mode": "bus",
+      "stats": {
+        "operating": true,
+        "capacity": 103,
+        "reserved": 2,
+        "boardings": 2,
+        "demand": 2,
+        "denied": 0,
+        "staff": [
+          3,
+          4,
+          6,
+          7
+        ],
+        "required": 4,
+        "status": "Operating",
+        "headway": 37.20783055706724,
+        "reliability": 0.9997895454545453,
+        "expenses": 139.19,
+        "lastDemand": 4,
+        "lastDenied": 0
+      }
+    },
+    {
+      "mode": "elevated",
+      "stats": {
+        "operating": true,
+        "capacity": 756,
+        "reserved": 0,
+        "boardings": 0,
+        "demand": 0,
+        "denied": 0,
+        "staff": [
+          9,
+          10,
+          12,
+          13
+        ],
+        "required": 4,
+        "status": "Operating",
+        "headway": 17.439999999999998,
+        "reliability": 1,
+        "expenses": 156.76,
+        "lastDemand": 0,
+        "lastDenied": 0
+      }
+    }
+  ],
+  "renderBenchMs": 0.62,
+  "source_sha256": "8c0231f3474fb1d8a3b47f7e64878ccb7861420d728b4242e6d2080d452b4006",
+  "controlledNetworkFixture": true,
+  "errors": []
+}
