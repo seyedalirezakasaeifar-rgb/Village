@@ -1,0 +1,129 @@
+{
+  "source_sha256": "06f52ccabff624efb89a74240c769876b16150d5e758b373e41d010e0e398355",
+  "assetOrigin": "opaque set_content",
+  "camera": {
+    "x": 4678,
+    "y": 1032,
+    "zoom": 0.95
+  },
+  "viewport": [
+    844,
+    390
+  ],
+  "network": {
+    "grid": 128,
+    "deeds": 21,
+    "relocatedHouseholds": 29,
+    "routes": [
+      1,
+      2,
+      3
+    ],
+    "capital": 191450,
+    "total": 15493516.999999993
+  },
+  "networkEnd": {
+    "routes": 3,
+    "operating": 2,
+    "rides": 8,
+    "fares": 1793.9999999999584,
+    "staff": 8,
+    "capacity": 131,
+    "musicPlaying": 0,
+    "musicReferencedDecks": 1
+  },
+  "zoom": 0.95,
+  "synthetic": {
+    "population": 2000,
+    "households": 678,
+    "buildings": 713,
+    "total": 15493516.999999993
+  },
+  "requestedSpeed": 64,
+  "elapsedSeconds": 8.079670666000311,
+  "simulatedDays": 311,
+  "rafP50Ms": 16.699999999999818,
+  "rafP95Ms": 33.400000000001455,
+  "rafP99Ms": 83.30000000000018,
+  "rafOver50ms": 10,
+  "profile": null,
+  "renderer": {
+    "drawCount": 142,
+    "drawMedianMs": 4.800000000745058,
+    "drawP95Ms": 24.099999997764826,
+    "drawP99Ms": 33.30000000074506,
+    "tickMedianMs": 13.600000001490116,
+    "tickP95Ms": 31.5,
+    "actualSpeed": 60.04721156683381,
+    "backlogDays": 0.8938181818181617
+  },
+  "ui": [
+    {
+      "panel": "[data-panel=economy]",
+      "toNextFrameMs": 106,
+      "panelError": false
+    },
+    {
+      "panel": "[data-panel=citizens]",
+      "toNextFrameMs": 67.29999999701977,
+      "panelError": false
+    },
+    {
+      "panel": "[data-panel=businesses]",
+      "toNextFrameMs": 34.899999998509884,
+      "panelError": false
+    },
+    {
+      "panel": "[data-panel=settings]",
+      "toNextFrameMs": 44.5,
+      "panelError": false
+    }
+  ],
+  "foundingAndWarmup": {
+    "frames": [
+      220.19999999925494,
+      2.599999997764826,
+      2.100000001490116,
+      28.899999998509884,
+      280.4000000022352,
+      4.5,
+      125.60000000149012,
+      27.5,
+      4.600000001490116,
+      3.699999999254942,
+      3.899999998509884,
+      3.599999997764826,
+      5,
+      4.100000001490116,
+      3.599999997764826,
+      4.5,
+      3.5
+    ],
+    "ticks": [
+      94.30000000074506,
+      39.5,
+      22,
+      30.899999998509884,
+      27.200000002980232,
+      15.600000001490116,
+      15.400000002235174,
+      24.300000000745058,
+      31.199999999254942,
+      24.200000002980232,
+      17.400000002235174,
+      15.700000002980232,
+      15.399999998509884,
+      21.300000000745058,
+      18.100000001490116,
+      12,
+      12.600000001490116,
+      12.900000002235174,
+      12.800000000745058,
+      11.800000000745058,
+      11.599999997764826,
+      17.899999998509884
+    ]
+  },
+  "moneyConservationDrift": 9.313225746154785e-07,
+  "errors": []
+}

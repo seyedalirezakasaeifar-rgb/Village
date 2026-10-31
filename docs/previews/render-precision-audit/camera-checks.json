@@ -1,0 +1,87 @@
+{
+  "checks": [
+    {
+      "zoom": 1.4,
+      "night": false,
+      "stable": true,
+      "bytes": 941904,
+      "repairBytes": 941904,
+      "viewportBytes": 941904
+    },
+    {
+      "zoom": 1.4,
+      "night": true,
+      "stable": true,
+      "bytes": 941904,
+      "repairBytes": 941904,
+      "viewportBytes": 941904
+    },
+    {
+      "zoom": 0.6,
+      "night": false,
+      "stable": true,
+      "bytes": 941904,
+      "repairBytes": 941904,
+      "viewportBytes": 941904
+    },
+    {
+      "zoom": 0.6,
+      "night": true,
+      "stable": true,
+      "bytes": 941904,
+      "repairBytes": 941904,
+      "viewportBytes": 941904
+    },
+    {
+      "zoom": 0.4,
+      "night": false,
+      "stable": true,
+      "bytes": 941904,
+      "repairBytes": 941904,
+      "viewportBytes": 941904
+    },
+    {
+      "zoom": 0.4,
+      "night": true,
+      "stable": true,
+      "bytes": 941904,
+      "repairBytes": 941904,
+      "viewportBytes": 941904
+    },
+    {
+      "zoom": 0.2,
+      "night": false,
+      "stable": true,
+      "bytes": 0,
+      "repairBytes": 0,
+      "viewportBytes": 941904
+    },
+    {
+      "zoom": 0.2,
+      "night": true,
+      "stable": true,
+      "bytes": 0,
+      "repairBytes": 0,
+      "viewportBytes": 941904
+    },
+    {
+      "zoom": 1.1,
+      "night": false,
+      "stable": true,
+      "bytes": 941904,
+      "repairBytes": 941904,
+      "viewportBytes": 941904
+    },
+    {
+      "zoom": 1.1,
+      "night": true,
+      "stable": true,
+      "bytes": 941904,
+      "repairBytes": 941904,
+      "viewportBytes": 941904
+    }
+  ],
+  "unchanged": true,
+  "source_sha256": "06f52ccabff624efb89a74240c769876b16150d5e758b373e41d010e0e398355",
+  "errors": []
+}
