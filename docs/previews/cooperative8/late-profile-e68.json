@@ -1,0 +1,131 @@
+{
+  "source_sha256": "f9de43910ba45962320c9996c0d575ff890bdf2ab2e18341afa19c8d5c9290d0",
+  "hostChromium": true,
+  "physicalAndroid": false,
+  "retainedTerminalFixture": true,
+  "fixtureSha256": "ad6256fd85d4146fda9eeac0b16d5b182ed352c23bbd96af3b320553c29ce786",
+  "rows": [
+    {
+      "enabled": false,
+      "days": 344,
+      "actualSpeed": 47.152256263715806,
+      "raf": {
+        "n": 343,
+        "p95Ms": 66.59999999999991,
+        "p99Ms": 266.6999999999998,
+        "maxMs": 350
+      },
+      "timerDelivery": {
+        "n": 227,
+        "p95Ms": 133,
+        "p99Ms": 323.5999999977648,
+        "maxMs": 449.30000000074506
+      },
+      "trustedHandler": {
+        "n": 15,
+        "p95Ms": 117.19999999925494,
+        "p99Ms": 117.19999999925494,
+        "maxMs": 117.19999999925494
+      },
+      "trustedNextRaf": {
+        "n": 15,
+        "p95Ms": 150.69999999925494,
+        "p99Ms": 150.69999999925494,
+        "maxMs": 150.69999999925494
+      },
+      "completedDraws": 170,
+      "maxDrawGapMs": 343.5,
+      "inputToNextDraw": {
+        "n": 15,
+        "p95Ms": 59.099999997764826,
+        "p99Ms": 59.099999997764826,
+        "maxMs": 59.099999997764826
+      },
+      "slices": {
+        "n": 0,
+        "p95Ms": 0,
+        "p99Ms": 0,
+        "maxMs": 0
+      },
+      "tickCpu": {
+        "n": 180,
+        "p95Ms": 36.79999999701977,
+        "p99Ms": 250.30000000074506,
+        "maxMs": 313.1000000014901
+      },
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15493517.00020981,
+        "population": 772,
+        "day": 42027
+      },
+      "moneyDrift": -9.313225746154785e-09,
+      "queue": 0,
+      "errors": [],
+      "completedDay": 42027,
+      "uiDay": "YEAR 117 \u00b7 MONTH 9 \u00b7 DAY 42019"
+    },
+    {
+      "enabled": true,
+      "days": 177,
+      "actualSpeed": 24.230079978762326,
+      "raf": {
+        "n": 536,
+        "p95Ms": 33.400000000000546,
+        "p99Ms": 100,
+        "maxMs": 166.70000000000027
+      },
+      "timerDelivery": {
+        "n": 278,
+        "p95Ms": 76.69999999925494,
+        "p99Ms": 188.5,
+        "maxMs": 236.20000000298023
+      },
+      "trustedHandler": {
+        "n": 15,
+        "p95Ms": 183.5,
+        "p99Ms": 183.5,
+        "maxMs": 183.5
+      },
+      "trustedNextRaf": {
+        "n": 15,
+        "p95Ms": 183.89999999850988,
+        "p99Ms": 183.89999999850988,
+        "maxMs": 183.89999999850988
+      },
+      "completedDraws": 156,
+      "maxDrawGapMs": 324.0,
+      "inputToNextDraw": {
+        "n": 15,
+        "p95Ms": 261.4000000022352,
+        "p99Ms": 261.4000000022352,
+        "maxMs": 261.4000000022352
+      },
+      "slices": {
+        "n": 526,
+        "p95Ms": 29.100000001490116,
+        "p99Ms": 98.10000000149012,
+        "maxMs": 170.39999999850988
+      },
+      "tickCpu": {
+        "n": 177,
+        "p95Ms": 89.59999999776483,
+        "p99Ms": 291.3999999985099,
+        "maxMs": 293.6000000052154
+      },
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15493517.000209868,
+        "population": 774,
+        "day": 41858
+      },
+      "moneyDrift": 4.470348358154297e-08,
+      "queue": 0,
+      "errors": [],
+      "completedDay": 41858,
+      "uiDay": "YEAR 117 \u00b7 MONTH 4 \u00b7 DAY 41854"
+    }
+  ]
+}

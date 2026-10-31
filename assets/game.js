@@ -7367,4 +7367,13 @@ window.__townTest={view:()=>({camera:{...cam},touchCount:touches.size,pointer:{d
  step:(n=1)=>{simulationBusy=true;try{for(let i=0;i<n;i++){if(pendingEvent){const ix=pendingEvent.choices.findIndex(c=>!c.cost||G.treasury>=c.cost);$('eventChoices').querySelectorAll('button')[Math.max(0,ix)]?.click()}tick()}}finally{simulationBusy=false;updateHeader();}return G.stats},
  save:()=>archivePayload(),load:(t)=>hydrateSave(t),choose:(i)=>{$('eventChoices').querySelectorAll('button')[i]?.click()},
  reset:(sc='settlement',seedValue=42)=>{chosenScenario=sc;seed(seedValue);invalidateRoads();updateHeader();if(active)renderPanel(active);draw();return G.stats},set:(k,v)=>{G.policy[k]=v;recompute()}};
+
+// Diagnostic entry points obey the same committed-day boundary as native APIs.
+for(const [name,original]of Object.entries(window.__townTest)){
+ if(typeof original!=='function'||['perf','view'].includes(name))continue;
+ window.__townTest[name]=function(...args){
+  if(name==='get'&&cooperativeDayBusy()){const working=G;try{G=JSON.parse(cooperativeJob.snapshot);return original(...args);}finally{G=working;}}
+  finishCooperativeDaySync('diagnostic '+name);return original(...args);
+ };
+}
 })();
