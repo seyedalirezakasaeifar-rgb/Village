@@ -1,0 +1,9 @@
+# Exact candidate native acceptance
+
+Candidate 1cf6af50b66904e5d208e1a3af00d85051aa3b9f, JS SHA256 622043db97e76ed178d07f812d5bd145aad23745e8063f3851dd94bd7cd5e591. Existing healthy API30/WebView83 emulator5556 reused. Scratch official SDK APK installed and actual asset hash verified. Private scratch signer only.
+
+Native independent compositor oracle: old711 differing channels, fixed0/max0. Funded bus overlap old29→0; pedestrian diagnostic pose old6→0. No model mutation during these comparisons. Runtime debugger instrumentation retains original lexical scope without editing APK assets. SVG resume icon present. Day/night and low-detail canvas captures retained privately; reduced detail releases underlay.
+
+Fresh day1 strict process recovery still FAILS, now only two missing-versus-null keys: serviceProvision and privateServiceProvision. Actual completed save and background am kill changed PID; Continue validates day1/169 people. Original before-record remains intact in backup. Full hashes and field-only differences are published alongside; no raw saves. All previously reported building/firm/stat differences are gone. The comparator was not weakened. Different-top-level-fields output misses absent-versus-null because its diagnostic uses dict.get; the full dictionary comparison correctly rejects the difference.
+
+One earlier probe connection dropped during founding due to CDP heartbeat on the software emulator. Retry disabled WebSocket heartbeat, leaving model/state comparisons unchanged. A preliminary retry from an already running synthetic transit town is excluded from fresh-founding acceptance. Final fresh run first force-stopped the isolated test app so the normal welcome/founding control was available. Process death inside the probe still used background am kill, not force-stop. No physical-device FPS claim.

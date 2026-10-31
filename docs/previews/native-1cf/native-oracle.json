@@ -1,0 +1,71 @@
+{
+  "source_sha256": "622043db97e76ed178d07f812d5bd145aad23745e8063f3851dd94bd7cd5e591",
+  "runtime_debugger_scope_instrumentation": true,
+  "apk_assets_modified": false,
+  "state": {
+    "clock": 0,
+    "actors": [
+      {
+        "mode": "bus",
+        "x": 4246,
+        "y": 806
+      },
+      {
+        "mode": "bus",
+        "x": 5254,
+        "y": 1310
+      },
+      {
+        "mode": "elevated",
+        "x": 4426,
+        "y": 904
+      }
+    ],
+    "paused": true,
+    "pending": false
+  },
+  "bridge": {
+    "found": {
+      "phase": 10.299999999999997,
+      "overlap": 170,
+      "oldWrong": 29,
+      "fixedWrong": 0
+    },
+    "unchanged": true
+  },
+  "pedestrian": {
+    "found": {
+      "phase": 11.499999999999993,
+      "overlap": 63,
+      "oldWrong": 6,
+      "fixedWrong": 0
+    },
+    "unchanged": true
+  },
+  "icons": {
+    "label": "Resume simulation",
+    "svg": true
+  },
+  "shadow": {
+    "old": {
+      "channels": 711,
+      "max": 80
+    },
+    "fixed": {
+      "channels": 0,
+      "max": 0
+    },
+    "unchanged": true,
+    "underlayBytes": 550400
+  },
+  "native-night": null,
+  "native-day": null,
+  "native-low": {
+    "underlay": 0,
+    "detail": {
+      "traffic": false,
+      "people": false,
+      "boats": false
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "saved_before_record_found": true,
+  "current_sha256": "80dcd7a35a0419ef9dd37c744d29e51e272477fb0332a4add45cdfcd0c863540",
+  "stored_candidates": [
+    {
+      "key": "townledger-v6-backup",
+      "sha256": "db29cb79baa4c2362797969e959f23ee144143ee4dc36d108b50e2aa2f4ad307",
+      "day": 1,
+      "people": 169
+    },
+    {
+      "key": "townledger-v6",
+      "sha256": "80dcd7a35a0419ef9dd37c744d29e51e272477fb0332a4add45cdfcd0c863540",
+      "day": 1,
+      "people": 169
+    }
+  ],
+  "differences": [
+    {
+      "path": ".privateServiceProvision",
+      "before": null,
+      "after": null,
+      "missing_before": true,
+      "missing_after": false
+    },
+    {
+      "path": ".serviceProvision",
+      "before": null,
+      "after": null,
+      "missing_before": true,
+      "missing_after": false
+    }
+  ],
+  "difference_count": 2,
+  "raw_save_payloads_retained": false
+}
