@@ -2,10 +2,10 @@ function observedChart(key,color='#7f9968'){
  const a=G.observations.slice(-72);if(a.length<2)return tip('Observations accumulate every ten days.');
  const values=a.map(x=>Number(x[key])||0),lo=Math.min(...values),hi=Math.max(...values),span=Math.max(.0001,hi-lo);
  const p=values.map((v,i)=>`${(i/(values.length-1)*330).toFixed(2)},${(100-(v-lo)/span*85).toFixed(2)}`).join(' ');
- return `<svg class="chart-lines" viewBox="0 0 330 115" aria-label="${esc(key)} over time"><path d="M0 100H330M0 57H330M0 15H330" stroke="#bac4a3" fill="none"/><polyline points="${p}" fill="none" stroke="${color}" stroke-width="2"/></svg><div class="miniNote">Day ${a[0].day}–${a.at(-1).day} · ${fmt(lo)}–${fmt(hi)}</div>`;
+ return `<svg class="chart-lines" viewBox="0 0 330 115" aria-label="${esc(key)} over time"><path d="M0 100H330M0 57H330M0 15H330" stroke="#bac4a3" fill="none"/><polyline points="${p}" fill="none" stroke="${color}" stroke-width="2"/></svg><div class="miniNote">Day ${a[0].day}–${fromEnd(a).day} · ${fmt(lo)}–${fmt(hi)}</div>`;
 }
 function renderEconomicAtlas(){
- ensureSystems();const m=G.housingMarket,active=G.firms.filter(f=>!f.closed),latest=G.observations.at(-1)||{};
+ ensureSystems();const m=G.housingMarket,active=G.firms.filter(f=>!f.closed),latest=fromEnd(G.observations)||{};
  return head('Property & capital')+`<div class="statgrid">${stat('Median home valuation',money(m.medianValue||0))}${stat('Rent index (founding = 1)',fmt(m.rentIndex))}${stat('Unoccupied dwellings',m.vacancy??0)}${stat('Paid construction contracts',money(G.investors[0].spending))}</div>`+
  tip('Valuations respond gradually to rents, access, condition and location. Investors compare operating yields with funding costs. Regional capital is finite; land and construction have recorded counterparties.')+
  head('Housing rents over time')+observedChart('rentIndex')+

@@ -1,6 +1,8 @@
 'use strict';
 // TownLedger: offline small-town economic policy laboratory. Separate Android WebView adaptation.
 (function(){
+// Negative indexing without requiring a recent Android WebView Array.at.
+function fromEnd(values,offset=1){return values[values.length-offset];}
 const ART_DATA={};
 const $=id=>document.getElementById(id), clamp=(x,a,b)=>Math.max(a,Math.min(b,x)),money=x=>(x<0?'−':'')+'$'+Math.round(Math.abs(x)).toLocaleString('en-CA');
 const fmt=x=>Number(x||0).toLocaleString('en-CA',{maximumFractionDigits:1});

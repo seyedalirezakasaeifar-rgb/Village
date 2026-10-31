@@ -30,7 +30,7 @@ function spawnPurposeTrip(){
  const v=beginVehicle(home,work);if(v){v.style=(p.id%3===0)?'pedestrian':'car';v.person=p.id;v.reason=p.name+' commuting to '+f.name;}return v;
 }
 function detour(v){
- const start=v.path[v.segment],goal=v.path.at(-1),net=graph();
+ const start=v.path[v.segment],goal=fromEnd(v.path),net=graph();
  const queue=[start],parent=new Map([[start,-1]]),busy=new Set(traffic.filter(c=>c!==v&&c.wait>2).map(c=>c.path[c.segment]+'>'+c.path[c.segment+1]));
  for(let i=0;i<queue.length&&i<3200;i++){const at=queue[i];if(at===goal)break;for(const n of net.neighbors.get(at)||[]){if(parent.has(n)||busy.has(at+'>'+n))continue;parent.set(n,at);queue.push(n);}}
  if(!parent.has(goal))return false;

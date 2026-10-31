@@ -49,7 +49,7 @@ function dailyEconomy(){
   if((f.stock.food||0)+pendingGoods(f,'food')<daily*3)trade(f,'food',Math.max(0,target-(f.stock.food||0)));
   f.retailCapacity=f.workers.length*80;}
  // A public employee cannot be counted six times across six service budgets.
- G.actualServiceFunding={police:fundedPublicPayroll(P.policeBudget),fire:fundedPublicPayroll(P.defenseBudget),outreach:fundedPublicPayroll(P.outreachBudget)};
+ G.actualServiceFunding={police:fundedPublicPayroll(P.policeBudget),fire:fundedPublicPayroll(P.defenseBudget),outreach:fundedPublicPayroll(P.outreachBudget),transit:fundedPublicPayroll(P.transitBudget||0)};
  const retirees=G.people.filter(p=>!p.deceased&&!p.movedAway&&p.age>70),pensionDue=retirees.length*(P.pensionDaily||0),pensionPaid=Math.min(G.treasury,pensionDue);G.treasury-=pensionPaid;G.cumulative.spending+=pensionPaid;G.cumulative.pensions=(G.cumulative.pensions||0)+pensionPaid;for(const p of retirees){const h=G.households[p.hh],amount=pensionPaid/Math.max(1,retirees.length);h.cash+=amount;h.income+=amount;h.pension+=amount;}G.market.pensionFunding=pensionDue>0?pensionPaid/pensionDue:1;
  const living=G.households.filter(h=>h.people.length),consumerSuppliers=live.filter(f=>['tavern','office','contractor','factory','college'].includes(f.kind)&&f.workers.length>0);
  for(const h of living){
@@ -68,7 +68,7 @@ function dailyEconomy(){
   const cold=seasonsEnabled()&&(G.month>=10||G.month<=2),bill=h.people.length*(2.25+(cold?1.8:0))*(1+P.utilityTax/100),energy=Math.min(h.cash,bill),levy=energy-energy/(1+P.utilityTax/100);
   h.cash-=energy;h.utilities=energy;h.energyTax=levy;G.region+=energy-levy;transferTreasury(levy,'utilityTax');if(energy<bill*.8)h.stress=clamp(h.stress+.35,0,100);
   for(const id of h.people){const person=G.people[id];if(person.job<0)continue;const firm=G.firms[person.job],work=firm&&readBuild(firm.building);if(!work||!home)continue;const dist=Math.abs(home.x-work.x)+Math.abs(home.y-work.y),metro=hasMetroCommute(home,work)&&G.metro?.operating;
-   const fare=Math.min(h.cash,metro?G.metro.fare:dist*.035*(1-clamp(P.transitBudget/280,0,.65)));h.cash-=fare;h.travel+=fare;if(metro){G.metro.cash+=fare;G.metro.dailyRides++;G.metro.rides++;G.metro.revenue+=fare;}else G.region+=fare;}
+   const fare=Math.min(h.cash,metro?G.metro.fare:dist*.035*(1-clamp(P.transitBudget*(G.actualServiceFunding?.transit||0)/280,0,.65)));h.cash-=fare;h.travel+=fare;if(metro){G.metro.cash+=fare;G.metro.dailyRides++;G.metro.rides++;G.metro.revenue+=fare;}else G.region+=fare;}
   const disposable=Math.max(0,h.income-h.incomeTax-h.food-h.rent-h.utilities-h.travel),wealth=h.cash+Object.values(h.deposits||{}).reduce((a,v)=>a+v,0);
   h.normalDisposable=(h.normalDisposable??disposable)*.96+disposable*.04;
   // Lower rates modestly reduce desired cash saving; income remains the main budget.
@@ -104,7 +104,7 @@ function incidents(){
  const unemployment=1-G.people.filter(p=>!p.deceased&&p.movedAway!==true&&p.age>=16&&p.age<=70&&(p.job>=0||p.publicWork)).length/Math.max(1,G.people.filter(p=>!p.deceased&&p.movedAway!==true&&p.age>=16&&p.age<=70).length);
  const residentHouseholds=G.households.filter(h=>h.people.length>0);
  const hardship=residentHouseholds.filter(h=>h.stress>60||householdLiquidity(h)<150).length/Math.max(1,residentHouseholds.length);
- const danger=(.075+unemployment*.11+hardship*.07)*G.stats.population/300*(1-policePower()*.7)*(1-Math.min(.4,G.policy.outreachBudget/400)*.24);
+ const danger=(.075+unemployment*.11+hardship*.07)*G.stats.population/300*(1-policePower()*.7)*(1-Math.min(.4,G.policy.outreachBudget*(G.actualServiceFunding?.outreach??1)/400)*.24);
  if(random()<danger){let b=pick(G.buildings.filter(b=>['home','grocer','bakery','mill','farm','sawmill','quarry','contractor'].includes(b.kind)));
     if(b){let loss=0,hid=-1;const police=closestRoadBuilding(b.x,b.y,'police');const distance=police?roadServiceDistance(b,police):80;const localCoverage=clamp(1-distance/60,0,1)*policePower();
       if(b.kind==='home'){const h=G.households[b.hh];if(!h?.people.length)return;if(h){hid=h.id;loss=Math.min(h.cash,rn(45,340)*(1-localCoverage*.38));h.cash-=loss;h.crimeLoss+=loss;h.security=clamp(h.security-rn(5,14),0,100);h.stress=clamp(h.stress+2,0,100);}}
@@ -125,7 +125,7 @@ function incidents(){
 }
 function recompute(){
  let people=G.people.filter(p=>!p.deceased&&p.movedAway!==true).length,working=G.people.filter(p=>!p.deceased&&p.movedAway!==true&&p.age>=16&&p.age<=70),employed=working.filter(p=>p.job>=0||p.publicWork).length,poor=G.households.filter(h=>h.people.length>0&&(householdLiquidity(h)/Math.max(1,h.people.length)<150||h.stress>65)).length;
- const safety=clamp(Math.round(60+policePower()*34+G.policy.outreachBudget/30-poor/Math.max(1,G.households.filter(h=>h.people.length>0).length)*28),0,100);
+ const safety=clamp(Math.round(60+policePower()*34+G.policy.outreachBudget*(G.actualServiceFunding?.outreach??1)/30-poor/Math.max(1,G.households.filter(h=>h.people.length>0).length)*28),0,100);
  const businessCount=G.firms.filter(f=>!f.closed).length;
  const oldStats=G.stats||{};
  G.stats={population:people,employed,workforce:working.length,employment:working.length?Math.round(employed/working.length*100):100,unemployment:working.length?Math.round((working.length-employed)/working.length*100):0,

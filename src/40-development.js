@@ -71,7 +71,7 @@ function privatelyBuiltRoads(demand){
     cells.push(n);
    }
    if(!valid||cells.length<5)continue;
-   const end=cells.at(-1),score=(connects?10:0)+cells.length+Math.min(8,Math.abs(end%T-27)+Math.abs((end/T|0)-27))*.12;
+   const end=fromEnd(cells),score=(connects?10:0)+cells.length+Math.min(8,Math.abs(end%T-27)+Math.abs((end/T|0)-27))*.12;
    plans.push({cells,score});
   }
  }

@@ -72,6 +72,21 @@ function fundedPublicPayroll(amount,share=.65){
  for(const p of available){if(payroll<.001)break;const h=G.households[p.hh];if(!h?.people.length)continue;const pay=Math.min(payroll,wage-(p.publicIncome||0));const tax=pay*G.policy.incomeTax/100;h.cash+=pay-tax;h.income+=pay;h.wages=(h.wages||0)+pay;h.tax+=tax;h.incomeTax+=tax;transferTreasury(tax,'incomeTax');p.publicIncome=(p.publicIncome||0)+pay;p.publicWork=p.publicIncome>=wage*.5;payroll-=pay;spent+=pay;}
  G.region+=paid-spent;return amount>0?paid/amount:0;
 }
+// Explicit operating standards, expressed in the same resident capacities used
+// by the existing facilities. Five clinic teams cover 350 residents; ten school
+// staff cover 260. The public wage and existing 65% payroll share price the work;
+// remaining purchases pay regional staff/suppliers, including when locals work.
+const CIVIC_STANDARDS={health:{building:'clinic',capacity:350,staff:5},school:{building:'school',capacity:260,staff:10}};
+function purchaseCivicService(kind,authorized){
+ const standard=CIVIC_STANDARDS[kind],population=Math.max(0,G.stats.population),facilities=G.buildings.filter(b=>b.kind===standard.building).length;
+ const wage=Math.max(24,G.policy.minWage),required=population*standard.staff/standard.capacity*wage/.65;
+ const facilityCoverage=population?Math.min(1,facilities*standard.capacity/population):0;
+ const requested=Math.min(Math.max(0,authorized),required*facilityCoverage),paid=requested*fundedPublicPayroll(requested);
+ const coverage=required?Math.min(facilityCoverage,paid/required):0;
+ const result={day:G.day,authorized,required,requested,paid,unspent:Math.max(0,authorized-paid),population,facilities,facilityCoverage,coverage,wage};
+ if(!G.serviceProvision)G.serviceProvision={};G.serviceProvision[kind]=result;
+ return coverage;
+}
 function restartViableEnterprise(){
  if(G.day%30!==0||G.region<70000)return;
  const open=G.firms.filter(f=>!f.closed),population=G.stats.population;

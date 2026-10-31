@@ -177,7 +177,7 @@ function spriteFor(item){
  const key=item.kind==='streetprop'?`prop:${item.id%3}:${nightMode}`:item.kind==='tree'?`tree:${season}:${item.id%11}`:`${b.kind}:${variant}:${item.w}:${item.d}:${season}:${nightMode}:${b.condition<45}:${b.firm>=0&&G.firms[b.firm]?.closed}:${b.redevelopment?'renewal':''}`;
  if(atlas.has(key))return atlas.get(key);
  const c=document.createElement('canvas');c.width=256;c.height=320;const g=c.getContext('2d');g.translate(128,240);
- if(item.kind==='streetprop')streetProp(g,item.id%3);else if(item.kind==='tree')tree(g,0,0,item.id%11,.83);else{polygon(g,[point(-item.w*.4,-item.d*.4),point(item.w*.6,-item.d*.4),point(item.w*.9,item.d*.3),point(0,item.d*.7)],'#48523f30');architecture(g,b.kind==='worksite'||b.redevelopment?b:{...b,id:variant},item.w,item.d);}
+ if(item.kind==='streetprop')streetProp(g,item.id%3);else if(item.kind==='tree')tree(g,0,0,item.id%11,.83);else{polygon(g,[point(-item.w*.4,-item.d*.4),point(item.w*.6,-item.d*.4),point(item.w*.9,item.d*.3),point(0,item.d*.7)],'#48523f30');architecture(g,b.kind==='worksite'||b.redevelopment?b:{...b,id:variant},item.w,item.d);parcelDetails(g,b,item.w,item.d);}
  atlas.set(key,c);if(atlas.size>600){const oldest=atlas.keys().next().value;atlas.delete(oldest);}return c;
 }
 function prepareScene(){
@@ -214,6 +214,7 @@ function drawGround(){
    if(h%13===0){for(let j=0;j<4;j++){const xx=p[0]-9+j*5,yy=p[1]+19+j%2;bg.fillStyle='#658344';bg.fillRect(xx,yy,1,3);bg.fillRect(xx+1,yy-1,1,2);}}
   }
   if(!fastRender&&type===2&&gameOptions.decor){if(h%4===0){bg.fillStyle='#87b7ad';bg.fillRect(p[0]-10,p[1]+20,13,1);bg.fillStyle='#477f88';bg.fillRect(p[0]+4,p[1]+15,8,1);}}
+  livingTerrain(bg,x,y,type,h);
   if(lu===1){for(let j=-2;j<=2;j++){segment(bg,[p[0]-19+j*4,p[1]+17+j*2],[p[0]+9+j*4,p[1]+31+j*2],visualMonth()>=10?'#acb59b':visualMonth()>=7?'#dbc48a':'#677e4e',2);}}
   if(lu===3){segment(bg,[p[0]-25,p[1]+6],[p[0]+25,p[1]+31],'#aeb6a7',1);segment(bg,[p[0]-20,p[1]+12],[p[0]+20,p[1]+32],'#d7d6bc',1);}
  }
@@ -297,12 +298,13 @@ function draw(){
    const xMargin=building?132:treeItem?24:38,topMargin=building?172:treeItem?64:55,bottomMargin=building?84:treeItem?34:28;
    return item.x>=sx-xMargin&&item.x<=sx+ww+xMargin&&item.y>=sy-bottomMargin&&item.y<=sy+hh+topMargin;
   });
+  paintCastShadows(vg,viewBuildings);
   for(const item of viewBuildings)vg.drawImage(spriteFor(item),Math.round(item.x-128),Math.round(item.y-240));
   viewRasterKey=key;
  }
  ctx.setTransform(1,0,0,1,0,0);ctx.drawImage(viewRaster,0,0);transform();
  drawConstructionProgress(ctx,visible);
- const actors=[];if(gameOptions.traffic)for(const v of traffic){const p=vehiclePosition(v);if(visible(p.x,p.y,15))actors.push({kind:'vehicle',v,...p});}actors.sort((a,b)=>a.y-b.y);
+ const actors=buildingActivity(viewBuildings.filter(item=>visible(item.x,item.y,0)));if(gameOptions.traffic)for(const v of traffic){const p=vehiclePosition(v);if(visible(p.x,p.y,15))actors.push({kind:'vehicle',v,...p});}actors.sort((a,b)=>a.y-b.y);
  if(actors.length){
   // Clip subsequent foreground re-paints to the actors' damage rectangles.
   ctx.save();ctx.beginPath();for(const a of actors)ctx.rect(a.x-23,a.y-23,46,40);ctx.clip();
@@ -310,6 +312,7 @@ function draw(){
   for(const a of layered){if(a.kind==='vehicle')vehiclePaint(ctx,a.v,a,frameClock);else ctx.drawImage(spriteFor(a),Math.round(a.x-128),Math.round(a.y-240));}ctx.restore();
  }
 
+ paintTownLight(ctx);
  atmosphere(ctx,sx,sy,ww,hh);
  drawAviation(ctx);
  if(overlay==='metro')drawMetroOverlay(ctx);

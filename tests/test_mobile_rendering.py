@@ -12,7 +12,7 @@ for sheet in ['vale.css','civic7.css']:
 
 def run():
     images=[]; results=[]
-    out=ROOT/'reports/7.0.3';out.mkdir(parents=True,exist_ok=True)
+    out=ROOT/'reports'/json.loads((ROOT/'release.json').read_text())['version'];out.mkdir(parents=True,exist_ok=True)
     with sync_playwright() as pw:
         browser=pw.chromium.launch(executable_path='/usr/bin/chromium',args=['--no-sandbox','--disable-dev-shm-usage'])
         for width,height,density in [(844,390,1),(844,390,2),(390,844,2),(360,640,2)]:

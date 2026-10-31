@@ -13,5 +13,5 @@ with sync_playwright() as pw:
     const samples=[];for(let i=0;i<4;i++){__townTest.step(90);const g=JSON.parse(__townTest.save());samples.push({day:g.day,employment:g.stats.employment,hardship:g.stats.hardship,treasury:g.treasury,safety:g.stats.safety,health:g.health,education:g.education,businesses:g.stats.businesses});}
     return {...o,samples,drift:__townTest.get().total-start,valid:__townTest.validate()};}''',{'seed':seed,'policy':policy});assert result['valid']['ok'] and abs(result['drift'])<.1;rows.append(result)
  b.close()
-out=ROOT/'reports/7.0.3';out.mkdir(parents=True,exist_ok=True);(out/'regional-tradeoffs.json').write_text(json.dumps(rows,indent=2)+'\n')
+out=ROOT/'reports'/json.loads((ROOT/'release.json').read_text())['version'];out.mkdir(parents=True,exist_ok=True);(out/'regional-tradeoffs.json').write_text(json.dumps(rows,indent=2)+'\n')
 print(json.dumps([{k:r[k] for k in ['seed','policy']}|r['samples'][-1] for r in rows],indent=2))

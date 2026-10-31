@@ -22,7 +22,7 @@ function householdFormation(){
  if(G.day%90!==0)return;
  const vacant=G.buildings.find(b=>b.kind==='home'&&!b.redevelopment&&(!G.households[b.hh]||G.households[b.hh].people.length===0));if(!vacant)return;
  const young=G.people.find(p=>!p.deceased&&!p.movedAway&&p.age>=20&&p.age<31&&p.job>=0&&G.households[p.hh].people.length>2&&G.households[p.hh].cash>3600);if(!young)return;
- const prior=G.households[young.hh],cash=Math.min(1800,prior.cash*.25),h={...prior,id:G.households.length,name:young.name.split(' ').at(-1),cash,home:vacant.id,owner:-1,people:[young.id],deposits:{},income:0,rent:0,food:0,tax:0,aid:0,stress:25,last:[]};
+ const prior=G.households[young.hh],cash=Math.min(1800,prior.cash*.25),h={...prior,id:G.households.length,name:fromEnd(young.name.split(' ')),cash,home:vacant.id,owner:-1,people:[young.id],deposits:{},income:0,rent:0,food:0,tax:0,aid:0,stress:25,last:[]};
  prior.cash-=cash;prior.people=prior.people.filter(id=>id!==young.id);young.hh=h.id;G.households.push(h);vacant.hh=h.id;
  book(prior.name+' household',h.name+' household',cash,'Savings divided on household formation',vacant.id);
  story(young.name+' formed a household and rented an existing vacant cottage.','good',vacant.id,h.id);

@@ -2,7 +2,7 @@
 function runwayGeometry(){
  const r=G.airport?.runway;if(!r||r.length<4)return null;
  const avg=(a,b)=>{const p=roadCenter(a),q=roadCenter(b);return [(p[0]+q[0])/2,(p[1]+q[1])/2]};
- const a=avg(r[0],r[1]),b=avg(r.at(-2),r.at(-1)),dx=b[0]-a[0],dy=b[1]-a[1],length=Math.hypot(dx,dy);
+ const a=avg(r[0],r[1]),b=avg(fromEnd(r,2),fromEnd(r)),dx=b[0]-a[0],dy=b[1]-a[1],length=Math.hypot(dx,dy);
  return {a,b,dx,dy,length,nx:-dy/length,ny:dx/length};
 }
 function drawAirfieldGround(g){
@@ -62,7 +62,7 @@ function drawStreetNames(g,sx,sy,ww,hh){
   if(compact&&roadRank<2)continue;
   const mid=ids[Math.floor(ids.length*.55)],p=roadCenter(mid);
   if(p[0]<sx-100||p[0]>sx+ww+100||p[1]<sy-100||p[1]>sy+hh+100)continue;
-  const a=roadCenter(ids[0]),b=roadCenter(ids.at(-1));
+  const a=roadCenter(ids[0]),b=roadCenter(fromEnd(ids));
   candidates.push({name,ids,p,a,b,roadRank});
  }
  candidates.sort((a,b)=>b.roadRank-a.roadRank||b.ids.length-a.ids.length||a.name.localeCompare(b.name));

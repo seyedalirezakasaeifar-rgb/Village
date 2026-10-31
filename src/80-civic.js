@@ -134,10 +134,10 @@ function fundLocalService(amount){return fundedPublicPayroll(amount);}
 function extendedCivicDay(){
  let P=G.policy;
  let clinic=G.buildings.filter(b=>b.kind==='clinic').length,parks=G.buildings.filter(b=>b.kind==='park'||b.kind==='square').length,schools=G.buildings.filter(b=>b.kind==='school').length,watch=G.buildings.filter(b=>b.kind==='watchtower').length;
- const healthRatio=fundLocalService(P.healthBudget||0)*Math.min(1,clinic*350/Math.max(1,G.stats.population)),schoolRatio=fundLocalService(P.educationBudget||0)*Math.min(1,schools*260/Math.max(1,G.stats.population)),roadRatio=fundLocalService(P.roadBudget||0),militiaRatio=fundLocalService(P.militiaBudget||0),transitRatio=fundLocalService(P.transitBudget||0);
+ const healthRatio=purchaseCivicService('health',P.healthBudget||0),schoolRatio=purchaseCivicService('school',P.educationBudget||0),roadRatio=fundLocalService(P.roadBudget||0),militiaRatio=fundLocalService(P.militiaBudget||0),transitRatio=G.actualServiceFunding?.transit||0;
  G.actualServiceFunding=Object.assign(G.actualServiceFunding||{},{roads:roadRatio,health:healthRatio,school:schoolRatio,militia:militiaRatio,transit:transitRatio});
- G.health=clamp(G.health+(.021*(clinic+healthRatio*2)-.037- (G.stats.hardship||0)*.0002),25,99);
- G.education=clamp(G.education+.02*(schoolRatio*2)*(1+schools*.2)-.009,15,99);
+ G.health=clamp(G.health+(.063*healthRatio-.037- (G.stats.hardship||0)*.0002),25,99);
+ G.education=clamp(G.education+.048*schoolRatio-.009,15,99);
  G.stats.health=Math.round(G.health);G.stats.education=Math.round(G.education);
  if(G.day%3===0&&schoolRatio>.4){let p=pick(G.people.filter(p=>!p.deceased&&p.movedAway!==true));if(p){p.skill=clamp(p.skill+.018*schoolRatio,0,1.3)}}
  if(G.day%6===0){let p=pick(G.people.filter(p=>!p.deceased&&p.movedAway!==true));if(p){p.health=clamp(p.health+(healthRatio>.5?1.3:-.3)+rn(-.5,.5),10,100);if(p.health<25){const h=G.households[p.hh];if(h)h.stress=clamp(h.stress+1,0,100)}}}
@@ -150,8 +150,8 @@ function extendedCivicDay(){
  G.stats.propertyCosts=(2.15+P.zoningRestriction*.035);
  G.stats.realWages=Math.round(G.households.reduce((s,h)=>s+h.income-h.tax-h.rent-h.food,0)/Math.max(1,G.stats.population)*10)/10;
  G.stats.prosperity=Math.round(clamp(G.stats.employment*.5+G.stats.marketConfidence*.3+G.stats.wellbeing*.2,0,100));
- G.stats.roadService=Math.round(clamp((G.stats.roadCondition??75)*.65+roadRatio*23+transitRatio*12,0,100));
- G.stats.militia=Math.round(clamp(25+militiaRatio*40+(G.policy.militiaBudget||0)/30+watch*12,0,100));
+ G.stats.roadService=Math.round(clamp((G.stats.roadCondition??75)*.65+clamp((P.roadBudget||0)*roadRatio/Math.max(1,(graph().neighbors.size-(G.privateRoads||[]).length)*.045/.23),0,1)*23+clamp((P.transitBudget||0)*transitRatio/280,0,1)*12,0,100));
+ G.stats.militia=Math.round(clamp(25+militiaRatio*(P.militiaBudget||0)/30+watch*12,0,100));
 }
 function updateCouncilAndMissions(){
  const C=G.council,P=G.policy,s=G.stats;
@@ -266,6 +266,6 @@ function updateObjectiveMini(){if(!G)return;let m=AMBITIONS.find(m=>m.id===G.amb
 
 $('eventDefer').onclick=()=>closeCouncilDialog(true);
 $('eventDialog').addEventListener('keydown',e=>{
- if(e.key!=='Tab')return;const controls=[...$('eventDialog').querySelectorAll('button:not([disabled])')];const first=controls[0],last=controls.at(-1);
+ if(e.key!=='Tab')return;const controls=[...$('eventDialog').querySelectorAll('button:not([disabled])')];const first=controls[0],last=fromEnd(controls);
  if(e.shiftKey&&document.activeElement===first){last.focus();e.preventDefault();}else if(!e.shiftKey&&document.activeElement===last){first.focus();e.preventDefault();}
 });
