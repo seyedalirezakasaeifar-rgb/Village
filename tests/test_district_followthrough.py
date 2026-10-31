@@ -59,7 +59,7 @@ with sync_playwright()as pw:
   p.close();p=fresh();p.evaluate('__townTest.step(31)');district('orchard-downs','neighbourhood')
   # Controlled rejection fixture: remove employer adverts, grant nobody work or cash.
   p.evaluate('__entryFixture.closeAds()');before_people=state()['people'];p.locator('[data-district-finish]').filter(has_text='Cottage').first.click();confirm();empty=p.evaluate('__followPlan()');assert empty['metrics']['pop']==0 and empty['housing']['vacancies']==1
-  board();cash_before_quote=state()['treasury'];p.locator('[data-district-admission]').click();text=p.locator('#eventText').inner_text();assert 'No funded reachable job' in text and 'not actual applicants' in text;assert state()['people']==before_people and state()['treasury']==cash_before_quote;p.screenshot(path=str(out/'unfunded-address-assessment.png'));confirm();assert 'BUSINESS' in p.locator('#panelBody').inner_text().upper()
+  board();cash_before_quote=state()['treasury'];p.locator('[data-district-admission]').click();text=p.locator('#eventText').inner_text();assert 'No funded reachable job' in text and 'not actual applicants' in text;assert 'cannot' in p.locator('#eventTitle').inner_text();assert state()['people']==before_people and state()['treasury']==cash_before_quote;p.screenshot(path=str(out/'unfunded-address-assessment.png'));confirm();assert 'BUSINESS' in p.locator('#panelBody').inner_text().upper()
   results['controlledUnfundedAddress']=text;results['unfundedVacancyPlan']=empty;
   if not preview:assert p.evaluate('__townTest.validate().ok')
   (out/'controls.json').write_text(json.dumps(results,indent=2)+'\n')
