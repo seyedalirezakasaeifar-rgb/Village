@@ -64,6 +64,13 @@ All final JSON reports in `docs/previews/save8/` bind to assembled source SHA-25
   pause, traffic and structural checks. `TOWNLEDGER_CORE_ONLY=1` explicitly skips
   its long endurance matrix; it is not a new 115-year endurance claim.
 
+Additional unchanged host gates passed: native `ArchiveIO` JVM transport limits,
+malformed Unicode and failing streams; actual native Back coordinator/generated-JS
+handshake (waits for committed save, denied stores return unsaved and retain town,
+stale callback guards); real-RAF lifecycle suspend/resume; and schema bounds.
+`native-back.json` and `additional-host.json` record this evidence. These are host
+checks, and no Android Activity/provider/device behavior is newly certified.
+
 Commands for existing file-origin fixtures:
 
 ```
@@ -76,7 +83,7 @@ The first raw file-origin chronology attempt was blocked by Chromium's managed
 `ERR_BLOCKED_BY_ADMINISTRATOR` policy. The already-supported loopback HTTP adapter
 resolved this without changing browser policy. An earlier chronology run was
 invalidated by rebuilding the bundle mid-run and correctly failed its source hash
-assertion; the final immutable run passed. No Android/signing work was attempted.
+assertion; the final immutable run passed. No Android-device/signing work was attempted.
 
 ## Limits and follow-up
 

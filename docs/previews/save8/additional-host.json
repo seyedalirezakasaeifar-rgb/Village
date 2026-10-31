@@ -1,0 +1,10 @@
+{
+  "source_sha256": "17297afbea134d5259b60ba6db500af1444328b1a0f0c91e71b5b6c1460f8e54",
+  "archive_io_java_sha256": "1f2d9a5ba00e535fb6dd08ab17e53d1817b70251d9579c80868ce7a08d256c56",
+  "checks": {
+    "nativeArchiveIO": "PASS Unicode/BOM round trip, exact 8 MB boundary, byte-based limits, malformed Unicode, bounded/provider errors and private pending filenames",
+    "schemaBounds": "PASS negative/future schema rejection and schema-less legacy acceptance",
+    "hostLifecycle": "PASS real-RAF suspend, resume clears stale queue/clock, visibility changes, user pause preference"
+  },
+  "physicalAndroidTested": false
+}
