@@ -1,0 +1,40 @@
+{
+  "source_sha256": "4dbccf84eb840847ba6dc434534b086d088ccc49851d5c775680e356ed21d91f",
+  "actualAlternativePurchases": [
+    {
+      "building": 103,
+      "x": 22,
+      "y": 29,
+      "name": "Copper & Cedar",
+      "kind": "square",
+      "started": 3,
+      "baseline": {
+        "day": 3,
+        "residents": 46,
+        "retailers": 4,
+        "staff": 32,
+        "sales": 0,
+        "handling": 0,
+        "school": 11.11111111111111
+      }
+    },
+    {
+      "building": 103,
+      "x": 22,
+      "y": 29,
+      "name": "Copper & Cedar",
+      "kind": "warehouse",
+      "started": 3,
+      "baseline": {
+        "day": 3,
+        "residents": 46,
+        "retailers": 4,
+        "staff": 32,
+        "sales": 0,
+        "handling": 0,
+        "school": 11.11111111111111
+      }
+    }
+  ],
+  "errors": []
+}
