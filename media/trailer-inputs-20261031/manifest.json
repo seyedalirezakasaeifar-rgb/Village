@@ -72,16 +72,16 @@
     },
     {
       "file": "06_mayor_planning.mp4",
-      "bytes": 1348659,
-      "sha256": "d8e965d2ac2af5458484546de0ce3b1b27d5b7565b2e0f3293b392b1cd44a263",
+      "bytes": 1119095,
+      "sha256": "938d78894656166f3a31242f4a47ed7f23cad74039b4fb83de36565d90498087",
       "source_commit": "6f648d8c039038a60febeef8a887ba545395fd32",
       "source_sha256": "f7344d229358570ba03282cd42f910911989b7dc21ff697731e6f9a271848539",
-      "description": "Actual mayor Public Works/planning interface, ordinary navigation; no purchase during clip.",
+      "description": "Actual visible Works & Planning panel, expanded Living neighbourhoods office; ordinary tab/summary controls; paused seeded town; no purchase. Tail-trimmed recorded panel hold and verified encoded frame.",
       "width": 1280,
       "height": 720,
       "capture_fps": 25,
       "export_fps": 30,
-      "duration_seconds": 9.8,
+      "duration_seconds": 10.0,
       "browser_errors": []
     }
   ],
