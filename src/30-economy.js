@@ -54,6 +54,7 @@ function dailyEconomy(){
  for(const f of grocers){const daily=Math.max(15,reachableRetailDemand(f),f.salesTrend),reorderDays=procurementLeadDays(f,'food')+1,target=daily*(reorderDays+2);
   if((f.stock.food||0)+pendingGoods(f,'food')<daily*reorderDays)trade(f,'food',Math.max(0,target-(f.stock.food||0)));
   f.retailCapacity=workingStaff(f).length*80;}
+ G.market.foodNeed=G.households.filter(h=>h.people.length).reduce((n,h)=>n+h.people.length*1.6,0);G.market.foodStaffCapacity=grocers.reduce((n,f)=>n+(f.retailCapacity||0),0);G.market.foodSellableCapacity=grocers.reduce((n,f)=>n+Math.min(f.stock.food||0,f.retailCapacity||0),0);G.market.foodRetailStock=grocers.reduce((n,f)=>n+(f.stock.food||0),0);
  // A public employee cannot be counted six times across six service budgets.
  G.actualServiceFunding={police:fundedPublicPayroll(P.policeBudget),fire:fundedPublicPayroll(P.defenseBudget),outreach:fundedPublicPayroll(P.outreachBudget),transit:G.transit?.routes.length?0:fundedPublicPayroll(P.transitBudget||0)};
  const retirees=G.people.filter(p=>!p.deceased&&!p.movedAway&&p.age>70),pensionDue=retirees.length*(P.pensionDaily||0),pensionPaid=Math.min(G.treasury,pensionDue);G.treasury-=pensionPaid;G.cumulative.spending+=pensionPaid;G.cumulative.pensions=(G.cumulative.pensions||0)+pensionPaid;for(const p of retirees){const h=G.households[p.hh],amount=pensionPaid/Math.max(1,retirees.length);h.cash+=amount;h.income+=amount;h.pension+=amount;}G.market.pensionFunding=pensionDue>0?pensionPaid/pensionDue:1;
