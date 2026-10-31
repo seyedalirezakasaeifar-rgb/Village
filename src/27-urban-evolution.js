@@ -170,6 +170,25 @@ function urbanRetailProposal(explicit=false){
  const project=G.projects.find(p=>p.id===site.id);G.region-=capital;project.urbanEscrow=capital;
  site.footprint=best.footprint;site.retailCentre=true;invalidateBuildingIndex();financeConstruction(cost,site.id);G.development.privateSpend=(G.development.privateSpend||0)+cost;ensureUrban().revision++;invalidateUrban();story('Investors funded a six-plot shopping centre with an anchor food market, covered shopfronts and a loading court. It must recruit staff and buy real inventory before serving its catchment.','good',site.id);return {ok:true,reason:'A privately funded shopping centre is under construction.'};
 }
+function* stagedUrbanRetailProposal(explicit=false){
+ const demand=cityDemand();if((!explicit&&G.autoBuild===false)||demand.residents<320||demand.confidence<42||G.projects.some(p=>p.retailCentre)||G.firms.some(f=>!f.closed&&f.retailCentre&&G.day-(f.openedDay||0)<360))return {ok:false,reason:'A retail centre needs at least 320 residents, investment confidence, and no recent competing centre.'};
+ const places=buildableCandidates('business'),net=graph(),popByBuilding=new Map();for(const h of G.households)if(h.people.length)popByBuilding.set(h.home,(popByBuilding.get(h.home)||0)+h.people.length);
+ let best=null;
+ for(const c of places){yield 'retail-site-assessment';const footprint=[];for(let dy=0;dy<2;dy++)for(let dx=0;dx<3;dx++)footprint.push(roadId(c.x+dx,c.y+dy));if(c.x+3>=T-2||c.y+2>=T-2||urbanPlacementReason(c.x,c.y,'grocer')||!footprint.every(id=>charterOwns(id%T,id/T|0)&&[0,3].includes(G.tiles[id])&&!G.landUse?.[id]&&!buildingAt(id%T,id/T|0)&&!districtPlacementReason(id%T,id/T|0,'grocer')))continue;
+  const access=roadOffsets.map(([dx,dy])=>roadId(c.x+dx,c.y+dy)).find(id=>net.parts[id]===net.mainPart);if(access==null)continue;
+  const dist=new Map([[access,0]]),queue=[access];for(let n=0;n<queue.length;n++){const id=queue[n],d=dist.get(id);if(d>=24)continue;for(const next of net.neighbors.get(id)||[])if(!dist.has(next)){dist.set(next,d+1);queue.push(next);}}
+  let catchment=0,competition=0;for(const [id,pop] of popByBuilding)if(dist.has(net.portals.get(id)))catchment+=pop;for(const f of G.firms)if(!f.closed&&f.kind==='grocer'&&dist.has(net.portals.get(f.building)))competition+=f.retailCentre?2:1;
+  const score=catchment/Math.max(1,competition+1);if(catchment<180||score<75)continue;const plan=urbanRetailPlan(c,score);
+  if(!plan||plan.net*360<(44000+28000)*.09)continue;if(!best||plan.net>best.plan.net)best={...c,score,catchment,footprint,plan};
+ }
+ const cost=44000,capital=28000;if(!best)return {ok:false,reason:'No vacant six-tile site has a connected street and a profitable 24-road-tile retail catchment and reachable eligible workers at a funded wage offer. Zone a mixed centre and connect homes first.'};
+  if(G.region<cost+capital+100000)return {ok:false,reason:'Regional investors lack the construction and working capital reserve.'};
+ const site=startDevelopmentProject('firm',best,220000,65,{firmKind:'grocer',capital,retailCentre:true,retailCatchment:best.catchment,retailExpectedNet:best.plan.net,retailStaff:best.plan.staff,retailWage:best.plan.wage});if(!site)return {ok:false,reason:'The retail site is no longer available.'};
+ const project=G.projects.find(p=>p.id===site.id);G.region-=capital;project.urbanEscrow=capital;
+ site.footprint=best.footprint;site.retailCentre=true;invalidateBuildingIndex();financeConstruction(cost,site.id);G.development.privateSpend=(G.development.privateSpend||0)+cost;ensureUrban().revision++;invalidateUrban();story('Investors funded a six-plot shopping centre with an anchor food market, covered shopfronts and a loading court. It must recruit staff and buy real inventory before serving its catchment.','good',site.id);return {ok:true,reason:'A privately funded shopping centre is under construction.'};
+}
+function* stagedUrbanEvolutionDay(){if(G.day%30!==0)return;urbanHousingMobility();yield 'urban-housing-mobility';urbanDistrictReview();yield 'urban-district-review';if(!urbanFarmRenewal(cityDemand())&&G.day%90===0)yield* stagedUrbanRetailProposal();}
+
 function urbanEvolutionDay(){if(G.day%30!==0)return;urbanHousingMobility();urbanDistrictReview();if(!urbanFarmRenewal(cityDemand())&&G.day%90===0)urbanRetailProposal();}
 function urbanRentMultiplier(home){if(!home)return 1;const d=urbanDescriptor(home.x,home.y);return clamp(.80+d.landValue/12000+home.condition*.0015+d.amenity*.018-d.pollution*.04,.65,1.55);}
 function urbanHousingMobility(){

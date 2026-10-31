@@ -6,7 +6,7 @@ import ast,json,hashlib
 import re
 clock=(ROOT/'src/50-clock.js').read_text();plain=clock.split('// Experimental continuation:')[0];staged=clock.split('function* stagedTick()',1)[1].split('function resetTownTransientUI',1)[0]
 def calls(text):
- return [x.replace('stagedOutwardMigration','outwardMigration').replace('stagedSystemsDay','systemsDay').replace('stagedPrivateServiceInvestmentDay','privateServiceInvestmentDay') for x in re.findall(r'(?<![.\w])([A-Za-z_$][\w$]*)\s*\(',text) if x not in ['tick','if','for','while']]
+ return [x.replace('stagedOutwardMigration','outwardMigration').replace('stagedSystemsDay','systemsDay').replace('stagedPrivateServiceInvestmentDay','privateServiceInvestmentDay').replace('stagedUrbanEvolutionDay','urbanEvolutionDay') for x in re.findall(r'(?<![.\w])([A-Za-z_$][\w$]*)\s*\(',text) if x not in ['tick','if','for','while']]
 assert calls(plain)==calls(staged),'Synchronous/staged authoritative day order drifted'
 source=(ROOT/'assets/game.js').read_text()
 fixture=next(ast.literal_eval(n.value) for n in ast.parse((ROOT/'tests/test_transit_live_performance.py').read_text()).body if isinstance(n,ast.Assign) and any(isinstance(t,ast.Name) and t.id=='probe' for t in n.targets))
