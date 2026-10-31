@@ -1,0 +1,536 @@
+{
+  "source_sha256": "73345dc2d9f750b9411131d8169ed1bb1d062940bc7938c452f42c8fddf29260",
+  "realBrowserMedia": true,
+  "physicalAndroid": false,
+  "listeningAssessed": false,
+  "rows": [
+    {
+      "label": "effects-muted-music-independent",
+      "enabled": true,
+      "volume": 0.45,
+      "error": "",
+      "decks": [
+        {
+          "paused": false,
+          "volume": 0.011680195442437435,
+          "src": "music/morning-ledger.ogg"
+        }
+      ],
+      "fade": true
+    },
+    {
+      "label": "mute-0",
+      "enabled": false,
+      "volume": 0,
+      "error": "",
+      "decks": [
+        {
+          "paused": true,
+          "volume": 0,
+          "src": "music/waterline-work.ogg"
+        }
+      ],
+      "fade": false
+    },
+    {
+      "label": "muted-resume-0",
+      "enabled": false,
+      "volume": 0,
+      "error": "",
+      "decks": [
+        {
+          "paused": true,
+          "volume": 0,
+          "src": "music/waterline-work.ogg"
+        }
+      ],
+      "fade": false
+    },
+    {
+      "label": "mute-1",
+      "enabled": false,
+      "volume": 0.17,
+      "error": "",
+      "decks": [
+        {
+          "paused": true,
+          "volume": 0.13260000000000002,
+          "src": "music/waterline-work.ogg"
+        }
+      ],
+      "fade": false
+    },
+    {
+      "label": "muted-resume-1",
+      "enabled": false,
+      "volume": 0.17,
+      "error": "",
+      "decks": [
+        {
+          "paused": true,
+          "volume": 0.13260000000000002,
+          "src": "music/waterline-work.ogg"
+        }
+      ],
+      "fade": false
+    },
+    {
+      "label": "mute-2",
+      "enabled": false,
+      "volume": 0.34,
+      "error": "",
+      "decks": [
+        {
+          "paused": true,
+          "volume": 0,
+          "src": "music/a-borough-grows.ogg"
+        }
+      ],
+      "fade": false
+    },
+    {
+      "label": "muted-resume-2",
+      "enabled": false,
+      "volume": 0.34,
+      "error": "",
+      "decks": [
+        {
+          "paused": true,
+          "volume": 0,
+          "src": "music/a-borough-grows.ogg"
+        }
+      ],
+      "fade": false
+    },
+    {
+      "label": "mute-3",
+      "enabled": false,
+      "volume": 0.51,
+      "error": "",
+      "decks": [
+        {
+          "paused": true,
+          "volume": 0,
+          "src": "music/orchard-footpaths.ogg"
+        }
+      ],
+      "fade": false
+    },
+    {
+      "label": "muted-resume-3",
+      "enabled": false,
+      "volume": 0.51,
+      "error": "",
+      "decks": [
+        {
+          "paused": true,
+          "volume": 0,
+          "src": "music/orchard-footpaths.ogg"
+        }
+      ],
+      "fade": false
+    },
+    {
+      "label": "mute-4",
+      "enabled": false,
+      "volume": 0.68,
+      "error": "",
+      "decks": [
+        {
+          "paused": true,
+          "volume": 0,
+          "src": "music/market-day.ogg"
+        }
+      ],
+      "fade": false
+    },
+    {
+      "label": "muted-resume-4",
+      "enabled": false,
+      "volume": 0.68,
+      "error": "",
+      "decks": [
+        {
+          "paused": true,
+          "volume": 0,
+          "src": "music/market-day.ogg"
+        }
+      ],
+      "fade": false
+    },
+    {
+      "label": "mute-5",
+      "enabled": false,
+      "volume": 0.85,
+      "error": "",
+      "decks": [
+        {
+          "paused": true,
+          "volume": 0,
+          "src": "music/quiet-river-reprise.ogg"
+        }
+      ],
+      "fade": false
+    },
+    {
+      "label": "muted-resume-5",
+      "enabled": false,
+      "volume": 0.85,
+      "error": "",
+      "decks": [
+        {
+          "paused": true,
+          "volume": 0,
+          "src": "music/quiet-river-reprise.ogg"
+        }
+      ],
+      "fade": false
+    },
+    {
+      "label": "mute-6",
+      "enabled": false,
+      "volume": 0.01,
+      "error": "",
+      "decks": [
+        {
+          "paused": true,
+          "volume": 0,
+          "src": "music/rails-to-greyhaven.ogg"
+        }
+      ],
+      "fade": false
+    },
+    {
+      "label": "muted-resume-6",
+      "enabled": false,
+      "volume": 0.01,
+      "error": "",
+      "decks": [
+        {
+          "paused": true,
+          "volume": 0,
+          "src": "music/rails-to-greyhaven.ogg"
+        }
+      ],
+      "fade": false
+    },
+    {
+      "label": "mute-7",
+      "enabled": false,
+      "volume": 0.18,
+      "error": "",
+      "decks": [
+        {
+          "paused": true,
+          "volume": 0,
+          "src": "music/river-and-road.ogg"
+        }
+      ],
+      "fade": false
+    },
+    {
+      "label": "muted-resume-7",
+      "enabled": false,
+      "volume": 0.18,
+      "error": "",
+      "decks": [
+        {
+          "paused": true,
+          "volume": 0,
+          "src": "music/river-and-road.ogg"
+        }
+      ],
+      "fade": false
+    },
+    {
+      "label": "mute-8",
+      "enabled": false,
+      "volume": 0.35,
+      "error": "",
+      "decks": [
+        {
+          "paused": true,
+          "volume": 0,
+          "src": "music/waterline-work.ogg"
+        }
+      ],
+      "fade": false
+    },
+    {
+      "label": "muted-resume-8",
+      "enabled": false,
+      "volume": 0.35,
+      "error": "",
+      "decks": [
+        {
+          "paused": true,
+          "volume": 0,
+          "src": "music/waterline-work.ogg"
+        }
+      ],
+      "fade": false
+    },
+    {
+      "label": "mute-9",
+      "enabled": false,
+      "volume": 0.52,
+      "error": "",
+      "decks": [
+        {
+          "paused": true,
+          "volume": 0,
+          "src": "music/morning-ledger.ogg"
+        }
+      ],
+      "fade": false
+    },
+    {
+      "label": "muted-resume-9",
+      "enabled": false,
+      "volume": 0.52,
+      "error": "",
+      "decks": [
+        {
+          "paused": true,
+          "volume": 0,
+          "src": "music/morning-ledger.ogg"
+        }
+      ],
+      "fade": false
+    },
+    {
+      "label": "mute-10",
+      "enabled": false,
+      "volume": 0.69,
+      "error": "",
+      "decks": [
+        {
+          "paused": true,
+          "volume": 0,
+          "src": "music/a-borough-grows.ogg"
+        }
+      ],
+      "fade": false
+    },
+    {
+      "label": "muted-resume-10",
+      "enabled": false,
+      "volume": 0.69,
+      "error": "",
+      "decks": [
+        {
+          "paused": true,
+          "volume": 0,
+          "src": "music/a-borough-grows.ogg"
+        }
+      ],
+      "fade": false
+    },
+    {
+      "label": "mute-11",
+      "enabled": false,
+      "volume": 0.86,
+      "error": "",
+      "decks": [
+        {
+          "paused": true,
+          "volume": 0,
+          "src": "music/market-day.ogg"
+        }
+      ],
+      "fade": false
+    },
+    {
+      "label": "muted-resume-11",
+      "enabled": false,
+      "volume": 0.86,
+      "error": "",
+      "decks": [
+        {
+          "paused": true,
+          "volume": 0,
+          "src": "music/market-day.ogg"
+        }
+      ],
+      "fade": false
+    },
+    {
+      "label": "zero-volume",
+      "enabled": true,
+      "volume": 0,
+      "error": "",
+      "decks": [
+        {
+          "paused": true,
+          "volume": 0,
+          "src": "music/market-day.ogg"
+        }
+      ],
+      "fade": false
+    },
+    {
+      "label": "zero-volume-resume",
+      "enabled": true,
+      "volume": 0,
+      "error": "",
+      "decks": [
+        {
+          "paused": true,
+          "volume": 0,
+          "src": "music/market-day.ogg"
+        }
+      ],
+      "fade": false
+    },
+    {
+      "label": "rapid-controls",
+      "enabled": true,
+      "volume": 0.45,
+      "error": "",
+      "decks": [
+        {
+          "paused": false,
+          "volume": 0.35100000000000003,
+          "src": "music/market-day.ogg"
+        }
+      ],
+      "fade": false
+    },
+    {
+      "label": "retry",
+      "enabled": true,
+      "volume": 0.45,
+      "error": "",
+      "decks": [
+        {
+          "paused": true,
+          "volume": 0.35100000000000003,
+          "src": "music/market-day.ogg"
+        },
+        {
+          "paused": false,
+          "volume": 0,
+          "src": "music/market-day.ogg"
+        }
+      ],
+      "fade": true
+    },
+    {
+      "label": "background",
+      "enabled": true,
+      "volume": 0.45,
+      "error": "",
+      "decks": [
+        {
+          "paused": true,
+          "volume": 0.35100000000000003,
+          "src": "music/market-day.ogg"
+        }
+      ],
+      "fade": false
+    },
+    {
+      "label": "restore",
+      "enabled": true,
+      "volume": 0.45,
+      "error": "",
+      "decks": [
+        {
+          "paused": false,
+          "volume": 0.35100000000000003,
+          "src": "music/market-day.ogg"
+        }
+      ],
+      "fade": false
+    },
+    {
+      "label": "new-town",
+      "enabled": true,
+      "volume": 0.45,
+      "error": "",
+      "decks": [
+        {
+          "paused": false,
+          "volume": 0.35100000000000003,
+          "src": "music/market-day.ogg"
+        }
+      ],
+      "fade": false
+    },
+    {
+      "label": "final-mute",
+      "enabled": false,
+      "volume": 0.45,
+      "error": "",
+      "decks": [
+        {
+          "paused": true,
+          "volume": 0.35100000000000003,
+          "src": "music/market-day.ogg"
+        }
+      ],
+      "fade": false
+    },
+    {
+      "label": "final-muted-resume",
+      "enabled": false,
+      "volume": 0.45,
+      "error": "",
+      "decks": [
+        {
+          "paused": true,
+          "volume": 0.35100000000000003,
+          "src": "music/market-day.ogg"
+        }
+      ],
+      "fade": false
+    }
+  ],
+  "retainedMediaAfterGC": [
+    {
+      "src": "music/market-day.ogg",
+      "paused": true
+    },
+    {
+      "src": "sound/coin.wav",
+      "paused": true
+    },
+    {
+      "src": "sound/click.wav",
+      "paused": true
+    },
+    {
+      "src": "sound/village.wav",
+      "paused": false
+    }
+  ],
+  "errors": [],
+  "mockedRegressions": {
+    "reports/development-8.0/music-races.json": {
+      "source_sha256": "73345dc2d9f750b9411131d8169ed1bb1d062940bc7938c452f42c8fddf29260",
+      "mockedMediaPromises": true,
+      "result": {
+        "staleRejectionIgnored": true,
+        "suspendDecks": 1,
+        "fadeStopped": true,
+        "retiredSourcesCleared": 3,
+        "activeDeckLimit": 2,
+        "resumedMediaErrorSurfaced": true,
+        "pendingHandoffPreserved": true,
+        "partialDurationIgnored": true
+      }
+    },
+    "reports/development-integration/audio.json": {
+      "source_sha256": "73345dc2d9f750b9411131d8169ed1bb1d062940bc7938c452f42c8fddf29260",
+      "mockedAudio": true,
+      "checks": [
+        "paid vs free council choice",
+        "mute stops effects and ambience",
+        "native suspend/resume",
+        "hidden document suppresses effects",
+        "visible resume ambience only"
+      ],
+      "errors": []
+    }
+  }
+}
