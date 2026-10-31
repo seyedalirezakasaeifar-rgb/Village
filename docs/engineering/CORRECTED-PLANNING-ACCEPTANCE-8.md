@@ -1,0 +1,35 @@
+# Corrected port and district planning: bounded actual-control acceptance
+
+Frozen candidate: `23f0b19b82a24be898dac61c1094f69d60e30ed1`. All production files remain unchanged. This candidate includes actual Greyhaven river consignments, district follow-through, direction baselines and scalable budget controls. Transit demand-preview integration14a60d was not available on the remote when checked; no obsolete transit cohort was repeated. Migration and sustained latency work remain separate.
+
+## Method
+
+Two fresh seed42 towns use actual controls, normal municipal credit, enterprise-paid orders and ordinary daily settlement through day215. Bounded continuations operate those actual saves to day250(port) and305(district). No money, stock, skills, population or worker grants are injected; ordinary home construction retains the game's existing settlement behavior. Optional council petitions are deferred via the actual control. Read-only probes expose legal sites and metrics; normal ticks accelerate time. These are approximately20s and11s automated original cohorts, not hours of human play. No day4365 replay was repeated and no new feature was added.
+
+Tools: `tools/accept_corrected_planning.py`, `tools/accept_planning_recovery.py`. Full actions, quotes, checkpoints, saves and continued recovery appear in compressed `reports/corrected-planning/*.json.gz`; actual screenshots are adjacent. Serialized daily target-order samples prevent a bounded recent-ledger eviction from being mistaken for failed arrival.
+
+## Clear acceptance: district follow-through now changes the decision loop
+
+* Choosing a river direction before any work and observing32 days leaves its first stage unearned. Existing initial fisheries/wharves no longer award new-work credit.
+* A fresh mixed neighbourhood now exposes its missing homes/workplaces and the actual legal sites. Cancel spends nothing. Four separately reviewed normal homes add eight residents inside Orchard Downs; actual grocer/bakery purchases supply the two workplaces. Borrowing uses ordinary controls, reaching$30,000 debt and only$2,423 municipal cash after these capital commitments. This is a real early capital tradeoff, not the earlier audit's late purchases from a$2million cushion.
+* Reassessing provision after occupancy removes the unnecessary clinic purchase: local care already reaches67%. A missing school remains actionable. The player buys it with ordinary additional credit, then explicitly reviews/enacts education280/day and health220/day. Merely opening budget controls does not enact them.
+* The district actually completes day79 with eight residents, two staffed workplaces and adequate local coverage. The old missing-residents stall is resolved through the existing card. No whole-town population statistic is substituted for tract residents.
+* Recurring commitments and$35,000 debt then matter: cash falls from$11,026(day65) to$395(day215); school coverage falls to13% when funding cannot be purchased. The certificate remains historical while current coverage/runway deteriorate. It is no longer reasonable to assume every strategy accumulates millions after the same early decisions.
+* Actual recovery increases income/profit taxes to18%, reviews lower education210/care140 authorization, and uses one ordinary$5,000 bridge loan. After90 days cash rises to$23,844 with$40,000 debt, school77%, care100% and hardship0. Authorized-spending reserve is still18 days, so the final sustained direction is honestly unfinished. This policy bundle is not an isolated causal experiment, nor does reducing an unspent authorization necessarily reduce actual purchases.
+
+User-visible progress sample: the mayor can go from “0/8 residents; two workplace sites” to an actual eight-resident neighbourhood, see which service site is unnecessary, complete its certificate, then confront the resulting cash runway rather than buying another decorative structure.
+
+## Clear acceptance with a remaining port caution
+
+* The Greyhaven office displays actual river-versus-road cost/time, retained stock, attending crews, dock receipts/expenses and break-even cargo. New river routing produces actual named-market consignments. This is a substantive new port role compared with frozen31987fc's narrow spot-export role.
+* The newly built remote wharf has zero attending crew on day35. No usable manual import quote is available through that dock then. Two scripted attempts to click a nonexistent enabled load are retained as unavailable-control attempts, not successful orders or a fabricated engine failure. By day65 the new dock has attending staff and quotes become available.
+* A later reviewed load through that same dock costs the enterprise about$422 for120 food, with10 forecast travel days. Cancellation leaves the serialized town unchanged. The actually authorized river consignment811 arrives Delivered on day224. Its retained record later ages out, so acceptance tracks it daily and counts that single real receipt once. All continuation cash/goods validators pass.
+* Existing and new docks compete unequally. At day215 the established dock handles about1,228 units/$122.81 receipts against$91.69 expenses, with cash$14,944. The new dock handles about37 units/$3.74 receipts against$36.04 expenses, with cash$4,944, down from its$12,000 startup cash. At day250 the new dock still has only about$3,829. The expanded model makes river trade usable and can support an existing port; it does not justify every second wharf.
+
+Remaining design caution: the optional river direction still completes day95 while its new wharf is losing cash and the river tract has zero residents. Baseline provenance is fixed, but “new staffed enterprise” is not equivalent to a durable or useful second port. The new inspection links/forecasts should be central before that capital decision; a future direction revision could recognize new actual service/trade improvements through existing facilities rather than requiring redundant structures. Do not add a longer generic wait counter or a profitability guarantee.
+
+## Specific usability observations and limits
+
+The district plan is demonstrably more actionable and avoids at least one unnecessary service purchase. Its recurring-budget tradeoff and recovery are understandable through existing metrics. The new port's zero-crew state is an honest prerequisite; the label “no staffed connected route” could more precisely separate temporary missing crew from route geometry, but no false cargo is created. No new production defect requiring an emergency patch was established in these two focused cohorts.
+
+Archive adoption intentionally clears transient current-day service-provision records; a just-restored read may use the last observation until the next settlement. The financial recovery claims above use subsequent settled days, not the temporary restored coverage fallback. No new save/ledger regression or Android/performance certification is asserted. Source hashes are recorded per receipt; the frozen bundle remains untouched.
