@@ -1,5 +1,5 @@
 {
-  "source_sha256": "cf245639bc410847c00372c19ec58974812e1480eb762df14968913003b8931e",
+  "source_sha256": "c1ad404fb87f2fb27d1ce85ef39ca5a3ab04d2b03785f6411774e4db7512b713",
   "result": {
     "unsafeDisableBlocked": true,
     "actualBirthBeyond8000": true,
@@ -26,14 +26,14 @@
     "wireSchema": 9,
     "wireBytes": 978595,
     "logicalBytes": 1346563,
-    "encodeMs": 125.40000000037253,
-    "decodeMs": 83.59999999962747,
+    "encodeMs": 93.80000000074506,
+    "decodeMs": 79.29999999888241,
     "maxInactive": 16000,
     "maxTotal": 16167,
     "maxBytes": 1914692,
-    "maxEncodeDecodeMs": 363.19999999925494,
-    "heapBytes": 108262831,
-    "heapAfterForcedGC": 18194547,
+    "maxEncodeDecodeMs": 311.59999999962747,
+    "heapBytes": 130889138,
+    "heapAfterForcedGC": 18219243,
     "mixed": {
       "paidCargoPreserved": true,
       "fareReceiptsPreserved": true,

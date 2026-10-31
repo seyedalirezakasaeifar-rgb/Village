@@ -1,6 +1,6 @@
 # Experimental lossless inactive-person archive codec
 
-Base: `5c503015e9572329393f01242732b7ca0bed7708`. Production remains OFF and release schema remains 8. This is a review candidate, not an activated long-play fix.
+Base: `7500d878e60f2c882767192e2db0d036f815ceed`. Production remains OFF and release schema remains 8. This is a review candidate, not an activated long-play fix.
 
 ## Representation contract
 
@@ -18,12 +18,14 @@ Only a successfully validated versioned envelope receives the expanded identity 
 
 ## Evidence
 
-`python tools/assemble.py`; `python tests/test_inactive_person_codec.py`; and `TOWNLEDGER_CORE_ONLY=1 TOWNLEDGER_USE_HTTP=1 PYTHONPATH=tools/browser_http_adapter python tests/test_release.py` passed. Tested assembled SHA-256: `cf245639bc410847c00372c19ec58974812e1480eb762df14968913003b8931e`. Detailed metrics are in `evidence/inactive-person-codec/result.json`; no whole saves are published.
+`python tools/assemble.py`; `python tests/test_inactive_person_codec.py`; and `TOWNLEDGER_CORE_ONLY=1 TOWNLEDGER_USE_HTTP=1 PYTHONPATH=tools/browser_http_adapter python tests/test_release.py` passed. Tested assembled SHA-256: `c1ad404fb87f2fb27d1ce85ef39ca5a3ab04d2b03785f6411774e4db7512b713`. Detailed metrics are in `evidence/inactive-person-codec/result.json`; no whole saves are published.
 
 A real `birthsAndGenerations()` transition crossed 8,000 to 8,001 identities. The old ordinary archive was rejected, the encoded archive restored every person/household/firm/bank/loan field and exact 30-day model/RNG continuation. Two authentic repository legacy fixtures and a mixed cargo/fare/provider/mall fixture passed. Twelve malformed classes plus truncation/oversize preserved live state and input objects. Expansion amplification was specifically rejected by the decoded-byte guard.
 
-At 8,001 identities the wire was 978,595 bytes versus 1,346,563 logical bytes; host encode/decode took 125/84 ms. At 16,000 inactive / 16,167 total, wire size was 1,914,692 bytes and combined encode/decode took 363 ms. After adversarial allocations, sampled host heap was 108 MB, falling to 18.2 MB after forced GC; this is neither peak allocation nor an Android memory certification. Forced GC occurred only in the test harness after simulation.
+At 8,001 identities the wire was 978,595 bytes versus 1,346,563 logical bytes; host encode/decode took 94/79 ms. At 16,000 inactive / 16,167 total, wire size was 1,914,692 bytes and combined encode/decode took 312 ms. After adversarial allocations, sampled host heap was 131 MB, falling to 18.2 MB after forced GC; this is neither peak allocation nor an Android memory certification. Forced GC occurred only in the test harness after simulation.
 
 ## Required before activation
 
 Independent review/tests, an intentional schema-9 rollout and recovery UX, cooperative snapshot integration, and physical/native mobile memory and latency measurement remain outstanding. Older builds cannot read wire schema 9. The flag must not be silently enabled in a production build. Dense runtime person loops remain unchanged and are not certified smooth at the largest bound. Household and firm lifetime caps remain separate unresolved limitations. The representation is finite, not a claim of unlimited city history.
+
+Rebased acceptance also passed `tests/test_loan_history_limit.py` and `tests/test_regional_loan_summary.py`, preserving regional creditor `bankId: -1`, settled summaries, protected claims and exact loan replay. No loan code was changed by this candidate. Earlier default release gates were on the original candidate base, not repeated here.
