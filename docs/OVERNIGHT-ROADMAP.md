@@ -65,3 +65,11 @@ After the timed run: inspect growth-adjusted heap/cache data and real-session fa
 The 20-minute real-RAF run and isolated performance check passed; programme notes now contain exact measurements. Implemented bounded worker-based native archive transport and suspend/resume boundaries, compiled/tested the Android host, and used a lower-resolution software emulator to find and fix the unsupported Object.hasOwn call in actual WebView 83. Native model/save/panel probes then passed. System UI ANR prevents a full interactive Android certification. See NATIVE-ARCHIVE-DEVELOPMENT.md. A scratch debug APK is not a release candidate.
 
 A further confirmed portability lead is the seeded founding-lot sort: its comparator consumes random numbers, so different engine sorting algorithms can produce different starting balances for the same seed. Replace the random comparator with precomputed seeded keys and test alternate stable sort algorithms before the next generation/balance pass. Continue the map's information hierarchy and responsive small-landscape controls afterward.
+
+## Map and founding checkpoint
+
+Fixed the confirmed random comparator with precomputed seeded lot ranks; all 15 start/seed combinations now match an alternate stable sort exactly. Reworked the map into two actionable summaries, made care/food constraints visible, added consistent vector navigation and fully reachable 568×320–844×390 landscape controls. Twelve frozen-asset development gates passed, including scenario and policy histories. See MAP-AND-SEEDS-DEVELOPMENT.md.
+
+## New mandatory player features, requested before sleep
+
+Next priorities are mayor-purchased substantial regional parcels and productive waterfront business/boat activity. Preserve a finite coherent region and existing-town rights; make a purchase visibly expand usable territory with an actual regional counterparty and confirmation. Reuse the existing road/service/trade accounting instead of making annexation magically provide infrastructure. Waterfront businesses must genuinely employ people and produce or move paid goods; boats/docks should show that work with bounded animation and pause/reduced-motion behavior. Test affordability, repeat purchase, boundaries, save migration, routes, capacity, delays and conserved goods/cash. These requirements are pending, not silently included in prior checkpoints.

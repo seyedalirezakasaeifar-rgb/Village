@@ -1,6 +1,12 @@
 # TownLedger 7.0.5 — The Working City
 
-Development after this checkpoint adds [local service access, staffing and training](docs/LOCAL-SERVICE-DEVELOPMENT.md). Development also adds [credit, household budgets and physical markets](docs/CREDIT-AND-MARKETS-DEVELOPMENT.md). The next slice adds [scenario council programmes and original workday animation](docs/COUNCIL-PROGRAMME-DEVELOPMENT.md). Native archive/lifecycle work and an older-WebView fix are described in [native development notes](docs/NATIVE-ARCHIVE-DEVELOPMENT.md). These source changes are not contained in the signed 7.0.5 checkpoint APK.
+Current source extends the signed 7.0.5 checkpoint. These changes have not yet been packaged as a new release:
+
+- [Local services, staffing and training](docs/LOCAL-SERVICE-DEVELOPMENT.md)
+- [Credit, household budgets and physical markets](docs/CREDIT-AND-MARKETS-DEVELOPMENT.md)
+- [Council programmes and original workday animation](docs/COUNCIL-PROGRAMME-DEVELOPMENT.md)
+- [Native archives, lifecycle and older WebView](docs/NATIVE-ARCHIVE-DEVELOPMENT.md)
+- [Portable seeds and clearer phone controls](docs/MAP-AND-SEEDS-DEVELOPMENT.md)
 
 An offline government and town-economy game. This release rebuilds the operating model, the starting towns, monetary controls, road generation, animation and interface palette.
 

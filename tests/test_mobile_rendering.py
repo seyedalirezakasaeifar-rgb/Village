@@ -15,7 +15,7 @@ def run():
     out=ROOT/'reports'/json.loads((ROOT/'release.json').read_text())['version'];out.mkdir(parents=True,exist_ok=True)
     with sync_playwright() as pw:
         browser=pw.chromium.launch(executable_path='/usr/bin/chromium',args=['--no-sandbox','--disable-dev-shm-usage'])
-        for width,height,density in [(844,390,1),(844,390,2),(390,844,2),(360,640,2)]:
+        for width,height,density in [(844,390,1),(844,390,2),(720,360,2),(640,360,2),(568,320,2),(390,844,2),(360,640,2)]:
             page=browser.new_page(viewport={'width':width,'height':height},device_scale_factor=density,has_touch=True)
             errors=[];page.on('pageerror',lambda error:errors.append(str(error)))
             page.set_content(html);page.add_script_tag(content=(ROOT/'assets/game.js').read_text())

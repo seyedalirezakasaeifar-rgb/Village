@@ -119,8 +119,9 @@ function renderInspect(){const b=selected&&readBuild(selected.id);if(!b)return '
  }}else html+='<p class="desc">Public facility. Its physical presence improves village services only when the municipality funds the corresponding budget.</p>';
  html+=`<p class="desc">Ownership and all financial amounts are modelled local accounts, not decorative scores.</p>`;return html;
 }
-function openPanel(tab){active=tab;$('panel').classList.add('show');$('panelBody').scrollTop=0;$('tabs').querySelectorAll('button').forEach(b=>b.classList.toggle('active',b.dataset.panel===tab));renderPanel(tab)}
-function closePanel(){const previous=active;active='';$('panel').classList.remove('show');$('tabs').querySelectorAll('button').forEach(b=>b.classList.remove('active'));const returnTarget=$('tabs').querySelector(`button[data-panel="${previous}"]`);if(returnTarget)returnTarget.focus()}
+let panelOpener=null;
+function openPanel(tab,opener=null){panelOpener=opener||document.activeElement;active=tab;$('gameRoot').classList.add('drawer-open');$('panel').classList.add('show');$('panelBody').scrollTop=0;$('tabs').querySelectorAll('button').forEach(b=>b.classList.toggle('active',b.dataset.panel===tab));renderPanel(tab)}
+function closePanel(){const previous=active;active='';$('gameRoot').classList.remove('drawer-open');$('panel').classList.remove('show');$('tabs').querySelectorAll('button').forEach(b=>b.classList.remove('active'));const returnTarget=panelOpener?.isConnected&&panelOpener!==document.body&&panelOpener.getClientRects().length?panelOpener:$('tabs').querySelector(`button[data-panel="${previous}"]`);if(returnTarget)returnTarget.focus();panelOpener=null}
 function economySnapshot(){
  const demand=cityDemand(),activeFirms=G.firms.filter(f=>!f.closed),families=G.households.filter(h=>h.people.some(id=>G.people[id]&&!G.people[id].deceased&&!G.people[id].movedAway));
  const byType={},kindSections={farm:'Agriculture',fishery:'Agriculture',forestry:'Resource extraction',quarry:'Resource extraction',mill:'Manufacturing',sawmill:'Manufacturing',factory:'Manufacturing',bakery:'Food & retail',grocer:'Food & retail',tavern:'Food & retail',warehouse:'Logistics',contractor:'Construction',office:'Services',college:'Services'};
@@ -134,11 +135,14 @@ function economySnapshot(){
  return {demand,sectors:Object.values(byType).filter(x=>x.open||x.closed).sort((a,b)=>b.workers-a.workers),families:families.length,median,open:activeFirms.length,closed:G.firms.length-activeFirms.length,atRisk:activeFirms.filter(f=>f.profit<0&&f.cash<Math.max(2500,f.wage*f.jobs*12)).length,banks:banks.length,deposits,reserves,loans,marketJobs,working,vacantHomes,projects:(G.projects||[]).length};
 }
 function marketSignal(){const m=economySnapshot(),s=G.stats;let title,description,kind;
- if(s.hardship>35){title='Households under pressure';description='High hardship threatens local demand. Consider relief, jobs and essential living costs.';kind='danger';}
+ if((G.market?.foodDisconnected||0)>0){title='Groceries out of reach';description=fmt(G.market.foodDisconnected)+' residents lack an operating grocer on their road network. Restore access or develop a reachable shop.';kind='danger';}
+ else if((G.market?.unmetFood||0)>G.stats.population*.08){title='Essential food is going unfilled';description='Inspect shop stock, retail staff, delivered prices and household purchasing power.';kind='danger';}
+ else if(s.hardship>35){title='Households under pressure';description='High hardship threatens local demand. Consider relief, jobs and essential living costs.';kind='danger';}
  else if(s.employment<65){title='A weak labour market';description='Jobs are scarce. Check business cash flow and the cost of hiring.';kind='danger';}
  else if(m.demand.housingPressure>75){title='Housing market tightening';description='Land values and household crowding favour new homes, if zoning and finance allow.';kind='warn';}
  else if(m.atRisk>=3){title='Firms at risk';description=m.atRisk+' active businesses have losses and thin cash buffers.';kind='warn';}
- else if(s.employment>85&&s.hardship<14){title='Broad-based prosperity';description='Employment is high and most households are meeting their expenses.';kind='good';}
+ else if(G.serviceProvision&&((G.serviceProvision.health?.coverage??1)<.65||(G.serviceProvision.school?.coverage??1)<.60)){title='Care and learning need attention';description='Strong jobs alone do not purchase public services. Compare access, qualified staffing and operating funds in Services.';kind='warn';}
+ else if(s.employment>85&&s.hardship<14){title='Strong work and household reserves';description='Employment is high and few households currently show low liquidity or severe stress. Continue monitoring access, services and public commitments.';kind='good';}
  else {title='The economy is adjusting';description='Follow private construction, credit, employment and household purchasing power.';kind='normal';}
  return {title,description,kind,m};
 }
@@ -161,7 +165,7 @@ function renderPanel(tab){if(!G)return;const sc=$('panelBody');const y=sc.scroll
 }
 function journalPolicy(k,old,nv){const base={...G.stats,treasury:G.treasury};G.journal.push({day:G.day,name:defs.find(d=>d[0]===k)?.[1]||k,message:`Policy revised from ${fmt(old)} to ${fmt(nv)}.`,baseline:base});if(G.journal.length>100)G.journal.shift();story('Council revised '+(defs.find(d=>d[0]===k)?.[1]||k)+'.','neutral')}
 $('tabs').addEventListener('click',e=>{const b=e.target.closest('button[data-panel]');if(!b)return;const p=b.dataset.panel;if(p===active)closePanel();else openPanel(p)});
-$('panelClose').onclick=closePanel;
+$('panelClose').onclick=closePanel;$('topNotice').onclick=()=>openPanel('journal',$('topNotice'));$('liveEconomy').onclick=()=>openPanel('economy',$('liveEconomy'));
 $('panelBody').addEventListener('input',e=>{if(e.target.id==='searchPeople'){citizenQuery=e.target.value;return;}const input=e.target.closest('[data-policy]');if(!input)return;let k=input.dataset.policy,value=+input.value;const d=defs.find(d=>d[0]===k);draftPolicy[k]=value;const el=$('show-'+k);if(el)el.textContent=d[5]==='$'?money(value):policyNumber(value)+d[5];const button=$('enactPolicy');if(button)button.disabled=false;const summ=$('draftSummary');if(summ)summ.textContent=Object.keys(draftPolicy).filter(k=>draftPolicy[k]!==G.policy[k]).map(k=>k==='imports'?'Regional inventory imports: '+(G.policy.imports?'OPEN':'RESTRICTED')+' → '+(draftPolicy.imports?'OPEN':'RESTRICTED'):defs.find(d=>d[0]===k)?.[1]+': '+policyNumber(G.policy[k])+' → '+policyNumber(draftPolicy[k])).join(' · ')});
 $('panelBody').addEventListener('change',e=>{if(e.target.id==='searchPeople'){renderPanel('citizens');return;}const input=e.target.closest('[data-policy]');if(!input)return;draftPolicy[input.dataset.policy]=+input.value;const b=$('enactPolicy');if(b)b.disabled=false});
 $('panelBody').addEventListener('click',e=>{const b=e.target.closest('button,[data-house],[data-firm],[data-inspect],[data-ambition]');if(!b)return;

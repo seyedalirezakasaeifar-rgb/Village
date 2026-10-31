@@ -1,0 +1,46 @@
+{
+  "source_sha256": "6becd6ca86cea4ef405a4289393f04cb9b03b75fd1b654849ce9a69ccbd23825",
+  "asset_hashes": {
+    "civic7.css": "fc25f36c48aed90fa4a3516a2fcff9dd1d867fd9fb537d001b6f0d75b3a321a3",
+    "style.css": "96b4f686a7125e05720bd2de246f2bfbd8f7610e344486b967e99882f45f3a0f",
+    "game.js": "6becd6ca86cea4ef405a4289393f04cb9b03b75fd1b654849ce9a69ccbd23825",
+    "index.html": "53961b4073df0872c930ec5b234834dc0ec43c53c332a1c4d153c469706c450f",
+    "vale.css": "6aaa9781eb11e5b0d205a720451d3fbc5384b92fb783e457d5d33f4a94be9bb9"
+  },
+  "runtime": "Chromium host; not Android",
+  "density": 2,
+  "rows": [
+    {
+      "viewport": [
+        640,
+        360
+      ],
+      "day": 31,
+      "seed": 42
+    },
+    {
+      "viewport": [
+        720,
+        360
+      ],
+      "day": 31,
+      "seed": 42
+    },
+    {
+      "viewport": [
+        844,
+        390
+      ],
+      "day": 31,
+      "seed": 42
+    },
+    {
+      "viewport": [
+        360,
+        640
+      ],
+      "day": 31,
+      "seed": 42
+    }
+  ]
+}

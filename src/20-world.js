@@ -17,7 +17,9 @@ function seed(seedValue=42){
  const firms=['grocer','grocer','grocer','bakery','bakery','mill','mill','farm','farm','farm','farm','forestry','forestry','sawmill','quarry','contractor','contractor','grocer','bakery','farm','tavern','office','factory','warehouse'];
  let slots=[];
  for(let y=7;y<49;y++)for(let x=7;x<49;x++)if(canPlace(x,y,true))slots.push([x,y]);
- slots=slots.filter(([x,y])=>Math.abs(x-27)+Math.abs(y-27)<35).sort((a,b)=>{let da=Math.abs(a[0]-27)+Math.abs(a[1]-27),db=Math.abs(b[0]-27)+Math.abs(b[1]-27);return da-db+rn(-2,2)});
+ // Draw jitter once per lot. A random comparator is non-transitive and consumes
+ // different RNG counts in different engines, changing the entire founding town.
+ slots=slots.filter(([x,y])=>Math.abs(x-27)+Math.abs(y-27)<35).map(([x,y])=>({lot:[x,y],rank:Math.abs(x-27)+Math.abs(y-27)+rn(-1,1),id:y*T+x})).sort((a,b)=>a.rank-b.rank||a.id-b.id).map(item=>item.lot);
  slots=slots.filter(([x,y])=>{let h=(x*331+y*113)%11;return h!==2&&h!==4});
  for(let i=0;i<3;i++){const spot=slots.shift();if(spot)add('bank',...spot,{value:75000,bankId:i});}
  for(const kind of firms){
