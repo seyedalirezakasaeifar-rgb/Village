@@ -1,0 +1,26 @@
+{
+  "source_sha256": "293fe306631099dfaacdd37e724d4c6e3b89991f56a1e15c50f872606f662c90",
+  "commit": "525e47dd3967741fb59d2fd06921c1647a29a24a",
+  "test": "tests/test_scheduler_idle.py",
+  "status": "expected baseline failure",
+  "secondsSuspended": 1.8,
+  "before": {
+    "day": 1,
+    "paused": false,
+    "suspended": true,
+    "order": 3
+  },
+  "after": {
+    "day": 1,
+    "paused": false,
+    "suspended": true,
+    "order": 4,
+    "calls": {
+      "header": 8,
+      "panel": 1,
+      "save": 1,
+      "draw": 1
+    }
+  },
+  "failure": "Visible native-suspended RAFs continued header/panel rebuilding, drew dirty map and enqueued an extra save despite no simulation advancement."
+}
