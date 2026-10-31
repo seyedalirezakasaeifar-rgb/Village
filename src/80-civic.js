@@ -272,6 +272,7 @@ function updateObjectiveMini(){if(!G)return;let m=AMBITIONS.find(m=>m.id===G.amb
 
 $('eventDefer').onclick=()=>closeCouncilDialog(true);
 $('eventDialog').addEventListener('keydown',e=>{
- if(e.key!=='Tab')return;const controls=[...$('eventDialog').querySelectorAll('button:not([disabled])')];const first=controls[0],last=fromEnd(controls);
- if(e.shiftKey&&document.activeElement===first){last.focus();e.preventDefault();}else if(!e.shiftKey&&document.activeElement===last){first.focus();e.preventDefault();}
+ if(e.key!=='Tab'||!pendingEvent||$('helpDialog').style.display!=='none')return;
+ const controls=[...$('eventDialog').querySelectorAll('button:not([disabled]),select:not([disabled]),input:not([disabled]),textarea:not([disabled]),summary,[href],[tabindex]:not([tabindex="-1"])')].filter(el=>el.offsetParent!==null),first=controls[0],last=fromEnd(controls);
+ if(!first)return;if(e.shiftKey&&document.activeElement===first){last.focus();e.preventDefault();}else if(!e.shiftKey&&document.activeElement===last){first.focus();e.preventDefault();}
 });
