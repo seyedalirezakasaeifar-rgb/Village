@@ -1,0 +1,31 @@
+{
+  "ambient": 4,
+  "cap": 4,
+  "stable": true,
+  "far": 0,
+  "reduced": 0,
+  "cacheReused": true,
+  "overview": [
+    {
+      "market": "upland",
+      "inbound": 2,
+      "outbound": 0,
+      "points": 3
+    },
+    {
+      "market": "port",
+      "inbound": 0,
+      "outbound": 4,
+      "points": 3
+    },
+    {
+      "market": "ridge",
+      "inbound": 1,
+      "outbound": 0,
+      "points": 2
+    }
+  ],
+  "unchanged": true,
+  "source_sha256": "e389d59303669a1b0a498c16e8611704792ef5891755be78a4e596bd0f011b54",
+  "errors": []
+}

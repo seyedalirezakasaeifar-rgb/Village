@@ -1,0 +1,28 @@
+{
+  "source_sha256": "e389d59303669a1b0a498c16e8611704792ef5891755be78a4e596bd0f011b54",
+  "hostChromiumOnly": true,
+  "physicalAndroid": false,
+  "synthetic": {
+    "population": 2000,
+    "households": 678,
+    "buildings": 713,
+    "total": 15493517
+  },
+  "viewport": [
+    844,
+    390
+  ],
+  "night": false,
+  "zoom": 0.25,
+  "seconds": 8.021832164999978,
+  "days": 312,
+  "measuredSpeed": 64.17486546852996,
+  "rafP95": 49.899999999999636,
+  "rafP99": 66.69999999999982,
+  "drawP95": 45.799999999813735,
+  "tickP95": 18.299999999813735,
+  "indicatorSpeed": 65.99999999999999,
+  "economyToNextFrame": 77.60000000009313,
+  "cashDrift": -3.417953848838806e-06,
+  "errors": []
+}
