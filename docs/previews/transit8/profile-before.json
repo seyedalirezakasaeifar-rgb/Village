@@ -1,0 +1,140 @@
+{
+  "result": {
+    "routes": 48,
+    "nodes": 768,
+    "times": [
+      132.39999999990687,
+      99.9000000001397,
+      79.0999999998603,
+      84.69999999995343,
+      101.60000000009313
+    ],
+    "poseMs": 0.04100000000093132,
+    "cacheStable": true,
+    "assigned": 2000,
+    "drivers": 192,
+    "denied": 0
+  },
+  "topSelfMs": [
+    [
+      "transitJourney @2337",
+      254.14
+    ],
+    [
+      "transitOperatingDay @2364",
+      167.49
+    ],
+    [
+      "(program) @0",
+      57.37
+    ],
+    [
+      "(garbage collector) @0",
+      21.14
+    ],
+    [
+      "transitRouting @2327",
+      16.21
+    ],
+    [
+      "window.__transitScale @5058",
+      11.16
+    ],
+    [
+      "transitRoadPath @2255",
+      8.87
+    ],
+    [
+      " @2370",
+      5.52
+    ],
+    [
+      "drawImage @0",
+      5.12
+    ],
+    [
+      "transitHeapPop @2326",
+      4.31
+    ],
+    [
+      "transitCollectFare @2358",
+      3.62
+    ],
+    [
+      "transitReserve @2353",
+      3.52
+    ],
+    [
+      "transitWalkTree @2250",
+      3.43
+    ],
+    [
+      "graph @2554",
+      2.89
+    ],
+    [
+      "transitDemand @2357",
+      2.54
+    ],
+    [
+      "transitQuote @2277",
+      2.48
+    ],
+    [
+      "(idle) @0",
+      2.42
+    ],
+    [
+      "refreshBuildingIndex @1118",
+      2.31
+    ],
+    [
+      "transitVehiclePoses @2388",
+      2.26
+    ],
+    [
+      "transitPaths @2260",
+      2.23
+    ],
+    [
+      "transitTopology @2315",
+      1.91
+    ],
+    [
+      " @2339",
+      1.54
+    ],
+    [
+      "roadDistance @2598",
+      1.43
+    ],
+    [
+      " @2350",
+      1.41
+    ],
+    [
+      " @2354",
+      1.22
+    ],
+    [
+      "spriteFor @2878",
+      1.18
+    ],
+    [
+      "transitHeapPush @2325",
+      1.05
+    ],
+    [
+      "transitChanged @2247",
+      1.05
+    ],
+    [
+      "buildTransitRoute @2292",
+      1.03
+    ],
+    [
+      "prepareScene @2890",
+      1.03
+    ]
+  ]
+}

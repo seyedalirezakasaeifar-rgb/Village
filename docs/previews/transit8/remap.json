@@ -1,0 +1,15 @@
+{
+  "source_sha256": "205bf95c5232d3f7dd29545594ebfdaa5ac352fcff3ec387dfe46aaa1e8e1682",
+  "result": {
+    "pure": true,
+    "nestedIndependent": true,
+    "failedLiveAtomic": true,
+    "invalidArchiveAtomic": true,
+    "identityArchive": true,
+    "liveInvalidation": true,
+    "routes": 2,
+    "tracks": 17,
+    "total": 15493517.000000002
+  },
+  "errors": []
+}

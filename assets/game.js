@@ -2606,9 +2606,9 @@ function occupyVacantHousing(){
 const TRANSIT_MODES={bus:{name:'Bus',seats:32,vehicle:6200,tile:0,minutes:1.15,staff:2,upkeep:12,fare:.65},elevated:{name:'Elevated metro',seats:110,vehicle:36000,tile:950,minutes:.42,staff:4,upkeep:40,fare:1.25}};
 const TRANSIT_LEVELS=[{name:'Suspended',vehicles:0},{name:'Local',vehicles:1},{name:'Frequent',vehicles:2},{name:'High frequency',vehicles:4}];
 const TRANSIT_COLORS=['#f0ad56','#51b9c3','#c385b9','#8abf77','#ef8175','#8ba6e9'];
-let transitTopologyCache=null,transitDailyCache=null;
+let transitTopologyCache=null,transitDailyCache=null,transitReservationVersion=0;
 function ensureTransit(){if(!G.transit)G.transit={version:1,revision:0,next:1,routes:[],tracks:[],capital:0,fares:0,expenses:0,lastDay:0,daily:{rides:0,denied:0,revenue:0,expenses:0,staff:0}};return G.transit;}
-function transitChanged(){ensureTransit().revision++;for(const p of G.people)p.transitTrip=null;transitTopologyCache=null;transitDailyCache=null;householdMarketCache=null;dirty=true;staticDirty=true;}
+function transitChanged(){ensureTransit().revision++;transitReservationVersion++;for(const p of G.people)p.transitTrip=null;transitTopologyCache=null;transitDailyCache=null;householdMarketCache=null;dirty=true;staticDirty=true;}
 function transitStopRoad(mode,id,net=graph()){return mode==='bus'?id:net.portals.get(id);}
 function transitOwnedRoad(id){return Number.isInteger(id)&&id>=0&&id<G.tiles.length&&G.tiles[id]===1&&charterOwns(id%T,id/T|0);}
 function transitWalkTree(start,limit=5,net=graph()){
@@ -2626,12 +2626,15 @@ function transitPaths(mode,stops,net=graph()){
  return {legs,path,offsets};
 }
 // Expansion integration: map tile indices only; institution IDs and stop offsets are stable.
-function remapTransitTiles(mapTile){
- if(!G.transit)return;const state=G.transit;
- state.tracks=state.tracks.map(mapTile);
- for(const r of state.routes){r.path=r.path.map(mapTile);if(r.mode==='bus')r.stops=r.stops.map(mapTile);}
- transitChanged();
+// Pure archive transform: never touches G, caches, tickets, fares or the input.
+function remapTransitState(state,mapTile){
+ if(state==null)return state;if(typeof mapTile!=='function')throw Error('Transit remapping needs a tile mapper');
+ const mapped=JSON.parse(JSON.stringify(state)),tile=id=>{const next=mapTile(id);if(!Number.isSafeInteger(next)||next<0)throw Error('Invalid remapped transit tile');return next;};
+ mapped.tracks=mapped.tracks.map(tile);
+ for(const r of mapped.routes){r.path=r.path.map(tile);if(r.mode==='bus')r.stops=r.stops.map(tile);}
+ return mapped;
 }
+function remapTransitTiles(mapTile){if(!G.transit)return;const mapped=remapTransitState(G.transit,mapTile);G.transit=mapped;transitChanged();}
 function transitRightOfWay(id){return !!G.transit?.tracks.includes(id);}
 function removeUnusedGuideway(){
  const state=ensureTransit(),used=new Set(state.routes.filter(r=>r.mode==='elevated').flatMap(r=>r.path)),retired=state.tracks.filter(id=>!used.has(id));if(!retired.length)return false;
@@ -2683,55 +2686,70 @@ function transitTopology(){
   const runtime={...r,...(route||{}),valid,stopRoads:r.stops.map(id=>transitStopRoad(r.mode,id,net))};routes.push(runtime);
   for(const stop of runtime.stopRoads)if(!walks.has(stop))walks.set(stop,transitWalkTree(stop,5,net));
  }
- return transitTopologyCache={town:G,net,revision:state.revision,routes,walks};
+ return transitTopologyCache={town:G,net,revision:state.revision,routes,walks,records:new Map(state.routes.map(r=>[r.id,r])),depotWalks:new Map()};
 }
 // Heap keeps many-household routing bounded; no shortest-path work occurs per frame.
 function transitHeapPush(heap,value){heap.push(value);let i=heap.length-1;while(i){const p=(i-1)>>1;if(heap[p][0]<=value[0])break;heap[i]=heap[p];i=p;}heap[i]=value;}
 function transitHeapPop(heap){const first=heap[0],last=heap.pop();if(heap.length){let i=0;while(i*2+1<heap.length){let j=i*2+1;if(j+1<heap.length&&heap[j+1][0]<heap[j][0])j++;if(heap[j][0]>=last[0])break;heap[i]=heap[j];i=j;}heap[i]=last;}return first;}
 function transitRouting(){
- const topology=transitTopology(),state=ensureTransit();if(transitDailyCache?.town===G&&transitDailyCache.topology===topology&&transitDailyCache.day===G.day&&transitDailyCache.service===state.lastDay)return transitDailyCache;
- const nodes=[],edges=[],roadNodes=new Map();for(const route of topology.routes){if(!route.valid||!route.stats?.operating)continue;const base=nodes.length;
+ const topology=transitTopology(),state=ensureTransit();
+ if(transitDailyCache?.town===G&&transitDailyCache.topology===topology&&transitDailyCache.service===state.lastDay)return transitDailyCache;
+ const signature=topology.routes.map(r=>r.valid&&r.stats?.operating?r.id+':'+r.stats.headway:'').join('|');
+ // Geometry and timetable determine routing costs. Day, fares and ridership do not.
+ if(transitDailyCache?.town===G&&transitDailyCache.topology===topology&&transitDailyCache.signature===signature){transitDailyCache.service=state.lastDay;return transitDailyCache;}
+ const nodes=[],edges=[],roadNodes=new Map(),access=new Map();for(const route of topology.routes){if(!route.valid||!route.stats?.operating)continue;const base=nodes.length;
   for(let i=0;i<route.stops.length;i++){const road=route.stopRoads[i],id=nodes.length;nodes.push({route:route.id,index:i,road,headway:route.stats.headway,mode:route.mode});edges.push([]);if(!roadNodes.has(road))roadNodes.set(road,[]);roadNodes.get(road).push(id);
+   for(const [walkRoad,distance] of topology.walks.get(road)||[]){if(!access.has(walkRoad))access.set(walkRoad,[]);access.get(walkRoad).push([id,distance]);}
    if(i){const time=(route.offsets[i]-route.offsets[i-1])*TRANSIT_MODES[route.mode].minutes+1;edges[id-1].push([id,time]);edges[id].push([id-1,time]);}}
   route.nodeBase=base;
  }
  for(let i=0;i<nodes.length;i++){const a=nodes[i];for(const [road,distance] of topology.walks.get(a.road)||[])if(distance<=3)for(const j of roadNodes.get(road)||[])if(nodes[j].route!==a.route)edges[i].push([j,distance*2+nodes[j].headway/2+2]);}
- return transitDailyCache={town:G,topology,day:G.day,service:state.lastDay,nodes,edges,homes:new Map()};
+ return transitDailyCache={town:G,topology,signature,service:state.lastDay,nodes,edges,access,homes:new Map(),journeys:new Map(),capacity:new Map()};
+}
+function transitCapacityMask(routing,units){
+ if(!units)return {blocked:new Set(),key:''};
+ let cached=routing.capacity.get(units);if((units===1||units===2)&&cached?.version===transitReservationVersion)return cached;
+ const blocked=new Set(ensureTransit().routes.filter(r=>r.stats.reserved+units>r.stats.capacity).map(r=>r.id));
+ cached={blocked,key:[...blocked].join(','),version:transitReservationVersion};routing.capacity.set(units,cached);return cached;
 }
 function transitJourney(home,destination,capacityUnits=0){
  if(!home||!destination||!G.transit?.routes.length)return null;const routing=transitRouting(),net=routing.topology.net,origin=net.portals.get(home.id),goal=net.portals.get(destination.id);if(origin==null||goal==null||origin===goal||!routing.nodes.length)return null;
- const blocked=new Set(capacityUnits>0?ensureTransit().routes.filter(r=>r.stats.reserved+capacityUnits>r.stats.capacity).map(r=>r.id):[]),treeKey=origin+'|'+[...blocked].join(',');
+ const {blocked,key}=transitCapacityMask(routing,capacityUnits),treeKey=origin+'|'+key,tripKey=origin+'>'+goal+'|'+key,copy=trip=>trip?{...trip,routes:trip.routes.slice()}:null;
+ const cached=routing.journeys.get(tripKey);if(cached!==undefined)return copy(cached);
+ const finish=trip=>{if(routing.journeys.size>=4096)routing.journeys.delete(routing.journeys.keys().next().value);routing.journeys.set(tripKey,trip);return copy(trip);};
  let tree=routing.homes.get(treeKey);if(!tree){const count=routing.nodes.length,distance=new Array(count).fill(Infinity),parent=new Array(count).fill(-1),heap=[];
-  for(let i=0;i<count;i++){const node=routing.nodes[i],walk=routing.topology.walks.get(node.road)?.get(origin);if(walk!=null&&!blocked.has(node.route)){distance[i]=walk*2+node.headway/2;transitHeapPush(heap,[distance[i],i]);}}
+  for(const [i,walk] of routing.access.get(origin)||[]){const node=routing.nodes[i];if(!blocked.has(node.route)){distance[i]=walk*2+node.headway/2;transitHeapPush(heap,[distance[i],i]);}}
   while(heap.length){const [cost,i]=transitHeapPop(heap);if(cost!==distance[i])continue;for(const [j,time] of routing.edges[i])if(!blocked.has(routing.nodes[j].route)&&cost+time<distance[j]){distance[j]=cost+time;parent[j]=i;transitHeapPush(heap,[distance[j],j]);}}
   tree={distance,parent};if(routing.homes.size>=512)routing.homes.delete(routing.homes.keys().next().value);routing.homes.set(treeKey,tree);
  }
- let best=-1,time=Infinity;for(let i=0;i<routing.nodes.length;i++){const node=routing.nodes[i],walk=routing.topology.walks.get(node.road)?.get(goal);if(walk!=null&&!blocked.has(node.route)&&tree.distance[i]+walk*2<time){best=i;time=tree.distance[i]+walk*2;}}
- if(best<0)return null;const chain=[];for(let at=best;at>=0;at=tree.parent[at])chain.push(at);chain.reverse();
- // An itinerary must travel between stops: walking to and from a single stop is not a ride.
+ let best=-1,time=Infinity;for(const [i,walk] of routing.access.get(goal)||[]){const node=routing.nodes[i];if(!blocked.has(node.route)&&tree.distance[i]+walk*2<time){best=i;time=tree.distance[i]+walk*2;}}
+ if(best<0)return finish(null);const chain=[];for(let at=best;at>=0;at=tree.parent[at])chain.push(at);chain.reverse();
+ // Cache immutable route templates. Paid tickets always receive their own object/route list.
  const routeIds=[];for(let i=1;i<chain.length;i++)if(routing.nodes[chain[i]].route===routing.nodes[chain[i-1]].route){const id=routing.nodes[chain[i]].route;if(!routeIds.includes(id))routeIds.push(id);}
- if(!routeIds.length||routeIds.length>3)return null;
- return {routes:routeIds,time,fare:Math.max(...routeIds.map(id=>TRANSIT_MODES[ensureTransit().routes.find(r=>r.id===id).mode].fare)),transfers:routeIds.length-1};
+ if(!routeIds.length||routeIds.length>3)return finish(null);
+ return finish({routes:routeIds,time,fare:Math.max(...routeIds.map(id=>TRANSIT_MODES[routing.topology.records.get(id).mode].fare)),transfers:routeIds.length-1});
 }
 function transitAccess(home,destination){const journey=transitJourney(home,destination);return !!journey&&journey.time<=90;}
 function transitReserve(journey,units=1){
- if(!journey)return false;const routes=journey.routes.map(id=>ensureTransit().routes.find(r=>r.id===id));if(routes.some(r=>!r?.stats.operating||r.stats.reserved+units>r.stats.capacity))return false;
- for(const r of routes)r.stats.reserved+=units;return true;
+ if(!journey)return false;const records=transitTopology().records,routes=journey.routes.map(id=>records.get(id));if(routes.some(r=>!r?.stats.operating||r.stats.reserved+units>r.stats.capacity))return false;
+ for(const r of routes){const before=r.stats.capacity-r.stats.reserved;r.stats.reserved+=units;const after=before-units;if(before>=2&&after<2||before>=1&&after<1)transitReservationVersion++;}return true;
 }
-function transitDemand(journey,denied=false,units=1){if(!journey)return;for(const id of journey.routes){const s=ensureTransit().routes.find(r=>r.id===id)?.stats;if(s){s.demand+=units;if(denied)s.denied+=units;}}}
+function transitDemand(journey,denied=false,units=1){if(!journey)return;for(const id of journey.routes){const s=transitTopology().records.get(id)?.stats;if(s){s.demand+=units;if(denied)s.denied+=units;}}}
 function transitCollectFare(h,journey,units=1){
  if(journey.settled)return 0;journey.settled=true;
  const due=journey.fare*units,paid=Math.min(h.cash,due);h.cash-=paid;h.travel+=paid;h.travelDue+=due;G.treasury+=paid;const state=ensureTransit();state.fares+=paid;state.daily.revenue+=paid;state.daily.rides+=units;
- for(const id of journey.routes){const s=state.routes.find(r=>r.id===id)?.stats;if(s)s.boardings+=units;}return paid;
+ for(const id of journey.routes){const s=transitTopology().records.get(id)?.stats;if(s)s.boardings+=units;}return paid;
 }
 function transitOperatingCommitment(){return (G.transit?.routes.length?transitTopology().routes:[]).reduce((sum,r)=>{if(!r.level)return sum;const d=TRANSIT_MODES[r.mode],vehicles=TRANSIT_LEVELS[r.level].vehicles;return sum+vehicles*d.staff*Math.max(24,G.policy.minWage)+vehicles*d.upkeep+r.path.length*(r.mode==='bus'?.11:.28);},0);}
 function transitOperatingDay(){
  const state=ensureTransit();if(state.lastDay===G.day)return;state.lastDay=G.day;state.daily={rides:0,denied:0,revenue:0,expenses:0,staff:0};
- const topology=transitTopology();for(const route of topology.routes){const r=state.routes.find(a=>a.id===route.id),definition=TRANSIT_MODES[r.mode],required=r.level?TRANSIT_LEVELS[r.level].vehicles*definition.staff:0;
+ const topology=transitTopology(),driverPool=G.people.filter(p=>!p.deceased&&!p.movedAway&&p.age>=18&&p.age<=70&&p.job<0&&!p.publicWork&&!(p.publicIncome>0)&&(!p.previousPublicRole||p.previousPublicRole==='transit')&&p.skill>=.3).sort((a,b)=>(a.previousPublicRole==='transit'?0:1)-(b.previousPublicRole==='transit'?0:1)||a.id-b.id);
+ for(const route of topology.routes){const r=topology.records.get(route.id),definition=TRANSIT_MODES[r.mode],required=r.level?TRANSIT_LEVELS[r.level].vehicles*definition.staff:0;
   const previous=r.stats;r.stats={operating:false,capacity:0,reserved:0,boardings:0,demand:0,denied:0,staff:[],required,status:!r.level?'Suspended by council':!route.valid?'Street, station or depot disconnected':'Insufficient budget or drivers',headway:0,reliability:0,expenses:0,lastDemand:previous?.demand||0,lastDenied:previous?.denied||0};route.stats=r.stats;
   if(!required||!route.valid)continue;
-  const depotPort=topology.net.portals.get(r.depot),local=transitWalkTree(depotPort,60,topology.net),wage=Math.max(24,G.policy.minWage),vehicles=TRANSIT_LEVELS[r.level].vehicles;
-  const candidates=G.people.filter(p=>!p.deceased&&!p.movedAway&&p.age>=18&&p.age<=70&&p.job<0&&!p.publicWork&&!(p.publicIncome>0)&&(!p.previousPublicRole||p.previousPublicRole==='transit')&&p.skill>=.3&&local.has(topology.net.portals.get(G.households[p.hh]?.home))).sort((a,b)=>(a.previousPublicRole==='transit'?0:1)-(b.previousPublicRole==='transit'?0:1)||a.id-b.id);
+  const depotPort=topology.net.portals.get(r.depot),wage=Math.max(24,G.policy.minWage),vehicles=TRANSIT_LEVELS[r.level].vehicles;
+  let local=topology.depotWalks.get(r.depot);if(!local){local=transitWalkTree(depotPort,60,topology.net);topology.depotWalks.set(r.depot,local);}
+  const candidates=[];for(const p of driverPool){if(!p.publicWork&&local.has(topology.net.portals.get(G.households[p.hh]?.home)))candidates.push(p);if(candidates.length>=required)break;}
   const maintenance=vehicles*definition.upkeep+route.path.length*(r.mode==='bus'?.11:.28),staff=Math.min(required,candidates.length,Math.max(0,Math.floor((G.treasury-maintenance)/wage)));
   if(staff<definition.staff)continue;const actualVehicles=Math.min(vehicles,Math.floor(staff/definition.staff)),actualStaff=actualVehicles*definition.staff,cost=actualStaff*wage+maintenance;
   G.treasury-=cost;G.cumulative.spending+=cost;G.region+=maintenance;
@@ -2739,13 +2757,14 @@ function transitOperatingDay(){
   let reliability=1;if(r.mode==='bus'){const wear=route.path.reduce((sum,id)=>sum+(G.roadWear?.[id]??100),0)/route.path.length;reliability=clamp(.65+wear*.0035,.65,1);}
   const cycle=2*(route.path.length-1)*definition.minutes+r.stops.length*2;r.stats.operating=true;r.stats.reliability=reliability;r.stats.headway=cycle/actualVehicles/reliability;r.stats.capacity=Math.floor(actualVehicles*definition.seats*120/cycle*reliability);r.stats.expenses=cost;r.stats.status=actualVehicles<vehicles?'Reduced: driver or budget shortage':'Operating';state.daily.expenses+=cost;state.daily.staff+=actualStaff;state.expenses+=cost;
  }
- transitDailyCache=null;
+ transitReservationVersion++;
  // Deterministic daily allocation rotates priority, rather than giving low IDs perpetual first access.
  const commuters=G.people.filter(p=>!p.deceased&&!p.movedAway&&p.job>=0),offset=commuters.length?G.day%commuters.length:0;
  for(const p of commuters)p.transitTrip=null;
+ if(!topology.routes.some(r=>r.valid&&r.stats.operating))return;
  for(const p of commuters.slice(offset).concat(commuters.slice(0,offset))){const h=G.households[p.hh],home=readBuild(h?.home),work=readBuild(G.firms[p.job]?.building);if(!home||!work)continue;
-  const journey=transitJourney(home,work),distance=roadDistance(topology.net.portals.get(home.id),topology.net.portals.get(work.id));if(!journey||journey.time>90||distance<8||journey.time>=distance*2)continue;
-  if(h.cash<journey.fare)continue;let chosen=journey,boarded=transitReserve(chosen);if(!boarded){const alternative=transitJourney(home,work,1);if(alternative&&alternative.time<=90&&alternative.time<distance*2&&h.cash>=alternative.fare){chosen=alternative;boarded=transitReserve(chosen);}}transitDemand(chosen);if(boarded){p.transitTrip={...chosen,day:G.day};transitCollectFare(h,p.transitTrip);}else{state.daily.denied++;for(const id of journey.routes){const s=state.routes.find(r=>r.id===id).stats;s.denied++;}}
+  const distance=roadDistance(topology.net.portals.get(home.id),topology.net.portals.get(work.id));if(distance<8)continue;const journey=transitJourney(home,work);if(!journey||journey.time>90||journey.time>=distance*2)continue;
+  if(h.cash<journey.fare)continue;let chosen=journey,boarded=transitReserve(chosen);if(!boarded){const alternative=transitJourney(home,work,1);if(alternative&&alternative.time<=90&&alternative.time<distance*2&&h.cash>=alternative.fare){chosen=alternative;boarded=transitReserve(chosen);}}transitDemand(chosen);if(boarded){p.transitTrip={...chosen,day:G.day};transitCollectFare(h,p.transitTrip);}else{state.daily.denied++;for(const id of journey.routes){const s=topology.records.get(id).stats;s.denied++;}}
  }
 }
 function transitRenderSnapshot(){const state=ensureTransit(),topology=transitTopology();return {revision:state.revision,routes:topology.routes.map(r=>({id:r.id,name:r.name,mode:r.mode,color:r.color,path:r.path,stops:r.stops,valid:r.valid,...r.stats})),stations:G.buildings.filter(b=>b.kind==='elevated_station').map(b=>({id:b.id,x:b.x,y:b.y,kind:b.kind})),depots:G.buildings.filter(b=>b.kind==='transit_depot').map(b=>({id:b.id,x:b.x,y:b.y,kind:b.kind}))};}
