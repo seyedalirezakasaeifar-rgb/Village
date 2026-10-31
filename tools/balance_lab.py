@@ -14,7 +14,8 @@ from test_mobile_rendering import html
 
 PROBE = r'''
 window.__balanceLab = (()=>{
- let start, original, basePeople, totals, actions;
+ let start, original, basePeople, totals, actions, bornHere=new Set();
+ const birthBase=birthsAndGenerations;birthsAndGenerations=function(...args){const n=G?.people.length||0,result=birthBase.apply(this,args);for(let i=n;i<G.people.length;i++)bornHere.add(i);return result;};
  const sum=(xs,f)=>xs.reduce((n,x)=>n+(Number(f(x))||0),0);
  const quantile=(xs,q)=>xs.length?xs.slice().sort((a,b)=>a-b)[Math.floor((xs.length-1)*q)]:0;
  const alive=p=>!p.deceased&&!p.movedAway;
@@ -48,7 +49,7 @@ window.__balanceLab = (()=>{
   const title=choice.textContent;choice.click();actions.push({day:G.day,label:'Exchange commitment',choice:title});
  }
  return {
- begin:(o)=>{if(!hydrateSave(o.saved))throw Error('Matched save rejected');paused=true;start=G.day;original={...G.policy};basePeople=G.people.length;actions=[];totals={money:totalMoney(),births:0,arrivals:0,unmetFood:0,hardshipResidentDays:0,blockedCommutes:0,firmClosures:0,treasuryEmptyDays:0,providerClosures:0,noContractOffers:0};
+ begin:(o)=>{if(!hydrateSave(o.saved))throw Error('Matched save rejected');paused=true;start=G.day;original={...G.policy};basePeople=G.people.length;bornHere=new Set();actions=[];totals={money:totalMoney(),births:0,arrivals:0,unmetFood:0,hardshipResidentDays:0,blockedCommutes:0,firmClosures:0,treasuryEmptyDays:0,providerClosures:0,noContractOffers:0};
   const policies={baseline:{},'import-led':{imports:true,importTariff:0},'local-protected':{imports:true,importTariff:40},'credit-tight':{policyRate:18,lendingRules:90},'credit-recovery':{policyRate:18,lendingRules:90},'credit-late-recovery':{policyRate:18,lendingRules:90},'public-services':{privateServices:0,educationBudget:250,defenseBudget:250,serviceVoucherBudget:0},'private-services':{privateServices:1,educationBudget:0,defenseBudget:0,serviceVoucherBudget:0},'voucher-services':{privateServices:1,educationBudget:0,defenseBudget:0,serviceVoucherBudget:150},'education-investment':{educationBudget:250},'food-contracts':{},'wage-subsidy':{employmentSubsidy:15},'bus-investment':{},'import-bridge':{},'local-producer':{},'supplier-contracts':{}};
   if(!policies[o.mode])throw Error('Unknown mode');policy(policies[o.mode],o.mode);if(o.mode==='bus-investment')bus();if(o.mode==='local-producer'||o.mode==='import-bridge')foodProject(o.mode==='local-producer');if(o.mode.includes('private-services')||o.mode==='voucher-services')invite();return sample();},
  advance:(o)=>{for(let d=0;d<o.days;d++){
@@ -58,7 +59,7 @@ window.__balanceLab = (()=>{
   if((o.mode==='food-contracts'||o.mode==='supplier-contracts')&&elapsed%30===0)agreement(o.mode==='food-contracts');
   const oldCount=G.people.length,closed=new Set(G.firms.filter(f=>f.closed).map(f=>f.id));tick();
   if(G.day===start+elapsed)throw Error('Clock did not advance');
-  for(let i=oldCount;i<G.people.length;i++){if(G.people[i].age===0)totals.births++;else totals.arrivals++;}
+  for(let i=oldCount;i<G.people.length;i++){if(bornHere.has(i))totals.births++;else totals.arrivals++;}
   totals.unmetFood+=G.market.unmetFood||0;totals.hardshipResidentDays+=(G.stats.hardship||0)/100*G.stats.population;totals.blockedCommutes+=G.market.blockedCommutes||0;
   totals.treasuryEmptyDays+=Number(G.treasury<1);for(const f of G.firms)if(f.closed&&!closed.has(f.id)){totals.firmClosures++;if(f.privateService)totals.providerClosures++;}
  }return sample();},actions:()=>actions
