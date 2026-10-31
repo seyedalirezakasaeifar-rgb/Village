@@ -4168,6 +4168,10 @@ function livingTerrain(g,x,y,type,h){
   for(const [dx,dy,a,b] of edges){const xx=x+dx,yy=y+dy;if(xx<0||yy<0||xx>=T||yy>=T||G.tiles[roadId(xx,yy)]===2)continue;
    const from=[p[0]+a[0],p[1]+a[1]],to=[p[0]+b[0],p[1]+b[1]];
    segment(g,from,to,'#b6b895',5);segment(g,from,to,'#d2c6a3',2);
+   // A fine cool waterline separates the shallow edge from the pale land cap.
+   // It lives in the cached terrain artwork and stays legible without adding
+   // animated foam or changing the underlying water/land tiles.
+   segment(g,from,to,'#527f8055',2);
    for(let j=1;j<5;j++){const t=j/5,px=from[0]+(to[0]-from[0])*t,py=from[1]+(to[1]-from[1])*t;g.fillStyle=j%2?'#7e9670':'#a9ac84';g.fillRect(px-2,py-1,4,2);if((h+j)%3===0){segment(g,[px,py],[px-2,py-8],'#537c55');segment(g,[px+2,py],[px+3,py-6],'#7b955c');}}
   }
   if(h%3===0){segment(g,[p[0]-15,p[1]+20],[p[0]+8,p[1]+9],'#9fc0b0',1);segment(g,[p[0]-8,p[1]+25],[p[0]+17,p[1]+13],'#699f9f',1);}
@@ -6951,6 +6955,15 @@ function paintNightScene(g,items){
    // Remove a rear building's emission wherever an opaque foreground sprite
    // covers it. A light cannot shine through the front neighbour's roof.
    n.globalCompositeOperation='destination-out';n.drawImage(sprite,x,y);n.globalCompositeOperation='source-over';
+   // Existing street lamps softly pick out their own curb and road surface.
+   // The glow is baked into this already view-cached night layer; later
+   // foreground sprites occlude it in normal painter order. No lamps or
+   // illumination are invented for empty streets.
+   if(item.kind==='streetprop'&&item.id%3===0&&cam.zoom>=.45){
+    const radius=40,center=[item.x,item.y+2],pool=n.createRadialGradient(center[0],center[1],2,center[0],center[1],radius);
+    pool.addColorStop(0,'#f1c66b3a');pool.addColorStop(.34,'#e5b75b20');pool.addColorStop(1,'#d9a94a00');
+    n.fillStyle=pool;n.fillRect(center[0]-radius,center[1]-radius,radius*2,radius*2);
+   }
    const b=item.b;if(!b||b.redevelopment||b.kind==='worksite'||G.firms[b.firm]?.closed)continue;
    const service=providerVisualState(b);if(service&&!service.active)continue;
    const lights=sprite.lightSources||[];if(!lights.length)continue;

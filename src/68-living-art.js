@@ -9,6 +9,10 @@ function livingTerrain(g,x,y,type,h){
   for(const [dx,dy,a,b] of edges){const xx=x+dx,yy=y+dy;if(xx<0||yy<0||xx>=T||yy>=T||G.tiles[roadId(xx,yy)]===2)continue;
    const from=[p[0]+a[0],p[1]+a[1]],to=[p[0]+b[0],p[1]+b[1]];
    segment(g,from,to,'#b6b895',5);segment(g,from,to,'#d2c6a3',2);
+   // A fine cool waterline separates the shallow edge from the pale land cap.
+   // It lives in the cached terrain artwork and stays legible without adding
+   // animated foam or changing the underlying water/land tiles.
+   segment(g,from,to,'#527f8055',2);
    for(let j=1;j<5;j++){const t=j/5,px=from[0]+(to[0]-from[0])*t,py=from[1]+(to[1]-from[1])*t;g.fillStyle=j%2?'#7e9670':'#a9ac84';g.fillRect(px-2,py-1,4,2);if((h+j)%3===0){segment(g,[px,py],[px-2,py-8],'#537c55');segment(g,[px+2,py],[px+3,py-6],'#7b955c');}}
   }
   if(h%3===0){segment(g,[p[0]-15,p[1]+20],[p[0]+8,p[1]+9],'#9fc0b0',1);segment(g,[p[0]-8,p[1]+25],[p[0]+17,p[1]+13],'#699f9f',1);}
