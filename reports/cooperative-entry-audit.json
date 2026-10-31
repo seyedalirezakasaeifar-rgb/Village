@@ -1,0 +1,261 @@
+{
+  "source_sha256": "bb3087687f7ac38a8cd28da440570d63cf0b56d10a873b1ab74124a1d28b5e56",
+  "prototype_commit": "d997da1",
+  "cases": {
+    "publicRead": {
+      "before": {
+        "busy": true,
+        "working": 30,
+        "committed": 29,
+        "policy": 28,
+        "queue": 0,
+        "modal": "none",
+        "pending": false
+      },
+      "result": {
+        "day": 30,
+        "treasury": 98611.09829509405,
+        "debt": 0,
+        "population": 169,
+        "employment": 93,
+        "hardship": 0,
+        "businesses": 26,
+        "approval": 72.32378458197088,
+        "cases": 1,
+        "total": 15493516.999999423,
+        "regional": 14675091.876124477,
+        "hhCash": 119299.69225109139,
+        "firmCash": 487768.6056190494,
+        "events": 8,
+        "policy": {
+          "privateServices": 1,
+          "privateTuitionCap": 4,
+          "privateFireFeeCap": 1,
+          "serviceVoucherBudget": 0,
+          "policyRate": 3,
+          "pensionDaily": 16,
+          "incomeTax": 12,
+          "profitTax": 12,
+          "propertyTax": 1.1,
+          "foodTax": 4,
+          "utilityTax": 2,
+          "commercialRate": 0.6,
+          "energyAidBudget": 35,
+          "transitBudget": 35,
+          "minWage": 28,
+          "permitFee": 250,
+          "policeBudget": 180,
+          "defenseBudget": 140,
+          "aidBudget": 100,
+          "outreachBudget": 40,
+          "employmentSubsidy": 0,
+          "importTariff": 0,
+          "healthBudget": 70,
+          "educationBudget": 90,
+          "roadBudget": 25,
+          "zoningRestriction": 25,
+          "businessRegulation": 25,
+          "militiaBudget": 25,
+          "bankReserve": 12,
+          "lendingRules": 35,
+          "depositGuarantee": 0,
+          "treasuryInvestment": 60,
+          "imports": true
+        },
+        "stats": {
+          "population": 169,
+          "employed": 102,
+          "workforce": 110,
+          "employment": 93,
+          "unemployment": 7,
+          "hardship": 0,
+          "safety": 91,
+          "preparedness": 76,
+          "businesses": 26,
+          "cash": 118727.01693987232,
+          "businessCash": 483815.3276677248,
+          "dailyCrime": 1,
+          "income": 4088.168505539272,
+          "townBalance": 99083.39796029055,
+          "health": 74,
+          "education": 46,
+          "wellbeing": 82,
+          "marketConfidence": 72,
+          "roadCondition": 99,
+          "roadService": 73,
+          "militia": 26,
+          "realWages": 11.5,
+          "prosperity": 85,
+          "avgCash": 1764.1221340646428,
+          "compliance": 25,
+          "propertyCosts": 3.025,
+          "roadAccess": 100,
+          "approval": 72
+        },
+        "achievements": [
+          "safe",
+          "balanced",
+          "market"
+        ],
+        "pending": false
+      },
+      "needsAttention": true
+    },
+    "publicMutation": {
+      "before": {
+        "busy": true,
+        "working": 30,
+        "committed": 29,
+        "policy": 28,
+        "queue": 0,
+        "modal": "none",
+        "pending": false
+      },
+      "result": {
+        "busy": true,
+        "working": 30,
+        "committed": 29,
+        "policy": 73,
+        "queue": 0,
+        "modal": "none",
+        "pending": false
+      },
+      "needsAttention": true
+    },
+    "publicStep": {
+      "before": {
+        "busy": true,
+        "working": 30,
+        "committed": 29,
+        "policy": 28,
+        "queue": 0,
+        "modal": "none",
+        "pending": false
+      },
+      "result": {
+        "busy": true,
+        "working": 31,
+        "committed": 29,
+        "policy": 28,
+        "queue": 0,
+        "modal": "none",
+        "pending": false
+      },
+      "needsAttention": true
+    },
+    "publicModal": {
+      "before": {
+        "busy": true,
+        "working": 30,
+        "committed": 29,
+        "policy": 28,
+        "queue": 0,
+        "modal": "none",
+        "pending": false
+      },
+      "result": {
+        "busy": true,
+        "working": 30,
+        "committed": 29,
+        "policy": 28,
+        "queue": 0,
+        "modal": "flex",
+        "pending": true
+      },
+      "needsAttention": true
+    },
+    "staleControl": {
+      "before": {
+        "busy": true,
+        "working": 30,
+        "committed": 29,
+        "policy": 28,
+        "queue": 0,
+        "modal": "none",
+        "pending": false
+      },
+      "result": [
+        {
+          "label": "click entryAuditStale",
+          "status": "declined",
+          "day": 30,
+          "reason": "Error: The control changed while the day completed. Select the current control again."
+        }
+      ],
+      "needsAttention": false
+    },
+    "dragFlood": {
+      "before": {
+        "busy": true,
+        "working": 30,
+        "committed": 29,
+        "policy": 28,
+        "queue": 0,
+        "modal": "none",
+        "pending": false
+      },
+      "result": 500,
+      "needsAttention": true
+    },
+    "nativeExport": {
+      "before": {
+        "busy": true,
+        "working": 30,
+        "committed": 29,
+        "policy": 28,
+        "queue": 0,
+        "modal": "none",
+        "pending": false
+      },
+      "result": {
+        "committed": true
+      },
+      "needsAttention": false
+    },
+    "nativeResume": {
+      "before": {
+        "busy": true,
+        "working": 30,
+        "committed": 29,
+        "policy": 28,
+        "queue": 0,
+        "modal": "none",
+        "pending": false
+      },
+      "result": {
+        "busy": true,
+        "working": 30,
+        "committed": 29,
+        "policy": 28,
+        "queue": 0,
+        "modal": "none",
+        "pending": false
+      },
+      "needsAttention": false
+    },
+    "pause": {
+      "before": {
+        "busy": true,
+        "working": 30,
+        "committed": 29,
+        "policy": 28,
+        "queue": 0,
+        "modal": "none",
+        "pending": false
+      },
+      "result": {
+        "state": {
+          "busy": true,
+          "working": 30,
+          "committed": 29,
+          "policy": 28,
+          "queue": 0,
+          "modal": "none",
+          "pending": false
+        },
+        "markup": "\u2161"
+      },
+      "needsAttention": true
+    }
+  }
+}
