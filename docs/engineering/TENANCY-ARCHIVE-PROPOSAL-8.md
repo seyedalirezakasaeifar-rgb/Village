@@ -75,3 +75,11 @@ repeat normalization idempotence, version-1 unapproved duplicate rejection, forb
 roster growth, departure pruning, bad municipal ownership rejection and subsequent
 canonical continuation. A failed import must leave the live game, RNG and timeline
 unchanged. Final acceptance should use the lead's combined immutable checkpoint.
+
+A causal prevention probe injects only the exact `householdFormation` function
+from urban commit `98a6f996` into the fixed-cache source, leaving all other source
+unchanged. It passes the previously failing day-183 cold restore and continues
+past day 225 with every archive validator passing and the municipal reserve still
+unoccupied. This is marked `preventionProbeOnly` with the exact function and
+instrumented script hashes; it is not a combined-source release acceptance claim.
+The bounded three-minute probe remains pending in the recorded partial result.

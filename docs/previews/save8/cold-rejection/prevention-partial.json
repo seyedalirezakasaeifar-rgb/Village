@@ -1,0 +1,40 @@
+{
+  "source_sha256": "d187f0cb9eca7d7eaa34b43dca354b9158eb68eb31336d889471095a73fb08e3",
+  "seed": 8142026,
+  "preventionProbeOnly": true,
+  "householdFormationRef": "98a6f99618e27e7d30306a7f4c890ac019ef004a",
+  "replacementFunctionSha256": "8ba59fe2d9b80f7625ac93af027a7d8bb71d11cbb250a16ff6fc2b7dd5ba7d8a",
+  "instrumentedScriptSha256": "58b5e904ae7f796cf0f09a239e640852781a4292202f41866046b80d5743b82e",
+  "startedUTC": "2026-10-31T19:53:42.008539+00:00",
+  "dueUTC": "2026-10-31T19:56:42.008539+00:00",
+  "status": "running",
+  "elapsedSeconds": 120.36,
+  "operations": 87,
+  "coldReloads": 25,
+  "lastSuccessfulColdDay": 242,
+  "validatorAudit": {
+    "validateArchiveRecords": true,
+    "validateUrbanRehousing": true,
+    "validateUrban": true,
+    "validateCivicProjects": true,
+    "validateMayorJourney": true,
+    "validatePrivateServices": true,
+    "validateDistrictProgrammes": true,
+    "validateRegionalTrade": true,
+    "validateWaterfrontArchive": true,
+    "validateGoodsAccounting": true,
+    "validateTransit": true,
+    "validateCivicState": true,
+    "validateCreditState": true,
+    "validateScenarioProgramme": true,
+    "validateCharter": true
+  },
+  "municipalReserves": [
+    {
+      "building": 109,
+      "reserved": true,
+      "occupiedHouseholds": []
+    }
+  ],
+  "limits": "Exact existing urban-worker householdFormation function injected for causal prevention probe only; not a combined production source or final acceptance pass."
+}
