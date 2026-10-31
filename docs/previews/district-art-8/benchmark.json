@@ -1,0 +1,13 @@
+{
+  "runner": "Playwright host Chromium; deterministic settlement seed 42; 960 x 640 viewport",
+  "before_source_sha256": "5202ab97b2dba28cde95134d87f985e00c308087e0e65299e97816a5344f087c6",
+  "after_source_sha256": "37782fef40335d2cbe625c5246ad1c0db81cfbc3439ef2b47634f8b7b0efef94",
+  "units": "milliseconds per draw; cold median of five forced static-cache rebuilds; warm mean of 100 draws",
+  "views": [
+    {"view": "home close, zoom 1.6", "cold_before": 31.9, "cold_after": 32.6, "warm_before": 0.96, "warm_after": 0.97, "atlas_entries_before": 44, "atlas_entries_after": 44, "atlas_bytes_before": 3048448, "atlas_bytes_after": 3048448},
+    {"view": "factory close, zoom 1.3", "cold_before": 36.1, "cold_after": 35.8, "warm_before": 1.00, "warm_after": 0.97, "atlas_entries_before": 52, "atlas_entries_after": 52, "atlas_bytes_before": 3866368, "atlas_bytes_after": 3866368},
+    {"view": "home medium, zoom 0.72", "cold_before": 49.7, "cold_after": 44.9, "warm_before": 0.78, "warm_after": 0.74, "atlas_entries_before": 63, "atlas_entries_after": 63, "atlas_bytes_before": 4542976, "atlas_bytes_after": 4542976}
+  ],
+  "render_state_unchanged": true,
+  "note": "Small timing differences are within host-browser run variation; no performance gain is claimed. Sprite atlas entry counts and memory are identical for each paired view."
+}

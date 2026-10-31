@@ -1,0 +1,15 @@
+{
+  "captures": [
+    {
+      "stage": "before",
+      "sha256": "5202ab97b2dba28cde95134f67378afca68786d8d0f212931477b88d87f0e814",
+      "errors": []
+    },
+    {
+      "stage": "after",
+      "sha256": "37782fef40335d2cbe625c5246ad1c0db81cfbc3439ef2b47634f8b7b0efef94",
+      "errors": []
+    }
+  ],
+  "fixture": "Seeded settlement, same actual type-targeted camera before/after. 960x640 at close zoom for residential/industry; 844x390 at medium zoom. Host Chromium."
+}
