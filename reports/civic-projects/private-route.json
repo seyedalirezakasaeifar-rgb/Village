@@ -1,5 +1,5 @@
 {
-  "source_sha256": "f4ebc3b4b96312993434c5f0ff23902d1b4ce1dc70cde919c76baaa66fd82dcb",
+  "source_sha256": "c01a589b24d017caa8d6951bd5a059962ccf083e7a8aa44c7bd10bfc8514387f",
   "controlledStartingConditions": true,
   "actualInvitationAndOperatingModel": true,
   "municipalCapitalAtInvitation": 0.0,
@@ -11,7 +11,7 @@
     "branch": "private",
     "target": 10,
     "started": 2,
-    "lastDay": 195,
+    "lastDay": 197,
     "status": "complete",
     "orders": [],
     "arrived": 0,
@@ -22,9 +22,9 @@
     "net": 0,
     "trainingScope": "private",
     "trainingBaseline": 0,
-    "learning": 361.83360000000073,
-    "completed": 195,
-    "proof": "Target family 361.8 paid learner-days \u00b7 15 fee-funded terms completed"
+    "learning": 362.3999999999994,
+    "completed": 197,
+    "proof": "Target family 362.4 paid learner-days \u00b7 18 fee-funded terms completed"
   },
   "errors": []
 }
