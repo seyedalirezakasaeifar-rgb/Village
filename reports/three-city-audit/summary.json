@@ -1,0 +1,1274 @@
+{
+  "candidate": "31987fc",
+  "source_sha256": "d90bb509173a803b75c3cdc432fea57ce2f1e2abbcb13b8886c56d8feaffe515",
+  "method": "Actual controls; read-only probes and time-only tick acceleration; no injected resources or forced success. 1x-equivalent minutes are simulated days*1.65/60, never human play time.",
+  "cohorts": [
+    {
+      "strategy": "port",
+      "automationSeconds": 50.7659514700008,
+      "nonPetitionDecisions": 15,
+      "buttonClicks": 65,
+      "cashDrift": -2.3385509848594666e-05,
+      "errors": [],
+      "finalValid": {
+        "ok": true,
+        "issues": [],
+        "total": 15493516.999976614,
+        "population": 374,
+        "day": 4365
+      },
+      "checkpoints": [
+        {
+          "label": "founding",
+          "day": 1,
+          "simulated1xMinutes": 0.0,
+          "cash": 90000,
+          "debt": 0,
+          "population": 169,
+          "employment": 75,
+          "school": 0,
+          "medical": 0,
+          "hardship": 7,
+          "medianHouseholdLiquidityPerResident": 787.0,
+          "direction": null,
+          "districts": {},
+          "ridersToday": 0,
+          "transitOperatingCostToday": 0
+        },
+        {
+          "label": "early-commitments",
+          "day": 14,
+          "simulated1xMinutes": 0.3575,
+          "cash": 41264.740355602626,
+          "debt": 0,
+          "population": 169,
+          "employment": 95,
+          "school": 32.142857142857146,
+          "medical": 67.3076923076923,
+          "hardship": 0,
+          "medianHouseholdLiquidityPerResident": 832.0127265982871,
+          "direction": {
+            "version": 1,
+            "direction": "river",
+            "started": 1,
+            "stage": 2,
+            "held": 0,
+            "lastDay": 14,
+            "completed": [
+              {
+                "stage": 0,
+                "day": 2
+              },
+              {
+                "stage": 1,
+                "day": 3
+              }
+            ],
+            "guide": true,
+            "visited": [
+              "overview",
+              "economy"
+            ],
+            "review": null
+          },
+          "districts": {
+            "river-reach": {
+              "plan": {
+                "focus": "waterfront",
+                "started": 14,
+                "held": 0,
+                "completed": false
+              },
+              "metrics": {
+                "pop": 0,
+                "connected": 2,
+                "staffed": 1,
+                "fishery": true,
+                "wharf": false,
+                "care": 0,
+                "school": 0
+              }
+            }
+          },
+          "ridersToday": 0,
+          "transitOperatingCostToday": 0
+        },
+        {
+          "label": "10-minutes-equivalent",
+          "day": 365,
+          "simulated1xMinutes": 10.01,
+          "cash": 52907.2193479606,
+          "debt": 0,
+          "population": 193,
+          "employment": 100,
+          "school": 60.01404782875126,
+          "medical": 58.93782383419689,
+          "hardship": 0,
+          "medianHouseholdLiquidityPerResident": 1889.4689172682718,
+          "direction": {
+            "version": 1,
+            "direction": "river",
+            "started": 1,
+            "stage": 4,
+            "held": 0,
+            "lastDay": 365,
+            "completed": [
+              {
+                "stage": 0,
+                "day": 2
+              },
+              {
+                "stage": 1,
+                "day": 3
+              },
+              {
+                "stage": 2,
+                "day": 51
+              },
+              {
+                "stage": 3,
+                "day": 81
+              }
+            ],
+            "guide": true,
+            "visited": [
+              "overview",
+              "economy",
+              "policies",
+              "construction"
+            ],
+            "review": null
+          },
+          "districts": {
+            "river-reach": {
+              "plan": {
+                "focus": "waterfront",
+                "started": 14,
+                "held": 30,
+                "completed": true,
+                "completedDay": 51
+              },
+              "metrics": {
+                "pop": 2,
+                "connected": 3,
+                "staffed": 2,
+                "fishery": true,
+                "wharf": true,
+                "care": 0.5893782383419689,
+                "school": 0
+              }
+            }
+          },
+          "ridersToday": 0,
+          "transitOperatingCostToday": 0
+        },
+        {
+          "label": "30-minutes-equivalent",
+          "day": 1092,
+          "simulated1xMinutes": 30.002499999999998,
+          "cash": 245180.17977467197,
+          "debt": 0,
+          "population": 250,
+          "employment": 100,
+          "school": 37.555853545443576,
+          "medical": 45.5,
+          "hardship": 0,
+          "medianHouseholdLiquidityPerResident": 3809.808671062823,
+          "direction": {
+            "version": 1,
+            "direction": "river",
+            "started": 1,
+            "stage": 4,
+            "held": 0,
+            "lastDay": 1092,
+            "completed": [
+              {
+                "stage": 0,
+                "day": 2
+              },
+              {
+                "stage": 1,
+                "day": 3
+              },
+              {
+                "stage": 2,
+                "day": 51
+              },
+              {
+                "stage": 3,
+                "day": 81
+              }
+            ],
+            "guide": true,
+            "visited": [
+              "overview",
+              "economy",
+              "policies",
+              "construction",
+              "community"
+            ],
+            "review": null
+          },
+          "districts": {
+            "river-reach": {
+              "plan": {
+                "focus": "waterfront",
+                "started": 14,
+                "held": 30,
+                "completed": true,
+                "completedDay": 51
+              },
+              "metrics": {
+                "pop": 3,
+                "connected": 3,
+                "staffed": 1,
+                "fishery": true,
+                "wharf": false,
+                "care": 0.455,
+                "school": 0
+              }
+            }
+          },
+          "ridersToday": 0,
+          "transitOperatingCostToday": 0
+        },
+        {
+          "label": "60-minutes-equivalent",
+          "day": 2183,
+          "simulated1xMinutes": 60.004999999999995,
+          "cash": 386757.67860676505,
+          "debt": 0,
+          "population": 320,
+          "employment": 99,
+          "school": 79.21875,
+          "medical": 87.5,
+          "hardship": 0,
+          "medianHouseholdLiquidityPerResident": 5439.862569455887,
+          "direction": {
+            "version": 1,
+            "direction": "river",
+            "started": 1,
+            "stage": 4,
+            "held": 0,
+            "lastDay": 2183,
+            "completed": [
+              {
+                "stage": 0,
+                "day": 2
+              },
+              {
+                "stage": 1,
+                "day": 3
+              },
+              {
+                "stage": 2,
+                "day": 51
+              },
+              {
+                "stage": 3,
+                "day": 81
+              }
+            ],
+            "guide": true,
+            "visited": [
+              "overview",
+              "economy",
+              "policies",
+              "construction",
+              "community"
+            ],
+            "review": null
+          },
+          "districts": {
+            "river-reach": {
+              "plan": {
+                "focus": "waterfront",
+                "started": 14,
+                "held": 30,
+                "completed": true,
+                "completedDay": 51
+              },
+              "metrics": {
+                "pop": 4,
+                "connected": 3,
+                "staffed": 1,
+                "fishery": true,
+                "wharf": false,
+                "care": 0.875,
+                "school": 0
+              }
+            }
+          },
+          "ridersToday": 0,
+          "transitOperatingCostToday": 0
+        },
+        {
+          "label": "120-minutes-equivalent",
+          "day": 4365,
+          "simulated1xMinutes": 120.00999999999999,
+          "cash": 1059579.5324362589,
+          "debt": 0,
+          "population": 374,
+          "employment": 87,
+          "school": 72.05882352941175,
+          "medical": 95.58823529411765,
+          "hardship": 3,
+          "medianHouseholdLiquidityPerResident": 6480.676096628591,
+          "direction": {
+            "version": 1,
+            "direction": "river",
+            "started": 1,
+            "stage": 4,
+            "held": 0,
+            "lastDay": 4365,
+            "completed": [
+              {
+                "stage": 0,
+                "day": 2
+              },
+              {
+                "stage": 1,
+                "day": 3
+              },
+              {
+                "stage": 2,
+                "day": 51
+              },
+              {
+                "stage": 3,
+                "day": 81
+              }
+            ],
+            "guide": true,
+            "visited": [
+              "overview",
+              "economy",
+              "policies",
+              "construction",
+              "community"
+            ],
+            "review": null
+          },
+          "districts": {
+            "river-reach": {
+              "plan": {
+                "focus": "waterfront",
+                "started": 14,
+                "held": 30,
+                "completed": true,
+                "completedDay": 51
+              },
+              "metrics": {
+                "pop": 4,
+                "connected": 3,
+                "staffed": 1,
+                "fishery": true,
+                "wharf": false,
+                "care": 0.955882352941178,
+                "school": 0
+              }
+            }
+          },
+          "ridersToday": 0,
+          "transitOperatingCostToday": 0
+        },
+        {
+          "label": "final-after-review",
+          "day": 4365,
+          "simulated1xMinutes": 120.00999999999999,
+          "cash": 1059579.5324362589,
+          "debt": 0,
+          "population": 374,
+          "employment": 87,
+          "school": 72.05882352941175,
+          "medical": 95.58823529411765,
+          "hardship": 3,
+          "medianHouseholdLiquidityPerResident": 6480.676096628591,
+          "direction": {
+            "version": 1,
+            "direction": "river",
+            "started": 1,
+            "stage": 4,
+            "held": 0,
+            "lastDay": 4365,
+            "completed": [
+              {
+                "stage": 0,
+                "day": 2
+              },
+              {
+                "stage": 1,
+                "day": 3
+              },
+              {
+                "stage": 2,
+                "day": 51
+              },
+              {
+                "stage": 3,
+                "day": 81
+              }
+            ],
+            "guide": true,
+            "visited": [
+              "overview",
+              "economy",
+              "policies",
+              "construction",
+              "community"
+            ],
+            "review": null
+          },
+          "districts": {
+            "river-reach": {
+              "plan": {
+                "focus": "waterfront",
+                "started": 14,
+                "held": 30,
+                "completed": true,
+                "completedDay": 51
+              },
+              "metrics": {
+                "pop": 4,
+                "connected": 3,
+                "staffed": 1,
+                "fishery": true,
+                "wharf": false,
+                "care": 0.955882352941178,
+                "school": 0
+              }
+            }
+          },
+          "ridersToday": 0,
+          "transitOperatingCostToday": 0
+        }
+      ],
+      "closures": [
+        {
+          "day": 440,
+          "name": "River Cargo Wharf Works",
+          "kind": "wharf",
+          "cash": 0
+        },
+        {
+          "day": 1009,
+          "name": "Independent Learning House 31",
+          "kind": "school",
+          "cash": 0
+        },
+        {
+          "day": 1936,
+          "name": "Independent Learning House 28",
+          "kind": "school",
+          "cash": 0
+        }
+      ],
+      "blockedActions": [
+        {
+          "label": "Compare freight handling investment against public capital",
+          "day": 365,
+          "simulated1xMinutes": 10.01,
+          "automationSeconds": 5.254721269000584,
+          "status": "blocked/uncertain; actual post-state retained",
+          "detail": "Locator.fill: Timeout 5000ms exceeded.\n",
+          "cashDelta": 0.0,
+          "debtDelta": 0,
+          "populationDelta": 0,
+          "newBuildings": 0,
+          "toast": "No shared legally vacant square/warehouse site is currently available beside a populated market. Inspect existing property for compensated assembly."
+        }
+      ]
+    },
+    {
+      "strategy": "transit",
+      "automationSeconds": 80.2157979750009,
+      "nonPetitionDecisions": 14,
+      "buttonClicks": 58,
+      "cashDrift": 5.8827921748161316e-05,
+      "errors": [],
+      "finalValid": {
+        "ok": true,
+        "issues": [],
+        "total": 15493517.000058828,
+        "population": 354,
+        "day": 4365
+      },
+      "checkpoints": [
+        {
+          "label": "founding",
+          "day": 1,
+          "simulated1xMinutes": 0.0,
+          "cash": 90000,
+          "debt": 0,
+          "population": 169,
+          "employment": 75,
+          "school": 0,
+          "medical": 0,
+          "hardship": 7,
+          "medianHouseholdLiquidityPerResident": 787.0,
+          "direction": null,
+          "districts": {},
+          "ridersToday": 0,
+          "transitOperatingCostToday": 0
+        },
+        {
+          "label": "early-commitments",
+          "day": 14,
+          "simulated1xMinutes": 0.3575,
+          "cash": 72400.74035560263,
+          "debt": 0,
+          "population": 169,
+          "employment": 93,
+          "school": 32.142857142857146,
+          "medical": 67.3076923076923,
+          "hardship": 0,
+          "medianHouseholdLiquidityPerResident": 832.0127265982871,
+          "direction": {
+            "version": 1,
+            "direction": "community",
+            "started": 1,
+            "stage": 1,
+            "held": 0,
+            "lastDay": 14,
+            "completed": [
+              {
+                "stage": 0,
+                "day": 2
+              }
+            ],
+            "guide": true,
+            "visited": [
+              "overview",
+              "policies",
+              "construction"
+            ],
+            "review": null
+          },
+          "districts": {},
+          "ridersToday": 0,
+          "transitOperatingCostToday": 0
+        },
+        {
+          "label": "10-minutes-equivalent",
+          "day": 365,
+          "simulated1xMinutes": 10.01,
+          "cash": 84467.8044026976,
+          "debt": 0,
+          "population": 189,
+          "employment": 100,
+          "school": 89.41798941798942,
+          "medical": 97.35449735449735,
+          "hardship": 0,
+          "medianHouseholdLiquidityPerResident": 1973.2470375125347,
+          "direction": {
+            "version": 1,
+            "direction": "community",
+            "started": 1,
+            "stage": 2,
+            "held": 0,
+            "lastDay": 365,
+            "completed": [
+              {
+                "stage": 0,
+                "day": 2
+              },
+              {
+                "stage": 1,
+                "day": 15
+              }
+            ],
+            "guide": true,
+            "visited": [
+              "overview",
+              "policies",
+              "construction",
+              "community"
+            ],
+            "review": null
+          },
+          "districts": {},
+          "ridersToday": 0,
+          "transitOperatingCostToday": 70.53
+        },
+        {
+          "label": "30-minutes-equivalent",
+          "day": 1092,
+          "simulated1xMinutes": 30.002499999999998,
+          "cash": 232506.05050765385,
+          "debt": 0,
+          "population": 239,
+          "employment": 99,
+          "school": 83.45913707108512,
+          "medical": 98.32635983263599,
+          "hardship": 0,
+          "medianHouseholdLiquidityPerResident": 3551.321144535514,
+          "direction": {
+            "version": 1,
+            "direction": "community",
+            "started": 1,
+            "stage": 2,
+            "held": 0,
+            "lastDay": 1092,
+            "completed": [
+              {
+                "stage": 0,
+                "day": 2
+              },
+              {
+                "stage": 1,
+                "day": 15
+              }
+            ],
+            "guide": true,
+            "visited": [
+              "overview",
+              "policies",
+              "construction",
+              "community"
+            ],
+            "review": null
+          },
+          "districts": {
+            "county-ridge": {
+              "plan": {
+                "focus": "neighbourhood",
+                "started": 365,
+                "held": 0,
+                "completed": false
+              },
+              "metrics": {
+                "pop": 0,
+                "connected": 0,
+                "staffed": 0,
+                "fishery": false,
+                "wharf": false,
+                "care": 0,
+                "school": 0
+              }
+            }
+          },
+          "ridersToday": 6,
+          "transitOperatingCostToday": 70.53
+        },
+        {
+          "label": "60-minutes-equivalent",
+          "day": 2183,
+          "simulated1xMinutes": 60.004999999999995,
+          "cash": 715644.2313137298,
+          "debt": 0,
+          "population": 270,
+          "employment": 100,
+          "school": 68.51851851851852,
+          "medical": 100,
+          "hardship": 0,
+          "medianHouseholdLiquidityPerResident": 4934.541489601954,
+          "direction": {
+            "version": 1,
+            "direction": "community",
+            "started": 1,
+            "stage": 2,
+            "held": 0,
+            "lastDay": 2183,
+            "completed": [
+              {
+                "stage": 0,
+                "day": 2
+              },
+              {
+                "stage": 1,
+                "day": 15
+              }
+            ],
+            "guide": true,
+            "visited": [
+              "overview",
+              "policies",
+              "construction",
+              "community"
+            ],
+            "review": null
+          },
+          "districts": {
+            "county-ridge": {
+              "plan": {
+                "focus": "neighbourhood",
+                "started": 365,
+                "held": 0,
+                "completed": false
+              },
+              "metrics": {
+                "pop": 0,
+                "connected": 0,
+                "staffed": 0,
+                "fishery": false,
+                "wharf": false,
+                "care": 0,
+                "school": 0
+              }
+            }
+          },
+          "ridersToday": 4,
+          "transitOperatingCostToday": 70.53
+        },
+        {
+          "label": "120-minutes-equivalent",
+          "day": 4365,
+          "simulated1xMinutes": 120.00999999999999,
+          "cash": 2231424.760752238,
+          "debt": 0,
+          "population": 354,
+          "employment": 84,
+          "school": 52.259887005649716,
+          "medical": 100,
+          "hardship": 7,
+          "medianHouseholdLiquidityPerResident": 4649.276253711362,
+          "direction": {
+            "version": 1,
+            "direction": "community",
+            "started": 1,
+            "stage": 2,
+            "held": 0,
+            "lastDay": 4365,
+            "completed": [
+              {
+                "stage": 0,
+                "day": 2
+              },
+              {
+                "stage": 1,
+                "day": 15
+              }
+            ],
+            "guide": true,
+            "visited": [
+              "overview",
+              "policies",
+              "construction",
+              "community"
+            ],
+            "review": null
+          },
+          "districts": {
+            "county-ridge": {
+              "plan": {
+                "focus": "neighbourhood",
+                "started": 365,
+                "held": 0,
+                "completed": false
+              },
+              "metrics": {
+                "pop": 0,
+                "connected": 0,
+                "staffed": 0,
+                "fishery": false,
+                "wharf": false,
+                "care": 0,
+                "school": 0
+              }
+            }
+          },
+          "ridersToday": 4,
+          "transitOperatingCostToday": 70.53
+        },
+        {
+          "label": "final-after-review",
+          "day": 4365,
+          "simulated1xMinutes": 120.00999999999999,
+          "cash": 2231424.760752238,
+          "debt": 0,
+          "population": 354,
+          "employment": 84,
+          "school": 52.259887005649716,
+          "medical": 100,
+          "hardship": 7,
+          "medianHouseholdLiquidityPerResident": 4649.276253711362,
+          "direction": {
+            "version": 1,
+            "direction": "community",
+            "started": 1,
+            "stage": 2,
+            "held": 0,
+            "lastDay": 4365,
+            "completed": [
+              {
+                "stage": 0,
+                "day": 2
+              },
+              {
+                "stage": 1,
+                "day": 15
+              }
+            ],
+            "guide": true,
+            "visited": [
+              "overview",
+              "policies",
+              "construction",
+              "community"
+            ],
+            "review": null
+          },
+          "districts": {
+            "county-ridge": {
+              "plan": {
+                "focus": "neighbourhood",
+                "started": 365,
+                "held": 0,
+                "completed": false
+              },
+              "metrics": {
+                "pop": 0,
+                "connected": 0,
+                "staffed": 0,
+                "fishery": false,
+                "wharf": false,
+                "care": 0,
+                "school": 0
+              }
+            }
+          },
+          "ridersToday": 4,
+          "transitOperatingCostToday": 70.53
+        }
+      ],
+      "closures": [
+        {
+          "day": 2185,
+          "name": "Independent Learning House 35",
+          "kind": "school",
+          "cash": 0
+        },
+        {
+          "day": 4287,
+          "name": "Independent Learning House 35",
+          "kind": "school",
+          "cash": 0
+        }
+      ],
+      "blockedActions": [
+        {
+          "label": "Expand service on existing corridor after checking actual demand",
+          "day": 1092,
+          "simulated1xMinutes": 30.002499999999998,
+          "automationSeconds": 5.159478695999496,
+          "status": "blocked/uncertain; actual post-state retained",
+          "detail": "Locator.click: Timeout 5000ms exceeded.\n",
+          "cashDelta": 0.0,
+          "debtDelta": 0,
+          "populationDelta": 0,
+          "newBuildings": 0,
+          "toast": "Ambition complete: A learned community!"
+        },
+        {
+          "label": "Suspend the paid bus route to compare cost and access",
+          "day": 2183,
+          "simulated1xMinutes": 60.004999999999995,
+          "automationSeconds": 5.1724540870000055,
+          "status": "blocked/uncertain; actual post-state retained",
+          "detail": "Locator.click: Timeout 5000ms exceeded.\n",
+          "cashDelta": 0.0,
+          "debtDelta": 0,
+          "populationDelta": 0,
+          "newBuildings": 0,
+          "toast": "Ambition complete: A learned community!"
+        }
+      ]
+    },
+    {
+      "strategy": "local",
+      "automationSeconds": 52.99630577900098,
+      "nonPetitionDecisions": 16,
+      "buttonClicks": 68,
+      "cashDrift": -5.9738755226135254e-05,
+      "errors": [],
+      "finalValid": {
+        "ok": true,
+        "issues": [],
+        "total": 15493516.999940261,
+        "population": 354,
+        "day": 4365
+      },
+      "checkpoints": [
+        {
+          "label": "founding",
+          "day": 1,
+          "simulated1xMinutes": 0.0,
+          "cash": 90000,
+          "debt": 0,
+          "population": 169,
+          "employment": 75,
+          "school": 0,
+          "medical": 0,
+          "hardship": 7,
+          "medianHouseholdLiquidityPerResident": 787.0,
+          "direction": null,
+          "districts": {},
+          "ridersToday": 0,
+          "transitOperatingCostToday": 0
+        },
+        {
+          "label": "early-commitments",
+          "day": 14,
+          "simulated1xMinutes": 0.3575,
+          "cash": 82740.93501195953,
+          "debt": 0,
+          "population": 169,
+          "employment": 95,
+          "school": 32.142857142857146,
+          "medical": 67.3076923076923,
+          "hardship": 0,
+          "medianHouseholdLiquidityPerResident": 863.18643131268,
+          "direction": {
+            "version": 1,
+            "direction": "community",
+            "started": 1,
+            "stage": 1,
+            "held": 0,
+            "lastDay": 14,
+            "completed": [
+              {
+                "stage": 0,
+                "day": 2
+              }
+            ],
+            "guide": true,
+            "visited": [
+              "overview",
+              "policies"
+            ],
+            "review": null
+          },
+          "districts": {},
+          "ridersToday": 0,
+          "transitOperatingCostToday": 0
+        },
+        {
+          "label": "10-minutes-equivalent",
+          "day": 365,
+          "simulated1xMinutes": 10.01,
+          "cash": 66490.37414719934,
+          "debt": 0,
+          "population": 188,
+          "employment": 100,
+          "school": 95.21559529198733,
+          "medical": 99.46808510638297,
+          "hardship": 0,
+          "medianHouseholdLiquidityPerResident": 2184.5964344487156,
+          "direction": {
+            "version": 1,
+            "direction": "community",
+            "started": 1,
+            "stage": 2,
+            "held": 0,
+            "lastDay": 365,
+            "completed": [
+              {
+                "stage": 0,
+                "day": 2
+              },
+              {
+                "stage": 1,
+                "day": 15
+              }
+            ],
+            "guide": true,
+            "visited": [
+              "overview",
+              "policies",
+              "construction"
+            ],
+            "review": null
+          },
+          "districts": {
+            "orchard-downs": {
+              "plan": {
+                "focus": "neighbourhood",
+                "started": 90,
+                "held": 0,
+                "completed": false
+              },
+              "metrics": {
+                "pop": 0,
+                "connected": 2,
+                "staffed": 2,
+                "fishery": false,
+                "wharf": false,
+                "care": 0,
+                "school": 0
+              }
+            }
+          },
+          "ridersToday": 0,
+          "transitOperatingCostToday": 0
+        },
+        {
+          "label": "30-minutes-equivalent",
+          "day": 1092,
+          "simulated1xMinutes": 30.002499999999998,
+          "cash": 227127.93328448624,
+          "debt": 0,
+          "population": 234,
+          "employment": 99,
+          "school": 79.05982905982906,
+          "medical": 97.86324786324785,
+          "hardship": 0,
+          "medianHouseholdLiquidityPerResident": 3893.185014117068,
+          "direction": {
+            "version": 1,
+            "direction": "community",
+            "started": 1,
+            "stage": 2,
+            "held": 0,
+            "lastDay": 1092,
+            "completed": [
+              {
+                "stage": 0,
+                "day": 2
+              },
+              {
+                "stage": 1,
+                "day": 15
+              }
+            ],
+            "guide": true,
+            "visited": [
+              "overview",
+              "policies",
+              "construction",
+              "community",
+              "economy"
+            ],
+            "review": null
+          },
+          "districts": {
+            "orchard-downs": {
+              "plan": {
+                "focus": "neighbourhood",
+                "started": 90,
+                "held": 0,
+                "completed": false
+              },
+              "metrics": {
+                "pop": 0,
+                "connected": 2,
+                "staffed": 2,
+                "fishery": false,
+                "wharf": false,
+                "care": 0,
+                "school": 0
+              }
+            }
+          },
+          "ridersToday": 0,
+          "transitOperatingCostToday": 0
+        },
+        {
+          "label": "60-minutes-equivalent",
+          "day": 2183,
+          "simulated1xMinutes": 60.004999999999995,
+          "cash": 621531.829555795,
+          "debt": 0,
+          "population": 287,
+          "employment": 98,
+          "school": 88.32752613240417,
+          "medical": 98.95470383275263,
+          "hardship": 0,
+          "medianHouseholdLiquidityPerResident": 5531.386711652579,
+          "direction": {
+            "version": 1,
+            "direction": "community",
+            "started": 1,
+            "stage": 2,
+            "held": 0,
+            "lastDay": 2183,
+            "completed": [
+              {
+                "stage": 0,
+                "day": 2
+              },
+              {
+                "stage": 1,
+                "day": 15
+              }
+            ],
+            "guide": true,
+            "visited": [
+              "overview",
+              "policies",
+              "construction",
+              "community",
+              "economy"
+            ],
+            "review": null
+          },
+          "districts": {
+            "orchard-downs": {
+              "plan": {
+                "focus": "neighbourhood",
+                "started": 90,
+                "held": 0,
+                "completed": false
+              },
+              "metrics": {
+                "pop": 0,
+                "connected": 2,
+                "staffed": 2,
+                "fishery": false,
+                "wharf": false,
+                "care": 0,
+                "school": 0
+              }
+            }
+          },
+          "ridersToday": 0,
+          "transitOperatingCostToday": 0
+        },
+        {
+          "label": "120-minutes-equivalent",
+          "day": 4365,
+          "simulated1xMinutes": 120.00999999999999,
+          "cash": 2135902.1077561965,
+          "debt": 0,
+          "population": 354,
+          "employment": 94,
+          "school": 76.12994350282486,
+          "medical": 100,
+          "hardship": 0,
+          "medianHouseholdLiquidityPerResident": 6270.919050230766,
+          "direction": {
+            "version": 1,
+            "direction": "community",
+            "started": 1,
+            "stage": 2,
+            "held": 0,
+            "lastDay": 4365,
+            "completed": [
+              {
+                "stage": 0,
+                "day": 2
+              },
+              {
+                "stage": 1,
+                "day": 15
+              }
+            ],
+            "guide": true,
+            "visited": [
+              "overview",
+              "policies",
+              "construction",
+              "community",
+              "economy"
+            ],
+            "review": null
+          },
+          "districts": {
+            "orchard-downs": {
+              "plan": {
+                "focus": "neighbourhood",
+                "started": 90,
+                "held": 0,
+                "completed": false
+              },
+              "metrics": {
+                "pop": 0,
+                "connected": 2,
+                "staffed": 2,
+                "fishery": false,
+                "wharf": false,
+                "care": 0,
+                "school": 0
+              }
+            }
+          },
+          "ridersToday": 0,
+          "transitOperatingCostToday": 0
+        },
+        {
+          "label": "final-after-review",
+          "day": 4365,
+          "simulated1xMinutes": 120.00999999999999,
+          "cash": 2135902.1077561965,
+          "debt": 0,
+          "population": 354,
+          "employment": 94,
+          "school": 76.12994350282486,
+          "medical": 100,
+          "hardship": 0,
+          "medianHouseholdLiquidityPerResident": 6270.919050230766,
+          "direction": {
+            "version": 1,
+            "direction": "community",
+            "started": 1,
+            "stage": 2,
+            "held": 0,
+            "lastDay": 4365,
+            "completed": [
+              {
+                "stage": 0,
+                "day": 2
+              },
+              {
+                "stage": 1,
+                "day": 15
+              }
+            ],
+            "guide": true,
+            "visited": [
+              "overview",
+              "policies",
+              "construction",
+              "community",
+              "economy"
+            ],
+            "review": null
+          },
+          "districts": {
+            "orchard-downs": {
+              "plan": {
+                "focus": "neighbourhood",
+                "started": 90,
+                "held": 0,
+                "completed": false
+              },
+              "metrics": {
+                "pop": 0,
+                "connected": 2,
+                "staffed": 2,
+                "fishery": false,
+                "wharf": false,
+                "care": 0,
+                "school": 0
+              }
+            }
+          },
+          "ridersToday": 0,
+          "transitOperatingCostToday": 0
+        }
+      ],
+      "closures": [
+        {
+          "day": 1483,
+          "name": "Independent Learning House 27",
+          "kind": "school",
+          "cash": 0
+        }
+      ],
+      "blockedActions": [
+        {
+          "label": "Try another local household service commitment if offered",
+          "day": 2183,
+          "simulated1xMinutes": 60.004999999999995,
+          "automationSeconds": 5.233954859999358,
+          "status": "blocked/uncertain; actual post-state retained",
+          "detail": "Locator.click: Timeout 5000ms exceeded.\n",
+          "cashDelta": 0.0,
+          "debtDelta": 0,
+          "populationDelta": 0,
+          "newBuildings": 0,
+          "toast": "Policy package enacted. Let time pass to observe the effects."
+        }
+      ]
+    }
+  ]
+}
