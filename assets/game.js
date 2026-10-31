@@ -3102,6 +3102,7 @@ function validateTransit(data){
 // On-demand snapshot forecasts. All hypothetical service, cash, seats and fares
 // live in independent local objects; this module never dispatches actual riders.
 let transitForecastTown=null,transitForecastNet=null,transitForecastEntries=new Map(),transitForecastSerial=0,transitInspectorReport=null;
+function resetTransitForecasts(){transitForecastTown=null;transitForecastNet=null;transitForecastEntries.clear();transitInspectorReport=null;}
 function transitForecastInputs(){
  return JSON.stringify({day:G.day,next:G.transit?.next,revision:G.transit?.revision,roads:roadsVersion,treasury:G.treasury,region:G.region,policy:G.policy,roadWear:G.roadWear,
   homes:G.households.map(h=>[h.id,h.home,h.cash,h.people]),people:G.people.map(p=>[p.id,p.hh,p.job,p.age,p.skill,p.health,p.deceased,p.movedAway,p.publicWork,p.publicRole,p.previousPublicRole]),
@@ -3282,7 +3283,7 @@ function tick(){if(!G||pendingEvent)return;ensureSystems();ensureMarketModel();G
 }
 
 function resetTownTransientUI(){
- cancelTransitDraft();transitTopologyCache=null;transitDailyCache=null;
+ cancelTransitDraft();resetTransitForecasts();transitTopologyCache=null;transitDailyCache=null;
  clearTimeout(toastTimeout);toastTimeout=0;$('toast').style.display='none';pendingEvent=null;$('eventDialog').style.display='none';councilOpener=null;panelOpener=null;parcelFocus=null;selected=null;inspectedTrip=null;buildMode='';pointer.down=false;pointer.activeId=null;pointer.hover=null;touches.clear();roadPainted.clear();$('placementHint').style.display='none';$('hint').textContent='DRAG TO PAN · TAP TO INSPECT · PINCH TO ZOOM';
 }
 function toast(msg){const el=$('toast');el.textContent=msg;el.style.display='block';clearTimeout(toastTimeout);toastTimeout=setTimeout(()=>el.style.display='none',3300)}

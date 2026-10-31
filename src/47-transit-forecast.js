@@ -1,6 +1,7 @@
 // On-demand snapshot forecasts. All hypothetical service, cash, seats and fares
 // live in independent local objects; this module never dispatches actual riders.
 let transitForecastTown=null,transitForecastNet=null,transitForecastEntries=new Map(),transitForecastSerial=0,transitInspectorReport=null;
+function resetTransitForecasts(){transitForecastTown=null;transitForecastNet=null;transitForecastEntries.clear();transitInspectorReport=null;}
 function transitForecastInputs(){
  return JSON.stringify({day:G.day,next:G.transit?.next,revision:G.transit?.revision,roads:roadsVersion,treasury:G.treasury,region:G.region,policy:G.policy,roadWear:G.roadWear,
   homes:G.households.map(h=>[h.id,h.home,h.cash,h.people]),people:G.people.map(p=>[p.id,p.hh,p.job,p.age,p.skill,p.health,p.deceased,p.movedAway,p.publicWork,p.publicRole,p.previousPublicRole]),
