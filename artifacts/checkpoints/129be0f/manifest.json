@@ -1,0 +1,22 @@
+{
+  "commit": "092920ff7eed167bc5aaceb0609538309e4f5794",
+  "game_sha256": "129be0f8458049246c10432c85e6dc8e784ed6fe2d28b14e4a1a6ecc128f321f",
+  "files": [
+    {
+      "path": "TownLedger-Android.apk",
+      "bytes": 1418613,
+      "sha256": "d2427738268889449102f03d501c62c77c9a0d4ddcd02fc40d0f4954b6d21426"
+    },
+    {
+      "path": "TownLedger-source.zip",
+      "bytes": 4350283,
+      "sha256": "66a66d6295c339ff4f3535a5b4951e859a0557d2fb0a808466659bb71bb19048"
+    }
+  ],
+  "source_entries": 289,
+  "status": "Development checkpoint, not final release",
+  "package": "org.townledger.vale",
+  "version": "7.1.0",
+  "versionCode": 20,
+  "validation": "36 frozen-source gates; actual SDK DEX, manifest/assets, v2/v3 signature and alignment verified. Android UI input tests pending."
+}
