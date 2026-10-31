@@ -1,0 +1,40 @@
+{
+  "source_sha256": "24003acde9a84b719ab484e7df3827f10a1882baa50a0d1119a719050a4a8c28",
+  "before": {
+    "calls": {
+      "header": 0,
+      "panel": 0,
+      "save": 0,
+      "draw": 0
+    },
+    "day": 1,
+    "paused": false,
+    "suspended": true,
+    "order": 3
+  },
+  "suspended": {
+    "calls": {
+      "header": 0,
+      "panel": 0,
+      "save": 0,
+      "draw": 0
+    },
+    "day": 1,
+    "paused": false,
+    "suspended": true,
+    "order": 3
+  },
+  "resumed": {
+    "calls": {
+      "header": 7,
+      "panel": 2,
+      "save": 1,
+      "draw": 40
+    },
+    "day": 2,
+    "paused": false,
+    "suspended": false,
+    "order": 4
+  },
+  "errors": []
+}

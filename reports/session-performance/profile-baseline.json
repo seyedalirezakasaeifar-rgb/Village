@@ -1,0 +1,1032 @@
+{
+  "source_sha256": "293fe306631099dfaacdd37e724d4c6e3b89991f56a1e15c50f872606f662c90",
+  "commit": "525e47dd3967741fb59d2fd06921c1647a29a24a",
+  "physicalAndroid": false,
+  "hostChromium": true,
+  "fixture": "synthetic 2000 residents; actual paid 48 routes, 21 deeds, paid cargo and two licensed private firms; treasury funded from existing region",
+  "rows": [
+    {
+      "mode": "near",
+      "seconds": 15.012699999999983,
+      "days": 587,
+      "measuredSpeed": 64.51537698082298,
+      "raf": {
+        "count": 824,
+        "totalMs": 15016.199999999999,
+        "medianMs": 16.699999999999818,
+        "p95Ms": 33.29999999999927,
+        "p99Ms": 50,
+        "maxMs": 83.39999999999964
+      },
+      "timerInput": {
+        "count": 178,
+        "totalMs": 2477.600000000326,
+        "medianMs": 6.100000000005821,
+        "p95Ms": 46.20000000001164,
+        "p99Ms": 98.30000000001746,
+        "maxMs": 105.69999999998254
+      },
+      "components": {
+        "refreshMusic": {
+          "count": 20,
+          "totalMs": 0.39999999999417923,
+          "medianMs": 0,
+          "p95Ms": 0.10000000000582077,
+          "p99Ms": 0.10000000000582077,
+          "maxMs": 0.10000000000582077
+        },
+        "recompute": {
+          "count": 1191,
+          "totalMs": 415.8999999995867,
+          "medianMs": 0.29999999998835847,
+          "p95Ms": 0.6000000000058208,
+          "p99Ms": 1.2000000000116415,
+          "maxMs": 3.3000000000174623
+        },
+        "archivePayload": {
+          "count": 0,
+          "totalMs": 0,
+          "medianMs": 0,
+          "p95Ms": 0,
+          "p99Ms": 0,
+          "maxMs": 0
+        },
+        "persistSnapshot": {
+          "count": 0,
+          "totalMs": 0,
+          "medianMs": 0,
+          "p95Ms": 0,
+          "p99Ms": 0,
+          "maxMs": 0
+        },
+        "save": {
+          "count": 0,
+          "totalMs": 0,
+          "medianMs": 0,
+          "p95Ms": 0,
+          "p99Ms": 0,
+          "maxMs": 0
+        },
+        "updateHeader": {
+          "count": 59,
+          "totalMs": 92.09999999991851,
+          "medianMs": 1.3999999999941792,
+          "p95Ms": 2.5,
+          "p99Ms": 2.8999999999941792,
+          "maxMs": 2.8999999999941792
+        },
+        "renderPanel": {
+          "count": 0,
+          "totalMs": 0,
+          "medianMs": 0,
+          "p95Ms": 0,
+          "p99Ms": 0,
+          "maxMs": 0
+        },
+        "trafficUpdate": {
+          "count": 829,
+          "totalMs": 54.9000000001397,
+          "medianMs": 0.09999999997671694,
+          "p95Ms": 0.20000000001164153,
+          "p99Ms": 0.3000000000174623,
+          "maxMs": 0.8999999999941792
+        },
+        "draw": {
+          "count": 278,
+          "totalMs": 938.5999999997148,
+          "medianMs": 2.1999999999825377,
+          "p95Ms": 10.799999999988358,
+          "p99Ms": 21.79999999998836,
+          "maxMs": 31.79999999998836
+        },
+        "hydrateSave": {
+          "count": 0,
+          "totalMs": 0,
+          "medianMs": 0,
+          "p95Ms": 0,
+          "p99Ms": 0,
+          "maxMs": 0
+        },
+        "dailyEconomy": {
+          "count": 589,
+          "totalMs": 5971.199999999953,
+          "medianMs": 8.199999999982538,
+          "p95Ms": 19,
+          "p99Ms": 28.89999999999418,
+          "maxMs": 54.60000000000582
+        },
+        "privateServiceInvestmentDay": {
+          "count": 589,
+          "totalMs": 1.1000000000349246,
+          "medianMs": 0,
+          "p95Ms": 0,
+          "p99Ms": 0.10000000000582077,
+          "maxMs": 0.10000000000582077
+        },
+        "districtProgrammeDay": {
+          "count": 589,
+          "totalMs": 1.1000000000640284,
+          "medianMs": 0,
+          "p95Ms": 0,
+          "p99Ms": 0.10000000000582077,
+          "maxMs": 0.10000000000582077
+        },
+        "urbanEvolutionDay": {
+          "count": 589,
+          "totalMs": 90.20000000009895,
+          "medianMs": 0,
+          "p95Ms": 0,
+          "p99Ms": 6,
+          "maxMs": 9.200000000011642
+        },
+        "tick": {
+          "count": 589,
+          "totalMs": 8730.99999999968,
+          "medianMs": 12.300000000017462,
+          "p95Ms": 28.400000000023283,
+          "p99Ms": 47.89999999999418,
+          "maxMs": 73.19999999998254
+        }
+      },
+      "heap": {
+        "usedSize": 55558744,
+        "totalSize": 102838272,
+        "embedderHeapUsedSize": 9325184,
+        "backingStorageSize": 18635080
+      },
+      "state": {
+        "day": 634,
+        "total": 15493517.00001557,
+        "valid": {
+          "ok": true,
+          "issues": [],
+          "total": 15493517.00001557,
+          "population": 1991,
+          "day": 634
+        },
+        "goodsError": 3.899913281202316e-09,
+        "deeds": 21,
+        "routes": 48,
+        "operating": 48,
+        "drivers": 96,
+        "providers": 2,
+        "cargo": 21,
+        "atlas": 337,
+        "atlasBytes": 27173120,
+        "serviceCaches": 2,
+        "traffic": 27,
+        "observations": 64,
+        "loans": 0,
+        "history": 240,
+        "events": 160,
+        "transactions": 548,
+        "musicDecks": 1,
+        "musicTrack": 0,
+        "musicError": "",
+        "suspended": false,
+        "paused": false,
+        "backlog": 0.3706666666667825
+      },
+      "ui": [
+        {
+          "panel": "citizens",
+          "toNextFrameMs": 112.89999999999418,
+          "error": false
+        },
+        {
+          "panel": "construction",
+          "toNextFrameMs": 125.89999999999418,
+          "error": false
+        },
+        {
+          "panel": "settings",
+          "toNextFrameMs": 97.20000000001164,
+          "error": false
+        }
+      ]
+    },
+    {
+      "mode": "far",
+      "seconds": 15.027,
+      "days": 583,
+      "measuredSpeed": 64.01477340786585,
+      "raf": {
+        "count": 857,
+        "totalMs": 14999.399999999998,
+        "medianMs": 16.69999999999709,
+        "p95Ms": 16.80000000000291,
+        "p99Ms": 33.400000000001455,
+        "maxMs": 66.70000000000073
+      },
+      "timerInput": {
+        "count": 180,
+        "totalMs": 2375.700000000157,
+        "medianMs": 5.300000000017462,
+        "p95Ms": 46,
+        "p99Ms": 91.5,
+        "maxMs": 110.79999999998836
+      },
+      "components": {
+        "refreshMusic": {
+          "count": 19,
+          "totalMs": 0.10000000000582077,
+          "medianMs": 0,
+          "p95Ms": 0.10000000000582077,
+          "p99Ms": 0.10000000000582077,
+          "maxMs": 0.10000000000582077
+        },
+        "recompute": {
+          "count": 1183,
+          "totalMs": 385.6999999998661,
+          "medianMs": 0.29999999998835847,
+          "p95Ms": 0.5,
+          "p99Ms": 0.8000000000174623,
+          "maxMs": 3.5
+        },
+        "archivePayload": {
+          "count": 1,
+          "totalMs": 10.700000000011642,
+          "medianMs": 10.700000000011642,
+          "p95Ms": 10.700000000011642,
+          "p99Ms": 10.700000000011642,
+          "maxMs": 10.700000000011642
+        },
+        "persistSnapshot": {
+          "count": 1,
+          "totalMs": 59.29999999998836,
+          "medianMs": 59.29999999998836,
+          "p95Ms": 59.29999999998836,
+          "p99Ms": 59.29999999998836,
+          "maxMs": 59.29999999998836
+        },
+        "save": {
+          "count": 1,
+          "totalMs": 70,
+          "medianMs": 70,
+          "p95Ms": 70,
+          "p99Ms": 70,
+          "maxMs": 70
+        },
+        "updateHeader": {
+          "count": 59,
+          "totalMs": 78.99999999991269,
+          "medianMs": 1.1999999999825377,
+          "p95Ms": 2.1000000000058208,
+          "p99Ms": 4.2000000000116415,
+          "maxMs": 4.2000000000116415
+        },
+        "renderPanel": {
+          "count": 0,
+          "totalMs": 0,
+          "medianMs": 0,
+          "p95Ms": 0,
+          "p99Ms": 0,
+          "maxMs": 0
+        },
+        "trafficUpdate": {
+          "count": 860,
+          "totalMs": 1.2999999999883585,
+          "medianMs": 0,
+          "p95Ms": 0,
+          "p99Ms": 0.10000000000582077,
+          "maxMs": 0.10000000000582077
+        },
+        "draw": {
+          "count": 280,
+          "totalMs": 688.5000000000291,
+          "medianMs": 1,
+          "p95Ms": 15.299999999988358,
+          "p99Ms": 23.79999999998836,
+          "maxMs": 41.80000000001746
+        },
+        "hydrateSave": {
+          "count": 0,
+          "totalMs": 0,
+          "medianMs": 0,
+          "p95Ms": 0,
+          "p99Ms": 0,
+          "maxMs": 0
+        },
+        "dailyEconomy": {
+          "count": 583,
+          "totalMs": 5117.300000000279,
+          "medianMs": 7.7000000000116415,
+          "p95Ms": 13.700000000011642,
+          "p99Ms": 22,
+          "maxMs": 42.30000000001746
+        },
+        "privateServiceInvestmentDay": {
+          "count": 583,
+          "totalMs": 0.3000000000174623,
+          "medianMs": 0,
+          "p95Ms": 0,
+          "p99Ms": 0,
+          "maxMs": 0.10000000000582077
+        },
+        "districtProgrammeDay": {
+          "count": 583,
+          "totalMs": 1.0000000000291038,
+          "medianMs": 0,
+          "p95Ms": 0,
+          "p99Ms": 0.10000000000582077,
+          "maxMs": 0.10000000000582077
+        },
+        "urbanEvolutionDay": {
+          "count": 583,
+          "totalMs": 70.10000000000582,
+          "medianMs": 0,
+          "p95Ms": 0,
+          "p99Ms": 4.5,
+          "maxMs": 6.899999999994179
+        },
+        "tick": {
+          "count": 583,
+          "totalMs": 8350.49999999968,
+          "medianMs": 12.60000000000582,
+          "p95Ms": 23.70000000001164,
+          "p99Ms": 37.29999999998836,
+          "maxMs": 48.10000000000582
+        }
+      },
+      "heap": {
+        "usedSize": 48944468,
+        "totalSize": 97095680,
+        "embedderHeapUsedSize": 13645192,
+        "backingStorageSize": 16867640
+      },
+      "state": {
+        "day": 1314,
+        "total": 15493516.999998637,
+        "valid": {
+          "ok": true,
+          "issues": [],
+          "total": 15493516.999998637,
+          "population": 1982,
+          "day": 1314
+        },
+        "goodsError": 9.567884262651205e-09,
+        "deeds": 21,
+        "routes": 48,
+        "operating": 48,
+        "drivers": 96,
+        "providers": 2,
+        "cargo": 81,
+        "atlas": 533,
+        "atlasBytes": 42960384,
+        "serviceCaches": 2,
+        "traffic": 30,
+        "observations": 132,
+        "loans": 0,
+        "history": 240,
+        "events": 160,
+        "transactions": 800,
+        "musicDecks": 1,
+        "musicTrack": 0,
+        "musicError": "",
+        "suspended": false,
+        "paused": false,
+        "backlog": 0.8138181818182652
+      },
+      "ui": [
+        {
+          "panel": "citizens",
+          "toNextFrameMs": 14.099999999976717,
+          "error": false
+        },
+        {
+          "panel": "construction",
+          "toNextFrameMs": 43.60000000000582,
+          "error": false
+        },
+        {
+          "panel": "settings",
+          "toNextFrameMs": 27.70000000001164,
+          "error": false
+        }
+      ]
+    },
+    {
+      "mode": "economy",
+      "seconds": 15.033800000000017,
+      "days": 583,
+      "measuredSpeed": 63.985818622038266,
+      "raf": {
+        "count": 841,
+        "totalMs": 14999.400000000001,
+        "medianMs": 16.69999999999709,
+        "p95Ms": 33.299999999995634,
+        "p99Ms": 33.400000000001455,
+        "maxMs": 83.40000000000146
+      },
+      "timerInput": {
+        "count": 179,
+        "totalMs": 2393.500000000058,
+        "medianMs": 7.199999999982538,
+        "p95Ms": 44.19999999998254,
+        "p99Ms": 62,
+        "maxMs": 80.59999999997672
+      },
+      "components": {
+        "refreshMusic": {
+          "count": 20,
+          "totalMs": 0.20000000001164153,
+          "medianMs": 0,
+          "p95Ms": 0.10000000000582077,
+          "p99Ms": 0.10000000000582077,
+          "maxMs": 0.10000000000582077
+        },
+        "recompute": {
+          "count": 1181,
+          "totalMs": 399.1999999998661,
+          "medianMs": 0.3000000000174623,
+          "p95Ms": 0.5,
+          "p99Ms": 0.7999999999883585,
+          "maxMs": 2
+        },
+        "archivePayload": {
+          "count": 0,
+          "totalMs": 0,
+          "medianMs": 0,
+          "p95Ms": 0,
+          "p99Ms": 0,
+          "maxMs": 0
+        },
+        "persistSnapshot": {
+          "count": 0,
+          "totalMs": 0,
+          "medianMs": 0,
+          "p95Ms": 0,
+          "p99Ms": 0,
+          "maxMs": 0
+        },
+        "save": {
+          "count": 0,
+          "totalMs": 0,
+          "medianMs": 0,
+          "p95Ms": 0,
+          "p99Ms": 0,
+          "maxMs": 0
+        },
+        "updateHeader": {
+          "count": 59,
+          "totalMs": 76.99999999991269,
+          "medianMs": 1.1999999999825377,
+          "p95Ms": 2.5,
+          "p99Ms": 2.900000000023283,
+          "maxMs": 2.900000000023283
+        },
+        "renderPanel": {
+          "count": 10,
+          "totalMs": 144.89999999999418,
+          "medianMs": 14.299999999988358,
+          "p95Ms": 15.799999999988358,
+          "p99Ms": 15.799999999988358,
+          "maxMs": 15.799999999988358
+        },
+        "trafficUpdate": {
+          "count": 845,
+          "totalMs": 76.60000000018044,
+          "medianMs": 0.10000000000582077,
+          "p95Ms": 0.20000000001164153,
+          "p99Ms": 0.39999999999417923,
+          "maxMs": 0.7000000000116415
+        },
+        "draw": {
+          "count": 282,
+          "totalMs": 829.0999999998894,
+          "medianMs": 2.1000000000058208,
+          "p95Ms": 7.900000000023283,
+          "p99Ms": 21.20000000001164,
+          "maxMs": 31.89999999999418
+        },
+        "hydrateSave": {
+          "count": 0,
+          "totalMs": 0,
+          "medianMs": 0,
+          "p95Ms": 0,
+          "p99Ms": 0,
+          "maxMs": 0
+        },
+        "dailyEconomy": {
+          "count": 584,
+          "totalMs": 5408.399999999616,
+          "medianMs": 8.300000000017462,
+          "p95Ms": 14.300000000017462,
+          "p99Ms": 22,
+          "maxMs": 30.199999999982538
+        },
+        "privateServiceInvestmentDay": {
+          "count": 584,
+          "totalMs": 0.3999999999650754,
+          "medianMs": 0,
+          "p95Ms": 0,
+          "p99Ms": 0,
+          "maxMs": 0.10000000000582077
+        },
+        "districtProgrammeDay": {
+          "count": 584,
+          "totalMs": 0.29999999998835847,
+          "medianMs": 0,
+          "p95Ms": 0,
+          "p99Ms": 0,
+          "maxMs": 0.10000000000582077
+        },
+        "urbanEvolutionDay": {
+          "count": 584,
+          "totalMs": 85.49999999988358,
+          "medianMs": 0,
+          "p95Ms": 0,
+          "p99Ms": 4.600000000005821,
+          "maxMs": 13.599999999976717
+        },
+        "tick": {
+          "count": 584,
+          "totalMs": 8780.099999999802,
+          "medianMs": 13.400000000023283,
+          "p95Ms": 24.5,
+          "p99Ms": 41.29999999998836,
+          "maxMs": 55.09999999997672
+        }
+      },
+      "heap": {
+        "usedSize": 31791660,
+        "totalSize": 112369664,
+        "embedderHeapUsedSize": 14085576,
+        "backingStorageSize": 14219997
+      },
+      "state": {
+        "day": 1983,
+        "total": 15493516.99998315,
+        "valid": {
+          "ok": true,
+          "issues": [],
+          "total": 15493516.99998315,
+          "population": 1993,
+          "day": 1983
+        },
+        "goodsError": 1.7149432096630335e-08,
+        "deeds": 21,
+        "routes": 48,
+        "operating": 48,
+        "drivers": 96,
+        "providers": 2,
+        "cargo": 25,
+        "atlas": 542,
+        "atlasBytes": 43653888,
+        "serviceCaches": 2,
+        "traffic": 43,
+        "observations": 199,
+        "loans": 2,
+        "history": 240,
+        "events": 160,
+        "transactions": 800,
+        "musicDecks": 1,
+        "musicTrack": 0,
+        "musicError": "",
+        "suspended": false,
+        "paused": false,
+        "backlog": 0.8775757575757155
+      },
+      "ui": [
+        {
+          "panel": "citizens",
+          "toNextFrameMs": 36.70000000001164,
+          "error": false
+        },
+        {
+          "panel": "construction",
+          "toNextFrameMs": 42.10000000000582,
+          "error": false
+        },
+        {
+          "panel": "settings",
+          "toNextFrameMs": 27.20000000001164,
+          "error": false
+        }
+      ]
+    },
+    {
+      "mode": "paused",
+      "seconds": 15.009299999999989,
+      "days": 0,
+      "measuredSpeed": 0.0,
+      "raf": {
+        "count": 900,
+        "totalMs": 14999.400000000001,
+        "medianMs": 16.69999999999709,
+        "p95Ms": 16.70000000001164,
+        "p99Ms": 16.80000000000291,
+        "maxMs": 16.80000000000291
+      },
+      "timerInput": {
+        "count": 180,
+        "totalMs": 726.5999999978812,
+        "medianMs": 4.100000000005821,
+        "p95Ms": 4.199999999982538,
+        "p99Ms": 5.5,
+        "maxMs": 6.5
+      },
+      "components": {
+        "refreshMusic": {
+          "count": 0,
+          "totalMs": 0,
+          "medianMs": 0,
+          "p95Ms": 0,
+          "p99Ms": 0,
+          "maxMs": 0
+        },
+        "recompute": {
+          "count": 0,
+          "totalMs": 0,
+          "medianMs": 0,
+          "p95Ms": 0,
+          "p99Ms": 0,
+          "maxMs": 0
+        },
+        "archivePayload": {
+          "count": 0,
+          "totalMs": 0,
+          "medianMs": 0,
+          "p95Ms": 0,
+          "p99Ms": 0,
+          "maxMs": 0
+        },
+        "persistSnapshot": {
+          "count": 0,
+          "totalMs": 0,
+          "medianMs": 0,
+          "p95Ms": 0,
+          "p99Ms": 0,
+          "maxMs": 0
+        },
+        "save": {
+          "count": 0,
+          "totalMs": 0,
+          "medianMs": 0,
+          "p95Ms": 0,
+          "p99Ms": 0,
+          "maxMs": 0
+        },
+        "updateHeader": {
+          "count": 59,
+          "totalMs": 18.999999999796273,
+          "medianMs": 0.29999999998835847,
+          "p95Ms": 0.5,
+          "p99Ms": 1.099999999976717,
+          "maxMs": 1.099999999976717
+        },
+        "renderPanel": {
+          "count": 0,
+          "totalMs": 0,
+          "medianMs": 0,
+          "p95Ms": 0,
+          "p99Ms": 0,
+          "maxMs": 0
+        },
+        "trafficUpdate": {
+          "count": 0,
+          "totalMs": 0,
+          "medianMs": 0,
+          "p95Ms": 0,
+          "p99Ms": 0,
+          "maxMs": 0
+        },
+        "draw": {
+          "count": 0,
+          "totalMs": 0,
+          "medianMs": 0,
+          "p95Ms": 0,
+          "p99Ms": 0,
+          "maxMs": 0
+        },
+        "hydrateSave": {
+          "count": 0,
+          "totalMs": 0,
+          "medianMs": 0,
+          "p95Ms": 0,
+          "p99Ms": 0,
+          "maxMs": 0
+        },
+        "dailyEconomy": {
+          "count": 0,
+          "totalMs": 0,
+          "medianMs": 0,
+          "p95Ms": 0,
+          "p99Ms": 0,
+          "maxMs": 0
+        },
+        "privateServiceInvestmentDay": {
+          "count": 0,
+          "totalMs": 0,
+          "medianMs": 0,
+          "p95Ms": 0,
+          "p99Ms": 0,
+          "maxMs": 0
+        },
+        "districtProgrammeDay": {
+          "count": 0,
+          "totalMs": 0,
+          "medianMs": 0,
+          "p95Ms": 0,
+          "p99Ms": 0,
+          "maxMs": 0
+        },
+        "urbanEvolutionDay": {
+          "count": 0,
+          "totalMs": 0,
+          "medianMs": 0,
+          "p95Ms": 0,
+          "p99Ms": 0,
+          "maxMs": 0
+        },
+        "tick": {
+          "count": 0,
+          "totalMs": 0,
+          "medianMs": 0,
+          "p95Ms": 0,
+          "p99Ms": 0,
+          "maxMs": 0
+        }
+      },
+      "heap": {
+        "usedSize": 16572448,
+        "totalSize": 18522112,
+        "embedderHeapUsedSize": 15318272,
+        "backingStorageSize": 13960164
+      },
+      "state": {
+        "day": 2005,
+        "total": 15493516.99998257,
+        "valid": {
+          "ok": true,
+          "issues": [],
+          "total": 15493516.99998257,
+          "population": 1993,
+          "day": 2005
+        },
+        "goodsError": 1.7491402104496956e-08,
+        "deeds": 21,
+        "routes": 48,
+        "operating": 48,
+        "drivers": 96,
+        "providers": 2,
+        "cargo": 12,
+        "atlas": 542,
+        "atlasBytes": 43653888,
+        "serviceCaches": 2,
+        "traffic": 44,
+        "observations": 201,
+        "loans": 2,
+        "history": 240,
+        "events": 160,
+        "transactions": 800,
+        "musicDecks": 1,
+        "musicTrack": 0,
+        "musicError": "",
+        "suspended": false,
+        "paused": true,
+        "backlog": 0.8547878787880635
+      },
+      "ui": [
+        {
+          "panel": "citizens",
+          "toNextFrameMs": 15.700000000011642,
+          "error": false
+        },
+        {
+          "panel": "construction",
+          "toNextFrameMs": 29,
+          "error": false
+        },
+        {
+          "panel": "settings",
+          "toNextFrameMs": 12.300000000017462,
+          "error": false
+        }
+      ]
+    },
+    {
+      "mode": "suspended",
+      "seconds": 15.01,
+      "days": 0,
+      "measuredSpeed": 0.0,
+      "raf": {
+        "count": 900,
+        "totalMs": 14999.399999999994,
+        "medianMs": 16.69999999999709,
+        "p95Ms": 16.70000000001164,
+        "p99Ms": 16.80000000000291,
+        "maxMs": 16.80000000000291
+      },
+      "timerInput": {
+        "count": 180,
+        "totalMs": 721.1000000011409,
+        "medianMs": 4.100000000005821,
+        "p95Ms": 4.2000000000116415,
+        "p99Ms": 4.300000000017462,
+        "maxMs": 4.300000000017462
+      },
+      "components": {
+        "refreshMusic": {
+          "count": 0,
+          "totalMs": 0,
+          "medianMs": 0,
+          "p95Ms": 0,
+          "p99Ms": 0,
+          "maxMs": 0
+        },
+        "recompute": {
+          "count": 0,
+          "totalMs": 0,
+          "medianMs": 0,
+          "p95Ms": 0,
+          "p99Ms": 0,
+          "maxMs": 0
+        },
+        "archivePayload": {
+          "count": 0,
+          "totalMs": 0,
+          "medianMs": 0,
+          "p95Ms": 0,
+          "p99Ms": 0,
+          "maxMs": 0
+        },
+        "persistSnapshot": {
+          "count": 0,
+          "totalMs": 0,
+          "medianMs": 0,
+          "p95Ms": 0,
+          "p99Ms": 0,
+          "maxMs": 0
+        },
+        "save": {
+          "count": 0,
+          "totalMs": 0,
+          "medianMs": 0,
+          "p95Ms": 0,
+          "p99Ms": 0,
+          "maxMs": 0
+        },
+        "updateHeader": {
+          "count": 59,
+          "totalMs": 18.400000000023283,
+          "medianMs": 0.29999999998835847,
+          "p95Ms": 0.40000000002328306,
+          "p99Ms": 0.6000000000058208,
+          "maxMs": 0.6000000000058208
+        },
+        "renderPanel": {
+          "count": 0,
+          "totalMs": 0,
+          "medianMs": 0,
+          "p95Ms": 0,
+          "p99Ms": 0,
+          "maxMs": 0
+        },
+        "trafficUpdate": {
+          "count": 0,
+          "totalMs": 0,
+          "medianMs": 0,
+          "p95Ms": 0,
+          "p99Ms": 0,
+          "maxMs": 0
+        },
+        "draw": {
+          "count": 0,
+          "totalMs": 0,
+          "medianMs": 0,
+          "p95Ms": 0,
+          "p99Ms": 0,
+          "maxMs": 0
+        },
+        "hydrateSave": {
+          "count": 0,
+          "totalMs": 0,
+          "medianMs": 0,
+          "p95Ms": 0,
+          "p99Ms": 0,
+          "maxMs": 0
+        },
+        "dailyEconomy": {
+          "count": 0,
+          "totalMs": 0,
+          "medianMs": 0,
+          "p95Ms": 0,
+          "p99Ms": 0,
+          "maxMs": 0
+        },
+        "privateServiceInvestmentDay": {
+          "count": 0,
+          "totalMs": 0,
+          "medianMs": 0,
+          "p95Ms": 0,
+          "p99Ms": 0,
+          "maxMs": 0
+        },
+        "districtProgrammeDay": {
+          "count": 0,
+          "totalMs": 0,
+          "medianMs": 0,
+          "p95Ms": 0,
+          "p99Ms": 0,
+          "maxMs": 0
+        },
+        "urbanEvolutionDay": {
+          "count": 0,
+          "totalMs": 0,
+          "medianMs": 0,
+          "p95Ms": 0,
+          "p99Ms": 0,
+          "maxMs": 0
+        },
+        "tick": {
+          "count": 0,
+          "totalMs": 0,
+          "medianMs": 0,
+          "p95Ms": 0,
+          "p99Ms": 0,
+          "maxMs": 0
+        }
+      },
+      "heap": {
+        "usedSize": 23577460,
+        "totalSize": 25501696,
+        "embedderHeapUsedSize": 15816384,
+        "backingStorageSize": 13960178
+      },
+      "state": {
+        "day": 2005,
+        "total": 15493516.99998257,
+        "valid": {
+          "ok": true,
+          "issues": [],
+          "total": 15493516.99998257,
+          "population": 1993,
+          "day": 2005
+        },
+        "goodsError": 1.7491402104496956e-08,
+        "deeds": 21,
+        "routes": 48,
+        "operating": 48,
+        "drivers": 96,
+        "providers": 2,
+        "cargo": 12,
+        "atlas": 542,
+        "atlasBytes": 43653888,
+        "serviceCaches": 2,
+        "traffic": 44,
+        "observations": 201,
+        "loans": 2,
+        "history": 240,
+        "events": 160,
+        "transactions": 800,
+        "musicDecks": 1,
+        "musicTrack": 0,
+        "musicError": "",
+        "suspended": true,
+        "paused": false,
+        "backlog": 0.8547878787880635
+      },
+      "ui": [
+        {
+          "panel": "citizens",
+          "toNextFrameMs": 15.10000000000582,
+          "error": false
+        },
+        {
+          "panel": "construction",
+          "toNextFrameMs": 26.79999999998836,
+          "error": false
+        },
+        {
+          "panel": "settings",
+          "toNextFrameMs": 11.5,
+          "error": false
+        }
+      ]
+    }
+  ],
+  "fixtureState": {
+    "population": 2000,
+    "deeds": 21,
+    "grid": 128,
+    "routes": 48,
+    "providers": 2,
+    "cargo": 37,
+    "total": 15493517.000000132
+  },
+  "initialHeapAfterGC": {
+    "usedSize": 10035680,
+    "totalSize": 11407360,
+    "embedderHeapUsedSize": 3279440,
+    "backingStorageSize": 5748869
+  },
+  "archiveRoundTripMs": 168.22196499998654,
+  "finalHeapAfterGC": {
+    "usedSize": 14267624,
+    "totalSize": 15486976,
+    "embedderHeapUsedSize": 6057832,
+    "backingStorageSize": 14466489
+  },
+  "errors": []
+}
