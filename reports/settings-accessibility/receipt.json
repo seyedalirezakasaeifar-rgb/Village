@@ -1,0 +1,132 @@
+{
+  "source_sha256": "471b744f92d1e97ad505b44cc979929253a071fffb9fd3d1cf1058d8050317f9",
+  "viewport": [
+    360,
+    640
+  ],
+  "checks": {
+    "reload": {
+      "musicEnabled": false,
+      "soundEnabled": false,
+      "options": {
+        "quality": "low",
+        "fps": 30,
+        "traffic": false,
+        "effects": false,
+        "decor": false,
+        "seasons": false,
+        "weather": false,
+        "largeText": true,
+        "reducedMotion": true,
+        "autoSave": 30,
+        "showHints": true,
+        "streetNames": true
+      },
+      "largeClass": true,
+      "music": [],
+      "ambient": null,
+      "effects": [],
+      "budget": {
+        "traffic": false,
+        "people": false,
+        "boats": false
+      }
+    },
+    "resumeMute": {
+      "musicEnabled": false,
+      "soundEnabled": false,
+      "options": {
+        "quality": "low",
+        "fps": 30,
+        "traffic": false,
+        "effects": false,
+        "decor": false,
+        "seasons": false,
+        "weather": false,
+        "largeText": true,
+        "reducedMotion": true,
+        "autoSave": 30,
+        "showHints": true,
+        "streetNames": true
+      },
+      "largeClass": true,
+      "music": [],
+      "ambient": null,
+      "effects": [],
+      "budget": {
+        "traffic": false,
+        "people": false,
+        "boats": false
+      }
+    },
+    "reducedMotionClock": {
+      "before": 0.3331999999999999,
+      "after": 0.3331999999999999
+    },
+    "keyboardNext": "musicNext",
+    "controlBounds": [
+      {
+        "control": "#musicToggle",
+        "box": {
+          "x": 41,
+          "y": 476.53125,
+          "width": 97.5,
+          "height": 42
+        },
+        "horizontalInside": true
+      },
+      {
+        "control": "#musicNext",
+        "box": {
+          "x": 144.5,
+          "y": 476.53125,
+          "width": 103.296875,
+          "height": 42
+        },
+        "horizontalInside": true
+      },
+      {
+        "control": "#musicVolume",
+        "box": {
+          "x": 41,
+          "y": 339.53125,
+          "width": 258,
+          "height": 34
+        },
+        "horizontalInside": true
+      },
+      {
+        "control": "#musicMood",
+        "box": {
+          "x": 158.375,
+          "y": 380.53125,
+          "width": 127,
+          "height": 42
+        },
+        "horizontalInside": true
+      },
+      {
+        "control": "[data-option=reducedMotion]",
+        "box": {
+          "x": 247,
+          "y": 335.046875,
+          "width": 66,
+          "height": 42
+        },
+        "horizontalInside": true
+      },
+      {
+        "control": "[data-option=largeText]",
+        "box": {
+          "x": 247,
+          "y": 429.828125,
+          "width": 66,
+          "height": 42
+        },
+        "horizontalInside": true
+      }
+    ],
+    "horizontalOverflow": false
+  },
+  "status": "passed"
+}
