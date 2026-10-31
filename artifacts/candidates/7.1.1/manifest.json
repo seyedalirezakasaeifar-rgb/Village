@@ -2,7 +2,7 @@
   "version": "7.1.1",
   "code": 21,
   "package": "org.townledger.vale",
-  "source_commit": "b2f91c53dfc00278776f240eec59c4c1ae68a2b6",
+  "source_commit": "c6adadd663dfff7eae0d12bad0d9b668ee4cd075",
   "game_sha256": "cf1bdf7a6820feafb11f3917ab9132fb14d07faba1252b25376f019aa4a0244e",
   "candidate_gate_count": 46,
   "all_gates_passed": true,
@@ -13,7 +13,9 @@
     "Full-game physical touch/FPS/thermals not certified",
     "Real system document-picker/provider flow not certified"
   ],
-  "source_entries": 316,
+  "source_entries": 318,
+  "tracked_project_entries": 316,
+  "package_metadata_entries": 2,
   "signing": "Persistent development signer; original baseline certificate differs; no private key delivered",
   "files": [
     {
@@ -23,13 +25,13 @@
     },
     {
       "path": "TownLedger-7.1.1-source.zip",
-      "bytes": 4405626,
-      "sha256": "a88f43973505f5ce40825bc916fc4a59ad3d42744d6b0cf5bd8ce0ff5669f205"
+      "bytes": 4406115,
+      "sha256": "b813f3520d2a746e8291a12ff9d6a733c7b75c29d02d5f1d5d5184c834d84a05"
     },
     {
       "path": "TownLedger-7.1.1-QA.zip",
-      "bytes": 640973,
-      "sha256": "e1e6e3113e36508c205ad7db5706edbd0c780ece726dd7603fa024237e48d161"
+      "bytes": 650793,
+      "sha256": "f444bd072b5638dad773b6befedc3afac8b2c00ca1d8671ca5dd7c93ca01785b"
     },
     {
       "path": "TownLedger-7.1.1-waterfront.mp4",
@@ -53,5 +55,5 @@
     "assets/sound/coin.wav": "99edffa3814662def67c66a9401791043b5221a331ee6edf552d862703a7c7af",
     "assets/sound/save.wav": "e94121e8f98c3343759ee0606aa23924396cef4445935f4be3267ae9e79b1d6d"
   },
-  "created_utc": "2026-10-31T11:05:29.609268+00:00"
+  "created_utc": "2026-10-31T12:08:17.967788+00:00"
 }
