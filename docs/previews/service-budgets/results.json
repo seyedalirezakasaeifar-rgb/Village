@@ -1,0 +1,245 @@
+{
+  "source_sha256": "a9c9db83e912f84823c520e975c7572f153cc1f5363f17433dfa9c6572c6828c",
+  "smallTown": {
+    "population": 169,
+    "required": 280,
+    "range": {
+      "min": 0,
+      "max": 500,
+      "step": 0.01,
+      "hardMax": 50000
+    },
+    "pure": true
+  },
+  "validation": {
+    "invalidEnact": 22,
+    "invalidArchives": 16,
+    "legacyMissing": true,
+    "higherBudgetRoundtrip": true
+  },
+  "regionalBefore": {
+    "day": 2161,
+    "population": 1151,
+    "treasury": 689121.0775496188,
+    "school": {
+      "kind": "school",
+      "population": 1151,
+      "wage": 28,
+      "full": 1906.9822485207098,
+      "reachable": 1906.9822485206978,
+      "combinedGap": 1906.9822485206978,
+      "facilities": 9,
+      "observed": false,
+      "access": 0.9999999999999937,
+      "publicCoverage": 0,
+      "privateCoverage": 0,
+      "combinedCoverage": 0,
+      "staffing": null,
+      "pendingDay": null
+    },
+    "outlook": {
+      "ceiling": 4007,
+      "currentNeed": 4007,
+      "dailyReceipts": 5930.331890226757,
+      "cash": 689121.0775496188,
+      "deficit": -1923.3318902267574,
+      "runway": null,
+      "estimates": {
+        "health": {
+          "kind": "health",
+          "population": 1151,
+          "wage": 28,
+          "full": 708.3076923076923,
+          "reachable": 708.3076923076923,
+          "combinedGap": 708.3076923076923,
+          "facilities": 7,
+          "observed": false,
+          "access": 1,
+          "publicCoverage": 0,
+          "privateCoverage": 0,
+          "combinedCoverage": 0,
+          "staffing": null,
+          "pendingDay": null
+        },
+        "school": {
+          "kind": "school",
+          "population": 1151,
+          "wage": 28,
+          "full": 1906.9822485207098,
+          "reachable": 1906.9822485206978,
+          "combinedGap": 1906.9822485206978,
+          "facilities": 9,
+          "observed": false,
+          "access": 0.9999999999999937,
+          "publicCoverage": 0,
+          "privateCoverage": 0,
+          "combinedCoverage": 0,
+          "staffing": null,
+          "pendingDay": null
+        }
+      }
+    }
+  },
+  "regionalTrajectory": [
+    {
+      "day": 2162,
+      "population": 1151,
+      "treasury": 693006.1258777361,
+      "authorized": 1907,
+      "required": 1906.9822485207098,
+      "paid": 500.00000000000006,
+      "publicCoverage": 0.2621943651483183,
+      "privateCoverage": 0.09296486998135924,
+      "combined": 0.3551592351296775,
+      "staffing": {
+        "local": 8,
+        "regional": 3.6071428571428577,
+        "needed": 44.26923076923077,
+        "coverage": 0.2621943651483183,
+        "pending": {
+          "target": 36.26923076923049,
+          "day": 2192
+        },
+        "qualification": 0.55
+      },
+      "education": 67.60161632964119,
+      "cashError": 7.450580596923828e-09
+    },
+    {
+      "day": 2191,
+      "population": 1151,
+      "treasury": 703248.6784153199,
+      "authorized": 1907,
+      "required": 1906.9822485207098,
+      "paid": 500.00000000000006,
+      "publicCoverage": 0.2621943651483183,
+      "privateCoverage": 0.09040081912175305,
+      "combined": 0.3525951842700713,
+      "staffing": {
+        "local": 8,
+        "regional": 3.6071428571428577,
+        "needed": 44.26923076923077,
+        "coverage": 0.2621943651483183,
+        "pending": {
+          "target": 36.26923076923049,
+          "day": 2192
+        },
+        "qualification": 0.55
+      },
+      "education": 67.83229034723375,
+      "cashError": -3.725290298461914e-08
+    },
+    {
+      "day": 2192,
+      "population": 1151,
+      "treasury": 706255.0637802626,
+      "authorized": 1907,
+      "required": 1906.9822485207098,
+      "paid": 1906.9822485206978,
+      "publicCoverage": 0.9999999999999937,
+      "privateCoverage": 0,
+      "combined": 0.9999999999999937,
+      "staffing": {
+        "local": 8,
+        "regional": 36.26923076923049,
+        "needed": 44.26923076923077,
+        "coverage": 0.9999999999999938,
+        "pending": null,
+        "qualification": 0.55
+      },
+      "education": 67.87129034723375,
+      "cashError": -3.3527612686157227e-08
+    },
+    {
+      "day": 2222,
+      "population": 1151,
+      "treasury": 683279.3038989166,
+      "authorized": 1907,
+      "required": 1906.9822485207098,
+      "paid": 1906.9822485206978,
+      "publicCoverage": 0.9999999999999937,
+      "privateCoverage": 0,
+      "combined": 0.9999999999999937,
+      "staffing": {
+        "local": 8,
+        "regional": 36.26923076923049,
+        "needed": 44.26923076923077,
+        "coverage": 0.9999999999999938,
+        "pending": null,
+        "qualification": 0.55
+      },
+      "education": 69.0412903472338,
+      "cashError": -6.705522537231445e-08
+    },
+    {
+      "day": 2312,
+      "population": 1168,
+      "treasury": 640121.8686661081,
+      "authorized": 1907,
+      "required": 1935.1479289940828,
+      "paid": 1907,
+      "publicCoverage": 0.985454378669276,
+      "privateCoverage": 0.0016687613512988175,
+      "combined": 0.9871231400205748,
+      "staffing": {
+        "local": 32,
+        "regional": 27.269642857142856,
+        "needed": 44.92307692307692,
+        "coverage": 1,
+        "pending": {
+          "target": 12.269642857142856,
+          "day": 2316
+        },
+        "qualification": 0.55
+      },
+      "education": 72.51518428633547,
+      "cashError": -5.867332220077515e-07
+    }
+  ],
+  "cashConstraint": {
+    "controlledCashFixture": true,
+    "authorized": 50000,
+    "paid": 0,
+    "coverage": 0,
+    "unused": 50000,
+    "negativeCashPreserved": -100,
+    "negativeRecommendation": 0,
+    "conserved": true
+  },
+  "screens": [
+    {
+      "width": 1280,
+      "control": {
+        "x": 861,
+        "right": 1243
+      },
+      "amountHeight": 44,
+      "minButtonHeight": 44,
+      "overflow": false,
+      "actualPresetAndEnact": true
+    },
+    {
+      "width": 390,
+      "control": {
+        "x": 27,
+        "right": 343
+      },
+      "amountHeight": 44,
+      "minButtonHeight": 44,
+      "overflow": false,
+      "actualPresetAndEnact": true
+    },
+    {
+      "width": 320,
+      "control": {
+        "x": 23,
+        "right": 277
+      },
+      "amountHeight": 44,
+      "minButtonHeight": 44,
+      "overflow": false,
+      "actualPresetAndEnact": true
+    }
+  ],
+  "errors": []
+}

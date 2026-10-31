@@ -6,7 +6,7 @@ from playwright.sync_api import sync_playwright
 ROOT=Path(__file__).resolve().parents[1]
 html=(ROOT/'assets/index.html').read_text().replace('<link rel="stylesheet" href="style.css">','<style>'+(ROOT/'assets/style.css').read_text()+'</style>').replace('<script src="game.js"></script>','')
 # Include every shipped stylesheet; set_content has no asset base URL.
-for sheet in ['vale.css','civic7.css','mayor8.css']:
+for sheet in ['vale.css','civic7.css','mayor8.css','service-budget.css']:
     html=html.replace('<link rel="stylesheet" href="'+sheet+'">','<style>'+(ROOT/'assets'/sheet).read_text()+'</style>')
 
 

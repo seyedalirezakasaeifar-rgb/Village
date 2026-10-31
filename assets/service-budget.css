@@ -1,0 +1,12 @@
+.service-budget-control{border:1px solid #9ba482;padding:12px;border-radius:3px;margin:12px 0;background:#f6f0d8}
+.service-budget-amount{display:flex;align-items:center;gap:8px;max-width:100%;margin:8px 0}
+.service-budget-amount>input{flex:1;min-width:0;width:100%;max-width:220px;min-height:44px;padding:8px;font:600 16px Georgia,serif;color:#234435;background:#fff9e7;border:1px solid #74845e;border-radius:3px}
+.service-budget-amount>input[aria-invalid=true]{border-color:#9b3e31;outline:2px solid #c58568}
+.service-budget-amount>span{flex-shrink:0}
+.service-budget-control>.btnrow,.service-budget-control .btnrow{display:flex;flex-wrap:wrap;gap:6px}
+#panelBody .service-budget-control button{max-width:100%;white-space:normal;min-height:44px;text-align:left}
+.service-budget-error{color:#8e3024;font-weight:600;margin:4px 0}
+.service-budget-error:empty{display:none}
+.service-budget-control details{margin-top:8px}
+.service-budget-outlook .line{gap:12px;flex-wrap:wrap}
+@media(max-width:420px){.service-budget-control{padding:9px}#panelBody .service-budget-control button{width:100%}.service-budget-control label{flex-wrap:wrap;gap:4px}.service-budget-amount>input{max-width:none}}
