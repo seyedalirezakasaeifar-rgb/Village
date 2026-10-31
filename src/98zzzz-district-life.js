@@ -3,7 +3,7 @@
 let overviewFreightCache=null;
 function overviewFreight(){
  const orders=G.regionalTrade?.shipments,net=graph();
- if(overviewFreightCache?.orders===orders&&overviewFreightCache.net===net&&overviewFreightCache.count===(orders?.length||0)&&overviewFreightCache.revision===(G.regionalTrade?.routeRevision||0))return overviewFreightCache.rows;
+ if(overviewFreightCache&&overviewFreightCache.orders===orders&&overviewFreightCache.net===net&&overviewFreightCache.count===(orders?.length||0)&&overviewFreightCache.revision===(G.regionalTrade?.routeRevision||0))return overviewFreightCache.rows;
  const rows=[];
  for(const market of OUTSIDE_MARKETS){let inbound=0,outbound=0,quantity=0,example=null;
   for(const order of orders||[]){if(order.market!==market.id)continue;const returning=['returning','return-outside'].includes(order.stage);if((order.direction==='import')!==returning)inbound++;else outbound++;quantity+=order.qty;example=example||order;}
