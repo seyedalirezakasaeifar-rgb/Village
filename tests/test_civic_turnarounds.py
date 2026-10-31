@@ -51,10 +51,12 @@ with sync_playwright() as pw:
  assert 'Cargo wharf closed' in p.locator('#mapStatusHeadline').inner_text();board();card=p.locator('[data-project-card=district]');assert 'Controlled historical operating record' in card.inner_text();assert 'Cargo wharf closed' in card.locator('.civic-watch-line').inner_text();assert card.locator('[data-inspect="'+str(closed['building'])+'"]').count()==1
  panel('overview');p.locator('#panelClose').click();assert p.locator('#mapStatusToggle').get_attribute('aria-expanded')=='false';p.locator('#mapStatusToggle').click();p.locator('[data-civic-watch-project]').click();assert p.locator('.civic-watch-line').count()==1
  p.screenshot(path=str(OUT/'current-closure-preserves-history.png'))
+ card=p.locator('[data-project-card=district]');card.locator('[data-civic-recovery-planning]').click();assert p.locator('#urbanPlanningOffice').evaluate('e=>e.open');assert p.locator('.transit-office').count()==1;board()
  before_rezone=state();p.locator('[data-civic-recharter]').click();p.keyboard.press('Escape');assert state()['treasury']==before_rezone['treasury']
  p.locator('[data-civic-recharter]').click();p.get_by_text('Recharter as Mixed neighbourhood',exact=True).click();pivot=state();assert abs(before_rezone['treasury']-pivot['treasury']-1200)<.001
  assert pivot['districtProgrammes']['river-reach']['focus']=='neighbourhood';assert any(b['id']==closed['building']for b in pivot['buildings']);assert pivot['firms'][closed['firm']]['closed'];assert pivot['civicProjects']['history'][0]['proof']=='Controlled historical operating record'
  assert pivot['civicProjects']['active']['district']['branch']=='neighbourhood'
+ mixed_plan=p.evaluate('__turnaroundProbe.plan()');assert mixed_plan['ok'] and {s['kind']for s in mixed_plan['sites']}=={'grocer','bakery'}
  assert not p.evaluate('__turnaroundProbe.facts().issues')
  # Actual binding agreement after the chapter starts; past fulfilled contracts cannot qualify.
  p.locator('[data-campaign-review=promise]').last.click();p.keyboard.press('Escape');assert state().get('civicCampaign')is None

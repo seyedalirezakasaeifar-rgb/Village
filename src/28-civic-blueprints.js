@@ -31,7 +31,7 @@ function civicDistrictBlueprint(project,fresh=false){
  if(!G.charter.owned.includes(parcel.id))return {ok:false,reason:'Acquire this district’s development rights before commissioning its roads.'};
  if(G.districtProgrammes?.[parcel.id]?.focus!==project.branch)return {ok:false,reason:'Record the intended district charter before commissioning its physical plan.'};
  if(civicBlueprintCacheTown!==G){civicBlueprintCacheTown=G;civicBlueprintCache=new Map();}
- const net=graph(),key=parcel.id+':'+project.branch,existing=kinds.map(kind=>civicBlueprintExisting(parcel,kind)),revision=[roadsVersion,G.buildings.length,Object.keys(G.landUse||{}).length,existing.map(v=>v?.f.id??'-').join(','),(project.sitePlans||[]).map(s=>s.kind+':'+s.x+','+s.y).join('|')].join('/'),cached=civicBlueprintCache.get(key);
+ const net=graph(),key=parcel.id+':'+project.branch,existing=kinds.map(kind=>civicBlueprintExisting(parcel,kind)),revision=[roadsVersion,G.urban?.revision||0,G.charter.revision,G.buildings.length,Object.keys(G.landUse||{}).length,existing.map(v=>v?.f.id??'-').join(','),(project.sitePlans||[]).map(s=>s.kind+':'+s.x+','+s.y).join('|')].join('/'),cached=civicBlueprintCache.get(key);
  if(!fresh&&cached?.net===net&&cached.revision===revision)return cached.plan;
  const roads=new Set([...net.neighbors.keys()].filter(id=>net.parts[id]===net.mainPart)),fixed=existing.filter(Boolean).map(v=>({kind:v.f.kind,x:v.b.x,y:v.b.y,footprint:footprintOf(v.b),existing:v.b.id,firm:v.f.id})),fixedCells=new Set(fixed.flatMap(s=>s.footprint));
  const preferred=kind=>(project.sitePlans||[]).find(s=>s.kind===kind),firsts=existing[0]?[fixed.find(s=>s.kind===kinds[0])]:civicBlueprintCandidates(parcel,kinds[0],roads,fixedCells,preferred(kinds[0]));let best=null;

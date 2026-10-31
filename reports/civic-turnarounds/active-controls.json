@@ -1,0 +1,100 @@
+{
+  "source_sha256": "c01a589b24d017caa8d6951bd5a059962ccf083e7a8aa44c7bd10bfc8514387f",
+  "acceptedBridgeLoads": [
+    120,
+    60
+  ],
+  "cancelledLoadCredited": false,
+  "blueprint": {
+    "ok": true,
+    "parcel": "river-reach",
+    "focus": "waterfront",
+    "roads": [
+      5774,
+      5773,
+      5772,
+      5771,
+      5770,
+      5769,
+      5768,
+      5767,
+      5895,
+      6023,
+      6151,
+      6279,
+      6407,
+      6535,
+      6663,
+      6791,
+      6919,
+      7047,
+      7175,
+      7303,
+      7431,
+      7559,
+      7687,
+      7815,
+      7943,
+      8071,
+      8199,
+      8327,
+      8455
+    ],
+    "sites": [
+      {
+        "kind": "fishery",
+        "x": 7,
+        "y": 67,
+        "footprint": [
+          8583
+        ],
+        "score": 31.8,
+        "preferred": false
+      },
+      {
+        "kind": "wharf",
+        "x": 6,
+        "y": 65,
+        "footprint": [
+          8326
+        ],
+        "score": 7.15,
+        "preferred": false
+      }
+    ],
+    "cost": 4350
+  },
+  "secondShoreSpurRequired": false,
+  "controlledHistoricalClosureFixture": {
+    "firm": 28,
+    "building": 118,
+    "before": 15493516.999995042,
+    "after": 15493516.999995042,
+    "cash": 0,
+    "closed": true
+  },
+  "recharterCost": 1200,
+  "existingPrivateBuildingRetained": true,
+  "realSupplierChapter": {
+    "id": 1,
+    "mode": "promise",
+    "started": 266,
+    "lastDay": 274,
+    "status": "complete",
+    "baselineSerial": 1129,
+    "reference": {
+      "kind": "contract",
+      "id": 1139,
+      "firm": 13,
+      "market": "upland",
+      "good": "timber",
+      "quantity": 200,
+      "price": 4.045065908664022
+    },
+    "arrived": 0,
+    "receiptDay": null,
+    "completed": 274,
+    "proof": "Upland Cooperative \u00b7 200 / 200 timber paid arrivals"
+  },
+  "errors": []
+}

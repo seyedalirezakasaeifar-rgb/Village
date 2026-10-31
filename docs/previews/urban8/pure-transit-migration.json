@@ -1,8 +1,8 @@
 {
-  "source_sha256": "645405bad19cadba9489921c4a726942e402021b4054a04b31f9c99fc359eb3c",
-  "workerRef": "d654f70",
-  "exactWorkerHelperInjected": true,
-  "helper_sha256": "9804676eee7250c2cf09837a66d5975766637149aa6b7a105e964086611b16cf",
+  "source_sha256": "c01a589b24d017caa8d6951bd5a059962ccf083e7a8aa44c7bd10bfc8514387f",
+  "workerRef": null,
+  "exactWorkerHelperInjected": false,
+  "helper_sha256": null,
   "result": {
     "gridFrom": 80,
     "gridTo": 128,

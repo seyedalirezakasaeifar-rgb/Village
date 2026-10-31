@@ -1,0 +1,33 @@
+# Continuing civic work and district turnarounds
+
+Integration base: `525e47dd3967741fb59d2fd06921c1647a29a24a` (128-square urban/transit atlas, provider/contract fixes). This branch is scoped to player-facing progression and placement guidance; it does not change settlement, private-service algorithms, transit fares or freight invoices.
+
+## Decisions and consequences
+
+A district project now surveys two actual non-overlapping footprints for its chosen purpose: factory/warehouse, grocer/bakery, or fishery/wharf. The complete connected road purchase serves both footprints and quotes its exact tile cost; the sites have separate prices. Each review and confirmation uses real placement rules and fresh topology. Existing private buildings, fields, water and other proposed footprints cannot be crossed. Plans are advice, not exclusive site reservations. A later private development can invalidate them; confirmation then requires another survey. Preliminary pre-deed trunk estimates explicitly exclude the later purpose-specific spurs.
+
+A delivered waterfront certificate no longer hides a subsequently closed wharf. Derived current checks inspect actual live roles, attending staff and cash/loss observations. Important closures take priority in the existing compact map signal, with account inspection and a reviewed recovery blueprint. A mayor can instead review a paid district recharter through the existing $1,200/30-day rule. Prior proof remains in history; buildings, ownership, debt and cargo remain with their authoritative systems. Recovery planning links to the integrated land-assembly/replacement-housing and transit office; the mayor desk also reports actual denied passenger demand and links to real route capital, staffing and operating choices.
+
+Finishing a direction or two core projects opens later operating chapters. The mayor can pin the next genuinely new supplier agreement or an actual approaching food consignment. Queue priorities, staffed depots, routing, return/transfer and contingent extra shifts are the existing economic controls. A signed promise requires actual fulfilled status; a food chapter requires its exact usable receipt and observed food supply. A cancelled, returned, lost, missing or differently scoped order earns nothing. Tracking withdrawal closes only the civic record. Cargo and contractual obligations continue. These records grant no money or mechanical stat bonus.
+
+A later teaching opportunity selects a different underserved household with actual eligible learners. Public funding, a new campus and private invitation remain distinct choices. It records observed public/private learner equivalents, current usable access and spending reserve. Private entry can fail the real investor checks; no purchase or progress is invented. A reviewed change to public provision is a viable recovery, while independently financed private teaching remains supported and separately tested. The later household plan does not claim employment or qualification from access alone.
+
+Recent missed-window feedback expires after 90 simulated days or a later fulfilled same-buyer agreement. Historical windows remain recorded. Late delivered units are described as recorded arrivals, without claiming they arrived before the missed deadline. No hidden reputation score is implied.
+
+## Integration contracts and optional data
+
+* `src/28-civic-blueprints.js`: pure physical planning and optional `project.sitePlans` validation. Coordinates remain world x/y when legacy row-stride migration changes tile indices. Its cache is derived and cleared on town reset; fresh quote/confirmation never trusts it.
+* `src/98-stewardship.js`: derived current-role checks and wrappers around project cards, compact status and reset. No save mutation from rendering.
+* `src/98-sustained-projects.js`: optional `G.civicCampaign` version1, one active record and at most eight history records; per-reference IDs/firm/market/good/quantity, exact receipt proof, daily guard and bounded validation. Optional skills continuity fields record the baseline and split observed learner equivalents. Old saves need neither field.
+* `src/50-clock.js`: call `civicCampaignDay()` after `civicProjectsDay()`, preserving urban evolution and the final RNG publication.
+* `src/90-archive-panels.js`: add `validateCivicCampaign(data)` before adoption, retaining urban/rehousing/transit validators.
+* Keep authoritative `civicProjectRecordArrival(order)` called only by successful settlement. The new receipt wrapper verifies Delivered, direction, order ID, firm, market, good and exact quantity before crediting, once. Preserve main's 120+60 import ordering and removal/return rejection.
+* `src/80-civic.js` owns the single topmost event-dialog focus trap. The duplicate project trap is removed. Actual visible summaries, selects and inputs remain keyboard reachable; help retains precedence and Android Back cancels reviewed purchases.
+
+Assembly is generated by `python tools/assemble.py`. Current source SHA-256: `c01a589b24d017caa8d6951bd5a059962ccf083e7a8aa44c7bd10bfc8514387f`.
+
+## Evidence and limits
+
+`reports/civic-turnarounds/active-controls.json`, `operating-chapters.json`, `recent-trade.json` and two actual-control screenshots carry their source hashes. Fresh seed42 journeys earn unlocks through paid food and funded teaching, build both shore businesses without a second hidden spur, preserve cash during return/recharter, sign a new binding agreement, recover an actual failed private-entry choice through public teaching, and replay exact save/load outcomes. Archive tests reject malformed project coordinates/overlaps, reference scopes and counters; legacy optional data are accepted. Historical closure UI evidence explicitly uses controlled certificate metadata followed by real liquidation; it does not certify a naturally sustainable waterfront. The approaching-load fixture makes a real paid booking and grants no cash, workers or stock.
+
+Targeted verification on this integration includes civic turnarounds, operating chapters, recent trade feedback, compact status, direction rules, successful-arrival safety, independently financed private teaching and 80-to128 transit migration/atomic rejection. The compact status occupies 14.1%, 6.9% and 6.3% of tested map sizes. Earlier mayor journey/core project/logistics recovery suites also passed during development; their old receipts are not claimed as the final bundle. No full release gate, APK or physical Android test was performed here. Automated control journeys establish reachable choices and recovery, not a claim that human multi-hour enjoyment has been certified.
