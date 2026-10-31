@@ -1,10 +1,20 @@
 function headerText(id,value){const el=$(id),text=String(value);if(el&&el.textContent!==text)el.textContent=text;}
 function headerMoney(value){return Math.abs(value)>=1000000?(value<0?'−':'')+'$'+(Math.abs(value)/1000000).toLocaleString('en-CA',{maximumFractionDigits:1})+'m':money(value);}
+let liveStatusTown=null,liveStatusDay=-1,liveStatusPaused=null,liveStatusKey='';
+function updateLiveStatus(){
+ if(!$('liveEconomy'))return;
+ const care=G.serviceProvision?.health?.coverage,school=G.serviceProvision?.school?.coverage;
+ const key=[G.day,care,school,G.stats.businesses,G.stats.population,G.stats.employment,G.stats.hardship,G.stats.marketConfidence,G.market?.foodDisconnected,G.market?.unmetFood,G.journal?.length,G.finance?.creditIssued].join('|');
+ const due=liveStatusTown!==G||liveStatusPaused!==paused||G.day<liveStatusDay||G.day-liveStatusDay>=5||((paused||G.day<5)&&key!==liveStatusKey);
+ if(!due)return;
+ const m=marketSignal();headerText('marketHeadline',m.title);headerText('marketDetail',Number.isFinite(care)&&Number.isFinite(school)?Math.round(care*100)+'% care · '+Math.round(school*100)+'% school · '+m.m.open+' firms':m.m.open+' firms · '+m.m.projects+' projects · '+G.stats.hardship+'% hardship');
+ liveStatusTown=G;liveStatusDay=G.day;liveStatusPaused=paused;liveStatusKey=key;
+}
 function updateHeader(){
  if(!G)return;headerText('pop',fmt(G.stats.population));headerText('funds',headerMoney(G.treasury));if($('funds').title!==money(G.treasury))$('funds').title=money(G.treasury);headerText('jobs',G.stats.employment+'%');headerText('safety',G.stats.safety+'/100');headerText('approval',Math.round(G.council.approval)+'%');headerText('date','YEAR '+G.year+' · MONTH '+G.month+' · DAY '+G.day);
  headerText('season',(seasonsEnabled()?['SPRING IN THE VALE','SUMMER IN THE VALE','AUTUMN IN THE VALE','WINTER IN THE VALE'][Math.floor((G.month-1)/3)]:'THE WORKING CITY')+(weatherEnabled()&&G.weather&&G.weather!=='clear'?' · '+G.weather.toUpperCase():''));
  headerText('pause',paused?'►':'Ⅱ');const pause=$('pause'),label=paused?'Resume simulation':'Pause simulation',title=paused?'Resume':'Pause';if(pause.getAttribute('aria-label')!==label)pause.setAttribute('aria-label',label);if(pause.title!==title)pause.title=title;
- if($('liveEconomy')&&(G.day%5===1||G.day<5)){const m=marketSignal(),care=G.serviceProvision?.health?.coverage,school=G.serviceProvision?.school?.coverage;headerText('marketHeadline',m.title);headerText('marketDetail',Number.isFinite(care)&&Number.isFinite(school)?Math.round(care*100)+'% care · '+Math.round(school*100)+'% school · '+m.m.open+' firms':m.m.open+' firms · '+m.m.projects+' projects · '+G.stats.hardship+'% hardship');}
+ updateLiveStatus();
  headerText('speed',speed+'×');headerText('effectiveSpeed',!paused&&speed>=8?'Actual '+perfStats.effective.toFixed(0)+'×':'');const range=$('speedRange'),value=String(SPEED_PRESETS.indexOf(speed)>=0?SPEED_PRESETS.indexOf(speed):0);if(range&&range.value!==value)range.value=value;$('pauseBanner').style.display=paused?'block':'none';updateObjectiveMini();
 }
 // ----- Town map renderer. Geometry is cached; only vehicles need a dynamic redraw.

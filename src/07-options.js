@@ -10,7 +10,7 @@ function weatherEnabled(){return G?.climateWeather===true;}
 function visualMonth(){return seasonsEnabled()?G.month:5;}
 function applyPresentationOptions(){
  document.body.classList.toggle('large-text',gameOptions.largeText);document.body.classList.toggle('hide-hints',!gameOptions.showHints);
- if(typeof atlas!=='undefined'){atlas.clear();atlasBytes=0;}if(typeof fit==='function')fit();staticDirty=true;dirty=true;
+ if(typeof atlas!=='undefined')clearAtlas();if(typeof fit==='function')fit();staticDirty=true;dirty=true;
 }
 // Apply classes now; renderer initialization follows in the ordered bundle.
 document.body.classList.toggle('large-text',gameOptions.largeText);document.body.classList.toggle('hide-hints',!gameOptions.showHints);

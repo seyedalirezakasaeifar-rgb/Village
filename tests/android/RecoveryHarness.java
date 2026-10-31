@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Instrumentation;
 import android.content.Intent;
+import android.content.ComponentName;
+import android.os.UserManager;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.webkit.ValueCallback;
@@ -31,7 +33,9 @@ public final class RecoveryHarness extends Instrumentation {
     @Override public void onCreate(Bundle b){super.onCreate(b);start();}
     @Override public void callActivityOnResume(Activity activity){super.callActivityOnResume(activity);if(activity instanceof MainActivity)current=(MainActivity)activity;}
     @Override public void onStart(){Bundle result=new Bundle();try{
-        current=(MainActivity)startActivitySync(new Intent(getTargetContext(),MainActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+        result.putBoolean("userUnlocked",((UserManager)getTargetContext().getSystemService(android.content.Context.USER_SERVICE)).isUserUnlocked());
+        ActivityMonitor started=addMonitor(MainActivity.class.getName(),null,false);getTargetContext().startActivity(new Intent(Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_LAUNCHER).setComponent(new ComponentName(getTargetContext(),MainActivity.class)).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK));
+        Activity launched=waitForMonitorWithTimeout(started,25000);removeMonitor(started);if(!(launched instanceof MainActivity))throw new AssertionError("MainActivity did not launch through its explicit launcher intent");current=(MainActivity)launched;
         until(new Check(){public boolean ok()throws Exception{return "\"handled\"".equals(js("window.qaMode"));}},"page ready");
         final int initialResumes=Integer.parseInt(js("qaResumes"));back();until(new Check(){public boolean ok()throws Exception{return !(Boolean)field(field(current,"backNavigation"),"pending");}},"handled acknowledgement");require(!current.isFinishing()&&!dialog("savingDialog")&&!dialog("recoveryDialog")&&Integer.parseInt(js("qaResumes"))==initialResumes,"Handled layer acknowledged without timeout or exit");
         js("qaMode='unsaved'");back();until(new Check(){public boolean ok()throws Exception{return dialog("recoveryDialog");}},"unsaved dialog");require(!current.isFinishing(),"Failed save does not finish Activity");click("recoveryDialog",AlertDialog.BUTTON_POSITIVE);until(new Check(){public boolean ok()throws Exception{return Integer.parseInt(js("qaResumes"))>0;}},"resume after Keep playing");require(true,"Keep playing resumes renderer");
@@ -42,5 +46,5 @@ public final class RecoveryHarness extends Instrumentation {
         until(new Check(){public boolean ok()throws Exception{return current!=before&&"\"handled\"".equals(js("window.qaMode"));}},"recreated view");require("\"retained\"".equals(js("localStorage.getItem('qa-native-recovery')")),"Recreated view retains same-origin persistent data");
         js("qaMode='saved'");final MainActivity leaving=current;back();until(new Check(){public boolean ok(){return leaving.isFinishing()||leaving.isDestroyed();}},"saved exit");require(true,"Acknowledged successful save allows exit");
         result.putString("outcome","PASS");result.putString("checks",checks.toString());finish(Activity.RESULT_OK,result);
-    }catch(Throwable e){result.putString("outcome","FAIL");result.putString("checks",checks.toString());result.putString("error",e.toString());finish(Activity.RESULT_CANCELED,result);}}
+    }catch(Throwable e){result.putString("outcome","FAIL");result.putString("checks",checks.toString());result.putString("error",android.util.Log.getStackTraceString(e));finish(Activity.RESULT_CANCELED,result);}}
 }

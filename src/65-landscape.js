@@ -1,6 +1,7 @@
 // Original code-native pixel art. One unit = one owned 72 × 36 isometric tile.
 // All architectural forms use the same projection, anchor and sunlight direction.
 let nightMode=false,displayItems=[],buildingItemsById=new Map(),atlas=new Map(),atlasBytes=0,sceneSignature='',lastSceneMonth=0,landscapeRevision=0;
+function clearAtlas(){atlas.clear();atlasBytes=0;}
 const viewRaster=document.createElement('canvas'),viewBackgroundRaster=document.createElement('canvas');let viewRasterKey='',viewBackgroundKey='',viewBuildings=[];
 const SEASONS=[{grass:['#8f9b69','#929f6d','#96a36f','#9ba773','#9da875'],dark:'#788b58',leaf:['#536c41','#69844a','#809650'],water:'#6b9895'},
  {grass:['#7c994f','#819e52','#86a558','#8aaa5e','#8eaa60'],dark:'#6b7f48',leaf:['#315b3c','#4e7d42','#83a34e'],water:'#4c9297'},
