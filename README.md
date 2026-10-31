@@ -1,6 +1,8 @@
 # TownLedger 7.1.1 candidate — The Working City
 
-Current source extends the signed 7.0.5 checkpoint. A standalone 7.1.0 development APK and matching source are available in [the current checkpoint](artifacts/checkpoints/ff7be45/README.md). This is an intermediate build, not the final overnight handoff or a store release:
+The7.1.1/code21 candidate has a standalone [Android APK, matching source and QA bundle](artifacts/candidates/7.1.1/README.md). The complete46-gate frozen pass, production package checks and native host recovery evidence are recorded with exact hashes. See the [changes](docs/CHANGELOG-7.1.1.md), [install/save guide](docs/INSTALL-AND-SAVES-7.1.1.md) and [QA scope](docs/QA-7.1.1.md). This remains a review candidate; physical-device FPS/full-game touch and the system picker are not certified.
+
+Development phase notes:
 
 - [Local services, staffing and training](docs/LOCAL-SERVICE-DEVELOPMENT.md)
 - [Credit, household budgets and physical markets](docs/CREDIT-AND-MARKETS-DEVELOPMENT.md)
