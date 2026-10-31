@@ -1,0 +1,2156 @@
+{
+  "commit": "31987fcbe108e9d9cb8ed7ce4155f51cd234ba62",
+  "source_sha256": "d90bb509173a803b75c3cdc432fea57ce2f1e2abbcb13b8886c56d8feaffe515",
+  "instrumentation_sha256": "f021bba851f29b5838b98cc82fb0b4872ae3f139397ae8b45d81f1bf047ff145",
+  "status": "failed",
+  "startedUtc": "2026-10-31T20:04:50.884729+00:00",
+  "requestedMinutes": 45.0,
+  "hostChromium": true,
+  "physicalAndroid": false,
+  "samples": [
+    {
+      "utc": "2026-10-31T20:05:29.160255+00:00",
+      "seconds": 34.40348327599986,
+      "windowSeconds": 34.742700000000184,
+      "days": 1305,
+      "actualRate": 61.97704841592589,
+      "zoom": "near",
+      "raf": {
+        "count": 1473,
+        "p50Ms": 16.700000000000728,
+        "p95Ms": 50,
+        "p99Ms": 99.90000000000146,
+        "maxMs": 199.90000000000146
+      },
+      "ticks": {
+        "count": 1307,
+        "p50Ms": 17.700000000186265,
+        "p95Ms": 33.89999999944121,
+        "p99Ms": 90.79999999981374,
+        "maxMs": 159.19999999925494
+      },
+      "touchDelivery": {
+        "count": 13,
+        "p50Ms": 47.40000000037253,
+        "p95Ms": 96.3999999994412,
+        "p99Ms": 96.3999999994412,
+        "maxMs": 96.3999999994412
+      },
+      "touchNextRAF": {
+        "count": 13,
+        "p50Ms": 80.29999999981374,
+        "p95Ms": 587.9000000003725,
+        "p99Ms": 587.9000000003725,
+        "maxMs": 587.9000000003725
+      },
+      "touchCount": 13,
+      "heap": {
+        "usedSize": 39803968,
+        "totalSize": 140230656,
+        "embedderHeapUsedSize": 4707880,
+        "backingStorageSize": 9837954
+      },
+      "dom": {
+        "documents": 1,
+        "nodes": 1974,
+        "jsEventListeners": 87
+      },
+      "state": {
+        "day": 1309,
+        "population": 1995,
+        "people": 2031,
+        "households": 688,
+        "buildings": 740,
+        "firms": 36,
+        "treasury": 4720476.657406525,
+        "region": 3625095.493332032,
+        "total": 15493517.000031844,
+        "valid": {
+          "ok": true,
+          "issues": [],
+          "total": 15493517.000031844,
+          "population": 1995,
+          "day": 1309
+        },
+        "goodsError": 1.159423845820129e-08,
+        "autoBuild": true,
+        "privateEntry": 1,
+        "requestedSpeed": 64,
+        "grid": 128,
+        "deeds": 21,
+        "routes": 48,
+        "operating": 48,
+        "drivers": 96,
+        "cargo": 57,
+        "providers": 6,
+        "providerStaff": 10,
+        "privateClients": 424.9234909456744,
+        "atlas": 125,
+        "atlasBytes": 10913280,
+        "serviceCaches": 2,
+        "traffic": 47,
+        "history": 240,
+        "events": 160,
+        "transactions": 800,
+        "observations": 131,
+        "loans": 1,
+        "paused": false,
+        "hostSuspended": false,
+        "hidden": false,
+        "pending": false,
+        "backlog": 2.374787878787968,
+        "saveOrder": 27,
+        "savePending": false,
+        "saveRunning": false,
+        "musicEnabled": true,
+        "musicTrack": 2,
+        "musicError": "",
+        "musicDecks": [
+          {
+            "index": 2,
+            "paused": false,
+            "currentTime": 36.309825,
+            "readyState": 4,
+            "error": 0,
+            "gain": 1
+          }
+        ]
+      }
+    },
+    {
+      "utc": "2026-10-31T20:06:00.261523+00:00",
+      "seconds": 65.30706818999988,
+      "windowSeconds": 31.094799999999815,
+      "days": 926,
+      "actualRate": 49.13683316824707,
+      "zoom": "near",
+      "raf": {
+        "count": 965,
+        "p50Ms": 33.299999999995634,
+        "p95Ms": 66.59999999999854,
+        "p99Ms": 133.3000000000029,
+        "maxMs": 183.3000000000029
+      },
+      "ticks": {
+        "count": 926,
+        "p50Ms": 27.299999999813735,
+        "p95Ms": 43.90000000037253,
+        "p99Ms": 120.59999999962747,
+        "maxMs": 162.09999999962747
+      },
+      "touchDelivery": {
+        "count": 8,
+        "p50Ms": 100,
+        "p95Ms": 110.20000000018626,
+        "p99Ms": 110.20000000018626,
+        "maxMs": 110.20000000018626
+      },
+      "touchNextRAF": {
+        "count": 8,
+        "p50Ms": 140.59999999962747,
+        "p95Ms": 233.70000000018626,
+        "p99Ms": 233.70000000018626,
+        "maxMs": 233.70000000018626
+      },
+      "touchCount": 8,
+      "heap": {
+        "usedSize": 59554856,
+        "totalSize": 122617856,
+        "embedderHeapUsedSize": 6738352,
+        "backingStorageSize": 21162354
+      },
+      "dom": {
+        "documents": 1,
+        "nodes": 5027,
+        "jsEventListeners": 87
+      },
+      "state": {
+        "day": 2235,
+        "population": 1996,
+        "people": 2069,
+        "households": 694,
+        "buildings": 750,
+        "firms": 37,
+        "treasury": 2440442.7003968195,
+        "region": 3719937.557834074,
+        "total": 15493517.000006026,
+        "valid": {
+          "ok": true,
+          "issues": [],
+          "total": 15493517.000006026,
+          "population": 1996,
+          "day": 2235
+        },
+        "goodsError": 2.1933374227955937e-08,
+        "autoBuild": true,
+        "privateEntry": 1,
+        "requestedSpeed": 64,
+        "grid": 128,
+        "deeds": 21,
+        "routes": 48,
+        "operating": 48,
+        "drivers": 96,
+        "cargo": 16,
+        "providers": 4,
+        "providerStaff": 8,
+        "privateClients": 406.82070168637335,
+        "atlas": 130,
+        "atlasBytes": 11298560,
+        "serviceCaches": 2,
+        "traffic": 40,
+        "history": 240,
+        "events": 160,
+        "transactions": 800,
+        "observations": 224,
+        "loans": 2,
+        "paused": false,
+        "hostSuspended": false,
+        "hidden": false,
+        "pending": false,
+        "backlog": 7,
+        "saveOrder": 29,
+        "savePending": false,
+        "saveRunning": false,
+        "musicEnabled": true,
+        "musicTrack": 2,
+        "musicError": "",
+        "musicDecks": [
+          {
+            "index": 2,
+            "paused": false,
+            "currentTime": 67.41107,
+            "readyState": 4,
+            "error": 0,
+            "gain": 1
+          }
+        ]
+      }
+    },
+    {
+      "utc": "2026-10-31T20:06:26.566715+00:00",
+      "seconds": 91.15234702399994,
+      "windowSeconds": 26.314099999999627,
+      "days": 685,
+      "actualRate": 42.952257534934354,
+      "zoom": "near",
+      "raf": {
+        "count": 685,
+        "p50Ms": 33.30000000000291,
+        "p95Ms": 66.69999999999709,
+        "p99Ms": 133.3000000000029,
+        "maxMs": 166.6999999999971
+      },
+      "ticks": {
+        "count": 685,
+        "p50Ms": 28.600000000558794,
+        "p95Ms": 51.10000000055879,
+        "p99Ms": 119.5,
+        "maxMs": 163.5
+      },
+      "touchDelivery": {
+        "count": 7,
+        "p50Ms": 94.79999999981374,
+        "p95Ms": 119.19999999925494,
+        "p99Ms": 119.19999999925494,
+        "maxMs": 119.19999999925494
+      },
+      "touchNextRAF": {
+        "count": 7,
+        "p50Ms": 138.59999999962747,
+        "p95Ms": 151.59999999962747,
+        "p99Ms": 151.59999999962747,
+        "maxMs": 151.59999999962747
+      },
+      "touchCount": 7,
+      "heap": {
+        "usedSize": 32930944,
+        "totalSize": 98361344,
+        "embedderHeapUsedSize": 7739752,
+        "backingStorageSize": 11950597
+      },
+      "dom": {
+        "documents": 1,
+        "nodes": 1499,
+        "jsEventListeners": 87
+      },
+      "state": {
+        "day": 2920,
+        "population": 2000,
+        "people": 2082,
+        "households": 694,
+        "buildings": 750,
+        "firms": 37,
+        "treasury": 1489441.434577732,
+        "region": 4259145.841819216,
+        "total": 15493517.000010693,
+        "valid": {
+          "ok": true,
+          "issues": [],
+          "total": 15493517.000010693,
+          "population": 2000,
+          "day": 2920
+        },
+        "goodsError": 3.051900421269238e-08,
+        "autoBuild": true,
+        "privateEntry": 1,
+        "requestedSpeed": 64,
+        "grid": 128,
+        "deeds": 21,
+        "routes": 48,
+        "operating": 48,
+        "drivers": 96,
+        "cargo": 71,
+        "providers": 4,
+        "providerStaff": 7,
+        "privateClients": 408.0000000000001,
+        "atlas": 131,
+        "atlasBytes": 11451648,
+        "serviceCaches": 2,
+        "traffic": 56,
+        "history": 240,
+        "events": 160,
+        "transactions": 800,
+        "observations": 293,
+        "loans": 2,
+        "paused": false,
+        "hostSuspended": false,
+        "hidden": false,
+        "pending": false,
+        "backlog": 7,
+        "saveOrder": 31,
+        "savePending": false,
+        "saveRunning": false,
+        "musicEnabled": true,
+        "musicTrack": 2,
+        "musicError": "",
+        "musicDecks": [
+          {
+            "index": 2,
+            "paused": false,
+            "currentTime": 93.715853,
+            "readyState": 4,
+            "error": 0,
+            "gain": 1
+          }
+        ]
+      }
+    },
+    {
+      "utc": "2026-10-31T20:06:59.812706+00:00",
+      "seconds": 122.47456625199993,
+      "windowSeconds": 33.245700000000184,
+      "days": 849,
+      "actualRate": 42.13627627031442,
+      "zoom": "far",
+      "raf": {
+        "count": 849,
+        "p50Ms": 33.30000000000291,
+        "p95Ms": 66.69999999999709,
+        "p99Ms": 149.90000000000873,
+        "maxMs": 233.20000000001164
+      },
+      "ticks": {
+        "count": 849,
+        "p50Ms": 29,
+        "p95Ms": 46.40000000037253,
+        "p99Ms": 122.59999999962747,
+        "maxMs": 190.09999999962747
+      },
+      "touchDelivery": {
+        "count": 11,
+        "p50Ms": 97.20000000018626,
+        "p95Ms": 227.6000000005588,
+        "p99Ms": 227.6000000005588,
+        "maxMs": 227.6000000005588
+      },
+      "touchNextRAF": {
+        "count": 11,
+        "p50Ms": 135.40000000037253,
+        "p95Ms": 262.70000000018626,
+        "p99Ms": 262.70000000018626,
+        "maxMs": 262.70000000018626
+      },
+      "touchCount": 11,
+      "heap": {
+        "usedSize": 44556016,
+        "totalSize": 128589824,
+        "embedderHeapUsedSize": 5936216,
+        "backingStorageSize": 136516510
+      },
+      "dom": {
+        "documents": 1,
+        "nodes": 1086,
+        "jsEventListeners": 108
+      },
+      "state": {
+        "day": 3769,
+        "population": 1994,
+        "people": 2106,
+        "households": 694,
+        "buildings": 750,
+        "firms": 37,
+        "treasury": 472392.19322113134,
+        "region": 4341528.842567657,
+        "total": 15493517.000024721,
+        "valid": {
+          "ok": true,
+          "issues": [],
+          "total": 15493517.000024721,
+          "population": 1994,
+          "day": 3769
+        },
+        "goodsError": 4.101457307115197e-08,
+        "autoBuild": true,
+        "privateEntry": 1,
+        "requestedSpeed": 64,
+        "grid": 128,
+        "deeds": 21,
+        "routes": 48,
+        "operating": 48,
+        "drivers": 96,
+        "cargo": 78,
+        "providers": 5,
+        "providerStaff": 8,
+        "privateClients": 402.2927769818427,
+        "atlas": 180,
+        "atlasBytes": 16367872,
+        "serviceCaches": 2,
+        "traffic": 37,
+        "history": 240,
+        "events": 160,
+        "transactions": 800,
+        "observations": 377,
+        "loans": 2,
+        "paused": false,
+        "hostSuspended": false,
+        "hidden": false,
+        "pending": false,
+        "backlog": 7,
+        "saveOrder": 35,
+        "savePending": false,
+        "saveRunning": false,
+        "musicEnabled": true,
+        "musicTrack": 2,
+        "musicError": "",
+        "musicDecks": [
+          {
+            "index": 2,
+            "paused": false,
+            "currentTime": 126.962443,
+            "readyState": 4,
+            "error": 0,
+            "gain": 1
+          }
+        ]
+      }
+    },
+    {
+      "utc": "2026-10-31T20:07:25.632044+00:00",
+      "seconds": 150.71246525200058,
+      "windowSeconds": 25.81940000000037,
+      "days": 660,
+      "actualRate": 42.17758739552369,
+      "zoom": "far",
+      "raf": {
+        "count": 660,
+        "p50Ms": 33.30000000001746,
+        "p95Ms": 66.70000000001164,
+        "p99Ms": 133.40000000002328,
+        "maxMs": 200
+      },
+      "ticks": {
+        "count": 660,
+        "p50Ms": 31.299999999813735,
+        "p95Ms": 54.10000000055879,
+        "p99Ms": 125.79999999981374,
+        "maxMs": 161.09999999962747
+      },
+      "touchDelivery": {
+        "count": 6,
+        "p50Ms": 102.90000000037253,
+        "p95Ms": 109.90000000037253,
+        "p99Ms": 109.90000000037253,
+        "maxMs": 109.90000000037253
+      },
+      "touchNextRAF": {
+        "count": 6,
+        "p50Ms": 141.79999999981374,
+        "p95Ms": 173.40000000037253,
+        "p99Ms": 173.40000000037253,
+        "maxMs": 173.40000000037253
+      },
+      "touchCount": 6,
+      "heap": {
+        "usedSize": 23612428,
+        "totalSize": 93868032,
+        "embedderHeapUsedSize": 5211160,
+        "backingStorageSize": 126194092
+      },
+      "dom": {
+        "documents": 1,
+        "nodes": 1082,
+        "jsEventListeners": 100
+      },
+      "state": {
+        "day": 4429,
+        "population": 1999,
+        "people": 2132,
+        "households": 695,
+        "buildings": 750,
+        "firms": 37,
+        "treasury": 606102.213809977,
+        "region": 3658943.432907388,
+        "total": 15493517.000027869,
+        "valid": {
+          "ok": true,
+          "issues": [],
+          "total": 15493517.000027869,
+          "population": 1999,
+          "day": 4429
+        },
+        "goodsError": 4.825415089726448e-08,
+        "autoBuild": true,
+        "privateEntry": 1,
+        "requestedSpeed": 64,
+        "grid": 128,
+        "deeds": 21,
+        "routes": 48,
+        "operating": 48,
+        "drivers": 96,
+        "cargo": 50,
+        "providers": 4,
+        "providerStaff": 7,
+        "privateClients": 320.9434176582829,
+        "atlas": 195,
+        "atlasBytes": 17599744,
+        "serviceCaches": 2,
+        "traffic": 42,
+        "history": 240,
+        "events": 160,
+        "transactions": 800,
+        "observations": 443,
+        "loans": 2,
+        "paused": false,
+        "hostSuspended": false,
+        "hidden": false,
+        "pending": false,
+        "backlog": 7,
+        "saveOrder": 37,
+        "savePending": false,
+        "saveRunning": false,
+        "musicEnabled": true,
+        "musicTrack": 2,
+        "musicError": "",
+        "musicDecks": [
+          {
+            "index": 2,
+            "paused": false,
+            "currentTime": 152.782165,
+            "readyState": 4,
+            "error": 0,
+            "gain": 1
+          }
+        ]
+      }
+    },
+    {
+      "utc": "2026-10-31T20:07:57.151465+00:00",
+      "seconds": 181.9644758680006,
+      "windowSeconds": 31.509599999999626,
+      "days": 766,
+      "actualRate": 40.11158504074996,
+      "zoom": "far",
+      "raf": {
+        "count": 766,
+        "p50Ms": 33.39999999999418,
+        "p95Ms": 66.70000000001164,
+        "p99Ms": 150,
+        "maxMs": 183.30000000001746
+      },
+      "ticks": {
+        "count": 766,
+        "p50Ms": 31.699999999254942,
+        "p95Ms": 63,
+        "p99Ms": 134.20000000018626,
+        "maxMs": 176.90000000037253
+      },
+      "touchDelivery": {
+        "count": 8,
+        "p50Ms": 109.30000000074506,
+        "p95Ms": 284.09999999962747,
+        "p99Ms": 284.09999999962747,
+        "maxMs": 284.09999999962747
+      },
+      "touchNextRAF": {
+        "count": 8,
+        "p50Ms": 152.40000000037253,
+        "p95Ms": 320.70000000018626,
+        "p99Ms": 320.70000000018626,
+        "maxMs": 320.70000000018626
+      },
+      "touchCount": 8,
+      "heap": {
+        "usedSize": 51206940,
+        "totalSize": 97304576,
+        "embedderHeapUsedSize": 6529528,
+        "backingStorageSize": 56563048
+      },
+      "dom": {
+        "documents": 1,
+        "nodes": 2095,
+        "jsEventListeners": 100
+      },
+      "state": {
+        "day": 5195,
+        "population": 1987,
+        "people": 2149,
+        "households": 695,
+        "buildings": 750,
+        "firms": 37,
+        "treasury": 514559.1845918486,
+        "region": 4413188.65565225,
+        "total": 15493517.00002954,
+        "valid": {
+          "ok": true,
+          "issues": [],
+          "total": 15493517.00002954,
+          "population": 1987,
+          "day": 5195
+        },
+        "goodsError": 5.538822733797133e-08,
+        "autoBuild": true,
+        "privateEntry": 1,
+        "requestedSpeed": 64,
+        "grid": 128,
+        "deeds": 21,
+        "routes": 48,
+        "operating": 48,
+        "drivers": 96,
+        "cargo": 20,
+        "providers": 4,
+        "providerStaff": 7,
+        "privateClients": 261.4577088462377,
+        "atlas": 202,
+        "atlasBytes": 18139136,
+        "serviceCaches": 2,
+        "traffic": 42,
+        "history": 240,
+        "events": 160,
+        "transactions": 800,
+        "observations": 520,
+        "loans": 2,
+        "paused": false,
+        "hostSuspended": false,
+        "hidden": false,
+        "pending": false,
+        "backlog": 7,
+        "saveOrder": 38,
+        "savePending": false,
+        "saveRunning": false,
+        "musicEnabled": true,
+        "musicTrack": 2,
+        "musicError": "",
+        "musicDecks": [
+          {
+            "index": 2,
+            "paused": false,
+            "currentTime": 184.300611,
+            "readyState": 4,
+            "error": 0,
+            "gain": 1
+          }
+        ]
+      }
+    },
+    {
+      "utc": "2026-10-31T20:08:28.385443+00:00",
+      "seconds": 213.52348812700075,
+      "windowSeconds": 31.245799999999814,
+      "days": 773,
+      "actualRate": 40.81988619270454,
+      "zoom": "far",
+      "raf": {
+        "count": 773,
+        "p50Ms": 33.39999999999418,
+        "p95Ms": 66.70000000001164,
+        "p99Ms": 150,
+        "maxMs": 183.39999999999418
+      },
+      "ticks": {
+        "count": 773,
+        "p50Ms": 32.09999999962747,
+        "p95Ms": 55.09999999962747,
+        "p99Ms": 136.59999999962747,
+        "maxMs": 158
+      },
+      "touchDelivery": {
+        "count": 8,
+        "p50Ms": 98.19999999925494,
+        "p95Ms": 113,
+        "p99Ms": 113,
+        "maxMs": 113
+      },
+      "touchNextRAF": {
+        "count": 8,
+        "p50Ms": 132.70000000018626,
+        "p95Ms": 151.5,
+        "p99Ms": 151.5,
+        "maxMs": 151.5
+      },
+      "touchCount": 8,
+      "heap": {
+        "usedSize": 79743272,
+        "totalSize": 126341120,
+        "embedderHeapUsedSize": 9566600,
+        "backingStorageSize": 91397103
+      },
+      "dom": {
+        "documents": 1,
+        "nodes": 5225,
+        "jsEventListeners": 108
+      },
+      "state": {
+        "day": 5968,
+        "population": 1986,
+        "people": 2169,
+        "households": 695,
+        "buildings": 750,
+        "firms": 37,
+        "treasury": 379406.25903286476,
+        "region": 4139630.605576139,
+        "total": 15493517.00003402,
+        "valid": {
+          "ok": true,
+          "issues": [],
+          "total": 15493517.00003402,
+          "population": 1986,
+          "day": 5968
+        },
+        "goodsError": 6.030313670635223e-08,
+        "autoBuild": true,
+        "privateEntry": 1,
+        "requestedSpeed": 64,
+        "grid": 128,
+        "deeds": 21,
+        "routes": 48,
+        "operating": 48,
+        "drivers": 96,
+        "cargo": 20,
+        "providers": 2,
+        "providerStaff": 4,
+        "privateClients": 209.19333827532154,
+        "atlas": 211,
+        "atlasBytes": 18908672,
+        "serviceCaches": 2,
+        "traffic": 42,
+        "history": 240,
+        "events": 160,
+        "transactions": 800,
+        "observations": 597,
+        "loans": 4,
+        "paused": false,
+        "hostSuspended": false,
+        "hidden": false,
+        "pending": false,
+        "backlog": 7,
+        "saveOrder": 39,
+        "savePending": false,
+        "saveRunning": false,
+        "musicEnabled": true,
+        "musicTrack": 2,
+        "musicError": "",
+        "musicDecks": [
+          {
+            "index": 2,
+            "paused": false,
+            "currentTime": 215.535802,
+            "readyState": 4,
+            "error": 0,
+            "gain": 1
+          }
+        ]
+      }
+    },
+    {
+      "utc": "2026-10-31T20:09:01.718550+00:00",
+      "seconds": 244.60311550000006,
+      "windowSeconds": 33.32840000000037,
+      "days": 865,
+      "actualRate": 42.82383792801287,
+      "zoom": "near",
+      "raf": {
+        "count": 865,
+        "p50Ms": 33.30000000001746,
+        "p95Ms": 66.70000000001164,
+        "p99Ms": 166.60000000000582,
+        "maxMs": 200.10000000000582
+      },
+      "ticks": {
+        "count": 865,
+        "p50Ms": 29.899999999441206,
+        "p95Ms": 50.19999999925494,
+        "p99Ms": 139.70000000018626,
+        "maxMs": 176.79999999981374
+      },
+      "touchDelivery": {
+        "count": 12,
+        "p50Ms": 92.40000000037253,
+        "p95Ms": 211.3999999994412,
+        "p99Ms": 211.3999999994412,
+        "maxMs": 211.3999999994412
+      },
+      "touchNextRAF": {
+        "count": 12,
+        "p50Ms": 124.5,
+        "p95Ms": 261,
+        "p99Ms": 261,
+        "maxMs": 261
+      },
+      "touchCount": 12,
+      "heap": {
+        "usedSize": 35344520,
+        "totalSize": 96231424,
+        "embedderHeapUsedSize": 6215672,
+        "backingStorageSize": 60859976
+      },
+      "dom": {
+        "documents": 1,
+        "nodes": 1125,
+        "jsEventListeners": 100
+      },
+      "state": {
+        "day": 6833,
+        "population": 1966,
+        "people": 2178,
+        "households": 698,
+        "buildings": 750,
+        "firms": 37,
+        "treasury": 318406.5371398237,
+        "region": 3563944.5055526216,
+        "total": 15493517.000032589,
+        "valid": {
+          "ok": true,
+          "issues": [],
+          "total": 15493517.000032589,
+          "population": 1966,
+          "day": 6833
+        },
+        "goodsError": 6.554910214617848e-08,
+        "autoBuild": true,
+        "privateEntry": 1,
+        "requestedSpeed": 64,
+        "grid": 128,
+        "deeds": 21,
+        "routes": 48,
+        "operating": 48,
+        "drivers": 96,
+        "cargo": 29,
+        "providers": 2,
+        "providerStaff": 4,
+        "privateClients": 212.00000000000003,
+        "atlas": 214,
+        "atlasBytes": 19215872,
+        "serviceCaches": 2,
+        "traffic": 42,
+        "history": 240,
+        "events": 160,
+        "transactions": 800,
+        "observations": 684,
+        "loans": 4,
+        "paused": false,
+        "hostSuspended": false,
+        "hidden": false,
+        "pending": false,
+        "backlog": 7,
+        "saveOrder": 41,
+        "savePending": false,
+        "saveRunning": false,
+        "musicEnabled": true,
+        "musicTrack": 7,
+        "musicError": "",
+        "musicDecks": [
+          {
+            "index": 7,
+            "paused": false,
+            "currentTime": 31.788501,
+            "readyState": 4,
+            "error": 0,
+            "gain": 1
+          }
+        ]
+      }
+    },
+    {
+      "utc": "2026-10-31T20:09:28.827580+00:00",
+      "seconds": 273.6307384470001,
+      "windowSeconds": 27.1035,
+      "days": 617,
+      "actualRate": 37.561569538989424,
+      "zoom": "near",
+      "raf": {
+        "count": 617,
+        "p50Ms": 33.39999999999418,
+        "p95Ms": 66.70000000001164,
+        "p99Ms": 166.70000000001164,
+        "maxMs": 183.40000000002328
+      },
+      "ticks": {
+        "count": 617,
+        "p50Ms": 33.19999999925494,
+        "p95Ms": 53.59999999962747,
+        "p99Ms": 145.1000000005588,
+        "maxMs": 173.29999999981374
+      },
+      "touchDelivery": {
+        "count": 7,
+        "p50Ms": 107.79999999981374,
+        "p95Ms": 253.59999999962747,
+        "p99Ms": 253.59999999962747,
+        "maxMs": 253.59999999962747
+      },
+      "touchNextRAF": {
+        "count": 7,
+        "p50Ms": 146.79999999981374,
+        "p95Ms": 284.70000000018626,
+        "p99Ms": 284.70000000018626,
+        "maxMs": 284.70000000018626
+      },
+      "touchCount": 7,
+      "heap": {
+        "usedSize": 55793100,
+        "totalSize": 98918400,
+        "embedderHeapUsedSize": 6481040,
+        "backingStorageSize": 52868285
+      },
+      "dom": {
+        "documents": 1,
+        "nodes": 1180,
+        "jsEventListeners": 100
+      },
+      "state": {
+        "day": 7450,
+        "population": 1959,
+        "people": 2185,
+        "households": 698,
+        "buildings": 750,
+        "firms": 37,
+        "treasury": 262964.1388063626,
+        "region": 4715253.0529243825,
+        "total": 15493517.000039395,
+        "valid": {
+          "ok": true,
+          "issues": [],
+          "total": 15493517.000039395,
+          "population": 1959,
+          "day": 7450
+        },
+        "goodsError": 6.83103280607611e-08,
+        "autoBuild": true,
+        "privateEntry": 1,
+        "requestedSpeed": 64,
+        "grid": 128,
+        "deeds": 21,
+        "routes": 48,
+        "operating": 48,
+        "drivers": 96,
+        "cargo": 98,
+        "providers": 3,
+        "providerStaff": 5,
+        "privateClients": 225.9685804701626,
+        "atlas": 215,
+        "atlasBytes": 19292928,
+        "serviceCaches": 2,
+        "traffic": 41,
+        "history": 240,
+        "events": 160,
+        "transactions": 800,
+        "observations": 746,
+        "loans": 4,
+        "paused": false,
+        "hostSuspended": false,
+        "hidden": false,
+        "pending": false,
+        "backlog": 7,
+        "saveOrder": 43,
+        "savePending": false,
+        "saveRunning": false,
+        "musicEnabled": true,
+        "musicTrack": 7,
+        "musicError": "",
+        "musicDecks": [
+          {
+            "index": 7,
+            "paused": false,
+            "currentTime": 58.897131,
+            "readyState": 4,
+            "error": 0,
+            "gain": 1
+          }
+        ]
+      }
+    },
+    {
+      "utc": "2026-10-31T20:09:56.030294+00:00",
+      "seconds": 300.105948036,
+      "windowSeconds": 27.170700000000185,
+      "days": 598,
+      "actualRate": 36.314853868321144,
+      "zoom": "near",
+      "raf": {
+        "count": 598,
+        "p50Ms": 33.40000000002328,
+        "p95Ms": 66.70000000001164,
+        "p99Ms": 166.69999999995343,
+        "maxMs": 233.39999999996508
+      },
+      "ticks": {
+        "count": 598,
+        "p50Ms": 34.200000000186265,
+        "p95Ms": 56.799999999813735,
+        "p99Ms": 148.5,
+        "maxMs": 173.79999999981374
+      },
+      "touchDelivery": {
+        "count": 7,
+        "p50Ms": 103.90000000037253,
+        "p95Ms": 142.90000000037253,
+        "p99Ms": 142.90000000037253,
+        "maxMs": 142.90000000037253
+      },
+      "touchNextRAF": {
+        "count": 7,
+        "p50Ms": 155.79999999981374,
+        "p95Ms": 179.59999999962747,
+        "p99Ms": 179.59999999962747,
+        "maxMs": 179.59999999962747
+      },
+      "touchCount": 7,
+      "heap": {
+        "usedSize": 90553388,
+        "totalSize": 146198528,
+        "embedderHeapUsedSize": 8173384,
+        "backingStorageSize": 75462428
+      },
+      "dom": {
+        "documents": 1,
+        "nodes": 1207,
+        "jsEventListeners": 108
+      },
+      "state": {
+        "day": 8048,
+        "population": 1949,
+        "people": 2198,
+        "households": 698,
+        "buildings": 750,
+        "firms": 37,
+        "treasury": 92949.1186292998,
+        "region": 5042123.233162159,
+        "total": 15493517.000052197,
+        "valid": {
+          "ok": true,
+          "issues": [],
+          "total": 15493517.000052197,
+          "population": 1949,
+          "day": 8048
+        },
+        "goodsError": 7.107882993295789e-08,
+        "autoBuild": true,
+        "privateEntry": 1,
+        "requestedSpeed": 64,
+        "grid": 128,
+        "deeds": 21,
+        "routes": 48,
+        "operating": 48,
+        "drivers": 96,
+        "cargo": 79,
+        "providers": 3,
+        "providerStaff": 5,
+        "privateClients": 222.46165187098802,
+        "atlas": 215,
+        "atlasBytes": 19292928,
+        "serviceCaches": 2,
+        "traffic": 37,
+        "history": 240,
+        "events": 160,
+        "transactions": 800,
+        "observations": 805,
+        "loans": 4,
+        "paused": false,
+        "hostSuspended": false,
+        "hidden": false,
+        "pending": false,
+        "backlog": 7,
+        "saveOrder": 46,
+        "savePending": false,
+        "saveRunning": true,
+        "musicEnabled": true,
+        "musicTrack": 7,
+        "musicError": "",
+        "musicDecks": [
+          {
+            "index": 7,
+            "paused": false,
+            "currentTime": 86.10001,
+            "readyState": 4,
+            "error": 0,
+            "gain": 1
+          }
+        ]
+      }
+    },
+    {
+      "utc": "2026-10-31T20:10:29.556486+00:00",
+      "seconds": 333.7451141520005,
+      "windowSeconds": 33.53789999999944,
+      "days": 564,
+      "actualRate": 27.747712289678706,
+      "zoom": "near",
+      "raf": {
+        "count": 564,
+        "p50Ms": 50,
+        "p95Ms": 166.59999999997672,
+        "p99Ms": 349.9000000000233,
+        "maxMs": 750
+      },
+      "ticks": {
+        "count": 564,
+        "p50Ms": 39.10000000055879,
+        "p95Ms": 64.5,
+        "p99Ms": 178.3999999994412,
+        "maxMs": 242
+      },
+      "touchDelivery": {
+        "count": 8,
+        "p50Ms": 135.5,
+        "p95Ms": 418.29999999981374,
+        "p99Ms": 418.29999999981374,
+        "maxMs": 418.29999999981374
+      },
+      "touchNextRAF": {
+        "count": 8,
+        "p50Ms": 184,
+        "p95Ms": 781.7000000001863,
+        "p99Ms": 781.7000000001863,
+        "maxMs": 781.7000000001863
+      },
+      "touchCount": 8,
+      "heap": {
+        "usedSize": 59476028,
+        "totalSize": 100200448,
+        "embedderHeapUsedSize": 6928368,
+        "backingStorageSize": 56700290
+      },
+      "dom": {
+        "documents": 1,
+        "nodes": 1326,
+        "jsEventListeners": 100
+      },
+      "state": {
+        "day": 8612,
+        "population": 1951,
+        "people": 2209,
+        "households": 699,
+        "buildings": 750,
+        "firms": 37,
+        "treasury": 51582.28533501303,
+        "region": 4578118.537284984,
+        "total": 15493517.00006327,
+        "valid": {
+          "ok": true,
+          "issues": [],
+          "total": 15493517.00006327,
+          "population": 1951,
+          "day": 8612
+        },
+        "goodsError": 7.276685209944844e-08,
+        "autoBuild": true,
+        "privateEntry": 1,
+        "requestedSpeed": 64,
+        "grid": 128,
+        "deeds": 21,
+        "routes": 48,
+        "operating": 48,
+        "drivers": 96,
+        "cargo": 98,
+        "providers": 4,
+        "providerStaff": 6,
+        "privateClients": 237.32853611160172,
+        "atlas": 215,
+        "atlasBytes": 19292928,
+        "serviceCaches": 2,
+        "traffic": 35,
+        "history": 240,
+        "events": 160,
+        "transactions": 800,
+        "observations": 862,
+        "loans": 4,
+        "paused": false,
+        "hostSuspended": false,
+        "hidden": false,
+        "pending": false,
+        "backlog": 7,
+        "saveOrder": 48,
+        "savePending": false,
+        "saveRunning": false,
+        "musicEnabled": true,
+        "musicTrack": 7,
+        "musicError": "",
+        "musicDecks": [
+          {
+            "index": 7,
+            "paused": false,
+            "currentTime": 119.626047,
+            "readyState": 4,
+            "error": 0,
+            "gain": 1
+          }
+        ]
+      }
+    },
+    {
+      "utc": "2026-10-31T20:10:59.008540+00:00",
+      "seconds": 361.3365809910001,
+      "windowSeconds": 29.4725,
+      "days": 554,
+      "actualRate": 31.015353295444903,
+      "zoom": "far",
+      "raf": {
+        "count": 554,
+        "p50Ms": 50,
+        "p95Ms": 83.39999999996508,
+        "p99Ms": 199.90000000002328,
+        "maxMs": 216.60000000003492
+      },
+      "ticks": {
+        "count": 554,
+        "p50Ms": 40.60000000055879,
+        "p95Ms": 65.20000000018626,
+        "p99Ms": 160.59999999962747,
+        "maxMs": 189.09999999962747
+      },
+      "touchDelivery": {
+        "count": 10,
+        "p50Ms": 130,
+        "p95Ms": 178.79999999981374,
+        "p99Ms": 178.79999999981374,
+        "maxMs": 178.79999999981374
+      },
+      "touchNextRAF": {
+        "count": 10,
+        "p50Ms": 170.20000000018626,
+        "p95Ms": 376.40000000037253,
+        "p99Ms": 376.40000000037253,
+        "maxMs": 376.40000000037253
+      },
+      "touchCount": 10,
+      "heap": {
+        "usedSize": 65888172,
+        "totalSize": 134483968,
+        "embedderHeapUsedSize": 14328976,
+        "backingStorageSize": 76752034
+      },
+      "dom": {
+        "documents": 1,
+        "nodes": 4451,
+        "jsEventListeners": 108
+      },
+      "state": {
+        "day": 9166,
+        "population": 1955,
+        "people": 2225,
+        "households": 699,
+        "buildings": 750,
+        "firms": 37,
+        "treasury": 93289.77833304518,
+        "region": 3810726.524051525,
+        "total": 15493517.000070415,
+        "valid": {
+          "ok": true,
+          "issues": [],
+          "total": 15493517.000070415,
+          "population": 1955,
+          "day": 9166
+        },
+        "goodsError": 7.453854777850211e-08,
+        "autoBuild": true,
+        "privateEntry": 1,
+        "requestedSpeed": 64,
+        "grid": 128,
+        "deeds": 21,
+        "routes": 48,
+        "operating": 48,
+        "drivers": 96,
+        "cargo": 79,
+        "providers": 4,
+        "providerStaff": 6,
+        "privateClients": 236.8143405046832,
+        "atlas": 231,
+        "atlasBytes": 20677888,
+        "serviceCaches": 2,
+        "traffic": 47,
+        "history": 240,
+        "events": 160,
+        "transactions": 800,
+        "observations": 917,
+        "loans": 4,
+        "paused": false,
+        "hostSuspended": false,
+        "hidden": false,
+        "pending": false,
+        "backlog": 7,
+        "saveOrder": 51,
+        "savePending": false,
+        "saveRunning": false,
+        "musicEnabled": true,
+        "musicTrack": 7,
+        "musicError": "",
+        "musicDecks": [
+          {
+            "index": 7,
+            "paused": false,
+            "currentTime": 149.07903,
+            "readyState": 4,
+            "error": 0,
+            "gain": 1
+          }
+        ]
+      }
+    },
+    {
+      "utc": "2026-10-31T20:11:26.225963+00:00",
+      "seconds": 391.10619604400017,
+      "windowSeconds": 27.206900000000374,
+      "days": 544,
+      "actualRate": 32.991630799539365,
+      "zoom": "far",
+      "raf": {
+        "count": 544,
+        "p50Ms": 50,
+        "p95Ms": 83.29999999998836,
+        "p99Ms": 199.89999999996508,
+        "maxMs": 233.19999999995343
+      },
+      "ticks": {
+        "count": 544,
+        "p50Ms": 41.09999999962747,
+        "p95Ms": 70.5,
+        "p99Ms": 166.1000000005588,
+        "maxMs": 223.3999999994412
+      },
+      "touchDelivery": {
+        "count": 7,
+        "p50Ms": 125.29999999981374,
+        "p95Ms": 338.1000000005588,
+        "p99Ms": 338.1000000005588,
+        "maxMs": 338.1000000005588
+      },
+      "touchNextRAF": {
+        "count": 7,
+        "p50Ms": 167.19999999925494,
+        "p95Ms": 387.70000000018626,
+        "p99Ms": 387.70000000018626,
+        "maxMs": 387.70000000018626
+      },
+      "touchCount": 7,
+      "heap": {
+        "usedSize": 46147856,
+        "totalSize": 98123776,
+        "embedderHeapUsedSize": 7280352,
+        "backingStorageSize": 68032756
+      },
+      "dom": {
+        "documents": 1,
+        "nodes": 5145,
+        "jsEventListeners": 100
+      },
+      "state": {
+        "day": 9710,
+        "population": 1944,
+        "people": 2241,
+        "households": 702,
+        "buildings": 750,
+        "firms": 37,
+        "treasury": 45611.20372571924,
+        "region": 3899438.4158259053,
+        "total": 15493517.000072265,
+        "valid": {
+          "ok": true,
+          "issues": [],
+          "total": 15493517.000072265,
+          "population": 1944,
+          "day": 9710
+        },
+        "goodsError": 7.542257662862539e-08,
+        "autoBuild": true,
+        "privateEntry": 1,
+        "requestedSpeed": 64,
+        "grid": 128,
+        "deeds": 21,
+        "routes": 48,
+        "operating": 48,
+        "drivers": 96,
+        "cargo": 66,
+        "providers": 3,
+        "providerStaff": 5,
+        "privateClients": 218.99117057594881,
+        "atlas": 232,
+        "atlasBytes": 20754944,
+        "serviceCaches": 2,
+        "traffic": 49,
+        "history": 240,
+        "events": 160,
+        "transactions": 800,
+        "observations": 972,
+        "loans": 4,
+        "paused": false,
+        "hostSuspended": false,
+        "hidden": false,
+        "pending": false,
+        "backlog": 7,
+        "saveOrder": 52,
+        "savePending": false,
+        "saveRunning": false,
+        "musicEnabled": true,
+        "musicTrack": 7,
+        "musicError": "",
+        "musicDecks": [
+          {
+            "index": 7,
+            "paused": false,
+            "currentTime": 176.296211,
+            "readyState": 4,
+            "error": 0,
+            "gain": 1
+          }
+        ]
+      }
+    },
+    {
+      "utc": "2026-10-31T20:11:58.866154+00:00",
+      "seconds": 423.6612680470007,
+      "windowSeconds": 32.647,
+      "days": 614,
+      "actualRate": 31.03194780531136,
+      "zoom": "far",
+      "raf": {
+        "count": 614,
+        "p50Ms": 50,
+        "p95Ms": 83.39999999996508,
+        "p99Ms": 200,
+        "maxMs": 233.29999999998836
+      },
+      "ticks": {
+        "count": 614,
+        "p50Ms": 43.69999999925494,
+        "p95Ms": 68.6000000005588,
+        "p99Ms": 178.90000000037253,
+        "maxMs": 217.8999999994412
+      },
+      "touchDelivery": {
+        "count": 8,
+        "p50Ms": 135.8999999994412,
+        "p95Ms": 291.6000000005588,
+        "p99Ms": 291.6000000005588,
+        "maxMs": 291.6000000005588
+      },
+      "touchNextRAF": {
+        "count": 8,
+        "p50Ms": 175.29999999981374,
+        "p95Ms": 353.6000000005588,
+        "p99Ms": 353.6000000005588,
+        "maxMs": 353.6000000005588
+      },
+      "touchCount": 8,
+      "heap": {
+        "usedSize": 63253804,
+        "totalSize": 101056512,
+        "embedderHeapUsedSize": 6147512,
+        "backingStorageSize": 37394579
+      },
+      "dom": {
+        "documents": 1,
+        "nodes": 1623,
+        "jsEventListeners": 100
+      },
+      "state": {
+        "day": 10324,
+        "population": 1947,
+        "people": 2254,
+        "households": 706,
+        "buildings": 750,
+        "firms": 37,
+        "treasury": 42816.282447111815,
+        "region": 3965997.337694322,
+        "total": 15493517.000073675,
+        "valid": {
+          "ok": true,
+          "issues": [],
+          "total": 15493517.000073675,
+          "population": 1947,
+          "day": 10324
+        },
+        "goodsError": 7.579728844575584e-08,
+        "autoBuild": true,
+        "privateEntry": 1,
+        "requestedSpeed": 64,
+        "grid": 128,
+        "deeds": 21,
+        "routes": 48,
+        "operating": 48,
+        "drivers": 96,
+        "cargo": 37,
+        "providers": 4,
+        "providerStaff": 6,
+        "privateClients": 237.35331632653052,
+        "atlas": 233,
+        "atlasBytes": 20832000,
+        "serviceCaches": 2,
+        "traffic": 49,
+        "history": 240,
+        "events": 160,
+        "transactions": 800,
+        "observations": 1033,
+        "loans": 4,
+        "paused": false,
+        "hostSuspended": false,
+        "hidden": false,
+        "pending": false,
+        "backlog": 7,
+        "saveOrder": 53,
+        "savePending": false,
+        "saveRunning": false,
+        "musicEnabled": true,
+        "musicTrack": 7,
+        "musicError": "",
+        "musicDecks": [
+          {
+            "index": 7,
+            "paused": false,
+            "currentTime": 208.936041,
+            "readyState": 4,
+            "error": 0,
+            "gain": 1
+          }
+        ]
+      }
+    },
+    {
+      "utc": "2026-10-31T20:12:26.223257+00:00",
+      "seconds": 450.4606315130004,
+      "windowSeconds": 27.357200000000187,
+      "days": 543,
+      "actualRate": 32.75006214086214,
+      "zoom": "far",
+      "raf": {
+        "count": 543,
+        "p50Ms": 50,
+        "p95Ms": 83.29999999998836,
+        "p99Ms": 200,
+        "maxMs": 250
+      },
+      "ticks": {
+        "count": 543,
+        "p50Ms": 41.40000000037253,
+        "p95Ms": 62.59999999962747,
+        "p99Ms": 175.90000000037253,
+        "maxMs": 220.1000000005588
+      },
+      "touchDelivery": {
+        "count": 7,
+        "p50Ms": 126.79999999981374,
+        "p95Ms": 363.79999999981374,
+        "p99Ms": 363.79999999981374,
+        "maxMs": 363.79999999981374
+      },
+      "touchNextRAF": {
+        "count": 7,
+        "p50Ms": 165.19999999925494,
+        "p95Ms": 410.59999999962747,
+        "p99Ms": 410.59999999962747,
+        "maxMs": 410.59999999962747
+      },
+      "touchCount": 7,
+      "heap": {
+        "usedSize": 66447252,
+        "totalSize": 111820800,
+        "embedderHeapUsedSize": 7252816,
+        "backingStorageSize": 33233963
+      },
+      "dom": {
+        "documents": 1,
+        "nodes": 1193,
+        "jsEventListeners": 108
+      },
+      "state": {
+        "day": 10867,
+        "population": 1934,
+        "people": 2265,
+        "households": 707,
+        "buildings": 750,
+        "firms": 37,
+        "treasury": 113149.25035666506,
+        "region": 3934154.2019229154,
+        "total": 15493517.000074517,
+        "valid": {
+          "ok": true,
+          "issues": [],
+          "total": 15493517.000074517,
+          "population": 1934,
+          "day": 10867
+        },
+        "goodsError": 7.582639227621257e-08,
+        "autoBuild": true,
+        "privateEntry": 1,
+        "requestedSpeed": 64,
+        "grid": 128,
+        "deeds": 21,
+        "routes": 48,
+        "operating": 48,
+        "drivers": 96,
+        "cargo": 44,
+        "providers": 4,
+        "providerStaff": 6,
+        "privateClients": 242.04138655462182,
+        "atlas": 236,
+        "atlasBytes": 21139200,
+        "serviceCaches": 2,
+        "traffic": 49,
+        "history": 240,
+        "events": 160,
+        "transactions": 800,
+        "observations": 1087,
+        "loans": 4,
+        "paused": false,
+        "hostSuspended": false,
+        "hidden": false,
+        "pending": false,
+        "backlog": 7,
+        "saveOrder": 54,
+        "savePending": false,
+        "saveRunning": false,
+        "musicEnabled": true,
+        "musicTrack": 7,
+        "musicError": "",
+        "musicDecks": [
+          {
+            "index": 7,
+            "paused": false,
+            "currentTime": 236.293331,
+            "readyState": 4,
+            "error": 0,
+            "gain": 1
+          }
+        ]
+      }
+    },
+    {
+      "utc": "2026-10-31T20:13:01.546237+00:00",
+      "seconds": 483.0064376420005,
+      "windowSeconds": 35.29419999999926,
+      "days": 654,
+      "actualRate": 30.574428659667102,
+      "zoom": "near",
+      "raf": {
+        "count": 654,
+        "p50Ms": 50,
+        "p95Ms": 83.29999999998836,
+        "p99Ms": 200.09999999997672,
+        "maxMs": 283.29999999998836
+      },
+      "ticks": {
+        "count": 654,
+        "p50Ms": 43.40000000037253,
+        "p95Ms": 59.5,
+        "p99Ms": 185,
+        "maxMs": 239.09999999962747
+      },
+      "touchDelivery": {
+        "count": 11,
+        "p50Ms": 126.40000000037253,
+        "p95Ms": 245.29999999981374,
+        "p99Ms": 245.29999999981374,
+        "maxMs": 245.29999999981374
+      },
+      "touchNextRAF": {
+        "count": 11,
+        "p50Ms": 173,
+        "p95Ms": 294.20000000018626,
+        "p99Ms": 294.20000000018626,
+        "maxMs": 294.20000000018626
+      },
+      "touchCount": 11,
+      "heap": {
+        "usedSize": 58863440,
+        "totalSize": 98799616,
+        "embedderHeapUsedSize": 7289248,
+        "backingStorageSize": 72202583
+      },
+      "dom": {
+        "documents": 1,
+        "nodes": 1400,
+        "jsEventListeners": 100
+      },
+      "state": {
+        "day": 11521,
+        "population": 1924,
+        "people": 2279,
+        "households": 710,
+        "buildings": 750,
+        "firms": 37,
+        "treasury": 38257.387879379676,
+        "region": 4090404.4228632357,
+        "total": 15493517.000075806,
+        "valid": {
+          "ok": true,
+          "issues": [],
+          "total": 15493517.000075806,
+          "population": 1924,
+          "day": 11521
+        },
+        "goodsError": 7.521884981542826e-08,
+        "autoBuild": true,
+        "privateEntry": 1,
+        "requestedSpeed": 64,
+        "grid": 128,
+        "deeds": 21,
+        "routes": 48,
+        "operating": 48,
+        "drivers": 96,
+        "cargo": 114,
+        "providers": 3,
+        "providerStaff": 5,
+        "privateClients": 228.00000000000009,
+        "atlas": 242,
+        "atlasBytes": 21677568,
+        "serviceCaches": 2,
+        "traffic": 37,
+        "history": 240,
+        "events": 160,
+        "transactions": 800,
+        "observations": 1153,
+        "loans": 4,
+        "paused": false,
+        "hostSuspended": false,
+        "hidden": false,
+        "pending": false,
+        "backlog": 7,
+        "saveOrder": 56,
+        "savePending": false,
+        "saveRunning": false,
+        "musicEnabled": true,
+        "musicTrack": 7,
+        "musicError": "",
+        "musicDecks": [
+          {
+            "index": 7,
+            "paused": false,
+            "currentTime": 271.616076,
+            "readyState": 4,
+            "error": 0,
+            "gain": 1
+          }
+        ]
+      }
+    },
+    {
+      "utc": "2026-10-31T20:13:29.686601+00:00",
+      "seconds": 514.268613874,
+      "windowSeconds": 28.140800000000745,
+      "days": 450,
+      "actualRate": 26.38517739367681,
+      "zoom": "near",
+      "raf": {
+        "count": 450,
+        "p50Ms": 50,
+        "p95Ms": 99.89999999996508,
+        "p99Ms": 233.29999999998836,
+        "maxMs": 266.6000000000349
+      },
+      "ticks": {
+        "count": 450,
+        "p50Ms": 47.60000000055879,
+        "p95Ms": 78.19999999925494,
+        "p99Ms": 193.5,
+        "maxMs": 240.40000000037253
+      },
+      "touchDelivery": {
+        "count": 6,
+        "p50Ms": 184.29999999981374,
+        "p95Ms": 186.29999999981374,
+        "p99Ms": 186.29999999981374,
+        "maxMs": 186.29999999981374
+      },
+      "touchNextRAF": {
+        "count": 6,
+        "p50Ms": 231.90000000037253,
+        "p95Ms": 241.59999999962747,
+        "p99Ms": 241.59999999962747,
+        "maxMs": 241.59999999962747
+      },
+      "touchCount": 6,
+      "heap": {
+        "usedSize": 32686076,
+        "totalSize": 102027264,
+        "embedderHeapUsedSize": 9571632,
+        "backingStorageSize": 43886982
+      },
+      "dom": {
+        "documents": 1,
+        "nodes": 3532,
+        "jsEventListeners": 100
+      },
+      "state": {
+        "day": 11971,
+        "population": 1913,
+        "people": 2286,
+        "households": 713,
+        "buildings": 750,
+        "firms": 37,
+        "treasury": 98329.77782389507,
+        "region": 4547393.979356455,
+        "total": 15493517.000078108,
+        "valid": {
+          "ok": true,
+          "issues": [],
+          "total": 15493517.000078108,
+          "population": 1913,
+          "day": 11971
+        },
+        "goodsError": 7.491689757443964e-08,
+        "autoBuild": true,
+        "privateEntry": 1,
+        "requestedSpeed": 64,
+        "grid": 128,
+        "deeds": 21,
+        "routes": 48,
+        "operating": 48,
+        "drivers": 96,
+        "cargo": 42,
+        "providers": 3,
+        "providerStaff": 5,
+        "privateClients": 223.8503294708839,
+        "atlas": 243,
+        "atlasBytes": 21754624,
+        "serviceCaches": 2,
+        "traffic": 34,
+        "history": 240,
+        "events": 160,
+        "transactions": 800,
+        "observations": 1198,
+        "loans": 4,
+        "paused": false,
+        "hostSuspended": false,
+        "hidden": false,
+        "pending": false,
+        "backlog": 7,
+        "saveOrder": 57,
+        "savePending": false,
+        "saveRunning": false,
+        "musicEnabled": true,
+        "musicTrack": 7,
+        "musicError": "",
+        "musicDecks": [
+          {
+            "index": 7,
+            "paused": false,
+            "currentTime": 299.756394,
+            "readyState": 4,
+            "error": 0,
+            "gain": 1
+          }
+        ]
+      }
+    },
+    {
+      "utc": "2026-10-31T20:13:57.891182+00:00",
+      "seconds": 542.6344080770004,
+      "windowSeconds": 28.218799999999813,
+      "days": 433,
+      "actualRate": 25.318227564602488,
+      "zoom": "near",
+      "raf": {
+        "count": 433,
+        "p50Ms": 66.59999999997672,
+        "p95Ms": 99.90000000002328,
+        "p99Ms": 216.79999999993015,
+        "maxMs": 266.5999999999767
+      },
+      "ticks": {
+        "count": 433,
+        "p50Ms": 51,
+        "p95Ms": 73.79999999981374,
+        "p99Ms": 192.20000000018626,
+        "maxMs": 242.20000000018626
+      },
+      "touchDelivery": {
+        "count": 7,
+        "p50Ms": 168.90000000037253,
+        "p95Ms": 183.40000000037253,
+        "p99Ms": 183.40000000037253,
+        "maxMs": 183.40000000037253
+      },
+      "touchNextRAF": {
+        "count": 7,
+        "p50Ms": 220,
+        "p95Ms": 404,
+        "p99Ms": 404,
+        "maxMs": 404
+      },
+      "touchCount": 7,
+      "heap": {
+        "usedSize": 64474952,
+        "totalSize": 124481536,
+        "embedderHeapUsedSize": 14018936,
+        "backingStorageSize": 30108917
+      },
+      "dom": {
+        "documents": 1,
+        "nodes": 5250,
+        "jsEventListeners": 108
+      },
+      "state": {
+        "day": 12404,
+        "population": 1904,
+        "people": 2291,
+        "households": 715,
+        "buildings": 750,
+        "firms": 37,
+        "treasury": 75112.16718845222,
+        "region": 4280841.645807384,
+        "total": 15493517.000085264,
+        "valid": {
+          "ok": true,
+          "issues": [],
+          "total": 15493517.000085264,
+          "population": 1904,
+          "day": 12404
+        },
+        "goodsError": 7.460766937583685e-08,
+        "autoBuild": true,
+        "privateEntry": 1,
+        "requestedSpeed": 64,
+        "grid": 128,
+        "deeds": 21,
+        "routes": 48,
+        "operating": 48,
+        "drivers": 96,
+        "cargo": 65,
+        "providers": 3,
+        "providerStaff": 5,
+        "privateClients": 220.93061372963808,
+        "atlas": 243,
+        "atlasBytes": 21754624,
+        "serviceCaches": 2,
+        "traffic": 47,
+        "history": 240,
+        "events": 160,
+        "transactions": 800,
+        "observations": 1200,
+        "loans": 4,
+        "paused": false,
+        "hostSuspended": false,
+        "hidden": false,
+        "pending": false,
+        "backlog": 7,
+        "saveOrder": 58,
+        "savePending": false,
+        "saveRunning": false,
+        "musicEnabled": true,
+        "musicTrack": 7,
+        "musicError": "",
+        "musicDecks": [
+          {
+            "index": 7,
+            "paused": false,
+            "currentTime": 327.960846,
+            "readyState": 4,
+            "error": 0,
+            "gain": 1
+          }
+        ]
+      }
+    },
+    {
+      "utc": "2026-10-31T20:14:30.988000+00:00",
+      "seconds": 575.7906356180001,
+      "windowSeconds": 33.10879999999981,
+      "days": 543,
+      "actualRate": 27.060781423669994,
+      "zoom": "near",
+      "raf": {
+        "count": 543,
+        "p50Ms": 50,
+        "p95Ms": 83.30000000004657,
+        "p99Ms": 216.79999999993015,
+        "maxMs": 266.5999999999767
+      },
+      "ticks": {
+        "count": 543,
+        "p50Ms": 47.09999999962747,
+        "p95Ms": 62.60000000055879,
+        "p99Ms": 194.1000000005588,
+        "maxMs": 241.79999999981374
+      },
+      "touchDelivery": {
+        "count": 8,
+        "p50Ms": 157.1000000005588,
+        "p95Ms": 159.8999999994412,
+        "p99Ms": 159.8999999994412,
+        "maxMs": 159.8999999994412
+      },
+      "touchNextRAF": {
+        "count": 8,
+        "p50Ms": 202.09999999962747,
+        "p95Ms": 209.29999999981374,
+        "p99Ms": 209.29999999981374,
+        "maxMs": 209.29999999981374
+      },
+      "touchCount": 8,
+      "heap": {
+        "usedSize": 52995064,
+        "totalSize": 108109824,
+        "embedderHeapUsedSize": 10922128,
+        "backingStorageSize": 42741663
+      },
+      "dom": {
+        "documents": 1,
+        "nodes": 1648,
+        "jsEventListeners": 100
+      },
+      "state": {
+        "day": 12947,
+        "population": 1902,
+        "people": 2300,
+        "households": 717,
+        "buildings": 750,
+        "firms": 37,
+        "treasury": 91756.0745680018,
+        "region": 3736287.2943648677,
+        "total": 15493517.000086457,
+        "valid": {
+          "ok": true,
+          "issues": [],
+          "total": 15493517.000086457,
+          "population": 1902,
+          "day": 12947
+        },
+        "goodsError": 7.403286872431636e-08,
+        "autoBuild": true,
+        "privateEntry": 1,
+        "requestedSpeed": 64,
+        "grid": 128,
+        "deeds": 21,
+        "routes": 48,
+        "operating": 48,
+        "drivers": 96,
+        "cargo": 51,
+        "providers": 3,
+        "providerStaff": 5,
+        "privateClients": 228.00000000000006,
+        "atlas": 244,
+        "atlasBytes": 21831680,
+        "serviceCaches": 2,
+        "traffic": 41,
+        "history": 240,
+        "events": 160,
+        "transactions": 800,
+        "observations": 1200,
+        "loans": 4,
+        "paused": false,
+        "hostSuspended": false,
+        "hidden": false,
+        "pending": false,
+        "backlog": 7,
+        "saveOrder": 59,
+        "savePending": false,
+        "saveRunning": false,
+        "musicEnabled": true,
+        "musicTrack": 7,
+        "musicError": "",
+        "musicDecks": [
+          {
+            "index": 7,
+            "paused": false,
+            "currentTime": 361.025984,
+            "readyState": 4,
+            "error": 0,
+            "gain": 1
+          }
+        ]
+      }
+    }
+  ],
+  "operations": [
+    {
+      "kind": "save-button",
+      "seconds": 122.47456625199993,
+      "ms": 866.872329999751
+    },
+    {
+      "kind": "save-button",
+      "seconds": 244.60311550000006,
+      "ms": 754.5210859998406
+    },
+    {
+      "seconds": 300.105948036,
+      "kind": "restore-current",
+      "ms": 134.5,
+      "day": 8046,
+      "total": 15493517.000052143
+    },
+    {
+      "kind": "save-button",
+      "seconds": 361.3365809910001,
+      "ms": 846.9015519995082
+    },
+    {
+      "kind": "save-button",
+      "seconds": 483.0064376420005,
+      "ms": 966.1104799997702
+    },
+    {
+      "kind": "save-button",
+      "seconds": 603.736419926,
+      "ms": 841.9756310004232
+    },
+    {
+      "seconds": 603.736419926,
+      "kind": "restore-current",
+      "ms": 117.69999999925494,
+      "day": 13440,
+      "total": 15493517.000088314
+    }
+  ],
+  "errors": [],
+  "limitations": [
+    "Synthetic funded 2000-resident starting fixture; organic development enabled throughout live play.",
+    "Heap excludes portions of native canvas/GPU/media memory.",
+    "Touch is trusted emulated Chromium input; next RAF is not measured display photons.",
+    "RAF/tick capture adds light instrumentation; no renderer/transit function profiling."
+  ],
+  "fixture": {
+    "population": 2000,
+    "deeds": 21,
+    "grid": 128,
+    "routes": 48,
+    "providers": 2,
+    "cargo": 37,
+    "total": 15493517.000000132
+  },
+  "initialHeapAfterGC": {
+    "usedSize": 10020944,
+    "totalSize": 11145216,
+    "embedderHeapUsedSize": 2684824,
+    "backingStorageSize": 3476345
+  },
+  "initialDOM": {
+    "documents": 1,
+    "nodes": 870,
+    "jsEventListeners": 95
+  },
+  "liveStartedUtc": "2026-10-31T20:04:54.383877+00:00",
+  "firstVerifiedUtc": "2026-10-31T20:05:29.544568+00:00",
+  "failure": "",
+  "traceback": "Traceback (most recent call last):\n  File \"/workspace/Village-session-soak/tools/soak_session_8.py\", line 70, in <module>\n    t=time.monotonic();before=page.evaluate('__long.state().day');page.evaluate('__townArchive.suspend()');page.wait_for_timeout(1800);assert page.evaluate('__long.state().day')==before;page.evaluate('__townArchive.resume()');result['operations'].append({'kind':'native-suspend-resume','seconds':elapsed,'ms':(time.monotonic()-t)*1000});next_lifecycle+=600\n                                                                                                                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n",
+  "finishedUtc": "2026-10-31T20:15:04.751221+00:00"
+}
