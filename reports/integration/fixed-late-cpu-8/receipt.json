@@ -1,0 +1,1007 @@
+{
+  "source_sha256": "6326956a096ede9ae37bcfd1945b2133ee69a1a4f39d470786e385d24777e890",
+  "checkpoint_sha256": "ad6256fd85d4146fda9eeac0b16d5b182ed352c23bbd96af3b320553c29ce786",
+  "simulationOnly": true,
+  "audioPausedForMeasurement": true,
+  "physicalAndroid": false,
+  "runs": [
+    {
+      "ms": 5308.600000008941,
+      "day": 41861,
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15493517.000209872,
+        "population": 774,
+        "day": 41861
+      },
+      "total": 15493517.000209872,
+      "goodsError": 3.655441105365753e-08,
+      "rng": 2674305115,
+      "model_sha256": "4a5787e476487a8d79a1e66574b4e6001079c3f01a35822a672ef8ddb7a7c985",
+      "exclusive": [
+        {
+          "function": "dailyEconomy",
+          "module": "30-economy.js",
+          "line": 2129,
+          "ms": 443.25800000000027
+        },
+        {
+          "function": "(program)",
+          "module": "",
+          "line": 0,
+          "ms": 292.8690000000002
+        },
+        {
+          "function": "tick",
+          "module": "50-clock.js",
+          "line": 3460,
+          "ms": 292.3620000000002
+        },
+        {
+          "function": "regionalQuote",
+          "module": "26-logistics.js",
+          "line": 1598,
+          "ms": 291.575
+        },
+        {
+          "function": "urbanDescriptor",
+          "module": "27-urban-evolution.js",
+          "line": 1792,
+          "ms": 251.327
+        },
+        {
+          "function": "urbanSpatial",
+          "module": "27-urban-evolution.js",
+          "line": 1763,
+          "ms": 211.789
+        },
+        {
+          "function": "buildableCandidates",
+          "module": "40-development.js",
+          "line": 2368,
+          "ms": 200.30999999999997
+        },
+        {
+          "function": "serviceAccess",
+          "module": "12-service-access.js",
+          "line": 704,
+          "ms": 195.19100000000003
+        },
+        {
+          "function": "seekPrivateServiceInvestment",
+          "module": "16-private-services.js",
+          "line": 1002,
+          "ms": 194.256
+        },
+        {
+          "function": "roadDistanceRow",
+          "module": "60-renderer.js",
+          "line": 3597,
+          "ms": 179.42100000000005
+        },
+        {
+          "function": "transitJourney",
+          "module": "46-transit-network.js",
+          "line": 3219,
+          "ms": 170.834
+        },
+        {
+          "function": "householdLiquidity",
+          "module": "08-market-model.js",
+          "line": 256,
+          "ms": 130.6719999999999
+        },
+        {
+          "function": "",
+          "module": "12-service-access.js",
+          "line": 706,
+          "ms": 115.71900000000001
+        },
+        {
+          "function": "recompute",
+          "module": "30-economy.js",
+          "line": 2275,
+          "ms": 93.02900000000001
+        },
+        {
+          "function": "urbanRetailProposal",
+          "module": "27-urban-evolution.js",
+          "line": 1922,
+          "ms": 85.55299999999994
+        },
+        {
+          "function": "logisticsDepots",
+          "module": "26-logistics.js",
+          "line": 1594,
+          "ms": 79.85400000000001
+        },
+        {
+          "function": "",
+          "module": "16-private-services.js",
+          "line": 989,
+          "ms": 79.218
+        },
+        {
+          "function": "fundedPublicPayroll",
+          "module": "08-market-model.js",
+          "line": 318,
+          "ms": 74.95899999999999
+        },
+        {
+          "function": "sharesRoadNetwork",
+          "module": "15-household-markets.js",
+          "line": 885,
+          "ms": 70.43900000000001
+        },
+        {
+          "function": "(garbage collector)",
+          "module": "",
+          "line": 0,
+          "ms": 69.49899999999998
+        },
+        {
+          "function": "workerCanCommute",
+          "module": "15-household-markets.js",
+          "line": 886,
+          "ms": 69.25899999999999
+        },
+        {
+          "function": "roadDistance",
+          "module": "60-renderer.js",
+          "line": 3620,
+          "ms": 65.93
+        },
+        {
+          "function": "migrationHousingStatus",
+          "module": "44-migration.js",
+          "line": 2946,
+          "ms": 58.161
+        },
+        {
+          "function": "privateServiceDay",
+          "module": "16-private-services.js",
+          "line": 984,
+          "ms": 57.955000000000005
+        },
+        {
+          "function": "regionBuy",
+          "module": "20-world.js",
+          "line": 1360,
+          "ms": 57.25299999999997
+        },
+        {
+          "function": "householdMarket",
+          "module": "15-household-markets.js",
+          "line": 863,
+          "ms": 56.068
+        },
+        {
+          "function": "maintainRoads",
+          "module": "60-renderer.js",
+          "line": 3511,
+          "ms": 55.70799999999999
+        },
+        {
+          "function": "regionalCapacity",
+          "module": "22-regional-markets.js",
+          "line": 1507,
+          "ms": 51.01299999999999
+        },
+        {
+          "function": "routeBetween",
+          "module": "60-renderer.js",
+          "line": 3563,
+          "ms": 48.80699999999999
+        },
+        {
+          "function": "graph",
+          "module": "60-renderer.js",
+          "line": 3542,
+          "ms": 46.65599999999998
+        },
+        {
+          "function": "charterRoadCount",
+          "module": "18-region-charter.js",
+          "line": 1142,
+          "ms": 46.56199999999998
+        },
+        {
+          "function": "transitOperatingDay",
+          "module": "46-transit-network.js",
+          "line": 3248,
+          "ms": 45.82199999999999
+        },
+        {
+          "function": "finalizeMarketBooks",
+          "module": "30-economy.js",
+          "line": 2237,
+          "ms": 44.45300000000001
+        },
+        {
+          "function": "groceryChoices",
+          "module": "15-household-markets.js",
+          "line": 877,
+          "ms": 42.144
+        },
+        {
+          "function": "canPlace",
+          "module": "20-world.js",
+          "line": 1304,
+          "ms": 41.922999999999995
+        },
+        {
+          "function": "bankDeposits",
+          "module": "10-finance.js",
+          "line": 396,
+          "ms": 41.34899999999999
+        },
+        {
+          "function": "coverage",
+          "module": "44-migration.js",
+          "line": 3002,
+          "ms": 41.05700000000001
+        },
+        {
+          "function": "incidents",
+          "module": "30-economy.js",
+          "line": 2252,
+          "ms": 31.269
+        },
+        {
+          "function": "ensureMarketModel",
+          "module": "08-market-model.js",
+          "line": 258,
+          "ms": 31.216999999999995
+        },
+        {
+          "function": "extendedCivicDay",
+          "module": "80-civic.js",
+          "line": 4871,
+          "ms": 30.269000000000005
+        }
+      ],
+      "inclusive": [
+        {
+          "function": "(root)",
+          "module": "",
+          "line": 0,
+          "ms": 5648.330999999998
+        },
+        {
+          "function": "window.__cpuMeasure",
+          "module": "99-instrumentation.js",
+          "line": 7639,
+          "ms": 5231.039999999981
+        },
+        {
+          "function": "",
+          "module": "",
+          "line": 1,
+          "ms": 5231.039999999981
+        },
+        {
+          "function": "evaluate",
+          "module": "",
+          "line": 284,
+          "ms": 5231.039999999981
+        },
+        {
+          "function": "step",
+          "module": "99-instrumentation.js",
+          "line": 7643,
+          "ms": 5228.443999999981
+        },
+        {
+          "function": "tick",
+          "module": "50-clock.js",
+          "line": 3460,
+          "ms": 5222.854999999981
+        },
+        {
+          "function": "dailyEconomy",
+          "module": "30-economy.js",
+          "line": 2129,
+          "ms": 2922.0800000000045
+        },
+        {
+          "function": "regionalQuote",
+          "module": "26a-port-logistics.js",
+          "line": 1703,
+          "ms": 710.9690000000004
+        },
+        {
+          "function": "regionalQuote",
+          "module": "26-logistics.js",
+          "line": 1598,
+          "ms": 673.7170000000003
+        },
+        {
+          "function": "seekPrivateServiceInvestment",
+          "module": "16-private-services.js",
+          "line": 1002,
+          "ms": 547.0920000000006
+        },
+        {
+          "function": "privateServiceInvestmentDay",
+          "module": "16-private-services.js",
+          "line": 1033,
+          "ms": 547.0920000000006
+        },
+        {
+          "function": "procurementLeadDays",
+          "module": "26-logistics.js",
+          "line": 1685,
+          "ms": 530.1980000000003
+        },
+        {
+          "function": "",
+          "module": "26-logistics.js",
+          "line": 1685,
+          "ms": 527.9600000000003
+        },
+        {
+          "function": "urbanDescriptor",
+          "module": "27-urban-evolution.js",
+          "line": 1792,
+          "ms": 472.7400000000004
+        },
+        {
+          "function": "urbanRentMultiplier",
+          "module": "27-urban-evolution.js",
+          "line": 1940,
+          "ms": 430.8960000000002
+        },
+        {
+          "function": "privateServiceDay",
+          "module": "16-private-services.js",
+          "line": 984,
+          "ms": 364.0550000000002
+        },
+        {
+          "function": "serviceAccess",
+          "module": "12-service-access.js",
+          "line": 704,
+          "ms": 358.89100000000036
+        },
+        {
+          "function": "logisticsDepots",
+          "module": "26-logistics.js",
+          "line": 1594,
+          "ms": 329.5470000000001
+        },
+        {
+          "function": "(program)",
+          "module": "",
+          "line": 0,
+          "ms": 292.8690000000002
+        },
+        {
+          "function": "extendedCivicDay",
+          "module": "80-civic.js",
+          "line": 4871,
+          "ms": 274.92200000000014
+        },
+        {
+          "function": "buildableCandidates",
+          "module": "40-development.js",
+          "line": 2368,
+          "ms": 273.23099999999994
+        },
+        {
+          "function": "workerCanCommute",
+          "module": "15-household-markets.js",
+          "line": 886,
+          "ms": 271.84000000000026
+        },
+        {
+          "function": "",
+          "module": "16-private-services.js",
+          "line": 989,
+          "ms": 254.60700000000008
+        },
+        {
+          "function": "systemsDay",
+          "module": "05-systems.js",
+          "line": 217,
+          "ms": 230.39100000000002
+        },
+        {
+          "function": "urbanSpatial",
+          "module": "27-urban-evolution.js",
+          "line": 1763,
+          "ms": 229.49600000000004
+        },
+        {
+          "function": "roadDistance",
+          "module": "60-renderer.js",
+          "line": 3620,
+          "ms": 224.84200000000016
+        },
+        {
+          "function": "civicTrainingDay",
+          "module": "13-civic-staffing.js",
+          "line": 792,
+          "ms": 223.7529999999999
+        },
+        {
+          "function": "occupyVacantHousing",
+          "module": "45-public-services.js",
+          "line": 3099,
+          "ms": 208.22799999999998
+        },
+        {
+          "function": "urbanEvolutionDay",
+          "module": "27-urban-evolution.js",
+          "line": 1939,
+          "ms": 203.98800000000003
+        },
+        {
+          "function": "transitJourney",
+          "module": "46-transit-network.js",
+          "line": 3219,
+          "ms": 190.79200000000006
+        },
+        {
+          "function": "regionBuy",
+          "module": "20-world.js",
+          "line": 1360,
+          "ms": 190.30200000000013
+        },
+        {
+          "function": "groceryChoices",
+          "module": "15-household-markets.js",
+          "line": 877,
+          "ms": 188.90100000000012
+        },
+        {
+          "function": "localCivicCoverage",
+          "module": "12-service-access.js",
+          "line": 770,
+          "ms": 186.6489999999999
+        },
+        {
+          "function": "roadDistanceRow",
+          "module": "60-renderer.js",
+          "line": 3597,
+          "ms": 182.74300000000005
+        },
+        {
+          "function": "fundCivicServices",
+          "module": "80-civic.js",
+          "line": 4867,
+          "ms": 173.383
+        },
+        {
+          "function": "addHouseholdAt",
+          "module": "40-development.js",
+          "line": 2749,
+          "ms": 168.50599999999997
+        },
+        {
+          "function": "urbanRetailProposal",
+          "module": "27-urban-evolution.js",
+          "line": 1922,
+          "ms": 160.22699999999995
+        },
+        {
+          "function": "recompute",
+          "module": "30-economy.js",
+          "line": 2275,
+          "ms": 154.96200000000007
+        },
+        {
+          "function": "purchaseCivicService",
+          "module": "08-market-model.js",
+          "line": 330,
+          "ms": 146.35600000000002
+        },
+        {
+          "function": "trade",
+          "module": "20-world.js",
+          "line": 1364,
+          "ms": 142.67999999999995
+        }
+      ]
+    },
+    {
+      "ms": 4897.70000000298,
+      "day": 41861,
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15493517.000209872,
+        "population": 774,
+        "day": 41861
+      },
+      "total": 15493517.000209872,
+      "goodsError": 3.655441105365753e-08,
+      "rng": 2674305115,
+      "model_sha256": "4a5787e476487a8d79a1e66574b4e6001079c3f01a35822a672ef8ddb7a7c985",
+      "exclusive": [
+        {
+          "function": "dailyEconomy",
+          "module": "30-economy.js",
+          "line": 2129,
+          "ms": 418.61899999999997
+        },
+        {
+          "function": "serviceAccess",
+          "module": "12-service-access.js",
+          "line": 704,
+          "ms": 318.31100000000004
+        },
+        {
+          "function": "(program)",
+          "module": "",
+          "line": 0,
+          "ms": 281.371
+        },
+        {
+          "function": "tick",
+          "module": "50-clock.js",
+          "line": 3460,
+          "ms": 276.25999999999993
+        },
+        {
+          "function": "urbanDescriptor",
+          "module": "27-urban-evolution.js",
+          "line": 1792,
+          "ms": 241.08299999999994
+        },
+        {
+          "function": "buildableCandidates",
+          "module": "40-development.js",
+          "line": 2368,
+          "ms": 220.66800000000003
+        },
+        {
+          "function": "roadDistanceRow",
+          "module": "60-renderer.js",
+          "line": 3597,
+          "ms": 199.31799999999987
+        },
+        {
+          "function": "urbanSpatial",
+          "module": "27-urban-evolution.js",
+          "line": 1763,
+          "ms": 199.22100000000006
+        },
+        {
+          "function": "transitJourney",
+          "module": "46-transit-network.js",
+          "line": 3219,
+          "ms": 177.7129999999998
+        },
+        {
+          "function": "regionalQuote",
+          "module": "26-logistics.js",
+          "line": 1598,
+          "ms": 163.15299999999993
+        },
+        {
+          "function": "seekPrivateServiceInvestment",
+          "module": "16-private-services.js",
+          "line": 1002,
+          "ms": 149.89299999999992
+        },
+        {
+          "function": "recompute",
+          "module": "30-economy.js",
+          "line": 2275,
+          "ms": 111.34899999999999
+        },
+        {
+          "function": "fundedPublicPayroll",
+          "module": "08-market-model.js",
+          "line": 318,
+          "ms": 106.344
+        },
+        {
+          "function": "logisticsDepots",
+          "module": "26-logistics.js",
+          "line": 1594,
+          "ms": 103.32199999999997
+        },
+        {
+          "function": "regionBuy",
+          "module": "20-world.js",
+          "line": 1360,
+          "ms": 102.34799999999994
+        },
+        {
+          "function": "householdLiquidity",
+          "module": "08-market-model.js",
+          "line": 256,
+          "ms": 97.86100000000003
+        },
+        {
+          "function": "privateServiceDay",
+          "module": "16-private-services.js",
+          "line": 984,
+          "ms": 90.98500000000001
+        },
+        {
+          "function": "urbanRetailProposal",
+          "module": "27-urban-evolution.js",
+          "line": 1922,
+          "ms": 84.05100000000002
+        },
+        {
+          "function": "workerCanCommute",
+          "module": "15-household-markets.js",
+          "line": 886,
+          "ms": 64.94500000000002
+        },
+        {
+          "function": "",
+          "module": "16-private-services.js",
+          "line": 989,
+          "ms": 64.15100000000002
+        },
+        {
+          "function": "migrationHousingStatus",
+          "module": "44-migration.js",
+          "line": 2946,
+          "ms": 64.07300000000001
+        },
+        {
+          "function": "maintainRoads",
+          "module": "60-renderer.js",
+          "line": 3511,
+          "ms": 62.516999999999996
+        },
+        {
+          "function": "(garbage collector)",
+          "module": "",
+          "line": 0,
+          "ms": 60.40599999999999
+        },
+        {
+          "function": "finalizeMarketBooks",
+          "module": "30-economy.js",
+          "line": 2237,
+          "ms": 55.36399999999999
+        },
+        {
+          "function": "transitOperatingDay",
+          "module": "46-transit-network.js",
+          "line": 3248,
+          "ms": 55.35900000000001
+        },
+        {
+          "function": "addHouseholdAt",
+          "module": "40-development.js",
+          "line": 2749,
+          "ms": 50.486999999999995
+        },
+        {
+          "function": "groceryChoices",
+          "module": "15-household-markets.js",
+          "line": 877,
+          "ms": 50.369
+        },
+        {
+          "function": "roadDistance",
+          "module": "60-renderer.js",
+          "line": 3620,
+          "ms": 49.45100000000001
+        },
+        {
+          "function": "bankDeposits",
+          "module": "10-finance.js",
+          "line": 396,
+          "ms": 47.859
+        },
+        {
+          "function": "regionalCapacity",
+          "module": "22-regional-markets.js",
+          "line": 1507,
+          "ms": 47.144
+        },
+        {
+          "function": "sharesRoadNetwork",
+          "module": "15-household-markets.js",
+          "line": 885,
+          "ms": 46.415
+        },
+        {
+          "function": "graph",
+          "module": "60-renderer.js",
+          "line": 3542,
+          "ms": 45.974000000000004
+        },
+        {
+          "function": "routeBetween",
+          "module": "60-renderer.js",
+          "line": 3563,
+          "ms": 44.31200000000001
+        },
+        {
+          "function": "canPlace",
+          "module": "20-world.js",
+          "line": 1304,
+          "ms": 39.427
+        },
+        {
+          "function": "incidents",
+          "module": "30-economy.js",
+          "line": 2252,
+          "ms": 38.37200000000001
+        },
+        {
+          "function": "trade",
+          "module": "20-world.js",
+          "line": 1364,
+          "ms": 38.202
+        },
+        {
+          "function": "drawImage",
+          "module": "",
+          "line": 0,
+          "ms": 37.975
+        },
+        {
+          "function": "civicStaffCapacity",
+          "module": "13-civic-staffing.js",
+          "line": 778,
+          "ms": 35.025
+        },
+        {
+          "function": "evaluate",
+          "module": "16-private-services.js",
+          "line": 1009,
+          "ms": 34.654
+        },
+        {
+          "function": "extendedCivicDay",
+          "module": "80-civic.js",
+          "line": 4871,
+          "ms": 34.635000000000005
+        }
+      ],
+      "inclusive": [
+        {
+          "function": "(root)",
+          "module": "",
+          "line": 0,
+          "ms": 5260.108000000013
+        },
+        {
+          "function": "",
+          "module": "",
+          "line": 1,
+          "ms": 4834.378000000016
+        },
+        {
+          "function": "window.__cpuMeasure",
+          "module": "99-instrumentation.js",
+          "line": 7639,
+          "ms": 4833.262000000016
+        },
+        {
+          "function": "evaluate",
+          "module": "",
+          "line": 284,
+          "ms": 4833.262000000016
+        },
+        {
+          "function": "step",
+          "module": "99-instrumentation.js",
+          "line": 7643,
+          "ms": 4831.112000000016
+        },
+        {
+          "function": "tick",
+          "module": "50-clock.js",
+          "line": 3460,
+          "ms": 4829.978000000016
+        },
+        {
+          "function": "dailyEconomy",
+          "module": "30-economy.js",
+          "line": 2129,
+          "ms": 2725.183
+        },
+        {
+          "function": "regionalQuote",
+          "module": "26a-port-logistics.js",
+          "line": 1703,
+          "ms": 581.7310000000006
+        },
+        {
+          "function": "regionalQuote",
+          "module": "26-logistics.js",
+          "line": 1598,
+          "ms": 546.3230000000003
+        },
+        {
+          "function": "seekPrivateServiceInvestment",
+          "module": "16-private-services.js",
+          "line": 1002,
+          "ms": 510.8999999999998
+        },
+        {
+          "function": "privateServiceInvestmentDay",
+          "module": "16-private-services.js",
+          "line": 1033,
+          "ms": 510.8999999999998
+        },
+        {
+          "function": "urbanDescriptor",
+          "module": "27-urban-evolution.js",
+          "line": 1792,
+          "ms": 445.6999999999998
+        },
+        {
+          "function": "urbanRentMultiplier",
+          "module": "27-urban-evolution.js",
+          "line": 1940,
+          "ms": 406.7529999999999
+        },
+        {
+          "function": "procurementLeadDays",
+          "module": "26-logistics.js",
+          "line": 1685,
+          "ms": 403.13500000000016
+        },
+        {
+          "function": "privateServiceDay",
+          "module": "16-private-services.js",
+          "line": 984,
+          "ms": 387.54900000000004
+        },
+        {
+          "function": "logisticsDepots",
+          "module": "26-logistics.js",
+          "line": 1594,
+          "ms": 331.2569999999997
+        },
+        {
+          "function": "serviceAccess",
+          "module": "12-service-access.js",
+          "line": 704,
+          "ms": 318.31100000000004
+        },
+        {
+          "function": "(program)",
+          "module": "",
+          "line": 0,
+          "ms": 281.371
+        },
+        {
+          "function": "buildableCandidates",
+          "module": "40-development.js",
+          "line": 2368,
+          "ms": 277.36900000000014
+        },
+        {
+          "function": "extendedCivicDay",
+          "module": "80-civic.js",
+          "line": 4871,
+          "ms": 240.17599999999985
+        },
+        {
+          "function": "workerCanCommute",
+          "module": "15-household-markets.js",
+          "line": 886,
+          "ms": 234.5929999999999
+        },
+        {
+          "function": "",
+          "module": "16-private-services.js",
+          "line": 989,
+          "ms": 215.18499999999997
+        },
+        {
+          "function": "systemsDay",
+          "module": "05-systems.js",
+          "line": 217,
+          "ms": 214.77299999999988
+        },
+        {
+          "function": "urbanSpatial",
+          "module": "27-urban-evolution.js",
+          "line": 1763,
+          "ms": 213.3510000000001
+        },
+        {
+          "function": "groceryChoices",
+          "module": "15-household-markets.js",
+          "line": 877,
+          "ms": 210.47399999999985
+        },
+        {
+          "function": "",
+          "module": "26-logistics.js",
+          "line": 1685,
+          "ms": 207.43399999999997
+        },
+        {
+          "function": "roadDistanceRow",
+          "module": "60-renderer.js",
+          "line": 3597,
+          "ms": 200.39599999999987
+        },
+        {
+          "function": "regionBuy",
+          "module": "20-world.js",
+          "line": 1360,
+          "ms": 200.37499999999994
+        },
+        {
+          "function": "roadDistance",
+          "module": "60-renderer.js",
+          "line": 3620,
+          "ms": 197.49699999999996
+        },
+        {
+          "function": "transitJourney",
+          "module": "46-transit-network.js",
+          "line": 3219,
+          "ms": 194.75999999999976
+        },
+        {
+          "function": "occupyVacantHousing",
+          "module": "45-public-services.js",
+          "line": 3099,
+          "ms": 193.02399999999997
+        },
+        {
+          "function": "urbanEvolutionDay",
+          "module": "27-urban-evolution.js",
+          "line": 1939,
+          "ms": 190.67000000000004
+        },
+        {
+          "function": "civicTrainingDay",
+          "module": "13-civic-staffing.js",
+          "line": 792,
+          "ms": 187.89699999999993
+        },
+        {
+          "function": "trade",
+          "module": "20-world.js",
+          "line": 1364,
+          "ms": 178.63199999999992
+        },
+        {
+          "function": "localCivicCoverage",
+          "module": "12-service-access.js",
+          "line": 770,
+          "ms": 175.80299999999994
+        },
+        {
+          "function": "fundCivicServices",
+          "module": "80-civic.js",
+          "line": 4867,
+          "ms": 161.62799999999996
+        },
+        {
+          "function": "addHouseholdAt",
+          "module": "40-development.js",
+          "line": 2749,
+          "ms": 153.44399999999993
+        },
+        {
+          "function": "urbanRetailProposal",
+          "module": "27-urban-evolution.js",
+          "line": 1922,
+          "ms": 142.97299999999993
+        },
+        {
+          "function": "recompute",
+          "module": "30-economy.js",
+          "line": 2275,
+          "ms": 131.978
+        },
+        {
+          "function": "transitOperatingDay",
+          "module": "46-transit-network.js",
+          "line": 3248,
+          "ms": 130.5809999999999
+        }
+      ]
+    }
+  ]
+}
