@@ -174,10 +174,10 @@ function streetProp(g,kind){
 }
 function spriteFor(item){
  const season=Math.floor((visualMonth()-1)/3),b=item.b,variant=b?(b.kind==='home'?b.id%120:b.id%24):0;
- const key=item.kind==='streetprop'?`prop:${item.id%3}:${nightMode}`:item.kind==='tree'?`tree:${season}:${item.id%11}`:`${b.kind}:${variant}:${item.w}:${item.d}:${season}:${nightMode}:${b.condition<45}:${b.firm>=0&&G.firms[b.firm]?.closed}:${b.redevelopment?'renewal':''}`;
+ const key=item.kind==='streetprop'?`prop:${item.id%3}:${nightMode}`:item.kind==='tree'?`tree:${season}:${item.id%11}`:`${b.kind}:${variant}:${item.w}:${item.d}:${season}:${nightMode}:${b.condition<45}:${b.firm>=0&&G.firms[b.firm]?.closed}:${b.redevelopment?'renewal':''}:${appearanceKey(b)}`;
  if(atlas.has(key))return atlas.get(key);
  const c=document.createElement('canvas');c.width=256;c.height=320;const g=c.getContext('2d');g.translate(128,240);
- if(item.kind==='streetprop')streetProp(g,item.id%3);else if(item.kind==='tree')tree(g,0,0,item.id%11,.83);else{polygon(g,[point(-item.w*.4,-item.d*.4),point(item.w*.6,-item.d*.4),point(item.w*.9,item.d*.3),point(0,item.d*.7)],'#48523f30');architecture(g,b.kind==='worksite'||b.redevelopment?b:{...b,id:variant},item.w,item.d);parcelDetails(g,b,item.w,item.d);}
+ if(item.kind==='streetprop')streetProp(g,item.id%3);else if(item.kind==='tree')tree(g,0,0,item.id%11,.83);else{polygon(g,[point(-item.w*.4,-item.d*.4),point(item.w*.6,-item.d*.4),point(item.w*.9,item.d*.3),point(0,item.d*.7)],'#48523f30');architecture(g,b.kind==='worksite'||b.redevelopment?b:{...b,id:variant},item.w,item.d);parcelDetails(g,b,item.w,item.d);architecturalIdentity(g,b,item.w,item.d);}
  atlas.set(key,c);if(atlas.size>600){const oldest=atlas.keys().next().value;atlas.delete(oldest);}return c;
 }
 function prepareScene(){
@@ -280,7 +280,7 @@ function draw(){
  const visible=(x,y,m=120)=>x>=sx-m&&x<=sx+ww+m&&y>=sy-m&&y<=sy+hh+m;
  // Retain the camera's static composition. Moving actors only redraw intersecting
  // foreground objects, preserving depth without repainting every house each frame.
- let states='';for(const a of displayItems)if(a.b)states+=`${a.b.kind}:${a.b.condition<45}:${a.b.firm>=0&&G.firms[a.b.firm]?.closed}:${a.b.redevelopment?1:0};`;
+ let states='';for(const a of displayItems)if(a.b)states+=`${a.b.kind}:${a.b.condition<45}:${a.b.firm>=0&&G.firms[a.b.firm]?.closed}:${a.b.redevelopment?1:0}:${appearanceKey(a.b)};`;
  const backgroundKey=[cam.x,cam.y,cam.zoom,cw,ch,dpr,groundRevision].join('|');
  if(backgroundKey!==viewBackgroundKey){
   if(viewBackgroundRaster.width!==cv.width)viewBackgroundRaster.width=cv.width;if(viewBackgroundRaster.height!==cv.height)viewBackgroundRaster.height=cv.height;
@@ -303,7 +303,7 @@ function draw(){
   viewRasterKey=key;
  }
  ctx.setTransform(1,0,0,1,0,0);ctx.drawImage(viewRaster,0,0);transform();
- drawConstructionProgress(ctx,visible);
+ drawConstructionProgress(ctx,visible);drawInspectedRoute(ctx);
  const actors=buildingActivity(viewBuildings.filter(item=>visible(item.x,item.y,0)));if(gameOptions.traffic)for(const v of traffic){const p=vehiclePosition(v);if(visible(p.x,p.y,15))actors.push({kind:'vehicle',v,...p});}actors.sort((a,b)=>a.y-b.y);
  if(actors.length){
   // Clip subsequent foreground re-paints to the actors' damage rectangles.

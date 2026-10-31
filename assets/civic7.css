@@ -40,3 +40,5 @@ button:focus-visible,select:focus-visible,input:focus-visible,summary:focus-visi
 .map-used .hint{display:none}.tabico{font-variant-emoji:text}
 
 .tabico svg{width:21px;height:21px;stroke:currentColor;stroke-width:1.5;fill:none;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}
+/* Pause is an immediate state boundary, including its control surface. */
+.time-controls button{transition:none!important}

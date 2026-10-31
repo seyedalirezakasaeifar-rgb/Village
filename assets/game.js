@@ -90,7 +90,7 @@ const FIN_BANK_NAMES=['Vale Mutual Savings','Mercantile & County Bank','First Bo
 
 // SOURCE: 05-systems.js
 // Deterministic model services. Presentation has its own hash-based randomness.
-const RELEASE=Object.freeze({"version":"7.0.4","code":18,"edition":"The Working City","schema":5,"package":"org.townledger.vale"});
+const RELEASE=Object.freeze({"version":"7.0.5","code":19,"edition":"The Working City","schema":5,"package":"org.townledger.vale"});
 let rngState=42,visualState=918273,simulationBusy=false;
 const perfStats={frames:[],ticks:[],effective:1,backlog:0,days:0,elapsed:0,errors:[]};
 function random(){rngState=(rngState+0x6D2B79F5)>>>0;let t=rngState;t=Math.imul(t^(t>>>15),t|1);t^=t+Math.imul(t^(t>>>7),t|61);return ((t^(t>>>14))>>>0)/4294967296;}
@@ -1864,7 +1864,7 @@ function trafficUpdate(dt){
  // Max-duration safeguard protects against malformed saved routes, not
  // normal congestion. Ordinary traffic should make forward progress.
  for(let i=traffic.length-1;i>=0;i--){const v=traffic[i];if(v.finished||v.segment>=v.path.length-1){
-    G.transport.arrived++;
+    // A sampled commuter is not an economically delivered consignment.
     traffic.splice(i,1);
   }}
  for(const v of traffic)if(v.wait>4&&v.fraction<.001)detour(v);
@@ -2062,10 +2062,10 @@ function streetProp(g,kind){
 }
 function spriteFor(item){
  const season=Math.floor((visualMonth()-1)/3),b=item.b,variant=b?(b.kind==='home'?b.id%120:b.id%24):0;
- const key=item.kind==='streetprop'?`prop:${item.id%3}:${nightMode}`:item.kind==='tree'?`tree:${season}:${item.id%11}`:`${b.kind}:${variant}:${item.w}:${item.d}:${season}:${nightMode}:${b.condition<45}:${b.firm>=0&&G.firms[b.firm]?.closed}:${b.redevelopment?'renewal':''}`;
+ const key=item.kind==='streetprop'?`prop:${item.id%3}:${nightMode}`:item.kind==='tree'?`tree:${season}:${item.id%11}`:`${b.kind}:${variant}:${item.w}:${item.d}:${season}:${nightMode}:${b.condition<45}:${b.firm>=0&&G.firms[b.firm]?.closed}:${b.redevelopment?'renewal':''}:${appearanceKey(b)}`;
  if(atlas.has(key))return atlas.get(key);
  const c=document.createElement('canvas');c.width=256;c.height=320;const g=c.getContext('2d');g.translate(128,240);
- if(item.kind==='streetprop')streetProp(g,item.id%3);else if(item.kind==='tree')tree(g,0,0,item.id%11,.83);else{polygon(g,[point(-item.w*.4,-item.d*.4),point(item.w*.6,-item.d*.4),point(item.w*.9,item.d*.3),point(0,item.d*.7)],'#48523f30');architecture(g,b.kind==='worksite'||b.redevelopment?b:{...b,id:variant},item.w,item.d);parcelDetails(g,b,item.w,item.d);}
+ if(item.kind==='streetprop')streetProp(g,item.id%3);else if(item.kind==='tree')tree(g,0,0,item.id%11,.83);else{polygon(g,[point(-item.w*.4,-item.d*.4),point(item.w*.6,-item.d*.4),point(item.w*.9,item.d*.3),point(0,item.d*.7)],'#48523f30');architecture(g,b.kind==='worksite'||b.redevelopment?b:{...b,id:variant},item.w,item.d);parcelDetails(g,b,item.w,item.d);architecturalIdentity(g,b,item.w,item.d);}
  atlas.set(key,c);if(atlas.size>600){const oldest=atlas.keys().next().value;atlas.delete(oldest);}return c;
 }
 function prepareScene(){
@@ -2168,7 +2168,7 @@ function draw(){
  const visible=(x,y,m=120)=>x>=sx-m&&x<=sx+ww+m&&y>=sy-m&&y<=sy+hh+m;
  // Retain the camera's static composition. Moving actors only redraw intersecting
  // foreground objects, preserving depth without repainting every house each frame.
- let states='';for(const a of displayItems)if(a.b)states+=`${a.b.kind}:${a.b.condition<45}:${a.b.firm>=0&&G.firms[a.b.firm]?.closed}:${a.b.redevelopment?1:0};`;
+ let states='';for(const a of displayItems)if(a.b)states+=`${a.b.kind}:${a.b.condition<45}:${a.b.firm>=0&&G.firms[a.b.firm]?.closed}:${a.b.redevelopment?1:0}:${appearanceKey(a.b)};`;
  const backgroundKey=[cam.x,cam.y,cam.zoom,cw,ch,dpr,groundRevision].join('|');
  if(backgroundKey!==viewBackgroundKey){
   if(viewBackgroundRaster.width!==cv.width)viewBackgroundRaster.width=cv.width;if(viewBackgroundRaster.height!==cv.height)viewBackgroundRaster.height=cv.height;
@@ -2191,7 +2191,7 @@ function draw(){
   viewRasterKey=key;
  }
  ctx.setTransform(1,0,0,1,0,0);ctx.drawImage(viewRaster,0,0);transform();
- drawConstructionProgress(ctx,visible);
+ drawConstructionProgress(ctx,visible);drawInspectedRoute(ctx);
  const actors=buildingActivity(viewBuildings.filter(item=>visible(item.x,item.y,0)));if(gameOptions.traffic)for(const v of traffic){const p=vehiclePosition(v);if(visible(p.x,p.y,15))actors.push({kind:'vehicle',v,...p});}actors.sort((a,b)=>a.y-b.y);
  if(actors.length){
   // Clip subsequent foreground re-paints to the actors' damage rectangles.
@@ -2246,18 +2246,24 @@ function paintRegionalAircraft(g,x,y,dx,dy,altitude,clock,gear=true){
  poly([[-23,0],[-22,-11],[-17,-11],[-14,0]],'#789b9a');poly([[-22,-11],[-17,-11],[-17,-7],[-22,-7]],'#c8b56e');
  g.fillStyle='#bc5444';g.fillRect(-1,-29,3,2);g.fillStyle='#6ba57d';g.fillRect(-1,27,3,2);g.restore();
 }
+function aviationPose(r,gate,phase){
+ const a=r.a,b=r.b,lerp=(p,q,t)=>[p[0]+(q[0]-p[0])*t,p[1]+(q[1]-p[1])*t];let pos,heading=[r.dx,r.dy],alt=0,gear=true;
+ const taxi=(p,q,c1,c2,t)=>{const u=1-t;return {pos:[0,1].map(k=>u*u*u*p[k]+3*u*u*t*c1[k]+3*u*t*t*c2[k]+t*t*t*q[k]),heading:[0,1].map(k=>3*u*u*(c1[k]-p[k])+6*u*t*(c2[k]-c1[k])+3*t*t*(q[k]-c2[k]))};};
+ if(phase<8){const bend=Math.min(.15,Math.hypot(a[0]-gate[0],a[1]-gate[1])/r.length*.35);({pos,heading}=taxi(gate,a,lerp(gate,a,.35),[a[0]-r.dx*bend,a[1]-r.dy*bend],phase/8));}
+ else if(phase<18){const t=(phase-8)/10;pos=lerp(a,b,t*t);alt=Math.max(0,t-.55)*110;}
+ else if(phase<32){const u=phase-18;pos=[b[0]+r.dx*(u*.2+u*u*.005),b[1]+r.dy*(u*.2+u*u*.005)];alt=49.5+u*11;gear=false;}
+ else if(phase<50)return null;
+ else if(phase<66){const t=(phase-50)/16;pos=[a[0]-r.dx*(1-t)*4,a[1]-r.dy*(1-t)*4];alt=(1-t)*(1-t)*140;gear=t>.55;}
+ else if(phase<75){const t=(phase-66)/9;pos=lerp(a,b,2.25*t-1.5*t*t+.25*t*t*t);}
+ else if(phase<85){const bend=Math.min(.15,Math.hypot(b[0]-gate[0],b[1]-gate[1])/r.length*.35);({pos,heading}=taxi(b,gate,[b[0]+r.dx*bend,b[1]+r.dy*bend],lerp(b,gate,.7),(phase-75)/10));}
+ else{pos=gate;heading=[gate[0]-b[0],gate[1]-b[1]];}
+ return {pos,heading,alt,gear};
+}
 function drawAviation(g){
  const air=G.airport,r=runwayGeometry();if(!air?.operating||!r)return;
  const terminal=readBuild(air.building);if(!terminal)return;const gate=iso(terminal.x,terminal.y);gate[1]+=64;
- const phase=gameOptions.reducedMotion?88:frameClock%90,a=r.a,b=r.b,lerp=(p,q,t)=>[p[0]+(q[0]-p[0])*t,p[1]+(q[1]-p[1])*t];let pos,heading=[r.dx,r.dy],alt=0,gear=true;
- if(phase<8){pos=lerp(gate,a,phase/8);heading=[a[0]-gate[0],a[1]-gate[1]];}
- else if(phase<18){const t=(phase-8)/10,e=t*t;pos=lerp(a,b,e);alt=Math.max(0,t-.55)*110;}
- else if(phase<32){const t=(phase-18)/14;pos=[b[0]+r.dx*t*5,b[1]+r.dy*t*5];alt=50+t*140;gear=false;}
- else if(phase<50)return;
- else if(phase<66){const t=(phase-50)/16;pos=[a[0]-r.dx*(1-t)*4,a[1]-r.dy*(1-t)*4];alt=(1-t)*140;gear=t>.55;}
- else if(phase<75){const t=(phase-66)/9;pos=lerp(a,b,1-(1-t)*(1-t));}
- else if(phase<85){pos=lerp(b,gate,(phase-75)/10);heading=[gate[0]-b[0],gate[1]-b[1]];}
- else{pos=gate;heading=[r.dx,r.dy];}
+ const phase=gameOptions.reducedMotion?88:frameClock%90,pose=aviationPose(r,gate,phase);if(!pose)return;
+ const {pos,heading,alt,gear}=pose;
  paintRegionalAircraft(g,...pos,...heading,alt,frameClock,gear);
 }
 function drawStreetNames(g,sx,sy,ww,hh){
@@ -2294,6 +2300,7 @@ function drawStreetNames(g,sx,sy,ww,hh){
 }
 
 // SOURCE: 67-transport.js
+function setPurposeStyle(v,style){v.style=style;v.speed=style==='pedestrian'?.53:style==='truck'?.90:1.15;return v;}
 function restoreTransport(){
  const state=G.trafficState;visualState=G.visualState||918273;
  traffic=[];trafficClock=0;intersectionGates.clear();
@@ -2319,11 +2326,11 @@ function freightDay(){
 function spawnPurposeTrip(){
  if(!G)return null;
  // Trips are samples of actual commuter assignments or paid in-flight cargo.
- const freights=G.freight||[];if(freights.length&&vehicleSerial%3===0){const s=freights[vehicleSerial%freights.length],f=G.firms[s.from],t=G.firms[s.to];const v=beginVehicle(readBuild(f.building),readBuild(t.building));if(v){v.style='truck';v.reason=s.qty.toFixed(0)+' '+s.good+' → '+t.name;v.shipment=s.id;return v;}}
+ const freights=G.freight||[];if(freights.length&&vehicleSerial%3===0){const s=freights[vehicleSerial%freights.length],f=G.firms[s.from],t=G.firms[s.to];const v=beginVehicle(readBuild(f.building),readBuild(t.building));if(v){setPurposeStyle(v,'truck');v.reason=s.qty.toFixed(0)+' '+s.good+' → '+t.name;v.shipment=s.id;return v;}}
  const employed=G.people.filter(p=>!p.deceased&&!p.movedAway&&p.job>=0);if(!employed.length)return null;
  const p=employed[hash(vehicleSerial+G.day)%employed.length],h=G.households[p.hh],f=G.firms[p.job];
  const home=readBuild(h.home),work=readBuild(f.building);if(!home||!work||f.closed)return null;
- const v=beginVehicle(home,work);if(v){v.style=(p.id%3===0)?'pedestrian':'car';v.person=p.id;v.reason=p.name+' commuting to '+f.name;}return v;
+ const returning=vehicleSerial%2===1;const v=beginVehicle(returning?work:home,returning?home:work);if(v){setPurposeStyle(v,(p.id%3===0)?'pedestrian':'car');v.person=p.id;v.reason=p.name+(returning?' returning home':' commuting to '+f.name);}return v;
 }
 function detour(v){
  const start=v.path[v.segment],goal=fromEnd(v.path),net=graph();
@@ -2403,6 +2410,48 @@ function paintCastShadows(g,items){
  }
 }
 
+// SOURCE: 69-civic-materials.js
+// Stable visual states follow property condition, occupation and funded capex.
+function propertyAppearance(b){
+ const f=G.firms[b.firm],empty=b.kind==='home'&&!G.households[b.hh]?.people.some(id=>!G.people[id]?.deceased&&!G.people[id]?.movedAway);
+ return {condition:b.condition<45?'distressed':b.condition<75?'weathered':'maintained',status:f?(f.closed?'closed':'trading'):empty?'vacant':'occupied',invested:!!f&&f.scale>=1.4};
+}
+function appearanceKey(b){const a=propertyAppearance(b);return a.condition+':'+a.status+':'+a.invested;}
+function architecturalIdentity(g,b,w,d){
+ if(!gameOptions.decor||gameOptions.quality==='low'||b.kind==='worksite'||b.redevelopment)return;
+ const a=propertyAppearance(b),u=-w*.365,v=d*.35,H=b.kind==='tower'?132:b.kind==='apartment'?48:b.kind==='office'?60:['home','farm','forestry','quarry'].includes(b.kind)?0:30;
+ const civic=['school','college','townhall','courthouse','bank','clinic'].includes(b.kind),shop=['grocer','bakery','tavern'].includes(b.kind),industrial=['factory','warehouse','sawmill','mill'].includes(b.kind);
+ if(civic){
+  for(const z of [3,17,30]){slab(g,u-.025,v-.015,w*.78,.055,z,'#d7ceb0');segment(g,point(u,v+.05,z-1),point(u+w*.76,v+.05,z-1),'#8d8d78');}
+  // Alternating dressed corner stones and a broad civic entrance stair.
+  for(let z=2;z<30;z+=5)box(g,u-.01,v,.07,.05,z,3,'#d9d1b5');
+  for(let j=0;j<3;j++)slab(g,-.15-j*.025,v+.05+j*.055,.30+j*.05,.06,3-j,'#c6bda1');
+ }
+ if(shop){
+  // Glazed shopfront and timber-framed display, distinct from civic windows.
+  box(g,u+.05,v+.015,w*.21,.025,3,9,a.status==='closed'?'#827e6b':'#6f9690');
+  box(g,u+w*.50,v+.015,w*.20,.025,3,9,a.status==='closed'?'#827e6b':'#739e9a');
+  for(const x of [u+.05,u+w*.26,u+w*.50,u+w*.70])segment(g,point(x,v+.045,2),point(x,v+.045,13),'#d6c39a',1);
+  if(b.kind==='bakery'){const q=point(u+.12,v+.06,7);g.fillStyle='#e4c788';for(let j=0;j<3;j++)g.fillRect(q[0]+j*3,q[1]+j,3,2);}
+ }
+ if(industrial){
+  // Clerestory glazing and riveted cladding retain the warehouse silhouette.
+  for(let j=0;j<6;j++){const x=u+.04+j*w*.105;segment(g,point(x,v+.02,1),point(x,v+.02,27),'#8d8d7a');}
+  for(let j=0;j<3;j++){const q=point(u+.08+j*w*.20,-d*.05,36);polygon(g,[[q[0]-5,q[1]],[q[0]+3,q[1]-4],[q[0]+9,q[1]-1],[q[0]+1,q[1]+3]],a.status==='closed'?'#78837b':'#8fbbb1');}
+ }
+ if(b.kind==='home'){
+  const q=point(-w*.30,d*.36,0);
+  // Three parcel treatments: stone-edged beds, paved courts, kitchen plots.
+  if(b.id%3===0){for(let j=0;j<5;j++){const t=point(-.34+j*.13,.39,1);g.fillStyle='#b6b79b';g.fillRect(t[0]-2,t[1]-1,4,2);}}
+  else if(b.id%3===1){for(let j=0;j<4;j++)slab(g,-.34+j*.11,.36,.075,.08,1,'#c9bd9a');}
+  else {for(let j=0;j<3;j++)slab(g,-.37,.17+j*.08,.25,.035,1,j%2?'#89915b':'#aa9364');}
+  if(a.status==='vacant'){segment(g,[q[0],q[1]-5],[q[0],q[1]-15],'#6c7157');g.fillStyle='#d6c49e';g.fillRect(q[0]-5,q[1]-15,11,5);}
+ }
+ if(a.invested&&industrial){box(g,.12,-.12,.20,.20,37,8,'#81998d');slab(g,.10,-.14,.24,.24,46,'#acb9a4');segment(g,point(.21,-.02,37),point(.21,-.02,28),'#687c72',2);}
+ if(a.condition!=='maintained'&&H){for(let j=0;j<3;j++){const q=point(u+.08+j*w*.2,v+.05,8+j*5);segment(g,q,[q[0]+2,q[1]+6],'#737a6755');segment(g,[q[0]+2,q[1]+6],[q[0]-1,q[1]+9],'#737a6755');}}
+ if(a.status==='closed'&&H){const q=point(0,v+.07,7);g.fillStyle='#a48f6a';g.fillRect(q[0]-6,q[1]-2,12,5);segment(g,[q[0]-5,q[1]-1],[q[0]+5,q[1]+2],'#736d55');}
+}
+
 // SOURCE: 70-interaction.js
 const pointer={down:false,startX:0,startY:0,px:0,py:0,moved:false,pinch:0,buildTrail:0,hover:null};
 function toWorld(x,y){const wx=(x-cw/2)/cam.zoom+cam.x,wy=(y-ch/2)/cam.zoom+cam.y;
@@ -2410,6 +2459,7 @@ function toWorld(x,y){const wx=(x-cw/2)/cam.zoom+cam.x,wy=(y-ch/2)/cam.zoom+cam.
 function onTap(sx,sy){if(!G)return;const r=cv.getBoundingClientRect();const [x,y]=toWorld(sx-r.left,sy-r.top);if(x<0||x>=T||y<0||y>=T)return;
  if(buildMode){construct(buildMode,x,y);return}
  const mx=(sx-r.left-cw/2)/cam.zoom+cam.x,my=(sy-r.top-ch/2)/cam.zoom+cam.y;
+ if(inspectTripAt(mx,my))return;
  let b=buildingAt(x,y);if(!b){const hit=G.buildings.filter(v=>{const pos=iso(v.x,v.y);return Math.abs(mx-pos[0])<20&&my>=pos[1]-38&&my<=pos[1]+33}).sort((a,b)=>iso(b.x,b.y)[1]-iso(a.x,a.y)[1]);b=hit[0]}
  if(b){selected={id:b.id};openPanel('inspect')}else{selected=null;toast('Unoccupied land. Private investors assess access, demand and expected returns.')}
  dirty=true;
@@ -2558,9 +2608,9 @@ function renderEconomy(){let signal=marketSignal(),m=signal.m,d=m.demand,active=
  head('What should the government do?')+`<div class="council-card"><p class="desc">You do not control private developers, firms or banks. Adjust a few policy rates, funding priorities or municipal borrowing and let the market respond. Watch outcomes over months and years, not just individual days.</p><div class="btnrow"><button id="marketPolicy">Review policy rates</button><button id="marketFamilies">Inspect households</button><button id="marketCompanies">Inspect firms</button></div></div>`+
  head('Employment history')+miniChart('employment')+head('Private enterprise count')+miniChart('businesses')+head('Households under pressure')+miniChart('hardship')+head('Recent economic developments')+headlineList(8);
 }
-const names={economy:'The Living Economy',banking:'Banks & Credit',overview:'Town Hall',agenda:'Council Agenda',community:'Civic Services',policies:'Economic Policy',treasury:'The Public Purse',citizens:'Our Residents',businesses:'Local Enterprise',construction:'Works & Planning',journal:'Public Record',settings:'Game Options',inspect:'Property Inspector'};
+const names={economy:'The Living Economy',banking:'Banks & Credit',overview:'Town Hall',agenda:'Council Agenda',community:'Civic Services',policies:'Economic Policy',treasury:'The Public Purse',citizens:'Our Residents',businesses:'Local Enterprise',construction:'Works & Planning',journal:'Public Record',settings:'Game Options',inspect:'Property Inspector',trip:'Journey Inspector'};
 function renderPanel(tab){if(!G)return;const sc=$('panelBody');const y=sc.scrollTop;let contents='';
- try{contents=({overview:renderOverviewFull,economy:renderEconomy,agenda:renderAgenda,community:renderCommunityFull,policies:renderPoliciesFull,treasury:renderTreasuryFull,banking:financePanel,citizens:renderCitizensFull,businesses:renderBusinessesFull,construction:renderConstructionFull,journal:renderJournalFull,settings:renderSettingsFull,inspect:renderInspectFull}[tab]||renderOverview)()}
+ try{contents=({overview:renderOverviewFull,economy:renderEconomy,agenda:renderAgenda,community:renderCommunityFull,policies:renderPoliciesFull,treasury:renderTreasuryFull,banking:financePanel,citizens:renderCitizensFull,businesses:renderBusinessesFull,construction:renderConstructionFull,journal:renderJournalFull,settings:renderSettingsFull,inspect:renderInspectFull,trip:renderTripInspector}[tab]||renderOverview)()}
  catch(e){contents='<div class="event">Panel error: '+esc(e.message)+'</div>';console.error(e)}
  $('panelTitle').textContent=names[tab]||'TownLedger';sc.innerHTML=contents;sc.scrollTop=y;
 }
@@ -2649,6 +2699,27 @@ function frame(now){
 }requestAnimationFrame(frame);
 window.addEventListener('beforeunload',()=>save());document.addEventListener('visibilitychange',()=>{if(document.hidden){save();last=performance.now();if(ambient)ambient.pause()}else refreshAmbience()});
 window.addEventListener('error',e=>{console.error(e.error||e.message);toast('Runtime issue: '+(e.message||'Unknown'))});
+
+// SOURCE: 71-trip-inspector.js
+// A transport sample can be inspected without changing economic cargo or jobs.
+let inspectedTrip=null;
+function inspectTripAt(wx,wy){
+ let nearest=null,distance=12/cam.zoom;
+ for(const v of traffic){const p=vehiclePosition(v),d=Math.hypot(wx-p.x,wy-p.y);if(d<distance){nearest=v;distance=d;}}
+ if(!nearest)return false;inspectedTrip={...nearest,path:nearest.path.slice()};openPanel('trip');dirty=true;return true;
+}
+function renderTripInspector(){
+ if(!inspectedTrip)return tip('Tap a moving commuter or delivery on the map.');
+ const live=traffic.find(v=>v.id===inspectedTrip.id),trip=live||inspectedTrip,from=readBuild(trip.from),to=readBuild(trip.to),shipment=(G.freight||[]).find(s=>s.id===trip.shipment);
+ const label=b=>b?b.firm>=0?(G.firms[b.firm]?.name||types[b.kind].n):b.hh>=0?(G.households[b.hh]?.name+' household'):types[b.kind].n:'Former site';
+ return head(trip.style==='truck'?'Delivery on the road':trip.style==='pedestrian'?'A resident on foot':'A resident’s journey')+tip(trip.reason||'Local service journey')+strip('Trip sample',live?'Travelling':'Completed or no longer sampled')+strip('Origin',label(from))+strip('Destination',label(to))+strip('Road segments',Math.max(0,trip.path.length-1))+(shipment?strip('Cargo in transit',fmt(shipment.qty)+' '+shipment.good)+strip('Delivery accounting',shipment.remaining+' simulated days remaining'):'')+tip('Visible trips sample real job assignments and paid cargo. The economy continues tracking residents and shipments when visual traffic is hidden.')+`<div class="btnrow">${from?`<button data-inspect="${from.id}">Inspect origin</button>`:''}${to?`<button data-inspect="${to.id}">Inspect destination</button>`:''}<button data-trip-close>Back to map</button></div>`;
+}
+function drawInspectedRoute(g){
+ if(active!=='trip'||!inspectedTrip)return;const trip=traffic.find(v=>v.id===inspectedTrip.id)||inspectedTrip;
+ g.save();g.strokeStyle='#f2d99c';g.lineWidth=3/cam.zoom;g.lineJoin='round';g.beginPath();trip.path.forEach((id,i)=>{const p=roadCenter(id);if(i)g.lineTo(...p);else g.moveTo(...p)});g.stroke();
+ for(const id of [trip.path[0],fromEnd(trip.path)]){const p=roadCenter(id);g.fillStyle='#315e4b';g.beginPath();g.arc(...p,5/cam.zoom,0,Math.PI*2);g.fill();}g.restore();
+}
+document.addEventListener('click',e=>{if(e.target.closest('[data-trip-close]'))closePanel()});
 
 // SOURCE: 80-civic.js
 // --- Founder's Edition: long-form borough strategy systems and reporting. ---

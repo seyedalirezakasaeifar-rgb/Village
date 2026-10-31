@@ -4,6 +4,7 @@ function toWorld(x,y){const wx=(x-cw/2)/cam.zoom+cam.x,wy=(y-ch/2)/cam.zoom+cam.
 function onTap(sx,sy){if(!G)return;const r=cv.getBoundingClientRect();const [x,y]=toWorld(sx-r.left,sy-r.top);if(x<0||x>=T||y<0||y>=T)return;
  if(buildMode){construct(buildMode,x,y);return}
  const mx=(sx-r.left-cw/2)/cam.zoom+cam.x,my=(sy-r.top-ch/2)/cam.zoom+cam.y;
+ if(inspectTripAt(mx,my))return;
  let b=buildingAt(x,y);if(!b){const hit=G.buildings.filter(v=>{const pos=iso(v.x,v.y);return Math.abs(mx-pos[0])<20&&my>=pos[1]-38&&my<=pos[1]+33}).sort((a,b)=>iso(b.x,b.y)[1]-iso(a.x,a.y)[1]);b=hit[0]}
  if(b){selected={id:b.id};openPanel('inspect')}else{selected=null;toast('Unoccupied land. Private investors assess access, demand and expected returns.')}
  dirty=true;
@@ -152,9 +153,9 @@ function renderEconomy(){let signal=marketSignal(),m=signal.m,d=m.demand,active=
  head('What should the government do?')+`<div class="council-card"><p class="desc">You do not control private developers, firms or banks. Adjust a few policy rates, funding priorities or municipal borrowing and let the market respond. Watch outcomes over months and years, not just individual days.</p><div class="btnrow"><button id="marketPolicy">Review policy rates</button><button id="marketFamilies">Inspect households</button><button id="marketCompanies">Inspect firms</button></div></div>`+
  head('Employment history')+miniChart('employment')+head('Private enterprise count')+miniChart('businesses')+head('Households under pressure')+miniChart('hardship')+head('Recent economic developments')+headlineList(8);
 }
-const names={economy:'The Living Economy',banking:'Banks & Credit',overview:'Town Hall',agenda:'Council Agenda',community:'Civic Services',policies:'Economic Policy',treasury:'The Public Purse',citizens:'Our Residents',businesses:'Local Enterprise',construction:'Works & Planning',journal:'Public Record',settings:'Game Options',inspect:'Property Inspector'};
+const names={economy:'The Living Economy',banking:'Banks & Credit',overview:'Town Hall',agenda:'Council Agenda',community:'Civic Services',policies:'Economic Policy',treasury:'The Public Purse',citizens:'Our Residents',businesses:'Local Enterprise',construction:'Works & Planning',journal:'Public Record',settings:'Game Options',inspect:'Property Inspector',trip:'Journey Inspector'};
 function renderPanel(tab){if(!G)return;const sc=$('panelBody');const y=sc.scrollTop;let contents='';
- try{contents=({overview:renderOverviewFull,economy:renderEconomy,agenda:renderAgenda,community:renderCommunityFull,policies:renderPoliciesFull,treasury:renderTreasuryFull,banking:financePanel,citizens:renderCitizensFull,businesses:renderBusinessesFull,construction:renderConstructionFull,journal:renderJournalFull,settings:renderSettingsFull,inspect:renderInspectFull}[tab]||renderOverview)()}
+ try{contents=({overview:renderOverviewFull,economy:renderEconomy,agenda:renderAgenda,community:renderCommunityFull,policies:renderPoliciesFull,treasury:renderTreasuryFull,banking:financePanel,citizens:renderCitizensFull,businesses:renderBusinessesFull,construction:renderConstructionFull,journal:renderJournalFull,settings:renderSettingsFull,inspect:renderInspectFull,trip:renderTripInspector}[tab]||renderOverview)()}
  catch(e){contents='<div class="event">Panel error: '+esc(e.message)+'</div>';console.error(e)}
  $('panelTitle').textContent=names[tab]||'TownLedger';sc.innerHTML=contents;sc.scrollTop=y;
 }

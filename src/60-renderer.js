@@ -155,7 +155,7 @@ function trafficUpdate(dt){
  // Max-duration safeguard protects against malformed saved routes, not
  // normal congestion. Ordinary traffic should make forward progress.
  for(let i=traffic.length-1;i>=0;i--){const v=traffic[i];if(v.finished||v.segment>=v.path.length-1){
-    G.transport.arrived++;
+    // A sampled commuter is not an economically delivered consignment.
     traffic.splice(i,1);
   }}
  for(const v of traffic)if(v.wait>4&&v.fraction<.001)detour(v);

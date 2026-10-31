@@ -1,3 +1,4 @@
+function setPurposeStyle(v,style){v.style=style;v.speed=style==='pedestrian'?.53:style==='truck'?.90:1.15;return v;}
 function restoreTransport(){
  const state=G.trafficState;visualState=G.visualState||918273;
  traffic=[];trafficClock=0;intersectionGates.clear();
@@ -23,11 +24,11 @@ function freightDay(){
 function spawnPurposeTrip(){
  if(!G)return null;
  // Trips are samples of actual commuter assignments or paid in-flight cargo.
- const freights=G.freight||[];if(freights.length&&vehicleSerial%3===0){const s=freights[vehicleSerial%freights.length],f=G.firms[s.from],t=G.firms[s.to];const v=beginVehicle(readBuild(f.building),readBuild(t.building));if(v){v.style='truck';v.reason=s.qty.toFixed(0)+' '+s.good+' → '+t.name;v.shipment=s.id;return v;}}
+ const freights=G.freight||[];if(freights.length&&vehicleSerial%3===0){const s=freights[vehicleSerial%freights.length],f=G.firms[s.from],t=G.firms[s.to];const v=beginVehicle(readBuild(f.building),readBuild(t.building));if(v){setPurposeStyle(v,'truck');v.reason=s.qty.toFixed(0)+' '+s.good+' → '+t.name;v.shipment=s.id;return v;}}
  const employed=G.people.filter(p=>!p.deceased&&!p.movedAway&&p.job>=0);if(!employed.length)return null;
  const p=employed[hash(vehicleSerial+G.day)%employed.length],h=G.households[p.hh],f=G.firms[p.job];
  const home=readBuild(h.home),work=readBuild(f.building);if(!home||!work||f.closed)return null;
- const v=beginVehicle(home,work);if(v){v.style=(p.id%3===0)?'pedestrian':'car';v.person=p.id;v.reason=p.name+' commuting to '+f.name;}return v;
+ const returning=vehicleSerial%2===1;const v=beginVehicle(returning?work:home,returning?home:work);if(v){setPurposeStyle(v,(p.id%3===0)?'pedestrian':'car');v.person=p.id;v.reason=p.name+(returning?' returning home':' commuting to '+f.name);}return v;
 }
 function detour(v){
  const start=v.path[v.segment],goal=fromEnd(v.path),net=graph();

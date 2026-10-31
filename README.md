@@ -1,12 +1,12 @@
-# TownLedger 7.0.4 — The Working City
+# TownLedger 7.0.5 — The Working City
 
 An offline government and town-economy game. This release rebuilds the operating model, the starting towns, monetary controls, road generation, animation and interface palette.
 
 ## Install
 
-Version 7.0.4 (code 18, save schema 5) has a signed development APK built with the official Android SDK. Package assets, signature, DEX integrity and alignment were verified. Android installation and device gameplay have not been run. The new development signer differs from the older baseline; export and verify your town backup before uninstalling an older installation if Android refuses the update. The original private signing key is not included.
+Version 7.0.5 (code 19, save schema 5) has a signed development APK built with the official Android SDK. Package assets, signature, DEX integrity and alignment were verified. Android installation and device gameplay have not been run. The new development signer differs from the older baseline; export and verify your town backup before uninstalling an older installation if Android refuses the update. The original private signing key is not included.
 
-This development slice makes health and school allocations purchase capacity-limited services, reports operating bottlenecks, and introduces original terrain/frontage/lighting/activity layers. See [phase notes](docs/SERVICES-AND-LIVING-ART-7.0.4.md). It also improves large-town rendering at 64×, zoom-dependent street labels, high-density screen alignment, construction feedback and archive validation. See [QA and changes](docs/QA-7.0.4.md) for measurements and remaining limitations.
+This development slice makes health and school allocations purchase capacity-limited services, reports operating bottlenecks, and introduces original terrain/frontage/lighting/activity layers. See [phase notes](docs/MATERIALS-AND-JOURNEYS-7.0.5.md). It also improves large-town rendering at 64×, zoom-dependent street labels, high-density screen alignment, construction feedback and archive validation. See [QA and changes](docs/QA-7.0.5.md) for measurements and remaining limitations.
 
 New towns use a connected hierarchy of named through roads, collectors and local streets. Existing saves retain their buildings, roads and residents. Their economic rules migrate to schema 5. Keep an old export if you want to retain the prior simulation rules; older builds reject new schema-5 archives.
 

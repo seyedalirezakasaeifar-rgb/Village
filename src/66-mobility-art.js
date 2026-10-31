@@ -33,18 +33,24 @@ function paintRegionalAircraft(g,x,y,dx,dy,altitude,clock,gear=true){
  poly([[-23,0],[-22,-11],[-17,-11],[-14,0]],'#789b9a');poly([[-22,-11],[-17,-11],[-17,-7],[-22,-7]],'#c8b56e');
  g.fillStyle='#bc5444';g.fillRect(-1,-29,3,2);g.fillStyle='#6ba57d';g.fillRect(-1,27,3,2);g.restore();
 }
+function aviationPose(r,gate,phase){
+ const a=r.a,b=r.b,lerp=(p,q,t)=>[p[0]+(q[0]-p[0])*t,p[1]+(q[1]-p[1])*t];let pos,heading=[r.dx,r.dy],alt=0,gear=true;
+ const taxi=(p,q,c1,c2,t)=>{const u=1-t;return {pos:[0,1].map(k=>u*u*u*p[k]+3*u*u*t*c1[k]+3*u*t*t*c2[k]+t*t*t*q[k]),heading:[0,1].map(k=>3*u*u*(c1[k]-p[k])+6*u*t*(c2[k]-c1[k])+3*t*t*(q[k]-c2[k]))};};
+ if(phase<8){const bend=Math.min(.15,Math.hypot(a[0]-gate[0],a[1]-gate[1])/r.length*.35);({pos,heading}=taxi(gate,a,lerp(gate,a,.35),[a[0]-r.dx*bend,a[1]-r.dy*bend],phase/8));}
+ else if(phase<18){const t=(phase-8)/10;pos=lerp(a,b,t*t);alt=Math.max(0,t-.55)*110;}
+ else if(phase<32){const u=phase-18;pos=[b[0]+r.dx*(u*.2+u*u*.005),b[1]+r.dy*(u*.2+u*u*.005)];alt=49.5+u*11;gear=false;}
+ else if(phase<50)return null;
+ else if(phase<66){const t=(phase-50)/16;pos=[a[0]-r.dx*(1-t)*4,a[1]-r.dy*(1-t)*4];alt=(1-t)*(1-t)*140;gear=t>.55;}
+ else if(phase<75){const t=(phase-66)/9;pos=lerp(a,b,2.25*t-1.5*t*t+.25*t*t*t);}
+ else if(phase<85){const bend=Math.min(.15,Math.hypot(b[0]-gate[0],b[1]-gate[1])/r.length*.35);({pos,heading}=taxi(b,gate,[b[0]+r.dx*bend,b[1]+r.dy*bend],lerp(b,gate,.7),(phase-75)/10));}
+ else{pos=gate;heading=[gate[0]-b[0],gate[1]-b[1]];}
+ return {pos,heading,alt,gear};
+}
 function drawAviation(g){
  const air=G.airport,r=runwayGeometry();if(!air?.operating||!r)return;
  const terminal=readBuild(air.building);if(!terminal)return;const gate=iso(terminal.x,terminal.y);gate[1]+=64;
- const phase=gameOptions.reducedMotion?88:frameClock%90,a=r.a,b=r.b,lerp=(p,q,t)=>[p[0]+(q[0]-p[0])*t,p[1]+(q[1]-p[1])*t];let pos,heading=[r.dx,r.dy],alt=0,gear=true;
- if(phase<8){pos=lerp(gate,a,phase/8);heading=[a[0]-gate[0],a[1]-gate[1]];}
- else if(phase<18){const t=(phase-8)/10,e=t*t;pos=lerp(a,b,e);alt=Math.max(0,t-.55)*110;}
- else if(phase<32){const t=(phase-18)/14;pos=[b[0]+r.dx*t*5,b[1]+r.dy*t*5];alt=50+t*140;gear=false;}
- else if(phase<50)return;
- else if(phase<66){const t=(phase-50)/16;pos=[a[0]-r.dx*(1-t)*4,a[1]-r.dy*(1-t)*4];alt=(1-t)*140;gear=t>.55;}
- else if(phase<75){const t=(phase-66)/9;pos=lerp(a,b,1-(1-t)*(1-t));}
- else if(phase<85){pos=lerp(b,gate,(phase-75)/10);heading=[gate[0]-b[0],gate[1]-b[1]];}
- else{pos=gate;heading=[r.dx,r.dy];}
+ const phase=gameOptions.reducedMotion?88:frameClock%90,pose=aviationPose(r,gate,phase);if(!pose)return;
+ const {pos,heading,alt,gear}=pose;
  paintRegionalAircraft(g,...pos,...heading,alt,frameClock,gear);
 }
 function drawStreetNames(g,sx,sy,ww,hh){
