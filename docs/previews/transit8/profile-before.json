@@ -136,5 +136,7 @@
       "prepareScene @2890",
       1.03
     ]
-  ]
+  ],
+  "source_sha256": "624a5cb4e7e816d5e8232b3470c65505e151330908c7de33825e4d81094b92ef",
+  "method": "Chromium CDP CPU profiler, 100 microsecond sampling; fixture setup plus five operating days"
 }

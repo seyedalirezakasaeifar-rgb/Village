@@ -26,5 +26,5 @@ with sync_playwright() as pw:
  result=p.evaluate('__transitScale()');print(json.dumps(result));assert result['routes']==48 and result['nodes']==768,result
  assert result['drivers']==192 and result['assigned']==2000 and result['denied']==0,result
  assert result['cacheStable'] and result['poseMs']<5,result
- assert sorted(result['times'])[2]<300,result
+ assert __import__('statistics').median(result['times'][1:])<15 and result['times'][0]<150,result
  (ROOT/'reports/transit-scale-8.json').write_text(json.dumps({'source_sha256':hashlib.sha256((ROOT/'assets/game.js').read_bytes()).hexdigest(),'result':result,'passed':True},indent=2));b.close();print('PASS bounded 48 routes / 768 stops / 2,000 commuters, alternative-capacity assignment, unique 192 drivers, cached topology and visual-only pose budget')

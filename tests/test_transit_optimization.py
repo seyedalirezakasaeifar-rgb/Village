@@ -50,14 +50,19 @@ with sync_playwright() as pw:
  assert compared[0]==compared[1],'Controlled model or invalidation results differ from eb2e88c'
  out['exact_transition_cases']=[s['name'] for s in compared[0]['transitions']]
  for p in pages:p.close()
- for routes in [8,12,48]:
+ for routes,distributed in [(8,False),(12,False),(48,False),(12,True),(48,True)]:
   pr=scale.replace('i<12;i++)depots',f'i<{(routes+3)//4};i++)depots').replace('i<2192;',f'i<{2000+routes*4};').replace('i<192;',f'i<{routes*4};').replace('for(let i=0;i<48;i++)',f'for(let i=0;i<{routes};i++)').replace('i<5;i++', 'i<12;i++')
+  if distributed:
+   pr=pr.replace("G.firms=[{id:0,building:work.id,closed:false,cash:0,workers:[]}];", "const homes=[11,15,19,23,27,31,35,39,43,12,16,20,24,28,32,36].map(x=>b('home',x,19)),works=[11,15,19,23,27,31,35,39,43,12,16,20,24,28,32,36].map(x=>b('office',x,25));G.firms=works.map((w,id)=>({id,building:w.id,closed:false,cash:0,workers:[]}));")
+   pr=pr.replace("home:home.id",f"home:driver?home.id:homes[Math.floor((i-{routes*4})/16)%16].id")
+   pr=pr.replace("job:driver?-1:0",f"job:driver?-1:(i-{routes*4})%16")
+   pr=pr.replace("G.firms[0].workers.push(i)",f"G.firms[(i-{routes*4})%16].workers.push(i)")
   rows=[];models=[]
   for label,code in [('baseline',baseline),('optimized',source)]:
    page=load_page(browser,code,pr);value=page.evaluate('__transitScale()');models.append(value.pop('projection'));assert value['drivers']==routes*4 and value['nodes']==routes*16,value;rows.append({'implementation':label,'times':value.pop('times'),'poseMs':value.pop('poseMs'),'state':value});page.close()
   assert models[0]==models[1],f'Exact accounts, fares, tickets, staff or service differs for {routes} routes'
   assert rows[0]['state']==rows[1]['state'],rows
-  row={'routes':routes,'riders':2000,'baseline':rows[0],'optimized':rows[1],'exact_equivalence':True}
+  row={'routes':routes,'distributedOrigins':distributed,'riders':2000,'baseline':rows[0],'optimized':rows[1],'exact_equivalence':True}
   for k in ['baseline','optimized']:row[k]['median_ms']=statistics.median(row[k]['times'][1:])
   row['speedup']=row['baseline']['median_ms']/max(.01,row['optimized']['median_ms']);out['cases'].append(row);print(json.dumps({k:row[k] for k in ['routes','speedup','exact_equivalence']}),flush=True)
  browser.close()
