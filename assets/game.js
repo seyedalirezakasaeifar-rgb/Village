@@ -296,11 +296,11 @@ function enterpriseRevenue(f,amount){f.cash+=amount;if(marketOpen)f.revenue+=amo
 function serviceSales(f,amount){
  amount=Math.min(Math.max(0,G.region),Math.max(0,amount));G.region-=amount;f.cash+=amount;f.revenue+=amount;G.market.externalSales+=amount;return amount;
 }
-function fundedPublicPayroll(amount,share=.65){
+function fundedPublicPayroll(amount,share=.65,eligible=null,role=''){
  const paid=Math.max(0,Math.min(G.treasury,amount));G.treasury-=paid;G.cumulative.spending+=paid;
  let payroll=paid*share,spent=0,wage=Math.max(24,G.policy.minWage);
- const available=G.people.filter(p=>!p.deceased&&!p.movedAway&&p.age>=18&&p.age<=70&&p.job<0&&(p.publicIncome||0)<wage);
- for(const p of available){if(payroll<.001)break;const h=G.households[p.hh];if(!h?.people.length)continue;const pay=Math.min(payroll,wage-(p.publicIncome||0));const tax=pay*G.policy.incomeTax/100;h.cash+=pay-tax;h.income+=pay;h.wages=(h.wages||0)+pay;h.tax+=tax;h.incomeTax+=tax;transferTreasury(tax,'incomeTax');p.publicIncome=(p.publicIncome||0)+pay;p.publicWork=p.publicIncome>=wage*.5;payroll-=pay;spent+=pay;}
+ const available=G.people.filter(p=>!p.deceased&&!p.movedAway&&p.age>=18&&p.age<=70&&p.job<0&&(p.publicIncome||0)<wage&&(eligible?eligible(p):!p.previousPublicRole));
+ for(const p of available){if(payroll<.001)break;const h=G.households[p.hh];if(!h?.people.length)continue;const pay=Math.min(payroll,wage-(p.publicIncome||0));const tax=pay*G.policy.incomeTax/100;h.cash+=pay-tax;h.income+=pay;h.wages=(h.wages||0)+pay;h.tax+=tax;h.incomeTax+=tax;transferTreasury(tax,'incomeTax');p.publicIncome=(p.publicIncome||0)+pay;p.publicWork=p.publicIncome>=wage*.5;if(role)p.publicRole=role;payroll-=pay;spent+=pay;}
  G.region+=paid-spent;return amount>0?paid/amount:0;
 }
 // Explicit operating standards, expressed in the same resident capacities used
@@ -312,9 +312,9 @@ function purchaseCivicService(kind,authorized){
  const standard=CIVIC_STANDARDS[kind],population=Math.max(0,G.stats.population),facilities=G.buildings.filter(b=>b.kind===standard.building).length;
  const wage=Math.max(24,G.policy.minWage),required=population*standard.staff/standard.capacity*wage/.65;
  const facilityCoverage=population?Math.min(1,facilities*standard.capacity/population):0;
- const requested=Math.min(Math.max(0,authorized),required*facilityCoverage),paid=requested*fundedPublicPayroll(requested);
- const coverage=required?Math.min(facilityCoverage,paid/required):0;
- const result={day:G.day,authorized,required,requested,paid,unspent:Math.max(0,authorized-paid),population,facilities,facilityCoverage,coverage,wage};
+ const access=serviceAccess(kind),staffing=civicStaffCapacity(kind,authorized,access),requested=Math.min(Math.max(0,authorized),required*Math.min(access.coverage,staffing.coverage)),paid=requested*fundedPublicPayroll(requested,.65,p=>qualifiedForService(p,kind)&&civicCandidateSets.get(kind).has(p.id),kind);
+ const coverage=required?Math.min(access.coverage,paid/required):0;
+ const result={day:G.day,authorized,required,requested,paid,unspent:Math.max(0,authorized-paid),population,facilities,facilityCoverage,accessCoverage:access.coverage,accessLimit:access.limit,accessibleResidents:access.served,staffing,coverage,wage};
  if(!G.serviceProvision)G.serviceProvision={};G.serviceProvision[kind]=result;
  return coverage;
 }
@@ -666,6 +666,108 @@ function financePanel(){
 }
 
 
+// SOURCE: 12-service-access.js
+// Road catchments and shared facility capacity. No clinic/school can count its
+// same places twice when catchments overlap. Derived data is never save authority.
+const serviceAccessCaches=new Map();
+function serviceAccess(kind){
+ const standard=CIVIC_STANDARDS[kind],net=graph(),limit=kind==='health'?60:40;
+ const facilities=G.buildings.filter(b=>b.kind===standard.building),homes=G.households.map(h=>({id:h.id,home:h.home,residents:h.people.filter(id=>G.people[id]&&!G.people[id].deceased&&!G.people[id].movedAway).length})).filter(h=>h.residents);
+ const key=facilities.map(b=>b.id).join(',')+'|'+homes.map(h=>h.id+':'+h.home+':'+h.residents).join(',');
+ const old=serviceAccessCaches.get(kind);if(old&&old.town===G&&old.net===net&&old.key===key)return old.result;
+ const totalNodes=facilities.length+homes.length+2,sink=totalNodes-1,edges=Array.from({length:totalNodes},()=>[]),homeEdges=[],distances=[],facilityEdges=[],connections=[];
+ const link=(a,b,capacity)=>{const edge={to:b,capacity,reverse:edges[b].length};edges[a].push(edge);edges[b].push({to:a,capacity:0,reverse:edges[a].length-1});return edge;};
+ facilities.forEach((facility,i)=>{
+  facilityEdges.push(link(0,i+1,standard.capacity));connections.push([]);const port=net.portals.get(facility.id),distance=new Map(),queue=[];
+  if(port!=null){distance.set(port,0);queue.push(port);}
+  for(let n=0;n<queue.length;n++){const id=queue[n],d=distance.get(id);if(d>=limit)continue;for(const next of net.neighbors.get(id)||[])if(!distance.has(next)){distance.set(next,d+1);queue.push(next);}}
+  distances.push(distance);
+ });
+ homes.forEach((h,j)=>{const node=1+facilities.length+j;homeEdges.push(link(node,sink,h.residents));const port=net.portals.get(h.home);facilities.forEach((_,i)=>{if(port!=null&&distances[i].has(port))connections[i].push({home:j,edge:link(i+1,node,h.residents)});});});
+ let served=0;
+ // Seed a proportional allocation before augmenting residual paths. Shared
+ // shortages therefore do not automatically exclude the last household ID.
+ for(let round=0;round<12;round++){
+  const offers=[],totals=homes.map(()=>0);
+  connections.forEach((links,i)=>{const demand=links.reduce((n,c)=>n+homeEdges[c.home].capacity,0),supply=facilityEdges[i].capacity;if(demand<1e-8||supply<1e-8)return;
+   for(const c of links){const amount=Math.min(1,supply/demand)*homeEdges[c.home].capacity;if(amount>1e-8){offers.push({i,c,amount});totals[c.home]+=amount;}}});
+  const scales=totals.map((offered,j)=>offered?Math.min(1,homeEdges[j].capacity/offered):0);let moved=0;
+  for(const {i,c,amount} of offers){const value=amount*scales[c.home];if(value<1e-8)continue;const homeNode=1+facilities.length+c.home,sourceEdge=facilityEdges[i],sinkEdge=homeEdges[c.home];
+   sourceEdge.capacity-=value;edges[i+1][sourceEdge.reverse].capacity+=value;c.edge.capacity-=value;edges[homeNode][c.edge.reverse].capacity+=value;sinkEdge.capacity-=value;edges[sink][sinkEdge.reverse].capacity+=value;moved+=value;}
+  served+=moved;if(moved<1e-8)break;
+ }
+
+ // Residual paths also reassign an earlier place when another household has
+ // fewer alternatives, avoiding order-dependent greedy catchment allocation.
+ for(;;){const parents=Array(totalNodes).fill(null),queue=[0];parents[0]=[-1,-1];
+  for(let n=0;n<queue.length&&!parents[sink];n++){const at=queue[n];for(let e=0;e<edges[at].length;e++){const edge=edges[at][e];if(edge.capacity>1e-8&&!parents[edge.to]){parents[edge.to]=[at,e];queue.push(edge.to);}}}
+  if(!parents[sink])break;let amount=Infinity;
+  for(let at=sink;at!==0;){const [from,index]=parents[at];amount=Math.min(amount,edges[from][index].capacity);at=from;}
+  for(let at=sink;at!==0;){const [from,index]=parents[at],edge=edges[from][index];edge.capacity-=amount;edges[at][edge.reverse].capacity+=amount;at=from;}served+=amount;
+ }
+ const result={kind,limit,served:Math.min(served,G.stats.population),population:G.stats.population,coverage:G.stats.population?Math.min(1,served/G.stats.population):0,households:homes.map((h,j)=>{const port=net.portals.get(h.home),reachable=distances.map(d=>d.get(port)).filter(d=>d!=null);return {...h,served:clamp(h.residents-homeEdges[j].capacity,0,h.residents),distance:reachable.length?Math.min(...reachable):null};})};
+ serviceAccessCaches.set(kind,{town:G,net,key,result});return result;
+}
+function drawServiceAccess(g){
+ if(!['healthAccess','schoolAccess'].includes(overlay))return;const access=serviceAccess(overlay==='healthAccess'?'health':'school'),byHome=new Map();
+ for(const h of access.households){const entry=byHome.get(h.home)||{served:0,residents:0};entry.served+=h.served;entry.residents+=h.residents;byHome.set(h.home,entry);}
+ for(const [id,h] of byHome){const b=readBuild(id);if(!b)continue;const p=iso(b.x,b.y);if(Math.abs(p[0]-cam.x)>cw/(2*cam.zoom)+72||Math.abs(p[1]-cam.y)>ch/(2*cam.zoom)+72)continue;g.globalAlpha=.55;diamond(g,b.x,b.y,h.served>=h.residents-1e-6?'#a4d09b':h.served?'#e0c076':'#ce8069');if(cam.zoom>.65){g.globalAlpha=1;g.font=`bold ${10/cam.zoom}px Arial`;g.textAlign='center';g.fillStyle='#173c2c';g.fillText(h.served>=h.residents-1e-6?'+':h.served>0?'!':'×',p[0],p[1]+21);}}g.globalAlpha=1;
+}
+
+function householdServiceReport(id){
+ return head('Local service access')+['health','school'].map(kind=>{const access=serviceAccess(kind),h=access.households.find(h=>h.id===id),provision=G.serviceProvision?.[kind];if(!h)return '';const effective=provision&&access.coverage?h.served/h.residents*provision.coverage/access.coverage:null;
+ return strip(kind==='health'?'Medical access':'School access',h.distance==null?'No facility within road catchment':h.distance+' road segments · '+policyNumber(h.served)+'/'+h.residents+' reachable places')+(effective==null?'':strip('Latest funded coverage',Math.round(effective*100)+'%'));}).join('');
+}
+
+function localCivicCoverage(kind,id){
+ const access=serviceAccess(kind),h=access.households.find(h=>h.id===id),provision=G.serviceProvision?.[kind];
+ return h&&provision&&access.coverage?clamp(h.served/h.residents*provision.coverage/access.coverage,0,1):0;
+}
+
+// SOURCE: 13-civic-staffing.js
+const civicCandidateSets=new Map();
+function qualifiedForService(p,kind){return !p.deceased&&!p.movedAway&&p.age>=18&&p.age<=70&&p.health>=60&&p.skill>=(kind==='health'?.7:.55)&&(!p.previousPublicRole||p.previousPublicRole===kind);}
+function civicStaffCapacity(kind,authorized,access){
+ const standard=CIVIC_STANDARDS[kind],wage=Math.max(24,G.policy.minWage),needed=G.stats.population*standard.staff/standard.capacity;
+ const reachable=new Set(access.households.filter(h=>h.distance!=null).map(h=>h.id)),candidates=G.people.filter(p=>p.job<0&&qualifiedForService(p,kind)&&reachable.has(p.hh));civicCandidateSets.set(kind,new Set(candidates.map(p=>p.id)));
+ const local=candidates.reduce((n,p)=>n+Math.max(0,1-(p.publicIncome||0)/wage),0);
+ const demand=Math.min(needed*access.coverage,Math.max(0,authorized)*.65/wage),target=Math.max(0,demand-local);
+ if(!G.civicStaffing)G.civicStaffing={};let contract=G.civicStaffing[kind];
+ // Founding/migrated services inherit their operating arrangements. Subsequent
+ // expansion must recruit, but regional contracts allow recovery without locals.
+ if(!contract)contract=G.civicStaffing[kind]={ready:target,pending:null};
+ if(contract.pending&&G.day>=contract.pending.day){contract.ready=contract.pending.target;contract.pending=null;}
+ if(!contract.pending&&Math.abs(contract.ready-target)>.01)contract.pending={target,day:G.day+30};
+ const available=Math.min(needed*access.coverage,local+contract.ready);
+ return {local,regional:contract.ready,needed,coverage:needed?available/needed:0,pending:contract.pending?{...contract.pending}:null,qualification:kind==='health'?.7:.55};
+}
+function civicTrainingDay(coverage){
+ if(G.civicTrainingLastDay===G.day)return;G.civicTrainingLastDay=G.day;
+ if(!G.civicTraining)G.civicTraining=[];
+ G.civicTraining=G.civicTraining.filter(c=>{const p=G.people[c.person];return p&&!p.deceased&&!p.movedAway&&p.age>=18&&p.age<=70;});
+ const places=G.buildings.filter(b=>b.kind==='school').length*2;
+ if(coverage>0&&G.serviceProvision?.school?.paid>0){
+  for(const course of G.civicTraining.slice(0,places)){course.days+=localCivicCoverage('school',G.people[course.person].hh);if(course.days>=120){const p=G.people[course.person];p.skill=Math.min(1.3,p.skill+.1);course.complete=true;story(p.name+' completed a funded adult-training term. Qualification grows through sustained teaching, not an instant grant.','good',0,p.hh);}}
+  G.civicTraining=G.civicTraining.filter(c=>!c.complete);
+  const enrolled=new Set(G.civicTraining.map(c=>c.person));
+  const access=serviceAccess('school'),reachable=new Set(access.households.filter(h=>h.served>0).map(h=>h.id));
+  const candidates=G.people.filter(p=>reachable.has(p.hh)&&!p.deceased&&!p.movedAway&&p.age>=18&&p.age<=60&&p.skill<.7&&!enrolled.has(p.id)).sort((a,b)=>(a.job>=0)-(b.job>=0)||b.skill-a.skill||a.id-b.id);
+  while(G.civicTraining.length<places&&candidates.length)G.civicTraining.push({person:candidates.shift().id,days:0,started:G.day});
+ }
+}
+function validateCivicState(data){
+ if(data.civicStaffing!=null){if(typeof data.civicStaffing!=='object'||Array.isArray(data.civicStaffing))return false;
+  for(const [kind,c] of Object.entries(data.civicStaffing)){if(!['health','school'].includes(kind)||!c||!Number.isFinite(c.ready)||c.ready<0||c.ready>1000)return false;
+   if(c.pending&&(!Number.isFinite(c.pending.target)||c.pending.target<0||c.pending.target>1000||!Number.isInteger(c.pending.day)||c.pending.day<1||c.pending.day>data.day+30))return false;}}
+ if(data.civicTraining!=null){if(!Array.isArray(data.civicTraining)||data.civicTraining.length>data.people.length)return false;const seen=new Set();
+  for(const c of data.civicTraining){if(!c||!Number.isInteger(c.person)||!data.people[c.person]||seen.has(c.person)||!Number.isFinite(c.days)||c.days<0||c.days>=120||!Number.isInteger(c.started)||c.started<1||c.started>data.day)return false;seen.add(c.person);}}
+ if(data.civicTrainingLastDay!=null&&(!Number.isInteger(data.civicTrainingLastDay)||data.civicTrainingLastDay>data.day||data.civicTrainingLastDay<1))return false;
+ return data.people.every(p=>[p.publicRole,p.previousPublicRole].every(role=>role==null||['','health','school'].includes(role)));
+}
+function civicTrainingPanel(){
+ const courses=G.civicTraining||[];return head('Local qualifications and training')+tip('Each operating school offers two adult-training places. A term needs 120 equivalent funded teaching days and adds 10 skill points; partial coverage progresses more slowly. Regional staffing contracts provide a recovery path when no local qualified worker is available.')+(courses.length?courses.map(c=>{const p=G.people[c.person];return `<div class="entry"><strong>${esc(p.name)}</strong><small>${Math.floor(c.days)} / 120 funded days · Skill ${Math.round(p.skill*100)}/100</small><button data-house="${p.hh}">Inspect household</button></div>`;}).join(''):tip('No adult course is active. Fund reachable schools to open places.'));
+}
+
 // SOURCE: 19-street-plan.js
 // A connected street hierarchy: through routes, collectors, and short local streets.
 // No nested decorative rings. Imported towns retain their existing parcels and streets.
@@ -806,7 +908,7 @@ function createFirm(kind,x,y,setup=false,addFn=null){
 }
 function assignJobs(){
  if(!G||!G.people)return;
- const free=G.people.filter(p=>!p.deceased&&p.movedAway!==true&&p.age>=16&&p.age<=70&&p.job<0&&(p.searchAfter||0)<=G.day);
+ const free=G.people.filter(p=>!p.deceased&&p.movedAway!==true&&p.age>=16&&p.age<=70&&p.job<0&&!p.publicWork&&!p.previousPublicRole&&(p.searchAfter||0)<=G.day);
  const net=graph(),maxJourney=60+(G.policy.transitBudget||0)/8;
  const vacancies=G.firms.filter(f=>!f.closed&&f.workers.length<f.jobs).sort((a,b)=>(b.wage-a.wage));
  for(const f of vacancies){let workplace=readBuild(f.building),port=net.portals.get(f.building);
@@ -886,7 +988,7 @@ function dailyEconomy(){
  ensureMarketModel();marketOpen=true;const P=G.policy,live=G.firms.filter(f=>!f.closed),counts={};
  for(const f of live)counts[f.kind]=(counts[f.kind]||0)+1;
  for(const f of G.firms){f.revenue=f.pendingRevenue||0;f.pendingRevenue=0;f.expenses=0;f.cogs=f.pendingCogs||0;f.pendingCogs=0;f.purchases=0;f.payroll=0;f.salesQty=f.pendingSalesQty||0;f.pendingSalesQty=0;f.production=0;f.profit=0;f.tax=0;f.age++;}
- for(const p of G.people){p.publicWork=false;p.publicIncome=0;}
+ for(const p of G.people){p.previousPublicRole=p.publicWork?(p.publicRole||''):'';p.publicRole='';p.publicWork=false;p.publicIncome=0;}
  for(const h of G.households){h.income=0;h.wages=0;h.pension=0;h.rentalIncome=0;h.dividends=0;h.debtService=0;h.propertyPaid=0;h.rent=0;h.food=0;h.tax=0;h.incomeTax=0;h.energyTax=0;h.aid=0;h.utilities=0;h.energyRebate=0;h.travel=0;h.discretionary=0;h.last=[];}
  G.market.unmetFood=0;G.market.consumedFood=0;G.market.externalSales=0;G.market.imports=0;
  for(const f of live){planEnterprise(f);
@@ -2205,6 +2307,7 @@ function draw(){
  drawAviation(ctx);
  if(overlay==='metro')drawMetroOverlay(ctx);
  if(overlay==='roads'||overlay==='business'||overlay==='hardship'||overlay==='crime'||overlay==='land')for(const item of displayItems){if(item.kind!=='building'||!visible(item.x,item.y))continue;const b=item.b,f=G.firms[b.firm],h=G.households[b.hh],net=graph();let color=overlay==='roads'?(net.portals.has(b.id)?'#9ecb95':'#bb7760'):overlay==='business'?(f?(f.closed?'#b66856':f.profit>0?'#a1c67d':'#d6b46c'):null):overlay==='hardship'?(h?(h.stress>50?'#b96c56':'#a9ca87'):null):overlay==='land'?(b.value>90000?'#c38864':b.value>45000?'#d0b776':'#9fc087'):null;if(!color)continue;ctx.globalAlpha=.7;diamond(ctx,b.x,b.y,color);ctx.globalAlpha=1;}
+ drawServiceAccess(ctx);
  if(selected?.id){const b=readBuild(selected.id);if(b){const p=iso(b.x,b.y);ctx.strokeStyle='#f4e2a5';ctx.lineWidth=2;ctx.beginPath();ctx.ellipse(p[0],p[1]+18,32,16,0,0,Math.PI*2);ctx.stroke();}}
  if(buildMode&&pointer.hover){const {x,y}=pointer.hover;if(x>=0&&x<T&&y>=0&&y<T){const valid=buildMode==='road'?cityCell(x,y)===0&&!buildingAt(x,y):buildMode==='repair'?cityCell(x,y)===1:canPlace(x,y,true,buildMode);ctx.globalAlpha=.60;for(const id of footprintFor(x,y,buildMode))diamond(ctx,id%T,id/T|0,valid?'#c8dea4':'#c48069');ctx.globalAlpha=1;}}
  if(nightMode){ctx.setTransform(dpr,0,0,dpr,0,0);ctx.fillStyle='#233c6460';ctx.fillRect(0,0,cw,ch);transform();for(const item of displayItems){if(item.kind!=='building'||!visible(item.x,item.y)||item.b.kind==='worksite')continue;const b=item.b;if(b.firm>=0&&G.firms[b.firm]?.closed)continue;const glow=ctx.createRadialGradient(item.x,item.y-12,1,item.x,item.y-12,28);glow.addColorStop(0,'#eac57a36');glow.addColorStop(1,'#eac57a00');ctx.fillStyle=glow;ctx.fillRect(item.x-28,item.y-40,56,56);}}
@@ -2652,6 +2755,8 @@ $('panelBody').addEventListener('click',e=>{const b=e.target.closest('button,[da
  ]);return}
  if(b.id==='backupSave'){exportSave();return}
  if(b.id==='importSave'){importSave();return}
+ if(b.dataset.servicePolicy){openPanel('policies');const input=$('panelBody').querySelector('[data-policy="'+(b.dataset.servicePolicy==='health'?'healthBudget':'educationBudget')+'"]');if(input){input.closest('details').open=true;input.scrollIntoView({block:'center'});input.focus();}return}
+ if(b.dataset.serviceAccess){overlay=b.dataset.serviceAccess==='health'?'healthAccess':'schoolAccess';closePanel();dirty=true;toast('Service access: green available · gold partial · copper unserved. Road distance and shared facility places determine reach.');return}
  if(b.dataset.openPanel){openPanel(b.dataset.openPanel);return}
  if(b.id==='tutorial'){openTutorialDialog(b);return}
  if(b.id==='toggleDevelopment'){G.autoBuild=!G.autoBuild;save();renderPanel(active);toast(G.autoBuild?'Private investment resumed.':'New private construction paused.');return;}
@@ -2862,9 +2967,10 @@ function extendedCivicDay(){
  G.actualServiceFunding=Object.assign(G.actualServiceFunding||{},{roads:roadRatio,health:healthRatio,school:schoolRatio,militia:militiaRatio,transit:transitRatio});
  G.health=clamp(G.health+(.063*healthRatio-.037- (G.stats.hardship||0)*.0002),25,99);
  G.education=clamp(G.education+.048*schoolRatio-.009,15,99);
+ civicTrainingDay(schoolRatio);
  G.stats.health=Math.round(G.health);G.stats.education=Math.round(G.education);
- if(G.day%3===0&&schoolRatio>.4){let p=pick(G.people.filter(p=>!p.deceased&&p.movedAway!==true));if(p){p.skill=clamp(p.skill+.018*schoolRatio,0,1.3)}}
- if(G.day%6===0){let p=pick(G.people.filter(p=>!p.deceased&&p.movedAway!==true));if(p){p.health=clamp(p.health+(healthRatio>.5?1.3:-.3)+rn(-.5,.5),10,100);if(p.health<25){const h=G.households[p.hh];if(h)h.stress=clamp(h.stress+1,0,100)}}}
+ if(G.day%3===0&&schoolRatio>0){let p=pick(G.people.filter(p=>!p.deceased&&p.movedAway!==true));if(p){p.skill=clamp(p.skill+.018*localCivicCoverage('school',p.hh),0,1.3)}}
+ if(G.day%6===0){let p=pick(G.people.filter(p=>!p.deceased&&p.movedAway!==true));if(p){p.health=clamp(p.health+(-.3+1.6*localCivicCoverage('health',p.hh))+rn(-.5,.5),10,100);if(p.health<25){const h=G.households[p.hh];if(h)h.stress=clamp(h.stress+1,0,100)}}}
  if(G.day%8===0&&parks>0){let h=pick(G.households);if(h)h.stress=clamp(h.stress-1.5,0,100)}
  const warmth=G.weather==='storm'?-.4:0;
  G.stats.wellbeing=Math.round(clamp(82-G.households.reduce((s,h)=>s+h.stress,0)/Math.max(1,G.households.length)*.46+parks*.5+G.health*.08+warmth,0,100));
@@ -3016,6 +3122,7 @@ function hydrateSave(raw){
    if(idSet.has(b.id))return false;idSet.add(b.id);
   }
   for(const h of data.households)for(const id of h.people){if(memberSet.has(id)||data.people[id].hh!==h.id||data.people[id].deceased||data.people[id].movedAway)return false;memberSet.add(id)}
+  if(!validateCivicState(data))return false;
   data.version=3;data.policy={...defaults,...data.policy};
   data.banks=Array.isArray(data.banks)?data.banks.filter(b=>b&&Number.isInteger(b.id)&&b.id>=0&&b.id<12&&Number.isFinite(b.cash)&&b.cash>=0&&Number.isFinite(b.depositAPY)&&Number.isFinite(b.loanAPY)).slice(0,12):[];
   data.loans=Array.isArray(data.loans)?data.loans.filter(l=>l&&Number.isInteger(l.id)&&Number.isFinite(l.balance)&&l.balance>=0&&['active','repaid','default'].includes(l.status)).slice(0,10000):[];
@@ -3100,14 +3207,14 @@ function renderAgenda(){let C=G.council,days=360-(G.day%360),completed=G.achieve
  `<div class="btnrow"><button id="convene" ${G.day-G.lastEventDay<12?'disabled':''}>Request council meeting</button><button id="jumpJournal">Open policy journal</button></div>`;
 }
 function serviceProvisionPanel(){
- if(!G.serviceProvision)return tip('Service provision is recorded after the next simulated day. Budgets authorize spending; buildings and paid operating costs determine coverage.');
- return ['health','school'].map(kind=>{const p=G.serviceProvision[kind];if(!p)return '';const coverage=Math.round(p.coverage*100),capacity=Math.round(p.facilityCoverage*100),bottleneck=p.facilityCoverage<1&&p.paid>=p.requested-.01?'Facility capacity limits coverage. Additional budget cannot replace a clinic or school.':p.paid<p.requested-.01?'Treasury cash was insufficient for the proposed service.':coverage<capacity?'The authorized allocation buys partial staffing and supplies.':'Current resident coverage is fully funded.';
- return `<div class="council-card service-provision"><h3>${kind==='health'?'Medical provision':'Schools and training'} · ${coverage}% coverage</h3>${strip('Authorized ceiling / day',money(p.authorized))}${strip('Actual purchases / day',money(p.paid))}${strip('Retained authorization',money(p.unspent))}${strip('Full-town operating need / day',money(p.required))}${strip('Facility capacity',capacity+'% of residents')}<p class="desc">${esc(bottleneck)} Planning standard: ${kind==='health'?'5 clinic teams per 350 residents':'10 school staff per 260 residents'}, priced at ${money(p.wage)} per staff-day with 65% payroll. Local public wages and regional staff/supply purchases are funded from the same payment. Coverage changes health and education gradually.</p></div>`;
- }).join('');
+ if(!G.serviceProvision)return tip('Service provision is recorded after the next simulated day. Budgets authorize spending; buildings and paid operating costs determine coverage.')+civicTrainingPanel();
+ return ['health','school'].map(kind=>{const p=G.serviceProvision[kind];if(!p)return '';const coverage=Math.round(p.coverage*100),capacity=Math.round(p.facilityCoverage*100),bottleneck=p.accessCoverage<p.facilityCoverage-.001?'Road access or catchment places limit reach. Connect homes and facilities or build closer provision.':p.paid<p.requested-.01?'Treasury cash was insufficient for the proposed service.':p.staffing.coverage<Math.min(p.accessCoverage,p.authorized/Math.max(1,p.required))-.001?'Qualified staff capacity is limiting provision. Regional recruitment takes 30 days; funded training builds local qualifications.':p.authorized/Math.max(1,p.required)<p.accessCoverage-.001?'The allocation limits funded staffing and supplies. Expansion may require regional recruitment.':p.facilityCoverage<1?'Facility capacity limits coverage. Additional budget cannot replace a clinic or school.':'Current resident coverage is fully funded.';
+ return `<div class="council-card service-provision"><h3>${kind==='health'?'Medical provision':'Schools and training'} · ${coverage}% coverage</h3><p class="desc">${esc(bottleneck)}</p><div class="btnrow"><button data-service-access="${kind}">Show access map</button><button data-service-policy="${kind}">Review operating budget</button></div>${strip('Actual purchases / day',money(p.paid))}${strip('Reachable places',Math.round(p.accessCoverage*100)+'% of residents')}<details><summary>Operating plan and staffing</summary>${strip('Authorized ceiling / day',money(p.authorized))}${strip('Retained authorization',money(p.unspent))}${strip('Full-town operating need / day',money(p.required))}${strip('Facility capacity',capacity+'% of residents')}${strip('Road catchment',p.accessLimit+' segments')}${strip('Available qualified local staff',policyNumber(p.staffing.local)+' equivalents')}${strip('Regional staff capacity',policyNumber(p.staffing.regional)+' equivalents')}${p.staffing.pending?strip('Recruitment review due','Day '+p.staffing.pending.day):''}${strip('Qualification standard',Math.round(p.staffing.qualification*100)+'/100 skill, health 60+')}<p class="desc">Planning standard: ${kind==='health'?'5 clinic teams per 350 residents':'10 school staff per 260 residents'}, priced at ${money(p.wage)} per staff-day with 65% payroll. Public wages and regional staff/supply purchases use the same funded payment. Coverage changes health and education gradually.</p></details></div>`;
+ }).join('')+civicTrainingPanel();
 }
-function renderCommunityFull(){let s=G.stats;return head('Private growth and mobility')+developmentPanel()+head('Banking & enterprise finance')+strip('Competing banks',G.banks.filter(b=>!b.closed).length+' operating')+strip('Outstanding bank credit',money(G.loans.filter(l=>l.status==='active').reduce((n,l)=>n+l.balance,0)))+head('Constabulary & civil defence')+`<div class="statgrid">${stat('Public safety',s.safety+'/100')}${stat('Crime reports · 30 days',s.dailyCrime)}${stat('Emergency readiness',s.preparedness+'%')}${stat('Residents in hardship',s.hardship+'%')}</div>`+
+function renderCommunityFull(){let s=G.stats;return head('Local care and learning')+serviceProvisionPanel()+head('Private growth and mobility')+developmentPanel()+head('Banking & enterprise finance')+strip('Competing banks',G.banks.filter(b=>!b.closed).length+' operating')+strip('Outstanding bank credit',money(G.loans.filter(l=>l.status==='active').reduce((n,l)=>n+l.balance,0)))+head('Constabulary & civil defence')+`<div class="statgrid">${stat('Public safety',s.safety+'/100')}${stat('Crime reports · 30 days',s.dailyCrime)}${stat('Emergency readiness',s.preparedness+'%')}${stat('Residents in hardship',s.hardship+'%')}</div>`+
  tip('Incidents affect named residents and firms. Police staffing and funding reduce risk; underfunded emergency services leave properties more exposed to fire and storm damage.')+
- head('People, health and schools')+serviceProvisionPanel()+`<div class="statgrid">${stat('Public health',Math.round(G.health)+'/100')}${stat('Education level',Math.round(G.education)+'/100')}${stat('Wellbeing',s.wellbeing+'/100')}${stat('Community security',s.safety+'/100')}</div>`+
+ head('People, health and schools')+`<div class="statgrid">${stat('Public health',Math.round(G.health)+'/100')}${stat('Education level',Math.round(G.education)+'/100')}${stat('Wellbeing',s.wellbeing+'/100')}${stat('Community security',s.safety+'/100')}</div>`+
  head('Road network and emergency reach')+strip('Pavement condition',Math.round(G.stats.roadCondition??100)+' / 100')+strip('Main road-network tiles',roadMetrics().roadTiles)+strip('Disconnected road clusters',Math.max(0,roadMetrics().roadClusters-1))+strip('Firms connected to town',roadMetrics().connectedFirms+' / '+roadMetrics().totalFirms)+strip('Funded road maintenance',Math.round((G.actualServiceFunding?.roads??1)*100)+'% of budget')+`<div class="btnrow"><button id="overlayR">${overlay==='roads'?'✓ ':''}Road-access map</button></div>`+head('Funded services')+strip('Actual patrol budget paid',Math.round((G.actualServiceFunding?.police??1)*100)+'% of authorized')+strip('Actual fire budget paid',Math.round((G.actualServiceFunding?.fire??1)*100)+'% of authorized')+strip('Constabulary per day',money(G.policy.policeBudget))+strip('Fire & rescue per day',money(G.policy.defenseBudget))+strip('Medical services per day',money(G.policy.healthBudget))+strip('Schools & training per day',money(G.policy.educationBudget))+strip('Civil defence volunteers',money(G.policy.militiaBudget))+strip('Household relief per day',money(G.policy.aidBudget))+strip('Heating assistance',money(G.policy.energyAidBudget||0))+strip('Commuter transit',money(G.policy.transitBudget||0))+
  `<div class="btnrow"><button id="overlayC">${overlay==='crime'?'✓ ':' '}Crime map</button><button id="overlayH">${overlay==='hardship'?'✓ ':' '}Hardship map</button></div>`+
  head('Constabulary incident log')+(G.cases.length?G.cases.slice(0,15).map(eventHtml).join(''):tip('No recorded incidents. This does not mean risk is zero.'))+
@@ -3161,7 +3268,7 @@ function renderInspectFull(){const b=selected&&readBuild(selected.id);if(!b)retu
  if(h){let people=h.people.map(id=>G.people[id]).filter(p=>p&&!p.deceased&&p.movedAway!==true),working=people.filter(p=>p.job>=0||p.publicWork),net=h.income-h.tax-h.food-h.rent-(h.utilities||0)-(h.travel||0)-(h.debtService||0)-(h.propertyPaid||0)-(h.discretionary||0)+h.aid;let note=net<0?'Spending currently exceeds earnings. Low savings could place the family at risk.':h.stress>65?'Members of this household are experiencing substantial hardship.':'This household can presently meet its daily needs.';
  html+=head('The '+h.name+' household')+tip(note)+`<div class="statgrid">${stat('Savings',money(h.cash),h.cash<200?'negative':'')}${stat('Wellbeing',Math.round(100-h.stress)+'/100')}${stat('After-expense daily flow',money(net),net<0?'negative':'positive')}${stat('Family members employed',working.length+'/'+people.length)}</div>`+
  head('Banking & household credit')+strip('Deposits',money(Object.values(h.deposits||{}).reduce((a,v)=>a+v,0)))+strip('Credit standing',Math.round((h.creditScore??.65)*100)+'/100')+strip('Loan balance',money(G.loans.filter(l=>l.ownerType==='household'&&l.ownerId===h.id&&l.status==='active').reduce((a,l)=>a+l.balance,0)))+head('The daily household ledger')+strip('Earned wages',money(h.wages??h.income))+strip('Retirement pension',money(h.pension||0))+strip('Rental receipts',money(h.rentalIncome||0))+strip('Dividends',money(h.dividends||0))+strip('Income tax paid',money(h.incomeTax??h.tax))+strip('Energy levy',money(h.energyTax||0))+strip('Food basket',money(h.food))+strip('Heating and electricity',money(h.utilities||0))+strip('Travel to work',money(h.travel||0))+strip('Housing payment',money(h.rent))+strip('Public assistance',money(h.aid))+strip('Money taken in burglaries',money(h.crimeLoss))+strip('Perceived security',Math.round(h.security)+'/100')+
- head('People who live here')+people.map(p=>`<div class="entry"><strong>${esc(p.name)}</strong><small>Age ${p.age} · ${p.job>=0?esc(G.firms[p.job]?.name||'Employed'):(p.publicWork?'Municipal day work':'Not employed')}<br>Health ${Math.round(p.health)}/100 · Skill ${Math.round(p.skill*100)}/100</small></div>`).join('');}
+ householdServiceReport(h.id)+head('People who live here')+people.map(p=>`<div class="entry"><strong>${esc(p.name)}</strong><small>Age ${p.age} · ${p.job>=0?esc(G.firms[p.job]?.name||'Employed'):(p.publicWork?'Municipal day work':'Not employed')}<br>Health ${Math.round(p.health)}/100 · Skill ${Math.round(p.skill*100)}/100</small></div>`).join('');}
  else if(f){html+=head(f.name)+tip(f.closed?'This business is currently closed. New investors may reopen it if conditions permit.':'A private company facing real demand, wages, supply costs, taxes and regulation.')+`<div class="statgrid">${stat('Working capital',money(f.cash),f.cash<600?'negative':'')}${stat('Staff',f.workers.length+'/'+f.jobs)}${stat('Sales today',money(f.revenue))}${stat('Operating profit',money(f.profit),f.profit<0?'negative':'positive')}</div>`+
  head('Business accounts')+strip('Road access',graph().portals.has(b.id)&&graph().parts[graph().portals.get(b.id)]===graph().mainPart?'Connected to high street':'Disconnected · no road freight')+strip('Operating expenses',money(f.expenses))+strip('Profit taxes',money(f.tax))+strip('Profit after tax',money(f.netProfit??f.profit))+strip('Effective daily wage',money(workerIncome(f)))+strip('Cash stolen',money(f.theft))+strip('Days trading',f.age)+
  strip('Outstanding bank debt',money(f.debt||0))+strip('Credit standing',Math.round((f.creditScore??.68)*100)+'/100')+

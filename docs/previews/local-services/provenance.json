@@ -1,0 +1,11 @@
+{
+  "source_sha256": "76a48a9c41aefdd18ce2a31f0d36aedad00bf2b4c20e419d769d89f0abe304dd",
+  "scenario": "regional",
+  "seed": 42,
+  "day": 181,
+  "viewport": [
+    844,
+    390
+  ],
+  "density": 2
+}

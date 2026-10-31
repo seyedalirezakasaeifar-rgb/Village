@@ -138,9 +138,10 @@ function extendedCivicDay(){
  G.actualServiceFunding=Object.assign(G.actualServiceFunding||{},{roads:roadRatio,health:healthRatio,school:schoolRatio,militia:militiaRatio,transit:transitRatio});
  G.health=clamp(G.health+(.063*healthRatio-.037- (G.stats.hardship||0)*.0002),25,99);
  G.education=clamp(G.education+.048*schoolRatio-.009,15,99);
+ civicTrainingDay(schoolRatio);
  G.stats.health=Math.round(G.health);G.stats.education=Math.round(G.education);
- if(G.day%3===0&&schoolRatio>.4){let p=pick(G.people.filter(p=>!p.deceased&&p.movedAway!==true));if(p){p.skill=clamp(p.skill+.018*schoolRatio,0,1.3)}}
- if(G.day%6===0){let p=pick(G.people.filter(p=>!p.deceased&&p.movedAway!==true));if(p){p.health=clamp(p.health+(healthRatio>.5?1.3:-.3)+rn(-.5,.5),10,100);if(p.health<25){const h=G.households[p.hh];if(h)h.stress=clamp(h.stress+1,0,100)}}}
+ if(G.day%3===0&&schoolRatio>0){let p=pick(G.people.filter(p=>!p.deceased&&p.movedAway!==true));if(p){p.skill=clamp(p.skill+.018*localCivicCoverage('school',p.hh),0,1.3)}}
+ if(G.day%6===0){let p=pick(G.people.filter(p=>!p.deceased&&p.movedAway!==true));if(p){p.health=clamp(p.health+(-.3+1.6*localCivicCoverage('health',p.hh))+rn(-.5,.5),10,100);if(p.health<25){const h=G.households[p.hh];if(h)h.stress=clamp(h.stress+1,0,100)}}}
  if(G.day%8===0&&parks>0){let h=pick(G.households);if(h)h.stress=clamp(h.stress-1.5,0,100)}
  const warmth=G.weather==='storm'?-.4:0;
  G.stats.wellbeing=Math.round(clamp(82-G.households.reduce((s,h)=>s+h.stress,0)/Math.max(1,G.households.length)*.46+parks*.5+G.health*.08+warmth,0,100));

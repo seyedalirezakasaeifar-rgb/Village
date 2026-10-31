@@ -65,11 +65,11 @@ function enterpriseRevenue(f,amount){f.cash+=amount;if(marketOpen)f.revenue+=amo
 function serviceSales(f,amount){
  amount=Math.min(Math.max(0,G.region),Math.max(0,amount));G.region-=amount;f.cash+=amount;f.revenue+=amount;G.market.externalSales+=amount;return amount;
 }
-function fundedPublicPayroll(amount,share=.65){
+function fundedPublicPayroll(amount,share=.65,eligible=null,role=''){
  const paid=Math.max(0,Math.min(G.treasury,amount));G.treasury-=paid;G.cumulative.spending+=paid;
  let payroll=paid*share,spent=0,wage=Math.max(24,G.policy.minWage);
- const available=G.people.filter(p=>!p.deceased&&!p.movedAway&&p.age>=18&&p.age<=70&&p.job<0&&(p.publicIncome||0)<wage);
- for(const p of available){if(payroll<.001)break;const h=G.households[p.hh];if(!h?.people.length)continue;const pay=Math.min(payroll,wage-(p.publicIncome||0));const tax=pay*G.policy.incomeTax/100;h.cash+=pay-tax;h.income+=pay;h.wages=(h.wages||0)+pay;h.tax+=tax;h.incomeTax+=tax;transferTreasury(tax,'incomeTax');p.publicIncome=(p.publicIncome||0)+pay;p.publicWork=p.publicIncome>=wage*.5;payroll-=pay;spent+=pay;}
+ const available=G.people.filter(p=>!p.deceased&&!p.movedAway&&p.age>=18&&p.age<=70&&p.job<0&&(p.publicIncome||0)<wage&&(eligible?eligible(p):!p.previousPublicRole));
+ for(const p of available){if(payroll<.001)break;const h=G.households[p.hh];if(!h?.people.length)continue;const pay=Math.min(payroll,wage-(p.publicIncome||0));const tax=pay*G.policy.incomeTax/100;h.cash+=pay-tax;h.income+=pay;h.wages=(h.wages||0)+pay;h.tax+=tax;h.incomeTax+=tax;transferTreasury(tax,'incomeTax');p.publicIncome=(p.publicIncome||0)+pay;p.publicWork=p.publicIncome>=wage*.5;if(role)p.publicRole=role;payroll-=pay;spent+=pay;}
  G.region+=paid-spent;return amount>0?paid/amount:0;
 }
 // Explicit operating standards, expressed in the same resident capacities used
@@ -81,9 +81,9 @@ function purchaseCivicService(kind,authorized){
  const standard=CIVIC_STANDARDS[kind],population=Math.max(0,G.stats.population),facilities=G.buildings.filter(b=>b.kind===standard.building).length;
  const wage=Math.max(24,G.policy.minWage),required=population*standard.staff/standard.capacity*wage/.65;
  const facilityCoverage=population?Math.min(1,facilities*standard.capacity/population):0;
- const requested=Math.min(Math.max(0,authorized),required*facilityCoverage),paid=requested*fundedPublicPayroll(requested);
- const coverage=required?Math.min(facilityCoverage,paid/required):0;
- const result={day:G.day,authorized,required,requested,paid,unspent:Math.max(0,authorized-paid),population,facilities,facilityCoverage,coverage,wage};
+ const access=serviceAccess(kind),staffing=civicStaffCapacity(kind,authorized,access),requested=Math.min(Math.max(0,authorized),required*Math.min(access.coverage,staffing.coverage)),paid=requested*fundedPublicPayroll(requested,.65,p=>qualifiedForService(p,kind)&&civicCandidateSets.get(kind).has(p.id),kind);
+ const coverage=required?Math.min(access.coverage,paid/required):0;
+ const result={day:G.day,authorized,required,requested,paid,unspent:Math.max(0,authorized-paid),population,facilities,facilityCoverage,accessCoverage:access.coverage,accessLimit:access.limit,accessibleResidents:access.served,staffing,coverage,wage};
  if(!G.serviceProvision)G.serviceProvision={};G.serviceProvision[kind]=result;
  return coverage;
 }

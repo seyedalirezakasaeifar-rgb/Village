@@ -123,7 +123,7 @@ function createFirm(kind,x,y,setup=false,addFn=null){
 }
 function assignJobs(){
  if(!G||!G.people)return;
- const free=G.people.filter(p=>!p.deceased&&p.movedAway!==true&&p.age>=16&&p.age<=70&&p.job<0&&(p.searchAfter||0)<=G.day);
+ const free=G.people.filter(p=>!p.deceased&&p.movedAway!==true&&p.age>=16&&p.age<=70&&p.job<0&&!p.publicWork&&!p.previousPublicRole&&(p.searchAfter||0)<=G.day);
  const net=graph(),maxJourney=60+(G.policy.transitBudget||0)/8;
  const vacancies=G.firms.filter(f=>!f.closed&&f.workers.length<f.jobs).sort((a,b)=>(b.wage-a.wage));
  for(const f of vacancies){let workplace=readBuild(f.building),port=net.portals.get(f.building);

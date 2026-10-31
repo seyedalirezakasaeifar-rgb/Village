@@ -197,6 +197,8 @@ $('panelBody').addEventListener('click',e=>{const b=e.target.closest('button,[da
  ]);return}
  if(b.id==='backupSave'){exportSave();return}
  if(b.id==='importSave'){importSave();return}
+ if(b.dataset.servicePolicy){openPanel('policies');const input=$('panelBody').querySelector('[data-policy="'+(b.dataset.servicePolicy==='health'?'healthBudget':'educationBudget')+'"]');if(input){input.closest('details').open=true;input.scrollIntoView({block:'center'});input.focus();}return}
+ if(b.dataset.serviceAccess){overlay=b.dataset.serviceAccess==='health'?'healthAccess':'schoolAccess';closePanel();dirty=true;toast('Service access: green available · gold partial · copper unserved. Road distance and shared facility places determine reach.');return}
  if(b.dataset.openPanel){openPanel(b.dataset.openPanel);return}
  if(b.id==='tutorial'){openTutorialDialog(b);return}
  if(b.id==='toggleDevelopment'){G.autoBuild=!G.autoBuild;save();renderPanel(active);toast(G.autoBuild?'Private investment resumed.':'New private construction paused.');return;}
