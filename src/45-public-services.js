@@ -20,7 +20,7 @@ function municipalProcurement(){
 }
 function householdFormation(){
  if(G.day%90!==0)return;
- const vacant=G.buildings.find(b=>b.kind==='home'&&!b.redevelopment&&(!G.households[b.hh]||G.households[b.hh].people.length===0));if(!vacant)return;
+ const vacant=G.buildings.find(b=>b.kind==='home'&&!b.relocationReserve&&!b.redevelopment&&(!G.households[b.hh]||G.households[b.hh].people.length===0));if(!vacant)return;
  const young=G.people.find(p=>!p.deceased&&!p.movedAway&&p.age>=20&&p.age<31&&p.job>=0&&G.households[p.hh].people.length>2&&G.households[p.hh].cash>3600);if(!young)return;
  const prior=G.households[young.hh],cash=Math.min(1800,prior.cash*.25),h={...prior,id:G.households.length,name:fromEnd(young.name.split(' ')),cash,home:vacant.id,owner:-1,people:[young.id],deposits:{},income:0,rent:0,food:0,tax:0,aid:0,stress:25,last:[]};
  prior.cash-=cash;prior.people=prior.people.filter(id=>id!==young.id);young.hh=h.id;G.households.push(h);vacant.hh=h.id;
@@ -30,7 +30,7 @@ function householdFormation(){
 
 function occupyVacantHousing(){
  if(G.day%30!==0||G.stats.employment<88||G.stats.population>=2000)return;
- const vacancy=G.buildings.find(b=>b.kind==='home'&&!b.redevelopment&&(!G.households[b.hh]?.people.length))||G.buildings.find(b=>['apartment','tower'].includes(b.kind)&&!b.redevelopment&&(b.units||[]).filter(id=>G.households[id]?.people.length).length<(b.kind==='tower'?9:4));
+ const vacancy=G.buildings.find(b=>b.kind==='home'&&!b.relocationReserve&&!b.redevelopment&&(!G.households[b.hh]?.people.length))||G.buildings.find(b=>['apartment','tower'].includes(b.kind)&&!b.relocationReserve&&!b.redevelopment&&(b.units||[]).filter(id=>G.households[id]?.people.length).length<(b.kind==='tower'?9:4));
  if(!vacancy)return;const h=addHouseholdAt(vacancy,2500);if(!h)return;
  if(vacancy.kind==='home')vacancy.hh=h.id;else{vacancy.units=(vacancy.units||[]).filter(id=>G.households[id]?.people.length);vacancy.units.push(h.id);vacancy.hh=vacancy.units[0];}
  story('The '+h.name+' household moved into a vacant home after finding local job opportunities.','good',vacancy.id,h.id);

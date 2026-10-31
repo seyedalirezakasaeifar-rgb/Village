@@ -1,0 +1,119 @@
+{
+  "source_sha256": "d8333d0086b3dd8e3b6da23374fe1bba24469e98b6ffb250a6675e0389f8b27f",
+  "determinism_and_continuation": {
+    "sameSeed": true,
+    "renderIndependent": true,
+    "continuedDays": 120,
+    "valid": {
+      "ok": true,
+      "issues": [],
+      "total": 15489571.999995586,
+      "population": 188,
+      "day": 301
+    }
+  },
+  "malformed_save_atomicity": {
+    "investorRejected": true,
+    "cargoRejected": true,
+    "futureRejected": true,
+    "townPreserved": true
+  },
+  "replicated_zoning": [
+    {
+      "seed": 42,
+      "zone": 0,
+      "population": 210,
+      "homes": 16,
+      "firms": 7,
+      "privateSpend": 486062,
+      "moneyDelta": -1.6830861568450928e-05,
+      "ms": 2552
+    },
+    {
+      "seed": 42,
+      "zone": 100,
+      "population": 182,
+      "homes": 0,
+      "firms": 1,
+      "privateSpend": 0,
+      "moneyDelta": -1.1960044503211975e-05,
+      "ms": 1888.5999999996275
+    },
+    {
+      "seed": 101,
+      "zone": 0,
+      "population": 222,
+      "homes": 21,
+      "firms": 7,
+      "privateSpend": 560318,
+      "moneyDelta": -1.2546777725219727e-05,
+      "ms": 2393.0999999996275
+    },
+    {
+      "seed": 101,
+      "zone": 100,
+      "population": 186,
+      "homes": 0,
+      "firms": 1,
+      "privateSpend": 0,
+      "moneyDelta": -4.686415195465088e-06,
+      "ms": 1650.0999999996275
+    },
+    {
+      "seed": 909,
+      "zone": 0,
+      "population": 211,
+      "homes": 19,
+      "firms": 5,
+      "privateSpend": 507601,
+      "moneyDelta": -1.568533480167389e-05,
+      "ms": 2573.2999999998137
+    },
+    {
+      "seed": 909,
+      "zone": 100,
+      "population": 187,
+      "homes": 0,
+      "firms": 1,
+      "privateSpend": 0,
+      "moneyDelta": -1.2001022696495056e-05,
+      "ms": 1662.2000000001863
+    }
+  ],
+  "cargo_ownership": {
+    "consignments": 4,
+    "sampledUnits": 166.3792513597068,
+    "remaining": true,
+    "delayed": 1,
+    "cashConserved": true
+  },
+  "legacy_56_migration": {
+    "v": {
+      "ok": true,
+      "issues": [],
+      "total": 15416673,
+      "population": 169,
+      "day": 1
+    },
+    "after": {
+      "ok": true,
+      "issues": [],
+      "total": 15416672.999999657,
+      "population": 169,
+      "day": 31
+    },
+    "schema": 8
+  },
+  "true_pause": {
+    "identicalScreenshots": true,
+    "milliseconds": 500
+  },
+  "traffic_progress": {
+    "seconds": 1600,
+    "maximumWait": 0.9999999999999999,
+    "peak": 21,
+    "valid": true
+  },
+  "long_run_endurance": [],
+  "browser_errors": []
+}

@@ -1,0 +1,111 @@
+{
+  "source_sha256": "d8333d0086b3dd8e3b6da23374fe1bba24469e98b6ffb250a6675e0389f8b27f",
+  "authoredScenario": "regional seed42",
+  "normalImmigrationAndPrivateDevelopment": true,
+  "samples": [
+    {
+      "day": 92,
+      "treasury": 378384.03467849875,
+      "total": 15493516.99999827,
+      "reserved": [
+        {
+          "id": 222,
+          "kind": "home",
+          "owner": -1,
+          "title": {
+            "kind": "municipal",
+            "id": 0
+          },
+          "hh": -1,
+          "occupied": []
+        }
+      ],
+      "pending": [],
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15493516.99999827,
+        "population": 669,
+        "day": 92
+      }
+    },
+    {
+      "day": 182,
+      "treasury": 479342.38832506904,
+      "total": 15493516.99999943,
+      "reserved": [
+        {
+          "id": 222,
+          "kind": "home",
+          "owner": -1,
+          "title": {
+            "kind": "municipal",
+            "id": 0
+          },
+          "hh": -1,
+          "occupied": []
+        }
+      ],
+      "pending": [],
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15493516.99999943,
+        "population": 687,
+        "day": 182
+      }
+    },
+    {
+      "day": 272,
+      "treasury": 574327.3003112954,
+      "total": 15493516.999996819,
+      "reserved": [
+        {
+          "id": 222,
+          "kind": "home",
+          "owner": -1,
+          "title": {
+            "kind": "municipal",
+            "id": 0
+          },
+          "hh": -1,
+          "occupied": []
+        }
+      ],
+      "pending": [],
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15493516.999996819,
+        "population": 698,
+        "day": 272
+      }
+    },
+    {
+      "day": 362,
+      "treasury": 704754.8273535949,
+      "total": 15493516.99999538,
+      "reserved": [
+        {
+          "id": 222,
+          "kind": "home",
+          "owner": -1,
+          "title": {
+            "kind": "municipal",
+            "id": 0
+          },
+          "hh": -1,
+          "occupied": []
+        }
+      ],
+      "pending": [],
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15493516.99999538,
+        "population": 727,
+        "day": 362
+      }
+    }
+  ]
+}
