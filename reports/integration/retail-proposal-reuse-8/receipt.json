@@ -1,0 +1,192 @@
+{
+  "source_sha256": "93de7d578d2875609cc66efd74d6574201cb5c2a8492288919be4d19427c4ef7",
+  "baseline_sha256": "cc9f02a1c84a8e4aadc5df3d22bf8a9a382ed7c1ee5210742bff4cc5d31bfce6",
+  "checkpoint_sha256": "ad6256fd85d4146fda9eeac0b16d5b182ed352c23bbd96af3b320553c29ce786",
+  "pairs": [
+    {
+      "baseline": {
+        "ms": 4515.899999991059,
+        "day": 41861,
+        "valid": {
+          "ok": true,
+          "issues": [],
+          "total": 15493517.000209872,
+          "population": 774,
+          "day": 41861
+        },
+        "money": 15493517.000209872,
+        "goodsError": 3.655441105365753e-08
+      },
+      "candidate": {
+        "ms": 4793.20000000298,
+        "day": 41861,
+        "valid": {
+          "ok": true,
+          "issues": [],
+          "total": 15493517.000209872,
+          "population": 774,
+          "day": 41861
+        },
+        "money": 15493517.000209872,
+        "goodsError": 3.655441105365753e-08
+      }
+    },
+    {
+      "candidate": {
+        "ms": 4456.5,
+        "day": 41861,
+        "valid": {
+          "ok": true,
+          "issues": [],
+          "total": 15493517.000209872,
+          "population": 774,
+          "day": 41861
+        },
+        "money": 15493517.000209872,
+        "goodsError": 3.655441105365753e-08
+      },
+      "baseline": {
+        "ms": 5053.399999991059,
+        "day": 41861,
+        "valid": {
+          "ok": true,
+          "issues": [],
+          "total": 15493517.000209872,
+          "population": 774,
+          "day": 41861
+        },
+        "money": 15493517.000209872,
+        "goodsError": 3.655441105365753e-08
+      }
+    },
+    {
+      "baseline": {
+        "ms": 4883.899999991059,
+        "day": 41861,
+        "valid": {
+          "ok": true,
+          "issues": [],
+          "total": 15493517.000209872,
+          "population": 774,
+          "day": 41861
+        },
+        "money": 15493517.000209872,
+        "goodsError": 3.655441105365753e-08
+      },
+      "candidate": {
+        "ms": 4805.9000000059605,
+        "day": 41861,
+        "valid": {
+          "ok": true,
+          "issues": [],
+          "total": 15493517.000209872,
+          "population": 774,
+          "day": 41861
+        },
+        "money": 15493517.000209872,
+        "goodsError": 3.655441105365753e-08
+      }
+    },
+    {
+      "candidate": {
+        "ms": 4802.70000000298,
+        "day": 41861,
+        "valid": {
+          "ok": true,
+          "issues": [],
+          "total": 15493517.000209872,
+          "population": 774,
+          "day": 41861
+        },
+        "money": 15493517.000209872,
+        "goodsError": 3.655441105365753e-08
+      },
+      "baseline": {
+        "ms": 5095.0999999940395,
+        "day": 41861,
+        "valid": {
+          "ok": true,
+          "issues": [],
+          "total": 15493517.000209872,
+          "population": 774,
+          "day": 41861
+        },
+        "money": 15493517.000209872,
+        "goodsError": 3.655441105365753e-08
+      }
+    },
+    {
+      "baseline": {
+        "ms": 4687.5,
+        "day": 41861,
+        "valid": {
+          "ok": true,
+          "issues": [],
+          "total": 15493517.000209872,
+          "population": 774,
+          "day": 41861
+        },
+        "money": 15493517.000209872,
+        "goodsError": 3.655441105365753e-08
+      },
+      "candidate": {
+        "ms": 4750.70000000298,
+        "day": 41861,
+        "valid": {
+          "ok": true,
+          "issues": [],
+          "total": 15493517.000209872,
+          "population": 774,
+          "day": 41861
+        },
+        "money": 15493517.000209872,
+        "goodsError": 3.655441105365753e-08
+      }
+    },
+    {
+      "candidate": {
+        "ms": 4670.0999999940395,
+        "day": 41861,
+        "valid": {
+          "ok": true,
+          "issues": [],
+          "total": 15493517.000209872,
+          "population": 774,
+          "day": 41861
+        },
+        "money": 15493517.000209872,
+        "goodsError": 3.655441105365753e-08
+      },
+      "baseline": {
+        "ms": 4531.600000008941,
+        "day": 41861,
+        "valid": {
+          "ok": true,
+          "issues": [],
+          "total": 15493517.000209872,
+          "population": 774,
+          "day": 41861
+        },
+        "money": 15493517.000209872,
+        "goodsError": 3.655441105365753e-08
+      }
+    }
+  ],
+  "errors": [],
+  "oracle": {
+    "sites": 60,
+    "offers": 3,
+    "cases": [
+      "late town",
+      "wage",
+      "closed",
+      "publicWork",
+      "searchAfter",
+      "minWage",
+      "home",
+      "day"
+    ],
+    "unchanged": true
+  },
+  "decision": "rejected: no consistent full-model timing gain"
+}

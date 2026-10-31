@@ -157,12 +157,12 @@ function urbanFarmRenewal(demand){
 function urbanRetailProposal(explicit=false){
  const demand=cityDemand();if((!explicit&&G.autoBuild===false)||demand.residents<320||demand.confidence<42||G.projects.some(p=>p.retailCentre)||G.firms.some(f=>!f.closed&&f.retailCentre&&G.day-(f.openedDay||0)<360))return {ok:false,reason:'A retail centre needs at least 320 residents, investment confidence, and no recent competing centre.'};
  const places=buildableCandidates('business'),net=graph(),popByBuilding=new Map();for(const h of G.households)if(h.people.length)popByBuilding.set(h.home,(popByBuilding.get(h.home)||0)+h.people.length);
- let best=null;
+ let best=null,labourCandidates=null;
  for(const c of places){const footprint=[];for(let dy=0;dy<2;dy++)for(let dx=0;dx<3;dx++)footprint.push(roadId(c.x+dx,c.y+dy));if(c.x+3>=T-2||c.y+2>=T-2||urbanPlacementReason(c.x,c.y,'grocer')||!footprint.every(id=>charterOwns(id%T,id/T|0)&&[0,3].includes(G.tiles[id])&&!G.landUse?.[id]&&!buildingAt(id%T,id/T|0)&&!districtPlacementReason(id%T,id/T|0,'grocer')))continue;
   const access=roadOffsets.map(([dx,dy])=>roadId(c.x+dx,c.y+dy)).find(id=>net.parts[id]===net.mainPart);if(access==null)continue;
   const dist=new Map([[access,0]]),queue=[access];for(let n=0;n<queue.length;n++){const id=queue[n],d=dist.get(id);if(d>=24)continue;for(const next of net.neighbors.get(id)||[])if(!dist.has(next)){dist.set(next,d+1);queue.push(next);}}
   let catchment=0,competition=0;for(const [id,pop] of popByBuilding)if(dist.has(net.portals.get(id)))catchment+=pop;for(const f of G.firms)if(!f.closed&&f.kind==='grocer'&&dist.has(net.portals.get(f.building)))competition+=f.retailCentre?2:1;
-  const score=catchment/Math.max(1,competition+1);if(catchment<180||score<75)continue;const plan=urbanRetailPlan(c,score);
+  const score=catchment/Math.max(1,competition+1);if(catchment<180||score<75)continue;const plan=urbanRetailPlan(c,score,labourCandidates||(labourCandidates=urbanRetailLabourCandidates(net)));
   if(!plan||plan.net*360<(44000+28000)*.09)continue;if(!best||plan.net>best.plan.net)best={...c,score,catchment,footprint,plan};
  }
  const cost=44000,capital=28000;if(!best)return {ok:false,reason:'No vacant six-tile site has a connected street and a profitable 24-road-tile retail catchment and reachable eligible workers at a funded wage offer. Zone a mixed centre and connect homes first.'};

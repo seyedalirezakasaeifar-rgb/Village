@@ -1,20 +1,26 @@
 // Shopping-centre labour bids use the same identities, commute limits and
 // public-role reservations as actual employment. A forecast never hires people.
-function urbanRetailLabour(site,offered=null){
- const net=graph(),port=net.portals.get(site.id)??roadOffsets.map(([dx,dy])=>roadId(site.x+dx,site.y+dy)).find(id=>net.parts[id]===net.mainPart),distances=privateServiceDistances(port),bids=[];
- if(port==null)return bids;
+// This value is local to one immutable proposal scan, never cached across calls.
+function urbanRetailLabourCandidates(net=graph()){
+ const entries=[];
  for(const p of G.people){
   if(p.deceased||p.movedAway||p.age<16||p.age>70||p.publicWork||p.publicRole||p.previousPublicRole||(p.searchAfter||0)>G.day)continue;
-  const home=readBuild(G.households[p.hh]?.home),distance=home?distances.get(net.portals.get(home.id))??Infinity:Infinity;if(distance>40)continue;
   const old=p.job>=0?G.firms[p.job]:null;if(old?.privateService||old&&!old.closed&&G.day-(p.privateJobChange||-90)<60)continue;
+  const home=readBuild(G.households[p.hh]?.home),port=home?net.portals.get(home.id):null;
   const wage=old&&!old.closed?Math.max(G.policy.minWage,workerIncome(old)*1.121):Math.max(G.policy.minWage,28);
-  if(offered!=null&&wage>offered+1e-7)continue;
-  bids.push({person:p.id,wage,distance});
+  entries.push({person:p.id,wage,port});
  }
+ return {net,entries};
+}
+function urbanRetailLabour(site,offered=null,proposal=null){
+ const net=graph(),port=net.portals.get(site.id)??roadOffsets.map(([dx,dy])=>roadId(site.x+dx,site.y+dy)).find(id=>net.parts[id]===net.mainPart),distances=privateServiceDistances(port),bids=[];
+ if(port==null)return bids;
+ const candidates=proposal?.net===net?proposal:urbanRetailLabourCandidates(net);
+ for(const p of candidates.entries){const distance=p.port==null?Infinity:distances.get(p.port)??Infinity;if(distance>40||offered!=null&&p.wage>offered+1e-7)continue;bids.push({person:p.person,wage:p.wage,distance});}
  return bids.sort((a,b)=>a.wage-b.wage||a.distance-b.distance||a.person-b.person);
 }
-function urbanRetailPlan(site,customers){
- const units=customers*1.6,staff=clamp(Math.ceil(units/65),2,8),bids=urbanRetailLabour(site);if(bids.length<staff)return null;
+function urbanRetailPlan(site,customers,proposal=null){
+ const units=customers*1.6,staff=clamp(Math.ceil(units/65),2,8),bids=urbanRetailLabour(site,null,proposal);if(bids.length<staff)return null;
  const wage=Math.ceil(bids[staff-1].wage*100)/100,price=G.market?.baseFoodPrice||5.2,cost=marketPrice('food')*1.12,margin=price-cost;
  const rates=220000*(G.policy.commercialRate||0)/100/360,overhead=2+staff*(.6+G.policy.businessRegulation*.035),profit=units*margin-staff*wage-overhead-rates,net=profit*(1-G.policy.profitTax/100);
  return {staff,wage,customers,units,price,cost,profit,net};
