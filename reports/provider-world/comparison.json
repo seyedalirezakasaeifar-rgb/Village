@@ -1,0 +1,16 @@
+{
+  "captures": [
+    {
+      "stage": "before",
+      "source_sha256": "6279b2130de32f6f7ac2ba75d0ef4e8f5870ff71cbe8e5686ceebb7924942d14",
+      "errors": []
+    },
+    {
+      "stage": "after",
+      "source_sha256": "ddc92ffdb81acde6db599ce2681ed69befaeefbf88123a4df71efe7bde9a038a",
+      "errors": []
+    }
+  ],
+  "privateScenes": "Controlled matched fee-provider fixture with qualified staff and real paid clients; not a claim of organic entry.",
+  "publicScenes": "Fixed-seed settlement after5 economic days."
+}

@@ -1,5 +1,6 @@
 // Original code-native pixel art. One unit = one owned 72 × 36 isometric tile.
 // All architectural forms use the same projection, anchor and sunlight direction.
+let spriteLightRecorder=null;
 let nightMode=false,displayItems=[],buildingItemsById=new Map(),atlas=new Map(),atlasBytes=0,sceneSignature='',lastSceneMonth=0,landscapeRevision=0;
 function clearAtlas(){atlas.clear();atlasBytes=0;}
 const viewRaster=document.createElement('canvas'),viewBackgroundRaster=document.createElement('canvas');let viewRasterKey='',viewBackgroundKey='',viewBuildings=[];
@@ -184,8 +185,9 @@ function spriteFor(item){
  // Tight, conservative sprite envelopes avoid uploading acres of transparent
  // pixels whenever a dense viewport changes. Geometry keeps its world anchor.
  const side=item.kind==='building'?Math.ceil((item.w+item.d)*18+20):36,top=item.kind==='building'?(b.kind==='tower'?192:112):72,bottom=item.kind==='building'?Math.ceil((item.w+item.d)*18+24):24;
- const c=document.createElement('canvas');c.width=side*2;c.height=top+bottom;c.anchorX=side;c.anchorY=top;const g=c.getContext('2d');g.translate(c.anchorX,c.anchorY);
+ const c=document.createElement('canvas');c.width=side*2;c.height=top+bottom;c.anchorX=side;c.anchorY=top;const g=c.getContext('2d');g.translate(c.anchorX,c.anchorY);const previousLights=spriteLightRecorder;spriteLightRecorder=[];
  if(item.kind==='streetprop')streetProp(g,item.id%3);else if(item.kind==='tree')tree(g,0,0,item.id%11,.83);else{polygon(g,[point(-item.w*.4,-item.d*.4),point(item.w*.6,-item.d*.4),point(item.w*.9,item.d*.3),point(0,item.d*.7)],'#48523f30');architecture(g,b.kind==='worksite'||b.redevelopment?b:{...b,id:variant},item.w,item.d);parcelDetails(g,b,item.w,item.d);architecturalIdentity(g,b,item.w,item.d);}
+ c.lightSources=spriteLightRecorder;spriteLightRecorder=previousLights;
  atlas.set(key,c);atlasBytes+=c.width*c.height*4;while(atlas.size>600||atlasBytes>48*1024*1024){const oldest=atlas.keys().next().value,retired=atlas.get(oldest);atlasBytes-=retired.width*retired.height*4;atlas.delete(oldest);}return c;
 }
 function drawSceneSprite(g,item){const sprite=spriteFor(item);g.drawImage(sprite,Math.round(item.x-sprite.anchorX),Math.round(item.y-sprite.anchorY));}
@@ -335,5 +337,5 @@ function draw(){
  drawServiceAccess(ctx);
  if(selected?.id){const b=readBuild(selected.id);if(b){const p=iso(b.x,b.y);ctx.strokeStyle='#f4e2a5';ctx.lineWidth=2;ctx.beginPath();ctx.ellipse(p[0],p[1]+18,32,16,0,0,Math.PI*2);ctx.stroke();}}
  if(buildMode&&pointer.hover){const {x,y}=pointer.hover;if(['fishery','wharf'].includes(buildMode))headerText('placementHint',types[buildMode].n+' · '+money(buildCost[buildMode])+' · '+waterfrontPlacementMessage(x,y,buildMode));if(x>=0&&x<T&&y>=0&&y<T){const valid=buildMode==='road'?[0,3].includes(cityCell(x,y))&&charterOwns(x,y)&&!buildingAt(x,y)&&!G.landUse?.[roadId(x,y)]&&G.treasury>=buildCost.road:buildMode==='repair'?cityCell(x,y)===1:canPlace(x,y,true,buildMode);ctx.globalAlpha=.60;for(const id of footprintFor(x,y,buildMode))diamond(ctx,id%T,id/T|0,valid?'#c8dea4':'#c48069');ctx.globalAlpha=1;}}
- if(nightMode){ctx.setTransform(dpr,0,0,dpr,0,0);ctx.fillStyle='#233c6460';ctx.fillRect(0,0,cw,ch);transform();for(const item of displayItems){if(item.kind!=='building'||!visible(item.x,item.y)||item.b.kind==='worksite')continue;const b=item.b;if(b.firm>=0&&G.firms[b.firm]?.closed)continue;const glow=ctx.createRadialGradient(item.x,item.y-12,1,item.x,item.y-12,28);glow.addColorStop(0,'#eac57a36');glow.addColorStop(1,'#eac57a00');ctx.fillStyle=glow;ctx.fillRect(item.x-28,item.y-40,56,56);}}
+ if(nightMode)paintNightScene(ctx,viewBuildings);
 }
