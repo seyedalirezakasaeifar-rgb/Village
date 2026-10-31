@@ -35,7 +35,11 @@ function countBuildableLots(radius){
  let n=0;for(let y=5;y<T-5;y++)for(let x=5;x<T-5;x++)if(Math.abs(x-27)+Math.abs(y-27)<radius&&canPlace(x,y))n++;
  return n;
 }
-function buildableCandidates(focus='housing'){
+function buildableCandidates(focus='housing',projection=null){
+ // A proposal can share geometry within its synchronous review, but every scan
+ // must retain the original random draws and fresh ranking (including ties).
+ if(projection?.sites)return projection.sites.map(p=>({x:p.x,y:p.y,score:p.baseScore+random()*1.7})).sort((a,b)=>b.score-a.score);
+ if(projection)projection.sites=[];
  const net=graph(),places=[];
  for(let y=3;y<T-3;y++)for(let x=3;x<T-3;x++){
   if(!canPlace(x,y,true,focus==='business'?'plot':'home'))continue;
@@ -49,7 +53,9 @@ function buildableCandidates(focus='housing'){
    if(focus==='business'&&b.kind==='grocer')competition+=1/(1+d*.35);
   }
   const edge=Math.abs(x-27)+Math.abs(y-27);
-  const score=(focus==='housing'?work*2.2+houses*.65:houses*2.4+work*.75-competition*.15)-edge*.05+random()*1.7;
+  const baseScore=(focus==='housing'?work*2.2+houses*.65:houses*2.4+work*.75-competition*.15)-edge*.05;
+  if(projection)projection.sites.push({x,y,baseScore});
+  const score=baseScore+random()*1.7;
   places.push({x,y,score});
  }
  places.sort((a,b)=>b.score-a.score);

@@ -884,19 +884,35 @@ function privateServiceDistances(port){
  const distances=new Map(),queue=[];if(port!=null){distances.set(port,0);queue.push(port);}for(let i=0;i<queue.length;i++){const at=queue[i],d=distances.get(at);if(d>=40)continue;for(const next of net.neighbors.get(at)||[])if(!distances.has(next)){distances.set(next,d+1);queue.push(next);}}
  if(net.privateServiceDistances.size>=128)net.privateServiceDistances.clear();net.privateServiceDistances.set(port,distances);return distances;
 }
-function privateServiceDemand(kind, site = null, exclude = null) {
+// One proposal pass observes immutable inputs until it chooses an investment.
+// Keep this projection local to that call; policy, wallets, staffing, provider
+// closures and imported towns are reconsidered in full on the next call.
+function privateProposalBase(){return {net:graph(),homes:G.households.filter(h=>h.people.length),ordered:null,wealth:new Map(),training:null,pupils:new Map(),trainedPupils:new Map(),gaps:new Map(),responses:new Map()};}
+function privateProposalWealth(base,h){if(!base.wealth.has(h))base.wealth.set(h,householdLiquidity(h));return base.wealth.get(h);}
+function privateProposalHomes(base){if(!base.ordered)base.ordered=base.homes.slice().sort((a,b)=>privateProposalWealth(base,a)/a.people.length-privateProposalWealth(base,b)/b.people.length||a.id-b.id);return base.ordered;}
+function privateProposalTraining(base){if(!base.training)base.training=new Set((G.civicTraining||[]).filter(c=>G.households[G.people[c.person]?.hh]&&privateSchoolPublicGap(G.households[G.people[c.person].hh])<1).map(c=>c.person));return base.training;}
+function privateProposalEligible(context,h,trained=false){
+ if(context.kind!=='school')return h.people.length;const base=context.base;
+ if(!base.pupils.has(h))base.pupils.set(h,h.people.filter(id=>privateEligiblePupil(G.people[id])));
+ const pupils=base.pupils.get(h);if(!trained)return pupils.length;
+ if(!base.trainedPupils.has(h))base.trainedPupils.set(h,pupils.filter(id=>!privateProposalTraining(base).has(id)).length);return base.trainedPupils.get(h);
+}
+function privateProposalGap(base,h){if(!base.gaps.has(h))base.gaps.set(h,privateSchoolPublicGap(h));return base.gaps.get(h);}
+function privateProposalResponse(base,h,home){if(!base.responses.has(h))base.responses.set(h,publicFireResponse(home));return base.responses.get(h);}
+function privateProposalClients(context,h){if(!context.clients.has(h))context.clients.set(h,privateServiceOtherClients(context.kind,h,context.exclude));return context.clients.get(h);}
+function privateServiceDemand(kind, site = null, exclude = null, proposal = null) {
  const net = graph();
  const sitePort = site ? net.portals.get(site.id) ?? roadOffsets.map(([dx, dy]) => roadId(site.x + dx, site.y + dy)).find(id => G.tiles[id] === 1) : null;
  const distances=site?privateServiceDistances(sitePort):null;
- return G.households.filter(h => h.people.length).reduce((total, h) => {
+ return (proposal?proposal.base.homes:G.households.filter(h => h.people.length)).reduce((total, h) => {
   const home = readBuild(h.home), port = net.portals.get(h.home);
   const distance = site ? distances.get(port) ?? Infinity : 0;
   if (site && (!home || distance > 40)) return total;
-  const eligible = kind === 'school' ? h.people.filter(id => privateEligiblePupil(G.people[id])).length : h.people.length;
-  const publicResponse = kind === 'fire' && home ? publicFireResponse(home) : 0;
+  const eligible = proposal?privateProposalEligible(proposal,h):kind === 'school' ? h.people.filter(id => privateEligiblePupil(G.people[id])).length : h.people.length;
+  const publicResponse = kind === 'fire' && home ? (proposal?privateProposalResponse(proposal.base,h,home):publicFireResponse(home)) : 0;
   if (kind === 'fire' && site && clamp(1 - distance / 58, 0, 1) * .72 <= publicResponse + .03) return total;
-  const gap = kind === 'school' ? privateSchoolPublicGap(h) : Math.max(0, 1 - publicResponse);
-  const occupied=privateServiceOtherClients(kind,h,exclude);
+  const gap = kind === 'school' ? (proposal?privateProposalGap(proposal.base,h):privateSchoolPublicGap(h)) : Math.max(0, 1 - publicResponse);
+  const occupied=proposal?privateProposalClients(proposal,h):privateServiceOtherClients(kind,h,exclude);
   return total + Math.max(0,eligible*gap-occupied);
  }, 0);
 }
@@ -914,17 +930,17 @@ function privateServicePurchase(h,count,fee,vouchers,restore=null){
  if(share<.5)return {served:0,paid:0,subsidy:0};
  paid=Math.min(due-subsidy,paid);return {served:count*share,paid,subsidy};
 }
-function privateServiceForecast(kind,site,fee,staff=kind==='school'?1:2,exclude=null,wageOffer=null){
+function privateServiceForecast(kind,site,fee,staff=kind==='school'?1:2,exclude=null,wageOffer=null,proposal=null){
  const capacity=staff*(kind==='school'?16:90),wage=wageOffer??(exclude!=null?workerIncome(G.firms[exclude]):Math.max(G.policy.minWage,36)),own=G.privateServiceProvision?.allocations?.[exclude]||{};
  let remaining=capacity,clients=0,revenue=0,vouchers=Math.max(0,Math.min(G.treasury,G.policy.serviceVoucherBudget||0)-(G.privateServiceProvision?.vouchers||0)+Object.values(own).reduce((n,a)=>n+a.subsidy,0));
  const net=graph(),port=site?(net.portals.get(site.id)??roadOffsets.map(([dx,dy])=>roadId(site.x+dx,site.y+dy)).find(id=>G.tiles[id]===1)):null;
  const distances=site?privateServiceDistances(port):null;
- const homes=G.households.filter(h=>h.people.length).sort((a,b)=>householdLiquidity(a)/a.people.length-householdLiquidity(b)/b.people.length||a.id-b.id);
- const training=new Set((G.civicTraining||[]).filter(c=>G.households[G.people[c.person]?.hh]&&privateSchoolPublicGap(G.households[G.people[c.person].hh])<1).map(c=>c.person));
+ const homes=proposal?privateProposalHomes(proposal.base):G.households.filter(h=>h.people.length).sort((a,b)=>householdLiquidity(a)/a.people.length-householdLiquidity(b)/b.people.length||a.id-b.id);
+ const training=proposal?privateProposalTraining(proposal.base):new Set((G.civicTraining||[]).filter(c=>G.households[G.people[c.person]?.hh]&&privateSchoolPublicGap(G.households[G.people[c.person].hh])<1).map(c=>c.person));
  for(const h of homes){if(remaining<=.0001)break;const home=readBuild(h.home),target=net.portals.get(h.home),distance=site?(distances.get(target)??Infinity):0;if(distance>40)continue;
-  const publicResponse=kind==='fire'?publicFireResponse(home):0;if(kind==='fire'&&clamp(1-distance/58,0,1)*.72<=publicResponse+.03)continue;
-  const gap=kind==='school'?privateSchoolPublicGap(h):1-publicResponse,eligible=kind==='school'?h.people.filter(id=>privateEligiblePupil(G.people[id])&&!training.has(id)).length:h.people.length;
-  const count=Math.min(remaining,Math.max(0,eligible*gap-privateServiceOtherClients(kind,h,exclude))),purchase=privateServicePurchase(h,count,fee,vouchers,own[h.id]);
+  const publicResponse=kind==='fire'?(proposal?privateProposalResponse(proposal.base,h,home):publicFireResponse(home)):0;if(kind==='fire'&&clamp(1-distance/58,0,1)*.72<=publicResponse+.03)continue;
+  const gap=kind==='school'?(proposal?privateProposalGap(proposal.base,h):privateSchoolPublicGap(h)):1-publicResponse,eligible=proposal?privateProposalEligible(proposal,h,true):kind==='school'?h.people.filter(id=>privateEligiblePupil(G.people[id])&&!training.has(id)).length:h.people.length;
+  const count=Math.min(remaining,Math.max(0,eligible*gap-(proposal?privateProposalClients(proposal,h):privateServiceOtherClients(kind,h,exclude)))),purchase=privateServicePurchase(h,count,fee,vouchers,own[h.id]);
   clients+=purchase.served;remaining-=purchase.served;revenue+=purchase.paid+purchase.subsidy;vouchers-=purchase.subsidy;
  }
  const payroll=wage*staff,overhead=2+staff*(.6+G.policy.businessRegulation*.035)+(site?.value||buildCost[kind]*10)*(G.policy.commercialRate||0)/100/360,profit=revenue-payroll-overhead;
@@ -959,11 +975,19 @@ function privateServiceDay(){
 function privateFireResponse(b){let best=0;const subscription=b.hh>=0?G.privateServiceProvision?.fire?.[b.hh]||0:0;for(const f of G.firms.filter(f=>f.privateService==='fire'&&!f.closed&&f.serviceCapacity>0)){const distance=roadServiceDistance(readBuild(f.building),b);if(!Number.isFinite(distance))continue;const reach=clamp(1-distance/58,0,1),staff=clamp(f.serviceCapacity/180,0,1);best=Math.max(best,reach*staff*(.25+.65*subscription));}return best}
 function seekPrivateServiceInvestment(requested=null){
  if(!G.policy.privateServices)return 'Private service entry is not licensed.';if(!G.autoBuild&&!requested)return 'Private development is paused.';if(G.projects.some(p=>p.privateService))return 'A private service site is already under construction.';
+ let proposalBase=null;const candidateProjection={};
  for(const kind of requested?[requested]:['school','fire']){
   if(!['school','fire'].includes(kind))continue;const wage=Math.max(G.policy.minWage,36),cost=buildCost[kind],capital=6000,minimum=kind==='school'?1:2,requiredReturn=(cost+capital)*((G.policy.policyRate||0)/100+.08)/360;
-  const available=G.people.filter(p=>!p.publicWork&&!p.previousPublicRole&&privateQualified(p,{privateService:kind})).length;if(available<minimum)continue;
-  const evaluate=(site,exclude=null)=>{const net=graph(),port=net.portals.get(site.id)??roadOffsets.map(([dx,dy])=>roadId(site.x+dx,site.y+dy)).find(id=>G.tiles[id]===1),distances=privateServiceDistances(port),bids=G.people.filter(p=>!p.publicWork&&!p.previousPublicRole&&privateQualified(p,{privateService:kind})&&(distances.get(net.portals.get(G.households[p.hh]?.home))??Infinity)<=40).map(p=>p.job<0?wage:Math.max(wage,workerIncome(G.firms[p.job])*1.121)).sort((a,b)=>a-b),demand=privateServiceDemand(kind,site,exclude),plans=[];
-   for(let staff=minimum;staff<=2;staff++){if(staff>bids.length)continue;const offered=bids[staff-1],fee=privateServiceFee(kind,demand,staff,offered),forecast=privateServiceForecast(kind,site,fee,staff,exclude,offered);if(forecast.net>requiredReturn)plans.push(forecast);}return plans.sort((a,b)=>b.net-a.net)[0]||null;};
+  const available=G.people.filter(p=>!p.publicWork&&!p.previousPublicRole&&privateQualified(p,{privateService:kind}));if(available.length<minimum)continue;
+  const contexts=new Map(),staffBids=new Map();let staffPorts=null;
+  const evaluate=(site,exclude=null)=>{
+   if(!proposalBase)proposalBase=privateProposalBase();const net=proposalBase.net;
+   if(!staffPorts)staffPorts=available.map(person=>({person,port:net.portals.get(G.households[person.hh]?.home)}));
+   if(!contexts.has(exclude))contexts.set(exclude,{base:proposalBase,kind,exclude,clients:new Map()});const context=contexts.get(exclude);
+   const port=net.portals.get(site.id)??roadOffsets.map(([dx,dy])=>roadId(site.x+dx,site.y+dy)).find(id=>G.tiles[id]===1),distances=privateServiceDistances(port),bids=[];
+   for(const item of staffPorts)if((distances.get(item.port)??Infinity)<=40){const p=item.person;if(!staffBids.has(p))staffBids.set(p,p.job<0?wage:Math.max(wage,workerIncome(G.firms[p.job])*1.121));bids.push(staffBids.get(p));}bids.sort((a,b)=>a-b);
+   const demand=privateServiceDemand(kind,site,exclude,context),plans=[];
+   for(let staff=minimum;staff<=2;staff++){if(staff>bids.length)continue;const offered=bids[staff-1],fee=privateServiceFee(kind,demand,staff,offered),forecast=privateServiceForecast(kind,site,fee,staff,exclude,offered,context);if(forecast.net>requiredReturn)plans.push(forecast);}return plans.sort((a,b)=>b.net-a.net)[0]||null;};
   let awaitingReview=false;
   for(const closed of G.firms.filter(f=>f.privateService===kind&&f.closed&&G.day-(f.closedDay||0)>=120)){
    const plan=evaluate(readBuild(closed.building),closed.id);if(!plan){delete closed.serviceRecoverySince;continue;}
@@ -974,7 +998,7 @@ function seekPrivateServiceInvestment(requested=null){
   }
   if(awaitingReview)continue;
   if(G.firms.filter(f=>f.privateService===kind&&!f.closed).length>=Math.max(1,Math.ceil(G.stats.population/(kind==='school'?180:400))))continue;
-  const candidates=buildableCandidates('housing').filter(p=>canPlace(p.x,p.y,true,kind)).slice(0,50),choices=candidates.map(p=>({p,plan:evaluate(p)})).filter(o=>o.plan).sort((a,b)=>b.plan.net-a.plan.net),choice=choices[0];if(!choice||G.region<cost+capital+50000)continue;
+  const candidates=buildableCandidates('housing',candidateProjection).filter(p=>canPlace(p.x,p.y,true,kind)).slice(0,50),choices=candidates.map(p=>({p,plan:evaluate(p)})).filter(o=>o.plan).sort((a,b)=>b.plan.net-a.plan.net),choice=choices[0];if(!choice||G.region<cost+capital+50000)continue;
   if(!privateContract(cost))return 'Construction capital is unavailable.';const {p:site,plan}=choice,b=startDevelopmentProject('firm',site,cost*10,45,{firmKind:kind,capital,privateService:kind,serviceFee:plan.fee});if(!b)return 'No permitted, connected site is available.';
   const project=G.projects.find(p=>p.id===b.id);G.region-=capital;project.serviceEscrow=capital;project.serviceStaff=plan.staff;project.serviceWage=plan.wage;b.title={kind:'investor',id:0};
   story('An entrepreneur financed a private '+(kind==='school'?'school':'fire brigade')+'. Forecast: '+policyNumber(plan.clients)+' paying clients/day, '+money(plan.payroll+plan.overhead)+' operating costs/day; 45 funded construction days. Public competition, affordability and qualified staffing can change.','neutral',b.id);return 'An entrepreneur has financed a new service site.';
@@ -2113,7 +2137,11 @@ function countBuildableLots(radius){
  let n=0;for(let y=5;y<T-5;y++)for(let x=5;x<T-5;x++)if(Math.abs(x-27)+Math.abs(y-27)<radius&&canPlace(x,y))n++;
  return n;
 }
-function buildableCandidates(focus='housing'){
+function buildableCandidates(focus='housing',projection=null){
+ // A proposal can share geometry within its synchronous review, but every scan
+ // must retain the original random draws and fresh ranking (including ties).
+ if(projection?.sites)return projection.sites.map(p=>({x:p.x,y:p.y,score:p.baseScore+random()*1.7})).sort((a,b)=>b.score-a.score);
+ if(projection)projection.sites=[];
  const net=graph(),places=[];
  for(let y=3;y<T-3;y++)for(let x=3;x<T-3;x++){
   if(!canPlace(x,y,true,focus==='business'?'plot':'home'))continue;
@@ -2127,7 +2155,9 @@ function buildableCandidates(focus='housing'){
    if(focus==='business'&&b.kind==='grocer')competition+=1/(1+d*.35);
   }
   const edge=Math.abs(x-27)+Math.abs(y-27);
-  const score=(focus==='housing'?work*2.2+houses*.65:houses*2.4+work*.75-competition*.15)-edge*.05+random()*1.7;
+  const baseScore=(focus==='housing'?work*2.2+houses*.65:houses*2.4+work*.75-competition*.15)-edge*.05;
+  if(projection)projection.sites.push({x,y,baseScore});
+  const score=baseScore+random()*1.7;
   places.push({x,y,score});
  }
  places.sort((a,b)=>b.score-a.score);
