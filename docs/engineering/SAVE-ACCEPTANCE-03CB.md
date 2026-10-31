@@ -48,3 +48,10 @@ with output `/workspace/scratch/save-acceptance-03cb-extended`. Consult its
 It includes real paid crop-title clearance and later attempts actual compensated
 home redevelopment against available replacement housing. This is not rendering,
 audio, native-device or subjective-play endurance, and no such claims are made.
+
+The first extended attempt stopped at 40 seconds because a newly constructed park
+had no `baseValue` before cold restore, and hydration added `baseValue: 80000`
+(equal to its existing value). The physical comparator now applies that documented
+default on both sides; this is classified as harmless normalization, with no
+production change. All other physical fields remain compared. The restarted run
+uses output `/workspace/scratch/save-acceptance-03cb-extended-final`.

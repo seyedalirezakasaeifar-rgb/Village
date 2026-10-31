@@ -21,7 +21,7 @@ window.__qaRun={
  flush:async()=>{await saveStorePromise;await saveWrites;return autoSaveOK},
  pause:()=>{paused=true;hostSuspended=true;acc=0;last=performance.now();updateHeader()},
  head:()=>({epoch:saveEpoch,town:saveTown,revision:saveRevision,order:saveOrder,ok:autoSaveOK}),
- snapshot:()=>{const g=JSON.parse(archivePayload());for(const k of ['trafficState','visualState','serviceProvision','privateServiceProvision','stats','roadMetrics'])delete g[k];return g},
+ snapshot:()=>{const g=JSON.parse(archivePayload());for(const b of g.buildings)if(b.baseValue==null)b.baseValue=b.value;for(const k of ['trafficState','visualState','serviceProvision','privateServiceProvision','stats','roadMetrics'])delete g[k];return g},
  sample:()=>({day:G.day,people:G.people.length,living:G.stats.population,buildings:G.buildings.length,households:G.households.length,cargo:G.regionalTrade?.shipments.length||0,contracts:G.regionalTrade?.contracts.length||0,routes:G.transit.routes.length,fares:G.transit.fares,providers:G.firms.filter(f=>f.privateService&&!f.closed).length,malls:G.firms.filter(f=>f.retailCentre&&!f.closed).length,projects:G.projects.length,civic:G.civicProjects||null,annexations:G.charter.owned.length,valid:validateTown(),money:totalMoney(),goodsError:Math.max(...goodsBalance().map(x=>Math.abs(x.error))),bytes:new Blob([archivePayload()]).size,pending:!!savePendingWrite,active:saveWriteRunning}),
  bootstrap:()=>{
   __saveComposite();const moved=Math.min(G.region,6000000);G.region-=moved;G.treasury+=moved;
