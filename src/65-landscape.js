@@ -195,7 +195,12 @@ function fastRenderEnabled(){return !!G&&!paused&&speed>=64&&gameOptions.quality
 function diamondFast(g,x,y,fill){const p=iso(x,y);g.beginPath();g.moveTo(p[0],p[1]);g.lineTo(p[0]+TW/2,p[1]+TH/2);g.lineTo(p[0],p[1]+TH);g.lineTo(p[0]-TW/2,p[1]+TH/2);g.closePath();g.fillStyle=fill;g.fill()}
 function drawGround(){
  const fastRender=fastRenderEnabled();
- const s=seasonPalette(),net=graph();bg.setTransform(1,0,0,1,0,0);bg.fillStyle='#5d7967';bg.fillRect(0,0,RW,RH);
+ // Uploading a changed full-world bitmap can stall software Canvas. At 64×,
+ // retain a half-resolution ground layer; buildings and labels stay independent.
+ groundScale=fastRender?.5:1;
+ const width=Math.round(RW*groundScale),height=Math.round(RH*groundScale);
+ if(bitmap.width!==width||bitmap.height!==height){bitmap.width=width;bitmap.height=height;}
+ const s=seasonPalette(),net=graph();bg.setTransform(groundScale,0,0,groundScale,0,0);bg.fillStyle='#5d7967';bg.fillRect(0,0,RW,RH);
  const occupied=new Set(G.buildings.flatMap(b=>footprintOf(b)));
  for(let y=0;y<T;y++)for(let x=0;x<T;x++){
   const id=roadId(x,y),type=G.tiles[id],h=hash(id+G.worldSeed),p=iso(x,y),lu=G.landUse?.[id];
@@ -221,7 +226,7 @@ function drawGround(){
   if(!fastRender)for(const n of links){const q=roadCenter(n),dx=q[0]-a[0],dy=q[1]-a[1],l=Math.hypot(dx,dy),ux=dx/l,uy=dy/l,nx=-uy,ny=ux;for(let j=0;j<4;j++){const x=a[0]+ux*(21+j*3),y=a[1]+uy*(21+j*3);segment(bg,[x+nx*6,y+ny*6],[x-nx*6,y-ny*6],'#d4d3b8',1.4);}}
  }
 }
-let groundSignature='',groundRevision=0;
+let groundSignature='',groundRevision=0,groundScale=1;
 function drawStatic(){
  const signature=[G.worldSeed,visualMonth(),gameOptions.decor,gameOptions.quality,fastRenderEnabled(),
   G.tiles.join(''),JSON.stringify(G.landUse||{}),JSON.stringify(G.roadClasses||{}),
@@ -278,7 +283,7 @@ function draw(){
  const backgroundKey=[cam.x,cam.y,cam.zoom,cw,ch,dpr,groundRevision].join('|');
  if(backgroundKey!==viewBackgroundKey){
   if(viewBackgroundRaster.width!==cv.width)viewBackgroundRaster.width=cv.width;if(viewBackgroundRaster.height!==cv.height)viewBackgroundRaster.height=cv.height;
-  const bgView=viewBackgroundRaster.getContext('2d',{alpha:false});bgView.imageSmoothingEnabled=false;bgView.setTransform(dpr,0,0,dpr,0,0);bgView.drawImage(bitmap,sx,sy,ww,hh,0,0,cw,ch);viewBackgroundKey=backgroundKey;
+  const bgView=viewBackgroundRaster.getContext('2d',{alpha:false});bgView.imageSmoothingEnabled=false;bgView.setTransform(dpr,0,0,dpr,0,0);bgView.fillStyle='#5d7967';bgView.fillRect(0,0,cw,ch);bgView.drawImage(bitmap,sx*groundScale,sy*groundScale,ww*groundScale,hh*groundScale,0,0,cw,ch);viewBackgroundKey=backgroundKey;
  }
  const key=[cam.x,cam.y,cam.zoom,cw,ch,dpr,nightMode,gameOptions.streetNames,landscapeRevision,states].join('|');
  if(key!==viewRasterKey){

@@ -202,27 +202,35 @@ function offerCouncilEvent(interrupt=false){
 function reviewCouncilInbox(index){
  const inbox=G.councilInbox||[],entry=inbox[index];if(!entry)return;
  const found=COUNCIL_EVENTS.find(e=>e.title===entry.title);
- inbox.splice(index,1);
+ if(!found)inbox.splice(index,1);
  if(found)showCustomEvent(found.type,found.title,found.text,found.choices);
  else story('An archived council petition is no longer actionable.','neutral');
  save();if(active==='agenda')renderPanel('agenda');
 }
 
-function showCustomEvent(type,title,text,choices){pendingEvent={type,title,text,choices};
+let councilOpener=null;
+function closeCouncilDialog(defer=false){
+ const event=pendingEvent;pendingEvent=null;$('eventDialog').style.display='none';
+ if(defer&&event&&event.type!=='TOWN ARCHIVE'&&COUNCIL_EVENTS.some(e=>e.title===event.title)){G.councilInbox=G.councilInbox||[];if(!G.councilInbox.some(e=>e.title===event.title))G.councilInbox.unshift({title:event.title,day:G.day});}
+ if(active==='agenda')renderPanel(active);save();
+ const target=councilOpener?.isConnected?councilOpener:$('tabs').querySelector('[data-panel="agenda"]');target?.focus();councilOpener=null;
+}
+function showCustomEvent(type,title,text,choices){councilOpener=document.activeElement;pendingEvent={type,title,text,choices};
  $('eventEyebrow').textContent=type;$('eventTitle').textContent=title;$('eventText').textContent=text;
  $('eventChoices').innerHTML=choices.map((c,i)=>`<button data-event-choice="${i}" ${c.cost&&G.treasury<c.cost?'disabled':''}><strong>${esc(c.title)}</strong><small>${esc(c.desc||'')}${c.cost?' · Cost: '+money(c.cost):''}</small></button>`).join('');
- $('eventDialog').style.display='flex';
+ if(type!=='TOWN ARCHIVE'&&COUNCIL_EVENTS.some(e=>e.title===title)){G.councilInbox=G.councilInbox||[];if(!G.councilInbox.some(e=>e.title===title))G.councilInbox.unshift({title,day:G.day});save();}
+ $('eventDialog').style.display='flex';$('eventDefer').textContent=type==='TOWN ARCHIVE'?'CANCEL':'DECIDE LATER';$('eventChoices').querySelector('button:not([disabled])')?.focus();
 }
 $('eventChoices').addEventListener('click',e=>{
  const b=e.target.closest('button[data-event-choice]');if(!b||!pendingEvent)return;
  const evt=pendingEvent,c=evt.choices[+b.dataset.eventChoice];if(!c)return;
- if(evt.type==='TOWN ARCHIVE'){pendingEvent=null;$('eventDialog').style.display='none';c.apply();return;}
+ if(evt.type==='TOWN ARCHIVE'){closeCouncilDialog();c.apply();return;}
  const goodsBefore=stockTotals();const fundsBefore=totalMoney();if(c.cost){if(G.treasury<c.cost)return;G.treasury-=c.cost;G.region+=c.cost;G.cumulative.spending+=c.cost;}
  try{c.apply()}catch(ex){console.error('Council decision',ex)}
  const goodsAfter=stockTotals();for(const k of Object.keys(goods)){const delta=goodsAfter[k]-goodsBefore[k];goodsEntry(k,delta>=0?'imports':'consumed',Math.abs(delta));}
  const regionalFunding=totalMoney()-fundsBefore;G.region-=regionalFunding;if(Math.abs(regionalFunding)>.001)book(regionalFunding>0?'Regional capital':'Council settlement',regionalFunding>0?'Council decision beneficiaries':'Regional capital',Math.abs(regionalFunding),'Explicit council programme settlement');
  G.journal.push({day:G.day,name:evt.title,message:c.title+'. '+(c.desc||''),baseline:{...G.stats,treasury:G.treasury}});
- story('COUNCIL DECISION: '+c.title+' — '+evt.title,'neutral');pendingEvent=null;$('eventDialog').style.display='none';recompute();updateHeader();if(active)renderPanel(active);save();dirty=true;
+ story('COUNCIL DECISION: '+c.title+' — '+evt.title,'neutral');G.councilInbox=(G.councilInbox||[]).filter(e=>e.title!==evt.title);closeCouncilDialog();recompute();updateHeader();if(active)renderPanel(active);save();dirty=true;
 });
 function totalMoney(){return G.treasury+G.region+(G.investors||[]).reduce((n,a)=>n+a.cash,0)+(G.metro?.cash||0)+(G.banks||[]).reduce((n,b)=>n+b.cash,0)+G.households.reduce((n,h)=>n+h.cash,0)+G.firms.reduce((n,f)=>n+f.cash,0)}
 function investigateCases(){if(G.day%5!==0)return;const power=policePower();for(const item of G.cases.slice(0,30)){if(item.resolved||item.offender==null||item.loss<=0||G.day-item.day<3)continue;let age=G.day-item.day;if(age>50){item.resolved='cold';continue;}if(random()<(.025+power*.14)){let offender=G.households[item.offender];let victim=item.hid>=0?G.households[item.hid]:(G.firms[readBuild(item.bid)?.firm]);if(offender&&victim){let recovered=Math.min(offender.cash,item.loss*(.30+power*.45));if(recovered>0){offender.cash-=recovered;victim.cash+=recovered;}item.recovered=Math.round(recovered);item.resolved=true;story('Constabulary concluded an investigation; '+money(recovered)+' was recovered for the victim.','good',item.bid,item.hid);}}}}
@@ -255,3 +263,9 @@ function updateObjectiveMini(){if(!G)return;let m=AMBITIONS.find(m=>m.id===G.amb
  const h=G.events[0];if(h){$('headline').textContent=h.text;}
  if(G.roadMetrics&&G.roadMetrics.connectedFirms<G.roadMetrics.totalFirms){$('headline').textContent='Road access warning: '+(G.roadMetrics.totalFirms-G.roadMetrics.connectedFirms)+' local businesses are cut off from town freight.';}
 }
+
+$('eventDefer').onclick=()=>closeCouncilDialog(true);
+$('eventDialog').addEventListener('keydown',e=>{
+ if(e.key!=='Tab')return;const controls=[...$('eventDialog').querySelectorAll('button:not([disabled])')];const first=controls[0],last=controls.at(-1);
+ if(e.shiftKey&&document.activeElement===first){last.focus();e.preventDefault();}else if(!e.shiftKey&&document.activeElement===last){first.focus();e.preventDefault();}
+});

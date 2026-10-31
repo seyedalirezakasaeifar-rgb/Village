@@ -88,7 +88,7 @@ const FIN_BANK_NAMES=['Vale Mutual Savings','Mercantile & County Bank','First Bo
 
 // SOURCE: 05-systems.js
 // Deterministic model services. Presentation has its own hash-based randomness.
-const RELEASE=Object.freeze({"version":"7.0.2","code":16,"edition":"The Working City","schema":5,"package":"org.townledger.vale"});
+const RELEASE=Object.freeze({"version":"7.0.3","code":17,"edition":"The Working City","schema":5,"package":"org.townledger.vale"});
 let rngState=42,visualState=918273,simulationBusy=false;
 const perfStats={frames:[],ticks:[],effective:1,backlog:0,days:0,elapsed:0,errors:[]};
 function random(){rngState=(rngState+0x6D2B79F5)>>>0;let t=rngState;t=Math.imul(t^(t>>>15),t|1);t^=t+Math.imul(t^(t>>>7),t|61);return ((t^(t>>>14))>>>0)/4294967296;}
@@ -676,7 +676,7 @@ function seed(seedValue=42){
    else if(random()<.085)tiles[y*T+x]=3;
  }
  G={roadClasses:streets.classes,streetNames:streets.names,climateSeasons:gameOptions.seasons,climateWeather:gameOptions.weather,version:3,day:1,year:1,month:1,tiles,buildings:[],homes:[],people:[],households:[],firms:[],policy:{...defaults},
-    treasury:90000,debt:0,publicReserve:0,region:15000000,projects:[],metro:{cash:0,stations:[],lines:[],fare:2.75,rides:0,revenue:0,expenses:0,dailyRides:0,daysInDeficit:0,operating:false,invested:0},development:{homes:0,firms:0,roads:0,stations:0,lastReport:null,decisions:[]},privateRoads:[],landUse:{},fieldOwner:{},fieldCount:{},airport:null,autoBuild:true,nextId:1,history:[],events:[],journal:[],records:[],stats:{},cumulative:{incomeTax:0,profitTax:0,propertyTax:0,foodTax:0,utilityTax:0,commercialRate:0,permits:0,tariffs:0,spending:0,crime:0,fires:0,welfare:0},cases:[],speed:1,scenario:chosenScenario,achievements:[],council:{approval:65,elections:0,confidence:65,factions:{workers:60,merchants:62,homeowners:60,public:66},lastApproval:65},ambition:'balanced',ambitionDays:{},lastMonth:{},crisesHandled:0,policyOutcomes:[],construction:0,worldSeed:Math.floor(random()*99999999),weather:'clear',season:0,regionalDemand:1,neighborhoods:[],lastEventDay:1,unrest:0,education:46,health:74,historyLong:[]};
+    treasury:90000,debt:0,publicReserve:0,region:15000000,projects:[],metro:{cash:0,stations:[],lines:[],fare:2.75,rides:0,revenue:0,expenses:0,dailyRides:0,daysInDeficit:0,operating:false,invested:0},development:{homes:0,firms:0,roads:0,stations:0,lastReport:null,decisions:[]},privateRoads:[],landUse:{},fieldOwner:{},fieldCount:{},airport:null,autoBuild:true,nextId:1,history:[],events:[],journal:[],records:[],stats:{},cumulative:{incomeTax:0,profitTax:0,propertyTax:0,foodTax:0,utilityTax:0,commercialRate:0,permits:0,tariffs:0,spending:0,crime:0,fires:0,welfare:0},cases:[],speed:1,scenario:chosenScenario,achievements:[],council:{approval:65,elections:0,confidence:65,factions:{workers:60,merchants:62,homeowners:60,public:66},lastApproval:65},ambition:chosenScenario==='regional'?'education':chosenScenario==='hardtimes'?'families':'balanced',ambitionDays:{},lastMonth:{},crisesHandled:0,policyOutcomes:[],construction:0,worldSeed:Math.floor(random()*99999999),weather:'clear',season:0,regionalDemand:1,neighborhoods:[],lastEventDay:1,unrest:0,education:46,health:74,historyLong:[]};
  const add=(kind,x,y,opt={})=>{if(G.tiles[roadId(x,y)]===1||G.tiles[roadId(x,y)]===2)throw Error('Founding structure overlaps a roadway or river');G.tiles[roadId(x,y)]=0;let b={id:G.nextId++,kind,x,y,value:Math.round(types[kind].cost*10),condition:100,owner:-1,firm:-1,hh:-1,...opt};G.buildings.push(b);return b};
  add('townhall',26,26,{value:150000});add('police',24,26,{value:90000});add('fire',29,26,{value:80000});add('clinic',28,29,{value:74000});add('school',25,28,{value:70000});add('square',28,26,{value:15000});
  const firms=['grocer','grocer','grocer','bakery','bakery','mill','mill','farm','farm','farm','farm','forestry','forestry','sawmill','quarry','contractor','contractor','grocer','bakery','farm','tavern','office','factory','warehouse'];
@@ -1690,7 +1690,7 @@ function load(){try{for(const key of ['townledger-v6','townledger-v6-backup']){t
 function toast(msg){const el=$('toast');el.textContent=msg;el.style.display='block';clearTimeout(toastTimeout);toastTimeout=setTimeout(()=>el.style.display='none',3300)}
 
 // SOURCE: 60-renderer.js
-function updateHeader(){if(!G)return;$('pop').textContent=fmt(G.stats.population);$('funds').textContent=money(G.treasury);$('jobs').textContent=G.stats.employment+'%';$('safety').textContent=G.stats.safety+'/100';$('approval').textContent=Math.round(G.council.approval)+'%';$('date').textContent='YEAR '+G.year+' · MONTH '+G.month+' · DAY '+G.day;$('season').textContent=(seasonsEnabled()?['SPRING IN THE VALE','SUMMER IN THE VALE','AUTUMN IN THE VALE','WINTER IN THE VALE'][Math.floor((G.month-1)/3)]:'THE WORKING CITY')+(weatherEnabled()&&G.weather&&G.weather!=='clear'?' · '+G.weather.toUpperCase():'');$('pause').textContent=paused?'▶︎':'Ⅱ';$('pause').setAttribute('aria-label',paused?'Resume simulation':'Pause simulation');$('pause').title=paused?'Resume':'Pause';if($('liveEconomy')&&(G.day%5===1||G.day<5)){const m=marketSignal();$('liveEconomy').innerHTML=`<b>${esc(m.title)}</b><span>${G.stats.employment}% employed · ${m.m.open} firms · ${m.m.projects} building · ${G.stats.hardship}% hardship</span>`;}$('speed').textContent=speed+'×';if($('effectiveSpeed'))$('effectiveSpeed').textContent=!paused&&speed>=8?'Actual '+perfStats.effective.toFixed(0)+'×':'';if($('speedRange'))$('speedRange').value=String(SPEED_PRESETS.indexOf(speed)>=0?SPEED_PRESETS.indexOf(speed):0);$('pauseBanner').style.display=paused?'block':'none'; updateObjectiveMini();}
+function updateHeader(){if(!G)return;$('pop').textContent=fmt(G.stats.population);$('funds').textContent=money(G.treasury);$('jobs').textContent=G.stats.employment+'%';$('safety').textContent=G.stats.safety+'/100';$('approval').textContent=Math.round(G.council.approval)+'%';$('date').textContent='YEAR '+G.year+' · MONTH '+G.month+' · DAY '+G.day;$('season').textContent=(seasonsEnabled()?['SPRING IN THE VALE','SUMMER IN THE VALE','AUTUMN IN THE VALE','WINTER IN THE VALE'][Math.floor((G.month-1)/3)]:'THE WORKING CITY')+(weatherEnabled()&&G.weather&&G.weather!=='clear'?' · '+G.weather.toUpperCase():'');$('pause').textContent=paused?'►':'Ⅱ';$('pause').setAttribute('aria-label',paused?'Resume simulation':'Pause simulation');$('pause').title=paused?'Resume':'Pause';if($('liveEconomy')&&(G.day%5===1||G.day<5)){const m=marketSignal();$('liveEconomy').innerHTML=`<b>${esc(m.title)}</b><span>${G.stats.employment}% employed · ${m.m.open} firms · ${m.m.projects} building · ${G.stats.hardship}% hardship</span>`;}$('speed').textContent=speed+'×';if($('effectiveSpeed'))$('effectiveSpeed').textContent=!paused&&speed>=8?'Actual '+perfStats.effective.toFixed(0)+'×':'';if($('speedRange'))$('speedRange').value=String(SPEED_PRESETS.indexOf(speed)>=0?SPEED_PRESETS.indexOf(speed):0);$('pauseBanner').style.display=paused?'block':'none'; updateObjectiveMini();}
 // ----- Town map renderer. Geometry is cached; only vehicles need a dynamic redraw.
 function iso(x,y){return [(x-y)*TW/2+RW/2,(x+y)*TH/2+32]}
 function diamond(g,x,y,fill,stroke){let p=iso(x,y);g.beginPath();g.moveTo(p[0],p[1]);g.lineTo(p[0]+TW/2,p[1]+TH/2);g.lineTo(p[0],p[1]+TH);g.lineTo(p[0]-TW/2,p[1]+TH/2);g.closePath();g.fillStyle=fill;g.fill();g.strokeStyle=fill;g.lineWidth=.7;g.stroke();if(stroke){g.strokeStyle=stroke;g.lineWidth=.6;g.stroke()}}
@@ -2066,7 +2066,12 @@ function fastRenderEnabled(){return !!G&&!paused&&speed>=64&&gameOptions.quality
 function diamondFast(g,x,y,fill){const p=iso(x,y);g.beginPath();g.moveTo(p[0],p[1]);g.lineTo(p[0]+TW/2,p[1]+TH/2);g.lineTo(p[0],p[1]+TH);g.lineTo(p[0]-TW/2,p[1]+TH/2);g.closePath();g.fillStyle=fill;g.fill()}
 function drawGround(){
  const fastRender=fastRenderEnabled();
- const s=seasonPalette(),net=graph();bg.setTransform(1,0,0,1,0,0);bg.fillStyle='#5d7967';bg.fillRect(0,0,RW,RH);
+ // Uploading a changed full-world bitmap can stall software Canvas. At 64×,
+ // retain a half-resolution ground layer; buildings and labels stay independent.
+ groundScale=fastRender?.5:1;
+ const width=Math.round(RW*groundScale),height=Math.round(RH*groundScale);
+ if(bitmap.width!==width||bitmap.height!==height){bitmap.width=width;bitmap.height=height;}
+ const s=seasonPalette(),net=graph();bg.setTransform(groundScale,0,0,groundScale,0,0);bg.fillStyle='#5d7967';bg.fillRect(0,0,RW,RH);
  const occupied=new Set(G.buildings.flatMap(b=>footprintOf(b)));
  for(let y=0;y<T;y++)for(let x=0;x<T;x++){
   const id=roadId(x,y),type=G.tiles[id],h=hash(id+G.worldSeed),p=iso(x,y),lu=G.landUse?.[id];
@@ -2092,7 +2097,7 @@ function drawGround(){
   if(!fastRender)for(const n of links){const q=roadCenter(n),dx=q[0]-a[0],dy=q[1]-a[1],l=Math.hypot(dx,dy),ux=dx/l,uy=dy/l,nx=-uy,ny=ux;for(let j=0;j<4;j++){const x=a[0]+ux*(21+j*3),y=a[1]+uy*(21+j*3);segment(bg,[x+nx*6,y+ny*6],[x-nx*6,y-ny*6],'#d4d3b8',1.4);}}
  }
 }
-let groundSignature='',groundRevision=0;
+let groundSignature='',groundRevision=0,groundScale=1;
 function drawStatic(){
  const signature=[G.worldSeed,visualMonth(),gameOptions.decor,gameOptions.quality,fastRenderEnabled(),
   G.tiles.join(''),JSON.stringify(G.landUse||{}),JSON.stringify(G.roadClasses||{}),
@@ -2149,7 +2154,7 @@ function draw(){
  const backgroundKey=[cam.x,cam.y,cam.zoom,cw,ch,dpr,groundRevision].join('|');
  if(backgroundKey!==viewBackgroundKey){
   if(viewBackgroundRaster.width!==cv.width)viewBackgroundRaster.width=cv.width;if(viewBackgroundRaster.height!==cv.height)viewBackgroundRaster.height=cv.height;
-  const bgView=viewBackgroundRaster.getContext('2d',{alpha:false});bgView.imageSmoothingEnabled=false;bgView.setTransform(dpr,0,0,dpr,0,0);bgView.drawImage(bitmap,sx,sy,ww,hh,0,0,cw,ch);viewBackgroundKey=backgroundKey;
+  const bgView=viewBackgroundRaster.getContext('2d',{alpha:false});bgView.imageSmoothingEnabled=false;bgView.setTransform(dpr,0,0,dpr,0,0);bgView.fillStyle='#5d7967';bgView.fillRect(0,0,cw,ch);bgView.drawImage(bitmap,sx*groundScale,sy*groundScale,ww*groundScale,hh*groundScale,0,0,cw,ch);viewBackgroundKey=backgroundKey;
  }
  const key=[cam.x,cam.y,cam.zoom,cw,ch,dpr,nightMode,gameOptions.streetNames,landscapeRevision,states].join('|');
  if(key!==viewRasterKey){
@@ -2326,9 +2331,10 @@ function onTap(sx,sy){if(!G)return;const r=cv.getBoundingClientRect();const [x,y
 cv.addEventListener('pointerdown',e=>{if(pointer.down){pointer.moved=true;return;}pointer.activeId=e.pointerId;roadPainted.clear();pointer.lastRoad=buildMode==='road'?toWorld(e.clientX-cv.getBoundingClientRect().left,e.clientY-cv.getBoundingClientRect().top):null;pointer.down=true;pointer.startX=pointer.px=e.clientX;pointer.startY=pointer.py=e.clientY;pointer.moved=false;try{cv.setPointerCapture(e.pointerId)}catch(err){} });
 cv.addEventListener('pointermove',e=>{if(!pointer.down||pointer.activeId!==e.pointerId||touches.size>1)return;let dx=e.clientX-pointer.px,dy=e.clientY-pointer.py;if(Math.abs(e.clientX-pointer.startX)>7||Math.abs(e.clientY-pointer.startY)>7)pointer.moved=true;
  if(buildMode==='road'){let br=cv.getBoundingClientRect(),pt=toWorld(e.clientX-br.left,e.clientY-br.top);let prev=pointer.lastRoad||pt;let dxg=pt[0]-prev[0],dyg=pt[1]-prev[1],steps=Math.max(Math.abs(dxg),Math.abs(dyg),1);for(let k=0;k<=steps;k++){let ax=Math.round(prev[0]+dxg*k/steps),ay=Math.round(prev[1]+dyg*k/steps),key=ax+'/'+ay;if(!roadPainted.has(key)){roadPainted.add(key);construct('road',ax,ay,true)}}pointer.lastRoad=pt}else{cam.x-=dx/cam.zoom;cam.y-=dy/cam.zoom;cam.x=clamp(cam.x,0,RW);cam.y=clamp(cam.y,0,RH)}pointer.px=e.clientX;pointer.py=e.clientY;let rect=cv.getBoundingClientRect(),tile=toWorld(e.clientX-rect.left,e.clientY-rect.top);pointer.hover={x:tile[0],y:tile[1]};dirty=true});
-cv.addEventListener('pointerup',e=>{if(pointer.activeId!==e.pointerId)return;if(pointer.down&&!pointer.moved)onTap(e.clientX,e.clientY);flushRoadBatch();pointer.down=false;pointer.activeId=null;pointer.lastRoad=null;roadPainted.clear()});
+cv.addEventListener('pointerup',e=>{$('gameRoot').classList.add('map-used');if(pointer.activeId!==e.pointerId)return;if(pointer.down&&!pointer.moved)onTap(e.clientX,e.clientY);flushRoadBatch();pointer.down=false;pointer.activeId=null;pointer.lastRoad=null;roadPainted.clear()});
 window.addEventListener('keydown',e=>{
  if(e.key!=='Escape')return;
+ if(pendingEvent||$('helpDialog').style.display!=='none'){if(window.__townArchive?.back?.())e.preventDefault();return;}
  if(buildMode){buildMode='';pointer.hover=null;dirty=true;$('placementHint').style.display='none';$('hint').textContent='DRAG TO PAN · TAP TO INSPECT';toast('Construction tool closed');e.preventDefault();return;}
  // Match Android Back: dismiss the top navigation layer rather than leaving
  // keyboard users stranded behind an open drawer or transient help/archive form.
@@ -2475,7 +2481,7 @@ function renderPanel(tab){if(!G)return;const sc=$('panelBody');const y=sc.scroll
 function journalPolicy(k,old,nv){const base={...G.stats,treasury:G.treasury};G.journal.push({day:G.day,name:defs.find(d=>d[0]===k)?.[1]||k,message:`Policy revised from ${fmt(old)} to ${fmt(nv)}.`,baseline:base});if(G.journal.length>100)G.journal.shift();story('Council revised '+(defs.find(d=>d[0]===k)?.[1]||k)+'.','neutral')}
 $('tabs').addEventListener('click',e=>{const b=e.target.closest('button[data-panel]');if(!b)return;const p=b.dataset.panel;if(p===active)closePanel();else openPanel(p)});
 $('panelClose').onclick=closePanel;
-$('panelBody').addEventListener('input',e=>{if(e.target.id==='searchPeople'){citizenQuery=e.target.value;return;}const input=e.target.closest('[data-policy]');if(!input)return;let k=input.dataset.policy,value=+input.value;const d=defs.find(d=>d[0]===k);draftPolicy[k]=value;const el=$('show-'+k);if(el)el.textContent=d[5]==='$'?money(value):policyNumber(value)+d[5];const button=$('enactPolicy');if(button)button.disabled=false;const summ=$('draftSummary');if(summ)summ.textContent=Object.keys(draftPolicy).filter(k=>draftPolicy[k]!==G.policy[k]).map(k=>defs.find(d=>d[0]===k)?.[1]+': '+policyNumber(G.policy[k])+' → '+policyNumber(draftPolicy[k])).join(' · ')});
+$('panelBody').addEventListener('input',e=>{if(e.target.id==='searchPeople'){citizenQuery=e.target.value;return;}const input=e.target.closest('[data-policy]');if(!input)return;let k=input.dataset.policy,value=+input.value;const d=defs.find(d=>d[0]===k);draftPolicy[k]=value;const el=$('show-'+k);if(el)el.textContent=d[5]==='$'?money(value):policyNumber(value)+d[5];const button=$('enactPolicy');if(button)button.disabled=false;const summ=$('draftSummary');if(summ)summ.textContent=Object.keys(draftPolicy).filter(k=>draftPolicy[k]!==G.policy[k]).map(k=>k==='imports'?'Regional imports: '+(G.policy.imports?'OPEN':'RESTRICTED')+' → '+(draftPolicy.imports?'OPEN':'RESTRICTED'):defs.find(d=>d[0]===k)?.[1]+': '+policyNumber(G.policy[k])+' → '+policyNumber(draftPolicy[k])).join(' · ')});
 $('panelBody').addEventListener('change',e=>{if(e.target.id==='searchPeople'){renderPanel('citizens');return;}const input=e.target.closest('[data-policy]');if(!input)return;draftPolicy[input.dataset.policy]=+input.value;const b=$('enactPolicy');if(b)b.disabled=false});
 $('panelBody').addEventListener('click',e=>{const b=e.target.closest('button,[data-house],[data-firm],[data-inspect],[data-ambition]');if(!b)return;
  if(b.dataset.build!==undefined){flushRoadBatch();buildMode=b.dataset.build;$('hint').textContent=buildMode?'TAP A CLEAR ROADSIDE PLOT · '+(buildMode==='road'?'DRAG TO PAINT ROADS':'DRAG TO PAN'):'DRAG TO PAN · TAP TO INSPECT';$('placementHint').style.display=buildMode?'block':'none';$('placementHint').textContent=buildMode?'PLACING '+(types[buildMode]?.n||'ROADS').toUpperCase()+' · COST '+money(buildCost[buildMode]):'';closePanel();toast(buildMode?'Tap the map to build '+(types[buildMode]?.n||'road')+'.':'Inspection mode enabled');return}
@@ -2510,6 +2516,7 @@ $('panelBody').addEventListener('click',e=>{const b=e.target.closest('button,[da
  ]);return}
  if(b.id==='backupSave'){exportSave();return}
  if(b.id==='importSave'){importSave();return}
+ if(b.dataset.openPanel){openPanel(b.dataset.openPanel);return}
  if(b.id==='tutorial'){openTutorialDialog(b);return}
  if(b.id==='toggleDevelopment'){G.autoBuild=!G.autoBuild;save();renderPanel(active);toast(G.autoBuild?'Private investment resumed.':'New private construction paused.');return;}
  if(b.id==='overlayMetro'){overlay=overlay==='metro'?'none':'metro';dirty=true;renderPanel(active);return;}
@@ -2517,7 +2524,7 @@ $('panelBody').addEventListener('click',e=>{const b=e.target.closest('button,[da
  if(b.id==='overlayC'){overlay=overlay==='crime'?'none':'crime';dirty=true;renderPanel(active);return}
  if(b.id==='overlayH'){overlay=overlay==='hardship'?'none':'hardship';dirty=true;renderPanel(active);return}
  if(b.id==='overlayB'){overlay=overlay==='business'?'none':'business';dirty=true;renderPanel(active);return}
- if(b.id==='tradeToggle'){let prev=G.policy.imports;G.policy.imports=!prev;journalPolicy('Regional imports',prev,G.policy.imports);save();renderPanel(active)}
+ if(b.id==='tradeToggle'){draftPolicy.imports=!(draftPolicy.imports??G.policy.imports);renderPanel('policies');return}
  if(b.id==='soundToggle'){soundEnabled=!soundEnabled;try{localStorage.setItem('townledger-audio',soundEnabled?'on':'off')}catch(e){};refreshAmbience();renderPanel('settings');return}
  if(b.id==='borrow'){let limit=Math.max(25000,G.stats.population*350);if(G.debt+5000>limit||G.region<5000){toast('Regional lender declined: the credit limit or available funds have been reached.');return;}G.debt+=5000;G.treasury+=5000;G.region-=5000;story('Council borrowed $5,000 from the regional lender.');recompute();updateHeader();save();renderPanel(active)}
  if(b.id==='repay'){let v=Math.min(5000,G.debt,G.treasury);G.debt-=v;G.treasury-=v;G.region+=v;recompute();updateHeader();save();renderPanel(active)}
@@ -2762,27 +2769,35 @@ function offerCouncilEvent(interrupt=false){
 function reviewCouncilInbox(index){
  const inbox=G.councilInbox||[],entry=inbox[index];if(!entry)return;
  const found=COUNCIL_EVENTS.find(e=>e.title===entry.title);
- inbox.splice(index,1);
+ if(!found)inbox.splice(index,1);
  if(found)showCustomEvent(found.type,found.title,found.text,found.choices);
  else story('An archived council petition is no longer actionable.','neutral');
  save();if(active==='agenda')renderPanel('agenda');
 }
 
-function showCustomEvent(type,title,text,choices){pendingEvent={type,title,text,choices};
+let councilOpener=null;
+function closeCouncilDialog(defer=false){
+ const event=pendingEvent;pendingEvent=null;$('eventDialog').style.display='none';
+ if(defer&&event&&event.type!=='TOWN ARCHIVE'&&COUNCIL_EVENTS.some(e=>e.title===event.title)){G.councilInbox=G.councilInbox||[];if(!G.councilInbox.some(e=>e.title===event.title))G.councilInbox.unshift({title:event.title,day:G.day});}
+ if(active==='agenda')renderPanel(active);save();
+ const target=councilOpener?.isConnected?councilOpener:$('tabs').querySelector('[data-panel="agenda"]');target?.focus();councilOpener=null;
+}
+function showCustomEvent(type,title,text,choices){councilOpener=document.activeElement;pendingEvent={type,title,text,choices};
  $('eventEyebrow').textContent=type;$('eventTitle').textContent=title;$('eventText').textContent=text;
  $('eventChoices').innerHTML=choices.map((c,i)=>`<button data-event-choice="${i}" ${c.cost&&G.treasury<c.cost?'disabled':''}><strong>${esc(c.title)}</strong><small>${esc(c.desc||'')}${c.cost?' · Cost: '+money(c.cost):''}</small></button>`).join('');
- $('eventDialog').style.display='flex';
+ if(type!=='TOWN ARCHIVE'&&COUNCIL_EVENTS.some(e=>e.title===title)){G.councilInbox=G.councilInbox||[];if(!G.councilInbox.some(e=>e.title===title))G.councilInbox.unshift({title,day:G.day});save();}
+ $('eventDialog').style.display='flex';$('eventDefer').textContent=type==='TOWN ARCHIVE'?'CANCEL':'DECIDE LATER';$('eventChoices').querySelector('button:not([disabled])')?.focus();
 }
 $('eventChoices').addEventListener('click',e=>{
  const b=e.target.closest('button[data-event-choice]');if(!b||!pendingEvent)return;
  const evt=pendingEvent,c=evt.choices[+b.dataset.eventChoice];if(!c)return;
- if(evt.type==='TOWN ARCHIVE'){pendingEvent=null;$('eventDialog').style.display='none';c.apply();return;}
+ if(evt.type==='TOWN ARCHIVE'){closeCouncilDialog();c.apply();return;}
  const goodsBefore=stockTotals();const fundsBefore=totalMoney();if(c.cost){if(G.treasury<c.cost)return;G.treasury-=c.cost;G.region+=c.cost;G.cumulative.spending+=c.cost;}
  try{c.apply()}catch(ex){console.error('Council decision',ex)}
  const goodsAfter=stockTotals();for(const k of Object.keys(goods)){const delta=goodsAfter[k]-goodsBefore[k];goodsEntry(k,delta>=0?'imports':'consumed',Math.abs(delta));}
  const regionalFunding=totalMoney()-fundsBefore;G.region-=regionalFunding;if(Math.abs(regionalFunding)>.001)book(regionalFunding>0?'Regional capital':'Council settlement',regionalFunding>0?'Council decision beneficiaries':'Regional capital',Math.abs(regionalFunding),'Explicit council programme settlement');
  G.journal.push({day:G.day,name:evt.title,message:c.title+'. '+(c.desc||''),baseline:{...G.stats,treasury:G.treasury}});
- story('COUNCIL DECISION: '+c.title+' — '+evt.title,'neutral');pendingEvent=null;$('eventDialog').style.display='none';recompute();updateHeader();if(active)renderPanel(active);save();dirty=true;
+ story('COUNCIL DECISION: '+c.title+' — '+evt.title,'neutral');G.councilInbox=(G.councilInbox||[]).filter(e=>e.title!==evt.title);closeCouncilDialog();recompute();updateHeader();if(active)renderPanel(active);save();dirty=true;
 });
 function totalMoney(){return G.treasury+G.region+(G.investors||[]).reduce((n,a)=>n+a.cash,0)+(G.metro?.cash||0)+(G.banks||[]).reduce((n,b)=>n+b.cash,0)+G.households.reduce((n,h)=>n+h.cash,0)+G.firms.reduce((n,f)=>n+f.cash,0)}
 function investigateCases(){if(G.day%5!==0)return;const power=policePower();for(const item of G.cases.slice(0,30)){if(item.resolved||item.offender==null||item.loss<=0||G.day-item.day<3)continue;let age=G.day-item.day;if(age>50){item.resolved='cold';continue;}if(random()<(.025+power*.14)){let offender=G.households[item.offender];let victim=item.hid>=0?G.households[item.hid]:(G.firms[readBuild(item.bid)?.firm]);if(offender&&victim){let recovered=Math.min(offender.cash,item.loss*(.30+power*.45));if(recovered>0){offender.cash-=recovered;victim.cash+=recovered;}item.recovered=Math.round(recovered);item.resolved=true;story('Constabulary concluded an investigation; '+money(recovered)+' was recovered for the victim.','good',item.bid,item.hid);}}}}
@@ -2815,6 +2830,12 @@ function updateObjectiveMini(){if(!G)return;let m=AMBITIONS.find(m=>m.id===G.amb
  const h=G.events[0];if(h){$('headline').textContent=h.text;}
  if(G.roadMetrics&&G.roadMetrics.connectedFirms<G.roadMetrics.totalFirms){$('headline').textContent='Road access warning: '+(G.roadMetrics.totalFirms-G.roadMetrics.connectedFirms)+' local businesses are cut off from town freight.';}
 }
+
+$('eventDefer').onclick=()=>closeCouncilDialog(true);
+$('eventDialog').addEventListener('keydown',e=>{
+ if(e.key!=='Tab')return;const controls=[...$('eventDialog').querySelectorAll('button:not([disabled])')];const first=controls[0],last=controls.at(-1);
+ if(e.shiftKey&&document.activeElement===first){last.focus();e.preventDefault();}else if(!e.shiftKey&&document.activeElement===last){first.focus();e.preventDefault();}
+});
 
 // SOURCE: 90-archive-panels.js
 function hydrateSave(raw){
@@ -2857,7 +2878,7 @@ function hydrateSave(raw){
   if(data.households.some(h=>!h||!Array.isArray(h.people)||!Number.isFinite(h.cash)||h.cash<0)||data.firms.some(f=>!f||!Array.isArray(f.workers)||!Number.isFinite(f.cash)||f.cash<0))return false;
   const workerIDs=new Set();for(const f of data.firms){for(const id of f.workers){if(workerIDs.has(id)||!data.people[id]||data.people[id].deceased||data.people[id].movedAway||data.people[id].job!==f.id)return false;workerIDs.add(id)}}
   for(const loan of data.loans||[])if(loan.fixedRate==null)loan.fixedRate=true;
-  G=data;crewDay=-1;crewsUsed=new Map();regionalCrews=0;ensureSystems();rngState=Number.isInteger(G.rngState)?G.rngState:G.scenarioSeed;ensureFinance();ensureMarketModel();if(!G.banks.length)seedBanks();draftPolicy={};roadBatchDirty=false;invalidateRoads();cacheBuildingsFor=null;recompute();G.stats.approval=Math.round(G.council.approval);G.stats.health=Math.round(G.health);G.stats.education=Math.round(G.education);G.stats.marketConfidence=G.stats.marketConfidence||55;G.stats.wellbeing=G.stats.wellbeing||70;restoreTransport();staticDirty=true;dirty=true;updateHeader();return true;
+  G=data;crewDay=-1;crewsUsed=new Map();regionalCrews=0;ensureSystems();rngState=Number.isInteger(G.rngState)?G.rngState:G.scenarioSeed;ensureFinance();ensureMarketModel();if(!G.banks.length)seedBanks();draftPolicy={};roadBatchDirty=false;invalidateRoads();cacheBuildingsFor=null;recompute();G.stats.approval=Math.round(G.council.approval);G.stats.health=Math.round(G.health);G.stats.education=Math.round(G.education);G.stats.marketConfidence=G.stats.marketConfidence||55;G.stats.wellbeing=G.stats.wellbeing??70;restoreTransport();staticDirty=true;dirty=true;updateHeader();return true;
  }catch(e){G=previousTown;invalidateRoads();cacheBuildingsFor=null;staticDirty=true;dirty=true;console.error('Invalid save',e);return false}
 }
 function writeIndexedDB(text){
@@ -2894,14 +2915,22 @@ $('continue').onclick=()=>{if(!load()&&window.__idbSave){if(!hydrateSave(window.
 function tip(s){return `<p class="desc">${esc(s)}</p>`}
 function strip(label,value){return `<div class="line"><span>${esc(label)}</span><span>${esc(String(value))}</span></div>`}
 function meter(label,value,color='#d5b779'){return `<div class="line"><span>${esc(label)}</span><span><b>${Math.round(value)}%</b></span></div><div class="progress"><i style="width:${clamp(value,0,100)}%;background:${color}"></i></div>`}
-function greeting(){return G.month<4?'A quiet spring morning in the Vale':G.month<7?'High summer and hard work':G.month<10?'Harvest season in the borough':'Winter settles on the cobbled lanes'}
+function greeting(){if(!seasonsEnabled())return 'Your council, your growing town';return G.month<4?'A quiet spring morning in the Vale':G.month<7?'High summer and hard work':G.month<10?'Harvest season in the borough':'Winter settles on the cobbled lanes'}
 function miniChart(k,height=130){let ar=(G.history||[]).slice(-120);if(ar.length<2)return tip('The figures will appear as the town develops.');let vals=ar.map(o=>Number(o[k])||0),lo=Math.min(...vals),hi=Math.max(...vals),span=Math.max(1,hi-lo);let points=vals.map((v,i)=>`${(i/(vals.length-1)*330).toFixed(1)},${(height-20-(v-lo)/span*(height-35)).toFixed(1)}`).join(' ');return `<svg class="chart-lines" viewBox="0 0 330 ${height}" preserveAspectRatio="none"><path d="M0 ${height-20}H330 M0 ${height/2}H330 M0 18H330" stroke="#627563" stroke-width=".6" fill="none"/><polyline points="${points}" fill="none" stroke="#e8c887" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="desc">Past ${ar.length} days · low ${fmt(lo)} · high ${fmt(hi)} · latest ${fmt(vals[vals.length-1])}</div>`}
 function headlineList(count=7){let ev=G.events.slice(0,count);return ev.map(e=>`<div class="event" style="border-left-color:${e.type==='bad'?'#e99a80':e.type==='good'?'#9fd4ab':'#c0ab7e'}"><strong>DAY ${e.day}</strong><div>${esc(e.text)}</div>${e.bid>0?`<button class="small" data-inspect="${e.bid}">Visit location</button>`:''}</div>`).join('')}
 function currentAmbition(){return AMBITIONS.find(m=>m.id===G.ambition)||AMBITIONS[0]}
 function ambitionCard(m,compact=false){let achieved=G.achievements.includes(m.id),days=G.ambitionDays[m.id]||0,selected=G.ambition===m.id,progress=achieved?1:m.goal(G)?days/m.days:Math.min(.95,m.progress(G)*.85);return `<div class="mission-item ${selected?'selected':''}" data-ambition="${m.id}"><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><b>${esc(m.title)}</b><span class="pill">${achieved?'ACHIEVED':selected?'TRACKING':'SELECT'}</span></div>${compact?'':`<small>${esc(m.description)}</small>`}<div class="progress"><i style="width:${Math.round(clamp(progress,0,1)*100)}%"></i></div><small>${achieved?'Completed · grant awarded':(m.goal(G)?days+' / '+m.days+' qualifying days':'Conditions not yet sustained')}${compact?'':' · Development grant '+money(m.reward)}</small></div>`}
-function renderOverviewFull(){let s=G.stats,m=currentAmbition(),C=G.council;return `<div class="scenario-badge">${G.scenario==='settlement'?'PROSPEROUS VALE':G.scenario==='hardtimes'?'HARD TIMES':G.scenario==='frontier'?'THE FRONTIER':'FACTORY COUNTRY'} · ${esc(greeting())}</div>`+
+function scenarioBriefing(){
+ const signal=marketSignal();let context;
+ if(G.scenario==='hardtimes')context=G.day<540?`Regional export orders remain at 52% of normal for ${540-G.day} more days. Local customers still matter: review firms’ sales, inventories and cash before changing taxes or credit. Employment can recover before exports do.`:'The opening export shock has ended. Check whether families and firms have rebuilt their cash buffers before expanding commitments.';
+ else if(G.scenario==='frontier')context=G.day<280?`Regional export orders remain at 78% for ${280-G.day} more days. A small tax base makes new recurring spending consequential; inspect Budget before promising more services.`:'The opening export constraint has ended. Compare recurring service costs with the tax base as the community grows.';
+ else if(G.scenario==='regional')context='Market Cross begins with a strong job market. Its opening ambition is lasting health and education, so jobs alone do not complete your council programme. A dense regional town also needs connected employers and housing. Check journey lengths, road access and household expenses before financing additional public works.';
+ else context='Choose an ambition, inspect the constraint in Economy, and enact a small policy package. Let several weeks pass, then compare the Policy journal and individual household accounts.';
+ return `<div class="council-card scenario-briefing"><h3>${esc(signal.title)}</h3><p class="desc">${esc(context)}</p><p class="desc">${esc(signal.description)}</p><div class="btnrow"><button data-open-panel="economy">Review the economy</button><button data-open-panel="policies">Prepare policy</button><button data-open-panel="journal">Review outcomes</button></div></div>`;
+}
+function renderOverviewFull(){let s=G.stats,m=currentAmbition(),C=G.council;return `<div class="scenario-badge">${G.scenario==='settlement'?'PROSPEROUS VALE':G.scenario==='hardtimes'?'HARD TIMES':G.scenario==='frontier'?'THE FRONTIER':G.scenario==='regional'?'MARKET CROSS':'FACTORY COUNTRY'} · ${esc(greeting())}</div>`+
  head('The borough at a glance')+`<div class="statgrid">${stat('Residents',fmt(s.population))}${stat('Town treasury',money(G.treasury),G.treasury<5000?'negative':'')}${stat('Residents in work',s.employment+'%',s.employment<60?'negative':'')}${stat('Council trust',Math.round(C.approval)+'%',C.approval<45?'negative':'')}</div>`+
- head('The state of daily life')+meter('Public safety',s.safety,s.safety>80?'#a9d7ad':'#d9ad7b')+meter('Household wellbeing',s.wellbeing||70)+meter('Local business confidence',s.marketConfidence||60)+strip('Households struggling',s.hardship+'%')+strip('Crime reports in last month',s.dailyCrime)+strip('Trading businesses',s.businesses+' / '+G.firms.length)+
+ scenarioBriefing()+head('The state of daily life')+meter('Public safety',s.safety,s.safety>80?'#a9d7ad':'#d9ad7b')+meter('Household wellbeing',s.wellbeing??70)+meter('Local business confidence',s.marketConfidence??60)+strip('Households struggling',s.hardship+'%')+strip('Crime reports in last month',s.dailyCrime)+strip('Trading businesses',s.businesses+' / '+G.firms.length)+
  `<div class="council-card"><h3>Current ambition: ${esc(m.title)}</h3><p class="tip">${esc(m.description)}</p>${ambitionCard(m,true)}<div class="btnrow"><button id="jumpAgenda">View council ambitions</button><button id="focusBad">Visit struggling household</button></div></div>`+
  head('A household behind the numbers')+(()=>{let h=G.households.filter(h=>h.people.length>0&&readBuild(h.home)).sort((a,b)=>b.stress-a.stress)[0];if(!h)return '';let net=h.income-h.tax-h.food-h.rent-(h.utilities||0)-(h.travel||0)-(h.debtService||0)-(h.propertyPaid||0)-(h.discretionary||0)+h.aid;return `<div class="council-card"><h3>The ${esc(h.name)} family</h3><p class="desc">${h.people.length} residents · ${money(h.cash)} in savings · ${(100-h.stress).toFixed(0)}/100 wellbeing. Yesterday's income ${money(h.income)}, essential spending ${money(h.food+h.rent+(h.utilities||0)+(h.travel||0))}, net household flow ${money(net)}.</p><button data-house="${h.id}">Inspect this family</button></div>`})()+
  ((G.councilInbox||[]).length?`<div class="inbox-notice"><strong>✉ ${(G.councilInbox||[]).length} council letter(s)</strong><button id="jumpAgenda">Review when ready</button></div>`:'')+head('From the town crier')+headlineList(6)+head('Employment trend')+miniChart('employment');}
@@ -2920,16 +2949,16 @@ function renderCommunityFull(){let s=G.stats;return head('Private growth and mob
  `<div class="btnrow"><button id="overlayC">${overlay==='crime'?'✓ ':' '}Crime map</button><button id="overlayH">${overlay==='hardship'?'✓ ':' '}Hardship map</button></div>`+
  head('Constabulary incident log')+(G.cases.length?G.cases.slice(0,15).map(eventHtml).join(''):tip('No recorded incidents. This does not mean risk is zero.'))+
  head('Safety across time')+miniChart('safety');}
-function renderPoliciesFull(){let sections=[['Taxation','incomeTax','profitTax','propertyTax','commercialRate','foodTax','utilityTax'],['Work and enterprise','minWage','employmentSubsidy','permitFee','businessRegulation','zoningRestriction'],['Government services','pensionDaily','policeBudget','defenseBudget','healthBudget','educationBudget','aidBudget','energyAidBudget','outreachBudget','roadBudget','transitBudget','militiaBudget'],['Monetary policy and credit','policyRate','bankReserve','lendingRules','depositGuarantee','treasuryInvestment'],['Trade and exchange','importTariff']];let changes=Object.keys(draftPolicy).filter(k=>draftPolicy[k]!==G.policy[k]);let projected=defs.filter(d=>changes.includes(d[0])).map(d=>`${d[1]}: ${policyNumber(G.policy[d[0]])} → ${policyNumber(draftPolicy[d[0]])}${d[5]==='$'?' dollars':d[5]}`).join('<br>');
+function renderPoliciesFull(){let sections=[['Taxation','incomeTax','profitTax','propertyTax','commercialRate','foodTax','utilityTax'],['Work and enterprise','minWage','employmentSubsidy','permitFee','businessRegulation','zoningRestriction'],['Government services','pensionDaily','policeBudget','defenseBudget','healthBudget','educationBudget','aidBudget','energyAidBudget','outreachBudget','roadBudget','transitBudget','militiaBudget'],['Monetary policy and credit','policyRate','bankReserve','lendingRules','depositGuarantee','treasuryInvestment'],['Trade and exchange','importTariff']];let changes=Object.keys(draftPolicy).filter(k=>draftPolicy[k]!==G.policy[k]);let projected=defs.filter(d=>changes.includes(d[0])).map(d=>`${d[1]}: ${policyNumber(G.policy[d[0]])} → ${policyNumber(draftPolicy[d[0]])}${d[5]==='$'?' dollars':d[5]}`).join('<br>');if(changes.includes('imports'))projected+=(projected?'<br>':'')+'Regional imports: '+(G.policy.imports?'OPEN':'RESTRICTED')+' → '+(draftPolicy.imports?'OPEN':'RESTRICTED');
  return `<div class="notice-banner" style="background:#3b4b36;border-color:#938459">The market runs itself. You set rules and fiscal priorities. Select a council programme or adjust rates manually, then enact the package and watch the town adapt over time.</div>`+
  `<div class="cabinet-agendas"><button data-cabinet="enterprise"><strong>Make room for enterprise</strong><small>Lower taxes, permits and barriers to development.</small></button><button data-cabinet="housing"><strong>Open the housing market</strong><small>Ease planning rules and improve access.</small></button><button data-cabinet="services"><strong>Invest in families</strong><small>Finance schools, care, relief and roads.</small></button><button data-cabinet="austerity"><strong>Balance the council purse</strong><small>Reduce spending and slow new commitments.</small></button></div>`+
  sections.map((group,index)=>`<details class="policy-group" ${index===0?'open':''}><summary>${esc(group[0])}</summary>`+group.slice(1).map(k=>{let d=defs.find(d=>d[0]===k);if(!d)return '';let [key,name,lo,hi,step,unit,help]=d,v=draftPolicy[key]??G.policy[key];return `<div class="range"><label><b>${esc(name)}</b><span id="show-${key}">${unit==='$'?money(v):policyNumber(v)+unit}</span></label><input type="range" data-policy="${key}" aria-label="${esc(name)}" min="${lo}" max="${hi}" step="${step}" value="${v}"><p class="desc">${esc(help)}</p></div>`}).join('')+'</details>').join('')+
- `<div class="line"><span>Regional imports</span><button id="tradeToggle" class="small ${G.policy.imports?'on':''}">${G.policy.imports?'ALLOWED':'RESTRICTED'}</button></div>`+
+ `<div class="line"><span>Regional imports</span><button id="tradeToggle" class="small ${(draftPolicy.imports??G.policy.imports)?'on':''}">${(draftPolicy.imports??G.policy.imports)?'ALLOWED':'RESTRICTED'}</button></div>`+
  `<div class="council-card"><h3>Proposed policy package</h3><p class="desc" id="draftSummary">${changes.length?projected:'Move one or more controls to propose changes.'}</p><div class="btnrow"><button id="enactPolicy" class="action-green" ${changes.length?'':'disabled'}>ENACT POLICY CHANGES</button><button id="resetPolicy">Discard changes</button></div></div>`;
 }
 function enactPolicyPackage(){let changes=Object.keys(draftPolicy).filter(k=>draftPolicy[k]!==G.policy[k]);if(!changes.length){toast('No policy changes have been proposed.');return}
  let before={...G.stats,treasury:G.treasury},names=[];ensureSystems();G.policyExperiments.push({day:G.day,before:G.observations.at(-1)||{...before},changes:changes.map(k=>({key:k,from:G.policy[k],to:draftPolicy[k]})),after:null});G.policyExperiments=G.policyExperiments.slice(-30);
- for(let k of changes){let old=G.policy[k],value=draftPolicy[k],d=defs.find(d=>d[0]===k);if(!d)continue;G.policy[k]=value;names.push(d[1]+': '+fmt(old)+' → '+fmt(value));}
+ for(let k of changes){let old=G.policy[k],value=draftPolicy[k],d=defs.find(d=>d[0]===k);if(k==='imports'){G.policy.imports=!!value;names.push('Regional imports: '+(old?'OPEN':'RESTRICTED')+' → '+(value?'OPEN':'RESTRICTED'));continue;}if(!d)continue;G.policy[k]=value;names.push(d[1]+': '+fmt(old)+' → '+fmt(value));}
  G.council.approval=clamp(G.council.approval-Math.min(6,changes.length*.7),5,97);G.journal.push({day:G.day,name:'Council policy package',message:names.join(' · '),baseline:before});if(G.journal.length>160)G.journal.shift();story('Council enacted '+changes.length+' economic and civic policy changes.','neutral');draftPolicy={};recompute();save();updateHeader();renderPanel('policies');toast('Policy package enacted. Let time pass to observe the effects.');}
 function renderTreasuryFull(){let c=G.cumulative,P=G.policy,s=G.stats;let revenues=['incomeTax','profitTax','propertyTax','foodTax','utilityTax','commercialRate','tariffs','permits'].reduce((n,k)=>n+(c[k]||0),0);let daily=(P.policeBudget+P.defenseBudget+P.healthBudget+P.educationBudget+P.aidBudget+(P.energyAidBudget||0)+P.outreachBudget+P.roadBudget+(P.transitBudget||0)+P.militiaBudget)+(s.employed||0)*P.employmentSubsidy;daily+=G.people.filter(p=>!p.deceased&&!p.movedAway&&p.age>70).length*(P.pensionDaily||0);daily+=G.debt*((P.policyRate||0)/100+.015)/360;let avgRev=(revenues/Math.max(1,G.day-1));let forecast=avgRev-daily;
  return head('Public balance sheet')+`<div class="statgrid">${stat('Liquid municipal cash',money(G.treasury),G.treasury<5000?'negative':'')}${stat('Outstanding debt',money(G.debt))}${stat('Receipts since founding',money(revenues))}${stat('Public spending',money(c.spending||0))}</div>`+
@@ -3041,7 +3070,7 @@ window.__townArchive={
  suspend:()=>{save();},
  export:()=>archivePayload(),
  restore:text=>{const ok=hydrateSave(text);if(ok){save();$('welcome').style.display='none';dirty=true;staticDirty=true;toast('Town restored with its property, bank, cargo and resident records.');}else toast('Archive rejected. The current town is unchanged.');return ok;},
- back:()=>{if($('helpDialog').style.display!=='none'){hideHelpDialog();return true;}if(active){closePanel();return true;}return false;}
+ back:()=>{if($('helpDialog').style.display!=='none'){hideHelpDialog();return true;}if(pendingEvent){closeCouncilDialog(true);return true;}if(active){closePanel();return true;}return false;}
 };
 const originalExport=exportSave,originalImport=importSave;
 exportSave=function(){if(window.AndroidArchive)window.AndroidArchive.writeBackup(archivePayload());else originalExport();};

@@ -12,10 +12,10 @@ for sheet in ['vale.css','civic7.css']:
 
 def run():
     images=[]; results=[]
-    out=ROOT/'reports/7.0.2';out.mkdir(parents=True,exist_ok=True)
+    out=ROOT/'reports/7.0.3';out.mkdir(parents=True,exist_ok=True)
     with sync_playwright() as pw:
         browser=pw.chromium.launch(executable_path='/usr/bin/chromium',args=['--no-sandbox','--disable-dev-shm-usage'])
-        for width,height,density in [(844,390,1),(844,390,2),(390,844,2)]:
+        for width,height,density in [(844,390,1),(844,390,2),(390,844,2),(360,640,2)]:
             page=browser.new_page(viewport={'width':width,'height':height},device_scale_factor=density,has_touch=True)
             errors=[];page.on('pageerror',lambda error:errors.append(str(error)))
             page.set_content(html);page.add_script_tag(content=(ROOT/'assets/game.js').read_text())
@@ -26,8 +26,15 @@ def run():
             shot=page.locator('canvas').first.screenshot()
             if width==844: images.append(Image.open(io.BytesIO(shot)).convert('RGB').resize((844,285)))
             page.screenshot(path=str(out/f'town-{width}x{height}-dpr{density}.png'))
-            for panel in ['economy','policies','settings','citizens']:
+            # A hidden root overflow must not conceal the time controls or tabs.
+            for selector in ['#pause','#speedRange','#tabs button']:
+                for control in page.locator(selector).all():
+                    box=control.bounding_box()
+                    assert box and box['x']>=0 and box['y']>=0 and box['x']+box['width']<=width+1 and box['y']+box['height']<=height+1,(selector,box,width,height)
+                    assert control.evaluate('(e)=>{const r=e.getBoundingClientRect(),hit=document.elementFromPoint(r.x+r.width/2,r.y+r.height/2);return e===hit||e.contains(hit)}'),selector
+            for panel in page.locator('#tabs button').evaluate_all('(items)=>items.map(b=>b.dataset.panel)'):
                 page.locator('[data-panel='+panel+']').click()
+                assert page.locator('#panel').is_visible(),panel
                 assert 'Panel error' not in page.locator('#panelBody').inner_text()
                 page.keyboard.press('Escape')
                 assert not page.locator('#panel').is_visible()
