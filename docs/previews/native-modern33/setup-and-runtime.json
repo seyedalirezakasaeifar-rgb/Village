@@ -1,0 +1,27 @@
+{
+  "outcome": "RUNTIME_UNUSABLE_BEFORE_ACCEPTANCE",
+  "image": "official system-images;android-33;default;x86_64",
+  "download_completed": true,
+  "boot_seconds": 533,
+  "api": 33,
+  "webview": "101.0.4951.61",
+  "sdk_target": 36,
+  "serial": "emulator-5558",
+  "guest_cores": 4,
+  "ram_mib": 3072,
+  "acceleration": "TCG; KVM unavailable",
+  "baseline_preserved": "emulator-5556 PID6197",
+  "package_install": "PASS for production-wrapper fixture and test APKs",
+  "documents": "FAIL before export launch; JS callback timeout; selection not attempted",
+  "driver_changes": "First30-second callback timeout; one warm retry with120-second callback bound",
+  "boot_systemui": "Recurring System UI ANR; one screenshot-verified ordinary Wait action; no repeated dismissal loop",
+  "renderer_failure": "WebView sandbox CrRendererMain SIGTRAP in libwebviewchromium.so, process uptime89s",
+  "modern_smoke_not_run": [
+    "full game assets/music gesture",
+    "successful DocumentsUI Save/Open/import",
+    "cancel/recreation/overwrite",
+    "modern Back lifecycle"
+  ],
+  "limits": "Cannot attribute renderer trap to game code; lightweight synthetic host fixture failed before picker. No physical performance claim. Raw crashpad dump retained privately only.",
+  "status": "Modern emulator stopped after concrete unusable-runtime evidence; official image/AVD retained, baseline untouched."
+}
