@@ -3412,6 +3412,7 @@ function renderTransitForecast(r,dismissible=false){
 // A new founding/import is a new timeline; logical order survives clock changes.
 let saveEpoch=0,saveOrder=0,saveRevision=0,saveTown='',saveStoreReady=false;
 let saveStorePromise=Promise.resolve(),saveWrites=Promise.resolve(),saveCandidates=[],saveWarningEpoch=0,savePendingWrite=null,saveWriteRunning=false,waitingSave=null;
+let simulationTickActive=false,saveAfterCommittedTick=false;
 function beginSaveTimeline(){saveEpoch++;saveRevision=0;autoSaveOK=false;try{saveTown=Array.from(crypto.getRandomValues(new Uint32Array(4)),n=>n.toString(16)).join('-')}catch(_){saveTown='session-'+saveEpoch+'-'+Math.random().toString(36).slice(2)}return saveEpoch;}
 function saveEnvelope(payload){
  if(!saveTown)beginSaveTimeline();
@@ -3455,6 +3456,9 @@ function persistSnapshot(payload,epoch){
 }
 function save(){
  if(!G||simulationBusy)return Promise.resolve(false);
+ // In-tick callers request persistence after the whole day commits. A review
+ // during monthly settlement must not capture pre-history/pre-RNG state.
+ if(simulationTickActive){saveAfterCommittedTick=true;return Promise.resolve(true);}
  const epoch=saveEpoch;
  // During the bounded startup read, serialize only the latest active town once.
  if(!saveStoreReady){if(waitingSave?.epoch===epoch)return waitingSave.promise;const promise=saveStorePromise.then(()=>epoch===saveEpoch?save():false);waitingSave={epoch,promise};return promise;}
@@ -3471,7 +3475,7 @@ function load(){
 }
 
 // SOURCE: 50-clock.js
-function tick(){if(!G||pendingEvent)return;ensureSystems();ensureMarketModel();G.day++;if(G.day%30===0){G.month++;if(G.month>12){G.month=1;G.year++}};
+function tick(){if(!G||pendingEvent)return;simulationTickActive=true;let committed=false;try{ensureSystems();ensureMarketModel();G.day++;if(G.day%30===0){G.month++;if(G.month>12){G.month=1;G.year++}};
  regionalFreightDay();freightDay();completeEquipmentOrders();completeDevelopmentProjects();dailyEconomy();urbanMunicipalHousingDay();bankDaily();metroOperatingDay();airfieldOperatingDay();incidents();investigateCases();extendedCivicDay();maintainRoads();finalizeMarketBooks();if(G.day%30===0&&G.debt>0){const interest=G.debt*((G.policy.policyRate||0)/100+.015)/12,paid=Math.min(G.treasury,interest);G.treasury-=paid;G.region+=paid;G.debt+=interest-paid;story('Interest on municipal borrowing: '+money(interest)+'.')}if(G.day%10===0)assignJobs();if(G.day%30===0)privateInvestmentAndHousing();
 
  if(G.day%30===0){outwardMigration();autonomousDevelopment();}
@@ -3487,7 +3491,8 @@ function tick(){if(!G||pendingEvent)return;ensureSystems();ensureMarketModel();G
  G.history.push({day:G.day,employment:G.stats.employment,hardship:G.stats.hardship,safety:G.stats.safety,treasury:Math.round(G.treasury),businesses:G.stats.businesses,deposits:(G.banks||[]).reduce((n,b)=>n+bankDeposits(b.id),0),crime:G.stats.dailyCrime,approval:G.council.approval,education:G.education,health:G.health});if(G.history.length>240)G.history.shift();
  if(G.day%60===0){const signal=marketSignal();if(signal.kind!=='normal'&&signal.title!==G.lastEconomicSignal){story(signal.title+'. '+signal.description,signal.kind==='good'?'good':'bad');G.lastEconomicSignal=signal.title;}}
  // Autosaves are scheduled in wall time by the frame controller.
- dirty=true;
+ dirty=true;committed=true;
+ }finally{simulationTickActive=false;const requested=saveAfterCommittedTick;saveAfterCommittedTick=false;if(committed&&requested&&!simulationBusy)save();}
 }
 
 function resetTownTransientUI(){

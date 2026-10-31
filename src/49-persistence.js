@@ -2,6 +2,7 @@
 // A new founding/import is a new timeline; logical order survives clock changes.
 let saveEpoch=0,saveOrder=0,saveRevision=0,saveTown='',saveStoreReady=false;
 let saveStorePromise=Promise.resolve(),saveWrites=Promise.resolve(),saveCandidates=[],saveWarningEpoch=0,savePendingWrite=null,saveWriteRunning=false,waitingSave=null;
+let simulationTickActive=false,saveAfterCommittedTick=false;
 function beginSaveTimeline(){saveEpoch++;saveRevision=0;autoSaveOK=false;try{saveTown=Array.from(crypto.getRandomValues(new Uint32Array(4)),n=>n.toString(16)).join('-')}catch(_){saveTown='session-'+saveEpoch+'-'+Math.random().toString(36).slice(2)}return saveEpoch;}
 function saveEnvelope(payload){
  if(!saveTown)beginSaveTimeline();
@@ -45,6 +46,9 @@ function persistSnapshot(payload,epoch){
 }
 function save(){
  if(!G||simulationBusy)return Promise.resolve(false);
+ // In-tick callers request persistence after the whole day commits. A review
+ // during monthly settlement must not capture pre-history/pre-RNG state.
+ if(simulationTickActive){saveAfterCommittedTick=true;return Promise.resolve(true);}
  const epoch=saveEpoch;
  // During the bounded startup read, serialize only the latest active town once.
  if(!saveStoreReady){if(waitingSave?.epoch===epoch)return waitingSave.promise;const promise=saveStorePromise.then(()=>epoch===saveEpoch?save():false);waitingSave={epoch,promise};return promise;}
