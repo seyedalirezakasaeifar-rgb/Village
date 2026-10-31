@@ -21,6 +21,7 @@ function sceneActorPaintY(a,bridges){
  return y;
 }
 function paintSceneLayer(g,a){if(a.kind==='transitArt')paintTransitVehicle(g,a);else if(a.kind==='vehicle')vehiclePaint(g,a.v,a,frameClock);else if(a.kind==='boat')paintWaterBoat(g,a,frameClock);else if(a.kind==='workday')paintWorkdayScene(g,a,frameClock);else drawSceneSprite(g,a);}
+const actorRepairRaster=document.createElement('canvas');
 function paintSceneActors(g,actors,visible=()=>true){
  if(!actors.length)return;
  const damage=actors.map(scenePaintBounds),bridges=viewBuildings.filter(a=>a.kind==='guideway').map(item=>({item,bounds:scenePaintBounds(item)}));
@@ -30,5 +31,7 @@ function paintSceneActors(g,actors,visible=()=>true){
  g.save();g.setTransform(1,0,0,1,0,0);g.beginPath();
  // Integer backing-pixel clips prevent fractional clip-edge double blending.
  for(const r of damage){const x=Math.floor(((r[0]-cam.x)*cam.zoom+cw/2)*dpr),y=Math.floor(((r[1]-cam.y)*cam.zoom+ch/2)*dpr),right=Math.ceil(((r[2]-cam.x)*cam.zoom+cw/2)*dpr),bottom=Math.ceil(((r[3]-cam.y)*cam.zoom+ch/2)*dpr);g.rect(x,y,right-x,bottom-y);}
- g.clip();g.drawImage(viewUnderlayRaster,0,0);mapPaintTransform(g);drawWaterLife(g,visible);drawWaterfrontPiers(g,visible);drawRegionalGates(g,visible);drawTransitInfrastructure(g,visible);for(const layer of layers)paintSceneLayer(g,layer.a);g.restore();
+ g.clip();
+ if(actorRepairRaster.width!==viewUnderlayRaster.width)actorRepairRaster.width=viewUnderlayRaster.width;if(actorRepairRaster.height!==viewUnderlayRaster.height)actorRepairRaster.height=viewUnderlayRaster.height;
+ const repair=actorRepairRaster.getContext('2d',{alpha:false});repair.setTransform(1,0,0,1,0,0);repair.imageSmoothingEnabled=false;repair.drawImage(viewUnderlayRaster,0,0);mapPaintTransform(repair);drawWaterLife(repair,visible);drawWaterfrontPiers(repair,visible);drawRegionalGates(repair,visible);drawTransitInfrastructure(repair,visible);for(const layer of layers)paintSceneLayer(repair,layer.a);g.drawImage(actorRepairRaster,0,0);g.restore();
 }
