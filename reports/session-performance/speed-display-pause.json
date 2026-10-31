@@ -1,0 +1,199 @@
+{
+  "sourceSha256": "4a9c9e17032a91c84b8639bced0029670e7cb0a1c31dcdf62884bdc99f02f250",
+  "fixtureSha256": "ad6256fd85d4146fda9eeac0b16d5b182ed352c23bbd96af3b320553c29ce786",
+  "hostChromium": true,
+  "physicalAndroid": false,
+  "beforePause": {
+    "day": 41760,
+    "paused": false,
+    "requested": 64,
+    "effective": 43.04347826086955,
+    "requestedLabel": "64\u00d7",
+    "actualLabel": "Actual 43\u00d7",
+    "backlog": 6.340848484848462,
+    "pauseAria": "Pause simulation",
+    "pauseBanner": false
+  },
+  "immediatePause": {
+    "day": 41769,
+    "paused": true,
+    "requested": 64,
+    "effective": 47.14285714285713,
+    "requestedLabel": "64\u00d7",
+    "actualLabel": "",
+    "backlog": 6.9393939393939394,
+    "pauseAria": "Resume simulation",
+    "pauseBanner": true
+  },
+  "afterPausedWait": {
+    "day": 41769,
+    "paused": true,
+    "requested": 64,
+    "effective": 47.14285714285713,
+    "requestedLabel": "64\u00d7",
+    "actualLabel": "",
+    "backlog": 6.9393939393939394,
+    "pauseAria": "Resume simulation",
+    "pauseBanner": true
+  },
+  "pausedDayDelta": 0,
+  "afterRateChangeWhilePaused": {
+    "day": 41769,
+    "paused": true,
+    "requested": 16,
+    "effective": 0,
+    "requestedLabel": "16\u00d7",
+    "actualLabel": "",
+    "backlog": 0,
+    "pauseAria": "Resume simulation",
+    "pauseBanner": true
+  },
+  "labelSamples": [
+    {
+      "day": 41769,
+      "paused": false,
+      "requested": 16,
+      "effective": 0,
+      "requestedLabel": "16\u00d7",
+      "actualLabel": "",
+      "backlog": 0,
+      "pauseAria": "Pause simulation",
+      "pauseBanner": false
+    },
+    {
+      "day": 41771,
+      "paused": false,
+      "requested": 16,
+      "effective": 0,
+      "requestedLabel": "16\u00d7",
+      "actualLabel": "",
+      "backlog": 0.42521212121211627,
+      "pauseAria": "Pause simulation",
+      "pauseBanner": false
+    },
+    {
+      "day": 41774,
+      "paused": false,
+      "requested": 16,
+      "effective": 0,
+      "requestedLabel": "16\u00d7",
+      "actualLabel": "",
+      "backlog": 0.010424242424241276,
+      "pauseAria": "Pause simulation",
+      "pauseBanner": false
+    },
+    {
+      "day": 41776,
+      "paused": false,
+      "requested": 16,
+      "effective": 0,
+      "requestedLabel": "16\u00d7",
+      "actualLabel": "",
+      "backlog": 0.5956363636363574,
+      "pauseAria": "Pause simulation",
+      "pauseBanner": false
+    },
+    {
+      "day": 41779,
+      "paused": false,
+      "requested": 16,
+      "effective": 14.849999999999993,
+      "requestedLabel": "16\u00d7",
+      "actualLabel": "Actual 15\u00d7",
+      "backlog": 0.02084848484848242,
+      "pauseAria": "Pause simulation",
+      "pauseBanner": false
+    },
+    {
+      "day": 41781,
+      "paused": false,
+      "requested": 16,
+      "effective": 14.849999999999993,
+      "requestedLabel": "16\u00d7",
+      "actualLabel": "Actual 15\u00d7",
+      "backlog": 0.7679999999999908,
+      "pauseAria": "Pause simulation",
+      "pauseBanner": false
+    },
+    {
+      "day": 41784,
+      "paused": false,
+      "requested": 16,
+      "effective": 14.849999999999993,
+      "requestedLabel": "16\u00d7",
+      "actualLabel": "Actual 15\u00d7",
+      "backlog": 0.030303030303031945,
+      "pauseAria": "Pause simulation",
+      "pauseBanner": false
+    },
+    {
+      "day": 41786,
+      "paused": false,
+      "requested": 16,
+      "effective": 14.849999999999993,
+      "requestedLabel": "16\u00d7",
+      "actualLabel": "Actual 15\u00d7",
+      "backlog": 0.615515151515157,
+      "pauseAria": "Pause simulation",
+      "pauseBanner": false
+    },
+    {
+      "day": 41789,
+      "paused": false,
+      "requested": 16,
+      "effective": 16.49999999999999,
+      "requestedLabel": "16\u00d7",
+      "actualLabel": "Actual 16\u00d7",
+      "backlog": 0.03975757575758147,
+      "pauseAria": "Pause simulation",
+      "pauseBanner": false
+    },
+    {
+      "day": 41790,
+      "paused": false,
+      "requested": 16,
+      "effective": 16.49999999999999,
+      "requestedLabel": "16\u00d7",
+      "actualLabel": "Actual 16\u00d7",
+      "backlog": 0.009454545454551277,
+      "pauseAria": "Pause simulation",
+      "pauseBanner": false
+    },
+    {
+      "day": 41794,
+      "paused": false,
+      "requested": 16,
+      "effective": 16.49999999999999,
+      "requestedLabel": "16\u00d7",
+      "actualLabel": "Actual 16\u00d7",
+      "backlog": 0.8579393939394003,
+      "pauseAria": "Pause simulation",
+      "pauseBanner": false
+    },
+    {
+      "day": 41797,
+      "paused": false,
+      "requested": 16,
+      "effective": 16.49999999999999,
+      "requestedLabel": "16\u00d7",
+      "actualLabel": "Actual 16\u00d7",
+      "backlog": 0.2821818181818248,
+      "pauseAria": "Pause simulation",
+      "pauseBanner": false
+    },
+    {
+      "day": 41799,
+      "paused": false,
+      "requested": 16,
+      "effective": 16.23057249655714,
+      "requestedLabel": "16\u00d7",
+      "actualLabel": "Actual 16\u00d7",
+      "backlog": 0.8673939393939498,
+      "pauseAria": "Pause simulation",
+      "pauseBanner": false
+    }
+  ],
+  "errors": [],
+  "labelClearedOnResume": true,
+  "actualLabelRecovered": true
+}
