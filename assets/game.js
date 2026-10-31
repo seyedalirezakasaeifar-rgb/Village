@@ -6826,6 +6826,15 @@ function portFreightPanel(){
 }
 const portProspectsTradeBase=regionalTradePanel;regionalTradePanel=function(){return portProspectsTradeBase()+portFreightPanel();};
 document.addEventListener('click',e=>{const b=e.target.closest('[data-port-freight]');if(!b)return;const f=G.firms[+b.dataset.portFreight],dock=+b.dataset.portDock,good=b.dataset.portGood,direction=b.dataset.portDirection,town=G,day=G.day,p=portFreightProspect(f,good,direction,dock);if(!p.water||p.units<.001)return;showCustomEvent('REGIONAL EXCHANGE','Review an owned Greyhaven consignment',`${policyNumber(p.units)} ${good}, ${direction}; ${p.water.days} days forecast. Enterprise pays ${money(p.units*(p.water.freight+(direction==='import'?p.water.price*(1+G.policy.importTariff/100):0)))} now. Export invoices settle only at arrival. Collection, dock queues, longer river travel and disruption remain real.`,[{title:'Authorize the reviewed river load',cost:0,apply:()=>{const fresh=portFreightProspect(f,good,direction,dock);if(G!==town||G.day!==day||!fresh.water||fresh.units<p.units||fresh.water.freight!==p.water.freight||fresh.water.price!==p.water.price){toast('Terms changed; review this load again.');return;}dispatchRegional(f,good,p.units,direction,fresh.water);save();}}]);});
+// District direction inspections use this same authoritative comparison rather
+// than a second forecast or the obsolete assumption of spot-export-only docks.
+const portFirmReportBase=waterfrontFirmReport;
+waterfrontFirmReport=function(f){
+ const base=portFirmReportBase(f);if(f.kind!=='wharf')return base;
+ const s=ensureRegionalTrade(),pending=s.shipments.filter(o=>o.mode==='river'&&o.depot===f.id),recent=s.recent.filter(o=>o.mode==='river'&&o.depot===f.id&&o.status==='Delivered'),buyer=G.firms.find(a=>a.kind==='grocer'&&!a.closed),p=buyer&&portFreightProspect(buyer,'food','import',f.id);
+ return base+head('Greyhaven trade prospects')+strip('Owned named-market consignments',pending.length+' travelling / queued')+strip('Retained actual arrival sample',recent.length+' loads · '+policyNumber(recent.reduce((n,o)=>n+o.qty,0))+' units')+(p?.water?strip('Example: '+esc(buyer.name),policyNumber(p.units)+' affordable food units · '+mayorUnitMoney(p.water.freight)+'/unit carriage · '+p.water.days+' days'):tip('No current staffed, connected import quote through this dock.'))+tip('This dock can handle real named Greyhaven imports and exports as well as spot exports. The retained arrival sample is bounded, not a daily demand forecast. Existing competing docks and cheaper road/commodity quotes can still leave a replacement underused.')+'<button data-port-prospects="'+f.id+'">Compare actual river orders and competing docks</button>';
+};
+document.addEventListener('click',e=>{const b=e.target.closest('[data-port-prospects]');if(!b)return;openPanel('economy');const office=$('portFreightOffice');if(office){office.open=true;office.scrollIntoView({block:'start'});}});
 
 // SOURCE: 99-instrumentation.js
 // Read-only / test instrumentation. No remote telemetry is used.
