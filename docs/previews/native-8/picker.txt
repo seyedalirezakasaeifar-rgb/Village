@@ -1,0 +1,10 @@
+INSTRUMENTATION_STATUS: progress=Actual system import picker backgrounds native host
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: progress=Actual system import cancellation resumes host and releases archive request
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: progress=Actual system export cancellation survives Activity recreation and removes private prepared archive
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_RESULT: checks=[Actual system import picker backgrounds native host, Actual system import cancellation resumes host and releases archive request, Actual system export cancellation survives Activity recreation and removes private prepared archive]
+INSTRUMENTATION_RESULT: outcome=PASS
+INSTRUMENTATION_RESULT: userUnlocked=true
+INSTRUMENTATION_CODE: -1
