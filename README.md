@@ -1,6 +1,6 @@
 # TownLedger 7.1.0 development — The Working City
 
-Current source extends the signed 7.0.5 checkpoint. These changes have not yet been packaged as a new release:
+Current source extends the signed 7.0.5 checkpoint. A standalone 7.1.0 development APK and matching source are available in [the current checkpoint](artifacts/checkpoints/ff7be45/README.md). This is an intermediate build, not the final overnight handoff or a store release:
 
 - [Local services, staffing and training](docs/LOCAL-SERVICE-DEVELOPMENT.md)
 - [Credit, household budgets and physical markets](docs/CREDIT-AND-MARKETS-DEVELOPMENT.md)
@@ -9,12 +9,15 @@ Current source extends the signed 7.0.5 checkpoint. These changes have not yet b
 - [Portable seeds and clearer phone controls](docs/MAP-AND-SEEDS-DEVELOPMENT.md)
 - [Mayor-purchased districts and productive waterfront](docs/REGION-AND-WATERFRONT-DEVELOPMENT.md)
 - [Survey navigation, working voyages and long-run accounting](docs/WATERFRONT-PLAY-DEVELOPMENT.md)
+- [Save chronology and failure recovery](docs/SAVE-CHRONOLOGY-DEVELOPMENT.md)
+- [Older WebView map layout](docs/OLDER-WEBVIEW-LAYOUT-DEVELOPMENT.md)
+- [Audio lifecycle and decision feedback](docs/AUDIO-INTEGRATION-DEVELOPMENT.md)
 
 An offline government and town-economy game. This release rebuilds the operating model, the starting towns, monetary controls, road generation, animation and interface palette.
 
 ## Current 7.1.0 source
 
-The 80 × 80 region preserves the original town and offers five substantial outer districts for explicit mayoral purchase. Public Works previews costs and boundaries before a deed is acquired. Fisheries produce real food within shared water limits; staffed river wharves earn paid freight income when their routes beat regional road haulage. Original docks, working crews, fishing craft and cargo barges follow those businesses. Current archives use schema 6 and remap legacy 56 × 56 maps without taking their original property rights. This source checkpoint has not yet been packaged as a new release.
+The 80 × 80 region preserves the original town and offers five substantial outer districts for explicit mayoral purchase. Public Works previews costs and boundaries before a deed is acquired. Fisheries produce real food within shared water limits; staffed river wharves earn paid freight income when their routes beat regional road haulage. Original docks, working crews, fishing craft and cargo barges follow those businesses. Current archives use schema 6 and remap legacy 56 × 56 maps without taking their original property rights. The development APK has matching source assets, a verified signature and real Java DEX; native device certification remains incomplete.
 
 ## Earlier signed checkpoint
 
@@ -47,7 +50,7 @@ Escape now dismisses the open drawer or the topmost temporary Help/archive flow,
 
 ## Build and evidence
 
-Run `python tools/assemble.py`; build with `python build_apk.py` and the tools in [docs/BUILD.md](docs/BUILD.md). Retain the original signer for update compatibility; private keys and SDK binaries are excluded from the source archive. The source release metadata does not mean a signed APK is available.
+Run `python tools/assemble.py`; build with `python build_apk.py` and the tools in [docs/BUILD.md](docs/BUILD.md). Retain the original signer for update compatibility; private keys and SDK binaries are excluded from the source archive. Use the checkpoint manifest to identify the exact APK/source pair. Final acceptance and physical-device testing remain separate from compilation.
 
 Read [QA-REPORT-7.0.md](QA-REPORT-7.0.md), [docs/ECONOMY-7.0.md](docs/ECONOMY-7.0.md) and [docs/SAVES.md](docs/SAVES.md). Current evidence is in `reports/v7.0/`. Source modules share a closure and daily processing is synchronous; this is not a new native engine.
 
