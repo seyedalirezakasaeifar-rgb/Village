@@ -1,0 +1,13 @@
+# Public/private service affordability QA
+
+Combined source 6e8665e plus procurement correction 6fe39f7. Seed42 settlement (169 opening residents) and regional (657 opening residents) each run the ordinary240-day funded school/fire provider setup without cash, worker, age or skill edits. Actual households are sampled at low, middle and high **spendable liquidity**. Household identities and funds stay natural. New-school assessment uses an ordinary hypothetical age12/skill0.5 visitor, not a minted resident. Each city then advances one actual daily settlement, saves, advances thirty days, reloads and exact-replays.
+
+Public migration forecasts exactly match realized local public coverage for all six households: settlement health 0.6731, school 0; regional health 0.4359, school 0. The zero school figure reflects the zero public education authorization in this controlled entry scenario. Actual households pay exactly their recorded private fees; total cash drift is below7e-8, goods close within standard tolerance, archives validate and exact replay matches.
+
+No sampled migration assessment counts private places where the provider cannot cover its current qualified payroll from firm cash; `migrationSchoolOffer` rejects that case. This is appropriately conservative, even though one subsequent settlement household receives0.6568 modeled private school coverage as the firm earns operating receipts. The opening migration decision does not assume a future payroll recovery.
+
+Fire-response feedback matches between assessment and actual household lookup for each sample. Existing fire providers serve residents only if the subscription purchase is affordable, provider is open and staffed, and road reach improves on the public response. Middle/high private fees are zero where no additional paid cover is purchased. In the regional sample, no affordable active private fire response is recorded; private presence is not misreported as access.
+
+Caveat: seed42 education authorization is deliberately zero while private operators seek unserved demand; this is a controlled market-entry comparison, not a neutral fiscal forecast. Household liquidities are three actual quantiles, not invented income classes or a claim that class boundaries are calibrated. This pair of cities is too small to prove all-poor/all-middle/all-wealthy district outcomes. Tests find no verified inconsistency and do not justify a balance change.
+
+Reproduce: `python tests/test_service_access_households.py`. Raw household evidence and SHA-256 are in `docs/evidence/service-affordability8/`. Existing private-services and migration regression suites remain separate evidence; this run evaluates actual generated household wallets, providers and admission forecasts.
