@@ -1,0 +1,1390 @@
+{
+  "source_sha256": "27ca5f1e1e5df352d38daf042d2de63b63024b8deed596c79e2f4679cc50947e",
+  "scope": "Immutable development integration acceptance, not final release or physical-device certification",
+  "upstream": [
+    "e5a590b",
+    "f83bbbb",
+    "106c8e9",
+    "a9532b87",
+    "3d2a7fe",
+    "9a66301",
+    "94c42e0",
+    "70b5218",
+    "d66381c",
+    "c92c72b"
+  ],
+  "results": {
+    "composite": {
+      "source_sha256": "27ca5f1e1e5df352d38daf042d2de63b63024b8deed596c79e2f4679cc50947e",
+      "controlledCatchment": true,
+      "result": {
+        "grid": 128,
+        "people": 1375,
+        "routes": 2,
+        "settledTickets": 1,
+        "fares": 5.8500000000000005,
+        "cargo": 19,
+        "providerEscrow": 6000,
+        "mallEscrow": 28000,
+        "cashConserved": true,
+        "receiptsPreserved": true,
+        "faults": {
+          "grid": 128,
+          "schema": 8,
+          "recordsRejected": [
+            "missingMember",
+            "duplicateMember",
+            "householdMismatch",
+            "missingHome",
+            "tileUsedAsHomeId",
+            "missingFirmBuilding",
+            "negativeStock",
+            "invalidStock",
+            "unknownStock",
+            "negativeDeposit",
+            "missingDepositBank",
+            "malformedBank",
+            "malformedLoan",
+            "negativeLoanBank",
+            "duplicateBuildingId",
+            "exhaustedIdCounter",
+            "duplicateHomeId",
+            "orphanWorker",
+            "duplicateWorker",
+            "missingOwner",
+            "missingTitleHolder",
+            "truncatedTiles",
+            "malformedProject",
+            "futureSchema",
+            "invalidDay"
+          ],
+          "truncatedRejected": 4,
+          "callerIndependent": true,
+          "atomicRNGAndTimeline": true
+        }
+      }
+    },
+    "adversarial": {
+      "source_sha256": "27ca5f1e1e5df352d38daf042d2de63b63024b8deed596c79e2f4679cc50947e",
+      "checks": [
+        {
+          "grid": 128,
+          "schema": 8,
+          "recordsRejected": [
+            "missingMember",
+            "duplicateMember",
+            "householdMismatch",
+            "missingHome",
+            "tileUsedAsHomeId",
+            "missingFirmBuilding",
+            "negativeStock",
+            "invalidStock",
+            "unknownStock",
+            "negativeDeposit",
+            "missingDepositBank",
+            "malformedBank",
+            "malformedLoan",
+            "negativeLoanBank",
+            "duplicateBuildingId",
+            "exhaustedIdCounter",
+            "duplicateHomeId",
+            "orphanWorker",
+            "duplicateWorker",
+            "missingOwner",
+            "missingTitleHolder",
+            "truncatedTiles",
+            "malformedProject",
+            "futureSchema",
+            "invalidDay"
+          ],
+          "truncatedRejected": 4,
+          "callerIndependent": true,
+          "atomicRNGAndTimeline": true,
+          "scenario": "settlement",
+          "ageDays": 0,
+          "replay": {
+            "days": 90,
+            "exactCanonical": true,
+            "cashDrift": -1.4919787645339966e-06,
+            "goodsError": 1.1823431123048067e-11,
+            "population": 170
+          }
+        },
+        {
+          "grid": 128,
+          "schema": 8,
+          "recordsRejected": [
+            "missingMember",
+            "duplicateMember",
+            "householdMismatch",
+            "missingHome",
+            "tileUsedAsHomeId",
+            "missingFirmBuilding",
+            "negativeStock",
+            "invalidStock",
+            "unknownStock",
+            "negativeDeposit",
+            "missingDepositBank",
+            "malformedBank",
+            "malformedLoan",
+            "negativeLoanBank",
+            "duplicateBuildingId",
+            "exhaustedIdCounter",
+            "duplicateHomeId",
+            "orphanWorker",
+            "duplicateWorker",
+            "missingOwner",
+            "missingTitleHolder",
+            "truncatedTiles",
+            "malformedProject",
+            "futureSchema",
+            "invalidDay"
+          ],
+          "truncatedRejected": 4,
+          "callerIndependent": true,
+          "atomicRNGAndTimeline": true,
+          "scenario": "regional",
+          "ageDays": 360,
+          "replay": {
+            "days": 90,
+            "exactCanonical": true,
+            "cashDrift": -3.291293978691101e-06,
+            "goodsError": 1.3460521586239338e-10,
+            "population": 730
+          }
+        },
+        {
+          "grid": 128,
+          "schema": 8,
+          "recordsRejected": [
+            "missingMember",
+            "duplicateMember",
+            "householdMismatch",
+            "missingHome",
+            "tileUsedAsHomeId",
+            "missingFirmBuilding",
+            "negativeStock",
+            "invalidStock",
+            "unknownStock",
+            "negativeDeposit",
+            "missingDepositBank",
+            "malformedBank",
+            "malformedLoan",
+            "negativeLoanBank",
+            "duplicateBuildingId",
+            "exhaustedIdCounter",
+            "duplicateHomeId",
+            "orphanWorker",
+            "duplicateWorker",
+            "missingOwner",
+            "missingTitleHolder",
+            "truncatedTiles",
+            "malformedProject",
+            "futureSchema",
+            "invalidDay"
+          ],
+          "truncatedRejected": 4,
+          "callerIndependent": true,
+          "atomicRNGAndTimeline": true,
+          "scenario": "hardtimes",
+          "ageDays": 720,
+          "replay": {
+            "days": 90,
+            "exactCanonical": true,
+            "cashDrift": -2.4475157260894775e-06,
+            "goodsError": 2.091837814077735e-11,
+            "population": 182
+          }
+        }
+      ],
+      "historicalFixtures": [
+        "corporate-liquidity-trap.json",
+        "v60-distressed-town.json"
+      ]
+    },
+    "situations": {
+      "source_sha256": "27ca5f1e1e5df352d38daf042d2de63b63024b8deed596c79e2f4679cc50947e",
+      "recordedUnsuccessfulRoute": {
+        "key": "neighbourhood:2:4",
+        "kind": "neighbourhood",
+        "building": 96,
+        "firm": -1,
+        "household": 62,
+        "x": 20,
+        "y": 39,
+        "name": "Carter household",
+        "id": 2,
+        "choice": "bus",
+        "started": 3,
+        "baseline": {
+          "day": 3,
+          "treasury": 90208.42242217148,
+          "food": 59.17159763313611,
+          "school": 32.142857142857146,
+          "eligible": 2,
+          "home": 96,
+          "firmOpen": false,
+          "workers": 0,
+          "cash": 0,
+          "buildingPresent": true,
+          "queue": 0,
+          "jobs": 0,
+          "rides": 0,
+          "denied": 0
+        },
+        "observations": [
+          {
+            "day": 11,
+            "treasury": 88940.11627673353,
+            "food": 100,
+            "school": 32.142857142857146,
+            "eligible": 2,
+            "home": 96,
+            "firmOpen": false,
+            "workers": 0,
+            "cash": 0,
+            "buildingPresent": true,
+            "queue": 247.05499999999995,
+            "jobs": 0,
+            "rides": 0,
+            "denied": 0
+          }
+        ]
+      },
+      "errors": []
+    },
+    "turnarounds": {
+      "source_sha256": "27ca5f1e1e5df352d38daf042d2de63b63024b8deed596c79e2f4679cc50947e",
+      "acceptedBridgeLoads": [
+        120,
+        60
+      ],
+      "cancelledLoadCredited": false,
+      "blueprint": {
+        "ok": true,
+        "parcel": "river-reach",
+        "focus": "waterfront",
+        "roads": [
+          5774,
+          5773,
+          5772,
+          5771,
+          5770,
+          5769,
+          5768,
+          5767,
+          5895,
+          6023,
+          6151,
+          6279,
+          6407,
+          6535,
+          6663,
+          6791,
+          6919,
+          7047,
+          7175,
+          7303,
+          7431,
+          7559,
+          7687,
+          7815,
+          7943,
+          8071,
+          8199,
+          8327,
+          8455
+        ],
+        "sites": [
+          {
+            "kind": "fishery",
+            "x": 7,
+            "y": 67,
+            "footprint": [
+              8583
+            ],
+            "score": 31.8,
+            "preferred": false
+          },
+          {
+            "kind": "wharf",
+            "x": 6,
+            "y": 65,
+            "footprint": [
+              8326
+            ],
+            "score": 7.15,
+            "preferred": false
+          }
+        ],
+        "cost": 4350
+      },
+      "secondShoreSpurRequired": false,
+      "controlledHistoricalClosureFixture": {
+        "firm": 28,
+        "building": 116,
+        "before": 15493516.999995299,
+        "after": 15493516.999995299,
+        "cash": 0,
+        "closed": true
+      },
+      "recharterCost": 1200,
+      "existingPrivateBuildingRetained": true,
+      "realSupplierChapter": {
+        "id": 1,
+        "mode": "promise",
+        "started": 266,
+        "lastDay": 274,
+        "status": "complete",
+        "baselineSerial": 1114,
+        "reference": {
+          "kind": "contract",
+          "id": 1136,
+          "firm": 13,
+          "market": "upland",
+          "good": "timber",
+          "quantity": 200,
+          "price": 4.051557681450809
+        },
+        "arrived": 0,
+        "receiptDay": null,
+        "completed": 274,
+        "proof": "Upland Cooperative \u00b7 200 / 200 timber paid arrivals"
+      },
+      "errors": []
+    },
+    "chapters": {
+      "source_sha256": "27ca5f1e1e5df352d38daf042d2de63b63024b8deed596c79e2f4679cc50947e",
+      "controlledOrderUsesPaidBookings": {
+        "ids": [
+          785
+        ],
+        "cashDrift": 0
+      },
+      "returnedTrackedOrderNeverCredited": {
+        "id": 1,
+        "mode": "essentials",
+        "started": 206,
+        "lastDay": 231,
+        "status": "active",
+        "baselineSerial": 788,
+        "reference": {
+          "kind": "shipment",
+          "id": 785,
+          "firm": 1,
+          "market": "upland",
+          "good": "food",
+          "quantity": 60,
+          "price": 2.72192983274199
+        },
+        "arrived": 0,
+        "receiptDay": null,
+        "completed": null,
+        "proof": ""
+      },
+      "deliveredChapter": {
+        "id": 2,
+        "mode": "essentials",
+        "started": 232,
+        "lastDay": 236,
+        "status": "complete",
+        "baselineSerial": 899,
+        "reference": {
+          "kind": "shipment",
+          "id": 893,
+          "firm": 1,
+          "market": "upland",
+          "good": "food",
+          "quantity": 60,
+          "price": 2.7637744135391347
+        },
+        "arrived": 60,
+        "receiptDay": 236,
+        "completed": 236,
+        "proof": "60 / 60 food delivered to Village Stores Trading"
+      },
+      "privateEntryWithoutTeaching": {
+        "id": 3,
+        "kind": "skills",
+        "branch": "private",
+        "target": 0,
+        "started": 253,
+        "lastDay": 338,
+        "status": "active",
+        "orders": [],
+        "arrived": 0,
+        "firm": null,
+        "building": null,
+        "output": 0,
+        "sales": 0,
+        "net": 0,
+        "trainingScope": "private",
+        "trainingBaseline": 0,
+        "learning": 0,
+        "completed": null,
+        "proof": null,
+        "continuity": true,
+        "learnerBaseline": 0,
+        "learnerDays": 0,
+        "publicLearnerDays": 0,
+        "privateLearnerDays": 0
+      },
+      "publicContinuity": {
+        "id": 4,
+        "kind": "skills",
+        "branch": "network",
+        "target": 0,
+        "started": 338,
+        "lastDay": 389,
+        "status": "complete",
+        "orders": [],
+        "arrived": 0,
+        "firm": null,
+        "building": null,
+        "output": 0,
+        "sales": 0,
+        "net": 0,
+        "trainingScope": "all",
+        "trainingBaseline": 2,
+        "learning": 0,
+        "completed": 389,
+        "proof": "98% estimated learner access \u00b7 30.7 paid learning-day equivalents",
+        "continuity": true,
+        "learnerBaseline": 0,
+        "learnerDays": 30.73542134088882,
+        "publicLearnerDays": 19.080645161290324,
+        "privateLearnerDays": 11.654776179598478
+      },
+      "replayDays": 7,
+      "errors": []
+    },
+    "distance": {
+      "source_sha256": "27ca5f1e1e5df352d38daf042d2de63b63024b8deed596c79e2f4679cc50947e",
+      "reference_commit": "525e47d",
+      "models": [
+        {
+          "dense": false,
+          "days": 360,
+          "exactCheckpoints": [
+            31,
+            61,
+            91,
+            121,
+            151,
+            181,
+            211,
+            241,
+            271,
+            301,
+            331,
+            361
+          ],
+          "oracle": {
+            "checked": 12000,
+            "cachedTrees": 32,
+            "cacheBytes": 1048576,
+            "unchanged": true
+          },
+          "closure": {
+            "before": {
+              "checked": 12000,
+              "cachedTrees": 32,
+              "cacheBytes": 1048576,
+              "unchanged": true
+            },
+            "after": {
+              "checked": 12000,
+              "cachedTrees": 32,
+              "cacheBytes": 1048576,
+              "unchanged": true
+            },
+            "disconnected": true
+          }
+        },
+        {
+          "dense": true,
+          "days": 180,
+          "exactCheckpoints": [
+            31,
+            61,
+            91,
+            121,
+            151,
+            181
+          ],
+          "oracle": {
+            "checked": 12000,
+            "cachedTrees": 32,
+            "cacheBytes": 1048576,
+            "unchanged": true
+          },
+          "closure": {
+            "before": {
+              "checked": 12000,
+              "cachedTrees": 32,
+              "cacheBytes": 1048576,
+              "unchanged": true
+            },
+            "after": {
+              "checked": 12000,
+              "cachedTrees": 32,
+              "cacheBytes": 1048576,
+              "unchanged": true
+            },
+            "disconnected": true
+          }
+        }
+      ]
+    },
+    "houses": {
+      "cases": 720,
+      "oldBytes": 9246720,
+      "newBytes": 2696960,
+      "savedFraction": 0.7083333333333333,
+      "unchanged": true,
+      "source_sha256": "27ca5f1e1e5df352d38daf042d2de63b63024b8deed596c79e2f4679cc50947e"
+    },
+    "redevelopment": {
+      "source_sha256": "27ca5f1e1e5df352d38daf042d2de63b63024b8deed596c79e2f4679cc50947e",
+      "controlledExistingCashAndStaff": true,
+      "results": {
+        "setup": {
+          "grid": 128,
+          "deeds": 21,
+          "trip": {
+            "routes": [
+              1,
+              2
+            ],
+            "time": 62.591436503432064,
+            "fare": 1.25,
+            "transfers": 1,
+            "day": 3,
+            "settled": true
+          },
+          "protectedStation": "This facility serves an active passenger route. Retire or replan the route through the transit office first.",
+          "protectedDepot": "This facility serves an active passenger route. Retire or replan the route through the transit office first.",
+          "cashDrift": -3.725290298461914e-09
+        },
+        "outages": {
+          "railSuspended": true,
+          "closedSaveRestored": true,
+          "railReopened": true,
+          "busDetour": true,
+          "originalLength": 23,
+          "detourLength": 23,
+          "busRestored": true,
+          "cashDrift": -7.636845111846924e-08
+        },
+        "clearanceQuote": {
+          "id": 97,
+          "cost": 68631,
+          "day": 31
+        },
+        "redevelopment": {
+          "households": 1,
+          "identitiesPreserved": true,
+          "replacementClinic": true,
+          "exactContinuation": true,
+          "fares": 35,
+          "valid": {
+            "ok": true,
+            "issues": [],
+            "total": 15493516.999998916,
+            "population": 169,
+            "day": 62
+          }
+        },
+        "retirement": {
+          "suspendedStationProtected": true,
+          "explicitRetirement": true,
+          "noDuplicateSalvage": true,
+          "remainingTracks": 0,
+          "cashDrift": -1.0691583156585693e-06,
+          "valid": {
+            "ok": true,
+            "issues": [],
+            "total": 15493516.999998916,
+            "population": 169,
+            "day": 62
+          }
+        }
+      },
+      "errors": []
+    },
+    "arrivals": {
+      "source_sha256": "27ca5f1e1e5df352d38daf042d2de63b63024b8deed596c79e2f4679cc50947e",
+      "controlledReceiptFixture": true,
+      "cancelledRejected": true,
+      "missingRejected": true,
+      "returnedRejected": true,
+      "actualArrived": 180,
+      "legacyRecoveredOnce": true,
+      "cashDrift": 0,
+      "goodsError": 0
+    },
+    "tradeFeedback": {
+      "source_sha256": "27ca5f1e1e5df352d38daf042d2de63b63024b8deed596c79e2f4679cc50947e",
+      "controlledHistoricalFixture": true,
+      "recentTitle": "Review a recent missed window",
+      "lateReceiptEvidence": "Upland Cooperative \u00b7 200 / 200 recorded arrivals; window ended day 399",
+      "oldMissRetainedInHistory": true
+    },
+    "musicRaces": {
+      "source_sha256": "27ca5f1e1e5df352d38daf042d2de63b63024b8deed596c79e2f4679cc50947e",
+      "mockedMediaPromises": true,
+      "result": {
+        "staleRejectionIgnored": true,
+        "suspendDecks": 1,
+        "fadeStopped": true,
+        "retiredSourcesCleared": 3,
+        "activeDeckLimit": 2,
+        "resumedMediaErrorSurfaced": true,
+        "pendingHandoffPreserved": true,
+        "partialDurationIgnored": true
+      }
+    },
+    "idle": {
+      "source_sha256": "27ca5f1e1e5df352d38daf042d2de63b63024b8deed596c79e2f4679cc50947e",
+      "before": {
+        "calls": {
+          "header": 0,
+          "panel": 0,
+          "save": 0,
+          "draw": 0
+        },
+        "day": 1,
+        "paused": false,
+        "suspended": true,
+        "order": 3
+      },
+      "suspended": {
+        "calls": {
+          "header": 0,
+          "panel": 0,
+          "save": 0,
+          "draw": 0
+        },
+        "day": 1,
+        "paused": false,
+        "suspended": true,
+        "order": 3
+      },
+      "resumed": {
+        "calls": {
+          "header": 8,
+          "panel": 2,
+          "save": 1,
+          "draw": 42
+        },
+        "day": 2,
+        "paused": false,
+        "suspended": false,
+        "order": 4
+      },
+      "errors": []
+    },
+    "audio": {
+      "source_sha256": "27ca5f1e1e5df352d38daf042d2de63b63024b8deed596c79e2f4679cc50947e",
+      "mockedAudio": true,
+      "checks": [
+        "paid vs free council choice",
+        "mute stops effects and ambience",
+        "native suspend/resume",
+        "hidden document suppresses effects",
+        "visible resume ambience only"
+      ],
+      "errors": []
+    },
+    "core": {
+      "source_sha256": "27ca5f1e1e5df352d38daf042d2de63b63024b8deed596c79e2f4679cc50947e",
+      "determinism_and_continuation": {
+        "sameSeed": true,
+        "renderIndependent": true,
+        "continuedDays": 120,
+        "valid": {
+          "ok": true,
+          "issues": [],
+          "total": 15489571.999995586,
+          "population": 188,
+          "day": 301
+        }
+      },
+      "malformed_save_atomicity": {
+        "investorRejected": true,
+        "cargoRejected": true,
+        "futureRejected": true,
+        "townPreserved": true
+      },
+      "replicated_zoning": [
+        {
+          "seed": 42,
+          "zone": 0,
+          "population": 210,
+          "homes": 16,
+          "firms": 7,
+          "privateSpend": 486062,
+          "moneyDelta": -1.6830861568450928e-05,
+          "ms": 2972.89999999851
+        },
+        {
+          "seed": 42,
+          "zone": 100,
+          "population": 182,
+          "homes": 0,
+          "firms": 1,
+          "privateSpend": 0,
+          "moneyDelta": -1.1960044503211975e-05,
+          "ms": 2143.8000000044703
+        },
+        {
+          "seed": 101,
+          "zone": 0,
+          "population": 222,
+          "homes": 21,
+          "firms": 7,
+          "privateSpend": 560318,
+          "moneyDelta": -1.2546777725219727e-05,
+          "ms": 2807
+        },
+        {
+          "seed": 101,
+          "zone": 100,
+          "population": 186,
+          "homes": 0,
+          "firms": 1,
+          "privateSpend": 0,
+          "moneyDelta": -4.686415195465088e-06,
+          "ms": 2081.8000000044703
+        },
+        {
+          "seed": 909,
+          "zone": 0,
+          "population": 211,
+          "homes": 19,
+          "firms": 5,
+          "privateSpend": 507601,
+          "moneyDelta": -1.568533480167389e-05,
+          "ms": 2949.60000000149
+        },
+        {
+          "seed": 909,
+          "zone": 100,
+          "population": 187,
+          "homes": 0,
+          "firms": 1,
+          "privateSpend": 0,
+          "moneyDelta": -1.2001022696495056e-05,
+          "ms": 1777.3000000044703
+        }
+      ],
+      "cargo_ownership": {
+        "consignments": 6,
+        "sampledUnits": 166.3792513597068,
+        "remaining": true,
+        "delayed": 1,
+        "cashConserved": true
+      },
+      "legacy_56_migration": {
+        "v": {
+          "ok": true,
+          "issues": [],
+          "total": 15437563,
+          "population": 169,
+          "day": 1
+        },
+        "after": {
+          "ok": true,
+          "issues": [],
+          "total": 15437562.999999257,
+          "population": 169,
+          "day": 31
+        },
+        "schema": 8
+      },
+      "true_pause": {
+        "identicalScreenshots": true,
+        "milliseconds": 500
+      },
+      "traffic_progress": {
+        "seconds": 1600,
+        "maximumWait": 0.9999999999999999,
+        "peak": 21,
+        "valid": true
+      },
+      "long_run_endurance": [],
+      "browser_errors": []
+    },
+    "near": {
+      "source_sha256": "27ca5f1e1e5df352d38daf042d2de63b63024b8deed596c79e2f4679cc50947e",
+      "assetOrigin": "HTTP",
+      "camera": {
+        "x": 4678,
+        "y": 1032,
+        "zoom": 0.95
+      },
+      "viewport": [
+        844,
+        390
+      ],
+      "network": {
+        "grid": 128,
+        "deeds": 21,
+        "relocatedHouseholds": 29,
+        "routes": [
+          1,
+          2,
+          3
+        ],
+        "capital": 191450,
+        "total": 15493516.999999993
+      },
+      "networkEnd": {
+        "routes": 3,
+        "operating": 3,
+        "rides": 6,
+        "fares": 1743.2999999999602,
+        "staff": 16,
+        "capacity": 616,
+        "musicPlaying": 1,
+        "musicReferencedDecks": 1
+      },
+      "zoom": 0.95,
+      "synthetic": {
+        "population": 2000,
+        "households": 678,
+        "buildings": 713,
+        "total": 15493516.999999993
+      },
+      "requestedSpeed": 64,
+      "elapsedSeconds": 8.021494004991837,
+      "simulatedDays": 292,
+      "rafP50Ms": 16.699999999999818,
+      "rafP95Ms": 66.60000000000036,
+      "rafP99Ms": 200,
+      "rafOver50ms": 15,
+      "profile": null,
+      "renderer": {
+        "drawCount": 124,
+        "drawMedianMs": 2.899999998509884,
+        "drawP95Ms": 30.700000002980232,
+        "drawP99Ms": 58.399999998509884,
+        "tickMedianMs": 13.100000001490116,
+        "tickP95Ms": 37.600000001490116,
+        "actualSpeed": 60.67937675408878,
+        "backlogDays": 0.14012121212125644
+      },
+      "ui": [
+        {
+          "panel": "[data-panel=economy]",
+          "toNextFrameMs": 160.70000000298023,
+          "panelError": false
+        },
+        {
+          "panel": "[data-panel=citizens]",
+          "toNextFrameMs": 162.60000000149012,
+          "panelError": false
+        },
+        {
+          "panel": "[data-panel=businesses]",
+          "toNextFrameMs": 90.89999999850988,
+          "panelError": false
+        },
+        {
+          "panel": "[data-panel=settings]",
+          "toNextFrameMs": 85.09999999403954,
+          "panelError": false
+        }
+      ],
+      "foundingAndWarmup": {
+        "frames": [
+          201.5,
+          1.3000000044703484,
+          1.2000000029802322,
+          33.70000000298023,
+          295.70000000298023,
+          2.7000000029802322,
+          82.10000000149012,
+          4.300000004470348,
+          2.2000000029802322,
+          2.600000001490116,
+          16.80000000447035,
+          9.199999995529652,
+          2.2000000029802322,
+          3.2999999970197678,
+          1.8000000044703484,
+          1.6000000014901161,
+          2
+        ],
+        "ticks": [
+          71.69999999552965,
+          22,
+          15.800000004470348,
+          12.700000002980232,
+          13.299999997019768,
+          14.700000002980232,
+          15.099999994039536,
+          46,
+          80.39999999850988,
+          53,
+          18.100000001490116,
+          11.900000005960464,
+          11.299999997019768,
+          15.399999998509884,
+          10.900000005960464,
+          17.600000001490116,
+          9.200000002980232,
+          9,
+          7.9000000059604645,
+          10.099999994039536,
+          9.600000001490116,
+          11.799999997019768,
+          8.300000004470348,
+          8.599999994039536
+        ]
+      },
+      "moneyConservationDrift": 8.67992639541626e-07,
+      "errors": []
+    },
+    "far": {
+      "source_sha256": "27ca5f1e1e5df352d38daf042d2de63b63024b8deed596c79e2f4679cc50947e",
+      "assetOrigin": "HTTP",
+      "camera": {
+        "x": 4678,
+        "y": 1032,
+        "zoom": 0.2
+      },
+      "viewport": [
+        844,
+        390
+      ],
+      "network": {
+        "grid": 128,
+        "deeds": 21,
+        "relocatedHouseholds": 29,
+        "routes": [
+          1,
+          2,
+          3
+        ],
+        "capital": 191450,
+        "total": 15493516.999999993
+      },
+      "networkEnd": {
+        "routes": 3,
+        "operating": 3,
+        "rides": 6,
+        "fares": 1858.9999999999561,
+        "staff": 16,
+        "capacity": 616,
+        "musicPlaying": 1,
+        "musicReferencedDecks": 1
+      },
+      "zoom": 0.2,
+      "synthetic": {
+        "population": 2000,
+        "households": 678,
+        "buildings": 713,
+        "total": 15493516.999999993
+      },
+      "requestedSpeed": 64,
+      "elapsedSeconds": 8.035468625996145,
+      "simulatedDays": 314,
+      "rafP50Ms": 16.699999999999818,
+      "rafP95Ms": 50,
+      "rafP99Ms": 116.60000000000036,
+      "rafOver50ms": 14,
+      "profile": null,
+      "renderer": {
+        "drawCount": 134,
+        "drawMedianMs": 1.2000000029802322,
+        "drawP95Ms": 33.399999998509884,
+        "drawP99Ms": 50.100000001490116,
+        "tickMedianMs": 11.799999997019768,
+        "tickP95Ms": 37.399999998509884,
+        "actualSpeed": 68.16840448553997,
+        "backlogDays": 0.9393939393939456
+      },
+      "ui": [
+        {
+          "panel": "[data-panel=economy]",
+          "toNextFrameMs": 124.60000000149012,
+          "panelError": false
+        },
+        {
+          "panel": "[data-panel=citizens]",
+          "toNextFrameMs": 92.39999999850988,
+          "panelError": false
+        },
+        {
+          "panel": "[data-panel=businesses]",
+          "toNextFrameMs": 75.79999999701977,
+          "panelError": false
+        },
+        {
+          "panel": "[data-panel=settings]",
+          "toNextFrameMs": 87.80000000447035,
+          "panelError": false
+        }
+      ],
+      "foundingAndWarmup": {
+        "frames": [
+          266.6000000014901,
+          1.6000000014901161,
+          1,
+          47.70000000298023,
+          269.09999999403954,
+          2,
+          78.89999999850988,
+          3.2999999970197678,
+          1.5,
+          1.7000000029802322,
+          1.1000000014901161,
+          1.7999999970197678,
+          2.0999999940395355,
+          1.3999999985098839,
+          1.1999999955296516,
+          2.5,
+          2.100000001490116,
+          0.6999999955296516,
+          0.8999999985098839,
+          56.20000000298023
+        ],
+        "ticks": [
+          62.30000000447035,
+          26.5,
+          15.300000004470348,
+          12.599999994039536,
+          12.5,
+          12.799999997019768,
+          14.899999998509884,
+          15.300000004470348,
+          36.69999999552965,
+          19.200000002980232,
+          15.900000005960464,
+          10.900000005960464,
+          12.700000002980232,
+          19,
+          27.600000001490116,
+          11.200000002980232,
+          9.899999998509884,
+          9.600000001490116,
+          8.300000004470348,
+          10.800000004470348,
+          9.799999997019768,
+          10.599999994039536,
+          10.300000004470348,
+          7.799999997019768,
+          10.399999998509884,
+          10.100000001490116,
+          9.5,
+          17,
+          281.70000000298023
+        ]
+      },
+      "moneyConservationDrift": 1.037493348121643e-06,
+      "errors": []
+    },
+    "network48": {
+      "source_sha256": "27ca5f1e1e5df352d38daf042d2de63b63024b8deed596c79e2f4679cc50947e",
+      "engine_module_sha256": "5c9b282ecc5b442ff9bfdd752b7781b8813ad86df249d6cc0ffad1c6fba68f82",
+      "source_root": "/workspace/Village",
+      "physicalAndroid": false,
+      "hostChromium": true,
+      "rows": [
+        {
+          "implementation": "optimized",
+          "routes": 48,
+          "initialTown": {
+            "population": 2000,
+            "households": 678,
+            "buildings": 713,
+            "total": 15493517
+          },
+          "initialNetwork": {
+            "routes": 48,
+            "depots": 6,
+            "drivers": 96,
+            "rides": 16,
+            "capacity": 2603,
+            "total": 15493517.000000086
+          },
+          "endNetwork": {
+            "routes": 48,
+            "operating": 48,
+            "drivers": 96,
+            "rides": 24,
+            "fares": 3859.700000000203,
+            "capacity": 2507,
+            "nodeCount": 144,
+            "treasury": 1494573.7186292445,
+            "valid": {
+              "ok": true,
+              "issues": [],
+              "total": 15493517.00000418,
+              "population": 2000,
+              "day": 397
+            }
+          },
+          "requestedSpeed": 64,
+          "elapsedSeconds": 8.038940889004152,
+          "simulatedDays": 300,
+          "measuredRate": 61.575275503900315,
+          "effectiveRate": 54.29732868757252,
+          "tickMedianMs": 13,
+          "tickP95Ms": 35.100000001490116,
+          "drawMedianMs": 2.4000000059604645,
+          "drawP95Ms": 25.80000000447035,
+          "rafP95Ms": 50,
+          "rafP99Ms": 166.69999999999982,
+          "ui": [
+            {
+              "panel": "economy",
+              "toNextFrameMs": 154.39999999850988,
+              "error": false
+            },
+            {
+              "panel": "citizens",
+              "toNextFrameMs": 58.899999998509884,
+              "error": false
+            },
+            {
+              "panel": "construction",
+              "toNextFrameMs": 105.89999999850988,
+              "error": false
+            },
+            {
+              "panel": "settings",
+              "toNextFrameMs": 39.80000000447035,
+              "error": false
+            }
+          ],
+          "moneyDrift": 2.3972243070602417e-06,
+          "errors": []
+        }
+      ]
+    }
+  },
+  "gates": [
+    {
+      "script": "test_save_composite.py",
+      "script_sha256": "8ad0d22cc83a857892fa997cc1b0edae561aa97deb928a3ca0594fea1321fee7",
+      "log_sha256": "0beb39f7791988a18531825132619c899c8c46ac321ab15c5aa2df874269cd64",
+      "exit_code": 0
+    },
+    {
+      "script": "test_save_adversarial.py",
+      "script_sha256": "e53697b3942b4cabacb30e37048ace606a2f262cb7261e001ce84862cb67bb15",
+      "log_sha256": "b7b7e49fe220dd629b4b35601f0c3b34e082628c80735c022ba036485c47eecd",
+      "exit_code": 0
+    },
+    {
+      "script": "test_town_situations.py",
+      "script_sha256": "422c3da3f5d8b146ac5f3b0e95c4e275369ee08f5b35038b38a0acd285f60e84",
+      "log_sha256": "db025acf8fd837379be5f50f188ae51c8382559cb4e4ca14b85c695b71e43c4a",
+      "exit_code": 0
+    },
+    {
+      "script": "test_civic_turnarounds.py",
+      "script_sha256": "2209c3858185ba28ab168e1bd98a7b87e988092bc171152e7dd5c67455454d2d",
+      "log_sha256": "3f4c5c4cf36a390ba3c4458767746811989f059b17b8835c04659957093ca072",
+      "exit_code": 0
+    },
+    {
+      "script": "test_civic_operating_chapters.py",
+      "script_sha256": "e9e52d205f1c87018eb9c968bc131fa2b1daa7f9f2096f7737fc6fd0fc16f35d",
+      "log_sha256": "1ab25123d82e61bad7277801cb9deeeb97d519b95d2f7cd17ee7b051844c409f",
+      "exit_code": 0
+    },
+    {
+      "script": "test_road_distance_cache.py",
+      "script_sha256": "55ce7a61071f20cd91342124560118a918bff378dd63ea37c2741d349a92c72b",
+      "log_sha256": "8543e45d0b68d4ca098a4b173050b78026c507265c04cad361a1ef24395f8715",
+      "exit_code": 0
+    },
+    {
+      "script": "test_house_atlas_equivalence.py",
+      "script_sha256": "0c9fbe2b191c6f14c85ebd58069071d9aafcb6fc35ef262b70d23a6f422ad611",
+      "log_sha256": "32e6a6938031ccb981d1d61e43b26a13e9e6ef42381611623720113a061f1018",
+      "exit_code": 0
+    },
+    {
+      "script": "test_transit_combined_redevelopment.py",
+      "script_sha256": "c47faecde91d399835824018fc516d6ad95116696ca1f5a445fe4539ccf106f4",
+      "log_sha256": "98c42b93cbc6d0cb5b0350370d28bd5937dc47b8ea6c12769e6cc9a5ed3ef3ca",
+      "exit_code": 0
+    },
+    {
+      "script": "test_civic_project_arrivals.py",
+      "script_sha256": "645864e8e5ed8caf598bf71a3f2f4be9dbf1b2f30bef78dd201d1b3005bec7e0",
+      "log_sha256": "b93697323b259a53ea9a55beb433e6bb50c94469b3e6684faf4582138c8bf765",
+      "exit_code": 0
+    },
+    {
+      "script": "test_recent_trade_feedback.py",
+      "script_sha256": "8d76d3455aaedaf3ac1018e5622adac0730d528d16f86499f0290dadaa19a3a0",
+      "log_sha256": "d8a5c52dd6e73649f063d976155101d7d0d8764385e53dd651d83b386c69ca7f",
+      "exit_code": 0
+    },
+    {
+      "script": "test_music_races.py",
+      "script_sha256": "eb2cb34ea9fe0d2b679721fdf41eda5f6f41afda233deb9a2fa5c7b6724ab0c3",
+      "log_sha256": "8697f7d8e6329c4b0b41b8e344a3efa69da9983d5d0e16e82fe66e4c383e7a3e",
+      "exit_code": 0
+    },
+    {
+      "script": "test_scheduler_idle.py",
+      "script_sha256": "585459d8590d91ea7dec6e300c7db2e3dc3533f7eba67e77fdc328f3057d0e48",
+      "log_sha256": "856bb4623d896ec411935a16142998f54d384e4a8f224a48adebfe3f6b4f211f",
+      "exit_code": 0
+    },
+    {
+      "script": "test_audio_lifecycle.py",
+      "script_sha256": "078e95b8a49307a56839f141e7a134bfe7bba2f5294123f1a5847d2f8adfe2f0",
+      "log_sha256": "be314b50d6dde75d064790fa1789a0f9f69a618bcf7862566cd1867b74f50e3a",
+      "exit_code": 0
+    },
+    {
+      "script": "test_host_lifecycle.py",
+      "script_sha256": "7b450d7f14ca042ce9eb3e8ca8a033cff9cae14753d63a224bcb3d88ac94fe07",
+      "log_sha256": "ab50c51923b56e7119afe6139bc4b79b8456971b99f81cc8ee0d03a461251004",
+      "exit_code": 0
+    },
+    {
+      "script": "test_release.py",
+      "script_sha256": "296d131f5b9742ea389a383e9a733d98a6600ffa2133eeb4f602c6942685d4df",
+      "log_sha256": "c988cfaeb4b9964cc29c415b647431be5441fd64043f3bb8bf8f68633b679b17",
+      "exit_code": 0
+    },
+    {
+      "script": "test_v7_live_large_town.py",
+      "script_sha256": "bd8699ae0759e4a458cec2ce0022f0944211e6138ba50b873e3f4144c63a301f",
+      "log_sha256": "e709c697da4b9a38ec4a755a87513aefefd8fd2c3bb10bbee64183b58f11b0e3",
+      "exit_code": 0
+    },
+    {
+      "script": "test_v7_live_large_town.py",
+      "script_sha256": "bd8699ae0759e4a458cec2ce0022f0944211e6138ba50b873e3f4144c63a301f",
+      "log_sha256": "695797590a1ef5dac3d44b7e3a4a92b6ec6438a6f44ae2b3f04ea45420d9e553",
+      "exit_code": 0
+    },
+    {
+      "script": "test_transit_live_performance.py",
+      "script_sha256": "2da3275a301b99a710b4fc6ef9c6b354469c94433fb932ba80cffcd5101734b8",
+      "log_sha256": "d439ddde73ac83b1b28018284812f2966b5ba85349655f3dea3a6711405c23c1",
+      "exit_code": 0
+    }
+  ],
+  "assets": {
+    "assets/civic7.css": "9f312ee6465076207d4bfeb01996f755b59a125df8a7d16b47592713549d511e",
+    "assets/mayor8.css": "d91d6ea9c3801e630c315f2579afd97765b68c1b9749addc2da3b20bc30c7343",
+    "assets/style.css": "e666e2db01e419d7a65bb7050fb63f4c70a0d58348bdffa4ea7a54fbd8a67015",
+    "assets/game.js": "27ca5f1e1e5df352d38daf042d2de63b63024b8deed596c79e2f4679cc50947e",
+    "assets/index.html": "c45e152ac53f1818d41793b124cad7a5c9ff22d35bf184f17d7ed3dedcac5685",
+    "assets/vale.css": "6aaa9781eb11e5b0d205a720451d3fbc5384b92fb783e457d5d33f4a94be9bb9",
+    "assets/sound/click.wav": "f442b590c799bbcf972e69d1c1f172881cb5bf81116bf114bc015080d5057c91",
+    "assets/sound/rain.wav": "8d5d04ed401b06df35d964915fcb0705b71f25d6460b7d789841138fadbe3e01",
+    "assets/sound/build.wav": "88377b20c3bbca59a8fcabafe837b6e07508bbdba36112c7f643deea943ba551",
+    "assets/sound/zone.wav": "9d2e5ce6837c95bed60894c43c91f410a675d720369e8245d151653ca1a3541a",
+    "assets/sound/error.wav": "b5d5ded784fb78f162ec098a741ef921c2f10113a13b0d76043966546bcbf0c5",
+    "assets/sound/LICENSE.txt": "66435b1de18b054246e451607fdbfdbdea1e1f770fb214518bfb556f79cd591e",
+    "assets/sound/village.wav": "5789b8988371c6720931a270c433690cdbce4f5dfb6ae7859f4c9b9ed8e857bb",
+    "assets/sound/coin.wav": "99edffa3814662def67c66a9401791043b5221a331ee6edf552d862703a7c7af",
+    "assets/sound/save.wav": "e94121e8f98c3343759ee0606aa23924396cef4445935f4be3267ae9e79b1d6d",
+    "assets/music/orchard-footpaths.ogg": "7e4d8f9051dfb4810b2d1b4452053261aa08577646b52daa973dc14e73506c52",
+    "assets/music/morning-ledger.ogg": "7d4757811e18762e1ca6d34a21480159af87a4a729d3199657343cec670f35c7",
+    "assets/music/river-and-road.ogg": "838a9c6877a4a5253b4861b9cf8db88a72e3e5c29760d6cae360d776b96883f8",
+    "assets/music/rails-to-greyhaven.ogg": "3152612b1171b05d097aaba466a0be5f7a3dd3c2c7d48a0fe8b0fa04784b014a",
+    "assets/music/a-borough-grows.ogg": "f66760ea1663b93251ffb9fc592e9ab25b1bd5ca22d9aa166fc1fea51b247662",
+    "assets/music/score.json": "79309110e20b0848fec904e383575c80ba558f89b7ef3d41da4e9714ba7cf58f",
+    "assets/music/LICENSE.txt": "f88c31f721aae3852bafd50acf051b7eb23e54982cc065e674c7ba6adeb0a21b",
+    "assets/music/quiet-river-reprise.ogg": "1c26c4b31191c805af3daa6cfe8192da4191e68a5db4ef6c8f372494687f9e84",
+    "assets/music/lamplit-windows.ogg": "9a9b21c3deb9bd972e7b997d6d6d42446a3e2d7da479090090e7899ff872c986",
+    "assets/music/market-day.ogg": "8f43f2ab5e49872fd99b469e39eee70fd8613df2952a9bdf062177bc510aaea2",
+    "assets/music/waterline-work.ogg": "a537e8dc1b39fae2e9ee68f6f48a099a7f087532736a08b6a76c8e5c2b68dc85",
+    "assets/music/after-the-rain.ogg": "6358e61316aa6227bb667ce312ed4aa659bcc919a8b224604007663e85d856c3"
+  },
+  "source_inputs": {
+    "src/46-transit-network.js": "5c9b282ecc5b442ff9bfdd752b7781b8813ad86df249d6cc0ffad1c6fba68f82",
+    "src/24-district-programmes.js": "0ba79f213dff05177e067c52dba27fbc2963b735b9254677b8ecf32a22ebb1b9",
+    "src/80-civic.js": "e5233a2d61aee127188580c2541ef0217c7ab583d92989992587baaff0daff93",
+    "src/96-council-programme.js": "8a366aab114d725b74854949e3205371d4967c017c639392f06cfc6268513973",
+    "src/70-interaction.js": "c36828c6291549a72f5ca98707cc7b9f0dcea11b1742e3a9ff6c87671e78ce6e",
+    "src/98-stewardship.js": "4e500aad326bc0f5c7707c45e6879804af8d22085d6f1d6b6e935477c677809c",
+    "src/68-transit-art.js": "e3e93cfe778893180b29987261c25f22bfff13729abe9ad920a58636f495331b",
+    "src/28-civic-blueprints.js": "fb8fc4193766b9a49e469e128284af7d117d59c717887fa9a2ae2e22b4905ac1",
+    "src/66-mobility-art.js": "f40dd97571429fcba447849e87459b0bbe913ec6f425bbb5b09d2155b43b8bf7",
+    "src/16-private-services.js": "60a18c24ebeb86eeb6117263357039eaf71075fefa3fb4f063f05ad7f48cb6c7",
+    "src/00-foundation.js": "616310845dcb0070b38ae311589626e56c682aed58ca0d9a43e32614c6de288f",
+    "src/50-clock.js": "e7a70c388f4f30c2dd2a1932331f2453f1acfa6210fa12c4600afc10807842d3",
+    "src/13-civic-staffing.js": "f212fe0c5a88d84de6d671fb474fc83a2185f0d05d823b85505cc6ad12c214d1",
+    "src/98-district-ui.js": "fe536b11efeea30df8663079ed7c7c1a35acfcc02d7b91188be4a997feb3cb0e",
+    "src/95-audio.js": "d9c14c621bc199cfbcb555230ae0a76f8b47aefdbfa3b61a0d0bb22c4be26453",
+    "src/45-public-services.js": "6fe1def4b88058d9b5fd448d5e27a21263837fcb15c57d6cfcdfbd60d8e7123e",
+    "src/12-service-access.js": "2404e3df9a040eb693c8d6e4911d6294659c432934c84078288f1968c970d82b",
+    "src/98-project-opportunities.js": "8c25822c8ed357eb88ca5303cf62accef5cc0a3a28d86f3d405e2fba0743c30a",
+    "src/68-living-art.js": "7e50faa5160f1d561762d53018506139a73a6391c3191e8634ef48678e9206ee",
+    "src/67-transport.js": "d0639a5dab47a6400ee81057d70470480cab6402baa5e22dd7cfbaa10460d537",
+    "src/26-logistics.js": "018a5a528c33ac2143c9bb6d1950037ec3d4875b91dd5bbba87409addd598e6a",
+    "src/98-waterfront-art.js": "a1d27d33e6ffe6457e00178bf82ab19e70a10d321a5c9aa213b626d71f288d82",
+    "src/42-construction.js": "7798a7b73599344dbf14ad04126f954546448d5a562cbf0b92704c574d814433",
+    "src/10-finance.js": "1b60b68c4dbec82789fbaff0524297762f47cd083c9e145a519c3c6a09662105",
+    "src/08-market-model.js": "9dee2abcedb70fa0e3aaf45c4691f157195e9b5d48aaa1a923f8aa88fc28ddc6",
+    "src/65-landscape.js": "c9395fe7b6247e2488a457059924030320ac3923e92cd61403188d935a61f05c",
+    "src/98zzzzzz-urban-diorama.js": "496fd3d69e3ff9c538e8b479daf3c095b86494d3e3d978f670fef8d86419d504",
+    "src/20-world.js": "99078559d8d3522fc5aa6bb9fc563b186e2237035906a95f57af3115cf2b94ee",
+    "src/07-options.js": "cd09471c2996b8cc7497a31bebed404880ee86c61d8f11916f99b78f7beaf6ae",
+    "src/98zzz-rural-services-art.js": "4861aec6e8edb99022469145c67a8c5aaa5e6f0ca5753c4f4762700ee0792c9b",
+    "src/98-town-situations.js": "d35ac5e559e7394afe0591d627161dd18810c779a9f88988324f927930fcce08",
+    "src/71-trip-inspector.js": "1b27791217ed23968e886b7b55fc8666113baca9cf652726ba15bdcee122d8a2",
+    "src/98zzzz-district-life.js": "d9e6af48c2fb92cc82d68b6c64baadda30452a0ce152c889abeead2d6aef4723",
+    "src/15-household-markets.js": "4264fc31062343a61ef026d9d3d1b085aef3ad1c6258217d0a192105bb0b64fb",
+    "src/28-urban-rehousing.js": "6d85ad78da330f398c4601cc03dddad3f29b07b88a3a2a229b1471c9a6a56b97",
+    "src/22-regional-markets.js": "b8786e25d1dcd6e6ca41a8f85631ad21c1e42444756a87d747a38e5913f75d8f",
+    "src/19-street-plan.js": "fe45c15ea63b39d48c4f81e06ec33d9d87eb18a9c717d445bfb436e36ec3baa0",
+    "src/35-goods-accounts.js": "a1ed08c467a547bad837b30a31f9a1bda96d4152dd0ea53c40f8fee23eed0aff",
+    "src/98-player-experience.js": "0fc8a2be96f25094981b95dabc0868ba7b2db4213012ed250a9924d09b01d9f9",
+    "src/25-scenarios.js": "fb2d46d4b00aac42dc67c9877afc8d1e011d1a9145fa727e3e116bf618ba396c",
+    "src/95-music.js": "c95fa79474f636d841589e5711f0d9e98ed0bc6dbfc57d108eb2fad1320357c0",
+    "src/69-civic-materials.js": "3b8c29b9dd4038501b2aab757174d881e54010a9751fe1a8dcebd7f9ce447f62",
+    "src/18-region-charter.js": "d5ab5f4cd9f46a95ea518adcf125ab08c9285aeb97f0c46a1f9ad566e89b1893",
+    "src/40-development.js": "1920a63066627acafb975cdec20d8d4e084285fb990c68445872d793822f8dd9",
+    "src/90-archive-panels.js": "eb93f4a2ea47f298c2bf60d209990445dd28c5c19ead98e2504cae6fad2a683a",
+    "src/98-sustained-projects.js": "a29f6ec633c3bb705334e8abc8fd33e923f99d86074307a4e2e3c564cd006806",
+    "src/71-transit-office.js": "cf597fbc7d768031ea56331d26a023afcc32340a85dd2c8ceaeb251b298ecb7e",
+    "src/98zz-diorama.js": "2f90d1d35d7cb92206e38d708b7870a2d41c676d4b7a19372fe55e06590b0581",
+    "src/27-urban-evolution.js": "8310a10ac3631df11ef3aaaf1385ee2fe203600c4cc6f08921f17faabc36c81d",
+    "src/98z-world-art.js": "8cdc3a6f7d1f2bcbb9a53103af546025b0ce9506bea0ea7183e544f59de5f16a",
+    "src/98-trade-ui.js": "8298171485017be6403fa43da46ea70506041e73906e38718d5cce7a9a1700e6",
+    "src/98x-logistics-ui.js": "a30f8b7c28f36ed99fe48b59080b49358ab9d9a247f7959ec47ebcc916d22f5f",
+    "src/05-systems.js": "bede7ab08c6312eb5fc32853e911aa9d5304b96d08edf4da536676fe460d00ad",
+    "src/98-private-service-ui.js": "83ef3bebd2a08648f0d8f458f849c5b980d36a810e7ec0306723690ea9b8acc0",
+    "src/97-workday-scenes.js": "1d691d631ee070890ce8d0441bdf44f1bf2caf68cc0b72277d58e4b10896b720",
+    "src/98-charter-ui.js": "c73975fa235b3f00b7215bf07770a7f76859e9b59131fb117eaefb73cbab4fa2",
+    "src/92-government.js": "bf536d983519180b4e6fe38b696e961acf967feccd203cdead660fba0ace01b9",
+    "src/98-urban-ui.js": "735a13d0bf35bdff088341ee38aa39819ea2a8ead0aa811e161b184f103450ca",
+    "src/60-renderer.js": "da6eae70f4cd8dab657dad9ab025b306be2fd9d83f8fe796282bc539b551f480",
+    "src/98-onboarding-trade.js": "bacc47c6f9835902b01334d13b2f71fb8f088edc9ac6c85352902e592de73ebb",
+    "src/98-status-deck.js": "48482002fadd4e37c1270d15e339c7bf1a6c89dcd38e10c0ec77d7023a9aa5a5",
+    "src/49-persistence.js": "f52a52297a9dc1ea88b3adf29b96a3fba7f5d7e2b521c64ca7ca5c420ca498f2",
+    "src/23-trade-infrastructure.js": "95b414ba5bc3e27eabd8b5d0f28e10e51e9e987676e96d56d5d2eccaee1daf12",
+    "src/21-waterfront.js": "9605140a426d512bcb85491eba221b75e1239084cba0496e9ae3bf79035f24e7",
+    "src/98zzzzz-transit-diorama.js": "2e2581c2946bece6286d62b8ee8a89f853a596ea4f6c81ccef33b7ab42216872",
+    "src/99-instrumentation.js": "d563b8d8fd1d5aaaf3a65ad083bffd6684ef4899d1f4b91d397790a1c803cde5",
+    "src/93-preferences.js": "6afc62df185e465e2ef142e7cdbc25fc993b78430f59cac01d49321be3a875b3",
+    "src/30-economy.js": "3948a134cc5429088fa86eba242ec3dc84a1520f99d29f0e26087ff0069890e2",
+    "src/94-economic-reports.js": "5c32f62ccfd58368917d2eede9842a4933d4385a51eb43f0e2127336a08752ff",
+    "src/14-credit-decisions.js": "227df8d1b7f8ebdf2e51a297eacac55d46db126aec3e22a5c099d436fe355080",
+    "release.json": "4c5c1dd4d92f4312f5b6def8fd29c2533b7dcd10486eb6108c621402a002a6a5"
+  },
+  "module_equivalence": {
+    "src/95-music.js": {
+      "upstream": "c92c72b",
+      "identical": true
+    },
+    "src/70-interaction.js": {
+      "upstream": "70b5218",
+      "identical": true
+    }
+  }
+}

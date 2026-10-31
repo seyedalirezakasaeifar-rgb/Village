@@ -11,6 +11,7 @@ import hashlib
 import math
 import time
 import os
+import functools,http.server,threading
 
 ROOT = Path(__file__).resolve().parents[1]
 HTML = (ROOT / 'assets/index.html').read_text()
@@ -31,6 +32,12 @@ def percentile(values, fraction):
 
 def test_live_large_town_ui_and_render_budget():
     source=(ROOT/'assets/game.js').read_bytes();source_sha=hashlib.sha256(source).hexdigest()
+    server=None
+    if os.environ.get('TOWNLEDGER_LIVE_HTTP')=='1':
+        class Quiet(http.server.SimpleHTTPRequestHandler):
+            def log_message(self,*args):pass
+        server=http.server.ThreadingHTTPServer(('127.0.0.1',0),functools.partial(Quiet,directory=str(ROOT/'assets')))
+        threading.Thread(target=server.serve_forever,daemon=True).start()
     with sync_playwright() as pw:
         browser = pw.chromium.launch(
             executable_path='/usr/bin/chromium',
@@ -41,11 +48,15 @@ def test_live_large_town_ui_and_render_budget():
         )
         errors = []
         page.on('pageerror', lambda error: errors.append(str(error)))
-        page.set_content(HTML)
         bundle=source.decode()
         if os.environ.get('TOWNLEDGER_LIVE_TRANSIT')=='1':bundle=bundle.replace('// SOURCE: 99-instrumentation.js',(ROOT/'tools/qa_live_network.js').read_text()+'\n// SOURCE: 99-instrumentation.js')
         if os.environ.get('TOWNLEDGER_LIVE_PROFILE')=='1':bundle=bundle.replace('// SOURCE: 99-instrumentation.js',(ROOT/'tools/qa_render_profile.js').read_text()+'\n// SOURCE: 99-instrumentation.js')
-        page.add_script_tag(content=bundle)
+        if server:
+            page.route('**/game.js',lambda route:route.fulfill(content_type='application/javascript',body=bundle))
+            page.goto('http://127.0.0.1:'+str(server.server_port)+'/index.html')
+        else:
+            page.set_content(HTML)
+            page.add_script_tag(content=bundle)
         page.locator('#newTown').click()
         page.locator('#pause').click()
         town = page.evaluate('''()=>{
@@ -132,7 +143,7 @@ def test_live_large_town_ui_and_render_budget():
         assert hashlib.sha256((ROOT/'assets/game.js').read_bytes()).hexdigest()==source_sha
         result = {
             'source_sha256':source_sha,
-            'camera':page.evaluate('__townTest.view().camera'),'viewport': [844, 390], 'network':network,'networkEnd':page.evaluate('__liveNetworkStatus()') if network else None,'zoom':zoom, 'synthetic': town, 'requestedSpeed': 64,
+            'assetOrigin':'HTTP' if server else 'opaque set_content','camera':page.evaluate('__townTest.view().camera'),'viewport': [844, 390], 'network':network,'networkEnd':page.evaluate('__liveNetworkStatus()') if network else None,'zoom':zoom, 'synthetic': town, 'requestedSpeed': 64,
             'elapsedSeconds': elapsed, 'simulatedDays': end['day'] - start['day'],
             'rafP50Ms': percentile(raf, .50), 'rafP95Ms': percentile(raf, .95),
             'rafP99Ms': percentile(raf, .99),
@@ -158,6 +169,7 @@ def test_live_large_town_ui_and_render_budget():
         assert result['rafP99Ms'] < 500, result['rafP99Ms']
         assert all(row['toNextFrameMs'] < 250 for row in ui), ui
         browser.close()
+        if server:server.shutdown();server.server_close()
         print(json.dumps(result, indent=2), flush=True)
 
 

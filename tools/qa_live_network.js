@@ -15,4 +15,4 @@ window.__liveNetworkBuild=()=>{
  return {grid:T,deeds:G.charter.owned.length,relocatedHouseholds:relocated.length,routes,capital:G.transit.capital,total:totalMoney()};
 };
 
-window.__liveNetworkStatus=()=>({routes:G.transit.routes.length,operating:G.transit.routes.filter(r=>r.stats.operating).length,rides:G.transit.daily.rides,fares:G.transit.fares,staff:G.transit.daily.staff,capacity:G.transit.routes.reduce((n,r)=>n+r.stats.capacity,0)});
+window.__liveNetworkStatus=()=>({routes:G.transit.routes.length,operating:G.transit.routes.filter(r=>r.stats.operating).length,rides:G.transit.daily.rides,fares:G.transit.fares,staff:G.transit.daily.staff,capacity:G.transit.routes.reduce((n,r)=>n+r.stats.capacity,0),musicPlaying:musicDecks.filter(d=>!d.audio.paused&&d.audio.currentTime>0).length,musicReferencedDecks:musicDecks.length});
