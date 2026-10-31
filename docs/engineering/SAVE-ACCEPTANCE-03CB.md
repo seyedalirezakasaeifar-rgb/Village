@@ -32,6 +32,11 @@ cold Continue, quota/denied-store/corrupt-store/stale-callback faults, rapid and
 same-day saves, malformed and failed-adoption imports, and exact replay. Outputs
 include seed, source hash, due time, bounded samples and every operation.
 
+To reproduce the original exact sequence, use `SAVE_QA_REPRO_03CB=1` with
+`SAVE_QA_ROOT` pointing at the immutable checkout and `SAVE_QA_OUTPUT` at a fresh
+scratch directory. This preserves the initial blocked enterprise-clearance fixture
+and original operation weights/sequence; it stops near day 102 in about 40 seconds.
+
 Default mode stops on a canonical mismatch. `SAVE_QA_CONTINUE_REPLAY=1` explicitly
 records the mismatch, restores the known checkpoint and continues independent
 fault/invariant checks; its result is `completed_with_replay_failures`, never a

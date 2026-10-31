@@ -49,6 +49,8 @@ window.__qaRun={
  sameDay:async()=>{const day=G.day;for(let i=0;i<3;i++){G.policy.imports=!G.policy.imports;save()}await saveWrites;if(G.day!==day||!autoSaveOK)throw Error('Same-day save failed');return G.policy.imports}
 };
 '''
+if os.environ.get('SAVE_QA_REPRO_03CB')=='1':
+ probe=probe.replace("const crop=Object.keys(G.landUse).find(id=>G.landUse[id]===1),quote=crop&&urbanClearanceQuote(+crop%T,+crop/T|0);let clearance=null;if(quote?.ok)clearance=urbanClearance(quote.x,quote.y,quote.total);", "const farm=G.firms.find(f=>f.kind==='farm'&&!f.closed),b=readBuild(farm.building),quote=urbanClearanceQuote(b.x,b.y);let clearance=null;if(quote.ok)clearance=urbanClearance(b.x,b.y,quote.total);")
 script=SOURCE.decode().replace('// SOURCE: 99-instrumentation.js',probe+'\n// SOURCE: 99-instrumentation.js')
 class Handler(SimpleHTTPRequestHandler):
  def log_message(self,*args):pass
@@ -76,8 +78,10 @@ try:
   # Ensure all fault classes execute once before weighted random scheduling.
   mandatory=['step','replay','import','adoption','quota','corruptStore','bothDenied','stale','burst','sameDay','cargo','cold','redevelop']
   index=0;next_report=0
+  if os.environ.get('SAVE_QA_REPRO_03CB')=='1':mandatory.remove('redevelop')
+  operations=mandatory[:];weights=[36,5,12,3,4,4,2,3,5,4,5,5]+([] if os.environ.get('SAVE_QA_REPRO_03CB')=='1' else [2])
   while time.monotonic()-START<SECONDS:
-   op=mandatory[index] if index<len(mandatory) else rng.choices(['step','replay','import','adoption','quota','corruptStore','bothDenied','stale','burst','sameDay','cargo','cold','redevelop'],weights=[36,5,12,3,4,4,2,3,5,4,5,5,2])[0];index+=1
+   op=mandatory[index] if index<len(mandatory) else rng.choices(operations,weights=weights)[0];index+=1
    if op=='step':n=rng.randint(1,12);page.evaluate('n=>__qaRun.step(n)',n);detail={'days':n}
    elif op=='replay':
     detail=page.evaluate('n=>__qaRun.replay(n)',rng.randint(1,12))
