@@ -1,6 +1,6 @@
 // One compact, optional map signal replaces three simultaneous opaque overlays.
 const mapStatusDeck=document.createElement('section');mapStatusDeck.id='mapStatusDeck';mapStatusDeck.setAttribute('aria-label','Town signals');
-mapStatusDeck.innerHTML='<button id="mapStatusToggle" type="button" aria-expanded="false" aria-controls="mapStatusDetails"><span class="map-status-caption">TOWN SIGNALS</span><strong id="mapStatusHeadline">Your next town decision</strong><span id="mapStatusContext"></span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg></button><div id="mapStatusDetails" hidden></div>';
+mapStatusDeck.innerHTML='<button id="mapStatusToggle" type="button" aria-expanded="false" aria-controls="mapStatusDetails"><span class="map-status-caption">TOWN SIGNALS</span><strong id="mapStatusHeadline">Your next town decision</strong><span id="mapStatusContext"></span><span id="mapStatusOverlayKey" aria-live="polite"></span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg></button><div id="mapStatusDetails" hidden></div>';
 const mapStatusDetails=mapStatusDeck.querySelector('#mapStatusDetails'),mapStatusToggle=mapStatusDeck.querySelector('#mapStatusToggle');
 mapStatusDetails.appendChild(document.querySelector('.map-top-left'));mapStatusDetails.appendChild($('liveEconomy'));document.querySelector('.workspace').appendChild(mapStatusDeck);
 function setMapStatusExpanded(expanded){
