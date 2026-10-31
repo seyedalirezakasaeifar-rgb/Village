@@ -65,7 +65,7 @@ function regionalContractForecast(f,m,good,quantity=districtContractSize(f)){
 }
 function dispatchRegionalContracts(){
  const s=ensureRegionalTrade();for(const c of s.contracts){if(c.status!=='active')continue;const f=G.firms[c.firm];if(c.delivered+.001>=c.quantity&&G.day<=c.deadline){c.status='fulfilled';story('Trade agreement fulfilled: '+c.name+'.','good',f.building);continue}if(G.day>c.deadline){c.status='missed';story('Delivery window missed: '+c.name+'. Paid cargo still travels; review loading, roads and local reserves.','bad',f.building);continue}
-  const reserved=s.shipments.filter(o=>o.contract===c.id).reduce((n,o)=>n+o.qty,0),need=c.quantity-c.delivered-reserved;if(need<=.001||f.closed)continue;const m=OUTSIDE_MARKETS.find(m=>m.id===c.market),q=regionalQuote(f,m,c.good,'export');
+  const reserved=s.shipments.filter(o=>o.contract===c.id).reduce((n,o)=>n+o.qty,0),need=c.quantity-c.delivered-reserved;if(need<=.001||f.closed||c.dispatchFrom!=null&&G.day<c.dispatchFrom)continue;const m=OUTSIDE_MARKETS.find(m=>m.id===c.market),q=regionalQuote(f,m,c.good,'export');
   // Do not send fresh promised cargo already forecast to miss its window.
   if(!q||G.day+q.days>c.deadline)continue;dispatchRegional(f,c.good,Math.max(0,Math.min(need,(f.stock[c.good]||0)-regionalContractReserve(f,c.good))),'export',q,c);
  }
