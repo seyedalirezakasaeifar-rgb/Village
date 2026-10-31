@@ -1,0 +1,193 @@
+{
+  "source_sha256": "bd4c718d1e8d393fec94581590394267c7e13da711a99f683d2f5350b2c1ab78",
+  "prototype_sha256": "6434126f78927209fa4d940fbab23a2794f231e51438ff081fe5bc39a4226abe",
+  "function_sha256": "caa445e7d9f34b616b0f80f9d0a4e8c84c4db1701053060c8d6bdf54ec6c3ac8",
+  "fixture_sha256": "ad6256fd85d4146fda9eeac0b16d5b182ed352c23bbd96af3b320553c29ce786",
+  "hostChromium": true,
+  "physicalAndroid": false,
+  "auditMs": 11.800000000745058,
+  "rows": [
+    {
+      "day": 41700,
+      "departures": 2,
+      "ms": 52.100000001490116,
+      "backupMs": 18,
+      "graphMs": 8.399999998509884,
+      "metrics": {
+        "prepareMs": 0.9000000022351742,
+        "planMs": 77.19999999925494,
+        "applyMs": 1.7000000029802322,
+        "commitMs": 1.5,
+        "ownedPeople": 2,
+        "ownedHouseholds": 1,
+        "ownedFirms": 0,
+        "ownedBuildings": 1
+      }
+    },
+    {
+      "day": 41730,
+      "departures": 2,
+      "ms": 33.599999997764826,
+      "backupMs": 15.400000002235174,
+      "graphMs": 7,
+      "metrics": {
+        "prepareMs": 0.30000000074505806,
+        "planMs": 43.19999999925494,
+        "applyMs": 0.9000000022351742,
+        "commitMs": 0.9000000022351742,
+        "ownedPeople": 2,
+        "ownedHouseholds": 1,
+        "ownedFirms": 0,
+        "ownedBuildings": 1
+      }
+    },
+    {
+      "day": 41760,
+      "departures": 2,
+      "ms": 22.299999997019768,
+      "backupMs": 12.899999998509884,
+      "graphMs": 1.9000000022351742,
+      "metrics": {
+        "prepareMs": 0.30000000074505806,
+        "planMs": 31.300000000745058,
+        "applyMs": 0.6999999992549419,
+        "commitMs": 0.5,
+        "ownedPeople": 2,
+        "ownedHouseholds": 1,
+        "ownedFirms": 0,
+        "ownedBuildings": 1
+      }
+    },
+    {
+      "day": 41790,
+      "departures": 1,
+      "ms": 18.800000000745058,
+      "backupMs": 10.699999999254942,
+      "graphMs": 2.199999999254942,
+      "metrics": {
+        "prepareMs": 0.4000000022351742,
+        "planMs": 34.80000000074506,
+        "applyMs": 0.8999999985098839,
+        "commitMs": 0.6000000014901161,
+        "ownedPeople": 1,
+        "ownedHouseholds": 1,
+        "ownedFirms": 0,
+        "ownedBuildings": 1
+      }
+    },
+    {
+      "day": 41820,
+      "departures": 2,
+      "ms": 17.299999997019768,
+      "backupMs": 10.5,
+      "graphMs": 1.300000000745058,
+      "metrics": {
+        "prepareMs": 0.3999999985098839,
+        "planMs": 28,
+        "applyMs": 0.6000000014901161,
+        "commitMs": 0.30000000074505806,
+        "ownedPeople": 2,
+        "ownedHouseholds": 1,
+        "ownedFirms": 0,
+        "ownedBuildings": 1
+      }
+    },
+    {
+      "day": 41850,
+      "departures": 1,
+      "ms": 16.199999999254942,
+      "backupMs": 10.600000001490116,
+      "graphMs": 1.300000000745058,
+      "metrics": {
+        "prepareMs": 0.3999999985098839,
+        "planMs": 27.300000000745058,
+        "applyMs": 0.5,
+        "commitMs": 0.4000000022351742,
+        "ownedPeople": 1,
+        "ownedHouseholds": 1,
+        "ownedFirms": 0,
+        "ownedBuildings": 1
+      }
+    },
+    {
+      "day": 41880,
+      "departures": 1,
+      "ms": 16.300000000745058,
+      "backupMs": 10.800000000745058,
+      "graphMs": 1.300000000745058,
+      "metrics": {
+        "prepareMs": 0.19999999925494194,
+        "planMs": 26.200000002980232,
+        "applyMs": 0.5,
+        "commitMs": 0.5,
+        "ownedPeople": 1,
+        "ownedHouseholds": 1,
+        "ownedFirms": 0,
+        "ownedBuildings": 1
+      }
+    },
+    {
+      "day": 41910,
+      "departures": 1,
+      "ms": 15.599999997764826,
+      "backupMs": 13.599999997764826,
+      "graphMs": 1.4000000022351742,
+      "metrics": {
+        "prepareMs": 0.5,
+        "planMs": 24.100000001490116,
+        "applyMs": 0.5,
+        "commitMs": 0.5999999977648258,
+        "ownedPeople": 1,
+        "ownedHouseholds": 1,
+        "ownedFirms": 0,
+        "ownedBuildings": 1
+      }
+    }
+  ],
+  "observedBoundaries": 88,
+  "faultResults": [
+    {
+      "faultAt": "planned",
+      "departures": 2
+    },
+    {
+      "faultAt": "owned",
+      "departures": 2
+    },
+    {
+      "faultAt": "person",
+      "departures": 2
+    },
+    {
+      "faultAt": "workers",
+      "departures": 2
+    },
+    {
+      "faultAt": "cash",
+      "departures": 2
+    },
+    {
+      "faultAt": "tenancy",
+      "departures": 2
+    },
+    {
+      "faultAt": "report",
+      "departures": 2
+    },
+    {
+      "faultAt": "story",
+      "departures": 2
+    },
+    {
+      "faultAt": "recompute",
+      "departures": 2
+    },
+    {
+      "faultAt": "before-commit",
+      "departures": 2
+    }
+  ],
+  "exactModelAndExternalRngReports": true,
+  "publishedExportStable": true,
+  "liveGameUnchanged": true
+}
