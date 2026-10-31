@@ -1,0 +1,119 @@
+{
+  "source_sha256": "dabe130a976283b8db40d37f71c449f33b588b726d5695bcd11330251d7fe0b7",
+  "determinism_and_continuation": {
+    "sameSeed": true,
+    "renderIndependent": true,
+    "continuedDays": 120,
+    "valid": {
+      "ok": true,
+      "issues": [],
+      "total": 15489571.999995582,
+      "population": 188,
+      "day": 301
+    }
+  },
+  "malformed_save_atomicity": {
+    "investorRejected": true,
+    "cargoRejected": true,
+    "futureRejected": true,
+    "townPreserved": true
+  },
+  "replicated_zoning": [
+    {
+      "seed": 42,
+      "zone": 0,
+      "population": 210,
+      "homes": 16,
+      "firms": 7,
+      "privateSpend": 486062,
+      "moneyDelta": -1.6868114471435547e-05,
+      "ms": 2925.300000000745
+    },
+    {
+      "seed": 42,
+      "zone": 100,
+      "population": 182,
+      "homes": 0,
+      "firms": 1,
+      "privateSpend": 0,
+      "moneyDelta": -1.1816620826721191e-05,
+      "ms": 1952.7000000001863
+    },
+    {
+      "seed": 101,
+      "zone": 0,
+      "population": 222,
+      "homes": 21,
+      "firms": 7,
+      "privateSpend": 560318,
+      "moneyDelta": -1.2537464499473572e-05,
+      "ms": 2748.5999999996275
+    },
+    {
+      "seed": 101,
+      "zone": 100,
+      "population": 186,
+      "homes": 0,
+      "firms": 1,
+      "privateSpend": 0,
+      "moneyDelta": -4.675239324569702e-06,
+      "ms": 1922.800000000745
+    },
+    {
+      "seed": 909,
+      "zone": 0,
+      "population": 211,
+      "homes": 19,
+      "firms": 5,
+      "privateSpend": 507601,
+      "moneyDelta": -1.5651807188987732e-05,
+      "ms": 2860.4000000003725
+    },
+    {
+      "seed": 909,
+      "zone": 100,
+      "population": 187,
+      "homes": 0,
+      "firms": 1,
+      "privateSpend": 0,
+      "moneyDelta": -1.2073665857315063e-05,
+      "ms": 1780.7000000001863
+    }
+  ],
+  "cargo_ownership": {
+    "consignments": 6,
+    "sampledUnits": 166.3792513597068,
+    "remaining": true,
+    "delayed": 1,
+    "cashConserved": true
+  },
+  "legacy_56_migration": {
+    "v": {
+      "ok": true,
+      "issues": [],
+      "total": 15439421,
+      "population": 169,
+      "day": 1
+    },
+    "after": {
+      "ok": true,
+      "issues": [],
+      "total": 15439420.999999257,
+      "population": 169,
+      "day": 31
+    },
+    "schema": 8
+  },
+  "true_pause": {
+    "identicalScreenshots": true,
+    "milliseconds": 500
+  },
+  "traffic_progress": {
+    "seconds": 1600,
+    "maximumWait": 0.9999999999999999,
+    "peak": 21,
+    "valid": true
+  },
+  "long_run_endurance": [],
+  "browser_errors": []
+}

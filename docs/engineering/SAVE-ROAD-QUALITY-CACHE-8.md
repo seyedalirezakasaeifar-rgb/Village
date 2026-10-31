@@ -30,6 +30,12 @@ This is a source correction, not a relaxed canonical comparison.
 
 Fixed assembled SHA-256:
 `dabe130a976283b8db40d37f71c449f33b588b726d5695bcd11330251d7fe0b7`.
-The complete seed-8142026 sequence and core gates are running against this scoped
-candidate; they must be reported from their terminal results. The lead's next
-immutable combined checkpoint is still required for a fresh full one-hour gate.
+Core gates passed. The seed-8142026 bounded sequence terminated successfully
+after 182.02 seconds: 132 operations, 40 cold reloads and 11 exact continuation
+checks through day 332, with zero JavaScript/replay failures. All system-specific
+archive validators, actual household capacities, cash/goods/ID invariants and
+archive bounds passed. Final asset-manifest checks and process exit code 0 were
+confirmed. Full trace, final source/driver/asset hashes and terminal receipt are
+retained beside the negative evidence. This is a three-minute result, not a
+one-hour pass. The lead's next immutable combined checkpoint is still required
+for a fresh full one-hour gate.
