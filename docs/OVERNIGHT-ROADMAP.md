@@ -53,3 +53,9 @@ Suggested next substantial phase after services: implement the original terrain/
 Implemented observed-surplus/stressed-payment lending, household debt priority, impaired-portfolio quote spreads, funded 30-day equipment commissioning, reachable grocery choice and disrupted-work recovery. Corrected late business costs and daily household loss reporting. Services and credit now have tutorial/inspection links and dated explanations. See CREDIT-AND-MARKETS-DEVELOPMENT.md for mechanisms, tests and limits. No new APK/version in this slice.
 
 Next: make ambitions and scenario progression reflect the richer service/market constraints, review readable in-world decision feedback and long-session memory, then finish fault/native and frozen release QA. Healthy full employment alone is not a meaningful completion criterion.
+
+## Player-loop and workday checkpoint
+
+Five distinct three-chapter council programmes now connect sustained goals to actual report/actions, with explicit reset/completion semantics and a common-scale services/employment chart. Added bounded original production/civic workday scenes, tested all 60 Council choices and four severe inherited-credit-loss/guarantee recovery branches. Strict paused-image regression and unchanged header DOM checks remain. A timed browser/archive/menu/heap session is running before the next performance check. See COUNCIL-PROGRAMME-DEVELOPMENT.md. No APK/version change.
+
+After the timed run: inspect growth-adjusted heap/cache data and real-session faults, address any confirmed issue, then continue visual hierarchy/transport polish and native/save-fault work before final balance and immutable release QA.

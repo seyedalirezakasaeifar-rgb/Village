@@ -19,7 +19,7 @@ function hydrateSave(raw){
    if(idSet.has(b.id))return false;idSet.add(b.id);
   }
   for(const h of data.households)for(const id of h.people){if(memberSet.has(id)||data.people[id].hh!==h.id||data.people[id].deceased||data.people[id].movedAway)return false;memberSet.add(id)}
-  if(!validateCivicState(data)||!validateCreditState(data))return false;
+  if(!validateCivicState(data)||!validateCreditState(data)||!validateScenarioProgramme(data))return false;
   data.version=3;data.policy={...defaults,...data.policy};
   data.banks=Array.isArray(data.banks)?data.banks.filter(b=>b&&Number.isInteger(b.id)&&b.id>=0&&b.id<12&&Number.isFinite(b.cash)&&b.cash>=0&&Number.isFinite(b.depositAPY)&&Number.isFinite(b.loanAPY)).slice(0,12):[];
   data.loans=Array.isArray(data.loans)?data.loans.filter(l=>l&&Number.isInteger(l.id)&&Number.isFinite(l.balance)&&l.balance>=0&&['active','repaid','default'].includes(l.status)).slice(0,10000):[];
@@ -39,7 +39,7 @@ function hydrateSave(raw){
   if(data.households.some(h=>!h||!Array.isArray(h.people)||!Number.isFinite(h.cash)||h.cash<0)||data.firms.some(f=>!f||!Array.isArray(f.workers)||!Number.isFinite(f.cash)||f.cash<0))return false;
   const workerIDs=new Set();for(const f of data.firms){for(const id of f.workers){if(workerIDs.has(id)||!data.people[id]||data.people[id].deceased||data.people[id].movedAway||data.people[id].job!==f.id)return false;workerIDs.add(id)}}
   for(const loan of data.loans||[])if(loan.fixedRate==null)loan.fixedRate=true;
-  G=data;G.serviceProvision=null;crewDay=-1;crewsUsed=new Map();regionalCrews=0;ensureSystems();rngState=Number.isInteger(G.rngState)?G.rngState:G.scenarioSeed;ensureFinance();ensureMarketModel();if(!G.banks.length)seedBanks();draftPolicy={};roadBatchDirty=false;invalidateRoads();cacheBuildingsFor=null;recompute();G.stats.approval=Math.round(G.council.approval);G.stats.health=Math.round(G.health);G.stats.education=Math.round(G.education);G.stats.marketConfidence=G.stats.marketConfidence||55;G.stats.wellbeing=G.stats.wellbeing??70;restoreTransport();staticDirty=true;dirty=true;updateHeader();return true;
+  G=data;resetTownTransientUI();G.serviceProvision=null;crewDay=-1;crewsUsed=new Map();regionalCrews=0;ensureSystems();rngState=Number.isInteger(G.rngState)?G.rngState:G.scenarioSeed;ensureFinance();ensureMarketModel();if(!G.banks.length)seedBanks();draftPolicy={};roadBatchDirty=false;invalidateRoads();cacheBuildingsFor=null;recompute();G.stats.approval=Math.round(G.council.approval);G.stats.health=Math.round(G.health);G.stats.education=Math.round(G.education);G.stats.marketConfidence=G.stats.marketConfidence||55;G.stats.wellbeing=G.stats.wellbeing??70;ensureScenarioProgramme();restoreTransport();staticDirty=true;dirty=true;updateHeader();return true;
  }catch(e){G=previousTown;invalidateRoads();cacheBuildingsFor=null;staticDirty=true;dirty=true;console.error('Invalid save',e);return false}
 }
 function writeIndexedDB(text){
@@ -98,7 +98,7 @@ function renderOverviewFull(){let s=G.stats,m=currentAmbition(),C=G.council;retu
 function renderAgenda(){let C=G.council,days=360-(G.day%360),completed=G.achievements.length;return head('The council chamber')+`<div class="statgrid">${stat('Approval',Math.round(C.approval)+'%',C.approval<45?'negative':'positive')}${stat('Days until election',days)}${stat('Elections held',C.elections)}${stat('Ambitions fulfilled',completed+' / '+AMBITIONS.length)}</div>`+
  tip('Council approval changes in response to employment, household finances, safety, taxation and business conditions. Each constituency weighs these outcomes differently.')+
  head('Four voices of the town')+meter('Working families',C.factions.workers,'#a6c8c1')+meter('Merchants & employers',C.factions.merchants,'#d6b779')+meter('Property owners',C.factions.homeowners,'#d5a17f')+meter('Public services & safety',C.factions.public,'#9acc9a')+
- head('Town ambitions')+tip('Choose one ambition to track. All nine can be completed over a long playthrough. Awards provide small, finite grants from the region rather than creating money.')+AMBITIONS.map(m=>ambitionCard(m)).join('')+
+ head('Town ambitions')+tip('Choose one ambition to track. All '+AMBITIONS.length+' can be completed over a long playthrough. Awards provide small, finite grants from the region rather than creating money.')+AMBITIONS.map(m=>ambitionCard(m)).join('')+
  head('Council correspondence')+tip('Letters, petitions and dilemmas arrive in the inbox without stopping the town. Review them on your own schedule, or let the economy run unattended at any speed.')+
  ((G.councilInbox||[]).length?G.councilInbox.map((item,i)=>`<div class="council-card inbox-letter"><small class="letter-day">RECEIVED DAY ${item.day}</small><h3>${esc(item.title)}</h3><button data-inbox="${i}">Review and decide</button></div>`).join(''):'<p class="desc">No correspondence is waiting. The town continues operating on its own.</p>')+
  `<div class="btnrow"><button id="convene" ${G.day-G.lastEventDay<12?'disabled':''}>Request council meeting</button><button id="jumpJournal">Open policy journal</button></div>`;

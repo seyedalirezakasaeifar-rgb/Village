@@ -157,7 +157,7 @@ function expireCouncilLetters(){
 }
 function recordObservation(){
  const hm=G.housingMarket||{},fs=G.firms.filter(f=>!f.closed),incomes=G.households.filter(h=>h.people.length).map(h=>(h.income-h.tax)/h.people.length).sort((a,b)=>a-b);
- const obs={day:G.day,population:G.stats.population,employment:G.stats.employment,hardship:G.stats.hardship,treasury:G.treasury,businesses:fs.length,construction:G.projects.length,rentIndex:hm.rentIndex,medianValue:hm.medianValue||0,vacancy:hm.vacancy||0,privateSpend:G.development.privateSpend||0,profit:fs.reduce((n,f)=>n+(f.netProfit||0),0),medianIncome:incomes[Math.floor(incomes.length/2)]||0,bankLiquidity:G.banks.reduce((n,b)=>n+b.cash,0),debt:G.loans.filter(l=>l.status==='active').reduce((n,l)=>n+l.balance,0)};
+ const obs={day:G.day,population:G.stats.population,employment:G.stats.employment,hardship:G.stats.hardship,treasury:G.treasury,businesses:fs.length,construction:G.projects.length,rentIndex:hm.rentIndex,medianValue:hm.medianValue||0,vacancy:hm.vacancy||0,privateSpend:G.development.privateSpend||0,profit:fs.reduce((n,f)=>n+(f.netProfit||0),0),medianIncome:incomes[Math.floor(incomes.length/2)]||0,medicalCoverage:G.serviceProvision?.health?.coverage||0,schoolCoverage:G.serviceProvision?.school?.coverage||0,trainingCompletions:G.civicTrainingCompletions||0,unmetFood:G.market?.unmetFood||0,bankLiquidity:G.banks.reduce((n,b)=>n+b.cash,0),debt:G.loans.filter(l=>l.status==='active').reduce((n,l)=>n+l.balance,0)};
  G.observations.push(obs);if(G.observations.length>1200)G.observations.shift();
  for(const e of G.policyExperiments){if(!e.after&&G.day-e.day>=180)e.after={...obs};}
 }
@@ -750,7 +750,7 @@ function civicTrainingDay(coverage){
  G.civicTraining=G.civicTraining.filter(c=>{const p=G.people[c.person];return p&&!p.deceased&&!p.movedAway&&p.age>=18&&p.age<=70;});
  const places=G.buildings.filter(b=>b.kind==='school').length*2;
  if(coverage>0&&G.serviceProvision?.school?.paid>0){
-  for(const course of G.civicTraining.slice(0,places)){course.days+=localCivicCoverage('school',G.people[course.person].hh);if(course.days>=120){const p=G.people[course.person];p.skill=Math.min(1.3,p.skill+.1);course.complete=true;story(p.name+' completed a funded adult-training term. Qualification grows through sustained teaching, not an instant grant.','good',0,p.hh);}}
+  for(const course of G.civicTraining.slice(0,places)){course.days+=localCivicCoverage('school',G.people[course.person].hh);if(course.days>=120){const p=G.people[course.person];p.skill=Math.min(1.3,p.skill+.1);course.complete=true;G.civicTrainingCompletions=(G.civicTrainingCompletions||0)+1;story(p.name+' completed a funded adult-training term. Qualification grows through sustained teaching, not an instant grant.','good',0,p.hh);}}
   G.civicTraining=G.civicTraining.filter(c=>!c.complete);
   const enrolled=new Set(G.civicTraining.map(c=>c.person));
   const access=serviceAccess('school'),reachable=new Set(access.households.filter(h=>h.served>0).map(h=>h.id));
@@ -856,6 +856,7 @@ function foundingStreetPlan(){
 
 // SOURCE: 20-world.js
 function seed(seedValue=42){
+ resetTownTransientUI();
  crewDay=-1;crewsUsed=new Map();regionalCrews=0;rngState=(Number(seedValue)>>>0)||42;visualState=918273;traffic=[];trafficClock=0;frameClock=0;trafficElapsed=0;vehicleSerial=0;intersectionGates.clear();
  draftPolicy={};roadBatchDirty=false;
  const tiles=new Array(T*T).fill(0),streets=foundingStreetPlan();
@@ -926,7 +927,7 @@ function seed(seedValue=42){
  for(let b of G.buildings)if(b.kind==='home')b.owner=(random()<.35?b.hh:random()*G.households.length|0);
  assignJobs();recompute();const counts={population:G.people.length,employment:G.stats.employment,hardship:G.stats.hardship,safety:G.stats.safety,businesses:G.firms.length,treasury:G.treasury};
  G.journal.push({day:1,name:'Village founded',message:'Town hall records open. Follow real people, employers and policy consequences.',baseline:counts});
- G.events.push({day:1,text:'A new council has taken responsibility for the prosperity of the Vale.',type:'neutral'});setupScenario();seedBanks();ensureSystems();initializeScenario();ensureMarketModel();G.scenarioSeed=seedValue;G.accounts={baseline:totalMoney(),maxError:0};housingMarketDay(true);recordObservation();save();
+ G.events.push({day:1,text:'A new council has taken responsibility for the prosperity of the Vale.',type:'neutral'});setupScenario();seedBanks();ensureSystems();initializeScenario();ensureMarketModel();G.scenarioSeed=seedValue;G.accounts={baseline:totalMoney(),maxError:0};housingMarketDay(true);recordObservation();initializeScenarioProgramme();save();
  staticDirty=true;dirty=true;
 }
 function cityCell(x,y){return x>=0&&x<T&&y>=0&&y<T?G.tiles[y*T+x]:-1}
@@ -1881,7 +1882,7 @@ function tick(){if(!G||pendingEvent)return;ensureSystems();ensureMarketModel();G
  if(!pendingEvent&&G.day%45===0&&G.day-G.lastEventDay>=37)offerCouncilEvent();
  // Publish and save one canonical end-of-day snapshot after demographic and civic changes.
  recompute();G.stats.approval=Math.round(G.council.approval);G.rngState=rngState;
- if(G.day%10===0)recordObservation();
+ updateScenarioProgramme();if(G.day%10===0)recordObservation();
  G.history.push({day:G.day,employment:G.stats.employment,hardship:G.stats.hardship,safety:G.stats.safety,treasury:Math.round(G.treasury),businesses:G.stats.businesses,deposits:(G.banks||[]).reduce((n,b)=>n+bankDeposits(b.id),0),crime:G.stats.dailyCrime,approval:G.council.approval,education:G.education,health:G.health});if(G.history.length>240)G.history.shift();
  if(G.day%60===0){const signal=marketSignal();if(signal.kind!=='normal'&&signal.title!==G.lastEconomicSignal){story(signal.title+'. '+signal.description,signal.kind==='good'?'good':'bad');G.lastEconomicSignal=signal.title;}}
  // Autosaves are scheduled in wall time by the frame controller.
@@ -1890,10 +1891,20 @@ function tick(){if(!G||pendingEvent)return;ensureSystems();ensureMarketModel();G
 
 function save(){if(!G||simulationBusy)return;let payload;try{payload=archivePayload()}catch(e){autoSaveOK=false;return}try{const key='townledger-v6';const prev=localStorage.getItem(key);if(prev){let valid=false;try{const e=JSON.parse(prev);valid=e.checksum===checksum(e.payload)}catch(_){}if(valid){localStorage.removeItem('townledger-village-founder-3');localStorage.setItem(key+'-backup',prev);}}localStorage.setItem(key,JSON.stringify({checksum:checksum(payload),payload}));localStorage.removeItem('townledger-village-founder-3');autoSaveOK=true;}catch(e){autoSaveOK=false;}if(window.indexedDB)writeIndexedDB(payload);}
 function load(){try{for(const key of ['townledger-v6','townledger-v6-backup']){try{const e=JSON.parse(localStorage.getItem(key)||'null');if(e&&e.checksum===checksum(e.payload)&&hydrateSave(e.payload))return true;}catch(_){}}let s=localStorage.getItem('townledger-village-founder-3')||localStorage.getItem('townledger-village-civic-2');if(!s)return false;return hydrateSave(s)}catch(e){return false}}
+function resetTownTransientUI(){
+ clearTimeout(toastTimeout);toastTimeout=0;$('toast').style.display='none';pendingEvent=null;$('eventDialog').style.display='none';councilOpener=null;selected=null;inspectedTrip=null;buildMode='';pointer.down=false;pointer.activeId=null;pointer.hover=null;touches.clear();roadPainted.clear();$('placementHint').style.display='none';$('hint').textContent='DRAG TO PAN · TAP TO INSPECT · PINCH TO ZOOM';
+}
 function toast(msg){const el=$('toast');el.textContent=msg;el.style.display='block';clearTimeout(toastTimeout);toastTimeout=setTimeout(()=>el.style.display='none',3300)}
 
 // SOURCE: 60-renderer.js
-function updateHeader(){if(!G)return;$('pop').textContent=fmt(G.stats.population);$('funds').textContent=money(G.treasury);$('jobs').textContent=G.stats.employment+'%';$('safety').textContent=G.stats.safety+'/100';$('approval').textContent=Math.round(G.council.approval)+'%';$('date').textContent='YEAR '+G.year+' · MONTH '+G.month+' · DAY '+G.day;$('season').textContent=(seasonsEnabled()?['SPRING IN THE VALE','SUMMER IN THE VALE','AUTUMN IN THE VALE','WINTER IN THE VALE'][Math.floor((G.month-1)/3)]:'THE WORKING CITY')+(weatherEnabled()&&G.weather&&G.weather!=='clear'?' · '+G.weather.toUpperCase():'');$('pause').textContent=paused?'►':'Ⅱ';$('pause').setAttribute('aria-label',paused?'Resume simulation':'Pause simulation');$('pause').title=paused?'Resume':'Pause';if($('liveEconomy')&&(G.day%5===1||G.day<5)){const m=marketSignal();$('liveEconomy').innerHTML=`<b>${esc(m.title)}</b><span>${G.stats.employment}% employed · ${m.m.open} firms · ${m.m.projects} building · ${G.stats.hardship}% hardship</span>`;}$('speed').textContent=speed+'×';if($('effectiveSpeed'))$('effectiveSpeed').textContent=!paused&&speed>=8?'Actual '+perfStats.effective.toFixed(0)+'×':'';if($('speedRange'))$('speedRange').value=String(SPEED_PRESETS.indexOf(speed)>=0?SPEED_PRESETS.indexOf(speed):0);$('pauseBanner').style.display=paused?'block':'none'; updateObjectiveMini();}
+function headerText(id,value){const el=$(id),text=String(value);if(el&&el.textContent!==text)el.textContent=text;}
+function updateHeader(){
+ if(!G)return;headerText('pop',fmt(G.stats.population));headerText('funds',money(G.treasury));headerText('jobs',G.stats.employment+'%');headerText('safety',G.stats.safety+'/100');headerText('approval',Math.round(G.council.approval)+'%');headerText('date','YEAR '+G.year+' · MONTH '+G.month+' · DAY '+G.day);
+ headerText('season',(seasonsEnabled()?['SPRING IN THE VALE','SUMMER IN THE VALE','AUTUMN IN THE VALE','WINTER IN THE VALE'][Math.floor((G.month-1)/3)]:'THE WORKING CITY')+(weatherEnabled()&&G.weather&&G.weather!=='clear'?' · '+G.weather.toUpperCase():''));
+ headerText('pause',paused?'►':'Ⅱ');const pause=$('pause'),label=paused?'Resume simulation':'Pause simulation',title=paused?'Resume':'Pause';if(pause.getAttribute('aria-label')!==label)pause.setAttribute('aria-label',label);if(pause.title!==title)pause.title=title;
+ if($('liveEconomy')&&(G.day%5===1||G.day<5)){const m=marketSignal(),html=`<b>${esc(m.title)}</b><span>${G.stats.employment}% employed · ${m.m.open} firms · ${m.m.projects} building · ${G.stats.hardship}% hardship</span>`;if($('liveEconomy').innerHTML!==html)$('liveEconomy').innerHTML=html;}
+ headerText('speed',speed+'×');headerText('effectiveSpeed',!paused&&speed>=8?'Actual '+perfStats.effective.toFixed(0)+'×':'');const range=$('speedRange'),value=String(SPEED_PRESETS.indexOf(speed)>=0?SPEED_PRESETS.indexOf(speed):0);if(range&&range.value!==value)range.value=value;$('pauseBanner').style.display=paused?'block':'none';updateObjectiveMini();
+}
 // ----- Town map renderer. Geometry is cached; only vehicles need a dynamic redraw.
 function iso(x,y){return [(x-y)*TW/2+RW/2,(x+y)*TH/2+32]}
 function diamond(g,x,y,fill,stroke){let p=iso(x,y);g.beginPath();g.moveTo(p[0],p[1]);g.lineTo(p[0]+TW/2,p[1]+TH/2);g.lineTo(p[0],p[1]+TH);g.lineTo(p[0]-TW/2,p[1]+TH/2);g.closePath();g.fillStyle=fill;g.fill();g.strokeStyle=fill;g.lineWidth=.7;g.stroke();if(stroke){g.strokeStyle=stroke;g.lineWidth=.6;g.stroke()}}
@@ -2337,7 +2348,7 @@ function atmosphere(g,sx,sy,ww,hh){
  if(!gameOptions.effects||gameOptions.reducedMotion)return;
  const active=(weatherEnabled()&&(G.weather==='rain'||G.weather==='storm'))||visualMonth()>=10;
  if(active)for(let j=0;j<70;j++){const h=hash(j+G.worldSeed),x=sx+(h%1000)/1000*ww,y=sy+(((h>>>10)%1000)/1000*hh+frameClock*(visualMonth()>=10?12:120))%hh;g.strokeStyle=visualMonth()>=10?'#f8f7e399':'#dce3cf66';g.lineWidth=1;g.beginPath();g.moveTo(x,y);g.lineTo(x+(visualMonth()>=10?1:4),y+(visualMonth()>=10?1:9));g.stroke();}
- for(const item of displayItems){if(item.kind!=='building'||item.x<sx-100||item.x>sx+ww+100||item.y<sy-100||item.y>sy+hh+130)continue;const b=item.b;if(b.firm<0||G.firms[b.firm]?.closed||!G.firms[b.firm]?.workers.length||!['factory','mill','bakery','sawmill'].includes(b.kind))continue;for(let j=0;j<3;j++){const t=(frameClock*.30+j*.40+b.id*.13)%1;g.fillStyle=`rgba(224,221,195,${.30*(1-t)})`;g.fillRect(Math.round(item.x-12+t*17),Math.round(item.y-48-t*24),3+Math.floor(t*6),3+Math.floor(t*5));}}
+ for(const item of displayItems){if(item.kind!=='building'||item.x<sx-100||item.x>sx+ww+100||item.y<sy-100||item.y>sy+hh+130)continue;const b=item.b;if(b.firm<0||G.firms[b.firm]?.closed||!workingStaff(G.firms[b.firm]).length||!(G.firms[b.firm]?.production>0)||!['factory','mill','bakery','sawmill'].includes(b.kind))continue;for(let j=0;j<3;j++){const t=(frameClock*.30+j*.40+b.id*.13)%1;g.fillStyle=`rgba(224,221,195,${.30*(1-t)})`;g.fillRect(Math.round(item.x-12+t*17),Math.round(item.y-48-t*24),3+Math.floor(t*6),3+Math.floor(t*5));}}
 }
 function drawConstructionProgress(g,visible){
  for(const project of G.projects){
@@ -2378,12 +2389,12 @@ function draw(){
  }
  ctx.setTransform(1,0,0,1,0,0);ctx.drawImage(viewRaster,0,0);transform();
  drawConstructionProgress(ctx,visible);drawInspectedRoute(ctx);
- const actors=buildingActivity(viewBuildings.filter(item=>visible(item.x,item.y,0)));if(gameOptions.traffic)for(const v of traffic){const p=vehiclePosition(v);if(visible(p.x,p.y,15))actors.push({kind:'vehicle',v,...p});}actors.sort((a,b)=>a.y-b.y);
+ const visibleParcels=viewBuildings.filter(item=>visible(item.x,item.y,0)),actors=[...buildingActivity(visibleParcels),...workdayScenes(visibleParcels)];if(gameOptions.traffic)for(const v of traffic){const p=vehiclePosition(v);if(visible(p.x,p.y,15))actors.push({kind:'vehicle',v,...p});}actors.sort((a,b)=>a.y-b.y);
  if(actors.length){
   // Clip subsequent foreground re-paints to the actors' damage rectangles.
-  ctx.save();ctx.beginPath();for(const a of actors)ctx.rect(a.x-23,a.y-23,46,40);ctx.clip();
+  ctx.save();ctx.beginPath();for(const a of actors)ctx.rect(a.x-25,a.y-32,56,52);ctx.clip();
   const layered=[...actors,...viewBuildings.filter(a=>actors.some(v=>a.y>=v.y&&Math.abs(a.x-v.x)<112&&a.y-v.y<220))].sort((a,b)=>a.y-b.y);
-  for(const a of layered){if(a.kind==='vehicle')vehiclePaint(ctx,a.v,a,frameClock);else ctx.drawImage(spriteFor(a),Math.round(a.x-128),Math.round(a.y-240));}ctx.restore();
+  for(const a of layered){if(a.kind==='vehicle')vehiclePaint(ctx,a.v,a,frameClock);else if(a.kind==='workday')paintWorkdayScene(ctx,a,frameClock);else ctx.drawImage(spriteFor(a),Math.round(a.x-128),Math.round(a.y-240));}ctx.restore();
  }
 
  paintTownLight(ctx);
@@ -2576,7 +2587,7 @@ function buildingActivity(items){
  const actors=[];
  if(!gameOptions.effects||gameOptions.reducedMotion)return actors;
  const cap=fastRenderEnabled()?5:gameOptions.quality==='high'?20:12;let count=0;
- for(const item of items){const b=item.b,f=b&&G.firms[b.firm];if(!f||f.closed||!f.workers.length||!(f.production>0||f.revenue>0)||++count>cap)continue;
+ for(const item of items){const b=item.b,f=b&&G.firms[b.firm];if(!f||f.closed||!workingStaff(f).length||!(f.production>0||f.revenue>0)||++count>cap)continue;
   const id=f.workers[0],phase=(frameClock*.14+b.id*.173)%1,t=phase<.5?phase*2:(1-phase)*2;
   const door=point(0,item.d*.38,0),road=graph().portals.get(b.id);if(road==null)continue;const target=roadCenter(road),x=item.x+door[0],y=item.y+door[1];
   // A short staff errand remains between the frontage and its connected sidewalk.
@@ -3176,9 +3187,9 @@ function yearlyDemographics(){
 
 function updateObjectiveMini(){if(!G)return;let m=AMBITIONS.find(m=>m.id===G.ambition)||AMBITIONS[0],days=G.ambitionDays[m.id]||0,p=m.progress(G);
  if(G.achievements.includes(m.id))p=1;else if(m.goal(G))p=Math.min(1,days/m.days);
- $('objectiveName').textContent=m.title;$('objectiveProgress').style.width=(100*clamp(p,0,1))+'%';
- const h=G.events[0];if(h){$('headline').textContent=h.text;}
- if(G.roadMetrics&&G.roadMetrics.connectedFirms<G.roadMetrics.totalFirms){$('headline').textContent='Road access warning: '+(G.roadMetrics.totalFirms-G.roadMetrics.connectedFirms)+' local businesses are cut off from town freight.';}
+ headerText('objectiveName',m.title);$('objectiveProgress').style.width=(100*clamp(p,0,1))+'%';
+ const h=G.events[0];if(h){headerText('headline',h.text);}
+ if(G.roadMetrics&&G.roadMetrics.connectedFirms<G.roadMetrics.totalFirms){headerText('headline','Road access warning: '+(G.roadMetrics.totalFirms-G.roadMetrics.connectedFirms)+' local businesses are cut off from town freight.');}
 }
 
 $('eventDefer').onclick=()=>closeCouncilDialog(true);
@@ -3209,7 +3220,7 @@ function hydrateSave(raw){
    if(idSet.has(b.id))return false;idSet.add(b.id);
   }
   for(const h of data.households)for(const id of h.people){if(memberSet.has(id)||data.people[id].hh!==h.id||data.people[id].deceased||data.people[id].movedAway)return false;memberSet.add(id)}
-  if(!validateCivicState(data)||!validateCreditState(data))return false;
+  if(!validateCivicState(data)||!validateCreditState(data)||!validateScenarioProgramme(data))return false;
   data.version=3;data.policy={...defaults,...data.policy};
   data.banks=Array.isArray(data.banks)?data.banks.filter(b=>b&&Number.isInteger(b.id)&&b.id>=0&&b.id<12&&Number.isFinite(b.cash)&&b.cash>=0&&Number.isFinite(b.depositAPY)&&Number.isFinite(b.loanAPY)).slice(0,12):[];
   data.loans=Array.isArray(data.loans)?data.loans.filter(l=>l&&Number.isInteger(l.id)&&Number.isFinite(l.balance)&&l.balance>=0&&['active','repaid','default'].includes(l.status)).slice(0,10000):[];
@@ -3229,7 +3240,7 @@ function hydrateSave(raw){
   if(data.households.some(h=>!h||!Array.isArray(h.people)||!Number.isFinite(h.cash)||h.cash<0)||data.firms.some(f=>!f||!Array.isArray(f.workers)||!Number.isFinite(f.cash)||f.cash<0))return false;
   const workerIDs=new Set();for(const f of data.firms){for(const id of f.workers){if(workerIDs.has(id)||!data.people[id]||data.people[id].deceased||data.people[id].movedAway||data.people[id].job!==f.id)return false;workerIDs.add(id)}}
   for(const loan of data.loans||[])if(loan.fixedRate==null)loan.fixedRate=true;
-  G=data;G.serviceProvision=null;crewDay=-1;crewsUsed=new Map();regionalCrews=0;ensureSystems();rngState=Number.isInteger(G.rngState)?G.rngState:G.scenarioSeed;ensureFinance();ensureMarketModel();if(!G.banks.length)seedBanks();draftPolicy={};roadBatchDirty=false;invalidateRoads();cacheBuildingsFor=null;recompute();G.stats.approval=Math.round(G.council.approval);G.stats.health=Math.round(G.health);G.stats.education=Math.round(G.education);G.stats.marketConfidence=G.stats.marketConfidence||55;G.stats.wellbeing=G.stats.wellbeing??70;restoreTransport();staticDirty=true;dirty=true;updateHeader();return true;
+  G=data;resetTownTransientUI();G.serviceProvision=null;crewDay=-1;crewsUsed=new Map();regionalCrews=0;ensureSystems();rngState=Number.isInteger(G.rngState)?G.rngState:G.scenarioSeed;ensureFinance();ensureMarketModel();if(!G.banks.length)seedBanks();draftPolicy={};roadBatchDirty=false;invalidateRoads();cacheBuildingsFor=null;recompute();G.stats.approval=Math.round(G.council.approval);G.stats.health=Math.round(G.health);G.stats.education=Math.round(G.education);G.stats.marketConfidence=G.stats.marketConfidence||55;G.stats.wellbeing=G.stats.wellbeing??70;ensureScenarioProgramme();restoreTransport();staticDirty=true;dirty=true;updateHeader();return true;
  }catch(e){G=previousTown;invalidateRoads();cacheBuildingsFor=null;staticDirty=true;dirty=true;console.error('Invalid save',e);return false}
 }
 function writeIndexedDB(text){
@@ -3288,7 +3299,7 @@ function renderOverviewFull(){let s=G.stats,m=currentAmbition(),C=G.council;retu
 function renderAgenda(){let C=G.council,days=360-(G.day%360),completed=G.achievements.length;return head('The council chamber')+`<div class="statgrid">${stat('Approval',Math.round(C.approval)+'%',C.approval<45?'negative':'positive')}${stat('Days until election',days)}${stat('Elections held',C.elections)}${stat('Ambitions fulfilled',completed+' / '+AMBITIONS.length)}</div>`+
  tip('Council approval changes in response to employment, household finances, safety, taxation and business conditions. Each constituency weighs these outcomes differently.')+
  head('Four voices of the town')+meter('Working families',C.factions.workers,'#a6c8c1')+meter('Merchants & employers',C.factions.merchants,'#d6b779')+meter('Property owners',C.factions.homeowners,'#d5a17f')+meter('Public services & safety',C.factions.public,'#9acc9a')+
- head('Town ambitions')+tip('Choose one ambition to track. All nine can be completed over a long playthrough. Awards provide small, finite grants from the region rather than creating money.')+AMBITIONS.map(m=>ambitionCard(m)).join('')+
+ head('Town ambitions')+tip('Choose one ambition to track. All '+AMBITIONS.length+' can be completed over a long playthrough. Awards provide small, finite grants from the region rather than creating money.')+AMBITIONS.map(m=>ambitionCard(m)).join('')+
  head('Council correspondence')+tip('Letters, petitions and dilemmas arrive in the inbox without stopping the town. Review them on your own schedule, or let the economy run unattended at any speed.')+
  ((G.councilInbox||[]).length?G.councilInbox.map((item,i)=>`<div class="council-card inbox-letter"><small class="letter-day">RECEIVED DAY ${item.day}</small><h3>${esc(item.title)}</h3><button data-inbox="${i}">Review and decide</button></div>`).join(''):'<p class="desc">No correspondence is waiting. The town continues operating on its own.</p>')+
  `<div class="btnrow"><button id="convene" ${G.day-G.lastEventDay<12?'disabled':''}>Request council meeting</button><button id="jumpJournal">Open policy journal</button></div>`;
@@ -3487,6 +3498,114 @@ document.addEventListener('click',e=>{if(e.target.closest('[data-open-monetary]'
 let soundEnabled=true;try{soundEnabled=localStorage.getItem('townledger-audio')!=='off'}catch(e){};let ambient=null,ambientFile='';const audioCache={};
 function refreshAmbience(){if(!soundEnabled||!G||document.hidden){if(ambient)ambient.pause();return}const name=G.weather==='rain'||G.weather==='storm'?'rain':'village';if(name!==ambientFile){if(ambient)ambient.pause();ambient=new Audio('sound/'+name+'.wav');ambient.loop=true;ambient.volume=.10;ambientFile=name}ambient.play().catch(()=>{})}function playSfx(name){if(!soundEnabled)return;try{let a=audioCache[name];if(!a){a=new Audio('sound/'+name+'.wav');a.volume=.22;audioCache[name]=a}a.pause();a.currentTime=0;a.play().catch(()=>{})}catch(e){}}
 document.addEventListener('click',e=>{let b=e.target.closest('button');if(!b)return;let id=b.id;if(id==='newTown'||id==='enactPolicy'||id==='borrow'||id==='repay')playSfx('coin');else if(id==='saveNow')playSfx('save');else if(b.dataset.build!==undefined)playSfx('zone');else if(b.dataset.eventChoice!==undefined)playSfx('coin');else playSfx('click')},{passive:true});
+
+// SOURCE: 96-council-programme.js
+// Scenario programmes measure sustained outcomes; they do not grant free resources.
+function programmeMetrics(){
+ const households=G.households.filter(h=>h.people.length),latest=fromEnd(G.observations)||{},need=G.market?.consumedFood+G.market?.unmetFood;
+ const recurring=['policeBudget','defenseBudget','healthBudget','educationBudget','aidBudget','energyAidBudget','outreachBudget','roadBudget','transitBudget','militiaBudget'].reduce((n,k)=>n+(G.policy[k]||0),0)+G.people.filter(p=>!p.deceased&&!p.movedAway&&p.age>70).length*(G.policy.pensionDaily||0)+(G.policy.employmentSubsidy||0)*G.people.filter(p=>p.job>=0&&!p.commuteBlocked).length+G.debt*((G.policy.policyRate||0)/100+.015)/360;
+ return {employment:G.stats.employment||0,hardship:G.stats.hardship||0,food:need>0?100*G.market.consumedFood/need:0,medical:100*(G.serviceProvision?.health?.coverage??latest.medicalCoverage??0),school:100*(G.serviceProvision?.school?.coverage??latest.schoolCoverage??0),buffers:100*households.filter(h=>householdLiquidity(h)/h.people.length>=300).length/Math.max(1,households.length),reserve:Math.min(999,G.treasury/Math.max(1,recurring)),banks:G.banks.filter(b=>!b.closed&&bankEquity(b)>0).length,blocked:G.market?.blockedCommutes||0,training:G.civicTrainingCompletions||0,treasury:G.treasury,debt:G.debt};
+}
+const PROGRAMME_RULES={
+ work:['Residents in work','employment',75,'min','%','economy','Inspect sales and margins before financing more jobs.'],
+ food:['Essential food supplied','food',95,'min','%','economy','Check reachable shops, stock, retail staff and household buying power.'],
+ hardship:['Households in hardship','hardship',15,'max','%','citizens','Inspect a struggling family; income, rent and access can bind differently.'],
+ care:['Funded medical access','medical',65,'min','%','community','Compare reachable places, qualified staff and operating purchases.'],
+ learning:['Funded school access','school',60,'min','%','community','Buildings need reachable pupils, staff and sustained operating funds.'],
+ cash:['Authorized spending reserve','reserve',30,'min',' days','treasury','Reserve days compare cash with authorized services, pensions, subsidy and debt interest. Unused allocations can make actual spending lower.'],
+ banks:['Solvent operating banks','banks',2,'min','','banking','Default losses absorb equity; new banks need subscribed regional capital.'],
+ buffers:['Families with $300 per resident','buffers',75,'min','%','citizens','Cash and bank deposits count; home valuations are not immediately spendable.'],
+ access:['Interrupted work journeys','blocked',0,'max','','construction','Reconnect workplaces and homes before adding capacity.'],
+ training:['Adult training terms completed','training',2,'min','','community','A term needs 120 equivalent locally funded school days; partial coverage takes longer.']
+};
+function programmeRule(key,target){const a=PROGRAMME_RULES[key];return {key,label:a[0],metric:a[1],target:target??a[2],direction:a[3],unit:a[4],panel:a[5],help:a[6]};}
+function programmeChapter(title,description,keys,days=30){return {title,description,days,rules:keys.map(k=>Array.isArray(k)?programmeRule(...k):programmeRule(k))};}
+const SCENARIO_PROGRAMMES={
+ settlement:{title:'Build a lasting borough',chapters:[programmeChapter('The everyday essentials','Establish reliable work and a food basket families can obtain.',['work','food','hardship']),programmeChapter('Care within reach','Purchase usable care and teaching, then retain a month of authorized commitments.',['care','learning','cash']),programmeChapter('Prosperity with a cushion','Sustain useful services and family buffers through a longer operating period.',['work','buffers','care','learning','cash'],60)]},
+ frontier:{title:'An independent frontier',chapters:[programmeChapter('A viable foothold','Secure the smaller town’s essentials before promising a larger public establishment.',[['work',65],'food',['hardship',25]]),programmeChapter('A modest public settlement','Expand care and learning within a thin tax base.',[['care',50],['learning',45],['cash',20]]),programmeChapter('Room to endure','Retain household buffers, reachable employment and a month of public commitments.',[['work',80],'buffers','access','cash'],60)]},
+ hardtimes:{title:'A recovery that lasts',chapters:[programmeChapter('Stop the immediate slide','Restore essentials and retain access to solvent institutions.',[['work',70],'food',['hardship',25],'banks']),programmeChapter('Rebuild the cushions','Rebuild family savings while restoring funded local care and schooling.',['buffers',['care',50],['learning',45]]),programmeChapter('A durable recovery','Sustain employment and services without consuming the public cash reserve.',[['work',80],['hardship',12],'care','learning','cash'],90)]},
+ industrial:{title:'An industrial social contract',chapters:[programmeChapter('Work that sustains families','Judge industrial expansion by paid work and essential living conditions.',[['work',80],'food','hardship']),programmeChapter('Skills behind the factories','Support actual adult training and reachable public care.',['training','learning','care']),programmeChapter('Investment with resilience','Keep the workforce connected and retain family and public buffers.',['work','access','buffers','cash'],60)]},
+ regional:{title:'A city beyond full employment',chapters:[programmeChapter('An accessible regional city','A strong headline job market still needs reachable work and funded local places.',['access','care','learning']),programmeChapter('Broader capability','Complete sustained adult learning while families retain liquid savings.',['training','buffers',['learning',70]]),programmeChapter('A sustainable civic settlement','Carry the commitments through two months with a public reserve.',['work',['care',75],['learning',70],'cash'],60)]}
+};
+function programmeDefinition(){return Object.hasOwn(SCENARIO_PROGRAMMES,G.scenario)?SCENARIO_PROGRAMMES[G.scenario]:SCENARIO_PROGRAMMES.settlement;}
+function initializeScenarioProgramme(){G.scenarioProgramme={version:1,scenario:G.scenario,started:G.day,stage:0,held:0,lastDay:G.day,completed:[],baseline:programmeMetrics()};}
+function ensureScenarioProgramme(){if(!G.scenarioProgramme)initializeScenarioProgramme();}
+function programmeRuleMet(rule,metrics){return rule.direction==='min'?metrics[rule.metric]+.00001>=rule.target:metrics[rule.metric]-.00001<=rule.target;}
+function updateScenarioProgramme(){
+ ensureScenarioProgramme();const state=G.scenarioProgramme,definition=programmeDefinition(),chapter=definition.chapters[state.stage];if(!chapter||state.lastDay===G.day)return;
+ const metrics=programmeMetrics();state.lastDay=G.day;state.held=chapter.rules.every(r=>programmeRuleMet(r,metrics))?state.held+1:0;
+ if(state.held<chapter.days)return;
+ state.completed.push({stage:state.stage,day:G.day});state.stage++;state.held=0;state.baseline=metrics;
+ const final=state.stage===definition.chapters.length,message=final?'Council programme completed: '+definition.title+'. The town remains open for continued government.':'Council chapter completed: '+chapter.title+'. Next: '+definition.chapters[state.stage].title+'.';
+ G.journal.push({day:G.day,name:final?'Council programme complete':'Council chapter complete',message,baseline:{...G.stats,treasury:G.treasury}});story(message,'good');
+}
+function validateScenarioProgramme(data){
+ if(data.scenario!=null&&!Object.hasOwn(SCENARIO_PROGRAMMES,data.scenario))return false;
+ if(data.civicTrainingCompletions!=null&&(!Number.isInteger(data.civicTrainingCompletions)||data.civicTrainingCompletions<0||data.civicTrainingCompletions>1000000))return false;
+ const p=data.scenarioProgramme;if(p==null)return true;const definition=SCENARIO_PROGRAMMES[data.scenario]||SCENARIO_PROGRAMMES.settlement;
+ if(p.version!==1||p.scenario!==data.scenario||!Number.isInteger(p.started)||p.started<1||p.started>data.day||!Number.isInteger(p.lastDay)||p.lastDay<p.started||p.lastDay>data.day||!Number.isInteger(p.stage)||p.stage<0||p.stage>definition.chapters.length||!Number.isInteger(p.held)||p.held<0||p.held>=(definition.chapters[p.stage]?.days||1)||!Array.isArray(p.completed)||p.completed.length!==p.stage)return false;
+ if(p.completed.some((c,i)=>c.stage!==i||!Number.isInteger(c.day)||c.day<p.started||c.day>data.day||(i>0&&c.day<=p.completed[i-1].day)))return false;
+ return p.baseline&&typeof p.baseline==='object'&&!Array.isArray(p.baseline)&&Object.keys(p.baseline).length<=20&&['employment','hardship','food','medical','school','buffers','reserve','banks','blocked','training','treasury','debt'].every(k=>Number.isFinite(p.baseline[k])&&p.baseline[k]>=0);
+}
+function programmeTrend(){
+ const samples=G.observations.filter(o=>Number.isFinite(o.medicalCoverage)&&Number.isFinite(o.schoolCoverage)).slice(-36);if(samples.length<2)return tip('The ten-day record will begin to show trends after two observations.');
+ const lines=[['employment','Employment','#536c70',1],['medicalCoverage','Medical access','#2f6945',100],['schoolCoverage','School access','#886020',100]],path=(key,scale)=>samples.map((s,i)=>`${(i/(samples.length-1)*320).toFixed(1)},${(110-clamp(s[key]*scale,0,100)).toFixed(1)}`).join(' ');
+ return `<svg class="programme-chart" viewBox="0 0 355 135" role="img" aria-label="Employment, funded medical access and school access on a fixed zero to one hundred percent scale, days ${samples[0].day} to ${fromEnd(samples).day}"><path d="M0 10H320M0 60H320M0 110H320" stroke="#b2ba9c" fill="none"/>${lines.map(([key,label,color,scale])=>`<polyline points="${path(key,scale)}" fill="none" stroke="${color}" stroke-width="2.5"/>`).join('')}<g fill="#344d3d" font-size="10"><text x="325" y="14">100%</text><text x="325" y="64">50%</text><text x="325" y="114">0%</text><text x="0" y="132">DAY ${samples[0].day}</text><text x="255" y="132">DAY ${fromEnd(samples).day}</text></g></svg><div class="programme-legend">${lines.map(([key,label,color,scale])=>`<span><i style="background:${color}"></i>${label} ${policyNumber(fromEnd(samples)[key]*scale)}%</span>`).join('')}</div>`;
+}
+function scenarioProgrammeCard(full=false){
+ const state=G.scenarioProgramme;if(!state)return '';const definition=programmeDefinition(),chapter=definition.chapters[state.stage],metrics=programmeMetrics();
+ const heading=chapter?chapter.title:'Programme complete',progress=chapter?state.held/chapter.days:1;
+ let html=`<section class="programme-card ${full?'full':'compact'}" aria-label="Council programme"><small>COUNCIL PROGRAMME · ${state.stage===3?'COMPLETED':'CHAPTER '+(state.stage+1)+' OF 3'}</small><h3>${esc(full?definition.title:heading)}</h3>${full?`<strong>${esc(heading)}</strong><p class="desc">${esc(chapter?.description||'The programme has been sustained. Keep governing, try another ambition, or export a record of this town.')}</p>`:''}<div class="progress" role="progressbar" aria-label="Sustained qualifying days" aria-valuemin="0" aria-valuemax="${chapter?.days||1}" aria-valuenow="${chapter?state.held:1}"><i style="width:${Math.round(progress*100)}%"></i></div>`;
+ if(chapter){html+=`<p class="miniNote">${state.held} / ${chapter.days} consecutive qualifying days.${full?' Missing a condition resets this chapter’s count; completed chapters remain recorded.':''}</p>`;
+ html+=chapter.rules.map(r=>`<div class="programme-rule ${programmeRuleMet(r,metrics)?'met':'waiting'}"><span class="programme-state">${programmeRuleMet(r,metrics)?'MET':'NEEDS WORK'}</span><div><strong>${esc(r.label)}</strong><span>${policyNumber(metrics[r.metric])}${r.unit} / ${r.direction==='min'?'at least':'at most'} ${r.target}${r.unit}</span></div><button data-programme-panel="${r.panel}" title="${esc(r.help)}" aria-label="${esc(r.label+': '+r.help)}">Review</button></div>`).join('');
+ html+=`<details><summary>How to work on this chapter</summary><p class="desc">${esc(chapter.description)} Missing a condition resets this chapter’s qualifying-day count. Completed chapters remain recorded.</p>${chapter.rules.map(r=>`<p class="desc"><strong>${esc(r.label)}.</strong> ${esc(r.help)}</p>`).join('')}<p class="desc">This is an observed programme, not a forecast. Recruitment takes 30 days; training needs 120 funded teaching days; equipment commissions 30 days after payment. A budget cannot create a missing road or qualified worker instantly.</p></details>`;
+ }
+ if(full)html+=head('Observed outcomes')+programmeTrend()+tip('The shared scale is 0–100%. These are observed outcomes, including other influences; a policy change is not a controlled experiment.')+head('The full programme')+definition.chapters.map((c,i)=>`<div class="programme-chapter"><span>${i<state.stage?'COMPLETED DAY '+state.completed[i].day:i===state.stage?'CURRENT':'LATER CHAPTER'}</span><strong>${i+1}. ${esc(c.title)}</strong><p class="desc">${esc(c.description)} Sustain all conditions ${c.days} days.</p>${i===state.stage?'':c.rules.map(r=>`<small>${esc(r.label)}: ${r.direction==='min'?'at least':'at most'} ${r.target}${r.unit}</small>`).join('')}</div>`).join('');
+ return html+'</section>';
+}
+const programmeOverviewBase=renderOverviewFull;renderOverviewFull=function(){return scenarioProgrammeCard()+programmeOverviewBase();};
+const programmeAgendaBase=renderAgenda;renderAgenda=function(){return scenarioProgrammeCard(true)+programmeAgendaBase();};
+document.addEventListener('click',e=>{const b=e.target.closest('[data-programme-panel]');if(b){openPanel(b.dataset.programmePanel);$('panelBody').scrollTop=0;}});
+
+// SOURCE: 97-workday-scenes.js
+// Original small workday tableaux. They visualize actual operating activity;
+// samples never create cargo, income, pupils or production in the simulation.
+function workdayScenes(items){
+ if(!gameOptions.effects||!gameOptions.decor||gameOptions.quality==='low'||gameOptions.reducedMotion||cam.zoom<.52)return [];
+ const scenes=[],cap=fastRenderEnabled()?3:gameOptions.quality==='high'?12:7;
+ for(let n=items.length-1;n>=0;n--){const item=items[n],b=item.b;if(!b||scenes.length>=cap)continue;const f=G.firms[b.firm];let scene=null;
+  if(f&&!f.closed&&workingStaff(f).length&&f.production>0){if(['mill','sawmill','factory'].includes(b.kind))scene='machinery';else if(['farm','fishery','forestry'].includes(b.kind))scene='harvest';}
+  if(b.kind==='clinic'&&G.serviceProvision?.health?.paid>0&&G.serviceProvision.health.coverage>0)scene='care';
+  if(b.kind==='school'&&G.serviceProvision?.school?.paid>0&&G.serviceProvision.school.coverage>0)scene='teaching';
+  if(b.kind==='worksite'||b.redevelopment){const p=G.projects.find(p=>p.id===b.id);if(p&&!p.reason&&p.remaining>0)scene='construction';}
+  if(!scene)continue;const front=point(item.w*.10,item.d*.48,0),portal=graph().portals.get(b.id),road=portal==null?null:roadCenter(portal);const x=road&&road[1]>=item.y?item.x*.35+road[0]*.65:item.x+front[0],y=road&&road[1]>=item.y?item.y*.35+road[1]*.65:item.y+front[1];scenes.push({kind:'workday',scene,b,f,x,y,dx:1,dy:.5});
+ }
+ return scenes;
+}
+function paintWorkdayScene(g,a,clock){
+ const phase=clock+a.b.id*.17,x=Math.round(a.x),y=Math.round(a.y),skin=['#d6b38b','#c79570','#9d7358'][a.b.id%3];
+ g.save();g.translate(x,y);g.fillStyle='#304b4530';g.beginPath();g.ellipse(0,2,16,4,.2,0,Math.PI*2);g.fill();
+ const person=(px,py,color,scale=1,working=false)=>{g.save();g.translate(Math.round(px),Math.round(py));g.scale(scale,scale);const reach=working?Math.sin(phase*3)*2:0;
+  g.fillStyle='#374e43';g.fillRect(-2,-2,2,4);g.fillRect(1,-1,2,3);g.fillStyle=color;g.fillRect(-3,-9,6,8);g.fillStyle=tone(color,.75);g.fillRect(2,-8,2,7);g.fillStyle=skin;g.fillRect(-2,-14,5,5);g.fillRect(-5,-8+reach,2,5);g.fillRect(4,-8-reach,2,5);g.fillStyle='#6a5a41';g.fillRect(-3,-15,7,2);g.restore();};
+ if(a.scene==='machinery'){
+  // A cast-iron flywheel and a short handling bench share one drive phase.
+  polygon(g,[[-16,-4],[-3,-9],[14,-1],[1,5]],'#aa9674');segment(g,[-14,-2],[-14,5],'#6d7160',2);segment(g,[12,0],[12,7],'#6d7160',2);
+  g.save();g.translate(-6,-10);g.transform(.85,.42,0,1,0,0);g.strokeStyle='#565f53';g.lineWidth=3;g.beginPath();g.arc(0,0,8,0,Math.PI*2);g.stroke();g.strokeStyle='#b2ad86';g.lineWidth=1;g.beginPath();g.arc(0,0,6,0,Math.PI*2);g.stroke();
+  for(let j=0;j<6;j++){const turn=phase*1.8+j*Math.PI/3;segment(g,[0,0],[Math.cos(turn)*6,Math.sin(turn)*6],'#7d856c',1.5);}g.fillStyle='#d0bb83';g.fillRect(-2,-2,4,4);g.restore();
+  const drift=(phase*.35)%1;if(a.b.kind==='sawmill'){segment(g,[0+drift*6,-5],[12+drift*6,1],'#b19464',4);segment(g,[1+drift*6,-6],[13+drift*6,0],'#d0b583',1);}else{polygon(g,[[3,-7],[9,-10],[14,-7],[8,-4]],'#c2ad7d');polygon(g,[[3,-7],[8,-4],[8,1],[3,-2]],'#9f895d');polygon(g,[[8,-4],[14,-7],[14,-2],[8,1]],'#ad996c');}
+  person(14,8,'#6f8271',.86,true);
+ }else if(a.scene==='harvest'){
+  person(-5+Math.sin(phase*.6)*3,0,'#9c8054',.93,true);g.fillStyle='#ad8d5d';g.fillRect(5,-4,8,5);g.fillStyle='#d3be87';g.fillRect(5,-5,8,2);
+  if(a.b.kind==='fishery'){segment(g,[-5,-9],[5,-21+Math.sin(phase)*1.2],'#b3a37a');segment(g,[5,-21+Math.sin(phase)*1.2],[11,-3],'#ddd7b099');}else for(let j=0;j<3;j++){segment(g,[6+j*2,-5],[6+j*2,-10],'#b8ad65');g.fillStyle='#d2bd72';g.fillRect(5+j*2,-11,3,3);}
+ }else if(a.scene==='care'){
+  person(-7,0,'#d3d8c3',.97,true);g.fillStyle='#477b66';g.fillRect(-9,-8,4,1);person(8,5+Math.sin(phase*.5),'#8b7765',.87);g.fillStyle='#c7b587';g.fillRect(0,-2,5,4);g.fillStyle='#607d6b';g.fillRect(1,-1,3,1);
+ }else if(a.scene==='teaching'){
+  person(-7,-1,'#687e77',1,true);person(3,5,'#ab8b60',.72);person(12,9,'#84956a',.70);segment(g,[-11,-11],[-1,-7],'#c7b994',2);
+ }else{
+  person(-5,1,'#9c855b',.93,true);g.fillStyle='#dbc183';g.fillRect(-8,-14,7,3);const angle=Math.sin(phase*3)*.65;segment(g,[-1,-9],[6+angle*4,-16+angle*5],'#7b6f52',2);segment(g,[3+angle*4,-17+angle*5],[9+angle*4,-15+angle*5],'#66776e',3);polygon(g,[[6,2],[13,-1],[18,2],[11,5]],'#b9a27b');
+ }
+ g.restore();
+}
 
 // SOURCE: 99-instrumentation.js
 // Read-only / test instrumentation. No remote telemetry is used.

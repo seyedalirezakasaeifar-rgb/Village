@@ -1,0 +1,13 @@
+{
+  "source_sha256": "7b04be36e1883cb6d6816622f460a160108fa22528d3e69b431d6e1e28752b59",
+  "viewport": [
+    844,
+    390
+  ],
+  "density": 2,
+  "scenario": "settlement",
+  "seed": 42,
+  "day": 91,
+  "animation": "24 explicitly sampled visual phases, 120ms apart; economy paused",
+  "runtime": "Chromium host browser; not Android"
+}

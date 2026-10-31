@@ -263,9 +263,9 @@ function yearlyDemographics(){
 
 function updateObjectiveMini(){if(!G)return;let m=AMBITIONS.find(m=>m.id===G.ambition)||AMBITIONS[0],days=G.ambitionDays[m.id]||0,p=m.progress(G);
  if(G.achievements.includes(m.id))p=1;else if(m.goal(G))p=Math.min(1,days/m.days);
- $('objectiveName').textContent=m.title;$('objectiveProgress').style.width=(100*clamp(p,0,1))+'%';
- const h=G.events[0];if(h){$('headline').textContent=h.text;}
- if(G.roadMetrics&&G.roadMetrics.connectedFirms<G.roadMetrics.totalFirms){$('headline').textContent='Road access warning: '+(G.roadMetrics.totalFirms-G.roadMetrics.connectedFirms)+' local businesses are cut off from town freight.';}
+ headerText('objectiveName',m.title);$('objectiveProgress').style.width=(100*clamp(p,0,1))+'%';
+ const h=G.events[0];if(h){headerText('headline',h.text);}
+ if(G.roadMetrics&&G.roadMetrics.connectedFirms<G.roadMetrics.totalFirms){headerText('headline','Road access warning: '+(G.roadMetrics.totalFirms-G.roadMetrics.connectedFirms)+' local businesses are cut off from town freight.');}
 }
 
 $('eventDefer').onclick=()=>closeCouncilDialog(true);

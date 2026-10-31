@@ -42,7 +42,7 @@ function buildingActivity(items){
  const actors=[];
  if(!gameOptions.effects||gameOptions.reducedMotion)return actors;
  const cap=fastRenderEnabled()?5:gameOptions.quality==='high'?20:12;let count=0;
- for(const item of items){const b=item.b,f=b&&G.firms[b.firm];if(!f||f.closed||!f.workers.length||!(f.production>0||f.revenue>0)||++count>cap)continue;
+ for(const item of items){const b=item.b,f=b&&G.firms[b.firm];if(!f||f.closed||!workingStaff(f).length||!(f.production>0||f.revenue>0)||++count>cap)continue;
   const id=f.workers[0],phase=(frameClock*.14+b.id*.173)%1,t=phase<.5?phase*2:(1-phase)*2;
   const door=point(0,item.d*.38,0),road=graph().portals.get(b.id);if(road==null)continue;const target=roadCenter(road),x=item.x+door[0],y=item.y+door[1];
   // A short staff errand remains between the frontage and its connected sidewalk.

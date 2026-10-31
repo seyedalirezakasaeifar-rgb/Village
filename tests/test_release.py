@@ -84,6 +84,9 @@ with sync_playwright() as pw:
     first=page.screenshot()
     page.wait_for_timeout(500)
     second=page.screenshot()
+    if first!=second:
+        (reports/'pause-before.png').write_bytes(first);(reports/'pause-after.png').write_bytes(second)
+        record('pause_failure_state',page.evaluate('({view:__townTest.view(),state:__townTest.get()})'))
     assert first==second,'Paused view changed'
     record('true_pause',{'identicalScreenshots':True,'milliseconds':500})
     page.locator('#pause').click()

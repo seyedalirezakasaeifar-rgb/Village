@@ -8,7 +8,7 @@ subprocess.run([sys.executable,'tools/assemble.py'],cwd=ROOT,check=True)
 asset_hashes={p.relative_to(ROOT).as_posix():digest(p) for p in (ROOT/'assets').rglob('*') if p.is_file()}
 source=digest(ROOT/'assets/game.js');meta=json.loads((ROOT/'release.json').read_text());out=ROOT/'reports'/meta['version'];out.mkdir(parents=True,exist_ok=True)
 env=os.environ.copy();env['TOWNLEDGER_CORE_ONLY']='1'
-gates=['test_credit_cashflow.py','test_household_markets.py','test_local_civic_services.py','test_transport_visual_states.py','test_service_provision.py','test_older_webview_api.py','test_archive_schema.py','test_review_workflows.py','test_mobile_rendering.py','test_controls.py','test_v7_contrast.py','test_release.py','test_v7_model.py','test_v7_default_starts.py','test_v7_scenarios.py','test_v7_liquidity.py','test_v7_policy_experiments.py','test_regional_tradeoffs.py','test_v7_live_large_town.py']
+gates=['test_council_programme.py','test_credit_crisis.py','test_council_accounting.py','test_workday_scenes.py','test_credit_cashflow.py','test_household_markets.py','test_local_civic_services.py','test_transport_visual_states.py','test_service_provision.py','test_older_webview_api.py','test_archive_schema.py','test_review_workflows.py','test_mobile_rendering.py','test_controls.py','test_v7_contrast.py','test_release.py','test_v7_model.py','test_v7_default_starts.py','test_v7_scenarios.py','test_v7_liquidity.py','test_v7_policy_experiments.py','test_regional_tradeoffs.py','test_v7_live_large_town.py']
 manifest={'version':meta['version'],'source_sha256':source,'assets':asset_hashes,'gates':[]}
 for name in gates:
  assert digest(ROOT/'assets/game.js')==source,'Source changed before '+name
