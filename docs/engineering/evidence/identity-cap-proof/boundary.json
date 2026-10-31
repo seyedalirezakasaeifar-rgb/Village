@@ -1,0 +1,37 @@
+{
+  "source_sha256": "98ab6d44286d2d6300c4533d70e10819a5c102ebfc6e6a09be61b87115883388",
+  "result": {
+    "households": {
+      "allOtherValidatorsPass": true,
+      "acceptedHistorical": 3000,
+      "actualCreator": "addHouseholdAt",
+      "createdId": 3000,
+      "total": 3001,
+      "ownArchiveRejected": true,
+      "rejectionAtomic": true,
+      "bytes": 3085610
+    },
+    "firms": {
+      "allOtherValidatorsPass": true,
+      "acceptedHistorical": 3000,
+      "actualCreator": "createFirm",
+      "createdId": 3000,
+      "total": 3001,
+      "ownArchiveRejected": true,
+      "rejectionAtomic": true,
+      "bytes": 5969436
+    },
+    "natural": [
+      {
+        "year": 0,
+        "households": 67,
+        "empty": 0,
+        "firms": 26,
+        "closed": 0,
+        "demolished": 0,
+        "people": 169,
+        "living": 169
+      }
+    ]
+  }
+}

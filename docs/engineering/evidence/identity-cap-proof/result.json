@@ -1,0 +1,235 @@
+{
+  "source_sha256": "98ab6d44286d2d6300c4533d70e10819a5c102ebfc6e6a09be61b87115883388",
+  "result": {
+    "households": {
+      "acceptedHistorical": 3000,
+      "actualCreator": "addHouseholdAt",
+      "createdId": 3000,
+      "total": 3001,
+      "ownArchiveRejected": true,
+      "rejectionAtomic": true,
+      "bytes": 3085610
+    },
+    "firms": {
+      "acceptedHistorical": 3000,
+      "actualCreator": "createFirm",
+      "createdId": 3000,
+      "total": 3001,
+      "ownArchiveRejected": true,
+      "rejectionAtomic": true,
+      "bytes": 5969436
+    },
+    "natural": [
+      {
+        "year": 0,
+        "households": 67,
+        "empty": 0,
+        "firms": 26,
+        "closed": 0,
+        "demolished": 0,
+        "people": 169,
+        "living": 169
+      },
+      {
+        "year": 1,
+        "households": 72,
+        "empty": 2,
+        "firms": 27,
+        "closed": 0,
+        "demolished": 0,
+        "people": 185,
+        "living": 179
+      },
+      {
+        "year": 2,
+        "households": 82,
+        "empty": 2,
+        "firms": 32,
+        "closed": 0,
+        "demolished": 0,
+        "people": 215,
+        "living": 209
+      },
+      {
+        "year": 3,
+        "households": 82,
+        "empty": 3,
+        "firms": 34,
+        "closed": 1,
+        "demolished": 0,
+        "people": 227,
+        "living": 218
+      },
+      {
+        "year": 4,
+        "households": 88,
+        "empty": 3,
+        "firms": 35,
+        "closed": 1,
+        "demolished": 0,
+        "people": 250,
+        "living": 241
+      },
+      {
+        "year": 5,
+        "households": 88,
+        "empty": 3,
+        "firms": 39,
+        "closed": 1,
+        "demolished": 0,
+        "people": 257,
+        "living": 248
+      },
+      {
+        "year": 6,
+        "households": 88,
+        "empty": 3,
+        "firms": 39,
+        "closed": 1,
+        "demolished": 0,
+        "people": 264,
+        "living": 255
+      },
+      {
+        "year": 7,
+        "households": 88,
+        "empty": 3,
+        "firms": 39,
+        "closed": 1,
+        "demolished": 0,
+        "people": 274,
+        "living": 265
+      },
+      {
+        "year": 8,
+        "households": 90,
+        "empty": 3,
+        "firms": 41,
+        "closed": 1,
+        "demolished": 0,
+        "people": 287,
+        "living": 278
+      },
+      {
+        "year": 9,
+        "households": 97,
+        "empty": 3,
+        "firms": 41,
+        "closed": 0,
+        "demolished": 0,
+        "people": 308,
+        "living": 297
+      },
+      {
+        "year": 10,
+        "households": 98,
+        "empty": 4,
+        "firms": 41,
+        "closed": 0,
+        "demolished": 0,
+        "people": 313,
+        "living": 301
+      },
+      {
+        "year": 11,
+        "households": 105,
+        "empty": 4,
+        "firms": 42,
+        "closed": 0,
+        "demolished": 0,
+        "people": 335,
+        "living": 322
+      },
+      {
+        "year": 12,
+        "households": 105,
+        "empty": 8,
+        "firms": 43,
+        "closed": 0,
+        "demolished": 0,
+        "people": 337,
+        "living": 314
+      },
+      {
+        "year": 13,
+        "households": 106,
+        "empty": 9,
+        "firms": 43,
+        "closed": 0,
+        "demolished": 0,
+        "people": 345,
+        "living": 320
+      },
+      {
+        "year": 14,
+        "households": 106,
+        "empty": 10,
+        "firms": 43,
+        "closed": 0,
+        "demolished": 0,
+        "people": 349,
+        "living": 322
+      },
+      {
+        "year": 15,
+        "households": 108,
+        "empty": 13,
+        "firms": 43,
+        "closed": 0,
+        "demolished": 0,
+        "people": 357,
+        "living": 325
+      },
+      {
+        "year": 16,
+        "households": 108,
+        "empty": 18,
+        "firms": 43,
+        "closed": 0,
+        "demolished": 0,
+        "people": 363,
+        "living": 322
+      },
+      {
+        "year": 17,
+        "households": 110,
+        "empty": 18,
+        "firms": 43,
+        "closed": 0,
+        "demolished": 0,
+        "people": 366,
+        "living": 325
+      },
+      {
+        "year": 18,
+        "households": 111,
+        "empty": 18,
+        "firms": 43,
+        "closed": 0,
+        "demolished": 0,
+        "people": 367,
+        "living": 323
+      },
+      {
+        "year": 19,
+        "households": 112,
+        "empty": 19,
+        "firms": 43,
+        "closed": 0,
+        "demolished": 0,
+        "people": 371,
+        "living": 326
+      },
+      {
+        "year": 20,
+        "households": 113,
+        "empty": 19,
+        "firms": 43,
+        "closed": 0,
+        "demolished": 0,
+        "people": 376,
+        "living": 331
+      }
+    ]
+  }
+}
