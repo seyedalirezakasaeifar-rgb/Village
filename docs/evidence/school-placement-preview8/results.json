@@ -1,0 +1,227 @@
+{
+  "source_sha256": "540105460952aff397a25c06e808b5093cdf9db18c4a19c2f6e7ed254e797fcd",
+  "rows": [
+    {
+      "source_sha256": "540105460952aff397a25c06e808b5093cdf9db18c4a19c2f6e7ed254e797fcd",
+      "near": {
+        "x": 32,
+        "y": 25,
+        "mean": 14.223880597014926
+      },
+      "far": {
+        "x": 43,
+        "y": 49,
+        "mean": 36.1044776119403
+      },
+      "hint": "School \u00b7 $6,900 build \u00b7 $83,100 left \u00b7 road trip 14 segments avg; 0 residents >40 \u00b7 new reach +0 residents \u00b7 shared places +0/260 \u00b7 education $90/day vs ~$280/day need \u00b7 not yet measured \u00b7 11 eligible local staff \u00b7 not yet measured \u00b7 estimate, no service promise",
+      "mobileHintBox": {
+        "width": 358.796875,
+        "height": 100.9375
+      },
+      "nearPreview": {
+        "valid": true,
+        "cost": 6900,
+        "affordable": true,
+        "treasury": 90000,
+        "afterBuild": 83100,
+        "limit": 40,
+        "population": 169,
+        "existingReach": 169,
+        "projectedReach": 169,
+        "newlyReachable": 0,
+        "incrementalPlaces": 0,
+        "siteMeanDistance": 14.171597633136095,
+        "siteBeyondLimit": 0,
+        "educationBudget": 90,
+        "reachableNeed": 280,
+        "actualPaid": null,
+        "actualCoverage": null,
+        "eligibleLocalStaff": 11,
+        "staffing": null
+      },
+      "farPreview": {
+        "valid": true,
+        "cost": 6900,
+        "affordable": true,
+        "treasury": 90000,
+        "afterBuild": 83100,
+        "limit": 40,
+        "population": 169,
+        "existingReach": 169,
+        "projectedReach": 169,
+        "newlyReachable": 0,
+        "incrementalPlaces": 0,
+        "siteMeanDistance": 29.585585585585587,
+        "siteBeyondLimit": 58,
+        "educationBudget": 90,
+        "reachableNeed": 280,
+        "actualPaid": null,
+        "actualCoverage": null,
+        "eligibleLocalStaff": 11,
+        "staffing": null
+      },
+      "overlap": {
+        "newlyReachable": 0,
+        "incrementalPlaces": 0,
+        "existingReach": 169,
+        "projectedReach": 169
+      },
+      "disconnected": {
+        "site": {
+          "x": 7,
+          "y": 3,
+          "road": 390,
+          "old": 0
+        },
+        "preview": {
+          "valid": true,
+          "cost": 6900,
+          "affordable": true,
+          "treasury": 90000,
+          "afterBuild": 83100,
+          "limit": 40,
+          "population": 169,
+          "existingReach": 169,
+          "projectedReach": 169,
+          "newlyReachable": 0,
+          "incrementalPlaces": 0,
+          "siteMeanDistance": null,
+          "siteBeyondLimit": 169,
+          "educationBudget": 90,
+          "reachableNeed": 280,
+          "actualPaid": null,
+          "actualCoverage": null,
+          "eligibleLocalStaff": 11,
+          "staffing": null
+        }
+      },
+      "cashShort": {
+        "affordable": false,
+        "treasury": 6899,
+        "cost": 6900
+      },
+      "noLocalStaff": {
+        "eligible": 0,
+        "actualCoverage": null,
+        "staffing": null
+      },
+      "cancelled": {
+        "unchanged": true,
+        "archiveUnchanged": true,
+        "rngUnchanged": true
+      },
+      "stateValid": true
+    },
+    {
+      "source_sha256": "",
+      "near": {
+        "x": 31,
+        "y": 33,
+        "mean": 20.816720257234728
+      },
+      "far": {
+        "x": 9,
+        "y": 14,
+        "mean": 36.154340836012864
+      },
+      "hint": "School \u00b7 $6,900 build \u00b7 $83,100 left \u00b7 road trip 20 segments avg; 16 residents >40 \u00b7 new reach +0 residents \u00b7 shared places +260/260 \u00b7 education $220/day vs ~$862/day need \u00b7 not yet measured \u00b7 66 eligible local staff \u00b7 not yet measured \u00b7 estimate, no service promise",
+      "mobileHintBox": {
+        "width": 358.796875,
+        "height": 100.9375
+      },
+      "nearPreview": {
+        "valid": true,
+        "cost": 6900,
+        "affordable": true,
+        "treasury": 90000,
+        "afterBuild": 83100,
+        "limit": 40,
+        "population": 657,
+        "existingReach": 259.9999999999985,
+        "projectedReach": 519.9999999999966,
+        "newlyReachable": 0,
+        "incrementalPlaces": 259.99999999999807,
+        "siteMeanDistance": 20.046801872074884,
+        "siteBeyondLimit": 16,
+        "educationBudget": 220,
+        "reachableNeed": 861.5384615384559,
+        "actualPaid": null,
+        "actualCoverage": null,
+        "eligibleLocalStaff": 66,
+        "staffing": null
+      },
+      "farPreview": {
+        "valid": true,
+        "cost": 6900,
+        "affordable": true,
+        "treasury": 90000,
+        "afterBuild": 83100,
+        "limit": 40,
+        "population": 657,
+        "existingReach": 259.9999999999985,
+        "projectedReach": 520,
+        "newlyReachable": 0,
+        "incrementalPlaces": 260.0000000000015,
+        "siteMeanDistance": 24.406593406593405,
+        "siteBeyondLimit": 293,
+        "educationBudget": 220,
+        "reachableNeed": 861.5384615384614,
+        "actualPaid": null,
+        "actualCoverage": null,
+        "eligibleLocalStaff": 66,
+        "staffing": null
+      },
+      "overlap": {
+        "newlyReachable": 0,
+        "incrementalPlaces": 259.99999999999807,
+        "existingReach": 259.9999999999985,
+        "projectedReach": 519.9999999999966
+      },
+      "disconnected": {
+        "site": {
+          "x": 7,
+          "y": 3,
+          "road": 390,
+          "old": 0
+        },
+        "preview": {
+          "valid": true,
+          "cost": 6900,
+          "affordable": true,
+          "treasury": 90000,
+          "afterBuild": 83100,
+          "limit": 40,
+          "population": 657,
+          "existingReach": 259.9999999999985,
+          "projectedReach": 259.9999999999985,
+          "newlyReachable": 0,
+          "incrementalPlaces": 0,
+          "siteMeanDistance": null,
+          "siteBeyondLimit": 657,
+          "educationBudget": 220,
+          "reachableNeed": 430.7692307692283,
+          "actualPaid": null,
+          "actualCoverage": null,
+          "eligibleLocalStaff": 66,
+          "staffing": null
+        }
+      },
+      "cashShort": {
+        "affordable": false,
+        "treasury": 6899,
+        "cost": 6900
+      },
+      "noLocalStaff": {
+        "eligible": 0,
+        "actualCoverage": null,
+        "staffing": null
+      },
+      "cancelled": {
+        "unchanged": true,
+        "archiveUnchanged": true,
+        "rngUnchanged": true
+      },
+      "stateValid": true
+    }
+  ]
+}
