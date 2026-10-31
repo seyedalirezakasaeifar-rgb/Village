@@ -6571,12 +6571,24 @@ function dioramaHipRoof(g,u,v,w,d,z,rise,c){
 }
 function dioramaFoundation(g,b,w,d){
  const p=neighbourhoodMaterial(b),garden=b.kind==='home'||b.kind==='school'||b.kind==='clinic'||b.kind==='park';
- slab(g,-w*.48,-d*.48,w*.96,d*.96,0,garden?'#8e9a71':'#b4af94');
+ const industrial=['factory','warehouse','sawmill','mill'].includes(b.kind),retail=b.retailCentre||['grocer','bakery','tavern'].includes(b.kind),dense=['apartment','tower','office'].includes(b.kind);
+ const ground=garden?tone(p[0],1.08):industrial?'#96958a':retail?tone(p[1],.89):dense?'#a5aaa2':'#b4af94';
+ const walk=industrial?'#7d8075':retail?tone(p[1],1.01):dense?'#c0bba8':'#d0c4a2';
+ slab(g,-w*.48,-d*.48,w*.96,d*.96,0,ground);
  // A single connected entrance axis and edge planting frame the building.
- slab(g,-.085,d*.24,.17,d*.25,1,'#d0c4a2');
- if(gameOptions.decor)for(const side of [-1,1]){
+ slab(g,-.085,d*.24,.17,d*.25,1,walk);
+ if(gameOptions.decor&&!industrial&&!retail)for(const side of [-1,1]){
   const u=side*w*.39,v=d*.39;slab(g,u-.055,v-.05,.11,.10,1,p[1]);
   const q=point(u,v,6);polygon(g,[[q[0]-4,q[1]],[q[0]-3,q[1]-4],[q[0]+2,q[1]-5],[q[0]+4,q[1]-1],[q[0]+1,q[1]+2]],p[0]);
+ }
+ if(gameOptions.decor&&industrial){
+  // Two paired dock markers make this existing service yard read as work space.
+  for(const side of [-1,1]){const x=side*w*.38;slab(g,x-.045,d*.32,.09,.055,1,'#d2b66a');segment(g,point(x-.025,d*.34,2),point(x+.025,d*.34,2),'#595f53',1.2);}
+ }
+ if(gameOptions.decor&&dense){
+  // Quiet shared-court planters establish the denser building rhythm without
+  // adding residents, services or an assumed neighbourhood income tier.
+  for(const side of [-1,1]){const x=side*w*.39;slab(g,x-.075,d*.35,.15,.08,1,'#858f80');slab(g,x-.055,d*.36,.11,.035,2,p[0]);}
  }
 }
 // Hash the atlas variant: founding household IDs have regular six-step runs.
@@ -6591,7 +6603,10 @@ function dioramaHouse(g,b,w,d){
  // Six clearly different rooflines: cross-gable, hip, mansard, porch cottage,
  // narrow town house and low timber bungalow. Palette does not replace shape.
  if(form===1)dioramaHipRoof(g,u,v,bw,bd,H+3,15,roof);
- else if(form===2){slab(g,u-.045,v-.045,bw+.09,bd+.09,H+3,tone(roof,.65));dioramaSurface(g,u+.04,v+.04,bw-.08,bd-.08,H+3,7,roof);dioramaHipRoof(g,u+.03,v+.03,bw-.06,bd-.06,H+11,5,roof);}
+ else if(form===2){slab(g,u-.045,v-.045,bw+.09,bd+.09,H+3,tone(roof,.65));dioramaSurface(g,u+.04,v+.04,bw-.08,bd-.08,H+3,7,roof);dioramaHipRoof(g,u+.03,v+.03,bw-.06,bd-.06,H+11,5,roof);
+  // A pair of small roof windows breaks the mansard silhouette at street level.
+  if(gameOptions.decor&&gameOptions.quality!=='low')for(const t of [.22,.66]){const du=u+bw*t,dv=v+bd*.31;dioramaSurface(g,du,dv,.13,.10,H+10,6,tone(wall,1.03));dioramaWindow(g,du+.018,dv+.101,H+12,'front',.09,4,lit,true);gable(g,du-.012,dv-.012,.15,.12,H+16,4,tone(roof,.92));}
+ }
  else gable(g,u,v,bw,bd,H+3,form===5?9:14,roof);
  if(form===0){const wingU=u+bw*.54,wingV=v+bd*.40;dioramaSurface(g,wingU,wingV,bw*.42,bd*.61,2,H-4,tone(wall,.96));gable(g,wingU,wingV,bw*.42,bd*.61,H-1,10,roof);dioramaWindow(g,wingU+.035,wingV+bd*.62,8,'front',.15,7,lit);}
  const rows=H>26?2:1;

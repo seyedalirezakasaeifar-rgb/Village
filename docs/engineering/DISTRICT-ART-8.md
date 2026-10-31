@@ -1,0 +1,9 @@
+# District art pass
+
+This pass makes existing parcel use easier to read without changing zoning, property, or simulation rules. Homes and civic green lots use a quiet palette from their actual regional parcel. Apartments, towers, and offices have cooler shared courts; shops sit on warm pedestrian paving; factories and warehouses have darker service yards with small dock markers. Mansard homes gain paired roof windows, keyed to their existing deterministic house form. No income tier, occupancy, or service level is fabricated for these details.
+
+Before and after screenshots use the same seeded settlement and camera. Residential and industrial close views are paired in [compare-residential-close.png](../previews/district-art-8/compare-residential-close.png) and [compare-industrial-close.png](../previews/district-art-8/compare-industrial-close.png); [compare-mobile-medium.png](../previews/district-art-8/compare-mobile-medium.png) shows the same city at 844×390. Capture source hashes and setup are recorded in [capture.json](../previews/district-art-8/capture.json).
+
+The source change adds only cached static architecture details. On the fixed Chromium viewport, close home cold draw median changed from 31.9 to 32.6 ms and warm draw from 0.96 to 0.97 ms. Factory close and home medium samples were within run variation. Paired sprite atlas entry counts and bytes were unchanged; full readings are in [benchmark.json](../previews/district-art-8/benchmark.json). These are host-browser measurements, not Android FPS claims.
+
+Verification passed: `test_diorama_art.py` (including type- and parcel-specific grounds, deterministic sprites, and no economic writes), `test_urban_art.py` (bounded cache and immutability), `test_world_art.py`, `test_visual_lod.py`, `test_mobile_rendering.py`, and `test_dynamic_camera_matrix.py` (all 36 view/DPR cells, zero oracle differences).
