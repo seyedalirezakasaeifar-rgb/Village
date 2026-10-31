@@ -106,8 +106,9 @@ function completeDevelopmentProjects(){
   if(p.kind==='public'){b.kind=p.publicKind;b.title={kind:'municipal',id:0};b.owner=-1;story(types[b.kind].n+' opened after publicly financed construction.','good',b.id);
   }else if(p.kind==='home'){
    b.kind='home';b.value=p.value;b.baseValue=p.value;b.developer=true;b.owner=-2;b.title={kind:'investor',id:0};
+   if(p.municipalRehousing){b.owner=-1;b.title={kind:'municipal',id:0};b.developer=false;b.municipalRehousing=true;b.relocationReserve=true;}
    b.hh=-1;if(!G.homes.includes(b.id))G.homes.push(b.id);G.development.homes++;
-   story('Cottage construction finished. The home is available to local households and workers with job prospects.','good',b.id);
+   story(p.municipalRehousing?'Municipal replacement housing finished. The vacant home remains reserved for existing tenants displaced by approved land assembly.':'Cottage construction finished. The home is available to local households and workers with job prospects.','good',b.id);
   }else if(p.kind==='redevelop'){
    completeRedevelopment(b,p);
   }else if(p.kind==='airport'){

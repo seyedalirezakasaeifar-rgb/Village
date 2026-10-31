@@ -84,9 +84,9 @@ function urbanTitleAccount(b){
  if(title?.kind==='firm')return G.firms[title.id]||null;
  return b.owner>=0?G.households[b.owner]:b.owner===-2?propertyInvestor():null;
 }
-function urbanVacancies(exclude){
+function urbanVacancies(exclude,includeReserved=true){
  const net=graph(),result=[];
- for(const b of G.buildings){if(b.id===exclude||b.redevelopment||!['home','apartment','tower'].includes(b.kind))continue;const port=net.portals.get(b.id);if(port==null||net.parts[port]!==net.mainPart)continue;
+ for(const b of G.buildings){if(b.id===exclude||b.redevelopment||!includeReserved&&b.relocationReserve||!['home','apartment','tower'].includes(b.kind))continue;const port=net.portals.get(b.id);if(port==null||net.parts[port]!==net.mainPart)continue;
   const capacity=b.kind==='tower'?9:b.kind==='apartment'?4:1,occupied=G.households.filter(h=>h.home===b.id&&h.people.length).length;
   for(let n=occupied;n<capacity;n++)result.push(b);
  }return result;
@@ -102,10 +102,13 @@ function urbanClearanceQuote(x,y){
  if(['townhall','bank','airport','metro_station','bus_depot','skytrain_station','transit_depot','elevated_station'].includes(b.kind)||b.redevelopment||G.projects.some(p=>p.id===b.id))return {ok:false,reason:'This property has an active project or a network/financial role. Complete that commitment before clearance.'};
  const f=G.firms[b.firm];
  if(f&&((G.freight||[]).some(s=>s.from===f.id||s.to===f.id)||(G.regionalTrade?.shipments||[]).some(s=>s.firm===f.id||s.depot===f.id)||(G.waterway?.manifests||[]).some(m=>m.port===f.id)||(G.regionalTrade?.contracts||[]).some(c=>c.firm===f.id&&c.status==='active')||G.projects.some(p=>p.firmId===f.id)))return {ok:false,reason:'This enterprise has paid cargo, crop works or an active trade contract. Settle those commitments before land assembly.'};
- const households=G.households.filter(h=>h.home===b.id&&h.people.length),vacant=urbanVacancies(b.id).sort((a,c)=>(Math.abs(a.x-b.x)+Math.abs(a.y-b.y))-(Math.abs(c.x-b.x)+Math.abs(c.y-b.y))||a.id-c.id);
+ const households=G.households.filter(h=>h.home===b.id&&h.people.length),vacant=urbanVacancies(b.id).sort((a,c)=>Number(!!c.municipalRehousing)-Number(!!a.municipalRehousing)||(Math.abs(a.x-b.x)+Math.abs(a.y-b.y))-(Math.abs(c.x-b.x)+Math.abs(c.y-b.y))||a.id-c.id);
  if(vacant.length<households.length)return {ok:false,reason:'Provide '+households.length+' real vacant, connected dwelling'+(households.length===1?'':'s')+' before displacing these households. Tenants are never erased.'};
- const fields=f?Object.keys(G.fieldOwner||{}).filter(k=>G.fieldOwner[k]===f.id).map(Number):[],workers=f&&!f.closed?f.workers.slice():[],municipal=['school','clinic','fire','police','park','square','courthouse','watchtower'].includes(b.kind)&&isPublicFacility(b),compensation=municipal?0:Math.round(b.value*1.1)+fields.length*450,demolition=1500+footprintOf(b).length*350,relocation=households.length*2000,severance=workers.length*Math.max(G.policy.minWage,f?.wage||0)*12;
- return {ok:true,x:b.x,y:b.y,building:b.id,fields,households:households.map(h=>h.id),relocations:vacant.slice(0,households.length).map(v=>v.id),workers,compensation,demolition,relocation,severance,total:compensation+demolition+relocation+severance,reason:households.length+' households move to existing vacant homes; '+workers.length+' workers receive twelve days of severance. Enterprise inventories are sold through liquidation, loans settled, and crop titles released.'};
+ const available=vacant.slice(),relocations=[];
+ households.sort((a,c)=>householdLiquidity(a)-householdLiquidity(c)||a.id-c.id);
+ for(const h of households){const index=available.findIndex(dest=>urbanRelocationAffordable(h,dest,b));if(index<0)return {ok:false,reason:'Provide affordable connected replacement housing before displacing these tenants. Commission a reserved municipal home in Public Works; its rent is capped at 25% of after-tax income.'};relocations.push(available.splice(index,1)[0].id);}
+ const fields=f?Object.keys(G.fieldOwner||{}).filter(k=>G.fieldOwner[k]===f.id).map(Number):[],workers=f&&!f.closed?f.workers.slice():[],municipal=b.title?.kind==='municipal'&&b.owner===-1||['school','clinic','fire','police','park','square','courthouse','watchtower'].includes(b.kind)&&isPublicFacility(b),compensation=municipal?0:Math.round(b.value*1.1)+fields.length*450,demolition=1500+footprintOf(b).length*350,relocation=households.length*2000,severance=workers.length*Math.max(G.policy.minWage,f?.wage||0)*12;
+ return {ok:true,x:b.x,y:b.y,building:b.id,fields,households:households.map(h=>h.id),relocations,workers,compensation,demolition,relocation,severance,total:compensation+demolition+relocation+severance,reason:households.length+' households move to existing vacant homes; '+workers.length+' workers receive twelve days of severance. Enterprise inventories are sold through liquidation, loans settled, and crop titles released.'};
 }
 function urbanClearance(x,y,quotedTotal){
  const q=urbanClearanceQuote(x,y);if(!q.ok||q.total!==quotedTotal||G.treasury<q.total)return {ok:false,reason:q.reason||'The quote changed or the treasury is insufficient.'};
@@ -114,7 +117,7 @@ function urbanClearance(x,y,quotedTotal){
  G.treasury-=q.total;G.cumulative.spending+=q.total;
  if(title)title.cash+=q.compensation;else if(!b&&G.firms[G.fieldOwner?.[q.fields[0]]])G.firms[G.fieldOwner[q.fields[0]]].cash+=q.compensation;else G.region+=q.compensation;
  G.region+=q.demolition;
- q.households.forEach((id,i)=>{const h=G.households[id],dest=readBuild(q.relocations[i]);h.cash+=2000;h.home=dest.id;h.lastRelocated=G.day;h.stress=clamp(h.stress+8,0,100);if(dest.kind==='home')dest.hh=h.id;else{dest.units=(dest.units||[]).filter(id=>G.households[id]?.people.length);dest.units.push(h.id);dest.hh=dest.units[0];}});
+ q.households.forEach((id,i)=>{const h=G.households[id],dest=readBuild(q.relocations[i]);h.cash+=2000;h.home=dest.id;if(dest.municipalRehousing)dest.relocationReserve=false;h.lastRelocated=G.day;h.stress=clamp(h.stress+8,0,100);if(dest.kind==='home')dest.hh=h.id;else{dest.units=(dest.units||[]).filter(id=>G.households[id]?.people.length);dest.units.push(h.id);dest.hh=dest.units[0];}});
  for(const id of q.workers){const p=G.people[id],h=p&&G.households[p.hh];if(h)h.cash+=q.severance/Math.max(1,q.workers.length);else G.region+=q.severance/Math.max(1,q.workers.length);}
  if(f&&!f.closed)liquidateFirm(f,'Compensated municipal land assembly');
  for(const id of q.fields){const owner=G.fieldOwner[id];if(G.landUse[id]===1)G.fieldCount[owner]=Math.max(0,(G.fieldCount[owner]||0)-1);delete G.landUse[id];delete G.fieldOwner[id];}
@@ -130,16 +133,19 @@ function urbanFarmRenewal(demand){
  farms.sort((a,b)=>urbanDescriptor(b.b.x,b.b.y).landValue-urbanDescriptor(a.b.x,a.b.y).landValue||a.f.id-b.f.id);
  const candidate=farms[0];if(!candidate)return false;const {f,b}=candidate,u=ensureUrban();
  const lots=buildableCandidates('business').filter(v=>canPlace(v.x,v.y,true,'farm')&&urbanDescriptor(v.x,v.y).density<1.5).sort((a,b)=>urbanSiteSuitability(b.x,b.y,'farm')-urbanSiteSuitability(a.x,a.y,'farm')||a.x-b.x||a.y-b.y),dest=lots[0];
- const cost=types.farm.cost+39000+8500,compensation=Math.round(b.value*.35);if(!dest||G.region<cost+compensation+100000||!canPlace(b.x,b.y,true,'apartment',b))return false;
+ const oldFields=Object.keys(G.fieldOwner||{}).filter(id=>G.fieldOwner[id]===f.id&&G.landUse[id]===1).length;
+ const replacement=lots.map(place=>({...place,plots:urbanRelocationFields(place.x,place.y,oldFields)})).find(place=>place.plots.length===oldFields);
+ if(!replacement)return false;
+ const cost=types.farm.cost+39000+8500+oldFields*200,compensation=Math.round(b.value*.35);if(!dest||G.region<cost+compensation+100000||!canPlace(b.x,b.y,true,'apartment',b))return false;
  // canPlace ignores the old building but never ignores neighbouring property.
  if(!financeConstruction(cost,b.id))return false;
  const account=urbanTitleAccount(b);if(account){G.region-=compensation;account.cash+=compensation;book('Regional developer',account.name||'Property owner',compensation,'Urban land-release premium with replacement farm',b.id);}
  const origin={x:b.x,y:b.y};
  for(const id of Object.keys(G.fieldOwner||{}))if(G.fieldOwner[id]===f.id){delete G.landUse[id];delete G.fieldOwner[id];}G.fieldCount[f.id]=0;
- b.x=dest.x;b.y=dest.y;b.lastRelocated=G.day;reserveFootprint(b,'farm');invalidateUrban();
+ b.x=replacement.x;b.y=replacement.y;b.lastRelocated=G.day;reserveFootprint(b,'farm');invalidateUrban();
  // Replanting is part of the paid relocation contract; standing fields are not
  // inventory and generate no cash/grain on relocation.
- for(const plot of fieldLotsNear(f,5)){G.landUse[plot.id]=1;G.fieldOwner[plot.id]=f.id;G.fieldCount[f.id]++;}
+ for(const plot of replacement.plots){G.landUse[plot.id]=1;G.fieldOwner[plot.id]=f.id;G.fieldCount[f.id]++;}
  const site=startDevelopmentProject('redevelop',origin,175000,40,{target:'apartment',units:4,priorKind:'farm',formerValue:b.value,urbanRenewal:true});
  if(site){site.footprint=footprintFor(origin.x,origin.y,'apartment');invalidateBuildingIndex();}
  if(!site)throw Error('Reserved urban renewal origin became unavailable');
@@ -167,10 +173,10 @@ function urbanRetailProposal(explicit=false){
 function urbanEvolutionDay(){if(G.day%30!==0)return;urbanHousingMobility();urbanDistrictReview();if(!urbanFarmRenewal(cityDemand())&&G.day%90===0)urbanRetailProposal();}
 function urbanRentMultiplier(home){if(!home)return 1;const d=urbanDescriptor(home.x,home.y);return clamp(.80+d.landValue/12000+home.condition*.0015+d.amenity*.018-d.pollution*.04,.65,1.55);}
 function urbanHousingMobility(){
- const living=G.households.filter(h=>h.people.length),vacancies=urbanVacancies(-1);if(!living.length||!vacancies.length)return 0;const net=graph(),offset=Math.floor(G.day/30)%living.length;let moved=0;
+ const living=G.households.filter(h=>h.people.length),vacancies=urbanVacancies(-1,false);if(!living.length||!vacancies.length)return 0;const net=graph(),offset=(Math.floor(G.day/30)*24)%living.length;let moved=0;
  const costAt=(h,site)=>{const portal=net.portals.get(site.id);if(portal==null||net.parts[portal]!==net.mainPart)return null;let commute=0,workers=0;
   for(const id of h.people){const p=G.people[id],work=p?.job>=0&&readBuild(G.firms[p.job]?.building);if(!work)continue;const workPortal=net.portals.get(work.id);if(workPortal==null||net.parts[workPortal]!==net.parts[portal])return null;const distance=roadDistance(portal,workPortal);if(distance>60+(G.policy.transitBudget||0)/8&&!hasMetroCommute(site,work))return null;commute+=distance;workers++;}
-  const rent=site.owner===h.id?0:h.people.length*(3.1+G.policy.zoningRestriction*.035)*(G.housingMarket?.rentIndex||1)*urbanRentMultiplier(site),d=urbanDescriptor(site.x,site.y),income=Math.max(1,(h.income||0)-(h.tax||0)),comfortable=income/h.people.length>urbanSpatial().median*1.3;
+  const rent=urbanHousingRent(h,site,site.owner===h.id?0:h.people.length*(3.1+G.policy.zoningRestriction*.035)*(G.housingMarket?.rentIndex||1)*urbanRentMultiplier(site)),d=urbanDescriptor(site.x,site.y),income=Math.max(1,(h.income||0)-(h.tax||0)),comfortable=income/h.people.length>urbanSpatial().median*1.3;
   return {rent,score:rent*(comfortable?.7:1.5)+(workers?commute/workers:0)*.18+d.pollution*.8-d.amenity*(comfortable?1.8:.5)-site.condition*.025};};
  for(let n=0;n<Math.min(24,living.length)&&moved<2;n++){const h=living[(offset+n)%living.length],old=readBuild(h.home),moving=150+50*h.people.length;
   if(!old||old.redevelopment||h.temporaryHousing||G.day-(h.lastRelocated||-720)<180||h.cash<moving+h.people.length*200)continue;

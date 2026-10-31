@@ -1,0 +1,113 @@
+{
+  "source_sha256": "645405bad19cadba9489921c4a726942e402021b4054a04b31f9c99fc359eb3c",
+  "results": {
+    "reservedBuild": {
+      "building": 103,
+      "completedDay": 25,
+      "reserved": true,
+      "noSpawnedHousehold": true,
+      "paid": 20000,
+      "duplicateRejected": true
+    },
+    "serviceReplacement": {
+      "formerHome": 34,
+      "replacementHome": 103,
+      "clinic": 104,
+      "identitiesRetained": true,
+      "lowIncomeRent": 2.5,
+      "zeroIncomeRent": 0,
+      "day": 145,
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15493516.999997625,
+        "population": 170,
+        "day": 145
+      },
+      "saveRoundtrip": true
+    },
+    "reserveProtection": {
+      "mobilityCannotConsumeReserve": true,
+      "privateTitleRejected": true,
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15493516.999999598,
+        "population": 169,
+        "day": 25
+      }
+    },
+    "affordabilityGuard": {
+      "controlledZeroIncomeOffer": true,
+      "marketDisplacementRefused": true,
+      "municipalAffordableOfferAccepted": true,
+      "municipalOwnTitleCompensation": 0
+    },
+    "establishedFarmRenewal": {
+      "farmId": 8,
+      "buildingId": 18,
+      "relocated": true,
+      "stocksPreserved": true,
+      "cropPlotsBefore": 15,
+      "cropPlotsAfter": 15,
+      "workersPreserved": true,
+      "replacementUnits": 4,
+      "conserved": true,
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15493517,
+        "population": 177,
+        "day": 1
+      }
+    },
+    "privateSite": {
+      "provider": 26,
+      "compensation": 75900,
+      "closed": true,
+      "noPublicConversion": true,
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15493516.999999218,
+        "population": 169,
+        "day": 48
+      }
+    },
+    "expansionAccess": {
+      "controlledExistingRegionalFunds": 500000,
+      "deeds": 7,
+      "deedCost": 250908,
+      "actualRoadCapital": 9150,
+      "beforeConnection": {
+        "utilities": false,
+        "school": 0,
+        "employment": 0
+      },
+      "afterConnection": {
+        "utilities": true,
+        "school": 0,
+        "employment": 0
+      },
+      "day": 363,
+      "outerResidents": 2,
+      "outerCash": 2174.3579696811785,
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15493516.999993391,
+        "population": 180,
+        "day": 363
+      }
+    },
+    "busyFarmAccess": {
+      "days": 180,
+      "quoted": 900,
+      "busy": 246,
+      "clearable": 654,
+      "other": 0,
+      "observation": "Strict cargo guards preserve commitments; a busy-site wind-down action would improve predictable mayoral redevelopment."
+    }
+  },
+  "errors": []
+}
