@@ -1072,9 +1072,8 @@ function normalizeRegionArchive(input){
  for(const s of [...(data.regionalTrade?.shipments||[]),...(data.regionalTrade?.recent||[])])for(const key of ['path','activePath'])if(Array.isArray(s[key]))s[key]=list(s[key]);
  for(const v of data.trafficState?.vehicles||[])if(Array.isArray(v.path))v.path=list(v.path);
  if(data.trafficState)data.trafficState.gates=(data.trafficState.gates||[]).map(([id,v])=>[tile(id),v]);
- // Archive migration is pure: the current transit helper operates on live G.
- // Map the cloned state's tile fields before validation; preserve institution IDs.
- if(data.transit){data.transit.tracks=list(data.transit.tracks||[]);for(const route of data.transit.routes||[]){route.path=list(route.path||[]);if(route.mode==='bus')route.stops=list(route.stops||[]);}}
+ // Transform candidate state only; rejected archives must not change live routes.
+ if(data.transit)data.transit=remapTransitState(data.transit,tile);
  data.gridSize=T;if(oldSize===56)data.charter=newCharter();return data;
 }
 function centerTownCamera(zoom=.95){const hall=G.buildings.find(b=>b.kind==='townhall')||{x:28,y:28};const p=iso(hall.x+1,hall.y+1);cam={x:p[0],y:p[1]+28,zoom};dirty=true;}
@@ -4312,7 +4311,7 @@ $('eventDialog').addEventListener('keydown',e=>{
 
 // SOURCE: 90-archive-panels.js
 function hydrateSave(raw){
- const previousTown=G;
+ const previousTown=G;let rollback=null;
  try{let data=typeof raw==='string'?JSON.parse(raw):raw;data=normalizeRegionArchive(data);
   if(!data||![2,3].includes(data.version)||!Array.isArray(data.tiles)||data.tiles.length!==T*T||!Array.isArray(data.firms)||!Array.isArray(data.people)||!Array.isArray(data.buildings)||!Array.isArray(data.households)||!data.policy||!Number.isFinite(data.treasury)||data.tiles.some(t=>!Number.isInteger(t)||t<0||t>3)||!Number.isFinite(data.region)||data.region<0||data.households.length>3000||data.people.length>8000||data.firms.length>3000)return false;
   if(data.schema!=null&&(!Number.isInteger(data.schema)||data.schema<0||data.schema>RELEASE.schema))return false;
@@ -4353,8 +4352,9 @@ function hydrateSave(raw){
   if(data.households.some(h=>!h||!Array.isArray(h.people)||!Number.isFinite(h.cash)||h.cash<0)||data.firms.some(f=>!f||!Array.isArray(f.workers)||!Number.isFinite(f.cash)||f.cash<0))return false;
   const workerIDs=new Set();for(const f of data.firms){for(const id of f.workers){if(workerIDs.has(id)||!data.people[id]||data.people[id].deceased||data.people[id].movedAway||data.people[id].job!==f.id)return false;workerIDs.add(id)}}
   for(const loan of data.loans||[])if(loan.fixedRate==null)loan.fixedRate=true;
-  G=data;resetTownTransientUI();G.serviceProvision=null;G.privateServiceProvision=null;crewDay=-1;crewsUsed=new Map();regionalCrews=0;ensureSystems();rngState=Number.isInteger(G.rngState)?G.rngState:G.scenarioSeed;ensureFinance();ensureMarketModel();if(!G.banks.length)seedBanks();draftPolicy={};roadBatchDirty=false;invalidateRoads();cacheBuildingsFor=null;recompute();G.stats.approval=Math.round(G.council.approval);G.stats.health=Math.round(G.health);G.stats.education=Math.round(G.education);G.stats.marketConfidence=G.stats.marketConfidence||55;G.stats.wellbeing=G.stats.wellbeing??70;ensureScenarioProgramme();if(!previousTown)centerTownCamera();restoreTransport();staticDirty=true;dirty=true;updateHeader();beginSaveTimeline();return true;
- }catch(e){G=previousTown;invalidateRoads();cacheBuildingsFor=null;staticDirty=true;dirty=true;console.error('Invalid save',e);return false}
+  rollback={traffic:traffic.slice(),trafficClock,frameClock,trafficElapsed,vehicleSerial,intersectionGates:new Map(intersectionGates),visualState,rngState};
+  G=data;resetTownTransientUI();G.serviceProvision=null;G.privateServiceProvision=null;crewDay=-1;crewsUsed=new Map();regionalCrews=0;ensureSystems();rngState=Number.isInteger(G.rngState)?G.rngState:G.scenarioSeed;ensureFinance();ensureMarketModel();if(!G.banks.length)seedBanks();draftPolicy={};roadBatchDirty=false;traffic=[];intersectionGates=new Map();invalidateRoads(false);cacheBuildingsFor=null;recompute();G.stats.approval=Math.round(G.council.approval);G.stats.health=Math.round(G.health);G.stats.education=Math.round(G.education);G.stats.marketConfidence=G.stats.marketConfidence||55;G.stats.wellbeing=G.stats.wellbeing??70;ensureScenarioProgramme();if(!previousTown)centerTownCamera();restoreTransport();staticDirty=true;dirty=true;updateHeader();beginSaveTimeline();return true;
+ }catch(e){if(rollback){G=previousTown;traffic=rollback.traffic;trafficClock=rollback.trafficClock;frameClock=rollback.frameClock;trafficElapsed=rollback.trafficElapsed;vehicleSerial=rollback.vehicleSerial;intersectionGates=rollback.intersectionGates;visualState=rollback.visualState;rngState=rollback.rngState;roadNetwork=null;cacheBuildingsFor=null;staticDirty=true;dirty=true;}console.error('Invalid save',e);return false}
 }
 function writeIndexedDB(envelope,epoch){
  return new Promise(resolve=>{let settled=false,db=null;const finish=ok=>{if(settled)return;settled=true;clearTimeout(timer);if(db)db.close();resolve(ok)},timer=setTimeout(()=>finish(false),2500);

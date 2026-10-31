@@ -70,9 +70,8 @@ function normalizeRegionArchive(input){
  for(const s of [...(data.regionalTrade?.shipments||[]),...(data.regionalTrade?.recent||[])])for(const key of ['path','activePath'])if(Array.isArray(s[key]))s[key]=list(s[key]);
  for(const v of data.trafficState?.vehicles||[])if(Array.isArray(v.path))v.path=list(v.path);
  if(data.trafficState)data.trafficState.gates=(data.trafficState.gates||[]).map(([id,v])=>[tile(id),v]);
- // Archive migration is pure: the current transit helper operates on live G.
- // Map the cloned state's tile fields before validation; preserve institution IDs.
- if(data.transit){data.transit.tracks=list(data.transit.tracks||[]);for(const route of data.transit.routes||[]){route.path=list(route.path||[]);if(route.mode==='bus')route.stops=list(route.stops||[]);}}
+ // Transform candidate state only; rejected archives must not change live routes.
+ if(data.transit)data.transit=remapTransitState(data.transit,tile);
  data.gridSize=T;if(oldSize===56)data.charter=newCharter();return data;
 }
 function centerTownCamera(zoom=.95){const hall=G.buildings.find(b=>b.kind==='townhall')||{x:28,y:28};const p=iso(hall.x+1,hall.y+1);cam={x:p[0],y:p[1]+28,zoom};dirty=true;}
