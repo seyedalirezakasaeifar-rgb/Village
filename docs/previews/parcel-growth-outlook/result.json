@@ -1,0 +1,63 @@
+{
+  "source_sha256": "f00b6817951e295489564f10fb3ff8e36e7d52d29281d1db3e1954a0215c72ee",
+  "baseline": {
+    "day": 1081,
+    "treasury": 615843.0258730656,
+    "region": 3747999.4086354044,
+    "total": 15493516.999995423,
+    "homes": 0,
+    "residents": 0,
+    "rng": 1844851347,
+    "valid": {
+      "ok": true,
+      "issues": [],
+      "total": 15493516.999995423,
+      "population": 886,
+      "day": 1081
+    }
+  },
+  "surveyWasReadOnly": true,
+  "outlook": {
+    "connectedRoads": "67 / 67",
+    "localLegalCottage": [
+      59,
+      14
+    ],
+    "currentGlobalCandidate": [
+      42,
+      33
+    ],
+    "sampleArrivalEligible": true,
+    "globalVacancies": 0,
+    "demand": 100,
+    "pressure": 65
+  },
+  "fundedHomePurchase": {
+    "site": [
+      59,
+      14
+    ],
+    "cost": 20000,
+    "newResidents": 2,
+    "treasuryAfter": 591906.5421634171
+  },
+  "cashConserved": true,
+  "exactThirtyDayReplay": true,
+  "final": {
+    "day": 1111,
+    "treasury": 591906.5421634171,
+    "region": 3625321.973213843,
+    "total": 15493516.999995971,
+    "homes": 1,
+    "residents": 2,
+    "rng": 929361780,
+    "valid": {
+      "ok": true,
+      "issues": [],
+      "total": 15493516.999995971,
+      "population": 888,
+      "day": 1111
+    }
+  },
+  "errors": []
+}
