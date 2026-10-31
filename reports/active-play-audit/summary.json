@@ -1,0 +1,220 @@
+{
+  "audited_commit": "6255255ab034675ce899b1fee36be3b8f300d8eb",
+  "production_source_sha256": "6a770b26dc99ece160a4ef9883730f92498f4c0fdd20bbf217e533a3f878a798",
+  "replay_script_sha256": "d6585752451d4017355948e603975991f12a7223a37b67d294b05679ab82d17a",
+  "clock": "1.65 seconds per model day at 1x; 60-minute equivalent ends at day 2183",
+  "humanFunCertified": false,
+  "productionChanged": false,
+  "method": "Actual purchase/policy/borrowing/map controls, time-only settlement acceleration, read-only survey and reporting probes; no cash/goods/staff grants or forced economic outcomes.",
+  "routes": {
+    "trade": {
+      "majorDecisions": 23,
+      "actualButtonClicks": 98,
+      "checkpoints": [
+        {
+          "checkpoint": "10 minutes equivalent",
+          "day": 365,
+          "treasury": 55483.715856427494,
+          "debt": 0,
+          "residents": 186,
+          "employmentPercent": 99,
+          "hardshipPercent": 0,
+          "carePercent": 61.15591397849464,
+          "schoolPercent": 63.39374026761877,
+          "medianLiquidityPerResident": 1926.1445577722902,
+          "regionalDemand": 0.8639773553473123
+        },
+        {
+          "checkpoint": "30 minutes equivalent",
+          "day": 1092,
+          "treasury": 161538.52137642467,
+          "debt": 0,
+          "residents": 235,
+          "employmentPercent": 100,
+          "hardshipPercent": 0,
+          "carePercent": 76.06382978723404,
+          "schoolPercent": 37.8380650585268,
+          "medianLiquidityPerResident": 3742.5062928373236,
+          "regionalDemand": 0.7197225543074873
+        },
+        {
+          "checkpoint": "60 minutes equivalent",
+          "day": 2183,
+          "treasury": 447472.3291893729,
+          "debt": 0,
+          "residents": 286,
+          "employmentPercent": 98,
+          "hardshipPercent": 0,
+          "carePercent": 62.500000000000014,
+          "schoolPercent": 31.172804468259024,
+          "medianLiquidityPerResident": 5569.447717343875,
+          "regionalDemand": 0.8766231135245905
+        }
+      ],
+      "cashConservationDrift": -4.677288234233856e-05,
+      "errors": [],
+      "finalValidation": {
+        "ok": true,
+        "issues": [],
+        "total": 15493516.999953227,
+        "population": 286,
+        "day": 2183
+      },
+      "completedProjects": [
+        {
+          "kind": "food",
+          "branch": "bridge",
+          "target": 0,
+          "started": 1,
+          "completed": 7,
+          "status": "complete",
+          "proof": "180 / 180 commissioned food units arrived"
+        },
+        {
+          "kind": "district",
+          "branch": "waterfront",
+          "target": "river-reach",
+          "started": 1092,
+          "completed": 1122,
+          "status": "complete",
+          "proof": "4 connected properties \u00b7 2 staffed firms \u00b7 4 residents"
+        },
+        {
+          "kind": "skills",
+          "branch": "private",
+          "target": 19,
+          "started": 365,
+          "completed": 408,
+          "status": "complete",
+          "proof": "Target family 30.5 paid learner-days \u00b7 2 fee-funded terms completed"
+        }
+      ]
+    },
+    "community": {
+      "majorDecisions": 23,
+      "actualButtonClicks": 114,
+      "checkpoints": [
+        {
+          "checkpoint": "10 minutes equivalent",
+          "day": 365,
+          "treasury": 64744.31611395138,
+          "debt": 35000,
+          "residents": 191,
+          "employmentPercent": 98,
+          "hardshipPercent": 0,
+          "carePercent": 100,
+          "schoolPercent": 94.0297689208081,
+          "medianLiquidityPerResident": 2092.1602605325497,
+          "regionalDemand": 0.8106744930476347
+        },
+        {
+          "checkpoint": "30 minutes equivalent",
+          "day": 1092,
+          "treasury": 331234.1462111783,
+          "debt": 0,
+          "residents": 252,
+          "employmentPercent": 100,
+          "hardshipPercent": 0,
+          "carePercent": 97.6190476190476,
+          "schoolPercent": 80.00283446712018,
+          "medianLiquidityPerResident": 3615.3949391505453,
+          "regionalDemand": 0.940296714996061
+        },
+        {
+          "checkpoint": "60 minutes equivalent",
+          "day": 2183,
+          "treasury": 1100569.804033428,
+          "debt": 0,
+          "residents": 341,
+          "employmentPercent": 88,
+          "hardshipPercent": 2,
+          "carePercent": 100,
+          "schoolPercent": 78.02736474574522,
+          "medianLiquidityPerResident": 4468.210805910798,
+          "regionalDemand": 0.555193529373393
+        }
+      ],
+      "cashConservationDrift": -5.8980658650398254e-05,
+      "errors": [],
+      "finalValidation": {
+        "ok": true,
+        "issues": [],
+        "total": 15493516.99994102,
+        "population": 341,
+        "day": 2183
+      },
+      "completedProjects": [
+        {
+          "kind": "food",
+          "branch": "local",
+          "target": 0,
+          "started": 1,
+          "completed": 14,
+          "status": "complete",
+          "proof": "1,464 produced \u00b7 1,223.2 sold \u00b7 accumulated operating result $76"
+        },
+        {
+          "kind": "skills",
+          "branch": "network",
+          "target": 10,
+          "started": 13,
+          "completed": 142,
+          "status": "complete",
+          "proof": "Target household teaching access 97.3% \u00b7 2 new adult training terms completed"
+        },
+        {
+          "kind": "district",
+          "branch": "neighbourhood",
+          "target": "east-meadow",
+          "started": 1092,
+          "completed": 1122,
+          "status": "complete",
+          "proof": "7 connected properties \u00b7 2 staffed firms \u00b7 8 residents"
+        }
+      ]
+    }
+  },
+  "failedLargeAgreement": {
+    "contract": {
+      "id": 1033,
+      "name": "Upland Cooperative supply agreement",
+      "firm": 26,
+      "market": "upland",
+      "good": "manufactures",
+      "quantity": 600,
+      "delivered": 0,
+      "price": 9.405126018320152,
+      "deadline": 395,
+      "status": "missed"
+    },
+    "observedDays": 31,
+    "production": 1061,
+    "largestStockAtDispatch": 4.36883605281861,
+    "contractUnitsDispatched": 0
+  },
+  "lostCertifiedWharf": {
+    "day": 1473,
+    "firm": 37,
+    "name": "River Cargo Wharf Trading",
+    "kind": "wharf",
+    "cash": 0,
+    "revenue": 0,
+    "netProfit": -2.315624601083193,
+    "projects": [
+      {
+        "kind": "district",
+        "target": "river-reach",
+        "status": "complete",
+        "completed": 1122,
+        "proof": "4 connected properties \u00b7 2 staffed firms \u00b7 4 residents",
+        "display": "<article class=\"civic-project-card delivered\" data-project-card=\"district\"><small>DELIVERED DAY 1122 \u00b7 Lower River Reach</small><h3>A gateway worth building</h3><b>4 connected properties \u00b7 2 staffed firms \u00b7 4 residents</b><p class=\"desc\">A working result recorded on day 1122. Current conditions can still change; the delivered project remains part of the town\u2019s record.</p><div class=\"btnrow\"><button data-civic-project-visit=\"district\">Visit the result</button><button data-civic-project-review=\"district\">Plan the next district</button></div></article>"
+      }
+    ],
+    "townSignal": "Care and learning need attention",
+    "mayorPressures": [
+      "Places need people and access",
+      "Rebuild a trading reputation"
+    ]
+  },
+  "knownNextIntegration": "a98ab20 has staged logistics and 120-unit acceptance cap; old single-call 180-unit bridge expectation is invalid there and requires normal partial-order actions."
+}
