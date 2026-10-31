@@ -1,0 +1,16 @@
+{
+  "checkpoint": "4e9248cfee7196f0fe6e14a1f6ebdbfe15f8a673",
+  "source_sha256": "a1b3c7f8bcbf4fab126b31e5180c7186ac8fa024f587e716d16644a7301a54f9",
+  "seed": 8142026,
+  "httpOrigin": true,
+  "secondsRequested": 3600,
+  "startedUTC": "2026-10-31T20:12:04.867622+00:00",
+  "dueUTC": "2026-10-31T21:12:04.867622+00:00",
+  "pid": 13410,
+  "status": "running",
+  "assetManifestSha256": "66da857d6c079ab10753d2d445c20c3a91039d337f16dccef80c1ce154c9f724",
+  "driverSha256": "5b6e5dc1a610b06bf371e57ddc762c2a05254c1e2460fc409f9c9df49bca29a5",
+  "toolSession": 91688,
+  "outputDirectory": "/workspace/scratch/save-acceptance-4e9248c",
+  "result": "PENDING; terminal process result has not been inspected"
+}
