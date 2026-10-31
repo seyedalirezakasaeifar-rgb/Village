@@ -1,0 +1,265 @@
+{
+  "source_sha256": "129be0f8458049246c10432c85e6dc8e784ed6fe2d28b14e4a1a6ecc128f321f",
+  "assets": {
+    "assets/civic7.css": "c27ad35b9758a988a6514661ec3eedc6f4a8c4ea6ff61fee4478156f0c376505",
+    "assets/style.css": "96b4f686a7125e05720bd2de246f2bfbd8f7610e344486b967e99882f45f3a0f",
+    "assets/game.js": "129be0f8458049246c10432c85e6dc8e784ed6fe2d28b14e4a1a6ecc128f321f",
+    "assets/index.html": "c92dedcb2165a207d8c6d67868d3941e6a30b0226f1ba9af67265f4fcc389912",
+    "assets/vale.css": "6aaa9781eb11e5b0d205a720451d3fbc5384b92fb783e457d5d33f4a94be9bb9",
+    "assets/sound/click.wav": "f442b590c799bbcf972e69d1c1f172881cb5bf81116bf114bc015080d5057c91",
+    "assets/sound/rain.wav": "8d5d04ed401b06df35d964915fcb0705b71f25d6460b7d789841138fadbe3e01",
+    "assets/sound/build.wav": "88377b20c3bbca59a8fcabafe837b6e07508bbdba36112c7f643deea943ba551",
+    "assets/sound/zone.wav": "9d2e5ce6837c95bed60894c43c91f410a675d720369e8245d151653ca1a3541a",
+    "assets/sound/error.wav": "b5d5ded784fb78f162ec098a741ef921c2f10113a13b0d76043966546bcbf0c5",
+    "assets/sound/LICENSE.txt": "66435b1de18b054246e451607fdbfdbdea1e1f770fb214518bfb556f79cd591e",
+    "assets/sound/village.wav": "5789b8988371c6720931a270c433690cdbce4f5dfb6ae7859f4c9b9ed8e857bb",
+    "assets/sound/coin.wav": "99edffa3814662def67c66a9401791043b5221a331ee6edf552d862703a7c7af",
+    "assets/sound/save.wav": "e94121e8f98c3343759ee0606aa23924396cef4445935f4be3267ae9e79b1d6d"
+  },
+  "gates": [
+    {
+      "script": "test_goods_precision.py",
+      "exit": 0
+    },
+    {
+      "script": "test_region_survey.py",
+      "exit": 0
+    },
+    {
+      "script": "test_water_motion.py",
+      "exit": 0
+    },
+    {
+      "script": "test_waterfront_player_journey.py",
+      "exit": 0
+    },
+    {
+      "script": "test_sprite_envelopes.py",
+      "exit": 0
+    },
+    {
+      "script": "test_annexation.py",
+      "exit": 0
+    },
+    {
+      "script": "test_annexation_networks.py",
+      "exit": 0
+    },
+    {
+      "script": "test_waterfront.py",
+      "exit": 0
+    },
+    {
+      "script": "test_waterfront_mobile.py",
+      "exit": 0
+    },
+    {
+      "script": "test_seed_sort_stability.py",
+      "exit": 0
+    },
+    {
+      "script": "test_map_hierarchy.py",
+      "exit": 0
+    },
+    {
+      "script": "test_host_lifecycle.py",
+      "exit": 0
+    },
+    {
+      "script": "test_native_archive_io.py",
+      "exit": 0
+    },
+    {
+      "script": "test_council_programme.py",
+      "exit": 0
+    },
+    {
+      "script": "test_credit_crisis.py",
+      "exit": 0
+    },
+    {
+      "script": "test_council_accounting.py",
+      "exit": 0
+    },
+    {
+      "script": "test_workday_scenes.py",
+      "exit": 0
+    },
+    {
+      "script": "test_credit_cashflow.py",
+      "exit": 0
+    },
+    {
+      "script": "test_household_markets.py",
+      "exit": 0
+    },
+    {
+      "script": "test_local_civic_services.py",
+      "exit": 0
+    },
+    {
+      "script": "test_transport_visual_states.py",
+      "exit": 0
+    },
+    {
+      "script": "test_service_provision.py",
+      "exit": 0
+    },
+    {
+      "script": "test_older_webview_api.py",
+      "exit": 0
+    },
+    {
+      "script": "test_archive_schema.py",
+      "exit": 0
+    },
+    {
+      "script": "test_review_workflows.py",
+      "exit": 0
+    },
+    {
+      "script": "test_mobile_rendering.py",
+      "exit": 0
+    },
+    {
+      "script": "test_controls.py",
+      "exit": 0
+    },
+    {
+      "script": "test_v7_contrast.py",
+      "exit": 0
+    },
+    {
+      "script": "test_release.py",
+      "exit": 0
+    },
+    {
+      "script": "test_v7_model.py",
+      "exit": 0
+    },
+    {
+      "script": "test_v7_default_starts.py",
+      "exit": 0
+    },
+    {
+      "script": "test_v7_scenarios.py",
+      "exit": 0
+    },
+    {
+      "script": "test_v7_liquidity.py",
+      "exit": 0
+    },
+    {
+      "script": "test_v7_policy_experiments.py",
+      "exit": 0
+    },
+    {
+      "script": "test_regional_tradeoffs.py",
+      "exit": 0
+    },
+    {
+      "script": "test_v7_live_large_town.py",
+      "exit": 0
+    }
+  ],
+  "browser_performance": {
+    "viewport": [
+      844,
+      390
+    ],
+    "synthetic": {
+      "population": 2000,
+      "households": 678,
+      "buildings": 713,
+      "total": 15493517
+    },
+    "requestedSpeed": 64,
+    "simulatedDays": 311,
+    "rafP95Ms": 33.30000000000018,
+    "rafOver50ms": 7,
+    "renderer": {
+      "drawCount": 148,
+      "drawMedianMs": 1.300000000745058,
+      "drawP95Ms": 36.19999999925494,
+      "drawP99Ms": 45.29999999701977,
+      "tickMedianMs": 6.599999997764826,
+      "tickP95Ms": 16,
+      "actualSpeed": 63.293006786662644,
+      "backlogDays": 0.38230303030307566
+    },
+    "moneyConservationDrift": 5.692243576049805e-06
+  },
+  "player_journey": {
+    "source_sha256": "129be0f8458049246c10432c85e6dc8e784ed6fe2d28b14e4a1a6ecc128f321f",
+    "day": 159,
+    "roadTilesPainted": 24,
+    "newFisheryCrew": 2,
+    "newWharfCrew": 1,
+    "newWharfCargo": 37.29785122154538,
+    "newWharfProfit": -29.01188154451213,
+    "householdUtilityConnected": true,
+    "careBeforeFunding": 0.4093567251461988,
+    "careCoverage": 0.9888268156424581,
+    "careStaffing": {
+      "local": 1,
+      "regional": 1.5285714285714285,
+      "needed": 2.557142857142857,
+      "coverage": 0.9888268156424581,
+      "pending": {
+        "target": 1.557142857142857,
+        "day": 184
+      },
+      "qualification": 0.7
+    },
+    "treasury": 52444.20288349557,
+    "cashDrift": -3.032386302947998e-06,
+    "roundTrip": true
+  },
+  "water_motion": {
+    "source_sha256": "129be0f8458049246c10432c85e6dc8e784ed6fe2d28b14e4a1a6ecc128f321f",
+    "samples": 200,
+    "cornerAngle": 0.022221307795214473,
+    "coarseAngle": 0.22131444234779174,
+    "maxStep": 1.931962732560349,
+    "maxAngle": 0.26179938779915357,
+    "turnFrames": 12,
+    "finished": true
+  },
+  "precision": {
+    "reference": "Same game source with only goodsEntry replaced by the prior naive addition; compensated stock reporting is identical in both variants.",
+    "physical_state_identical": true,
+    "runs": [
+      {
+        "kind": "naive",
+        "source_sha256": "129be0f8458049246c10432c85e6dc8e784ed6fe2d28b14e4a1a6ecc128f321f",
+        "evaluated_source_sha256": "c06b724f86ddd599e6c0c107d3c6f013111e6241c0a82281e7e894113cd5a9a1",
+        "day": 25167,
+        "population": 1700,
+        "seconds": 449.64950756300095,
+        "physical_sha256": "a51caca44f0a148a8223e43058f641d38781c1865feb6804e6ff9bfbe4659720",
+        "maxGoodsError": 0.0011829453142127022
+      },
+      {
+        "kind": "compensated",
+        "source_sha256": "129be0f8458049246c10432c85e6dc8e784ed6fe2d28b14e4a1a6ecc128f321f",
+        "evaluated_source_sha256": "129be0f8458049246c10432c85e6dc8e784ed6fe2d28b14e4a1a6ecc128f321f",
+        "day": 25167,
+        "population": 1700,
+        "seconds": 449.2780754569976,
+        "physical_sha256": "a51caca44f0a148a8223e43058f641d38781c1865feb6804e6ff9bfbe4659720",
+        "maxGoodsError": 9.389623301103711e-09
+      }
+    ]
+  },
+  "screenshots": {
+    "regional-overview-844x390.png": "10364ea8ae58a79f7032235b8ade24e4b9862206db21babb419b976a550118a2",
+    "river-workday-2-844x390.png": "f74391ac06eb6993f10360d264976c9d5dcc7a6b9fd1788c39b449cb60ddda49",
+    "east-meadow-owned-844x390.png": "01f30123056a2b3a01c55b2269075ad42dc151b3661be9c651b9b7a3beac732c",
+    "river-workday-3-844x390.png": "151572ee112e73095761bd874d39e61627716e442426d12cfbe4cd2950ed71b0",
+    "river-workday-1-844x390.png": "9df084731852b5fe6b9ee367b83f820ce924b0db8e388ac5b9ec08af950f8c10",
+    "deed-confirmation-844x390.png": "6585880c8e0b31920a2b665c3887b453e38ac62432b6a2558adb9cd6073b5b57",
+    "east-meadow-survey-844x390.png": "1bcd5e5eba9a1af578825ec165bba9120e559c91609364d02c1a0cb659171e80",
+    "river-workday-0-844x390.png": "e7accd43e6c0950be2288ca563df19912f6e690080f087e2d0eef176cfa280da"
+  },
+  "capture": "Chromium, 844x390, settlement seed42 day6. River frames sample separate visual-clock positions without altering the economic state. No Android device screenshot claim."
+}

@@ -5,18 +5,42 @@ function charterPanel(){
  ANNEX_PARCELS.map(p=>{const q=parcelSurvey(p),owned=G.charter.owned.includes(p.id),near=parcelAdjacent(p),deed=G.charter.deeds.find(d=>d.id===p.id);return `<section class="charter-district ${p.id===parcelFocus?'selected':''}" data-parcel-card="${p.id}"><small>${owned?'DEED RECORDED':near?'REGIONAL LAND AVAILABLE':'ADJOINING DEED REQUIRED'}</small><h3>${esc(p.name)}</h3><p class="desc">${esc(p.description)}</p>${strip('District surface',q.area+' tiles · '+p.w+' × '+p.h)}${strip('Land / water',q.land+' / '+q.water+' tiles')}${strip(owned?'Price paid':'Development-rights price',money(owned?deed.price:q.price))}${owned?strip('Acquired','Day '+deed.day):tip(near?'A connection from existing streets is still required. New households and firms face the usual utility bills, paid staffing and local service catchments.':'Acquire County Ridge or Orchard Downs before this far corner.')}<div class="btnrow"><button data-parcel-preview="${p.id}">Preview district</button>${owned?'':`<button data-parcel-buy="${p.id}" ${!near||G.treasury<q.price?'disabled':''}>Review purchase · ${money(q.price)}</button>`}</div>${!owned&&G.treasury<q.price?`<p class="desc">Treasury shortfall: ${money(q.price-G.treasury)}. This is a one-time land outlay; retain funds for construction and recurring commitments.</p>`:''}</section>`;}).join('')+'</details>';
 }
 function revealCharterOffice(){const office=$('charterOffice');if(office)office.open=true;}
-function previewParcel(id){const p=ANNEX_PARCELS.find(p=>p.id===id);if(!p)return;parcelFocus=id;overlay='charter';const center=iso(p.x+p.w/2,p.y+p.h/2);cam={x:center[0],y:center[1]+18,zoom:clamp(Math.min((cw-70)/((p.w+p.h)*36),(ch-50)/((p.w+p.h)*18)),.08,.55)};closePanel();dirty=true;toast(p.name+': '+(G.charter.owned.includes(id)?'chartered land':'regional land · review its deed in Public Works'));}
+function previewParcel(id){const p=ANNEX_PARCELS.find(p=>p.id===id);if(!p)return;parcelFocus=id;overlay='charter';const center=iso(p.x+p.w/2,p.y+p.h/2);cam={x:center[0],y:center[1]+18,zoom:clamp(Math.min((cw-50)/((p.w+p.h)*36),(ch-100)/((p.w+p.h)*18)),.025,.55)};cam.y+=38/cam.zoom;closePanel();dirty=true;toast(p.name+': '+(G.charter.owned.includes(id)?'chartered land':'regional land · review its deed in Public Works'));}
 function requestParcelPurchase(id){const p=ANNEX_PARCELS.find(p=>p.id===id);if(!p||G.charter.owned.includes(id)||!parcelAdjacent(p))return;const q=parcelSurvey(p),town=G;if(G.treasury<q.price){toast('Insufficient treasury for this district.');return;}
  showCustomEvent('LAND PURCHASE','Acquire '+p.name+'?',q.area+' new regional tiles, including '+q.land+' land and '+q.water+' water tiles. Pay '+money(q.price)+' to the regional land authority. Existing private titles stay intact. Roads, utilities, buildings and service staffing are separate commitments.',[{title:'Acquire the district',desc:'One-time price '+money(q.price)+'. The deed expands municipal development rights.',cost:q.price,apply:()=>{if(G!==town||!purchaseParcel(id,q.price)){toast('The quote is no longer valid. Review the district again.');return;}parcelFocus=id;openPanel('construction');revealCharterOffice();document.querySelector('[data-parcel-card="'+id+'"]')?.scrollIntoView({block:'start'});}},{title:'Keep the current boundary',desc:'No payment and no change to ownership.',apply:()=>{}}]);
+}
+let surveySignature='';
+function updateRegionSurvey(){
+ const signature=JSON.stringify([parcelFocus,G.charter?.owned]);if(signature===surveySignature)return;surveySignature=signature;
+ $('surveyReview').disabled=!parcelFocus;$('surveyDistrict').innerHTML='<option value="" disabled '+(!parcelFocus?'selected':'')+'>Choose a district…</option>'+ANNEX_PARCELS.map((p,i)=>`<option value="${p.id}" ${parcelFocus===p.id?'selected':''}>${i+1}. ${esc(p.name)}${G.charter.owned.includes(p.id)?' · Owned':''}</option>`).join('');
+}
+function reviewSurveyDistrict(id){if(!ANNEX_PARCELS.some(p=>p.id===id))return;parcelFocus=id;openPanel('construction');revealCharterOffice();document.querySelector('[data-parcel-card="'+id+'"]')?.scrollIntoView({block:'start'});}
+function charterLabelLayout(){
+ const occupied=[],labels=[];for(const p of ANNEX_PARCELS.slice().sort((a,b)=>(b.id===parcelFocus)-(a.id===parcelFocus))){const index=ANNEX_PARCELS.indexOf(p),q=iso(p.x+p.w/2,p.y+p.h/2),x=cw/2+(q[0]-cam.x)*cam.zoom,y=ch/2+(q[1]-cam.y)*cam.zoom;
+  let compact=cam.zoom<.20||parcelFocus!==p.id,text=(index+1)+'. '+p.name+(G.charter.owned.includes(p.id)?' · OWNED':'');
+  const width=text.length*6.1+14;let box={x:x-width/2,y:y-11,w:width,h:22};
+  if(occupied.some(a=>box.x<a.x+a.w+6&&box.x+box.w>a.x-6&&box.y<a.y+a.h+5&&box.y+box.h>a.y-5))compact=true;
+  if(compact){text=String(index+1);box={x:x-11,y:y-11,w:22,h:22};}
+  occupied.push(box);labels.push({p,index,text,compact,x,y,box});
+ }return labels;
+}
+function charterSurveyTap(sx,sy,x,y){
+ const label=charterLabelLayout().filter(a=>Math.abs(sx-a.x)<=Math.max(22,a.box.w/2)&&Math.abs(sy-a.y)<=22).sort((a,b)=>Math.hypot(sx-a.x,sy-a.y)-Math.hypot(sx-b.x,sy-b.y))[0],p=label?.p||parcelForTile(x,y);if(!p)return false;
+ if(parcelFocus===p.id)reviewSurveyDistrict(p.id);else previewParcel(p.id);dirty=true;return true;
 }
 function drawCharterBounds(g){
  if(!G.charter)return;g.save();g.lineJoin='round';
  for(const p of ANNEX_PARCELS){const owned=G.charter.owned.includes(p.id);if(owned&&overlay!=='charter'&&parcelFocus!==p.id)continue;
   const points=[[p.x-.5,p.y-.5],[p.x+p.w-.5,p.y-.5],[p.x+p.w-.5,p.y+p.h-.5],[p.x-.5,p.y+p.h-.5]].map(([x,y])=>{const q=iso(x,y);return[q[0],q[1]+18]});
   g.strokeStyle=owned?'#bfd2a4':'#d4b777';g.lineWidth=(parcelFocus===p.id?2.5:1.2)/cam.zoom;g.setLineDash(owned?[]:[7/cam.zoom,5/cam.zoom]);g.beginPath();points.forEach((q,i)=>i?g.lineTo(...q):g.moveTo(...q));g.closePath();g.stroke();
-  if(overlay==='charter'||parcelFocus===p.id){const q=iso(p.x+p.w/2,p.y+p.h/2),text=p.name+(owned?' · OWNED':' · REGIONAL LAND');g.font=(11/cam.zoom)+'px Arial';const w=g.measureText(text).width;g.fillStyle='#f1ead3ed';g.fillRect(q[0]-w/2-6/cam.zoom,q[1]-10/cam.zoom,w+12/cam.zoom,20/cam.zoom);g.fillStyle='#29422e';g.textAlign='center';g.textBaseline='middle';g.fillText(text,q[0],q[1]);}
+ }
+ if(overlay==='charter'||parcelFocus)for(const label of charterLabelLayout()){if(overlay!=='charter'&&label.p.id!==parcelFocus)continue;const q=iso(label.p.x+label.p.w/2,label.p.y+label.p.h/2),w=label.box.w/cam.zoom;
+  g.font=(11/cam.zoom)+'px Arial';g.fillStyle=label.p.id===parcelFocus?'#e9cc8bed':'#f1ead3ed';g.fillRect(q[0]-w/2,q[1]-11/cam.zoom,w,22/cam.zoom);g.strokeStyle='#536c4b';g.lineWidth=1/cam.zoom;g.strokeRect(q[0]-w/2,q[1]-11/cam.zoom,w,22/cam.zoom);g.fillStyle='#29422e';g.textAlign='center';g.textBaseline='middle';g.fillText(label.text,q[0],q[1]);
  }
  g.setLineDash([]);g.restore();
 }
+$('surveyDistrict').addEventListener('change',e=>previewParcel(e.target.value));$('surveyReview').onclick=()=>reviewSurveyDistrict(parcelFocus||$('surveyDistrict').value);
 const charterConstructionBase=renderConstructionFull;renderConstructionFull=function(){return charterPanel()+charterConstructionBase();};
-document.addEventListener('click',e=>{const b=e.target.closest('button');if(!b||!G)return;if(b.dataset.parcelPreview)previewParcel(b.dataset.parcelPreview);if(b.dataset.parcelBuy)requestParcelPurchase(b.dataset.parcelBuy);if(b.hasAttribute('data-charter-home')){overlay='none';parcelFocus=null;closePanel();centerTownCamera();}if(b.hasAttribute('data-charter-overview')){overlay='charter';parcelFocus=null;closePanel();const p=iso(40,40);cam={x:p[0],y:p[1]+18,zoom:Math.max(.08,Math.min((cw-30)/RW,(ch-25)/RH))};dirty=true;}});
+document.addEventListener('click',e=>{const b=e.target.closest('button');if(!b||!G)return;if(b.dataset.parcelPreview)previewParcel(b.dataset.parcelPreview);if(b.dataset.parcelBuy)requestParcelPurchase(b.dataset.parcelBuy);if(b.hasAttribute('data-charter-home')){overlay='none';parcelFocus=null;closePanel();centerTownCamera();}if(b.hasAttribute('data-charter-overview')){overlay='charter';parcelFocus=null;closePanel();const p=iso(40,40);cam={x:p[0],y:p[1]+18,zoom:Math.max(.025,Math.min((cw-24)/RW,(ch-100)/RH))};cam.y+=38/cam.zoom;dirty=true;}});
+
+const charterBackBase=window.__townArchive.back;window.__townArchive.back=()=>{if(!active&&!pendingEvent&&$('helpDialog').style.display==='none'){if(buildMode){closeBuildTool();return true;}if(overlay==='charter'){overlay='none';parcelFocus=null;centerTownCamera();return true;}}return charterBackBase();};

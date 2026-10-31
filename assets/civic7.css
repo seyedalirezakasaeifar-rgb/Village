@@ -75,3 +75,7 @@ button:focus-visible,select:focus-visible,input:focus-visible,summary:focus-visi
 body.surveying-region #topNotice,body.surveying-region #liveEconomy{display:none!important}
 
 #charterOffice>summary,details.council-card>summary{min-height:44px;padding:10px 6px;cursor:pointer;font-weight:700}#charterOffice button,[data-waterfront-camera],[data-waterfront-build]{min-height:44px}
+
+#regionSurvey{display:none;position:absolute;top:12px;left:12px;width:min(260px,calc(100% - 124px));padding:9px;background:#f1ead3ed;border:1px solid #849474;box-shadow:0 2px 7px #213b2b22;color:#20372b;z-index:3}#regionSurvey label{display:block;font:10px Arial,sans-serif;letter-spacing:.08em;margin-bottom:5px}#regionSurvey select,#regionSurvey button{display:block;width:100%;min-height:44px;font:13px Arial,sans-serif;color:#20372b;background:#e0e6cc;border:1px solid #849474;border-radius:3px}#regionSurvey button{margin-top:5px}body.surveying-region #regionSurvey{display:block}.drawer-open #regionSurvey,.building-map #regionSurvey{display:none!important}
+
+#regionSurvey{top:auto;bottom:10px;left:12px;width:calc(100% - 24px);padding:8px;gap:8px;align-items:center}#regionSurvey label{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0)}#regionSurvey select{flex:1;min-width:0;width:auto}#regionSurvey button{flex:0 0 80px;width:80px;margin:0}body.surveying-region #regionSurvey{display:flex}

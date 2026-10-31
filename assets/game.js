@@ -1131,6 +1131,7 @@ function ensureWaterfront(){
 function prepareWaterfrontDay(live=G.firms.filter(f=>!f.closed)){
  const network=waterNetwork(),state=ensureWaterfront();if(waterDayTown===G&&waterDayNumber===G.day)return;
  waterDayTown=G;waterDayNumber=G.day;operatingWharves=[];state.manifests=state.manifests.filter(m=>m.started+m.duration>=G.day);state.todayCargo=0;state.todayFees=0;
+ for(const f of G.firms){if(f.kind==='wharf'){f.cargoToday=0;f.handlingFees=0;f.cargoCapacity=0;}if(f.kind==='fishery'){f.fishingAllowance=0;f.fishingWaterLimit=false;}}
  const groups=new Map();for(const f of live){f.shippingToday=0;if(f.kind==='fishery'){f.fishingAllowance=0;const b=readBuild(f.building),site=b&&waterfrontSite(b.x,b.y);f.waterPart=site?.part??-1;
    if(site&&workingStaff(f).length){const capacity=formulas.fishery.qty*workingStaff(f).length/SECTOR_WORKERS.fishery*(.82+workingStaff(f).reduce((n,id)=>n+(G.people[id]?.skill||.5),0)/workingStaff(f).length*.25+G.education*.0015)*(1+(f.scale-1)*.25);if(!groups.has(site.part))groups.set(site.part,[]);groups.get(site.part).push({f,capacity});}
   }else if(f.kind==='wharf'){f.cargoToday=0;f.handlingFees=0;const b=readBuild(f.building),site=b&&waterfrontSite(b.x,b.y,'wharf'),path=site?waterOutletPath(site.id):[];const capacity=workingStaff(f).length*600*(1+((f.scale||1)-1)*.25);f.cargoCapacity=capacity;
@@ -1182,8 +1183,24 @@ function validateWaterfrontArchive(data){
 }
 function waterfrontFirmReport(f){
  if(f.kind==='fishery'){const b=readBuild(f.building),site=waterfrontSite(b.x,b.y),area=site&&waterNetwork().components[site.part];return head('Working water')+strip('Fishing water',area?(area.gates.length?'Connected river':'Inland lake')+' · '+area.cells.length+' water tiles':'No usable fishing water')+strip('Catch today',policyNumber(f.production||0)+' food units')+strip('Shared daily catch limit',area?policyNumber(area.catchCapacity):'0')+tip('Crews land food for the existing grocery and regional markets. Fisheries sharing water share its finite catch capacity; extra equipment cannot create fish.');}
- if(f.kind==='wharf'){const b=readBuild(f.building),site=waterfrontSite(b.x,b.y,'wharf');return head('Working waterfront')+strip('Regional water route',site?'Open river outlet':'No navigable regional outlet')+strip('Cargo handled today',policyNumber(f.cargoToday||0)+' units')+strip('Crew handling capacity',policyNumber(f.cargoCapacity||0)+' units / day')+strip('Handling receipts',money(f.handlingFees||0))+tip('Exporters choose the lowest delivered freight quote. Each attending worker handles 600 units daily; the wharf earns $0.10 per unit actually loaded. Road collection and the river journey are included. No cargo means no handling revenue.');}
+ if(f.kind==='wharf'){const b=readBuild(f.building),site=waterfrontSite(b.x,b.y,'wharf');return head('Working waterfront')+strip('Regional water route',site?'Open river outlet':'No navigable regional outlet')+strip('Cargo handled today',policyNumber(f.cargoToday||0)+' units')+strip('Crew handling capacity',f.closed?'Unavailable · business closed':policyNumber(f.cargoCapacity||0)+' units / day')+strip('Handling receipts',money(f.handlingFees||0))+strip('Loading capacity used',policyNumber((f.cargoToday||0)/Math.max(1,f.cargoCapacity||0)*100)+'%')+strip('Cargo needed to cover today’s costs',policyNumber((f.expenses||0)/.10)+' units')+tip('Exporters choose the lowest delivered freight quote. Each attending worker handles 600 units daily; the wharf earns $0.10 per unit actually loaded. Road collection and the river journey are included. No cargo means no handling revenue.');}
  return (f.shippingToday||0)>0?strip('Regional freight paid today',money(f.shippingToday)):'';
+}
+
+function waterfrontSitingReason(x,y,kind){
+ if(!charterOwns(x,y))return 'Purchase this district before developing its shore.';
+ if(![0,3].includes(cityCell(x,y))||buildingAt(x,y)||G.landUse?.[roadId(x,y)])return 'Choose vacant land on the shore; the pier extends over adjacent water.';
+ if(!waterfrontSite(x,y,'fishery'))return 'Choose a shore beside at least eight connected water tiles.';
+ if(kind==='wharf'&&!waterfrontSite(x,y,'wharf'))return 'This water has no regional outlet. Build a fishery here, or choose the open river for a cargo wharf.';
+ if(!nearRoad(x,y))return 'The shore needs an adjoining road for crews and cargo collection.';
+ return 'Choose a vacant, chartered shore with adjoining road access.';
+}
+
+function waterfrontPlacementMessage(x,y,kind){
+ if(G.treasury<buildCost[kind])return 'Treasury shortfall: '+money(buildCost[kind]-G.treasury)+'. Keep funds for construction and operating commitments.';
+ if(!canPlace(x,y,true,kind))return waterfrontSitingReason(x,y,kind);
+ const road=roadOffsets.map(([dx,dy])=>roadId(x+dx,y+dy)).find(id=>graph().parts[id]===graph().mainPart);
+ return road!=null?'Ready: vacant shore with a connected road. Crews and orders are still required.':'Shore site available, but this road is isolated. Connect it to town before crews can work.';
 }
 
 // SOURCE: 25-scenarios.js
@@ -1381,13 +1398,27 @@ function stockTotals(){
 }
 function ensureGoodsAccounts(){
  if(!G.goodsAccounts){const opening=stockTotals();G.goodsAccounts=Object.fromEntries(Object.keys(goods).map(k=>[k,{opening:opening[k],produced:0,consumed:0,imports:0,exports:0}]));}
+ const missing=Object.keys(goods).filter(k=>!G.goodsAccounts[k]);if(missing.length){const opening=stockTotals();for(const k of missing)G.goodsAccounts[k]={opening:opening[k],produced:0,consumed:0,imports:0,exports:0};}
  G.goodsPrices=G.goodsPrices||{...goods};
 }
-function goodsEntry(good,category,qty){if(!(qty>0)||!G.goodsAccounts?.[good])return;G.goodsAccounts[good][category]+=qty;}
+function goodsEntry(good,category,qty){if(!(qty>0)||!G.goodsAccounts?.[good])return;
+ // Preserve low-order increments across decades of paid fractional deliveries.
+ // This is numerical carry, never a balancing entry or a change to stock/cash.
+ G.goodsCompensation=G.goodsCompensation||{};const carry=G.goodsCompensation[good]||(G.goodsCompensation[good]={}),a=G.goodsAccounts[good],adjusted=qty-(carry[category]||0),total=a[category]+adjusted;carry[category]=(total-a[category])-adjusted;a[category]=total;
+}
+function expectedCommodityStock(good,a){
+ const c=G.goodsCompensation?.[good]||{},terms=[a.opening,a.produced,a.imports,-a.consumed,-a.exports,-(c.produced||0),-(c.imports||0),c.consumed||0,c.exports||0];let sum=0,carry=0;
+ for(const value of terms){const next=sum+value;carry+=Math.abs(sum)>=Math.abs(value)?(sum-next)+value:(value-next)+sum;sum=next;}return sum+carry;
+}
+function validateGoodsAccounting(data){
+ if(data.goodsAccounts!=null){if(typeof data.goodsAccounts!=='object'||Array.isArray(data.goodsAccounts))return false;for(const [good,a] of Object.entries(data.goodsAccounts)){if(!owns(goods,good)||!a||['opening','produced','consumed','imports','exports'].some(k=>!Number.isFinite(a[k])||a[k]<0))return false;}}
+ if(data.goodsCompensation!=null){if(typeof data.goodsCompensation!=='object'||Array.isArray(data.goodsCompensation))return false;for(const [good,c] of Object.entries(data.goodsCompensation)){if(!owns(goods,good)||!data.goodsAccounts?.[good]||!c||typeof c!=='object'||Array.isArray(c))return false;for(const [category,value] of Object.entries(c))if(!['produced','consumed','imports','exports'].includes(category)||!Number.isFinite(value)||Math.abs(value)>Math.max(1,data.goodsAccounts[good][category])*Number.EPSILON*2)return false;}}
+ return true;
+}
 function marketPrice(good){return G?.goodsPrices?.[good]||goods[good]||1;}
 function goodsBalance(){
  const stocks=stockTotals();
- return Object.entries(G.goodsAccounts||{}).map(([good,a])=>({good,...a,stock:stocks[good],error:stocks[good]-(a.opening+a.produced+a.imports-a.consumed-a.exports),price:marketPrice(good)}));
+ return Object.entries(G.goodsAccounts||{}).map(([good,a])=>({good,...a,stock:stocks[good],error:stocks[good]-expectedCommodityStock(good,a),price:marketPrice(good)}));
 }
 function commodityPriceReview(){
  if(G.day%30!==0)return;
@@ -2530,7 +2561,7 @@ function drawConstructionProgress(g,visible){
  }
 }
 function draw(){
- if(!G||!dirty)return;dirty=false;document.body.classList.toggle('surveying-region',overlay==='charter');if(staticDirty||lastSceneMonth!==visualMonth())drawStatic();
+ if(!G||!dirty)return;dirty=false;document.body.classList.toggle('surveying-region',overlay==='charter');$('gameRoot').classList.toggle('building-map',!!buildMode);updateRegionSurvey();if(staticDirty||lastSceneMonth!==visualMonth())drawStatic();
  ctx.setTransform(1,0,0,1,0,0);ctx.fillStyle='#6d8774';ctx.fillRect(0,0,cv.width,cv.height);
  const sx=cam.x-cw/(2*cam.zoom),sy=cam.y-ch/(2*cam.zoom),ww=cw/cam.zoom,hh=ch/cam.zoom;
  ctx.setTransform(dpr,0,0,dpr,0,0);ctx.imageSmoothingEnabled=false;transform();ctx.imageSmoothingEnabled=false;
@@ -2560,7 +2591,7 @@ function draw(){
   viewRasterKey=key;
  }
  ctx.setTransform(1,0,0,1,0,0);ctx.drawImage(viewRaster,0,0);transform();
- drawConstructionProgress(ctx,visible);drawInspectedRoute(ctx);drawWaterfrontPiers(ctx,visible);
+ drawConstructionProgress(ctx,visible);drawInspectedRoute(ctx);drawWaterLife(ctx,visible);drawWaterfrontPiers(ctx,visible);drawSelectedWaterRoute(ctx);
  const visibleParcels=viewBuildings.filter(item=>visible(item.x,item.y,0)),actors=[...buildingActivity(visibleParcels),...workdayScenes(visibleParcels),...waterfrontActors(visible)];if(gameOptions.traffic)for(const v of traffic){const p=vehiclePosition(v);if(visible(p.x,p.y,15))actors.push({kind:'vehicle',v,...p});}actors.sort((a,b)=>a.y-b.y);
  if(actors.length){
   // Clip subsequent foreground re-paints to the actors' damage rectangles.
@@ -2576,7 +2607,7 @@ function draw(){
  if(overlay==='roads'||overlay==='business'||overlay==='hardship'||overlay==='crime'||overlay==='land')for(const item of displayItems){if(item.kind!=='building'||!visible(item.x,item.y))continue;const b=item.b,f=G.firms[b.firm],h=G.households[b.hh],net=graph();let color=overlay==='roads'?(net.portals.has(b.id)?'#9ecb95':'#bb7760'):overlay==='business'?(f?(f.closed?'#b66856':f.profit>0?'#a1c67d':'#d6b46c'):null):overlay==='hardship'?(h?(h.stress>50?'#b96c56':'#a9ca87'):null):overlay==='land'?(b.value>90000?'#c38864':b.value>45000?'#d0b776':'#9fc087'):null;if(!color)continue;ctx.globalAlpha=.7;diamond(ctx,b.x,b.y,color);ctx.globalAlpha=1;}
  drawServiceAccess(ctx);
  if(selected?.id){const b=readBuild(selected.id);if(b){const p=iso(b.x,b.y);ctx.strokeStyle='#f4e2a5';ctx.lineWidth=2;ctx.beginPath();ctx.ellipse(p[0],p[1]+18,32,16,0,0,Math.PI*2);ctx.stroke();}}
- if(buildMode&&pointer.hover){const {x,y}=pointer.hover;if(x>=0&&x<T&&y>=0&&y<T){const valid=buildMode==='road'?[0,3].includes(cityCell(x,y))&&charterOwns(x,y)&&!buildingAt(x,y):buildMode==='repair'?cityCell(x,y)===1:canPlace(x,y,true,buildMode);ctx.globalAlpha=.60;for(const id of footprintFor(x,y,buildMode))diamond(ctx,id%T,id/T|0,valid?'#c8dea4':'#c48069');ctx.globalAlpha=1;}}
+ if(buildMode&&pointer.hover){const {x,y}=pointer.hover;if(['fishery','wharf'].includes(buildMode))headerText('placementHint',types[buildMode].n+' · '+money(buildCost[buildMode])+' · '+waterfrontPlacementMessage(x,y,buildMode));if(x>=0&&x<T&&y>=0&&y<T){const valid=buildMode==='road'?[0,3].includes(cityCell(x,y))&&charterOwns(x,y)&&!buildingAt(x,y)&&!G.landUse?.[roadId(x,y)]&&G.treasury>=buildCost.road:buildMode==='repair'?cityCell(x,y)===1:canPlace(x,y,true,buildMode);ctx.globalAlpha=.60;for(const id of footprintFor(x,y,buildMode))diamond(ctx,id%T,id/T|0,valid?'#c8dea4':'#c48069');ctx.globalAlpha=1;}}
  if(nightMode){ctx.setTransform(dpr,0,0,dpr,0,0);ctx.fillStyle='#233c6460';ctx.fillRect(0,0,cw,ch);transform();for(const item of displayItems){if(item.kind!=='building'||!visible(item.x,item.y)||item.b.kind==='worksite')continue;const b=item.b;if(b.firm>=0&&G.firms[b.firm]?.closed)continue;const glow=ctx.createRadialGradient(item.x,item.y-12,1,item.x,item.y-12,28);glow.addColorStop(0,'#eac57a36');glow.addColorStop(1,'#eac57a00');ctx.fillStyle=glow;ctx.fillRect(item.x-28,item.y-40,56,56);}}
 }
 
@@ -2826,31 +2857,33 @@ function architecturalIdentity(g,b,w,d){
 const pointer={down:false,startX:0,startY:0,px:0,py:0,moved:false,pinch:0,buildTrail:0,hover:null};
 function toWorld(x,y){const wx=(x-cw/2)/cam.zoom+cam.x,wy=(y-ch/2)/cam.zoom+cam.y;
  let r=(wx-RW/2)/(TW/2),s=(wy-32-TH/2)/(TH/2);return [Math.floor((s+r)/2+.5),Math.floor((s-r)/2+.5)]}
-function onTap(sx,sy){if(!G)return;const r=cv.getBoundingClientRect();const [x,y]=toWorld(sx-r.left,sy-r.top);if(x<0||x>=T||y<0||y>=T)return;
+function onTap(sx,sy){if(!G)return;const r=cv.getBoundingClientRect();const [x,y]=toWorld(sx-r.left,sy-r.top);if(!buildMode&&overlay==='charter'&&charterSurveyTap(sx-r.left,sy-r.top,x,y))return;if(x<0||x>=T||y<0||y>=T)return;
  if(buildMode){construct(buildMode,x,y);return}
  const mx=(sx-r.left-cw/2)/cam.zoom+cam.x,my=(sy-r.top-ch/2)/cam.zoom+cam.y;
- if(inspectTripAt(mx,my))return;
+ if(inspectWaterTripAt(mx,my)||inspectTripAt(mx,my))return;
  let b=buildingAt(x,y);if(!b){const hit=G.buildings.filter(v=>{const pos=iso(v.x,v.y);return Math.abs(mx-pos[0])<20&&my>=pos[1]-38&&my<=pos[1]+33}).sort((a,b)=>iso(b.x,b.y)[1]-iso(a.x,a.y)[1]);b=hit[0]}
  if(b){selected={id:b.id};openPanel('inspect')}else if(!charterOwns(x,y)&&parcelForTile(x,y)){parcelFocus=parcelForTile(x,y).id;openPanel('construction');revealCharterOffice();document.querySelector('[data-parcel-card="'+parcelFocus+'"]')?.scrollIntoView({block:'start'});}else{selected=null;toast('Unoccupied land. Private investors assess access, demand and expected returns.')}
  dirty=true;
 }
 cv.addEventListener('pointerdown',e=>{if(pointer.down){pointer.moved=true;return;}pointer.activeId=e.pointerId;roadPainted.clear();pointer.lastRoad=buildMode==='road'?toWorld(e.clientX-cv.getBoundingClientRect().left,e.clientY-cv.getBoundingClientRect().top):null;pointer.down=true;pointer.startX=pointer.px=e.clientX;pointer.startY=pointer.py=e.clientY;pointer.moved=false;try{cv.setPointerCapture(e.pointerId)}catch(err){} });
-cv.addEventListener('pointermove',e=>{if(!pointer.down||pointer.activeId!==e.pointerId||touches.size>1)return;let dx=e.clientX-pointer.px,dy=e.clientY-pointer.py;if(Math.abs(e.clientX-pointer.startX)>7||Math.abs(e.clientY-pointer.startY)>7)pointer.moved=true;
+cv.addEventListener('pointermove',e=>{if(!pointer.down){if(buildMode){const r=cv.getBoundingClientRect(),p=toWorld(e.clientX-r.left,e.clientY-r.top);pointer.hover={x:p[0],y:p[1]};dirty=true;}return;}if(pointer.activeId!==e.pointerId||touches.size>1)return;let dx=e.clientX-pointer.px,dy=e.clientY-pointer.py;if(Math.abs(e.clientX-pointer.startX)>7||Math.abs(e.clientY-pointer.startY)>7)pointer.moved=true;
  if(buildMode==='road'){let br=cv.getBoundingClientRect(),pt=toWorld(e.clientX-br.left,e.clientY-br.top);let prev=pointer.lastRoad||pt;let dxg=pt[0]-prev[0],dyg=pt[1]-prev[1],steps=Math.max(Math.abs(dxg),Math.abs(dyg),1);for(let k=0;k<=steps;k++){let ax=Math.round(prev[0]+dxg*k/steps),ay=Math.round(prev[1]+dyg*k/steps),key=ax+'/'+ay;if(!roadPainted.has(key)){roadPainted.add(key);construct('road',ax,ay,true)}}pointer.lastRoad=pt}else{cam.x-=dx/cam.zoom;cam.y-=dy/cam.zoom;cam.x=clamp(cam.x,0,RW);cam.y=clamp(cam.y,0,RH)}pointer.px=e.clientX;pointer.py=e.clientY;let rect=cv.getBoundingClientRect(),tile=toWorld(e.clientX-rect.left,e.clientY-rect.top);pointer.hover={x:tile[0],y:tile[1]};dirty=true});
 cv.addEventListener('pointerup',e=>{$('gameRoot').classList.add('map-used');if(pointer.activeId!==e.pointerId)return;if(pointer.down&&!pointer.moved)onTap(e.clientX,e.clientY);flushRoadBatch();pointer.down=false;pointer.activeId=null;pointer.lastRoad=null;roadPainted.clear()});
 window.addEventListener('keydown',e=>{
  if(e.key!=='Escape')return;
  if(pendingEvent||$('helpDialog').style.display!=='none'){if(window.__townArchive?.back?.())e.preventDefault();return;}
- if(buildMode){buildMode='';pointer.hover=null;dirty=true;$('placementHint').style.display='none';$('hint').textContent='DRAG TO PAN · TAP TO INSPECT';toast('Construction tool closed');e.preventDefault();return;}
+ if(active){if(window.__townArchive?.back?.())e.preventDefault();return;}
+ if(buildMode){closeBuildTool();e.preventDefault();return;}
  // Match Android Back: dismiss the top navigation layer rather than leaving
  // keyboard users stranded behind an open drawer or transient help/archive form.
  if(window.__townArchive?.back?.())e.preventDefault();
 });cv.addEventListener('pointercancel',()=>{flushRoadBatch();pointer.down=false;pointer.activeId=null;pointer.lastRoad=null;roadPainted.clear()});cv.addEventListener('pointerleave',()=>{pointer.hover=null;dirty=true});
-cv.addEventListener('wheel',e=>{e.preventDefault();cam.zoom=clamp(cam.zoom*(e.deltaY<0?1.12:.89),.08,1.7);dirty=true},{passive:false});
+cv.addEventListener('wheel',e=>{e.preventDefault();cam.zoom=clamp(cam.zoom*(e.deltaY<0?1.12:.89),.025,1.7);dirty=true},{passive:false});
 let touches=new Map();cv.addEventListener('touchstart',e=>{touches=new Map([...e.touches].map(t=>[t.identifier,{x:t.clientX,y:t.clientY}]));if(touches.size===2){pointer.moved=true;const a=[...touches.values()];pointer.pinch=Math.hypot(a[0].x-a[1].x,a[0].y-a[1].y)}},{passive:true});
-cv.addEventListener('touchmove',e=>{touches=new Map([...e.touches].map(t=>[t.identifier,{x:t.clientX,y:t.clientY}]));if(touches.size===2){const a=[...touches.values()],d=Math.hypot(a[0].x-a[1].x,a[0].y-a[1].y);if(pointer.pinch>0){cam.zoom=clamp(cam.zoom*d/pointer.pinch,.08,1.7);dirty=true}pointer.pinch=d}},{passive:true});
+cv.addEventListener('touchmove',e=>{touches=new Map([...e.touches].map(t=>[t.identifier,{x:t.clientX,y:t.clientY}]));if(touches.size===2){const a=[...touches.values()],d=Math.hypot(a[0].x-a[1].x,a[0].y-a[1].y);if(pointer.pinch>0){cam.zoom=clamp(cam.zoom*d/pointer.pinch,.025,1.7);dirty=true}pointer.pinch=d}},{passive:true});
 cv.addEventListener('touchend',e=>{touches=new Map([...e.touches].map(t=>[t.identifier,{x:t.clientX,y:t.clientY}]));pointer.pinch=0});
 cv.addEventListener('touchcancel',()=>{touches.clear();pointer.pinch=0;pointer.down=false;pointer.activeId=null;pointer.lastRoad=null;roadPainted.clear();flushRoadBatch();});
+function closeBuildTool(){flushRoadBatch();buildMode='';pointer.hover=null;pointer.down=false;pointer.activeId=null;pointer.lastRoad=null;roadPainted.clear();dirty=true;$('placementHint').style.display='none';$('hint').textContent='DRAG TO PAN · TAP TO INSPECT';toast('Construction tool closed');}
 function construct(kind,x,y,quiet=false){
  if(kind!=='inspect'&&!charterOwns(x,y)){if(!quiet)toast('Regional land: purchase the district in Public Works before developing it.');return;}
  if(kind==='inspect'){buildMode='';const target=buildingAt(x,y);if(target){selected={id:target.id};openPanel('inspect')}else toast('No building is present at this lot.');dirty=true;return}
@@ -2862,7 +2895,7 @@ function construct(kind,x,y,quiet=false){
    G.treasury-=buildCost.road;G.region+=buildCost.road;G.tiles[y*T+x]=1;ensureRoadWear();G.roadWear[roadId(x,y)]=100;G.construction++;dirty=true;
    if(quiet){roadBatchDirty=true;return;}invalidateRoads();staticDirty=true;recompute();updateHeader();save();return;
  }
- if(!canPlace(x,y,true,kind)){toast('This project requires a fully vacant footprint with road access.');return}
+ if(!canPlace(x,y,true,kind)){toast(['fishery','wharf'].includes(kind)?waterfrontSitingReason(x,y,kind):'This project requires a fully vacant footprint with road access.');return}
  if(kind==='forestry'&&!Array.from({length:25},(_,i)=>[x+(i%5)-2,y+Math.floor(i/5)-2]).some(([a,b])=>cityCell(a,b)===3)){toast('Forestry operations require nearby woodland.');return}
  const cost=buildCost[kind];if(G.treasury<cost){toast('Town treasury cannot afford '+types[kind].n+' ('+money(cost)+').');return}
  G.treasury-=cost;G.region+=cost;
@@ -2994,7 +3027,7 @@ $('panelClose').onclick=closePanel;$('topNotice').onclick=()=>openPanel('journal
 $('panelBody').addEventListener('input',e=>{if(e.target.id==='searchPeople'){citizenQuery=e.target.value;return;}const input=e.target.closest('[data-policy]');if(!input)return;let k=input.dataset.policy,value=+input.value;const d=defs.find(d=>d[0]===k);draftPolicy[k]=value;const el=$('show-'+k);if(el)el.textContent=d[5]==='$'?money(value):policyNumber(value)+d[5];const button=$('enactPolicy');if(button)button.disabled=false;const summ=$('draftSummary');if(summ)summ.textContent=Object.keys(draftPolicy).filter(k=>draftPolicy[k]!==G.policy[k]).map(k=>k==='imports'?'Regional inventory imports: '+(G.policy.imports?'OPEN':'RESTRICTED')+' → '+(draftPolicy.imports?'OPEN':'RESTRICTED'):defs.find(d=>d[0]===k)?.[1]+': '+policyNumber(G.policy[k])+' → '+policyNumber(draftPolicy[k])).join(' · ')});
 $('panelBody').addEventListener('change',e=>{if(e.target.id==='searchPeople'){renderPanel('citizens');return;}const input=e.target.closest('[data-policy]');if(!input)return;draftPolicy[input.dataset.policy]=+input.value;const b=$('enactPolicy');if(b)b.disabled=false});
 $('panelBody').addEventListener('click',e=>{const b=e.target.closest('button,[data-house],[data-firm],[data-inspect],[data-ambition]');if(!b)return;
- if(b.dataset.build!==undefined){flushRoadBatch();buildMode=b.dataset.build;$('hint').textContent=buildMode?'TAP A CLEAR ROADSIDE PLOT · '+(buildMode==='road'?'DRAG TO PAINT ROADS':'DRAG TO PAN'):'DRAG TO PAN · TAP TO INSPECT';$('placementHint').style.display=buildMode?'block':'none';$('placementHint').textContent=buildMode?'PLACING '+(types[buildMode]?.n||'ROADS').toUpperCase()+' · COST '+money(buildCost[buildMode]):'';closePanel();toast(buildMode?'Tap the map to build '+(types[buildMode]?.n||'road')+'.':'Inspection mode enabled');return}
+ if(b.dataset.build!==undefined){flushRoadBatch();buildMode=b.dataset.build;if(overlay==='charter'){overlay='none';parcelFocus=null;}dirty=true;$('hint').textContent=buildMode?'TAP A CLEAR ROADSIDE PLOT · '+(buildMode==='road'?'DRAG TO PAINT ROADS':'DRAG TO PAN'):'DRAG TO PAN · TAP TO INSPECT';$('placementHint').style.display=buildMode?'block':'none';$('placementHint').textContent=buildMode?'PLACING '+(types[buildMode]?.n||'ROADS').toUpperCase()+' · COST '+money(buildCost[buildMode])+(['fishery','wharf'].includes(buildMode)?' · SHORE + ROAD'+(buildMode==='wharf'?' + RIVER OUTLET':''):''):'';closePanel();toast(buildMode?'Tap the map to build '+(types[buildMode]?.n||'road')+'.':'Inspection mode enabled');return}
  if(b.dataset.house!==undefined){const h=G.households[+b.dataset.house];if(h){const house=readBuild(h.home);if(!house){toast('This household no longer has an address in town.');return}selected={id:h.home};openPanel('inspect');const p=iso(house.x,house.y);cam.x=p[0];cam.y=p[1];dirty=true}return}
  if(b.dataset.firm!==undefined){const f=G.firms[+b.dataset.firm];if(f){const house=readBuild(f.building);if(!house){toast('This company no longer has premises in town.');return}selected={id:f.building};openPanel('inspect');const p=iso(house.x,house.y);cam.x=p[0];cam.y=p[1];dirty=true}return}
  if(b.dataset.inspect!==undefined){selected={id:+b.dataset.inspect};openPanel('inspect');const house=readBuild(selected.id);if(house){const p=iso(house.x,house.y);cam.x=p[0];cam.y=p[1];dirty=true}return}
@@ -3041,7 +3074,7 @@ $('panelBody').addEventListener('click',e=>{const b=e.target.closest('button,[da
  if(b.id==='borrow'){let limit=Math.max(25000,G.stats.population*350);if(G.debt+5000>limit||G.region<5000){toast('Regional lender declined: the credit limit or available funds have been reached.');return;}G.debt+=5000;G.treasury+=5000;G.region-=5000;story('Council borrowed $5,000 from the regional lender.');recompute();updateHeader();save();renderPanel(active)}
  if(b.id==='repay'){let v=Math.min(5000,G.debt,G.treasury);G.debt-=v;G.treasury-=v;G.region+=v;recompute();updateHeader();save();renderPanel(active)}
 });
-$('zoomIn').onclick=()=>{cam.zoom=clamp(cam.zoom*1.22,.08,1.7);dirty=true};$('zoomOut').onclick=()=>{cam.zoom=clamp(cam.zoom/1.22,.08,1.7);dirty=true};$('center').onclick=()=>{if(overlay==='charter'){overlay='none';parcelFocus=null;}centerTownCamera();};$('overlayToggle').onclick=()=>{overlay=overlay==='none'?'roads':overlay==='roads'?'metro':overlay==='metro'?'hardship':overlay==='hardship'?'crime':overlay==='crime'?'business':'none';dirty=true;toast('Map overlay: '+overlay)};
+$('zoomIn').onclick=()=>{cam.zoom=clamp(cam.zoom*1.22,.025,1.7);dirty=true};$('zoomOut').onclick=()=>{cam.zoom=clamp(cam.zoom/1.22,.025,1.7);dirty=true};$('center').onclick=()=>{if(overlay==='charter'){overlay='none';parcelFocus=null;}centerTownCamera();};$('overlayToggle').onclick=()=>{overlay=overlay==='none'?'roads':overlay==='roads'?'metro':overlay==='metro'?'hardship':overlay==='hardship'?'crime':overlay==='crime'?'business':'none';dirty=true;toast('Map overlay: '+overlay)};
  $('pause').onclick=()=>{paused=!paused;fit();updateHeader();if(paused){draw();save()}};const SPEED_PRESETS=[1,2,4,8,16,32,64];
  $('speed').onclick=()=>{const index=SPEED_PRESETS.indexOf(speed);speed=SPEED_PRESETS[(index+1)%SPEED_PRESETS.length];acc=0;sampleDays=0;sampleSeconds=0;G.speed=speed;fit();updateHeader()};
  $('speedRange').addEventListener('input',e=>{speed=SPEED_PRESETS[+e.target.value]||1;acc=0;sampleDays=0;sampleSeconds=0;if(G)G.speed=speed;fit();updateHeader();});
@@ -3396,7 +3429,7 @@ function hydrateSave(raw){
    if(idSet.has(b.id))return false;idSet.add(b.id);
   }
   for(const h of data.households)for(const id of h.people){if(memberSet.has(id)||data.people[id].hh!==h.id||data.people[id].deceased||data.people[id].movedAway)return false;memberSet.add(id)}
-  if(!validateWaterfrontArchive(data))return false;
+  if(!validateWaterfrontArchive(data)||!validateGoodsAccounting(data))return false;
   if(!validateCivicState(data)||!validateCreditState(data)||!validateScenarioProgramme(data)||!validateCharter(data))return false;
   data.version=3;data.policy={...defaults,...data.policy};
   data.banks=Array.isArray(data.banks)?data.banks.filter(b=>b&&Number.isInteger(b.id)&&b.id>=0&&b.id<12&&Number.isFinite(b.cash)&&b.cash>=0&&Number.isFinite(b.depositAPY)&&Number.isFinite(b.loanAPY)).slice(0,12):[];
@@ -3796,21 +3829,45 @@ function charterPanel(){
  ANNEX_PARCELS.map(p=>{const q=parcelSurvey(p),owned=G.charter.owned.includes(p.id),near=parcelAdjacent(p),deed=G.charter.deeds.find(d=>d.id===p.id);return `<section class="charter-district ${p.id===parcelFocus?'selected':''}" data-parcel-card="${p.id}"><small>${owned?'DEED RECORDED':near?'REGIONAL LAND AVAILABLE':'ADJOINING DEED REQUIRED'}</small><h3>${esc(p.name)}</h3><p class="desc">${esc(p.description)}</p>${strip('District surface',q.area+' tiles · '+p.w+' × '+p.h)}${strip('Land / water',q.land+' / '+q.water+' tiles')}${strip(owned?'Price paid':'Development-rights price',money(owned?deed.price:q.price))}${owned?strip('Acquired','Day '+deed.day):tip(near?'A connection from existing streets is still required. New households and firms face the usual utility bills, paid staffing and local service catchments.':'Acquire County Ridge or Orchard Downs before this far corner.')}<div class="btnrow"><button data-parcel-preview="${p.id}">Preview district</button>${owned?'':`<button data-parcel-buy="${p.id}" ${!near||G.treasury<q.price?'disabled':''}>Review purchase · ${money(q.price)}</button>`}</div>${!owned&&G.treasury<q.price?`<p class="desc">Treasury shortfall: ${money(q.price-G.treasury)}. This is a one-time land outlay; retain funds for construction and recurring commitments.</p>`:''}</section>`;}).join('')+'</details>';
 }
 function revealCharterOffice(){const office=$('charterOffice');if(office)office.open=true;}
-function previewParcel(id){const p=ANNEX_PARCELS.find(p=>p.id===id);if(!p)return;parcelFocus=id;overlay='charter';const center=iso(p.x+p.w/2,p.y+p.h/2);cam={x:center[0],y:center[1]+18,zoom:clamp(Math.min((cw-70)/((p.w+p.h)*36),(ch-50)/((p.w+p.h)*18)),.08,.55)};closePanel();dirty=true;toast(p.name+': '+(G.charter.owned.includes(id)?'chartered land':'regional land · review its deed in Public Works'));}
+function previewParcel(id){const p=ANNEX_PARCELS.find(p=>p.id===id);if(!p)return;parcelFocus=id;overlay='charter';const center=iso(p.x+p.w/2,p.y+p.h/2);cam={x:center[0],y:center[1]+18,zoom:clamp(Math.min((cw-50)/((p.w+p.h)*36),(ch-100)/((p.w+p.h)*18)),.025,.55)};cam.y+=38/cam.zoom;closePanel();dirty=true;toast(p.name+': '+(G.charter.owned.includes(id)?'chartered land':'regional land · review its deed in Public Works'));}
 function requestParcelPurchase(id){const p=ANNEX_PARCELS.find(p=>p.id===id);if(!p||G.charter.owned.includes(id)||!parcelAdjacent(p))return;const q=parcelSurvey(p),town=G;if(G.treasury<q.price){toast('Insufficient treasury for this district.');return;}
  showCustomEvent('LAND PURCHASE','Acquire '+p.name+'?',q.area+' new regional tiles, including '+q.land+' land and '+q.water+' water tiles. Pay '+money(q.price)+' to the regional land authority. Existing private titles stay intact. Roads, utilities, buildings and service staffing are separate commitments.',[{title:'Acquire the district',desc:'One-time price '+money(q.price)+'. The deed expands municipal development rights.',cost:q.price,apply:()=>{if(G!==town||!purchaseParcel(id,q.price)){toast('The quote is no longer valid. Review the district again.');return;}parcelFocus=id;openPanel('construction');revealCharterOffice();document.querySelector('[data-parcel-card="'+id+'"]')?.scrollIntoView({block:'start'});}},{title:'Keep the current boundary',desc:'No payment and no change to ownership.',apply:()=>{}}]);
+}
+let surveySignature='';
+function updateRegionSurvey(){
+ const signature=JSON.stringify([parcelFocus,G.charter?.owned]);if(signature===surveySignature)return;surveySignature=signature;
+ $('surveyReview').disabled=!parcelFocus;$('surveyDistrict').innerHTML='<option value="" disabled '+(!parcelFocus?'selected':'')+'>Choose a district…</option>'+ANNEX_PARCELS.map((p,i)=>`<option value="${p.id}" ${parcelFocus===p.id?'selected':''}>${i+1}. ${esc(p.name)}${G.charter.owned.includes(p.id)?' · Owned':''}</option>`).join('');
+}
+function reviewSurveyDistrict(id){if(!ANNEX_PARCELS.some(p=>p.id===id))return;parcelFocus=id;openPanel('construction');revealCharterOffice();document.querySelector('[data-parcel-card="'+id+'"]')?.scrollIntoView({block:'start'});}
+function charterLabelLayout(){
+ const occupied=[],labels=[];for(const p of ANNEX_PARCELS.slice().sort((a,b)=>(b.id===parcelFocus)-(a.id===parcelFocus))){const index=ANNEX_PARCELS.indexOf(p),q=iso(p.x+p.w/2,p.y+p.h/2),x=cw/2+(q[0]-cam.x)*cam.zoom,y=ch/2+(q[1]-cam.y)*cam.zoom;
+  let compact=cam.zoom<.20||parcelFocus!==p.id,text=(index+1)+'. '+p.name+(G.charter.owned.includes(p.id)?' · OWNED':'');
+  const width=text.length*6.1+14;let box={x:x-width/2,y:y-11,w:width,h:22};
+  if(occupied.some(a=>box.x<a.x+a.w+6&&box.x+box.w>a.x-6&&box.y<a.y+a.h+5&&box.y+box.h>a.y-5))compact=true;
+  if(compact){text=String(index+1);box={x:x-11,y:y-11,w:22,h:22};}
+  occupied.push(box);labels.push({p,index,text,compact,x,y,box});
+ }return labels;
+}
+function charterSurveyTap(sx,sy,x,y){
+ const label=charterLabelLayout().filter(a=>Math.abs(sx-a.x)<=Math.max(22,a.box.w/2)&&Math.abs(sy-a.y)<=22).sort((a,b)=>Math.hypot(sx-a.x,sy-a.y)-Math.hypot(sx-b.x,sy-b.y))[0],p=label?.p||parcelForTile(x,y);if(!p)return false;
+ if(parcelFocus===p.id)reviewSurveyDistrict(p.id);else previewParcel(p.id);dirty=true;return true;
 }
 function drawCharterBounds(g){
  if(!G.charter)return;g.save();g.lineJoin='round';
  for(const p of ANNEX_PARCELS){const owned=G.charter.owned.includes(p.id);if(owned&&overlay!=='charter'&&parcelFocus!==p.id)continue;
   const points=[[p.x-.5,p.y-.5],[p.x+p.w-.5,p.y-.5],[p.x+p.w-.5,p.y+p.h-.5],[p.x-.5,p.y+p.h-.5]].map(([x,y])=>{const q=iso(x,y);return[q[0],q[1]+18]});
   g.strokeStyle=owned?'#bfd2a4':'#d4b777';g.lineWidth=(parcelFocus===p.id?2.5:1.2)/cam.zoom;g.setLineDash(owned?[]:[7/cam.zoom,5/cam.zoom]);g.beginPath();points.forEach((q,i)=>i?g.lineTo(...q):g.moveTo(...q));g.closePath();g.stroke();
-  if(overlay==='charter'||parcelFocus===p.id){const q=iso(p.x+p.w/2,p.y+p.h/2),text=p.name+(owned?' · OWNED':' · REGIONAL LAND');g.font=(11/cam.zoom)+'px Arial';const w=g.measureText(text).width;g.fillStyle='#f1ead3ed';g.fillRect(q[0]-w/2-6/cam.zoom,q[1]-10/cam.zoom,w+12/cam.zoom,20/cam.zoom);g.fillStyle='#29422e';g.textAlign='center';g.textBaseline='middle';g.fillText(text,q[0],q[1]);}
+ }
+ if(overlay==='charter'||parcelFocus)for(const label of charterLabelLayout()){if(overlay!=='charter'&&label.p.id!==parcelFocus)continue;const q=iso(label.p.x+label.p.w/2,label.p.y+label.p.h/2),w=label.box.w/cam.zoom;
+  g.font=(11/cam.zoom)+'px Arial';g.fillStyle=label.p.id===parcelFocus?'#e9cc8bed':'#f1ead3ed';g.fillRect(q[0]-w/2,q[1]-11/cam.zoom,w,22/cam.zoom);g.strokeStyle='#536c4b';g.lineWidth=1/cam.zoom;g.strokeRect(q[0]-w/2,q[1]-11/cam.zoom,w,22/cam.zoom);g.fillStyle='#29422e';g.textAlign='center';g.textBaseline='middle';g.fillText(label.text,q[0],q[1]);
  }
  g.setLineDash([]);g.restore();
 }
+$('surveyDistrict').addEventListener('change',e=>previewParcel(e.target.value));$('surveyReview').onclick=()=>reviewSurveyDistrict(parcelFocus||$('surveyDistrict').value);
 const charterConstructionBase=renderConstructionFull;renderConstructionFull=function(){return charterPanel()+charterConstructionBase();};
-document.addEventListener('click',e=>{const b=e.target.closest('button');if(!b||!G)return;if(b.dataset.parcelPreview)previewParcel(b.dataset.parcelPreview);if(b.dataset.parcelBuy)requestParcelPurchase(b.dataset.parcelBuy);if(b.hasAttribute('data-charter-home')){overlay='none';parcelFocus=null;closePanel();centerTownCamera();}if(b.hasAttribute('data-charter-overview')){overlay='charter';parcelFocus=null;closePanel();const p=iso(40,40);cam={x:p[0],y:p[1]+18,zoom:Math.max(.08,Math.min((cw-30)/RW,(ch-25)/RH))};dirty=true;}});
+document.addEventListener('click',e=>{const b=e.target.closest('button');if(!b||!G)return;if(b.dataset.parcelPreview)previewParcel(b.dataset.parcelPreview);if(b.dataset.parcelBuy)requestParcelPurchase(b.dataset.parcelBuy);if(b.hasAttribute('data-charter-home')){overlay='none';parcelFocus=null;closePanel();centerTownCamera();}if(b.hasAttribute('data-charter-overview')){overlay='charter';parcelFocus=null;closePanel();const p=iso(40,40);cam={x:p[0],y:p[1]+18,zoom:Math.max(.025,Math.min((cw-24)/RW,(ch-100)/RH))};cam.y+=38/cam.zoom;dirty=true;}});
+
+const charterBackBase=window.__townArchive.back;window.__townArchive.back=()=>{if(!active&&!pendingEvent&&$('helpDialog').style.display==='none'){if(buildMode){closeBuildTool();return true;}if(overlay==='charter'){overlay='none';parcelFocus=null;centerTownCamera();return true;}}return charterBackBase();};
 
 // SOURCE: 98-waterfront-art.js
 // Original river craft. Animation samples only staffed fishing or paid cargo;
@@ -3820,13 +3877,19 @@ function drawWaterfrontPiers(g,visible){
   polygon(g,[[p[0]+px,p[1]+py],[water[0]+px,water[1]+py],[water[0]-px,water[1]-py],[p[0]-px,p[1]-py]],f.closed?'#897f62':'#b49a6d');
   for(let k=0;k<=6;k++){const t=k/6,x=p[0]+dx*t,y=p[1]+dy*t;segment(g,[x-px,y-py],[x+px,y+py],'#806e50');}
   for(const side of [-1,1]){const x=water[0]+px*side,y=water[1]+py*side;segment(g,[x,y+6],[x,y-5],'#6d6851',2);g.fillStyle='#d2bd88';g.fillRect(x-2,y-5,4,2);}
-  if(!f.closed&&f.kind==='wharf'&&(f.cargoToday||0)>0){g.fillStyle='#ceaf72';g.fillRect(water[0]-3,water[1]-6,6,5);g.fillStyle='#8c7654';g.fillRect(water[0],water[1]-6,1,5);}
+  if(!f.closed&&f.kind==='wharf'&&(f.cargoToday||0)>0&&workingStaff(f).length){const moving=gameOptions.effects&&!gameOptions.reducedMotion,phase=moving?(frameClock*.13+f.id*.17)%1:.5,t=.25+(phase<.5?phase*2:2-phase*2)*.7,x=p[0]+dx*t,y=p[1]+dy*t;segment(g,[x-5,y+1],[x+5,y+1],'#5e6a58',2);g.fillStyle='#4a584c';g.fillRect(x-4,y+2,2,2);g.fillRect(x+3,y+2,2,2);if(phase<=.5){g.fillStyle='#ceaf72';g.fillRect(x-3,y-6,6,6);g.fillStyle='#8c7654';g.fillRect(x,y-6,1,6);}}
  }
 }
 function fishingRoute(site){
  const w=waterNetwork(),path=[site.id],used=new Set(path);let current=site.id;
  for(let i=0;i<8;i++){const next=w.adjacent(current).filter(n=>!used.has(n)).sort((a,b)=>{const ax=a%T,bx=b%T;return ax-bx||a-b;})[0];if(next==null)break;path.push(next);used.add(next);current=next;}
  return path;
+}
+function waterRoutePose(path,travel,returning=false){
+ const span=path.length-1,index=Math.min(span-1,Math.floor(travel)),fraction=travel-index,r=.18,cell=id=>[id%T+.5,(id/T|0)+.5];let a=cell(path[index]),b=cell(path[index+1]),position=[a[0]+(b[0]-a[0])*fraction,a[1]+(b[1]-a[1])*fraction],tangent=[b[0]-a[0],b[1]-a[1]],corner=null,u=0;
+ if(fraction>1-r&&index+2<path.length){corner=[a,b,cell(path[index+2])];u=(fraction-(1-r))/(2*r);}else if(fraction<r&&index>0){corner=[cell(path[index-1]),a,b];u=(fraction+r)/(2*r);}
+ if(corner){const [before,at,after]=corner,start=[at[0]-(at[0]-before[0])*r,at[1]-(at[1]-before[1])*r],end=[at[0]+(after[0]-at[0])*r,at[1]+(after[1]-at[1])*r];position=start.map((v,k)=>(1-u)*(1-u)*v+2*(1-u)*u*at[k]+u*u*end[k]);tangent=start.map((v,k)=>2*(1-u)*(at[k]-v)+2*u*(end[k]-at[k]));}
+ const p=iso(...position),sign=returning?-1:1;return {x:p[0],y:p[1],gx:position[0],gy:position[1],dx:(tangent[0]-tangent[1])*36*sign,dy:(tangent[0]+tangent[1])*18*sign};
 }
 let waterVesselTown=null,waterVesselClock=0,waterVessels=new Map();
 function waterfrontActors(visible){
@@ -3840,28 +3903,49 @@ function waterfrontActors(visible){
   let vessel=waterVessels.get(f.id);
   if(hasOrder&&(!vessel||!vessel.active&&vessel.lastToken!==token)){
    const site=waterfrontSite(b.x,b.y,f.kind),path=fishing?(site?fishingRoute(site):[]):m.path;
-   if(path.length>=2&&(vessel||waterVessels.size<32)){vessel={id:f.id+(fishing?10000:50000),f,path:path.slice(),travel:0,cargo:fishing?'fish':m.good,quantity:fishing?f.production:m.qty,lastToken:token,active:true};waterVessels.set(f.id,vessel);}
+   if(path.length>=2&&(vessel||waterVessels.size<32)){vessel={id:f.id+(fishing?10000:50000),f,path:path.slice(),travel:0,cargo:fishing?'fish':m.good,quantity:fishing?f.production:m.qty,lastToken:token,active:true,turned:false,turnRemaining:0};waterVessels.set(f.id,vessel);}
   }
   if(vessel&&!vessel.active&&f.closed){waterVessels.delete(f.id);continue;}if(!vessel)continue;const span=vessel.path.length-1;
   // A vessel keeps the same paid load and continuous route across simulation
   // days. New manifests never teleport a boat or change its cargo mid-voyage.
-  if(vessel.active){vessel.travel+=elapsed*(fishing?.32:.48);if(vessel.travel>=span*2){vessel.travel=0;vessel.active=false;}}
-  const returning=!vessel.active||vessel.travel>span,travel=vessel.travel>span?span*2-vessel.travel:vessel.travel,index=Math.min(span-1,Math.floor(travel)),fraction=travel-index,a=vessel.path[index],c=vessel.path[index+1],p=iso(a%T+.5,(a/T|0)+.5),q=iso(c%T+.5,(c/T|0)+.5),x=p[0]+(q[0]-p[0])*fraction,y=p[1]+(q[1]-p[1])*fraction;
-  if(G.tiles[fraction<.5?a:c]===1||!visible(x,y,30))continue;actors.push({kind:'boat',x,y,dx:(q[0]-p[0])*(returning?-1:1),dy:(q[1]-p[1])*(returning?-1:1),returning,...vessel});
+  if(vessel.active){if(vessel.turnRemaining>0)vessel.turnRemaining=Math.max(0,vessel.turnRemaining-elapsed);else{vessel.travel+=elapsed*(fishing?.32:.48);if(!vessel.turned&&vessel.travel>=span){vessel.travel=span;vessel.turned=true;vessel.turnRemaining=1.2;}if(vessel.travel>=span*2){vessel.travel=0;vessel.active=false;}}}
+  const returning=!vessel.active||vessel.travel>span||vessel.turned&&vessel.travel===span&&vessel.turnRemaining===0,travel=vessel.travel>span?span*2-vessel.travel:vessel.travel,pose=waterRoutePose(vessel.path,travel,returning);
+  if(vessel.turnRemaining>0){const angle=Math.atan2(pose.dy,pose.dx)+Math.PI*(1-vessel.turnRemaining/1.2),length=Math.hypot(pose.dx,pose.dy);pose.dx=Math.cos(angle)*length;pose.dy=Math.sin(angle)*length;}
+  if(G.tiles[Math.floor(pose.gy)*T+Math.floor(pose.gx)]===1||!visible(pose.x,pose.y,30))continue;actors.push({kind:'boat',...pose,returning,...vessel});
  }
  for(const id of waterVessels.keys())if(!G.firms[id]||!readBuild(G.firms[id].building))waterVessels.delete(id);
  return actors.slice(0,cap);
 }
 function paintWaterBoat(g,a,clock){
- const cargo=a.cargo!=='fish',length=cargo?17:10,width=cargo?6:4,m=Math.hypot(a.dx,a.dy)||1;g.save();g.translate(a.x,a.y);g.transform(a.dx/m,a.dy/m,-a.dy/m*.85,a.dx/m*.65,0,0);
- const wake=.55+Math.sin(clock*5+a.id)*.15;for(let j=0;j<3;j++){g.globalAlpha=(.28-j*.06)*wake;segment(g,[-length-2-j*4,-width-j*2],[-length+3-j*4,width+j*2],'#e3e7c8',1);}g.globalAlpha=1;
+ const cargo=a.cargo!=='fish',length=cargo?17:10,width=cargo?6:4,m=Math.hypot(a.dx,a.dy)||1;g.save();g.translate(a.x,a.y+(gameOptions.reducedMotion?0:Math.sin(clock*1.7+a.id)*.45));g.transform(a.dx/m,a.dy/m,-a.dy/m*.85,a.dx/m*.65,0,0);
+ const wake=.55+Math.sin(clock*5+a.id)*.15;if(a.active)for(let j=0;j<3;j++){g.globalAlpha=(.28-j*.06)*wake;segment(g,[-length-2-j*4,-width-j*2],[-length+3-j*4,width+j*2],'#e3e7c8',1);}g.globalAlpha=1;
  polygon(g,[[-length,-width],[length-3,-width],[length+3,0],[length-3,width],[-length,width],[-length-2,0]],'#425d57');polygon(g,[[-length+1,-width+1],[length-3,-width+1],[length,0],[length-3,width-1],[-length+1,width-1]],cargo?'#c3b88e':'#ad8b5d');
  if(cargo){g.fillStyle='#e4d5ac';g.fillRect(-length+2,-width+1,6,width*2-2);g.fillStyle='#648d91';g.fillRect(-length+6,-width+1,2,width*2-2);if(!a.returning){for(let j=0;j<3;j++){g.fillStyle=['#b77851','#999c68','#cfb36f'][j];g.fillRect(-4+j*5,-width+1,4,width*2-2);g.fillStyle='#76654c';g.fillRect(-4+j*5,-width+1,1,width*2-2);}}}else{g.fillStyle='#718d78';g.fillRect(-3,-2,5,4);g.fillStyle='#d2b088';g.fillRect(-1,-3,2,2);segment(g,[2,-width],[5,-width-5],'#dbd1a4');}
- segment(g,[-length+1,-width],[length-3,-width],'#e1c995');g.restore();
+ if(!cargo&&a.active&&a.travel>(a.path.length-1)*.7&&a.travel<(a.path.length-1)*1.3){const sway=Math.sin(clock*2+a.id);polygon(g,[[0,-width],[7,-width-8+sway],[-5,-width-10+sway]],'#b9c6a050');for(let j=0;j<4;j++)segment(g,[0,-width],[-5+j*4,-width-9+sway],'#c4c9a780');}segment(g,[-length+1,-width],[length-3,-width],'#e1c995');g.restore();
 }
-function waterfrontPanel(){const state=G.waterway||{},wharves=G.firms.filter(f=>f.kind==='wharf'&&!f.closed),fisheries=G.firms.filter(f=>f.kind==='fishery'&&!f.closed);return `<details class="council-card"><summary>Working waterfront · fisheries & river cargo</summary><p class="desc">Build beside real water and a connected road. Fisheries turn staffed catch into food. Cargo wharves require a river outlet; an enclosed lake can support fishing, but cannot carry regional exports. Exporters compare road and river freight costs. A dock without crews or competitive orders earns nothing.</p><div class="statgrid">${stat('Trading fisheries',fisheries.length)}${stat('Trading cargo wharves',wharves.length)}${stat('River cargo today',policyNumber(state.todayCargo||0))}${stat('Wharf receipts today',money(state.todayFees||0))}</div><p class="desc">A cargo manifest belongs to its paying regional buyer after collection. Boats are bounded samples of those paid voyages and actual fishing work; visual speed does not change inventory or money.</p><button data-waterfront-camera="1">Visit the river landing</button><button data-waterfront-build="1">Choose a waterfront business</button></details>`;}
+function waterfrontPanel(){const state=G.waterway||{},wharves=G.firms.filter(f=>f.kind==='wharf'&&!f.closed),fisheries=G.firms.filter(f=>f.kind==='fishery'&&!f.closed);return `<details class="council-card"><summary>Working waterfront · fisheries & river cargo</summary><p class="desc">Build beside real water and a connected road. Fisheries turn staffed catch into food. Cargo wharves require a river outlet; an enclosed lake can support fishing, but cannot carry regional exports. Exporters compare road and river freight costs. A dock without crews or competitive orders earns nothing.</p><div class="statgrid">${stat('Trading fisheries',fisheries.length)}${stat('Trading cargo wharves',wharves.length)}${stat('River cargo today',policyNumber(state.todayCargo||0))}${stat('Wharf receipts today',money(state.todayFees||0))}</div><p class="desc">A cargo manifest belongs to its paying regional buyer after collection. Boats show paid cargo voyages and fishing trips. Export ownership passes to the regional buyer on collection; follow the accounts to see stock and payments.</p><button data-waterfront-camera="1">Visit the river landing</button><button data-waterfront-build="1">Choose a waterfront business</button></details>`;}
 const waterfrontConstructionBase=renderConstructionFull;renderConstructionFull=function(){return waterfrontConstructionBase()+waterfrontPanel();};
 document.addEventListener('click',e=>{if(e.target.closest('[data-waterfront-camera]')){const b=G.buildings.find(b=>b.kind==='wharf')||G.buildings.find(b=>b.kind==='fishery')||{x:5,y:27},p=iso(b.x+.5,b.y+.5);cam={x:p[0]+40,y:p[1],zoom:1.15};closePanel();dirty=true;}if(e.target.closest('[data-waterfront-build]')){constructionCategory='waterfront';openPanel('construction');$('panelBody').scrollTop=0;}});
+
+let selectedWaterTrip=null;
+function inspectWaterTripAt(x,y){
+ const radius=22/Math.max(.32,cam.zoom),boat=waterfrontActors(()=>true).filter(a=>Math.hypot(a.x-x,a.y-y)<radius).sort((a,b)=>Math.hypot(a.x-x,a.y-y)-Math.hypot(b.x-x,b.y-y))[0];if(!boat)return false;
+ selectedWaterTrip={firm:boat.f.id,token:boat.lastToken,cargo:boat.cargo,quantity:boat.quantity,path:boat.path.slice(),returning:boat.returning};selected={id:boat.f.building};openPanel('inspect');dirty=true;return true;
+}
+function drawSelectedWaterRoute(g){
+ if(!selectedWaterTrip)return;if(!selected||readBuild(selected.id)?.firm!==selectedWaterTrip.firm){selectedWaterTrip=null;return;}
+ const path=waterVessels.get(selectedWaterTrip.firm)?.path||selectedWaterTrip.path;g.save();g.strokeStyle='#f2d492';g.lineWidth=2/Math.max(.32,cam.zoom);g.setLineDash([5/cam.zoom,4/cam.zoom]);g.beginPath();path.forEach((id,i)=>{const q=iso(id%T+.5,(id/T|0)+.5);i?g.lineTo(...q):g.moveTo(...q)});g.stroke();g.restore();
+}
+function selectedWaterInfo(){const live=selectedWaterTrip&&waterVessels.get(selectedWaterTrip.firm);return live?{cargo:live.cargo,quantity:live.quantity,journey:!live.active?'Moored at its landing':live.turnRemaining>0?'Turning at the destination':live.travel>live.path.length-1?'Returning to its landing':'Outbound from its landing'}:selectedWaterTrip?{...selectedWaterTrip,journey:'Previously selected voyage'}:null;}
+const waterInspectBase=renderInspectFull;renderInspectFull=function(){const info=selectedWaterInfo();return (info&&readBuild(selected?.id)?.firm===selectedWaterTrip.firm?head(info.cargo==='fish'?'Fishing trip':'Paid regional cargo voyage')+strip('Sampled load',policyNumber(info.quantity)+' '+(info.cargo==='fish'?'food units':info.cargo))+strip('Journey',info.journey)+tip('The highlighted route follows connected water. The business accounts below record the actual catch or paid freight.'):'' )+waterInspectBase();};
+
+function drawWaterLife(g,visible){
+ if(!gameOptions.effects||gameOptions.reducedMotion||gameOptions.quality==='low'||cam.zoom<.32)return;
+ const cap=fastRenderEnabled()?3:gameOptions.quality==='high'?14:8;let count=0;
+ for(const id of waterNetwork().nodes){if(G.tiles[id]!==2||hash(id)%9!==0)continue;const p=iso(id%T+.5,(id/T|0)+.5);if(!visible(p[0],p[1],20))continue;const phase=(frameClock*.24+(hash(id)%101)/101)%1,light=Math.sin(phase*Math.PI);g.globalAlpha=light*.35;
+  segment(g,[p[0]-11+phase*5,p[1]+5-phase*2],[p[0]+7+phase*5,p[1]-4-phase*2],'#deead0',1);g.globalAlpha=light*.18;segment(g,[p[0]-6,p[1]+8],[p[0]+13,p[1]-1],'#c8dfc8',1);g.globalAlpha=1;if(++count>=cap)break;
+ }
+}
 
 // SOURCE: 99-instrumentation.js
 // Read-only / test instrumentation. No remote telemetry is used.

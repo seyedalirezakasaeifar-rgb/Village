@@ -8,6 +8,7 @@ Current source extends the signed 7.0.5 checkpoint. These changes have not yet b
 - [Native archives, lifecycle and older WebView](docs/NATIVE-ARCHIVE-DEVELOPMENT.md)
 - [Portable seeds and clearer phone controls](docs/MAP-AND-SEEDS-DEVELOPMENT.md)
 - [Mayor-purchased districts and productive waterfront](docs/REGION-AND-WATERFRONT-DEVELOPMENT.md)
+- [Survey navigation, working voyages and long-run accounting](docs/WATERFRONT-PLAY-DEVELOPMENT.md)
 
 An offline government and town-economy game. This release rebuilds the operating model, the starting towns, monetary controls, road generation, animation and interface palette.
 

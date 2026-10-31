@@ -283,7 +283,7 @@ function drawConstructionProgress(g,visible){
  }
 }
 function draw(){
- if(!G||!dirty)return;dirty=false;document.body.classList.toggle('surveying-region',overlay==='charter');if(staticDirty||lastSceneMonth!==visualMonth())drawStatic();
+ if(!G||!dirty)return;dirty=false;document.body.classList.toggle('surveying-region',overlay==='charter');$('gameRoot').classList.toggle('building-map',!!buildMode);updateRegionSurvey();if(staticDirty||lastSceneMonth!==visualMonth())drawStatic();
  ctx.setTransform(1,0,0,1,0,0);ctx.fillStyle='#6d8774';ctx.fillRect(0,0,cv.width,cv.height);
  const sx=cam.x-cw/(2*cam.zoom),sy=cam.y-ch/(2*cam.zoom),ww=cw/cam.zoom,hh=ch/cam.zoom;
  ctx.setTransform(dpr,0,0,dpr,0,0);ctx.imageSmoothingEnabled=false;transform();ctx.imageSmoothingEnabled=false;
@@ -313,7 +313,7 @@ function draw(){
   viewRasterKey=key;
  }
  ctx.setTransform(1,0,0,1,0,0);ctx.drawImage(viewRaster,0,0);transform();
- drawConstructionProgress(ctx,visible);drawInspectedRoute(ctx);drawWaterfrontPiers(ctx,visible);
+ drawConstructionProgress(ctx,visible);drawInspectedRoute(ctx);drawWaterLife(ctx,visible);drawWaterfrontPiers(ctx,visible);drawSelectedWaterRoute(ctx);
  const visibleParcels=viewBuildings.filter(item=>visible(item.x,item.y,0)),actors=[...buildingActivity(visibleParcels),...workdayScenes(visibleParcels),...waterfrontActors(visible)];if(gameOptions.traffic)for(const v of traffic){const p=vehiclePosition(v);if(visible(p.x,p.y,15))actors.push({kind:'vehicle',v,...p});}actors.sort((a,b)=>a.y-b.y);
  if(actors.length){
   // Clip subsequent foreground re-paints to the actors' damage rectangles.
@@ -329,6 +329,6 @@ function draw(){
  if(overlay==='roads'||overlay==='business'||overlay==='hardship'||overlay==='crime'||overlay==='land')for(const item of displayItems){if(item.kind!=='building'||!visible(item.x,item.y))continue;const b=item.b,f=G.firms[b.firm],h=G.households[b.hh],net=graph();let color=overlay==='roads'?(net.portals.has(b.id)?'#9ecb95':'#bb7760'):overlay==='business'?(f?(f.closed?'#b66856':f.profit>0?'#a1c67d':'#d6b46c'):null):overlay==='hardship'?(h?(h.stress>50?'#b96c56':'#a9ca87'):null):overlay==='land'?(b.value>90000?'#c38864':b.value>45000?'#d0b776':'#9fc087'):null;if(!color)continue;ctx.globalAlpha=.7;diamond(ctx,b.x,b.y,color);ctx.globalAlpha=1;}
  drawServiceAccess(ctx);
  if(selected?.id){const b=readBuild(selected.id);if(b){const p=iso(b.x,b.y);ctx.strokeStyle='#f4e2a5';ctx.lineWidth=2;ctx.beginPath();ctx.ellipse(p[0],p[1]+18,32,16,0,0,Math.PI*2);ctx.stroke();}}
- if(buildMode&&pointer.hover){const {x,y}=pointer.hover;if(x>=0&&x<T&&y>=0&&y<T){const valid=buildMode==='road'?[0,3].includes(cityCell(x,y))&&charterOwns(x,y)&&!buildingAt(x,y):buildMode==='repair'?cityCell(x,y)===1:canPlace(x,y,true,buildMode);ctx.globalAlpha=.60;for(const id of footprintFor(x,y,buildMode))diamond(ctx,id%T,id/T|0,valid?'#c8dea4':'#c48069');ctx.globalAlpha=1;}}
+ if(buildMode&&pointer.hover){const {x,y}=pointer.hover;if(['fishery','wharf'].includes(buildMode))headerText('placementHint',types[buildMode].n+' · '+money(buildCost[buildMode])+' · '+waterfrontPlacementMessage(x,y,buildMode));if(x>=0&&x<T&&y>=0&&y<T){const valid=buildMode==='road'?[0,3].includes(cityCell(x,y))&&charterOwns(x,y)&&!buildingAt(x,y)&&!G.landUse?.[roadId(x,y)]&&G.treasury>=buildCost.road:buildMode==='repair'?cityCell(x,y)===1:canPlace(x,y,true,buildMode);ctx.globalAlpha=.60;for(const id of footprintFor(x,y,buildMode))diamond(ctx,id%T,id/T|0,valid?'#c8dea4':'#c48069');ctx.globalAlpha=1;}}
  if(nightMode){ctx.setTransform(dpr,0,0,dpr,0,0);ctx.fillStyle='#233c6460';ctx.fillRect(0,0,cw,ch);transform();for(const item of displayItems){if(item.kind!=='building'||!visible(item.x,item.y)||item.b.kind==='worksite')continue;const b=item.b;if(b.firm>=0&&G.firms[b.firm]?.closed)continue;const glow=ctx.createRadialGradient(item.x,item.y-12,1,item.x,item.y-12,28);glow.addColorStop(0,'#eac57a36');glow.addColorStop(1,'#eac57a00');ctx.fillStyle=glow;ctx.fillRect(item.x-28,item.y-40,56,56);}}
 }

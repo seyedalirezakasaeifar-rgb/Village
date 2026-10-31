@@ -53,4 +53,4 @@ The region/waterfront phase includes genuine outer territory, affordability/adja
 
 The APK was statically verified; this candidate has not received a reliable Android touch, system Back, document-picker or lifecycle play session. The previous software-only emulator could load and exercise the engine but its System UI suffered ANRs. No native FPS claim is made.
 
-Regional-overview labels for Orchard Downs and County Ridge overlap; individual district previews remain clear. The finite map, simplified ecological limits and visual samples of regional-owned exports are game abstractions. River imports/canals are not implemented. Further art/playability passes, prolonged expanded-region browser testing and final immutable release QA are still required.
+This earlier APK has overlapping regional-overview labels; the later [development source](WATERFRONT-PLAY-DEVELOPMENT.md) resolves them. The finite map, simplified ecological limits and visual samples of regional-owned exports are game abstractions. River imports/canals are not implemented. Further art/playability passes, prolonged expanded-region browser testing and final immutable release QA are still required.

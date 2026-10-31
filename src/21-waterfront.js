@@ -30,6 +30,7 @@ function ensureWaterfront(){
 function prepareWaterfrontDay(live=G.firms.filter(f=>!f.closed)){
  const network=waterNetwork(),state=ensureWaterfront();if(waterDayTown===G&&waterDayNumber===G.day)return;
  waterDayTown=G;waterDayNumber=G.day;operatingWharves=[];state.manifests=state.manifests.filter(m=>m.started+m.duration>=G.day);state.todayCargo=0;state.todayFees=0;
+ for(const f of G.firms){if(f.kind==='wharf'){f.cargoToday=0;f.handlingFees=0;f.cargoCapacity=0;}if(f.kind==='fishery'){f.fishingAllowance=0;f.fishingWaterLimit=false;}}
  const groups=new Map();for(const f of live){f.shippingToday=0;if(f.kind==='fishery'){f.fishingAllowance=0;const b=readBuild(f.building),site=b&&waterfrontSite(b.x,b.y);f.waterPart=site?.part??-1;
    if(site&&workingStaff(f).length){const capacity=formulas.fishery.qty*workingStaff(f).length/SECTOR_WORKERS.fishery*(.82+workingStaff(f).reduce((n,id)=>n+(G.people[id]?.skill||.5),0)/workingStaff(f).length*.25+G.education*.0015)*(1+(f.scale-1)*.25);if(!groups.has(site.part))groups.set(site.part,[]);groups.get(site.part).push({f,capacity});}
   }else if(f.kind==='wharf'){f.cargoToday=0;f.handlingFees=0;const b=readBuild(f.building),site=b&&waterfrontSite(b.x,b.y,'wharf'),path=site?waterOutletPath(site.id):[];const capacity=workingStaff(f).length*600*(1+((f.scale||1)-1)*.25);f.cargoCapacity=capacity;
@@ -81,6 +82,22 @@ function validateWaterfrontArchive(data){
 }
 function waterfrontFirmReport(f){
  if(f.kind==='fishery'){const b=readBuild(f.building),site=waterfrontSite(b.x,b.y),area=site&&waterNetwork().components[site.part];return head('Working water')+strip('Fishing water',area?(area.gates.length?'Connected river':'Inland lake')+' · '+area.cells.length+' water tiles':'No usable fishing water')+strip('Catch today',policyNumber(f.production||0)+' food units')+strip('Shared daily catch limit',area?policyNumber(area.catchCapacity):'0')+tip('Crews land food for the existing grocery and regional markets. Fisheries sharing water share its finite catch capacity; extra equipment cannot create fish.');}
- if(f.kind==='wharf'){const b=readBuild(f.building),site=waterfrontSite(b.x,b.y,'wharf');return head('Working waterfront')+strip('Regional water route',site?'Open river outlet':'No navigable regional outlet')+strip('Cargo handled today',policyNumber(f.cargoToday||0)+' units')+strip('Crew handling capacity',policyNumber(f.cargoCapacity||0)+' units / day')+strip('Handling receipts',money(f.handlingFees||0))+tip('Exporters choose the lowest delivered freight quote. Each attending worker handles 600 units daily; the wharf earns $0.10 per unit actually loaded. Road collection and the river journey are included. No cargo means no handling revenue.');}
+ if(f.kind==='wharf'){const b=readBuild(f.building),site=waterfrontSite(b.x,b.y,'wharf');return head('Working waterfront')+strip('Regional water route',site?'Open river outlet':'No navigable regional outlet')+strip('Cargo handled today',policyNumber(f.cargoToday||0)+' units')+strip('Crew handling capacity',f.closed?'Unavailable · business closed':policyNumber(f.cargoCapacity||0)+' units / day')+strip('Handling receipts',money(f.handlingFees||0))+strip('Loading capacity used',policyNumber((f.cargoToday||0)/Math.max(1,f.cargoCapacity||0)*100)+'%')+strip('Cargo needed to cover today’s costs',policyNumber((f.expenses||0)/.10)+' units')+tip('Exporters choose the lowest delivered freight quote. Each attending worker handles 600 units daily; the wharf earns $0.10 per unit actually loaded. Road collection and the river journey are included. No cargo means no handling revenue.');}
  return (f.shippingToday||0)>0?strip('Regional freight paid today',money(f.shippingToday)):'';
+}
+
+function waterfrontSitingReason(x,y,kind){
+ if(!charterOwns(x,y))return 'Purchase this district before developing its shore.';
+ if(![0,3].includes(cityCell(x,y))||buildingAt(x,y)||G.landUse?.[roadId(x,y)])return 'Choose vacant land on the shore; the pier extends over adjacent water.';
+ if(!waterfrontSite(x,y,'fishery'))return 'Choose a shore beside at least eight connected water tiles.';
+ if(kind==='wharf'&&!waterfrontSite(x,y,'wharf'))return 'This water has no regional outlet. Build a fishery here, or choose the open river for a cargo wharf.';
+ if(!nearRoad(x,y))return 'The shore needs an adjoining road for crews and cargo collection.';
+ return 'Choose a vacant, chartered shore with adjoining road access.';
+}
+
+function waterfrontPlacementMessage(x,y,kind){
+ if(G.treasury<buildCost[kind])return 'Treasury shortfall: '+money(buildCost[kind]-G.treasury)+'. Keep funds for construction and operating commitments.';
+ if(!canPlace(x,y,true,kind))return waterfrontSitingReason(x,y,kind);
+ const road=roadOffsets.map(([dx,dy])=>roadId(x+dx,y+dy)).find(id=>graph().parts[id]===graph().mainPart);
+ return road!=null?'Ready: vacant shore with a connected road. Crews and orders are still required.':'Shore site available, but this road is isolated. Connect it to town before crews can work.';
 }
