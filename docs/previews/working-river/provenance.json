@@ -1,9 +1,9 @@
 {
-  "source_sha256": "3b677f5c95f2e607a62ff24a59fc45696e4fceebd05d3ef7c625c267b43287cf",
+  "source_sha256": "c482b89614ecb09bccf8a0ddfda8c944f740d01a1bed9da5cbb58764627a9781",
   "assets": {
     "assets/civic7.css": "1d025aa43c49752ecdadc641bc75723cffbb3c84b63c9085654043ecb6dc7e63",
     "assets/style.css": "96b4f686a7125e05720bd2de246f2bfbd8f7610e344486b967e99882f45f3a0f",
-    "assets/game.js": "3b677f5c95f2e607a62ff24a59fc45696e4fceebd05d3ef7c625c267b43287cf",
+    "assets/game.js": "c482b89614ecb09bccf8a0ddfda8c944f740d01a1bed9da5cbb58764627a9781",
     "assets/index.html": "d64e12cbf297beb3122b590b32103adf684cd268237228220c39546beb47c18c",
     "assets/vale.css": "6aaa9781eb11e5b0d205a720451d3fbc5384b92fb783e457d5d33f4a94be9bb9",
     "assets/sound/click.wav": "f442b590c799bbcf972e69d1c1f172881cb5bf81116bf114bc015080d5057c91",
@@ -18,12 +18,12 @@
   },
   "capture": "Chromium 154, 844x390; settlement seed42 day6. River frames advance only the separate visual clock. Land images show actual preview and confirmation controls. No Android device claim.",
   "screenshots": {
-    "regional-overview-844x390.png": "4a8d39619c353be5a1a69ae08b140d775dc2b322f21d36eb32cf3ade6a8e5772",
-    "river-workday-2-844x390.png": "971f73823a7e635bf0375f28fb9df5446c379147becdf415d00de39a251c15b7",
-    "east-meadow-owned-844x390.png": "b6b93bc5a2751e12e5e3b3d836b28a8f21642b6279022436f44ed080b13180a9",
-    "river-workday-1-844x390.png": "1eb338c1a344c083faf5af1004b715f2428834ad7caa8659934ca40c40514579",
-    "deed-confirmation-844x390.png": "123e05fffe8e3682db15973408ca053d95da5895dbc0ca2ad102781b7986fd3b",
-    "east-meadow-survey-844x390.png": "0e6621c15ae6b828e87db7317d41623c199e19e24882cee73167ec882b291e57",
-    "river-workday-0-844x390.png": "af28841ce88ee2a0bd941a4616a75dd6bb5cdb240be55ca6a9e98448dbb41784"
+    "regional-overview-844x390.png": "3528fff00da5ba495a803d7d66213283fec473cd89cbb4c7653644617eafd24c",
+    "river-workday-2-844x390.png": "7b2bf8714d14fd463df915249990d39824a42af76c2ca4f2971adf0afc9f50a6",
+    "east-meadow-owned-844x390.png": "a7e09830443b060f1f4494a203a896053867b0aa70ff28852b3031876d001c35",
+    "river-workday-1-844x390.png": "b9036087a54a3b79435b0df875f447a798713fd6bcbc2821cd8fa26a657f5a3e",
+    "deed-confirmation-844x390.png": "d4f502da73741354ba1f4df2948299ef2cba0dd91a4023522c0c6c760a76e7a7",
+    "east-meadow-survey-844x390.png": "8dc334b115543d93ecfe0794a4fc95ed1c218d957f2ff867311334a7dc444ca0",
+    "river-workday-0-844x390.png": "7a5bcab0ab6f919ee06e9358ee2845cc6733804c08340b6299a5f7e7c69e5c04"
   }
 }
