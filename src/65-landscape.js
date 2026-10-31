@@ -327,9 +327,7 @@ function draw(){
   drawStreetNames(vg,sx,sy,ww,hh);
   viewBuildings=displayItems.filter(item=>{
    if(item.kind==='streetprop'&&cam.zoom<.4)return false;
-   const building=item.kind==='building',treeItem=item.kind==='tree';
-   const xMargin=building?132:treeItem?24:38,topMargin=building?172:treeItem?64:55,bottomMargin=building?84:treeItem?34:28;
-   return item.x>=sx-xMargin&&item.x<=sx+ww+xMargin&&item.y>=sy-bottomMargin&&item.y<=sy+hh+topMargin;
+   return sceneIntersectsView(item,sx,sy,ww,hh);
   });
   viewBuildings.push(...transitInfrastructureItems(visible));viewBuildings.sort((a,b)=>a.y-b.y);
   paintCastShadows(vg,viewBuildings);

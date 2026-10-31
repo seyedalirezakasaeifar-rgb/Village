@@ -1,0 +1,425 @@
+{
+  "source_sha256": "4b3816a5af756f18705b34d87f985e00c308087e0e65299e97816a5344f087c6",
+  "network": {
+    "grid": 128,
+    "deeds": 21,
+    "relocatedHouseholds": 29,
+    "routes": [
+      1,
+      2,
+      3
+    ],
+    "capital": 191450,
+    "total": 15493517
+  },
+  "start": {
+    "day": 5,
+    "grid": 128,
+    "deeds": 21,
+    "people": 2000,
+    "routes": [
+      {
+        "mode": "bus",
+        "operating": true
+      },
+      {
+        "mode": "bus",
+        "operating": true
+      },
+      {
+        "mode": "elevated",
+        "operating": true
+      }
+    ],
+    "cargo": 2,
+    "calendar": [
+      {
+        "id": 1,
+        "venue": 746,
+        "x": 22,
+        "y": 29,
+        "name": "Willow Commons",
+        "start": 5,
+        "end": 6,
+        "capacity": 24,
+        "attendance": 0,
+        "status": "active"
+      }
+    ],
+    "renewal": [
+      {
+        "id": 24,
+        "x": 25,
+        "y": 30,
+        "footprint": [
+          3865
+        ],
+        "formerName": "Quarry Ltd.",
+        "formerKind": "quarry",
+        "formerJobs": 3,
+        "industrialAgeDays": 3,
+        "status": "remediating",
+        "remaining": 19,
+        "newBuilding": null
+      }
+    ]
+  },
+  "end": {
+    "day": 8,
+    "grid": 128,
+    "deeds": 21,
+    "people": 2000,
+    "routes": [
+      {
+        "mode": "bus",
+        "operating": true
+      },
+      {
+        "mode": "bus",
+        "operating": true
+      },
+      {
+        "mode": "elevated",
+        "operating": true
+      }
+    ],
+    "cargo": 10,
+    "calendar": [],
+    "renewal": [
+      {
+        "id": 24,
+        "x": 25,
+        "y": 30,
+        "footprint": [
+          3865
+        ],
+        "formerName": "Quarry Ltd.",
+        "formerKind": "quarry",
+        "formerJobs": 3,
+        "industrialAgeDays": 3,
+        "status": "remediating",
+        "remaining": 16,
+        "newBuilding": null
+      }
+    ]
+  },
+  "checks": [
+    {
+      "site": "neighbourhood",
+      "mode": "paused",
+      "stable": true,
+      "coldStable": true,
+      "unchanged": true,
+      "atlasBytes": 7367424,
+      "gatheringBytes": 77056,
+      "brownfieldBytes": 55296
+    },
+    {
+      "site": "neighbourhood",
+      "night": false,
+      "stable": true,
+      "coldStable": true,
+      "unchanged": true,
+      "atlasBytes": 9212672,
+      "gatheringBytes": 77056,
+      "brownfieldBytes": 82944
+    },
+    {
+      "site": "neighbourhood",
+      "night": true,
+      "stable": true,
+      "coldStable": true,
+      "unchanged": true,
+      "atlasBytes": 20124672,
+      "gatheringBytes": 154112,
+      "brownfieldBytes": 82944
+    },
+    {
+      "site": "neighbourhood",
+      "mode": "reduced",
+      "stable": true,
+      "coldStable": true,
+      "unchanged": true,
+      "atlasBytes": 5746432,
+      "gatheringBytes": 154112,
+      "brownfieldBytes": 82944
+    },
+    {
+      "site": "rail",
+      "mode": "paused",
+      "stable": true,
+      "coldStable": true,
+      "unchanged": true,
+      "atlasBytes": 6396416,
+      "gatheringBytes": 154112,
+      "brownfieldBytes": 82944
+    },
+    {
+      "site": "rail",
+      "night": false,
+      "stable": true,
+      "coldStable": true,
+      "unchanged": true,
+      "atlasBytes": 11713024,
+      "gatheringBytes": 154112,
+      "brownfieldBytes": 82944
+    },
+    {
+      "site": "rail",
+      "night": true,
+      "stable": true,
+      "coldStable": true,
+      "unchanged": true,
+      "atlasBytes": 15790848,
+      "gatheringBytes": 154112,
+      "brownfieldBytes": 82944
+    },
+    {
+      "site": "rail",
+      "mode": "reduced",
+      "stable": true,
+      "coldStable": true,
+      "unchanged": true,
+      "atlasBytes": 898816,
+      "gatheringBytes": 154112,
+      "brownfieldBytes": 82944
+    },
+    {
+      "site": "waterfront",
+      "mode": "paused",
+      "stable": true,
+      "coldStable": true,
+      "unchanged": true,
+      "atlasBytes": 3160064,
+      "gatheringBytes": 154112,
+      "brownfieldBytes": 82944
+    },
+    {
+      "site": "waterfront",
+      "night": false,
+      "stable": true,
+      "coldStable": true,
+      "unchanged": true,
+      "atlasBytes": 9758976,
+      "gatheringBytes": 231168,
+      "brownfieldBytes": 82944
+    },
+    {
+      "site": "waterfront",
+      "night": true,
+      "stable": true,
+      "coldStable": true,
+      "unchanged": true,
+      "atlasBytes": 16843008,
+      "gatheringBytes": 308224,
+      "brownfieldBytes": 82944
+    },
+    {
+      "site": "waterfront",
+      "mode": "reduced",
+      "stable": true,
+      "coldStable": true,
+      "unchanged": true,
+      "atlasBytes": 2537728,
+      "gatheringBytes": 308224,
+      "brownfieldBytes": 82944
+    },
+    {
+      "site": "farms",
+      "mode": "paused",
+      "stable": true,
+      "coldStable": true,
+      "unchanged": true,
+      "atlasBytes": 6340096,
+      "gatheringBytes": 308224,
+      "brownfieldBytes": 82944
+    },
+    {
+      "site": "farms",
+      "night": false,
+      "stable": true,
+      "coldStable": true,
+      "unchanged": true,
+      "atlasBytes": 13399296,
+      "gatheringBytes": 462336,
+      "brownfieldBytes": 82944
+    },
+    {
+      "site": "farms",
+      "night": true,
+      "stable": true,
+      "coldStable": true,
+      "unchanged": true,
+      "atlasBytes": 17812992,
+      "gatheringBytes": 462336,
+      "brownfieldBytes": 82944
+    },
+    {
+      "site": "farms",
+      "mode": "reduced",
+      "stable": true,
+      "coldStable": true,
+      "unchanged": true,
+      "atlasBytes": 3847680,
+      "gatheringBytes": 462336,
+      "brownfieldBytes": 82944
+    },
+    {
+      "site": "renewal",
+      "mode": "paused",
+      "stable": true,
+      "coldStable": true,
+      "unchanged": true,
+      "atlasBytes": 7213312,
+      "gatheringBytes": 462336,
+      "brownfieldBytes": 110592
+    },
+    {
+      "site": "renewal",
+      "night": false,
+      "stable": true,
+      "coldStable": true,
+      "unchanged": true,
+      "atlasBytes": 15533056,
+      "gatheringBytes": 616448,
+      "brownfieldBytes": 110592
+    },
+    {
+      "site": "renewal",
+      "night": true,
+      "stable": true,
+      "coldStable": true,
+      "unchanged": true,
+      "atlasBytes": 19024128,
+      "gatheringBytes": 616448,
+      "brownfieldBytes": 110592
+    },
+    {
+      "site": "renewal",
+      "mode": "reduced",
+      "stable": true,
+      "coldStable": true,
+      "unchanged": true,
+      "atlasBytes": 5430272,
+      "gatheringBytes": 616448,
+      "brownfieldBytes": 110592
+    },
+    {
+      "site": "gathering",
+      "mode": "paused",
+      "stable": true,
+      "coldStable": true,
+      "unchanged": true,
+      "atlasBytes": 6430976,
+      "gatheringBytes": 616448,
+      "brownfieldBytes": 110592
+    },
+    {
+      "site": "gathering",
+      "night": false,
+      "stable": true,
+      "coldStable": true,
+      "unchanged": true,
+      "atlasBytes": 14839552,
+      "gatheringBytes": 770560,
+      "brownfieldBytes": 110592
+    },
+    {
+      "site": "gathering",
+      "night": true,
+      "stable": true,
+      "coldStable": true,
+      "unchanged": true,
+      "atlasBytes": 19178240,
+      "gatheringBytes": 770560,
+      "brownfieldBytes": 110592
+    },
+    {
+      "site": "gathering",
+      "mode": "reduced",
+      "stable": true,
+      "coldStable": true,
+      "unchanged": true,
+      "atlasBytes": 5940992,
+      "gatheringBytes": 770560,
+      "brownfieldBytes": 110592
+    }
+  ],
+  "captures": [
+    {
+      "file": "/workspace/scratch/city-continuity/neighbourhood-day.gif",
+      "frames": 12,
+      "seconds": 5.4965226169988455,
+      "sha256": "bc7f90074d8252a031a1e15996392aab01c6cb3bd0c4e97f77ea53cd6b3f4d2b"
+    },
+    {
+      "file": "/workspace/scratch/city-continuity/neighbourhood-night.gif",
+      "frames": 12,
+      "seconds": 4.672815303001698,
+      "sha256": "cd986335b035a10fe13ef00bf30aa655cce42637a7314887aad57f0039f1f107"
+    },
+    {
+      "file": "/workspace/scratch/city-continuity/rail-day.gif",
+      "frames": 12,
+      "seconds": 4.7709763269995165,
+      "sha256": "5e0877d7ad5088ee78c58e081daeee750e190e8cb513bd2a67e1bf593ea9a517"
+    },
+    {
+      "file": "/workspace/scratch/city-continuity/rail-night.gif",
+      "frames": 12,
+      "seconds": 3.188193551999575,
+      "sha256": "b38cd06115831dd482572c2b69c6a5dc531e467c0df99a661f5aacdc7bcd30e3"
+    },
+    {
+      "file": "/workspace/scratch/city-continuity/waterfront-day.gif",
+      "frames": 12,
+      "seconds": 4.815698086000339,
+      "sha256": "e09f1917afaf7e919444096f46fc233167d3f14b15db468c127d10da12d982eb"
+    },
+    {
+      "file": "/workspace/scratch/city-continuity/waterfront-night.gif",
+      "frames": 12,
+      "seconds": 3.380712317997677,
+      "sha256": "50ea76c4fd7b3bb5a5626501f2696af5d0084c5830aca7e1c9c019c4b252a28f"
+    },
+    {
+      "file": "/workspace/scratch/city-continuity/farms-day.gif",
+      "frames": 12,
+      "seconds": 5.410344573996554,
+      "sha256": "c12426e523d04bd7a07fd10c783a53affa4d5b2cfb2d0fa6cd4a52392c6e7bb1"
+    },
+    {
+      "file": "/workspace/scratch/city-continuity/farms-night.gif",
+      "frames": 12,
+      "seconds": 4.544002745999023,
+      "sha256": "511a53e9067d9f24cacef57f92b090e3243e99380552511ca632d2d43baa6d94"
+    },
+    {
+      "file": "/workspace/scratch/city-continuity/renewal-day.gif",
+      "frames": 12,
+      "seconds": 5.143760973998724,
+      "sha256": "58cf7bace225ba53f11bd54c4fb081f8d6152365b814b84a736ff56594f9e156"
+    },
+    {
+      "file": "/workspace/scratch/city-continuity/renewal-night.gif",
+      "frames": 12,
+      "seconds": 4.20315771300011,
+      "sha256": "d190ba04abe35b102ff0b7221bf7681d3e9237f28d2cecec10cfbb58d06896ab"
+    },
+    {
+      "file": "/workspace/scratch/city-continuity/gathering-day.gif",
+      "frames": 12,
+      "seconds": 5.256640445997618,
+      "sha256": "dbc75016325506ce263d4cdbfc749d2ca9d9b75cd2dc7a49047487cdf0010238"
+    },
+    {
+      "file": "/workspace/scratch/city-continuity/gathering-night.gif",
+      "frames": 12,
+      "seconds": 4.096723344999191,
+      "sha256": "14b89ddbbc889b6a02699e8d97b13ebc787052e408ea26aa85a67829ea752881"
+    }
+  ],
+  "errors": [],
+  "fixture": "One authored 2000-resident expanded city; actual paid imports, transit, renewal and gathering. Each day/night shot replays the same committed city checkpoint, then uses ordinary unpaused simulation; camera and lighting transitions are QA controls.",
+  "checkpointReplayPerShot": true
+}
