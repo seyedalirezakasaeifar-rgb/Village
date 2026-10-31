@@ -1,0 +1,60 @@
+{
+  "source_sha256": "ad8161fcba0ea7c01ec5db58002025e5d2eb6a5ecd4e1d8d043de1e2d50fc29e",
+  "hostOnly": true,
+  "coldIncludesGraphAndCacheRebuild": true,
+  "rows": [
+    {
+      "zoom": 0.95,
+      "cold": {
+        "grid": 128,
+        "deeds": 21,
+        "population": 2058,
+        "operating": 3,
+        "queries": 5000,
+        "possibleJourneys": 631,
+        "graphMs": 0,
+        "coldMs": 18.5,
+        "warmMs": 14.400000000372529,
+        "distanceTrees": 32,
+        "originTrees": 94,
+        "itineraries": 1974,
+        "noEconomicWrites": true
+      },
+      "postRestoreUI": {
+        "synchronousMs": 79.79999999981374,
+        "nextFrameMs": 97.5,
+        "paused": true,
+        "day": 2,
+        "moneyDrift": 0,
+        "operating": 3
+      }
+    },
+    {
+      "zoom": 0.2,
+      "cold": {
+        "grid": 128,
+        "deeds": 21,
+        "population": 2058,
+        "operating": 3,
+        "queries": 5000,
+        "possibleJourneys": 631,
+        "graphMs": 0,
+        "coldMs": 7.2000000001862645,
+        "warmMs": 12.199999999254942,
+        "distanceTrees": 32,
+        "originTrees": 94,
+        "itineraries": 1974,
+        "noEconomicWrites": true
+      },
+      "postRestoreUI": {
+        "synchronousMs": 52,
+        "nextFrameMs": 69.8999999994412,
+        "paused": true,
+        "day": 2,
+        "moneyDrift": 0,
+        "operating": 3
+      }
+    }
+  ],
+  "errors": []
+}
