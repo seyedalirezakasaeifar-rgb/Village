@@ -1,0 +1,239 @@
+{
+  "status": "completed",
+  "source_sha256": "d90bb509173a803b75c3cdc432fea57ce2f1e2abbcb13b8886c56d8feaffe515",
+  "elapsedSeconds": 2702.7927936840006,
+  "samples": 90,
+  "startedUtc": "2026-10-31T20:52:21.696832+00:00",
+  "finishedUtc": "2026-10-31T21:37:26.221552+00:00",
+  "initialHeapAfterGC": {
+    "usedSize": 10029720,
+    "totalSize": 11407360,
+    "embedderHeapUsedSize": 2717400,
+    "backingStorageSize": 3477688
+  },
+  "finalHeapAfterGC": {
+    "usedSize": 24143544,
+    "totalSize": 28721152,
+    "embedderHeapUsedSize": 8829624,
+    "backingStorageSize": 11081819
+  },
+  "finalDOM": {
+    "documents": 1,
+    "nodes": 1595,
+    "jsEventListeners": 100
+  },
+  "finalState": {
+    "day": 41696,
+    "population": 778,
+    "people": 3108,
+    "households": 876,
+    "buildings": 797,
+    "firms": 81,
+    "treasury": 1837.068308626687,
+    "region": 173.682904476779,
+    "total": 15493517.000209823,
+    "valid": {
+      "ok": true,
+      "issues": [],
+      "total": 15493517.000209823,
+      "population": 778,
+      "day": 41696
+    },
+    "goodsError": 3.680179361253977e-08,
+    "autoBuild": true,
+    "privateEntry": 1,
+    "requestedSpeed": 64,
+    "grid": 128,
+    "deeds": 21,
+    "routes": 48,
+    "operating": 9,
+    "drivers": 18,
+    "cargo": 172,
+    "providers": 6,
+    "providerStaff": 7,
+    "privateClients": 106.43982819058358,
+    "atlas": 487,
+    "atlasBytes": 43293440,
+    "serviceCaches": 2,
+    "traffic": 34,
+    "history": 240,
+    "events": 160,
+    "transactions": 800,
+    "observations": 1200,
+    "loans": 8,
+    "paused": true,
+    "hostSuspended": true,
+    "hidden": false,
+    "pending": false,
+    "backlog": 0,
+    "saveOrder": 170,
+    "savePending": false,
+    "saveRunning": false,
+    "musicEnabled": true,
+    "musicTrack": 1,
+    "musicError": "",
+    "musicDecks": [
+      {
+        "index": 1,
+        "paused": true,
+        "currentTime": 14.311861,
+        "readyState": 4,
+        "error": 0,
+        "gain": 1
+      }
+    ]
+  },
+  "maxRafP99": 649.8999999999069,
+  "maxLiveTouchNextRAF": 1004,
+  "peakObservedHeap": 162737372,
+  "firstRate": 62.59110391134663,
+  "lastRate": 15.42221473116401,
+  "recentRates": [
+    17.791584298221125,
+    18.51723110537293,
+    17.843525250798308,
+    17.455673467435908,
+    17.42998030026823,
+    17.609213822080214,
+    17.456994571300257,
+    16.701851250405976,
+    15.641815631714563,
+    15.42221473116401
+  ],
+  "lateTraceStats": {
+    "assignJobs": {
+      "count": 345,
+      "p50Ms": 0.09999999962747097,
+      "p95Ms": 0.30000000074505806,
+      "p99Ms": 1.1000000005587935,
+      "maxMs": 7.7000000001862645
+    },
+    "dailyEconomy": {
+      "count": 1104,
+      "p50Ms": 39.30000000074506,
+      "p95Ms": 50.60000000055879,
+      "p99Ms": 62,
+      "maxMs": 105.09999999962747
+    },
+    "maintainRoads": {
+      "count": 1104,
+      "p50Ms": 0.5,
+      "p95Ms": 0.8000000007450581,
+      "p99Ms": 1.800000000745058,
+      "maxMs": 3.599999999627471
+    },
+    "recompute": {
+      "count": 2256,
+      "p50Ms": 0.39999999944120646,
+      "p95Ms": 0.7000000001862645,
+      "p99Ms": 2.400000000372529,
+      "maxMs": 5.6000000005587935
+    },
+    "systemsDay": {
+      "count": 1104,
+      "p50Ms": 0.10000000055879354,
+      "p95Ms": 0.2999999998137355,
+      "p99Ms": 1,
+      "maxMs": 1.599999999627471
+    },
+    "privateServiceInvestmentDay": {
+      "count": 1104,
+      "p50Ms": 0,
+      "p95Ms": 0,
+      "p99Ms": 131.6000000005588,
+      "maxMs": 178.09999999962747
+    },
+    "urbanEvolutionDay": {
+      "count": 1104,
+      "p50Ms": 0,
+      "p95Ms": 0,
+      "p99Ms": 8.400000000372529,
+      "maxMs": 26.799999999813735
+    },
+    "tick": {
+      "count": 1104,
+      "p50Ms": 43.59999999962747,
+      "p95Ms": 57.5,
+      "p99Ms": 232.20000000018626,
+      "maxMs": 287
+    },
+    "updateHeader": {
+      "count": 219,
+      "p50Ms": 1.2999999998137355,
+      "p95Ms": 2.2000000001862645,
+      "p99Ms": 3.2000000001862645,
+      "maxMs": 4.400000000372529
+    },
+    "draw": {
+      "count": 828,
+      "p50Ms": 1.099999999627471,
+      "p95Ms": 13.5,
+      "p99Ms": 23.40000000037253,
+      "maxMs": 85.29999999981374
+    },
+    "frame": {
+      "count": 1103,
+      "p50Ms": 45.700000000186265,
+      "p95Ms": 84.5,
+      "p99Ms": 255.6000000005588,
+      "maxMs": 310.70000000018626
+    },
+    "renderPanel": {
+      "count": 21,
+      "p50Ms": 41,
+      "p95Ms": 192.40000000037253,
+      "p99Ms": 195,
+      "maxMs": 195
+    },
+    "archivePayload": {
+      "count": 3,
+      "p50Ms": 17.40000000037253,
+      "p95Ms": 23.300000000745058,
+      "p99Ms": 23.300000000745058,
+      "maxMs": 23.300000000745058
+    },
+    "checksum": {
+      "count": 15,
+      "p50Ms": 4.5,
+      "p95Ms": 5.599999999627471,
+      "p99Ms": 5.599999999627471,
+      "maxMs": 5.599999999627471
+    },
+    "readSaveEnvelope": {
+      "count": 12,
+      "p50Ms": 12.200000000186265,
+      "p95Ms": 23.5,
+      "p99Ms": 23.5,
+      "maxMs": 23.5
+    },
+    "persistSnapshot": {
+      "count": 3,
+      "p50Ms": 57.40000000037253,
+      "p95Ms": 76,
+      "p99Ms": 76,
+      "maxMs": 76
+    },
+    "save": {
+      "count": 3,
+      "p50Ms": 79.70000000018626,
+      "p95Ms": 93.20000000018626,
+      "p99Ms": 93.20000000018626,
+      "maxMs": 93.20000000018626
+    }
+  },
+  "browserMetricDeltas": {
+    "LayoutCount": 507,
+    "RecalcStyleCount": 565,
+    "LayoutDuration": 0.17585000000000006,
+    "RecalcStyleDuration": 0.12381600000000004,
+    "DevToolsCommandDuration": 0.071774,
+    "ScriptDuration": 61.158563999999956,
+    "V8CompileDuration": 0,
+    "TaskDuration": 63.39924400000007,
+    "TaskOtherDuration": 1.869240000000005
+  },
+  "checkpointPaths": [
+    "/tmp/townledger-31987fc-late.json",
+    "/tmp/townledger-31987fc-traced-late.json"
+  ]
+}
