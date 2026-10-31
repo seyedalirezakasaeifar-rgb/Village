@@ -3994,9 +3994,7 @@ function draw(){
   drawStreetNames(vg,sx,sy,ww,hh);
   viewBuildings=displayItems.filter(item=>{
    if(item.kind==='streetprop'&&cam.zoom<.4)return false;
-   const building=item.kind==='building',treeItem=item.kind==='tree';
-   const xMargin=building?132:treeItem?24:38,topMargin=building?172:treeItem?64:55,bottomMargin=building?84:treeItem?34:28;
-   return item.x>=sx-xMargin&&item.x<=sx+ww+xMargin&&item.y>=sy-bottomMargin&&item.y<=sy+hh+topMargin;
+   return sceneIntersectsView(item,sx,sy,ww,hh);
   });
   viewBuildings.push(...transitInfrastructureItems(visible));viewBuildings.sort((a,b)=>a.y-b.y);
   paintCastShadows(vg,viewBuildings);
@@ -4277,6 +4275,8 @@ function scenePaintBounds(a){
  const side=a.b?Math.ceil((a.w+a.d)*18+20):36,top=a.b?(a.b.kind==='tower'?192:112):72,bottom=a.b?Math.ceil((a.w+a.d)*18+24):24;
  return a._paintBounds=[a.x-side,a.y-top,a.x+side,a.y+bottom];
 }
+// Culling includes the authored sun projection, not just the object's centre.
+function sceneIntersectsView(a,sx,sy,ww,hh){const r=scenePaintBounds(a),shadow=a.b&&gameOptions.effects&&!nightMode&&cam.zoom>=.30?100:0,top=a.b?Math.min(r[1],a.y-172):r[1];return r[0]<=sx+ww&&r[2]+shadow>=sx&&top<=sy+hh&&r[3]>=sy;}
 function paintBoundsOverlap(a,b){return a[0]<b[2]&&a[2]>b[0]&&a[1]<b[3]&&a[3]>b[1];}
 function sceneActorPaintY(a,bridges){
  let y=a.y;const bounds=scenePaintBounds(a),elevated=a.kind==='transitArt'&&a.mode==='elevated';
