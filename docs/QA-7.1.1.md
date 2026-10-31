@@ -13,6 +13,10 @@ The immutable candidate manifest accompanying the APK is the authority for its e
 
 Earlier immutable assemblies completed a45-minute real-RAF expanded-town session and a30-minute actual-origin64× session with15 cold Continue cycles and a3.29MB town. Their manifests identify their source hashes; they are historical regression evidence rather than a substitute for current-source acceptance. Further exact-candidate soak results can be supplied as an evidence appendix without changing the APK/source hashes.
 
+The exact current game assembly subsequently completed a2,700-second actual-origin64× session:91 samples,22 cold Continue cycles, day76,597 and a3,728,166-byte archive. All physical archive comparisons passed; no JavaScript errors occurred. Maximum commodity residual was1.881×10⁻⁸. Population varied substantially and ended at275; this is persistence/accounting stress evidence, not a promise of passive economic prosperity over centuries.
+
+A clean extraction exposed a build-tool reporting-directory omission. The builder now creates that directory. All46 frozen gates and package checks passed again after the tooling fix. The rebuilt DEX, manifest, resources and assets match the originally delivered APK byte for byte across18 payload entries. That already verified APK is retained; package-equivalence.json distinguishes its hash from the later rebuild's ZIP/signature envelope. Both signatures and alignments were independently verified. Source-entry counts distinguish tracked project files from the two added package metadata files.
+
 Run host performance gates alone. A prior shared-load56ms draw-p95 failure was retained, followed by three unchanged controlled passes. Report measured source, viewport, population and workload; browser CPU/RAF metrics are not Android FPS.
 
 ## Limits
