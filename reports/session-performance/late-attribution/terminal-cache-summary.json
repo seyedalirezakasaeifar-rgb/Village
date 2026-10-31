@@ -1,0 +1,237 @@
+{
+  "source_sha256": "d90bb509173a803b75c3cdc432fea57ce2f1e2abbcb13b8886c56d8feaffe515",
+  "checkpoint_sha256": "ad6256fd85d4146fda9eeac0b16d5b182ed352c23bbd96af3b320553c29ce786",
+  "cacheInstrumentationSha256": "10eb5e88d2d3b7507910b85a60636d718744f33d84ac5f6cbb15efcf6b9911f4",
+  "seconds": 30.929199999999256,
+  "days": 304,
+  "actualRateDiagnosticOnly": 16.21768425953507,
+  "queries": 1698185,
+  "treeCalls": 1698244,
+  "hits": 1631699,
+  "misses": 66545,
+  "evictions": 66417,
+  "graphCount": 4,
+  "graphEvents": [
+    {
+      "id": 1,
+      "day": 41682,
+      "roadsVersion": 13,
+      "nodes": 5666,
+      "buildings": 797,
+      "treesBefore": 0
+    },
+    {
+      "id": 2,
+      "day": 41701,
+      "roadsVersion": 14,
+      "nodes": 5666,
+      "buildings": 797,
+      "treesBefore": 0
+    },
+    {
+      "id": 3,
+      "day": 41761,
+      "roadsVersion": 15,
+      "nodes": 5666,
+      "buildings": 797,
+      "treesBefore": 0
+    },
+    {
+      "id": 4,
+      "day": 41911,
+      "roadsVersion": 16,
+      "nodes": 5666,
+      "buildings": 797,
+      "treesBefore": 0
+    }
+  ],
+  "invalidations": [
+    {
+      "day": 41700,
+      "scope": "urbanEvolutionDay",
+      "roadsVersion": 13,
+      "resetTraffic": false
+    },
+    {
+      "day": 41760,
+      "scope": "urbanEvolutionDay",
+      "roadsVersion": 14,
+      "resetTraffic": false
+    },
+    {
+      "day": 41910,
+      "scope": "urbanEvolutionDay",
+      "roadsVersion": 15,
+      "resetTraffic": false
+    }
+  ],
+  "scopes": [
+    {
+      "scope": "dailyEconomy/transitOperatingDay",
+      "queries": 125874,
+      "treeCalls": 125818,
+      "hits": 91274,
+      "misses": 34544,
+      "hitRatio": 0.7254446899489739,
+      "evictions": 34426,
+      "distinctAnchors": 82,
+      "missMs": 8541.80000007525,
+      "maxMissMs": 10.299999998882413
+    },
+    {
+      "scope": "dailyEconomy/workerCanCommute",
+      "queries": 1022033,
+      "treeCalls": 1021977,
+      "hits": 1005739,
+      "misses": 16238,
+      "hitRatio": 0.9841111884122636,
+      "evictions": 16238,
+      "distinctAnchors": 68,
+      "missMs": 3967.0000000875443,
+      "maxMissMs": 6.699999999254942
+    },
+    {
+      "scope": "dailyEconomy/exportRoutes",
+      "queries": 23104,
+      "treeCalls": 23104,
+      "hits": 16105,
+      "misses": 6999,
+      "hitRatio": 0.6970654432132964,
+      "evictions": 6999,
+      "distinctAnchors": 36,
+      "missMs": 1824.9000000469387,
+      "maxMissMs": 3.700000001117587
+    },
+    {
+      "scope": "urbanEvolutionDay",
+      "queries": 17936,
+      "treeCalls": 17936,
+      "hits": 14656,
+      "misses": 3280,
+      "hitRatio": 0.8171275646743978,
+      "evictions": 3280,
+      "distinctAnchors": 130,
+      "missMs": 718.9999999869615,
+      "maxMissMs": 3.400000000372529
+    },
+    {
+      "scope": "dailyEconomy/privateServiceDay",
+      "queries": 268530,
+      "treeCalls": 267922,
+      "hits": 266098,
+      "misses": 1824,
+      "hitRatio": 0.9931920484320064,
+      "evictions": 1824,
+      "distinctAnchors": 7,
+      "missMs": 584.3000000137836,
+      "maxMissMs": 3.400000000372529
+    },
+    {
+      "scope": "dailyEconomy/trade",
+      "queries": 18701,
+      "treeCalls": 18396,
+      "hits": 16514,
+      "misses": 1882,
+      "hitRatio": 0.8976951511198087,
+      "evictions": 1882,
+      "distinctAnchors": 36,
+      "missMs": 520.7000000029802,
+      "maxMissMs": 4.400000000372529
+    },
+    {
+      "scope": "seekPrivateServiceInvestment",
+      "queries": 7140,
+      "treeCalls": 7140,
+      "hits": 5934,
+      "misses": 1206,
+      "hitRatio": 0.83109243697479,
+      "evictions": 1206,
+      "distinctAnchors": 109,
+      "missMs": 281.10000000707805,
+      "maxMissMs": 1.099999999627471
+    },
+    {
+      "scope": "dailyEconomy/assignJobs",
+      "queries": 0,
+      "treeCalls": 619,
+      "hits": 311,
+      "misses": 308,
+      "hitRatio": 0.5024232633279483,
+      "evictions": 308,
+      "distinctAnchors": 50,
+      "missMs": 78.39999998919666,
+      "maxMissMs": 1.3999999985098839
+    },
+    {
+      "scope": "assignJobs",
+      "queries": 0,
+      "treeCalls": 468,
+      "hits": 274,
+      "misses": 194,
+      "hitRatio": 0.5854700854700855,
+      "evictions": 194,
+      "distinctAnchors": 40,
+      "missMs": 50.60000000335276,
+      "maxMissMs": 1
+    },
+    {
+      "scope": "workerCanCommute",
+      "queries": 9211,
+      "treeCalls": 9211,
+      "hits": 9186,
+      "misses": 25,
+      "hitRatio": 0.9972858538703724,
+      "evictions": 17,
+      "distinctAnchors": 12,
+      "missMs": 15.199999997392297,
+      "maxMissMs": 2.299999998882413
+    },
+    {
+      "scope": "(other)",
+      "queries": 285,
+      "treeCalls": 282,
+      "hits": 239,
+      "misses": 43,
+      "hitRatio": 0.8475177304964538,
+      "evictions": 43,
+      "distinctAnchors": 26,
+      "missMs": 15.099999997764826,
+      "maxMissMs": 1.1000000014901161
+    },
+    {
+      "scope": "dailyEconomy",
+      "queries": 3,
+      "treeCalls": 3,
+      "hits": 1,
+      "misses": 2,
+      "hitRatio": 0.3333333333333333,
+      "evictions": 0,
+      "distinctAnchors": 2,
+      "missMs": 0.5,
+      "maxMissMs": 0.3999999985098839
+    },
+    {
+      "scope": "dailyEconomy/trade/workerCanCommute",
+      "queries": 205368,
+      "treeCalls": 205368,
+      "hits": 205368,
+      "misses": 0,
+      "hitRatio": 1.0,
+      "evictions": 0,
+      "distinctAnchors": 4,
+      "missMs": 0,
+      "maxMissMs": 0
+    }
+  ],
+  "errors": [],
+  "valid": {
+    "ok": true,
+    "issues": [],
+    "total": 15493517.00020976,
+    "population": 786,
+    "day": 41986
+  },
+  "moneyDrift": -6.332993507385254e-08,
+  "goodsError": 3.618697519414127e-08,
+  "interpretation": "66,417 bounded-LRU evictions versus only four observed graph populations. Cross-consumer working sets exceed 32 trees. Equal road-node counts do not prove topology/portal invalidations are unnecessary. This diagnostic adds query instrumentation and does not establish Android performance."
+}

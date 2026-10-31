@@ -1,0 +1,4055 @@
+{
+  "source_sha256": "d90bb509173a803b75c3cdc432fea57ce2f1e2abbcb13b8886c56d8feaffe515",
+  "checkpoint_sha256": "ad6256fd85d4146fda9eeac0b16d5b182ed352c23bbd96af3b320553c29ce786",
+  "hostChromiumOnly": true,
+  "physicalAndroid": false,
+  "errors": [],
+  "initialHeapAfterGC": {
+    "usedSize": 16031912,
+    "totalSize": 17059840,
+    "embedderHeapUsedSize": 4028296,
+    "backingStorageSize": 2230203
+  },
+  "initial": {
+    "day": 41681,
+    "population": 778,
+    "people": 3108,
+    "households": 876,
+    "firms": 81,
+    "buildings": 797,
+    "total": 15493517.000209823,
+    "valid": {
+      "ok": true,
+      "issues": [],
+      "total": 15493517.000209823,
+      "population": 778,
+      "day": 41681
+    },
+    "goodsError": 3.684908733703196e-08,
+    "autoBuild": true,
+    "privateEntry": 1,
+    "requestedSpeed": 64,
+    "routes": 48,
+    "operating": 9,
+    "drivers": 18,
+    "atlasBytes": 12258048,
+    "serviceCaches": 0,
+    "backlog": 0,
+    "musicError": "",
+    "musicTrack": 6,
+    "musicDecks": 1
+  },
+  "distanceCache": {
+    "queries": 1698185,
+    "treeCalls": 1698244,
+    "hits": 1631699,
+    "misses": 66545,
+    "evictions": 66417,
+    "invalidations": [
+      {
+        "day": 41700,
+        "scope": "urbanEvolutionDay",
+        "roadsVersion": 13,
+        "resetTraffic": false
+      },
+      {
+        "day": 41760,
+        "scope": "urbanEvolutionDay",
+        "roadsVersion": 14,
+        "resetTraffic": false
+      },
+      {
+        "day": 41910,
+        "scope": "urbanEvolutionDay",
+        "roadsVersion": 15,
+        "resetTraffic": false
+      }
+    ],
+    "newGraphs": [
+      {
+        "id": 1,
+        "day": 41682,
+        "roadsVersion": 13,
+        "nodes": 5666,
+        "buildings": 797,
+        "treesBefore": 0
+      },
+      {
+        "id": 2,
+        "day": 41701,
+        "roadsVersion": 14,
+        "nodes": 5666,
+        "buildings": 797,
+        "treesBefore": 0
+      },
+      {
+        "id": 3,
+        "day": 41761,
+        "roadsVersion": 15,
+        "nodes": 5666,
+        "buildings": 797,
+        "treesBefore": 0
+      },
+      {
+        "id": 4,
+        "day": 41911,
+        "roadsVersion": 16,
+        "nodes": 5666,
+        "buildings": 797,
+        "treesBefore": 0
+      }
+    ],
+    "scopes": {
+      "workerCanCommute": {
+        "queries": 9211,
+        "treeCalls": 9211,
+        "hits": 9186,
+        "misses": 25,
+        "evictions": 17,
+        "missMs": 15.199999997392297,
+        "hitMs": 6.4000000059604645,
+        "maxMissMs": 2.299999998882413,
+        "anchors": {},
+        "graphIds": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "distinctAnchors": 12,
+        "anchorIds": [
+          2325,
+          2339,
+          2453,
+          2707,
+          2726,
+          2734,
+          2859,
+          3123,
+          3126,
+          4003,
+          4251,
+          4498
+        ]
+      },
+      "dailyEconomy/transitOperatingDay": {
+        "queries": 125874,
+        "treeCalls": 125818,
+        "hits": 91274,
+        "misses": 34544,
+        "evictions": 34426,
+        "missMs": 8541.80000007525,
+        "hitMs": 45.099999997764826,
+        "maxMissMs": 10.299999998882413,
+        "anchors": {},
+        "graphIds": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "distinctAnchors": 82,
+        "anchorIds": [
+          539,
+          795,
+          1051,
+          1179,
+          1333,
+          1461,
+          1589,
+          1688,
+          1813,
+          1845,
+          2339,
+          2357,
+          2363,
+          2467,
+          2485,
+          2581,
+          2613,
+          2707,
+          2719,
+          2721,
+          2726,
+          2727,
+          2733,
+          2734,
+          2735,
+          2837,
+          2859,
+          2971,
+          3003,
+          3087,
+          3093,
+          3099,
+          3117,
+          3119,
+          3120,
+          3123,
+          3126,
+          3215,
+          3224,
+          3333,
+          3343,
+          3349,
+          3363,
+          3461,
+          3465,
+          3466,
+          3467,
+          3468,
+          3473,
+          3474,
+          3475,
+          3479,
+          3480,
+          3481,
+          3487,
+          3488,
+          3489,
+          3493,
+          3496,
+          3505,
+          3507,
+          3605,
+          3627,
+          3739,
+          3867,
+          3887,
+          3986,
+          3993,
+          3995,
+          4003,
+          4008,
+          4108,
+          4123,
+          4251,
+          4403,
+          4493,
+          4498,
+          4643,
+          5017,
+          5141,
+          5425,
+          5516
+        ]
+      },
+      "dailyEconomy/workerCanCommute": {
+        "queries": 1022033,
+        "treeCalls": 1021977,
+        "hits": 1005739,
+        "misses": 16238,
+        "evictions": 16238,
+        "missMs": 3967.0000000875443,
+        "hitMs": 392.30000004172325,
+        "maxMissMs": 6.699999999254942,
+        "anchors": {},
+        "graphIds": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "distinctAnchors": 68,
+        "anchorIds": [
+          539,
+          795,
+          1051,
+          1179,
+          1333,
+          1461,
+          1589,
+          1717,
+          1813,
+          1845,
+          2325,
+          2357,
+          2363,
+          2485,
+          2613,
+          2707,
+          2735,
+          2971,
+          3003,
+          3093,
+          3099,
+          3119,
+          3120,
+          3126,
+          3215,
+          3333,
+          3343,
+          3349,
+          3363,
+          3461,
+          3465,
+          3466,
+          3467,
+          3468,
+          3473,
+          3474,
+          3475,
+          3479,
+          3480,
+          3481,
+          3487,
+          3488,
+          3489,
+          3493,
+          3496,
+          3505,
+          3507,
+          3605,
+          3627,
+          3739,
+          3755,
+          3867,
+          3887,
+          3986,
+          3993,
+          3995,
+          4008,
+          4108,
+          4123,
+          4251,
+          4403,
+          4493,
+          4498,
+          4643,
+          5017,
+          5141,
+          5425,
+          5516
+        ]
+      },
+      "dailyEconomy/trade": {
+        "queries": 18701,
+        "treeCalls": 18396,
+        "hits": 16514,
+        "misses": 1882,
+        "evictions": 1882,
+        "missMs": 520.7000000029802,
+        "hitMs": 5.800000002607703,
+        "maxMissMs": 4.400000000372529,
+        "anchors": {},
+        "graphIds": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "distinctAnchors": 36,
+        "anchorIds": [
+          795,
+          1051,
+          1179,
+          1461,
+          1589,
+          1813,
+          2363,
+          2485,
+          2613,
+          2735,
+          2971,
+          3003,
+          3099,
+          3119,
+          3349,
+          3363,
+          3461,
+          3465,
+          3467,
+          3474,
+          3475,
+          3479,
+          3480,
+          3487,
+          3488,
+          3493,
+          3605,
+          3739,
+          3867,
+          3993,
+          3995,
+          4008,
+          4108,
+          4403,
+          4643,
+          5425
+        ]
+      },
+      "dailyEconomy/trade/workerCanCommute": {
+        "queries": 205368,
+        "treeCalls": 205368,
+        "hits": 205368,
+        "misses": 0,
+        "evictions": 0,
+        "missMs": 0,
+        "hitMs": 79.40000000968575,
+        "maxMissMs": 0,
+        "anchors": {},
+        "graphIds": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "distinctAnchors": 4,
+        "anchorIds": [
+          2707,
+          3126,
+          4251,
+          4498
+        ]
+      },
+      "dailyEconomy/exportRoutes": {
+        "queries": 23104,
+        "treeCalls": 23104,
+        "hits": 16105,
+        "misses": 6999,
+        "evictions": 6999,
+        "missMs": 1824.9000000469387,
+        "hitMs": 7.3000000063329935,
+        "maxMissMs": 3.700000001117587,
+        "anchors": {},
+        "graphIds": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "distinctAnchors": 36,
+        "anchorIds": [
+          539,
+          795,
+          1461,
+          1589,
+          1813,
+          2363,
+          2735,
+          2971,
+          3003,
+          3099,
+          3119,
+          3215,
+          3333,
+          3349,
+          3363,
+          3461,
+          3466,
+          3467,
+          3474,
+          3475,
+          3479,
+          3480,
+          3487,
+          3488,
+          3493,
+          3505,
+          3605,
+          3627,
+          3867,
+          3993,
+          4008,
+          4108,
+          4403,
+          4643,
+          5141,
+          5425
+        ]
+      },
+      "dailyEconomy/privateServiceDay": {
+        "queries": 268530,
+        "treeCalls": 267922,
+        "hits": 266098,
+        "misses": 1824,
+        "evictions": 1824,
+        "missMs": 584.3000000137836,
+        "hitMs": 110.60000004805624,
+        "maxMissMs": 3.400000000372529,
+        "anchors": {},
+        "graphIds": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "distinctAnchors": 7,
+        "anchorIds": [
+          3120,
+          3481,
+          3505,
+          3507,
+          3887,
+          3986,
+          4003
+        ]
+      },
+      "dailyEconomy/assignJobs": {
+        "queries": 0,
+        "treeCalls": 619,
+        "hits": 311,
+        "misses": 308,
+        "evictions": 308,
+        "missMs": 78.39999998919666,
+        "hitMs": 0.2999999988824129,
+        "maxMissMs": 1.3999999985098839,
+        "anchors": {},
+        "graphIds": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "distinctAnchors": 50,
+        "anchorIds": [
+          795,
+          1051,
+          1179,
+          1333,
+          1461,
+          1589,
+          1813,
+          1845,
+          2357,
+          2485,
+          2613,
+          2735,
+          2971,
+          3099,
+          3119,
+          3126,
+          3333,
+          3343,
+          3349,
+          3363,
+          3461,
+          3465,
+          3466,
+          3467,
+          3473,
+          3474,
+          3475,
+          3479,
+          3480,
+          3487,
+          3488,
+          3489,
+          3493,
+          3496,
+          3605,
+          3627,
+          3739,
+          3867,
+          3993,
+          3995,
+          4008,
+          4108,
+          4123,
+          4251,
+          4403,
+          4493,
+          4643,
+          5017,
+          5141,
+          5425
+        ]
+      },
+      "assignJobs": {
+        "queries": 0,
+        "treeCalls": 468,
+        "hits": 274,
+        "misses": 194,
+        "evictions": 194,
+        "missMs": 50.60000000335276,
+        "hitMs": 0.09999999962747097,
+        "maxMissMs": 1,
+        "anchors": {},
+        "graphIds": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "distinctAnchors": 40,
+        "anchorIds": [
+          795,
+          1051,
+          1333,
+          1461,
+          1589,
+          1845,
+          2357,
+          2485,
+          2613,
+          2735,
+          3099,
+          3119,
+          3126,
+          3333,
+          3349,
+          3363,
+          3465,
+          3466,
+          3467,
+          3473,
+          3474,
+          3475,
+          3479,
+          3487,
+          3488,
+          3507,
+          3605,
+          3627,
+          3739,
+          3867,
+          3887,
+          3995,
+          4108,
+          4123,
+          4251,
+          4403,
+          4493,
+          4643,
+          5017,
+          5425
+        ]
+      },
+      "(other)": {
+        "queries": 285,
+        "treeCalls": 282,
+        "hits": 239,
+        "misses": 43,
+        "evictions": 43,
+        "missMs": 15.099999997764826,
+        "hitMs": 0.3000000026077032,
+        "maxMissMs": 1.1000000014901161,
+        "anchors": {},
+        "graphIds": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "distinctAnchors": 26,
+        "anchorIds": [
+          539,
+          1179,
+          1551,
+          1688,
+          1705,
+          1707,
+          1835,
+          1955,
+          2069,
+          2083,
+          2101,
+          2219,
+          2319,
+          2718,
+          2721,
+          2735,
+          2851,
+          3093,
+          3224,
+          3343,
+          3371,
+          3605,
+          3733,
+          3887,
+          4131,
+          5141
+        ]
+      },
+      "seekPrivateServiceInvestment": {
+        "queries": 7140,
+        "treeCalls": 7140,
+        "hits": 5934,
+        "misses": 1206,
+        "evictions": 1206,
+        "missMs": 281.10000000707805,
+        "hitMs": 4.00000000372529,
+        "maxMissMs": 1.099999999627471,
+        "anchors": {},
+        "graphIds": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "distinctAnchors": 109,
+        "anchorIds": [
+          411,
+          667,
+          795,
+          1205,
+          1333,
+          1563,
+          1688,
+          1689,
+          1693,
+          1694,
+          1705,
+          1717,
+          1819,
+          1947,
+          1973,
+          2069,
+          2075,
+          2101,
+          2197,
+          2203,
+          2229,
+          2325,
+          2331,
+          2339,
+          2453,
+          2459,
+          2467,
+          2581,
+          2587,
+          2595,
+          2603,
+          2703,
+          2705,
+          2706,
+          2707,
+          2711,
+          2712,
+          2713,
+          2717,
+          2718,
+          2719,
+          2720,
+          2721,
+          2725,
+          2726,
+          2727,
+          2733,
+          2734,
+          2741,
+          2831,
+          2837,
+          2843,
+          2851,
+          2859,
+          2869,
+          2965,
+          2979,
+          2987,
+          3087,
+          3093,
+          3107,
+          3117,
+          3118,
+          3120,
+          3121,
+          3122,
+          3123,
+          3215,
+          3221,
+          3224,
+          3225,
+          3235,
+          3343,
+          3371,
+          3469,
+          3473,
+          3474,
+          3493,
+          3494,
+          3495,
+          3496,
+          3497,
+          3599,
+          3733,
+          3755,
+          3855,
+          3875,
+          3985,
+          4003,
+          4007,
+          4117,
+          4131,
+          4245,
+          4259,
+          4373,
+          4498,
+          4499,
+          4503,
+          4504,
+          4510,
+          4512,
+          4513,
+          4517,
+          4518,
+          4629,
+          4757,
+          4899,
+          5013,
+          5027
+        ]
+      },
+      "urbanEvolutionDay": {
+        "queries": 17936,
+        "treeCalls": 17936,
+        "hits": 14656,
+        "misses": 3280,
+        "evictions": 3280,
+        "missMs": 718.9999999869615,
+        "hitMs": 7.400000000372529,
+        "maxMissMs": 3.400000000372529,
+        "anchors": {},
+        "graphIds": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "distinctAnchors": 130,
+        "anchorIds": [
+          667,
+          923,
+          1051,
+          1077,
+          1167,
+          1179,
+          1205,
+          1295,
+          1307,
+          1333,
+          1423,
+          1435,
+          1551,
+          1589,
+          1673,
+          1674,
+          1675,
+          1676,
+          1677,
+          1681,
+          1682,
+          1683,
+          1684,
+          1687,
+          1688,
+          1689,
+          1693,
+          1694,
+          1695,
+          1696,
+          1697,
+          1698,
+          1699,
+          1700,
+          1701,
+          1702,
+          1703,
+          1704,
+          1705,
+          1706,
+          1707,
+          1717,
+          1807,
+          1819,
+          1827,
+          1835,
+          1845,
+          1935,
+          1947,
+          1955,
+          1963,
+          2063,
+          2083,
+          2091,
+          2191,
+          2197,
+          2211,
+          2219,
+          2319,
+          2339,
+          2347,
+          2357,
+          2447,
+          2453,
+          2467,
+          2475,
+          2575,
+          2581,
+          2603,
+          2703,
+          2705,
+          2707,
+          2712,
+          2720,
+          2721,
+          2726,
+          2727,
+          2728,
+          2729,
+          2733,
+          2734,
+          2735,
+          2831,
+          2859,
+          2869,
+          2959,
+          2971,
+          3087,
+          3099,
+          3107,
+          3118,
+          3119,
+          3120,
+          3123,
+          3126,
+          3224,
+          3225,
+          3343,
+          3349,
+          3461,
+          3466,
+          3468,
+          3473,
+          3487,
+          3488,
+          3489,
+          3494,
+          3496,
+          3497,
+          3505,
+          3867,
+          3875,
+          3986,
+          3993,
+          4003,
+          4007,
+          4108,
+          4117,
+          4123,
+          4131,
+          4251,
+          4493,
+          4498,
+          4504,
+          4512,
+          4518,
+          4643,
+          4757,
+          4899,
+          5516
+        ]
+      },
+      "dailyEconomy": {
+        "queries": 3,
+        "treeCalls": 3,
+        "hits": 1,
+        "misses": 2,
+        "evictions": 0,
+        "missMs": 0.5,
+        "hitMs": 0,
+        "maxMissMs": 0.3999999985098839,
+        "anchors": {},
+        "graphIds": [
+          3
+        ],
+        "distinctAnchors": 2,
+        "anchorIds": [
+          2069,
+          3507
+        ]
+      }
+    },
+    "querySamples": {
+      "workerCanCommute": [
+        {
+          "a": 4498,
+          "b": 4251,
+          "day": 41682,
+          "scope": "workerCanCommute",
+          "anchor": 4251,
+          "hit": false,
+          "graph": 1,
+          "result": 11
+        },
+        {
+          "a": 4373,
+          "b": 4251,
+          "day": 41682,
+          "scope": "workerCanCommute",
+          "anchor": 4251,
+          "hit": true,
+          "graph": 1,
+          "result": 9
+        },
+        {
+          "a": 2734,
+          "b": 4251,
+          "day": 41682,
+          "scope": "workerCanCommute",
+          "anchor": 4251,
+          "hit": true,
+          "graph": 1,
+          "result": 31
+        },
+        {
+          "a": 3875,
+          "b": 4251,
+          "day": 41682,
+          "scope": "workerCanCommute",
+          "anchor": 4251,
+          "hit": true,
+          "graph": 1,
+          "result": 15
+        },
+        {
+          "a": 2197,
+          "b": 4251,
+          "day": 41682,
+          "scope": "workerCanCommute",
+          "anchor": 4251,
+          "hit": true,
+          "graph": 1,
+          "result": 22
+        },
+        {
+          "a": 2325,
+          "b": 4251,
+          "day": 41682,
+          "scope": "workerCanCommute",
+          "anchor": 4251,
+          "hit": true,
+          "graph": 1,
+          "result": 21
+        },
+        {
+          "a": 3121,
+          "b": 4251,
+          "day": 41682,
+          "scope": "workerCanCommute",
+          "anchor": 4251,
+          "hit": true,
+          "graph": 1,
+          "result": 31
+        },
+        {
+          "a": 2837,
+          "b": 4251,
+          "day": 41682,
+          "scope": "workerCanCommute",
+          "anchor": 4251,
+          "hit": true,
+          "graph": 1,
+          "result": 17
+        },
+        {
+          "a": 2587,
+          "b": 4251,
+          "day": 41682,
+          "scope": "workerCanCommute",
+          "anchor": 4251,
+          "hit": true,
+          "graph": 1,
+          "result": 13
+        },
+        {
+          "a": 4003,
+          "b": 4251,
+          "day": 41682,
+          "scope": "workerCanCommute",
+          "anchor": 4251,
+          "hit": true,
+          "graph": 1,
+          "result": 14
+        },
+        {
+          "a": 3225,
+          "b": 4251,
+          "day": 41682,
+          "scope": "workerCanCommute",
+          "anchor": 4251,
+          "hit": true,
+          "graph": 1,
+          "result": 10
+        },
+        {
+          "a": 3875,
+          "b": 4251,
+          "day": 41682,
+          "scope": "workerCanCommute",
+          "anchor": 4251,
+          "hit": true,
+          "graph": 1,
+          "result": 15
+        },
+        {
+          "a": 2741,
+          "b": 3126,
+          "day": 41682,
+          "scope": "workerCanCommute",
+          "anchor": 3126,
+          "hit": false,
+          "graph": 1,
+          "result": 4
+        },
+        {
+          "a": 2203,
+          "b": 3126,
+          "day": 41682,
+          "scope": "workerCanCommute",
+          "anchor": 3126,
+          "hit": true,
+          "graph": 1,
+          "result": 34
+        },
+        {
+          "a": 2075,
+          "b": 3126,
+          "day": 41682,
+          "scope": "workerCanCommute",
+          "anchor": 3126,
+          "hit": true,
+          "graph": 1,
+          "result": 35
+        },
+        {
+          "a": 3497,
+          "b": 3126,
+          "day": 41682,
+          "scope": "workerCanCommute",
+          "anchor": 3126,
+          "hit": true,
+          "graph": 1,
+          "result": 16
+        }
+      ],
+      "dailyEconomy/transitOperatingDay": [
+        {
+          "a": 4504,
+          "b": 4123,
+          "day": 41682,
+          "scope": "dailyEconomy/transitOperatingDay",
+          "anchor": 4123,
+          "hit": false,
+          "graph": 1,
+          "result": 6
+        },
+        {
+          "a": 3494,
+          "b": 3489,
+          "day": 41682,
+          "scope": "dailyEconomy/transitOperatingDay",
+          "anchor": 3489,
+          "hit": false,
+          "graph": 1,
+          "result": 5
+        },
+        {
+          "a": 4007,
+          "b": 1845,
+          "day": 41682,
+          "scope": "dailyEconomy/transitOperatingDay",
+          "anchor": 1845,
+          "hit": false,
+          "graph": 1,
+          "result": 39
+        },
+        {
+          "a": 2720,
+          "b": 3867,
+          "day": 41682,
+          "scope": "dailyEconomy/transitOperatingDay",
+          "anchor": 3867,
+          "hit": false,
+          "graph": 1,
+          "result": 14
+        },
+        {
+          "a": 1688,
+          "b": 3099,
+          "day": 41682,
+          "scope": "dailyEconomy/transitOperatingDay",
+          "anchor": 3099,
+          "hit": false,
+          "graph": 1,
+          "result": 14
+        },
+        {
+          "a": 2712,
+          "b": 2971,
+          "day": 41682,
+          "scope": "dailyEconomy/transitOperatingDay",
+          "anchor": 2971,
+          "hit": false,
+          "graph": 1,
+          "result": 5
+        },
+        {
+          "a": 2703,
+          "b": 1813,
+          "day": 41682,
+          "scope": "dailyEconomy/transitOperatingDay",
+          "anchor": 1813,
+          "hit": false,
+          "graph": 1,
+          "result": 13
+        },
+        {
+          "a": 4259,
+          "b": 3487,
+          "day": 41682,
+          "scope": "dailyEconomy/transitOperatingDay",
+          "anchor": 3487,
+          "hit": false,
+          "graph": 1,
+          "result": 10
+        },
+        {
+          "a": 1947,
+          "b": 3739,
+          "day": 41682,
+          "scope": "dailyEconomy/transitOperatingDay",
+          "anchor": 3739,
+          "hit": false,
+          "graph": 1,
+          "result": 14
+        },
+        {
+          "a": 3224,
+          "b": 3487,
+          "day": 41682,
+          "scope": "dailyEconomy/transitOperatingDay",
+          "anchor": 3487,
+          "hit": true,
+          "graph": 1,
+          "result": 9
+        },
+        {
+          "a": 3123,
+          "b": 1333,
+          "day": 41682,
+          "scope": "dailyEconomy/transitOperatingDay",
+          "anchor": 1333,
+          "hit": false,
+          "graph": 1,
+          "result": 16
+        },
+        {
+          "a": 4131,
+          "b": 3489,
+          "day": 41682,
+          "scope": "dailyEconomy/transitOperatingDay",
+          "anchor": 3489,
+          "hit": true,
+          "graph": 1,
+          "result": 7
+        },
+        {
+          "a": 3493,
+          "b": 4008,
+          "day": 41682,
+          "scope": "dailyEconomy/transitOperatingDay",
+          "anchor": 4008,
+          "hit": false,
+          "graph": 1,
+          "result": 11
+        },
+        {
+          "a": 2581,
+          "b": 3867,
+          "day": 41682,
+          "scope": "dailyEconomy/transitOperatingDay",
+          "anchor": 3867,
+          "hit": true,
+          "graph": 1,
+          "result": 16
+        },
+        {
+          "a": 2720,
+          "b": 3493,
+          "day": 41682,
+          "scope": "dailyEconomy/transitOperatingDay",
+          "anchor": 3493,
+          "hit": false,
+          "graph": 1,
+          "result": 11
+        },
+        {
+          "a": 3087,
+          "b": 3343,
+          "day": 41682,
+          "scope": "dailyEconomy/transitOperatingDay",
+          "anchor": 3343,
+          "hit": false,
+          "graph": 1,
+          "result": 2
+        }
+      ],
+      "dailyEconomy/workerCanCommute": [
+        {
+          "a": 3093,
+          "b": 3739,
+          "day": 41682,
+          "scope": "dailyEconomy/workerCanCommute",
+          "anchor": 3739,
+          "hit": false,
+          "graph": 1,
+          "result": 11
+        },
+        {
+          "a": 1947,
+          "b": 3739,
+          "day": 41682,
+          "scope": "dailyEconomy/workerCanCommute",
+          "anchor": 3739,
+          "hit": true,
+          "graph": 1,
+          "result": 14
+        },
+        {
+          "a": 795,
+          "b": 3099,
+          "day": 41682,
+          "scope": "dailyEconomy/workerCanCommute",
+          "anchor": 3099,
+          "hit": true,
+          "graph": 1,
+          "result": 18
+        },
+        {
+          "a": 2707,
+          "b": 3099,
+          "day": 41682,
+          "scope": "dailyEconomy/workerCanCommute",
+          "anchor": 2707,
+          "hit": true,
+          "graph": 1,
+          "result": 11
+        },
+        {
+          "a": 795,
+          "b": 3995,
+          "day": 41682,
+          "scope": "dailyEconomy/workerCanCommute",
+          "anchor": 3995,
+          "hit": true,
+          "graph": 1,
+          "result": 25
+        },
+        {
+          "a": 2705,
+          "b": 3995,
+          "day": 41682,
+          "scope": "dailyEconomy/workerCanCommute",
+          "anchor": 3995,
+          "hit": true,
+          "graph": 1,
+          "result": 20
+        },
+        {
+          "a": 4373,
+          "b": 3995,
+          "day": 41682,
+          "scope": "dailyEconomy/workerCanCommute",
+          "anchor": 3995,
+          "hit": true,
+          "graph": 1,
+          "result": 9
+        },
+        {
+          "a": 3985,
+          "b": 3867,
+          "day": 41682,
+          "scope": "dailyEconomy/workerCanCommute",
+          "anchor": 3867,
+          "hit": true,
+          "graph": 1,
+          "result": 11
+        },
+        {
+          "a": 4513,
+          "b": 3867,
+          "day": 41682,
+          "scope": "dailyEconomy/workerCanCommute",
+          "anchor": 3867,
+          "hit": true,
+          "graph": 1,
+          "result": 11
+        },
+        {
+          "a": 1947,
+          "b": 3867,
+          "day": 41682,
+          "scope": "dailyEconomy/workerCanCommute",
+          "anchor": 3867,
+          "hit": true,
+          "graph": 1,
+          "result": 15
+        },
+        {
+          "a": 2229,
+          "b": 3867,
+          "day": 41682,
+          "scope": "dailyEconomy/workerCanCommute",
+          "anchor": 3867,
+          "hit": true,
+          "graph": 1,
+          "result": 39
+        },
+        {
+          "a": 4245,
+          "b": 3867,
+          "day": 41682,
+          "scope": "dailyEconomy/workerCanCommute",
+          "anchor": 3867,
+          "hit": true,
+          "graph": 1,
+          "result": 9
+        },
+        {
+          "a": 2581,
+          "b": 3867,
+          "day": 41682,
+          "scope": "dailyEconomy/workerCanCommute",
+          "anchor": 3867,
+          "hit": true,
+          "graph": 1,
+          "result": 16
+        },
+        {
+          "a": 3225,
+          "b": 3099,
+          "day": 41682,
+          "scope": "dailyEconomy/workerCanCommute",
+          "anchor": 3099,
+          "hit": true,
+          "graph": 1,
+          "result": 3
+        },
+        {
+          "a": 3224,
+          "b": 3099,
+          "day": 41682,
+          "scope": "dailyEconomy/workerCanCommute",
+          "anchor": 3099,
+          "hit": true,
+          "graph": 1,
+          "result": 4
+        },
+        {
+          "a": 1688,
+          "b": 3099,
+          "day": 41682,
+          "scope": "dailyEconomy/workerCanCommute",
+          "anchor": 3099,
+          "hit": true,
+          "graph": 1,
+          "result": 14
+        }
+      ],
+      "dailyEconomy/trade": [
+        {
+          "a": 3867,
+          "b": 1813,
+          "day": 41682,
+          "scope": "dailyEconomy/trade",
+          "anchor": 1813,
+          "hit": false,
+          "graph": 1,
+          "result": 22
+        },
+        {
+          "a": 3867,
+          "b": 4643,
+          "day": 41682,
+          "scope": "dailyEconomy/trade",
+          "anchor": 3867,
+          "hit": false,
+          "graph": 1,
+          "result": 14
+        },
+        {
+          "a": 3867,
+          "b": 3466,
+          "day": 41682,
+          "scope": "dailyEconomy/trade",
+          "anchor": 3867,
+          "hit": true,
+          "graph": 1,
+          "result": 20
+        },
+        {
+          "a": 3867,
+          "b": 5141,
+          "day": 41682,
+          "scope": "dailyEconomy/trade",
+          "anchor": 3867,
+          "hit": true,
+          "graph": 1,
+          "result": 16
+        },
+        {
+          "a": 3867,
+          "b": 3627,
+          "day": 41682,
+          "scope": "dailyEconomy/trade",
+          "anchor": 3867,
+          "hit": true,
+          "graph": 1,
+          "result": 20
+        },
+        {
+          "a": 3867,
+          "b": 4403,
+          "day": 41682,
+          "scope": "dailyEconomy/trade",
+          "anchor": 3867,
+          "hit": true,
+          "graph": 1,
+          "result": 30
+        },
+        {
+          "a": 3867,
+          "b": 5425,
+          "day": 41682,
+          "scope": "dailyEconomy/trade",
+          "anchor": 3867,
+          "hit": true,
+          "graph": 1,
+          "result": 36
+        },
+        {
+          "a": 1589,
+          "b": 1813,
+          "day": 41682,
+          "scope": "dailyEconomy/trade",
+          "anchor": 1813,
+          "hit": true,
+          "graph": 1,
+          "result": 54
+        },
+        {
+          "a": 1589,
+          "b": 4643,
+          "day": 41682,
+          "scope": "dailyEconomy/trade",
+          "anchor": 1589,
+          "hit": false,
+          "graph": 1,
+          "result": 42
+        },
+        {
+          "a": 1589,
+          "b": 3466,
+          "day": 41682,
+          "scope": "dailyEconomy/trade",
+          "anchor": 1589,
+          "hit": true,
+          "graph": 1,
+          "result": 58
+        },
+        {
+          "a": 1589,
+          "b": 5141,
+          "day": 41682,
+          "scope": "dailyEconomy/trade",
+          "anchor": 1589,
+          "hit": true,
+          "graph": 1,
+          "result": 60
+        },
+        {
+          "a": 1589,
+          "b": 3627,
+          "day": 41682,
+          "scope": "dailyEconomy/trade",
+          "anchor": 1589,
+          "hit": true,
+          "graph": 1,
+          "result": 26
+        },
+        {
+          "a": 1589,
+          "b": 4403,
+          "day": 41682,
+          "scope": "dailyEconomy/trade",
+          "anchor": 1589,
+          "hit": true,
+          "graph": 1,
+          "result": 40
+        },
+        {
+          "a": 1589,
+          "b": 5425,
+          "day": 41682,
+          "scope": "dailyEconomy/trade",
+          "anchor": 1589,
+          "hit": true,
+          "graph": 1,
+          "result": 42
+        },
+        {
+          "a": 1461,
+          "b": 1813,
+          "day": 41682,
+          "scope": "dailyEconomy/trade",
+          "anchor": 1813,
+          "hit": true,
+          "graph": 1,
+          "result": 55
+        },
+        {
+          "a": 1461,
+          "b": 4643,
+          "day": 41682,
+          "scope": "dailyEconomy/trade",
+          "anchor": 1461,
+          "hit": false,
+          "graph": 1,
+          "result": 43
+        }
+      ],
+      "dailyEconomy/trade/workerCanCommute": [
+        {
+          "a": 4498,
+          "b": 4251,
+          "day": 41682,
+          "scope": "dailyEconomy/trade/workerCanCommute",
+          "anchor": 4251,
+          "hit": true,
+          "graph": 1,
+          "result": 11
+        },
+        {
+          "a": 4373,
+          "b": 4251,
+          "day": 41682,
+          "scope": "dailyEconomy/trade/workerCanCommute",
+          "anchor": 4251,
+          "hit": true,
+          "graph": 1,
+          "result": 9
+        },
+        {
+          "a": 2734,
+          "b": 4251,
+          "day": 41682,
+          "scope": "dailyEconomy/trade/workerCanCommute",
+          "anchor": 4251,
+          "hit": true,
+          "graph": 1,
+          "result": 31
+        },
+        {
+          "a": 3875,
+          "b": 4251,
+          "day": 41682,
+          "scope": "dailyEconomy/trade/workerCanCommute",
+          "anchor": 4251,
+          "hit": true,
+          "graph": 1,
+          "result": 15
+        },
+        {
+          "a": 2197,
+          "b": 4251,
+          "day": 41682,
+          "scope": "dailyEconomy/trade/workerCanCommute",
+          "anchor": 4251,
+          "hit": true,
+          "graph": 1,
+          "result": 22
+        },
+        {
+          "a": 2325,
+          "b": 4251,
+          "day": 41682,
+          "scope": "dailyEconomy/trade/workerCanCommute",
+          "anchor": 4251,
+          "hit": true,
+          "graph": 1,
+          "result": 21
+        },
+        {
+          "a": 3121,
+          "b": 4251,
+          "day": 41682,
+          "scope": "dailyEconomy/trade/workerCanCommute",
+          "anchor": 4251,
+          "hit": true,
+          "graph": 1,
+          "result": 31
+        },
+        {
+          "a": 2837,
+          "b": 4251,
+          "day": 41682,
+          "scope": "dailyEconomy/trade/workerCanCommute",
+          "anchor": 4251,
+          "hit": true,
+          "graph": 1,
+          "result": 17
+        },
+        {
+          "a": 2587,
+          "b": 4251,
+          "day": 41682,
+          "scope": "dailyEconomy/trade/workerCanCommute",
+          "anchor": 4251,
+          "hit": true,
+          "graph": 1,
+          "result": 13
+        },
+        {
+          "a": 4003,
+          "b": 4251,
+          "day": 41682,
+          "scope": "dailyEconomy/trade/workerCanCommute",
+          "anchor": 4251,
+          "hit": true,
+          "graph": 1,
+          "result": 14
+        },
+        {
+          "a": 3225,
+          "b": 4251,
+          "day": 41682,
+          "scope": "dailyEconomy/trade/workerCanCommute",
+          "anchor": 4251,
+          "hit": true,
+          "graph": 1,
+          "result": 10
+        },
+        {
+          "a": 3875,
+          "b": 4251,
+          "day": 41682,
+          "scope": "dailyEconomy/trade/workerCanCommute",
+          "anchor": 4251,
+          "hit": true,
+          "graph": 1,
+          "result": 15
+        },
+        {
+          "a": 2741,
+          "b": 3126,
+          "day": 41682,
+          "scope": "dailyEconomy/trade/workerCanCommute",
+          "anchor": 3126,
+          "hit": true,
+          "graph": 1,
+          "result": 4
+        },
+        {
+          "a": 2203,
+          "b": 3126,
+          "day": 41682,
+          "scope": "dailyEconomy/trade/workerCanCommute",
+          "anchor": 3126,
+          "hit": true,
+          "graph": 1,
+          "result": 34
+        },
+        {
+          "a": 2075,
+          "b": 3126,
+          "day": 41682,
+          "scope": "dailyEconomy/trade/workerCanCommute",
+          "anchor": 3126,
+          "hit": true,
+          "graph": 1,
+          "result": 35
+        },
+        {
+          "a": 3497,
+          "b": 3126,
+          "day": 41682,
+          "scope": "dailyEconomy/trade/workerCanCommute",
+          "anchor": 3126,
+          "hit": true,
+          "graph": 1,
+          "result": 16
+        }
+      ],
+      "dailyEconomy/exportRoutes": [
+        {
+          "a": 3467,
+          "b": 3505,
+          "day": 41682,
+          "scope": "dailyEconomy/exportRoutes",
+          "anchor": 3467,
+          "hit": true,
+          "graph": 1,
+          "result": 38
+        },
+        {
+          "a": 3467,
+          "b": 3333,
+          "day": 41682,
+          "scope": "dailyEconomy/exportRoutes",
+          "anchor": 3467,
+          "hit": true,
+          "graph": 1,
+          "result": 7
+        },
+        {
+          "a": 3488,
+          "b": 3505,
+          "day": 41682,
+          "scope": "dailyEconomy/exportRoutes",
+          "anchor": 3488,
+          "hit": true,
+          "graph": 1,
+          "result": 17
+        },
+        {
+          "a": 3488,
+          "b": 3333,
+          "day": 41682,
+          "scope": "dailyEconomy/exportRoutes",
+          "anchor": 3488,
+          "hit": true,
+          "graph": 1,
+          "result": 28
+        },
+        {
+          "a": 3363,
+          "b": 3505,
+          "day": 41682,
+          "scope": "dailyEconomy/exportRoutes",
+          "anchor": 3363,
+          "hit": true,
+          "graph": 1,
+          "result": 15
+        },
+        {
+          "a": 3363,
+          "b": 3333,
+          "day": 41682,
+          "scope": "dailyEconomy/exportRoutes",
+          "anchor": 3363,
+          "hit": true,
+          "graph": 1,
+          "result": 32
+        },
+        {
+          "a": 3493,
+          "b": 3505,
+          "day": 41682,
+          "scope": "dailyEconomy/exportRoutes",
+          "anchor": 3493,
+          "hit": true,
+          "graph": 1,
+          "result": 12
+        },
+        {
+          "a": 3493,
+          "b": 3333,
+          "day": 41682,
+          "scope": "dailyEconomy/exportRoutes",
+          "anchor": 3493,
+          "hit": true,
+          "graph": 1,
+          "result": 33
+        },
+        {
+          "a": 4403,
+          "b": 3505,
+          "day": 41682,
+          "scope": "dailyEconomy/exportRoutes",
+          "anchor": 4403,
+          "hit": true,
+          "graph": 1,
+          "result": 13
+        },
+        {
+          "a": 4403,
+          "b": 3333,
+          "day": 41682,
+          "scope": "dailyEconomy/exportRoutes",
+          "anchor": 4403,
+          "hit": true,
+          "graph": 1,
+          "result": 54
+        },
+        {
+          "a": 5425,
+          "b": 3505,
+          "day": 41682,
+          "scope": "dailyEconomy/exportRoutes",
+          "anchor": 5425,
+          "hit": true,
+          "graph": 1,
+          "result": 19
+        },
+        {
+          "a": 5425,
+          "b": 3333,
+          "day": 41682,
+          "scope": "dailyEconomy/exportRoutes",
+          "anchor": 5425,
+          "hit": true,
+          "graph": 1,
+          "result": 60
+        },
+        {
+          "a": 2363,
+          "b": 3505,
+          "day": 41682,
+          "scope": "dailyEconomy/exportRoutes",
+          "anchor": 2363,
+          "hit": true,
+          "graph": 1,
+          "result": 31
+        },
+        {
+          "a": 2363,
+          "b": 3333,
+          "day": 41682,
+          "scope": "dailyEconomy/exportRoutes",
+          "anchor": 2363,
+          "hit": true,
+          "graph": 1,
+          "result": 64
+        },
+        {
+          "a": 3605,
+          "b": 3505,
+          "day": 41682,
+          "scope": "dailyEconomy/exportRoutes",
+          "anchor": 3605,
+          "hit": true,
+          "graph": 1,
+          "result": 29
+        },
+        {
+          "a": 3605,
+          "b": 3333,
+          "day": 41682,
+          "scope": "dailyEconomy/exportRoutes",
+          "anchor": 3605,
+          "hit": true,
+          "graph": 1,
+          "result": 18
+        }
+      ],
+      "dailyEconomy/privateServiceDay": [
+        {
+          "a": 3481,
+          "b": 4003,
+          "day": 41682,
+          "scope": "dailyEconomy/privateServiceDay",
+          "anchor": 4003,
+          "hit": false,
+          "graph": 1,
+          "result": 14
+        },
+        {
+          "a": 3481,
+          "b": 4373,
+          "day": 41682,
+          "scope": "dailyEconomy/privateServiceDay",
+          "anchor": 3481,
+          "hit": false,
+          "graph": 1,
+          "result": 11
+        },
+        {
+          "a": 3481,
+          "b": 4517,
+          "day": 41682,
+          "scope": "dailyEconomy/privateServiceDay",
+          "anchor": 3481,
+          "hit": true,
+          "graph": 1,
+          "result": 20
+        },
+        {
+          "a": 3481,
+          "b": 3343,
+          "day": 41682,
+          "scope": "dailyEconomy/privateServiceDay",
+          "anchor": 3481,
+          "hit": true,
+          "graph": 1,
+          "result": 11
+        },
+        {
+          "a": 3481,
+          "b": 2707,
+          "day": 41682,
+          "scope": "dailyEconomy/privateServiceDay",
+          "anchor": 3481,
+          "hit": true,
+          "graph": 1,
+          "result": 12
+        },
+        {
+          "a": 3481,
+          "b": 2721,
+          "day": 41682,
+          "scope": "dailyEconomy/privateServiceDay",
+          "anchor": 3481,
+          "hit": true,
+          "graph": 1,
+          "result": 14
+        },
+        {
+          "a": 3481,
+          "b": 4499,
+          "day": 41682,
+          "scope": "dailyEconomy/privateServiceDay",
+          "anchor": 3481,
+          "hit": true,
+          "graph": 1,
+          "result": 14
+        },
+        {
+          "a": 3481,
+          "b": 4513,
+          "day": 41682,
+          "scope": "dailyEconomy/privateServiceDay",
+          "anchor": 3481,
+          "hit": true,
+          "graph": 1,
+          "result": 16
+        },
+        {
+          "a": 3481,
+          "b": 3599,
+          "day": 41682,
+          "scope": "dailyEconomy/privateServiceDay",
+          "anchor": 3481,
+          "hit": true,
+          "graph": 1,
+          "result": 11
+        },
+        {
+          "a": 3481,
+          "b": 3494,
+          "day": 41682,
+          "scope": "dailyEconomy/privateServiceDay",
+          "anchor": 3481,
+          "hit": true,
+          "graph": 1,
+          "result": 13
+        },
+        {
+          "a": 3481,
+          "b": 2741,
+          "day": 41682,
+          "scope": "dailyEconomy/privateServiceDay",
+          "anchor": 3481,
+          "hit": true,
+          "graph": 1,
+          "result": 34
+        },
+        {
+          "a": 3481,
+          "b": 4117,
+          "day": 41682,
+          "scope": "dailyEconomy/privateServiceDay",
+          "anchor": 3481,
+          "hit": true,
+          "graph": 1,
+          "result": 9
+        },
+        {
+          "a": 3481,
+          "b": 4131,
+          "day": 41682,
+          "scope": "dailyEconomy/privateServiceDay",
+          "anchor": 3481,
+          "hit": true,
+          "graph": 1,
+          "result": 15
+        },
+        {
+          "a": 3481,
+          "b": 3215,
+          "day": 41682,
+          "scope": "dailyEconomy/privateServiceDay",
+          "anchor": 3481,
+          "hit": true,
+          "graph": 1,
+          "result": 12
+        },
+        {
+          "a": 3481,
+          "b": 3235,
+          "day": 41682,
+          "scope": "dailyEconomy/privateServiceDay",
+          "anchor": 3481,
+          "hit": true,
+          "graph": 1,
+          "result": 12
+        },
+        {
+          "a": 3481,
+          "b": 4629,
+          "day": 41682,
+          "scope": "dailyEconomy/privateServiceDay",
+          "anchor": 3481,
+          "hit": true,
+          "graph": 1,
+          "result": 13
+        }
+      ],
+      "(other)": [
+        {
+          "a": 1807,
+          "b": 1955,
+          "day": 41691,
+          "scope": "(other)",
+          "anchor": 1955,
+          "hit": false,
+          "graph": 1,
+          "result": 23
+        },
+        {
+          "a": 3611,
+          "b": 1955,
+          "day": 41691,
+          "scope": "(other)",
+          "anchor": 1955,
+          "hit": true,
+          "graph": 1,
+          "result": 21
+        },
+        {
+          "a": 1681,
+          "b": 1955,
+          "day": 41691,
+          "scope": "(other)",
+          "anchor": 1955,
+          "hit": true,
+          "graph": 1,
+          "result": 20
+        },
+        {
+          "a": 1167,
+          "b": 1955,
+          "day": 41691,
+          "scope": "(other)",
+          "anchor": 1955,
+          "hit": true,
+          "graph": 1,
+          "result": 26
+        },
+        {
+          "a": 1295,
+          "b": 1955,
+          "day": 41691,
+          "scope": "(other)",
+          "anchor": 1955,
+          "hit": true,
+          "graph": 1,
+          "result": 25
+        },
+        {
+          "a": 1955,
+          "b": 1807,
+          "day": 41691,
+          "scope": "(other)",
+          "anchor": 1955,
+          "hit": true,
+          "graph": 1,
+          "result": 23
+        },
+        {
+          "a": 1955,
+          "b": 3611,
+          "day": 41691,
+          "scope": "(other)",
+          "anchor": 1955,
+          "hit": true,
+          "graph": 1,
+          "result": 21
+        },
+        {
+          "a": 1955,
+          "b": 1681,
+          "day": 41691,
+          "scope": "(other)",
+          "anchor": 1955,
+          "hit": true,
+          "graph": 1,
+          "result": 20
+        },
+        {
+          "a": 1955,
+          "b": 1167,
+          "day": 41691,
+          "scope": "(other)",
+          "anchor": 1955,
+          "hit": true,
+          "graph": 1,
+          "result": 26
+        },
+        {
+          "a": 1955,
+          "b": 1295,
+          "day": 41691,
+          "scope": "(other)",
+          "anchor": 1955,
+          "hit": true,
+          "graph": 1,
+          "result": 25
+        },
+        {
+          "a": 2083,
+          "b": 3224,
+          "day": 41701,
+          "scope": "(other)",
+          "anchor": 3224,
+          "hit": false,
+          "graph": 2,
+          "result": 20
+        },
+        {
+          "a": 2083,
+          "b": 2447,
+          "day": 41701,
+          "scope": "(other)",
+          "anchor": 2083,
+          "hit": false,
+          "graph": 2,
+          "result": 27
+        },
+        {
+          "a": 2083,
+          "b": 2069,
+          "day": 41701,
+          "scope": "(other)",
+          "anchor": 2083,
+          "hit": true,
+          "graph": 2,
+          "result": 20
+        },
+        {
+          "a": 2083,
+          "b": 2575,
+          "day": 41701,
+          "scope": "(other)",
+          "anchor": 2083,
+          "hit": true,
+          "graph": 2,
+          "result": 26
+        },
+        {
+          "a": 2083,
+          "b": 3223,
+          "day": 41701,
+          "scope": "(other)",
+          "anchor": 2083,
+          "hit": true,
+          "graph": 2,
+          "result": 21
+        },
+        {
+          "a": 2083,
+          "b": 3224,
+          "day": 41701,
+          "scope": "(other)",
+          "anchor": 2083,
+          "hit": true,
+          "graph": 2,
+          "result": 20
+        }
+      ],
+      "seekPrivateServiceInvestment": [
+        {
+          "a": 1807,
+          "b": 4003,
+          "day": 41700,
+          "scope": "seekPrivateServiceInvestment",
+          "anchor": 4003,
+          "hit": true,
+          "graph": 1,
+          "result": 37
+        },
+        {
+          "a": 3611,
+          "b": 4003,
+          "day": 41700,
+          "scope": "seekPrivateServiceInvestment",
+          "anchor": 4003,
+          "hit": true,
+          "graph": 1,
+          "result": 13
+        },
+        {
+          "a": 1681,
+          "b": 4003,
+          "day": 41700,
+          "scope": "seekPrivateServiceInvestment",
+          "anchor": 4003,
+          "hit": true,
+          "graph": 1,
+          "result": 36
+        },
+        {
+          "a": 1167,
+          "b": 4003,
+          "day": 41700,
+          "scope": "seekPrivateServiceInvestment",
+          "anchor": 4003,
+          "hit": true,
+          "graph": 1,
+          "result": 42
+        },
+        {
+          "a": 1295,
+          "b": 4003,
+          "day": 41700,
+          "scope": "seekPrivateServiceInvestment",
+          "anchor": 4003,
+          "hit": true,
+          "graph": 1,
+          "result": 41
+        },
+        {
+          "a": 1807,
+          "b": 4373,
+          "day": 41700,
+          "scope": "seekPrivateServiceInvestment",
+          "anchor": 4373,
+          "hit": false,
+          "graph": 1,
+          "result": 26
+        },
+        {
+          "a": 3611,
+          "b": 4373,
+          "day": 41700,
+          "scope": "seekPrivateServiceInvestment",
+          "anchor": 4373,
+          "hit": true,
+          "graph": 1,
+          "result": 12
+        },
+        {
+          "a": 1681,
+          "b": 4373,
+          "day": 41700,
+          "scope": "seekPrivateServiceInvestment",
+          "anchor": 4373,
+          "hit": true,
+          "graph": 1,
+          "result": 25
+        },
+        {
+          "a": 1167,
+          "b": 4373,
+          "day": 41700,
+          "scope": "seekPrivateServiceInvestment",
+          "anchor": 4373,
+          "hit": true,
+          "graph": 1,
+          "result": 31
+        },
+        {
+          "a": 1295,
+          "b": 4373,
+          "day": 41700,
+          "scope": "seekPrivateServiceInvestment",
+          "anchor": 4373,
+          "hit": true,
+          "graph": 1,
+          "result": 30
+        },
+        {
+          "a": 1807,
+          "b": 4517,
+          "day": 41700,
+          "scope": "seekPrivateServiceInvestment",
+          "anchor": 4517,
+          "hit": false,
+          "graph": 1,
+          "result": 43
+        },
+        {
+          "a": 3611,
+          "b": 4517,
+          "day": 41700,
+          "scope": "seekPrivateServiceInvestment",
+          "anchor": 4517,
+          "hit": true,
+          "graph": 1,
+          "result": 17
+        },
+        {
+          "a": 1681,
+          "b": 4517,
+          "day": 41700,
+          "scope": "seekPrivateServiceInvestment",
+          "anchor": 4517,
+          "hit": true,
+          "graph": 1,
+          "result": 42
+        },
+        {
+          "a": 1167,
+          "b": 4517,
+          "day": 41700,
+          "scope": "seekPrivateServiceInvestment",
+          "anchor": 4517,
+          "hit": true,
+          "graph": 1,
+          "result": 48
+        },
+        {
+          "a": 1295,
+          "b": 4517,
+          "day": 41700,
+          "scope": "seekPrivateServiceInvestment",
+          "anchor": 4517,
+          "hit": true,
+          "graph": 1,
+          "result": 47
+        },
+        {
+          "a": 1807,
+          "b": 3343,
+          "day": 41700,
+          "scope": "seekPrivateServiceInvestment",
+          "anchor": 3343,
+          "hit": false,
+          "graph": 1,
+          "result": 12
+        }
+      ],
+      "urbanEvolutionDay": [
+        {
+          "a": 2726,
+          "b": 3120,
+          "day": 41700,
+          "scope": "urbanEvolutionDay",
+          "anchor": 3120,
+          "hit": false,
+          "graph": 1,
+          "result": 13
+        },
+        {
+          "a": 2726,
+          "b": 3363,
+          "day": 41700,
+          "scope": "urbanEvolutionDay",
+          "anchor": 2726,
+          "hit": false,
+          "graph": 1,
+          "result": 8
+        },
+        {
+          "a": 2726,
+          "b": 3496,
+          "day": 41700,
+          "scope": "urbanEvolutionDay",
+          "anchor": 2726,
+          "hit": true,
+          "graph": 1,
+          "result": 14
+        },
+        {
+          "a": 2726,
+          "b": 3126,
+          "day": 41700,
+          "scope": "urbanEvolutionDay",
+          "anchor": 2726,
+          "hit": true,
+          "graph": 1,
+          "result": 19
+        },
+        {
+          "a": 2726,
+          "b": 2971,
+          "day": 41700,
+          "scope": "urbanEvolutionDay",
+          "anchor": 2726,
+          "hit": true,
+          "graph": 1,
+          "result": 13
+        },
+        {
+          "a": 2453,
+          "b": 3120,
+          "day": 41700,
+          "scope": "urbanEvolutionDay",
+          "anchor": 3120,
+          "hit": true,
+          "graph": 1,
+          "result": 32
+        },
+        {
+          "a": 2453,
+          "b": 3363,
+          "day": 41700,
+          "scope": "urbanEvolutionDay",
+          "anchor": 2453,
+          "hit": false,
+          "graph": 1,
+          "result": 21
+        },
+        {
+          "a": 2453,
+          "b": 3496,
+          "day": 41700,
+          "scope": "urbanEvolutionDay",
+          "anchor": 2453,
+          "hit": true,
+          "graph": 1,
+          "result": 27
+        },
+        {
+          "a": 2453,
+          "b": 3126,
+          "day": 41700,
+          "scope": "urbanEvolutionDay",
+          "anchor": 2453,
+          "hit": true,
+          "graph": 1,
+          "result": 38
+        },
+        {
+          "a": 2453,
+          "b": 2971,
+          "day": 41700,
+          "scope": "urbanEvolutionDay",
+          "anchor": 2453,
+          "hit": true,
+          "graph": 1,
+          "result": 10
+        },
+        {
+          "a": 667,
+          "b": 3120,
+          "day": 41700,
+          "scope": "urbanEvolutionDay",
+          "anchor": 3120,
+          "hit": true,
+          "graph": 1,
+          "result": 40
+        },
+        {
+          "a": 667,
+          "b": 3363,
+          "day": 41700,
+          "scope": "urbanEvolutionDay",
+          "anchor": 667,
+          "hit": false,
+          "graph": 1,
+          "result": 29
+        },
+        {
+          "a": 667,
+          "b": 3496,
+          "day": 41700,
+          "scope": "urbanEvolutionDay",
+          "anchor": 667,
+          "hit": true,
+          "graph": 1,
+          "result": 35
+        },
+        {
+          "a": 667,
+          "b": 3126,
+          "day": 41700,
+          "scope": "urbanEvolutionDay",
+          "anchor": 667,
+          "hit": true,
+          "graph": 1,
+          "result": 46
+        },
+        {
+          "a": 667,
+          "b": 2971,
+          "day": 41700,
+          "scope": "urbanEvolutionDay",
+          "anchor": 667,
+          "hit": true,
+          "graph": 1,
+          "result": 18
+        },
+        {
+          "a": 923,
+          "b": 3120,
+          "day": 41700,
+          "scope": "urbanEvolutionDay",
+          "anchor": 3120,
+          "hit": true,
+          "graph": 1,
+          "result": 38
+        }
+      ],
+      "dailyEconomy": [
+        {
+          "a": 3507,
+          "b": 2069,
+          "day": 41761,
+          "scope": "dailyEconomy",
+          "anchor": 2069,
+          "hit": false,
+          "graph": 3,
+          "result": 41
+        },
+        {
+          "a": 3507,
+          "b": 1563,
+          "day": 41761,
+          "scope": "dailyEconomy",
+          "anchor": 3507,
+          "hit": false,
+          "graph": 3,
+          "result": 39
+        },
+        {
+          "a": 3887,
+          "b": 2069,
+          "day": 41761,
+          "scope": "dailyEconomy",
+          "anchor": 2069,
+          "hit": true,
+          "graph": 3,
+          "result": 40
+        }
+      ]
+    },
+    "finalTrees": 32,
+    "graphCount": 4,
+    "configuredTreeLimit": 32
+  },
+  "cacheInstrumentationSha256": "10eb5e88d2d3b7507910b85a60636d718744f33d84ac5f6cbb15efcf6b9911f4",
+  "end": {
+    "day": 41986,
+    "population": 786,
+    "people": 3120,
+    "households": 879,
+    "firms": 81,
+    "buildings": 797,
+    "total": 15493517.00020976,
+    "valid": {
+      "ok": true,
+      "issues": [],
+      "total": 15493517.00020976,
+      "population": 786,
+      "day": 41986
+    },
+    "goodsError": 3.618697519414127e-08,
+    "autoBuild": true,
+    "privateEntry": 1,
+    "requestedSpeed": 64,
+    "routes": 48,
+    "operating": 14,
+    "drivers": 28,
+    "atlasBytes": 28879616,
+    "serviceCaches": 2,
+    "backlog": 7,
+    "musicError": "",
+    "musicTrack": 6,
+    "musicDecks": 1
+  },
+  "browserMetricDeltas": {
+    "LayoutCount": 199,
+    "RecalcStyleCount": 248,
+    "LayoutDuration": 0.113178,
+    "RecalcStyleDuration": 0.073919,
+    "DevToolsCommandDuration": 0.082961,
+    "ScriptDuration": 30.029794,
+    "V8CompileDuration": 0,
+    "TaskDuration": 31.185541999999998,
+    "TaskOtherDuration": 0.88569
+  },
+  "seconds": 30.929199999999256,
+  "days": 304,
+  "actualRate": 16.21768425953507,
+  "components": {
+    "dailyEconomy": {
+      "count": 304,
+      "totalMs": 23167.500000024214,
+      "p50Ms": 72.5,
+      "p95Ms": 101.59999999962747,
+      "p99Ms": 113.5,
+      "maxMs": 161.09999999962747
+    },
+    "maintainRoads": {
+      "count": 304,
+      "totalMs": 247.20000001974404,
+      "p50Ms": 0.7000000011175871,
+      "p95Ms": 1.3999999985098839,
+      "p99Ms": 1.8999999985098839,
+      "maxMs": 2.900000000372529
+    },
+    "recompute": {
+      "count": 608,
+      "totalMs": 282.69999996572733,
+      "p50Ms": 0.40000000037252903,
+      "p95Ms": 0.8000000007450581,
+      "p99Ms": 1.900000000372529,
+      "maxMs": 3.5
+    },
+    "systemsDay": {
+      "count": 304,
+      "totalMs": 67.00000001490116,
+      "p50Ms": 0.10000000149011612,
+      "p95Ms": 0.5,
+      "p99Ms": 1.799999998882413,
+      "maxMs": 2.799999998882413
+    },
+    "privateServiceInvestmentDay": {
+      "count": 304,
+      "totalMs": 1278.199999999255,
+      "p50Ms": 0,
+      "p95Ms": 0,
+      "p99Ms": 122.30000000074506,
+      "maxMs": 204.30000000074506
+    },
+    "urbanEvolutionDay": {
+      "count": 304,
+      "totalMs": 1111.2999999988824,
+      "p50Ms": 0,
+      "p95Ms": 0,
+      "p99Ms": 126.69999999925494,
+      "maxMs": 267.80000000074506
+    },
+    "tick": {
+      "count": 304,
+      "totalMs": 27883.4999999851,
+      "p50Ms": 78.5,
+      "p95Ms": 118.90000000037253,
+      "p99Ms": 357,
+      "maxMs": 650.5
+    },
+    "draw": {
+      "count": 304,
+      "totalMs": 1354.800000006333,
+      "p50Ms": 2.099999999627471,
+      "p95Ms": 11.100000001490116,
+      "p99Ms": 28.59999999962747,
+      "maxMs": 197.7999999988824
+    },
+    "frame": {
+      "count": 304,
+      "totalMs": 29638.800000008196,
+      "p50Ms": 82.5,
+      "p95Ms": 130.40000000037253,
+      "p99Ms": 360.09999999962747,
+      "maxMs": 681.9000000003725
+    },
+    "updateHeader": {
+      "count": 99,
+      "totalMs": 123.60000000707805,
+      "p50Ms": 1,
+      "p95Ms": 3.199999999254942,
+      "p99Ms": 4.5,
+      "maxMs": 4.5
+    },
+    "assignJobs": {
+      "count": 84,
+      "totalMs": 156.699999993667,
+      "p50Ms": 1.5,
+      "p95Ms": 5.299999998882413,
+      "p99Ms": 7.900000000372529,
+      "maxMs": 7.900000000372529
+    },
+    "renderPanel": {
+      "count": 10,
+      "totalMs": 166.40000000596046,
+      "p50Ms": 17.200000001117587,
+      "p95Ms": 28.200000001117587,
+      "p99Ms": 28.200000001117587,
+      "maxMs": 28.200000001117587
+    },
+    "archivePayload": {
+      "count": 2,
+      "totalMs": 46.70000000111759,
+      "p50Ms": 25,
+      "p95Ms": 25,
+      "p99Ms": 25,
+      "maxMs": 25
+    },
+    "checksum": {
+      "count": 10,
+      "totalMs": 53.09999999962747,
+      "p50Ms": 6.5,
+      "p95Ms": 6.800000000745058,
+      "p99Ms": 6.800000000745058,
+      "maxMs": 6.800000000745058
+    },
+    "readSaveEnvelope": {
+      "count": 8,
+      "totalMs": 80.09999999962747,
+      "p50Ms": 14.099999999627471,
+      "p95Ms": 18.5,
+      "p99Ms": 18.5,
+      "maxMs": 18.5
+    },
+    "persistSnapshot": {
+      "count": 2,
+      "totalMs": 187.7000000011176,
+      "p50Ms": 101.30000000074506,
+      "p95Ms": 101.30000000074506,
+      "p99Ms": 101.30000000074506,
+      "maxMs": 101.30000000074506
+    },
+    "save": {
+      "count": 2,
+      "totalMs": 234.40000000223517,
+      "p50Ms": 126.30000000074506,
+      "p95Ms": 126.30000000074506,
+      "p99Ms": 126.30000000074506,
+      "maxMs": 126.30000000074506
+    }
+  },
+  "raf": {
+    "count": 303,
+    "totalMs": 30848.7,
+    "p50Ms": 83.39999999999964,
+    "p95Ms": 150,
+    "p99Ms": 366.6999999999989,
+    "maxMs": 683.3999999999996
+  },
+  "touchDelivery": {
+    "count": 15,
+    "totalMs": 2809.7999999970198,
+    "p50Ms": 234.10000000149012,
+    "p95Ms": 316.69999999925494,
+    "p99Ms": 316.69999999925494,
+    "maxMs": 316.69999999925494
+  },
+  "touchNextRAF": {
+    "count": 15,
+    "totalMs": 4366.5999999996275,
+    "p50Ms": 310.90000000037253,
+    "p95Ms": 401.40000000037253,
+    "p99Ms": 401.40000000037253,
+    "maxMs": 401.40000000037253
+  },
+  "longtasks": [
+    {
+      "start": 3452.5,
+      "duration": 115
+    },
+    {
+      "start": 3568.199999999255,
+      "duration": 208
+    },
+    {
+      "start": 3777.5,
+      "duration": 104
+    },
+    {
+      "start": 3882.2999999988824,
+      "duration": 109
+    },
+    {
+      "start": 3992.199999999255,
+      "duration": 98
+    },
+    {
+      "start": 4091,
+      "duration": 134
+    },
+    {
+      "start": 4225.799999998882,
+      "duration": 88
+    },
+    {
+      "start": 4314.9000000003725,
+      "duration": 87
+    },
+    {
+      "start": 4402.799999998882,
+      "duration": 89
+    },
+    {
+      "start": 4492.699999999255,
+      "duration": 84
+    },
+    {
+      "start": 4577.299999998882,
+      "duration": 85
+    },
+    {
+      "start": 4663.299999998882,
+      "duration": 79
+    },
+    {
+      "start": 4742.699999999255,
+      "duration": 88
+    },
+    {
+      "start": 4831.699999999255,
+      "duration": 93
+    },
+    {
+      "start": 4925.799999998882,
+      "duration": 84
+    },
+    {
+      "start": 5010.5999999996275,
+      "duration": 82
+    },
+    {
+      "start": 5094.199999999255,
+      "duration": 82
+    },
+    {
+      "start": 5176.799999998882,
+      "duration": 118
+    },
+    {
+      "start": 5295.4000000003725,
+      "duration": 80
+    },
+    {
+      "start": 5376.0999999996275,
+      "duration": 487
+    },
+    {
+      "start": 5863.799999998882,
+      "duration": 166
+    },
+    {
+      "start": 6031.0999999996275,
+      "duration": 102
+    },
+    {
+      "start": 6133.699999999255,
+      "duration": 83
+    },
+    {
+      "start": 6217.4000000003725,
+      "duration": 80
+    },
+    {
+      "start": 6298.5999999996275,
+      "duration": 79
+    },
+    {
+      "start": 6378,
+      "duration": 79
+    },
+    {
+      "start": 6457.5999999996275,
+      "duration": 81
+    },
+    {
+      "start": 6539,
+      "duration": 79
+    },
+    {
+      "start": 6619.199999999255,
+      "duration": 87
+    },
+    {
+      "start": 6710,
+      "duration": 91
+    },
+    {
+      "start": 6801.699999999255,
+      "duration": 97
+    },
+    {
+      "start": 6899.299999998882,
+      "duration": 83
+    },
+    {
+      "start": 6983.199999999255,
+      "duration": 116
+    },
+    {
+      "start": 7099.699999999255,
+      "duration": 89
+    },
+    {
+      "start": 7189.9000000003725,
+      "duration": 90
+    },
+    {
+      "start": 7280.299999998882,
+      "duration": 113
+    },
+    {
+      "start": 7394,
+      "duration": 86
+    },
+    {
+      "start": 7480.4000000003725,
+      "duration": 119
+    },
+    {
+      "start": 7600.5,
+      "duration": 100
+    },
+    {
+      "start": 7701,
+      "duration": 89
+    },
+    {
+      "start": 7791.199999999255,
+      "duration": 85
+    },
+    {
+      "start": 7876.9000000003725,
+      "duration": 89
+    },
+    {
+      "start": 7967,
+      "duration": 81
+    },
+    {
+      "start": 8048.299999998882,
+      "duration": 83
+    },
+    {
+      "start": 8132.0999999996275,
+      "duration": 79
+    },
+    {
+      "start": 8212.199999999255,
+      "duration": 127
+    },
+    {
+      "start": 8340.799999998882,
+      "duration": 91
+    },
+    {
+      "start": 8432.699999999255,
+      "duration": 95
+    },
+    {
+      "start": 8529.400000000373,
+      "duration": 96
+    },
+    {
+      "start": 8626.900000000373,
+      "duration": 363
+    },
+    {
+      "start": 8990.900000000373,
+      "duration": 123
+    },
+    {
+      "start": 9114.299999998882,
+      "duration": 98
+    },
+    {
+      "start": 9213.5,
+      "duration": 80
+    },
+    {
+      "start": 9295.199999999255,
+      "duration": 102
+    },
+    {
+      "start": 9397.5,
+      "duration": 87
+    },
+    {
+      "start": 9484.900000000373,
+      "duration": 84
+    },
+    {
+      "start": 9569.599999999627,
+      "duration": 85
+    },
+    {
+      "start": 9657.299999998882,
+      "duration": 82
+    },
+    {
+      "start": 9740.099999999627,
+      "duration": 83
+    },
+    {
+      "start": 9826.299999998882,
+      "duration": 122
+    },
+    {
+      "start": 9949.599999999627,
+      "duration": 88
+    },
+    {
+      "start": 10039.699999999255,
+      "duration": 100
+    },
+    {
+      "start": 10141.599999999627,
+      "duration": 93
+    },
+    {
+      "start": 10235.5,
+      "duration": 84
+    },
+    {
+      "start": 10320.299999998882,
+      "duration": 78
+    },
+    {
+      "start": 10399.699999999255,
+      "duration": 82
+    },
+    {
+      "start": 10483.400000000373,
+      "duration": 116
+    },
+    {
+      "start": 10634.900000000373,
+      "duration": 116
+    },
+    {
+      "start": 10755.199999999255,
+      "duration": 89
+    },
+    {
+      "start": 10845.799999998882,
+      "duration": 87
+    },
+    {
+      "start": 10933.799999998882,
+      "duration": 80
+    },
+    {
+      "start": 11014.799999998882,
+      "duration": 96
+    },
+    {
+      "start": 11111.099999999627,
+      "duration": 107
+    },
+    {
+      "start": 11219.099999999627,
+      "duration": 81
+    },
+    {
+      "start": 11300.799999998882,
+      "duration": 93
+    },
+    {
+      "start": 11395.5,
+      "duration": 87
+    },
+    {
+      "start": 11482.900000000373,
+      "duration": 76
+    },
+    {
+      "start": 11559.699999999255,
+      "duration": 84
+    },
+    {
+      "start": 11644.699999999255,
+      "duration": 81
+    },
+    {
+      "start": 11726.5,
+      "duration": 685
+    },
+    {
+      "start": 12413.400000000373,
+      "duration": 148
+    },
+    {
+      "start": 12565.299999998882,
+      "duration": 115
+    },
+    {
+      "start": 12681.599999999627,
+      "duration": 107
+    },
+    {
+      "start": 12790.699999999255,
+      "duration": 109
+    },
+    {
+      "start": 12900.099999999627,
+      "duration": 87
+    },
+    {
+      "start": 12988.199999999255,
+      "duration": 97
+    },
+    {
+      "start": 13086.199999999255,
+      "duration": 86
+    },
+    {
+      "start": 13173.799999998882,
+      "duration": 80
+    },
+    {
+      "start": 13254.900000000373,
+      "duration": 88
+    },
+    {
+      "start": 13343.299999998882,
+      "duration": 94
+    },
+    {
+      "start": 13438.599999999627,
+      "duration": 83
+    },
+    {
+      "start": 13524.199999999255,
+      "duration": 85
+    },
+    {
+      "start": 13610.299999998882,
+      "duration": 85
+    },
+    {
+      "start": 13696.400000000373,
+      "duration": 81
+    },
+    {
+      "start": 13777.599999999627,
+      "duration": 88
+    },
+    {
+      "start": 13866.400000000373,
+      "duration": 85
+    },
+    {
+      "start": 13951.699999999255,
+      "duration": 106
+    },
+    {
+      "start": 14061.900000000373,
+      "duration": 106
+    },
+    {
+      "start": 14168.599999999627,
+      "duration": 85
+    },
+    {
+      "start": 14254.699999999255,
+      "duration": 84
+    },
+    {
+      "start": 14339.299999998882,
+      "duration": 89
+    },
+    {
+      "start": 14429.299999998882,
+      "duration": 87
+    },
+    {
+      "start": 14516.799999998882,
+      "duration": 88
+    },
+    {
+      "start": 14605.599999999627,
+      "duration": 83
+    },
+    {
+      "start": 14689.400000000373,
+      "duration": 77
+    },
+    {
+      "start": 14766.799999998882,
+      "duration": 80
+    },
+    {
+      "start": 14847.400000000373,
+      "duration": 87
+    },
+    {
+      "start": 14935.099999999627,
+      "duration": 89
+    },
+    {
+      "start": 15024.5,
+      "duration": 74
+    },
+    {
+      "start": 15099.400000000373,
+      "duration": 215
+    },
+    {
+      "start": 15315.900000000373,
+      "duration": 86
+    },
+    {
+      "start": 15403.199999999255,
+      "duration": 88
+    },
+    {
+      "start": 15492.400000000373,
+      "duration": 98
+    },
+    {
+      "start": 15593,
+      "duration": 81
+    },
+    {
+      "start": 15674.599999999627,
+      "duration": 78
+    },
+    {
+      "start": 15753.799999998882,
+      "duration": 84
+    },
+    {
+      "start": 15839.400000000373,
+      "duration": 87
+    },
+    {
+      "start": 15927.299999998882,
+      "duration": 97
+    },
+    {
+      "start": 16025.400000000373,
+      "duration": 80
+    },
+    {
+      "start": 16105.699999999255,
+      "duration": 80
+    },
+    {
+      "start": 16186.199999999255,
+      "duration": 76
+    },
+    {
+      "start": 16264.400000000373,
+      "duration": 80
+    },
+    {
+      "start": 16345.699999999255,
+      "duration": 79
+    },
+    {
+      "start": 16425.599999999627,
+      "duration": 279
+    },
+    {
+      "start": 16705.299999998882,
+      "duration": 88
+    },
+    {
+      "start": 16793.699999999255,
+      "duration": 82
+    },
+    {
+      "start": 16879.099999999627,
+      "duration": 77
+    },
+    {
+      "start": 16956.299999998882,
+      "duration": 79
+    },
+    {
+      "start": 17035.699999999255,
+      "duration": 111
+    },
+    {
+      "start": 17149.400000000373,
+      "duration": 90
+    },
+    {
+      "start": 17239.599999999627,
+      "duration": 105
+    },
+    {
+      "start": 17345.699999999255,
+      "duration": 90
+    },
+    {
+      "start": 17436,
+      "duration": 75
+    },
+    {
+      "start": 17512.5,
+      "duration": 79
+    },
+    {
+      "start": 17592.400000000373,
+      "duration": 75
+    },
+    {
+      "start": 17668.199999999255,
+      "duration": 81
+    },
+    {
+      "start": 17749.299999998882,
+      "duration": 75
+    },
+    {
+      "start": 17824.5,
+      "duration": 105
+    },
+    {
+      "start": 17930.5,
+      "duration": 79
+    },
+    {
+      "start": 18010.799999998882,
+      "duration": 266
+    },
+    {
+      "start": 18278.199999999255,
+      "duration": 96
+    },
+    {
+      "start": 18375,
+      "duration": 76
+    },
+    {
+      "start": 18452.199999999255,
+      "duration": 78
+    },
+    {
+      "start": 18530.900000000373,
+      "duration": 112
+    },
+    {
+      "start": 18643.099999999627,
+      "duration": 93
+    },
+    {
+      "start": 18738.400000000373,
+      "duration": 77
+    },
+    {
+      "start": 18816.699999999255,
+      "duration": 77
+    },
+    {
+      "start": 18894.199999999255,
+      "duration": 77
+    },
+    {
+      "start": 18972.5,
+      "duration": 79
+    },
+    {
+      "start": 19053.099999999627,
+      "duration": 78
+    },
+    {
+      "start": 19133.400000000373,
+      "duration": 73
+    },
+    {
+      "start": 19207.5,
+      "duration": 73
+    },
+    {
+      "start": 19283.299999998882,
+      "duration": 95
+    },
+    {
+      "start": 19379.099999999627,
+      "duration": 74
+    },
+    {
+      "start": 19454.5,
+      "duration": 74
+    },
+    {
+      "start": 19529.799999998882,
+      "duration": 79
+    },
+    {
+      "start": 19609.799999998882,
+      "duration": 75
+    },
+    {
+      "start": 19685.599999999627,
+      "duration": 77
+    },
+    {
+      "start": 19763.099999999627,
+      "duration": 72
+    },
+    {
+      "start": 19836.299999998882,
+      "duration": 104
+    },
+    {
+      "start": 19945.099999999627,
+      "duration": 77
+    },
+    {
+      "start": 20022.900000000373,
+      "duration": 78
+    },
+    {
+      "start": 20102.199999999255,
+      "duration": 73
+    },
+    {
+      "start": 20176.199999999255,
+      "duration": 93
+    },
+    {
+      "start": 20269.699999999255,
+      "duration": 85
+    },
+    {
+      "start": 20355.099999999627,
+      "duration": 75
+    },
+    {
+      "start": 20431,
+      "duration": 105
+    },
+    {
+      "start": 20537.099999999627,
+      "duration": 76
+    },
+    {
+      "start": 20613.5,
+      "duration": 76
+    },
+    {
+      "start": 20691,
+      "duration": 486
+    },
+    {
+      "start": 21177.799999998882,
+      "duration": 130
+    },
+    {
+      "start": 21309.199999999255,
+      "duration": 100
+    },
+    {
+      "start": 21410,
+      "duration": 77
+    },
+    {
+      "start": 21488.099999999627,
+      "duration": 83
+    },
+    {
+      "start": 21571.900000000373,
+      "duration": 76
+    },
+    {
+      "start": 21648.900000000373,
+      "duration": 78
+    },
+    {
+      "start": 21728.400000000373,
+      "duration": 76
+    },
+    {
+      "start": 21805.599999999627,
+      "duration": 109
+    },
+    {
+      "start": 21915.599999999627,
+      "duration": 78
+    },
+    {
+      "start": 21994.699999999255,
+      "duration": 78
+    },
+    {
+      "start": 22074.199999999255,
+      "duration": 85
+    },
+    {
+      "start": 22159.5,
+      "duration": 79
+    },
+    {
+      "start": 22239.5,
+      "duration": 77
+    },
+    {
+      "start": 22317.400000000373,
+      "duration": 78
+    },
+    {
+      "start": 22396,
+      "duration": 107
+    },
+    {
+      "start": 22503.900000000373,
+      "duration": 90
+    },
+    {
+      "start": 22594.099999999627,
+      "duration": 89
+    },
+    {
+      "start": 22684.400000000373,
+      "duration": 83
+    },
+    {
+      "start": 22771.599999999627,
+      "duration": 97
+    },
+    {
+      "start": 22871,
+      "duration": 86
+    },
+    {
+      "start": 22958.400000000373,
+      "duration": 84
+    },
+    {
+      "start": 23043.299999998882,
+      "duration": 86
+    },
+    {
+      "start": 23129.599999999627,
+      "duration": 132
+    },
+    {
+      "start": 23262.400000000373,
+      "duration": 90
+    },
+    {
+      "start": 23353.299999998882,
+      "duration": 81
+    },
+    {
+      "start": 23435.099999999627,
+      "duration": 79
+    },
+    {
+      "start": 23514.299999998882,
+      "duration": 82
+    },
+    {
+      "start": 23596.799999998882,
+      "duration": 83
+    },
+    {
+      "start": 23680.099999999627,
+      "duration": 80
+    },
+    {
+      "start": 23760.799999998882,
+      "duration": 311
+    },
+    {
+      "start": 24072.400000000373,
+      "duration": 87
+    },
+    {
+      "start": 24160.199999999255,
+      "duration": 93
+    },
+    {
+      "start": 24253.5,
+      "duration": 85
+    },
+    {
+      "start": 24338.599999999627,
+      "duration": 87
+    },
+    {
+      "start": 24426.400000000373,
+      "duration": 105
+    },
+    {
+      "start": 24532.699999999255,
+      "duration": 77
+    },
+    {
+      "start": 24610.199999999255,
+      "duration": 77
+    },
+    {
+      "start": 24688.599999999627,
+      "duration": 90
+    },
+    {
+      "start": 24780.5,
+      "duration": 86
+    },
+    {
+      "start": 24867.400000000373,
+      "duration": 82
+    },
+    {
+      "start": 24949.699999999255,
+      "duration": 74
+    },
+    {
+      "start": 25024.900000000373,
+      "duration": 74
+    },
+    {
+      "start": 25099.799999998882,
+      "duration": 99
+    },
+    {
+      "start": 25198.900000000373,
+      "duration": 78
+    },
+    {
+      "start": 25277.5,
+      "duration": 84
+    },
+    {
+      "start": 25363,
+      "duration": 93
+    },
+    {
+      "start": 25459.299999998882,
+      "duration": 73
+    },
+    {
+      "start": 25534,
+      "duration": 74
+    },
+    {
+      "start": 25609.299999998882,
+      "duration": 71
+    },
+    {
+      "start": 25680.799999998882,
+      "duration": 100
+    },
+    {
+      "start": 25781.699999999255,
+      "duration": 80
+    },
+    {
+      "start": 25861.900000000373,
+      "duration": 82
+    },
+    {
+      "start": 25944.799999998882,
+      "duration": 83
+    },
+    {
+      "start": 26028.5,
+      "duration": 100
+    },
+    {
+      "start": 26129.099999999627,
+      "duration": 82
+    },
+    {
+      "start": 26211.5,
+      "duration": 85
+    },
+    {
+      "start": 26296.900000000373,
+      "duration": 87
+    },
+    {
+      "start": 26384.5,
+      "duration": 107
+    },
+    {
+      "start": 26492.400000000373,
+      "duration": 89
+    },
+    {
+      "start": 26581.799999998882,
+      "duration": 320
+    },
+    {
+      "start": 26902.599999999627,
+      "duration": 125
+    },
+    {
+      "start": 27028.400000000373,
+      "duration": 96
+    },
+    {
+      "start": 27126.299999998882,
+      "duration": 81
+    },
+    {
+      "start": 27208.199999999255,
+      "duration": 84
+    },
+    {
+      "start": 27292.599999999627,
+      "duration": 81
+    },
+    {
+      "start": 27374.799999998882,
+      "duration": 86
+    },
+    {
+      "start": 27461,
+      "duration": 80
+    },
+    {
+      "start": 27542.299999998882,
+      "duration": 81
+    },
+    {
+      "start": 27624.799999998882,
+      "duration": 76
+    },
+    {
+      "start": 27702.099999999627,
+      "duration": 78
+    },
+    {
+      "start": 27780.799999998882,
+      "duration": 81
+    },
+    {
+      "start": 27862.400000000373,
+      "duration": 78
+    },
+    {
+      "start": 27941.799999998882,
+      "duration": 78
+    },
+    {
+      "start": 28024,
+      "duration": 78
+    },
+    {
+      "start": 28103.699999999255,
+      "duration": 109
+    },
+    {
+      "start": 28214.599999999627,
+      "duration": 79
+    },
+    {
+      "start": 28295,
+      "duration": 78
+    },
+    {
+      "start": 28374.199999999255,
+      "duration": 84
+    },
+    {
+      "start": 28459.099999999627,
+      "duration": 111
+    },
+    {
+      "start": 28570.400000000373,
+      "duration": 78
+    },
+    {
+      "start": 28648.699999999255,
+      "duration": 102
+    },
+    {
+      "start": 28754,
+      "duration": 131
+    },
+    {
+      "start": 28885.900000000373,
+      "duration": 95
+    },
+    {
+      "start": 29006.599999999627,
+      "duration": 97
+    },
+    {
+      "start": 29105.199999999255,
+      "duration": 86
+    },
+    {
+      "start": 29192.199999999255,
+      "duration": 80
+    },
+    {
+      "start": 29274.299999998882,
+      "duration": 77
+    },
+    {
+      "start": 29352.400000000373,
+      "duration": 127
+    },
+    {
+      "start": 29480.900000000373,
+      "duration": 82
+    },
+    {
+      "start": 29565.5,
+      "duration": 345
+    },
+    {
+      "start": 29910.900000000373,
+      "duration": 96
+    },
+    {
+      "start": 30007.699999999255,
+      "duration": 89
+    },
+    {
+      "start": 30098.199999999255,
+      "duration": 81
+    },
+    {
+      "start": 30180.299999998882,
+      "duration": 108
+    },
+    {
+      "start": 30293,
+      "duration": 191
+    },
+    {
+      "start": 30485.299999998882,
+      "duration": 93
+    },
+    {
+      "start": 30604.099999999627,
+      "duration": 90
+    },
+    {
+      "start": 30713.699999999255,
+      "duration": 120
+    },
+    {
+      "start": 30835.299999998882,
+      "duration": 95
+    },
+    {
+      "start": 30931.5,
+      "duration": 84
+    },
+    {
+      "start": 31017.5,
+      "duration": 94
+    },
+    {
+      "start": 31111.900000000373,
+      "duration": 108
+    },
+    {
+      "start": 31220.799999998882,
+      "duration": 85
+    },
+    {
+      "start": 31306.699999999255,
+      "duration": 84
+    },
+    {
+      "start": 31391.900000000373,
+      "duration": 84
+    },
+    {
+      "start": 31493.5,
+      "duration": 80
+    },
+    {
+      "start": 31575.099999999627,
+      "duration": 83
+    },
+    {
+      "start": 31658.799999998882,
+      "duration": 97
+    },
+    {
+      "start": 31757.5,
+      "duration": 91
+    },
+    {
+      "start": 31849.799999998882,
+      "duration": 86
+    },
+    {
+      "start": 31936.799999998882,
+      "duration": 82
+    },
+    {
+      "start": 32019.599999999627,
+      "duration": 74
+    },
+    {
+      "start": 32094.400000000373,
+      "duration": 84
+    },
+    {
+      "start": 32179.199999999255,
+      "duration": 79
+    },
+    {
+      "start": 32258.900000000373,
+      "duration": 83
+    },
+    {
+      "start": 32342.5,
+      "duration": 85
+    },
+    {
+      "start": 32428,
+      "duration": 130
+    },
+    {
+      "start": 32558.400000000373,
+      "duration": 78
+    },
+    {
+      "start": 32663.900000000373,
+      "duration": 129
+    },
+    {
+      "start": 32793.699999999255,
+      "duration": 86
+    },
+    {
+      "start": 32906.40000000037,
+      "duration": 329
+    },
+    {
+      "start": 33238.90000000037,
+      "duration": 83
+    },
+    {
+      "start": 33323.09999999963,
+      "duration": 98
+    },
+    {
+      "start": 33422.5,
+      "duration": 80
+    },
+    {
+      "start": 33504.40000000037,
+      "duration": 78
+    },
+    {
+      "start": 33583.79999999888,
+      "duration": 75
+    },
+    {
+      "start": 33660,
+      "duration": 77
+    },
+    {
+      "start": 33738.59999999963,
+      "duration": 74
+    },
+    {
+      "start": 33813.29999999888,
+      "duration": 111
+    },
+    {
+      "start": 33924.59999999963,
+      "duration": 76
+    },
+    {
+      "start": 34001.90000000037,
+      "duration": 100
+    },
+    {
+      "start": 34105,
+      "duration": 78
+    },
+    {
+      "start": 34187.199999999255,
+      "duration": 79
+    },
+    {
+      "start": 34266.79999999888,
+      "duration": 75
+    },
+    {
+      "start": 34342.79999999888,
+      "duration": 74
+    }
+  ],
+  "heap": {
+    "usedSize": 37731360,
+    "totalSize": 101220352,
+    "embedderHeapUsedSize": 6341672,
+    "backingStorageSize": 18221973
+  }
+}

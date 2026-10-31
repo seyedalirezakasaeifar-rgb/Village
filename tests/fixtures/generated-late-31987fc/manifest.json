@@ -1,0 +1,49 @@
+{
+  "source_commit": "31987fcbe108e9d9cb8ed7ce4155f51cd234ba62",
+  "source_sha256": "d90bb509173a803b75c3cdc432fea57ce2f1e2abbcb13b8886c56d8feaffe515",
+  "schema": 8,
+  "origin": "Generated browser QA town only: shipped settlement seed 42, synthetic 2000-resident fixture, conserved region-funded 21 deeds/48 routes and two providers, then real RAF autonomous growth/private entry/audio/control/save/import session. No real user save, account, credential, private signer, address or personal correspondence is included.",
+  "session_report": "reports/session-performance/long-31987fc-corrected/session.json",
+  "operations": "reports/session-performance/long-31987fc-corrected/session.json: operations",
+  "checkpoint_day_note": "Embedded archive.day is authoritative. The original recorder separately queried live day after serializing/writing; terminal metadata observation 41683 therefore trails actual archived day 41681. The original archive hash remains unchanged.",
+  "fixtures": [
+    {
+      "name": "terminal",
+      "file": "terminal.json.gz",
+      "archive_sha256": "ad6256fd85d4146fda9eeac0b16d5b182ed352c23bbd96af3b320553c29ce786",
+      "compressed_sha256": "9a89c097dcd077d153f0a56745e29c191e0f7f959da22ba48e98e8681080d345",
+      "archive_bytes": 3658769,
+      "compressed_bytes": 509957,
+      "day": 41681,
+      "grid": 128,
+      "scenario": "settlement",
+      "population": 778,
+      "people": 3108,
+      "households": 876,
+      "buildings": 797,
+      "firms": 81,
+      "routes": 48,
+      "autoBuild": true,
+      "privateEntry": 1
+    },
+    {
+      "name": "mid-session",
+      "file": "mid-session.json.gz",
+      "archive_sha256": "124ce8e71070730ee654d4bbbc8bc1491e3f21f5bb89a7ed210a0169228fd7ed",
+      "compressed_sha256": "a6d71704cad38ade8724bd7e9567601dee01b965658a942b5b21d40c44aa2108",
+      "archive_bytes": 2870894,
+      "compressed_bytes": 388161,
+      "day": 15561,
+      "grid": 128,
+      "scenario": "settlement",
+      "population": 1848,
+      "people": 2346,
+      "households": 725,
+      "buildings": 750,
+      "firms": 37,
+      "routes": 48,
+      "autoBuild": true,
+      "privateEntry": 1
+    }
+  ]
+}
