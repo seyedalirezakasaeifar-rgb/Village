@@ -61,9 +61,13 @@ function housingMarketDay(force=false){
  if(listing){const price=listing.value*.92,buyer=living.find(h=>h.home===listing.id&&householdLiquidity(h)>price+5000)||living.find(h=>householdLiquidity(h)>price+5000);
   if(buyer){if(buyer.cash<price)for(const [id,amount] of Object.entries(buyer.deposits||{})){withdrawal(buyer,G.banks[+id],Math.min(amount,price-buyer.cash));if(buyer.cash>=price)break;}if(buyer.cash<price)return;buyer.cash-=price;G.investors[0].cash+=price;listing.owner=buyer.id;listing.title={kind:'household',id:buyer.id};G.housingMarket.transactions++;book(buyer.name+' household',G.investors[0].name,price,'Property title purchase; tenancy preserved',listing.id);}}
 }
+function trimCouncilArchive(){
+ const rows=G.councilArchive||[],unresolved=rows.filter(e=>e.retentionBridge===true&&e.retentionRecoveryPending===true),recent=rows.filter(e=>!(e.retentionBridge===true&&e.retentionRecoveryPending===true)).slice(0,40);
+ G.councilArchive=[...unresolved,...recent];
+}
 function expireCouncilLetters(){
  const keep=[];for(const item of G.councilInbox||[]){if(G.day-item.day>120){G.councilArchive.unshift({...item,closed:G.day,response:'No council action; existing policy retained'});}else keep.push(item);}
- G.councilInbox=keep;G.councilArchive=G.councilArchive.slice(0,40);
+ G.councilInbox=keep;trimCouncilArchive();
 }
 function recordObservation(){
  const hm=G.housingMarket||{},fs=G.firms.filter(f=>!f.closed),incomes=G.households.filter(h=>h.people.length).map(h=>(h.income-h.tax)/h.people.length).sort((a,b)=>a-b);
