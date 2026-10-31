@@ -1,0 +1,145 @@
+{
+  "saved_before_record_found": true,
+  "current_sha256": "1d0cb35b08c009346e7c148abd20ad57da6463bd1d7b37a166896453b7cd9e96",
+  "stored_candidates": [
+    {
+      "key": "townledger-v6-backup",
+      "sha256": "2577c32b8a6296f1c50e632a2a8ebeb2d446749cf43d1a39812973d7b61852ae",
+      "day": 1,
+      "people": 169
+    },
+    {
+      "key": "townledger-v6",
+      "sha256": "1d0cb35b08c009346e7c148abd20ad57da6463bd1d7b37a166896453b7cd9e96",
+      "day": 1,
+      "people": 169
+    }
+  ],
+  "differences": [
+    {
+      "path": ".buildings[100].baseValue",
+      "before": null,
+      "after": 35000,
+      "missing_before": true,
+      "missing_after": false
+    },
+    {
+      "path": ".buildings[100].title",
+      "before": null,
+      "after": {
+        "type": "dict",
+        "length": 2
+      },
+      "missing_before": true,
+      "missing_after": false
+    },
+    {
+      "path": ".buildings[101].baseValue",
+      "before": null,
+      "after": 76000,
+      "missing_before": true,
+      "missing_after": false
+    },
+    {
+      "path": ".buildings[101].title",
+      "before": null,
+      "after": {
+        "type": "dict",
+        "length": 2
+      },
+      "missing_before": true,
+      "missing_after": false
+    },
+    {
+      "path": ".firms[24].creditScore",
+      "before": null,
+      "after": 0.68,
+      "missing_before": true,
+      "missing_after": false
+    },
+    {
+      "path": ".firms[24].lossDays",
+      "before": null,
+      "after": 0,
+      "missing_before": true,
+      "missing_after": false
+    },
+    {
+      "path": ".firms[25].creditScore",
+      "before": null,
+      "after": 0.68,
+      "missing_before": true,
+      "missing_after": false
+    },
+    {
+      "path": ".firms[25].lossDays",
+      "before": null,
+      "after": 0,
+      "missing_before": true,
+      "missing_after": false
+    },
+    {
+      "path": ".privateServiceProvision",
+      "before": null,
+      "after": null,
+      "missing_before": true,
+      "missing_after": false
+    },
+    {
+      "path": ".recentCouncilEvents",
+      "before": null,
+      "after": {
+        "type": "list",
+        "length": 0
+      },
+      "missing_before": true,
+      "missing_after": false
+    },
+    {
+      "path": ".serviceProvision",
+      "before": null,
+      "after": null,
+      "missing_before": true,
+      "missing_after": false
+    },
+    {
+      "path": ".stats.approval",
+      "before": null,
+      "after": 65,
+      "missing_before": true,
+      "missing_after": false
+    },
+    {
+      "path": ".stats.businessCash",
+      "before": 490992,
+      "after": 536792
+    },
+    {
+      "path": ".stats.businesses",
+      "before": 24,
+      "after": 26
+    },
+    {
+      "path": ".stats.cash",
+      "before": 178220,
+      "after": 144797
+    },
+    {
+      "path": ".stats.employed",
+      "before": 83,
+      "after": 88
+    },
+    {
+      "path": ".stats.employment",
+      "before": 75,
+      "after": 80
+    },
+    {
+      "path": ".stats.unemployment",
+      "before": 25,
+      "after": 20
+    }
+  ],
+  "difference_count": 18,
+  "raw_save_payloads_retained": false
+}

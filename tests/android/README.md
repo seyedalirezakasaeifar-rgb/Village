@@ -89,3 +89,46 @@ It records timed PSS snapshots, not peaks. WebView sandbox processes are listed
 separately and must have their ownership checked before their PSS is attributed
 to the game. A failed optional crossfade probe remains a failed result while
 independent large-city checks continue; failures are never turned into passes.
+
+## Successful system-document selection
+
+`--documents` builds a lightweight fixture with the unchanged production Java and
+`DocumentsHarness`. It invokes the real export bridge, selects Downloads and a
+unique synthetic filename in Android DocumentsUI, presses Save, reopens the actual
+picker and selects that exported file. The final assertion requires exact Unicode
+text to arrive through the production import bridge. No Activity result or URI is
+forged. The fixture document explicitly says it is not a user save.
+
+```sh
+python tests/android/build_harness.py --sdk /path/to/sdk --out /tmp/native-docs --documents
+adb -s emulator-5556 install -t -r /tmp/native-docs/native-host-fixture.apk
+adb -s emulator-5556 install -t -r /tmp/native-docs/native-host-tests.apk
+adb -s emulator-5556 shell am instrument -w org.townledger.vale.tests/org.townledger.vale.DocumentsHarness
+```
+
+The AOSP API-30 picker uses non-clickable document rows with an accessibility
+activation delegate. The harness switches to list view so the filename is visible,
+then activates the exact row. It follows actual Activity recreation/resume when
+holding the host reference. A root or filename timeout is a failed probe, not a
+successful transfer. Do not run a separate `uiautomator dump` while Instrumentation
+owns UiAutomation; Android permits one automation connection at a time.
+
+## Full application-process death
+
+Install the full-game debug pair with `--game` first. With the optional Python
+`websockets` dependency, `test_process_death.py` verifies the installed game hash,
+refuses non-debug/non-test packages and non-emulator serials, creates a synthetic
+town, waits for completed on-device saving, backgrounds it, uses the supported
+`am kill`, confirms the old PID disappeared, relaunches and uses Continue.
+
+```sh
+python tests/android/test_process_death.py --adb /path/to/adb --serial emulator-5556 --source-sha <assembled-game-sha256> --out /tmp/native-process-death
+```
+
+The public host-suspend bridge holds the clock around New Town/Continue to isolate
+persistence from legitimate elapsed simulation time. Input uses CDP browser events,
+not physical touch. The probe compares full canonical state, records actual PIDs
+and differing field names, and retains no raw save payload. A valid continued town
+can still fail strict equality; investigate its field differences rather than
+relabeling that result as a complete pass. Progress receipts identify setup,
+completed save, observed process death and successful Continue separately.
