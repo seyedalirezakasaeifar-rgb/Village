@@ -1,0 +1,201 @@
+{
+  "source_sha256": "205bf95c5232d3f7dd29545594ebfdaa5ac352fcff3ec387dfe46aaa1e8e1682",
+  "reference_commit": "eb2e88c",
+  "reference_module_sha256": "d125f7e8f13c11f7d0254ade7c0665f21301045035907c3ab740ed367d0d95d6",
+  "cases": [
+    {
+      "routes": 8,
+      "riders": 2000,
+      "baseline": {
+        "implementation": "baseline",
+        "times": [
+          35.5,
+          36.9000000001397,
+          19.199999999953434,
+          17.800000000046566,
+          14.699999999953434,
+          12.200000000186265,
+          11.299999999813735,
+          13,
+          11.700000000186265,
+          11.299999999813735,
+          11.400000000139698,
+          11
+        ],
+        "poseMs": 0.005,
+        "state": {
+          "routes": 8,
+          "nodes": 128,
+          "cacheStable": true,
+          "assigned": 1120,
+          "drivers": 32,
+          "denied": 880
+        },
+        "median_ms": 12.200000000186265
+      },
+      "optimized": {
+        "implementation": "optimized",
+        "times": [
+          17,
+          6,
+          7.399999999906868,
+          4,
+          3.3999999999068677,
+          2.7000000001862645,
+          4,
+          2.8999999999068677,
+          3.300000000046566,
+          3.199999999953434,
+          3,
+          2.9000000001396984
+        ],
+        "poseMs": 0.011999999999534338,
+        "state": {
+          "routes": 8,
+          "nodes": 128,
+          "cacheStable": true,
+          "assigned": 1120,
+          "drivers": 32,
+          "denied": 880
+        },
+        "median_ms": 3.300000000046566
+      },
+      "exact_equivalence": true,
+      "speedup": 3.696969696973973
+    },
+    {
+      "routes": 12,
+      "riders": 2000,
+      "baseline": {
+        "implementation": "baseline",
+        "times": [
+          44.199999999953434,
+          40,
+          25.300000000046566,
+          17.800000000046566,
+          17.800000000046566,
+          16.5,
+          16.5,
+          16.100000000093132,
+          15.5,
+          16,
+          16.199999999953434,
+          15.699999999953434
+        ],
+        "poseMs": 0.007999999998137355,
+        "state": {
+          "routes": 12,
+          "nodes": 192,
+          "cacheStable": true,
+          "assigned": 1680,
+          "drivers": 48,
+          "denied": 320
+        },
+        "median_ms": 16.5
+      },
+      "optimized": {
+        "implementation": "optimized",
+        "times": [
+          21.5,
+          6.800000000046566,
+          6.199999999953434,
+          5.300000000046566,
+          4.800000000046566,
+          3.199999999953434,
+          4.2000000001862645,
+          2.699999999953434,
+          2.2000000001862645,
+          3.2999999998137355,
+          2.5,
+          2.300000000046566
+        ],
+        "poseMs": 0.00800000000046566,
+        "state": {
+          "routes": 12,
+          "nodes": 192,
+          "cacheStable": true,
+          "assigned": 1680,
+          "drivers": 48,
+          "denied": 320
+        },
+        "median_ms": 3.2999999998137355
+      },
+      "exact_equivalence": true,
+      "speedup": 5.000000000282219
+    },
+    {
+      "routes": 48,
+      "riders": 2000,
+      "baseline": {
+        "implementation": "baseline",
+        "times": [
+          110.19999999995343,
+          83.19999999995343,
+          67.5,
+          63.10000000009313,
+          65.69999999995343,
+          67.69999999995343,
+          59.800000000046566,
+          58.300000000046566,
+          59.5999999998603,
+          58.5,
+          58.700000000186265,
+          60.39999999990687
+        ],
+        "poseMs": 0.023000000000465662,
+        "state": {
+          "routes": 48,
+          "nodes": 768,
+          "cacheStable": true,
+          "assigned": 2000,
+          "drivers": 192,
+          "denied": 0
+        },
+        "median_ms": 60.39999999990687
+      },
+      "optimized": {
+        "implementation": "optimized",
+        "times": [
+          58,
+          7.099999999860302,
+          5,
+          3.5,
+          4.5,
+          3.2000000001862645,
+          3.4000000001396984,
+          4.699999999953434,
+          2.7000000001862645,
+          2.5999999998603016,
+          2.699999999953434,
+          2.7000000001862645
+        ],
+        "poseMs": 0.025,
+        "state": {
+          "routes": 48,
+          "nodes": 768,
+          "cacheStable": true,
+          "assigned": 2000,
+          "drivers": 192,
+          "denied": 0
+        },
+        "median_ms": 3.4000000001396984
+      },
+      "exact_equivalence": true,
+      "speedup": 17.76470588159564
+    }
+  ],
+  "exact_transition_cases": [
+    "bus funded",
+    "unchanged timetable",
+    "capacity exhausted",
+    "next day restores capacity",
+    "worn street timetable",
+    "no funding",
+    "closed street",
+    "street reopened",
+    "route edited",
+    "frequency reduced",
+    "suspended",
+    "retired"
+  ]
+}
