@@ -27,7 +27,7 @@ def test_archive_schema_bounds():
             throw Error('Rejected archive changed the running town');
           const legacy=JSON.parse(JSON.stringify(original));delete legacy.schema;
           if(!__townTest.load(legacy))throw Error('Schema-less legacy archive rejected');
-          const future=JSON.parse(JSON.stringify(original));future.schema=7;
+          const future=JSON.parse(JSON.stringify(original));future.schema=original.schema+1;
           if(__townTest.load(future))throw Error('Future schema accepted');
           return {negativeRejected:true,legacyAccepted:true,futureRejected:true};
         }''')

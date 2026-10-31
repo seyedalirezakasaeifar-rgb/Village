@@ -4,13 +4,13 @@
   "poseCalls": 0,
   "unchanged": true,
   "pausedStable": true,
-  "atlasBytes": 8597248,
-  "atlasSize": 113,
+  "atlasBytes": 8624896,
+  "atlasSize": 114,
   "renderBenchMs": {
     "far": 0.24,
-    "town": 0.17,
+    "town": 0.14,
     "close": 0.08
   },
-  "source_sha256": "fbccce3a1651fc120195aa3f89c9b3d6ebc2fd0b3286229ef5a03e7639c0457e",
+  "source_sha256": "4f683a699fc73e87d390e4ce2f8757a7ccdf1237059fdc631f8d99977412cd44",
   "errors": []
 }

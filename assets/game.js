@@ -97,7 +97,7 @@ const FIN_BANK_NAMES=['Vale Mutual Savings','Mercantile & County Bank','First Bo
 
 // SOURCE: 05-systems.js
 // Deterministic model services. Presentation has its own hash-based randomness.
-const RELEASE=Object.freeze({"version":"7.1.1","code":21,"edition":"The Working City","schema":6,"package":"org.townledger.vale"});
+const RELEASE=Object.freeze({"version":"8.0.0","code":22,"edition":"A Trading Town","schema":7,"package":"org.townledger.vale"});
 let rngState=42,visualState=918273,simulationBusy=false;
 const perfStats={frames:[],ticks:[],effective:1,backlog:0,days:0,elapsed:0,errors:[]};
 function random(){rngState=(rngState+0x6D2B79F5)>>>0;let t=rngState;t=Math.imul(t^(t>>>15),t|1);t^=t+Math.imul(t^(t>>>7),t|61);return ((t^(t>>>14))>>>0)/4294967296;}
@@ -908,7 +908,7 @@ function seekPrivateServiceInvestment(requested=null){
  if(!G.policy.privateServices)return 'Private service entry is not licensed.';if(!G.autoBuild&&!requested)return 'Private development is paused.';if(G.projects.some(p=>p.privateService))return 'A private service site is already under construction.';
  for(const kind of requested?[requested]:['school','fire']){const demand=privateServiceDemand(kind),fee=privateServiceFee(kind,demand),wage=Math.max(G.policy.minWage,36),served=Math.min(demand,kind==='school'?32:180),net=served*fee-wage*2-6,cost=buildCost[kind],capital=6000,requiredReturn=(cost+capital)*((G.policy.policyRate||0)/100+.08)/360;
   if(net<=requiredReturn||demand<(kind==='school'?16:60))continue;if(G.firms.filter(f=>f.privateService===kind&&!f.closed).length>=Math.max(1,Math.ceil(G.stats.population/(kind==='school'?180:400))))continue;
-  const closed=G.firms.find(f=>f.privateService===kind&&f.closed&&G.day-(f.closedDay||0)>=120);if(closed&&G.region>capital+50000&&privateServiceDemand(kind,readBuild(closed.building))>=served*.6){G.region-=capital;closed.cash+=capital;closed.closed=false;closed.jobs=2;closed.wage=wage;closed.strain=0;closed.lossDays=0;closed.serviceFee=fee;story('A new private operator recapitalized '+closed.name+' after reviewing fee-paying demand.','good',closed.building);return 'A provider has been recapitalized.'}
+  const closed=G.firms.find(f=>f.privateService===kind&&f.closed&&G.day-(f.closedDay||0)>=120);if(closed&&G.region>capital+50000&&privateServiceDemand(kind,readBuild(closed.building))>=served*.6){G.region-=capital;closed.cash+=capital;closed.owner=-1;readBuild(closed.building).owner=-1;closed.closed=false;closed.jobs=2;closed.wage=wage;closed.strain=0;closed.lossDays=0;closed.serviceFee=fee;story('A new private operator recapitalized '+closed.name+' after reviewing fee-paying demand.','good',closed.building);return 'A provider has been recapitalized.'}
   const available=G.people.filter(p=>!p.publicWork&&!p.previousPublicRole&&privateQualified(p,{privateService:kind})&&(p.job<0||workerIncome(G.firms[p.job])<=wage/1.12)).length;if(available<2)continue;
   const candidates=buildableCandidates('housing').filter(p=>canPlace(p.x,p.y,true,kind)).slice(0,50),site=candidates.map(p=>({p,demand:privateServiceDemand(kind,p)})).filter(o=>o.demand>=(kind==='school'?16:60)).sort((a,b)=>b.demand-a.demand)[0]?.p;if(!site||G.region<cost+capital+50000)continue;
   const localDemand=privateServiceDemand(kind,site),localFee=privateServiceFee(kind,localDemand);if(Math.min(localDemand,kind==='school'?32:180)*localFee-wage*2-6<=requiredReturn)continue;
@@ -1697,7 +1697,7 @@ function completeDevelopmentProjects(){
    const fee=Math.min(G.policy.permitFee,Math.max(0,G.region-(p.privateService?0:capital)));
    G.region-=(p.privateService?0:capital)+fee;
    const f=createFirm(b.kind,b.x,b.y,true,()=>b);
-   f.cash=capital;if(p.privateService){f.privateService=p.privateService;f.serviceFee=p.serviceFee;f.wage=Math.max(G.policy.minWage,36);f.name=p.privateService==='school'?'Independent Learning House '+f.id:'Mutual Fire Brigade '+f.id;b.title={kind:'firm',id:f.id};b.owner=f.owner;}transferTreasury(fee,'permits');
+   f.cash=capital;if(p.privateService){f.privateService=p.privateService;f.owner=-1;f.serviceFee=p.serviceFee;f.wage=Math.max(G.policy.minWage,36);f.name=p.privateService==='school'?'Independent Learning House '+f.id:'Mutual Fire Brigade '+f.id;b.title={kind:'firm',id:f.id};b.owner=f.owner;}transferTreasury(fee,'permits');
    if(G.policy.lendingRules<70&&(G.stats.marketConfidence||50)>48&&G.day%3===0){const loan=bankLoan('firm',f.id,Math.round(Math.min(2400,capital*.17)),480);if(loan)f.jobs=Math.min(18,f.jobs+1)}
    G.development.firms++;
    story('New private enterprise completed: '+f.name+' opened its doors.','good',b.id);
@@ -3635,7 +3635,7 @@ function hydrateSave(raw){
  const previousTown=G;
  try{let data=typeof raw==='string'?JSON.parse(raw):raw;data=normalizeRegionArchive(data);
   if(!data||![2,3].includes(data.version)||!Array.isArray(data.tiles)||data.tiles.length!==T*T||!Array.isArray(data.firms)||!Array.isArray(data.people)||!Array.isArray(data.buildings)||!Array.isArray(data.households)||!data.policy||!Number.isFinite(data.treasury)||data.tiles.some(t=>!Number.isInteger(t)||t<0||t>3)||!Number.isFinite(data.region)||data.region<0||data.households.length>3000||data.people.length>8000||data.firms.length>3000)return false;
-  if(data.schema!=null&&(!Number.isInteger(data.schema)||data.schema<0||data.schema>6))return false;
+  if(data.schema!=null&&(!Number.isInteger(data.schema)||data.schema<0||data.schema>RELEASE.schema))return false;
   if(data.investors&&(!Array.isArray(data.investors)||data.investors.length!==1||data.investors.some(a=>!Number.isFinite(a.cash)||a.cash<0)))return false;
   if(data.freight&&(!Array.isArray(data.freight)||data.freight.length>10000||data.freight.some(s=>!Number.isInteger(s.from)||!data.firms[s.from]||!Number.isInteger(s.to)||!data.firms[s.to]||!owns(goods,s.good)||!Number.isFinite(s.qty)||s.qty<=0||!Number.isFinite(s.remaining))))return false;
   // Reject structurally broken saves before they can replace the running town.

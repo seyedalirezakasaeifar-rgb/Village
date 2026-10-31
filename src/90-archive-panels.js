@@ -2,7 +2,7 @@ function hydrateSave(raw){
  const previousTown=G;
  try{let data=typeof raw==='string'?JSON.parse(raw):raw;data=normalizeRegionArchive(data);
   if(!data||![2,3].includes(data.version)||!Array.isArray(data.tiles)||data.tiles.length!==T*T||!Array.isArray(data.firms)||!Array.isArray(data.people)||!Array.isArray(data.buildings)||!Array.isArray(data.households)||!data.policy||!Number.isFinite(data.treasury)||data.tiles.some(t=>!Number.isInteger(t)||t<0||t>3)||!Number.isFinite(data.region)||data.region<0||data.households.length>3000||data.people.length>8000||data.firms.length>3000)return false;
-  if(data.schema!=null&&(!Number.isInteger(data.schema)||data.schema<0||data.schema>6))return false;
+  if(data.schema!=null&&(!Number.isInteger(data.schema)||data.schema<0||data.schema>RELEASE.schema))return false;
   if(data.investors&&(!Array.isArray(data.investors)||data.investors.length!==1||data.investors.some(a=>!Number.isFinite(a.cash)||a.cash<0)))return false;
   if(data.freight&&(!Array.isArray(data.freight)||data.freight.length>10000||data.freight.some(s=>!Number.isInteger(s.from)||!data.firms[s.from]||!Number.isInteger(s.to)||!data.firms[s.to]||!owns(goods,s.good)||!Number.isFinite(s.qty)||s.qty<=0||!Number.isFinite(s.remaining))))return false;
   // Reject structurally broken saves before they can replace the running town.
