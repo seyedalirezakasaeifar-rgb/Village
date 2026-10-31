@@ -7095,6 +7095,18 @@ drawTransitInfrastructure=function(g,visible){
  if(transitDraft)for(let i=0;i<transitDraft.stops.length;i++){const id=transitStopRoad(transitDraft.mode,transitDraft.stops[i]);if(id==null)continue;const p=roadCenter(id);g.globalAlpha=1;g.fillStyle='#f5dda0';g.beginPath();g.arc(p[0],p[1],8,0,Math.PI*2);g.fill();g.fillStyle='#365f59';g.font='bold 9px Arial';g.textAlign='center';g.fillText(i+1,p[0],p[1]+3);}
  g.restore();
 };
+// Shuttle routes reverse at their terminals. Keep a carriage from snapping its
+// facing at the exact route endpoint: a short, eased half turn reads as a
+// purposeful station turnaround while retaining the same actual route pose.
+function transitTerminalHeading(r,phase,dx,dy){
+ const span=r.path.length-1,cycle=span*2,turn=.24;if(span<2)return [dx,dy];
+ let progress=null,base=null,reverse=false;
+ if(phase>=span-turn&&phase<=span+turn){const a=roadCenter(r.path[span-1]),b=roadCenter(r.path[span]);base=Math.atan2(b[1]-a[1],b[0]-a[0]);progress=(phase-(span-turn))/(turn*2);}
+ else if(phase<=turn||phase>=cycle-turn){const a=roadCenter(r.path[0]),b=roadCenter(r.path[1]);base=Math.atan2(b[1]-a[1],b[0]-a[0]);progress=phase<=turn?(phase+turn)/(turn*2):(phase-(cycle-turn))/(turn*2);reverse=true;}
+ if(progress==null)return [dx,dy];
+ const eased=progress*progress*(3-2*progress),angle=base+Math.PI*(reverse?1+eased:eased),length=Math.hypot(dx,dy)||1;
+ return [Math.cos(angle)*length,Math.sin(angle)*length];
+}
 function transitArtActors(visible){
  if(gameOptions.reducedMotion||!gameOptions.traffic||cam.zoom<.38)return [];
  const poses=transitVehiclePoses(frameClock,cam.zoom),routes=new Map(transitTopology().routes.map(r=>[r.id,r])),ordinals=new Map(),result=[];
@@ -7102,6 +7114,7 @@ function transitArtActors(visible){
   let x=pose.x,y=pose.y,dx=pose.dx,dy=pose.dy,corner,u;const radius=.18;
   if(t<radius&&i>0){corner=[previous,a,b];u=(t+radius)/(2*radius);}else if(t>1-radius&&i+2<r.path.length){corner=[a,b,next];u=(t-1+radius)/(2*radius);}
   if(corner){const [start,c,end]=corner,s=c.map((v,k)=>v-(v-start[k])*radius),e=c.map((v,k)=>v+(end[k]-v)*radius),p=c.map((v,k)=>(1-u)*(1-u)*s[k]+2*(1-u)*u*v+u*u*e[k]),h=c.map((v,k)=>2*(1-u)*(v-s[k])+2*u*(e[k]-v));x=p[0];y=p[1]-pose.elevation;dx=h[0]*(forward?1:-1);dy=h[1]*(forward?1:-1);}
+  [dx,dy]=transitTerminalHeading(r,phase,dx,dy);
   if(visible(x,y,70))result.push({...pose,x,y,dx,dy,kind:'transitArt'});if(result.length>=48)break;
  }return result;
 }
