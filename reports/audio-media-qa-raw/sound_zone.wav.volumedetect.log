@@ -1,0 +1,21 @@
+[aist#0:0/pcm_s16le @ 0x5610ba2223c0] Guessed Channel Layout: mono
+Input #0, wav, from 'assets/sound/zone.wav':
+  Duration: 00:00:00.13, bitrate: 386 kb/s
+  Stream #0:0: Audio: pcm_s16le ([1][0][0][0] / 0x0001), 24000 Hz, mono, s16, 384 kb/s
+[Parsed_volumedetect_0 @ 0x5610ba1c6b00] n_samples: 0
+Stream mapping:
+  Stream #0:0 -> #0:0 (pcm_s16le (native) -> pcm_s16le (native))
+Press [q] to stop, [?] for help
+Output #0, null, to 'pipe:':
+  Metadata:
+    encoder         : Lavf61.7.103
+  Stream #0:0: Audio: pcm_s16le, 24000 Hz, mono, s16, 384 kb/s
+      Metadata:
+        encoder         : Lavc61.19.101 pcm_s16le
+[Parsed_volumedetect_0 @ 0x7f09a0002400] n_samples: 3120
+[Parsed_volumedetect_0 @ 0x7f09a0002400] mean_volume: -27.1 dB
+[Parsed_volumedetect_0 @ 0x7f09a0002400] max_volume: -14.0 dB
+[Parsed_volumedetect_0 @ 0x7f09a0002400] histogram_13db: 2
+[Parsed_volumedetect_0 @ 0x7f09a0002400] histogram_14db: 16
+[out#0/null @ 0x5610ba222540] video:0KiB audio:6KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: unknown
+size=N/A time=00:00:00.13 bitrate=N/A speed=50.1x    

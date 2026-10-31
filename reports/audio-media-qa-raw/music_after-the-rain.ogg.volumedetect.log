@@ -1,0 +1,23 @@
+Input #0, ogg, from 'assets/music/after-the-rain.ogg':
+  Duration: 00:06:19.68, start: 0.000000, bitrate: 42 kb/s
+  Stream #0:0: Audio: vorbis, 32000 Hz, stereo, fltp, 90 kb/s
+      Metadata:
+        encoder         : Lavc61.19.101 libvorbis
+[Parsed_volumedetect_0 @ 0x558ae4b69b00] n_samples: 0
+Stream mapping:
+  Stream #0:0 -> #0:0 (vorbis (native) -> pcm_s16le (native))
+Press [q] to stop, [?] for help
+Output #0, null, to 'pipe:':
+  Metadata:
+    encoder         : Lavf61.7.103
+  Stream #0:0: Audio: pcm_s16le, 32000 Hz, stereo, s16, 1024 kb/s
+      Metadata:
+        encoder         : Lavc61.19.101 pcm_s16le
+[Parsed_volumedetect_0 @ 0x7f0d08002400] n_samples: 24299636
+[Parsed_volumedetect_0 @ 0x7f0d08002400] mean_volume: -23.8 dB
+[Parsed_volumedetect_0 @ 0x7f0d08002400] max_volume: -10.3 dB
+[Parsed_volumedetect_0 @ 0x7f0d08002400] histogram_10db: 92
+[Parsed_volumedetect_0 @ 0x7f0d08002400] histogram_11db: 3682
+[Parsed_volumedetect_0 @ 0x7f0d08002400] histogram_12db: 23297
+[out#0/null @ 0x558ae4c2ee40] video:0KiB audio:47460KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: unknown
+size=N/A time=00:06:19.68 bitrate=N/A speed=1.24e+03x    

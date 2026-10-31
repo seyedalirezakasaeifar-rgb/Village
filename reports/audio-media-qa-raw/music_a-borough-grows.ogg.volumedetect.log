@@ -1,0 +1,23 @@
+Input #0, ogg, from 'assets/music/a-borough-grows.ogg':
+  Duration: 00:05:55.18, start: 0.000000, bitrate: 46 kb/s
+  Stream #0:0: Audio: vorbis, 32000 Hz, stereo, fltp, 90 kb/s
+      Metadata:
+        encoder         : Lavc61.19.101 libvorbis
+[Parsed_volumedetect_0 @ 0x55abdfe09b00] n_samples: 0
+Stream mapping:
+  Stream #0:0 -> #0:0 (vorbis (native) -> pcm_s16le (native))
+Press [q] to stop, [?] for help
+Output #0, null, to 'pipe:':
+  Metadata:
+    encoder         : Lavf61.7.103
+  Stream #0:0: Audio: pcm_s16le, 32000 Hz, stereo, s16, 1024 kb/s
+      Metadata:
+        encoder         : Lavc61.19.101 pcm_s16le
+[Parsed_volumedetect_0 @ 0x7f63e4002400] n_samples: 22731788
+[Parsed_volumedetect_0 @ 0x7f63e4002400] mean_volume: -23.7 dB
+[Parsed_volumedetect_0 @ 0x7f63e4002400] max_volume: -10.1 dB
+[Parsed_volumedetect_0 @ 0x7f63e4002400] histogram_10db: 430
+[Parsed_volumedetect_0 @ 0x7f63e4002400] histogram_11db: 5473
+[Parsed_volumedetect_0 @ 0x7f63e4002400] histogram_12db: 24944
+[out#0/null @ 0x55abdfecee40] video:0KiB audio:44398KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: unknown
+size=N/A time=00:05:55.18 bitrate=N/A speed=1.2e+03x    

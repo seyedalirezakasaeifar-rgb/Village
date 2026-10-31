@@ -1,0 +1,24 @@
+Input #0, ogg, from 'assets/music/morning-ledger.ogg':
+  Duration: 00:03:21.92, start: 0.000000, bitrate: 52 kb/s
+  Stream #0:0: Audio: vorbis, 32000 Hz, stereo, fltp, 112 kb/s
+      Metadata:
+        encoder         : Lavc61.19.101 libvorbis
+[Parsed_volumedetect_0 @ 0x5579e90e2b00] n_samples: 0
+Stream mapping:
+  Stream #0:0 -> #0:0 (vorbis (native) -> pcm_s16le (native))
+Press [q] to stop, [?] for help
+Output #0, null, to 'pipe:':
+  Metadata:
+    encoder         : Lavf61.7.103
+  Stream #0:0: Audio: pcm_s16le, 32000 Hz, stereo, s16, 1024 kb/s
+      Metadata:
+        encoder         : Lavc61.19.101 pcm_s16le
+[Parsed_volumedetect_0 @ 0x7f1f84002400] n_samples: 12923076
+[Parsed_volumedetect_0 @ 0x7f1f84002400] mean_volume: -28.0 dB
+[Parsed_volumedetect_0 @ 0x7f1f84002400] max_volume: -14.9 dB
+[Parsed_volumedetect_0 @ 0x7f1f84002400] histogram_14db: 3
+[Parsed_volumedetect_0 @ 0x7f1f84002400] histogram_15db: 284
+[Parsed_volumedetect_0 @ 0x7f1f84002400] histogram_16db: 3509
+[Parsed_volumedetect_0 @ 0x7f1f84002400] histogram_17db: 14361
+[out#0/null @ 0x5579e91a8240] video:0KiB audio:25240KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: unknown
+size=N/A time=00:03:21.92 bitrate=N/A speed=1.05e+03x    

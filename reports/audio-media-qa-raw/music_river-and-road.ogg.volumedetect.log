@@ -1,0 +1,24 @@
+Input #0, ogg, from 'assets/music/river-and-road.ogg':
+  Duration: 00:02:51.96, start: 0.000000, bitrate: 52 kb/s
+  Stream #0:0: Audio: vorbis, 32000 Hz, stereo, fltp, 112 kb/s
+      Metadata:
+        encoder         : Lavc61.19.101 libvorbis
+[Parsed_volumedetect_0 @ 0x55e6c7e6fb00] n_samples: 0
+Stream mapping:
+  Stream #0:0 -> #0:0 (vorbis (native) -> pcm_s16le (native))
+Press [q] to stop, [?] for help
+Output #0, null, to 'pipe:':
+  Metadata:
+    encoder         : Lavf61.7.103
+  Stream #0:0: Audio: pcm_s16le, 32000 Hz, stereo, s16, 1024 kb/s
+      Metadata:
+        encoder         : Lavc61.19.101 pcm_s16le
+[Parsed_volumedetect_0 @ 0x7fdf40002400] n_samples: 11005216
+[Parsed_volumedetect_0 @ 0x7fdf40002400] mean_volume: -28.2 dB
+[Parsed_volumedetect_0 @ 0x7fdf40002400] max_volume: -14.9 dB
+[Parsed_volumedetect_0 @ 0x7fdf40002400] histogram_14db: 6
+[Parsed_volumedetect_0 @ 0x7fdf40002400] histogram_15db: 207
+[Parsed_volumedetect_0 @ 0x7fdf40002400] histogram_16db: 2234
+[Parsed_volumedetect_0 @ 0x7fdf40002400] histogram_17db: 10151
+[out#0/null @ 0x55e6c7f35240] video:0KiB audio:21495KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: unknown
+size=N/A time=00:02:51.95 bitrate=N/A speed=1.13e+03x    

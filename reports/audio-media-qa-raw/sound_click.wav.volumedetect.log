@@ -1,0 +1,20 @@
+[aist#0:0/pcm_s16le @ 0x557ca6c03780] Guessed Channel Layout: mono
+Input #0, wav, from 'assets/sound/click.wav':
+  Duration: 00:00:00.08, bitrate: 388 kb/s
+  Stream #0:0: Audio: pcm_s16le ([1][0][0][0] / 0x0001), 24000 Hz, mono, s16, 384 kb/s
+[Parsed_volumedetect_0 @ 0x557ca6ba8b00] n_samples: 0
+Stream mapping:
+  Stream #0:0 -> #0:0 (pcm_s16le (native) -> pcm_s16le (native))
+Press [q] to stop, [?] for help
+Output #0, null, to 'pipe:':
+  Metadata:
+    encoder         : Lavf61.7.103
+  Stream #0:0: Audio: pcm_s16le, 24000 Hz, mono, s16, 384 kb/s
+      Metadata:
+        encoder         : Lavc61.19.101 pcm_s16le
+[Parsed_volumedetect_0 @ 0x7fc654002400] n_samples: 1800
+[Parsed_volumedetect_0 @ 0x7fc654002400] mean_volume: -28.6 dB
+[Parsed_volumedetect_0 @ 0x7fc654002400] max_volume: -16.4 dB
+[Parsed_volumedetect_0 @ 0x7fc654002400] histogram_16db: 8
+[out#0/null @ 0x557ca6c03900] video:0KiB audio:4KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: unknown
+size=N/A time=00:00:00.07 bitrate=N/A speed=29.9x    
