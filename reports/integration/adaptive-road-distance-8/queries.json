@@ -1,0 +1,51 @@
+{
+  "workloads": [
+    {
+      "baseline": true,
+      "ms": 43.6000000089407,
+      "sum": 10354688,
+      "builds": 257,
+      "stats": null,
+      "bytes": 0
+    },
+    {
+      "baseline": false,
+      "ms": 22.299999997019768,
+      "sum": 10354688,
+      "builds": 129,
+      "stats": {
+        "queries": 16384,
+        "hits": 16255,
+        "builds": 129,
+        "evictions": 0,
+        "maxBytes": 528384
+      },
+      "bytes": 528384
+    }
+  ],
+  "expanded": {
+    "rows": 512,
+    "bytes": 2097152,
+    "stats": {
+      "queries": 1024,
+      "hits": 512,
+      "builds": 512,
+      "evictions": 0,
+      "maxBytes": 2097152
+    }
+  },
+  "cap": {
+    "rows": 128,
+    "bytes": 4194304,
+    "stats": {
+      "queries": 1160,
+      "hits": 0,
+      "builds": 160,
+      "evictions": 32,
+      "maxBytes": 4194304
+    }
+  },
+  "invalidated": true,
+  "unchanged": true,
+  "source_sha256": "7f09488dc346be1a9dd1a08a03119fbcbd6fd211e2b47e963d6beae1fc5cf851"
+}
