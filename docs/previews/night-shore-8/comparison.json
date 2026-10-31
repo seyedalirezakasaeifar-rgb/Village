@@ -1,0 +1,58 @@
+{
+  "viewport": [
+    844,
+    390
+  ],
+  "dpr": 1,
+  "seed": 42,
+  "fixture": "Founding waterfront and streetlights; paused before/after comparison",
+  "captures": [
+    {
+      "label": "before",
+      "sha256": "37782fef40335d2cbe625c5246ad1c0db81cfbc3439ef2b47634f8b7b0efef94",
+      "world": {
+        "props": 35,
+        "lamps": 16
+      },
+      "night": {
+        "bench": 0.36,
+        "atlas": 5033984,
+        "nightBytes": 941904
+      },
+      "errors": []
+    },
+    {
+      "label": "after",
+      "sha256": "4a16cf2f4783d5aee515b8715c62fed9dbbf4576d3c18258c8c2ea13be3c615f",
+      "world": {
+        "props": 35,
+        "lamps": 16
+      },
+      "night": {
+        "bench": 0.52,
+        "atlas": 5033984,
+        "nightBytes": 941904
+      },
+      "errors": []
+    }
+  ],
+  "phone_width_check": {
+    "viewport": [
+      568,
+      320
+    ],
+    "dpr": 1,
+    "captures": [
+      {
+        "label": "before",
+        "sha256": "37782fef40335d2cbe625c5246ad1c0db81cfbc3439ef2b47634f8b7b0efef94",
+        "errors": []
+      },
+      {
+        "label": "after",
+        "sha256": "4a16cf2f4783d5aee515b8715c62fed9dbbf4576d3c18258c8c2ea13be3c615f",
+        "errors": []
+      }
+    ]
+  }
+}

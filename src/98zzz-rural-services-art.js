@@ -136,6 +136,15 @@ function paintNightScene(g,items){
    // Remove a rear building's emission wherever an opaque foreground sprite
    // covers it. A light cannot shine through the front neighbour's roof.
    n.globalCompositeOperation='destination-out';n.drawImage(sprite,x,y);n.globalCompositeOperation='source-over';
+   // Existing street lamps softly pick out their own curb and road surface.
+   // The glow is baked into this already view-cached night layer; later
+   // foreground sprites occlude it in normal painter order. No lamps or
+   // illumination are invented for empty streets.
+   if(item.kind==='streetprop'&&item.id%3===0&&cam.zoom>=.45){
+    const radius=40,center=[item.x,item.y+2],pool=n.createRadialGradient(center[0],center[1],2,center[0],center[1],radius);
+    pool.addColorStop(0,'#f1c66b3a');pool.addColorStop(.34,'#e5b75b20');pool.addColorStop(1,'#d9a94a00');
+    n.fillStyle=pool;n.fillRect(center[0]-radius,center[1]-radius,radius*2,radius*2);
+   }
    const b=item.b;if(!b||b.redevelopment||b.kind==='worksite'||G.firms[b.firm]?.closed)continue;
    const service=providerVisualState(b);if(service&&!service.active)continue;
    const lights=sprite.lightSources||[];if(!lights.length)continue;
