@@ -1,0 +1,36 @@
+{
+  "base": "125f9b0e6ddedda7fd22ceffa2a4eb1ecdf5ff38",
+  "source_sha256": "47b1b35a4a0c4a7184d23ee657430619c09354a43cc110832dd0093ecfd2777e",
+  "gates": [
+    {
+      "script": "test_brownfield_player_path.py",
+      "exit_code": 0
+    },
+    {
+      "script": "test_brownfield_reopening.py",
+      "exit_code": 0
+    },
+    {
+      "script": "test_brownfield_renewal.py",
+      "exit_code": 0
+    },
+    {
+      "script": "test_review_workflows.py",
+      "exit_code": 0
+    },
+    {
+      "script": "test_archive_schema.py",
+      "exit_code": 0
+    }
+  ],
+  "files": {
+    "results.json": "33245c3a0f7320338871dcfdeefa3fe170e2c600fb3e595010c5b293393869de",
+    "reopening.json": "64a735a0aa8aebdaeb78df19bd6ff3a92bfc6e616e28ab2c23208f1dd2cde47a",
+    "renewed-site.png": "388aafec431607688f2bc85c9e5115181e6e81b61090eaf0a901dd2f0950a142",
+    "test_brownfield_renewal.py.log": "2e1038a7a450cbdbc68423315391de6282b5e3d18cfeff9d32575ccd151ab35f",
+    "test_brownfield_player_path.py.log": "33245c3a0f7320338871dcfdeefa3fe170e2c600fb3e595010c5b293393869de",
+    "test_review_workflows.py.log": "0936a00f8209ff031cd19768a6c19414c1743ab1d9670a2b861407bbe203a7fa",
+    "test_archive_schema.py.log": "3744e3b5b1bb18cc0bbeaa5bb47324c265021b56c98cd0405b6ba7472102d160",
+    "test_brownfield_reopening.py.log": "64a735a0aa8aebdaeb78df19bd6ff3a92bfc6e616e28ab2c23208f1dd2cde47a"
+  }
+}
