@@ -1,0 +1,13 @@
+{
+  "source_sha256": "f0499169fdf2a048351a56323625ec7e5482a94a51d4c582f691478d0c82676a",
+  "items": 3836,
+  "pixelsCompared": 314245120,
+  "failures": [],
+  "atlas": 200,
+  "bytes": 17785344,
+  "oldBytes": 65536000,
+  "savedFraction": 0.7286171875,
+  "accountingExact": true,
+  "clearsCleanly": true,
+  "bounded": true
+}

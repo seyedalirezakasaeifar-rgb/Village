@@ -3,7 +3,7 @@
 let spriteLightRecorder=null;
 let nightMode=false,displayItems=[],buildingItemsById=new Map(),atlas=new Map(),atlasBytes=0,sceneSignature='',lastSceneMonth=0,landscapeRevision=0;
 function clearAtlas(){atlas.clear();atlasBytes=0;}
-const viewRaster=document.createElement('canvas'),viewBackgroundRaster=document.createElement('canvas');let viewRasterKey='',viewBackgroundKey='',viewBuildings=[];
+const viewRaster=document.createElement('canvas'),viewBackgroundRaster=document.createElement('canvas'),viewUnderlayRaster=document.createElement('canvas');let viewRasterKey='',viewBackgroundKey='',viewBuildings=[];
 const SEASONS=[{grass:['#8f9b69','#929f6d','#96a36f','#9ba773','#9da875'],dark:'#788b58',leaf:['#536c41','#69844a','#809650'],water:'#6b9895'},
  {grass:['#7c994f','#819e52','#86a558','#8aaa5e','#8eaa60'],dark:'#6b7f48',leaf:['#315b3c','#4e7d42','#83a34e'],water:'#4c9297'},
  {grass:['#a4a070','#a7a272','#aba676','#ada877','#b0a97b'],dark:'#8c905d',leaf:['#885e40','#b28144','#ceab5a'],water:'#759593'},
@@ -333,20 +333,17 @@ function draw(){
   });
   viewBuildings.push(...transitInfrastructureItems(visible));viewBuildings.sort((a,b)=>a.y-b.y);
   paintCastShadows(vg,viewBuildings);
+  const actorDetail=!gameOptions.reducedMotion&&((gameOptions.traffic&&cam.zoom>=.32)||(gameOptions.effects&&cam.zoom>=.62));if(actorDetail){if(viewUnderlayRaster.width!==cv.width)viewUnderlayRaster.width=cv.width;if(viewUnderlayRaster.height!==cv.height)viewUnderlayRaster.height=cv.height;const ug=viewUnderlayRaster.getContext('2d',{alpha:false});ug.setTransform(1,0,0,1,0,0);ug.drawImage(viewRaster,0,0);}else{viewUnderlayRaster.width=0;viewUnderlayRaster.height=0;}
   for(const item of viewBuildings)drawSceneSprite(vg,item);
   viewRasterKey=key;
  }
  ctx.setTransform(1,0,0,1,0,0);ctx.drawImage(viewRaster,0,0);transform();
- drawTransitInfrastructure(ctx,visible);
- drawConstructionProgress(ctx,visible);drawInspectedRoute(ctx);drawWaterLife(ctx,visible);drawWaterfrontPiers(ctx,visible);drawSelectedWaterRoute(ctx);drawRegionalGates(ctx,visible);drawDistrictLife(ctx,visible);drawNamedPlaces(ctx,visible);
+ drawWaterLife(ctx,visible);drawWaterfrontPiers(ctx,visible);drawRegionalGates(ctx,visible);drawTransitInfrastructure(ctx,visible);
  const visibleParcels=viewBuildings.filter(item=>visible(item.x,item.y,0)),actors=[...transitArtActors(visible),...neighbourhoodAmbient(visibleParcels),...buildingActivity(visibleParcels),...workdayScenes(visibleParcels),...waterfrontActors(visible),...regionalCargoActors().filter(a=>visible(a.x,a.y,15))];if(visualDetailBudget().traffic)for(const v of traffic){const p=vehiclePosition(v);if(visible(p.x,p.y,15))actors.push({kind:'vehicle',v,...p});}actors.sort((a,b)=>a.y-b.y);
 
- if(actors.length){
-  // Clip subsequent foreground re-paints to the actors' damage rectangles.
-  ctx.save();ctx.beginPath();for(const a of actors)if(a.kind==='transitArt')ctx.rect(a.x-90,a.y-42,180,90);else if(a.kind==='boat')ctx.rect(a.x-44,a.y-32,88,64);else ctx.rect(a.x-25,a.y-32,56,52);ctx.clip();
-  const layered=[...actors,...viewBuildings.filter(a=>actors.some(v=>a.y>=v.y&&Math.abs(a.x-v.x)<112&&a.y-v.y<220))].sort((a,b)=>a.y-b.y);
-  for(const a of layered){if(a.kind==='transitArt')paintTransitVehicle(ctx,a);else if(a.kind==='vehicle')vehiclePaint(ctx,a.v,a,frameClock);else if(a.kind==='boat')paintWaterBoat(ctx,a,frameClock);else if(a.kind==='workday')paintWorkdayScene(ctx,a,frameClock);else drawSceneSprite(ctx,a);}ctx.restore();
- }
+ if(actors.length)paintSceneActors(ctx,actors,visible);
+ drawConstructionProgress(ctx,visible);drawInspectedRoute(ctx);drawSelectedWaterRoute(ctx);drawDistrictLife(ctx,visible);drawNamedPlaces(ctx,visible);
+
 
  drawCharterBounds(ctx);drawUrbanOverlay(ctx,visible);paintTownLight(ctx);
  if(cam.zoom>=.45)atmosphere(ctx,sx,sy,ww,hh);
