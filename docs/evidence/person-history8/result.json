@@ -2,7 +2,6 @@
   "source_sha256": "cc9f02a1c84a8e4aadc5df3d22bf8a9a382ed7c1ee5210742bff4cc5d31bfce6",
   "boundary": {
     "rngSeed": 2,
-    "syntheticInactiveHistory": 8000,
     "recordsBefore": 8000,
     "recordsAfter": 8001,
     "newBirths": 1,
@@ -12,7 +11,8 @@
     "structureValidBeforeImport": true,
     "cashPreserved": true,
     "priorTitlesPreserved": true,
-    "archiveHash": "81020a3e"
+    "archiveHash": "81020a3e",
+    "boundaryFixtureRecords": 8000
   },
   "natural": {
     "samples": [
