@@ -10,9 +10,10 @@ function compactSettledLoans(){
 function validateSettledLoanHistory(data){
  const h=data.settledLoanHistory;if(h==null)return true;
  const row=r=>r&&Number.isSafeInteger(r.count)&&r.count>=0&&Number.isFinite(r.original)&&r.original>=0&&Number.isFinite(r.paid)&&r.paid>=0;
- if(h.version!==1||!row(h)||!Number.isSafeInteger(h.maxId)||h.maxId<0||h.maxId>data.nextLoanId)return false;
- for(const [key,owners] of [['households',data.households],['firms',data.firms],['banks',data.banks||[]]]){const group=h[key];if(!group||typeof group!=='object'||Array.isArray(group)||Object.keys(group).length>owners.length)return false;for(const [id,r]of Object.entries(group))if(!/^\d+$/.test(id)||!owners[+id]||!row(r))return false;}
- return true;
+ if(h.version!==1||!row(h)||!Number.isSafeInteger(h.maxId)||h.maxId<0||!Number.isSafeInteger(data.nextLoanId)||h.maxId>data.nextLoanId)return false;
+ for(const [key,owners] of [['households',data.households],['firms',data.firms],['banks',data.banks||[]]]){const group=h[key];if(!group||typeof group!=='object'||Array.isArray(group)||Object.keys(group).length>owners.length+(key==='banks'?1:0))return false;for(const [id,r]of Object.entries(group)){const regional=key==='banks'&&id==='-1';if(!row(r)||!regional&&(!/^\d+$/.test(id)||String(+id)!==id||!owners[+id]))return false;}}
+ const sum=groups=>groups.flatMap(group=>Object.values(group)).reduce((a,r)=>({count:a.count+r.count,original:a.original+r.original,paid:a.paid+r.paid}),{count:0,original:0,paid:0}),same=a=>a.count===h.count&&['original','paid'].every(k=>Number.isFinite(a[k])&&Math.abs(a[k]-h[k])<=1e-6+Math.max(a[k],h[k])*1e-9);
+ return same(sum([h.households,h.firms]))&&same(sum([h.banks]));
 }
 function ensureFinance(){
  if(!G)return;

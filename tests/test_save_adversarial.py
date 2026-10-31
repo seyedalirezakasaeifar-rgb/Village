@@ -25,7 +25,7 @@ window.__saveQA=()=>{
   missingDepositBank:g=>g.households[0].deposits={999999:100},
   malformedBank:g=>g.banks.push({id:g.banks.length,cash:-1,depositAPY:.1,loanAPY:.1}),
   malformedLoan:g=>g.loans.push({id:999999,balance:-1,status:'active'}),
-  negativeLoanBank:g=>g.loans.push({id:999999,balance:100,status:'active',ownerType:'household',ownerId:0,bankId:-1,rate:.1}),
+  negativeLoanBank:g=>g.loans.push({id:999999,balance:100,status:'active',ownerType:'household',ownerId:0,bankId:-2,rate:.1}),
   duplicateBuildingId:g=>g.buildings[1].id=g.buildings[0].id,
   exhaustedIdCounter:g=>g.nextId=1,
   duplicateHomeId:g=>g.homes.push(g.homes[0]),

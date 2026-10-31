@@ -357,6 +357,23 @@ function restartViableEnterprise(){
 }
 
 // SOURCE: 10-finance.js
+// Compact only discharged receipts; active debts and default claims remain intact.
+function compactSettledLoans(){
+ if(G.loans.length<=2500)return;let remaining=Math.max(0,G.loans.length-1800);const keep=[];
+ for(const loan of G.loans){if(!remaining||loan.status!=='repaid'||loan.balance!==0||!Number.isSafeInteger(loan.id)||!Number.isFinite(loan.original)||loan.original<0||!Number.isFinite(loan.paid)||loan.paid<0){keep.push(loan);continue;}
+  const h=G.settledLoanHistory||(G.settledLoanHistory={version:1,count:0,original:0,paid:0,maxId:0,households:{},firms:{},banks:{}}),key=loan.ownerType==='firm'?'firms':'households';
+  for(const row of [h,h[key][loan.ownerId]||(h[key][loan.ownerId]={count:0,original:0,paid:0}),h.banks[loan.bankId]||(h.banks[loan.bankId]={count:0,original:0,paid:0})]){row.count++;row.original+=loan.original;row.paid+=loan.paid;}
+  h.maxId=Math.max(h.maxId,loan.id);G.nextLoanId=Math.max(G.nextLoanId||0,loan.id);remaining--;
+ }G.loans=keep;
+}
+function validateSettledLoanHistory(data){
+ const h=data.settledLoanHistory;if(h==null)return true;
+ const row=r=>r&&Number.isSafeInteger(r.count)&&r.count>=0&&Number.isFinite(r.original)&&r.original>=0&&Number.isFinite(r.paid)&&r.paid>=0;
+ if(h.version!==1||!row(h)||!Number.isSafeInteger(h.maxId)||h.maxId<0||!Number.isSafeInteger(data.nextLoanId)||h.maxId>data.nextLoanId)return false;
+ for(const [key,owners] of [['households',data.households],['firms',data.firms],['banks',data.banks||[]]]){const group=h[key];if(!group||typeof group!=='object'||Array.isArray(group)||Object.keys(group).length>owners.length+(key==='banks'?1:0))return false;for(const [id,r]of Object.entries(group)){const regional=key==='banks'&&id==='-1';if(!row(r)||!regional&&(!/^\d+$/.test(id)||String(+id)!==id||!owners[+id]))return false;}}
+ const sum=groups=>groups.flatMap(group=>Object.values(group)).reduce((a,r)=>({count:a.count+r.count,original:a.original+r.original,paid:a.paid+r.paid}),{count:0,original:0,paid:0}),same=a=>a.count===h.count&&['original','paid'].every(k=>Number.isFinite(a[k])&&Math.abs(a[k]-h[k])<=1e-6+Math.max(a[k],h[k])*1e-9);
+ return same(sum([h.households,h.firms]))&&same(sum([h.banks]));
+}
 function ensureFinance(){
  if(!G)return;
  if(!Array.isArray(G.banks))G.banks=[];
@@ -383,6 +400,7 @@ function availableBank(b){const reserve=Math.max(bankDeposits(b.id)*((G.policy.b
 function bestBank(loan=false){return G.banks.filter(b=>!b.closed&&availableBank(b)>3500&&bankEquity(b)>1000).sort((a,b)=>loan?a.loanAPY-b.loanAPY:b.depositAPY-a.depositAPY)[0]||null}
 function bankLoan(kind,id,amount,term=360){
  ensureFinance();if(!['firm','household'].includes(kind)||!Number.isFinite(amount)||amount<=0||!Number.isInteger(term)||term<30||term>3600)return null;let owner=kind==='firm'?G.firms[id]:G.households[id];if(!owner||owner.closed)return null;const decline=reason=>{owner.creditDecision={day:G.day,requested:amount,approved:false,reason};return null;};
+ compactSettledLoans();if(G.loans.length>=10000)return decline('The retained debt ledger is full of protected obligations. No advance was issued; existing debts and claims remain intact.');
  if(G.loans.some(l=>l.status==='active'&&l.ownerType===kind&&l.ownerId===id))return decline('An active loan already finances this borrower');
  const strict=(G.policy.lendingRules??35)/100;const score=clamp(owner.creditScore??.65,.05,.99);
  const ratio=kind==='firm'?amount/Math.max(1,owner.cash+1500):amount/Math.max(1,owner.cash+(owner.deposits?Object.values(owner.deposits).reduce((a,v)=>a+v,0):0));
@@ -540,7 +558,7 @@ function bankMarketEntry(){
 function bankDaily(){
  ensureFinance();loanPayments(G.loans.filter(l=>l.ownerType==='firm'||!G.households[l.ownerId]?.people.length));regionalCapitalMarket();bankCompetition();bankMarketEntry();
  // Keep fulfilled and defaulted loan history bounded; active loans are never discarded.
- if(G.loans.length>2500){const past=G.loans.filter(l=>l.status!=='active');const removable=new Set(past.slice(0,Math.max(0,G.loans.length-1800)).map(l=>l.id));if(removable.size)G.loans=G.loans.filter(l=>!removable.has(l.id));}
+ compactSettledLoans();
 
  // Overnight funds deposited with the regional clearing market earn a floating yield.
  // Every dollar of interest is paid by that counterparty; no currency is minted.
@@ -5033,6 +5051,7 @@ function hydrateSave(raw){
    if(idSet.has(b.id))return false;idSet.add(b.id);
   }
   for(const h of data.households)for(const id of h.people){if(memberSet.has(id)||data.people[id].hh!==h.id||data.people[id].deceased||data.people[id].movedAway)return false;memberSet.add(id)}
+  if(!validateSettledLoanHistory(data))return false;
   if(!normalizeArchiveTenancies(data))return false;
   if(!validateBrownfields(data)||!validateUrbanRetailLabour(data)||!validateArchiveRecords(data)||!validatePublicPlaces(data)||!validateTownSituations(data)||!validateCivicCampaign(data)||!validateUrbanRehousing(data)||!validateUrban(data)||!validateCivicProjects(data)||!validateMayorJourney(data)||!validatePrivateServices(data)||!validateDistrictProgrammes(data)||!validateRegionalTrade(data)||!validateWaterfrontArchive(data)||!validateGoodsAccounting(data))return false;
   if(!validateTransit(data)||!validateCivicState(data)||!validateCreditState(data)||!validateScenarioProgramme(data)||!validateCharter(data))return false;
@@ -5040,7 +5059,7 @@ function hydrateSave(raw){
   data.banks=Array.isArray(data.banks)?data.banks.filter(b=>b&&Number.isInteger(b.id)&&b.id>=0&&b.id<12&&Number.isFinite(b.cash)&&b.cash>=0&&Number.isFinite(b.depositAPY)&&Number.isFinite(b.loanAPY)).slice(0,12):[];
   data.loans=Array.isArray(data.loans)?data.loans.filter(l=>l&&Number.isInteger(l.id)&&Number.isFinite(l.balance)&&l.balance>=0&&['active','repaid','default'].includes(l.status)).slice(0,10000):[];
   if(new Set(data.banks.map(b=>b.id)).size!==data.banks.length||data.banks.some((b,i)=>b.id!==i))return false;
-  const loanIDs=new Set();for(const l of data.loans){if(loanIDs.has(l.id)||!['household','firm'].includes(l.ownerType)||!Number.isInteger(l.ownerId)||!Number.isInteger(l.bankId)||l.bankId<0||!Number.isFinite(l.rate)||l.rate<0||l.balance<0)return false;loanIDs.add(l.id);if(l.ownerType==='household'&&!data.households[l.ownerId]||l.ownerType==='firm'&&!data.firms[l.ownerId]||l.bankId>=data.banks.length)return false;}
+  const loanIDs=new Set();for(const l of data.loans){if(loanIDs.has(l.id)||!['household','firm'].includes(l.ownerType)||!Number.isInteger(l.ownerId)||!Number.isInteger(l.bankId)||l.bankId< -1||!Number.isFinite(l.rate)||l.rate<0||l.balance<0)return false;loanIDs.add(l.id);if(l.ownerType==='household'&&!data.households[l.ownerId]||l.ownerType==='firm'&&!data.firms[l.ownerId]||l.bankId>=data.banks.length)return false;}
   data.nextLoanId=Math.max(Number.isSafeInteger(data.nextLoanId)?data.nextLoanId:0,...data.loans.map(l=>l.id),0);
   data.finance={failures:0,businessDefaults:0,householdDefaults:0,creditIssued:0,depositLosses:0,insuredPayouts:0,foreclosures:0,downzonings:0,insolvencies:0,bankRuns:0,...(data.finance||{})};data.council=data.council||{approval:60,elections:0,factions:{workers:60,merchants:60,homeowners:60,public:60}};
   data.council.factions=data.council.factions||{workers:60,merchants:60,homeowners:60,public:60};data.achievements=data.achievements||[];data.ambition=data.ambition||'balanced';data.ambitionDays=data.ambitionDays||{};data.lastMonth=data.lastMonth||{};data.crisesHandled=data.crisesHandled||0;data.policyOutcomes=data.policyOutcomes||[];data.construction=data.construction||0;data.worldSeed=data.worldSeed||101;data.weather=data.weather||'clear';data.education=data.education||46;data.health=data.health||74;data.lastEventDay=data.lastEventDay||1;data.regionalDemand=data.regionalDemand||1;data.recentCouncilEvents=data.recentCouncilEvents||[];data.unrest=data.unrest||0;data.scenario=data.scenario||'settlement';data.stats=data.stats||{};data.history=data.history||[];data.journal=data.journal||[];data.events=data.events||[];data.cases=data.cases||[];data.cumulative={incomeTax:0,profitTax:0,propertyTax:0,foodTax:0,utilityTax:0,commercialRate:0,permits:0,tariffs:0,spending:0,crime:0,fires:0,welfare:0,...data.cumulative};
