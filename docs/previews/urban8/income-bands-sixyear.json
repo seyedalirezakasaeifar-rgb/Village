@@ -1,0 +1,255 @@
+{
+  "source_sha256": "8e6f536de9bc6fc8ee18d7fe1b43baed93c6f720594c2b0df875ba68229a0996",
+  "method": "Load six archived natural six-year cities (3 seeds \u00d7 market/planned) at day 2161, no injected money/households; block income is after-tax household income per resident; report occupied 8\u00d78 blocks and their actual residents, rent burden and condition. This is a cross-sectional 6-year audit, not a 10-year continuation.",
+  "results": [
+    {
+      "day": 2161,
+      "population": 1093,
+      "median": 24.02629134511097,
+      "thresholds": {
+        "lower": 17.298929768479898,
+        "higher": 33.636807883155356
+      },
+      "bands": {
+        "Middle income": {
+          "blocks": 27,
+          "residents": 959,
+          "meanBlockIncome": 24.09375708489857,
+          "meanRentBurden": 0.21141635579820067,
+          "meanCondition": 95.00742795546057
+        },
+        "Higher income": {
+          "blocks": 3,
+          "residents": 134,
+          "meanBlockIncome": 39.02024054984826,
+          "meanRentBurden": 0.09814629204514769,
+          "meanCondition": 99.59798026521555
+        }
+      },
+      "households": 438,
+      "blocks": 30,
+      "avgRent": 0.19180941146500316,
+      "zones": 0,
+      "districts": 27,
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15489571.99999905,
+        "population": 1093,
+        "day": 2161
+      },
+      "archive": "regional-101-market.json.gz"
+    },
+    {
+      "day": 2161,
+      "population": 1123,
+      "median": 23.48403411383909,
+      "thresholds": {
+        "lower": 16.908504561964143,
+        "higher": 32.877647759374725
+      },
+      "bands": {
+        "Middle income": {
+          "blocks": 29,
+          "residents": 1094,
+          "meanBlockIncome": 23.293747999821914,
+          "meanRentBurden": 0.2172505897580624,
+          "meanCondition": 95.66329020456068
+        },
+        "Higher income": {
+          "blocks": 1,
+          "residents": 29,
+          "meanBlockIncome": 37.18314498886498,
+          "meanRentBurden": 0.10242023797633464,
+          "meanCondition": 100
+        }
+      },
+      "households": 442,
+      "blocks": 30,
+      "avgRent": 0.2074517893168886,
+      "zones": 0,
+      "districts": 26,
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15489571.999992177,
+        "population": 1123,
+        "day": 2161
+      },
+      "archive": "regional-101-planned.json.gz"
+    },
+    {
+      "day": 2161,
+      "population": 1159,
+      "median": 23.359627573650474,
+      "thresholds": {
+        "lower": 16.818931853028342,
+        "higher": 32.70347860311066
+      },
+      "bands": {
+        "Lower income": {
+          "blocks": 1,
+          "residents": 13,
+          "meanBlockIncome": 16.77174992947755,
+          "meanRentBurden": 0.3011728216894017,
+          "meanCondition": 98.53138511580954
+        },
+        "Higher income": {
+          "blocks": 2,
+          "residents": 50,
+          "meanBlockIncome": 39.57361274919801,
+          "meanRentBurden": 0.08543990046630257,
+          "meanCondition": 100
+        },
+        "Middle income": {
+          "blocks": 25,
+          "residents": 1096,
+          "meanBlockIncome": 22.760672303014058,
+          "meanRentBurden": 0.22515714687585386,
+          "meanCondition": 95.61824040894908
+        }
+      },
+      "households": 446,
+      "blocks": 28,
+      "avgRent": 0.21104128843404502,
+      "zones": 0,
+      "districts": 26,
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15493516.999995708,
+        "population": 1159,
+        "day": 2161
+      },
+      "archive": "regional-42-market.json.gz"
+    },
+    {
+      "day": 2161,
+      "population": 1151,
+      "median": 23.112095791128098,
+      "thresholds": {
+        "lower": 16.64070896961223,
+        "higher": 32.356934107579335
+      },
+      "bands": {
+        "Middle income": {
+          "blocks": 27,
+          "residents": 1095,
+          "meanBlockIncome": 23.509940405425457,
+          "meanRentBurden": 0.22014946565602606,
+          "meanCondition": 95.5063924765619
+        },
+        "Higher income": {
+          "blocks": 2,
+          "residents": 56,
+          "meanBlockIncome": 36.739580120082195,
+          "meanRentBurden": 0.09600956313590434,
+          "meanCondition": 100
+        }
+      },
+      "households": 448,
+      "blocks": 29,
+      "avgRent": 0.1983176192531267,
+      "zones": 0,
+      "districts": 25,
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15493517.00000481,
+        "population": 1151,
+        "day": 2161
+      },
+      "archive": "regional-42-planned.json.gz"
+    },
+    {
+      "day": 2161,
+      "population": 1155,
+      "median": 23.168528333292407,
+      "thresholds": {
+        "lower": 16.681340399970534,
+        "higher": 32.43593966660937
+      },
+      "bands": {
+        "Middle income": {
+          "blocks": 26,
+          "residents": 1066,
+          "meanBlockIncome": 23.628596189272976,
+          "meanRentBurden": 0.21901251111496345,
+          "meanCondition": 95.27526317023253
+        },
+        "Lower income": {
+          "blocks": 1,
+          "residents": 11,
+          "meanBlockIncome": 16.262669370548124,
+          "meanRentBurden": 0.30267233034844543,
+          "meanCondition": 96.5
+        },
+        "Higher income": {
+          "blocks": 2,
+          "residents": 78,
+          "meanBlockIncome": 40.28585928451606,
+          "meanRentBurden": 0.08291134864949298,
+          "meanCondition": 99.74340929098787
+        }
+      },
+      "households": 441,
+      "blocks": 29,
+      "avgRent": 0.1990972552134552,
+      "zones": 0,
+      "districts": 25,
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15484591.000001699,
+        "population": 1155,
+        "day": 2161
+      },
+      "archive": "regional-909-market.json.gz"
+    },
+    {
+      "day": 2161,
+      "population": 1136,
+      "median": 23.641175325944914,
+      "thresholds": {
+        "lower": 17.021646234680336,
+        "higher": 33.09764545632288
+      },
+      "bands": {
+        "Higher income": {
+          "blocks": 2,
+          "residents": 25,
+          "meanBlockIncome": 36.46882626917814,
+          "meanRentBurden": 0.11083535445150056,
+          "meanCondition": 98.26178458335175
+        },
+        "Middle income": {
+          "blocks": 26,
+          "residents": 1098,
+          "meanBlockIncome": 24.145665805087795,
+          "meanRentBurden": 0.21324250080145452,
+          "meanCondition": 95.13226995257688
+        },
+        "Lower income": {
+          "blocks": 1,
+          "residents": 13,
+          "meanBlockIncome": 15.966236154114112,
+          "meanRentBurden": 0.30982073181839603,
+          "meanCondition": 93
+        }
+      },
+      "households": 443,
+      "blocks": 29,
+      "avgRent": 0.2048503296932949,
+      "zones": 0,
+      "districts": 24,
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15484590.999996323,
+        "population": 1136,
+        "day": 2161
+      },
+      "archive": "regional-909-planned.json.gz"
+    }
+  ]
+}

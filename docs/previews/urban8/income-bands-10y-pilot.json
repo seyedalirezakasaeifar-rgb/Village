@@ -1,0 +1,44 @@
+{
+  "source_sha256": "8e6f536de9bc6fc8ee18d7fe1b43baed93c6f720594c2b0df875ba68229a0996",
+  "method": "Load the archived six-year regional seed-42 planned city at day 2161 and continue ten years (3650 ordinary simulation days in 365-day chunks) with no money/household injections. Block income is after-tax household income per resident; this one-city ten-year extension is not multi-seed evidence.",
+  "results": [
+    {
+      "day": 5811,
+      "population": 1236,
+      "median": 16.41846994787617,
+      "thresholds": {
+        "lower": 11.821298362470841,
+        "higher": 22.985857927026636
+      },
+      "bands": {
+        "Middle income": {
+          "blocks": 29,
+          "residents": 1228,
+          "meanBlockIncome": 16.32339863581188,
+          "meanRentBurden": 0,
+          "meanCondition": 95.78430146941915
+        },
+        "Higher income": {
+          "blocks": 1,
+          "residents": 8,
+          "meanBlockIncome": 27.36888054190773,
+          "meanRentBurden": 0,
+          "meanCondition": 98.25
+        }
+      },
+      "households": 416,
+      "blocks": 30,
+      "avgRent": 0.2348833593307035,
+      "zones": 0,
+      "districts": 32,
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15493517.000024721,
+        "population": 1236,
+        "day": 5811
+      },
+      "archive": "regional-42-planned.json.gz"
+    }
+  ]
+}

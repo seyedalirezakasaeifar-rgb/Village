@@ -60,3 +60,10 @@ TOWNLEDGER_USE_HTTP=1 PYTHONPATH=tools/browser_http_adapter TOWNLEDGER_URBAN_SEE
 ```
 
 Hashed results, compressed journey trace/final archive and inspected desktop/mobile screenshots are in `docs/previews/growth-journey/`. Relevant regressions cover planning boundaries, council review workflows and the 21-parcel region survey. No performance, new graphics, deployment or APK claim is made.
+
+
+## Relative income-band audit
+
+The six natural regional trajectories at day 2161 (three seeds, each market-led and planned) show bands are derived from observed after-tax household income per resident in occupied 8×8 blocks, compared with the unweighted median of those blocks. Lower means below 72% of that town median; higher means above 140%; all other occupied blocks are middle. In these six runs, lower-income blocks appeared in three (one block each) and higher-income blocks in all six (one to three blocks); most residents remained in middle-band blocks. The 10-year planned seed-42 continuation (day 5811) had 29 middle blocks (1,228 residents), one higher block (8 residents), and no lower-income blocks. This indicates some income differentiation, but weak geographic segregation; the band labels are not a substitute for a richer housing, wealth and mobility model. Rent burden and service access remain independent observed measures, not inputs to income class.
+
+The neighbourhood guide now spells out the thresholds and explains that they move with the town median, that empty blocks have no resident income band, and that map colors defer to agricultural/civic plans. It also separates income coloring from the independent rent-burden, property-condition and service-access measurements, so the overlay does not imply that income labels establish amenity coverage. Evidence: `docs/previews/urban8/income-bands-sixyear.json` (six natural archived cities) and `income-bands-10y-pilot.json` (one natural 10-year continuation). The ten-year continuation took about 2.5 minutes and is intentionally limited to one city; no 20-year or multi-seed long-run claim is made.
