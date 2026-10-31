@@ -67,11 +67,13 @@ function settleRegionalExport(f,good,requested,price){
  return sold;
 }
 function waterfrontDemand(){const active=G.firms.filter(f=>f.kind==='wharf'&&!f.closed);return active.length?0:Math.min(80,G.stats.population/5);}
-function initializeWaterfrontStart(){
- // New settlements inherit a paid, privately capitalised landing. Existing
- // archives are never given free firms, roads or title changes during migration.
+function reserveFoundingWaterfrontRoads(){
+ // Reserve the landing approach before crop titles are allocated.
  for(let x=5;x<=8;x++){const id=roadId(x,27);if(!buildingAt(x,27)){G.tiles[id]=1;G.roadClasses[id]='local';G.streetNames[id]='Landing Lane';}}
  const side=roadId(5,26);if(!buildingAt(5,26)&&G.tiles[side]!==2){G.tiles[side]=1;G.roadClasses[side]='local';G.streetNames[side]='Landing Lane';}invalidateRoads();
+}
+function initializeWaterfrontStart(){
+ // Only new settlements inherit these funded businesses; archives gain none.
  for(const [kind,x,y] of [['fishery',4,27],['wharf',4,26]]){if(!canPlace(x,y,true,kind)||G.region<25000)continue;const f=createFirm(kind,x,y);if(!f)continue;G.region-=f.cash;privateContract(types[kind].cost);f.name=kind==='fishery'?'Vale Net & Line':'Vale River Landing';f.owner=G.households.length?0:-1;}
  assignJobs();ensureWaterfront();
 }

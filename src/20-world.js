@@ -61,6 +61,7 @@ function seed(seedValue=42){
      G.people.push(p);hh.people.push(p.id)
    }
  }
+ reserveFoundingWaterfrontRoads();
  // The five founding farmsteads own actual surrounding wheat or maize fields.
  // Reserve farmland after town lots are allocated so crops never invade roads
  // or homes. Cropland is not itself a decorative building or a cash subsidy.

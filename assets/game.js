@@ -167,6 +167,8 @@ function recordObservation(){
 function validateTown(){
  const issues=[],claimed=new Set(),members=new Set(),workers=new Set();
  for(const b of G.buildings)for(const id of footprintOf(b)){if(claimed.has(id)||G.tiles[id]===1||G.tiles[id]===2||G.landUse?.[id])issues.push('Occupied footprint collision '+b.id+':'+id);claimed.add(id);}
+ const cropCounts={};for(const [key,code] of Object.entries(G.landUse||{})){const id=Number(key);if(!Number.isInteger(id)||id<0||id>=T*T||![1,2,3].includes(code)||G.tiles[id]!==0||claimed.has(id))issues.push('Reserved land collision '+key);if(code===1){const owner=G.fieldOwner?.[key];if(!Number.isInteger(owner)||G.firms[owner]?.kind!=='farm')issues.push('Invalid crop title '+key);else cropCounts[owner]=(cropCounts[owner]||0)+1;}}
+ for(const f of G.firms)if(f.kind==='farm'&&(G.fieldCount?.[f.id]||0)!==(cropCounts[f.id]||0))issues.push('Crop count mismatch '+f.id);
  for(const h of G.households){if(!Number.isFinite(h.cash)||h.cash<-.01)issues.push('Invalid household cash '+h.id);for(const id of h.people){if(members.has(id)||G.people[id]?.hh!==h.id||G.people[id]?.deceased||G.people[id]?.movedAway)issues.push('Household membership '+id);members.add(id);}}
  for(const p of G.people)if(!p.deceased&&!p.movedAway&&!members.has(p.id))issues.push('Unhoused identity '+p.id);
  for(const f of G.firms){if(!Number.isFinite(f.cash)||f.cash<-.01)issues.push('Invalid business cash '+f.id);for(const id of f.workers){if(workers.has(id)||G.people[id]?.job!==f.id)issues.push('Employment ownership '+id);workers.add(id);}}
@@ -985,6 +987,7 @@ function seed(seedValue=42){
      G.people.push(p);hh.people.push(p.id)
    }
  }
+ reserveFoundingWaterfrontRoads();
  // The five founding farmsteads own actual surrounding wheat or maize fields.
  // Reserve farmland after town lots are allocated so crops never invade roads
  // or homes. Cropland is not itself a decorative building or a cash subsidy.
@@ -1169,11 +1172,13 @@ function settleRegionalExport(f,good,requested,price){
  return sold;
 }
 function waterfrontDemand(){const active=G.firms.filter(f=>f.kind==='wharf'&&!f.closed);return active.length?0:Math.min(80,G.stats.population/5);}
-function initializeWaterfrontStart(){
- // New settlements inherit a paid, privately capitalised landing. Existing
- // archives are never given free firms, roads or title changes during migration.
+function reserveFoundingWaterfrontRoads(){
+ // Reserve the landing approach before crop titles are allocated.
  for(let x=5;x<=8;x++){const id=roadId(x,27);if(!buildingAt(x,27)){G.tiles[id]=1;G.roadClasses[id]='local';G.streetNames[id]='Landing Lane';}}
  const side=roadId(5,26);if(!buildingAt(5,26)&&G.tiles[side]!==2){G.tiles[side]=1;G.roadClasses[side]='local';G.streetNames[side]='Landing Lane';}invalidateRoads();
+}
+function initializeWaterfrontStart(){
+ // Only new settlements inherit these funded businesses; archives gain none.
  for(const [kind,x,y] of [['fishery',4,27],['wharf',4,26]]){if(!canPlace(x,y,true,kind)||G.region<25000)continue;const f=createFirm(kind,x,y);if(!f)continue;G.region-=f.cash;privateContract(types[kind].cost);f.name=kind==='fishery'?'Vale Net & Line':'Vale River Landing';f.owner=G.households.length?0:-1;}
  assignJobs();ensureWaterfront();
 }
@@ -2065,7 +2070,7 @@ function occupyVacantHousing(){
 // Persistence chronology is separate from simulated days and deterministic exports.
 // A new founding/import is a new timeline; logical order survives clock changes.
 let saveEpoch=0,saveOrder=0,saveRevision=0,saveTown='',saveStoreReady=false;
-let saveStorePromise=Promise.resolve(),saveWrites=Promise.resolve(),saveCandidates=[],saveWarningEpoch=0;
+let saveStorePromise=Promise.resolve(),saveWrites=Promise.resolve(),saveCandidates=[],saveWarningEpoch=0,savePendingWrite=null,saveWriteRunning=false,waitingSave=null;
 function beginSaveTimeline(){saveEpoch++;saveRevision=0;autoSaveOK=false;try{saveTown=Array.from(crypto.getRandomValues(new Uint32Array(4)),n=>n.toString(16)).join('-')}catch(_){saveTown='session-'+saveEpoch+'-'+Math.random().toString(36).slice(2)}return saveEpoch;}
 function saveEnvelope(payload){
  if(!saveTown)beginSaveTimeline();
@@ -2087,22 +2092,33 @@ function readSaveEnvelope(value){
 }
 function localSaveCandidates(){const out=[];for(const key of ['townledger-v6','townledger-v6-backup'])try{const e=readSaveEnvelope(localStorage.getItem(key));if(e)out.push(e)}catch(_){}return out;}
 function observeSaveOrder(e){if(e)saveOrder=Math.max(saveOrder,e.order||0);}
+function queueIndexedWrite(envelope,epoch){
+ const promise=new Promise(resolve=>{
+  if(savePendingWrite&&savePendingWrite.epoch!==epoch){for(const done of savePendingWrite.waiters)done(false);savePendingWrite=null;}
+  if(savePendingWrite){savePendingWrite.envelope=envelope;savePendingWrite.waiters.push(resolve)}
+  else savePendingWrite={envelope,epoch,waiters:[resolve]};
+ });
+ saveWrites=promise;
+ if(!saveWriteRunning){saveWriteRunning=true;(async()=>{try{while(savePendingWrite){const job=savePendingWrite;savePendingWrite=null;let ok=false;if(job.epoch===saveEpoch)try{ok=await writeIndexedDB(job.envelope,job.epoch)}catch(_){}for(const done of job.waiters)done(ok)}}finally{saveWriteRunning=false}})();}
+ return promise;
+}
 function persistSnapshot(payload,epoch){
  if(epoch!==saveEpoch)return Promise.resolve(false);
  let e;try{for(const v of localSaveCandidates())observeSaveOrder(v);e=saveEnvelope(payload)}catch(_){autoSaveOK=false;return Promise.resolve(false)}
  let localOK=false;const text=JSON.stringify(e),key='townledger-v6';
  try{const previous=localStorage.getItem(key);if(readSaveEnvelope(previous)){try{localStorage.setItem(key+'-backup',previous)}catch(_){/* A full backup slot must not prevent updating the primary. */}}localStorage.setItem(key,text);localOK=true;try{localStorage.removeItem('townledger-village-founder-3')}catch(_){}}catch(_){}
  autoSaveOK=localOK;
- // Queue transactions in invocation order; callbacks from a replaced town cannot write.
- const write=saveWrites.catch(()=>false).then(()=>epoch===saveEpoch?writeIndexedDB(e,epoch):false);
- saveWrites=write;
- return write.then(idbOK=>{const ok=localOK||idbOK;if(epoch===saveEpoch&&e.order===saveOrder){autoSaveOK=ok;if(ok)saveWarningEpoch=0;else if(saveWarningEpoch!==epoch){saveWarningEpoch=epoch;toast('On-device saving is unavailable. Export a backup before leaving.')}}return ok;});
+ // Keep one active and one latest pending snapshot; superseded clicks share completion.
+ const revision=e.revision,town=e.town,write=queueIndexedWrite(e,epoch);
+ return write.then(idbOK=>{const ok=localOK||idbOK;if(epoch===saveEpoch&&revision===saveRevision&&town===saveTown){autoSaveOK=ok;if(ok)saveWarningEpoch=0;else if(saveWarningEpoch!==epoch){saveWarningEpoch=epoch;toast('On-device saving is unavailable. Export a backup before leaving.')}}return ok;});
 }
 function save(){
  if(!G||simulationBusy)return Promise.resolve(false);
- let payload;try{payload=archivePayload()}catch(_){autoSaveOK=false;return Promise.resolve(false)}
  const epoch=saveEpoch;
- return saveStoreReady?persistSnapshot(payload,epoch):saveStorePromise.then(()=>persistSnapshot(payload,epoch));
+ // During the bounded startup read, serialize only the latest active town once.
+ if(!saveStoreReady){if(waitingSave?.epoch===epoch)return waitingSave.promise;const promise=saveStorePromise.then(()=>epoch===saveEpoch?save():false);waitingSave={epoch,promise};return promise;}
+ let payload;try{payload=archivePayload()}catch(_){autoSaveOK=false;return Promise.resolve(false)}
+ return persistSnapshot(payload,epoch);
 }
 function restoreSaveEnvelope(e){observeSaveOrder(e);if(!hydrateSave(e.payload))return false;saveTown=e.town||saveTown;saveRevision=e.revision||0;autoSaveOK=true;return true;}
 function load(){
@@ -3103,7 +3119,7 @@ $('panelBody').addEventListener('click',e=>{const b=e.target.closest('button,[da
  if(b.dataset.filterFirms){filterFirms=b.dataset.filterFirms;renderPanel('businesses');return}
  if(b.dataset.buildCategory){constructionCategory=b.dataset.buildCategory;renderPanel('construction');return}
  if(b.id==='focusBad'){const poor=G.households.filter(h=>h.people.length>0&&readBuild(h.home)).sort((a,b)=>a.cash/Math.max(1,a.people.length)-b.cash/Math.max(1,b.people.length))[0];if(poor&&readBuild(poor.home)){selected={id:poor.home};openPanel('inspect')}return}
- if(b.id==='saveNow'){const epoch=saveEpoch;save().then(ok=>{if(epoch===saveEpoch)toast(ok?'Village saved on this device.':'Saving failed; export a backup before leaving.')})}
+ if(b.id==='saveNow'){const epoch=saveEpoch,label=b.textContent;b.disabled=true;b.textContent='SAVING…';b.setAttribute('aria-busy','true');save().then(ok=>{if(b.isConnected){b.disabled=false;b.textContent=label;b.removeAttribute('aria-busy')}if(epoch===saveEpoch)toast(ok?'Village saved on this device.':'Saving failed; export a backup before leaving.')})}
  if(b.id==='restart'){showCustomEvent('TOWN ARCHIVE','Found another town?','Starting a new village will overwrite your most recent local autosave. Export a backup before proceeding.',[
   {title:'Keep the present village',desc:'Return to your existing town.',apply:()=>{}},
   {title:'Start a fresh village',desc:'Discard the current local save and return to the founding menu.',apply:()=>{start(true);closePanel();toast('A new village has been founded.')}}
