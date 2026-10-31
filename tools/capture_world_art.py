@@ -5,11 +5,11 @@ sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'tests'))
 from test_mobile_rendering import ROOT,html
 from playwright.sync_api import sync_playwright
 from PIL import Image
-out=ROOT/'reports/visual-world';out.mkdir(parents=True,exist_ok=True)
-base=subprocess.check_output(['git','show','1de6930:assets/game.js'],cwd=ROOT).decode()
+out=ROOT/(sys.argv[2] if len(sys.argv)>2 else 'reports/visual-world');out.mkdir(parents=True,exist_ok=True)
+base=subprocess.check_output(['git','show',(sys.argv[1] if len(sys.argv)>1 else '1de6930')+':assets/game.js'],cwd=ROOT).decode()
 current=(ROOT/'assets/game.js').read_text();results=[];frames=[]
 probe='''window.__artCamera=(scene)=>{
- const shop=G.buildings.find(b=>b.kind==='factory'),m=OUTSIDE_MARKETS[0],id=regionalGateway(m),p=scene==='gateway'?roadCenter(id):iso(shop.x,shop.y);
+ const shop=G.buildings.find(b=>b.kind===(scene==='civic'?'school':scene==='neighbourhood'?'home':'factory')),m=OUTSIDE_MARKETS[0],id=regionalGateway(m),p=scene==='gateway'?roadCenter(id):iso(shop.x,shop.y);
  cam={x:p[0],y:p[1]+30,zoom:scene==='gateway'?1.8:1.6};dirty=true;draw();
 };window.__freightFilm=(t)=>{
  const m=OUTSIDE_MARKETS[0],gate=regionalGateway(m),f=G.firms.find(f=>regionalRoadPath(f,m).length>4),path=regionalRoadPath(f,m).slice().reverse();
@@ -21,8 +21,10 @@ with sync_playwright() as pw:
  for label,source in [('before',base),('after',current)]:
   p=b.new_page(viewport={'width':960,'height':640});errors=[];p.on('pageerror',lambda e:errors.append(str(e)))
   p.set_content(html);p.add_script_tag(content=source.replace('// SOURCE: 99-instrumentation.js',probe+'\n// SOURCE: 99-instrumentation.js'));p.locator('#newTown').click();p.locator('#pause').click();p.evaluate("__townTest.reset('settlement',42)");p.locator('#panelClose').click()
-  for scene in ['industry','gateway']:
+  for scene in ['industry','gateway','neighbourhood','civic']:
    p.evaluate('__artCamera',scene);p.locator('#view').screenshot(path=str(out/(label+'-'+scene+'.png')))
+  p.evaluate('__artCamera', 'civic');p.evaluate('__townTest.capture({night:true})');p.locator('#view').screenshot(path=str(out/(label+'-night.png')));p.evaluate('__townTest.capture({night:false})')
+  p.set_viewport_size({'width':844,'height':390});p.wait_for_timeout(100);p.evaluate('__townTest.capture({zoom:.8})');p.locator('#view').screenshot(path=str(out/(label+'-mobile.png')));p.set_viewport_size({'width':960,'height':640});p.wait_for_timeout(100)
   if label=='after':
    for i in range(36):
     p.evaluate('__freightFilm',i*.025);frames.append(Image.open(io.BytesIO(p.locator('#view').screenshot())).convert('RGB'))
