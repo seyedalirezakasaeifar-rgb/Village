@@ -1,0 +1,584 @@
+{
+  "source_sha256": "7e730235c0fbd4275d4efc1e0ae39d28350d7d813cfa7f7eaba4332ab636ccfc",
+  "base": "31987fcbe108e9d9cb8ed7ce4155f51cd234ba62",
+  "integrated_worker": "4bc2ba2eb385d2ca1d9e5fe239ace6ef8723eb49",
+  "evidence": {
+    "authorization": {
+      "source_sha256": "7e730235c0fbd4275d4efc1e0ae39d28350d7d813cfa7f7eaba4332ab636ccfc",
+      "smallTown": {
+        "population": 169,
+        "required": 280,
+        "range": {
+          "min": 0,
+          "max": 500,
+          "step": 0.01,
+          "hardMax": 50000
+        },
+        "pure": true
+      },
+      "validation": {
+        "invalidEnact": 22,
+        "invalidArchives": 16,
+        "legacyMissing": true,
+        "higherBudgetRoundtrip": true
+      },
+      "regionalBefore": {
+        "day": 2161,
+        "population": 1151,
+        "treasury": 689121.0775496188,
+        "school": {
+          "kind": "school",
+          "population": 1151,
+          "wage": 28,
+          "full": 1906.9822485207098,
+          "reachable": 1906.9822485206978,
+          "combinedGap": 1906.9822485206978,
+          "facilities": 9,
+          "observed": false,
+          "access": 0.9999999999999937,
+          "publicCoverage": 0,
+          "privateCoverage": 0,
+          "combinedCoverage": 0,
+          "staffing": null,
+          "pendingDay": null
+        },
+        "outlook": {
+          "ceiling": 4007,
+          "currentNeed": 4007,
+          "dailyReceipts": 5930.331890226757,
+          "cash": 689121.0775496188,
+          "deficit": -1923.3318902267574,
+          "runway": null,
+          "estimates": {
+            "health": {
+              "kind": "health",
+              "population": 1151,
+              "wage": 28,
+              "full": 708.3076923076923,
+              "reachable": 708.3076923076923,
+              "combinedGap": 708.3076923076923,
+              "facilities": 7,
+              "observed": false,
+              "access": 1,
+              "publicCoverage": 0,
+              "privateCoverage": 0,
+              "combinedCoverage": 0,
+              "staffing": null,
+              "pendingDay": null
+            },
+            "school": {
+              "kind": "school",
+              "population": 1151,
+              "wage": 28,
+              "full": 1906.9822485207098,
+              "reachable": 1906.9822485206978,
+              "combinedGap": 1906.9822485206978,
+              "facilities": 9,
+              "observed": false,
+              "access": 0.9999999999999937,
+              "publicCoverage": 0,
+              "privateCoverage": 0,
+              "combinedCoverage": 0,
+              "staffing": null,
+              "pendingDay": null
+            }
+          }
+        }
+      },
+      "regionalTrajectory": [
+        {
+          "day": 2162,
+          "population": 1151,
+          "treasury": 693006.1258777361,
+          "authorized": 1907,
+          "required": 1906.9822485207098,
+          "paid": 500.00000000000006,
+          "publicCoverage": 0.2621943651483183,
+          "privateCoverage": 0.09296486998135924,
+          "combined": 0.3551592351296775,
+          "staffing": {
+            "local": 8,
+            "regional": 3.6071428571428577,
+            "needed": 44.26923076923077,
+            "coverage": 0.2621943651483183,
+            "pending": {
+              "target": 36.26923076923049,
+              "day": 2192
+            },
+            "qualification": 0.55
+          },
+          "education": 67.60161632964119,
+          "cashError": 7.450580596923828e-09
+        },
+        {
+          "day": 2191,
+          "population": 1151,
+          "treasury": 703232.1495751212,
+          "authorized": 1907,
+          "required": 1906.9822485207098,
+          "paid": 500.00000000000006,
+          "publicCoverage": 0.2621943651483183,
+          "privateCoverage": 0.09040081912175305,
+          "combined": 0.3525951842700713,
+          "staffing": {
+            "local": 8,
+            "regional": 3.6071428571428577,
+            "needed": 44.26923076923077,
+            "coverage": 0.2621943651483183,
+            "pending": {
+              "target": 36.26923076923049,
+              "day": 2192
+            },
+            "qualification": 0.55
+          },
+          "education": 67.83229034723375,
+          "cashError": -2.421438694000244e-08
+        },
+        {
+          "day": 2192,
+          "population": 1151,
+          "treasury": 706268.5320477746,
+          "authorized": 1907,
+          "required": 1906.9822485207098,
+          "paid": 1906.9822485206978,
+          "publicCoverage": 0.9999999999999937,
+          "privateCoverage": 0,
+          "combined": 0.9999999999999937,
+          "staffing": {
+            "local": 8,
+            "regional": 36.26923076923049,
+            "needed": 44.26923076923077,
+            "coverage": 0.9999999999999938,
+            "pending": null,
+            "qualification": 0.55
+          },
+          "education": 67.87129034723375,
+          "cashError": -2.2351741790771484e-08
+        },
+        {
+          "day": 2222,
+          "population": 1151,
+          "treasury": 683295.1109570181,
+          "authorized": 1907,
+          "required": 1906.9822485207098,
+          "paid": 1906.9822485206978,
+          "publicCoverage": 0.9999999999999937,
+          "privateCoverage": 0,
+          "combined": 0.9999999999999937,
+          "staffing": {
+            "local": 8,
+            "regional": 36.26923076923049,
+            "needed": 44.26923076923077,
+            "coverage": 0.9999999999999938,
+            "pending": null,
+            "qualification": 0.55
+          },
+          "education": 69.0412903472338,
+          "cashError": -4.470348358154297e-08
+        },
+        {
+          "day": 2312,
+          "population": 1168,
+          "treasury": 640452.9495182353,
+          "authorized": 1907,
+          "required": 1935.1479289940828,
+          "paid": 1907,
+          "publicCoverage": 0.985454378669276,
+          "privateCoverage": 0.0016687613512988175,
+          "combined": 0.9871231400205748,
+          "staffing": {
+            "local": 32,
+            "regional": 27.269642857142856,
+            "needed": 44.92307692307692,
+            "coverage": 1,
+            "pending": {
+              "target": 12.269642857142856,
+              "day": 2316
+            },
+            "qualification": 0.55
+          },
+          "education": 72.51518428633547,
+          "cashError": -5.308538675308228e-07
+        }
+      ],
+      "cashConstraint": {
+        "controlledCashFixture": true,
+        "authorized": 50000,
+        "paid": 0,
+        "coverage": 0,
+        "unused": 50000,
+        "negativeCashPreserved": -100,
+        "negativeRecommendation": 0,
+        "conserved": true
+      },
+      "screens": [
+        {
+          "width": 1280,
+          "control": {
+            "x": 861,
+            "right": 1243
+          },
+          "amountHeight": 44,
+          "minButtonHeight": 44,
+          "overflow": false,
+          "actualPresetAndEnact": true
+        },
+        {
+          "width": 390,
+          "control": {
+            "x": 27,
+            "right": 343
+          },
+          "amountHeight": 44,
+          "minButtonHeight": 44,
+          "overflow": false,
+          "actualPresetAndEnact": true
+        },
+        {
+          "width": 320,
+          "control": {
+            "x": 23,
+            "right": 277
+          },
+          "amountHeight": 44,
+          "minButtonHeight": 44,
+          "overflow": false,
+          "actualPresetAndEnact": true
+        }
+      ],
+      "errors": []
+    },
+    "core": {
+      "source_sha256": "7e730235c0fbd4275d4efc1e0ae39d28350d7d813cfa7f7eaba4332ab636ccfc",
+      "determinism_and_continuation": {
+        "sameSeed": true,
+        "renderIndependent": true,
+        "continuedDays": 120,
+        "valid": {
+          "ok": true,
+          "issues": [],
+          "total": 15489571.999995582,
+          "population": 188,
+          "day": 301
+        }
+      },
+      "malformed_save_atomicity": {
+        "investorRejected": true,
+        "cargoRejected": true,
+        "futureRejected": true,
+        "townPreserved": true
+      },
+      "replicated_zoning": [
+        {
+          "seed": 42,
+          "zone": 0,
+          "population": 210,
+          "homes": 16,
+          "firms": 7,
+          "privateSpend": 486062,
+          "moneyDelta": -1.6868114471435547e-05,
+          "ms": 3298.9000000059605
+        },
+        {
+          "seed": 42,
+          "zone": 100,
+          "population": 182,
+          "homes": 0,
+          "firms": 1,
+          "privateSpend": 0,
+          "moneyDelta": -1.1816620826721191e-05,
+          "ms": 2262.3999999910593
+        },
+        {
+          "seed": 101,
+          "zone": 0,
+          "population": 222,
+          "homes": 21,
+          "firms": 7,
+          "privateSpend": 560318,
+          "moneyDelta": -1.2537464499473572e-05,
+          "ms": 2969.7999999970198
+        },
+        {
+          "seed": 101,
+          "zone": 100,
+          "population": 186,
+          "homes": 0,
+          "firms": 1,
+          "privateSpend": 0,
+          "moneyDelta": -4.675239324569702e-06,
+          "ms": 2168.5
+        },
+        {
+          "seed": 909,
+          "zone": 0,
+          "population": 211,
+          "homes": 19,
+          "firms": 5,
+          "privateSpend": 507601,
+          "moneyDelta": -1.5651807188987732e-05,
+          "ms": 2716.2000000029802
+        },
+        {
+          "seed": 909,
+          "zone": 100,
+          "population": 187,
+          "homes": 0,
+          "firms": 1,
+          "privateSpend": 0,
+          "moneyDelta": -1.2073665857315063e-05,
+          "ms": 2005.0999999940395
+        }
+      ],
+      "cargo_ownership": {
+        "consignments": 6,
+        "sampledUnits": 166.3792513597068,
+        "remaining": true,
+        "delayed": 1,
+        "cashConserved": true
+      },
+      "legacy_56_migration": {
+        "v": {
+          "ok": true,
+          "issues": [],
+          "total": 15439153,
+          "population": 169,
+          "day": 1
+        },
+        "after": {
+          "ok": true,
+          "issues": [],
+          "total": 15439152.999999082,
+          "population": 169,
+          "day": 31
+        },
+        "schema": 8
+      },
+      "true_pause": {
+        "identicalScreenshots": true,
+        "milliseconds": 500
+      },
+      "traffic_progress": {
+        "seconds": 1600,
+        "maximumWait": 0.9999999999999999,
+        "peak": 21,
+        "valid": true
+      },
+      "long_run_endurance": [],
+      "browser_errors": []
+    },
+    "rentReplay": {
+      "source_sha256": "7e730235c0fbd4275d4efc1e0ae39d28350d7d813cfa7f7eaba4332ab636ccfc",
+      "httpOrigin": true,
+      "expectedNegative": false,
+      "result": {
+        "day": 31,
+        "staffing": {
+          "firm": 0,
+          "oldJobs": 2,
+          "newJobs": 3,
+          "actualPlanEnterprise": true
+        },
+        "exact": true,
+        "changed": [],
+        "rentChanges": [],
+        "rngA": 633198347,
+        "rngB": 633198347,
+        "moneyDrift": -5.4016709327697754e-08,
+        "sourceDoesNotDependOnPresentation": true
+      }
+    },
+    "compositeSave": {
+      "source_sha256": "7e730235c0fbd4275d4efc1e0ae39d28350d7d813cfa7f7eaba4332ab636ccfc",
+      "controlledCatchment": true,
+      "result": {
+        "grid": 128,
+        "people": 1375,
+        "routes": 2,
+        "settledTickets": 1,
+        "fares": 3.25,
+        "cargo": 20,
+        "providerEscrow": 6000,
+        "mallEscrow": 28000,
+        "cashConserved": true,
+        "receiptsPreserved": true,
+        "faults": {
+          "grid": 128,
+          "schema": 8,
+          "recordsRejected": [
+            "missingMember",
+            "duplicateMember",
+            "householdMismatch",
+            "missingHome",
+            "tileUsedAsHomeId",
+            "missingFirmBuilding",
+            "negativeStock",
+            "invalidStock",
+            "unknownStock",
+            "negativeDeposit",
+            "missingDepositBank",
+            "malformedBank",
+            "malformedLoan",
+            "negativeLoanBank",
+            "duplicateBuildingId",
+            "exhaustedIdCounter",
+            "duplicateHomeId",
+            "orphanWorker",
+            "duplicateWorker",
+            "missingOwner",
+            "missingTitleHolder",
+            "truncatedTiles",
+            "malformedProject",
+            "futureSchema",
+            "invalidDay"
+          ],
+          "truncatedRejected": 4,
+          "callerIndependent": true,
+          "atomicRNGAndTimeline": true
+        }
+      }
+    },
+    "privateViability": {
+      "source_sha256": "7e730235c0fbd4275d4efc1e0ae39d28350d7d813cfa7f7eaba4332ab636ccfc",
+      "controlledCompetition": {
+        "served": 139,
+        "own": 32,
+        "competing": 0,
+        "released": 9,
+        "poor": {
+          "clients": 0,
+          "capacity": 16,
+          "fee": 3,
+          "staff": 1,
+          "wage": 36,
+          "revenue": 0,
+          "payroll": 36,
+          "overhead": 4.641666666666667,
+          "profit": -40.641666666666666,
+          "net": -40.641666666666666
+        },
+        "tiny": {
+          "clients": 0,
+          "capacity": 16,
+          "fee": 3,
+          "staff": 1,
+          "wage": 36,
+          "revenue": 0,
+          "payroll": 36,
+          "overhead": 4.641666666666667,
+          "profit": -40.641666666666666,
+          "net": -40.641666666666666
+        },
+        "zeroPayrollExit": true,
+        "cashDrift": 0
+      },
+      "naturalThreeYearSeeds": [
+        {
+          "seed": 42,
+          "day": 1081,
+          "closed": [],
+          "maxSameProviderClosures": 0,
+          "providers": [
+            {
+              "id": 26,
+              "closed": false,
+              "clients": 46,
+              "staff": 3,
+              "cash": 26584.760956067537
+            },
+            {
+              "id": 30,
+              "closed": false,
+              "clients": 0,
+              "staff": 0,
+              "cash": 0
+            },
+            {
+              "id": 34,
+              "closed": false,
+              "clients": 128.1367964368566,
+              "staff": 2,
+              "cash": 11643.360226299195
+            }
+          ],
+          "cashDrift": -3.371015191078186e-05
+        },
+        {
+          "seed": 101,
+          "day": 1081,
+          "closed": [
+            {
+              "id": 28,
+              "day": 767
+            }
+          ],
+          "maxSameProviderClosures": 1,
+          "providers": [
+            {
+              "id": 26,
+              "closed": false,
+              "clients": 37,
+              "staff": 3,
+              "cash": 25901.486135337265
+            },
+            {
+              "id": 28,
+              "closed": true,
+              "clients": 0,
+              "staff": 0,
+              "cash": 0
+            }
+          ],
+          "cashDrift": -2.1595507860183716e-05
+        },
+        {
+          "seed": 909,
+          "day": 1081,
+          "closed": [
+            {
+              "id": 28,
+              "day": 1013
+            }
+          ],
+          "maxSameProviderClosures": 1,
+          "providers": [
+            {
+              "id": 26,
+              "closed": false,
+              "clients": 39,
+              "staff": 3,
+              "cash": 25423.998160990715
+            },
+            {
+              "id": 28,
+              "closed": true,
+              "clients": 0,
+              "staff": 0,
+              "cash": 0
+            }
+          ],
+          "cashDrift": -1.3289973139762878e-05
+        }
+      ],
+      "errors": []
+    }
+  },
+  "gate_logs": {
+    "authorization": "{\n  \"source_sha256\": \"7e730235c0fbd4275d4efc1e0ae39d28350d7d813cfa7f7eaba4332ab636ccfc\",\n  \"smallTown\": {\n    \"population\": 169,\n    \"required\": 280,\n    \"range\": {\n      \"min\": 0,\n      \"max\": 500,\n      \"step\": 0.01,\n      \"hardMax\": 50000\n    },\n    \"pure\": true\n  },\n  \"validation\": {\n    \"invalidEnact\": 22,\n    \"invalidArchives\": 16,\n    \"legacyMissing\": true,\n    \"higherBudgetRoundtrip\": true\n  },\n  \"regionalBefore\": {\n    \"day\": 2161,\n    \"population\": 1151,\n    \"treasury\": 689121.0775496188,\n    \"school\": {\n      \"kind\": \"school\",\n      \"population\": 1151,\n      \"wage\": 28,\n      \"full\": 1906.9822485207098,\n      \"reachable\": 1906.9822485206978,\n      \"combinedGap\": 1906.9822485206978,\n      \"facilities\": 9,\n      \"observed\": false,\n      \"access\": 0.9999999999999937,\n      \"publicCoverage\": 0,\n      \"privateCoverage\": 0,\n      \"combinedCoverage\": 0,\n      \"staffing\": null,\n      \"pendingDay\": null\n    },\n    \"outlook\": {\n      \"ceiling\": 4007,\n      \"currentNeed\": 4007,\n      \"dailyReceipts\": 5930.331890226757,\n      \"cash\": 689121.0775496188,\n      \"deficit\": -1923.3318902267574,\n      \"runway\": null,\n      \"estimates\": {\n        \"health\": {\n          \"kind\": \"health\",\n          \"population\": 1151,\n          \"wage\": 28,\n          \"full\": 708.3076923076923,\n          \"reachable\": 708.3076923076923,\n          \"combinedGap\": 708.3076923076923,\n          \"facilities\": 7,\n          \"observed\": false,\n          \"access\": 1,\n          \"publicCoverage\": 0,\n          \"privateCoverage\": 0,\n          \"combinedCoverage\": 0,\n          \"staffing\": null,\n          \"pendingDay\": null\n        },\n        \"school\": {\n          \"kind\": \"school\",\n          \"population\": 1151,\n          \"wage\": 28,\n          \"full\": 1906.9822485207098,\n          \"reachable\": 1906.9822485206978,\n          \"combinedGap\": 1906.9822485206978,\n          \"facilities\": 9,\n          \"observed\": false,\n          \"access\": 0.9999999999999937,\n          \"publicCoverage\": 0,\n          \"privateCoverage\": 0,\n          \"combinedCoverage\": 0,\n          \"staffing\": null,\n          \"pendingDay\": null\n        }\n      }\n    }\n  },\n  \"regionalTrajectory\": [\n    {\n      \"day\": 2162,\n      \"population\": 1151,\n      \"treasury\": 693006.1258777361,\n      \"authorized\": 1907,\n      \"required\": 1906.9822485207098,\n      \"paid\": 500.00000000000006,\n      \"publicCoverage\": 0.2621943651483183,\n      \"privateCoverage\": 0.09296486998135924,\n      \"combined\": 0.3551592351296775,\n      \"staffing\": {\n        \"local\": 8,\n        \"regional\": 3.6071428571428577,\n        \"needed\": 44.26923076923077,\n        \"coverage\": 0.2621943651483183,\n        \"pending\": {\n          \"target\": 36.26923076923049,\n          \"day\": 2192\n        },\n        \"qualification\": 0.55\n      },\n      \"education\": 67.60161632964119,\n      \"cashError\": 7.450580596923828e-09\n    },\n    {\n      \"day\": 2191,\n      \"population\": 1151,\n      \"treasury\": 703232.1495751212,\n      \"authorized\": 1907,\n      \"required\": 1906.9822485207098,\n      \"paid\": 500.00000000000006,\n      \"publicCoverage\": 0.2621943651483183,\n      \"privateCoverage\": 0.09040081912175305,\n      \"combined\": 0.3525951842700713,\n      \"staffing\": {\n        \"local\": 8,\n        \"regional\": 3.6071428571428577,\n        \"needed\": 44.26923076923077,\n        \"coverage\": 0.2621943651483183,\n        \"pending\": {\n          \"target\": 36.26923076923049,\n          \"day\": 2192\n        },\n        \"qualification\": 0.55\n      },\n      \"education\": 67.83229034723375,\n      \"cashError\": -2.421438694000244e-08\n    },\n    {\n      \"day\": 2192,\n      \"population\": 1151,\n      \"treasury\": 706268.5320477746,\n      \"authorized\": 1907,\n      \"required\": 1906.9822485207098,\n      \"paid\": 1906.9822485206978,\n      \"publicCoverage\": 0.9999999999999937,\n      \"privateCoverage\": 0,\n      \"combined\": 0.9999999999999937,\n      \"staffing\": {\n        \"local\": 8,\n        \"regional\": 36.26923076923049,\n        \"needed\": 44.26923076923077,\n        \"coverage\": 0.9999999999999938,\n        \"pending\": null,\n        \"qualification\": 0.55\n      },\n      \"education\": 67.87129034723375,\n      \"cashError\": -2.2351741790771484e-08\n    },\n    {\n      \"day\": 2222,\n      \"population\": 1151,\n      \"treasury\": 683295.1109570181,\n      \"authorized\": 1907,\n      \"required\": 1906.9822485207098,\n      \"paid\": 1906.9822485206978,\n      \"publicCoverage\": 0.9999999999999937,\n      \"privateCoverage\": 0,\n      \"combined\": 0.9999999999999937,\n      \"staffing\": {\n        \"local\": 8,\n        \"regional\": 36.26923076923049,\n        \"needed\": 44.26923076923077,\n        \"coverage\": 0.9999999999999938,\n        \"pending\": null,\n        \"qualification\": 0.55\n      },\n      \"education\": 69.0412903472338,\n      \"cashError\": -4.470348358154297e-08\n    },\n    {\n      \"day\": 2312,\n      \"population\": 1168,\n      \"treasury\": 640452.9495182353,\n      \"authorized\": 1907,\n      \"required\": 1935.1479289940828,\n      \"paid\": 1907,\n      \"publicCoverage\": 0.985454378669276,\n      \"privateCoverage\": 0.0016687613512988175,\n      \"combined\": 0.9871231400205748,\n      \"staffing\": {\n        \"local\": 32,\n        \"regional\": 27.269642857142856,\n        \"needed\": 44.92307692307692,\n        \"coverage\": 1,\n        \"pending\": {\n          \"target\": 12.269642857142856,\n          \"day\": 2316\n        },\n        \"qualification\": 0.55\n      },\n      \"education\": 72.51518428633547,\n      \"cashError\": -5.308538675308228e-07\n    }\n  ],\n  \"cashConstraint\": {\n    \"controlledCashFixture\": true,\n    \"authorized\": 50000,\n    \"paid\": 0,\n    \"coverage\": 0,\n    \"unused\": 50000,\n    \"negativeCashPreserved\": -100,\n    \"negativeRecommendation\": 0,\n    \"conserved\": true\n  },\n  \"screens\": [\n    {\n      \"width\": 1280,\n      \"control\": {\n        \"x\": 861,\n        \"right\": 1243\n      },\n      \"amountHeight\": 44,\n      \"minButtonHeight\": 44,\n      \"overflow\": false,\n      \"actualPresetAndEnact\": true\n    },\n    {\n      \"width\": 390,\n      \"control\": {\n        \"x\": 27,\n        \"right\": 343\n      },\n      \"amountHeight\": 44,\n      \"minButtonHeight\": 44,\n      \"overflow\": false,\n      \"actualPresetAndEnact\": true\n    },\n    {\n      \"width\": 320,\n      \"control\": {\n        \"x\": 23,\n        \"right\": 277\n      },\n      \"amountHeight\": 44,\n      \"minButtonHeight\": 44,\n      \"overflow\": false,\n      \"actualPresetAndEnact\": true\n    }\n  ],\n  \"errors\": []\n}\n",
+    "review": "PASS council defer/back/focus, imports draft/discard/enact, six 180-day save/restore/all-panel cycles\n",
+    "schema": "PASS negative and future schemas rejected; schema-less legacy save accepted\n",
+    "core": "source_sha256 \"7e730235c0fbd4275d4efc1e0ae39d28350d7d813cfa7f7eaba4332ab636ccfc\"\ndeterminism_and_continuation {\"sameSeed\": true, \"renderIndependent\": true, \"continuedDays\": 120, \"valid\": {\"ok\": true, \"issues\": [], \"total\": 15489571.999995582, \"population\": 188, \"day\": 301}}\nmalformed_save_atomicity {\"investorRejected\": true, \"cargoRejected\": true, \"futureRejected\": true, \"townPreserved\": true}\nreplicated_zoning [{\"seed\": 42, \"zone\": 0, \"population\": 210, \"homes\": 16, \"firms\": 7, \"privateSpend\": 486062, \"moneyDelta\": -1.6868114471435547e-05, \"ms\": 3298.9000000059605}, {\"seed\": 42, \"zone\": 100, \"population\": 182, \"homes\": 0, \"firms\": 1, \"privateSpend\": 0, \"moneyDelta\": -1.1816620826721191e-05, \"ms\": 2262.3999999910593}, {\"seed\": 101, \"zone\": 0, \"population\": 222, \"homes\": 21, \"firms\": 7, \"privateSpend\": 560318, \"moneyDelta\": -1.2537464499473572e-05, \"ms\": 2969.7999999970198}, {\"seed\": 101, \"zone\": 100, \"population\": 186, \"homes\": 0, \"firms\": 1, \"privateSpend\": 0, \"moneyDelta\": -4.675239324569702e-06, \"ms\": 2168.5}, {\"seed\": 909, \"zone\": 0, \"population\": 211, \"homes\": 19, \"firms\": 5, \"privateSpend\": 507601, \"moneyDelta\": -1.5651807188987732e-05, \"ms\": 2716.2000000029802}, {\"seed\": 909, \"zone\": 100, \"population\": 187, \"homes\": 0, \"firms\": 1, \"privateSpend\": 0, \"moneyDelta\": -1.2073665857315063e-05, \"ms\": 2005.0999999940395}]\ncargo_ownership {\"consignments\": 6, \"sampledUnits\": 166.3792513597068, \"remaining\": true, \"delayed\": 1, \"cashConserved\": true}\nlegacy_56_migration {\"v\": {\"ok\": true, \"issues\": [], \"total\": 15439153, \"population\": 169, \"day\": 1}, \"after\": {\"ok\": true, \"issues\": [], \"total\": 15439152.999999082, \"population\": 169, \"day\": 31}, \"schema\": 8}\ntrue_pause {\"identicalScreenshots\": true, \"milliseconds\": 500}\ntraffic_progress {\"seconds\": 1600, \"maximumWait\": 0.9999999999999999, \"peak\": 21, \"valid\": true}\nlong_run_endurance []\nbrowser_errors []\nPASS release gates\n",
+    "provision": "[\n  {\n    \"service\": \"health\",\n    \"facilities\": true,\n    \"cash\": 100000,\n    \"amount\": 0,\n    \"health\": 73.9616,\n    \"education\": 45.991,\n    \"treasury\": 100000\n  },\n  {\n    \"service\": \"health\",\n    \"facilities\": true,\n    \"cash\": 100000,\n    \"amount\": 1,\n    \"health\": 73.96220576923076,\n    \"education\": 45.991,\n    \"treasury\": 99999.078\n  },\n  {\n    \"service\": \"health\",\n    \"facilities\": true,\n    \"cash\": 100000,\n    \"amount\": 25,\n    \"health\": 73.97674423076923,\n    \"education\": 45.991,\n    \"treasury\": 99976.95\n  },\n  {\n    \"service\": \"health\",\n    \"facilities\": true,\n    \"cash\": 100000,\n    \"amount\": 100,\n    \"health\": 74.02217692307693,\n    \"education\": 45.991,\n    \"treasury\": 99907.8\n  },\n  {\n    \"service\": \"health\",\n    \"facilities\": true,\n    \"cash\": 100000,\n    \"amount\": 250,\n    \"health\": 74.0246,\n    \"education\": 45.991,\n    \"treasury\": 99904.11200000001\n  },\n  {\n    \"service\": \"health\",\n    \"facilities\": true,\n    \"cash\": 100000,\n    \"amount\": 1000,\n    \"health\": 74.0246,\n    \"education\": 45.991,\n    \"treasury\": 99904.11200000001\n  },\n  {\n    \"service\": \"health\",\n    \"facilities\": true,\n    \"cash\": 100000,\n    \"amount\": 4000,\n    \"health\": 74.0246,\n    \"education\": 45.991,\n    \"treasury\": 99904.11200000001\n  },\n  {\n    \"service\": \"school\",\n    \"facilities\": true,\n    \"cash\": 100000,\n    \"amount\": 0,\n    \"health\": 73.9616,\n    \"education\": 45.991,\n    \"treasury\": 100000\n  },\n  {\n    \"service\": \"school\",\n    \"facilities\": true,\n    \"cash\": 100000,\n    \"amount\": 1,\n    \"health\": 73.9616,\n    \"education\": 45.99117142857143,\n    \"treasury\": 99999.078\n  },\n  {\n    \"service\": \"school\",\n    \"facilities\": true,\n    \"cash\": 100000,\n    \"amount\": 25,\n    \"health\": 73.9616,\n    \"education\": 45.995285714285714,\n    \"treasury\": 99976.95\n  },\n  {\n    \"service\": \"school\",\n    \"facilities\": true,\n    \"cash\": 100000,\n    \"amount\": 100,\n    \"health\": 73.9616,\n    \"education\": 46.00814285714286,\n    \"treasury\": 99907.8\n  },\n  {\n    \"service\": \"school\",\n    \"facilities\": true,\n    \"cash\": 100000,\n    \"amount\": 250,\n    \"health\": 73.9616,\n    \"education\": 46.033857142857144,\n    \"treasury\": 99769.5\n  },\n  {\n    \"service\": \"school\",\n    \"facilities\": true,\n    \"cash\": 100000,\n    \"amount\": 1000,\n    \"health\": 73.9616,\n    \"education\": 46.039,\n    \"treasury\": 99741.84\n  },\n  {\n    \"service\": \"school\",\n    \"facilities\": true,\n    \"cash\": 100000,\n    \"amount\": 4000,\n    \"health\": 73.9616,\n    \"education\": 46.039,\n    \"treasury\": 99741.84\n  }\n]\n",
+    "save-cache": "PASS exact three-day continuation {'day': 31, 'staffing': {'firm': 0, 'oldJobs': 2, 'newJobs': 3, 'actualPlanEnterprise': True}, 'exact': True, 'changed': [], 'rentChanges': [], 'rngA': 633198347, 'rngB': 633198347, 'moneyDrift': -5.4016709327697754e-08, 'sourceDoesNotDependOnPresentation': True}\n",
+    "composite": "PASS composite records and atomic faults {'grid': 128, 'people': 1375, 'routes': 2, 'settledTickets': 1, 'fares': 3.25, 'cargo': 20, 'providerEscrow': 6000, 'mallEscrow': 28000, 'cashConserved': True, 'receiptsPreserved': True, 'faults': {'grid': 128, 'schema': 8, 'recordsRejected': ['missingMember', 'duplicateMember', 'householdMismatch', 'missingHome', 'tileUsedAsHomeId', 'missingFirmBuilding', 'negativeStock', 'invalidStock', 'unknownStock', 'negativeDeposit', 'missingDepositBank', 'malformedBank', 'malformedLoan', 'negativeLoanBank', 'duplicateBuildingId', 'exhaustedIdCounter', 'duplicateHomeId', 'orphanWorker', 'duplicateWorker', 'missingOwner', 'missingTitleHolder', 'truncatedTiles', 'malformedProject', 'futureSchema', 'invalidDay'], 'truncatedRejected': 4, 'callerIndependent': True, 'atomicRNGAndTimeline': True}}\n",
+    "private": "PASS served customers not double forecast, shared affordability/voucher budget, real staffing release and three-seed three-year provider turnover {'served': 139, 'own': 32, 'competing': 0, 'released': 9, 'poor': {'clients': 0, 'capacity': 16, 'fee': 3, 'staff': 1, 'wage': 36, 'revenue': 0, 'payroll': 36, 'overhead': 4.641666666666667, 'profit': -40.641666666666666, 'net': -40.641666666666666}, 'tiny': {'clients': 0, 'capacity': 16, 'fee': 3, 'staff': 1, 'wage': 36, 'revenue': 0, 'payroll': 36, 'overhead': 4.641666666666667, 'profit': -40.641666666666666, 'net': -40.641666666666666}, 'zeroPayrollExit': True, 'cashDrift': 0} [{'seed': 42, 'day': 1081, 'closed': [], 'maxSameProviderClosures': 0, 'providers': [{'id': 26, 'closed': False, 'clients': 46, 'staff': 3, 'cash': 26584.760956067537}, {'id': 30, 'closed': False, 'clients': 0, 'staff': 0, 'cash': 0}, {'id': 34, 'closed': False, 'clients': 128.1367964368566, 'staff': 2, 'cash': 11643.360226299195}], 'cashDrift': -3.371015191078186e-05}, {'seed': 101, 'day': 1081, 'closed': [{'id': 28, 'day': 767}], 'maxSameProviderClosures': 1, 'providers': [{'id': 26, 'closed': False, 'clients': 37, 'staff': 3, 'cash': 25901.486135337265}, {'id': 28, 'closed': True, 'clients': 0, 'staff': 0, 'cash': 0}], 'cashDrift': -2.1595507860183716e-05}, {'seed': 909, 'day': 1081, 'closed': [{'id': 28, 'day': 1013}], 'maxSameProviderClosures': 1, 'providers': [{'id': 26, 'closed': False, 'clients': 39, 'staff': 3, 'cash': 25423.998160990715}, {'id': 28, 'closed': True, 'clients': 0, 'staff': 0, 'cash': 0}], 'cashDrift': -1.3289973139762878e-05}]\n"
+  },
+  "screenshot": {
+    "reports/integration/8-service-budget-320.png": "a8fd2de25f3d75af10e40d3ba7c89ed569829ad572cf1ceddd7c97b108b10bd0"
+  },
+  "limitations": [
+    "No new native build or frame-rate claim",
+    "Long-running specialist soaks remain on their original immutable sources",
+    "Migration and legacy tenancy work remains pending"
+  ]
+}

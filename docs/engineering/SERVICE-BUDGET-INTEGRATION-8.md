@@ -1,0 +1,9 @@
+# Scalable budget integration
+
+Integrated worker `4bc2ba2` after `31987fc`, without replacing public-life, supplier, retail-labour, archive, proposal-cache or daily urban-cache fixes. Reviewed enact/discard and range `data-policy` hooks remain; the new exact-dollar inputs have separate hooks. No default authorizations, simulation funding order, private-service coefficient, schema or native code changed. The new `assets/service-budget.css` must be included in the final APK asset inventory.
+
+All eight affected invocations pass on the final assembled source: actual budget authorization/mobile controls and delayed recruitment; review/policy/save cycles; archive schema rejection; core conservation/migration/pause/continuation; funded-service staircase; controlled rent replay; composite escrow/cargo/fares save validation; and three-seed private-provider viability.
+
+The natural regional checkpoint with1,151 residents requires about$1,907/day, above the removed$500 cap. The actual mayor review/discard/enact test reaches100% public provision only after existing30-day recruitment. Later population growth reduces coverage again rather than automatically raising authorization. Zero/negative cash creates no service.22 invalid enactments and16 invalid archives are rejected; legacy keys and larger amount round-trips pass. The320px screenshot was inspected: proposal buttons and two-row navigation remain visible and readable.
+
+Exact-source evidence is embedded in `reports/integration/8-service-budget-cohort.json`, with a current narrow-screen capture beside it. Source SHA256: `7e730235c0fbd4275d4efc1e0ae39d28350d7d813cfa7f7eaba4332ab636ccfc`. Existing worker receipts retain their historical source identities. No new APK, frame-rate certification or rerun of the specialists’ immutable hour-long soaks is claimed. Migration/legacy tenancy remains separately owned pending work.
