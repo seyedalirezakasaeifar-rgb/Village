@@ -1,0 +1,69 @@
+{
+  "source_sha256": "d187f0cb9eca7d7eaa34b43dca354b9158eb68eb31336d889471095a73fb08e3",
+  "base": "03cb546 plus f40bda3 urban cache fix",
+  "seed": 8142026,
+  "day": 183,
+  "cause": "Day-180 householdFormation admitted an existing resident into a commissioned municipal replacement home whose relocationReserve flag remained true. All three persisted copies fail validateUrbanRehousing.",
+  "building": {
+    "id": 109,
+    "kind": "home",
+    "hh": 68,
+    "municipalRehousing": true,
+    "relocationReserve": true,
+    "owner": -1,
+    "title": {
+      "kind": "municipal",
+      "id": 0
+    }
+  },
+  "occupants": [
+    {
+      "household": 68,
+      "people": [
+        84
+      ]
+    }
+  ],
+  "candidateAudit": {
+    "validateArchiveRecords": true,
+    "validateUrbanRehousing": false,
+    "validateUrban": true,
+    "validateCivicProjects": true,
+    "validateMayorJourney": true,
+    "validatePrivateServices": true,
+    "validateDistrictProgrammes": true,
+    "validateRegionalTrade": true,
+    "validateWaterfrontArchive": true,
+    "validateGoodsAccounting": true,
+    "validateTransit": true,
+    "validateCivicState": true,
+    "validateCreditState": true,
+    "validateScenarioProgramme": true,
+    "validateCharter": true
+  },
+  "candidates": [
+    {
+      "day": 183,
+      "town": "7c81253f-245be143-de41be77-9f70d268",
+      "revision": 3,
+      "order": 248,
+      "checksum": "895b6202"
+    },
+    {
+      "day": 183,
+      "town": "7c81253f-245be143-de41be77-9f70d268",
+      "revision": 2,
+      "order": 247,
+      "checksum": "ae55f069"
+    },
+    {
+      "day": 183,
+      "town": "7c81253f-245be143-de41be77-9f70d268",
+      "revision": 3,
+      "order": 248,
+      "checksum": "895b6202"
+    }
+  ],
+  "preventionAlreadyAuthoredByUrbanWorker": "98a6f99618e27e7d30306a7f4c890ac019ef004a adds !b.relocationReserve to householdFormation and ordinary vacancy readers",
+  "classification": "Genuine domain-invalid autosaves, not slow rendering/test timing or checksum/store-order corruption. No validator weakening or duplicate prevention patch authored."
+}

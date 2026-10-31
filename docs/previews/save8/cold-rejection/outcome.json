@@ -1,0 +1,77 @@
+{
+  "error": "Page.wait_for_function: Timeout 30000ms exceeded.",
+  "state": {
+    "hasTown": false,
+    "day": null,
+    "welcomeVisible": true,
+    "dialogVisible": false,
+    "dialogTitle": "An urgent issue",
+    "toast": "No valid town could be recovered. Found a new town or restore a backup.",
+    "ready": true,
+    "head": ""
+  },
+  "candidateAuditBefore": {
+    "validateArchiveRecords": true,
+    "validateUrbanRehousing": false,
+    "validateUrban": true,
+    "validateCivicProjects": true,
+    "validateMayorJourney": true,
+    "validatePrivateServices": true,
+    "validateDistrictProgrammes": true,
+    "validateRegionalTrade": true,
+    "validateWaterfrontArchive": true,
+    "validateGoodsAccounting": true,
+    "validateTransit": true,
+    "validateCivicState": true,
+    "validateCreditState": true,
+    "validateScenarioProgramme": true,
+    "validateCharter": true
+  },
+  "candidatesBefore": [
+    {
+      "day": 183,
+      "town": "7c81253f-245be143-de41be77-9f70d268",
+      "revision": 3,
+      "order": 248,
+      "checksum": "895b6202"
+    },
+    {
+      "day": 183,
+      "town": "7c81253f-245be143-de41be77-9f70d268",
+      "revision": 2,
+      "order": 247,
+      "checksum": "ae55f069"
+    },
+    {
+      "day": 183,
+      "town": "7c81253f-245be143-de41be77-9f70d268",
+      "revision": 3,
+      "order": 248,
+      "checksum": "895b6202"
+    }
+  ],
+  "candidatesAfter": [
+    {
+      "day": 183,
+      "town": "7c81253f-245be143-de41be77-9f70d268",
+      "revision": 5,
+      "order": 250,
+      "checksum": "2fc0cdeb"
+    },
+    {
+      "day": 183,
+      "town": "7c81253f-245be143-de41be77-9f70d268",
+      "revision": 4,
+      "order": 249,
+      "checksum": "43169908"
+    },
+    {
+      "day": 183,
+      "town": "7c81253f-245be143-de41be77-9f70d268",
+      "revision": 3,
+      "order": 248,
+      "checksum": "895b6202"
+    }
+  ],
+  "operation": 61
+}

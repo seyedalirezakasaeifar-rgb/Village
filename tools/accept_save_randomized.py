@@ -17,11 +17,14 @@ probe+='\n'+ast.literal_eval(assignment.value.right)
 probe+=r'''
 const qaActualContinue=$('continue').onclick;$('continue').onclick=async e=>{await qaActualContinue(e);paused=true;hostSuspended=true;acc=0;last=performance.now();updateHeader()};
 window.__qaRun={
+ audit:()=>{const data=JSON.parse(archivePayload());return Object.fromEntries([validateArchiveRecords,validateUrbanRehousing,validateUrban,validateCivicProjects,validateMayorJourney,validatePrivateServices,validateDistrictProgrammes,validateRegionalTrade,validateWaterfrontArchive,validateGoodsAccounting,validateTransit,validateCivicState,validateCreditState,validateScenarioProgramme,validateCharter].map(f=>[f.name,f(data)]))},
+ candidates:()=>localSaveCandidates().concat(saveCandidates).map(e=>({day:JSON.parse(e.payload).day,town:e.town,revision:e.revision,order:e.order,checksum:e.checksum})),
+ state:()=>({hasTown:!!G,day:G?.day,welcomeVisible:$('welcome').style.display!=='none',dialogVisible:$('eventDialog').style.display!=='none',dialogTitle:$('eventTitle')?.textContent,toast:$('toast').textContent,ready:saveStoreReady,head:saveTown}),
  ready:()=>saveStorePromise,
  flush:async()=>{await saveStorePromise;await saveWrites;return autoSaveOK},
  pause:()=>{paused=true;hostSuspended=true;acc=0;last=performance.now();updateHeader()},
  head:()=>({epoch:saveEpoch,town:saveTown,revision:saveRevision,order:saveOrder,ok:autoSaveOK}),
- snapshot:()=>{const g=JSON.parse(archivePayload());for(const b of g.buildings)if(b.baseValue==null)b.baseValue=b.value;for(const k of ['trafficState','visualState','serviceProvision','privateServiceProvision','stats','roadMetrics'])delete g[k];return g},
+ snapshot:()=>{const g=JSON.parse(archivePayload());for(const b of g.buildings){if(b.baseValue==null)b.baseValue=b.value;if(!b.title)b.title={kind:b.owner>=0?'household':'regional',id:b.owner};}for(const k of ['trafficState','visualState','serviceProvision','privateServiceProvision','stats','roadMetrics'])delete g[k];return g},
  sample:()=>({day:G.day,people:G.people.length,living:G.stats.population,buildings:G.buildings.length,households:G.households.length,cargo:G.regionalTrade?.shipments.length||0,contracts:G.regionalTrade?.contracts.length||0,routes:G.transit.routes.length,fares:G.transit.fares,providers:G.firms.filter(f=>f.privateService&&!f.closed).length,malls:G.firms.filter(f=>f.retailCentre&&!f.closed).length,projects:G.projects.length,civic:G.civicProjects||null,annexations:G.charter.owned.length,valid:validateTown(),money:totalMoney(),goodsError:Math.max(...goodsBalance().map(x=>Math.abs(x.error))),bytes:new Blob([archivePayload()]).size,pending:!!savePendingWrite,active:saveWriteRunning}),
  bootstrap:()=>{
   __saveComposite();const moved=Math.min(G.region,6000000);G.region-=moved;G.treasury+=moved;
@@ -71,7 +74,13 @@ try:
   page.goto(url);page.evaluate('__qaRun.ready()');page.locator('#townSeed').fill('42');page.locator('#newTown').click();page.evaluate('__qaRun.pause()');emit('bootstrap',page.evaluate('__qaRun.bootstrap()'));page.evaluate('__qaRun.save()');page.evaluate('__qaRun.flush()');baseline=page.evaluate('__qaRun.sample().money');write_status(status='running',baselineMoney=baseline)
   def cold():
    global reloads
-   page.evaluate('__qaRun.pause()');assert page.evaluate('__qaRun.flush()');before=page.evaluate('__qaRun.snapshot()');oldhead=page.evaluate('__qaRun.head()');page.reload();page.evaluate('__qaRun.ready()');page.locator('#continue').click();page.wait_for_function('document.querySelector("#welcome").style.display==="none"');after=page.evaluate('__qaRun.snapshot()');reloads+=1
+   page.evaluate('__qaRun.pause()');assert page.evaluate('__qaRun.flush()');before=page.evaluate('__qaRun.snapshot()');oldhead=page.evaluate('__qaRun.head()');audit=page.evaluate('__qaRun.audit()');candidates=page.evaluate('__qaRun.candidates()')
+   if os.environ.get('SAVE_QA_CAPTURE_COLD')=='1':(OUT/'last-cold-private.json').write_text(json.dumps({'before':before,'raw':page.evaluate('__townTest.save()'),'audit':audit,'candidates':candidates,'operation':len(trace),'head':oldhead}))
+   page.reload();page.evaluate('__qaRun.ready()');page.locator('#continue').click()
+   try:page.wait_for_function('document.querySelector("#welcome").style.display==="none"')
+   except Exception as error:
+    (OUT/'cold-outcome.json').write_text(json.dumps({'error':str(error),'state':page.evaluate('__qaRun.state()'),'candidateAuditBefore':audit,'candidatesBefore':candidates,'candidatesAfter':page.evaluate('__qaRun.candidates()'),'operation':len(trace)},indent=2));raise
+   after=page.evaluate('__qaRun.snapshot()');reloads+=1
    if canonical(before)!=canonical(after):
     (OUT/'cold-failure-private.json').write_text(json.dumps({'before':before,'after':after}));raise AssertionError({'coldMismatch':[k for k in before if before[k]!=after.get(k)]})
    assert page.evaluate('__qaRun.head().town')==oldhead['town'];return {'day':after['day'],'canonical':canonical(after),'order':oldhead['order']}
