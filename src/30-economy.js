@@ -64,7 +64,7 @@ function dailyEconomy(){
   // Withdraw only existing deposits; cash scarcity does not manufacture credit.
   const target=h.people.length*25;if(h.cash<target)for(const [id,amount] of Object.entries(h.deposits||{})){withdrawal(h,G.banks[+id],Math.min(amount,target-h.cash));if(h.cash>=target)break;}
   const home=readBuild(h.home),owner=home?.owner;
-  const rent=(h.temporaryHousing||owner===h.id)?0:h.people.length*(3.1+P.zoningRestriction*.035)*(G.housingMarket?.rentIndex||1);
+  const rent=(h.temporaryHousing||owner===h.id)?0:h.people.length*(3.1+P.zoningRestriction*.035)*(G.housingMarket?.rentIndex||1)*urbanRentMultiplier(home);
   const paid=Math.min(h.cash,rent);h.cash-=paid;h.rent=paid;h.rentDue=rent;
   if(owner===-2)propertyInvestor().cash+=paid;else if(G.households[owner]){const landlord=G.households[owner];landlord.cash+=paid;landlord.income+=paid;landlord.rentalIncome+=paid;}else G.region+=paid;
  }

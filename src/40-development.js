@@ -38,7 +38,7 @@ function countBuildableLots(radius){
 function buildableCandidates(focus='housing'){
  const net=graph(),places=[];
  for(let y=3;y<T-3;y++)for(let x=3;x<T-3;x++){
-  if(!canPlace(x,y))continue;
+  if(!canPlace(x,y,true,focus==='business'?'plot':'home'))continue;
   const adjacent=roadOffsets.map(([dx,dy])=>roadId(x+dx,y+dy)).filter(id=>net.parts[id]===net.mainPart);
   if(!adjacent.length)continue;
   let houses=0,work=0,competition=0;
@@ -114,12 +114,14 @@ function completeDevelopmentProjects(){
    completeAirfield(b,p);
   }else if(p.kind==='firm'){
    b.kind=p.firmKind;b.value=types[b.kind].cost*10;
-   const capital=p.privateService?Math.max(0,p.serviceEscrow||0):Math.min(p.capital,Math.max(0,G.region-1000));
-   const fee=Math.min(G.policy.permitFee,Math.max(0,G.region-(p.privateService?0:capital)));
-   G.region-=(p.privateService?0:capital)+fee;
+   const escrowed=p.privateService||p.retailCentre;
+   const capital=p.privateService?Math.max(0,p.serviceEscrow||0):p.retailCentre?Math.max(0,p.urbanEscrow||0):Math.min(p.capital,Math.max(0,G.region-1000));
+   const fee=Math.min(G.policy.permitFee,Math.max(0,G.region-(escrowed?0:capital)));
+   G.region-=(escrowed?0:capital)+fee;
    const f=createFirm(b.kind,b.x,b.y,true,()=>b);
    f.cash=capital;if(p.privateService){f.privateService=p.privateService;f.owner=-1;f.serviceFee=p.serviceFee;f.jobs=p.serviceStaff||(p.privateService==='school'?1:2);f.wage=p.serviceWage??Math.max(G.policy.minWage,36);f.name=p.privateService==='school'?'Independent Learning House '+f.id:'Mutual Fire Brigade '+f.id;b.title={kind:'firm',id:f.id};b.owner=f.owner;}transferTreasury(fee,'permits');
    if(G.policy.lendingRules<70&&(G.stats.marketConfidence||50)>48&&G.day%3===0){const loan=bankLoan('firm',f.id,Math.round(Math.min(2400,capital*.17)),480);if(loan)f.jobs=Math.min(18,f.jobs+1)}
+   if(p.retailCentre){b.retailCentre=true;b.owner=-1;b.title={kind:'firm',id:f.id};f.owner=-1;f.retailCentre=true;f.openedDay=G.day;f.name='Vale Shopping Centre '+f.id;f.jobs=8;f.scale=1.35;f.retailCatchment=p.retailCatchment;f.retailExpectedNet=p.retailExpectedNet;b.value=220000;}
    G.development.firms++;
    story('New private enterprise completed: '+f.name+' opened its doors.','good',b.id);
   }
@@ -156,7 +158,7 @@ function privatelyBuiltFirm(demand){
   if(score<13)break;
   const competitors=G.firms.filter(f=>f.kind===choice&&!f.closed&&f.age>45);
   if(competitors.length>=2&&competitors.filter(f=>f.netProfit< -75).length>competitors.length*.55)continue;
-  const spot=candidates.find(v=>canPlace(v.x,v.y,true,choice));
+  const spot=candidates.slice().sort((a,b)=>(b.score+urbanSiteSuitability(b.x,b.y,choice))-(a.score+urbanSiteSuitability(a.x,a.y,choice))).find(v=>canPlace(v.x,v.y,true,choice));
   if(spot){kind=choice;place=spot;break}
  }
  if(!kind||!place)return false;
@@ -325,7 +327,7 @@ function fieldLotsNear(farm,limit=6){
   if(!charterOwns(x,y)||x<3||y<3||x>=T-3||y>=T-3||G.tiles[id]!==0||G.landUse?.[id]||buildingAt(x,y))continue;
   // Grow a continuous farm belt, not isolated strips inside the central square.
   const civicDistance=Math.abs(x-27)+Math.abs(y-27);
-  if(civicDistance<8)continue;
+  if(civicDistance<8||!urbanDescriptor(x,y).agricultural||urbanPlacementReason(x,y,'farm'))continue;
   result.push({id,x,y,score:(civicDistance>17?4:0)+(Math.abs(dx)+Math.abs(dy))*-.22+(G.tiles[roadId(x-1,y)]===3?.3:0)});
  }
  result.sort((a,b)=>b.score-a.score);
