@@ -105,7 +105,8 @@ function dioramaIndustry(g,b,w,d){
 }
 function dioramaCivic(g,b,w,d){
  const kind=b.kind,bw=w*.78,bd=d*.72,u=-bw/2,v=-bd/2,school=kind==='school'||kind==='college',fire=kind==='fire',police=kind==='police',clinic=kind==='clinic',grand=['townhall','courthouse','bank'].includes(kind);
- const wall=fire?'#bd856c':police?'#a7bbb6':school?'#cfb995':clinic?'#d8d6b7':'#d8cbae',roof=visualMonth()>=10?'#d4dbce':school?'#607e7b':fire?'#685f54':grand?'#526e73':'#6d8584';
+ const independent=!isPublicFacility(b);
+ const wall=fire?(independent?'#a46f61':'#bd856c'):police?'#a7bbb6':school?(independent?'#d8c6a4':'#cfb995'):clinic?'#d8d6b7':'#d8cbae',roof=visualMonth()>=10?'#d4dbce':school?(independent?'#526e85':'#607e7b'):fire?(independent?'#637585':'#685f54'):grand?'#526e73':'#6d8584';
  const lit=nightMode&&!(b.firm>=0&&G.firms[b.firm]?.closed);
  const H=32;dioramaFoundation(g,b,w,d);
  dioramaSurface(g,u,v,bw,bd,1,H,wall,school||fire?'brick':'plaster');
