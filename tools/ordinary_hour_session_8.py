@@ -70,6 +70,7 @@ with sync_playwright() as pw:
   assert initialAudit['valid']['ok'] and initialAudit['goodsError']<.001 and initial['deeds']==21 and initial['grid']==128 and initial['routes']==48,initial
   page.locator('#speedRange').fill('4') #16x; normal slider interaction, no accumulator carryover.
   assert page.evaluate('__ordinary.state().requested')==16
+  roadBuildDone=False
   park=page.evaluate('__ordinary.inspect("park")')
   if park['site'] and park['treasury']>=park['parkCost']:
    page.locator('[data-panel=construction]').click();page.locator('[data-build=park]').click();page.mouse.click(park['site']['sx'],park['site']['sy']);placed=page.evaluate('__ordinary.counts()')
@@ -79,16 +80,30 @@ with sync_playwright() as pw:
    page.keyboard.press('Escape')
   else:
    result['operations'].append({'kind':'park-unavailable-at-start','seconds':0,'siteCount':park['count'],'treasury':park['treasury']})
+  # Complete one genuine road extension and one road repair through Public Works
+  # while the generated town still has enough unmodified funds for the controls.
+  road=page.evaluate('__ordinary.inspect("road")')
+  if road['site'] and road['treasury']>=road['roadCost']:
+   page.locator('[data-panel=construction]').click();page.locator('[data-build=road]').click();before=page.evaluate('__ordinary.counts()');page.mouse.click(road['site']['sx'],road['site']['sy']);after=page.evaluate('__ordinary.counts()')
+   result['operations'].append({'kind':'road-construction-through-public-works','seconds':0,'site':road['site'],'before':before,'after':after})
+   assert after['roads']==before['roads']+1 and after['construction']==before['construction']+1,('UI road construction failed',road,before,after)
+   roadBuildDone=True;page.keyboard.press('Escape')
   # Unlock browser audio through ordinary user input; no mocked or injected track.
   page.locator('#mapStatusToggle').tap();page.locator('#pause').click()
   cdp=page.context.new_cdp_session(page);cdp.send('Performance.enable');cdp.send('HeapProfiler.collectGarbage')
   result['initialState']=initial;result['initialHeapAfterGC']=cdp.send('Runtime.getHeapUsage');result['startedLiveUTC']=utc();result['status']='running';persist();page.evaluate('__ordinary.start()')
-  began=time.monotonic();lastSample=0;lastSave=120;lastReport=60;lastPan=35;lastRoad=180;lastRepair=360;lastSquareTry=30;lastPause=-600;pauseUntil=0;lastAccounting=0;lastSourceCheck=0;lastState=initial
+  began=time.monotonic();lastSample=0;lastSave=120;lastReport=60;lastPan=35;lastRoad=180;lastSquareTry=30;lastPause=-600;pauseUntil=0;lastAccounting=0;lastSourceCheck=0;lastState=initial
   reportNames=['overview','economy','community','businesses','treasury','agenda','citizens','construction','journal']
-  currentPanel=False;roadBuildDone=False;repairDone=False;lastPhase=None;opsCount=0
+  currentPanel=False;lastPhase=None;opsCount=0
   print('START',result['startedLiveUTC'],'durationSeconds',DURATION,'commit',BASE_COMMIT,'sourceSha256',SOURCE_SHA,flush=True)
   while time.monotonic()-began<DURATION:
    page.wait_for_timeout(1000);elapsed=time.monotonic()-began
+   # Choose the first available response to real in-game notices, as an ordinary
+   # player would, so modal pauses do not freeze unattended workload measurement.
+   choices=page.locator('#eventChoices button:not([disabled])');choiceCount=choices.count()
+   if choiceCount:
+    title=page.locator('#eventTitle').inner_text();choice=choices.first.inner_text();choices.first.click()
+    result['operations'].append({'kind':'event-choice','seconds':round(elapsed,1),'title':title,'choice':choice})
    if elapsed-lastSourceCheck>=300:
     assert hashlib.sha256((ROOT/'assets/game.js').read_bytes()).hexdigest()==SOURCE_SHA,'Production bundle changed during soak';lastSourceCheck=elapsed
    # Six-minute16x base cycle plus one-minute1x/8x/32x/64x bursts.
@@ -133,12 +148,6 @@ with sync_playwright() as pw:
      after=page.evaluate('__ordinary.counts()');result['operations'].append({'kind':'place-park','seconds':round(elapsed,1),'after':after,'candidate':candidate['site']});roadBuildDone=True
      if currentPanel:currentPanel=False
     lastSquareTry+=600
-   if not repairDone and elapsed>=180:
-    candidate=page.evaluate('__ordinary.inspect("repair")')
-    if candidate['site'] and candidate['treasury']>=candidate['repairCost']:
-     page.locator('[data-panel=construction]').click();page.locator('[data-build=repair]').click();before=page.evaluate('__ordinary.counts()');page.mouse.click(candidate['site']['sx'],candidate['site']['sy'])
-     result['operations'].append({'kind':'road-repair-control','seconds':round(elapsed,1),'before':before,'after':page.evaluate('__ordinary.counts()'),'site':candidate['site']});page.keyboard.press('Escape');repairDone=True
-    lastRepair+=600
    if elapsed>=lastRoad and not pauseUntil:
     candidate=page.evaluate('__ordinary.inspect("road")')
     if candidate['site'] and candidate['treasury']>=candidate['roadCost']:
