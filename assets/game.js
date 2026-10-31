@@ -4758,7 +4758,9 @@ function playMusicTrack(index=chooseMusicTrack()){
  if(musicFade){clearInterval(musicFade);musicFade=null;}for(const d of musicDecks)if(d!==previous)retireMusicDeck(d);musicDecks=previous?[previous]:[];if(previous)previous.previous=null;
  musicTrack=index;musicError='';const audio=new Audio('music/'+MUSIC_TRACKS[index].file+'.ogg'),next={audio,index,gain:0,starting:true,retired:false,previous};audio.preload='auto';musicDecks.push(next);setMusicVolumes();
  const advance=()=>{if(!next.retired&&next===musicDecks[musicDecks.length-1]&&musicAllowed())playMusicTrack(chooseMusicTrack());};
- next.handlers={timeupdate:()=>{const duration=Number.isFinite(audio.duration)&&audio.duration>0?audio.duration:MUSIC_TRACKS[index].seconds;if(duration-audio.currentTime<=MUSIC_FADE_SECONDS)advance();},ended:advance,error:()=>{if(!next.retired&&next===musicDecks[musicDecks.length-1])musicPlayFailed(next,epoch);}};
+ // Streamed Vorbis duration can describe an incomplete HTTP buffer. The shipped
+ // score manifest supplies the complete duration; ended still handles early EOF.
+ next.handlers={timeupdate:()=>{if(MUSIC_TRACKS[index].seconds-audio.currentTime<=MUSIC_FADE_SECONDS)advance();},ended:advance,error:()=>{if(!next.retired&&next===musicDecks[musicDecks.length-1])musicPlayFailed(next,musicEpoch);}};
  for(const [name,handler] of Object.entries(next.handlers))audio.addEventListener(name,handler);
  Promise.resolve(audio.play()).then(()=>{
   next.starting=false;if(next.retired)return;if(!musicAllowed()){audio.pause();return;}if(epoch!==musicEpoch)return;
@@ -4770,6 +4772,9 @@ function refreshMusic(retry=false){
  if(!musicAllowed()){if(musicDecks.some(d=>!d.audio.paused)||musicFade)stopMusic();return;}const failed=!!musicError;if(failed&&!retry)return;if(retry)musicError='';if(musicFade)return;
  if(musicTrack<0||failed){playMusicTrack(musicTrack<0?chooseMusicTrack():musicTrack);return;}
  const current=musicDecks.find(d=>d.index===musicTrack&&!d.retired);if(!current){playMusicTrack(musicTrack);return;}
+ // A pending decoder still owns its predecessor and its zero gain. Routine
+ // clicks/daily ambience refreshes must not cut that tail before play resolves.
+ if(current.starting)return;
  for(const d of musicDecks)if(d!==current)retireMusicDeck(d);musicDecks=[current];current.previous=null;current.gain=1;setMusicVolumes();
  if(current.audio.paused&&!current.starting){const epoch=++musicEpoch;current.starting=true;Promise.resolve(current.audio.play()).then(()=>{current.starting=false;if(current.retired)return;if(!musicAllowed()){current.audio.pause();return;}if(epoch===musicEpoch)recordMusicPlayback(current.index);}).catch(()=>musicPlayFailed(current,epoch));}
 }
