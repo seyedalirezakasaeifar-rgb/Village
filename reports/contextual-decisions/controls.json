@@ -1,0 +1,117 @@
+{
+  "source_sha256": "390b4e82332d5d2a07e3a4d92b57f0c067103942408a4bb82b1ae270eaf4f34f",
+  "routes": [
+    {
+      "viewport": [
+        320,
+        740
+      ],
+      "panel": "construction",
+      "route": "charter",
+      "contrast": 10.26620251322367
+    },
+    {
+      "viewport": [
+        320,
+        740
+      ],
+      "panel": "economy",
+      "route": "suppliers",
+      "contrast": 10.26620251322367
+    },
+    {
+      "viewport": [
+        320,
+        740
+      ],
+      "panel": "community",
+      "route": "migration",
+      "contrast": 10.26620251322367
+    },
+    {
+      "viewport": [
+        320,
+        740
+      ],
+      "panel": "policies",
+      "route": "outlook",
+      "contrast": 10.26620251322367
+    },
+    {
+      "viewport": [
+        390,
+        844
+      ],
+      "panel": "construction",
+      "route": "charter",
+      "contrast": 10.26620251322367
+    },
+    {
+      "viewport": [
+        390,
+        844
+      ],
+      "panel": "economy",
+      "route": "suppliers",
+      "contrast": 10.26620251322367
+    },
+    {
+      "viewport": [
+        390,
+        844
+      ],
+      "panel": "community",
+      "route": "migration",
+      "contrast": 10.26620251322367
+    },
+    {
+      "viewport": [
+        390,
+        844
+      ],
+      "panel": "policies",
+      "route": "outlook",
+      "contrast": 10.26620251322367
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "panel": "construction",
+      "route": "charter",
+      "contrast": 10.26620251322367
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "panel": "economy",
+      "route": "suppliers",
+      "contrast": 10.26620251322367
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "panel": "community",
+      "route": "migration",
+      "contrast": 10.26620251322367
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "panel": "policies",
+      "route": "outlook",
+      "contrast": 10.26620251322367
+    }
+  ],
+  "noPolicyOrCashMutation": true,
+  "nativeBackCancelsActualReviews": true,
+  "saveReloadRoutes": true,
+  "errors": []
+}
