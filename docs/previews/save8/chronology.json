@@ -1,0 +1,17 @@
+{
+  "source_sha256": "17297afbea134d5259b60ba6db500af1444328b1a0f0c91e71b5b6c1460f8e54",
+  "checks": [
+    "quota: newer indexed day61 beats local day41",
+    "same-day policy revision survives clock rollback",
+    "new founding day1 wins over prior day61 by timeline/order",
+    "corrupted payload/chronology rejected in favor of valid indexed copy",
+    "aborted indexed transaction recovers newer local copy",
+    "backup quota failure does not block primary replacement",
+    "both store failures report failure without replacing active town",
+    "delayed old-town callback cannot overwrite imported day1",
+    "late newer store head promotes active save atomically",
+    "legacy raw indexed archive migrates to integrity-bound chronology",
+    "ambiguous legacy copies offer cancel/recovery instead of guessing from day",
+    "invalid import preserves game and persistence head"
+  ]
+}

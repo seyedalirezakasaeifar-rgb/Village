@@ -1,0 +1,28 @@
+{
+  "source_sha256": "17297afbea134d5259b60ba6db500af1444328b1a0f0c91e71b5b6c1460f8e54",
+  "result": {
+    "total": 15493516.999998055,
+    "pending": [],
+    "providers": [
+      {
+        "id": 26,
+        "kind": "school",
+        "clients": 32,
+        "staff": 2,
+        "cash": 6990.844800000258,
+        "closed": null,
+        "owner": -1,
+        "publicFacility": false
+      }
+    ],
+    "valid": {
+      "ok": true,
+      "issues": [],
+      "total": 15493516.999998055,
+      "population": 170,
+      "day": 112
+    }
+  },
+  "cashDrift": -1.9278377294540405e-06,
+  "errors": []
+}
