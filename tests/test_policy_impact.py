@@ -45,6 +45,7 @@ def run():
         card = page.locator('#panelBody .council-card').filter(has=page.get_by_text('RECENT POLICY'))
         assert card.count() == 1
         assert 'ENACTED DAY 580' in card.inner_text()
+        assert 'AFTER: day 11990' in card.inner_text()
         assert 'RECENT POLICY' in card.inner_text()
         assert 'not proof it caused them' in card.inner_text()
         assert page.evaluate('document.documentElement.scrollWidth<=innerWidth')
