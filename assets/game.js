@@ -7397,6 +7397,33 @@ const gatheringSceneBase=drawSceneSprite;drawSceneSprite=function(g,item){gather
 document.addEventListener('toggle',e=>{if(e.target.id==='civicCalendar'&&e.target.isConnected)civicCalendarExpanded=e.target.open;},true);
 const gatheringResetBase=resetTownTransientUI;resetTownTransientUI=function(){civicCalendarExpanded=false;gatheringResetBase();};
 
+// SOURCE: 98zzzzzzzzzzz-decision-help.js
+// Short, contextual decision routes. These controls navigate; they never enact policy.
+let decisionHelpOpen={};
+function decisionHint(key,title,text,actions,expanded=false){return `<details class="decision-hint" data-decision-hint="${key}" ${decisionHelpOpen[key]??expanded?'open':''}><summary>${esc(title)}</summary><p>${esc(text)}</p><div class="btnrow">${actions.map(([target,label])=>`<button data-decision-route="${target}">${esc(label)}</button>`).join('')}</div></details>`;}
+function constructionDecisionHint(){return decisionHint('land','A missing site, or a larger boundary?','Annex when a specific lawful site or connection is missing. A deed grants building rights; roads, vacancies, workers and recurring services are separate commitments. Compare renewal of existing land before buying farther out.',[['charter','Compare actual district deeds'],['renewal','Compare reuse and compensation']]);}
+function tradeDecisionHint(){return decisionHint('trade','Can this supplier keep the promise?','Compare retained stock, already promised output, freight cash and the full arrival lag. A suggested size is a forecast; a full buyer window can be risky. Inventory margin excludes future payroll, tax and disruption.',[['suppliers','Compare buyer, commodity and producer'],['budget','Check the city cash runway']]);}
+function migrationDecisionHint(){return decisionHint('moves','An empty home is not an arriving household','Residents compare funded reachable jobs, rent, food, travel and spendable savings with outside alternatives. A departure does not erase property, loans or locked bank claims. Read the actual household assessment and this session’s recorded decisions.',[['migration','Read actual moving decisions'],['household','Inspect a household budget']]);}
+function spendingDecisionHint(){return decisionHint('spending','Authorization, purchases and one-off costs','Service authorizations are ceilings: real purchases still need cash, qualified staff and access. Deeds, compensated renewal and gathering preparation are separate outlays. Compare the proposed daily bound with recent receipts before enacting a package.',[['outlook','Review this proposal’s cash plan'],['budget','Open actual treasury accounts']]);}
+const decisionTransitBase=transitOfficePanel;transitOfficePanel=function(){return constructionDecisionHint()+decisionTransitBase.apply(this,arguments);};
+const decisionLogisticsBase=logisticsPanel;logisticsPanel=function(){return tradeDecisionHint()+decisionLogisticsBase.apply(this,arguments);};
+const decisionCommunityBase=renderCommunityFull;renderCommunityFull=function(){return migrationDecisionHint()+decisionCommunityBase.apply(this,arguments);};
+const decisionPoliciesBase=renderPoliciesFull;renderPoliciesFull=function(){return spendingDecisionHint()+decisionPoliciesBase.apply(this,arguments);};
+const decisionInspectBase=renderInspectFull;renderInspectFull=function(){const b=selected&&readBuild(selected.id);if(b?.kind!=='farm')return decisionInspectBase.apply(this,arguments);const d=urbanDescriptor(b.x,b.y),text='Current planning rule: '+URBAN_PLANS[d.plan]+'. Farms are not replaced merely because years pass: private renewal needs nearby housing pressure, lawful replacement farmland and finance. Changing permissions alone does not relocate the enterprise.'+(G.autoBuild===false?' Private development is currently paused.':'');return decisionHint('farm','Why this farm is still rural',text,[['site-plan','Review this site’s planning permissions'],['land-office','Compare regional land']],true)+decisionInspectBase.apply(this,arguments);};
+function decisionFocusDetails(id){const element=$(id);if(!element){toast('This report is not available in the current town.');return;}if(element.tagName==='DETAILS')element.open=true;element.scrollIntoView({block:'start'});if(element.tagName==='DETAILS')element.querySelector('summary')?.focus({preventScroll:true});else{element.tabIndex=-1;element.focus({preventScroll:true});}}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-decision-route]');if(!b||!G)return;switch(b.dataset.decisionRoute){
+ case 'charter':case 'land-office':openPanel('construction');decisionFocusDetails('charterOffice');break;
+ case 'renewal':openPanel('construction');decisionFocusDetails('brownfieldOffice');break;
+ case 'suppliers':openPanel('economy');decisionFocusDetails('alternativeSuppliers');break;
+ case 'migration':openPanel('community');decisionFocusDetails('migrationOffice');break;
+ case 'outlook':openPanel('policies');decisionFocusDetails('serviceBudgetOutlook');break;
+ case 'budget':openPanel('treasury');break;
+ case 'household':{let household=null;for(const h of G.households)if(h.people.length&&readBuild(h.home)&&(!household||(h.stress||0)>(household.stress||0)))household=h;if(household){selected={id:household.home};openPanel('inspect');}break;}
+ case 'site-plan':{const id=selected?.id;if(!id)break;openPanel('inspect');const button=document.querySelector('[data-urban-building="'+id+'"][data-urban-plan]'),details=button?.closest('details');if(details){details.open=true;details.scrollIntoView({block:'start'});details.querySelector('summary')?.focus({preventScroll:true});}break;}
+ }});
+document.addEventListener('toggle',e=>{const key=e.target.dataset?.decisionHint;if(key&&e.target.isConnected)decisionHelpOpen[key]=e.target.open;},true);
+const decisionResetBase=resetTownTransientUI;resetTownTransientUI=function(){decisionHelpOpen={};decisionResetBase();};
+
 // SOURCE: 98zzzzzzzzzzz-gathering-art.js
 // Gathering decoration is cached with the actual square; representative residents
 // enter the normal ground-actor compositor. No attendance or payments are changed.

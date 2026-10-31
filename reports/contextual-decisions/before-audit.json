@@ -1,0 +1,22 @@
+[
+  {
+    "panel": "construction",
+    "firstVisibleText": "City transit\n\nBuild a depot, choose a bus corridor, then tap street stops and review the capital and daily wage bill. Elevated metro uses roadside stations and guideway over existing streets. Passengers walk up to five street tiles and can transfer between routes.\n\nPassenger journeys today\n0\nPeak passengers left behind\n0\nFares today\n$0\nOperating cost today\n$0\nDEPOT \u00b7 $9,000\nELEVATED STATION \u00b7 $12,500\nNEW BUS ROUTE\nNEW ELEVATED ROUTE\nSHOW TRANSIT MAP\n\nEach depot holds eight bus bays; each metro set needs two. Driver wages require available residents with basic skills and a street route to the depot. Fare: $0.65 bus / $1.25 metro, including transfers. Building a route authorizes its quoted daily operations; reduce or suspend service to save costs. The commuter-budget policy funds the legacy support service only while no public routes exist.\n\nBrownfield renewal \u00b7 give an industrial place a ",
+    "overflow": false
+  },
+  {
+    "panel": "economy",
+    "firstVisibleText": "Depot operations \u00b7 0 queued \u00b7 0 late\nTHE REGIONAL EXCHANGE\n\nImports are paid inventories on the road, not instant shelf stock. Road exports earn receipts on arrival; river buyers take title at dock collection. Market quotes change monthly; road capacity and working capital limit dispatch. Regional buyers share the conserved external cash account.\n\nConsignments travelling\n37\nCompleted deliveries\n0\nLoading units left today\n941.4\nDelayed cargo\n0\nUpland Cooperative \u00b7 2 days outside town\nGreyhaven Port \u00b7 3 days outside town\nIronridge Works \u00b7 4 days outside town\n\nDispatch uses a shared local loading budget: 500 units daily plus 120 per attending warehouse worker. A depot without road access or crews adds nothing. Firms compare local landed prices with regional quotes, duties and freight; imports may undercut local producers. Transit time and local food reserves still matter.\n\nReview regional h",
+    "overflow": false
+  },
+  {
+    "panel": "community",
+    "firstVisibleText": "WHO PAYS FOR LOCAL SERVICES?\n\nMunicipal schools and brigades remain publicly funded. Independent institutions invest their own capital, employ qualified workers and charge voluntary fees. Entry licensing does not confiscate existing providers. Vouchers purchase actual otherwise unaffordable service; they are not a blanket grant to owners.\n\nIndependent schools\n0\nIndependent brigades\n0\nLearner equivalents today\n0\nVoucher purchases today\n$0\n\nPrivate teaching purchases remaining public-service gaps, subject to pupils, household budgets and qualified capacity. Learning terms require120 equivalent teaching days. Brigade memberships buy prevention and priority readiness; nearby nonmembers still receive emergency spillover. No family is billed at a burning doorstep. Public response remains independent.\n\nInvite school proposals\nInvite brigade proposals\nLicensing, fees & targeted vouchers\nMoving i",
+    "overflow": false
+  },
+  {
+    "panel": "policies",
+    "firstVisibleText": "Independent service licensing & affordability\nThe market runs itself. You set rules and fiscal priorities. Select a council programme or adjust rates manually, then enact the package and watch the town adapt over time.\nMake room for enterprise\nLower taxes, permits and barriers to development.\nOpen the housing market\nEase planning rules and improve access.\nInvest in families\nFinance schools, care, relief and roads.\nBalance the council purse\nReduce spending and slow new commitments.\nTaxation\nIncome tax\n12%\n\nShare of earnings paid by working residents to the town.\n\nBusiness profit tax\n12%\n\nTax on positive net operating profit of private businesses.\n\nProperty tax (annual)\n1.1%\n\nTax on property values, charged to owners daily in annualized instalments.\n\nBusiness property rate (annual)\n0.6%\n\nAnnual tax on privately operating premises, payable even in years with weak profits.\n\nFood sales tax\n4%",
+    "overflow": false
+  }
+]
