@@ -205,8 +205,10 @@ function offerCouncilEvent(interrupt=false){
  story('A council petition is waiting: '+event.title+'. Review it in the Agenda when convenient.','neutral');
 }
 const HOUSING_RETENTION_PREFIX='A household may leave: ';
+function isHousingRetentionTitle(title){return typeof title==='string'&&title.startsWith(HOUSING_RETENTION_PREFIX);}
+function pendingRetentionBridge(household){return (G.councilArchive||[]).some(e=>e.retentionBridge===true&&e.retentionRecoveryPending===true&&e.retentionHousehold===household);}
 function housingRetentionAssessment(household){
- const h=G.households[household];if(!h||!h.people.length||typeof migrationEmigrationAssessment!=='function')return null;
+ const h=G.households[household];if(!h||!h.people.length||pendingRetentionBridge(household)||typeof migrationEmigrationAssessment!=='function')return null;
  const a=migrationEmigrationAssessment(h);if(!a.eligible)return null;
  const amount=Math.ceil(Math.min(3000,Math.max(1,-a.localSurplus*14)));
  return {household:h.id,name:h.name,assessment:a,amount};
@@ -215,19 +217,23 @@ function housingRetentionEvent(entry){
  const target=housingRetentionAssessment(entry?.retentionHousehold);if(!target)return null;
  const {assessment:a,amount}=target,days=Math.max(0,Math.floor(a.spendable.spendable/Math.max(1,a.essentials)));
  const currentSkills=G.civicProjects?.active?.skills;
+ const hasTrainingAdult=G.households[target.household].people.some(id=>{const p=G.people[id];return p&&!p.deceased&&!p.movedAway&&p.age>=16&&p.age<=70;});
  const choices=[
-  {title:'Offer up to two weeks of household support',desc:'Transfer '+money(amount)+' from the municipal reserve to this family’s actual cash account. The quote is capped at $3,000, so severe gaps may receive less than two weeks. It does not create a job or promise retention.',cost:amount,validate:()=>{const current=housingRetentionAssessment(target.household);return G.households[target.household]?.name===target.name&&current?.amount===amount;},apply:()=>{const h=G.households[target.household];if(h){h.cash+=amount;story('Council transferred '+money(amount)+' to '+h.name+' as a one-time household bridge. Their employment and moving choice remain their own.','neutral',-1,h.id);}}},
+  {title:'Offer up to two weeks of household support',desc:'Transfer '+money(amount)+' from the municipal reserve to this family’s actual cash account. The quote is capped at $3,000, so severe gaps may receive less than two weeks. One bridge is available until this household’s underlying departure risk clears; it does not create a job or promise retention.',cost:amount,validate:()=>{const current=housingRetentionAssessment(target.household);return G.households[target.household]?.name===target.name&&current?.amount===amount;},apply:()=>{const h=G.households[target.household];if(h){h.cash+=amount;G.councilArchive=G.councilArchive||[];G.councilArchive.unshift({title:entry.title,day:G.day,retentionHousehold:h.id,retentionBridge:true,retentionBridgeAmount:amount,retentionRecoveryPending:true,response:'One-time household bridge paid'});trimCouncilArchive();story('Council transferred '+money(amount)+' to '+h.name+' as a one-time household bridge. No second bridge is available unless the underlying departure risk clears first. Their employment and moving choice remain their own.','neutral',-1,h.id);}}},
  ];
- if(!currentSkills||currentSkills.status==='complete')choices.push({title:'Invest in lasting local options',desc:'Adopt the existing “Learning within reach” project for '+target.name+'. This costs no capital today; real school access, recurring public funds and a completed adult term are still required.',validate:()=>{const current=housingRetentionAssessment(target.household);return G.households[target.household]?.name===target.name&&current?.amount===amount&&(!G.civicProjects?.active?.skills||G.civicProjects.active.skills.status==='complete');},apply:()=>{if(civicProjectStart('skills','network',target.household)){openCivicProjects('skills');story('Council adopted a funded teaching and adult-training pathway for '+target.name+'. Its delivery depends on actual staff, public purchases and completed training.','neutral',-1,target.household);}}});
- else choices.push({title:'Protect the reserve; keep the family’s choice open',desc:'No transfer while another learning project draws on the same staffing and service budget. The household may still move.',validate:()=>{const current=housingRetentionAssessment(target.household);return G.households[target.household]?.name===target.name&&current?.amount===amount;},apply:()=>story('Council retained its reserve while an existing learning project competes for staff and service funds. '+target.name+' remains free to decide whether to stay.','neutral',-1,target.household)});
+ if(hasTrainingAdult&&(!currentSkills||currentSkills.status==='complete'))choices.push({title:'Invest in lasting local options',desc:'Adopt the existing “Learning within reach” project for '+target.name+'. This costs no capital today; real school access, recurring public funds and a completed adult term are still required.',validate:()=>{const current=housingRetentionAssessment(target.household),h=G.households[target.household],adult=h?.people.some(id=>{const p=G.people[id];return p&&!p.deceased&&!p.movedAway&&p.age>=16&&p.age<=70;});return h?.name===target.name&&adult&&current?.amount===amount&&(!G.civicProjects?.active?.skills||G.civicProjects.active.skills.status==='complete');},apply:()=>{if(civicProjectStart('skills','network',target.household)){openCivicProjects('skills');story('Council adopted a funded teaching and adult-training pathway for '+target.name+'. Its delivery depends on actual staff, public purchases and completed training.','neutral',-1,target.household);}}});
+ else choices.push({title:'Protect the reserve; keep the family’s choice open',desc:currentSkills&&currentSkills.status==='active'?'No transfer while another learning project draws on the same staffing and service budget. The household may still move.':'No transfer; this household has no working-age learner eligible for the adult-training route. The family may still move.',validate:()=>{const current=housingRetentionAssessment(target.household);return G.households[target.household]?.name===target.name&&current?.amount===amount;},apply:()=>story('Council retained its reserve without adopting an unavailable or competing learning route. '+target.name+' remains free to decide whether to stay.','neutral',-1,target.household)});
  return {type:'HOUSING & LIVELIHOODS',title:entry.title,text:`${target.name} has a verified household cash shortfall: local prospects ${money(a.localSurplus)}/day against ${money(a.essentials)}/day of essential costs, with about ${days} days of spendable essentials. The outside comparison is ${money(a.outside.surplus)}/day after carried obligations. Their departure is still voluntary; a bridge cannot guarantee they will stay. Review the actual household and employment options if you defer.`,choices};
 }
 function offerHousingRetentionDilemma(){
  if(!G||G.day<30||G.stats.population<2)return false;
  const inbox=G.councilInbox=Array.isArray(G.councilInbox)?G.councilInbox:[];
- if(inbox.some(e=>e.title.startsWith(HOUSING_RETENTION_PREFIX)))return false;
+ if(inbox.some(e=>isHousingRetentionTitle(e?.title)))return false;
+ for(const receipt of G.councilArchive||[])if(receipt.retentionBridge===true&&receipt.retentionRecoveryPending===true){const h=G.households[receipt.retentionHousehold];if(!h||!h.people.length||!migrationEmigrationAssessment(h).eligible)receipt.retentionRecoveryPending=false;}
  const candidates=G.households.filter(h=>h.people.length).slice().sort((a,b)=>a.cash-b.cash||a.id-b.id).slice(0,8);
- for(const h of candidates){const assessment=housingRetentionAssessment(h.id);if(!assessment)continue;
+ for(const h of candidates){
+  if(pendingRetentionBridge(h.id))continue;
+  const assessment=housingRetentionAssessment(h.id);if(!assessment)continue;
   const title=HOUSING_RETENTION_PREFIX+h.name+' · case '+h.id;
   if((G.recentCouncilEvents||[]).includes(title))continue;
   inbox.unshift({title,day:G.day,retentionHousehold:h.id});inbox.splice(7);
@@ -238,7 +244,7 @@ function offerHousingRetentionDilemma(){
 }
 function reviewCouncilInbox(index){
  const inbox=G.councilInbox||[],entry=inbox[index];if(!entry)return;
- if(entry.title.startsWith(HOUSING_RETENTION_PREFIX)){
+ if(isHousingRetentionTitle(entry.title)){
   const event=housingRetentionEvent(entry);if(!event){inbox.splice(index,1);save();story('The household’s financial outlook changed; its council review is no longer current.','neutral');if(active==='agenda')renderPanel('agenda');return;}
   showCustomEvent(event.type,event.title,event.text,event.choices);save();if(active==='agenda')renderPanel('agenda');return;
  }
@@ -252,7 +258,7 @@ function reviewCouncilInbox(index){
 let councilOpener=null;
 function closeCouncilDialog(defer=false){
  const event=pendingEvent;pendingEvent=null;$('eventDialog').style.display='none';
- if(defer&&event&&event.type!=='TOWN ARCHIVE'&&(COUNCIL_EVENTS.some(e=>e.title===event.title)||event.title.startsWith(HOUSING_RETENTION_PREFIX))){G.councilInbox=G.councilInbox||[];if(!G.councilInbox.some(e=>e.title===event.title))G.councilInbox.unshift({title:event.title,day:G.day});}
+ if(defer&&event&&event.type!=='TOWN ARCHIVE'&&(COUNCIL_EVENTS.some(e=>e.title===event.title)||isHousingRetentionTitle(event.title))){G.councilInbox=G.councilInbox||[];if(!G.councilInbox.some(e=>e.title===event.title))G.councilInbox.unshift({title:event.title,day:G.day});}
  if(active==='agenda')renderPanel(active);save();
  const target=councilOpener?.isConnected?councilOpener:$('tabs').querySelector('[data-panel="agenda"]');target?.focus();councilOpener=null;
 }
@@ -260,7 +266,7 @@ function directTransactionDialog(type){return ['REGIONAL EXCHANGE','REGIONAL ROA
 function showCustomEvent(type,title,text,choices){councilOpener=document.activeElement;pendingEvent={type,title,text,choices};
  $('eventEyebrow').textContent=type;$('eventTitle').textContent=title;$('eventText').textContent=text;
  $('eventChoices').innerHTML=choices.map((c,i)=>`<button data-event-choice="${i}" ${c.cost>0?'data-sound="coin"':''} ${c.cost&&G.treasury<c.cost?'disabled':''}><strong>${esc(c.title)}</strong><small>${esc(c.desc||'')}${c.cost?' · Cost: '+money(c.cost):''}</small></button>`).join('');
- if(type!=='TOWN ARCHIVE'&&(COUNCIL_EVENTS.some(e=>e.title===title)||title.startsWith(HOUSING_RETENTION_PREFIX))){G.councilInbox=G.councilInbox||[];if(!G.councilInbox.some(e=>e.title===title))G.councilInbox.unshift({title,day:G.day});save();}
+ if(type!=='TOWN ARCHIVE'&&(COUNCIL_EVENTS.some(e=>e.title===title)||isHousingRetentionTitle(title))){G.councilInbox=G.councilInbox||[];if(!G.councilInbox.some(e=>e.title===title))G.councilInbox.unshift({title,day:G.day});save();}
  $('eventDialog').style.display='flex';$('eventDefer').textContent=(type==='TOWN ARCHIVE'||type==='LAND PURCHASE'||directTransactionDialog(type))?'CANCEL':'DECIDE LATER';$('eventChoices').querySelector('button:not([disabled])')?.focus();
 }
 $('eventChoices').addEventListener('click',e=>{
