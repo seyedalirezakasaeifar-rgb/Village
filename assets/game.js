@@ -1257,7 +1257,7 @@ function seed(seedValue=42){
  for(let b of G.buildings)if(b.kind==='home')b.owner=(random()<.35?b.hh:random()*G.households.length|0);
  assignJobs();recompute();const counts={population:G.people.length,employment:G.stats.employment,hardship:G.stats.hardship,safety:G.stats.safety,businesses:G.firms.length,treasury:G.treasury};
  G.journal.push({day:1,name:'Village founded',message:'Town hall records open. Follow real people, employers and policy consequences.',baseline:counts});
- G.events.push({day:1,text:'A new council has taken responsibility for the prosperity of the Vale.',type:'neutral'});setupScenario();seedBanks();ensureSystems();initializeScenario();initializeWaterfrontStart();ensureMarketModel();G.scenarioSeed=seedValue;G.accounts={baseline:totalMoney(),maxError:0};housingMarketDay(true);recordObservation();initializeScenarioProgramme();save();
+ G.events.push({day:1,text:'A new council has taken responsibility for the prosperity of the Vale.',type:'neutral'});setupScenario();seedBanks();ensureSystems();initializeScenario();initializeWaterfrontStart();ensureMarketModel();ensureSystems();ensureFinance();G.recentCouncilEvents=G.recentCouncilEvents||[];invalidateRoads(false);recompute();G.stats.approval=Math.round(G.council.approval);G.scenarioSeed=seedValue;G.accounts={baseline:totalMoney(),maxError:0};housingMarketDay(true);recordObservation();initializeScenarioProgramme();recompute();G.stats.approval=Math.round(G.council.approval);save();
  staticDirty=true;dirty=true;
 }
 function cityCell(x,y){return x>=0&&x<T&&y>=0&&y<T?G.tiles[y*T+x]:-1}
@@ -3589,13 +3589,38 @@ function roadMetrics(){
  return {connectedFirms:reachable,totalFirms:firms.length,connectedHomes:eligible,totalHomes:G.households.length,roadTiles:net.neighbors.size,roadClusters:net.partsCount,averageJourney:routes?Math.round(length/routes):0,quality:Math.round(G.stats.roadCondition??75)};
 }
 function roadCenter(id){const pos=iso(id%T,id/T|0);return [pos[0],pos[1]+TH/2]}
-// Distance queries do not need a reconstructed visual/freight route. Cache bounded
-// destination trees so a hiring pass does one BFS per workplace, not per applicant.
+// Distance-only BFS rows use road-node indices rather than the entire atlas.
+// Keep at most 4 MiB of rows, plus the existing 32 tile-indexed compatibility
+// rows. This lets the working set grow with actual road density, not map area.
+const ROAD_DISTANCE_ROW_BYTES=4*1024*1024;
+function roadDistanceRows(net){
+ if(net.distanceRows)return net.distanceRows;
+ const nodes=[...net.neighbors.keys()],index=new Int32Array(G.tiles.length).fill(-1);
+ nodes.forEach((id,i)=>index[id]=i);
+ const adjacency=nodes.map(id=>(net.neighbors.get(id)||[]).map(next=>index[next]));
+ return net.distanceRows={nodes,index,adjacency,queue:new Int32Array(nodes.length),rows:new Map(),bytes:0,stats:{queries:0,hits:0,builds:0,evictions:0,maxBytes:0}};
+}
+function roadDistanceRow(start,net){
+ const cache=roadDistanceRows(net),stats=cache.stats;stats.queries++;
+ let row=cache.rows.get(start);
+ if(row){stats.hits++;cache.rows.delete(start);cache.rows.set(start,row);return row;}
+ const DistanceArray=cache.nodes.length<32768?Int16Array:Int32Array;
+ row=new DistanceArray(cache.nodes.length).fill(-1);const origin=cache.index[start];
+ // Invalid/non-road roots preserve an all-minus-one result without retaining keys.
+ if(origin==null||origin<0)return row;
+ if(origin>=0){let head=0,tail=1;cache.queue[0]=origin;row[origin]=0;
+  while(head<tail){const at=cache.queue[head++],distance=row[at]+1;for(const next of cache.adjacency[at])if(row[next]===-1){row[next]=distance;cache.queue[tail++]=next;}}
+ }
+ stats.builds++;
+ while(cache.rows.size&&cache.bytes+row.byteLength>ROAD_DISTANCE_ROW_BYTES){const oldest=cache.rows.keys().next().value;cache.bytes-=cache.rows.get(oldest).byteLength;cache.rows.delete(oldest);stats.evictions++;}
+ if(row.byteLength<=ROAD_DISTANCE_ROW_BYTES){cache.rows.set(start,row);cache.bytes+=row.byteLength;stats.maxBytes=Math.max(stats.maxBytes,cache.bytes);}
+ return row;
+}
 function roadDistancesFrom(start,net=graph()){
  if(!net.distanceTrees)net.distanceTrees=new Map();let distance=net.distanceTrees.get(start);
  if(distance){net.distanceTrees.delete(start);net.distanceTrees.set(start,distance);return distance;}
- const DistanceArray=net.neighbors.size<32768?Int16Array:Int32Array;distance=new DistanceArray(G.tiles.length).fill(-1);
- if(net.neighbors.has(start)){const queue=[start];distance[start]=0;for(let i=0;i<queue.length;i++){const at=queue[i],nextDistance=distance[at]+1;for(const next of net.neighbors.get(at)||[])if(distance[next]===-1){distance[next]=nextDistance;queue.push(next);}}}
+ const cache=roadDistanceRows(net),row=roadDistanceRow(start,net),DistanceArray=cache.nodes.length<32768?Int16Array:Int32Array;
+ distance=new DistanceArray(G.tiles.length).fill(-1);for(let i=0;i<cache.nodes.length;i++)distance[cache.nodes[i]]=row[i];
  if(net.distanceTrees.size>=32)net.distanceTrees.delete(net.distanceTrees.keys().next().value);net.distanceTrees.set(start,distance);return distance;
 }
 function roadDistance(a,b){
@@ -3603,8 +3628,8 @@ function roadDistance(a,b){
  const net=graph();if(net.parts[a]!==net.parts[b])return Infinity;
  // Preserve the legacy non-road sentinel; normal consumers use graph portals.
  if(!net.neighbors.has(a)||!net.neighbors.has(b))return -1;
- const cachedA=net.distanceTrees?.has(a),cachedB=net.distanceTrees?.has(b),anchor=cachedA?a:cachedB?b:net.distanceLastA===a?a:b;
- net.distanceLastA=a;return roadDistancesFrom(anchor,net)[anchor===a?b:a];
+ const cache=roadDistanceRows(net),cachedA=cache.rows.has(a),cachedB=cache.rows.has(b),anchor=cachedA?a:cachedB?b:net.distanceLastA===a?a:b;
+ net.distanceLastA=a;return roadDistanceRow(anchor,net)[cache.index[anchor===a?b:a]];
 }
 function beginVehicle(source=null,target=null,emergency=false){
  const net=graph();if(net.connected.length<2)return null;
@@ -4029,7 +4054,7 @@ function draw(){
   });
   viewBuildings.push(...transitInfrastructureItems(visible));viewBuildings.sort((a,b)=>a.y-b.y);
   paintCastShadows(vg,viewBuildings);
-  const actorDetail=!gameOptions.reducedMotion&&((gameOptions.traffic&&cam.zoom>=.32)||(gameOptions.effects&&cam.zoom>=.62));if(actorDetail){if(viewUnderlayRaster.width!==cv.width)viewUnderlayRaster.width=cv.width;if(viewUnderlayRaster.height!==cv.height)viewUnderlayRaster.height=cv.height;const ug=viewUnderlayRaster.getContext('2d',{alpha:false});ug.setTransform(1,0,0,1,0,0);ug.drawImage(viewRaster,0,0);}else{viewUnderlayRaster.width=0;viewUnderlayRaster.height=0;}
+  const actorDetail=!gameOptions.reducedMotion&&((gameOptions.traffic&&cam.zoom>=.32)||(gameOptions.effects&&cam.zoom>=.62));if(actorDetail){if(viewUnderlayRaster.width!==cv.width)viewUnderlayRaster.width=cv.width;if(viewUnderlayRaster.height!==cv.height)viewUnderlayRaster.height=cv.height;const ug=viewUnderlayRaster.getContext('2d',{alpha:false});ug.setTransform(1,0,0,1,0,0);ug.drawImage(viewRaster,0,0);}else{viewUnderlayRaster.width=0;viewUnderlayRaster.height=0;actorRepairRaster.width=0;actorRepairRaster.height=0;}
   for(const item of viewBuildings)drawSceneSprite(vg,item);
   viewRasterKey=key;
  }
@@ -4315,6 +4340,7 @@ function sceneActorPaintY(a,bridges){
  return y;
 }
 function paintSceneLayer(g,a){if(a.kind==='transitArt')paintTransitVehicle(g,a);else if(a.kind==='vehicle')vehiclePaint(g,a.v,a,frameClock);else if(a.kind==='boat')paintWaterBoat(g,a,frameClock);else if(a.kind==='workday')paintWorkdayScene(g,a,frameClock);else drawSceneSprite(g,a);}
+const actorRepairRaster=document.createElement('canvas');
 function paintSceneActors(g,actors,visible=()=>true){
  if(!actors.length)return;
  const damage=actors.map(scenePaintBounds),bridges=viewBuildings.filter(a=>a.kind==='guideway').map(item=>({item,bounds:scenePaintBounds(item)}));
@@ -4324,7 +4350,9 @@ function paintSceneActors(g,actors,visible=()=>true){
  g.save();g.setTransform(1,0,0,1,0,0);g.beginPath();
  // Integer backing-pixel clips prevent fractional clip-edge double blending.
  for(const r of damage){const x=Math.floor(((r[0]-cam.x)*cam.zoom+cw/2)*dpr),y=Math.floor(((r[1]-cam.y)*cam.zoom+ch/2)*dpr),right=Math.ceil(((r[2]-cam.x)*cam.zoom+cw/2)*dpr),bottom=Math.ceil(((r[3]-cam.y)*cam.zoom+ch/2)*dpr);g.rect(x,y,right-x,bottom-y);}
- g.clip();g.drawImage(viewUnderlayRaster,0,0);mapPaintTransform(g);drawWaterLife(g,visible);drawWaterfrontPiers(g,visible);drawRegionalGates(g,visible);drawTransitInfrastructure(g,visible);for(const layer of layers)paintSceneLayer(g,layer.a);g.restore();
+ g.clip();
+ if(actorRepairRaster.width!==viewUnderlayRaster.width)actorRepairRaster.width=viewUnderlayRaster.width;if(actorRepairRaster.height!==viewUnderlayRaster.height)actorRepairRaster.height=viewUnderlayRaster.height;
+ const repair=actorRepairRaster.getContext('2d',{alpha:false});repair.setTransform(1,0,0,1,0,0);repair.imageSmoothingEnabled=false;repair.drawImage(viewUnderlayRaster,0,0);mapPaintTransform(repair);drawWaterLife(repair,visible);drawWaterfrontPiers(repair,visible);drawRegionalGates(repair,visible);drawTransitInfrastructure(repair,visible);for(const layer of layers)paintSceneLayer(repair,layer.a);g.drawImage(actorRepairRaster,0,0);g.restore();
 }
 
 // SOURCE: 69-civic-materials.js

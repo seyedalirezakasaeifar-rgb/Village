@@ -1,0 +1,139 @@
+{
+  "source_sha256": "bfe43741326367358e50bc5b7180b2dee5ec080133eefb002c5669dce02dab97",
+  "host_browser_only": true,
+  "fresh_day1_roundtrip_equal": false,
+  "differences": [
+    {
+      "path": ".buildings[100].baseValue",
+      "before": null,
+      "after": 35000,
+      "missing_before": true,
+      "missing_after": false
+    },
+    {
+      "path": ".buildings[100].title",
+      "before": null,
+      "after": {
+        "type": "dict",
+        "length": 2
+      },
+      "missing_before": true,
+      "missing_after": false
+    },
+    {
+      "path": ".buildings[101].baseValue",
+      "before": null,
+      "after": 76000,
+      "missing_before": true,
+      "missing_after": false
+    },
+    {
+      "path": ".buildings[101].title",
+      "before": null,
+      "after": {
+        "type": "dict",
+        "length": 2
+      },
+      "missing_before": true,
+      "missing_after": false
+    },
+    {
+      "path": ".firms[24].creditScore",
+      "before": null,
+      "after": 0.68,
+      "missing_before": true,
+      "missing_after": false
+    },
+    {
+      "path": ".firms[24].lossDays",
+      "before": null,
+      "after": 0,
+      "missing_before": true,
+      "missing_after": false
+    },
+    {
+      "path": ".firms[25].creditScore",
+      "before": null,
+      "after": 0.68,
+      "missing_before": true,
+      "missing_after": false
+    },
+    {
+      "path": ".firms[25].lossDays",
+      "before": null,
+      "after": 0,
+      "missing_before": true,
+      "missing_after": false
+    },
+    {
+      "path": ".privateServiceProvision",
+      "before": null,
+      "after": null,
+      "missing_before": true,
+      "missing_after": false
+    },
+    {
+      "path": ".recentCouncilEvents",
+      "before": null,
+      "after": {
+        "type": "list",
+        "length": 0
+      },
+      "missing_before": true,
+      "missing_after": false
+    },
+    {
+      "path": ".roadMetrics",
+      "before": null,
+      "after": {
+        "type": "dict",
+        "length": 8
+      }
+    },
+    {
+      "path": ".serviceProvision",
+      "before": null,
+      "after": null,
+      "missing_before": true,
+      "missing_after": false
+    },
+    {
+      "path": ".stats.approval",
+      "before": null,
+      "after": 65,
+      "missing_before": true,
+      "missing_after": false
+    },
+    {
+      "path": ".stats.businessCash",
+      "before": 375341,
+      "after": 403503
+    },
+    {
+      "path": ".stats.businesses",
+      "before": 24,
+      "after": 26
+    },
+    {
+      "path": ".stats.cash",
+      "before": 127516,
+      "after": 103571
+    },
+    {
+      "path": ".stats.employed",
+      "before": 83,
+      "after": 88
+    },
+    {
+      "path": ".stats.employment",
+      "before": 75,
+      "after": 80
+    },
+    {
+      "path": ".stats.unemployment",
+      "before": 25,
+      "after": 20
+    }
+  ],
+  "difference_count": 19
+}

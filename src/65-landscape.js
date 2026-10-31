@@ -333,7 +333,7 @@ function draw(){
   });
   viewBuildings.push(...transitInfrastructureItems(visible));viewBuildings.sort((a,b)=>a.y-b.y);
   paintCastShadows(vg,viewBuildings);
-  const actorDetail=!gameOptions.reducedMotion&&((gameOptions.traffic&&cam.zoom>=.32)||(gameOptions.effects&&cam.zoom>=.62));if(actorDetail){if(viewUnderlayRaster.width!==cv.width)viewUnderlayRaster.width=cv.width;if(viewUnderlayRaster.height!==cv.height)viewUnderlayRaster.height=cv.height;const ug=viewUnderlayRaster.getContext('2d',{alpha:false});ug.setTransform(1,0,0,1,0,0);ug.drawImage(viewRaster,0,0);}else{viewUnderlayRaster.width=0;viewUnderlayRaster.height=0;}
+  const actorDetail=!gameOptions.reducedMotion&&((gameOptions.traffic&&cam.zoom>=.32)||(gameOptions.effects&&cam.zoom>=.62));if(actorDetail){if(viewUnderlayRaster.width!==cv.width)viewUnderlayRaster.width=cv.width;if(viewUnderlayRaster.height!==cv.height)viewUnderlayRaster.height=cv.height;const ug=viewUnderlayRaster.getContext('2d',{alpha:false});ug.setTransform(1,0,0,1,0,0);ug.drawImage(viewRaster,0,0);}else{viewUnderlayRaster.width=0;viewUnderlayRaster.height=0;actorRepairRaster.width=0;actorRepairRaster.height=0;}
   for(const item of viewBuildings)drawSceneSprite(vg,item);
   viewRasterKey=key;
  }

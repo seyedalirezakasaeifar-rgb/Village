@@ -1,0 +1,252 @@
+{
+  "source_sha256": "7f09488dc346be1a9dd1a08a03119fbcbd6fd211e2b47e963d6beae1fc5cf851",
+  "gates": {
+    "reports/transit-distance-cache-8.json": {
+      "source_sha256": "7f09488dc346be1a9dd1a08a03119fbcbd6fd211e2b47e963d6beae1fc5cf851",
+      "reference_commit": "525e47d",
+      "models": [
+        {
+          "dense": false,
+          "days": 360,
+          "exactCheckpoints": [
+            31,
+            61,
+            91,
+            121,
+            151,
+            181,
+            211,
+            241,
+            271,
+            301,
+            331,
+            361
+          ],
+          "oracle": {
+            "checked": 12000,
+            "cachedTrees": 6,
+            "cacheBytes": 196608,
+            "unchanged": true
+          },
+          "closure": {
+            "before": {
+              "checked": 12000,
+              "cachedTrees": 6,
+              "cacheBytes": 196608,
+              "unchanged": true
+            },
+            "after": {
+              "checked": 12000,
+              "cachedTrees": 0,
+              "cacheBytes": 0,
+              "unchanged": true
+            },
+            "disconnected": true
+          }
+        },
+        {
+          "dense": true,
+          "days": 180,
+          "exactCheckpoints": [
+            31,
+            61,
+            91,
+            121,
+            151,
+            181
+          ],
+          "oracle": {
+            "checked": 12000,
+            "cachedTrees": 0,
+            "cacheBytes": 0,
+            "unchanged": true
+          },
+          "closure": {
+            "before": {
+              "checked": 12000,
+              "cachedTrees": 0,
+              "cacheBytes": 0,
+              "unchanged": true
+            },
+            "after": {
+              "checked": 12000,
+              "cachedTrees": 0,
+              "cacheBytes": 0,
+              "unchanged": true
+            },
+            "disconnected": true
+          }
+        }
+      ]
+    },
+    "reports/release-tests.json": {
+      "source_sha256": "7f09488dc346be1a9dd1a08a03119fbcbd6fd211e2b47e963d6beae1fc5cf851",
+      "determinism_and_continuation": {
+        "sameSeed": true,
+        "renderIndependent": true,
+        "continuedDays": 120,
+        "valid": {
+          "ok": true,
+          "issues": [],
+          "total": 15489571.999994356,
+          "population": 172,
+          "day": 301
+        }
+      },
+      "malformed_save_atomicity": {
+        "investorRejected": true,
+        "cargoRejected": true,
+        "futureRejected": true,
+        "townPreserved": true
+      },
+      "replicated_zoning": [
+        {
+          "seed": 42,
+          "zone": 0,
+          "population": 192,
+          "homes": 17,
+          "firms": 3,
+          "privateSpend": 494901,
+          "moneyDelta": -1.2569129467010498e-05,
+          "ms": 4111.899999991059
+        },
+        {
+          "seed": 42,
+          "zone": 100,
+          "population": 177,
+          "homes": 0,
+          "firms": 1,
+          "privateSpend": 0,
+          "moneyDelta": -1.7305836081504822e-05,
+          "ms": 3342.7999999970198
+        },
+        {
+          "seed": 101,
+          "zone": 0,
+          "population": 221,
+          "homes": 21,
+          "firms": 8,
+          "privateSpend": 621891,
+          "moneyDelta": -1.55717134475708e-05,
+          "ms": 3222.9000000059605
+        },
+        {
+          "seed": 101,
+          "zone": 100,
+          "population": 183,
+          "homes": 0,
+          "firms": 2,
+          "privateSpend": 0,
+          "moneyDelta": -8.197501301765442e-06,
+          "ms": 2235.4000000059605
+        },
+        {
+          "seed": 909,
+          "zone": 0,
+          "population": 211,
+          "homes": 21,
+          "firms": 5,
+          "privateSpend": 525844,
+          "moneyDelta": -1.1583790183067322e-05,
+          "ms": 2701.7000000029802
+        },
+        {
+          "seed": 909,
+          "zone": 100,
+          "population": 176,
+          "homes": 0,
+          "firms": 1,
+          "privateSpend": 0,
+          "moneyDelta": -1.2626871466636658e-05,
+          "ms": 2411.800000011921
+        }
+      ],
+      "cargo_ownership": {
+        "consignments": 6,
+        "sampledUnits": 166.3792513597068,
+        "remaining": true,
+        "delayed": 1,
+        "cashConserved": true
+      },
+      "legacy_56_migration": {
+        "v": {
+          "ok": true,
+          "issues": [],
+          "total": 15416938,
+          "population": 169,
+          "day": 1
+        },
+        "after": {
+          "ok": true,
+          "issues": [],
+          "total": 15416937.999999564,
+          "population": 167,
+          "day": 31
+        },
+        "schema": 8
+      },
+      "true_pause": {
+        "identicalScreenshots": true,
+        "milliseconds": 500
+      },
+      "traffic_progress": {
+        "seconds": 1600,
+        "maximumWait": 0.9999999999999999,
+        "peak": 21,
+        "valid": true
+      },
+      "long_run_endurance": [],
+      "browser_errors": []
+    },
+    "reports/development-save-qa/composite.json": {
+      "source_sha256": "7f09488dc346be1a9dd1a08a03119fbcbd6fd211e2b47e963d6beae1fc5cf851",
+      "controlledCatchment": true,
+      "result": {
+        "grid": 128,
+        "people": 1375,
+        "routes": 2,
+        "settledTickets": 1,
+        "fares": 5.8500000000000005,
+        "cargo": 18,
+        "providerEscrow": 6000,
+        "mallEscrow": 28000,
+        "cashConserved": true,
+        "receiptsPreserved": true,
+        "faults": {
+          "grid": 128,
+          "schema": 8,
+          "recordsRejected": [
+            "missingMember",
+            "duplicateMember",
+            "householdMismatch",
+            "missingHome",
+            "tileUsedAsHomeId",
+            "missingFirmBuilding",
+            "negativeStock",
+            "invalidStock",
+            "unknownStock",
+            "negativeDeposit",
+            "missingDepositBank",
+            "malformedBank",
+            "malformedLoan",
+            "negativeLoanBank",
+            "duplicateBuildingId",
+            "exhaustedIdCounter",
+            "duplicateHomeId",
+            "orphanWorker",
+            "duplicateWorker",
+            "missingOwner",
+            "missingTitleHolder",
+            "truncatedTiles",
+            "malformedProject",
+            "futureSchema",
+            "invalidDay"
+          ],
+          "truncatedRejected": 4,
+          "callerIndependent": true,
+          "atomicRNGAndTimeline": true
+        }
+      }
+    }
+  }
+}
