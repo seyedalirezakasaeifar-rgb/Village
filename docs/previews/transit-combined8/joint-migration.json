@@ -1,0 +1,43 @@
+{
+  "source_sha256": "ad8161fcba0ea7c01ec5db58002025e5d2eb6a5ecd4e1d8d043de1e2d50fc29e",
+  "controlledFundedNetwork": true,
+  "migrations": [
+    {
+      "size": 56,
+      "pure": true,
+      "atomicFailure": true,
+      "paidAccountsPreserved": true
+    },
+    {
+      "size": 80,
+      "pure": true,
+      "atomicFailure": true,
+      "paidAccountsPreserved": true
+    }
+  ],
+  "joint": {
+    "purchased": 21,
+    "grid": 128,
+    "cargoPreserved": true,
+    "activeDepotProtected": "This facility serves an active passenger route. Retire or replan the route through the transit office first.",
+    "days": 60,
+    "fares": 256.10000000000093,
+    "routes": [
+      {
+        "id": 1,
+        "mode": "bus",
+        "operating": true,
+        "boardings": 6
+      },
+      {
+        "id": 2,
+        "mode": "elevated",
+        "operating": true,
+        "boardings": 0
+      }
+    ],
+    "cashDrift": 5.718320608139038e-07,
+    "goodsError": 6.366462912410498e-12
+  },
+  "errors": []
+}

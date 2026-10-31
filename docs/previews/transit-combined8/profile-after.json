@@ -1,0 +1,5174 @@
+{
+  "source_sha256": "ad8161fcba0ea7c01ec5db58002025e5d2eb6a5ecd4e1d8d043de1e2d50fc29e",
+  "rows": [
+    {
+      "zoom": 0.95,
+      "network": {
+        "grid": 128,
+        "deeds": 21,
+        "relocatedHouseholds": 29,
+        "routes": [
+          1,
+          2,
+          3
+        ],
+        "capital": 191450,
+        "total": 15493516.999999993
+      },
+      "cold": {
+        "topologyMs": 0.20000000018626451,
+        "queryMs": 2.599999999627471,
+        "queries": 2828,
+        "routes": 3,
+        "unchanged": true
+      },
+      "timings": {
+        "phases": {
+          "regionalFreightDay": {
+            "calls": 303,
+            "total": 80.90000000968575,
+            "max": 3.199999999254942
+          },
+          "transitOperatingDay": {
+            "calls": 303,
+            "total": 255.0000000167638,
+            "max": 7.400000000372529
+          },
+          "privateServiceDay": {
+            "calls": 303,
+            "total": 307.8000000026077,
+            "max": 7.5
+          },
+          "dailyEconomy": {
+            "calls": 303,
+            "total": 3662.6000000052154,
+            "max": 56.09999999962747
+          },
+          "recompute": {
+            "calls": 632,
+            "total": 283.70000001601875,
+            "max": 4.400000000372529
+          },
+          "systemsDay": {
+            "calls": 303,
+            "total": 158.6999999890104,
+            "max": 46.5
+          },
+          "privateServiceInvestmentDay": {
+            "calls": 303,
+            "total": 600.1000000005588,
+            "max": 196.8999999994412
+          },
+          "urbanEvolutionDay": {
+            "calls": 303,
+            "total": 87.5,
+            "max": 21
+          },
+          "tick": {
+            "calls": 303,
+            "total": 6011.30000000447,
+            "max": 243.80000000074506
+          },
+          "assignJobs": {
+            "calls": 106,
+            "total": 63.999999998137355,
+            "max": 5.300000000745058
+          },
+          "autonomousDevelopment": {
+            "calls": 10,
+            "total": 105.6000000005588,
+            "max": 23.799999999813735
+          },
+          "urbanHousingMobility": {
+            "calls": 10,
+            "total": 41.89999999944121,
+            "max": 9.399999999441206
+          },
+          "urbanDistrictReview": {
+            "calls": 10,
+            "total": 32.89999999944121,
+            "max": 14.900000000372529
+          }
+        },
+        "slow": [
+          {
+            "phase": "dailyEconomy",
+            "ms": 56.09999999962747,
+            "day": 2,
+            "buildings": 745,
+            "roadsVersion": 80
+          },
+          {
+            "phase": "tick",
+            "ms": 74,
+            "day": 2,
+            "buildings": 745,
+            "roadsVersion": 80
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 19,
+            "day": 3,
+            "buildings": 745,
+            "roadsVersion": 80
+          },
+          {
+            "phase": "tick",
+            "ms": 26.799999999813735,
+            "day": 3,
+            "buildings": 745,
+            "roadsVersion": 80
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 13.800000000745058,
+            "day": 4,
+            "buildings": 745,
+            "roadsVersion": 80
+          },
+          {
+            "phase": "tick",
+            "ms": 19.200000000186265,
+            "day": 4,
+            "buildings": 745,
+            "roadsVersion": 80
+          },
+          {
+            "phase": "tick",
+            "ms": 15.199999999254942,
+            "day": 5,
+            "buildings": 745,
+            "roadsVersion": 80
+          },
+          {
+            "phase": "tick",
+            "ms": 14.099999999627471,
+            "day": 6,
+            "buildings": 745,
+            "roadsVersion": 80
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 12.099999999627471,
+            "day": 7,
+            "buildings": 745,
+            "roadsVersion": 80
+          },
+          {
+            "phase": "tick",
+            "ms": 15.600000000558794,
+            "day": 7,
+            "buildings": 745,
+            "roadsVersion": 80
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 12.200000000186265,
+            "day": 8,
+            "buildings": 745,
+            "roadsVersion": 80
+          },
+          {
+            "phase": "tick",
+            "ms": 15.699999999254942,
+            "day": 8,
+            "buildings": 745,
+            "roadsVersion": 80
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 12.400000000372529,
+            "day": 9,
+            "buildings": 745,
+            "roadsVersion": 80
+          },
+          {
+            "phase": "tick",
+            "ms": 27.5,
+            "day": 9,
+            "buildings": 745,
+            "roadsVersion": 80
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 14.600000000558794,
+            "day": 10,
+            "buildings": 745,
+            "roadsVersion": 80
+          },
+          {
+            "phase": "tick",
+            "ms": 21.90000000037253,
+            "day": 10,
+            "buildings": 745,
+            "roadsVersion": 80
+          },
+          {
+            "phase": "tick",
+            "ms": 14.799999999813735,
+            "day": 11,
+            "buildings": 745,
+            "roadsVersion": 80
+          },
+          {
+            "phase": "tick",
+            "ms": 13.599999999627471,
+            "day": 12,
+            "buildings": 745,
+            "roadsVersion": 80
+          },
+          {
+            "phase": "tick",
+            "ms": 14.400000000372529,
+            "day": 15,
+            "buildings": 745,
+            "roadsVersion": 80
+          },
+          {
+            "phase": "tick",
+            "ms": 12.799999999813735,
+            "day": 16,
+            "buildings": 745,
+            "roadsVersion": 80
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 13.399999999441206,
+            "day": 17,
+            "buildings": 745,
+            "roadsVersion": 80
+          },
+          {
+            "phase": "tick",
+            "ms": 18.299999999813735,
+            "day": 17,
+            "buildings": 745,
+            "roadsVersion": 80
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 14.400000000372529,
+            "day": 18,
+            "buildings": 745,
+            "roadsVersion": 80
+          },
+          {
+            "phase": "tick",
+            "ms": 18.5,
+            "day": 18,
+            "buildings": 745,
+            "roadsVersion": 80
+          },
+          {
+            "phase": "tick",
+            "ms": 13.700000000186265,
+            "day": 19,
+            "buildings": 745,
+            "roadsVersion": 80
+          },
+          {
+            "phase": "tick",
+            "ms": 15.900000000372529,
+            "day": 20,
+            "buildings": 745,
+            "roadsVersion": 80
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 14.399999999441206,
+            "day": 21,
+            "buildings": 745,
+            "roadsVersion": 80
+          },
+          {
+            "phase": "tick",
+            "ms": 24.40000000037253,
+            "day": 21,
+            "buildings": 745,
+            "roadsVersion": 80
+          },
+          {
+            "phase": "tick",
+            "ms": 14.299999999813735,
+            "day": 22,
+            "buildings": 745,
+            "roadsVersion": 80
+          },
+          {
+            "phase": "tick",
+            "ms": 12.5,
+            "day": 23,
+            "buildings": 745,
+            "roadsVersion": 80
+          },
+          {
+            "phase": "tick",
+            "ms": 12.299999999813735,
+            "day": 24,
+            "buildings": 745,
+            "roadsVersion": 80
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 14.199999999254942,
+            "day": 26,
+            "buildings": 745,
+            "roadsVersion": 80
+          },
+          {
+            "phase": "tick",
+            "ms": 16.59999999962747,
+            "day": 26,
+            "buildings": 745,
+            "roadsVersion": 80
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 16.399999999441206,
+            "day": 27,
+            "buildings": 745,
+            "roadsVersion": 80
+          },
+          {
+            "phase": "tick",
+            "ms": 21.199999999254942,
+            "day": 27,
+            "buildings": 745,
+            "roadsVersion": 80
+          },
+          {
+            "phase": "tick",
+            "ms": 14.099999999627471,
+            "day": 29,
+            "buildings": 745,
+            "roadsVersion": 80
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 17.90000000037253,
+            "day": 30,
+            "buildings": 745,
+            "roadsVersion": 80
+          },
+          {
+            "phase": "autonomousDevelopment",
+            "ms": 23.799999999813735,
+            "day": 30,
+            "buildings": 745,
+            "roadsVersion": 81
+          },
+          {
+            "phase": "systemsDay",
+            "ms": 46.5,
+            "day": 30,
+            "buildings": 746,
+            "roadsVersion": 81
+          },
+          {
+            "phase": "privateServiceInvestmentDay",
+            "ms": 134.90000000037253,
+            "day": 30,
+            "buildings": 747,
+            "roadsVersion": 81
+          },
+          {
+            "phase": "tick",
+            "ms": 243.80000000074506,
+            "day": 30,
+            "buildings": 747,
+            "roadsVersion": 81
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 26.799999999813735,
+            "day": 31,
+            "buildings": 747,
+            "roadsVersion": 81
+          },
+          {
+            "phase": "tick",
+            "ms": 35.5,
+            "day": 31,
+            "buildings": 747,
+            "roadsVersion": 81
+          },
+          {
+            "phase": "tick",
+            "ms": 14.5,
+            "day": 32,
+            "buildings": 747,
+            "roadsVersion": 81
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 13.099999999627471,
+            "day": 33,
+            "buildings": 747,
+            "roadsVersion": 81
+          },
+          {
+            "phase": "tick",
+            "ms": 19.90000000037253,
+            "day": 33,
+            "buildings": 747,
+            "roadsVersion": 81
+          },
+          {
+            "phase": "tick",
+            "ms": 16.799999999813735,
+            "day": 34,
+            "buildings": 747,
+            "roadsVersion": 81
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 14.899999999441206,
+            "day": 35,
+            "buildings": 747,
+            "roadsVersion": 81
+          },
+          {
+            "phase": "tick",
+            "ms": 20.800000000745058,
+            "day": 35,
+            "buildings": 747,
+            "roadsVersion": 81
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 14.5,
+            "day": 36,
+            "buildings": 747,
+            "roadsVersion": 81
+          },
+          {
+            "phase": "tick",
+            "ms": 19.700000000186265,
+            "day": 36,
+            "buildings": 747,
+            "roadsVersion": 81
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 19.200000000186265,
+            "day": 42,
+            "buildings": 747,
+            "roadsVersion": 81
+          },
+          {
+            "phase": "tick",
+            "ms": 24.700000000186265,
+            "day": 42,
+            "buildings": 747,
+            "roadsVersion": 81
+          },
+          {
+            "phase": "tick",
+            "ms": 15.800000000745058,
+            "day": 43,
+            "buildings": 747,
+            "roadsVersion": 81
+          },
+          {
+            "phase": "tick",
+            "ms": 14.600000000558794,
+            "day": 45,
+            "buildings": 747,
+            "roadsVersion": 81
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 14.799999999813735,
+            "day": 46,
+            "buildings": 747,
+            "roadsVersion": 81
+          },
+          {
+            "phase": "tick",
+            "ms": 20,
+            "day": 46,
+            "buildings": 747,
+            "roadsVersion": 81
+          },
+          {
+            "phase": "tick",
+            "ms": 14,
+            "day": 47,
+            "buildings": 747,
+            "roadsVersion": 81
+          },
+          {
+            "phase": "tick",
+            "ms": 13,
+            "day": 49,
+            "buildings": 747,
+            "roadsVersion": 81
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 29.299999999813735,
+            "day": 50,
+            "buildings": 747,
+            "roadsVersion": 82
+          },
+          {
+            "phase": "tick",
+            "ms": 34.5,
+            "day": 50,
+            "buildings": 747,
+            "roadsVersion": 82
+          },
+          {
+            "phase": "tick",
+            "ms": 12.5,
+            "day": 55,
+            "buildings": 747,
+            "roadsVersion": 82
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 15.299999999813735,
+            "day": 56,
+            "buildings": 747,
+            "roadsVersion": 82
+          },
+          {
+            "phase": "tick",
+            "ms": 19.299999999813735,
+            "day": 56,
+            "buildings": 747,
+            "roadsVersion": 82
+          },
+          {
+            "phase": "tick",
+            "ms": 14.700000000186265,
+            "day": 57,
+            "buildings": 747,
+            "roadsVersion": 82
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 12.900000000372529,
+            "day": 59,
+            "buildings": 747,
+            "roadsVersion": 82
+          },
+          {
+            "phase": "tick",
+            "ms": 17.59999999962747,
+            "day": 59,
+            "buildings": 747,
+            "roadsVersion": 82
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 12.900000000372529,
+            "day": 60,
+            "buildings": 747,
+            "roadsVersion": 82
+          },
+          {
+            "phase": "tick",
+            "ms": 40.299999999813735,
+            "day": 60,
+            "buildings": 747,
+            "roadsVersion": 83
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 25.200000000186265,
+            "day": 61,
+            "buildings": 747,
+            "roadsVersion": 83
+          },
+          {
+            "phase": "tick",
+            "ms": 32.700000000186265,
+            "day": 61,
+            "buildings": 747,
+            "roadsVersion": 83
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 13.400000000372529,
+            "day": 62,
+            "buildings": 747,
+            "roadsVersion": 83
+          },
+          {
+            "phase": "tick",
+            "ms": 18.09999999962747,
+            "day": 62,
+            "buildings": 747,
+            "roadsVersion": 83
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 13.299999999813735,
+            "day": 63,
+            "buildings": 747,
+            "roadsVersion": 83
+          },
+          {
+            "phase": "tick",
+            "ms": 17.100000000558794,
+            "day": 63,
+            "buildings": 747,
+            "roadsVersion": 83
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 12.699999999254942,
+            "day": 64,
+            "buildings": 747,
+            "roadsVersion": 83
+          },
+          {
+            "phase": "tick",
+            "ms": 17,
+            "day": 64,
+            "buildings": 747,
+            "roadsVersion": 83
+          },
+          {
+            "phase": "tick",
+            "ms": 12.399999999441206,
+            "day": 65,
+            "buildings": 747,
+            "roadsVersion": 83
+          },
+          {
+            "phase": "tick",
+            "ms": 16.799999999813735,
+            "day": 66,
+            "buildings": 747,
+            "roadsVersion": 83
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 13.700000000186265,
+            "day": 67,
+            "buildings": 747,
+            "roadsVersion": 83
+          },
+          {
+            "phase": "tick",
+            "ms": 19.09999999962747,
+            "day": 67,
+            "buildings": 747,
+            "roadsVersion": 83
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 26.90000000037253,
+            "day": 69,
+            "buildings": 747,
+            "roadsVersion": 83
+          },
+          {
+            "phase": "tick",
+            "ms": 33.799999999813735,
+            "day": 69,
+            "buildings": 747,
+            "roadsVersion": 83
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 19.700000000186265,
+            "day": 70,
+            "buildings": 747,
+            "roadsVersion": 83
+          },
+          {
+            "phase": "tick",
+            "ms": 26.700000000186265,
+            "day": 70,
+            "buildings": 747,
+            "roadsVersion": 83
+          },
+          {
+            "phase": "tick",
+            "ms": 14.700000000186265,
+            "day": 71,
+            "buildings": 747,
+            "roadsVersion": 83
+          },
+          {
+            "phase": "tick",
+            "ms": 12.800000000745058,
+            "day": 72,
+            "buildings": 747,
+            "roadsVersion": 83
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 13.5,
+            "day": 73,
+            "buildings": 747,
+            "roadsVersion": 83
+          },
+          {
+            "phase": "tick",
+            "ms": 17.399999999441206,
+            "day": 73,
+            "buildings": 747,
+            "roadsVersion": 83
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 13.399999999441206,
+            "day": 75,
+            "buildings": 747,
+            "roadsVersion": 83
+          },
+          {
+            "phase": "tick",
+            "ms": 18.700000000186265,
+            "day": 75,
+            "buildings": 747,
+            "roadsVersion": 83
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 48.80000000074506,
+            "day": 76,
+            "buildings": 747,
+            "roadsVersion": 84
+          },
+          {
+            "phase": "tick",
+            "ms": 64.59999999962747,
+            "day": 76,
+            "buildings": 747,
+            "roadsVersion": 84
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 18.200000000186265,
+            "day": 77,
+            "buildings": 747,
+            "roadsVersion": 84
+          },
+          {
+            "phase": "tick",
+            "ms": 25.40000000037253,
+            "day": 77,
+            "buildings": 747,
+            "roadsVersion": 84
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 19.700000000186265,
+            "day": 78,
+            "buildings": 747,
+            "roadsVersion": 84
+          },
+          {
+            "phase": "tick",
+            "ms": 24,
+            "day": 78,
+            "buildings": 747,
+            "roadsVersion": 84
+          },
+          {
+            "phase": "tick",
+            "ms": 12.200000000186265,
+            "day": 79,
+            "buildings": 747,
+            "roadsVersion": 84
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 25.40000000037253,
+            "day": 80,
+            "buildings": 747,
+            "roadsVersion": 85
+          },
+          {
+            "phase": "tick",
+            "ms": 31.299999999813735,
+            "day": 80,
+            "buildings": 747,
+            "roadsVersion": 85
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 12.599999999627471,
+            "day": 81,
+            "buildings": 747,
+            "roadsVersion": 85
+          },
+          {
+            "phase": "tick",
+            "ms": 18,
+            "day": 81,
+            "buildings": 747,
+            "roadsVersion": 85
+          },
+          {
+            "phase": "tick",
+            "ms": 12.399999999441206,
+            "day": 82,
+            "buildings": 747,
+            "roadsVersion": 85
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 12.300000000745058,
+            "day": 83,
+            "buildings": 747,
+            "roadsVersion": 85
+          },
+          {
+            "phase": "tick",
+            "ms": 15.600000000558794,
+            "day": 83,
+            "buildings": 747,
+            "roadsVersion": 85
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 22.100000000558794,
+            "day": 84,
+            "buildings": 747,
+            "roadsVersion": 85
+          },
+          {
+            "phase": "tick",
+            "ms": 29.40000000037253,
+            "day": 84,
+            "buildings": 747,
+            "roadsVersion": 85
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 15,
+            "day": 85,
+            "buildings": 747,
+            "roadsVersion": 85
+          },
+          {
+            "phase": "tick",
+            "ms": 19.5,
+            "day": 85,
+            "buildings": 747,
+            "roadsVersion": 85
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 17.200000000186265,
+            "day": 86,
+            "buildings": 747,
+            "roadsVersion": 85
+          },
+          {
+            "phase": "tick",
+            "ms": 20.799999999813735,
+            "day": 86,
+            "buildings": 747,
+            "roadsVersion": 85
+          },
+          {
+            "phase": "tick",
+            "ms": 14.299999999813735,
+            "day": 87,
+            "buildings": 747,
+            "roadsVersion": 85
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 17.299999999813735,
+            "day": 88,
+            "buildings": 747,
+            "roadsVersion": 85
+          },
+          {
+            "phase": "tick",
+            "ms": 22.300000000745058,
+            "day": 88,
+            "buildings": 747,
+            "roadsVersion": 85
+          },
+          {
+            "phase": "tick",
+            "ms": 13.5,
+            "day": 89,
+            "buildings": 747,
+            "roadsVersion": 85
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 17.5,
+            "day": 90,
+            "buildings": 747,
+            "roadsVersion": 85
+          },
+          {
+            "phase": "privateServiceInvestmentDay",
+            "ms": 146.40000000037253,
+            "day": 90,
+            "buildings": 748,
+            "roadsVersion": 86
+          },
+          {
+            "phase": "urbanDistrictReview",
+            "ms": 14.900000000372529,
+            "day": 90,
+            "buildings": 748,
+            "roadsVersion": 86
+          },
+          {
+            "phase": "urbanEvolutionDay",
+            "ms": 21,
+            "day": 90,
+            "buildings": 748,
+            "roadsVersion": 86
+          },
+          {
+            "phase": "tick",
+            "ms": 206,
+            "day": 90,
+            "buildings": 748,
+            "roadsVersion": 86
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 17.799999999813735,
+            "day": 91,
+            "buildings": 748,
+            "roadsVersion": 87
+          },
+          {
+            "phase": "tick",
+            "ms": 22.899999999441206,
+            "day": 91,
+            "buildings": 748,
+            "roadsVersion": 87
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 22,
+            "day": 92,
+            "buildings": 748,
+            "roadsVersion": 87
+          },
+          {
+            "phase": "tick",
+            "ms": 25.899999999441206,
+            "day": 92,
+            "buildings": 748,
+            "roadsVersion": 87
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 20.59999999962747,
+            "day": 93,
+            "buildings": 748,
+            "roadsVersion": 87
+          },
+          {
+            "phase": "tick",
+            "ms": 24.899999999441206,
+            "day": 93,
+            "buildings": 748,
+            "roadsVersion": 87
+          },
+          {
+            "phase": "tick",
+            "ms": 15.599999999627471,
+            "day": 95,
+            "buildings": 748,
+            "roadsVersion": 87
+          },
+          {
+            "phase": "tick",
+            "ms": 14.200000000186265,
+            "day": 96,
+            "buildings": 748,
+            "roadsVersion": 87
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 13.200000000186265,
+            "day": 98,
+            "buildings": 748,
+            "roadsVersion": 87
+          },
+          {
+            "phase": "tick",
+            "ms": 20.5,
+            "day": 98,
+            "buildings": 748,
+            "roadsVersion": 87
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 19.09999999962747,
+            "day": 99,
+            "buildings": 748,
+            "roadsVersion": 87
+          },
+          {
+            "phase": "tick",
+            "ms": 24.5,
+            "day": 99,
+            "buildings": 748,
+            "roadsVersion": 87
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 21.199999999254942,
+            "day": 100,
+            "buildings": 748,
+            "roadsVersion": 87
+          },
+          {
+            "phase": "tick",
+            "ms": 27.700000000186265,
+            "day": 100,
+            "buildings": 748,
+            "roadsVersion": 87
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 19.100000000558794,
+            "day": 101,
+            "buildings": 748,
+            "roadsVersion": 87
+          },
+          {
+            "phase": "tick",
+            "ms": 23.5,
+            "day": 101,
+            "buildings": 748,
+            "roadsVersion": 87
+          },
+          {
+            "phase": "tick",
+            "ms": 13.899999999441206,
+            "day": 102,
+            "buildings": 748,
+            "roadsVersion": 87
+          },
+          {
+            "phase": "tick",
+            "ms": 14.200000000186265,
+            "day": 103,
+            "buildings": 748,
+            "roadsVersion": 87
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 12.899999999441206,
+            "day": 104,
+            "buildings": 748,
+            "roadsVersion": 87
+          },
+          {
+            "phase": "tick",
+            "ms": 16.5,
+            "day": 104,
+            "buildings": 748,
+            "roadsVersion": 87
+          },
+          {
+            "phase": "tick",
+            "ms": 14.200000000186265,
+            "day": 105,
+            "buildings": 748,
+            "roadsVersion": 87
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 21.399999999441206,
+            "day": 106,
+            "buildings": 748,
+            "roadsVersion": 87
+          },
+          {
+            "phase": "tick",
+            "ms": 27.200000000186265,
+            "day": 106,
+            "buildings": 748,
+            "roadsVersion": 87
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 15.100000000558794,
+            "day": 107,
+            "buildings": 748,
+            "roadsVersion": 87
+          },
+          {
+            "phase": "tick",
+            "ms": 21.90000000037253,
+            "day": 107,
+            "buildings": 748,
+            "roadsVersion": 87
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 30,
+            "day": 110,
+            "buildings": 748,
+            "roadsVersion": 88
+          },
+          {
+            "phase": "tick",
+            "ms": 40.200000000186265,
+            "day": 110,
+            "buildings": 748,
+            "roadsVersion": 88
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 13.199999999254942,
+            "day": 111,
+            "buildings": 748,
+            "roadsVersion": 88
+          },
+          {
+            "phase": "tick",
+            "ms": 16.799999999813735,
+            "day": 111,
+            "buildings": 748,
+            "roadsVersion": 88
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 14.400000000372529,
+            "day": 112,
+            "buildings": 748,
+            "roadsVersion": 88
+          },
+          {
+            "phase": "tick",
+            "ms": 17.59999999962747,
+            "day": 112,
+            "buildings": 748,
+            "roadsVersion": 88
+          },
+          {
+            "phase": "tick",
+            "ms": 14.299999999813735,
+            "day": 114,
+            "buildings": 748,
+            "roadsVersion": 88
+          },
+          {
+            "phase": "tick",
+            "ms": 14,
+            "day": 115,
+            "buildings": 748,
+            "roadsVersion": 88
+          },
+          {
+            "phase": "tick",
+            "ms": 18.299999999813735,
+            "day": 116,
+            "buildings": 748,
+            "roadsVersion": 88
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 12.200000000186265,
+            "day": 120,
+            "buildings": 748,
+            "roadsVersion": 88
+          },
+          {
+            "phase": "systemsDay",
+            "ms": 25.199999999254942,
+            "day": 120,
+            "buildings": 749,
+            "roadsVersion": 89
+          },
+          {
+            "phase": "tick",
+            "ms": 67.29999999981374,
+            "day": 120,
+            "buildings": 749,
+            "roadsVersion": 89
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 21.59999999962747,
+            "day": 121,
+            "buildings": 749,
+            "roadsVersion": 89
+          },
+          {
+            "phase": "tick",
+            "ms": 28.40000000037253,
+            "day": 121,
+            "buildings": 749,
+            "roadsVersion": 89
+          },
+          {
+            "phase": "tick",
+            "ms": 13.199999999254942,
+            "day": 122,
+            "buildings": 749,
+            "roadsVersion": 89
+          },
+          {
+            "phase": "tick",
+            "ms": 14,
+            "day": 123,
+            "buildings": 749,
+            "roadsVersion": 89
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 14.899999999441206,
+            "day": 124,
+            "buildings": 749,
+            "roadsVersion": 89
+          },
+          {
+            "phase": "tick",
+            "ms": 18.700000000186265,
+            "day": 124,
+            "buildings": 749,
+            "roadsVersion": 89
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 12.900000000372529,
+            "day": 126,
+            "buildings": 749,
+            "roadsVersion": 89
+          },
+          {
+            "phase": "tick",
+            "ms": 16.600000000558794,
+            "day": 126,
+            "buildings": 749,
+            "roadsVersion": 89
+          },
+          {
+            "phase": "tick",
+            "ms": 17.5,
+            "day": 128,
+            "buildings": 749,
+            "roadsVersion": 89
+          },
+          {
+            "phase": "tick",
+            "ms": 12.899999999441206,
+            "day": 129,
+            "buildings": 749,
+            "roadsVersion": 89
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 16.600000000558794,
+            "day": 130,
+            "buildings": 749,
+            "roadsVersion": 89
+          },
+          {
+            "phase": "tick",
+            "ms": 21.59999999962747,
+            "day": 130,
+            "buildings": 749,
+            "roadsVersion": 89
+          },
+          {
+            "phase": "tick",
+            "ms": 12.400000000372529,
+            "day": 132,
+            "buildings": 749,
+            "roadsVersion": 89
+          },
+          {
+            "phase": "tick",
+            "ms": 13.900000000372529,
+            "day": 133,
+            "buildings": 749,
+            "roadsVersion": 89
+          },
+          {
+            "phase": "tick",
+            "ms": 13.299999999813735,
+            "day": 136,
+            "buildings": 749,
+            "roadsVersion": 89
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 19.799999999813735,
+            "day": 140,
+            "buildings": 749,
+            "roadsVersion": 90
+          },
+          {
+            "phase": "tick",
+            "ms": 27,
+            "day": 140,
+            "buildings": 749,
+            "roadsVersion": 90
+          },
+          {
+            "phase": "tick",
+            "ms": 12.899999999441206,
+            "day": 141,
+            "buildings": 749,
+            "roadsVersion": 90
+          },
+          {
+            "phase": "tick",
+            "ms": 25.09999999962747,
+            "day": 150,
+            "buildings": 749,
+            "roadsVersion": 91
+          },
+          {
+            "phase": "tick",
+            "ms": 15.100000000558794,
+            "day": 151,
+            "buildings": 749,
+            "roadsVersion": 91
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 13,
+            "day": 153,
+            "buildings": 749,
+            "roadsVersion": 91
+          },
+          {
+            "phase": "tick",
+            "ms": 16.700000000186265,
+            "day": 153,
+            "buildings": 749,
+            "roadsVersion": 91
+          },
+          {
+            "phase": "tick",
+            "ms": 16.5,
+            "day": 154,
+            "buildings": 749,
+            "roadsVersion": 91
+          },
+          {
+            "phase": "tick",
+            "ms": 12.5,
+            "day": 155,
+            "buildings": 749,
+            "roadsVersion": 91
+          },
+          {
+            "phase": "tick",
+            "ms": 12.200000000186265,
+            "day": 157,
+            "buildings": 749,
+            "roadsVersion": 91
+          },
+          {
+            "phase": "tick",
+            "ms": 14.799999999813735,
+            "day": 158,
+            "buildings": 749,
+            "roadsVersion": 91
+          },
+          {
+            "phase": "tick",
+            "ms": 17.800000000745058,
+            "day": 159,
+            "buildings": 749,
+            "roadsVersion": 91
+          },
+          {
+            "phase": "tick",
+            "ms": 12.900000000372529,
+            "day": 160,
+            "buildings": 749,
+            "roadsVersion": 91
+          },
+          {
+            "phase": "tick",
+            "ms": 14.899999999441206,
+            "day": 161,
+            "buildings": 749,
+            "roadsVersion": 91
+          },
+          {
+            "phase": "tick",
+            "ms": 14.799999999813735,
+            "day": 162,
+            "buildings": 749,
+            "roadsVersion": 91
+          },
+          {
+            "phase": "tick",
+            "ms": 12.800000000745058,
+            "day": 163,
+            "buildings": 749,
+            "roadsVersion": 91
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 18.09999999962747,
+            "day": 165,
+            "buildings": 749,
+            "roadsVersion": 91
+          },
+          {
+            "phase": "tick",
+            "ms": 24.100000000558794,
+            "day": 165,
+            "buildings": 749,
+            "roadsVersion": 91
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 14.900000000372529,
+            "day": 166,
+            "buildings": 749,
+            "roadsVersion": 91
+          },
+          {
+            "phase": "tick",
+            "ms": 21.5,
+            "day": 166,
+            "buildings": 749,
+            "roadsVersion": 91
+          },
+          {
+            "phase": "tick",
+            "ms": 14.099999999627471,
+            "day": 168,
+            "buildings": 749,
+            "roadsVersion": 91
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 19.899999999441206,
+            "day": 170,
+            "buildings": 749,
+            "roadsVersion": 92
+          },
+          {
+            "phase": "tick",
+            "ms": 25.299999999813735,
+            "day": 170,
+            "buildings": 749,
+            "roadsVersion": 92
+          },
+          {
+            "phase": "tick",
+            "ms": 12.300000000745058,
+            "day": 171,
+            "buildings": 749,
+            "roadsVersion": 92
+          },
+          {
+            "phase": "tick",
+            "ms": 14.299999999813735,
+            "day": 172,
+            "buildings": 749,
+            "roadsVersion": 92
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 16.5,
+            "day": 174,
+            "buildings": 749,
+            "roadsVersion": 92
+          },
+          {
+            "phase": "tick",
+            "ms": 24.200000000186265,
+            "day": 174,
+            "buildings": 749,
+            "roadsVersion": 92
+          },
+          {
+            "phase": "tick",
+            "ms": 13.599999999627471,
+            "day": 175,
+            "buildings": 749,
+            "roadsVersion": 92
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 20.200000000186265,
+            "day": 176,
+            "buildings": 749,
+            "roadsVersion": 93
+          },
+          {
+            "phase": "tick",
+            "ms": 27.700000000186265,
+            "day": 176,
+            "buildings": 749,
+            "roadsVersion": 93
+          },
+          {
+            "phase": "tick",
+            "ms": 18.299999999813735,
+            "day": 177,
+            "buildings": 749,
+            "roadsVersion": 93
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 12.700000000186265,
+            "day": 178,
+            "buildings": 749,
+            "roadsVersion": 93
+          },
+          {
+            "phase": "tick",
+            "ms": 19,
+            "day": 178,
+            "buildings": 749,
+            "roadsVersion": 93
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 25,
+            "day": 179,
+            "buildings": 749,
+            "roadsVersion": 93
+          },
+          {
+            "phase": "tick",
+            "ms": 29.899999999441206,
+            "day": 179,
+            "buildings": 749,
+            "roadsVersion": 93
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 32.200000000186265,
+            "day": 180,
+            "buildings": 749,
+            "roadsVersion": 93
+          },
+          {
+            "phase": "autonomousDevelopment",
+            "ms": 12.299999999813735,
+            "day": 180,
+            "buildings": 749,
+            "roadsVersion": 94
+          },
+          {
+            "phase": "privateServiceInvestmentDay",
+            "ms": 121.5,
+            "day": 180,
+            "buildings": 750,
+            "roadsVersion": 94
+          },
+          {
+            "phase": "tick",
+            "ms": 186.70000000018626,
+            "day": 180,
+            "buildings": 750,
+            "roadsVersion": 94
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 18.09999999962747,
+            "day": 181,
+            "buildings": 750,
+            "roadsVersion": 94
+          },
+          {
+            "phase": "tick",
+            "ms": 23.299999999813735,
+            "day": 181,
+            "buildings": 750,
+            "roadsVersion": 94
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 19.600000000558794,
+            "day": 182,
+            "buildings": 750,
+            "roadsVersion": 94
+          },
+          {
+            "phase": "tick",
+            "ms": 25,
+            "day": 182,
+            "buildings": 750,
+            "roadsVersion": 94
+          },
+          {
+            "phase": "tick",
+            "ms": 13.100000000558794,
+            "day": 183,
+            "buildings": 750,
+            "roadsVersion": 94
+          },
+          {
+            "phase": "tick",
+            "ms": 14.600000000558794,
+            "day": 184,
+            "buildings": 750,
+            "roadsVersion": 94
+          },
+          {
+            "phase": "tick",
+            "ms": 13.400000000372529,
+            "day": 185,
+            "buildings": 750,
+            "roadsVersion": 94
+          },
+          {
+            "phase": "tick",
+            "ms": 14.099999999627471,
+            "day": 186,
+            "buildings": 750,
+            "roadsVersion": 94
+          },
+          {
+            "phase": "tick",
+            "ms": 12.600000000558794,
+            "day": 187,
+            "buildings": 750,
+            "roadsVersion": 94
+          },
+          {
+            "phase": "tick",
+            "ms": 14.299999999813735,
+            "day": 189,
+            "buildings": 750,
+            "roadsVersion": 94
+          },
+          {
+            "phase": "tick",
+            "ms": 13.700000000186265,
+            "day": 190,
+            "buildings": 750,
+            "roadsVersion": 94
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 19,
+            "day": 191,
+            "buildings": 750,
+            "roadsVersion": 94
+          },
+          {
+            "phase": "tick",
+            "ms": 24.59999999962747,
+            "day": 191,
+            "buildings": 750,
+            "roadsVersion": 94
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 20.59999999962747,
+            "day": 192,
+            "buildings": 750,
+            "roadsVersion": 94
+          },
+          {
+            "phase": "tick",
+            "ms": 29.799999999813735,
+            "day": 192,
+            "buildings": 750,
+            "roadsVersion": 94
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 12.699999999254942,
+            "day": 196,
+            "buildings": 750,
+            "roadsVersion": 94
+          },
+          {
+            "phase": "tick",
+            "ms": 18.40000000037253,
+            "day": 196,
+            "buildings": 750,
+            "roadsVersion": 94
+          },
+          {
+            "phase": "tick",
+            "ms": 16.59999999962747,
+            "day": 197,
+            "buildings": 750,
+            "roadsVersion": 94
+          },
+          {
+            "phase": "tick",
+            "ms": 19.5,
+            "day": 198,
+            "buildings": 750,
+            "roadsVersion": 94
+          },
+          {
+            "phase": "tick",
+            "ms": 14.299999999813735,
+            "day": 199,
+            "buildings": 750,
+            "roadsVersion": 94
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 21.600000000558794,
+            "day": 200,
+            "buildings": 750,
+            "roadsVersion": 95
+          },
+          {
+            "phase": "tick",
+            "ms": 28.299999999813735,
+            "day": 200,
+            "buildings": 750,
+            "roadsVersion": 95
+          },
+          {
+            "phase": "tick",
+            "ms": 12.5,
+            "day": 201,
+            "buildings": 750,
+            "roadsVersion": 95
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 15.5,
+            "day": 202,
+            "buildings": 750,
+            "roadsVersion": 95
+          },
+          {
+            "phase": "tick",
+            "ms": 19.800000000745058,
+            "day": 202,
+            "buildings": 750,
+            "roadsVersion": 95
+          },
+          {
+            "phase": "tick",
+            "ms": 13.400000000372529,
+            "day": 208,
+            "buildings": 750,
+            "roadsVersion": 95
+          },
+          {
+            "phase": "tick",
+            "ms": 12.100000000558794,
+            "day": 209,
+            "buildings": 750,
+            "roadsVersion": 95
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 18.5,
+            "day": 210,
+            "buildings": 750,
+            "roadsVersion": 95
+          },
+          {
+            "phase": "tick",
+            "ms": 37.39999999944121,
+            "day": 210,
+            "buildings": 750,
+            "roadsVersion": 96
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 12.900000000372529,
+            "day": 211,
+            "buildings": 750,
+            "roadsVersion": 96
+          },
+          {
+            "phase": "tick",
+            "ms": 16.800000000745058,
+            "day": 211,
+            "buildings": 750,
+            "roadsVersion": 96
+          },
+          {
+            "phase": "tick",
+            "ms": 12.099999999627471,
+            "day": 213,
+            "buildings": 750,
+            "roadsVersion": 96
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 15.800000000745058,
+            "day": 214,
+            "buildings": 750,
+            "roadsVersion": 97
+          },
+          {
+            "phase": "tick",
+            "ms": 20.399999999441206,
+            "day": 214,
+            "buildings": 750,
+            "roadsVersion": 97
+          },
+          {
+            "phase": "tick",
+            "ms": 13,
+            "day": 215,
+            "buildings": 750,
+            "roadsVersion": 97
+          },
+          {
+            "phase": "tick",
+            "ms": 13,
+            "day": 216,
+            "buildings": 750,
+            "roadsVersion": 97
+          },
+          {
+            "phase": "tick",
+            "ms": 15.5,
+            "day": 217,
+            "buildings": 750,
+            "roadsVersion": 97
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 12.599999999627471,
+            "day": 219,
+            "buildings": 750,
+            "roadsVersion": 97
+          },
+          {
+            "phase": "tick",
+            "ms": 16.899999999441206,
+            "day": 219,
+            "buildings": 750,
+            "roadsVersion": 97
+          },
+          {
+            "phase": "tick",
+            "ms": 12.799999999813735,
+            "day": 220,
+            "buildings": 750,
+            "roadsVersion": 97
+          },
+          {
+            "phase": "tick",
+            "ms": 14.299999999813735,
+            "day": 221,
+            "buildings": 750,
+            "roadsVersion": 97
+          },
+          {
+            "phase": "tick",
+            "ms": 13.600000000558794,
+            "day": 222,
+            "buildings": 750,
+            "roadsVersion": 97
+          },
+          {
+            "phase": "tick",
+            "ms": 15.699999999254942,
+            "day": 223,
+            "buildings": 750,
+            "roadsVersion": 97
+          },
+          {
+            "phase": "tick",
+            "ms": 14.400000000372529,
+            "day": 224,
+            "buildings": 750,
+            "roadsVersion": 97
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 15.799999999813735,
+            "day": 225,
+            "buildings": 750,
+            "roadsVersion": 97
+          },
+          {
+            "phase": "tick",
+            "ms": 28.200000000186265,
+            "day": 225,
+            "buildings": 750,
+            "roadsVersion": 97
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 17.90000000037253,
+            "day": 226,
+            "buildings": 750,
+            "roadsVersion": 97
+          },
+          {
+            "phase": "tick",
+            "ms": 22.799999999813735,
+            "day": 226,
+            "buildings": 750,
+            "roadsVersion": 97
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 14.099999999627471,
+            "day": 227,
+            "buildings": 750,
+            "roadsVersion": 97
+          },
+          {
+            "phase": "tick",
+            "ms": 18.5,
+            "day": 227,
+            "buildings": 750,
+            "roadsVersion": 97
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 14.799999999813735,
+            "day": 228,
+            "buildings": 750,
+            "roadsVersion": 97
+          },
+          {
+            "phase": "tick",
+            "ms": 19.40000000037253,
+            "day": 228,
+            "buildings": 750,
+            "roadsVersion": 97
+          },
+          {
+            "phase": "tick",
+            "ms": 16,
+            "day": 229,
+            "buildings": 750,
+            "roadsVersion": 97
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 42.89999999944121,
+            "day": 230,
+            "buildings": 750,
+            "roadsVersion": 98
+          },
+          {
+            "phase": "tick",
+            "ms": 52.200000000186265,
+            "day": 230,
+            "buildings": 750,
+            "roadsVersion": 98
+          },
+          {
+            "phase": "tick",
+            "ms": 15.199999999254942,
+            "day": 231,
+            "buildings": 750,
+            "roadsVersion": 98
+          },
+          {
+            "phase": "tick",
+            "ms": 14.5,
+            "day": 232,
+            "buildings": 750,
+            "roadsVersion": 98
+          },
+          {
+            "phase": "tick",
+            "ms": 12.600000000558794,
+            "day": 234,
+            "buildings": 750,
+            "roadsVersion": 98
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 16.399999999441206,
+            "day": 235,
+            "buildings": 750,
+            "roadsVersion": 98
+          },
+          {
+            "phase": "tick",
+            "ms": 20,
+            "day": 235,
+            "buildings": 750,
+            "roadsVersion": 98
+          },
+          {
+            "phase": "tick",
+            "ms": 13.5,
+            "day": 236,
+            "buildings": 750,
+            "roadsVersion": 98
+          },
+          {
+            "phase": "tick",
+            "ms": 15.399999999441206,
+            "day": 237,
+            "buildings": 750,
+            "roadsVersion": 98
+          },
+          {
+            "phase": "tick",
+            "ms": 15.5,
+            "day": 238,
+            "buildings": 750,
+            "roadsVersion": 98
+          },
+          {
+            "phase": "systemsDay",
+            "ms": 27.799999999813735,
+            "day": 240,
+            "buildings": 751,
+            "roadsVersion": 99
+          },
+          {
+            "phase": "urbanEvolutionDay",
+            "ms": 15.5,
+            "day": 240,
+            "buildings": 751,
+            "roadsVersion": 99
+          },
+          {
+            "phase": "tick",
+            "ms": 76.5,
+            "day": 240,
+            "buildings": 751,
+            "roadsVersion": 99
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 14.800000000745058,
+            "day": 241,
+            "buildings": 751,
+            "roadsVersion": 99
+          },
+          {
+            "phase": "tick",
+            "ms": 20.09999999962747,
+            "day": 241,
+            "buildings": 751,
+            "roadsVersion": 99
+          },
+          {
+            "phase": "tick",
+            "ms": 14.200000000186265,
+            "day": 242,
+            "buildings": 751,
+            "roadsVersion": 99
+          },
+          {
+            "phase": "tick",
+            "ms": 15.5,
+            "day": 243,
+            "buildings": 751,
+            "roadsVersion": 99
+          },
+          {
+            "phase": "tick",
+            "ms": 14.299999999813735,
+            "day": 244,
+            "buildings": 751,
+            "roadsVersion": 99
+          },
+          {
+            "phase": "tick",
+            "ms": 14.099999999627471,
+            "day": 245,
+            "buildings": 751,
+            "roadsVersion": 99
+          },
+          {
+            "phase": "tick",
+            "ms": 13.700000000186265,
+            "day": 246,
+            "buildings": 751,
+            "roadsVersion": 99
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 41.299999999813735,
+            "day": 247,
+            "buildings": 751,
+            "roadsVersion": 99
+          },
+          {
+            "phase": "tick",
+            "ms": 54.299999999813735,
+            "day": 247,
+            "buildings": 751,
+            "roadsVersion": 99
+          },
+          {
+            "phase": "tick",
+            "ms": 14.399999999441206,
+            "day": 248,
+            "buildings": 751,
+            "roadsVersion": 99
+          },
+          {
+            "phase": "tick",
+            "ms": 12.300000000745058,
+            "day": 249,
+            "buildings": 751,
+            "roadsVersion": 99
+          },
+          {
+            "phase": "tick",
+            "ms": 14.099999999627471,
+            "day": 252,
+            "buildings": 751,
+            "roadsVersion": 99
+          },
+          {
+            "phase": "tick",
+            "ms": 13.400000000372529,
+            "day": 253,
+            "buildings": 751,
+            "roadsVersion": 99
+          },
+          {
+            "phase": "tick",
+            "ms": 12.400000000372529,
+            "day": 258,
+            "buildings": 751,
+            "roadsVersion": 99
+          },
+          {
+            "phase": "tick",
+            "ms": 13.599999999627471,
+            "day": 259,
+            "buildings": 751,
+            "roadsVersion": 99
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 20.09999999962747,
+            "day": 260,
+            "buildings": 751,
+            "roadsVersion": 100
+          },
+          {
+            "phase": "tick",
+            "ms": 26.799999999813735,
+            "day": 260,
+            "buildings": 751,
+            "roadsVersion": 100
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 13.5,
+            "day": 262,
+            "buildings": 751,
+            "roadsVersion": 101
+          },
+          {
+            "phase": "tick",
+            "ms": 19.600000000558794,
+            "day": 262,
+            "buildings": 751,
+            "roadsVersion": 101
+          },
+          {
+            "phase": "tick",
+            "ms": 12.099999999627471,
+            "day": 263,
+            "buildings": 751,
+            "roadsVersion": 101
+          },
+          {
+            "phase": "tick",
+            "ms": 15.700000000186265,
+            "day": 264,
+            "buildings": 751,
+            "roadsVersion": 101
+          },
+          {
+            "phase": "tick",
+            "ms": 15.100000000558794,
+            "day": 266,
+            "buildings": 751,
+            "roadsVersion": 101
+          },
+          {
+            "phase": "tick",
+            "ms": 14.5,
+            "day": 268,
+            "buildings": 751,
+            "roadsVersion": 101
+          },
+          {
+            "phase": "tick",
+            "ms": 14.200000000186265,
+            "day": 269,
+            "buildings": 751,
+            "roadsVersion": 101
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 16,
+            "day": 270,
+            "buildings": 751,
+            "roadsVersion": 101
+          },
+          {
+            "phase": "privateServiceInvestmentDay",
+            "ms": 196.8999999994412,
+            "day": 270,
+            "buildings": 752,
+            "roadsVersion": 102
+          },
+          {
+            "phase": "tick",
+            "ms": 243.80000000074506,
+            "day": 270,
+            "buildings": 752,
+            "roadsVersion": 102
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 32.5,
+            "day": 271,
+            "buildings": 752,
+            "roadsVersion": 102
+          },
+          {
+            "phase": "tick",
+            "ms": 41.10000000055879,
+            "day": 271,
+            "buildings": 752,
+            "roadsVersion": 102
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 14.099999999627471,
+            "day": 272,
+            "buildings": 752,
+            "roadsVersion": 102
+          },
+          {
+            "phase": "tick",
+            "ms": 18.399999999441206,
+            "day": 272,
+            "buildings": 752,
+            "roadsVersion": 102
+          },
+          {
+            "phase": "tick",
+            "ms": 22.90000000037253,
+            "day": 273,
+            "buildings": 752,
+            "roadsVersion": 102
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 14,
+            "day": 274,
+            "buildings": 752,
+            "roadsVersion": 102
+          },
+          {
+            "phase": "tick",
+            "ms": 18.899999999441206,
+            "day": 274,
+            "buildings": 752,
+            "roadsVersion": 102
+          },
+          {
+            "phase": "tick",
+            "ms": 16.09999999962747,
+            "day": 275,
+            "buildings": 752,
+            "roadsVersion": 102
+          },
+          {
+            "phase": "tick",
+            "ms": 14.400000000372529,
+            "day": 276,
+            "buildings": 752,
+            "roadsVersion": 102
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 15,
+            "day": 277,
+            "buildings": 752,
+            "roadsVersion": 102
+          },
+          {
+            "phase": "tick",
+            "ms": 21,
+            "day": 277,
+            "buildings": 752,
+            "roadsVersion": 102
+          },
+          {
+            "phase": "tick",
+            "ms": 12.100000000558794,
+            "day": 278,
+            "buildings": 752,
+            "roadsVersion": 102
+          },
+          {
+            "phase": "tick",
+            "ms": 14.200000000186265,
+            "day": 279,
+            "buildings": 752,
+            "roadsVersion": 102
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 13.400000000372529,
+            "day": 280,
+            "buildings": 752,
+            "roadsVersion": 102
+          },
+          {
+            "phase": "tick",
+            "ms": 17.5,
+            "day": 280,
+            "buildings": 752,
+            "roadsVersion": 102
+          },
+          {
+            "phase": "tick",
+            "ms": 12.100000000558794,
+            "day": 281,
+            "buildings": 752,
+            "roadsVersion": 102
+          },
+          {
+            "phase": "tick",
+            "ms": 12.600000000558794,
+            "day": 288,
+            "buildings": 752,
+            "roadsVersion": 102
+          },
+          {
+            "phase": "tick",
+            "ms": 14.5,
+            "day": 289,
+            "buildings": 752,
+            "roadsVersion": 102
+          },
+          {
+            "phase": "tick",
+            "ms": 12.799999999813735,
+            "day": 291,
+            "buildings": 752,
+            "roadsVersion": 102
+          },
+          {
+            "phase": "tick",
+            "ms": 12.099999999627471,
+            "day": 292,
+            "buildings": 752,
+            "roadsVersion": 102
+          },
+          {
+            "phase": "tick",
+            "ms": 14.699999999254942,
+            "day": 294,
+            "buildings": 752,
+            "roadsVersion": 102
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 25.200000000186265,
+            "day": 300,
+            "buildings": 752,
+            "roadsVersion": 102
+          },
+          {
+            "phase": "tick",
+            "ms": 48.90000000037253,
+            "day": 300,
+            "buildings": 752,
+            "roadsVersion": 103
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 17.5,
+            "day": 301,
+            "buildings": 752,
+            "roadsVersion": 103
+          },
+          {
+            "phase": "tick",
+            "ms": 22.799999999813735,
+            "day": 301,
+            "buildings": 752,
+            "roadsVersion": 103
+          },
+          {
+            "phase": "tick",
+            "ms": 15,
+            "day": 302,
+            "buildings": 752,
+            "roadsVersion": 103
+          },
+          {
+            "phase": "tick",
+            "ms": 14.400000000372529,
+            "day": 303,
+            "buildings": 752,
+            "roadsVersion": 103
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 14.799999999813735,
+            "day": 304,
+            "buildings": 752,
+            "roadsVersion": 103
+          },
+          {
+            "phase": "tick",
+            "ms": 18.5,
+            "day": 304,
+            "buildings": 752,
+            "roadsVersion": 103
+          }
+        ],
+        "invalidations": [
+          {
+            "day": 30,
+            "buildings": 745,
+            "version": 80,
+            "reason": "    at privatelyBuiltRoads (http://127.0.0.1:46543/game.js:2106:139)     at autonomousDevelopment (http://127.0.0.1:46543/game.js:2559:5)"
+          },
+          {
+            "day": 50,
+            "buildings": 747,
+            "version": 81,
+            "reason": "    at completeDevelopmentProjects (http://127.0.0.1:46543/game.js:2155:14)     at tick (http://127.0.0.1:46543/game.js:2915:62)"
+          },
+          {
+            "day": 60,
+            "buildings": 747,
+            "version": 82,
+            "reason": "    at privatelyBuiltRoads (http://127.0.0.1:46543/game.js:2106:139)     at autonomousDevelopment (http://127.0.0.1:46543/game.js:2559:5)"
+          },
+          {
+            "day": 76,
+            "buildings": 747,
+            "version": 83,
+            "reason": "    at completeDevelopmentProjects (http://127.0.0.1:46543/game.js:2155:14)     at tick (http://127.0.0.1:46543/game.js:2915:62)"
+          },
+          {
+            "day": 80,
+            "buildings": 747,
+            "version": 84,
+            "reason": "    at completeDevelopmentProjects (http://127.0.0.1:46543/game.js:2155:14)     at tick (http://127.0.0.1:46543/game.js:2915:62)"
+          },
+          {
+            "day": 90,
+            "buildings": 747,
+            "version": 85,
+            "reason": "    at privatelyBuiltRoads (http://127.0.0.1:46543/game.js:2106:139)     at autonomousDevelopment (http://127.0.0.1:46543/game.js:2559:5)"
+          },
+          {
+            "day": 91,
+            "buildings": 748,
+            "version": 86,
+            "reason": "    at completeDevelopmentProjects (http://127.0.0.1:46543/game.js:2155:14)     at tick (http://127.0.0.1:46543/game.js:2915:62)"
+          },
+          {
+            "day": 110,
+            "buildings": 748,
+            "version": 87,
+            "reason": "    at completeDevelopmentProjects (http://127.0.0.1:46543/game.js:2155:14)     at tick (http://127.0.0.1:46543/game.js:2915:62)"
+          },
+          {
+            "day": 120,
+            "buildings": 748,
+            "version": 88,
+            "reason": "    at privatelyBuiltRoads (http://127.0.0.1:46543/game.js:2106:139)     at autonomousDevelopment (http://127.0.0.1:46543/game.js:2559:5)"
+          },
+          {
+            "day": 140,
+            "buildings": 749,
+            "version": 89,
+            "reason": "    at completeDevelopmentProjects (http://127.0.0.1:46543/game.js:2155:14)     at tick (http://127.0.0.1:46543/game.js:2915:62)"
+          },
+          {
+            "day": 150,
+            "buildings": 749,
+            "version": 90,
+            "reason": "    at privatelyBuiltRoads (http://127.0.0.1:46543/game.js:2106:139)     at autonomousDevelopment (http://127.0.0.1:46543/game.js:2559:5)"
+          },
+          {
+            "day": 170,
+            "buildings": 749,
+            "version": 91,
+            "reason": "    at completeDevelopmentProjects (http://127.0.0.1:46543/game.js:2155:14)     at tick (http://127.0.0.1:46543/game.js:2915:62)"
+          },
+          {
+            "day": 176,
+            "buildings": 749,
+            "version": 92,
+            "reason": "    at completeDevelopmentProjects (http://127.0.0.1:46543/game.js:2155:14)     at tick (http://127.0.0.1:46543/game.js:2915:62)"
+          },
+          {
+            "day": 180,
+            "buildings": 749,
+            "version": 93,
+            "reason": "    at privatelyBuiltRoads (http://127.0.0.1:46543/game.js:2106:139)     at autonomousDevelopment (http://127.0.0.1:46543/game.js:2559:5)"
+          },
+          {
+            "day": 200,
+            "buildings": 750,
+            "version": 94,
+            "reason": "    at completeDevelopmentProjects (http://127.0.0.1:46543/game.js:2155:14)     at tick (http://127.0.0.1:46543/game.js:2915:62)"
+          },
+          {
+            "day": 210,
+            "buildings": 750,
+            "version": 95,
+            "reason": "    at privatelyBuiltRoads (http://127.0.0.1:46543/game.js:2106:139)     at autonomousDevelopment (http://127.0.0.1:46543/game.js:2559:5)"
+          },
+          {
+            "day": 214,
+            "buildings": 750,
+            "version": 96,
+            "reason": "    at completeDevelopmentProjects (http://127.0.0.1:46543/game.js:2155:14)     at tick (http://127.0.0.1:46543/game.js:2915:62)"
+          },
+          {
+            "day": 230,
+            "buildings": 750,
+            "version": 97,
+            "reason": "    at completeDevelopmentProjects (http://127.0.0.1:46543/game.js:2155:14)     at tick (http://127.0.0.1:46543/game.js:2915:62)"
+          },
+          {
+            "day": 240,
+            "buildings": 750,
+            "version": 98,
+            "reason": "    at privatelyBuiltRoads (http://127.0.0.1:46543/game.js:2106:139)     at autonomousDevelopment (http://127.0.0.1:46543/game.js:2559:5)"
+          },
+          {
+            "day": 260,
+            "buildings": 751,
+            "version": 99,
+            "reason": "    at completeDevelopmentProjects (http://127.0.0.1:46543/game.js:2155:14)     at tick (http://127.0.0.1:46543/game.js:2915:62)"
+          },
+          {
+            "day": 262,
+            "buildings": 751,
+            "version": 100,
+            "reason": "    at completeDevelopmentProjects (http://127.0.0.1:46543/game.js:2155:14)     at tick (http://127.0.0.1:46543/game.js:2915:62)"
+          },
+          {
+            "day": 270,
+            "buildings": 751,
+            "version": 101,
+            "reason": "    at privatelyBuiltRoads (http://127.0.0.1:46543/game.js:2106:139)     at autonomousDevelopment (http://127.0.0.1:46543/game.js:2559:5)"
+          },
+          {
+            "day": 300,
+            "buildings": 752,
+            "version": 102,
+            "reason": "    at privatelyBuiltRoads (http://127.0.0.1:46543/game.js:2106:139)     at autonomousDevelopment (http://127.0.0.1:46543/game.js:2559:5)"
+          }
+        ]
+      },
+      "topSelfMs": [
+        [
+          "(program) @0",
+          664.97
+        ],
+        [
+          "(idle) @0",
+          601.47
+        ],
+        [
+          "dailyEconomy @1823",
+          592.68
+        ],
+        [
+          " @6171",
+          383.82
+        ],
+        [
+          "drawImage @0",
+          281.9
+        ],
+        [
+          "serviceAccess @695",
+          246.41
+        ],
+        [
+          "transitJourney @2773",
+          234.66
+        ],
+        [
+          " @697",
+          184.74
+        ],
+        [
+          "(garbage collector) @0",
+          159.0
+        ],
+        [
+          "householdLiquidity @255",
+          151.4
+        ],
+        [
+          "fundedPublicPayroll @317",
+          148.13
+        ],
+        [
+          "buildableCandidates @2062",
+          139.53
+        ],
+        [
+          "urbanDescriptor @1615",
+          136.53
+        ],
+        [
+          "recompute @1969",
+          128.8
+        ],
+        [
+          "urbanSpatial @1589",
+          126.6
+        ],
+        [
+          "groceryChoices @851",
+          125.8
+        ],
+        [
+          "fillRect @0",
+          111.99
+        ],
+        [
+          " @320",
+          110.5
+        ],
+        [
+          "privateServiceForecast @917",
+          94.3
+        ],
+        [
+          "fill @0",
+          88.07
+        ],
+        [
+          "roadDistancesFrom @3041",
+          85.62
+        ],
+        [
+          "draw @3448",
+          80.42
+        ],
+        [
+          "sharesRoadNetwork @859",
+          80.0
+        ],
+        [
+          "drawGround @3352",
+          78.13
+        ],
+        [
+          "privateServiceDay @942",
+          74.61
+        ],
+        [
+          "transitOperatingDay @2802",
+          72.55
+        ],
+        [
+          "graph @2995",
+          67.01
+        ],
+        [
+          "incidents @1946",
+          66.7
+        ],
+        [
+          "routeBetween @3016",
+          62.27
+        ],
+        [
+          " @922",
+          59.56
+        ],
+        [
+          "readBuild @1248",
+          59.44
+        ],
+        [
+          "tick @2914",
+          58.27
+        ],
+        [
+          "civicStaffCapacity @752",
+          57.42
+        ],
+        [
+          "drawStatic @3404",
+          52.52
+        ],
+        [
+          " @1254",
+          51.87
+        ]
+      ],
+      "rafP99": 200.0000000000009
+    },
+    {
+      "zoom": 0.2,
+      "network": {
+        "grid": 128,
+        "deeds": 21,
+        "relocatedHouseholds": 29,
+        "routes": [
+          1,
+          2,
+          3
+        ],
+        "capital": 191450,
+        "total": 15493516.999999993
+      },
+      "cold": {
+        "topologyMs": 0.599999999627471,
+        "queryMs": 3.2999999998137355,
+        "queries": 2828,
+        "routes": 3,
+        "unchanged": true
+      },
+      "timings": {
+        "phases": {
+          "regionalFreightDay": {
+            "calls": 310,
+            "total": 80.29999999888241,
+            "max": 3.599999999627471
+          },
+          "transitOperatingDay": {
+            "calls": 310,
+            "total": 256.800000003539,
+            "max": 6
+          },
+          "privateServiceDay": {
+            "calls": 310,
+            "total": 295.3999999994412,
+            "max": 4.1000000005587935
+          },
+          "dailyEconomy": {
+            "calls": 310,
+            "total": 3529.0999999940395,
+            "max": 58.40000000037253
+          },
+          "recompute": {
+            "calls": 646,
+            "total": 291.6000000042841,
+            "max": 7.099999999627471
+          },
+          "systemsDay": {
+            "calls": 310,
+            "total": 162.59999999497086,
+            "max": 46
+          },
+          "privateServiceInvestmentDay": {
+            "calls": 310,
+            "total": 546.6000000005588,
+            "max": 148
+          },
+          "urbanEvolutionDay": {
+            "calls": 310,
+            "total": 81.50000000093132,
+            "max": 23.09999999962747
+          },
+          "tick": {
+            "calls": 310,
+            "total": 5796.199999991804,
+            "max": 238.79999999981374
+          },
+          "assignJobs": {
+            "calls": 108,
+            "total": 70.00000000186265,
+            "max": 6.900000000372529
+          },
+          "autonomousDevelopment": {
+            "calls": 10,
+            "total": 105.49999999906868,
+            "max": 20
+          },
+          "urbanHousingMobility": {
+            "calls": 10,
+            "total": 40.200000000186265,
+            "max": 8.5
+          },
+          "urbanDistrictReview": {
+            "calls": 10,
+            "total": 28.5,
+            "max": 16.299999999813735
+          }
+        },
+        "slow": [
+          {
+            "phase": "dailyEconomy",
+            "ms": 58.40000000037253,
+            "day": 2,
+            "buildings": 745,
+            "roadsVersion": 80
+          },
+          {
+            "phase": "tick",
+            "ms": 77.5,
+            "day": 2,
+            "buildings": 745,
+            "roadsVersion": 80
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 17.300000000745058,
+            "day": 3,
+            "buildings": 745,
+            "roadsVersion": 80
+          },
+          {
+            "phase": "tick",
+            "ms": 25.40000000037253,
+            "day": 3,
+            "buildings": 745,
+            "roadsVersion": 80
+          },
+          {
+            "phase": "tick",
+            "ms": 16.799999999813735,
+            "day": 4,
+            "buildings": 745,
+            "roadsVersion": 80
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 12.899999999441206,
+            "day": 5,
+            "buildings": 745,
+            "roadsVersion": 80
+          },
+          {
+            "phase": "tick",
+            "ms": 17.200000000186265,
+            "day": 5,
+            "buildings": 745,
+            "roadsVersion": 80
+          },
+          {
+            "phase": "tick",
+            "ms": 14,
+            "day": 6,
+            "buildings": 745,
+            "roadsVersion": 80
+          },
+          {
+            "phase": "tick",
+            "ms": 14.600000000558794,
+            "day": 7,
+            "buildings": 745,
+            "roadsVersion": 80
+          },
+          {
+            "phase": "tick",
+            "ms": 15,
+            "day": 8,
+            "buildings": 745,
+            "roadsVersion": 80
+          },
+          {
+            "phase": "tick",
+            "ms": 18.5,
+            "day": 9,
+            "buildings": 745,
+            "roadsVersion": 80
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 18.399999999441206,
+            "day": 10,
+            "buildings": 745,
+            "roadsVersion": 80
+          },
+          {
+            "phase": "tick",
+            "ms": 26,
+            "day": 10,
+            "buildings": 745,
+            "roadsVersion": 80
+          },
+          {
+            "phase": "tick",
+            "ms": 14.299999999813735,
+            "day": 11,
+            "buildings": 745,
+            "roadsVersion": 80
+          },
+          {
+            "phase": "tick",
+            "ms": 13.099999999627471,
+            "day": 12,
+            "buildings": 745,
+            "roadsVersion": 80
+          },
+          {
+            "phase": "tick",
+            "ms": 12.200000000186265,
+            "day": 14,
+            "buildings": 745,
+            "roadsVersion": 80
+          },
+          {
+            "phase": "tick",
+            "ms": 12.100000000558794,
+            "day": 16,
+            "buildings": 745,
+            "roadsVersion": 80
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 12.5,
+            "day": 17,
+            "buildings": 745,
+            "roadsVersion": 80
+          },
+          {
+            "phase": "tick",
+            "ms": 20.299999999813735,
+            "day": 17,
+            "buildings": 745,
+            "roadsVersion": 80
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 16.40000000037253,
+            "day": 18,
+            "buildings": 745,
+            "roadsVersion": 80
+          },
+          {
+            "phase": "tick",
+            "ms": 22.09999999962747,
+            "day": 18,
+            "buildings": 745,
+            "roadsVersion": 80
+          },
+          {
+            "phase": "tick",
+            "ms": 14,
+            "day": 19,
+            "buildings": 745,
+            "roadsVersion": 80
+          },
+          {
+            "phase": "tick",
+            "ms": 13.599999999627471,
+            "day": 20,
+            "buildings": 745,
+            "roadsVersion": 80
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 18.09999999962747,
+            "day": 21,
+            "buildings": 745,
+            "roadsVersion": 80
+          },
+          {
+            "phase": "tick",
+            "ms": 27.5,
+            "day": 21,
+            "buildings": 745,
+            "roadsVersion": 80
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 13.699999999254942,
+            "day": 22,
+            "buildings": 745,
+            "roadsVersion": 80
+          },
+          {
+            "phase": "tick",
+            "ms": 17.299999999813735,
+            "day": 22,
+            "buildings": 745,
+            "roadsVersion": 80
+          },
+          {
+            "phase": "tick",
+            "ms": 14.599999999627471,
+            "day": 23,
+            "buildings": 745,
+            "roadsVersion": 80
+          },
+          {
+            "phase": "tick",
+            "ms": 14.200000000186265,
+            "day": 24,
+            "buildings": 745,
+            "roadsVersion": 80
+          },
+          {
+            "phase": "tick",
+            "ms": 14.599999999627471,
+            "day": 25,
+            "buildings": 745,
+            "roadsVersion": 80
+          },
+          {
+            "phase": "tick",
+            "ms": 13.299999999813735,
+            "day": 26,
+            "buildings": 745,
+            "roadsVersion": 80
+          },
+          {
+            "phase": "tick",
+            "ms": 13.599999999627471,
+            "day": 27,
+            "buildings": 745,
+            "roadsVersion": 80
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 25.90000000037253,
+            "day": 28,
+            "buildings": 745,
+            "roadsVersion": 80
+          },
+          {
+            "phase": "tick",
+            "ms": 28.600000000558794,
+            "day": 28,
+            "buildings": 745,
+            "roadsVersion": 80
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 12.299999999813735,
+            "day": 29,
+            "buildings": 745,
+            "roadsVersion": 80
+          },
+          {
+            "phase": "tick",
+            "ms": 15.800000000745058,
+            "day": 29,
+            "buildings": 745,
+            "roadsVersion": 80
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 19.200000000186265,
+            "day": 30,
+            "buildings": 745,
+            "roadsVersion": 80
+          },
+          {
+            "phase": "autonomousDevelopment",
+            "ms": 20,
+            "day": 30,
+            "buildings": 745,
+            "roadsVersion": 81
+          },
+          {
+            "phase": "systemsDay",
+            "ms": 46,
+            "day": 30,
+            "buildings": 746,
+            "roadsVersion": 81
+          },
+          {
+            "phase": "privateServiceInvestmentDay",
+            "ms": 133,
+            "day": 30,
+            "buildings": 747,
+            "roadsVersion": 81
+          },
+          {
+            "phase": "tick",
+            "ms": 238.79999999981374,
+            "day": 30,
+            "buildings": 747,
+            "roadsVersion": 81
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 28.59999999962747,
+            "day": 31,
+            "buildings": 747,
+            "roadsVersion": 81
+          },
+          {
+            "phase": "tick",
+            "ms": 40.10000000055879,
+            "day": 31,
+            "buildings": 747,
+            "roadsVersion": 81
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 12.299999999813735,
+            "day": 32,
+            "buildings": 747,
+            "roadsVersion": 81
+          },
+          {
+            "phase": "tick",
+            "ms": 16.200000000186265,
+            "day": 32,
+            "buildings": 747,
+            "roadsVersion": 81
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 12.599999999627471,
+            "day": 33,
+            "buildings": 747,
+            "roadsVersion": 81
+          },
+          {
+            "phase": "tick",
+            "ms": 19.40000000037253,
+            "day": 33,
+            "buildings": 747,
+            "roadsVersion": 81
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 14.399999999441206,
+            "day": 34,
+            "buildings": 747,
+            "roadsVersion": 81
+          },
+          {
+            "phase": "tick",
+            "ms": 18.5,
+            "day": 34,
+            "buildings": 747,
+            "roadsVersion": 81
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 14,
+            "day": 35,
+            "buildings": 747,
+            "roadsVersion": 81
+          },
+          {
+            "phase": "tick",
+            "ms": 17.90000000037253,
+            "day": 35,
+            "buildings": 747,
+            "roadsVersion": 81
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 29.600000000558794,
+            "day": 36,
+            "buildings": 747,
+            "roadsVersion": 81
+          },
+          {
+            "phase": "tick",
+            "ms": 45.200000000186265,
+            "day": 36,
+            "buildings": 747,
+            "roadsVersion": 81
+          },
+          {
+            "phase": "tick",
+            "ms": 13.399999999441206,
+            "day": 37,
+            "buildings": 747,
+            "roadsVersion": 81
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 19.600000000558794,
+            "day": 42,
+            "buildings": 747,
+            "roadsVersion": 81
+          },
+          {
+            "phase": "tick",
+            "ms": 25.59999999962747,
+            "day": 42,
+            "buildings": 747,
+            "roadsVersion": 81
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 14.599999999627471,
+            "day": 43,
+            "buildings": 747,
+            "roadsVersion": 81
+          },
+          {
+            "phase": "tick",
+            "ms": 20.700000000186265,
+            "day": 43,
+            "buildings": 747,
+            "roadsVersion": 81
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 12.399999999441206,
+            "day": 44,
+            "buildings": 747,
+            "roadsVersion": 81
+          },
+          {
+            "phase": "tick",
+            "ms": 17.699999999254942,
+            "day": 44,
+            "buildings": 747,
+            "roadsVersion": 81
+          },
+          {
+            "phase": "tick",
+            "ms": 26.59999999962747,
+            "day": 45,
+            "buildings": 747,
+            "roadsVersion": 81
+          },
+          {
+            "phase": "tick",
+            "ms": 15.599999999627471,
+            "day": 46,
+            "buildings": 747,
+            "roadsVersion": 81
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 12.5,
+            "day": 47,
+            "buildings": 747,
+            "roadsVersion": 81
+          },
+          {
+            "phase": "tick",
+            "ms": 17.100000000558794,
+            "day": 47,
+            "buildings": 747,
+            "roadsVersion": 81
+          },
+          {
+            "phase": "tick",
+            "ms": 16.700000000186265,
+            "day": 48,
+            "buildings": 747,
+            "roadsVersion": 81
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 18.5,
+            "day": 49,
+            "buildings": 747,
+            "roadsVersion": 81
+          },
+          {
+            "phase": "tick",
+            "ms": 25.300000000745058,
+            "day": 49,
+            "buildings": 747,
+            "roadsVersion": 81
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 52.200000000186265,
+            "day": 50,
+            "buildings": 747,
+            "roadsVersion": 82
+          },
+          {
+            "phase": "tick",
+            "ms": 61.5,
+            "day": 50,
+            "buildings": 747,
+            "roadsVersion": 82
+          },
+          {
+            "phase": "tick",
+            "ms": 13.799999999813735,
+            "day": 53,
+            "buildings": 747,
+            "roadsVersion": 82
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 15.5,
+            "day": 56,
+            "buildings": 747,
+            "roadsVersion": 82
+          },
+          {
+            "phase": "tick",
+            "ms": 19.5,
+            "day": 56,
+            "buildings": 747,
+            "roadsVersion": 82
+          },
+          {
+            "phase": "tick",
+            "ms": 13.100000000558794,
+            "day": 57,
+            "buildings": 747,
+            "roadsVersion": 82
+          },
+          {
+            "phase": "tick",
+            "ms": 12.100000000558794,
+            "day": 58,
+            "buildings": 747,
+            "roadsVersion": 82
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 14.799999999813735,
+            "day": 60,
+            "buildings": 747,
+            "roadsVersion": 82
+          },
+          {
+            "phase": "tick",
+            "ms": 41.90000000037253,
+            "day": 60,
+            "buildings": 747,
+            "roadsVersion": 83
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 23.700000000186265,
+            "day": 61,
+            "buildings": 747,
+            "roadsVersion": 83
+          },
+          {
+            "phase": "tick",
+            "ms": 33.200000000186265,
+            "day": 61,
+            "buildings": 747,
+            "roadsVersion": 83
+          },
+          {
+            "phase": "tick",
+            "ms": 15.200000000186265,
+            "day": 62,
+            "buildings": 747,
+            "roadsVersion": 83
+          },
+          {
+            "phase": "tick",
+            "ms": 14,
+            "day": 63,
+            "buildings": 747,
+            "roadsVersion": 83
+          },
+          {
+            "phase": "tick",
+            "ms": 15.400000000372529,
+            "day": 64,
+            "buildings": 747,
+            "roadsVersion": 83
+          },
+          {
+            "phase": "tick",
+            "ms": 12.099999999627471,
+            "day": 67,
+            "buildings": 747,
+            "roadsVersion": 83
+          },
+          {
+            "phase": "tick",
+            "ms": 12.799999999813735,
+            "day": 68,
+            "buildings": 747,
+            "roadsVersion": 83
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 13.5,
+            "day": 70,
+            "buildings": 747,
+            "roadsVersion": 83
+          },
+          {
+            "phase": "tick",
+            "ms": 18.799999999813735,
+            "day": 70,
+            "buildings": 747,
+            "roadsVersion": 83
+          },
+          {
+            "phase": "tick",
+            "ms": 12.599999999627471,
+            "day": 71,
+            "buildings": 747,
+            "roadsVersion": 83
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 35.39999999944121,
+            "day": 76,
+            "buildings": 747,
+            "roadsVersion": 84
+          },
+          {
+            "phase": "tick",
+            "ms": 49.39999999944121,
+            "day": 76,
+            "buildings": 747,
+            "roadsVersion": 84
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 16.100000000558794,
+            "day": 77,
+            "buildings": 747,
+            "roadsVersion": 84
+          },
+          {
+            "phase": "tick",
+            "ms": 20.100000000558794,
+            "day": 77,
+            "buildings": 747,
+            "roadsVersion": 84
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 12.899999999441206,
+            "day": 78,
+            "buildings": 747,
+            "roadsVersion": 84
+          },
+          {
+            "phase": "tick",
+            "ms": 17.09999999962747,
+            "day": 78,
+            "buildings": 747,
+            "roadsVersion": 84
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 19.100000000558794,
+            "day": 80,
+            "buildings": 747,
+            "roadsVersion": 85
+          },
+          {
+            "phase": "tick",
+            "ms": 24.100000000558794,
+            "day": 80,
+            "buildings": 747,
+            "roadsVersion": 85
+          },
+          {
+            "phase": "tick",
+            "ms": 13.700000000186265,
+            "day": 81,
+            "buildings": 747,
+            "roadsVersion": 85
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 18.200000000186265,
+            "day": 84,
+            "buildings": 747,
+            "roadsVersion": 85
+          },
+          {
+            "phase": "tick",
+            "ms": 25.5,
+            "day": 84,
+            "buildings": 747,
+            "roadsVersion": 85
+          },
+          {
+            "phase": "tick",
+            "ms": 14.699999999254942,
+            "day": 85,
+            "buildings": 747,
+            "roadsVersion": 85
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 13.700000000186265,
+            "day": 86,
+            "buildings": 747,
+            "roadsVersion": 85
+          },
+          {
+            "phase": "tick",
+            "ms": 17.09999999962747,
+            "day": 86,
+            "buildings": 747,
+            "roadsVersion": 85
+          },
+          {
+            "phase": "tick",
+            "ms": 13.399999999441206,
+            "day": 87,
+            "buildings": 747,
+            "roadsVersion": 85
+          },
+          {
+            "phase": "tick",
+            "ms": 14.299999999813735,
+            "day": 89,
+            "buildings": 747,
+            "roadsVersion": 85
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 16.299999999813735,
+            "day": 90,
+            "buildings": 747,
+            "roadsVersion": 85
+          },
+          {
+            "phase": "privateServiceInvestmentDay",
+            "ms": 148,
+            "day": 90,
+            "buildings": 748,
+            "roadsVersion": 86
+          },
+          {
+            "phase": "urbanDistrictReview",
+            "ms": 16.299999999813735,
+            "day": 90,
+            "buildings": 748,
+            "roadsVersion": 86
+          },
+          {
+            "phase": "urbanEvolutionDay",
+            "ms": 23.09999999962747,
+            "day": 90,
+            "buildings": 748,
+            "roadsVersion": 86
+          },
+          {
+            "phase": "tick",
+            "ms": 207.6000000005588,
+            "day": 90,
+            "buildings": 748,
+            "roadsVersion": 86
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 41.69999999925494,
+            "day": 91,
+            "buildings": 748,
+            "roadsVersion": 87
+          },
+          {
+            "phase": "tick",
+            "ms": 49.5,
+            "day": 91,
+            "buildings": 748,
+            "roadsVersion": 87
+          },
+          {
+            "phase": "tick",
+            "ms": 15.299999999813735,
+            "day": 92,
+            "buildings": 748,
+            "roadsVersion": 87
+          },
+          {
+            "phase": "tick",
+            "ms": 14.700000000186265,
+            "day": 93,
+            "buildings": 748,
+            "roadsVersion": 87
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 14.799999999813735,
+            "day": 94,
+            "buildings": 748,
+            "roadsVersion": 87
+          },
+          {
+            "phase": "tick",
+            "ms": 18.5,
+            "day": 94,
+            "buildings": 748,
+            "roadsVersion": 87
+          },
+          {
+            "phase": "tick",
+            "ms": 12.599999999627471,
+            "day": 95,
+            "buildings": 748,
+            "roadsVersion": 87
+          },
+          {
+            "phase": "tick",
+            "ms": 13.700000000186265,
+            "day": 96,
+            "buildings": 748,
+            "roadsVersion": 87
+          },
+          {
+            "phase": "tick",
+            "ms": 14.200000000186265,
+            "day": 98,
+            "buildings": 748,
+            "roadsVersion": 87
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 13.799999999813735,
+            "day": 99,
+            "buildings": 748,
+            "roadsVersion": 87
+          },
+          {
+            "phase": "tick",
+            "ms": 17.5,
+            "day": 99,
+            "buildings": 748,
+            "roadsVersion": 87
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 14.799999999813735,
+            "day": 100,
+            "buildings": 748,
+            "roadsVersion": 87
+          },
+          {
+            "phase": "tick",
+            "ms": 19.200000000186265,
+            "day": 100,
+            "buildings": 748,
+            "roadsVersion": 87
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 25.300000000745058,
+            "day": 101,
+            "buildings": 748,
+            "roadsVersion": 87
+          },
+          {
+            "phase": "tick",
+            "ms": 31.90000000037253,
+            "day": 101,
+            "buildings": 748,
+            "roadsVersion": 87
+          },
+          {
+            "phase": "tick",
+            "ms": 13.299999999813735,
+            "day": 106,
+            "buildings": 748,
+            "roadsVersion": 87
+          },
+          {
+            "phase": "tick",
+            "ms": 13.700000000186265,
+            "day": 107,
+            "buildings": 748,
+            "roadsVersion": 87
+          },
+          {
+            "phase": "tick",
+            "ms": 14.700000000186265,
+            "day": 109,
+            "buildings": 748,
+            "roadsVersion": 87
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 21.299999999813735,
+            "day": 110,
+            "buildings": 748,
+            "roadsVersion": 88
+          },
+          {
+            "phase": "tick",
+            "ms": 27.09999999962747,
+            "day": 110,
+            "buildings": 748,
+            "roadsVersion": 88
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 17.399999999441206,
+            "day": 111,
+            "buildings": 748,
+            "roadsVersion": 88
+          },
+          {
+            "phase": "tick",
+            "ms": 24.5,
+            "day": 111,
+            "buildings": 748,
+            "roadsVersion": 88
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 15,
+            "day": 112,
+            "buildings": 748,
+            "roadsVersion": 88
+          },
+          {
+            "phase": "tick",
+            "ms": 18.799999999813735,
+            "day": 112,
+            "buildings": 748,
+            "roadsVersion": 88
+          },
+          {
+            "phase": "tick",
+            "ms": 14.899999999441206,
+            "day": 113,
+            "buildings": 748,
+            "roadsVersion": 88
+          },
+          {
+            "phase": "tick",
+            "ms": 12.799999999813735,
+            "day": 114,
+            "buildings": 748,
+            "roadsVersion": 88
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 17.700000000186265,
+            "day": 117,
+            "buildings": 748,
+            "roadsVersion": 88
+          },
+          {
+            "phase": "tick",
+            "ms": 21,
+            "day": 117,
+            "buildings": 748,
+            "roadsVersion": 88
+          },
+          {
+            "phase": "tick",
+            "ms": 14.599999999627471,
+            "day": 119,
+            "buildings": 748,
+            "roadsVersion": 88
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 16.299999999813735,
+            "day": 120,
+            "buildings": 748,
+            "roadsVersion": 88
+          },
+          {
+            "phase": "systemsDay",
+            "ms": 30.199999999254942,
+            "day": 120,
+            "buildings": 749,
+            "roadsVersion": 89
+          },
+          {
+            "phase": "tick",
+            "ms": 75,
+            "day": 120,
+            "buildings": 749,
+            "roadsVersion": 89
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 16.200000000186265,
+            "day": 121,
+            "buildings": 749,
+            "roadsVersion": 89
+          },
+          {
+            "phase": "tick",
+            "ms": 20.90000000037253,
+            "day": 121,
+            "buildings": 749,
+            "roadsVersion": 89
+          },
+          {
+            "phase": "tick",
+            "ms": 14.200000000186265,
+            "day": 123,
+            "buildings": 749,
+            "roadsVersion": 89
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 17.600000000558794,
+            "day": 124,
+            "buildings": 749,
+            "roadsVersion": 89
+          },
+          {
+            "phase": "tick",
+            "ms": 23,
+            "day": 124,
+            "buildings": 749,
+            "roadsVersion": 89
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 20.59999999962747,
+            "day": 126,
+            "buildings": 749,
+            "roadsVersion": 89
+          },
+          {
+            "phase": "tick",
+            "ms": 27.200000000186265,
+            "day": 126,
+            "buildings": 749,
+            "roadsVersion": 89
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 15.700000000186265,
+            "day": 127,
+            "buildings": 749,
+            "roadsVersion": 89
+          },
+          {
+            "phase": "tick",
+            "ms": 22.200000000186265,
+            "day": 127,
+            "buildings": 749,
+            "roadsVersion": 89
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 19,
+            "day": 128,
+            "buildings": 749,
+            "roadsVersion": 89
+          },
+          {
+            "phase": "tick",
+            "ms": 25.200000000186265,
+            "day": 128,
+            "buildings": 749,
+            "roadsVersion": 89
+          },
+          {
+            "phase": "tick",
+            "ms": 15.100000000558794,
+            "day": 129,
+            "buildings": 749,
+            "roadsVersion": 89
+          },
+          {
+            "phase": "tick",
+            "ms": 14.200000000186265,
+            "day": 130,
+            "buildings": 749,
+            "roadsVersion": 89
+          },
+          {
+            "phase": "tick",
+            "ms": 13.799999999813735,
+            "day": 132,
+            "buildings": 749,
+            "roadsVersion": 89
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 14.100000000558794,
+            "day": 136,
+            "buildings": 749,
+            "roadsVersion": 89
+          },
+          {
+            "phase": "tick",
+            "ms": 17.700000000186265,
+            "day": 136,
+            "buildings": 749,
+            "roadsVersion": 89
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 22.100000000558794,
+            "day": 140,
+            "buildings": 749,
+            "roadsVersion": 90
+          },
+          {
+            "phase": "tick",
+            "ms": 27.40000000037253,
+            "day": 140,
+            "buildings": 749,
+            "roadsVersion": 90
+          },
+          {
+            "phase": "tick",
+            "ms": 12.399999999441206,
+            "day": 144,
+            "buildings": 749,
+            "roadsVersion": 90
+          },
+          {
+            "phase": "tick",
+            "ms": 14.299999999813735,
+            "day": 147,
+            "buildings": 749,
+            "roadsVersion": 90
+          },
+          {
+            "phase": "tick",
+            "ms": 12.400000000372529,
+            "day": 148,
+            "buildings": 749,
+            "roadsVersion": 90
+          },
+          {
+            "phase": "tick",
+            "ms": 12.5,
+            "day": 149,
+            "buildings": 749,
+            "roadsVersion": 90
+          },
+          {
+            "phase": "tick",
+            "ms": 29.799999999813735,
+            "day": 150,
+            "buildings": 749,
+            "roadsVersion": 91
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 12.700000000186265,
+            "day": 151,
+            "buildings": 749,
+            "roadsVersion": 91
+          },
+          {
+            "phase": "tick",
+            "ms": 17.399999999441206,
+            "day": 151,
+            "buildings": 749,
+            "roadsVersion": 91
+          },
+          {
+            "phase": "tick",
+            "ms": 15.799999999813735,
+            "day": 152,
+            "buildings": 749,
+            "roadsVersion": 91
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 14.100000000558794,
+            "day": 153,
+            "buildings": 749,
+            "roadsVersion": 91
+          },
+          {
+            "phase": "tick",
+            "ms": 18.5,
+            "day": 153,
+            "buildings": 749,
+            "roadsVersion": 91
+          },
+          {
+            "phase": "tick",
+            "ms": 13.900000000372529,
+            "day": 154,
+            "buildings": 749,
+            "roadsVersion": 91
+          },
+          {
+            "phase": "tick",
+            "ms": 12.700000000186265,
+            "day": 155,
+            "buildings": 749,
+            "roadsVersion": 91
+          },
+          {
+            "phase": "tick",
+            "ms": 19.09999999962747,
+            "day": 156,
+            "buildings": 749,
+            "roadsVersion": 91
+          },
+          {
+            "phase": "tick",
+            "ms": 17.59999999962747,
+            "day": 157,
+            "buildings": 749,
+            "roadsVersion": 91
+          },
+          {
+            "phase": "tick",
+            "ms": 13.899999999441206,
+            "day": 158,
+            "buildings": 749,
+            "roadsVersion": 91
+          },
+          {
+            "phase": "tick",
+            "ms": 17.199999999254942,
+            "day": 160,
+            "buildings": 749,
+            "roadsVersion": 91
+          },
+          {
+            "phase": "tick",
+            "ms": 13.799999999813735,
+            "day": 161,
+            "buildings": 749,
+            "roadsVersion": 91
+          },
+          {
+            "phase": "tick",
+            "ms": 13.900000000372529,
+            "day": 162,
+            "buildings": 749,
+            "roadsVersion": 91
+          },
+          {
+            "phase": "tick",
+            "ms": 13.700000000186265,
+            "day": 168,
+            "buildings": 749,
+            "roadsVersion": 91
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 17.799999999813735,
+            "day": 170,
+            "buildings": 749,
+            "roadsVersion": 92
+          },
+          {
+            "phase": "tick",
+            "ms": 23.09999999962747,
+            "day": 170,
+            "buildings": 749,
+            "roadsVersion": 92
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 19.799999999813735,
+            "day": 176,
+            "buildings": 749,
+            "roadsVersion": 93
+          },
+          {
+            "phase": "tick",
+            "ms": 25.699999999254942,
+            "day": 176,
+            "buildings": 749,
+            "roadsVersion": 93
+          },
+          {
+            "phase": "tick",
+            "ms": 16.5,
+            "day": 177,
+            "buildings": 749,
+            "roadsVersion": 93
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 12.300000000745058,
+            "day": 178,
+            "buildings": 749,
+            "roadsVersion": 93
+          },
+          {
+            "phase": "tick",
+            "ms": 16.399999999441206,
+            "day": 178,
+            "buildings": 749,
+            "roadsVersion": 93
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 25.699999999254942,
+            "day": 179,
+            "buildings": 749,
+            "roadsVersion": 93
+          },
+          {
+            "phase": "tick",
+            "ms": 29,
+            "day": 179,
+            "buildings": 749,
+            "roadsVersion": 93
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 29.5,
+            "day": 180,
+            "buildings": 749,
+            "roadsVersion": 93
+          },
+          {
+            "phase": "autonomousDevelopment",
+            "ms": 13.799999999813735,
+            "day": 180,
+            "buildings": 749,
+            "roadsVersion": 94
+          },
+          {
+            "phase": "privateServiceInvestmentDay",
+            "ms": 137.40000000037253,
+            "day": 180,
+            "buildings": 750,
+            "roadsVersion": 94
+          },
+          {
+            "phase": "tick",
+            "ms": 202.40000000037253,
+            "day": 180,
+            "buildings": 750,
+            "roadsVersion": 94
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 17,
+            "day": 181,
+            "buildings": 750,
+            "roadsVersion": 94
+          },
+          {
+            "phase": "tick",
+            "ms": 23.5,
+            "day": 181,
+            "buildings": 750,
+            "roadsVersion": 94
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 17,
+            "day": 182,
+            "buildings": 750,
+            "roadsVersion": 94
+          },
+          {
+            "phase": "tick",
+            "ms": 21.399999999441206,
+            "day": 182,
+            "buildings": 750,
+            "roadsVersion": 94
+          },
+          {
+            "phase": "tick",
+            "ms": 15.200000000186265,
+            "day": 183,
+            "buildings": 750,
+            "roadsVersion": 94
+          },
+          {
+            "phase": "tick",
+            "ms": 15.700000000186265,
+            "day": 184,
+            "buildings": 750,
+            "roadsVersion": 94
+          },
+          {
+            "phase": "tick",
+            "ms": 12.599999999627471,
+            "day": 185,
+            "buildings": 750,
+            "roadsVersion": 94
+          },
+          {
+            "phase": "tick",
+            "ms": 15,
+            "day": 186,
+            "buildings": 750,
+            "roadsVersion": 94
+          },
+          {
+            "phase": "tick",
+            "ms": 14.599999999627471,
+            "day": 189,
+            "buildings": 750,
+            "roadsVersion": 94
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 12.299999999813735,
+            "day": 190,
+            "buildings": 750,
+            "roadsVersion": 94
+          },
+          {
+            "phase": "tick",
+            "ms": 16.899999999441206,
+            "day": 190,
+            "buildings": 750,
+            "roadsVersion": 94
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 13.799999999813735,
+            "day": 191,
+            "buildings": 750,
+            "roadsVersion": 94
+          },
+          {
+            "phase": "tick",
+            "ms": 17.40000000037253,
+            "day": 191,
+            "buildings": 750,
+            "roadsVersion": 94
+          },
+          {
+            "phase": "tick",
+            "ms": 14.400000000372529,
+            "day": 192,
+            "buildings": 750,
+            "roadsVersion": 94
+          },
+          {
+            "phase": "tick",
+            "ms": 16,
+            "day": 193,
+            "buildings": 750,
+            "roadsVersion": 94
+          },
+          {
+            "phase": "tick",
+            "ms": 15.300000000745058,
+            "day": 194,
+            "buildings": 750,
+            "roadsVersion": 94
+          },
+          {
+            "phase": "tick",
+            "ms": 13.5,
+            "day": 195,
+            "buildings": 750,
+            "roadsVersion": 94
+          },
+          {
+            "phase": "tick",
+            "ms": 12.799999999813735,
+            "day": 196,
+            "buildings": 750,
+            "roadsVersion": 94
+          },
+          {
+            "phase": "tick",
+            "ms": 13.399999999441206,
+            "day": 197,
+            "buildings": 750,
+            "roadsVersion": 94
+          },
+          {
+            "phase": "tick",
+            "ms": 12.299999999813735,
+            "day": 198,
+            "buildings": 750,
+            "roadsVersion": 94
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 17.700000000186265,
+            "day": 200,
+            "buildings": 750,
+            "roadsVersion": 95
+          },
+          {
+            "phase": "tick",
+            "ms": 25.299999999813735,
+            "day": 200,
+            "buildings": 750,
+            "roadsVersion": 95
+          },
+          {
+            "phase": "tick",
+            "ms": 12.799999999813735,
+            "day": 201,
+            "buildings": 750,
+            "roadsVersion": 95
+          },
+          {
+            "phase": "tick",
+            "ms": 12.200000000186265,
+            "day": 202,
+            "buildings": 750,
+            "roadsVersion": 95
+          },
+          {
+            "phase": "tick",
+            "ms": 13,
+            "day": 204,
+            "buildings": 750,
+            "roadsVersion": 95
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 12.200000000186265,
+            "day": 205,
+            "buildings": 750,
+            "roadsVersion": 95
+          },
+          {
+            "phase": "tick",
+            "ms": 15.399999999441206,
+            "day": 205,
+            "buildings": 750,
+            "roadsVersion": 95
+          },
+          {
+            "phase": "tick",
+            "ms": 14.200000000186265,
+            "day": 206,
+            "buildings": 750,
+            "roadsVersion": 95
+          },
+          {
+            "phase": "tick",
+            "ms": 13.400000000372529,
+            "day": 208,
+            "buildings": 750,
+            "roadsVersion": 95
+          },
+          {
+            "phase": "tick",
+            "ms": 12.399999999441206,
+            "day": 209,
+            "buildings": 750,
+            "roadsVersion": 95
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 16.699999999254942,
+            "day": 210,
+            "buildings": 750,
+            "roadsVersion": 95
+          },
+          {
+            "phase": "autonomousDevelopment",
+            "ms": 13.099999999627471,
+            "day": 210,
+            "buildings": 750,
+            "roadsVersion": 96
+          },
+          {
+            "phase": "tick",
+            "ms": 41.39999999944121,
+            "day": 210,
+            "buildings": 750,
+            "roadsVersion": 96
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 13.5,
+            "day": 211,
+            "buildings": 750,
+            "roadsVersion": 96
+          },
+          {
+            "phase": "tick",
+            "ms": 23.700000000186265,
+            "day": 211,
+            "buildings": 750,
+            "roadsVersion": 96
+          },
+          {
+            "phase": "tick",
+            "ms": 13,
+            "day": 212,
+            "buildings": 750,
+            "roadsVersion": 96
+          },
+          {
+            "phase": "tick",
+            "ms": 12.599999999627471,
+            "day": 213,
+            "buildings": 750,
+            "roadsVersion": 96
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 16.299999999813735,
+            "day": 214,
+            "buildings": 750,
+            "roadsVersion": 97
+          },
+          {
+            "phase": "tick",
+            "ms": 21,
+            "day": 214,
+            "buildings": 750,
+            "roadsVersion": 97
+          },
+          {
+            "phase": "tick",
+            "ms": 16.299999999813735,
+            "day": 215,
+            "buildings": 750,
+            "roadsVersion": 97
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 15.899999999441206,
+            "day": 216,
+            "buildings": 750,
+            "roadsVersion": 97
+          },
+          {
+            "phase": "tick",
+            "ms": 20.199999999254942,
+            "day": 216,
+            "buildings": 750,
+            "roadsVersion": 97
+          },
+          {
+            "phase": "tick",
+            "ms": 12.299999999813735,
+            "day": 222,
+            "buildings": 750,
+            "roadsVersion": 97
+          },
+          {
+            "phase": "tick",
+            "ms": 13.599999999627471,
+            "day": 223,
+            "buildings": 750,
+            "roadsVersion": 97
+          },
+          {
+            "phase": "tick",
+            "ms": 14.299999999813735,
+            "day": 224,
+            "buildings": 750,
+            "roadsVersion": 97
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 17.100000000558794,
+            "day": 225,
+            "buildings": 750,
+            "roadsVersion": 97
+          },
+          {
+            "phase": "tick",
+            "ms": 24.799999999813735,
+            "day": 225,
+            "buildings": 750,
+            "roadsVersion": 97
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 16.09999999962747,
+            "day": 226,
+            "buildings": 750,
+            "roadsVersion": 97
+          },
+          {
+            "phase": "tick",
+            "ms": 20.5,
+            "day": 226,
+            "buildings": 750,
+            "roadsVersion": 97
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 13,
+            "day": 227,
+            "buildings": 750,
+            "roadsVersion": 97
+          },
+          {
+            "phase": "tick",
+            "ms": 17.200000000186265,
+            "day": 227,
+            "buildings": 750,
+            "roadsVersion": 97
+          },
+          {
+            "phase": "tick",
+            "ms": 14.599999999627471,
+            "day": 228,
+            "buildings": 750,
+            "roadsVersion": 97
+          },
+          {
+            "phase": "tick",
+            "ms": 16.299999999813735,
+            "day": 229,
+            "buildings": 750,
+            "roadsVersion": 97
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 42.40000000037253,
+            "day": 230,
+            "buildings": 750,
+            "roadsVersion": 98
+          },
+          {
+            "phase": "tick",
+            "ms": 50.10000000055879,
+            "day": 230,
+            "buildings": 750,
+            "roadsVersion": 98
+          },
+          {
+            "phase": "tick",
+            "ms": 14,
+            "day": 231,
+            "buildings": 750,
+            "roadsVersion": 98
+          },
+          {
+            "phase": "tick",
+            "ms": 12.400000000372529,
+            "day": 232,
+            "buildings": 750,
+            "roadsVersion": 98
+          },
+          {
+            "phase": "tick",
+            "ms": 12.200000000186265,
+            "day": 233,
+            "buildings": 750,
+            "roadsVersion": 98
+          },
+          {
+            "phase": "tick",
+            "ms": 12.5,
+            "day": 234,
+            "buildings": 750,
+            "roadsVersion": 98
+          },
+          {
+            "phase": "tick",
+            "ms": 12.299999999813735,
+            "day": 235,
+            "buildings": 750,
+            "roadsVersion": 98
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 13.700000000186265,
+            "day": 236,
+            "buildings": 750,
+            "roadsVersion": 98
+          },
+          {
+            "phase": "tick",
+            "ms": 20.199999999254942,
+            "day": 236,
+            "buildings": 750,
+            "roadsVersion": 98
+          },
+          {
+            "phase": "tick",
+            "ms": 15.399999999441206,
+            "day": 237,
+            "buildings": 750,
+            "roadsVersion": 98
+          },
+          {
+            "phase": "tick",
+            "ms": 15.600000000558794,
+            "day": 238,
+            "buildings": 750,
+            "roadsVersion": 98
+          },
+          {
+            "phase": "systemsDay",
+            "ms": 32.59999999962747,
+            "day": 240,
+            "buildings": 751,
+            "roadsVersion": 99
+          },
+          {
+            "phase": "tick",
+            "ms": 77.3999999994412,
+            "day": 240,
+            "buildings": 751,
+            "roadsVersion": 99
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 20.5,
+            "day": 241,
+            "buildings": 751,
+            "roadsVersion": 99
+          },
+          {
+            "phase": "tick",
+            "ms": 26.700000000186265,
+            "day": 241,
+            "buildings": 751,
+            "roadsVersion": 99
+          },
+          {
+            "phase": "tick",
+            "ms": 14.600000000558794,
+            "day": 242,
+            "buildings": 751,
+            "roadsVersion": 99
+          },
+          {
+            "phase": "tick",
+            "ms": 15.200000000186265,
+            "day": 243,
+            "buildings": 751,
+            "roadsVersion": 99
+          },
+          {
+            "phase": "tick",
+            "ms": 15,
+            "day": 244,
+            "buildings": 751,
+            "roadsVersion": 99
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 12.700000000186265,
+            "day": 245,
+            "buildings": 751,
+            "roadsVersion": 99
+          },
+          {
+            "phase": "tick",
+            "ms": 17.799999999813735,
+            "day": 245,
+            "buildings": 751,
+            "roadsVersion": 99
+          },
+          {
+            "phase": "tick",
+            "ms": 22.700000000186265,
+            "day": 246,
+            "buildings": 751,
+            "roadsVersion": 99
+          },
+          {
+            "phase": "tick",
+            "ms": 12.700000000186265,
+            "day": 247,
+            "buildings": 751,
+            "roadsVersion": 99
+          },
+          {
+            "phase": "tick",
+            "ms": 14.5,
+            "day": 248,
+            "buildings": 751,
+            "roadsVersion": 99
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 16.299999999813735,
+            "day": 260,
+            "buildings": 751,
+            "roadsVersion": 100
+          },
+          {
+            "phase": "tick",
+            "ms": 22,
+            "day": 260,
+            "buildings": 751,
+            "roadsVersion": 100
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 13.800000000745058,
+            "day": 262,
+            "buildings": 751,
+            "roadsVersion": 101
+          },
+          {
+            "phase": "tick",
+            "ms": 19.699999999254942,
+            "day": 262,
+            "buildings": 751,
+            "roadsVersion": 101
+          },
+          {
+            "phase": "tick",
+            "ms": 13,
+            "day": 264,
+            "buildings": 751,
+            "roadsVersion": 101
+          },
+          {
+            "phase": "tick",
+            "ms": 12.099999999627471,
+            "day": 266,
+            "buildings": 751,
+            "roadsVersion": 101
+          },
+          {
+            "phase": "privateServiceInvestmentDay",
+            "ms": 128,
+            "day": 270,
+            "buildings": 752,
+            "roadsVersion": 102
+          },
+          {
+            "phase": "tick",
+            "ms": 161.40000000037253,
+            "day": 270,
+            "buildings": 752,
+            "roadsVersion": 102
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 20.799999999813735,
+            "day": 271,
+            "buildings": 752,
+            "roadsVersion": 102
+          },
+          {
+            "phase": "tick",
+            "ms": 25.899999999441206,
+            "day": 271,
+            "buildings": 752,
+            "roadsVersion": 102
+          },
+          {
+            "phase": "tick",
+            "ms": 14,
+            "day": 272,
+            "buildings": 752,
+            "roadsVersion": 102
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 12.899999999441206,
+            "day": 273,
+            "buildings": 752,
+            "roadsVersion": 102
+          },
+          {
+            "phase": "tick",
+            "ms": 17.5,
+            "day": 273,
+            "buildings": 752,
+            "roadsVersion": 102
+          },
+          {
+            "phase": "tick",
+            "ms": 17.800000000745058,
+            "day": 274,
+            "buildings": 752,
+            "roadsVersion": 102
+          },
+          {
+            "phase": "tick",
+            "ms": 12.599999999627471,
+            "day": 280,
+            "buildings": 752,
+            "roadsVersion": 102
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 12.800000000745058,
+            "day": 283,
+            "buildings": 752,
+            "roadsVersion": 102
+          },
+          {
+            "phase": "tick",
+            "ms": 16.299999999813735,
+            "day": 283,
+            "buildings": 752,
+            "roadsVersion": 102
+          },
+          {
+            "phase": "tick",
+            "ms": 12.5,
+            "day": 288,
+            "buildings": 752,
+            "roadsVersion": 102
+          },
+          {
+            "phase": "tick",
+            "ms": 13,
+            "day": 289,
+            "buildings": 752,
+            "roadsVersion": 102
+          },
+          {
+            "phase": "tick",
+            "ms": 13,
+            "day": 291,
+            "buildings": 752,
+            "roadsVersion": 102
+          },
+          {
+            "phase": "tick",
+            "ms": 13.399999999441206,
+            "day": 294,
+            "buildings": 752,
+            "roadsVersion": 102
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 23.299999999813735,
+            "day": 300,
+            "buildings": 752,
+            "roadsVersion": 102
+          },
+          {
+            "phase": "tick",
+            "ms": 47.700000000186265,
+            "day": 300,
+            "buildings": 752,
+            "roadsVersion": 103
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 15.899999999441206,
+            "day": 301,
+            "buildings": 752,
+            "roadsVersion": 103
+          },
+          {
+            "phase": "tick",
+            "ms": 21.799999999813735,
+            "day": 301,
+            "buildings": 752,
+            "roadsVersion": 103
+          },
+          {
+            "phase": "tick",
+            "ms": 14.5,
+            "day": 302,
+            "buildings": 752,
+            "roadsVersion": 103
+          },
+          {
+            "phase": "tick",
+            "ms": 14.199999999254942,
+            "day": 303,
+            "buildings": 752,
+            "roadsVersion": 103
+          },
+          {
+            "phase": "tick",
+            "ms": 14.200000000186265,
+            "day": 304,
+            "buildings": 752,
+            "roadsVersion": 103
+          },
+          {
+            "phase": "tick",
+            "ms": 12.799999999813735,
+            "day": 305,
+            "buildings": 752,
+            "roadsVersion": 103
+          },
+          {
+            "phase": "dailyEconomy",
+            "ms": 13.799999999813735,
+            "day": 306,
+            "buildings": 752,
+            "roadsVersion": 103
+          },
+          {
+            "phase": "tick",
+            "ms": 17.899999999441206,
+            "day": 306,
+            "buildings": 752,
+            "roadsVersion": 103
+          },
+          {
+            "phase": "tick",
+            "ms": 12.5,
+            "day": 308,
+            "buildings": 752,
+            "roadsVersion": 103
+          },
+          {
+            "phase": "tick",
+            "ms": 12.899999999441206,
+            "day": 310,
+            "buildings": 752,
+            "roadsVersion": 103
+          }
+        ],
+        "invalidations": [
+          {
+            "day": 30,
+            "buildings": 745,
+            "version": 80,
+            "reason": "    at privatelyBuiltRoads (http://127.0.0.1:46543/game.js:2106:139)     at autonomousDevelopment (http://127.0.0.1:46543/game.js:2559:5)"
+          },
+          {
+            "day": 50,
+            "buildings": 747,
+            "version": 81,
+            "reason": "    at completeDevelopmentProjects (http://127.0.0.1:46543/game.js:2155:14)     at tick (http://127.0.0.1:46543/game.js:2915:62)"
+          },
+          {
+            "day": 60,
+            "buildings": 747,
+            "version": 82,
+            "reason": "    at privatelyBuiltRoads (http://127.0.0.1:46543/game.js:2106:139)     at autonomousDevelopment (http://127.0.0.1:46543/game.js:2559:5)"
+          },
+          {
+            "day": 76,
+            "buildings": 747,
+            "version": 83,
+            "reason": "    at completeDevelopmentProjects (http://127.0.0.1:46543/game.js:2155:14)     at tick (http://127.0.0.1:46543/game.js:2915:62)"
+          },
+          {
+            "day": 80,
+            "buildings": 747,
+            "version": 84,
+            "reason": "    at completeDevelopmentProjects (http://127.0.0.1:46543/game.js:2155:14)     at tick (http://127.0.0.1:46543/game.js:2915:62)"
+          },
+          {
+            "day": 90,
+            "buildings": 747,
+            "version": 85,
+            "reason": "    at privatelyBuiltRoads (http://127.0.0.1:46543/game.js:2106:139)     at autonomousDevelopment (http://127.0.0.1:46543/game.js:2559:5)"
+          },
+          {
+            "day": 91,
+            "buildings": 748,
+            "version": 86,
+            "reason": "    at completeDevelopmentProjects (http://127.0.0.1:46543/game.js:2155:14)     at tick (http://127.0.0.1:46543/game.js:2915:62)"
+          },
+          {
+            "day": 110,
+            "buildings": 748,
+            "version": 87,
+            "reason": "    at completeDevelopmentProjects (http://127.0.0.1:46543/game.js:2155:14)     at tick (http://127.0.0.1:46543/game.js:2915:62)"
+          },
+          {
+            "day": 120,
+            "buildings": 748,
+            "version": 88,
+            "reason": "    at privatelyBuiltRoads (http://127.0.0.1:46543/game.js:2106:139)     at autonomousDevelopment (http://127.0.0.1:46543/game.js:2559:5)"
+          },
+          {
+            "day": 140,
+            "buildings": 749,
+            "version": 89,
+            "reason": "    at completeDevelopmentProjects (http://127.0.0.1:46543/game.js:2155:14)     at tick (http://127.0.0.1:46543/game.js:2915:62)"
+          },
+          {
+            "day": 150,
+            "buildings": 749,
+            "version": 90,
+            "reason": "    at privatelyBuiltRoads (http://127.0.0.1:46543/game.js:2106:139)     at autonomousDevelopment (http://127.0.0.1:46543/game.js:2559:5)"
+          },
+          {
+            "day": 170,
+            "buildings": 749,
+            "version": 91,
+            "reason": "    at completeDevelopmentProjects (http://127.0.0.1:46543/game.js:2155:14)     at tick (http://127.0.0.1:46543/game.js:2915:62)"
+          },
+          {
+            "day": 176,
+            "buildings": 749,
+            "version": 92,
+            "reason": "    at completeDevelopmentProjects (http://127.0.0.1:46543/game.js:2155:14)     at tick (http://127.0.0.1:46543/game.js:2915:62)"
+          },
+          {
+            "day": 180,
+            "buildings": 749,
+            "version": 93,
+            "reason": "    at privatelyBuiltRoads (http://127.0.0.1:46543/game.js:2106:139)     at autonomousDevelopment (http://127.0.0.1:46543/game.js:2559:5)"
+          },
+          {
+            "day": 200,
+            "buildings": 750,
+            "version": 94,
+            "reason": "    at completeDevelopmentProjects (http://127.0.0.1:46543/game.js:2155:14)     at tick (http://127.0.0.1:46543/game.js:2915:62)"
+          },
+          {
+            "day": 210,
+            "buildings": 750,
+            "version": 95,
+            "reason": "    at privatelyBuiltRoads (http://127.0.0.1:46543/game.js:2106:139)     at autonomousDevelopment (http://127.0.0.1:46543/game.js:2559:5)"
+          },
+          {
+            "day": 214,
+            "buildings": 750,
+            "version": 96,
+            "reason": "    at completeDevelopmentProjects (http://127.0.0.1:46543/game.js:2155:14)     at tick (http://127.0.0.1:46543/game.js:2915:62)"
+          },
+          {
+            "day": 230,
+            "buildings": 750,
+            "version": 97,
+            "reason": "    at completeDevelopmentProjects (http://127.0.0.1:46543/game.js:2155:14)     at tick (http://127.0.0.1:46543/game.js:2915:62)"
+          },
+          {
+            "day": 240,
+            "buildings": 750,
+            "version": 98,
+            "reason": "    at privatelyBuiltRoads (http://127.0.0.1:46543/game.js:2106:139)     at autonomousDevelopment (http://127.0.0.1:46543/game.js:2559:5)"
+          },
+          {
+            "day": 260,
+            "buildings": 751,
+            "version": 99,
+            "reason": "    at completeDevelopmentProjects (http://127.0.0.1:46543/game.js:2155:14)     at tick (http://127.0.0.1:46543/game.js:2915:62)"
+          },
+          {
+            "day": 262,
+            "buildings": 751,
+            "version": 100,
+            "reason": "    at completeDevelopmentProjects (http://127.0.0.1:46543/game.js:2155:14)     at tick (http://127.0.0.1:46543/game.js:2915:62)"
+          },
+          {
+            "day": 270,
+            "buildings": 751,
+            "version": 101,
+            "reason": "    at privatelyBuiltRoads (http://127.0.0.1:46543/game.js:2106:139)     at autonomousDevelopment (http://127.0.0.1:46543/game.js:2559:5)"
+          },
+          {
+            "day": 300,
+            "buildings": 752,
+            "version": 102,
+            "reason": "    at privatelyBuiltRoads (http://127.0.0.1:46543/game.js:2106:139)     at autonomousDevelopment (http://127.0.0.1:46543/game.js:2559:5)"
+          }
+        ]
+      },
+      "topSelfMs": [
+        [
+          "(idle) @0",
+          1054.65
+        ],
+        [
+          "dailyEconomy @1823",
+          552.07
+        ],
+        [
+          " @6171",
+          414.88
+        ],
+        [
+          "(program) @0",
+          414.36
+        ],
+        [
+          "drawImage @0",
+          352.26
+        ],
+        [
+          "transitJourney @2773",
+          256.82
+        ],
+        [
+          "serviceAccess @695",
+          235.22
+        ],
+        [
+          " @697",
+          202.29
+        ],
+        [
+          "householdLiquidity @255",
+          187.95
+        ],
+        [
+          "(garbage collector) @0",
+          155.71
+        ],
+        [
+          "recompute @1969",
+          133.85
+        ],
+        [
+          "urbanDescriptor @1615",
+          130.39
+        ],
+        [
+          "urbanSpatial @1589",
+          124.24
+        ],
+        [
+          "fundedPublicPayroll @317",
+          115.53
+        ],
+        [
+          "groceryChoices @851",
+          102.86
+        ],
+        [
+          "buildableCandidates @2062",
+          98.67
+        ],
+        [
+          " @320",
+          95.25
+        ],
+        [
+          "fill @0",
+          84.93
+        ],
+        [
+          "roadDistancesFrom @3041",
+          83.13
+        ],
+        [
+          "privateServiceForecast @917",
+          78.54
+        ],
+        [
+          "drawGround @3352",
+          72.28
+        ],
+        [
+          "graph @2995",
+          70.06
+        ],
+        [
+          "tick @2914",
+          67.03
+        ],
+        [
+          "privateServiceDay @942",
+          66.51
+        ],
+        [
+          "fillRect @0",
+          66.38
+        ],
+        [
+          "transitOperatingDay @2802",
+          65.44
+        ],
+        [
+          "incidents @1946",
+          63.22
+        ],
+        [
+          "routeBetween @3016",
+          62.73
+        ],
+        [
+          "draw @3448",
+          61.07
+        ],
+        [
+          "sharesRoadNetwork @859",
+          60.76
+        ],
+        [
+          "prepareScene @3338",
+          56.49
+        ],
+        [
+          "regionalQuote @1491",
+          53.62
+        ],
+        [
+          "roadDistance @3048",
+          52.69
+        ],
+        [
+          " @1970",
+          51.41
+        ],
+        [
+          "seekPrivateServiceInvestment @960",
+          51.2
+        ]
+      ],
+      "rafP99": 200
+    }
+  ]
+}

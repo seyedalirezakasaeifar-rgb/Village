@@ -136,11 +136,11 @@ function assignJobs(){
  const net=graph(),maxJourney=60+(G.transit?.routes.length?0:(G.policy.transitBudget||0)/8);
  const vacancies=G.firms.filter(f=>!f.closed&&f.workers.length<f.jobs).sort((a,b)=>(b.wage-a.wage));
  for(const f of vacancies){let workplace=readBuild(f.building),port=net.portals.get(f.building);
-  if(!workplace||port==null)continue;
+  if(!workplace||port==null)continue;const journeyDistances=roadDistancesFrom(port,net);
   while(f.workers.length<f.jobs&&free.length){let best=-1,score=Infinity;
    for(let i=0;i<free.length;i++){const candidate=free[i],hh=G.households[candidate.hh],home=hh&&readBuild(hh.home);
     if(!home||f.privateService&&!privateQualified(candidate,f))continue;const hport=net.portals.get(home.id);if(hport==null||net.parts[hport]!==net.parts[port])continue;
-    const distance=roadDistance(hport,port);
+    const distance=journeyDistances[hport];
     if(distance>maxJourney&&!hasMetroCommute(home,workplace)&&!transitAccess(home,workplace))continue;
     const mismatch=Math.abs(candidate.skill-.7)*3,rank=distance*.74+mismatch+candidate.id*.00001;
     if(rank<score){score=rank;best=i}

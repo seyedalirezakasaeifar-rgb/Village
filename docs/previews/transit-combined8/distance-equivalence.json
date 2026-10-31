@@ -1,0 +1,78 @@
+{
+  "source_sha256": "ad8161fcba0ea7c01ec5db58002025e5d2eb6a5ecd4e1d8d043de1e2d50fc29e",
+  "reference_commit": "525e47d",
+  "models": [
+    {
+      "dense": false,
+      "days": 360,
+      "exactCheckpoints": [
+        31,
+        61,
+        91,
+        121,
+        151,
+        181,
+        211,
+        241,
+        271,
+        301,
+        331,
+        361
+      ],
+      "oracle": {
+        "checked": 12000,
+        "cachedTrees": 32,
+        "cacheBytes": 1048576,
+        "unchanged": true
+      },
+      "closure": {
+        "before": {
+          "checked": 12000,
+          "cachedTrees": 32,
+          "cacheBytes": 1048576,
+          "unchanged": true
+        },
+        "after": {
+          "checked": 12000,
+          "cachedTrees": 32,
+          "cacheBytes": 1048576,
+          "unchanged": true
+        },
+        "disconnected": true
+      }
+    },
+    {
+      "dense": true,
+      "days": 180,
+      "exactCheckpoints": [
+        31,
+        61,
+        91,
+        121,
+        151,
+        181
+      ],
+      "oracle": {
+        "checked": 12000,
+        "cachedTrees": 32,
+        "cacheBytes": 1048576,
+        "unchanged": true
+      },
+      "closure": {
+        "before": {
+          "checked": 12000,
+          "cachedTrees": 32,
+          "cacheBytes": 1048576,
+          "unchanged": true
+        },
+        "after": {
+          "checked": 12000,
+          "cachedTrees": 32,
+          "cacheBytes": 1048576,
+          "unchanged": true
+        },
+        "disconnected": true
+      }
+    }
+  ]
+}

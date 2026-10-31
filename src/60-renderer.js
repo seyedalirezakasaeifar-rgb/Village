@@ -96,17 +96,22 @@ function roadMetrics(){
  return {connectedFirms:reachable,totalFirms:firms.length,connectedHomes:eligible,totalHomes:G.households.length,roadTiles:net.neighbors.size,roadClusters:net.partsCount,averageJourney:routes?Math.round(length/routes):0,quality:Math.round(G.stats.roadCondition??75)};
 }
 function roadCenter(id){const pos=iso(id%T,id/T|0);return [pos[0],pos[1]+TH/2]}
+// Distance queries do not need a reconstructed visual/freight route. Cache bounded
+// destination trees so a hiring pass does one BFS per workplace, not per applicant.
+function roadDistancesFrom(start,net=graph()){
+ if(!net.distanceTrees)net.distanceTrees=new Map();let distance=net.distanceTrees.get(start);
+ if(distance){net.distanceTrees.delete(start);net.distanceTrees.set(start,distance);return distance;}
+ const DistanceArray=net.neighbors.size<32768?Int16Array:Int32Array;distance=new DistanceArray(G.tiles.length).fill(-1);
+ if(net.neighbors.has(start)){const queue=[start];distance[start]=0;for(let i=0;i<queue.length;i++){const at=queue[i],nextDistance=distance[at]+1;for(const next of net.neighbors.get(at)||[])if(distance[next]===-1){distance[next]=nextDistance;queue.push(next);}}}
+ if(net.distanceTrees.size>=32)net.distanceTrees.delete(net.distanceTrees.keys().next().value);net.distanceTrees.set(start,distance);return distance;
+}
 function roadDistance(a,b){
- if(a==null||b==null)return Infinity;
- if(a===b)return 0;
+ if(a==null||b==null)return Infinity;if(a===b)return 0;
  const net=graph();if(net.parts[a]!==net.parts[b])return Infinity;
- if(!net.distCache)net.distCache=new Map();
- const key=a<b?a*T*T+b:b*T*T+a;
- if(net.distCache.has(key))return net.distCache.get(key);
- const dist=routeBetween(a,b).length-1;
- if(net.distCache.size>3000)net.distCache.clear();
- net.distCache.set(key,dist);
- return dist;
+ // Preserve the legacy non-road sentinel; normal consumers use graph portals.
+ if(!net.neighbors.has(a)||!net.neighbors.has(b))return -1;
+ const cachedA=net.distanceTrees?.has(a),cachedB=net.distanceTrees?.has(b),anchor=cachedA?a:cachedB?b:net.distanceLastA===a?a:b;
+ net.distanceLastA=a;return roadDistancesFrom(anchor,net)[anchor===a?b:a];
 }
 function beginVehicle(source=null,target=null,emergency=false){
  const net=graph();if(net.connected.length<2)return null;

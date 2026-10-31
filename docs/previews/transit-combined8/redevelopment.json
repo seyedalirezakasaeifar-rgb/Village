@@ -1,0 +1,68 @@
+{
+  "source_sha256": "ad8161fcba0ea7c01ec5db58002025e5d2eb6a5ecd4e1d8d043de1e2d50fc29e",
+  "controlledExistingCashAndStaff": true,
+  "results": {
+    "setup": {
+      "grid": 128,
+      "deeds": 21,
+      "trip": {
+        "routes": [
+          1,
+          2
+        ],
+        "time": 62.591436503432064,
+        "fare": 1.25,
+        "transfers": 1,
+        "day": 3,
+        "settled": true
+      },
+      "protectedStation": "This facility serves an active passenger route. Retire or replan the route through the transit office first.",
+      "protectedDepot": "This facility serves an active passenger route. Retire or replan the route through the transit office first.",
+      "cashDrift": -3.725290298461914e-09
+    },
+    "outages": {
+      "railSuspended": true,
+      "closedSaveRestored": true,
+      "railReopened": true,
+      "busDetour": true,
+      "originalLength": 23,
+      "detourLength": 23,
+      "busRestored": true,
+      "cashDrift": -7.636845111846924e-08
+    },
+    "clearanceQuote": {
+      "id": 97,
+      "cost": 68631,
+      "day": 31
+    },
+    "redevelopment": {
+      "households": 1,
+      "identitiesPreserved": true,
+      "replacementClinic": true,
+      "exactContinuation": true,
+      "fares": 35,
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15493516.999998916,
+        "population": 169,
+        "day": 62
+      }
+    },
+    "retirement": {
+      "suspendedStationProtected": true,
+      "explicitRetirement": true,
+      "noDuplicateSalvage": true,
+      "remainingTracks": 0,
+      "cashDrift": -1.0691583156585693e-06,
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15493516.999998916,
+        "population": 169,
+        "day": 62
+      }
+    }
+  },
+  "errors": []
+}
