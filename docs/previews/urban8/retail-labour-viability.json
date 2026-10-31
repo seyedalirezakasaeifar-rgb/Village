@@ -1,5 +1,5 @@
 {
-  "source_sha256": "d8333d0086b3dd8e3b6da23374fe1bba24469e98b6ffb250a6675e0389f8b27f",
+  "source_sha256": "b65bbecf30a8c75596ee39f3ceb1c799705367154bf9ebab6f746f4f4516cbb4",
   "fixture": "Natural regional seed42 day1081 from 525e47d, no injected agents/cash/stocks.",
   "results": {
     "before": {
@@ -59,26 +59,25 @@
         "payroll": 32.62,
         "price": 3.8293151137175636
       },
-      "cashError": 2.7939677238464355e-08,
+      "cashError": 2.9802322387695312e-08,
       "valid": {
         "ok": true,
         "issues": [],
-        "total": 15493517.00000182,
+        "total": 15493517.000001822,
         "population": 868,
         "day": 1082
       },
       "day90": {
         "id": 88,
         "staff": [
-          623,
-          883
+          623
         ],
         "jobs": 2,
-        "wage": 32.35982183668192,
-        "cash": 19394.975298192054,
-        "net": 55.32289758014435,
-        "payroll": 64.71964367336383,
-        "price": 3.3622225564740873
+        "wage": 32.29510219300855,
+        "cash": 19110.31695189063,
+        "net": 25.13325032532148,
+        "payroll": 32.29510219300855,
+        "price": 3.3612459021358414
       }
     }
   }
