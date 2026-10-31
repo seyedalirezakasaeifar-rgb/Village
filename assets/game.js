@@ -4382,9 +4382,26 @@ $('eventDialog').addEventListener('keydown',e=>{
 });
 
 // SOURCE: 90-archive-panels.js
+// Validate financial and identity records before adopting a candidate. Building IDs
+// are stable identifiers, never array offsets or atlas tile indexes.
+function validateArchiveRecords(data){
+ const nonnegative=n=>Number.isFinite(n)&&n>=0,builds=new Map(data.buildings.map(b=>[b.id,b]));
+ if(!Number.isSafeInteger(data.day)||data.day<1||!Number.isSafeInteger(data.nextId)||data.nextId<1||data.buildings.some(b=>b.id>=data.nextId)||new Set(data.homes).size!==data.homes.length||data.homes.some(id=>!Number.isSafeInteger(id)||!['home','apartment','tower'].includes(builds.get(id)?.kind)))return false;
+ for(const b of data.buildings){if(!Number.isInteger(b.owner)||b.owner< -2||b.owner>=data.households.length)return false;const title=b.title;if(title&&(!['household','firm','investor','regional','municipal'].includes(title.kind)||!Number.isInteger(title.id)||title.kind==='household'&&!data.households[title.id]||title.kind==='firm'&&!data.firms[title.id]||title.kind==='investor'&&!data.investors?.[title.id]))return false;}
+ for(const h of data.households)if(h.people.length&&(!['home','apartment','tower'].includes(builds.get(h.home)?.kind)))return false;
+ for(const f of data.firms){if(!f.stock||typeof f.stock!=='object'||Array.isArray(f.stock)||Object.entries(f.stock).some(([k,v])=>!owns(goods,k)||!nonnegative(v)))return false;
+  if(!builds.has(f.building)&&!(f.closed&&f.demolished))return false;
+ }
+ const members=new Set(data.households.flatMap(h=>h.people)),workers=new Set(data.firms.flatMap(f=>f.workers));
+ for(const p of data.people){if(!p.deceased&&!p.movedAway&&!members.has(p.id))return false;if(!Number.isInteger(p.job)||p.job< -1||p.job>=data.firms.length||!p.deceased&&!p.movedAway&&p.job>=0&&!workers.has(p.id))return false;}
+ if(data.banks!=null&&(!Array.isArray(data.banks)||data.banks.length>12||data.banks.some((b,i)=>!b||b.id!==i||!nonnegative(b.cash)||!nonnegative(b.depositAPY)||!nonnegative(b.loanAPY))))return false;
+ if(data.loans!=null&&(!Array.isArray(data.loans)||data.loans.length>10000||data.loans.some(l=>!l||!Number.isSafeInteger(l.id)||l.id<0||!nonnegative(l.balance)||!['active','repaid','default'].includes(l.status))))return false;
+ for(const owner of [...data.households,...data.firms])if(owner.deposits!=null&&(typeof owner.deposits!=='object'||Array.isArray(owner.deposits)||Object.entries(owner.deposits).some(([id,v])=>!/^\d+$/.test(id)||!data.banks?.[+id]||!nonnegative(v))))return false;
+ return true;
+}
 function hydrateSave(raw){
  const previousTown=G;let rollback=null;
- try{let data=typeof raw==='string'?JSON.parse(raw):raw;data=normalizeRegionArchive(data);
+ try{let data=JSON.parse(typeof raw==='string'?raw:JSON.stringify(raw));data=normalizeRegionArchive(data);
   if(!data||![2,3].includes(data.version)||!Array.isArray(data.tiles)||data.tiles.length!==T*T||!Array.isArray(data.firms)||!Array.isArray(data.people)||!Array.isArray(data.buildings)||!Array.isArray(data.households)||!data.policy||!Number.isFinite(data.treasury)||data.tiles.some(t=>!Number.isInteger(t)||t<0||t>3)||!Number.isFinite(data.region)||data.region<0||data.households.length>3000||data.people.length>8000||data.firms.length>3000)return false;
   if(data.schema!=null&&(!Number.isInteger(data.schema)||data.schema<0||data.schema>RELEASE.schema))return false;
   if(data.investors&&(!Array.isArray(data.investors)||data.investors.length!==1||data.investors.some(a=>!Number.isFinite(a.cash)||a.cash<0)))return false;
@@ -4403,13 +4420,13 @@ function hydrateSave(raw){
    if(idSet.has(b.id))return false;idSet.add(b.id);
   }
   for(const h of data.households)for(const id of h.people){if(memberSet.has(id)||data.people[id].hh!==h.id||data.people[id].deceased||data.people[id].movedAway)return false;memberSet.add(id)}
-  if(!validateUrbanRehousing(data)||!validateUrban(data)||!validateCivicProjects(data)||!validateMayorJourney(data)||!validatePrivateServices(data)||!validateDistrictProgrammes(data)||!validateRegionalTrade(data)||!validateWaterfrontArchive(data)||!validateGoodsAccounting(data))return false;
+  if(!validateArchiveRecords(data)||!validateUrbanRehousing(data)||!validateUrban(data)||!validateCivicProjects(data)||!validateMayorJourney(data)||!validatePrivateServices(data)||!validateDistrictProgrammes(data)||!validateRegionalTrade(data)||!validateWaterfrontArchive(data)||!validateGoodsAccounting(data))return false;
   if(!validateTransit(data)||!validateCivicState(data)||!validateCreditState(data)||!validateScenarioProgramme(data)||!validateCharter(data))return false;
   data.version=3;data.policy={...defaults,...data.policy};
   data.banks=Array.isArray(data.banks)?data.banks.filter(b=>b&&Number.isInteger(b.id)&&b.id>=0&&b.id<12&&Number.isFinite(b.cash)&&b.cash>=0&&Number.isFinite(b.depositAPY)&&Number.isFinite(b.loanAPY)).slice(0,12):[];
   data.loans=Array.isArray(data.loans)?data.loans.filter(l=>l&&Number.isInteger(l.id)&&Number.isFinite(l.balance)&&l.balance>=0&&['active','repaid','default'].includes(l.status)).slice(0,10000):[];
   if(new Set(data.banks.map(b=>b.id)).size!==data.banks.length||data.banks.some((b,i)=>b.id!==i))return false;
-  const loanIDs=new Set();for(const l of data.loans){if(loanIDs.has(l.id)||!['household','firm'].includes(l.ownerType)||!Number.isInteger(l.ownerId)||!Number.isInteger(l.bankId)||!Number.isFinite(l.rate)||l.rate<0||l.balance<0)return false;loanIDs.add(l.id);if(l.ownerType==='household'&&!data.households[l.ownerId]||l.ownerType==='firm'&&!data.firms[l.ownerId]||l.bankId>=data.banks.length)return false;}
+  const loanIDs=new Set();for(const l of data.loans){if(loanIDs.has(l.id)||!['household','firm'].includes(l.ownerType)||!Number.isInteger(l.ownerId)||!Number.isInteger(l.bankId)||l.bankId<0||!Number.isFinite(l.rate)||l.rate<0||l.balance<0)return false;loanIDs.add(l.id);if(l.ownerType==='household'&&!data.households[l.ownerId]||l.ownerType==='firm'&&!data.firms[l.ownerId]||l.bankId>=data.banks.length)return false;}
   data.nextLoanId=Math.max(Number.isSafeInteger(data.nextLoanId)?data.nextLoanId:0,...data.loans.map(l=>l.id),0);
   data.finance={failures:0,businessDefaults:0,householdDefaults:0,creditIssued:0,depositLosses:0,insuredPayouts:0,foreclosures:0,downzonings:0,insolvencies:0,bankRuns:0,...(data.finance||{})};data.council=data.council||{approval:60,elections:0,factions:{workers:60,merchants:60,homeowners:60,public:60}};
   data.council.factions=data.council.factions||{workers:60,merchants:60,homeowners:60,public:60};data.achievements=data.achievements||[];data.ambition=data.ambition||'balanced';data.ambitionDays=data.ambitionDays||{};data.lastMonth=data.lastMonth||{};data.crisesHandled=data.crisesHandled||0;data.policyOutcomes=data.policyOutcomes||[];data.construction=data.construction||0;data.worldSeed=data.worldSeed||101;data.weather=data.weather||'clear';data.education=data.education||46;data.health=data.health||74;data.lastEventDay=data.lastEventDay||1;data.regionalDemand=data.regionalDemand||1;data.recentCouncilEvents=data.recentCouncilEvents||[];data.unrest=data.unrest||0;data.scenario=data.scenario||'settlement';data.stats=data.stats||{};data.history=data.history||[];data.journal=data.journal||[];data.events=data.events||[];data.cases=data.cases||[];data.cumulative={incomeTax:0,profitTax:0,propertyTax:0,foodTax:0,utilityTax:0,commercialRate:0,permits:0,tariffs:0,spending:0,crime:0,fires:0,welfare:0,...data.cumulative};
