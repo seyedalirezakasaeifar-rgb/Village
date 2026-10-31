@@ -1,0 +1,58 @@
+{
+  "paired6-trace.json.gz": {
+    "sha256": "ac9d48e223f15f84a8315641f5f5eca9aeca52bdcf4661dbb714d9f4da5148de",
+    "bytes": 2533101
+  },
+  "after3-summary.json": {
+    "sha256": "9320295fa0284a83adfe11adf9f77f2a757bc4ef84f055c7c2366383a8717259",
+    "bytes": 37531
+  },
+  "regional-42-planned.json.gz": {
+    "sha256": "e107825025428e57de5e29ec9d95535d4106a7c078b8f4407ca86c477d909c89",
+    "bytes": 340091
+  },
+  "after3-trace.json.gz": {
+    "sha256": "7ba4eefd8496681aaea95621fdb3e415ec1e8230ca22197e5abd8b768606861c",
+    "bytes": 548138
+  },
+  "regional-42-market.json.gz": {
+    "sha256": "f7603032437f6be0297b53686b6d7a12b44451ae3ba4054107b131b047fcb23f",
+    "bytes": 334798
+  },
+  "regional-909-planned.json.gz": {
+    "sha256": "976d64274f43cf8ac00ef86b33bff7b0c3219897d40272adee3771490b94f50c",
+    "bytes": 346327
+  },
+  "before3-trace.json.gz": {
+    "sha256": "43e0d2a27a4b26460a89e5276285e220075309f5f649705202125ffd0670556f",
+    "bytes": 545125
+  },
+  "regional-101-market.json.gz": {
+    "sha256": "3dadb12f3eb2e9a4ed69ff9b7f6e0916458f34488b528c86518f83fe7c30e4f6",
+    "bytes": 328554
+  },
+  "settlement6-trace.json.gz": {
+    "sha256": "91e80d40481f62a6a90ef227f5ef323b9e4fa228057cb3a202553c2e2ec91e95",
+    "bytes": 392242
+  },
+  "regional-909-market.json.gz": {
+    "sha256": "7903a637eed01c47df8db296cb36c1429af79203beef734615a9b2fa1b744875",
+    "bytes": 346093
+  },
+  "paired6-summary.json": {
+    "sha256": "34cb8cf332e1a977fcd9492756014a4559e5274a6b5d233d5c3412594b08b99b",
+    "bytes": 132607
+  },
+  "settlement6-summary.json": {
+    "sha256": "c867b939426a1f586802e3a51ba2086acf5028a3c2797a8c153353e00b762d94",
+    "bytes": 36259
+  },
+  "before3-summary.json": {
+    "sha256": "7151497a54575cde6e5731770ca879d3a63b3e30a7269c432a515782655c158e",
+    "bytes": 36958
+  },
+  "regional-101-planned.json.gz": {
+    "sha256": "ae46fcda88f11bdfb231ad00bbd42b6b0fd9eab172a128e1eee4ac0edf1b5c1f",
+    "bytes": 341599
+  }
+}

@@ -1,5 +1,5 @@
 function dailyEconomy(){
- ensureMarketModel();recruitPrivateServiceStaff();marketOpen=true;const P=G.policy,live=G.firms.filter(f=>!f.closed),counts={};
+ ensureMarketModel();recruitPrivateServiceStaff();recruitUrbanRetailStaff();marketOpen=true;const P=G.policy,live=G.firms.filter(f=>!f.closed),counts={};
  for(const f of live)counts[f.kind]=(counts[f.kind]||0)+1;
  for(const f of G.firms){f.revenue=f.pendingRevenue||0;f.pendingRevenue=0;f.expenses=(f.pendingFreightExpense||0)+(f.pendingReturnAdjustment||0);f.pendingFreightExpense=0;f.pendingReturnAdjustment=0;f.debtDue=0;f.cogs=f.pendingCogs||0;f.pendingCogs=0;f.purchases=0;f.payroll=0;f.nonSalesIncome=0;f.recoveries=0;f.salesQty=f.pendingSalesQty||0;f.pendingSalesQty=0;f.production=0;f.profit=0;f.tax=0;f.age++;}
  for(const p of G.people){p.previousPublicRole=p.publicWork?(p.publicRole||''):'';p.publicRole='';p.publicWork=false;p.publicIncome=0;p.commuteBlocked=false;}

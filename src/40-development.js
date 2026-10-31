@@ -122,7 +122,7 @@ function completeDevelopmentProjects(){
    const f=createFirm(b.kind,b.x,b.y,true,()=>b);
    f.cash=capital;if(p.privateService){f.privateService=p.privateService;f.owner=-1;f.serviceFee=p.serviceFee;f.jobs=p.serviceStaff||(p.privateService==='school'?1:2);f.wage=p.serviceWage??Math.max(G.policy.minWage,36);f.name=p.privateService==='school'?'Independent Learning House '+f.id:'Mutual Fire Brigade '+f.id;b.title={kind:'firm',id:f.id};b.owner=f.owner;}transferTreasury(fee,'permits');
    if(G.policy.lendingRules<70&&(G.stats.marketConfidence||50)>48&&G.day%3===0){const loan=bankLoan('firm',f.id,Math.round(Math.min(2400,capital*.17)),480);if(loan)f.jobs=Math.min(18,f.jobs+1)}
-   if(p.retailCentre){b.retailCentre=true;b.owner=-1;b.title={kind:'firm',id:f.id};f.owner=-1;f.retailCentre=true;f.openedDay=G.day;f.name='Vale Shopping Centre '+f.id;f.jobs=8;f.scale=1.35;f.retailCatchment=p.retailCatchment;f.retailExpectedNet=p.retailExpectedNet;b.value=220000;}
+   if(p.retailCentre){b.retailCentre=true;b.owner=-1;b.title={kind:'firm',id:f.id};f.owner=-1;f.retailCentre=true;f.openedDay=G.day;f.name='Vale Shopping Centre '+f.id;f.jobs=p.retailStaff||8;f.wage=p.retailWage||f.wage;f.scale=2;f.retailCatchment=p.retailCatchment;f.retailExpectedNet=p.retailExpectedNet;recruitUrbanRetailStaff(f);b.value=220000;}
    G.development.firms++;
    story('New private enterprise completed: '+f.name+' opened its doors.','good',b.id);
   }
@@ -389,7 +389,7 @@ function urbanRedevelopment(demand){
  const target=taller?'tower':'apartment',maxUnits=taller?9:4;
  if(demand.homeDemand<12&&demand.housingPressure<58)return false;
  let candidates=G.buildings.filter(b=>b.kind==='home'||(taller&&b.kind==='apartment'));
- candidates=candidates.filter(b=>!b.redevelopment&&nearRoad(b.x,b.y)&&Math.abs(b.x-27)+Math.abs(b.y-27)<(taller?22:27)&&
+ candidates=candidates.filter(b=>!b.municipalRehousing&&b.title?.kind!=='municipal'&&!b.redevelopment&&nearRoad(b.x,b.y)&&Math.abs(b.x-27)+Math.abs(b.y-27)<(taller?22:27)&&
   (footprintOf(b).length>=4||canPlace(b.x,b.y,true,target,b)));
  candidates.sort((a,b)=>{
   const av=(Math.abs(a.x-27)+Math.abs(a.y-27))*1.4+(a.kind==='apartment'?2:0)+(a.units?.length||1)*2;

@@ -99,11 +99,10 @@ function refreshBuildingIndex(){if(cacheBuildingsFor===G&&cacheBuildingsCount===
 function buildingAt(x,y){if(x<0||x>=T||y<0||y>=T)return null;refreshBuildingIndex();return buildingsByTile.get(y*T+x)||null;}
 function nearRoad(x,y){return roadOffsets.some(d=>cityCell(x+d[0],y+d[1])===1)}
 function canPlace(x,y,roads=true,kind='home',ignore=null){
- if(districtPlacementReason(x,y,kind))return false;
  const dims=LANDMARK_SIZE[kind]||[1,1];if(x<2||y<2||x+dims[0]>T-2||y+dims[1]>T-2)return false;
  let access=false;
  for(let dy=0;dy<dims[1];dy++)for(let dx=0;dx<dims[0];dx++){
-  const ax=x+dx,ay=y+dy,id=roadId(ax,ay),owner=buildingAt(ax,ay);if(!charterOwns(ax,ay))return false;if(typeof transitRightOfWay==='function'&&transitRightOfWay(id))return false;
+  const ax=x+dx,ay=y+dy,id=roadId(ax,ay),owner=buildingAt(ax,ay);if(!charterOwns(ax,ay)||districtPlacementReason(ax,ay,kind))return false;if(typeof transitRightOfWay==='function'&&transitRightOfWay(id))return false;
   if(![0,3].includes(G.tiles[id])||G.landUse?.[id]||(owner&&owner.id!==ignore?.id))return false;
   if(nearRoad(ax,ay))access=true;
  }

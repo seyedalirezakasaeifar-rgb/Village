@@ -1,5 +1,5 @@
 {
-  "source_sha256": "645405bad19cadba9489921c4a726942e402021b4054a04b31f9c99fc359eb3c",
+  "source_sha256": "d8333d0086b3dd8e3b6da23374fe1bba24469e98b6ffb250a6675e0389f8b27f",
   "results": {
     "reservedBuild": {
       "building": 103,
@@ -20,7 +20,7 @@
       "valid": {
         "ok": true,
         "issues": [],
-        "total": 15493516.999997625,
+        "total": 15493516.999997713,
         "population": 170,
         "day": 145
       },
@@ -32,7 +32,7 @@
       "valid": {
         "ok": true,
         "issues": [],
-        "total": 15493516.999999598,
+        "total": 15493516.999999525,
         "population": 169,
         "day": 25
       }
@@ -69,7 +69,7 @@
       "valid": {
         "ok": true,
         "issues": [],
-        "total": 15493516.999999218,
+        "total": 15493516.99999911,
         "population": 169,
         "day": 48
       }
@@ -91,20 +91,20 @@
       },
       "day": 363,
       "outerResidents": 2,
-      "outerCash": 2174.3579696811785,
+      "outerCash": 2164.498267850747,
       "valid": {
         "ok": true,
         "issues": [],
-        "total": 15493516.999993391,
-        "population": 180,
+        "total": 15493516.99999188,
+        "population": 179,
         "day": 363
       }
     },
     "busyFarmAccess": {
       "days": 180,
       "quoted": 900,
-      "busy": 246,
-      "clearable": 654,
+      "busy": 233,
+      "clearable": 667,
       "other": 0,
       "observation": "Strict cargo guards preserve commitments; a busy-site wind-down action would improve predictable mayoral redevelopment."
     }

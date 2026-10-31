@@ -1,0 +1,1085 @@
+{
+  "source_sha256": "d8333d0086b3dd8e3b6da23374fe1bba24469e98b6ffb250a6675e0389f8b27f",
+  "scenario": "settlement",
+  "years": 6,
+  "runs": [
+    {
+      "seed": 42,
+      "arm": "market",
+      "quarters": 24,
+      "firstDay": 91,
+      "finalDay": 2161,
+      "population": 297,
+      "treasury": 721134.5041338835,
+      "debt": 0,
+      "employment": 100,
+      "hardship": 0,
+      "school": 0.1829004329004329,
+      "health": 0.38299663299663306,
+      "annexed": [],
+      "deedSpend": 0,
+      "actions": [
+        {
+          "day": 91,
+          "action": "retail invitation",
+          "message": "A retail centre needs at least 320 residents, investment confidence, and no recent competing centre."
+        },
+        {
+          "day": 271,
+          "action": "retail invitation",
+          "message": "A retail centre needs at least 320 residents, investment confidence, and no recent competing centre."
+        },
+        {
+          "day": 451,
+          "action": "retail invitation",
+          "message": "A retail centre needs at least 320 residents, investment confidence, and no recent competing centre."
+        },
+        {
+          "day": 631,
+          "action": "retail invitation",
+          "message": "A retail centre needs at least 320 residents, investment confidence, and no recent competing centre."
+        },
+        {
+          "day": 811,
+          "action": "retail invitation",
+          "message": "A retail centre needs at least 320 residents, investment confidence, and no recent competing centre."
+        },
+        {
+          "day": 991,
+          "action": "retail invitation",
+          "message": "A retail centre needs at least 320 residents, investment confidence, and no recent competing centre."
+        },
+        {
+          "day": 1171,
+          "action": "retail invitation",
+          "message": "A retail centre needs at least 320 residents, investment confidence, and no recent competing centre."
+        },
+        {
+          "day": 1351,
+          "action": "retail invitation",
+          "message": "A retail centre needs at least 320 residents, investment confidence, and no recent competing centre."
+        },
+        {
+          "day": 1531,
+          "action": "retail invitation",
+          "message": "A retail centre needs at least 320 residents, investment confidence, and no recent competing centre."
+        },
+        {
+          "day": 1711,
+          "action": "retail invitation",
+          "message": "A retail centre needs at least 320 residents, investment confidence, and no recent competing centre."
+        },
+        {
+          "day": 1891,
+          "action": "retail invitation",
+          "message": "A retail centre needs at least 320 residents, investment confidence, and no recent competing centre."
+        },
+        {
+          "day": 2071,
+          "action": "retail invitation",
+          "message": "A retail centre needs at least 320 residents, investment confidence, and no recent competing centre."
+        }
+      ],
+      "malls": [],
+      "smallRetail": {
+        "initialOpen": 4,
+        "finalOpen": 6,
+        "closedRecords": 0
+      },
+      "observedHouseholdMoves": 3,
+      "districtCharacterChanges": [
+        {
+          "key": "2:3",
+          "day": 750,
+          "from": "Residential neighbourhood",
+          "to": "Market centre",
+          "gapFromPriorCharacter": 720
+        },
+        {
+          "key": "3:2",
+          "day": 1200,
+          "from": "Mixed quarter",
+          "to": "Residential neighbourhood",
+          "gapFromPriorCharacter": 1170
+        },
+        {
+          "key": "2:3",
+          "day": 1500,
+          "from": "Market centre",
+          "to": "Employment quarter",
+          "gapFromPriorCharacter": 750
+        },
+        {
+          "key": "3:4",
+          "day": 1800,
+          "from": "Mixed quarter",
+          "to": "Residential neighbourhood",
+          "gapFromPriorCharacter": 1770
+        },
+        {
+          "key": "1:3",
+          "day": 2070,
+          "from": "Agricultural belt",
+          "to": "Residential neighbourhood",
+          "gapFromPriorCharacter": 2040
+        }
+      ],
+      "minimumObservedCharacterGapDays": 720,
+      "farmRelocations": [],
+      "cohorts": {
+        "initialLowerIncome": {
+          "householdIds": [
+            0,
+            5,
+            8,
+            12,
+            16,
+            18,
+            20,
+            21,
+            27,
+            28,
+            30,
+            42,
+            48,
+            54,
+            60,
+            66
+          ],
+          "first": {
+            "day": 91,
+            "survivingHouseholds": 16,
+            "people": 43,
+            "afterTaxIncomePerPerson": 16.158875422209327,
+            "medianLiquidPerPerson": 849.9149684923163,
+            "medianRentBurden": 0.28628260551944723,
+            "schoolCoverage": 0.5447794317292041,
+            "medianStress": 3.0495555420965426,
+            "movedHouseholds": 0
+          },
+          "last": {
+            "day": 2161,
+            "survivingHouseholds": 16,
+            "people": 45,
+            "afterTaxIncomePerPerson": 20.064575549229602,
+            "medianLiquidPerPerson": 2251.4568810619885,
+            "medianRentBurden": 0.2505812416639922,
+            "schoolCoverage": 0.3969733761838727,
+            "medianStress": 0.0,
+            "movedHouseholds": 0
+          },
+          "annual": [
+            {
+              "day": 361,
+              "survivingHouseholds": 16,
+              "people": 43,
+              "afterTaxIncomePerPerson": 17.020349597417532,
+              "medianLiquidPerPerson": 1130.1251172061584,
+              "medianRentBurden": 0.2902678204857442,
+              "schoolCoverage": 0.5712436043940882,
+              "medianStress": 0.02,
+              "movedHouseholds": 0
+            },
+            {
+              "day": 721,
+              "survivingHouseholds": 16,
+              "people": 43,
+              "afterTaxIncomePerPerson": 17.842332909843766,
+              "medianLiquidPerPerson": 1364.9743028491016,
+              "medianRentBurden": 0.2857155533733181,
+              "schoolCoverage": 0.48719714771898553,
+              "medianStress": 0.02,
+              "movedHouseholds": 0
+            },
+            {
+              "day": 1081,
+              "survivingHouseholds": 16,
+              "people": 45,
+              "afterTaxIncomePerPerson": 17.238796092284357,
+              "medianLiquidPerPerson": 1531.0988875078765,
+              "medianRentBurden": 0.2747092048522373,
+              "schoolCoverage": 0.4228916494133885,
+              "medianStress": 0.02,
+              "movedHouseholds": 0
+            },
+            {
+              "day": 1441,
+              "survivingHouseholds": 16,
+              "people": 45,
+              "afterTaxIncomePerPerson": 17.484529241988085,
+              "medianLiquidPerPerson": 1625.8592184858699,
+              "medianRentBurden": 0.2687560786826632,
+              "schoolCoverage": 0.40993983614951357,
+              "medianStress": 0.02,
+              "movedHouseholds": 0
+            },
+            {
+              "day": 1801,
+              "survivingHouseholds": 16,
+              "people": 45,
+              "afterTaxIncomePerPerson": 17.744736637546218,
+              "medianLiquidPerPerson": 1862.7807157753693,
+              "medianRentBurden": 0.2643150309073639,
+              "schoolCoverage": 0.3942358938709304,
+              "medianStress": 0.02,
+              "movedHouseholds": 0
+            },
+            {
+              "day": 2161,
+              "survivingHouseholds": 16,
+              "people": 45,
+              "afterTaxIncomePerPerson": 20.064575549229602,
+              "medianLiquidPerPerson": 2251.4568810619885,
+              "medianRentBurden": 0.2505812416639922,
+              "schoolCoverage": 0.3969733761838727,
+              "medianStress": 0.0,
+              "movedHouseholds": 0
+            }
+          ]
+        },
+        "initialHigherIncome": {
+          "householdIds": [
+            35,
+            37,
+            38,
+            40,
+            43,
+            46,
+            49,
+            51,
+            52,
+            56,
+            57,
+            58,
+            59,
+            63,
+            64,
+            65
+          ],
+          "first": {
+            "day": 91,
+            "survivingHouseholds": 16,
+            "people": 32,
+            "afterTaxIncomePerPerson": 33.55220278849142,
+            "medianLiquidPerPerson": 1727.3574745961027,
+            "medianRentBurden": 0.12950274079794477,
+            "schoolCoverage": 0.3799401661777545,
+            "medianStress": 0.0,
+            "movedHouseholds": 1
+          },
+          "last": {
+            "day": 2161,
+            "survivingHouseholds": 16,
+            "people": 44,
+            "afterTaxIncomePerPerson": 28.80123870484515,
+            "medianLiquidPerPerson": 9875.847202683632,
+            "medianRentBurden": 0.10773544206909531,
+            "schoolCoverage": 0.1829004329004329,
+            "medianStress": 0.0,
+            "movedHouseholds": 2
+          },
+          "annual": [
+            {
+              "day": 361,
+              "survivingHouseholds": 16,
+              "people": 32,
+              "afterTaxIncomePerPerson": 34.41817456252865,
+              "medianLiquidPerPerson": 3656.716450504847,
+              "medianRentBurden": 0.13209606773116744,
+              "schoolCoverage": 0.36826966809773537,
+              "medianStress": 0.0,
+              "movedHouseholds": 2
+            },
+            {
+              "day": 721,
+              "survivingHouseholds": 16,
+              "people": 35,
+              "afterTaxIncomePerPerson": 32.50595114309893,
+              "medianLiquidPerPerson": 5283.043177827029,
+              "medianRentBurden": 0.14204903839028296,
+              "schoolCoverage": 0.5308410156673475,
+              "medianStress": 0.0,
+              "movedHouseholds": 2
+            },
+            {
+              "day": 1081,
+              "survivingHouseholds": 16,
+              "people": 37,
+              "afterTaxIncomePerPerson": 31.82739782461696,
+              "medianLiquidPerPerson": 6658.859176257947,
+              "medianRentBurden": 0.12452459033755814,
+              "schoolCoverage": 0.29811146550276985,
+              "medianStress": 0.0,
+              "movedHouseholds": 2
+            },
+            {
+              "day": 1441,
+              "survivingHouseholds": 16,
+              "people": 40,
+              "afterTaxIncomePerPerson": 29.831722851916293,
+              "medianLiquidPerPerson": 8054.419796311815,
+              "medianRentBurden": 0.12014205233538021,
+              "schoolCoverage": 0.21903801843317972,
+              "medianStress": 0.0,
+              "movedHouseholds": 2
+            },
+            {
+              "day": 1801,
+              "survivingHouseholds": 16,
+              "people": 41,
+              "afterTaxIncomePerPerson": 29.84190893154206,
+              "medianLiquidPerPerson": 9287.024670699022,
+              "medianRentBurden": 0.11618566309191569,
+              "schoolCoverage": 0.1982533889468196,
+              "medianStress": 0.0,
+              "movedHouseholds": 2
+            },
+            {
+              "day": 2161,
+              "survivingHouseholds": 16,
+              "people": 44,
+              "afterTaxIncomePerPerson": 28.80123870484515,
+              "medianLiquidPerPerson": 9875.847202683632,
+              "medianRentBurden": 0.10773544206909531,
+              "schoolCoverage": 0.1829004329004329,
+              "medianStress": 0.0,
+              "movedHouseholds": 2
+            }
+          ]
+        }
+      },
+      "finalIncomeSources": {
+        "initialLowerIncome": {
+          "wages": 681.1242398684451,
+          "pension": 272,
+          "rentalIncome": 20.731122110368993,
+          "dividends": 10.78544652073141,
+          "aid": 0,
+          "rent": 138.25013735725267,
+          "privateServiceFees": 43.73364163822635
+        },
+        "initialHigherIncome": {
+          "wages": 1171.6042998546254,
+          "pension": 0,
+          "rentalIncome": 202.7567454362909,
+          "dividends": 33.48597370482526,
+          "aid": 0,
+          "rent": 122.08707631138194,
+          "privateServiceFees": 14.906758683953917
+        }
+      },
+      "moneyError": -5.488283932209015e-05,
+      "parcels": []
+    },
+    {
+      "seed": 101,
+      "arm": "market",
+      "quarters": 24,
+      "firstDay": 91,
+      "finalDay": 2161,
+      "population": 266,
+      "treasury": 868650.8972702121,
+      "debt": 0,
+      "employment": 97,
+      "hardship": 0,
+      "school": 0.20421589688506983,
+      "health": 0.4276315789473685,
+      "annexed": [],
+      "deedSpend": 0,
+      "actions": [
+        {
+          "day": 91,
+          "action": "retail invitation",
+          "message": "A retail centre needs at least 320 residents, investment confidence, and no recent competing centre."
+        },
+        {
+          "day": 271,
+          "action": "retail invitation",
+          "message": "A retail centre needs at least 320 residents, investment confidence, and no recent competing centre."
+        },
+        {
+          "day": 451,
+          "action": "retail invitation",
+          "message": "A retail centre needs at least 320 residents, investment confidence, and no recent competing centre."
+        },
+        {
+          "day": 631,
+          "action": "retail invitation",
+          "message": "A retail centre needs at least 320 residents, investment confidence, and no recent competing centre."
+        },
+        {
+          "day": 811,
+          "action": "retail invitation",
+          "message": "A retail centre needs at least 320 residents, investment confidence, and no recent competing centre."
+        },
+        {
+          "day": 991,
+          "action": "retail invitation",
+          "message": "A retail centre needs at least 320 residents, investment confidence, and no recent competing centre."
+        },
+        {
+          "day": 1171,
+          "action": "retail invitation",
+          "message": "A retail centre needs at least 320 residents, investment confidence, and no recent competing centre."
+        },
+        {
+          "day": 1351,
+          "action": "retail invitation",
+          "message": "A retail centre needs at least 320 residents, investment confidence, and no recent competing centre."
+        },
+        {
+          "day": 1531,
+          "action": "retail invitation",
+          "message": "A retail centre needs at least 320 residents, investment confidence, and no recent competing centre."
+        },
+        {
+          "day": 1711,
+          "action": "retail invitation",
+          "message": "A retail centre needs at least 320 residents, investment confidence, and no recent competing centre."
+        },
+        {
+          "day": 1891,
+          "action": "retail invitation",
+          "message": "A retail centre needs at least 320 residents, investment confidence, and no recent competing centre."
+        },
+        {
+          "day": 2071,
+          "action": "retail invitation",
+          "message": "A retail centre needs at least 320 residents, investment confidence, and no recent competing centre."
+        }
+      ],
+      "malls": [],
+      "smallRetail": {
+        "initialOpen": 4,
+        "finalOpen": 7,
+        "closedRecords": 0
+      },
+      "observedHouseholdMoves": 3,
+      "districtCharacterChanges": [
+        {
+          "key": "2:3",
+          "day": 330,
+          "from": "Residential neighbourhood",
+          "to": "Employment quarter",
+          "gapFromPriorCharacter": 300
+        },
+        {
+          "key": "4:3",
+          "day": 330,
+          "from": "Residential neighbourhood",
+          "to": "Employment quarter",
+          "gapFromPriorCharacter": 300
+        },
+        {
+          "key": "3:4",
+          "day": 1380,
+          "from": "Mixed quarter",
+          "to": "Residential neighbourhood",
+          "gapFromPriorCharacter": 1350
+        },
+        {
+          "key": "3:2",
+          "day": 1620,
+          "from": "Mixed quarter",
+          "to": "Residential neighbourhood",
+          "gapFromPriorCharacter": 1590
+        }
+      ],
+      "minimumObservedCharacterGapDays": 300,
+      "farmRelocations": [],
+      "cohorts": {
+        "initialLowerIncome": {
+          "householdIds": [
+            0,
+            4,
+            6,
+            11,
+            12,
+            13,
+            20,
+            21,
+            22,
+            25,
+            26,
+            27,
+            30,
+            31,
+            34,
+            36,
+            54
+          ],
+          "first": {
+            "day": 91,
+            "survivingHouseholds": 17,
+            "people": 49,
+            "afterTaxIncomePerPerson": 16.2858131159323,
+            "medianLiquidPerPerson": 481.43508452833,
+            "medianRentBurden": 0.28430982629971024,
+            "schoolCoverage": 0.6622657151219447,
+            "medianStress": 2.8316298556701223,
+            "movedHouseholds": 0
+          },
+          "last": {
+            "day": 2161,
+            "survivingHouseholds": 17,
+            "people": 55,
+            "afterTaxIncomePerPerson": 22.317206009508457,
+            "medianLiquidPerPerson": 3874.6773671975257,
+            "medianRentBurden": 0.22265653864419538,
+            "schoolCoverage": 0.4098452299580124,
+            "medianStress": 0,
+            "movedHouseholds": 0
+          },
+          "annual": [
+            {
+              "day": 361,
+              "survivingHouseholds": 17,
+              "people": 49,
+              "afterTaxIncomePerPerson": 17.695159374228105,
+              "medianLiquidPerPerson": 695.9519757638177,
+              "medianRentBurden": 0.2834263525037789,
+              "schoolCoverage": 0.6244160729578134,
+              "medianStress": 0,
+              "movedHouseholds": 0
+            },
+            {
+              "day": 721,
+              "survivingHouseholds": 17,
+              "people": 51,
+              "afterTaxIncomePerPerson": 17.485655873963136,
+              "medianLiquidPerPerson": 1040.471760102927,
+              "medianRentBurden": 0.27809030050313444,
+              "schoolCoverage": 0.5119871478002966,
+              "medianStress": 0,
+              "movedHouseholds": 0
+            },
+            {
+              "day": 1081,
+              "survivingHouseholds": 17,
+              "people": 52,
+              "afterTaxIncomePerPerson": 17.689405852163347,
+              "medianLiquidPerPerson": 1282.8298380366105,
+              "medianRentBurden": 0.2633521218920691,
+              "schoolCoverage": 0.45506406309208036,
+              "medianStress": 0,
+              "movedHouseholds": 0
+            },
+            {
+              "day": 1441,
+              "survivingHouseholds": 17,
+              "people": 54,
+              "afterTaxIncomePerPerson": 21.177764318186657,
+              "medianLiquidPerPerson": 1881.7140412811068,
+              "medianRentBurden": 0.2545659238064047,
+              "schoolCoverage": 0.43790897311305477,
+              "medianStress": 0,
+              "movedHouseholds": 0
+            },
+            {
+              "day": 1801,
+              "survivingHouseholds": 17,
+              "people": 55,
+              "afterTaxIncomePerPerson": 21.541628812842095,
+              "medianLiquidPerPerson": 2467.5296458302732,
+              "medianRentBurden": 0.21616789129357283,
+              "schoolCoverage": 0.42644903734397893,
+              "medianStress": 0,
+              "movedHouseholds": 0
+            },
+            {
+              "day": 2161,
+              "survivingHouseholds": 17,
+              "people": 55,
+              "afterTaxIncomePerPerson": 22.317206009508457,
+              "medianLiquidPerPerson": 3874.6773671975257,
+              "medianRentBurden": 0.22265653864419538,
+              "schoolCoverage": 0.4098452299580124,
+              "medianStress": 0,
+              "movedHouseholds": 0
+            }
+          ]
+        },
+        "initialHigherIncome": {
+          "householdIds": [
+            14,
+            15,
+            37,
+            38,
+            39,
+            40,
+            43,
+            47,
+            48,
+            49,
+            51,
+            52,
+            56,
+            58,
+            63,
+            64,
+            65
+          ],
+          "first": {
+            "day": 91,
+            "survivingHouseholds": 17,
+            "people": 36,
+            "afterTaxIncomePerPerson": 32.98472828076913,
+            "medianLiquidPerPerson": 1716.1638542893695,
+            "medianRentBurden": 0.14230996256101505,
+            "schoolCoverage": 0.4342267201434497,
+            "medianStress": 0,
+            "movedHouseholds": 0
+          },
+          "last": {
+            "day": 2161,
+            "survivingHouseholds": 17,
+            "people": 50,
+            "afterTaxIncomePerPerson": 26.719171532890815,
+            "medianLiquidPerPerson": 8085.351471424363,
+            "medianRentBurden": 0.14485132790280267,
+            "schoolCoverage": 0.25196294307196565,
+            "medianStress": 0,
+            "movedHouseholds": 1
+          },
+          "annual": [
+            {
+              "day": 361,
+              "survivingHouseholds": 17,
+              "people": 37,
+              "afterTaxIncomePerPerson": 32.382599018435826,
+              "medianLiquidPerPerson": 3244.8113245783184,
+              "medianRentBurden": 0.14195464218129583,
+              "schoolCoverage": 0.3194528061432847,
+              "medianStress": 0,
+              "movedHouseholds": 0
+            },
+            {
+              "day": 721,
+              "survivingHouseholds": 17,
+              "people": 39,
+              "afterTaxIncomePerPerson": 31.74300153760417,
+              "medianLiquidPerPerson": 4916.102854025056,
+              "medianRentBurden": 0.16563022323185086,
+              "schoolCoverage": 0.5358758888170653,
+              "medianStress": 0,
+              "movedHouseholds": 0
+            },
+            {
+              "day": 1081,
+              "survivingHouseholds": 17,
+              "people": 43,
+              "afterTaxIncomePerPerson": 28.818479792875777,
+              "medianLiquidPerPerson": 6296.578739946623,
+              "medianRentBurden": 0.13827320486382325,
+              "schoolCoverage": 0.28757589643716347,
+              "medianStress": 0,
+              "movedHouseholds": 1
+            },
+            {
+              "day": 1441,
+              "survivingHouseholds": 17,
+              "people": 44,
+              "afterTaxIncomePerPerson": 29.32187234012378,
+              "medianLiquidPerPerson": 7290.735558472502,
+              "medianRentBurden": 0.14475360894943518,
+              "schoolCoverage": 0.25709647495361776,
+              "medianStress": 0,
+              "movedHouseholds": 1
+            },
+            {
+              "day": 1801,
+              "survivingHouseholds": 17,
+              "people": 48,
+              "afterTaxIncomePerPerson": 27.354743125777876,
+              "medianLiquidPerPerson": 7821.1223013981535,
+              "medianRentBurden": 0.14795591308196113,
+              "schoolCoverage": 0.24422711691680563,
+              "medianStress": 0,
+              "movedHouseholds": 1
+            },
+            {
+              "day": 2161,
+              "survivingHouseholds": 17,
+              "people": 50,
+              "afterTaxIncomePerPerson": 26.719171532890815,
+              "medianLiquidPerPerson": 8085.351471424363,
+              "medianRentBurden": 0.14485132790280267,
+              "schoolCoverage": 0.25196294307196565,
+              "medianStress": 0,
+              "movedHouseholds": 1
+            }
+          ]
+        }
+      },
+      "finalIncomeSources": {
+        "initialLowerIncome": {
+          "wages": 992.2535811173932,
+          "pension": 176,
+          "rentalIncome": 40.42615289833338,
+          "dividends": 135.03702624132566,
+          "aid": 0,
+          "rent": 199.3840636210001,
+          "privateServiceFees": 56.29814596536889
+        },
+        "initialHigherIncome": {
+          "wages": 1140.2467778244277,
+          "pension": 32,
+          "rentalIncome": 287.16797196270966,
+          "dividends": 13.373440196334617,
+          "aid": 0,
+          "rent": 152.341090417829,
+          "privateServiceFees": 26.01866044827925
+        }
+      },
+      "moneyError": -3.0895695090293884e-05,
+      "parcels": []
+    },
+    {
+      "seed": 909,
+      "arm": "market",
+      "quarters": 24,
+      "firstDay": 91,
+      "finalDay": 2161,
+      "population": 268,
+      "treasury": 651475.2592978271,
+      "debt": 0,
+      "employment": 99,
+      "hardship": 0,
+      "school": 0.20269189765458423,
+      "health": 0.4244402985074627,
+      "annexed": [],
+      "deedSpend": 0,
+      "actions": [
+        {
+          "day": 91,
+          "action": "retail invitation",
+          "message": "A retail centre needs at least 320 residents, investment confidence, and no recent competing centre."
+        },
+        {
+          "day": 271,
+          "action": "retail invitation",
+          "message": "A retail centre needs at least 320 residents, investment confidence, and no recent competing centre."
+        },
+        {
+          "day": 451,
+          "action": "retail invitation",
+          "message": "A retail centre needs at least 320 residents, investment confidence, and no recent competing centre."
+        },
+        {
+          "day": 631,
+          "action": "retail invitation",
+          "message": "A retail centre needs at least 320 residents, investment confidence, and no recent competing centre."
+        },
+        {
+          "day": 811,
+          "action": "retail invitation",
+          "message": "A retail centre needs at least 320 residents, investment confidence, and no recent competing centre."
+        },
+        {
+          "day": 991,
+          "action": "retail invitation",
+          "message": "A retail centre needs at least 320 residents, investment confidence, and no recent competing centre."
+        },
+        {
+          "day": 1171,
+          "action": "retail invitation",
+          "message": "A retail centre needs at least 320 residents, investment confidence, and no recent competing centre."
+        },
+        {
+          "day": 1351,
+          "action": "retail invitation",
+          "message": "A retail centre needs at least 320 residents, investment confidence, and no recent competing centre."
+        },
+        {
+          "day": 1531,
+          "action": "retail invitation",
+          "message": "A retail centre needs at least 320 residents, investment confidence, and no recent competing centre."
+        },
+        {
+          "day": 1711,
+          "action": "retail invitation",
+          "message": "A retail centre needs at least 320 residents, investment confidence, and no recent competing centre."
+        },
+        {
+          "day": 1891,
+          "action": "retail invitation",
+          "message": "A retail centre needs at least 320 residents, investment confidence, and no recent competing centre."
+        },
+        {
+          "day": 2071,
+          "action": "retail invitation",
+          "message": "A retail centre needs at least 320 residents, investment confidence, and no recent competing centre."
+        }
+      ],
+      "malls": [],
+      "smallRetail": {
+        "initialOpen": 4,
+        "finalOpen": 5,
+        "closedRecords": 0
+      },
+      "observedHouseholdMoves": 4,
+      "districtCharacterChanges": [
+        {
+          "key": "2:3",
+          "day": 480,
+          "from": "Residential neighbourhood",
+          "to": "Employment quarter",
+          "gapFromPriorCharacter": 450
+        },
+        {
+          "key": "4:3",
+          "day": 540,
+          "from": "Residential neighbourhood",
+          "to": "Market centre",
+          "gapFromPriorCharacter": 510
+        }
+      ],
+      "minimumObservedCharacterGapDays": 450,
+      "farmRelocations": [],
+      "cohorts": {
+        "initialLowerIncome": {
+          "householdIds": [
+            0,
+            6,
+            8,
+            9,
+            10,
+            11,
+            12,
+            15,
+            18,
+            21,
+            24,
+            28,
+            30,
+            34,
+            42,
+            54
+          ],
+          "first": {
+            "day": 91,
+            "survivingHouseholds": 16,
+            "people": 46,
+            "afterTaxIncomePerPerson": 15.057207760058054,
+            "medianLiquidPerPerson": 711.590593453689,
+            "medianRentBurden": 0.30216624658843105,
+            "schoolCoverage": 0.6420807453416152,
+            "medianStress": 2.517504603546164,
+            "movedHouseholds": 0
+          },
+          "last": {
+            "day": 2161,
+            "survivingHouseholds": 16,
+            "people": 51,
+            "afterTaxIncomePerPerson": 20.940262748659098,
+            "medianLiquidPerPerson": 2492.6918365109077,
+            "medianRentBurden": 0.21636586385978968,
+            "schoolCoverage": 0.4080385885697567,
+            "medianStress": 0.0,
+            "movedHouseholds": 0
+          },
+          "annual": [
+            {
+              "day": 361,
+              "survivingHouseholds": 16,
+              "people": 47,
+              "afterTaxIncomePerPerson": 16.069865870702635,
+              "medianLiquidPerPerson": 921.0568292989799,
+              "medianRentBurden": 0.2932808391818079,
+              "schoolCoverage": 0.6185766527355623,
+              "medianStress": 0.01,
+              "movedHouseholds": 0
+            },
+            {
+              "day": 721,
+              "survivingHouseholds": 16,
+              "people": 47,
+              "afterTaxIncomePerPerson": 16.292367880288232,
+              "medianLiquidPerPerson": 963.1457377635912,
+              "medianRentBurden": 0.28856877225030203,
+              "schoolCoverage": 0.49360555141366064,
+              "medianStress": 0.0,
+              "movedHouseholds": 0
+            },
+            {
+              "day": 1081,
+              "survivingHouseholds": 16,
+              "people": 48,
+              "afterTaxIncomePerPerson": 17.202381624714643,
+              "medianLiquidPerPerson": 1179.7319131163692,
+              "medianRentBurden": 0.2586473008506186,
+              "schoolCoverage": 0.4589609213250518,
+              "medianStress": 0.0,
+              "movedHouseholds": 0
+            },
+            {
+              "day": 1441,
+              "survivingHouseholds": 16,
+              "people": 49,
+              "afterTaxIncomePerPerson": 18.778376887469506,
+              "medianLiquidPerPerson": 1224.716393413553,
+              "medianRentBurden": 0.24245732261804137,
+              "schoolCoverage": 0.45012538913870637,
+              "medianStress": 0.0,
+              "movedHouseholds": 0
+            },
+            {
+              "day": 1801,
+              "survivingHouseholds": 16,
+              "people": 51,
+              "afterTaxIncomePerPerson": 21.88379715919095,
+              "medianLiquidPerPerson": 1705.326050958783,
+              "medianRentBurden": 0.19707454830514948,
+              "schoolCoverage": 0.4380170036764702,
+              "medianStress": 0.0,
+              "movedHouseholds": 0
+            },
+            {
+              "day": 2161,
+              "survivingHouseholds": 16,
+              "people": 51,
+              "afterTaxIncomePerPerson": 20.940262748659098,
+              "medianLiquidPerPerson": 2492.6918365109077,
+              "medianRentBurden": 0.21636586385978968,
+              "schoolCoverage": 0.4080385885697567,
+              "medianStress": 0.0,
+              "movedHouseholds": 0
+            }
+          ]
+        },
+        "initialHigherIncome": {
+          "householdIds": [
+            35,
+            37,
+            38,
+            39,
+            41,
+            43,
+            44,
+            47,
+            49,
+            50,
+            52,
+            55,
+            58,
+            61,
+            64,
+            65
+          ],
+          "first": {
+            "day": 91,
+            "survivingHouseholds": 16,
+            "people": 32,
+            "afterTaxIncomePerPerson": 34.74254274943169,
+            "medianLiquidPerPerson": 1647.5773532341468,
+            "medianRentBurden": 0.13276366525700126,
+            "schoolCoverage": 0.40625000000000006,
+            "medianStress": 0.5369808052294638,
+            "movedHouseholds": 1
+          },
+          "last": {
+            "day": 2161,
+            "survivingHouseholds": 16,
+            "people": 47,
+            "afterTaxIncomePerPerson": 27.685369628800757,
+            "medianLiquidPerPerson": 7733.264716226519,
+            "medianRentBurden": 0.13483384541083193,
+            "schoolCoverage": 0.2366199020097083,
+            "medianStress": 0.0,
+            "movedHouseholds": 3
+          },
+          "annual": [
+            {
+              "day": 361,
+              "survivingHouseholds": 16,
+              "people": 35,
+              "afterTaxIncomePerPerson": 33.22429504805551,
+              "medianLiquidPerPerson": 3502.3074516018924,
+              "medianRentBurden": 0.14066032474930423,
+              "schoolCoverage": 0.28292410714285715,
+              "medianStress": 0.0,
+              "movedHouseholds": 3
+            },
+            {
+              "day": 721,
+              "survivingHouseholds": 16,
+              "people": 39,
+              "afterTaxIncomePerPerson": 31.41792604719278,
+              "medianLiquidPerPerson": 5240.213468784137,
+              "medianRentBurden": 0.137926443807188,
+              "schoolCoverage": 0.5232263805377013,
+              "medianStress": 0.0,
+              "movedHouseholds": 3
+            },
+            {
+              "day": 1081,
+              "survivingHouseholds": 16,
+              "people": 42,
+              "afterTaxIncomePerPerson": 29.58470166378989,
+              "medianLiquidPerPerson": 6037.427733646815,
+              "medianRentBurden": 0.14004390392498167,
+              "schoolCoverage": 0.29073868677905945,
+              "medianStress": 0.0,
+              "movedHouseholds": 3
+            },
+            {
+              "day": 1441,
+              "survivingHouseholds": 16,
+              "people": 44,
+              "afterTaxIncomePerPerson": 28.33706660029278,
+              "medianLiquidPerPerson": 7358.27350929553,
+              "medianRentBurden": 0.1375068597710788,
+              "schoolCoverage": 0.2301755447941889,
+              "medianStress": 0.0,
+              "movedHouseholds": 3
+            },
+            {
+              "day": 1801,
+              "survivingHouseholds": 16,
+              "people": 46,
+              "afterTaxIncomePerPerson": 26.91055025334626,
+              "medianLiquidPerPerson": 7713.678613380671,
+              "medianRentBurden": 0.13989394485464862,
+              "schoolCoverage": 0.21219308035714282,
+              "medianStress": 0.0,
+              "movedHouseholds": 3
+            },
+            {
+              "day": 2161,
+              "survivingHouseholds": 16,
+              "people": 47,
+              "afterTaxIncomePerPerson": 27.685369628800757,
+              "medianLiquidPerPerson": 7733.264716226519,
+              "medianRentBurden": 0.13483384541083193,
+              "schoolCoverage": 0.2366199020097083,
+              "medianStress": 0.0,
+              "movedHouseholds": 3
+            }
+          ]
+        }
+      },
+      "finalIncomeSources": {
+        "initialLowerIncome": {
+          "wages": 894.3243617585467,
+          "pension": 256,
+          "rentalIncome": 19.73415892068786,
+          "dividends": 2.4138029134050214,
+          "aid": 0,
+          "rent": 169.8711043005996,
+          "privateServiceFees": 51.414801782652354
+        },
+        "initialHigherIncome": {
+          "wages": 1115.771871595636,
+          "pension": 0,
+          "rentalIncome": 278.73220853655147,
+          "dividends": 37.80091701292453,
+          "aid": 30,
+          "rent": 159.70284736712722,
+          "privateServiceFees": 22.520366950282934
+        }
+      },
+      "moneyError": -2.2310763597488403e-05,
+      "parcels": []
+    }
+  ]
+}
