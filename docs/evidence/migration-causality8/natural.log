@@ -1,0 +1,7 @@
+42 passive 1 treasury 186696 reserve 0 population 186 counts {'births': 8, 'immigration': 3, 'deaths': 0, 'emigration': 0, 'invalidHomeDays': 0, 'unregisteredHouseholdDays': 0, 'overCapacityBuildingDays': 0}
+42 passive 10 treasury 2167729 reserve 0 population 323 counts {'births': 84, 'immigration': 66, 'deaths': 2, 'emigration': 0, 'invalidHomeDays': 0, 'unregisteredHouseholdDays': 0, 'overCapacityBuildingDays': 0}
+42 passive 20 treasury 5174017 reserve 0 population 385 counts {'births': 146, 'immigration': 86, 'deaths': 16, 'emigration': 6, 'invalidHomeDays': 0, 'unregisteredHouseholdDays': 0, 'overCapacityBuildingDays': 0}
+42 passive 30 treasury 3194127 reserve 3970388 population 472 counts {'births': 239, 'immigration': 96, 'deaths': 20, 'emigration': 18, 'invalidHomeDays': 0, 'unregisteredHouseholdDays': 0, 'overCapacityBuildingDays': 0}
+101 passive 1 treasury 204641 reserve 0 population 205 counts {'births': 9, 'immigration': 17, 'deaths': 0, 'emigration': 0, 'invalidHomeDays': 0, 'unregisteredHouseholdDays': 0, 'overCapacityBuildingDays': 0}
+909 passive 1 treasury 230953 reserve 0 population 218 counts {'births': 10, 'immigration': 26, 'deaths': 0, 'emigration': 0, 'invalidHomeDays': 0, 'unregisteredHouseholdDays': 0, 'overCapacityBuildingDays': 0}
+Finished source-bound flow audit

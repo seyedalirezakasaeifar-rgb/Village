@@ -1,0 +1,16 @@
+42 passive 1 treasury 273904 reserve 0 population 205 counts {'births': 1, 'immigration': 19, 'deaths': 0, 'emigration': 0, 'invalidHomeDays': 0, 'unregisteredHouseholdDays': 0, 'overCapacityBuildingDays': 0}
+42 passive 10 treasury 2611352 reserve 0 population 380 counts {'births': 110, 'immigration': 96, 'deaths': 5, 'emigration': 6, 'invalidHomeDays': 0, 'unregisteredHouseholdDays': 0, 'overCapacityBuildingDays': 0}
+42 passive 20 treasury 4854146 reserve 1676704 population 483 counts {'births': 187, 'immigration': 149, 'deaths': 17, 'emigration': 21, 'invalidHomeDays': 0, 'unregisteredHouseholdDays': 0, 'overCapacityBuildingDays': 0}
+42 passive 30 treasury 586724 reserve 11583687 population 692 counts {'births': 338, 'immigration': 223, 'deaths': 23, 'emigration': 31, 'invalidHomeDays': 0, 'unregisteredHouseholdDays': 0, 'overCapacityBuildingDays': 0}
+101 passive 1 treasury 208923 reserve 0 population 206 counts {'births': 8, 'immigration': 21, 'deaths': 0, 'emigration': 0, 'invalidHomeDays': 0, 'unregisteredHouseholdDays': 0, 'overCapacityBuildingDays': 0}
+101 passive 10 treasury 1996271 reserve 0 population 332 counts {'births': 95, 'immigration': 71, 'deaths': 2, 'emigration': 9, 'invalidHomeDays': 0, 'unregisteredHouseholdDays': 0, 'overCapacityBuildingDays': 0}
+909 passive 1 treasury 230953 reserve 0 population 218 counts {'births': 10, 'immigration': 26, 'deaths': 0, 'emigration': 0, 'invalidHomeDays': 0, 'unregisteredHouseholdDays': 0, 'overCapacityBuildingDays': 0}
+909 passive 10 treasury 2074580 reserve 0 population 342 counts {'births': 107, 'immigration': 62, 'deaths': 6, 'emigration': 3, 'invalidHomeDays': 0, 'unregisteredHouseholdDays': 0, 'overCapacityBuildingDays': 0}
+Traceback (most recent call last):
+  File "/workspace/Village-migration-fixes/tools/soak_migration_causality.py", line 65, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/workspace/Village-migration-fixes/tools/soak_migration_causality.py", line 63, in main
+    assert hashlib.sha256((ROOT/'assets/game.js').read_bytes()).hexdigest()==sha
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

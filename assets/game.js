@@ -634,24 +634,14 @@ function liquidityStress(){
 }
 function outwardMigration(){
  if(G.day%30!==0)return 0;
- const hardship=G.stats.hardship||0,unemployment=G.stats.unemployment||0;
- if(hardship<25&&unemployment<26&&(G.regionalDemand||1)>.68)return 0;
- const chance=clamp(.035+Math.max(0,hardship-25)*.004+Math.max(0,unemployment-26)*.003,0,.27);
- if(random()>chance)return 0;
- const choices=G.households.filter(h=>h.home>=0&&h.people.length>0&&h.stress>42&&h.cash<Math.max(550,h.people.length*260))
-  .sort((a,b)=>(b.stress-a.stress)+(a.cash-b.cash)*.005);
- if(!choices.length)return 0;
- const h=choices[0],oldHome=readBuild(h.home),departures=h.people.slice();
- for(const id of departures){const p=G.people[id];if(!p)continue;p.movedAway=true;p.job=-1;
-  for(const f of G.firms)if(f.workers.includes(id))f.workers=f.workers.filter(n=>n!==id);
- }
- h.people=[];
- // External migrants take cash with them. Their remaining bank deposits are
- // still real liabilities to external depositors, not municipal residents.
- G.region+=Math.max(0,h.cash);h.cash=0;
- story('The '+h.name+' family left town after persistent hardship and weak job prospects, leaving a vacant home.','bad',oldHome?.id||0);
- recompute();return departures.length;
+ const choices=G.households.filter(h=>h.people.length&&h.home>=0&&((h.stress||0)>42||(h.worklessness||0)>20)&&migrationSpendable(h).spendable<90*Math.max(1,expectedHouseholdEssentials(h)+migrationDebtDue(h))).map(h=>({h,assessment:migrationEmigrationAssessment(h)})).filter(x=>x.assessment.eligible).sort((a,b)=>a.assessment.runwayDays-b.assessment.runwayDays||a.h.id-b.h.id);
+ for(const {h,assessment} of choices){if(random()>=assessment.probability)continue;const home=readBuild(h.home),departures=h.people.slice();
+  for(const id of departures){const p=G.people[id];if(!p)continue;p.movedAway=true;p.job=-1;for(const f of G.firms)if(f.workers.includes(id))f.workers=f.workers.filter(n=>n!==id);}
+  h.people=[];G.region+=Math.max(0,h.cash);h.cash=0;migrationReleaseTenancy(h);migrationRecord('departure',{household:h.id,people:departures.length,assessment});
+  story('The '+h.name+' family left after a persistent budget shortfall and a better outside reference. Their financial claims and property titles remain recorded.','bad',home?.id||0);recompute();return departures.length;
+ }return 0;
 }
+
 function reverseRedevelopment(){
  if(G.day%60!==0||!G.autoBuild)return false;
  const d=cityDemand();
@@ -1190,7 +1180,7 @@ function seed(seedValue=42){
    else if(random()<.085)tiles[y*T+x]=3;
  }
  for(let y=0;y<T;y++)for(let x=0;x<T;x++)if(x>=CHARTER_BASE||y>=CHARTER_BASE)tiles[y*T+x]=regionalTerrain(x,y,seedValue);
- G={gridSize:T,charter:newCharter(),roadClasses:streets.classes,streetNames:streets.names,climateSeasons:gameOptions.seasons,climateWeather:gameOptions.weather,version:3,day:1,year:1,month:1,tiles,buildings:[],homes:[],people:[],households:[],firms:[],policy:{...defaults},
+ G={tenancyVersion:1,gridSize:T,charter:newCharter(),roadClasses:streets.classes,streetNames:streets.names,climateSeasons:gameOptions.seasons,climateWeather:gameOptions.weather,version:3,day:1,year:1,month:1,tiles,buildings:[],homes:[],people:[],households:[],firms:[],policy:{...defaults},
     treasury:90000,debt:0,publicReserve:0,region:15000000,projects:[],metro:{cash:0,stations:[],lines:[],fare:2.75,rides:0,revenue:0,expenses:0,dailyRides:0,daysInDeficit:0,operating:false,invested:0},development:{homes:0,firms:0,roads:0,stations:0,lastReport:null,decisions:[]},privateRoads:[],landUse:{},fieldOwner:{},fieldCount:{},airport:null,autoBuild:true,nextId:1,history:[],events:[],journal:[],records:[],stats:{},cumulative:{incomeTax:0,profitTax:0,propertyTax:0,foodTax:0,utilityTax:0,commercialRate:0,permits:0,tariffs:0,spending:0,crime:0,fires:0,welfare:0},cases:[],speed:1,scenario:chosenScenario,achievements:[],council:{approval:65,elections:0,confidence:65,factions:{workers:60,merchants:62,homeowners:60,public:66},lastApproval:65},ambition:chosenScenario==='regional'?'education':chosenScenario==='hardtimes'?'families':'balanced',ambitionDays:{},lastMonth:{},crisesHandled:0,policyOutcomes:[],construction:0,worldSeed:Math.floor(random()*99999999),weather:'clear',season:0,regionalDemand:1,neighborhoods:[],lastEventDay:1,unrest:0,education:46,health:74,historyLong:[]};
  buildRegionalApproaches(true);
  const add=(kind,x,y,opt={})=>{if(G.tiles[roadId(x,y)]===1||G.tiles[roadId(x,y)]===2)throw Error('Founding structure overlaps a roadway or river');G.tiles[roadId(x,y)]=0;let b={id:G.nextId++,kind,x,y,value:Math.round(types[kind].cost*10),condition:100,owner:-1,firm:-1,hh:-1,...opt};G.buildings.push(b);return b};
@@ -1550,7 +1540,7 @@ function initializeScenario(){
   const cost=39000;if(!financeConstruction(cost))break;
   const b={id:G.nextId++,kind:'apartment',x:site.x,y:site.y,value:175000,baseValue:175000,condition:93,owner:-2,firm:-1,hh:-1,units:[],title:{kind:'investor',id:0},footprint:footprintFor(site.x,site.y,'apartment')};
   for(const id of b.footprint)if(G.tiles[id]===3)G.tiles[id]=0;G.buildings.push(b);invalidateBuildingIndex();invalidateRoads(false);
-  for(let k=0;k<4;k++){const h=addHouseholdAt(b,2500);if(h)b.units.push(h.id);}b.hh=b.units[0]??-1;
+  for(let k=0;k<4;k++){const h=addHouseholdAt(b,2500);if(h)migrationRegisterTenancy(h,b);}b.hh=b.units[0]??-1;
   G.development.privateSpend=(G.development.privateSpend||0)+cost;recompute();
  }
  for(const h of G.households.filter(h=>h.id>=67)){for(let j=0;j<h.people.length;j++){const person=G.people[h.people[j]];person.age=h.id%5===0?Math.round(rn(71,79)):j===0?Math.round(rn(27,57)):h.id%3===0?Math.round(rn(7,15)):Math.round(rn(24,56));}}
@@ -2617,19 +2607,18 @@ function urbanRedevelopment(demand){
  return true;
 }
 function addHouseholdAt(building,capital=1700){
- if(G.day>1){const vacancies=G.firms.filter(f=>!f.closed).reduce((n,f)=>n+Math.max(0,f.jobs-f.workers.length),0),seekers=Math.max(0,G.stats.workforce-G.stats.employed);if(vacancies-seekers<2||G.stats.employment<88)return null;}
-
- if(G.people.filter(p=>!p.deceased&&p.movedAway!==true).length>=2000)return null;
- const cash=Math.min(G.region,capital);if(cash<500)return null;
- G.region-=cash;
- const h={id:G.households.length,name:pick(surnames),cash,home:building.id,owner:-1,people:[],income:0,rent:0,food:0,tax:0,incomeTax:0,energyTax:0,utilities:0,travel:0,aid:0,crimeLoss:0,stress:27,security:86,last:[],worklessness:0};
- G.households.push(h);
- const occupants=Math.min(2,2000-G.people.filter(p=>!p.deceased&&p.movedAway!==true).length);
- for(let j=0;j<occupants;j++){
-  const p={id:G.people.length,name:pick(first)+' '+h.name,age:Math.floor(rn(20,54)),skill:rn(.35,1),health:rn(65,97),hh:h.id,job:-1,life:rn(45,80),last:[]};G.people.push(p);h.people.push(p.id);
- }
- if(G.day>1){assignJobs();recompute();}return h;
+ const housing=migrationHousingStatus(building);if(!housing.capacity||housing.available<1||housing.reserved||housing.underConstruction)return null;
+ const occupants=Math.min(2,2000-G.people.filter(p=>!p.deceased&&!p.movedAway).length);if(occupants<1)return null;
+ const cash=Math.min(Math.max(0,G.region),capital);if(cash<500)return null;
+ const profiles=migrationNewProfiles(occupants),assessment=G.day>1?migrationAssessment(building,profiles,cash):null;
+ if(assessment&&!assessment.eligible){migrationRecord('arrival-deferred',{home:building.id,assessment});return null;}
+ if(assessment&&random()>=assessment.pullProbability){migrationRecord('outside-option-preferred',{home:building.id,assessment});return null;}
+ G.region-=cash;const h={id:G.households.length,name:pick(surnames),cash,home:building.id,owner:-1,people:[],income:0,rent:0,food:0,tax:0,incomeTax:0,energyTax:0,utilities:0,travel:0,aid:0,crimeLoss:0,stress:27,security:86,last:[],worklessness:0};G.households.push(h);
+ for(const profile of profiles){const p={id:G.people.length,name:pick(first)+' '+h.name,...profile,hh:h.id,job:-1,last:[]};G.people.push(p);h.people.push(p.id);}
+ migrationRegisterTenancy(h,building);migrationAcceptOffers(h.people.map(id=>G.people[id]),assessment);
+ if(G.day>1){assignJobs();recompute();migrationRecord('household-arrival',{household:h.id,people:profiles.length,capital:cash,assessment});}return h;
 }
+
 function completeRedevelopment(b,p){
  const existing=b.kind==='apartment'?(b.units||[]).slice():(b.hh>=0?[b.hh]:[]);
  for(const id of existing){if(G.households[id])delete G.households[id].temporaryHousing;}
@@ -2638,7 +2627,7 @@ function completeRedevelopment(b,p){
  b.units=existing;
  for(let k=b.units.length;k<p.units;k++){
   const h=addHouseholdAt(b,1800+Math.round(rn(0,2500)));
-  if(!h)break;b.units.push(h.id);
+  if(!h)break;migrationRegisterTenancy(h,b);
  }
  if(b.units.length)b.hh=b.units[0];
  G.development.redevelopments=(G.development.redevelopments||0)+1;
@@ -2795,9 +2784,145 @@ function birthsAndGenerations(){
   const security=clamp((savings/Math.max(1,h.people.length)-400)/3500,0,1),cost=clamp(1-(G.housingMarket.rentIndex-1)*.5,.35,1.15);
   if(random()>.085*security*cost)continue;
   const id=G.people.length,p={id,name:pick(first)+' '+h.name,age:0,skill:.05,health:94,hh:h.id,job:-1,life:80,last:[]};
-  G.people.push(p);h.people.push(id);h.lastBirth=G.day;count++;if(G.stats.population+count>=2000)break;
+  G.people.push(p);h.people.push(id);migrationRecord('birth',{household:h.id,person:id,people:1});h.lastBirth=G.day;count++;if(G.stats.population+count>=2000)break;
  }
  if(count)story(count+' '+(count===1?'child was':'children were')+' born in local households. Family finances, housing and confidence influence household formation.','good');
+}
+
+// SOURCE: 44-migration.js
+// Migration assessments use existing paid wages, actual road/transit access and
+// redeemable savings. Reports are derived; they are not archive authority.
+let migrationReportOwner=null,migrationRecent=[],migrationObservedDay=0,migrationSessionCounts={};
+function migrationReport(){if(migrationReportOwner!==G){migrationReportOwner=G;migrationRecent=[];migrationObservedDay=G.day;migrationSessionCounts={births:0,deaths:0,immigration:0,emigration:0};}return migrationRecent;}
+function migrationRecord(kind,detail){const rows=migrationReport(),n=detail.people||0;if(kind==='birth')migrationSessionCounts.births+=n;if(kind==='death')migrationSessionCounts.deaths+=n;if(kind==='household-arrival'||kind==='family-arrival')migrationSessionCounts.immigration+=n;if(kind==='departure')migrationSessionCounts.emigration+=n;rows.push({day:G.day,kind,...detail});if(rows.length>80)rows.splice(0,rows.length-80);}
+function residentHouseholdsAt(buildingOrId,town=G){const id=typeof buildingOrId==='object'?buildingOrId?.id:buildingOrId;return town.households.filter(h=>h.home===id&&h.people.length>0);}
+function housingUnitCapacity(building){return building?.kind==='home'?1:building?.kind==='apartment'?4:building?.kind==='tower'?9:0;}
+function pruneLegacySharedTenants(building,town=G){
+ if(!Array.isArray(building?.legacySharedTenants))return;const current=residentHouseholdsAt(building,town).map(h=>h.id);
+ if(current.length<=housingUnitCapacity(building)){delete building.legacySharedTenants;return;}
+ building.legacySharedTenants=building.legacySharedTenants.filter(id=>current.includes(id)).sort((a,b)=>a-b);
+}
+function migrationTenancyDay(){migrationReport();for(const h of G.households)if(!h.people.length&&h.home>=0)migrationReleaseTenancy(h);for(const b of G.buildings)if(b.legacySharedTenants)pruneLegacySharedTenants(b);}
+function migrationHousingStatus(building){
+ const capacity=housingUnitCapacity(building);
+ const households=building?residentHouseholdsAt(building).map(h=>h.id):[];
+ return {building:building?.id??-1,capacity,households,occupied:households.length,available:Math.max(0,capacity-households.length),overcrowded:households.length>capacity,reviewRequired:households.length>capacity,legacySharedTenants:Array.isArray(building?.legacySharedTenants)?building.legacySharedTenants.slice():[],reserved:!!building?.relocationReserve,underConstruction:!!building?.redevelopment};
+}
+function migrationReleaseTenancy(h){
+ if(!h||h.people.length)return false;const b=readBuild(h.home);if(b){if(b.hh===h.id)b.hh=-1;if(Array.isArray(b.units))b.units=b.units.filter(id=>id!==h.id);}h.home=-1;if(b){if(b.hh<0)b.hh=residentHouseholdsAt(b)[0]?.id??-1;pruneLegacySharedTenants(b);}return true;
+}
+function migrationRegisterTenancy(h,b){
+ if(!h||!b||!h.people.length)return false;h.home=b.id;
+ // Clear stale EMPTY tenancy references only; ownership, loans, cash and bank
+ // claims remain with the former household, including external estates.
+ for(const old of G.households)if(old!==h&&old.home===b.id&&!old.people.length)migrationReleaseTenancy(old);
+ if(b.kind==='home')b.hh=h.id;else{b.units=(b.units||[]).filter(id=>id!==h.id&&G.households[id]?.people.length&&G.households[id].home===b.id);b.units.push(h.id);b.hh=b.units[0]??-1;}pruneLegacySharedTenants(b);return true;
+}
+function migrationSpendable(h){
+ let cash=Math.max(0,h.cash||0),region=Math.max(0,G.region||0),claims=0,redeemed=0;
+ for(const [id,value]of Object.entries(h.deposits||{})){const amount=Math.max(0,value||0);claims+=amount;const bank=G.banks[+id];if(!bank||bank.closed)continue;const vault=Math.min(amount,Math.max(0,bank.cash)),sale=Math.min(amount-vault,Math.max(0,bank.regionCredit||0),region);cash+=vault+sale;region-=sale;redeemed+=sale;}
+ return {cash:Math.max(0,h.cash||0),claims,spendable:cash,locked:Math.max(0,Math.max(0,h.cash||0)+claims-cash),redeemableSecurities:redeemed};
+}
+function migrationCanReach(home,f){
+ const net=graph(),a=net.portals.get(home?.id),b=net.portals.get(f.building);if(a==null||b==null||net.parts[a]!==net.parts[b])return null;
+ const distance=roadDistancesFrom(b,net)[a],limit=60+(G.transit?.routes.length?0:(G.policy.transitBudget||0)/8),work=readBuild(f.building),trip=distance>=8?transitJourney(home,work):null;
+ if(trip&&trip.time<=90&&trip.time<distance*2)return {distance,fare:trip.fare,mode:'paid-transit'};
+ if(hasMetroCommute(home,work))return {distance,fare:Math.max(0,G.metro?.fare||0),mode:'legacy-metro'};
+ if(distance<=limit){const fare=(Math.abs(home.x-work.x)+Math.abs(home.y-work.y))*.035*(1-clamp(G.policy.transitBudget*(G.actualServiceFunding?.transit||0)/280,0,.65));return {distance,fare,mode:'road'};}return null;
+}
+function migrationDebtDue(h){return h?G.loans.filter(l=>l.ownerType==='household'&&l.ownerId===h.id&&l.status==='active').reduce((n,l)=>n+Math.min(l.balance,l.original/Math.max(30,l.term))+l.balance*l.rate/360,0):0;}
+function migrationPropertyDue(h){return h?G.buildings.filter(b=>b.owner===h.id&&['home','apartment','tower'].includes(b.kind)).reduce((n,b)=>n+b.value*(G.policy.propertyTax||0)/100/360,0):0;}
+function migrationFoodChoice(home,size,offers){
+ if(!home)return null;const shops=G.firms.filter(f=>!f.closed&&f.kind==='grocer'&&(workingStaff(f).length>0||offers.some(o=>o.firm===f.id)));
+ return groceryChoices({home:home.id,people:Array(size).fill(-1)},home,shops)[0]||null;
+}
+
+function migrationJobOffers(home,profiles,excludeHousehold=-1){
+ const firms=G.firms.filter(f=>!f.closed&&f.workers.length<f.jobs).slice().sort((a,b)=>b.wage-a.wage||a.id-b.id),reserved=new Set(),offers=[];
+ const local=G.people.filter(p=>!p.deceased&&!p.movedAway&&p.hh!==excludeHousehold&&p.age>=16&&p.age<=70&&p.job<0&&!p.publicWork&&!p.previousPublicRole&&(p.searchAfter||0)<=G.day);
+ for(const f of firms){const wage=workerIncome(f),funded=Math.max(0,Math.min(f.jobs-f.workers.length,Math.floor(Math.max(0,f.cash)/Math.max(1,wage))-f.workers.length));if(!funded)continue;
+  let left=funded;for(const p of local){if(reserved.has(p.id)||f.privateService&&!privateQualified(p,f))continue;const site=readBuild(G.households[p.hh]?.home);if(!site||!migrationCanReach(site,f))continue;reserved.add(p.id);left--;if(!left)break;}
+  if(left)offers.push({firm:f.id,wage,slots:left,reach:migrationCanReach(home,f)});
+ }
+ const assignments=[];for(let i=0;i<profiles.length;i++){const p=profiles[i];if(p.age<16||p.age>70)continue;for(const offer of offers){const f=G.firms[offer.firm];if(offer.slots<=0||!offer.reach||f.privateService&&!privateQualified(p,f))continue;offer.slots--;assignments.push({person:i,firm:f.id,wage:offer.wage,...offer.reach});break;}}
+ return assignments;
+}
+function migrationOutsideReference(size,workers,retirees=0){
+ // Named markets supply price comparisons, not a pretend foreign labour census.
+ // The income/rent reference is the existing founding policy, disclosed as a
+ // benchmark rather than an observed guaranteed offer in another city.
+ const retail=Math.max(.01,foodPriceEstimate()),base=Math.max(.01,marketPrice('food')),markets=typeof OUTSIDE_MARKETS==='undefined'?[]:OUTSIDE_MARKETS;
+ const options=markets.map(m=>{const food=retail*regionalMarketQuote(m,'food','imports')/base,net=workers*defaults.minWage*(1-defaults.incomeTax/100)+retirees*defaults.pensionDaily,cold=seasonsEnabled()&&(G.month>=10||G.month<=2),essentials=size*((3.1+defaults.zoningRestriction*.035)+1.6*food*(1+defaults.foodTax/100)+(2.25+(cold?1.8:0))*(1+defaults.utilityTax/100));return {market:m.id,name:m.name,net,essentials,surplus:net-essentials,referenceOnly:true};});
+ options.sort((a,b)=>b.surplus-a.surplus);return options[0]||{market:null,name:'Outside-region reference',net:0,essentials:0,surplus:0,referenceOnly:true};
+}
+function migrationServiceAt(home){
+ // Forecast from persisted paid roles, ready staffing contracts, actual facility
+ // access and available authorization. Last-day serviceProvision is derived and
+ // deliberately cleared on load; it must never decide an authoritative arrival.
+ const coverage=kind=>{const standard=CIVIC_STANDARDS[kind],limit=kind==='health'?60:40,net=graph(),homePort=net.portals.get(home.id),reaches=G.buildings.some(b=>{if(b.kind!==standard.building||!isPublicFacility(b))return false;const station=net.portals.get(b.id);return station!=null&&homePort!=null&&net.parts[station]===net.parts[homePort]&&roadDistancesFrom(station,net)[homePort]<=limit;});if(!reaches)return 0;
+  const access=serviceAccess(kind),needed=Math.max(1,G.stats.population)*standard.staff/standard.capacity,wage=Math.max(24,G.policy.minWage),authorized=Math.min(Math.max(0,G.treasury),Math.max(0,G.policy[kind==='health'?'healthBudget':'educationBudget']||0)),funding=authorized/Math.max(1,needed*wage/.65),contract=G.civicStaffing?.[kind];
+  // First-day/legacy services inherit the funded operating arrangements already
+  // supplied by civicStaffCapacity; later expansion waits for actual readiness.
+  if(!contract)return clamp(Math.min(access.coverage,funding),0,1);
+  const regional=contract.pending&&contract.pending.day<=G.day?contract.pending.target:contract.ready,local=G.people.reduce((n,p)=>n+Number(p.job<0&&p.publicRole===kind&&(p.publicIncome||0)>0&&qualifiedForService(p,kind)),0);
+  return clamp(Math.min(access.coverage,funding,(local+Math.max(0,regional||0))/needed),0,1);
+ };
+ return {health:coverage('health'),school:coverage('school'),forecastOnly:true};
+}
+
+function migrationSchoolOffer(home,learners,publicCoverage,netIncome,cash,householdSize,baseEssentials,previousFees=0){
+ if(!learners||publicCoverage>=1)return null;const port=graph().portals.get(home.id);if(port==null)return null;let best=null;
+ for(const f of G.firms){if(f.closed||f.privateService!=='school'||!workingStaff(f).length||f.cash<workerIncome(f)*workingStaff(f).length)continue;
+  const places=Math.max(0,(f.serviceCapacity||0)-(f.clientsToday||0)),station=graph().portals.get(f.building);if(places<=.0001||station==null||(privateServiceDistances(station).get(port)??Infinity)>40)continue;
+  const fee=Math.min(Math.max(0,f.serviceFee||0),G.policy.privateTuitionCap),count=Math.min(places,learners*(1-publicCoverage)),candidate={people:Array(householdSize).fill(-1),cash:Math.max(0,cash-baseEssentials),deposits:{},income:netIncome,privateServiceFees:previousFees},purchase=privateServicePurchase(candidate,count,fee,0);
+  if(!purchase.served||purchase.paid>Math.max(0,netIncome-baseEssentials))continue;
+  if(!best||purchase.served>best.served||purchase.served===best.served&&purchase.paid<best.dailyCost)best={firm:f.id,served:purchase.served,dailyCost:purchase.paid,fee,forecastOnly:true};
+ }return best;
+}
+function migrationAssessment(home,profiles,capital=2500,joining=null){
+ const housing=migrationHousingStatus(home),reasons=[],net=graph(),port=net.portals.get(home?.id);
+ if(!housing.capacity||housing.reserved||housing.underConstruction||housing.overcrowded||(!joining&&!housing.available))reasons.push('No unreserved vacant household unit');
+ if(joining&&(!joining.people.length||joining.home!==home?.id||!housing.households.includes(joining.id)||joining.people.length+profiles.length>4))reasons.push('No settled family space at this address');
+ if(port==null||net.parts[port]!==net.mainPart)reasons.push('The home has no connected road gateway');
+ if(G.stats.population+profiles.length>2000)reasons.push('Town population ceiling reached');
+ if(!joining&&Math.min(Math.max(0,G.region),capital)<500)reasons.push('Outside household startup funds unavailable');
+ const offers=reasons.length?[]:migrationJobOffers(home,profiles,joining?.id??-1),size=profiles.length+(joining?.people.length||0),existing=joining?Math.max(0,joining.netIncomeTrend??((joining.income||0)-(joining.incomeTax||0))):0;
+ const netIncome=existing+offers.reduce((n,o)=>n+o.wage*(1-G.policy.incomeTax/100),0),baseRent=size*(3.1+G.policy.zoningRestriction*.035)*(G.housingMarket?.rentIndex||1)*urbanRentMultiplier(home),rent=urbanHousingRent(joining||{income:netIncome,tax:0},home,home?.owner===joining?.id?0:baseRent);
+ const foodChoice=migrationFoodChoice(home,size,offers),cold=seasonsEnabled()&&(G.month>=10||G.month<=2),budget={rent,food:size*1.6*(foodChoice?.f.price||foodPriceEstimate())*(1+G.policy.foodTax/100),utilities:size*(2.25+(cold?1.8:0))*(1+G.policy.utilityTax/100),commuting:Math.max(0,(joining?.travelDue||0)-(joining?.shoppingTravel||0))+offers.reduce((n,o)=>n+o.fare,0),shopping:foodChoice?.travel||0,propertyTax:migrationPropertyDue(joining),debtService:migrationDebtDue(joining),privateFees:Math.max(0,joining?.privateServiceFees||0)};
+ let essentials=Object.values(budget).reduce((n,x)=>n+x,0);const outside=migrationOutsideReference(size,profiles.filter(p=>p.age>=16&&p.age<=70).length+(joining?joining.people.filter(id=>G.people[id]?.age>=16&&G.people[id]?.age<=70).length:0)),services=home?migrationServiceAt(home):{health:0,school:0};
+ outside.carriedObligations=budget.propertyTax+budget.debtService;outside.essentials+=outside.carriedObligations;outside.surplus-=outside.carriedObligations;
+ if(!foodChoice)reasons.push('No reachable staffed food shop or funded entry-staffed shop');
+
+ if(!offers.length)reasons.push('No funded reachable job remains after local jobseekers');
+ if(netIncome+1e-8<essentials)reasons.push('Expected take-home pay does not cover rent, food, utilities and fares');
+ const learners=profiles.filter(privateEligiblePupil).length,learning=profiles.some(p=>p.age<18||p.skill<.55),schoolOffer=home&&learning?migrationSchoolOffer(home,learners,services.school,netIncome,joining?.cash??Math.min(capital,G.region),size,essentials,joining?.privateServiceFees||0):null;if(schoolOffer){essentials+=schoolOffer.dailyCost;budget.privateFees+=schoolOffer.dailyCost;services.school=clamp(services.school+schoolOffer.served/Math.max(1,learners),0,1);services.privateSchoolOffer=schoolOffer;}
+ const surplus=netIncome-essentials,financialPull=outside.surplus>0?clamp(surplus/outside.surplus,0,1):1,servicePull=(1+services.health+(learning?services.school:1))/3,pullProbability=reasons.length?0:clamp(financialPull*servicePull,0,1);
+ return {eligible:!reasons.length,reasons,home:home?.id??-1,housing,offers,expectedNet:netIncome,essentials,budget,foodShop:foodChoice?.f.id??null,rent,surplus,outside,services,pullProbability,capital:joining?0:Math.min(capital,G.region),note:'Outside wages/rents are a founding-policy reference; market food prices are live. Funded vacancies, route capacity and quoted private learning places can change before arrival; any private fee forecast is included in essentials, without assumed vouchers.'};
+}
+function migrationAcceptOffers(people,assessment){
+ if(!assessment)return;for(const offer of assessment.offers){const p=people[offer.person],f=G.firms[offer.firm];if(!p||!f||f.closed||f.workers.length>=f.jobs||f.cash<(f.workers.length+1)*workerIncome(f)||f.privateService&&!privateQualified(p,f))continue;p.job=f.id;f.workers.push(p.id);}
+}
+function migrationNewProfiles(count){return Array.from({length:count},()=>({age:Math.floor(rn(20,54)),skill:rn(.35,1),health:rn(65,97),life:rn(45,80)}));}
+function migrationFamilyArrivalDay(){
+ if(G.day%45!==0||G.stats.population>=2000)return;
+ if(!G.firms.some(f=>!f.closed&&f.workers.length<f.jobs&&f.cash>=(f.workers.length+1)*workerIncome(f)))return;
+ const families=G.households.filter(h=>h.people.length>0&&h.people.length<4&&readBuild(h.home));if(!families.length)return;
+ // One family invitation at the existing 45-day cadence, then its real job,
+ // unit and budget assessment. A distant unrelated vacancy never grants a person.
+ const h=pick(families),profile=migrationNewProfiles(1),assessment=migrationAssessment(readBuild(h.home),profile,0,h);if(!assessment.eligible){migrationRecord('family-arrival-deferred',{household:h.id,assessment});return;}if(random()>=assessment.pullProbability*.5)return;
+ const p={id:G.people.length,name:pick(first)+' '+h.name,...profile[0],hh:h.id,job:-1,last:[]};G.people.push(p);h.people.push(p.id);migrationAcceptOffers([p],assessment);assignJobs();migrationRecord('family-arrival',{household:h.id,people:1,assessment});story('A newcomer joined the '+h.name+' household after reviewing reachable work and the family budget.','good',h.home,h.id);
+}
+
+function migrationEmigrationAssessment(h){
+ const funds=migrationSpendable(h),net=Math.max(0,(h.netIncomeTrend??((h.income||0)-(h.incomeTax||0)))-Math.sqrt(h.incomeVariance||0)),essentials=Math.max(1,expectedHouseholdEssentials(h)),people=h.people.map(id=>G.people[id]).filter(p=>p&&!p.deceased&&!p.movedAway),workers=people.filter(p=>p.age>=16&&p.age<=70).length,retired=people.filter(p=>p.age>70).length,outside=migrationOutsideReference(people.length,workers,retired),home=readBuild(h.home),services=home?migrationServiceAt(home):{health:0,school:0};
+ const localOffers=home?migrationJobOffers(home,people.filter(p=>p.age>=16&&p.age<=70&&p.job<0&&!p.publicWork),h.id):[],prospectiveNet=net+localOffers.reduce((n,o)=>n+o.wage*(1-G.policy.incomeTax/100)-o.fare,0),debt=migrationDebtDue(h),totalEssentials=essentials+debt,localSurplus=prospectiveNet-totalEssentials,runway=funds.spendable/totalEssentials,financialPush=localSurplus<0&&runway<90,distress=(h.stress||0)>42||(h.worklessness||0)>20;
+ outside.carriedObligations=debt+migrationPropertyDue(h);outside.essentials+=outside.carriedObligations;outside.surplus-=outside.carriedObligations;
+ const eligible=people.length>0&&financialPush&&distress&&outside.surplus>localSurplus,severity=clamp(-localSurplus/totalEssentials,0,1),probability=eligible?clamp(.035+severity*.235,.035,.27):0;
+ return {eligible,probability,spendable:funds,expectedNet:prospectiveNet,localOffers,essentials:totalEssentials,debtService:debt,runwayDays:runway,localSurplus,outside,services,reasons:eligible?['Persistent household budget shortfall','Less than ninety days of actually redeemable essentials','Outside reference offers a better budget']:['Current resources or local prospects do not justify a financial departure']};
+}
+function migrationDiagnostics(){
+ const overcrowded=G.buildings.map(migrationHousingStatus).filter(x=>x.overcrowded),recent=migrationReport().slice(-12);
+ return {day:G.day,recent,observedSinceDay:migrationObservedDay,sessionCounts:{...migrationSessionCounts},historyPersisted:false,retainedDecisionLimit:80,overcrowdedHomes:overcrowded,reviewRequired:overcrowded.length>0,legacyPolicy:'Preserve every family and financial claim. Existing overcrowding requires a rehousing review; it never creates another arrival slot.',outsideReference:migrationOutsideReference(2,2),retainedDecisionCounts:{householdArrivals:migrationReport().filter(x=>x.kind==='household-arrival').reduce((n,x)=>n+x.people,0),familyArrivals:migrationReport().filter(x=>x.kind==='family-arrival').reduce((n,x)=>n+x.people,0),emigration:migrationReport().filter(x=>x.kind==='departure').reduce((n,x)=>n+x.people,0)}};
 }
 
 // SOURCE: 45-public-services.js
@@ -2823,20 +2948,18 @@ function municipalProcurement(){
 }
 function householdFormation(){
  if(G.day%90!==0)return;
- const vacant=G.buildings.find(b=>b.kind==='home'&&!b.relocationReserve&&!b.redevelopment&&(!G.households[b.hh]||G.households[b.hh].people.length===0));if(!vacant)return;
- const young=G.people.find(p=>!p.deceased&&!p.movedAway&&p.age>=20&&p.age<31&&p.job>=0&&G.households[p.hh].people.length>2&&G.households[p.hh].cash>3600);if(!young)return;
- const prior=G.households[young.hh],cash=Math.min(1800,prior.cash*.25),h={...prior,id:G.households.length,name:fromEnd(young.name.split(' ')),cash,home:vacant.id,owner:-1,people:[young.id],deposits:{},income:0,rent:0,food:0,tax:0,aid:0,stress:25,last:[]};
- prior.cash-=cash;prior.people=prior.people.filter(id=>id!==young.id);young.hh=h.id;G.households.push(h);vacant.hh=h.id;
+ const vacant=G.buildings.find(b=>b.kind==='home'&&!b.redevelopment&&!b.relocationReserve&&migrationHousingStatus(b).available>0);if(!vacant)return;
+ const young=G.people.find(p=>!p.deceased&&!p.movedAway&&p.age>=20&&p.age<31&&p.job>=0&&G.households[p.hh].people.length>2&&G.households[p.hh].cash>3600);if(!young||!migrationCanReach(vacant,G.firms[young.job]))return;
+ const prior=G.households[young.hh],cash=Math.min(1800,prior.cash*.25),h={...prior,id:G.households.length,name:fromEnd(young.name.split(' ')),cash,home:vacant.id,owner:-1,people:[young.id],deposits:{},netIncomeTrend:workerIncome(G.firms[young.job])*(1-G.policy.incomeTax/100),incomeVariance:0,essentialDueTrend:undefined,income:0,rent:0,food:0,tax:0,aid:0,stress:25,last:[]};
+ prior.cash-=cash;prior.people=prior.people.filter(id=>id!==young.id);young.hh=h.id;G.households.push(h);migrationRegisterTenancy(h,vacant);h.essentialDueTrend=expectedHouseholdEssentials(h);
  book(prior.name+' household',h.name+' household',cash,'Savings divided on household formation',vacant.id);
  story(young.name+' formed a household and rented an existing vacant cottage.','good',vacant.id,h.id);
 }
 
 function occupyVacantHousing(){
- if(G.day%30!==0||G.stats.employment<88||G.stats.population>=2000)return;
- const vacancy=G.buildings.find(b=>b.kind==='home'&&!b.relocationReserve&&!b.redevelopment&&(!G.households[b.hh]?.people.length))||G.buildings.find(b=>['apartment','tower'].includes(b.kind)&&!b.relocationReserve&&!b.redevelopment&&(b.units||[]).filter(id=>G.households[id]?.people.length).length<(b.kind==='tower'?9:4));
- if(!vacancy)return;const h=addHouseholdAt(vacancy,2500);if(!h)return;
- if(vacancy.kind==='home')vacancy.hh=h.id;else{vacancy.units=(vacancy.units||[]).filter(id=>G.households[id]?.people.length);vacancy.units.push(h.id);vacancy.hh=vacancy.units[0];}
- story('The '+h.name+' household moved into a vacant home after finding local job opportunities.','good',vacancy.id,h.id);
+ if(G.day%30!==0||G.stats.population>=2000)return;
+ const vacancies=G.buildings.filter(b=>['home','apartment','tower'].includes(b.kind)&&!b.redevelopment&&!b.relocationReserve&&migrationHousingStatus(b).available>0);
+ for(const vacancy of vacancies){const h=addHouseholdAt(vacancy,2500);if(!h)continue;migrationRegisterTenancy(h,vacancy);story('The '+h.name+' household chose a vacant home after comparing reachable paid work, living costs and outside opportunities.','good',vacancy.id,h.id);return;}
 }
 
 // SOURCE: 46-transit-network.js
@@ -3097,16 +3220,15 @@ function tick(){if(!G||pendingEvent)return;ensureSystems();ensureMarketModel();G
  regionalFreightDay();freightDay();completeEquipmentOrders();completeDevelopmentProjects();dailyEconomy();urbanMunicipalHousingDay();bankDaily();metroOperatingDay();airfieldOperatingDay();incidents();investigateCases();extendedCivicDay();maintainRoads();finalizeMarketBooks();if(G.day%30===0&&G.debt>0){const interest=G.debt*((G.policy.policyRate||0)/100+.015)/12,paid=Math.min(G.treasury,interest);G.treasury-=paid;G.region+=paid;G.debt+=interest-paid;story('Interest on municipal borrowing: '+money(interest)+'.')}if(G.day%10===0)assignJobs();if(G.day%30===0)privateInvestmentAndHousing();
 
  if(G.day%30===0){outwardMigration();autonomousDevelopment();}
- if(G.day%45===0&&G.stats.population<2000){let success=G.stats.employment>88&&G.stats.hardship<35&&G.firms.some(f=>!f.closed&&f.workers.length<f.jobs);
-   if(success&&G.homes.length>0&&random()<.5){let h=pick(G.households);if(h.people.length<4){let p={id:G.people.length,name:pick(first)+' '+h.name,age:Math.round(rn(18,42)),skill:rn(.3,1),health:rn(60,100),hh:h.id,job:-1,life:60,last:[]};G.people.push(p);h.people.push(p.id);story('A newcomer joined the '+h.name+' household.','good',h.home,h.id)}}
- }
+ migrationFamilyArrivalDay();
+
  recompute();updateCouncilAndMissions();systemsDay();
  if(G.day%30===0)monthlyReview();
  if(G.day%360===0){yearlyDemographics();electionReview();}
  if(!pendingEvent&&G.day%45===0&&G.day-G.lastEventDay>=37)offerCouncilEvent();
  // Publish and save one canonical end-of-day snapshot after demographic and civic changes.
  recompute();G.stats.approval=Math.round(G.council.approval);G.rngState=rngState;
- privateServiceInvestmentDay();districtProgrammeDay();urbanEvolutionDay();updateScenarioProgramme();mayorJourneyDay();civicProjectsDay();civicCampaignDay();G.rngState=rngState;if(G.day%10===0)recordObservation();
+ privateServiceInvestmentDay();districtProgrammeDay();urbanEvolutionDay();migrationTenancyDay();updateScenarioProgramme();mayorJourneyDay();civicProjectsDay();civicCampaignDay();G.rngState=rngState;if(G.day%10===0)recordObservation();
  G.history.push({day:G.day,employment:G.stats.employment,hardship:G.stats.hardship,safety:G.stats.safety,treasury:Math.round(G.treasury),businesses:G.stats.businesses,deposits:(G.banks||[]).reduce((n,b)=>n+bankDeposits(b.id),0),crime:G.stats.dailyCrime,approval:G.council.approval,education:G.education,health:G.health});if(G.history.length>240)G.history.shift();
  if(G.day%60===0){const signal=marketSignal();if(signal.kind!=='normal'&&signal.title!==G.lastEconomicSignal){story(signal.title+'. '+signal.description,signal.kind==='good'?'good':'bad');G.lastEconomicSignal=signal.title;}}
  // Autosaves are scheduled in wall time by the frame controller.
@@ -4017,10 +4139,9 @@ function construct(kind,x,y,quiet=false){
    if(G.region<15000){toast('Regional investment capital is exhausted.');G.treasury+=cost;G.region-=cost;return}
    G.region-=12000+G.policy.permitFee;const newFirm=createFirm(kind,x,y);newFirm.cash=12000;transferTreasury(G.policy.permitFee,'permits');assignJobs();story('New local enterprise: '+types[kind].n+' opens on a developed lot.','good');
  }else if(kind==='home'){
-   const b={id:G.nextId++,kind,x,y,value:48000,condition:100,owner:-1,firm:-1,hh:-1};G.buildings.push(b);let family={id:G.households.length,name:pick(surnames),cash:rn(900,3000),home:b.id,owner:-1,people:[],income:0,rent:0,food:0,tax:0,aid:0,crimeLoss:0,stress:25,security:85,last:[],worklessness:0};
-   G.households.push(family);G.region-=family.cash;G.homes.push(b.id);b.hh=family.id;b.owner=family.id;
-   for(let n=0;n<2;n++){let p={id:G.people.length,name:pick(first)+' '+family.name,age:Math.round(rn(19,60)),skill:rn(.3,1),health:rn(65,100),hh:family.id,job:-1,life:65,last:[]};G.people.push(p);family.people.push(p.id)}
-   assignJobs();story('A new household settled in the village.','good',b.id,family.id);
+   const b={id:G.nextId++,kind,x,y,value:48000,condition:100,owner:-1,firm:-1,hh:-1,title:{kind:'municipal',id:-1},municipalRehousing:true,relocationReserve:false};G.buildings.push(b);G.homes.push(b.id);G.cumulative.spending+=cost;invalidateBuildingIndex();invalidateRoads(false);
+   const family=addHouseholdAt(b,rn(900,3000));if(family)migrationRegisterTenancy(family,b);
+   story(family?'A household rented the new municipal home after comparing paid work and living costs.':'A municipal rental home opened. It remains vacant until a household can reach funded work and afford its living costs.','good',b.id,family?.id??-1);
  }else G.buildings.push({id:G.nextId++,kind,x,y,value:cost*10,condition:100,owner:-1,firm:-1,hh:-1,footprint:footprintFor(x,y,kind)});
  G.construction++;invalidateRoads();recompute();updateHeader();staticDirty=true;dirty=true;save();toast(types[kind].n+' constructed.');if(active==='construction')renderPanel('construction');
 }
@@ -4541,7 +4662,7 @@ function yearlyDemographics(){
  for(const p of G.people){
   if(p.deceased||p.movedAway)continue;p.age++;if(p.age>70&&p.job>=0){const f=G.firms[p.job];if(f)f.workers=f.workers.filter(id=>id!==p.id);p.job=-1;p.retired=true;p.publicWork=false;}
   if(p.age>85&&(p.age>95||random()<.17)){
-   p.deceased=true;p.job=-1;
+   p.deceased=true;p.job=-1;migrationRecord('death',{household:p.hh,person:p.id,people:1});
    const h=G.households[p.hh];if(h)h.people=h.people.filter(id=>id!==p.id);
    for(const f of G.firms)f.workers=f.workers.filter(id=>id!==p.id);
    deaths++;
@@ -4551,9 +4672,9 @@ function yearlyDemographics(){
  // Vacant homes can receive a new household from outside town. Do not clone
  // an existing resident into two household rosters, and keep external cash balanced.
  for(const h of G.households){
-  if(h.people.length||!readBuild(h.home)||G.stats.population>=2000||G.region<1000||cityDemand().housingPressure<48)continue;
+  if(h.people.length||!readBuild(h.home)||G.stats.population>=2000||G.region<1000)continue;
   const building=readBuild(h.home),newHousehold=addHouseholdAt(building,900);
-  if(newHousehold){if(building.hh===h.id)building.hh=newHousehold.id;if(Array.isArray(building.units))building.units=building.units.map(id=>id===h.id?newHousehold.id:id);h.home=-1;story('A newcomer household rented an empty home; the former estate retains its balances and title.','neutral',building.id,newHousehold.id);}
+  if(newHousehold){migrationRegisterTenancy(newHousehold,building);migrationReleaseTenancy(h);story('A newcomer household rented an empty home; the former estate retains its balances and title.','neutral',building.id,newHousehold.id);}
 
  }
  assignJobs();
@@ -5175,6 +5296,22 @@ const charterBackBase=window.__townArchive.back;window.__townArchive.back=()=>{i
 function districtProspectus(){return `<details class="council-card"><summary>District commitments & development programmes</summary><p class="desc">A deed buys geography; a charter chooses which new uses may compete for its lots. Existing titles remain intact. Initial designation is free; revision requires30 days and a$1,200 planning purchase. Completing30 days of connected district activity opens larger enterprise supply agreements, not free municipal cash.</p>`+ANNEX_PARCELS.map(p=>{const q=parcelSurvey(p),owned=G.charter.owned.includes(p.id),plan=G.districtProgrammes?.[p.id],m=owned?districtMetrics(p.id):null;return `<section class="council-card"><h3>${esc(p.name)}</h3><p class="desc">${q.forest} woodland tiles; ${q.water} water tiles. ${p.id==='river-reach'?'Open river frontage supports regional shipping; inland lakes do not.':p.id==='east-meadow'?'Lake frontage supports fishing and waterfront parks; it is not a regional cargo outlet.':p.id==='high-common'?'Requires an adjoining deed and a longer connection before utilities or shops become reachable.':'Transport and commuting require an actual street connection.'} For each100 new residents, fully purchased standard teaching and care require approximately ${money(100*10/260*Math.max(24,G.policy.minWage)/.65)} and ${money(100*5/350*Math.max(24,G.policy.minWage)/.65)} daily respectively, plus facilities, access and staff. These are planning estimates, not new automatic charges.</p>${!owned?`<button data-district-review="${p.id}">Review land deed</button>`:`<p class="desc">${m.pop} residents · ${m.staffed} staffed firms · ${m.connected} connected properties · care ${Math.round(m.care*100)}% · learning ${Math.round(m.school*100)}%.</p>${plan?`<b>${DISTRICT_FOCI[plan.focus].name} · ${plan.completed?'Established':plan.held+' /30 qualifying days'}</b><p class="desc">${DISTRICT_FOCI[plan.focus].goal}</p>`:''}${Object.entries(DISTRICT_FOCI).map(([key,f])=>`<details><summary>${esc(f.name)}</summary><p class="desc">${esc(f.description)} ${esc(f.goal)}</p><button data-district-focus="${key}" data-district-id="${p.id}" ${plan&&(plan.focus===key||G.day-plan.started<30)?'disabled':''}>${plan?'Review rezoning · $1,200':'Review district charter'}</button></details>`).join('')}`}</section>`}).join('')+'</details>'}
 const districtConstructionBase=renderConstructionFull;renderConstructionFull=function(){return districtProspectus()+districtConstructionBase()};
 document.addEventListener('click',e=>{const review=e.target.closest('[data-district-review]'),b=e.target.closest('[data-district-focus]');if(review)reviewSurveyDistrict(review.dataset.districtReview);if(b){const id=b.dataset.districtId,focus=b.dataset.districtFocus;showCustomEvent('DISTRICT PLANNING',DISTRICT_FOCI[focus].name,DISTRICT_FOCI[focus].description+' Existing properties remain legal. Revisions are available after30 days and cost$1,200.',[{title:'Record district charter',cost:0,apply:()=>chooseDistrictFocus(id,focus)}]);}});
+
+// SOURCE: 98-migration-ui.js
+// Readable push/pull reports; all quantities below are assessments or the bounded
+// decisions observed since this town was opened, never invented census history.
+function migrationPanel(){
+ const report=migrationDiagnostics(),outside=report.outsideReference,inherited=G.tenancyVersion!==1||report.overcrowdedHomes.every(b=>b.legacySharedTenants.length>0);
+ return `<details class="council-card" id="migrationOffice"><summary>Moving in, moving out & housing</summary><p class="desc">A new household needs an actual vacant unit, funded work it can reach, and take-home pay covering rent, food, utilities and fares. Existing local jobseekers get first consideration. Families also compare outside prices and local care/learning access. Affordable spare teaching places at working independent schools can also enter the forecast; their fees are included without assumed vouchers. A quoted job or place can change before arrival.</p><p class="desc">Outside comparison: ${esc(outside.name)} · ${money(outside.net)}/day reference income and ${money(outside.essentials)} essentials for two working adults. Income and rent use the founding-policy benchmark; food uses current market quotes. This is a comparison, not a guaranteed foreign job.</p>`+
+ (report.reviewRequired?`<div class="entry"><strong>${inherited?'Inherited shared housing needs review':'Housing capacity needs review'}</strong><p class="desc">${report.overcrowdedHomes.length} dwellings have more households than physical units. Every existing family and financial claim is preserved. These addresses accept no further household arrivals. Commission real replacement housing and review relocation.</p><button data-urban-rehousing>Review replacement housing</button></div>`+report.overcrowdedHomes.slice(0,8).map(b=>`<button class="entry" data-inspect="${b.building}">${b.occupied} households · ${b.capacity} physical units · inspect address</button>`).join(''):'')+
+ head('Observed population changes · since day '+report.observedSinceDay)+strip('Births / deaths',report.sessionCounts.births+' / '+report.sessionCounts.deaths)+strip('Immigration / emigration',report.sessionCounts.immigration+' / '+report.sessionCounts.emigration)+'<p class="desc">These observations restart after loading a town; no earlier census is reconstructed.</p>'+
+ (report.recent.length?head('Recent decisions · this open session')+report.recent.slice(-5).reverse().map(row=>{const a=row.assessment;return `<div class="entry"><strong>${esc(row.kind.replace(/-/g,' '))} · day ${row.day}</strong>${a?`<p class="desc">Take-home ${money(a.expectedNet)}/day · essentials ${money(a.essentials)}/day${a.pullProbability!=null?' · current pull '+Math.round(a.pullProbability*100)+'%':''}. ${esc(a.reasons.join('; ')||'Funded reachable work and an affordable budget; outside alternatives and services still influence the choice.')}</p>`:''}</div>`;}).join(''):'<p class="desc">No migration decision has been observed since this town was opened. Earlier demographic history is not reconstructed from missing records.</p>')+'</details>';
+}
+const migrationCommunityBase=renderCommunityFull;renderCommunityFull=function(){return migrationPanel()+migrationCommunityBase();};
+const migrationHouseholdReportBase=householdServiceReport;householdServiceReport=function(id){
+ const h=G.households[id];if(!h?.people.length)return migrationHouseholdReportBase(id);const a=migrationEmigrationAssessment(h);
+ return migrationHouseholdReportBase(id)+head('Household moving prospects')+strip('Actually spendable savings',money(a.spendable.spendable))+strip('Bank claims currently unavailable',money(a.spendable.locked))+strip('Expected net / essential costs',money(a.expectedNet)+' / '+money(a.essentials)+' per day')+`<p class="desc">${esc(a.reasons.join('; '))}. Outside comparison: ${esc(a.outside.name)}; reference-only earnings and housing, with current food quotes. Departing households keep their recorded property, debts and bank claims.</p>`;
+};
 
 // SOURCE: 98-onboarding-trade.js
 function firstDeliveryCandidate(){return G.firms.filter(f=>!f.closed&&f.kind==='grocer'&&(f.stock.food||0)+pendingGoods(f,'food')<Math.max(100,reachableRetailDemand(f)*2)).map(f=>({f,q:OUTSIDE_MARKETS.map(m=>regionalQuote(f,m,'food','import')).filter(Boolean).sort((a,b)=>a.price+a.freight-b.price-b.freight)[0]})).find(o=>o.q&&o.f.cash>60*(o.q.price*(1+G.policy.importTariff/100)+o.q.freight))}

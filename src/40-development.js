@@ -417,19 +417,18 @@ function urbanRedevelopment(demand){
  return true;
 }
 function addHouseholdAt(building,capital=1700){
- if(G.day>1){const vacancies=G.firms.filter(f=>!f.closed).reduce((n,f)=>n+Math.max(0,f.jobs-f.workers.length),0),seekers=Math.max(0,G.stats.workforce-G.stats.employed);if(vacancies-seekers<2||G.stats.employment<88)return null;}
-
- if(G.people.filter(p=>!p.deceased&&p.movedAway!==true).length>=2000)return null;
- const cash=Math.min(G.region,capital);if(cash<500)return null;
- G.region-=cash;
- const h={id:G.households.length,name:pick(surnames),cash,home:building.id,owner:-1,people:[],income:0,rent:0,food:0,tax:0,incomeTax:0,energyTax:0,utilities:0,travel:0,aid:0,crimeLoss:0,stress:27,security:86,last:[],worklessness:0};
- G.households.push(h);
- const occupants=Math.min(2,2000-G.people.filter(p=>!p.deceased&&p.movedAway!==true).length);
- for(let j=0;j<occupants;j++){
-  const p={id:G.people.length,name:pick(first)+' '+h.name,age:Math.floor(rn(20,54)),skill:rn(.35,1),health:rn(65,97),hh:h.id,job:-1,life:rn(45,80),last:[]};G.people.push(p);h.people.push(p.id);
- }
- if(G.day>1){assignJobs();recompute();}return h;
+ const housing=migrationHousingStatus(building);if(!housing.capacity||housing.available<1||housing.reserved||housing.underConstruction)return null;
+ const occupants=Math.min(2,2000-G.people.filter(p=>!p.deceased&&!p.movedAway).length);if(occupants<1)return null;
+ const cash=Math.min(Math.max(0,G.region),capital);if(cash<500)return null;
+ const profiles=migrationNewProfiles(occupants),assessment=G.day>1?migrationAssessment(building,profiles,cash):null;
+ if(assessment&&!assessment.eligible){migrationRecord('arrival-deferred',{home:building.id,assessment});return null;}
+ if(assessment&&random()>=assessment.pullProbability){migrationRecord('outside-option-preferred',{home:building.id,assessment});return null;}
+ G.region-=cash;const h={id:G.households.length,name:pick(surnames),cash,home:building.id,owner:-1,people:[],income:0,rent:0,food:0,tax:0,incomeTax:0,energyTax:0,utilities:0,travel:0,aid:0,crimeLoss:0,stress:27,security:86,last:[],worklessness:0};G.households.push(h);
+ for(const profile of profiles){const p={id:G.people.length,name:pick(first)+' '+h.name,...profile,hh:h.id,job:-1,last:[]};G.people.push(p);h.people.push(p.id);}
+ migrationRegisterTenancy(h,building);migrationAcceptOffers(h.people.map(id=>G.people[id]),assessment);
+ if(G.day>1){assignJobs();recompute();migrationRecord('household-arrival',{household:h.id,people:profiles.length,capital:cash,assessment});}return h;
 }
+
 function completeRedevelopment(b,p){
  const existing=b.kind==='apartment'?(b.units||[]).slice():(b.hh>=0?[b.hh]:[]);
  for(const id of existing){if(G.households[id])delete G.households[id].temporaryHousing;}
@@ -438,7 +437,7 @@ function completeRedevelopment(b,p){
  b.units=existing;
  for(let k=b.units.length;k<p.units;k++){
   const h=addHouseholdAt(b,1800+Math.round(rn(0,2500)));
-  if(!h)break;b.units.push(h.id);
+  if(!h)break;migrationRegisterTenancy(h,b);
  }
  if(b.units.length)b.hh=b.units[0];
  G.development.redevelopments=(G.development.redevelopments||0)+1;

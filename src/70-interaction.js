@@ -49,10 +49,9 @@ function construct(kind,x,y,quiet=false){
    if(G.region<15000){toast('Regional investment capital is exhausted.');G.treasury+=cost;G.region-=cost;return}
    G.region-=12000+G.policy.permitFee;const newFirm=createFirm(kind,x,y);newFirm.cash=12000;transferTreasury(G.policy.permitFee,'permits');assignJobs();story('New local enterprise: '+types[kind].n+' opens on a developed lot.','good');
  }else if(kind==='home'){
-   const b={id:G.nextId++,kind,x,y,value:48000,condition:100,owner:-1,firm:-1,hh:-1};G.buildings.push(b);let family={id:G.households.length,name:pick(surnames),cash:rn(900,3000),home:b.id,owner:-1,people:[],income:0,rent:0,food:0,tax:0,aid:0,crimeLoss:0,stress:25,security:85,last:[],worklessness:0};
-   G.households.push(family);G.region-=family.cash;G.homes.push(b.id);b.hh=family.id;b.owner=family.id;
-   for(let n=0;n<2;n++){let p={id:G.people.length,name:pick(first)+' '+family.name,age:Math.round(rn(19,60)),skill:rn(.3,1),health:rn(65,100),hh:family.id,job:-1,life:65,last:[]};G.people.push(p);family.people.push(p.id)}
-   assignJobs();story('A new household settled in the village.','good',b.id,family.id);
+   const b={id:G.nextId++,kind,x,y,value:48000,condition:100,owner:-1,firm:-1,hh:-1,title:{kind:'municipal',id:-1},municipalRehousing:true,relocationReserve:false};G.buildings.push(b);G.homes.push(b.id);G.cumulative.spending+=cost;invalidateBuildingIndex();invalidateRoads(false);
+   const family=addHouseholdAt(b,rn(900,3000));if(family)migrationRegisterTenancy(family,b);
+   story(family?'A household rented the new municipal home after comparing paid work and living costs.':'A municipal rental home opened. It remains vacant until a household can reach funded work and afford its living costs.','good',b.id,family?.id??-1);
  }else G.buildings.push({id:G.nextId++,kind,x,y,value:cost*10,condition:100,owner:-1,firm:-1,hh:-1,footprint:footprintFor(x,y,kind)});
  G.construction++;invalidateRoads();recompute();updateHeader();staticDirty=true;dirty=true;save();toast(types[kind].n+' constructed.');if(active==='construction')renderPanel('construction');
 }

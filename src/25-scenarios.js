@@ -18,7 +18,7 @@ function initializeScenario(){
   const cost=39000;if(!financeConstruction(cost))break;
   const b={id:G.nextId++,kind:'apartment',x:site.x,y:site.y,value:175000,baseValue:175000,condition:93,owner:-2,firm:-1,hh:-1,units:[],title:{kind:'investor',id:0},footprint:footprintFor(site.x,site.y,'apartment')};
   for(const id of b.footprint)if(G.tiles[id]===3)G.tiles[id]=0;G.buildings.push(b);invalidateBuildingIndex();invalidateRoads(false);
-  for(let k=0;k<4;k++){const h=addHouseholdAt(b,2500);if(h)b.units.push(h.id);}b.hh=b.units[0]??-1;
+  for(let k=0;k<4;k++){const h=addHouseholdAt(b,2500);if(h)migrationRegisterTenancy(h,b);}b.hh=b.units[0]??-1;
   G.development.privateSpend=(G.development.privateSpend||0)+cost;recompute();
  }
  for(const h of G.households.filter(h=>h.id>=67)){for(let j=0;j<h.people.length;j++){const person=G.people[h.people[j]];person.age=h.id%5===0?Math.round(rn(71,79)):j===0?Math.round(rn(27,57)):h.id%3===0?Math.round(rn(7,15)):Math.round(rn(24,56));}}
