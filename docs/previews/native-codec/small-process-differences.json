@@ -1,0 +1,30 @@
+{
+  "saved_before_record_found": true,
+  "current_sha256": "a2bd6db3ad4aeabf9854b273929a28d8e53177e41fc3c12e9c82ce04f8e539ba",
+  "stored_candidates": [
+    {
+      "key": "townledger-v6-backup",
+      "sha256": "e43b77fe57d263ab0f5c283e7fcadb2fe1a8b4e48079cd9e4f28a9e1dae9bdd1",
+      "day": 1,
+      "people": 169
+    },
+    {
+      "key": "townledger-v6",
+      "sha256": "a2bd6db3ad4aeabf9854b273929a28d8e53177e41fc3c12e9c82ce04f8e539ba",
+      "day": 1,
+      "people": 169
+    }
+  ],
+  "differences": [
+    {
+      "path": ".roadMetrics",
+      "before": {
+        "type": "dict",
+        "length": 8
+      },
+      "after": null
+    }
+  ],
+  "difference_count": 1,
+  "raw_save_payloads_retained": false
+}

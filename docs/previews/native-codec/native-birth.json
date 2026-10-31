@@ -1,0 +1,22 @@
+{
+  "source_sha256": "c1ad404fb87f2fb27d1ce85ef39ca5a3ab04d2b03785f6411774e4db7512b713",
+  "small": {
+    "changed": [],
+    "ok": true,
+    "exact": true,
+    "encodeMs": 300.2999999989697,
+    "decodeMs": 3819.500000001426,
+    "bytes": 135898
+  },
+  "large": {
+    "ok": true,
+    "eligibleHousehold": 1,
+    "seed": 7,
+    "people": 8001,
+    "newbornAge": 0,
+    "newbornHousehold": 1,
+    "householdContains": true,
+    "moneyEqual": true
+  },
+  "outcome": "PASS"
+}
