@@ -14,6 +14,7 @@ function seed(seedValue=42){
  for(let y=0;y<T;y++)for(let x=0;x<T;x++)if(x>=CHARTER_BASE||y>=CHARTER_BASE)tiles[y*T+x]=regionalTerrain(x,y,seedValue);
  G={gridSize:T,charter:newCharter(),roadClasses:streets.classes,streetNames:streets.names,climateSeasons:gameOptions.seasons,climateWeather:gameOptions.weather,version:3,day:1,year:1,month:1,tiles,buildings:[],homes:[],people:[],households:[],firms:[],policy:{...defaults},
     treasury:90000,debt:0,publicReserve:0,region:15000000,projects:[],metro:{cash:0,stations:[],lines:[],fare:2.75,rides:0,revenue:0,expenses:0,dailyRides:0,daysInDeficit:0,operating:false,invested:0},development:{homes:0,firms:0,roads:0,stations:0,lastReport:null,decisions:[]},privateRoads:[],landUse:{},fieldOwner:{},fieldCount:{},airport:null,autoBuild:true,nextId:1,history:[],events:[],journal:[],records:[],stats:{},cumulative:{incomeTax:0,profitTax:0,propertyTax:0,foodTax:0,utilityTax:0,commercialRate:0,permits:0,tariffs:0,spending:0,crime:0,fires:0,welfare:0},cases:[],speed:1,scenario:chosenScenario,achievements:[],council:{approval:65,elections:0,confidence:65,factions:{workers:60,merchants:62,homeowners:60,public:66},lastApproval:65},ambition:chosenScenario==='regional'?'education':chosenScenario==='hardtimes'?'families':'balanced',ambitionDays:{},lastMonth:{},crisesHandled:0,policyOutcomes:[],construction:0,worldSeed:Math.floor(random()*99999999),weather:'clear',season:0,regionalDemand:1,neighborhoods:[],lastEventDay:1,unrest:0,education:46,health:74,historyLong:[]};
+ buildRegionalApproaches(true);
  const add=(kind,x,y,opt={})=>{if(G.tiles[roadId(x,y)]===1||G.tiles[roadId(x,y)]===2)throw Error('Founding structure overlaps a roadway or river');G.tiles[roadId(x,y)]=0;let b={id:G.nextId++,kind,x,y,value:Math.round(types[kind].cost*10),condition:100,owner:-1,firm:-1,hh:-1,...opt};G.buildings.push(b);return b};
  add('townhall',26,26,{value:150000});add('police',24,26,{value:90000});add('fire',29,26,{value:80000});add('clinic',28,29,{value:74000});add('school',25,28,{value:70000});add('square',28,26,{value:15000});
  const firms=['grocer','grocer','grocer','bakery','bakery','mill','mill','farm','farm','farm','farm','forestry','forestry','sawmill','quarry','contractor','contractor','grocer','bakery','farm','tavern','office','factory','warehouse'];
@@ -98,6 +99,7 @@ function refreshBuildingIndex(){if(cacheBuildingsFor===G&&cacheBuildingsCount===
 function buildingAt(x,y){if(x<0||x>=T||y<0||y>=T)return null;refreshBuildingIndex();return buildingsByTile.get(y*T+x)||null;}
 function nearRoad(x,y){return roadOffsets.some(d=>cityCell(x+d[0],y+d[1])===1)}
 function canPlace(x,y,roads=true,kind='home',ignore=null){
+ if(districtPlacementReason(x,y,kind))return false;
  const dims=LANDMARK_SIZE[kind]||[1,1];if(x<2||y<2||x+dims[0]>T-2||y+dims[1]>T-2)return false;
  let access=false;
  for(let dy=0;dy<dims[1];dy++)for(let dx=0;dx<dims[0];dx++){
@@ -165,13 +167,14 @@ function trade(f,good,units){units=Math.max(0,units-pendingGoods(f,good));if(uni
   const distance=b&&buyer?roadDistance(sourceRoad,port):Infinity;
   return {f:v,linked,distance,shipping:linked?(0.008+distance*.0009)*clamp(1.42-G.policy.roadBudget/220,.65,1.42):Infinity}
  }).filter(s=>s.linked).sort((a,b)=>a.shipping-b.shipping);
- let left=units;for(const source of sources){const seller=source.f,price=marketOutputPrice(seller,good),unit=price*(1+source.shipping);
+ const landedImport=regionalImportLandedPrice(f,good);let left=units;for(const source of sources){const seller=source.f,price=marketOutputPrice(seller,good),unit=price*(1+source.shipping);
   const wear=(G.stats.roadCondition||85),carriageRate=source.shipping*(1+Math.max(0,75-wear)/110);
   let n=Math.min(seller.stock[good],left,Math.floor(f.cash/(price*(1+carriageRate))));if(n<=0)continue;
+  if(price*(1+carriageRate)>landedImport)continue;
   const amt=n*price,carriage=n*price*carriageRate;
   recordInventoryPurchase(f,good,n,amt+carriage);takeInventory(seller,good,n,true);enterpriseRevenue(seller,amt);f.cash-=amt+carriage;G.region+=carriage;G.cumulative.freight=(G.cumulative.freight||0)+carriage;
   dispatchGoods(seller,f,good,n,routeBetween(readBuild(seller.building),readBuild(f.building)));left-=n;if(left<=0)break
  }
- if(left>0)regionImport(f,good,left);
+ if(left>0)left-=regionImport(f,good,left);
  return units-left;
 }
