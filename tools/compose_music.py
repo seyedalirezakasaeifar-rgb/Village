@@ -49,4 +49,8 @@ def compose(name,bpm,key,progression,phrases):
   subprocess.run(['ffmpeg','-hide_banner','-loglevel','error','-y','-i',str(wav),'-c:a','libvorbis','-q:a','3',str(out)],check=True)
  return {'file':out.name,'title':name.replace('-',' ').title(),'bpm':bpm,'seconds':length,'sha256':hashlib.sha256(out.read_bytes()).hexdigest(),'rms':float(np.sqrt(np.mean(mix**2))),'peak':float(np.max(np.abs(mix)))}
 if __name__=='__main__':
- (ROOT/'assets/music').mkdir(exist_ok=True);rows=[compose(*s) for s in SCORES];(ROOT/'assets/music/score.json').write_text(json.dumps({'original':True,'license':'CC0-1.0','tracks':rows},indent=2)+'\n');print(rows)
+ from compose_extended_score import SCORES as EXTENDED,compose as compose_extended
+ (ROOT/'assets/music').mkdir(exist_ok=True)
+ rows=[compose(*s) for s in SCORES]+[compose_extended(spec) for spec in EXTENDED]
+ (ROOT/'assets/music/score.json').write_text(json.dumps({'original':True,'license':'CC0-1.0','sampleRate':RATE,'tracks':rows},indent=2)+'\n')
+ print(rows)

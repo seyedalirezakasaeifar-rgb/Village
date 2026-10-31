@@ -1,0 +1,88 @@
+{
+  "source_sha256": "23bd4570b62219ddc9f58a68007cb7c696569def326004fd4d1a198fcccd0fe1",
+  "selection": {
+    "pieces": 10,
+    "seconds": 2846.3730000000005,
+    "selections": 100,
+    "unique": 10,
+    "noRepeatWindow": 6,
+    "quietSelections": 340,
+    "livelyQuietSelections": 70,
+    "economicStateUnchanged": true
+  },
+  "decoded": [
+    {
+      "file": "morning-ledger",
+      "seconds": 201.9230612244898,
+      "channels": 2,
+      "rms": 0.03787365371340818,
+      "peak": 0.16390642523765564
+    },
+    {
+      "file": "river-and-road",
+      "seconds": 171.95648526077096,
+      "channels": 2,
+      "rms": 0.037119424516284284,
+      "peak": 0.15616197884082794
+    },
+    {
+      "file": "lamplit-windows",
+      "seconds": 224.42854875283447,
+      "channels": 2,
+      "rms": 0.038193175820898685,
+      "peak": 0.16171367466449738
+    },
+    {
+      "file": "orchard-footpaths",
+      "seconds": 281.5,
+      "channels": 2,
+      "rms": 0.06568775172242575,
+      "peak": 0.3268190026283264
+    },
+    {
+      "file": "rails-to-greyhaven",
+      "seconds": 287.4574149659864,
+      "channels": 2,
+      "rms": 0.06558222559927072,
+      "peak": 0.3315608501434326
+    },
+    {
+      "file": "waterline-work",
+      "seconds": 275.7856689342404,
+      "channels": 2,
+      "rms": 0.06552366565675237,
+      "peak": 0.3188609778881073
+    },
+    {
+      "file": "market-day",
+      "seconds": 306.95451247165533,
+      "channels": 2,
+      "rms": 0.06545272404251101,
+      "peak": 0.27421635389328003
+    },
+    {
+      "file": "after-the-rain",
+      "seconds": 379.68179138321995,
+      "channels": 2,
+      "rms": 0.06461697636582946,
+      "peak": 0.2822084426879883
+    },
+    {
+      "file": "a-borough-grows",
+      "seconds": 355.1841723356009,
+      "channels": 2,
+      "rms": 0.06463279697621793,
+      "peak": 0.28996220231056213
+    },
+    {
+      "file": "quiet-river-reprise",
+      "seconds": 361.5,
+      "channels": 2,
+      "rms": 0.06578278719973632,
+      "peak": 0.3030005693435669
+    }
+  ],
+  "realMediaPlayback": true,
+  "subjectiveListening": false,
+  "errors": []
+}

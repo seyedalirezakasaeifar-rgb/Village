@@ -1,0 +1,11 @@
+{
+  "source_sha256": "23bd4570b62219ddc9f58a68007cb7c696569def326004fd4d1a198fcccd0fe1",
+  "mockedMediaPromises": true,
+  "result": {
+    "staleRejectionIgnored": true,
+    "suspendDecks": 1,
+    "fadeStopped": true,
+    "retiredSourcesCleared": 3,
+    "activeDeckLimit": 2
+  }
+}
