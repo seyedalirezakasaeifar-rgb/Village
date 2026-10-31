@@ -1,0 +1,26 @@
+{
+  "source_sha256": "27ca5f1e1e5df352d38daf042d2de63b63024b8deed596c79e2f4679cc50947e",
+  "httpOrigin": true,
+  "expectedNegative": true,
+  "result": {
+    "day": 31,
+    "staffing": {
+      "firm": 0,
+      "oldJobs": 2,
+      "newJobs": 3,
+      "actualPlanEnterprise": true
+    },
+    "exact": false,
+    "changed": [
+      "firms",
+      "goodsCompensation",
+      "households",
+      "observations"
+    ],
+    "rentChanges": [],
+    "rngA": 633198347,
+    "rngB": 633198347,
+    "moneyDrift": -5.4016709327697754e-08,
+    "sourceDoesNotDependOnPresentation": true
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "checkpoint": "03cb54675880a9b60c0c8d8de5dd0b671d0abff3",
+  "source_sha256": "27ca5f1e1e5df352d38daf042d2de63b63024b8deed596c79e2f4679cc50947e",
+  "seed": 8142026,
+  "firstDivergentCall": {
+    "day": 103,
+    "function": "urbanRentMultiplier",
+    "home": 46,
+    "warm": 1.1138333333333332,
+    "restored": 1.1143333333333334,
+    "warmCachedWork": 1.2799999713897705,
+    "restoredCachedWork": 1.340000033378601,
+    "currentFirmJobsIdentical": true
+  },
+  "precedingStages": [
+    {
+      "pass": 1,
+      "day": 103,
+      "stage": "fundCivicServices",
+      "rng": 1043491905,
+      "digest": "bef5987e"
+    },
+    {
+      "pass": 2,
+      "day": 103,
+      "stage": "fundCivicServices",
+      "rng": 1043491905,
+      "digest": "bef5987e"
+    }
+  ],
+  "cause": "urbanSpatial monthly cache retains prior enterprise job counts; hydration rebuilds it from current records. Derived cache feeds authoritative rent."
+}
