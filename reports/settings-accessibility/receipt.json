@@ -5,6 +5,31 @@
     640
   ],
   "checks": {
+    "mutedBeforeReload": {
+      "musicEnabled": false,
+      "soundEnabled": false,
+      "music": [
+        {
+          "paused": true,
+          "gain": 0.11757639507452783,
+          "volume": 0.06920864070353411
+        }
+      ],
+      "ambient": {
+        "paused": true,
+        "volume": 0.1
+      },
+      "effects": [
+        {
+          "paused": true,
+          "volume": 0.22
+        },
+        {
+          "paused": true,
+          "volume": 0.22
+        }
+      ]
+    },
     "reload": {
       "musicEnabled": false,
       "soundEnabled": false,
@@ -60,8 +85,8 @@
       }
     },
     "reducedMotionClock": {
-      "before": 0.3331999999999999,
-      "after": 0.3331999999999999
+      "before": 0.3333,
+      "after": 0.3333
     },
     "keyboardNext": "musicNext",
     "controlBounds": [
