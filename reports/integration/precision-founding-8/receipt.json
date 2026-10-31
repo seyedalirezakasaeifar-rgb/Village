@@ -1,0 +1,293 @@
+{
+  "source_sha256": "622043db97e76ed178d07f812d5bd145aad23745e8063f3851dd94bd7cd5e591",
+  "gates": {
+    "reports/fresh-save/result.json": {
+      "source_sha256": "622043db97e76ed178d07f812d5bd145aad23745e8063f3851dd94bd7cd5e591",
+      "cases": [
+        {
+          "scenario": "settlement",
+          "seed": 42,
+          "exact": true
+        },
+        {
+          "scenario": "settlement",
+          "seed": 101,
+          "exact": true
+        },
+        {
+          "scenario": "settlement",
+          "seed": 909,
+          "exact": true
+        },
+        {
+          "scenario": "regional",
+          "seed": 42,
+          "exact": true
+        },
+        {
+          "scenario": "regional",
+          "seed": 101,
+          "exact": true
+        },
+        {
+          "scenario": "regional",
+          "seed": 909,
+          "exact": true
+        },
+        {
+          "scenario": "hardtimes",
+          "seed": 42,
+          "exact": true
+        },
+        {
+          "scenario": "hardtimes",
+          "seed": 101,
+          "exact": true
+        },
+        {
+          "scenario": "hardtimes",
+          "seed": 909,
+          "exact": true
+        },
+        {
+          "scenario": "industrial",
+          "seed": 42,
+          "exact": true
+        },
+        {
+          "scenario": "industrial",
+          "seed": 101,
+          "exact": true
+        },
+        {
+          "scenario": "industrial",
+          "seed": 909,
+          "exact": true
+        }
+      ]
+    },
+    "docs/previews/render-precision-audit/integration-640/compositor-checks.json": {
+      "old": {
+        "channels": 332,
+        "max": 24
+      },
+      "fixed": {
+        "channels": 0,
+        "max": 0
+      },
+      "unchanged": true,
+      "underlayBytes": 550400,
+      "source_sha256": "622043db97e76ed178d07f812d5bd145aad23745e8063f3851dd94bd7cd5e591",
+      "errors": []
+    },
+    "docs/previews/render-precision-audit/camera-checks.json": {
+      "checks": [
+        {
+          "zoom": 1.4,
+          "night": false,
+          "stable": true,
+          "bytes": 941904,
+          "repairBytes": 941904,
+          "viewportBytes": 941904
+        },
+        {
+          "zoom": 1.4,
+          "night": true,
+          "stable": true,
+          "bytes": 941904,
+          "repairBytes": 941904,
+          "viewportBytes": 941904
+        },
+        {
+          "zoom": 0.6,
+          "night": false,
+          "stable": true,
+          "bytes": 941904,
+          "repairBytes": 941904,
+          "viewportBytes": 941904
+        },
+        {
+          "zoom": 0.6,
+          "night": true,
+          "stable": true,
+          "bytes": 941904,
+          "repairBytes": 941904,
+          "viewportBytes": 941904
+        },
+        {
+          "zoom": 0.4,
+          "night": false,
+          "stable": true,
+          "bytes": 941904,
+          "repairBytes": 941904,
+          "viewportBytes": 941904
+        },
+        {
+          "zoom": 0.4,
+          "night": true,
+          "stable": true,
+          "bytes": 941904,
+          "repairBytes": 941904,
+          "viewportBytes": 941904
+        },
+        {
+          "zoom": 0.2,
+          "night": false,
+          "stable": true,
+          "bytes": 0,
+          "repairBytes": 0,
+          "viewportBytes": 941904
+        },
+        {
+          "zoom": 0.2,
+          "night": true,
+          "stable": true,
+          "bytes": 0,
+          "repairBytes": 0,
+          "viewportBytes": 941904
+        },
+        {
+          "zoom": 1.1,
+          "night": false,
+          "stable": true,
+          "bytes": 941904,
+          "repairBytes": 941904,
+          "viewportBytes": 941904
+        },
+        {
+          "zoom": 1.1,
+          "night": true,
+          "stable": true,
+          "bytes": 941904,
+          "repairBytes": 941904,
+          "viewportBytes": 941904
+        }
+      ],
+      "unchanged": true,
+      "assetOrigin": "http://127.0.0.1:39155/assets/index.html",
+      "source_sha256": "622043db97e76ed178d07f812d5bd145aad23745e8063f3851dd94bd7cd5e591",
+      "errors": []
+    },
+    "reports/release-tests.json": {
+      "source_sha256": "622043db97e76ed178d07f812d5bd145aad23745e8063f3851dd94bd7cd5e591",
+      "determinism_and_continuation": {
+        "sameSeed": true,
+        "renderIndependent": true,
+        "continuedDays": 120,
+        "valid": {
+          "ok": true,
+          "issues": [],
+          "total": 15489571.999994356,
+          "population": 172,
+          "day": 301
+        }
+      },
+      "malformed_save_atomicity": {
+        "investorRejected": true,
+        "cargoRejected": true,
+        "futureRejected": true,
+        "townPreserved": true
+      },
+      "replicated_zoning": [
+        {
+          "seed": 42,
+          "zone": 0,
+          "population": 192,
+          "homes": 17,
+          "firms": 3,
+          "privateSpend": 494901,
+          "moneyDelta": -1.2569129467010498e-05,
+          "ms": 3117.9000000059605
+        },
+        {
+          "seed": 42,
+          "zone": 100,
+          "population": 177,
+          "homes": 0,
+          "firms": 1,
+          "privateSpend": 0,
+          "moneyDelta": -1.7305836081504822e-05,
+          "ms": 2321.3999999910593
+        },
+        {
+          "seed": 101,
+          "zone": 0,
+          "population": 221,
+          "homes": 21,
+          "firms": 8,
+          "privateSpend": 621891,
+          "moneyDelta": -1.55717134475708e-05,
+          "ms": 3187.0999999940395
+        },
+        {
+          "seed": 101,
+          "zone": 100,
+          "population": 183,
+          "homes": 0,
+          "firms": 2,
+          "privateSpend": 0,
+          "moneyDelta": -8.197501301765442e-06,
+          "ms": 2299.5
+        },
+        {
+          "seed": 909,
+          "zone": 0,
+          "population": 211,
+          "homes": 21,
+          "firms": 5,
+          "privateSpend": 525844,
+          "moneyDelta": -1.1583790183067322e-05,
+          "ms": 2825.2999999970198
+        },
+        {
+          "seed": 909,
+          "zone": 100,
+          "population": 176,
+          "homes": 0,
+          "firms": 1,
+          "privateSpend": 0,
+          "moneyDelta": -1.2626871466636658e-05,
+          "ms": 2275.8999999910593
+        }
+      ],
+      "cargo_ownership": {
+        "consignments": 6,
+        "sampledUnits": 166.3792513597068,
+        "remaining": true,
+        "delayed": 1,
+        "cashConserved": true
+      },
+      "legacy_56_migration": {
+        "v": {
+          "ok": true,
+          "issues": [],
+          "total": 15421887,
+          "population": 169,
+          "day": 1
+        },
+        "after": {
+          "ok": true,
+          "issues": [],
+          "total": 15421886.999999477,
+          "population": 169,
+          "day": 31
+        },
+        "schema": 8
+      },
+      "true_pause": {
+        "identicalScreenshots": true,
+        "milliseconds": 500
+      },
+      "traffic_progress": {
+        "seconds": 1600,
+        "maximumWait": 0.9999999999999999,
+        "peak": 21,
+        "valid": true
+      },
+      "long_run_endurance": [],
+      "browser_errors": []
+    }
+  },
+  "nativeReviewPending": true,
+  "cooperativeEnabled": false
+}

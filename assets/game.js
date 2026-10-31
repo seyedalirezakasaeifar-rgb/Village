@@ -1244,7 +1244,7 @@ function seed(seedValue=42){
  for(let b of G.buildings)if(b.kind==='home')b.owner=(random()<.35?b.hh:random()*G.households.length|0);
  assignJobs();recompute();const counts={population:G.people.length,employment:G.stats.employment,hardship:G.stats.hardship,safety:G.stats.safety,businesses:G.firms.length,treasury:G.treasury};
  G.journal.push({day:1,name:'Village founded',message:'Town hall records open. Follow real people, employers and policy consequences.',baseline:counts});
- G.events.push({day:1,text:'A new council has taken responsibility for the prosperity of the Vale.',type:'neutral'});setupScenario();seedBanks();ensureSystems();initializeScenario();initializeWaterfrontStart();ensureMarketModel();G.scenarioSeed=seedValue;G.accounts={baseline:totalMoney(),maxError:0};housingMarketDay(true);recordObservation();initializeScenarioProgramme();save();
+ G.events.push({day:1,text:'A new council has taken responsibility for the prosperity of the Vale.',type:'neutral'});setupScenario();seedBanks();ensureSystems();initializeScenario();initializeWaterfrontStart();ensureMarketModel();ensureSystems();ensureFinance();G.recentCouncilEvents=G.recentCouncilEvents||[];invalidateRoads(false);recompute();G.stats.approval=Math.round(G.council.approval);G.scenarioSeed=seedValue;G.accounts={baseline:totalMoney(),maxError:0};housingMarketDay(true);recordObservation();initializeScenarioProgramme();recompute();G.stats.approval=Math.round(G.council.approval);save();
  staticDirty=true;dirty=true;
 }
 function cityCell(x,y){return x>=0&&x<T&&y>=0&&y<T?G.tiles[y*T+x]:-1}
