@@ -1,3 +1,4 @@
+function renderPauseIcon(){ const pause=$('pause');if(pause.dataset.iconState!==String(paused)){pause.innerHTML=paused?'<svg width=18 height=18 viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 4L21 12L7 20Z"/></svg>':'<svg width=18 height=18 viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6 4H10V20H6ZM14 4H18V20H14Z"/></svg>';pause.dataset.iconState=String(paused);}}
 function headerText(id,value){const el=$(id),text=String(value);if(el&&el.textContent!==text)el.textContent=text;}
 function headerMoney(value){return Math.abs(value)>=1000000?(value<0?'−':'')+'$'+(Math.abs(value)/1000000).toLocaleString('en-CA',{maximumFractionDigits:1})+'m':money(value);}
 let liveStatusTown=null,liveStatusDay=-1,liveStatusPaused=null,liveStatusKey='';
@@ -13,7 +14,7 @@ function updateLiveStatus(){
 function updateHeader(){
  if(!G)return;headerText('pop',fmt(G.stats.population));headerText('funds',headerMoney(G.treasury));if($('funds').title!==money(G.treasury))$('funds').title=money(G.treasury);headerText('jobs',G.stats.employment+'%');headerText('safety',G.stats.safety+'/100');headerText('approval',Math.round(G.council.approval)+'%');headerText('date','YEAR '+G.year+' · MONTH '+G.month+' · DAY '+G.day);
  headerText('season',(seasonsEnabled()?['SPRING IN THE VALE','SUMMER IN THE VALE','AUTUMN IN THE VALE','WINTER IN THE VALE'][Math.floor((G.month-1)/3)]:'THE WORKING CITY')+(weatherEnabled()&&G.weather&&G.weather!=='clear'?' · '+G.weather.toUpperCase():''));
- const pause=$('pause');if(pause.dataset.iconState!==String(paused)){pause.innerHTML=paused?'<svg width=18 height=18 viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 4L21 12L7 20Z"/></svg>':'<svg width=18 height=18 viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6 4H10V20H6ZM14 4H18V20H14Z"/></svg>';pause.dataset.iconState=String(paused);}const label=paused?'Resume simulation':'Pause simulation',title=paused?'Resume':'Pause';if(pause.getAttribute('aria-label')!==label)pause.setAttribute('aria-label',label);if(pause.title!==title)pause.title=title;
+ renderPauseIcon();const pause=$('pause');const label=paused?'Resume simulation':'Pause simulation',title=paused?'Resume':'Pause';if(pause.getAttribute('aria-label')!==label)pause.setAttribute('aria-label',label);if(pause.title!==title)pause.title=title;
  updateLiveStatus();
  headerText('speed',speed+'×');headerText('effectiveSpeed',!paused&&speed>=8?'Actual '+perfStats.effective.toFixed(0)+'×':'');const range=$('speedRange'),value=String(SPEED_PRESETS.indexOf(speed)>=0?SPEED_PRESETS.indexOf(speed):0);if(range&&range.value!==value)range.value=value;$('pauseBanner').style.display=paused?'block':'none';updateObjectiveMini();
 }

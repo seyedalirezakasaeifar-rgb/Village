@@ -36,14 +36,15 @@ function cooperativeCaptureInput(e){
  // Native focus, typing, slider and button activation stay functional. Their
  // model-facing input/change/click handlers are fenced below.
  if(target!==cv&&/^(pointer|touch)/.test(e.type))return;
+ if(e.type==='click'&&e.isTrusted){handleMusicGesture(e);if(['musicToggle','musicNext','musicRetry'].includes(target.id)){e.preventDefault();e.stopImmediatePropagation();return;}}
  if(e.type==='click'&&target.id==='pause'){
-  e.preventDefault();e.stopImmediatePropagation();paused=!paused;const el=$('pause');el.textContent=paused?'►':'Ⅱ';el.setAttribute('aria-label',paused?'Resume simulation':'Pause simulation');el.title=paused?'Resume':'Pause';$('pauseBanner').style.display=paused?'block':'none';if(paused)afterCommittedDay(()=>save());cooperativeBanner();return;
+  e.preventDefault();e.stopImmediatePropagation();paused=!paused;const el=$('pause');renderPauseIcon();el.setAttribute('aria-label',paused?'Resume simulation':'Pause simulation');el.title=paused?'Resume':'Pause';$('pauseBanner').style.display=paused?'block':'none';if(paused)afterCommittedDay(()=>save());cooperativeBanner();return;
  }
  cooperativePreviewInput(e,target);if(e.type==='input'&&target.dataset.policy){const button=$('enactPolicy');if(button)button.disabled=false;}e.preventDefault();e.stopImmediatePropagation();
  const record={target,id:target.id,tag:target.tagName,data:{...target.dataset},value:target.value,checked:target.checked},type=e.type;
  let init={bubbles:true,cancelable:true,composed:true,clientX:e.clientX,clientY:e.clientY,screenX:e.screenX,screenY:e.screenY,button:e.button,buttons:e.buttons,ctrlKey:e.ctrlKey,shiftKey:e.shiftKey,altKey:e.altKey,metaKey:e.metaKey,pointerId:e.pointerId,pointerType:e.pointerType,isPrimary:e.isPrimary,pressure:e.pressure,key:e.key,code:e.code,repeat:e.repeat,deltaX:e.deltaX,deltaY:e.deltaY,deltaMode:e.deltaMode,touches:e.touches?Array.from(e.touches):undefined,targetTouches:e.targetTouches?Array.from(e.targetTouches):undefined,changedTouches:e.changedTouches?Array.from(e.changedTouches):undefined};
  const Constructor=e.constructor;
- cooperativeQueueCommand({label:type+' '+(record.id||record.tag.toLowerCase()),run:()=>{const el=cooperativeResolveTarget(record);if(el.disabled)throw Error('This action is no longer available with the current town state.');if(type==='input'||type==='change'){el.value=record.value;if(record.checked!==undefined)el.checked=record.checked;}el.dispatchEvent(new Constructor(type,init));}});
+ cooperativeQueueCommand({coalesce:type==='pointermove'&&target===cv&&!buildMode&&!transitDraft?String(e.pointerId):null,label:type+' '+(record.id||record.tag.toLowerCase()),run:()=>{const el=cooperativeResolveTarget(record);if(el.disabled)throw Error('This action is no longer available with the current town state.');if(type==='input'||type==='change'){el.value=record.value;if(record.checked!==undefined)el.checked=record.checked;}el.dispatchEvent(new Constructor(type,init));}});
 }
 for(const type of ['click','input','change','keydown','pointerdown','pointermove','pointerup','pointercancel','pointerleave','touchstart','touchmove','touchend','touchcancel','wheel'])window.addEventListener(type,cooperativeCaptureInput,{capture:true,passive:false});
 window.__cooperativeSimulation={
