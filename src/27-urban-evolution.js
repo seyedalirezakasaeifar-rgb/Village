@@ -23,7 +23,8 @@ function urbanSpatial(){
   if(f&&!f.closed){block.jobs+=f.jobs;if(f.kind==='farm')block.farms++;if(f.kind==='grocer'||f.kind==='tavern')block.retail++;if(heavy)block.industry++;}
   for(let dy=-6;dy<=6;dy++)for(let dx=-6;dx<=6;dx++){
    const d=Math.abs(dx)+Math.abs(dy),x=b.x+dx,y=b.y+dy;if(d>6||x<0||y<0||x>=T||y>=T)continue;const id=roadId(x,y),weight=(7-d)/7;
-   homes[id]+=units*weight;jobs[id]+=work*weight*.14;if(heavy)industry[id]+=weight;if(civic)amenity[id]+=weight;
+   // Skip zero contributions; preserve contribution order and Float32 rounding.
+   if(units!==0)homes[id]+=units*weight;if(work!==0)jobs[id]+=work*weight*.14;if(heavy)industry[id]+=weight;if(civic)amenity[id]+=weight;
   }
  }
  const incomes=Object.values(blocks).filter(b=>b.residents).map(b=>b.income/b.residents).sort((a,b)=>a-b),median=incomes[Math.floor(incomes.length/2)]||15;
