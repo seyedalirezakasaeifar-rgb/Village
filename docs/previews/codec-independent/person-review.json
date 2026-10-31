@@ -1,0 +1,25 @@
+{
+  "candidate": "f93a87ca331669c7a7907453799f009eb8adbfa0",
+  "source_sha256": "c1ad404fb87f2fb27d1ce85ef39ca5a3ab04d2b03785f6411774e4db7512b713",
+  "hostChromium": true,
+  "physicalAndroid": false,
+  "birth8001": true,
+  "originalVsDecodedReplayDays": 45,
+  "allLogicalCollectionsAndReferences": true,
+  "activeAndHistoryReorderPreserved": true,
+  "nullMissingUnicodeOwnProtoPreserved": true,
+  "atomicRejected": [
+    "rowIdDictionary",
+    "schema",
+    "payloadSchema",
+    "personEstate",
+    "homeOwner",
+    "negativeStock",
+    "badDeposit",
+    "wideNodes"
+  ],
+  "markerAccepted": true,
+  "downgradeSucceeded": true,
+  "downgradedReadable": false,
+  "schema9LogicalExportError": "Unsupported inactive identity format"
+}
