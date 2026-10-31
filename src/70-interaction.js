@@ -208,11 +208,11 @@ $('panelBody').addEventListener('click',e=>{const b=e.target.closest('button,[da
  if(b.id==='repay'){let v=Math.min(5000,G.debt,G.treasury);G.debt-=v;G.treasury-=v;G.region+=v;recompute();updateHeader();save();renderPanel(active)}
 });
 $('zoomIn').onclick=()=>{cam.zoom=clamp(cam.zoom*1.22,.26,1.7);dirty=true};$('zoomOut').onclick=()=>{cam.zoom=clamp(cam.zoom/1.22,.26,1.7);dirty=true};$('center').onclick=()=>{cam.x=RW/2;cam.y=RH/2;cam.zoom=.95;dirty=true};$('overlayToggle').onclick=()=>{overlay=overlay==='none'?'roads':overlay==='roads'?'metro':overlay==='metro'?'hardship':overlay==='hardship'?'crime':overlay==='crime'?'business':'none';dirty=true;toast('Map overlay: '+overlay)};
-$('pause').onclick=()=>{paused=!paused;updateHeader();if(paused)save()};const SPEED_PRESETS=[1,2,4,8,16,32,64];
-$('speed').onclick=()=>{const index=SPEED_PRESETS.indexOf(speed);speed=SPEED_PRESETS[(index+1)%SPEED_PRESETS.length];acc=0;sampleDays=0;sampleSeconds=0;G.speed=speed;updateHeader()};
-$('speedRange').addEventListener('input',e=>{speed=SPEED_PRESETS[+e.target.value]||1;acc=0;sampleDays=0;sampleSeconds=0;if(G)G.speed=speed;updateHeader();});
+ $('pause').onclick=()=>{paused=!paused;fit();updateHeader();if(paused)save()};const SPEED_PRESETS=[1,2,4,8,16,32,64];
+ $('speed').onclick=()=>{const index=SPEED_PRESETS.indexOf(speed);speed=SPEED_PRESETS[(index+1)%SPEED_PRESETS.length];acc=0;sampleDays=0;sampleSeconds=0;G.speed=speed;fit();updateHeader()};
+ $('speedRange').addEventListener('input',e=>{speed=SPEED_PRESETS[+e.target.value]||1;acc=0;sampleDays=0;sampleSeconds=0;if(G)G.speed=speed;fit();updateHeader();});
 $('speedRange').addEventListener('change',()=>{if(G)save();});
-function start(newVillage){if(newVillage){seed(Number($('townSeed')?.value)||42)}else if(!load())seed();cam={x:RW/2,y:RH/2,zoom:.95};invalidateRoads();buildMode='';selected=null;overlay='none';paused=false;speed=SPEED_PRESETS.includes(G.speed)?G.speed:1;acc=0;$('welcome').style.display='none';dirty=true;staticDirty=true;updateHeader();openPanel('overview');}
+function start(newVillage){if(newVillage){seed(Number($('townSeed')?.value)||42)}else if(!load())seed();cam={x:RW/2,y:RH/2,zoom:.95};invalidateRoads();buildMode='';selected=null;overlay='none';paused=false;speed=SPEED_PRESETS.includes(G.speed)?G.speed:1;acc=0;fit();$('welcome').style.display='none';dirty=true;staticDirty=true;updateHeader();openPanel('overview');}
 $('newTown').onclick=()=>{start(true);refreshAmbience()};$('continue').onclick=()=>{start(false);refreshAmbience()};
 try{if(localStorage.getItem('townledger-v6')||localStorage.getItem('townledger-v6-backup')||localStorage.getItem('townledger-village-founder-3')||localStorage.getItem('townledger-village-civic-2'))$('continue').style.display='block'}catch(e){}
 window.addEventListener('resize',fit);fit();

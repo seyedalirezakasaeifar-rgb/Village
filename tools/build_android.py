@@ -41,11 +41,11 @@ def main():
     if classes.exists():shutil.rmtree(classes)
     classes.mkdir()
     sources=list((ROOT/'android/app/src/main/java').rglob('*.java'))
-    run(['java','com.sun.tools.javac.Main','-source','7','-target','7','-Xlint:-options','-bootclasspath',jar,'-d',classes,*sources])
+    run(['java','com.sun.tools.javac.Main','-source','8','-target','8','-Xlint:-options','-bootclasspath',jar,'-d',classes,*sources])
     dex=OUT/'classes.dex'
     d8=next(iter(sorted(TOOLROOT.glob('build-tools/*/d8'),reverse=True)),None)
     if d8:
-        run([d8,'--min-api','24','--output',OUT,*classes.rglob('*.class')])
+        run([d8,'--lib',jar,'--min-api','24','--output',OUT,*classes.rglob('*.class')])
     else:
         dx=TOOLROOT/'usr/share/java/com.android.dx.jar'
         run(['java','-cp',dx,'com.android.dx.command.Main','--dex','--min-sdk-version=24','--output='+str(dex),classes])
@@ -58,7 +58,7 @@ def main():
     keystore=Path(os.environ.get('TOWNLEDGER_KEYSTORE',OUT/'development-signing.p12'))
     if not keystore.exists():
         run(['java','sun.security.tools.keytool.Main','-genkeypair','-keystore',keystore,'-storetype','PKCS12','-storepass','android','-keypass','android','-alias','townledger','-keyalg','RSA','-keysize','3072','-validity','10000','-dname','CN=TownLedger Development, O=TownLedger, C=CA'])
-    apk=ROOT/('TownLedger-'+META['edition'].replace(' ','-')+'-'+'.'.join(META['version'].split('.')[:2])+'.apk')
+    apk=ROOT/('TownLedger-'+META['edition'].replace(' ','-')+'-'+META['version']+'.apk')
     sdk_signer=next(iter(sorted(TOOLROOT.glob('build-tools/*/apksigner'),reverse=True)),None)
     signer=[sdk_signer] if sdk_signer else ['java','-cp',str(TOOLROOT/'usr/share/java/apksigner.jar')+':'+str(TOOLROOT/'usr/share/java/apksig.jar'),'com.android.apksigner.ApkSignerTool']
     run([*signer,'sign','--ks',keystore,'--ks-key-alias','townledger','--ks-pass','pass:android','--key-pass','pass:android','--min-sdk-version','24','--v1-signing-enabled','true','--v2-signing-enabled','true','--out',apk,aligned])

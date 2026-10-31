@@ -47,8 +47,35 @@ function drawAviation(g){
  else{pos=gate;heading=[r.dx,r.dy];}
  paintRegionalAircraft(g,...pos,...heading,alt,frameClock,gear);
 }
-function drawStreetNames(g){
- if(!gameOptions.streetNames||!G.streetNames)return;
- const streets=new Map();for(const [key,name] of Object.entries(G.streetNames)){const id=+key;if(G.tiles[id]!==1)continue;if(!streets.has(name))streets.set(name,[]);streets.get(name).push(id);}
- for(const [name,ids] of streets){if(ids.length<12)continue;const mid=ids[Math.floor(ids.length*.55)],p=roadCenter(mid),a=roadCenter(ids[0]),b=roadCenter(ids.at(-1));g.save();g.translate(...p);let angle=Math.atan2(b[1]-a[1],b[0]-a[0]);if(angle>Math.PI/2||angle<-Math.PI/2)angle+=Math.PI;g.rotate(angle);g.font='bold 7px Arial';g.textAlign='center';g.strokeStyle='#50615a';g.lineWidth=3;g.strokeText(name.toUpperCase(),0,-3);g.fillStyle='#efe8ce';g.fillText(name.toUpperCase(),0,-3);g.restore();}
+function drawStreetNames(g,sx,sy,ww,hh){
+ if(!gameOptions.streetNames||!G.streetNames||cam.zoom<.48)return;
+ const zoom=cam.zoom,compact=zoom<.82,minLength=zoom<.64?22:compact?17:12;
+ const rank={local:1,collector:2,arterial:3,through:4},streets=new Map();
+ for(const [key,name] of Object.entries(G.streetNames)){
+  const id=+key;if(G.tiles[id]!==1)continue;
+  if(!streets.has(name))streets.set(name,[]);streets.get(name).push(id);
+ }
+ const candidates=[];
+ for(const [name,ids] of streets){
+  if(ids.length<minLength)continue;
+  const roadRank=ids.reduce((best,id)=>Math.max(best,rank[G.roadClasses?.[id]]||0),0);
+  if(compact&&roadRank<2)continue;
+  const mid=ids[Math.floor(ids.length*.55)],p=roadCenter(mid);
+  if(p[0]<sx-100||p[0]>sx+ww+100||p[1]<sy-100||p[1]>sy+hh+100)continue;
+  const a=roadCenter(ids[0]),b=roadCenter(ids.at(-1));
+  candidates.push({name,ids,p,a,b,roadRank});
+ }
+ candidates.sort((a,b)=>b.roadRank-a.roadRank||b.ids.length-a.ids.length||a.name.localeCompare(b.name));
+ const maxLabels=compact?Math.max(4,Math.floor(cw*ch/55000)):Math.max(8,Math.floor(cw*ch/30000));
+ const placed=[],screenFont=compact?8:9,fontSize=screenFont/zoom;
+ g.font=`bold ${fontSize}px Arial`;g.textAlign='center';
+ for(const item of candidates){
+  if(placed.length>=maxLabels)break;
+  const text=item.name.toUpperCase(),screenX=(item.p[0]-sx)*zoom,screenY=(item.p[1]-sy)*zoom;
+  const width=g.measureText(text).width*zoom,height=screenFont+4;
+  if(placed.some(box=>Math.abs(box.x-screenX)<(box.width+width)/2+7&&Math.abs(box.y-screenY)<Math.max(box.height,height)+2))continue;
+  let angle=Math.atan2(item.b[1]-item.a[1],item.b[0]-item.a[0]);if(angle>Math.PI/2||angle<-Math.PI/2)angle+=Math.PI;
+  g.save();g.translate(...item.p);g.rotate(angle);g.font=`bold ${fontSize}px Arial`;g.textAlign='center';g.strokeStyle='#50615a';g.lineWidth=2/zoom;g.strokeText(text,0,-3/zoom);g.fillStyle='#efe8ce';g.fillText(text,0,-3/zoom);g.restore();
+  placed.push({x:screenX,y:screenY,width,height});
+ }
 }
