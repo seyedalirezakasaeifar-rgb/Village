@@ -16,8 +16,9 @@ assignment=next(n for n in tree.body if isinstance(n,ast.Assign) and any(isinsta
 probe+='\n'+ast.literal_eval(assignment.value.right)
 probe+=r'''
 const qaActualContinue=$('continue').onclick;$('continue').onclick=async e=>{await qaActualContinue(e);paused=true;hostSuspended=true;acc=0;last=performance.now();updateHeader()};
+const qaHousingOvercapacity=()=>{const occupants=new Map();for(const h of G.households)if(h.people.length){if(!occupants.has(h.home))occupants.set(h.home,[]);occupants.get(h.home).push(h.id)}return G.buildings.flatMap(b=>{const capacity={home:1,apartment:4,tower:9}[b.kind],households=occupants.get(b.id)||[];return capacity&&households.length>capacity?[{building:b.id,capacity,households}]:[]})};
 window.__qaRun={
- audit:()=>{const data=JSON.parse(archivePayload());return Object.fromEntries([validateArchiveRecords,validateUrbanRehousing,validateUrban,validateCivicProjects,validateMayorJourney,validatePrivateServices,validateDistrictProgrammes,validateRegionalTrade,validateWaterfrontArchive,validateGoodsAccounting,validateTransit,validateCivicState,validateCreditState,validateScenarioProgramme,validateCharter].map(f=>[f.name,f(data)]))},
+ audit:()=>{const data=JSON.parse(archivePayload());return Object.fromEntries([typeof validateUrbanRetailLabour==='function'?validateUrbanRetailLabour:null,typeof validatePublicPlaces==='function'?validatePublicPlaces:null,typeof validateTownSituations==='function'?validateTownSituations:null,typeof validateCivicCampaign==='function'?validateCivicCampaign:null,validateArchiveRecords,validateUrbanRehousing,validateUrban,validateCivicProjects,validateMayorJourney,validatePrivateServices,validateDistrictProgrammes,validateRegionalTrade,validateWaterfrontArchive,validateGoodsAccounting,validateTransit,validateCivicState,validateCreditState,validateScenarioProgramme,validateCharter].filter(Boolean).map(f=>[f.name,f(data)]))},
  candidates:()=>localSaveCandidates().concat(saveCandidates).map(e=>({day:JSON.parse(e.payload).day,town:e.town,revision:e.revision,order:e.order,checksum:e.checksum})),
  state:()=>({hasTown:!!G,day:G?.day,welcomeVisible:$('welcome').style.display!=='none',dialogVisible:$('eventDialog').style.display!=='none',dialogTitle:$('eventTitle')?.textContent,toast:$('toast').textContent,ready:saveStoreReady,head:saveTown}),
  ready:()=>saveStorePromise,
@@ -25,7 +26,7 @@ window.__qaRun={
  pause:()=>{paused=true;hostSuspended=true;acc=0;last=performance.now();updateHeader()},
  head:()=>({epoch:saveEpoch,town:saveTown,revision:saveRevision,order:saveOrder,ok:autoSaveOK}),
  snapshot:()=>{const g=JSON.parse(archivePayload());for(const b of g.buildings){if(b.baseValue==null)b.baseValue=b.value;if(!b.title)b.title={kind:b.owner>=0?'household':'regional',id:b.owner};}for(const k of ['trafficState','visualState','serviceProvision','privateServiceProvision','stats','roadMetrics'])delete g[k];return g},
- sample:()=>({day:G.day,people:G.people.length,living:G.stats.population,buildings:G.buildings.length,households:G.households.length,cargo:G.regionalTrade?.shipments.length||0,contracts:G.regionalTrade?.contracts.length||0,routes:G.transit.routes.length,fares:G.transit.fares,providers:G.firms.filter(f=>f.privateService&&!f.closed).length,malls:G.firms.filter(f=>f.retailCentre&&!f.closed).length,projects:G.projects.length,civic:G.civicProjects||null,annexations:G.charter.owned.length,valid:validateTown(),money:totalMoney(),goodsError:Math.max(...goodsBalance().map(x=>Math.abs(x.error))),bytes:new Blob([archivePayload()]).size,pending:!!savePendingWrite,active:saveWriteRunning}),
+ sample:()=>({archiveValidators:window.__qaRun.audit(),housingOvercapacity:qaHousingOvercapacity(),day:G.day,people:G.people.length,living:G.stats.population,buildings:G.buildings.length,households:G.households.length,cargo:G.regionalTrade?.shipments.length||0,contracts:G.regionalTrade?.contracts.length||0,routes:G.transit.routes.length,fares:G.transit.fares,providers:G.firms.filter(f=>f.privateService&&!f.closed).length,malls:G.firms.filter(f=>f.retailCentre&&!f.closed).length,projects:G.projects.length,civic:G.civicProjects||null,annexations:G.charter.owned.length,valid:validateTown(),money:totalMoney(),goodsError:Math.max(...goodsBalance().map(x=>Math.abs(x.error))),bytes:new Blob([archivePayload()]).size,pending:!!savePendingWrite,active:saveWriteRunning}),
  bootstrap:()=>{
   __saveComposite();const moved=Math.min(G.region,6000000);G.region-=moved;G.treasury+=moved;
   while(G.charter.owned.length<21){const p=ANNEX_PARCELS.find(p=>!G.charter.owned.includes(p.id)&&parcelAdjacent(p));if(!p||!purchaseParcel(p.id,parcelSurvey(p).price))throw Error('Cannot acquire adjoining deed');}
@@ -67,6 +68,8 @@ def emit(op,details):
  with (OUT/'operations.jsonl').open('a') as f:f.write(json.dumps(record,separators=(',',':'))+'\n')
  print(record['index'],round(record['seconds']),op,str(details)[:160],flush=True)
 def canonical(data):return hashlib.sha256(json.dumps(data,sort_keys=True,separators=(',',':')).encode()).hexdigest()
+manifest={str(p.relative_to(ROOT/'assets')):hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted((ROOT/'assets').rglob('*')) if p.is_file()}
+(OUT/'asset-manifest.json').write_text(json.dumps(manifest,indent=2)+'\n');summary['assetManifestSha256']=hashlib.sha256(json.dumps(manifest,sort_keys=True).encode()).hexdigest();summary['driverSha256']=hashlib.sha256(Path(__file__).read_bytes()).hexdigest()
 write_status()
 try:
  with sync_playwright() as pw:
@@ -110,11 +113,14 @@ try:
    elif op=='cargo':detail={'paidQty':page.evaluate('__qaRun.cargo()')}
    elif op=='redevelop':detail=page.evaluate('__qaRun.redevelop()')
    else:page.evaluate('__qaRun.save()');detail=cold()
-   page.evaluate('__qaRun.pause()');emit(op,detail);sample=page.evaluate('__qaRun.sample()');assert sample['valid']['ok'],sample['valid'];assert sample['goodsError']<.001,sample;assert abs(sample['money']-baseline)<.05,{'cashDrift':sample['money']-baseline};assert sample['bytes']<=8*1024*1024,sample;assert sample['cargo']<=240 and sample['routes']<=48 and sample['projects']<=1000,sample;assert not errors,errors;assert hashlib.sha256((ROOT/'assets/game.js').read_bytes()).hexdigest()==SHA
+   page.evaluate('__qaRun.pause()');emit(op,detail);sample=page.evaluate('__qaRun.sample()');
+   if not all(sample['archiveValidators'].values()) or sample['housingOvercapacity']:(OUT/'invariant-failure-private.json').write_text(json.dumps({'sample':sample,'raw':page.evaluate('__townTest.save()'),'head':page.evaluate('__qaRun.head()')}))
+   assert all(sample['archiveValidators'].values()),sample['archiveValidators'];assert not sample['housingOvercapacity'],sample['housingOvercapacity'];assert sample['valid']['ok'],sample['valid'];assert sample['goodsError']<.001,sample;assert abs(sample['money']-baseline)<.05,{'cashDrift':sample['money']-baseline};assert sample['bytes']<=8*1024*1024,sample;assert sample['cargo']<=240 and sample['routes']<=48 and sample['projects']<=1000,sample;assert not errors,errors;assert hashlib.sha256((ROOT/'assets/game.js').read_bytes()).hexdigest()==SHA
    if time.monotonic()-START>=next_report:samples.append({'seconds':round(time.monotonic()-START,2),**sample});write_status(status='running');next_report+=30
    page.wait_for_timeout(750)
   page.evaluate('__qaRun.save()');emit('finalCold',cold());sample=page.evaluate('__qaRun.sample()');samples.append({'seconds':round(time.monotonic()-START,2),**sample});write_status(status='completed_with_replay_failures' if replayFailures else 'passed',finalMoneyDrift=sample['money']-baseline);browser.close()
 except Exception as e:
  errors.append(repr(e));(OUT/'failure.txt').write_text(traceback.format_exc());write_status(status='failed');print(traceback.format_exc(),flush=True);sys.exit(1)
 finally:server.shutdown();server.server_close()
+assert all(hashlib.sha256((ROOT/'assets'/name).read_bytes()).hexdigest()==digest for name,digest in manifest.items()),'Shipped assets changed during acceptance'
 print('COMPLETE immutable randomized save acceptance; replay failures',len(replayFailures),SHA,len(trace),'operations',reloads,'cold reloads',flush=True)

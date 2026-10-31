@@ -1,0 +1,11 @@
+{
+  "checkpoint": "03cb54675880a9b60c0c8d8de5dd0b671d0abff3",
+  "source_sha256": "27ca5f1e1e5df352d38daf042d2de63b63024b8deed596c79e2f4679cc50947e",
+  "status": "stopped_known_broken_source",
+  "elapsedSeconds": 1050.51,
+  "operations": 772,
+  "coldReloads": 185,
+  "stoppedUTC": "2026-10-31T20:02:37.603029+00:00",
+  "reason": "Parent supplied fixed combined checkpoint; prior source retains known canonical failures, sufficient independent coverage recorded.",
+  "replayFailureCount": 14
+}

@@ -1,0 +1,16 @@
+{
+  "source_sha256": "d187f0cb9eca7d7eaa34b43dca354b9158eb68eb31336d889471095a73fb08e3",
+  "seed": 8142026,
+  "preventionProbeOnly": true,
+  "householdFormationRef": "98a6f99618e27e7d30306a7f4c890ac019ef004a",
+  "replacementFunctionSha256": "8ba59fe2d9b80f7625ac93af027a7d8bb71d11cbb250a16ff6fc2b7dd5ba7d8a",
+  "instrumentedScriptSha256": "58b5e904ae7f796cf0f09a239e640852781a4292202f41866046b80d5743b82e",
+  "status": "passed",
+  "elapsedSeconds": 182.48,
+  "operations": 133,
+  "coldReloads": 37,
+  "errors": [],
+  "replayFailures": [],
+  "finalDay": 375,
+  "limits": "Causal function-replacement probe only, not final combined-source acceptance"
+}
