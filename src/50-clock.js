@@ -18,8 +18,6 @@ function tick(){if(!G||pendingEvent)return;ensureSystems();ensureMarketModel();G
  dirty=true;
 }
 
-function save(){if(!G||simulationBusy)return;let payload;try{payload=archivePayload()}catch(e){autoSaveOK=false;return}try{const key='townledger-v6';const prev=localStorage.getItem(key);if(prev){let valid=false;try{const e=JSON.parse(prev);valid=e.checksum===checksum(e.payload)}catch(_){}if(valid){localStorage.removeItem('townledger-village-founder-3');localStorage.setItem(key+'-backup',prev);}}localStorage.setItem(key,JSON.stringify({checksum:checksum(payload),payload}));localStorage.removeItem('townledger-village-founder-3');autoSaveOK=true;}catch(e){autoSaveOK=false;}if(window.indexedDB)writeIndexedDB(payload);}
-function load(){try{for(const key of ['townledger-v6','townledger-v6-backup']){try{const e=JSON.parse(localStorage.getItem(key)||'null');if(e&&e.checksum===checksum(e.payload)&&hydrateSave(e.payload))return true;}catch(_){}}let s=localStorage.getItem('townledger-village-founder-3')||localStorage.getItem('townledger-village-civic-2');if(!s)return false;return hydrateSave(s)}catch(e){return false}}
 function resetTownTransientUI(){
  clearTimeout(toastTimeout);toastTimeout=0;$('toast').style.display='none';pendingEvent=null;$('eventDialog').style.display='none';councilOpener=null;panelOpener=null;parcelFocus=null;selected=null;inspectedTrip=null;buildMode='';pointer.down=false;pointer.activeId=null;pointer.hover=null;touches.clear();roadPainted.clear();$('placementHint').style.display='none';$('hint').textContent='DRAG TO PAN · TAP TO INSPECT · PINCH TO ZOOM';
 }

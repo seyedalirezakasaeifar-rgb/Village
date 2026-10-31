@@ -5,7 +5,7 @@ import os,json
 R=Path(__file__).resolve().parents[1]
 with sync_playwright() as pw:
  b=pw.chromium.launch(executable_path=os.environ.get('TOWNLEDGER_BROWSER','/usr/bin/chromium'),args=['--no-sandbox'])
- c=b.new_context();p=c.new_page();p.goto((R/'assets/index.html').as_uri());p.locator('#townSeed').fill('42');p.locator('#newTown').click();p.locator('#pause').click()
+ c=b.new_context();c.add_init_script("Object.defineProperty(window,'indexedDB',{value:null})");p=c.new_page();p.goto((R/'assets/index.html').as_uri());p.locator('#townSeed').fill('42');p.locator('#newTown').click();p.locator('#pause').click()
  data=p.evaluate('''()=>{__townTest.step(40);__townArchive.suspend();const before=__townTest.get();__townTest.step(20);__townArchive.suspend();const primary=JSON.parse(localStorage.getItem('townledger-v6')),backup=JSON.parse(localStorage.getItem('townledger-v6-backup'));if(JSON.parse(primary.payload).day!==61||JSON.parse(backup.payload).day!==41)throw Error('Unexpected save versions');localStorage.setItem('townledger-v6',JSON.stringify({checksum:'bad',payload:primary.payload}));return {expectedDay:41,expectedTotal:before.total,duplicateLegacy:!!localStorage.getItem('townledger-village-founder-3')};}''')
  assert not data['duplicateLegacy']
  p.close(run_before_unload=False)

@@ -43,7 +43,7 @@ function navigateDistrict(which){
 }
 document.addEventListener('click',e=>{
  const b=e.target.closest('button');if(!b||!G)return;
- if(b.id==='recoverAutosave'){try{const e=JSON.parse(localStorage.getItem('townledger-v6-backup'));if(e&&e.checksum===checksum(e.payload)&&hydrateSave(e.payload)){toast('Previous autosave recovered. Export it to keep a separate copy.');renderPanel('settings');}else toast('No valid earlier autosave is available.');}catch(_){toast('No valid earlier autosave is available.');}}
+ if(b.id==='recoverAutosave'){try{const e=readSaveEnvelope(localStorage.getItem('townledger-v6-backup'));if(e&&hydrateSave(e.payload)){toast('Previous autosave recovered. Export it to keep a separate copy.');renderPanel('settings');}else toast('No valid earlier autosave is available.');}catch(_){toast('No valid earlier autosave is available.');}}
  if(b.id==='nightView'){nightMode=!nightMode;atlas.clear();dirty=true;renderPanel('settings');}
  if(b.dataset.district)navigateDistrict(b.dataset.district);
  if(b.dataset.view){overlay=b.dataset.view;closePanel();dirty=true;toast(overlay==='land'?'Land values: green low · gold middle · copper high':'Road access: green connected · copper disconnected');}

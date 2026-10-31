@@ -196,7 +196,7 @@ $('panelBody').addEventListener('click',e=>{const b=e.target.closest('button,[da
  if(b.dataset.filterFirms){filterFirms=b.dataset.filterFirms;renderPanel('businesses');return}
  if(b.dataset.buildCategory){constructionCategory=b.dataset.buildCategory;renderPanel('construction');return}
  if(b.id==='focusBad'){const poor=G.households.filter(h=>h.people.length>0&&readBuild(h.home)).sort((a,b)=>a.cash/Math.max(1,a.people.length)-b.cash/Math.max(1,b.people.length))[0];if(poor&&readBuild(poor.home)){selected={id:poor.home};openPanel('inspect')}return}
- if(b.id==='saveNow'){save();toast(autoSaveOK?'Village saved on this device.':'Save requested; use export backup if storage is unavailable.')}
+ if(b.id==='saveNow'){const epoch=saveEpoch;save().then(ok=>{if(epoch===saveEpoch)toast(ok?'Village saved on this device.':'Saving failed; export a backup before leaving.')})}
  if(b.id==='restart'){showCustomEvent('TOWN ARCHIVE','Found another town?','Starting a new village will overwrite your most recent local autosave. Export a backup before proceeding.',[
   {title:'Keep the present village',desc:'Return to your existing town.',apply:()=>{}},
   {title:'Start a fresh village',desc:'Discard the current local save and return to the founding menu.',apply:()=>{start(true);closePanel();toast('A new village has been founded.')}}

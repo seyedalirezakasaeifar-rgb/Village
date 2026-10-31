@@ -1,4 +1,5 @@
 function seed(seedValue=42){
+ beginSaveTimeline();
  resetTownTransientUI();
  crewDay=-1;crewsUsed=new Map();regionalCrews=0;rngState=(Number(seedValue)>>>0)||42;visualState=918273;traffic=[];trafficClock=0;frameClock=0;trafficElapsed=0;vehicleSerial=0;intersectionGates.clear();
  draftPolicy={};roadBatchDirty=false;

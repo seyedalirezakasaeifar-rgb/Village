@@ -923,6 +923,7 @@ function foundingStreetPlan(){
 
 // SOURCE: 20-world.js
 function seed(seedValue=42){
+ beginSaveTimeline();
  resetTownTransientUI();
  crewDay=-1;crewsUsed=new Map();regionalCrews=0;rngState=(Number(seedValue)>>>0)||42;visualState=918273;traffic=[];trafficClock=0;frameClock=0;trafficElapsed=0;vehicleSerial=0;intersectionGates.clear();
  draftPolicy={};roadBatchDirty=false;
@@ -2060,6 +2061,58 @@ function occupyVacantHousing(){
  story('The '+h.name+' household moved into a vacant home after finding local job opportunities.','good',vacancy.id,h.id);
 }
 
+// SOURCE: 49-persistence.js
+// Persistence chronology is separate from simulated days and deterministic exports.
+// A new founding/import is a new timeline; logical order survives clock changes.
+let saveEpoch=0,saveOrder=0,saveRevision=0,saveTown='',saveStoreReady=false;
+let saveStorePromise=Promise.resolve(),saveWrites=Promise.resolve(),saveCandidates=[],saveWarningEpoch=0;
+function beginSaveTimeline(){saveEpoch++;saveRevision=0;autoSaveOK=false;try{saveTown=Array.from(crypto.getRandomValues(new Uint32Array(4)),n=>n.toString(16)).join('-')}catch(_){saveTown='session-'+saveEpoch+'-'+Math.random().toString(36).slice(2)}return saveEpoch;}
+function saveEnvelope(payload){
+ if(!saveTown)beginSaveTimeline();
+ if(saveOrder>=Number.MAX_SAFE_INTEGER-1)throw Error('Save chronology exhausted');
+ const e={format:1,order:++saveOrder,town:saveTown,revision:++saveRevision,payload};
+ e.checksum=checksum([e.format,e.order,e.town,e.revision,payload].join('|'));return e;
+}
+function promoteSaveEnvelope(e,minimum){
+ const previous=e.checksum;saveOrder=Math.max(saveOrder,minimum);if(saveOrder>=Number.MAX_SAFE_INTEGER-1)throw Error('Save chronology exhausted');e.order=++saveOrder;e.checksum=checksum([e.format,e.order,e.town,e.revision,e.payload].join('|'));
+ // Only update the matching local snapshot, never a later revision/town.
+ try{const current=readSaveEnvelope(localStorage.getItem('townledger-v6'));if(current?.checksum===previous)localStorage.setItem('townledger-v6',JSON.stringify(e))}catch(_){}
+}
+function readSaveEnvelope(value){
+ try{const e=typeof value==='string'?JSON.parse(value):value;if(!e||typeof e.payload!=='string'||typeof e.checksum!=='string')return null;
+  if(e.format==null)return e.checksum===checksum(e.payload)?{...e,order:0,town:'',revision:0}:null;
+  if(e.format!==1||!Number.isSafeInteger(e.order)||e.order<1||!Number.isSafeInteger(e.revision)||e.revision<1||typeof e.town!=='string'||!e.town||e.town.length>160)return null;
+  return e.checksum===checksum([e.format,e.order,e.town,e.revision,e.payload].join('|'))?e:null;
+ }catch(_){return null;}
+}
+function localSaveCandidates(){const out=[];for(const key of ['townledger-v6','townledger-v6-backup'])try{const e=readSaveEnvelope(localStorage.getItem(key));if(e)out.push(e)}catch(_){}return out;}
+function observeSaveOrder(e){if(e)saveOrder=Math.max(saveOrder,e.order||0);}
+function persistSnapshot(payload,epoch){
+ if(epoch!==saveEpoch)return Promise.resolve(false);
+ let e;try{for(const v of localSaveCandidates())observeSaveOrder(v);e=saveEnvelope(payload)}catch(_){autoSaveOK=false;return Promise.resolve(false)}
+ let localOK=false;const text=JSON.stringify(e),key='townledger-v6';
+ try{const previous=localStorage.getItem(key);if(readSaveEnvelope(previous)){try{localStorage.setItem(key+'-backup',previous)}catch(_){/* A full backup slot must not prevent updating the primary. */}}localStorage.setItem(key,text);localOK=true;try{localStorage.removeItem('townledger-village-founder-3')}catch(_){}}catch(_){}
+ autoSaveOK=localOK;
+ // Queue transactions in invocation order; callbacks from a replaced town cannot write.
+ const write=saveWrites.catch(()=>false).then(()=>epoch===saveEpoch?writeIndexedDB(e,epoch):false);
+ saveWrites=write;
+ return write.then(idbOK=>{const ok=localOK||idbOK;if(epoch===saveEpoch&&e.order===saveOrder){autoSaveOK=ok;if(ok)saveWarningEpoch=0;else if(saveWarningEpoch!==epoch){saveWarningEpoch=epoch;toast('On-device saving is unavailable. Export a backup before leaving.')}}return ok;});
+}
+function save(){
+ if(!G||simulationBusy)return Promise.resolve(false);
+ let payload;try{payload=archivePayload()}catch(_){autoSaveOK=false;return Promise.resolve(false)}
+ const epoch=saveEpoch;
+ return saveStoreReady?persistSnapshot(payload,epoch):saveStorePromise.then(()=>persistSnapshot(payload,epoch));
+}
+function restoreSaveEnvelope(e){observeSaveOrder(e);if(!hydrateSave(e.payload))return false;saveTown=e.town||saveTown;saveRevision=e.revision||0;autoSaveOK=true;return true;}
+function load(){
+ const candidates=localSaveCandidates().concat(saveCandidates).map((e,i)=>({e,i}));
+ candidates.sort((a,b)=>(b.e.order-a.e.order)||(a.i-b.i));
+ for(const {e} of candidates)if(restoreSaveEnvelope(e))return true;
+ for(const key of ['townledger-village-founder-3','townledger-village-civic-2'])try{const raw=localStorage.getItem(key);if(raw&&hydrateSave(raw))return true}catch(_){}
+ return false;
+}
+
 // SOURCE: 50-clock.js
 function tick(){if(!G||pendingEvent)return;ensureSystems();ensureMarketModel();G.day++;if(G.day%30===0){G.month++;if(G.month>12){G.month=1;G.year++}};
  freightDay();completeEquipmentOrders();completeDevelopmentProjects();dailyEconomy();bankDaily();metroOperatingDay();airfieldOperatingDay();incidents();investigateCases();extendedCivicDay();maintainRoads();finalizeMarketBooks();if(G.day%30===0&&G.debt>0){const interest=G.debt*((G.policy.policyRate||0)/100+.015)/12,paid=Math.min(G.treasury,interest);G.treasury-=paid;G.region+=paid;G.debt+=interest-paid;story('Interest on municipal borrowing: '+money(interest)+'.')}if(G.day%10===0)assignJobs();if(G.day%30===0)privateInvestmentAndHousing();
@@ -2081,8 +2134,6 @@ function tick(){if(!G||pendingEvent)return;ensureSystems();ensureMarketModel();G
  dirty=true;
 }
 
-function save(){if(!G||simulationBusy)return;let payload;try{payload=archivePayload()}catch(e){autoSaveOK=false;return}try{const key='townledger-v6';const prev=localStorage.getItem(key);if(prev){let valid=false;try{const e=JSON.parse(prev);valid=e.checksum===checksum(e.payload)}catch(_){}if(valid){localStorage.removeItem('townledger-village-founder-3');localStorage.setItem(key+'-backup',prev);}}localStorage.setItem(key,JSON.stringify({checksum:checksum(payload),payload}));localStorage.removeItem('townledger-village-founder-3');autoSaveOK=true;}catch(e){autoSaveOK=false;}if(window.indexedDB)writeIndexedDB(payload);}
-function load(){try{for(const key of ['townledger-v6','townledger-v6-backup']){try{const e=JSON.parse(localStorage.getItem(key)||'null');if(e&&e.checksum===checksum(e.payload)&&hydrateSave(e.payload))return true;}catch(_){}}let s=localStorage.getItem('townledger-village-founder-3')||localStorage.getItem('townledger-village-civic-2');if(!s)return false;return hydrateSave(s)}catch(e){return false}}
 function resetTownTransientUI(){
  clearTimeout(toastTimeout);toastTimeout=0;$('toast').style.display='none';pendingEvent=null;$('eventDialog').style.display='none';councilOpener=null;panelOpener=null;parcelFocus=null;selected=null;inspectedTrip=null;buildMode='';pointer.down=false;pointer.activeId=null;pointer.hover=null;touches.clear();roadPainted.clear();$('placementHint').style.display='none';$('hint').textContent='DRAG TO PAN · TAP TO INSPECT · PINCH TO ZOOM';
 }
@@ -3052,7 +3103,7 @@ $('panelBody').addEventListener('click',e=>{const b=e.target.closest('button,[da
  if(b.dataset.filterFirms){filterFirms=b.dataset.filterFirms;renderPanel('businesses');return}
  if(b.dataset.buildCategory){constructionCategory=b.dataset.buildCategory;renderPanel('construction');return}
  if(b.id==='focusBad'){const poor=G.households.filter(h=>h.people.length>0&&readBuild(h.home)).sort((a,b)=>a.cash/Math.max(1,a.people.length)-b.cash/Math.max(1,b.people.length))[0];if(poor&&readBuild(poor.home)){selected={id:poor.home};openPanel('inspect')}return}
- if(b.id==='saveNow'){save();toast(autoSaveOK?'Village saved on this device.':'Save requested; use export backup if storage is unavailable.')}
+ if(b.id==='saveNow'){const epoch=saveEpoch;save().then(ok=>{if(epoch===saveEpoch)toast(ok?'Village saved on this device.':'Saving failed; export a backup before leaving.')})}
  if(b.id==='restart'){showCustomEvent('TOWN ARCHIVE','Found another town?','Starting a new village will overwrite your most recent local autosave. Export a backup before proceeding.',[
   {title:'Keep the present village',desc:'Return to your existing town.',apply:()=>{}},
   {title:'Start a fresh village',desc:'Discard the current local save and return to the founding menu.',apply:()=>{start(true);closePanel();toast('A new village has been founded.')}}
@@ -3450,14 +3501,33 @@ function hydrateSave(raw){
   if(data.households.some(h=>!h||!Array.isArray(h.people)||!Number.isFinite(h.cash)||h.cash<0)||data.firms.some(f=>!f||!Array.isArray(f.workers)||!Number.isFinite(f.cash)||f.cash<0))return false;
   const workerIDs=new Set();for(const f of data.firms){for(const id of f.workers){if(workerIDs.has(id)||!data.people[id]||data.people[id].deceased||data.people[id].movedAway||data.people[id].job!==f.id)return false;workerIDs.add(id)}}
   for(const loan of data.loans||[])if(loan.fixedRate==null)loan.fixedRate=true;
-  G=data;resetTownTransientUI();G.serviceProvision=null;crewDay=-1;crewsUsed=new Map();regionalCrews=0;ensureSystems();rngState=Number.isInteger(G.rngState)?G.rngState:G.scenarioSeed;ensureFinance();ensureMarketModel();if(!G.banks.length)seedBanks();draftPolicy={};roadBatchDirty=false;invalidateRoads();cacheBuildingsFor=null;recompute();G.stats.approval=Math.round(G.council.approval);G.stats.health=Math.round(G.health);G.stats.education=Math.round(G.education);G.stats.marketConfidence=G.stats.marketConfidence||55;G.stats.wellbeing=G.stats.wellbeing??70;ensureScenarioProgramme();if(!previousTown)centerTownCamera();restoreTransport();staticDirty=true;dirty=true;updateHeader();return true;
+  G=data;resetTownTransientUI();G.serviceProvision=null;crewDay=-1;crewsUsed=new Map();regionalCrews=0;ensureSystems();rngState=Number.isInteger(G.rngState)?G.rngState:G.scenarioSeed;ensureFinance();ensureMarketModel();if(!G.banks.length)seedBanks();draftPolicy={};roadBatchDirty=false;invalidateRoads();cacheBuildingsFor=null;recompute();G.stats.approval=Math.round(G.council.approval);G.stats.health=Math.round(G.health);G.stats.education=Math.round(G.education);G.stats.marketConfidence=G.stats.marketConfidence||55;G.stats.wellbeing=G.stats.wellbeing??70;ensureScenarioProgramme();if(!previousTown)centerTownCamera();restoreTransport();staticDirty=true;dirty=true;updateHeader();beginSaveTimeline();return true;
  }catch(e){G=previousTown;invalidateRoads();cacheBuildingsFor=null;staticDirty=true;dirty=true;console.error('Invalid save',e);return false}
 }
-function writeIndexedDB(text){
- try{const req=indexedDB.open('townledger-save',1);req.onupgradeneeded=()=>{if(!req.result.objectStoreNames.contains('saves'))req.result.createObjectStore('saves')};req.onsuccess=()=>{try{const db=req.result;const tx=db.transaction('saves','readwrite');tx.objectStore('saves').put(text,'latest');tx.oncomplete=()=>db.close()}catch(e){}}}catch(e){}
+function writeIndexedDB(envelope,epoch){
+ return new Promise(resolve=>{let settled=false,db=null;const finish=ok=>{if(settled)return;settled=true;clearTimeout(timer);if(db)db.close();resolve(ok)},timer=setTimeout(()=>finish(false),2500);
+  try{const req=indexedDB.open('townledger-save',1);req.onupgradeneeded=()=>{if(!req.result.objectStoreNames.contains('saves'))req.result.createObjectStore('saves')};req.onerror=req.onblocked=()=>finish(false);
+   req.onsuccess=()=>{db=req.result;if(settled||epoch!==saveEpoch){db.close();finish(false);return}try{const tx=db.transaction('saves','readwrite'),store=tx.objectStore('saves'),read=store.get('latest');let wrote=false;
+    read.onsuccess=()=>{if(settled||epoch!==saveEpoch){tx.abort();return}const current=readSaveEnvelope(read.result);if(current&&current.order>=envelope.order&&current.checksum!==envelope.checksum){try{promoteSaveEnvelope(envelope,current.order)}catch(_){tx.abort();return}}store.put(envelope,'latest');wrote=true;};
+    tx.oncomplete=()=>{if(wrote&&epoch===saveEpoch){saveCandidates=[envelope];window.__idbSave=envelope.payload;}finish(wrote)};tx.onerror=tx.onabort=()=>finish(false);
+   }catch(_){finish(false)}};
+  }catch(_){finish(false)}
+ });
 }
-function discoverIndexedDB(){try{const req=indexedDB.open('townledger-save',1);req.onupgradeneeded=()=>{if(!req.result.objectStoreNames.contains('saves'))req.result.createObjectStore('saves')};req.onsuccess=()=>{try{const db=req.result,tx=db.transaction('saves');const r=tx.objectStore('saves').get('latest');r.onsuccess=()=>{if(r.result){window.__idbSave=r.result;$('continue').style.display='block'}};tx.oncomplete=()=>db.close()}catch(e){}}}catch(e){}}
-discoverIndexedDB();
+function discoverIndexedDB(){
+ const epoch=saveEpoch;
+ return new Promise(resolve=>{let settled=false,db=null;const finish=()=>{if(settled)return;settled=true;clearTimeout(timer);if(db)db.close();saveStoreReady=true;resolve()},timer=setTimeout(finish,2500);
+  for(const e of localSaveCandidates())observeSaveOrder(e);
+  try{const req=indexedDB.open('townledger-save',1);req.onupgradeneeded=()=>{if(!req.result.objectStoreNames.contains('saves'))req.result.createObjectStore('saves')};req.onerror=req.onblocked=finish;
+   req.onsuccess=()=>{db=req.result;if(settled){db.close();return}try{const tx=db.transaction('saves'),read=tx.objectStore('saves').get('latest');read.onsuccess=()=>{const raw=read.result;let e=readSaveEnvelope(raw);
+    // Earlier editions stored an unwrapped archive string in IndexedDB.
+    if(!e&&typeof raw==='string'){try{const t=JSON.parse(raw);if(t&&Array.isArray(t.tiles)&&Array.isArray(t.people))e={payload:raw,checksum:checksum(raw),order:0,town:'',revision:0}}catch(_){}}
+    if(e){observeSaveOrder(e);if(epoch===saveEpoch){saveCandidates=[e];window.__idbSave=e.payload;$('continue').style.display='block'}}};tx.oncomplete=finish;tx.onerror=tx.onabort=finish;
+   }catch(_){finish()}};
+  }catch(_){finish()}
+ });
+}
+saveStorePromise=discoverIndexedDB();
 let helpOpener=null;
 function hideHelpDialog(){
  $('helpDialog').style.display='none';restoreHelpMarkup();
@@ -3482,8 +3552,19 @@ $('helpDialog').addEventListener('keydown',e=>{
 });
 $('scenarioPicker').addEventListener('click',e=>{let b=e.target.closest('[data-scenario]');if(!b)return;chosenScenario=b.dataset.scenario;document.querySelectorAll('[data-scenario]').forEach(v=>v.classList.toggle('chosen',v===b))});
 
-// Override continue to support the IndexedDB fallback when localStorage is inaccessible.
-$('continue').onclick=()=>{if(!load()&&window.__idbSave){if(!hydrateSave(window.__idbSave))seed()}else if(!G)seed();$('welcome').style.display='none';dirty=true;staticDirty=true;updateHeader();openPanel('overview')};
+function enterContinuedTown(){centerTownCamera();invalidateRoads();paused=false;speed=SPEED_PRESETS.includes(G.speed)?G.speed:1;acc=0;fit();$('welcome').style.display='none';dirty=true;staticDirty=true;updateHeader();openPanel('overview');}
+function legacyRecoveryChoices(){
+ const local=localSaveCandidates()[0],indexed=saveCandidates[0];
+ if(!local||!indexed||local.format===1||indexed.format===1||local.payload===indexed.payload)return null;
+ // Old editions recorded neither timeline identity nor save order. Different days
+ // cannot establish which town the player founded/restored most recently.
+ return [{label:'Local autosave',e:local},{label:'Secondary on-device copy',e:indexed}];
+}
+// Read both stores before choosing a snapshot; simulation day is not save chronology.
+$('continue').onclick=async()=>{const epoch=saveEpoch,button=$('continue');button.disabled=true;try{await saveStorePromise;if(epoch!==saveEpoch)return;
+ const legacy=legacyRecoveryChoices();if(legacy){showCustomEvent('TOWN ARCHIVE','Choose a recovered town','These older copies differ and contain no save chronology. A higher simulation day does not mean a more recent save. Choose the copy you recognise, or cancel without changing either.',legacy.map(({label,e})=>{let data;try{data=JSON.parse(e.payload)}catch(_){data={}}return {title:label,desc:'Day '+(data.day??'?')+' · '+(data.scenario||'legacy town')+' · '+(data.people?.length??'?')+' resident records',apply:()=>{if(restoreSaveEnvelope(e)){enterContinuedTown();save()}else toast('That copy is invalid. Try the other recovery copy.')}}}));return;}
+ if(!load()){toast('No valid town could be recovered. Found a new town or restore a backup.');return}enterContinuedTown();
+ }finally{button.disabled=false}};
 function tip(s){return `<p class="desc">${esc(s)}</p>`}
 function strip(label,value){return `<div class="line"><span>${esc(label)}</span><span>${esc(String(value))}</span></div>`}
 function meter(label,value,color='#d5b779'){return `<div class="line"><span>${esc(label)}</span><span><b>${Math.round(value)}%</b></span></div><div class="progress"><i style="width:${clamp(value,0,100)}%;background:${color}"></i></div>`}
@@ -3566,7 +3647,7 @@ function renderJournalFull(){let j=G.journal.slice().reverse();return head('The 
  head('Economic history')+miniChart('employment')+head('Council trust over time')+miniChart('approval')+
  head('Government decisions')+j.slice(0,45).map(p=>{let base=p.baseline||{};let delta=(k)=>{let current=k==='treasury'?G.treasury:G.stats[k],old=base[k]||0,d=(current-old);return (d>=0?'+':'')+fmt(d)};return `<div class="entry"><strong>DAY ${p.day}: ${esc(p.name)}</strong><p class="desc">${esc(p.message||'')}</p><div class="compact">Employment ${delta('employment')} pts &nbsp;·&nbsp; Hardship ${delta('hardship')} pts &nbsp;·&nbsp; Safety ${delta('safety')} pts<br>Businesses ${delta('businesses')} &nbsp;·&nbsp; Treasury ${delta('treasury')}</div></div>`}).join('')+
  head('Recent events')+headlineList(24);}
-function renderSettingsFull(){return head('Your game and archive')+strip('Edition',RELEASE.edition+' '+RELEASE.version)+strip('Engine','Offline fixed-step economy + cached pixel canvas')+strip('Living residents',fmt(G.stats.population))+strip('Construction completed',fmt(G.construction))+strip('Town founded',G.scenario)+strip('Automatic saving',autoSaveOK?'Local storage available':'Check backup export')+strip('Simulation speed',speed+'× (1–64×, dynamic workload cap)')+
+function renderSettingsFull(){return head('Your game and archive')+strip('Edition',RELEASE.edition+' '+RELEASE.version)+strip('Engine','Offline fixed-step economy + cached pixel canvas')+strip('Living residents',fmt(G.stats.population))+strip('Construction completed',fmt(G.construction))+strip('Town founded',G.scenario)+strip('Automatic saving',autoSaveOK?'On-device save confirmed':'Check backup export')+strip('Simulation speed',speed+'× (1–64×, dynamic workload cap)')+
  `<div class="btnrow"><button id="soundToggle" aria-pressed="${soundEnabled}">${soundEnabled?'TURN OFF AMBIENCE & SOUND':'TURN ON AMBIENCE & SOUND'}</button><button id="saveNow" class="action-green">SAVE NOW</button><button id="backupSave">EXPORT BACKUP</button><button id="importSave">RESTORE BACKUP</button><button id="tutorial">GAME MANUAL</button><button id="restart" class="action-red">START NEW TOWN</button></div>`+
  head('Simulation principles')+tip('The economy runs as real linked accounts: wages and purchases move money among firms, families, the town treasury and the external region. Goods have inventory; people have jobs; firms have expenses. Government services spend actual cash and provide observable benefits.')+
  `<div class="notice-banner">Important: This is an experimental, self-contained Android adaptation. Policy coefficients are designed for gameplay, not calibrated forecasts of real municipal outcomes. Retain a text backup if you change devices or uninstall.</div>`;
@@ -3638,7 +3719,7 @@ function navigateDistrict(which){
 }
 document.addEventListener('click',e=>{
  const b=e.target.closest('button');if(!b||!G)return;
- if(b.id==='recoverAutosave'){try{const e=JSON.parse(localStorage.getItem('townledger-v6-backup'));if(e&&e.checksum===checksum(e.payload)&&hydrateSave(e.payload)){toast('Previous autosave recovered. Export it to keep a separate copy.');renderPanel('settings');}else toast('No valid earlier autosave is available.');}catch(_){toast('No valid earlier autosave is available.');}}
+ if(b.id==='recoverAutosave'){try{const e=readSaveEnvelope(localStorage.getItem('townledger-v6-backup'));if(e&&hydrateSave(e.payload)){toast('Previous autosave recovered. Export it to keep a separate copy.');renderPanel('settings');}else toast('No valid earlier autosave is available.');}catch(_){toast('No valid earlier autosave is available.');}}
  if(b.id==='nightView'){nightMode=!nightMode;atlas.clear();dirty=true;renderPanel('settings');}
  if(b.dataset.district)navigateDistrict(b.dataset.district);
  if(b.dataset.view){overlay=b.dataset.view;closePanel();dirty=true;toast(overlay==='land'?'Land values: green low · gold middle · copper high':'Road access: green connected · copper disconnected');}
