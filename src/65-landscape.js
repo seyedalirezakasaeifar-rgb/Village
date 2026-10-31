@@ -316,8 +316,8 @@ function draw(){
   viewRasterKey=key;
  }
  ctx.setTransform(1,0,0,1,0,0);ctx.drawImage(viewRaster,0,0);transform();
- drawConstructionProgress(ctx,visible);drawInspectedRoute(ctx);drawWaterLife(ctx,visible);drawWaterfrontPiers(ctx,visible);drawSelectedWaterRoute(ctx);drawRegionalGates(ctx,visible);
- const visibleParcels=viewBuildings.filter(item=>visible(item.x,item.y,0)),actors=[...buildingActivity(visibleParcels),...workdayScenes(visibleParcels),...waterfrontActors(visible),...regionalCargoActors().filter(a=>visible(a.x,a.y,15))];if(visualDetailBudget().traffic)for(const v of traffic){const p=vehiclePosition(v);if(visible(p.x,p.y,15))actors.push({kind:'vehicle',v,...p});}actors.sort((a,b)=>a.y-b.y);
+ drawConstructionProgress(ctx,visible);drawInspectedRoute(ctx);drawWaterLife(ctx,visible);drawWaterfrontPiers(ctx,visible);drawSelectedWaterRoute(ctx);drawRegionalGates(ctx,visible);drawDistrictLife(ctx,visible);
+ const visibleParcels=viewBuildings.filter(item=>visible(item.x,item.y,0)),actors=[...neighbourhoodAmbient(visibleParcels),...buildingActivity(visibleParcels),...workdayScenes(visibleParcels),...waterfrontActors(visible),...regionalCargoActors().filter(a=>visible(a.x,a.y,15))];if(visualDetailBudget().traffic)for(const v of traffic){const p=vehiclePosition(v);if(visible(p.x,p.y,15))actors.push({kind:'vehicle',v,...p});}actors.sort((a,b)=>a.y-b.y);
  if(actors.length){
   // Clip subsequent foreground re-paints to the actors' damage rectangles.
   ctx.save();ctx.beginPath();for(const a of actors)if(a.kind==='boat')ctx.rect(a.x-44,a.y-32,88,64);else ctx.rect(a.x-25,a.y-32,56,52);ctx.clip();
