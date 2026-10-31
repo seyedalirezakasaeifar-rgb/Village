@@ -1,0 +1,30 @@
+{
+  "source_sha256": "6a770b26dc99ece160a4ef9883730f92498f4c0fdd20bbf217e533a3f878a798",
+  "controlledStartingConditions": true,
+  "actualInvitationAndOperatingModel": true,
+  "municipalCapitalAtInvitation": 0.0,
+  "reservedPrivateWorkingCapital": 6000,
+  "privateTerms": 30,
+  "project": {
+    "id": 1,
+    "kind": "skills",
+    "branch": "private",
+    "target": 10,
+    "started": 2,
+    "lastDay": 195,
+    "status": "complete",
+    "orders": [],
+    "arrived": 0,
+    "firm": null,
+    "building": null,
+    "output": 0,
+    "sales": 0,
+    "net": 0,
+    "trainingScope": "private",
+    "trainingBaseline": 0,
+    "learning": 361.83360000000073,
+    "completed": 195,
+    "proof": "Target family 361.8 paid learner-days \u00b7 12 fee-funded terms completed"
+  },
+  "errors": []
+}

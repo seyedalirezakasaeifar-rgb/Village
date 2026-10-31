@@ -1,5 +1,5 @@
 {
-  "source_sha256": "dbe96511846a1ae4eda713103979df519dea9ff278c4a155a245699d24f01864",
+  "source_sha256": "6a770b26dc99ece160a4ef9883730f92498f4c0fdd20bbf217e533a3f878a798",
   "realPolicyRestriction": true,
   "replannedWithoutRefund": true,
   "localUnderClosedImports": {
@@ -17,7 +17,9 @@
     "output": 1911,
     "sales": 1743.3523847712825,
     "net": 53.570244313784656,
+    "trainingScope": "all",
     "trainingBaseline": 0,
+    "learning": 0,
     "completed": 22,
     "proof": "1,911 produced \u00b7 1,743.4 sold \u00b7 accumulated operating result $54"
   },
@@ -36,7 +38,9 @@
     "output": 1911,
     "sales": 1743.3523847712825,
     "net": 53.570244313784656,
+    "trainingScope": "all",
     "trainingBaseline": 0,
+    "learning": 0,
     "completed": 22,
     "proof": "1,911 produced \u00b7 1,743.4 sold \u00b7 accumulated operating result $54"
   },
@@ -55,13 +59,15 @@
     "output": 0,
     "sales": 0,
     "net": 0,
+    "trainingScope": "all",
     "trainingBaseline": 0,
+    "learning": 0,
     "completed": 203,
-    "proof": "Target household teaching access 93.9% \u00b7 2 new adult training terms completed"
+    "proof": "Target household teaching access 96% \u00b7 2 new adult training terms completed"
   },
   "trainingTermsCompleted": 2,
   "foodSiteCost": 3600,
   "additionalTeachingDaily": 190,
-  "moneyDrift": -5.502253770828247e-06,
+  "moneyDrift": -5.114823579788208e-06,
   "errors": []
 }
