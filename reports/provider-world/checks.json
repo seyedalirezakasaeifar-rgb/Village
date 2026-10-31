@@ -1,5 +1,5 @@
 {
-  "source_sha256": "ddc92ffdb81acde6db599ce2681ed69befaeefbf88123a4df71efe7bde9a038a",
+  "source_sha256": "83f7369c1980c4db4b33b66348abfd9ffc5d39f2d23d79851679a2598bb49196",
   "controlledFeeFixtures": true,
   "providers": [
     {
@@ -30,7 +30,7 @@
       "valid": {
         "ok": true,
         "issues": [],
-        "total": 15493516.999999985,
+        "total": 15493516.99999998,
         "population": 169,
         "day": 2
       }
@@ -61,7 +61,7 @@
       "valid": {
         "ok": true,
         "issues": [],
-        "total": 15493516.999999985,
+        "total": 15493516.999999981,
         "population": 169,
         "day": 2
       }

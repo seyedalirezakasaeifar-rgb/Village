@@ -1,5 +1,5 @@
 {
-  "source_sha256": "6a770b26dc99ece160a4ef9883730f92498f4c0fdd20bbf217e533a3f878a798",
+  "source_sha256": "83f7369c1980c4db4b33b66348abfd9ffc5d39f2d23d79851679a2598bb49196",
   "realPolicyRestriction": true,
   "replannedWithoutRefund": true,
   "localUnderClosedImports": {
@@ -8,20 +8,20 @@
     "branch": "local",
     "target": 0,
     "started": 1,
-    "lastDay": 22,
+    "lastDay": 41,
     "status": "complete",
     "orders": [],
     "arrived": 0,
     "firm": 26,
     "building": 103,
-    "output": 1911,
-    "sales": 1743.3523847712825,
-    "net": 53.570244313784656,
+    "output": 3353,
+    "sales": 3182.7378537846016,
+    "net": 1.9506374277929126,
     "trainingScope": "all",
     "trainingBaseline": 0,
     "learning": 0,
-    "completed": 22,
-    "proof": "1,911 produced \u00b7 1,743.4 sold \u00b7 accumulated operating result $54"
+    "completed": 41,
+    "proof": "3,353 produced \u00b7 3,182.7 sold \u00b7 accumulated operating result $2"
   },
   "localCertificate": {
     "id": 2,
@@ -29,20 +29,20 @@
     "branch": "local",
     "target": 0,
     "started": 1,
-    "lastDay": 22,
+    "lastDay": 41,
     "status": "complete",
     "orders": [],
     "arrived": 0,
     "firm": 26,
     "building": 103,
-    "output": 1911,
-    "sales": 1743.3523847712825,
-    "net": 53.570244313784656,
+    "output": 3353,
+    "sales": 3182.7378537846016,
+    "net": 1.9506374277929126,
     "trainingScope": "all",
     "trainingBaseline": 0,
     "learning": 0,
-    "completed": 22,
-    "proof": "1,911 produced \u00b7 1,743.4 sold \u00b7 accumulated operating result $54"
+    "completed": 41,
+    "proof": "3,353 produced \u00b7 3,182.7 sold \u00b7 accumulated operating result $2"
   },
   "skillsCertificate": {
     "id": 3,
@@ -50,7 +50,7 @@
     "branch": "network",
     "target": 0,
     "started": 61,
-    "lastDay": 203,
+    "lastDay": 202,
     "status": "complete",
     "orders": [],
     "arrived": 0,
@@ -62,12 +62,12 @@
     "trainingScope": "all",
     "trainingBaseline": 0,
     "learning": 0,
-    "completed": 203,
-    "proof": "Target household teaching access 96% \u00b7 2 new adult training terms completed"
+    "completed": 202,
+    "proof": "Target household teaching access 97.6% \u00b7 2 new adult training terms completed"
   },
   "trainingTermsCompleted": 2,
   "foodSiteCost": 3600,
   "additionalTeachingDaily": 190,
-  "moneyDrift": -5.114823579788208e-06,
+  "moneyDrift": -5.407258868217468e-06,
   "errors": []
 }

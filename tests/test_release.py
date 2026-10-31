@@ -22,7 +22,10 @@ with sync_playwright() as pw:
     page.locator('#newTown').click()
     page.locator('#panelClose').click()
     page.locator('#pause').click()
+    assert page.locator('#mapStatusContext').inner_text().startswith('Paused')
+    page.locator('#mapStatusToggle').click()
     assert page.locator('#pauseBanner').is_visible()
+    page.locator('#mapStatusToggle').click()
     record('determinism_and_continuation',page.evaluate('''()=>{
        function core(){const g=JSON.parse(__townTest.save());delete g.trafficState;delete g.visualState;return JSON.stringify(g,Object.keys(g).sort());}
        function normalized(){const g=JSON.parse(__townTest.save());delete g.trafficState;delete g.visualState;return g;}

@@ -36,23 +36,18 @@ function civicProjectObservation(p){
  return {met,evidence:privateRoute?'Target family '+fmt(p.learning||0)+' paid learner-days · '+terms+' fee-funded terms completed':'Target household teaching access '+fmt(coverage*100)+'% · '+terms+' new adult training terms completed',detail:privateRoute?'Purchase 30 quality-adjusted learner-days for the named household, complete one actual fee-funded term in town, and retain 20 authorized spending days. Independent proposals need financing approval and 45 funded construction workdays, then qualified staff and fee-paying learners. A term needs 120 equivalent paid teaching days.':'Deliver at least 60% funded access to the named household, finish one actual adult term, and retain 20 authorized spending days. A term needs 120 equivalent funded teaching days; recruitment takes 30 days.',setback:!h?.people.length?'The target household no longer lives here. Replan for a resident household.':m.reserve<20?'Cash covers less than 20 authorized spending days. Review the recurring promise before increasing it.':''};
 }
 function civicProjectRecordArrival(order){
- const p=G.civicProjects?.active.food;if(!p||p.status!=='active'||!p.orders.includes(order.id))return;
+ const p=G.civicProjects?.active.food;if(!p||p.status!=='active'||!order||order.status!=='Delivered'||order.direction!=='import'||order.good!=='food'||order.firm!==p.target||!Number.isFinite(order.qty)||order.qty<=0||!p.orders.includes(order.id))return;
  p.arrived+=order.qty;p.orders=p.orders.filter(id=>id!==order.id);
 }
-// Observe the existing settlement boundary, rather than trusting its bounded recent log.
-const projectRegionalFreightBase=regionalFreightDay;
-regionalFreightDay=function(){
- const town=G,p=G.civicProjects?.active.food,tracked=p?.status==='active'?(G.regionalTrade?.shipments||[]).filter(o=>p.orders.includes(o.id)):[];
- projectRegionalFreightBase();if(G!==town||!tracked.length)return;
- const pending=new Set((G.regionalTrade?.shipments||[]).map(o=>o.id));
- for(const order of tracked)if(!pending.has(order.id))civicProjectRecordArrival(order);
-};
+// Logistics calls the receipt hook only at successful settlement. Removal is
+// not evidence: cancellations, returns and recovery auctions also remove cargo.
 function civicProjectsDay(){
  const s=G.civicProjects;if(!s||s.lastDay===G.day)return;s.lastDay=G.day;
  for(const p of Object.values(s.active)){
   if(p.status!=='active'||p.lastDay===G.day)continue;p.lastDay=G.day;
   if(p.kind==='food'){
-   for(const o of G.regionalTrade?.recent||[])civicProjectRecordArrival(o);
+   for(const o of G.regionalTrade?.recent||[])if(o.status==='Delivered')civicProjectRecordArrival(o);
+   const liveOrders=new Set((G.regionalTrade?.shipments||[]).map(o=>o.id));p.orders=p.orders.filter(id=>liveOrders.has(id));
    const f=p.firm==null?null:G.firms[p.firm];if(f){p.output+=Math.max(0,f.production||0);p.sales+=Math.max(0,f.salesQty||0);p.net+=Number(f.operating?.netProfit)||0;}
   }
   if(p.kind==='skills'&&p.branch==='private'&&G.privateServiceProvision?.day===G.day){const h=G.households[p.target];p.learning=(p.learning||0)+(G.privateServiceProvision.school[p.target]||0)*(h?.people.length||0);}
@@ -119,7 +114,7 @@ function civicProjectReviewFood(){
  const remaining=Math.max(0,180-p.arrived-(G.regionalTrade?.shipments||[]).filter(o=>p.orders.includes(o.id)).reduce((n,o)=>n+o.qty,0));if(remaining<.001){toast('The commissioned food is already travelling. Track its actual arrival before ordering again.');return;}
  const q=OUTSIDE_MARKETS.map(m=>regionalQuote(f,m,'food','import')).filter(Boolean).sort((a,b)=>(a.price*(1+G.policy.importTariff/100)+a.freight)-(b.price*(1+G.policy.importTariff/100)+b.freight))[0];if(!q){toast('No regional road reaches this shop. Restore the connection first.');return;}
  const amount=Math.min(remaining,180),cost=amount*(q.price*(1+G.policy.importTariff/100)+q.freight),town=G,pid=p.id;
- showCustomEvent('CIVIC PROJECT','A food bridge for '+f.name,fmt(amount)+' food from '+q.m.name+'; estimated '+money(cost)+' paid by this enterprise, approximately '+q.days+' days in transit. Shop cash '+money(f.cash)+'. Tariffs and freight are included. Imported stock can compete with local producers; loading capacity can split the order. The town gets no grant.',[{title:'Place the paid project order',cost:0,apply:()=>{const current=G.civicProjects?.active.food;if(G!==town||current?.id!==pid||!G.policy.imports||f.closed){toast('The project or import policy changed.');return;}const s=ensureRegionalTrade(),before=s.serial,n=dispatchRegional(f,'food',amount,'import',regionalQuote(f,q.m,'food','import'));if(n>0){current.orders.push(...s.shipments.filter(o=>o.id>before&&o.firm===f.id).map(o=>o.id));save();}else toast('Working capital or loading capacity is unavailable; no order was placed.');openCivicProjects('food');}}]);
+ showCustomEvent('CIVIC PROJECT','A food bridge for '+f.name,fmt(amount)+' food from '+q.m.name+'; estimated '+money(cost)+' paid by this enterprise, approximately '+q.days+' days in transit. Shop cash '+money(f.cash)+'. Tariffs and freight are included. Imported stock can compete with local producers; loading capacity can split the order. The town gets no grant.',[{title:'Place the paid project order',cost:0,apply:()=>{const current=G.civicProjects?.active.food;if(G!==town||current?.id!==pid||!G.policy.imports||f.closed){toast('The project or import policy changed.');return;}const s=ensureRegionalTrade(),before=s.serial;let n=0;for(let lot=0;lot<2&&n+.001<amount;lot++){const accepted=dispatchRegional(f,'food',amount-n,'import',regionalQuote(f,q.m,'food','import'));if(!accepted)break;n+=accepted;}if(n>0){current.orders.push(...s.shipments.filter(o=>o.id>before&&o.firm===f.id).map(o=>o.id));save();}else toast('Working capital or loading capacity is unavailable; no order was placed.');openCivicProjects('food');}}]);
 }
 function civicProjectSchoolBudget(){
  const estimate=Math.ceil(G.stats.population*CIVIC_STANDARDS.school.staff/CIVIC_STANDARDS.school.capacity*Math.max(24,G.policy.minWage)/.65/10)*10,target=clamp(Math.max(G.policy.educationBudget,estimate),0,500),increase=target-G.policy.educationBudget;

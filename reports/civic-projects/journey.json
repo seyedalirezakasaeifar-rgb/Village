@@ -1,5 +1,5 @@
 {
-  "source_sha256": "6a770b26dc99ece160a4ef9883730f92498f4c0fdd20bbf217e533a3f878a798",
+  "source_sha256": "83f7369c1980c4db4b33b66348abfd9ffc5d39f2d23d79851679a2598bb49196",
   "realControls": true,
   "paidFoodUnits": 180,
   "foodCertificate": {
@@ -8,7 +8,7 @@
     "branch": "bridge",
     "target": 0,
     "started": 1,
-    "lastDay": 7,
+    "lastDay": 9,
     "status": "complete",
     "orders": [],
     "arrived": 180,
@@ -20,7 +20,7 @@
     "trainingScope": "all",
     "trainingBaseline": 0,
     "learning": 0,
-    "completed": 7,
+    "completed": 9,
     "proof": "180 / 180 commissioned food units arrived"
   },
   "districtDeedPrice": 37368,

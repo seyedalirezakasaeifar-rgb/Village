@@ -1435,7 +1435,7 @@ function returnExportCargo(o){const f=G.firms[o.firm];if(f.closed||o.estateOwner
 function cancelRegionalShipment(id){const o=ensureRegionalTrade().shipments.find(o=>o.id===id);if(!o||o.direction==='export'&&o.stage==='outside'||o.stage==='delivering')return false;o.cancelRequested=true;return true;}
 function logisticsReturnStage(o){const m=OUTSIDE_MARKETS.find(m=>m.id===o.market),f=G.firms[o.firm],path=regionalRoadPath(f,m);if(o.direction==='import'){const returningPath=o.stage==='delivering'?o.path.slice().reverse():o.path.slice(0,o.depotIndex+1).reverse();setLogisticsStage(o,'returning',returningPath,G.day,Math.max(1,Math.ceil(returningPath.length/24)));}else{const homePath=o.path.slice(0,o.depotIndex+1).reverse();setLogisticsStage(o,'returning',homePath,G.day,Math.max(1,Math.ceil(homePath.length/24)));}}
 function handleLogisticsQueue(o,depots,s){const d=depots.find(d=>d.id===o.depot);if(!d){o.depot=-1;o.status='Depot unavailable; interchange fallback';return false;}let used=s.handling.used[d.id]||0,available=Math.max(0,d.capacity-used),remaining=o.qty-o.handled;if(d.id===-1&&s.reliefUntil>=G.day&&available<remaining){const extra=Math.min(300-s.handling.relief,remaining-available,G.treasury/.36);if(extra>0){G.treasury-=extra*.36;G.region+=extra*.36;G.cumulative.spending+=extra*.36;G.cumulative.logisticsSupport=(G.cumulative.logisticsSupport||0)+extra*.36;s.handling.relief+=extra;available+=extra;}}const fee=o.handlingFee||.04,units=Math.min(remaining,available,d.id<0?Infinity:G.region/fee);if(units<=.00001)return false;const receipts=units*fee;if(d.id>=0){G.region-=receipts;enterpriseRevenue(G.firms[d.id],receipts);G.firms[d.id].logisticsReceipts=(G.firms[d.id].logisticsReceipts||0)+receipts;}o.handled+=units;s.handling.used[d.id]=used+units;s.handling.fees+=receipts;return o.handled+1e-8>=o.qty;}
-function settleRegionalArrival(o){const f=G.firms[o.firm],s=ensureRegionalTrade();if(o.direction==='import'){if(f.closed||o.estateOwner!=null){logisticsReturnStage(o);return false}f.stock[o.good]=(f.stock[o.good]||0)+o.qty;}else{const gross=o.qty*o.price;if(G.region+1e-8<gross){o.status='Buyer awaiting liquidity';o.stage='awaiting-payment';o.stageDue=G.day+1;return false}G.region-=gross;if(o.estateOwner!=null||f.closed)estateReceipt(f,gross,o.estateOwner??f.owner);else{enterpriseRevenue(f,gross);f.pendingCogs=(f.pendingCogs||0)+o.inventoryCost;f.pendingSalesQty=(f.pendingSalesQty||0)+o.qty;}goodsEntry(o.good,'exports',o.qty);if(G.market)G.market.externalSales+=gross;const c=s.contracts.find(c=>c.id===o.contract);if(c)c.delivered+=o.qty;}s.delivered++;if(typeof civicProjectRecordArrival==='function')civicProjectRecordArrival(o);logisticsRemember(o,'Delivered');return true;}
+function settleRegionalArrival(o){const f=G.firms[o.firm],s=ensureRegionalTrade();if(o.direction==='import'){if(f.closed||o.estateOwner!=null){logisticsReturnStage(o);return false}f.stock[o.good]=(f.stock[o.good]||0)+o.qty;}else{const gross=o.qty*o.price;if(G.region+1e-8<gross){o.status='Buyer awaiting liquidity';o.stage='awaiting-payment';o.stageDue=G.day+1;return false}G.region-=gross;if(o.estateOwner!=null||f.closed)estateReceipt(f,gross,o.estateOwner??f.owner);else{enterpriseRevenue(f,gross);f.pendingCogs=(f.pendingCogs||0)+o.inventoryCost;f.pendingSalesQty=(f.pendingSalesQty||0)+o.qty;}goodsEntry(o.good,'exports',o.qty);if(G.market)G.market.externalSales+=gross;const c=s.contracts.find(c=>c.id===o.contract);if(c)c.delivered+=o.qty;}s.delivered++;if(typeof civicProjectRecordArrival==='function')civicProjectRecordArrival({...o,status:'Delivered',arrived:G.day});logisticsRemember(o,'Delivered');return true;}
 function regionalLogisticsDay(){
  const s=ensureRegionalTrade();if(s.lastLogisticsDay===G.day)return;s.lastLogisticsDay=G.day;s.handling={day:G.day,used:{},fees:0,relief:0};for(const f of G.firms)f.logisticsReceipts=0;settleLogisticsClaims();const depots=logisticsDepots(),keep=[];
  const priority=o=>s.priority==='essentials'?(o.direction==='import'&&o.good==='food'?-2:o.direction==='import'?-1:0):s.priority==='contracts'&&o.contract?-2:0;
@@ -1462,12 +1462,12 @@ regionalFreightDay=regionalLogisticsDay;
 const logisticsLiquidationBase=liquidateFirm;liquidateFirm=function(f,reason){if(f&&!f.closed){for(const o of G.regionalTrade?.shipments||[])if(o.firm===f.id){o.estateOwner=f.owner;o.cancelRequested=true}for(const c of G.regionalTrade?.claims||[])if(c.firm===f.id)c.estateOwner=f.owner;}return logisticsLiquidationBase(f,reason)};
 function regionalShipmentVisualState(o){if(!o.stage||o.stage==='legacy-transit')return null;if(['outside','return-outside','origin-loading','awaiting-payment'].includes(o.stage))return{visible:false};return{visible:true,path:o.activePath?.length?o.activePath:o.path,started:o.stageStarted,travelDays:Math.max(1,o.stageDays),parked:['loading','unloading'].includes(o.stage)};}
 const basicTradeValidator=validateRegionalTrade;
-validateRegionalTrade=function(data){const s=data.regionalTrade;if(!s||s.version===1)return basicTradeValidator(data);if(s.version!==2||!basicTradeValidator({...data,regionalTrade:{...s,version:1}}))return false;if(s.routePreference!=null&&!['automatic','interchange','depots'].includes(s.routePreference))return false;if(!['balanced','essentials','contracts'].includes(s.priority)||!Array.isArray(s.claims)||s.claims.length>data.firms.length*3||!Number.isSafeInteger(s.cancelled)||s.cancelled<0||!Number.isInteger(s.reliefUntil)||s.reliefUntil<0||s.reliefUntil>data.day+30||!s.handling||!Number.isInteger(s.handling.day)||s.handling.day<0||s.handling.day>data.day||typeof s.handling.used!=='object'||Array.isArray(s.handling.used))return false;
+validateRegionalTrade=function(data){const s=data.regionalTrade;if(s){const validFirm=id=>Number.isInteger(id)&&id>=0&&id<data.firms.length;for(const rows of [s.shipments,s.recent,s.contracts])if(!Array.isArray(rows)||rows.some(o=>!o||!validFirm(o.firm)))return false;}if(!s||s.version===1)return basicTradeValidator(data);if(s.version!==2||!basicTradeValidator({...data,regionalTrade:{...s,version:1}}))return false;if(s.routePreference!=null&&!['automatic','interchange','depots'].includes(s.routePreference))return false;if(!['balanced','essentials','contracts'].includes(s.priority)||!Array.isArray(s.claims)||s.claims.length>data.firms.length*3||!Number.isSafeInteger(s.cancelled)||s.cancelled<0||!Number.isInteger(s.reliefUntil)||s.reliefUntil<0||s.reliefUntil>data.day+30||!s.handling||!Number.isInteger(s.handling.day)||s.handling.day<0||s.handling.day>data.day||typeof s.handling.used!=='object'||Array.isArray(s.handling.used))return false;
  const contractIDs=new Set();if(s.contracts.some(c=>!Number.isInteger(c.id)||c.id<1||c.id>s.serial||contractIDs.has(c.id)||(contractIDs.add(c.id),false)||!Number.isInteger(c.deadline)||c.deadline<1||c.deadline>data.day+T*T))return false;
  const owner=id=>id==null||Number.isInteger(id)&&id>=-1&&id<data.households.length,amount=n=>Number.isFinite(n)&&n>=0&&n<=1e12,roadPath=p=>Array.isArray(p)&&p.length<=T*T&&p.every((id,i)=>Number.isInteger(id)&&id>=0&&id<T*T&&(!i||Math.abs(id%T-p[i-1]%T)+Math.abs((id/T|0)-(p[i-1]/T|0))===1));
  if(![s.handling.fees,s.handling.relief].every(amount)||Object.entries(s.handling.used).some(([id,n])=>!amount(n)||!(id==='-1'||data.firms[+id]?.kind==='warehouse')))return false;
- if(s.claims.some(c=>!c||!data.firms[c.firm]||!owner(c.estateOwner)||!amount(c.regional)||!amount(c.treasury)||!Number.isInteger(c.created)||c.created<1||c.created>data.day))return false;
- return s.shipments.every(o=>LOGISTICS_STAGES.includes(o.stage)&&Number.isInteger(o.stageStarted)&&o.stageStarted>=o.started&&o.stageStarted<=data.day&&Number.isInteger(o.stageDue)&&o.stageDue>=o.stageStarted&&o.stageDue<=data.day+T*T&&Number.isInteger(o.stageDays)&&o.stageDays>=1&&o.stageDays<=T*T&&roadPath(o.activePath)&&Number.isInteger(o.depot)&&(o.depot===-1||data.firms[o.depot]?.kind==='warehouse')&&Number.isInteger(o.depotIndex)&&o.depotIndex>=0&&o.depotIndex<o.path.length&&Number.isFinite(o.handled)&&o.handled>=0&&o.handled<=o.qty+1e-7&&[o.principal,o.tariff,o.handlingFee].every(amount)&&typeof o.cancelRequested==='boolean'&&owner(o.estateOwner));
+ if(s.claims.some(c=>!c||!Number.isInteger(c.firm)||c.firm<0||!data.firms[c.firm]||!owner(c.estateOwner)||!amount(c.regional)||!amount(c.treasury)||!Number.isInteger(c.created)||c.created<1||c.created>data.day))return false;
+ return s.shipments.every(o=>o.qty<=1e8&&o.price<=1e8&&amount(o.inventoryCost)&&amount(o.freight)&&LOGISTICS_STAGES.includes(o.stage)&&Number.isInteger(o.stageStarted)&&o.stageStarted>=o.started&&o.stageStarted<=data.day&&Number.isInteger(o.stageDue)&&o.stageDue>=o.stageStarted&&o.stageDue<=data.day+T*T&&Number.isInteger(o.stageDays)&&o.stageDays>=1&&o.stageDays<=T*T&&roadPath(o.activePath)&&Number.isInteger(o.depot)&&(o.depot===-1||data.firms[o.depot]?.kind==='warehouse')&&Number.isInteger(o.depotIndex)&&o.depotIndex>=0&&o.depotIndex<o.path.length&&Number.isFinite(o.handled)&&o.handled>=0&&o.handled<=o.qty+1e-7&&[o.principal,o.tariff,o.handlingFee].every(amount)&&typeof o.cancelRequested==='boolean'&&owner(o.estateOwner));
 };
 
 function rerouteRegionalShipment(id, depot) {
@@ -1480,7 +1480,7 @@ function rerouteRegionalShipment(id, depot) {
  const charge=o.qty*(.03+Math.max(0,q.freight-o.freight/o.qty));if(f.cash<charge)return false;
  f.cash-=charge;G.region+=charge;o.freight+=charge;
  if(o.direction==='import'){const held=(f.stock[o.good]||0)+pendingGoods(f,o.good);f.unitCost[o.good]=(f.unitCost[o.good]||marketPrice(o.good))+charge/Math.max(o.qty,held);}else regionalExpense(f,charge);
- o.path=newPath;o.depotIndex=index;o.depot=q.depot;o.pickupDays=q.pickupDays;o.gatewayDays=q.gatewayDays;o.handlingFee=q.handlingFee;
+ s.routeRevision=(s.routeRevision||0)+1;o.path=newPath;o.depotIndex=index;o.depot=q.depot;o.pickupDays=q.pickupDays;o.gatewayDays=q.gatewayDays;o.handlingFee=q.handlingFee;
  setLogisticsStage(o,'collecting',transfer.slice(),G.day,Math.max(1,Math.ceil(transfer.length/24)));o.due=Math.max(o.due,G.day+o.stageDays+o.pickupDays+o.gatewayDays+m.days+1);return true;
 }
 function procurementLeadDays(f,good){if(!G.policy.imports)return 3;const quotes=OUTSIDE_MARKETS.map(m=>regionalQuote(f,m,good,'import')).filter(Boolean).sort((a,b)=>a.price+a.freight-b.price-b.freight);return quotes.length?clamp(quotes[0].days,3,20):3;}
@@ -4423,23 +4423,18 @@ function civicProjectObservation(p){
  return {met,evidence:privateRoute?'Target family '+fmt(p.learning||0)+' paid learner-days · '+terms+' fee-funded terms completed':'Target household teaching access '+fmt(coverage*100)+'% · '+terms+' new adult training terms completed',detail:privateRoute?'Purchase 30 quality-adjusted learner-days for the named household, complete one actual fee-funded term in town, and retain 20 authorized spending days. Independent proposals need financing approval and 45 funded construction workdays, then qualified staff and fee-paying learners. A term needs 120 equivalent paid teaching days.':'Deliver at least 60% funded access to the named household, finish one actual adult term, and retain 20 authorized spending days. A term needs 120 equivalent funded teaching days; recruitment takes 30 days.',setback:!h?.people.length?'The target household no longer lives here. Replan for a resident household.':m.reserve<20?'Cash covers less than 20 authorized spending days. Review the recurring promise before increasing it.':''};
 }
 function civicProjectRecordArrival(order){
- const p=G.civicProjects?.active.food;if(!p||p.status!=='active'||!p.orders.includes(order.id))return;
+ const p=G.civicProjects?.active.food;if(!p||p.status!=='active'||!order||order.status!=='Delivered'||order.direction!=='import'||order.good!=='food'||order.firm!==p.target||!Number.isFinite(order.qty)||order.qty<=0||!p.orders.includes(order.id))return;
  p.arrived+=order.qty;p.orders=p.orders.filter(id=>id!==order.id);
 }
-// Observe the existing settlement boundary, rather than trusting its bounded recent log.
-const projectRegionalFreightBase=regionalFreightDay;
-regionalFreightDay=function(){
- const town=G,p=G.civicProjects?.active.food,tracked=p?.status==='active'?(G.regionalTrade?.shipments||[]).filter(o=>p.orders.includes(o.id)):[];
- projectRegionalFreightBase();if(G!==town||!tracked.length)return;
- const pending=new Set((G.regionalTrade?.shipments||[]).map(o=>o.id));
- for(const order of tracked)if(!pending.has(order.id))civicProjectRecordArrival(order);
-};
+// Logistics calls the receipt hook only at successful settlement. Removal is
+// not evidence: cancellations, returns and recovery auctions also remove cargo.
 function civicProjectsDay(){
  const s=G.civicProjects;if(!s||s.lastDay===G.day)return;s.lastDay=G.day;
  for(const p of Object.values(s.active)){
   if(p.status!=='active'||p.lastDay===G.day)continue;p.lastDay=G.day;
   if(p.kind==='food'){
-   for(const o of G.regionalTrade?.recent||[])civicProjectRecordArrival(o);
+   for(const o of G.regionalTrade?.recent||[])if(o.status==='Delivered')civicProjectRecordArrival(o);
+   const liveOrders=new Set((G.regionalTrade?.shipments||[]).map(o=>o.id));p.orders=p.orders.filter(id=>liveOrders.has(id));
    const f=p.firm==null?null:G.firms[p.firm];if(f){p.output+=Math.max(0,f.production||0);p.sales+=Math.max(0,f.salesQty||0);p.net+=Number(f.operating?.netProfit)||0;}
   }
   if(p.kind==='skills'&&p.branch==='private'&&G.privateServiceProvision?.day===G.day){const h=G.households[p.target];p.learning=(p.learning||0)+(G.privateServiceProvision.school[p.target]||0)*(h?.people.length||0);}
@@ -4506,7 +4501,7 @@ function civicProjectReviewFood(){
  const remaining=Math.max(0,180-p.arrived-(G.regionalTrade?.shipments||[]).filter(o=>p.orders.includes(o.id)).reduce((n,o)=>n+o.qty,0));if(remaining<.001){toast('The commissioned food is already travelling. Track its actual arrival before ordering again.');return;}
  const q=OUTSIDE_MARKETS.map(m=>regionalQuote(f,m,'food','import')).filter(Boolean).sort((a,b)=>(a.price*(1+G.policy.importTariff/100)+a.freight)-(b.price*(1+G.policy.importTariff/100)+b.freight))[0];if(!q){toast('No regional road reaches this shop. Restore the connection first.');return;}
  const amount=Math.min(remaining,180),cost=amount*(q.price*(1+G.policy.importTariff/100)+q.freight),town=G,pid=p.id;
- showCustomEvent('CIVIC PROJECT','A food bridge for '+f.name,fmt(amount)+' food from '+q.m.name+'; estimated '+money(cost)+' paid by this enterprise, approximately '+q.days+' days in transit. Shop cash '+money(f.cash)+'. Tariffs and freight are included. Imported stock can compete with local producers; loading capacity can split the order. The town gets no grant.',[{title:'Place the paid project order',cost:0,apply:()=>{const current=G.civicProjects?.active.food;if(G!==town||current?.id!==pid||!G.policy.imports||f.closed){toast('The project or import policy changed.');return;}const s=ensureRegionalTrade(),before=s.serial,n=dispatchRegional(f,'food',amount,'import',regionalQuote(f,q.m,'food','import'));if(n>0){current.orders.push(...s.shipments.filter(o=>o.id>before&&o.firm===f.id).map(o=>o.id));save();}else toast('Working capital or loading capacity is unavailable; no order was placed.');openCivicProjects('food');}}]);
+ showCustomEvent('CIVIC PROJECT','A food bridge for '+f.name,fmt(amount)+' food from '+q.m.name+'; estimated '+money(cost)+' paid by this enterprise, approximately '+q.days+' days in transit. Shop cash '+money(f.cash)+'. Tariffs and freight are included. Imported stock can compete with local producers; loading capacity can split the order. The town gets no grant.',[{title:'Place the paid project order',cost:0,apply:()=>{const current=G.civicProjects?.active.food;if(G!==town||current?.id!==pid||!G.policy.imports||f.closed){toast('The project or import policy changed.');return;}const s=ensureRegionalTrade(),before=s.serial;let n=0;for(let lot=0;lot<2&&n+.001<amount;lot++){const accepted=dispatchRegional(f,'food',amount-n,'import',regionalQuote(f,q.m,'food','import'));if(!accepted)break;n+=accepted;}if(n>0){current.orders.push(...s.shipments.filter(o=>o.id>before&&o.firm===f.id).map(o=>o.id));save();}else toast('Working capital or loading capacity is unavailable; no order was placed.');openCivicProjects('food');}}]);
 }
 function civicProjectSchoolBudget(){
  const estimate=Math.ceil(G.stats.population*CIVIC_STANDARDS.school.staff/CIVIC_STANDARDS.school.capacity*Math.max(24,G.policy.minWage)/.65/10)*10,target=clamp(Math.max(G.policy.educationBudget,estimate),0,500),increase=target-G.policy.educationBudget;
@@ -5277,17 +5272,17 @@ function paintNightScene(g,items){
 let overviewFreightCache=null;
 function overviewFreight(){
  const orders=G.regionalTrade?.shipments,net=graph();
- if(overviewFreightCache?.orders===orders&&overviewFreightCache.net===net&&overviewFreightCache.count===(orders?.length||0))return overviewFreightCache.rows;
+ if(overviewFreightCache?.orders===orders&&overviewFreightCache.net===net&&overviewFreightCache.count===(orders?.length||0)&&overviewFreightCache.revision===(G.regionalTrade?.routeRevision||0))return overviewFreightCache.rows;
  const rows=[];
  for(const market of OUTSIDE_MARKETS){let inbound=0,outbound=0,quantity=0,example=null;
-  for(const order of orders||[]){if(order.market!==market.id)continue;if(order.direction==='import')inbound++;else outbound++;quantity+=order.qty;example=example||order;}
+  for(const order of orders||[]){if(order.market!==market.id)continue;const returning=['returning','return-outside'].includes(order.stage);if((order.direction==='import')!==returning)inbound++;else outbound++;quantity+=order.qty;example=example||order;}
   if(!example)continue;
   // Preserve the actual representative road route, reducing only straight runs.
   const path=example.path,points=[];for(let i=0;i<path.length;i++){const id=path[i],before=path[i-1],after=path[i+1];if(i&&i<path.length-1&&id-before===after-id)continue;points.push(roadCenter(id));}
   const gate=regionalGateway(market);if(gate==null)continue;
   rows.push({market:market.id,inbound,outbound,quantity,points,gate:roadCenter(gate)});
  }
- overviewFreightCache={orders,net,rows,count:orders?.length||0};return rows;
+ overviewFreightCache={orders,net,rows,count:orders?.length||0,revision:G.regionalTrade?.routeRevision||0};return rows;
 }
 function drawDistrictLife(g,visible){
  if(!gameOptions.decor)return;
@@ -5300,7 +5295,7 @@ function drawDistrictLife(g,visible){
    g.fillStyle='#344f45e8';g.fillRect(p[0]-width/2,p[1]-16/z,width,12/z);g.fillStyle='#f2dfaa';g.textAlign='center';g.fillText(text,p[0],p[1]-7/z);
   }
   // These are active consignments, not invented trucks or instantaneous sales.
-  if(rows.length){g.setTransform(dpr,0,0,dpr,0,0);g.font='7px Arial';g.fillStyle='#e9dfbf';g.textAlign='center';g.fillText(rows.reduce((n,r)=>n+r.inbound+r.outbound,0)+' LOADS IN TRANSIT · dotted routes are samples',cw*.53,12);transform();}
+  if(rows.length){g.setTransform(dpr,0,0,dpr,0,0);g.font='7px Arial';g.fillStyle='#e9dfbf';g.textAlign='center';g.fillText(rows.reduce((n,r)=>n+r.inbound+r.outbound,0)+' OWNED LOADS · queues/outside legs included',cw*.53,12);transform();}
   g.restore();
  }
  if(z>=.45&&z<1){

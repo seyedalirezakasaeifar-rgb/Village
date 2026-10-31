@@ -1,5 +1,5 @@
 {
-  "source_sha256": "6a770b26dc99ece160a4ef9883730f92498f4c0fdd20bbf217e533a3f878a798",
+  "source_sha256": "83f7369c1980c4db4b33b66348abfd9ffc5d39f2d23d79851679a2598bb49196",
   "controlledStartingConditions": true,
   "actualInvitationAndOperatingModel": true,
   "municipalCapitalAtInvitation": 0.0,
@@ -24,7 +24,7 @@
     "trainingBaseline": 0,
     "learning": 361.83360000000073,
     "completed": 195,
-    "proof": "Target family 361.8 paid learner-days \u00b7 12 fee-funded terms completed"
+    "proof": "Target family 361.8 paid learner-days \u00b7 15 fee-funded terms completed"
   },
   "errors": []
 }
