@@ -1,0 +1,60 @@
+{
+  "checkpoint": "03cb54675880a9b60c0c8d8de5dd0b671d0abff3",
+  "source_sha256": "27ca5f1e1e5df352d38daf042d2de63b63024b8deed596c79e2f4679cc50947e",
+  "seed": 8142026,
+  "httpOrigin": true,
+  "startedUTC": "2026-10-31T19:36:48.630511+00:00",
+  "dueUTC": "2026-10-31T20:36:48.630511+00:00",
+  "status": "failed",
+  "elapsedSeconds": 41.57,
+  "operations": 31,
+  "operationCounts": {
+    "bootstrap": 1,
+    "step": 9,
+    "replay": 4,
+    "import": 2,
+    "adoption": 2,
+    "quota": 1,
+    "corruptStore": 1,
+    "bothDenied": 1,
+    "stale": 1,
+    "burst": 3,
+    "sameDay": 2,
+    "cargo": 2,
+    "cold": 2
+  },
+  "coldReloads": 7,
+  "errors": [
+    "AssertionError({'replayDay': 102, 'days': 9, 'pending': False, 'different': ['banks', 'cumulative', 'firms', 'goodsAccounts', 'goodsCompensation', 'history', 'households', 'market', 'observations', 'region', 'regionalTrade', 'stats', 'treasury', 'waterway']})"
+  ],
+  "replay": {
+    "startDay": 102,
+    "days": 9,
+    "pendingCouncilEvent": false,
+    "changedFields": [
+      "banks",
+      "cumulative",
+      "firms",
+      "goodsAccounts",
+      "goodsCompensation",
+      "history",
+      "households",
+      "market",
+      "observations",
+      "region",
+      "regionalTrade",
+      "stats",
+      "treasury",
+      "waterway"
+    ],
+    "bank2CashUninterrupted": 27714.469548766745,
+    "bank2CashRestored": 27714.74694155009
+  },
+  "repeat": {
+    "strictOriginal": "same failure after approximately 40 seconds",
+    "diagnostic": "reproduced at day 102 plus 9 days",
+    "preserveServiceProvisionsProbe": "same failure; restoring both saved provision caches did not resolve divergence"
+  },
+  "classification": "Canonical continuation failure; money destruction is not demonstrated. Total-money and goods invariants passed through the preceding operation. No production edit made.",
+  "privateReproPath": "/workspace/scratch/save-acceptance-03cb-diagnostic/replay-failure-private.json"
+}
