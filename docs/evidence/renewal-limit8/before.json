@@ -1,0 +1,14 @@
+{
+  "source_sha256": "e3ce8095e79bd66520f04afde8773d953c8593cb51939eec062c5aef79b1381f",
+  "result": {
+    "historicalFixture": true,
+    "actualCompletedReceipt": true,
+    "atLimit": 3000,
+    "attemptAccepted": true,
+    "postAttemptImportable": false,
+    "rejection": "Assessment recorded. Existing workers, operations and property rights remain unchanged until separately approved acquisition.",
+    "activeAssessmentPreserved": true,
+    "bytes": 2269911,
+    "money": 15493516.999997383
+  }
+}

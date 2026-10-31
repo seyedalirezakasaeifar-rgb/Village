@@ -1,0 +1,15 @@
+{
+  "source_sha256": "dbc77e0fb769fb75a7b9d93db0e6cc5649500ef960558b2b63a81526fcced26f",
+  "result": {
+    "historicalFixture": true,
+    "actualCompletedReceipt": true,
+    "atLimit": 3000,
+    "attemptAccepted": false,
+    "postAttemptImportable": true,
+    "rejection": "The renewal ledger has reached 3,000 retained sites. Existing projects and provenance are preserved. Withdraw an unacquired survey before recording another; no payment was taken.",
+    "existingRecordPreserved": true,
+    "existingProjectContinues": true,
+    "bytes": 2268825,
+    "money": 15493516.999997383
+  }
+}
