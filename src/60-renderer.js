@@ -130,7 +130,7 @@ function closestRoadBuilding(x,y,kind){const net=graph(),site=buildingAt(x,y);if
 function emergencyDispatch(site,kind){if(!site)return;const service=closestRoadBuilding(site.x,site.y,kind);if(service){const v=beginVehicle(service,site,true);if(v){v.speed=5.5;return}}}
 let trafficElapsed=0,intersectionGates=new Map();
 function trafficUpdate(dt){
- if(paused||pendingEvent||!G)return;
+ if(paused||pendingEvent||!G||!visualDetailBudget().traffic)return;
  const target=Math.min(42,Math.round(5+Math.sqrt(G.stats.population)*1.25));
  trafficElapsed+=dt;trafficClock+=dt;
  let tries=0;

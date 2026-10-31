@@ -21,7 +21,7 @@ function waterRoutePose(path,travel,returning=false){
 }
 let waterVesselTown=null,waterVesselClock=0,waterVessels=new Map();
 function waterfrontActors(visible){
- if(!gameOptions.traffic||!gameOptions.effects||gameOptions.reducedMotion||gameOptions.quality==='low'||cam.zoom<.32)return [];
+ if(!visualDetailBudget().boats)return [];
  if(waterVesselTown!==G||frameClock<waterVesselClock){waterVessels=new Map();waterVesselTown=G;waterVesselClock=frameClock;}
  const elapsed=Math.min(.25,Math.max(0,frameClock-waterVesselClock));waterVesselClock=frameClock;
  const cap=fastRenderEnabled()?2:gameOptions.quality==='high'?10:6,actors=[],orders=new Map();

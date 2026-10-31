@@ -40,7 +40,7 @@ function paintTownLight(g){
 }
 function buildingActivity(items){
  const actors=[];
- if(!gameOptions.effects||gameOptions.reducedMotion)return actors;
+ if(!visualDetailBudget().people)return actors;
  const cap=fastRenderEnabled()?5:gameOptions.quality==='high'?20:12;let count=0;
  for(const item of items){const b=item.b,f=b&&G.firms[b.firm];if(!f||f.closed||!workingStaff(f).length||!(f.production>0||f.revenue>0)||++count>cap)continue;
   const id=f.workers[0],phase=(frameClock*.14+b.id*.173)%1,t=phase<.5?phase*2:(1-phase)*2;

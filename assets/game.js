@@ -233,6 +233,13 @@ function applyPresentationOptions(){
 // Apply classes now; renderer initialization follows in the ordered bundle.
 document.body.classList.toggle('large-text',gameOptions.largeText);document.body.classList.toggle('hide-hints',!gameOptions.showHints);
 
+// Projected sprite sizes, not town population, determine whether individual
+// visual actors are useful. Economic freight, labour and services run elsewhere.
+function visualDetailBudget(){
+ const z=cam.zoom,limited=gameOptions.quality==='low'||fastRenderEnabled();
+ return {traffic:gameOptions.traffic&&!gameOptions.reducedMotion&&z>=(limited?.62:.45),people:gameOptions.effects&&!gameOptions.reducedMotion&&z>=(limited?.9:.62),boats:gameOptions.traffic&&gameOptions.effects&&!gameOptions.reducedMotion&&gameOptions.quality!=='low'&&z>=.32};
+}
+
 // SOURCE: 08-market-model.js
 let marketOpen=false;
 function policyNumber(value){return Number(value||0).toLocaleString('en-CA',{maximumFractionDigits:2});}
@@ -2288,7 +2295,7 @@ function closestRoadBuilding(x,y,kind){const net=graph(),site=buildingAt(x,y);if
 function emergencyDispatch(site,kind){if(!site)return;const service=closestRoadBuilding(site.x,site.y,kind);if(service){const v=beginVehicle(service,site,true);if(v){v.speed=5.5;return}}}
 let trafficElapsed=0,intersectionGates=new Map();
 function trafficUpdate(dt){
- if(paused||pendingEvent||!G)return;
+ if(paused||pendingEvent||!G||!visualDetailBudget().traffic)return;
  const target=Math.min(42,Math.round(5+Math.sqrt(G.stats.population)*1.25));
  trafficElapsed+=dt;trafficClock+=dt;
  let tries=0;
@@ -2670,7 +2677,7 @@ function draw(){
  }
  ctx.setTransform(1,0,0,1,0,0);ctx.drawImage(viewRaster,0,0);transform();
  drawConstructionProgress(ctx,visible);drawInspectedRoute(ctx);drawWaterLife(ctx,visible);drawWaterfrontPiers(ctx,visible);drawSelectedWaterRoute(ctx);
- const visibleParcels=viewBuildings.filter(item=>visible(item.x,item.y,0)),actors=[...buildingActivity(visibleParcels),...workdayScenes(visibleParcels),...waterfrontActors(visible)];if(gameOptions.traffic)for(const v of traffic){const p=vehiclePosition(v);if(visible(p.x,p.y,15))actors.push({kind:'vehicle',v,...p});}actors.sort((a,b)=>a.y-b.y);
+ const visibleParcels=viewBuildings.filter(item=>visible(item.x,item.y,0)),actors=[...buildingActivity(visibleParcels),...workdayScenes(visibleParcels),...waterfrontActors(visible)];if(visualDetailBudget().traffic)for(const v of traffic){const p=vehiclePosition(v);if(visible(p.x,p.y,15))actors.push({kind:'vehicle',v,...p});}actors.sort((a,b)=>a.y-b.y);
  if(actors.length){
   // Clip subsequent foreground re-paints to the actors' damage rectangles.
   ctx.save();ctx.beginPath();for(const a of actors)if(a.kind==='boat')ctx.rect(a.x-44,a.y-32,88,64);else ctx.rect(a.x-25,a.y-32,56,52);ctx.clip();
@@ -2866,7 +2873,7 @@ function paintTownLight(g){
 }
 function buildingActivity(items){
  const actors=[];
- if(!gameOptions.effects||gameOptions.reducedMotion)return actors;
+ if(!visualDetailBudget().people)return actors;
  const cap=fastRenderEnabled()?5:gameOptions.quality==='high'?20:12;let count=0;
  for(const item of items){const b=item.b,f=b&&G.firms[b.firm];if(!f||f.closed||!workingStaff(f).length||!(f.production>0||f.revenue>0)||++count>cap)continue;
   const id=f.workers[0],phase=(frameClock*.14+b.id*.173)%1,t=phase<.5?phase*2:(1-phase)*2;
@@ -3892,7 +3899,7 @@ document.addEventListener('click',e=>{const b=e.target.closest('[data-programme-
 // Original small workday tableaux. They visualize actual operating activity;
 // samples never create cargo, income, pupils or production in the simulation.
 function workdayScenes(items){
- if(!gameOptions.effects||!gameOptions.decor||gameOptions.quality==='low'||gameOptions.reducedMotion||cam.zoom<.52)return [];
+ if(!visualDetailBudget().people||!gameOptions.decor||gameOptions.quality==='low')return [];
  const scenes=[],cap=fastRenderEnabled()?3:gameOptions.quality==='high'?12:7;
  for(let n=items.length-1;n>=0;n--){const item=items[n],b=item.b;if(!b||scenes.length>=cap)continue;const f=G.firms[b.firm];let scene=null;
   if(f&&!f.closed&&workingStaff(f).length&&f.production>0){if(['mill','sawmill','factory'].includes(b.kind))scene='machinery';else if(['farm','fishery','forestry'].includes(b.kind))scene='harvest';}
@@ -4003,7 +4010,7 @@ function waterRoutePose(path,travel,returning=false){
 }
 let waterVesselTown=null,waterVesselClock=0,waterVessels=new Map();
 function waterfrontActors(visible){
- if(!gameOptions.traffic||!gameOptions.effects||gameOptions.reducedMotion||gameOptions.quality==='low'||cam.zoom<.32)return [];
+ if(!visualDetailBudget().boats)return [];
  if(waterVesselTown!==G||frameClock<waterVesselClock){waterVessels=new Map();waterVesselTown=G;waterVesselClock=frameClock;}
  const elapsed=Math.min(.25,Math.max(0,frameClock-waterVesselClock));waterVesselClock=frameClock;
  const cap=fastRenderEnabled()?2:gameOptions.quality==='high'?10:6,actors=[],orders=new Map();

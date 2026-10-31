@@ -1,7 +1,7 @@
 // Original small workday tableaux. They visualize actual operating activity;
 // samples never create cargo, income, pupils or production in the simulation.
 function workdayScenes(items){
- if(!gameOptions.effects||!gameOptions.decor||gameOptions.quality==='low'||gameOptions.reducedMotion||cam.zoom<.52)return [];
+ if(!visualDetailBudget().people||!gameOptions.decor||gameOptions.quality==='low')return [];
  const scenes=[],cap=fastRenderEnabled()?3:gameOptions.quality==='high'?12:7;
  for(let n=items.length-1;n>=0;n--){const item=items[n],b=item.b;if(!b||scenes.length>=cap)continue;const f=G.firms[b.firm];let scene=null;
   if(f&&!f.closed&&workingStaff(f).length&&f.production>0){if(['mill','sawmill','factory'].includes(b.kind))scene='machinery';else if(['farm','fishery','forestry'].includes(b.kind))scene='harvest';}

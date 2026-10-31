@@ -14,3 +14,10 @@ function applyPresentationOptions(){
 }
 // Apply classes now; renderer initialization follows in the ordered bundle.
 document.body.classList.toggle('large-text',gameOptions.largeText);document.body.classList.toggle('hide-hints',!gameOptions.showHints);
+
+// Projected sprite sizes, not town population, determine whether individual
+// visual actors are useful. Economic freight, labour and services run elsewhere.
+function visualDetailBudget(){
+ const z=cam.zoom,limited=gameOptions.quality==='low'||fastRenderEnabled();
+ return {traffic:gameOptions.traffic&&!gameOptions.reducedMotion&&z>=(limited?.62:.45),people:gameOptions.effects&&!gameOptions.reducedMotion&&z>=(limited?.9:.62),boats:gameOptions.traffic&&gameOptions.effects&&!gameOptions.reducedMotion&&gameOptions.quality!=='low'&&z>=.32};
+}
