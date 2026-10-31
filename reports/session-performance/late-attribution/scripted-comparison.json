@@ -1,0 +1,170 @@
+{
+  "baseline_sha256": "d90bb509173a803b75c3cdc432fea57ce2f1e2abbcb13b8886c56d8feaffe515",
+  "candidate_sha256": "e458f8f483cc97074618517b88362d0ee377836b504b4a60f8666e109ca01c72",
+  "checkpoint_sha256": "ad6256fd85d4146fda9eeac0b16d5b182ed352c23bbd96af3b320553c29ce786",
+  "sameOrderedActions": [
+    {
+      "kind": "touch",
+      "index": 0
+    },
+    {
+      "kind": "touch",
+      "index": 1
+    },
+    {
+      "kind": "open-panel",
+      "panel": "economy",
+      "index": 1
+    },
+    {
+      "kind": "touch",
+      "index": 2
+    },
+    {
+      "kind": "touch",
+      "index": 3
+    },
+    {
+      "kind": "touch",
+      "index": 4
+    },
+    {
+      "kind": "close-panel",
+      "index": 4
+    },
+    {
+      "kind": "touch",
+      "index": 5
+    },
+    {
+      "kind": "explicit-save",
+      "index": 5
+    },
+    {
+      "kind": "touch",
+      "index": 6
+    },
+    {
+      "kind": "touch",
+      "index": 7
+    },
+    {
+      "kind": "open-panel",
+      "panel": "businesses",
+      "index": 7
+    },
+    {
+      "kind": "touch",
+      "index": 8
+    },
+    {
+      "kind": "touch",
+      "index": 9
+    },
+    {
+      "kind": "touch",
+      "index": 10
+    },
+    {
+      "kind": "close-panel",
+      "index": 10
+    },
+    {
+      "kind": "touch",
+      "index": 11
+    },
+    {
+      "kind": "explicit-save",
+      "index": 11
+    }
+  ],
+  "rows": [
+    {
+      "label": "baseline",
+      "seconds": 44.26869999999926,
+      "days": 471,
+      "actualRate": 17.555293017414403,
+      "raf": {
+        "count": 471,
+        "totalMs": 44181.600000000006,
+        "p50Ms": 83.30000000000018,
+        "p95Ms": 150,
+        "p99Ms": 383.39999999999964,
+        "maxMs": 666.7000000000044
+      },
+      "frame": {
+        "count": 472,
+        "totalMs": 42449.19999998808,
+        "p50Ms": 76.09999999962747,
+        "p95Ms": 130.90000000037253,
+        "p99Ms": 376.5,
+        "maxMs": 658.8000000007451
+      },
+      "touch": {
+        "count": 22,
+        "totalMs": 5731.699999999255,
+        "p50Ms": 298.40000000037253,
+        "p95Ms": 344.80000000074506,
+        "p99Ms": 382,
+        "maxMs": 382
+      },
+      "panelCalls": 17,
+      "saveCalls": 3,
+      "drawCalls": 472,
+      "longtasks": 473,
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15493517.000209736,
+        "population": 784,
+        "day": 42153
+      },
+      "moneyDrift": -8.754432201385498e-08,
+      "goodsError": 3.5968696465715766e-08
+    },
+    {
+      "label": "candidate",
+      "seconds": 43.40830000000074,
+      "days": 465,
+      "actualRate": 17.67519115007929,
+      "raf": {
+        "count": 464,
+        "totalMs": 43331.6,
+        "p50Ms": 83.30000000000018,
+        "p95Ms": 133.3000000000029,
+        "p99Ms": 383.39999999999964,
+        "maxMs": 616.6999999999989
+      },
+      "frame": {
+        "count": 465,
+        "totalMs": 41250.89999999292,
+        "p50Ms": 75.5,
+        "p95Ms": 117.89999999850988,
+        "p99Ms": 370.80000000074506,
+        "maxMs": 628.3000000007451
+      },
+      "touch": {
+        "count": 22,
+        "totalMs": 5741.4000000003725,
+        "p50Ms": 289,
+        "p95Ms": 389.59999999962747,
+        "p99Ms": 401.7000000011176,
+        "maxMs": 401.7000000011176
+      },
+      "panelCalls": 17,
+      "saveCalls": 3,
+      "drawCalls": 465,
+      "longtasks": 468,
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15493517.000209734,
+        "population": 784,
+        "day": 42147
+      },
+      "moneyDrift": -8.940696716308594e-08,
+      "goodsError": 3.5968696465715766e-08
+    }
+  ],
+  "conclusion": "Periodic panel/save callbacks are moved out of the RAF task with coalescing and commit/town/focus guards. This pair does not establish better whole-game input tails; dominant atomic road-distance work remains. Earlier variable-action-count diagnostics are preserved separately."
+}

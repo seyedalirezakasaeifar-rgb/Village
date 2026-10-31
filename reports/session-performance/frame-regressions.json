@@ -1,0 +1,29 @@
+{
+  "source_sha256": "e458f8f483cc97074618517b88362d0ee377836b504b4a60f8666e109ca01c72",
+  "tests": [
+    {
+      "name": "test_host_lifecycle.py",
+      "exitCode": 0
+    },
+    {
+      "name": "test_save_queue.py",
+      "exitCode": 1,
+      "blocker": "Browser administrator policy rejects file:// navigation before app executes; retry uses the repository opt-in loopback asset adapter."
+    },
+    {
+      "name": "test_save_queue.py",
+      "transport": "repository opt-in loopback asset adapter",
+      "exitCode": 0
+    },
+    {
+      "name": "test_save_chronology.py",
+      "transport": "repository opt-in loopback asset adapter",
+      "exitCode": 0
+    },
+    {
+      "name": "test_older_webview_api.py",
+      "transport": "repository opt-in loopback asset adapter",
+      "exitCode": 0
+    }
+  ]
+}
