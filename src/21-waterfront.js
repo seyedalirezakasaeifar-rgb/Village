@@ -30,11 +30,12 @@ function ensureWaterfront(){
 function prepareWaterfrontDay(live=G.firms.filter(f=>!f.closed)){
  const network=waterNetwork(),state=ensureWaterfront();if(waterDayTown===G&&waterDayNumber===G.day)return;
  waterDayTown=G;waterDayNumber=G.day;operatingWharves=[];state.manifests=state.manifests.filter(m=>m.started+m.duration>=G.day);state.todayCargo=0;state.todayFees=0;
- for(const f of G.firms){if(f.kind==='wharf'){f.cargoToday=0;f.handlingFees=0;f.cargoCapacity=0;}if(f.kind==='fishery'){f.fishingAllowance=0;f.fishingWaterLimit=false;}}
+ const handled=G.regionalTrade?.handling?.day===G.day?G.regionalTrade.handling.used:{};
+ for(const f of G.firms){if(f.kind==='wharf'){f.cargoToday=handled[f.id]||0;f.handlingFees=f.cargoToday*.10;f.cargoCapacity=0;state.todayCargo+=f.cargoToday;state.todayFees+=f.handlingFees;}if(f.kind==='fishery'){f.fishingAllowance=0;f.fishingWaterLimit=false;}}
  const groups=new Map();for(const f of live){f.shippingToday=0;if(f.kind==='fishery'){f.fishingAllowance=0;const b=readBuild(f.building),site=b&&waterfrontSite(b.x,b.y);f.waterPart=site?.part??-1;
    if(site&&workingStaff(f).length){const capacity=formulas.fishery.qty*workingStaff(f).length/SECTOR_WORKERS.fishery*(.82+workingStaff(f).reduce((n,id)=>n+(G.people[id]?.skill||.5),0)/workingStaff(f).length*.25+G.education*.0015)*(1+(f.scale-1)*.25);if(!groups.has(site.part))groups.set(site.part,[]);groups.get(site.part).push({f,capacity});}
-  }else if(f.kind==='wharf'){f.cargoToday=0;f.handlingFees=0;const b=readBuild(f.building),site=b&&waterfrontSite(b.x,b.y,'wharf'),path=site?waterOutletPath(site.id):[];const capacity=workingStaff(f).length*600*(1+((f.scale||1)-1)*.25);f.cargoCapacity=capacity;
-   if(path.length&&capacity>0)operatingWharves.push({f,b,site,path,remaining:capacity});
+  }else if(f.kind==='wharf'){const b=readBuild(f.building),site=b&&waterfrontSite(b.x,b.y,'wharf'),path=site?waterOutletPath(site.id):[];const capacity=workingStaff(f).length*600*(1+((f.scale||1)-1)*.25);f.cargoCapacity=Math.max(capacity,f.cargoToday);
+   if(path.length&&capacity>0)operatingWharves.push({f,b,site,path,remaining:Math.max(0,capacity-f.cargoToday)});
   }
  }
  for(const [part,list] of groups){const available=network.components[part].catchCapacity,total=list.reduce((n,v)=>n+v.capacity,0);for(const {f,capacity} of list){f.fishingAllowance=capacity*Math.min(1,available/Math.max(1,total));f.fishingWaterLimit=total>available;}}
