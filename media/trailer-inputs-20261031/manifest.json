@@ -1,0 +1,91 @@
+{
+  "clips": [
+    {
+      "file": "01_living_neighbourhood.mp4",
+      "bytes": 1824472,
+      "sha256": "eab5a8da272d4bb312b8e939aadbc0efc13cb3fa6746ebbfa57b291d72d51566",
+      "source_commit": "6f648d8c039038a60febeef8a887ba545395fd32",
+      "source_sha256": "f7344d229358570ba03282cd42f910911989b7dc21ff697731e6f9a271848539",
+      "description": "Seed42 settlement,60 accelerated economic days; no capital/population grant.",
+      "width": 1280,
+      "height": 720,
+      "capture_fps": 25,
+      "export_fps": 30,
+      "duration_seconds": 10.0,
+      "browser_errors": []
+    },
+    {
+      "file": "02_lamplit_neighbourhood.mp4",
+      "bytes": 1227509,
+      "sha256": "f8dce45346a747d206ddfb90e2b3dd77bbec4e1f21858ace23af4b51c04d7ad9",
+      "source_commit": "6f648d8c039038a60febeef8a887ba545395fd32",
+      "source_sha256": "f7344d229358570ba03282cd42f910911989b7dc21ff697731e6f9a271848539",
+      "description": "Seed42 settlement,60 accelerated economic days; no capital/population grant.",
+      "width": 1280,
+      "height": 720,
+      "capture_fps": 25,
+      "export_fps": 30,
+      "duration_seconds": 10.0,
+      "browser_errors": []
+    },
+    {
+      "file": "03_bus_and_elevated.mp4",
+      "bytes": 1931870,
+      "sha256": "65094b2a1e7e50a7ac1d8793e65e278c653f906a5e02c00a3a20227b80b643e8",
+      "source_commit": "6f648d8c039038a60febeef8a887ba545395fd32",
+      "source_sha256": "f7344d229358570ba03282cd42f910911989b7dc21ff697731e6f9a271848539",
+      "description": "Controlled actual financed bus/rail fixture; existing residents reassigned as qualified driver candidates, actual paid service.",
+      "width": 1280,
+      "height": 720,
+      "capture_fps": 25,
+      "export_fps": 30,
+      "duration_seconds": 9.966667,
+      "browser_errors": []
+    },
+    {
+      "file": "04_working_waterfront.mp4",
+      "bytes": 975904,
+      "sha256": "61e7f33f61d043d8a1cdc3c599079aa9cb1f6d99019fbb2a812b8a0731d8b21a",
+      "source_commit": "6f648d8c039038a60febeef8a887ba545395fd32",
+      "source_sha256": "f7344d229358570ba03282cd42f910911989b7dc21ff697731e6f9a271848539",
+      "description": "Seed42 settlement,60 accelerated economic days; no capital/population grant.",
+      "width": 1280,
+      "height": 720,
+      "capture_fps": 25,
+      "export_fps": 30,
+      "duration_seconds": 10.0,
+      "browser_errors": []
+    },
+    {
+      "file": "05_market_hall.mp4",
+      "bytes": 1207114,
+      "sha256": "f855e4441a1a27e9d51c68164babaae1760bb38ad4e8f0d8f7dc297f590a6cc7",
+      "source_commit": "6f648d8c039038a60febeef8a887ba545395fd32",
+      "source_sha256": "f7344d229358570ba03282cd42f910911989b7dc21ff697731e6f9a271848539",
+      "description": "Controlled funded/commissioned6-tile retail opportunity fixture, authored catchment; no unassisted growth claim.",
+      "width": 1280,
+      "height": 720,
+      "capture_fps": 25,
+      "export_fps": 30,
+      "duration_seconds": 10.0,
+      "browser_errors": []
+    },
+    {
+      "file": "06_mayor_planning.mp4",
+      "bytes": 1348659,
+      "sha256": "d8e965d2ac2af5458484546de0ce3b1b27d5b7565b2e0f3293b392b1cd44a263",
+      "source_commit": "6f648d8c039038a60febeef8a887ba545395fd32",
+      "source_sha256": "f7344d229358570ba03282cd42f910911989b7dc21ff697731e6f9a271848539",
+      "description": "Actual mayor Public Works/planning interface, ordinary navigation; no purchase during clip.",
+      "width": 1280,
+      "height": 720,
+      "capture_fps": 25,
+      "export_fps": 30,
+      "duration_seconds": 9.8,
+      "browser_errors": []
+    }
+  ],
+  "audio": "Silent capture inputs; original soundtrack is separate.",
+  "publication": "Six game-only capture inputs for trailer editing; no real personal or payment data.",
+  "capture": "Host Chromium, stable cameras; simulation/UI shown are actual committed game, with controlled fixtures disclosed individually."
+}
