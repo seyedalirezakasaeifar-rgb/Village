@@ -80,7 +80,7 @@ function routeBetween(a,b){
  net.routeTrees=net.routeTrees||new Map();let prev=net.routeTrees.get(start);
  if(!prev){prev=new Int32Array(T*T).fill(-1);const queue=[start];prev[start]=start;
   for(let i=0;i<queue.length;i++)for(const n of net.neighbors.get(queue[i])||[]){if(prev[n]!==-1)continue;prev[n]=queue[i];queue.push(n);}
-  // 96 trees at 56² Int32 cells use at most 1.2 MiB.
+  // 96 route trees at the bounded 128² grid use at most 6 MiB.
   if(net.routeTrees.size>=96)net.routeTrees.delete(net.routeTrees.keys().next().value);net.routeTrees.set(start,prev);
  }
  if(prev[finish]===-1)return [];const path=[finish];let at=finish;

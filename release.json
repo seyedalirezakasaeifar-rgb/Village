@@ -2,6 +2,6 @@
   "version": "8.0.0",
   "code": 22,
   "edition": "A Trading Town",
-  "schema": 7,
+  "schema": 8,
   "package": "org.townledger.vale"
 }

@@ -1,5 +1,5 @@
 // Deterministic model services. Presentation has its own hash-based randomness.
-const RELEASE=Object.freeze({"version":"8.0.0","code":22,"edition":"A Trading Town","schema":7,"package":"org.townledger.vale"});
+const RELEASE=Object.freeze({"version":"8.0.0","code":22,"edition":"A Trading Town","schema":8,"package":"org.townledger.vale"});
 let rngState=42,visualState=918273,simulationBusy=false;
 const perfStats={frames:[],ticks:[],effective:1,backlog:0,days:0,elapsed:0,errors:[]};
 function random(){rngState=(rngState+0x6D2B79F5)>>>0;let t=rngState;t=Math.imul(t^(t>>>15),t|1);t^=t+Math.imul(t^(t>>>7),t|61);return ((t^(t>>>14))>>>0)/4294967296;}

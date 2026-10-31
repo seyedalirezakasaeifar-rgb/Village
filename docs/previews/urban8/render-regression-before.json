@@ -1,0 +1,13 @@
+{
+  "source_sha256": "7273bde92cdb19e947ab8c6757b0048bc718680529d6ee7bf7c70437e669e768",
+  "hostBrowserOnly": true,
+  "physicalAndroid": false,
+  "failedGate": "drawP95Ms < 50",
+  "drawP95Ms": 66.60000000009313,
+  "drawP99Ms": 75.30000000004657,
+  "tickMedianMs": 8.800000000046566,
+  "tickP95Ms": 26.300000000046566,
+  "actualSpeed": 60.05311823726141,
+  "rafP99Ms": 116.69999999999982,
+  "fix": "Retain unchanged outer terrain in the existing bitmap and cache charter ownership."
+}

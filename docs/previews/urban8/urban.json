@@ -1,0 +1,202 @@
+{
+  "source_sha256": "ace5f2c9371c2144292dacdbf69b0932495fcc64526303d0ff3a156f978c3095",
+  "annexation": {
+    "parcels": 21,
+    "grid": 128,
+    "totalArea": 15596,
+    "conserved": true,
+    "valid": {
+      "ok": true,
+      "issues": [],
+      "total": 15493517,
+      "population": 169,
+      "day": 1
+    }
+  },
+  "migration": {
+    "from": 80,
+    "to": 128,
+    "buildings": 102,
+    "cargo": 18,
+    "activePathRemapped": true,
+    "identityPreserved": true,
+    "valid": {
+      "ok": true,
+      "issues": [],
+      "total": 15488063.999999322,
+      "population": 169,
+      "day": 45
+    }
+  },
+  "clearance": {
+    "blockedWithoutVacancy": true,
+    "ownerCompensation": 44236,
+    "relocatedHouseholds": 1,
+    "totalCost": 48086,
+    "conserved": true,
+    "valid": {
+      "ok": true,
+      "issues": [],
+      "total": 15493517,
+      "population": 169,
+      "day": 1
+    },
+    "vacant": 103
+  },
+  "farmClearance": {
+    "fieldsReleased": 5,
+    "workersCompensated": 4,
+    "conserved": true,
+    "goods": [
+      {
+        "good": "grain",
+        "opening": 960,
+        "produced": 0,
+        "consumed": 0,
+        "imports": 80,
+        "exports": 40,
+        "stock": 1000,
+        "error": 0,
+        "price": 2
+      },
+      {
+        "good": "flour",
+        "opening": 960,
+        "produced": 0,
+        "consumed": 0,
+        "imports": 80,
+        "exports": 40,
+        "stock": 1000,
+        "error": 0,
+        "price": 3
+      },
+      {
+        "good": "food",
+        "opening": 1920,
+        "produced": 0,
+        "consumed": 0,
+        "imports": 160,
+        "exports": 80,
+        "stock": 2000,
+        "error": 0,
+        "price": 3.3
+      },
+      {
+        "good": "logs",
+        "opening": 720,
+        "produced": 0,
+        "consumed": 0,
+        "imports": 60,
+        "exports": 30,
+        "stock": 750,
+        "error": 0,
+        "price": 2
+      },
+      {
+        "good": "timber",
+        "opening": 720,
+        "produced": 0,
+        "consumed": 0,
+        "imports": 60,
+        "exports": 30,
+        "stock": 750,
+        "error": 0,
+        "price": 4
+      },
+      {
+        "good": "stone",
+        "opening": 720,
+        "produced": 0,
+        "consumed": 0,
+        "imports": 60,
+        "exports": 30,
+        "stock": 750,
+        "error": 0,
+        "price": 3
+      },
+      {
+        "good": "manufactures",
+        "opening": 0,
+        "produced": 0,
+        "consumed": 0,
+        "imports": 0,
+        "exports": 0,
+        "stock": 0,
+        "error": 0,
+        "price": 8.5
+      }
+    ],
+    "valid": {
+      "ok": true,
+      "issues": [],
+      "total": 15493517,
+      "population": 169,
+      "day": 1
+    }
+  },
+  "planning": {
+    "districts": 11,
+    "revisionCooldown": true,
+    "conserved": true
+  },
+  "mall": {
+    "catchment": 534,
+    "capital": 28000,
+    "jobs": 8,
+    "footprint": 6,
+    "conserved": true,
+    "valid": {
+      "ok": true,
+      "issues": [],
+      "total": 15493517,
+      "population": 1375,
+      "day": 1
+    }
+  },
+  "farmRenewal": {
+    "farmId": 8,
+    "buildingId": 18,
+    "relocated": true,
+    "stocksPreserved": true,
+    "workersPreserved": true,
+    "replacementUnits": 4,
+    "conserved": true,
+    "valid": {
+      "ok": true,
+      "issues": [],
+      "total": 15493517,
+      "population": 177,
+      "day": 1
+    }
+  },
+  "districtLifecycle": {
+    "controlledLifecycleFixture": true,
+    "characterHoldDays": 90,
+    "dissolutionHoldDays": 180
+  },
+  "controls": {
+    "actualAnnexationConfirmed": true,
+    "neighbourhoodPlanConfirmed": true,
+    "overlayScreenshot": "neighbourhood-map.png",
+    "clearanceToolAndEscape": true
+  },
+  "endurance": [
+    {
+      "seed": 42,
+      "day": 1081,
+      "population": 242,
+      "ms": 3806.100000000093,
+      "moneyError": -3.052316606044769e-05,
+      "districts": 11
+    },
+    {
+      "seed": 101,
+      "day": 1081,
+      "population": 225,
+      "ms": 3332.399999999907,
+      "moneyError": -2.2742897272109985e-05,
+      "districts": 11
+    }
+  ],
+  "errors": []
+}

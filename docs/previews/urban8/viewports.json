@@ -1,0 +1,44 @@
+{
+  "source_sha256": "ace5f2c9371c2144292dacdbf69b0932495fcc64526303d0ff3a156f978c3095",
+  "viewports": [
+    {
+      "viewport": [
+        1280,
+        800
+      ],
+      "planningControls": true,
+      "neighbourhoodMap": true,
+      "fullAtlasSurvey": true,
+      "farParcelReviewed": true,
+      "detachedPurchaseDisabled": true,
+      "horizontalOverflow": false,
+      "errors": []
+    },
+    {
+      "viewport": [
+        390,
+        844
+      ],
+      "planningControls": true,
+      "neighbourhoodMap": true,
+      "fullAtlasSurvey": true,
+      "farParcelReviewed": true,
+      "detachedPurchaseDisabled": true,
+      "horizontalOverflow": false,
+      "errors": []
+    },
+    {
+      "viewport": [
+        320,
+        568
+      ],
+      "planningControls": true,
+      "neighbourhoodMap": true,
+      "fullAtlasSurvey": true,
+      "farParcelReviewed": true,
+      "detachedPurchaseDisabled": true,
+      "horizontalOverflow": false,
+      "errors": []
+    }
+  ]
+}
