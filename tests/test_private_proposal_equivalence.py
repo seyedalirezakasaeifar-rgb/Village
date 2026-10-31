@@ -6,8 +6,11 @@ from test_mobile_rendering import ROOT
 source=(ROOT/'assets/game.js').read_text()
 a=source.index('// SOURCE: 16-private-services.js');b=source.index('// SOURCE: 18-region-charter.js',a)
 reference=source[:a]+'// SOURCE: 16-private-services.js\n'+(ROOT/'tests/fixtures/private-services-03cb546.js').read_text()+'\n'+source[b:]
-a=reference.index('// SOURCE: 40-development.js');b=reference.index('// SOURCE: ',a+10)
-reference=reference[:a]+'// SOURCE: 40-development.js\n'+(ROOT/'tests/fixtures/development-03cb546.js').read_text()+'\n'+reference[b:]
+# Keep newer retail/rehousing rules identical in both arms; only replace the
+# optimized candidate enumeration, rather than reverting the entire development module.
+a=reference.index('function buildableCandidates(');b=reference.index('function privateContract(',a)
+original_sites='function buildableCandidates('+(ROOT/'tests/fixtures/development-03cb546.js').read_text().split('function buildableCandidates(')[1].split('function privateContract(')[0]
+reference=reference[:a]+original_sites+reference[b:]
 m=ast.parse((ROOT/'tests/test_v7_live_large_town.py').read_text());large=next(ast.literal_eval(n.value.args[0]) for n in ast.walk(m) if isinstance(n,ast.Assign) and any(isinstance(t,ast.Name) and t.id=='town' for t in n.targets))
 legacy_sites=(ROOT/'tests/fixtures/development-03cb546.js').read_text().split('function buildableCandidates(')[1].split('function privateContract(')[0]
 legacy_sites='function referenceBuildableCandidates('+legacy_sites
@@ -39,7 +42,9 @@ direct_only=os.environ.get('PROPOSAL_DIRECT_ONLY')=='1'
 out={'source_sha256':hashlib.sha256(source.encode()).hexdigest(),'reference_commit':'03cb546','histories':[]}
 with sync_playwright() as pw:
  browser=pw.chromium.launch(executable_path='/usr/bin/chromium',args=['--no-sandbox','--disable-dev-shm-usage'])
- for scenario,seed,dense in [('settlement',42,False),('settlement',101,False),('hardtimes',909,False),('regional',42,True)]:
+ cases=[('settlement',42,False),('settlement',101,False),('hardtimes',909,False),('regional',42,True)]
+ if os.environ.get('PROPOSAL_DENSE_ONLY')=='1':cases=cases[-1:]
+ for scenario,seed,dense in cases:
   pages=[];errors=[]
   for code in [reference,source]:
    p=browser.new_page(viewport={'width':844,'height':390});p.on('pageerror',lambda e:errors.append(str(e)));p.route('**/game.js',(lambda payload:lambda route:route.fulfill(content_type='application/javascript',body=payload))(code.replace('// SOURCE: 99-instrumentation.js',probe+'\n// SOURCE: 99-instrumentation.js')));p.goto(f'http://127.0.0.1:{server.server_port}/index.html');p.locator('#newTown').click();p.locator('#pause').click();p.evaluate('([s,n])=>__townTest.reset(s,n)',[scenario,seed])
