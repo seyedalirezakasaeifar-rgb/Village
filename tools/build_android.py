@@ -27,6 +27,7 @@ def run(args):
     subprocess.run(list(map(str,args)),env=env,check=True)
 
 def main():
+    (ROOT/'reports').mkdir(exist_ok=True)
     run(['python3',ROOT/'tools/assemble.py'])
     jar=Path(os.environ.get('TOWNLEDGER_ANDROID_JAR',TOOLROOT/'usr/share/java/com.android.android-23.jar'))
     if not jar.exists():
