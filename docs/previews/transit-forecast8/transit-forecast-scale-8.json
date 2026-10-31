@@ -1,0 +1,57 @@
+{
+  "source_sha256": "27ae071ac52278a51b3388c0a50e8107f9a28a3f34ef01a35396ea3dd9be0c92",
+  "hostChromium": true,
+  "physicalAndroid": false,
+  "rows": [
+    {
+      "population": 2000,
+      "routes": 12,
+      "totalMs": 11.900000000372529,
+      "calculationMs": 9.200000001117587,
+      "cachedMs": 1.699999999254942,
+      "pure": true,
+      "sameStamp": true,
+      "ok": true,
+      "fares": {
+        "low": 0,
+        "high": 0
+      },
+      "capacity": 54,
+      "work": {
+        "eligible": 0,
+        "boarded": 0,
+        "denied": 0,
+        "shortTrips": 15,
+        "slowTrips": 2,
+        "otherRoutes": 0,
+        "unaffordable": 0,
+        "shoppingBoardings": 0
+      }
+    },
+    {
+      "population": 2000,
+      "routes": 48,
+      "totalMs": 19.299999998882413,
+      "calculationMs": 15.400000000372529,
+      "cachedMs": 1.800000000745058,
+      "pure": true,
+      "sameStamp": true,
+      "ok": true,
+      "fares": {
+        "low": 0,
+        "high": 0
+      },
+      "capacity": 54,
+      "work": {
+        "eligible": 0,
+        "boarded": 0,
+        "denied": 0,
+        "shortTrips": 15,
+        "slowTrips": 2,
+        "otherRoutes": 0,
+        "unaffordable": 0,
+        "shoppingBoardings": 0
+      }
+    }
+  ]
+}
