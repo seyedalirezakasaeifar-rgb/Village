@@ -244,7 +244,9 @@ function frame(now){
   if(sampleSeconds>=1){perfStats.effective=sampleDays*1.65/sampleSeconds;sampleDays=0;sampleSeconds=0;}
   if(!gameOptions.reducedMotion){frameClock+=dt;if(gameOptions.traffic)trafficUpdate(dt);}dirty=true;
  }else{sampleDays=0;sampleSeconds=0;if(document.hidden)acc=0;}
- if(G&&!document.hidden){
+ // Native activity transitions can suspend a still-visible WebView. Park all
+ // recurring presentation/save work until resume; suspend already saved once.
+ if(G&&!document.hidden&&!hostSuspended){
   if(now-lastHeader>=250){updateHeader();lastHeader=now;}
   if(active&&!paused&&now-lastPanel>=1500&&!['policies','citizens','settings','construction'].includes(active)&&!$('panelBody').contains(document.activeElement)){renderPanel(active);lastPanel=now;}
   if(!paused&&now-lastAutosave>=gameOptions.autoSave*1000){save();lastAutosave=now;}
