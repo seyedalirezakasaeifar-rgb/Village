@@ -1,0 +1,17 @@
+{
+  "source_sha256": "dabe130a976283b8db40d37f71c449f33b588b726d5695bcd11330251d7fe0b7",
+  "httpOrigin": true,
+  "expectedNegative": false,
+  "result": {
+    "day": 118,
+    "exact": true,
+    "changed": [],
+    "uninterruptedQuality": 96,
+    "restoredQuality": 96,
+    "roadCondition": 96,
+    "statsDifferences": [],
+    "rngA": 907446532,
+    "rngB": 907446532,
+    "moneyDrift": -1.30385160446167e-08
+  }
+}
