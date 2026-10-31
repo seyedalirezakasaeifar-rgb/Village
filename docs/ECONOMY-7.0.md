@@ -1,0 +1,21 @@
+# Operating model and limitations
+
+A simulated day carries forward construction receipts and input costs, updates prices and labour plans, pays wages, produces goods using actual staff and inputs, clears local and external sales, pays public programmes, consumes household necessities, services credit and closes business operating statements. Civic and demographic changes follow; a canonical snapshot is published afterward.
+
+Purchases create inventory at weighted cost, including carriage or tariffs. Material costs travel into processed goods and become cost of goods sold at sale. Payroll remains a current-period expense; this is a deliberately simplified inventory model, not complete manufacturing GAAP. Goods in transit remain owned and counted. A physical route interruption delays delivery instead of erasing cargo.
+
+Each external goods market has a finite order pool shared among competing firms. Quoted prices affect demand. Services have finite staffed contract pools; an additional office cannot collect the same flat daily grant as every incumbent. Actual external purchases are constrained by regional cash. Market Cross inherits export access for manufacturing, business services, logistics and tourism; Factory Country inherits additional manufacturing demand. These are authored initial conditions, not empirically estimated market sizes.
+
+Planning includes standing external orders so a firm whose realized sales fell to zero can rediscover funded demand. Output still requires workers, inputs and an operating site. Labour plans adjust on two-week intervals; a profitable cash balance does not automatically imply that every proposed new job has customers. Capacity investment must clear a financing hurdle. Companies distribute cash above operating, inventory and debt reserves, including to external shareholders. This prevents a finite-cash model from mechanically freezing after companies retain decades of undistributed earnings.
+
+The money stock remains finite. Loans transfer funds and create a corresponding debt claim; deposits are liabilities, not additional cash in the conservation test. This is not the deposit-creation mechanism of a modern commercial banking system. The regional aggregate is a counterparty with assets, liabilities and cash constraints, rather than a complete second simulated country.
+
+The benchmark interest rate influences funding and lending quotes, variable contracts, municipal credit costs, investment hurdles and modest household saving preferences. Banks retain risk spreads. Legacy loans migrate as fixed contracts; new variable contracts adjust with a lag. Price, output and employment effects follow model rules and cannot establish a real-world causal effect of a policy.
+
+Households have wages, rental income, dividends, pensions and bank balances. Hardship considers deposits as well as wallets and observed stress. Retirees leave employer rosters; pensions depend on treasury funding. New housing is capacity, not an instruction to spawn an unemployed household. Migration requires vacancies after considering existing jobseekers. Deaths, births, household formation, local opportunities and housing affect population over time. Fertility and demographics are stylized and no full marriage, disability or pension actuarial model is claimed.
+
+Municipal forecasts are indicative: average past receipts compared with current authorized programmes, pensions and benchmark-linked credit interest. Government can still make unaffordable commitments. A business-friendly package can increase returns and investment while other outcomes vary; full employment leaves little room to improve an employment percentage.
+
+Visible cars, people and aircraft illustrate economic activity. Road vehicles use valid continuous routes and turn tangents. Freight delivery has an authoritative daily clock rather than waiting for a sampled screen truck to arrive. The airport operates a small 19-seat regional service; the animated plane is representative of flights, not a per-ticket dispatch system.
+
+Original pixel art, transit, valuation, skills and demographics remain approximations. The model is more explicit and internally consistent than the previous build; it is not a claim to perfect realism.

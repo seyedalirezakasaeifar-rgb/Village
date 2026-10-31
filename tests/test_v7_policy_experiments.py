@@ -1,0 +1,11 @@
+from pathlib import Path
+from playwright.sync_api import sync_playwright
+import json
+R=Path(__file__).resolve().parents[1];rows=[]
+source_digest=__import__('hashlib').sha256((R/'assets/game.js').read_bytes()).hexdigest()
+with sync_playwright() as pw:
+ b=pw.chromium.launch(executable_path=__import__('os').environ.get('TOWNLEDGER_BROWSER','/usr/bin/chromium'),args=['--no-sandbox']);p=b.new_page();p.goto((R/'assets/index.html').as_uri());p.locator('#newTown').click();p.locator('#pause').click()
+ for seed in [42,101,909]:
+  row=p.evaluate('''seed=>{__townTest.reset('settlement',seed);__townTest.step(360);const raw=__townTest.save(),summary=()=>{const g=JSON.parse(__townTest.save());return {emp:g.stats.employment,hardship:g.stats.hardship,firms:g.stats.businesses,profit:g.firms.filter(f=>!f.closed).reduce((n,f)=>n+f.netProfit,0),capital:g.development.privateSpend,rate:g.banks.filter(b=>!b.closed).map(b=>b.loanAPY),restart:g.market.privateRestartCapital,total:__townTest.get().total,valid:__townTest.validate().ok};};const baseline=summary();__townTest.set('policyRate',15);__townTest.set('businessRegulation',85);__townTest.set('minWage',65);__townTest.set('profitTax',40);__townTest.step(1080);const recession=summary(),badSave=__townTest.save();__townTest.step(720);const unchanged=summary();__townTest.load(badSave);__townTest.set('policyRate',2);__townTest.set('businessRegulation',20);__townTest.set('minWage',28);__townTest.set('profitTax',12);__townTest.set('permitFee',0);__townTest.set('zoningRestriction',15);__townTest.step(720);const recovery=summary();__townTest.load(raw);__townTest.set('policyRate',0);__townTest.set('profitTax',5);__townTest.set('businessRegulation',10);__townTest.step(720);const friendly=summary();__townTest.load(raw);__townTest.set('policyRate',12);__townTest.set('profitTax',35);__townTest.set('businessRegulation',65);__townTest.step(720);const restrictive=summary();return {seed,baseline,recession,unchanged,recovery,friendly,restrictive};}''',seed);rows.append(row);print(json.dumps(row),flush=True)
+ assert __import__('hashlib').sha256((R/'assets/game.js').read_bytes()).hexdigest()==source_digest
+ (R/'reports/v7.0/policy-experiments.json').write_text(json.dumps({'source_sha256':source_digest,'rows':rows},indent=2));b.close()

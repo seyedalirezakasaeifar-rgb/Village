@@ -1,0 +1,8 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="org.townledger.vale" android:versionCode="12" android:versionName="6.0.0">
+ <uses-sdk android:minSdkVersion="24" android:targetSdkVersion="36"/>
+ <application android:label="TownLedger: The Vale" android:icon="@drawable/townledger" android:hardwareAccelerated="true" android:allowBackup="true" android:theme="@android:style/Theme.Material.Light.NoActionBar.Fullscreen">
+  <activity android:name="org.townledger.vale.MainActivity" android:exported="true" android:screenOrientation="landscape" android:configChanges="orientation|keyboardHidden|screenSize">
+   <intent-filter><action android:name="android.intent.action.MAIN"/><category android:name="android.intent.category.LAUNCHER"/></intent-filter>
+  </activity>
+ </application>
+</manifest>
