@@ -6484,7 +6484,7 @@ function neighbourhoodMaterial(b){
   'east-meadow':['#8eaa8b','#d4c7a1'],'county-ridge':['#9b8f7b','#cbbba0'],
   'river-reach':['#719795','#c6bb8e'],'orchard-downs':['#9ba66a','#d6c797'],
   'high-common':['#8b95a1','#d4c9ae']};
- return p?palette[p.id]:['#889b7f','#cbbd99'];
+ return (p&&palette[p.id])||['#889b7f','#cbbd99'];
 }
 const worldArchitecturalIdentity=architecturalIdentity;
 architecturalIdentity=function(g,b,w,d){
