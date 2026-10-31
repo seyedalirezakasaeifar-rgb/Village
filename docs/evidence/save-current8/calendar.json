@@ -1,0 +1,141 @@
+{
+  "source_sha256": "852b9950845a6563c600be5eced6188e11edeccda495ec778ca3f4ebe3e9ff61",
+  "quotedPreparation": {
+    "ok": true,
+    "cost": 228,
+    "eligible": 46
+  },
+  "actualActiveEvent": {
+    "id": 1,
+    "venue": 103,
+    "name": "Willow Commons",
+    "x": 22,
+    "y": 29,
+    "start": 4,
+    "end": 5,
+    "capacity": 24,
+    "cost": 228,
+    "paid": 228,
+    "created": 3,
+    "lastDay": 4,
+    "status": "active",
+    "visits": 24,
+    "participants": [
+      90,
+      0,
+      91,
+      147,
+      30,
+      84,
+      67,
+      132,
+      112,
+      131,
+      119,
+      156,
+      151,
+      7,
+      78,
+      19,
+      111,
+      1,
+      13,
+      24,
+      55,
+      32,
+      68,
+      20
+    ],
+    "daily": [
+      {
+        "day": 4,
+        "eligible": 73,
+        "attendance": 24
+      }
+    ],
+    "reason": ""
+  },
+  "completedEvent": {
+    "version": 1,
+    "next": 2,
+    "events": [
+      {
+        "id": 1,
+        "venue": 103,
+        "name": "Willow Commons",
+        "x": 22,
+        "y": 29,
+        "start": 4,
+        "end": 5,
+        "capacity": 24,
+        "cost": 228,
+        "paid": 228,
+        "created": 3,
+        "lastDay": 6,
+        "status": "complete",
+        "visits": 48,
+        "participants": [
+          90,
+          0,
+          91,
+          147,
+          30,
+          84,
+          67,
+          132,
+          112,
+          131,
+          119,
+          156,
+          151,
+          7,
+          78,
+          19,
+          111,
+          1,
+          13,
+          24,
+          55,
+          32,
+          68,
+          20,
+          96,
+          79,
+          48,
+          159,
+          61,
+          163,
+          148,
+          136,
+          12,
+          6,
+          102,
+          127,
+          42,
+          49,
+          36,
+          155,
+          73,
+          115
+        ],
+        "daily": [
+          {
+            "day": 4,
+            "eligible": 73,
+            "attendance": 24
+          },
+          {
+            "day": 5,
+            "eligible": 68,
+            "attendance": 24
+          }
+        ],
+        "reason": ""
+      }
+    ]
+  },
+  "cancelRetainsPreparation": true,
+  "failedFundingAndStaleNoMutation": true,
+  "pausedPixelsStableAndActiveAnimation": true,
+  "errors": []
+}

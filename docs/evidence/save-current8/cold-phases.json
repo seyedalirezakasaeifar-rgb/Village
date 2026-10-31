@@ -1,0 +1,26 @@
+{
+  "source_sha256": "852b9950845a6563c600be5eced6188e11edeccda495ec778ca3f4ebe3e9ff61",
+  "httpOrigin": true,
+  "rows": [
+    {
+      "phase": "first save",
+      "exactPhysicalCold": true,
+      "failedAdoptionAtomic": true
+    },
+    {
+      "phase": "paid scheduled gathering",
+      "exactPhysicalCold": true,
+      "failedAdoptionAtomic": true
+    },
+    {
+      "phase": "active gathering",
+      "exactPhysicalCold": true,
+      "failedAdoptionAtomic": true
+    },
+    {
+      "phase": "cancelled paid gathering",
+      "exactPhysicalCold": true,
+      "failedAdoptionAtomic": true
+    }
+  ]
+}

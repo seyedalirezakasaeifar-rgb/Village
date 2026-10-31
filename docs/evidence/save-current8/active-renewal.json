@@ -1,0 +1,113 @@
+{
+  "day": 209,
+  "remaining": 0,
+  "moneyError": -1.8347054719924927e-06,
+  "site": {
+    "id": 24,
+    "x": 25,
+    "y": 30,
+    "name": "Quarry Ltd.",
+    "kind": "quarry",
+    "wasClosed": false,
+    "formerWorkers": 4,
+    "formerJobs": 4,
+    "industrialAgeDays": 180,
+    "tiles": [
+      3865
+    ],
+    "assessment": 300,
+    "remediation": 3690,
+    "days": 26,
+    "clearance": 46498.845191205095,
+    "severance": 1748.845191205096,
+    "compensation": 42900,
+    "status": "ready",
+    "remaining": 0,
+    "assessedDay": 181,
+    "acquiredDay": 181,
+    "startedDay": 181,
+    "lastWorkDay": 209,
+    "readyDay": 209
+  },
+  "valid": {
+    "ok": true,
+    "issues": [],
+    "total": 15493516.999997258,
+    "population": 666,
+    "day": 209
+  },
+  "parkAmenity": {
+    "before": 1.1428571939468384,
+    "after": 2.142857074737549
+  },
+  "reuseArms": [
+    "park",
+    "home",
+    "grocer"
+  ],
+  "capacity": [
+    {
+      "kind": "home",
+      "building": 242,
+      "households": 1,
+      "jobs": 0,
+      "workers": 0,
+      "revenue": 0,
+      "profit": 0,
+      "closed": false
+    },
+    {
+      "kind": "grocer",
+      "building": 242,
+      "households": 0,
+      "jobs": 1,
+      "workers": 1,
+      "revenue": 0,
+      "profit": -41.19133333333334,
+      "closed": false
+    }
+  ],
+  "source_sha256": "852b9950845a6563c600be5eced6188e11edeccda495ec778ca3f4ebe3e9ff61",
+  "actualControls": true,
+  "cancelNoMutation": true,
+  "insufficientCash": true,
+  "recipientCreditedNetIncludingLiquidation": 76557.313676361,
+  "blockedCandidates": [
+    {
+      "id": 32,
+      "reason": "This enterprise has paid cargo, crop works or an active trade contract. Settle those commitments before land assembly."
+    },
+    {
+      "id": 102,
+      "reason": "This enterprise has paid cargo, crop works or an active trade contract. Settle those commitments before land assembly."
+    },
+    {
+      "id": 142,
+      "reason": "This enterprise has paid cargo, crop works or an active trade contract. Settle those commitments before land assembly."
+    },
+    {
+      "id": 143,
+      "reason": "This enterprise has paid cargo, crop works or an active trade contract. Settle those commitments before land assembly."
+    },
+    {
+      "id": 144,
+      "reason": "This enterprise has paid cargo, crop works or an active trade contract. Settle those commitments before land assembly."
+    },
+    {
+      "id": 145,
+      "reason": "This enterprise has paid cargo, crop works or an active trade contract. Settle those commitments before land assembly."
+    },
+    {
+      "id": 146,
+      "reason": "This enterprise has paid cargo, crop works or an active trade contract. Settle those commitments before land assembly."
+    }
+  ],
+  "transportAndCargoPreserved": true,
+  "assessmentWithdrawal": true,
+  "treasuryBeforeAcquisition": 481890.55093302694,
+  "ordinaryDaysBeforeAcquisition": 180,
+  "originalWorkers": 4,
+  "severance": 1748.845191205096,
+  "regionalTitleFallback": true,
+  "errors": []
+}

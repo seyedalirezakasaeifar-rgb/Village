@@ -1,0 +1,126 @@
+{
+  "source_sha256": "852b9950845a6563c600be5eced6188e11edeccda495ec778ca3f4ebe3e9ff61",
+  "result": {
+    "historyCycles": 30,
+    "final": [
+      {
+        "id": 199,
+        "name": "Greyhaven Port staged order \u00b7 1/2",
+        "firm": 7,
+        "market": "port",
+        "good": "grain",
+        "quantity": 10,
+        "delivered": 10,
+        "price": 2.4124840490018564,
+        "deadline": 41,
+        "status": "fulfilled",
+        "procurementGroup": 199,
+        "procurementStage": 0,
+        "dispatchFrom": 26
+      },
+      {
+        "id": 200,
+        "name": "Greyhaven Port staged order \u00b7 2/2",
+        "firm": 7,
+        "market": "port",
+        "good": "grain",
+        "quantity": 10,
+        "delivered": 10,
+        "price": 2.4124840490018564,
+        "deadline": 56,
+        "status": "fulfilled",
+        "procurementGroup": 199,
+        "procurementStage": 1,
+        "dispatchFrom": 41
+      }
+    ],
+    "cashDrift": -1.1753290891647339e-06,
+    "goods": [
+      {
+        "good": "grain",
+        "opening": 960,
+        "produced": 42597,
+        "consumed": 15872.4,
+        "imports": 11020.853,
+        "exports": 34539.25407712717,
+        "stock": 4166.198922872839,
+        "error": 3.637978807091713e-12,
+        "price": 1.8589056113730673
+      },
+      {
+        "good": "flour",
+        "opening": 960,
+        "produced": 26454,
+        "consumed": 18463.2,
+        "imports": 3928.9139999999998,
+        "exports": 8612.13230360598,
+        "stock": 4267.5816963940215,
+        "error": 9.094947017729282e-13,
+        "price": 2.788358417059601
+      },
+      {
+        "good": "food",
+        "opening": 1920,
+        "produced": 39911,
+        "consumed": 24946.537754079123,
+        "imports": 3997.659,
+        "exports": 16103.191573356546,
+        "stock": 4778.929672564331,
+        "error": -1.8189894035458565e-12,
+        "price": 3.0671942587655607
+      },
+      {
+        "good": "logs",
+        "opening": 720,
+        "produced": 27302,
+        "consumed": 11692.307692307691,
+        "imports": 446.876,
+        "exports": 13920.472238163084,
+        "stock": 2856.096069529225,
+        "error": 4.547473508864641e-13,
+        "price": 1.8589056113730673
+      },
+      {
+        "good": "timber",
+        "opening": 720,
+        "produced": 15200,
+        "consumed": 5853.176470588235,
+        "imports": 420,
+        "exports": 8737.10856047267,
+        "stock": 1749.7149689390944,
+        "error": -4.547473508864641e-13,
+        "price": 3.7178112227461346
+      },
+      {
+        "good": "stone",
+        "opening": 720,
+        "produced": 10290,
+        "consumed": 35,
+        "imports": 66.4,
+        "exports": 9963.4584130893,
+        "stock": 1077.9415869106992,
+        "error": -4.547473508864641e-13,
+        "price": 2.788358417059601
+      },
+      {
+        "good": "manufactures",
+        "opening": 0,
+        "produced": 8490,
+        "consumed": 1567.3409132298968,
+        "imports": 0,
+        "exports": 6627.372782968121,
+        "stock": 295.28630380198143,
+        "error": -3.979039320256561e-13,
+        "price": 8.183392313258777
+      }
+    ],
+    "valid": {
+      "ok": true,
+      "issues": [],
+      "total": 15493516.999998318,
+      "population": 164,
+      "day": 96
+    }
+  },
+  "errors": []
+}
