@@ -1,0 +1,20 @@
+# Owned river cargo presentation
+
+Scoped follow-up from integrated `6f648d8c039038a60febeef8a887ba545395fd32`. Cherry-pick only this game-art commit onto the later integration and regenerate the bundle. It changes no river quotes, capacity, handling, ownership, settlement, recovery, routing or archive fields. The trailer-input branch is separate and must not be merged into game/package sources.
+
+Concrete defects corrected:
+
+- River boats used only integer economic days and therefore jumped between widely separated points at each tick. `paidPortBoatPose` samples the existing frozen subday remainder, preserving the same authoritative local voyage window and rounded water route. Across a controlled day boundary the measured positional jump is0.0064 world pixels rather than a whole day's travel. Boat speed still reflects the game's accelerated32-tiles/day river coefficient; this is not a calibrated real-world vessel simulation.
+- Eight simultaneous reviewed imports could draw identical hulls over one another. Nearby coincident loads through the same port/direction now share a bounded representative visual slot. Every consignment remains independently owned/accounted in the API and ledger. The pictured vessel's inspected quantity belongs to its actual representative order, not an invented aggregate boat transaction.
+- Paid boats now follow the existing legacy under-bridge hiding rule rather than painting on top of a road bridge. Opposing travel directions use a small in-water lateral separation. Sea-edge visibility fades within the local leg; the common boat painter now respects incoming opacity for hulls and wakes. Pausing freezes the wake instead of removing it.
+- Clicking a paid river boat previously opened a legacy spot-export voyage for the same wharf, and the highlighted path could also come from that legacy voyage. Paid selection now retains the actual consignment ID and water path; inspection follows active/recent consignment state, including owned-cargo return/recovery. Legacy fishing/spot-export inspection remains delegated unchanged.
+
+Dock loading tableaux continue to use actual processed cargo and attending crews. This patch does not spawn fake loading orders or create duplicate legacy manifests. Far zoom, reduced motion and disabled boat detail exit before the new cargo API query. Actor caps remain two/ six/ten according to the existing quality/speed budget; no route searches, household scans or persistent cargo cache were added.
+
+`tests/test_paid_port_art.py` uses actual reviewed import controls, advances normally to a real local river leg, then checks subday motion, boundary continuity, controlled bridge hiding, exact paused poses, state independence, paid inspection and unreadable-API LOD/reduced-motion exits. Eight real loads produce one sampled paid hull plus two existing legacy/fishing actors in the recorded case. Forced paused close draws measured0.4ms in host Chromium; this is not a device/frame-rate claim.
+
+The actual river order/cold-continuation/cash/goods test, closure/paid transfer/recovery fault tests, legacy rounded-water motion test and visual LOD gate also pass. `docs/previews/paid-port-art/checks.json` and day/night frames bind to sourceSHA256 `d31c014f9118aeddd4b80653e62d78698a85b123a0437091fe79bf86ad1bfb08`.
+
+A short actual normal-clock diagnostic capture is retained **locally only** at `/workspace/scratch/townledger-port-art/river-session.gif`; no new moving footage is published in this commit. It follows actual reviewed imports after accelerated waiting, with a camera following visible cargo, and is not a human playthrough or FPS benchmark. The six separately approved public trailer clips remain isolated on their dedicated media branch. Native acceptance and long-session performance remain with the lead/specialists.
+
+Owned source: `src/98zzzzzzzz-port-cargo-art.js`, incoming-alpha preservation in `src/98-waterfront-art.js`, generated bundle, dedicated test, static evidence and this note. No APK/signing/deployment or trailer editing.
