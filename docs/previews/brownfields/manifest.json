@@ -1,0 +1,30 @@
+{
+  "base": "b4f6fe4d0a4d8a78ddfeed59df118560d68646af",
+  "source_sha256": "3f803e035872ea3013bcd775bc0210fb32b4645760f8ddd2ca2060f94498b623",
+  "gates": [
+    {
+      "script": "test_brownfield_renewal.py",
+      "exit_code": 0
+    },
+    {
+      "script": "test_archive_schema.py",
+      "exit_code": 0
+    },
+    {
+      "script": "test_review_workflows.py",
+      "exit_code": 0
+    },
+    {
+      "script": "test_urban_evolution.py",
+      "exit_code": 0
+    }
+  ],
+  "files": {
+    "results.json": "dd254c8cc923b6d2debcff6a6d4e0d3cbf5ef515cc675775ae535bf270c381d0",
+    "renewed-site.png": "5e758b64179fc1ac2abac841a0e654a9d14b26db0f03e6c9d0a201fb154b6c31",
+    "test_brownfield_renewal.py.log": "dd254c8cc923b6d2debcff6a6d4e0d3cbf5ef515cc675775ae535bf270c381d0",
+    "test_review_workflows.py.log": "0936a00f8209ff031cd19768a6c19414c1743ab1d9670a2b861407bbe203a7fa",
+    "test_archive_schema.py.log": "3744e3b5b1bb18cc0bbeaa5bb47324c265021b56c98cd0405b6ba7472102d160",
+    "test_urban_evolution.py.log": "3ba40d7d15c03c21d9bbaa64677f7eedfb8a3d3a67b2115507d1b59929be618a"
+  }
+}
