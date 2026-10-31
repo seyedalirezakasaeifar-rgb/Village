@@ -1,0 +1,2117 @@
+{
+  "source_sha256": "41c481a6fcc14da79cdee69ed702169ea109c26e1c78cd4c692012eb43dc5790",
+  "gates": {
+    "reports/contextual-decisions/controls.json": {
+      "source_sha256": "41c481a6fcc14da79cdee69ed702169ea109c26e1c78cd4c692012eb43dc5790",
+      "routes": [
+        {
+          "viewport": [
+            320,
+            740
+          ],
+          "panel": "construction",
+          "route": "charter",
+          "contrast": 10.26620251322367
+        },
+        {
+          "viewport": [
+            320,
+            740
+          ],
+          "panel": "economy",
+          "route": "suppliers",
+          "contrast": 10.26620251322367
+        },
+        {
+          "viewport": [
+            320,
+            740
+          ],
+          "panel": "community",
+          "route": "migration",
+          "contrast": 10.26620251322367
+        },
+        {
+          "viewport": [
+            320,
+            740
+          ],
+          "panel": "policies",
+          "route": "outlook",
+          "contrast": 10.26620251322367
+        },
+        {
+          "viewport": [
+            390,
+            844
+          ],
+          "panel": "construction",
+          "route": "charter",
+          "contrast": 10.26620251322367
+        },
+        {
+          "viewport": [
+            390,
+            844
+          ],
+          "panel": "economy",
+          "route": "suppliers",
+          "contrast": 10.26620251322367
+        },
+        {
+          "viewport": [
+            390,
+            844
+          ],
+          "panel": "community",
+          "route": "migration",
+          "contrast": 10.26620251322367
+        },
+        {
+          "viewport": [
+            390,
+            844
+          ],
+          "panel": "policies",
+          "route": "outlook",
+          "contrast": 10.26620251322367
+        },
+        {
+          "viewport": [
+            568,
+            320
+          ],
+          "panel": "construction",
+          "route": "charter",
+          "contrast": 10.26620251322367
+        },
+        {
+          "viewport": [
+            568,
+            320
+          ],
+          "panel": "economy",
+          "route": "suppliers",
+          "contrast": 10.26620251322367
+        },
+        {
+          "viewport": [
+            568,
+            320
+          ],
+          "panel": "community",
+          "route": "migration",
+          "contrast": 10.26620251322367
+        },
+        {
+          "viewport": [
+            568,
+            320
+          ],
+          "panel": "policies",
+          "route": "outlook",
+          "contrast": 10.26620251322367
+        }
+      ],
+      "noPolicyOrCashMutation": true,
+      "nativeBackCancelsActualReviews": true,
+      "saveReloadRoutes": true,
+      "errors": []
+    },
+    "docs/previews/city-continuity/shadow-checks.json": {
+      "oldVisible": false,
+      "newVisible": true,
+      "old": {
+        "channels": 128,
+        "max": 16
+      },
+      "fixed": {
+        "channels": 0,
+        "max": 0
+      },
+      "unchanged": true,
+      "source_sha256": "41c481a6fcc14da79cdee69ed702169ea109c26e1c78cd4c692012eb43dc5790",
+      "fixture": "Render-only valid two-plot tower geometry; no town property or economic fields changed."
+    },
+    "reports/market-loading-edges/results.json": {
+      "source_sha256": "41c481a6fcc14da79cdee69ed702169ea109c26e1c78cd4c692012eb43dc5790",
+      "rows": [
+        {
+          "case": "no waiting essentials",
+          "before": {
+            "day": 1,
+            "treasury": 90000,
+            "total": 15493517,
+            "priority": "balanced",
+            "reliefUntil": 0,
+            "queue": [],
+            "calendar": []
+          },
+          "review": {
+            "ok": false,
+            "reason": "No essential imports currently wait at the county interchange. Extra crews cannot shorten an outside voyage, repair roads or staff a river dock."
+          },
+          "after": {
+            "day": 1,
+            "treasury": 90000,
+            "total": 15493517,
+            "priority": "balanced",
+            "reliefUntil": 0,
+            "queue": [],
+            "calendar": []
+          }
+        },
+        {
+          "case": "insufficient paid-shift treasury; free review available",
+          "before": {
+            "day": 10,
+            "treasury": 0.35,
+            "total": 15493516.999999996,
+            "priority": "balanced",
+            "reliefUntil": 0,
+            "queue": [
+              {
+                "id": 5,
+                "stage": "unloading",
+                "handled": 20,
+                "qty": 120
+              },
+              {
+                "id": 6,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 7,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 8,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 9,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 10,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 11,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 12,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 13,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 14,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 15,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 16,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 17,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 60
+              }
+            ],
+            "calendar": []
+          },
+          "review": {
+            "ok": true,
+            "reason": ""
+          },
+          "paidAuthorization": {
+            "ok": false,
+            "reason": "Treasury cannot purchase one handling unit. Existing-crew priority is still available without extra shift payment."
+          },
+          "after": {
+            "day": 10,
+            "treasury": 0.35,
+            "total": 15493516.999999996,
+            "priority": "balanced",
+            "reliefUntil": 0,
+            "queue": [
+              {
+                "id": 5,
+                "stage": "unloading",
+                "handled": 20,
+                "qty": 120
+              },
+              {
+                "id": 6,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 7,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 8,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 9,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 10,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 11,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 12,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 13,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 14,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 15,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 16,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 17,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 60
+              }
+            ],
+            "calendar": []
+          }
+        },
+        {
+          "case": "repeated confirm",
+          "before": {
+            "day": 10,
+            "treasury": 90000,
+            "total": 15493516.999999996,
+            "priority": "balanced",
+            "reliefUntil": 0,
+            "queue": [
+              {
+                "id": 5,
+                "stage": "unloading",
+                "handled": 20,
+                "qty": 120
+              },
+              {
+                "id": 6,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 7,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 8,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 9,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 10,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 11,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 12,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 13,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 14,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 15,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 16,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 17,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 60
+              }
+            ],
+            "calendar": []
+          },
+          "first": {
+            "ok": true,
+            "reason": "Essential-import priority and contingent extra shifts authorized. Gathering preparation was not purchased. Stop future shifts in Depot operations; spent work is not refundable."
+          },
+          "middle": {
+            "day": 10,
+            "treasury": 90000,
+            "total": 15493516.999999996,
+            "priority": "essentials",
+            "reliefUntil": 40,
+            "queue": [
+              {
+                "id": 5,
+                "stage": "unloading",
+                "handled": 20,
+                "qty": 120
+              },
+              {
+                "id": 6,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 7,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 8,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 9,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 10,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 11,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 12,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 13,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 14,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 15,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 16,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 17,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 60
+              }
+            ],
+            "calendar": []
+          },
+          "second": {
+            "ok": false,
+            "reason": "Cargo, calendar, policy or funds changed. Review the choice again."
+          },
+          "after": {
+            "day": 10,
+            "treasury": 90000,
+            "total": 15493516.999999996,
+            "priority": "essentials",
+            "reliefUntil": 40,
+            "queue": [
+              {
+                "id": 5,
+                "stage": "unloading",
+                "handled": 20,
+                "qty": 120
+              },
+              {
+                "id": 6,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 7,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 8,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 9,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 10,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 11,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 12,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 13,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 14,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 15,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 16,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 17,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 60
+              }
+            ],
+            "calendar": []
+          }
+        },
+        {
+          "case": "queue changed after quote",
+          "before": {
+            "day": 10,
+            "treasury": 90000,
+            "total": 15493516.999999996,
+            "priority": "balanced",
+            "reliefUntil": 0,
+            "queue": [
+              {
+                "id": 5,
+                "stage": "unloading",
+                "handled": 20,
+                "qty": 120
+              },
+              {
+                "id": 6,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 7,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 8,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 9,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 10,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 11,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 12,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 13,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 14,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 15,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 16,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 17,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 60
+              }
+            ],
+            "calendar": []
+          },
+          "changed": {
+            "day": 11,
+            "treasury": 90357.87452587626,
+            "total": 15493516.999999983,
+            "priority": "balanced",
+            "reliefUntil": 0,
+            "queue": [
+              {
+                "id": 9,
+                "stage": "unloading",
+                "handled": 40,
+                "qty": 120
+              },
+              {
+                "id": 10,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 11,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 12,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 13,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 14,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 15,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 16,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 17,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 60
+              }
+            ],
+            "calendar": []
+          },
+          "result": {
+            "ok": false,
+            "reason": "Cargo, calendar, policy or funds changed. Review the choice again."
+          },
+          "after": {
+            "day": 11,
+            "treasury": 90357.87452587626,
+            "total": 15493516.999999983,
+            "priority": "balanced",
+            "reliefUntil": 0,
+            "queue": [
+              {
+                "id": 9,
+                "stage": "unloading",
+                "handled": 40,
+                "qty": 120
+              },
+              {
+                "id": 10,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 11,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 12,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 13,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 14,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 15,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 16,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 17,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 60
+              }
+            ],
+            "calendar": []
+          }
+        },
+        {
+          "case": "gathering cancelled",
+          "before": {
+            "day": 10,
+            "treasury": 87272,
+            "total": 15493516.999999996,
+            "priority": "balanced",
+            "reliefUntil": 0,
+            "queue": [
+              {
+                "id": 5,
+                "stage": "unloading",
+                "handled": 20,
+                "qty": 120
+              },
+              {
+                "id": 6,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 7,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 8,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 9,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 10,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 11,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 12,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 13,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 14,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 15,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 16,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 17,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 60
+              }
+            ],
+            "calendar": [
+              {
+                "id": 1,
+                "status": "scheduled"
+              }
+            ]
+          },
+          "cancelled": {
+            "day": 10,
+            "treasury": 87272,
+            "total": 15493516.999999996,
+            "priority": "balanced",
+            "reliefUntil": 0,
+            "queue": [
+              {
+                "id": 5,
+                "stage": "unloading",
+                "handled": 20,
+                "qty": 120
+              },
+              {
+                "id": 6,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 7,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 8,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 9,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 10,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 11,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 12,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 13,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 14,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 15,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 16,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 17,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 60
+              }
+            ],
+            "calendar": [
+              {
+                "id": 1,
+                "status": "cancelled"
+              }
+            ]
+          },
+          "result": {
+            "ok": false,
+            "reason": "Cargo, calendar, policy or funds changed. Review the choice again."
+          },
+          "after": {
+            "day": 10,
+            "treasury": 87272,
+            "total": 15493516.999999996,
+            "priority": "balanced",
+            "reliefUntil": 0,
+            "queue": [
+              {
+                "id": 5,
+                "stage": "unloading",
+                "handled": 20,
+                "qty": 120
+              },
+              {
+                "id": 6,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 7,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 8,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 9,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 10,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 11,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 12,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 13,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 14,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 15,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 16,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 120
+              },
+              {
+                "id": 17,
+                "stage": "unloading",
+                "handled": 0,
+                "qty": 60
+              }
+            ],
+            "calendar": [
+              {
+                "id": 1,
+                "status": "cancelled"
+              }
+            ]
+          }
+        }
+      ],
+      "errors": []
+    },
+    "reports/market-loading-choice/results.json": {
+      "source_sha256": "41c481a6fcc14da79cdee69ed702169ea109c26e1c78cd4c692012eb43dc5790",
+      "controlledPaidPeakFixture": true,
+      "rows": [
+        {
+          "mode": "balanced",
+          "arrival": 15,
+          "state": {
+            "support": 0,
+            "until": 0,
+            "householdPurchases": [
+              [
+                23.538399359258012,
+                0
+              ],
+              [
+                23.538399359258012,
+                8.523508102848584
+              ],
+              [
+                23.538399359258012,
+                12.322001012710693
+              ],
+              [
+                23.538399359258012,
+                2.575199243924578
+              ],
+              [
+                23.538399359258012,
+                22.73029147576612
+              ],
+              [
+                23.538399359258012,
+                13.466331661369932
+              ],
+              [
+                23.538399359258012,
+                7.300233971976932
+              ],
+              [
+                23.538399359258012,
+                18.943132100402494
+              ],
+              [
+                23.538399359258012,
+                4.741780926174156
+              ],
+              [
+                23.538399359258012,
+                15.543194378301063
+              ],
+              [
+                23.538399359258012,
+                9.95935449268974
+              ],
+              [
+                23.538399359258012,
+                21.878598315717667
+              ],
+              [
+                23.538399359258012,
+                0
+              ],
+              [
+                23.538399359258012,
+                10.506161995206465
+              ],
+              [
+                23.538399359258012,
+                10.478087537937174
+              ],
+              [
+                23.538399359258012,
+                8.86863135958276
+              ],
+              [
+                23.538399359258012,
+                5.458497945426653
+              ],
+              [
+                23.538399359258012,
+                13.333289979811154
+              ],
+              [
+                23.538399359258012,
+                0
+              ],
+              [
+                23.538399359258012,
+                15.177096269581313
+              ],
+              [
+                24.392968982048913,
+                12.147758770435937
+              ],
+              [
+                24.39296898204893,
+                3.5070037874058078
+              ],
+              [
+                24.39296898204893,
+                18.699039705976375
+              ],
+              [
+                24.39296898204893,
+                20.296639110388018
+              ],
+              [
+                24.39296898204893,
+                8.555096032674449
+              ],
+              [
+                24.39296898204893,
+                14.574226114826939
+              ],
+              [
+                24.39296898204893,
+                18.600037387985907
+              ],
+              [
+                24.39296898204893,
+                6.3545491499041615
+              ],
+              [
+                24.39296898204893,
+                14.31562083092146
+              ],
+              [
+                24.39296898204893,
+                20.740548460502907
+              ],
+              [
+                24.39296898204893,
+                3.9739775621314415
+              ],
+              [
+                24.39296898204893,
+                14.82479193039187
+              ],
+              [
+                24.39296898204893,
+                14.579184555138465
+              ],
+              [
+                24.39296898204893,
+                16.470254358261535
+              ],
+              [
+                24.39296898204893,
+                17.76170373110047
+              ],
+              [
+                16.261979321365953,
+                21.806147366208343
+              ],
+              [
+                16.665514458662003,
+                10.319815083790594
+              ],
+              [
+                16.261979321365953,
+                22.426080159357376
+              ],
+              [
+                16.261979321365953,
+                20.007898846159854
+              ],
+              [
+                16.261979321365953,
+                12.083081683753319
+              ],
+              [
+                16.665514458662003,
+                24.32072726838954
+              ],
+              [
+                16.261979321365953,
+                12.228369835382017
+              ],
+              [
+                16.665514458662003,
+                2.354855795612159
+              ],
+              [
+                16.261979321365953,
+                27.669646745069347
+              ],
+              [
+                16.261979321365953,
+                11.087333843722238
+              ],
+              [
+                16.261979321365953,
+                15.82954790017238
+              ],
+              [
+                16.665514458662003,
+                21.91702659941623
+              ],
+              [
+                15.69226623950534,
+                15.89033820061691
+              ],
+              [
+                15.69226623950534,
+                5.944110785664643
+              ],
+              [
+                15.69226623950534,
+                26.63631667671568
+              ],
+              [
+                15.69226623950534,
+                14.176631101715016
+              ],
+              [
+                15.69226623950534,
+                24.109830262454803
+              ],
+              [
+                15.69226623950534,
+                16.070023041633213
+              ],
+              [
+                15.69226623950534,
+                0.565866237108285
+              ],
+              [
+                15.69226623950534,
+                2.0455672453374314
+              ],
+              [
+                15.69226623950534,
+                28.840284940455486
+              ],
+              [
+                15.69226623950534,
+                22.207573484889792
+              ],
+              [
+                15.69226623950534,
+                0.18135349241402707
+              ],
+              [
+                15.69226623950534,
+                15.999502062052343
+              ],
+              [
+                15.69226623950534,
+                1.5128647936267252
+              ],
+              [
+                15.69226623950534,
+                1.8799512910867386
+              ],
+              [
+                15.69226623950534,
+                13.756778018097252
+              ],
+              [
+                15.69226623950534,
+                13.909048759233668
+              ],
+              [
+                15.69226623950534,
+                8.025533989227199
+              ],
+              [
+                15.69226623950534,
+                23.587337035687057
+              ],
+              [
+                15.69226623950534,
+                0.3353498810223458
+              ],
+              [
+                15.69226623950534,
+                7.21183185512864
+              ]
+            ],
+            "cash": 15493516.99999978,
+            "treasury": 89149.98751307614,
+            "day": 22
+          }
+        },
+        {
+          "mode": "relief",
+          "arrival": 13,
+          "state": {
+            "support": 1113.3216,
+            "until": 40,
+            "householdPurchases": [
+              [
+                23.47993096341349,
+                0
+              ],
+              [
+                23.47993096341349,
+                8.1341959396576
+              ],
+              [
+                23.47993096341349,
+                11.952314815272274
+              ],
+              [
+                23.47993096341349,
+                2.5965135645733612
+              ],
+              [
+                23.47993096341349,
+                22.77984342613216
+              ],
+              [
+                23.47993096341349,
+                13.937675959068017
+              ],
+              [
+                23.47993096341349,
+                7.786342003024145
+              ],
+              [
+                23.47993096341349,
+                18.957742623746476
+              ],
+              [
+                23.47993096341349,
+                4.751393722447201
+              ],
+              [
+                23.47993096341349,
+                15.552807174574106
+              ],
+              [
+                23.47993096341349,
+                9.969854346389422
+              ],
+              [
+                23.47993096341349,
+                21.89139307649782
+              ],
+              [
+                23.47993096341349,
+                0
+              ],
+              [
+                23.47993096341349,
+                10.52483415195206
+              ],
+              [
+                23.47993096341349,
+                10.486875447130243
+              ],
+              [
+                23.47993096341349,
+                8.857980167796839
+              ],
+              [
+                23.47993096341349,
+                5.472690789542348
+              ],
+              [
+                23.47993096341349,
+                13.346031588025223
+              ],
+              [
+                23.47993096341349,
+                0
+              ],
+              [
+                23.47993096341349,
+                15.381551907718212
+              ],
+              [
+                24.43227705610078,
+                12.57819721509218
+              ],
+              [
+                24.4322770561008,
+                3.9444827871784245
+              ],
+              [
+                24.4322770561008,
+                18.980063541804046
+              ],
+              [
+                24.4322770561008,
+                19.844369279997753
+              ],
+              [
+                24.4322770561008,
+                8.115621142063725
+              ],
+              [
+                24.4322770561008,
+                14.13304820052805
+              ],
+              [
+                24.4322770561008,
+                18.12265501699705
+              ],
+              [
+                24.4322770561008,
+                5.885191790077968
+              ],
+              [
+                24.4322770561008,
+                13.859139743110493
+              ],
+              [
+                24.4322770561008,
+                20.267472360125353
+              ],
+              [
+                24.4322770561008,
+                3.505924726670829
+              ],
+              [
+                24.4322770561008,
+                14.359561763205441
+              ],
+              [
+                24.4322770561008,
+                14.116105422490355
+              ],
+              [
+                24.4322770561008,
+                16.008290367236327
+              ],
+              [
+                24.4322770561008,
+                17.298136882519835
+              ],
+              [
+                16.2881847040672,
+                21.4918019456321
+              ],
+              [
+                16.631739285754534,
+                10.004408303201796
+              ],
+              [
+                16.2881847040672,
+                22.103467725755827
+              ],
+              [
+                16.2881847040672,
+                19.697265256635728
+              ],
+              [
+                16.2881847040672,
+                11.767656556598219
+              ],
+              [
+                16.631739285754534,
+                23.723590366659096
+              ],
+              [
+                16.2881847040672,
+                11.64554946857734
+              ],
+              [
+                16.631739285754534,
+                1.7631219282439097
+              ],
+              [
+                16.2881847040672,
+                27.221274644897708
+              ],
+              [
+                16.2881847040672,
+                10.807008231724499
+              ],
+              [
+                16.2881847040672,
+                15.5466842852077
+              ],
+              [
+                16.631739285754534,
+                21.62694154450338
+              ],
+              [
+                15.653287308942327,
+                15.597261549923
+              ],
+              [
+                15.653287308942327,
+                5.66253299126102
+              ],
+              [
+                15.653287308942327,
+                26.35015899930853
+              ],
+              [
+                15.653287308942327,
+                13.89416196113619
+              ],
+              [
+                15.653287308942327,
+                23.834442661938592
+              ],
+              [
+                15.653287308942327,
+                15.800236005382434
+              ],
+              [
+                15.653287308942327,
+                0.5306738622504171
+              ],
+              [
+                15.653287308942327,
+                1.7683953131495367
+              ],
+              [
+                15.653287308942327,
+                28.565587194663767
+              ],
+              [
+                15.653287308942327,
+                21.933990692697385
+              ],
+              [
+                15.653287308942327,
+                0
+              ],
+              [
+                15.653287308942327,
+                15.721149525265915
+              ],
+              [
+                15.653287308942327,
+                1.3726228522195993
+              ],
+              [
+                15.653287308942327,
+                1.6017909341435919
+              ],
+              [
+                15.653287308942327,
+                13.476318785184946
+              ],
+              [
+                15.653287308942327,
+                13.630692904675945
+              ],
+              [
+                15.653287308942327,
+                7.745201285158971
+              ],
+              [
+                15.653287308942327,
+                23.315256488025312
+              ],
+              [
+                15.653287308942327,
+                0.32468462833777195
+              ],
+              [
+                15.653287308942327,
+                6.937807860427258
+              ]
+            ],
+            "cash": 15493516.99999976,
+            "treasury": 88159.47393127588,
+            "day": 22
+          }
+        },
+        {
+          "mode": "stop",
+          "arrival": 13,
+          "state": {
+            "support": 0,
+            "until": 0,
+            "householdPurchases": [
+              [
+                23.56089100132851,
+                0
+              ],
+              [
+                23.56089100132851,
+                8.522575157147543
+              ],
+              [
+                23.56089100132851,
+                12.321068067009648
+              ],
+              [
+                23.56089100132851,
+                2.5742662982235345
+              ],
+              [
+                23.56089100132851,
+                22.72935853006507
+              ],
+              [
+                23.56089100132851,
+                13.465398715668886
+              ],
+              [
+                23.56089100132851,
+                7.29930102627589
+              ],
+              [
+                23.56089100132851,
+                18.942199154701456
+              ],
+              [
+                23.56089100132851,
+                4.740847980473113
+              ],
+              [
+                23.56089100132851,
+                15.542261432600018
+              ],
+              [
+                23.56089100132851,
+                9.958421546988692
+              ],
+              [
+                23.56089100132851,
+                21.877665370016622
+              ],
+              [
+                23.56089100132851,
+                0
+              ],
+              [
+                23.56089100132851,
+                10.505229049505424
+              ],
+              [
+                23.56089100132851,
+                10.47715459223613
+              ],
+              [
+                23.56089100132851,
+                8.867698413881715
+              ],
+              [
+                23.56089100132851,
+                5.457832230385856
+              ],
+              [
+                23.56089100132851,
+                13.332357034110109
+              ],
+              [
+                23.56089100132851,
+                0
+              ],
+              [
+                23.56089100132851,
+                15.176163323880273
+              ],
+              [
+                24.39344977595219,
+                12.14733620347785
+              ],
+              [
+                24.393449775952213,
+                3.506581220447727
+              ],
+              [
+                24.393449775952213,
+                18.6986171390183
+              ],
+              [
+                24.393449775952213,
+                20.296216543429928
+              ],
+              [
+                24.393449775952213,
+                8.55497371288753
+              ],
+              [
+                24.393449775952213,
+                14.573902597401604
+              ],
+              [
+                24.393449775952213,
+                18.599713870560564
+              ],
+              [
+                24.393449775952213,
+                6.354225632478824
+              ],
+              [
+                24.393449775952213,
+                14.315564544156372
+              ],
+              [
+                24.393449775952213,
+                20.740429490440235
+              ],
+              [
+                24.393449775952213,
+                3.9742280964103536
+              ],
+              [
+                24.393449775952213,
+                14.824775234010536
+              ],
+              [
+                24.393449775952213,
+                14.579167858757131
+              ],
+              [
+                24.393449775952213,
+                16.470237661880198
+              ],
+              [
+                24.393449775952213,
+                17.761687034719145
+              ],
+              [
+                16.262299850634808,
+                21.80613623528745
+              ],
+              [
+                16.68778403570794,
+                10.322112469597197
+              ],
+              [
+                16.262299850634808,
+                22.426069028436494
+              ],
+              [
+                16.262299850634808,
+                20.007887715238965
+              ],
+              [
+                16.262299850634808,
+                12.08307055283243
+              ],
+              [
+                16.68778403570794,
+                24.323024654196136
+              ],
+              [
+                16.262299850634808,
+                12.228358704461122
+              ],
+              [
+                16.68778403570794,
+                2.3571531814187594
+              ],
+              [
+                16.262299850634808,
+                27.669635614148458
+              ],
+              [
+                16.262299850634808,
+                11.087322712801349
+              ],
+              [
+                16.262299850634808,
+                15.82953676925149
+              ],
+              [
+                16.68778403570794,
+                21.91932398522283
+              ],
+              [
+                15.707260667552339,
+                15.889986817200716
+              ],
+              [
+                15.707260667552339,
+                5.946576864716171
+              ],
+              [
+                15.707260667552339,
+                26.63596529329948
+              ],
+              [
+                15.707260667552339,
+                14.176279718298822
+              ],
+              [
+                15.707260667552339,
+                24.109478879038605
+              ],
+              [
+                15.707260667552339,
+                16.072489120684736
+              ],
+              [
+                15.707260667552339,
+                0.5658569043641053
+              ],
+              [
+                15.707260667552339,
+                2.046038518686075
+              ],
+              [
+                15.707260667552339,
+                28.839867524017464
+              ],
+              [
+                15.707260667552339,
+                22.20715606845176
+              ],
+              [
+                15.707260667552339,
+                0.18093967241814063
+              ],
+              [
+                15.707260667552339,
+                15.999084645614316
+              ],
+              [
+                15.707260667552339,
+                1.5128535628016633
+              ],
+              [
+                15.707260667552339,
+                1.8804225644353822
+              ],
+              [
+                15.707260667552339,
+                13.75615605429656
+              ],
+              [
+                15.707260667552339,
+                13.908426795432971
+              ],
+              [
+                15.707260667552339,
+                8.024912025426502
+              ],
+              [
+                15.707260667552339,
+                23.586715071886367
+              ],
+              [
+                15.707260667552339,
+                0.33533299957663115
+              ],
+              [
+                15.707260667552339,
+                7.211209891327943
+              ]
+            ],
+            "cash": 15493516.999999788,
+            "treasury": 88967.40981395899,
+            "day": 22
+          }
+        },
+        {
+          "mode": "limited",
+          "result": {
+            "ok": true,
+            "support": 0.72,
+            "queued": 9
+          }
+        }
+      ],
+      "errors": []
+    },
+    "reports/release-tests.json": {
+      "source_sha256": "41c481a6fcc14da79cdee69ed702169ea109c26e1c78cd4c692012eb43dc5790",
+      "determinism_and_continuation": {
+        "sameSeed": true,
+        "renderIndependent": true,
+        "continuedDays": 120,
+        "valid": {
+          "ok": true,
+          "issues": [],
+          "total": 15489571.999994356,
+          "population": 172,
+          "day": 301
+        }
+      },
+      "malformed_save_atomicity": {
+        "investorRejected": true,
+        "cargoRejected": true,
+        "futureRejected": true,
+        "townPreserved": true
+      },
+      "replicated_zoning": [
+        {
+          "seed": 42,
+          "zone": 0,
+          "population": 192,
+          "homes": 17,
+          "firms": 3,
+          "privateSpend": 494901,
+          "moneyDelta": -1.2569129467010498e-05,
+          "ms": 3250.2999999970198
+        },
+        {
+          "seed": 42,
+          "zone": 100,
+          "population": 177,
+          "homes": 0,
+          "firms": 1,
+          "privateSpend": 0,
+          "moneyDelta": -1.7305836081504822e-05,
+          "ms": 2197.0999999940395
+        },
+        {
+          "seed": 101,
+          "zone": 0,
+          "population": 221,
+          "homes": 21,
+          "firms": 8,
+          "privateSpend": 621891,
+          "moneyDelta": -1.55717134475708e-05,
+          "ms": 3076.5
+        },
+        {
+          "seed": 101,
+          "zone": 100,
+          "population": 183,
+          "homes": 0,
+          "firms": 2,
+          "privateSpend": 0,
+          "moneyDelta": -8.197501301765442e-06,
+          "ms": 2162.8999999910593
+        },
+        {
+          "seed": 909,
+          "zone": 0,
+          "population": 211,
+          "homes": 21,
+          "firms": 5,
+          "privateSpend": 525844,
+          "moneyDelta": -1.1583790183067322e-05,
+          "ms": 2753.199999988079
+        },
+        {
+          "seed": 909,
+          "zone": 100,
+          "population": 176,
+          "homes": 0,
+          "firms": 1,
+          "privateSpend": 0,
+          "moneyDelta": -1.2626871466636658e-05,
+          "ms": 2096
+        }
+      ],
+      "cargo_ownership": {
+        "consignments": 6,
+        "sampledUnits": 166.3792513597068,
+        "remaining": true,
+        "delayed": 1,
+        "cashConserved": true
+      },
+      "legacy_56_migration": {
+        "v": {
+          "ok": true,
+          "issues": [],
+          "total": 15483727,
+          "population": 169,
+          "day": 1
+        },
+        "after": {
+          "ok": true,
+          "issues": [],
+          "total": 15483726.999999288,
+          "population": 167,
+          "day": 31
+        },
+        "schema": 8
+      },
+      "true_pause": {
+        "identicalScreenshots": true,
+        "milliseconds": 500
+      },
+      "traffic_progress": {
+        "seconds": 1600,
+        "maximumWait": 0.9999999999999999,
+        "peak": 21,
+        "valid": true
+      },
+      "long_run_endurance": [],
+      "browser_errors": []
+    }
+  },
+  "cooperativeEnabled": false
+}

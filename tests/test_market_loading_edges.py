@@ -12,7 +12,7 @@ with sync_playwright()as pw:
  # Make a paid, bounded queue using the existing recovery fixture.
  p.evaluate('__queueFixture()');base=p.evaluate('__townTest.save()')
  # Insufficient funding below the existing per-unit purchase minimum.
- p.evaluate('s=>__townTest.load(s)',base);p.evaluate('__edge.poor()');before=p.evaluate('__edge.snapshot()');q=p.evaluate('__edge.review()');after=p.evaluate('__edge.snapshot()');rows.append({'case':'insufficient treasury','before':before,'review':{'ok':q['ok'],'reason':q['reason']},'after':after});assert not q['ok']and before==after
+ p.evaluate('s=>__townTest.load(s)',base);p.evaluate('__edge.poor()');before=p.evaluate('__edge.snapshot()');q=p.evaluate('__edge.review()');paid=p.evaluate('__edge.authorize()');after=p.evaluate('__edge.snapshot()');rows.append({'case':'insufficient paid-shift treasury; free review available','before':before,'review':{'ok':q['ok'],'reason':q['reason']},'paidAuthorization':paid,'after':after});assert q['ok'] and not paid['ok'] and before==after
  # Repeated authorization is rejected without a second policy extension.
  p.evaluate('s=>__townTest.load(s)',base);q=p.evaluate('__edge.review()');before=p.evaluate('__edge.snapshot()');r=p.evaluate('__edge.authorize()');middle=p.evaluate('__edge.snapshot()');again=p.evaluate('__edge.authorize()');after=p.evaluate('__edge.snapshot()');rows.append({'case':'repeated confirm','before':before,'first':r,'middle':middle,'second':again,'after':after});assert r['ok']and not again['ok']and middle==after,(r,again,middle,after)
  # A real tick advances queue state and invalidates the old review.
