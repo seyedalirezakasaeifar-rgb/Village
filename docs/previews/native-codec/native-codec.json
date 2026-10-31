@@ -1,0 +1,21 @@
+{
+  "source_sha256": "c1ad404fb87f2fb27d1ce85ef39ca5a3ab04d2b03785f6411774e4db7512b713",
+  "small": {
+    "changed": [],
+    "ok": true,
+    "exact": true,
+    "encodeMs": 224.59999999956926,
+    "decodeMs": 3342.099999999802,
+    "bytes": 135647
+  },
+  "large": {
+    "ok": true,
+    "exact": true,
+    "people": 8001,
+    "bytes": 808433,
+    "encodeMs": 3891.29999999929,
+    "decodeMs": 7658.400000000256,
+    "heap": 39600000
+  },
+  "outcome": "PASS"
+}

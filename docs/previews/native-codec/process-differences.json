@@ -1,0 +1,40 @@
+{
+  "saved_before_record_found": true,
+  "current_sha256": "de0c62fef3dff06572c463fa481294871f6f37f20a5da31f1355f20c75bc29d3",
+  "stored_candidates": [
+    {
+      "key": "townledger-v6-backup",
+      "sha256": "e13b656660ae81072cf7791556bec84a99a978133a910779befe40b7a0967110",
+      "day": null,
+      "people": 8001
+    },
+    {
+      "key": "townledger-v6",
+      "sha256": "de0c62fef3dff06572c463fa481294871f6f37f20a5da31f1355f20c75bc29d3",
+      "day": null,
+      "people": 8001
+    }
+  ],
+  "differences": [
+    {
+      "path": ".payload.regionalTrade",
+      "before": null,
+      "after": {
+        "type": "dict",
+        "length": 13
+      },
+      "missing_before": true,
+      "missing_after": false
+    },
+    {
+      "path": ".payload.roadMetrics",
+      "before": {
+        "type": "dict",
+        "length": 8
+      },
+      "after": null
+    }
+  ],
+  "difference_count": 2,
+  "raw_save_payloads_retained": false
+}
