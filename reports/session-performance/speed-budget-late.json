@@ -1,0 +1,190 @@
+{
+  "sourceSha256": "bd4c718d1e8d393fec94581590394267c7e13da711a99f683d2f5350b2c1ab78",
+  "fixtureSha256": "ad6256fd85d4146fda9eeac0b16d5b182ed352c23bbd96af3b320553c29ce786",
+  "hostChromium": true,
+  "physicalAndroid": false,
+  "presets": [
+    {
+      "requested": 1,
+      "elapsedSeconds": 8.724599999999628,
+      "days": 5,
+      "actual": 0.945602090640299,
+      "backlog": 0.848242424242426,
+      "paused": false,
+      "requestedLabel": "1\u00d7",
+      "actualLabel": "",
+      "raf": {
+        "n": 509,
+        "p50Ms": 16.699999999999818,
+        "p95Ms": 16.799999999999272,
+        "p99Ms": 16.800000000000182,
+        "maxMs": 200
+      },
+      "tapToNextRaf": {
+        "n": 9,
+        "p50Ms": 29.899999998509884,
+        "p95Ms": 36.30000000074506,
+        "p99Ms": 36.30000000074506,
+        "maxMs": 36.30000000074506
+      },
+      "trustedTaps": 9
+    },
+    {
+      "requested": 2,
+      "elapsedSeconds": 8.596800000000744,
+      "days": 10,
+      "actual": 1.9193188163035748,
+      "backlog": 0.5551515151515142,
+      "paused": false,
+      "requestedLabel": "2\u00d7",
+      "actualLabel": "",
+      "raf": {
+        "n": 508,
+        "p50Ms": 16.69999999999891,
+        "p95Ms": 16.700000000000728,
+        "p99Ms": 16.80000000000291,
+        "maxMs": 66.60000000000036
+      },
+      "tapToNextRaf": {
+        "n": 9,
+        "p50Ms": 29.699999999254942,
+        "p95Ms": 36.5,
+        "p99Ms": 36.5,
+        "maxMs": 36.5
+      },
+      "trustedTaps": 9
+    },
+    {
+      "requested": 4,
+      "elapsedSeconds": 8.762199999999256,
+      "days": 21,
+      "actual": 3.954486316222289,
+      "backlog": 0.23151515151515142,
+      "paused": false,
+      "requestedLabel": "4\u00d7",
+      "actualLabel": "",
+      "raf": {
+        "n": 490,
+        "p50Ms": 16.69999999999709,
+        "p95Ms": 16.799999999999272,
+        "p99Ms": 33.30000000000291,
+        "maxMs": 350
+      },
+      "tapToNextRaf": {
+        "n": 9,
+        "p50Ms": 30.59999999962747,
+        "p95Ms": 47,
+        "p99Ms": 47,
+        "maxMs": 47
+      },
+      "trustedTaps": 9
+    },
+    {
+      "requested": 8,
+      "elapsedSeconds": 8.743700000001118,
+      "days": 42,
+      "actual": 7.9257065086852405,
+      "backlog": 0.7864242424242304,
+      "paused": false,
+      "requestedLabel": "8\u00d7",
+      "actualLabel": "Actual 8\u00d7",
+      "raf": {
+        "n": 474,
+        "p50Ms": 16.69999999999709,
+        "p95Ms": 16.80000000000291,
+        "p99Ms": 50,
+        "maxMs": 250
+      },
+      "tapToNextRaf": {
+        "n": 9,
+        "p50Ms": 36.5,
+        "p95Ms": 69.60000000149012,
+        "p99Ms": 69.60000000149012,
+        "maxMs": 69.60000000149012
+      },
+      "trustedTaps": 9
+    },
+    {
+      "requested": 16,
+      "elapsedSeconds": 8.157299999998882,
+      "days": 78,
+      "actual": 15.777279246811768,
+      "backlog": 0.9166060606061541,
+      "paused": false,
+      "requestedLabel": "16\u00d7",
+      "actualLabel": "Actual 16\u00d7",
+      "raf": {
+        "n": 435,
+        "p50Ms": 16.69999999999709,
+        "p95Ms": 16.80000000000291,
+        "p99Ms": 66.59999999999854,
+        "maxMs": 299.8999999999942
+      },
+      "tapToNextRaf": {
+        "n": 8,
+        "p50Ms": 35.80000000074506,
+        "p95Ms": 47.5,
+        "p99Ms": 47.5,
+        "maxMs": 47.5
+      },
+      "trustedTaps": 8
+    },
+    {
+      "requested": 32,
+      "elapsedSeconds": 8.737699999999254,
+      "days": 167,
+      "actual": 31.535758838140875,
+      "backlog": 0.5282424242424982,
+      "paused": false,
+      "requestedLabel": "32\u00d7",
+      "actualLabel": "Actual 25\u00d7",
+      "raf": {
+        "n": 374,
+        "p50Ms": 16.69999999999709,
+        "p95Ms": 33.400000000001455,
+        "p99Ms": 233.3000000000029,
+        "maxMs": 316.59999999999854
+      },
+      "tapToNextRaf": {
+        "n": 7,
+        "p50Ms": 58.69999999925494,
+        "p95Ms": 303.09999999962747,
+        "p99Ms": 303.09999999962747,
+        "maxMs": 303.09999999962747
+      },
+      "trustedTaps": 7
+    },
+    {
+      "requested": 64,
+      "elapsedSeconds": 9.118800000000745,
+      "days": 245,
+      "actual": 44.33149098565239,
+      "backlog": 6.583272727272387,
+      "paused": false,
+      "requestedLabel": "64\u00d7",
+      "actualLabel": "Actual 41\u00d7",
+      "raf": {
+        "n": 244,
+        "p50Ms": 33.29999999998836,
+        "p95Ms": 83.20000000001164,
+        "p99Ms": 416.6999999999971,
+        "maxMs": 466.6000000000058
+      },
+      "tapToNextRaf": {
+        "n": 7,
+        "p50Ms": 98.20000000111759,
+        "p95Ms": 152.7999999988824,
+        "p99Ms": 152.7999999988824,
+        "maxMs": 152.7999999988824
+      },
+      "trustedTaps": 7
+    }
+  ],
+  "pausedControl": {
+    "paused": true,
+    "verifiedBy": "explicit pause click after each preset; next action changed speed while paused",
+    "bannerVisibleDuringPause": true,
+    "sourceInspection": "pause button handler and updateHeader both set the pause banner visible when paused"
+  },
+  "errors": []
+}
