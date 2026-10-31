@@ -1,0 +1,30 @@
+{
+  "source_sha256": "01e2488d935eef1ef0e89f18c435cb2f3b54e28d2d4179fe50cfd29679b9f1af",
+  "farmClearance": {
+    "cancelWasReadOnly": true,
+    "fieldsPermanentlyReleased": 5,
+    "firmClosed": true,
+    "peopleAndJobsRetainedAsResidents": 169,
+    "roadAndTransitUnchanged": true,
+    "goodsConserved": true,
+    "cashConserved": true,
+    "exactThirtyDayReplay": true
+  },
+  "homeReplacement": {
+    "paidMunicipalReserve": true,
+    "destination": {
+      "id": 103,
+      "x": 28,
+      "y": 22,
+      "municipal": true,
+      "reserved": false
+    },
+    "reachableWorkers": 2,
+    "clinicRoute": 7,
+    "schoolRoute": 7,
+    "roadsAndTransitUnchanged": true,
+    "cashConserved": true,
+    "exactThirtyDayReplay": true
+  },
+  "errors": []
+}

@@ -12,7 +12,8 @@ function urbanInspectPanel(b){
 }
 function reviewUrbanClearance(x,y){
  const q=urbanClearanceQuote(x,y);if(!q.ok){toast(q.reason);return;}const town=G;
- showCustomEvent('LAND ASSEMBLY','Clear this site for redevelopment?',q.reason+' Owner/crop compensation '+money(q.compensation)+', clearance '+money(q.demolition)+', relocation '+money(q.relocation||0)+', severance '+money(q.severance||0)+'. Total '+money(q.total)+'. The land becomes vacant; fund its replacement separately.',[{title:'Pay compensation and clear the site',cost:q.total,apply:()=>{if(G!==town)return;const r=urbanClearance(x,y,q.total);toast(r.reason);updateHeader();if(active)renderPanel(active);}},{title:'Keep this property',apply:()=>{}}]);
+ const reviewedKey=urbanClearanceReviewKey(q);
+ showCustomEvent('LAND ASSEMBLY','Clear this site for redevelopment?',q.reason+' Owner/crop compensation '+money(q.compensation)+', clearance '+money(q.demolition)+', relocation '+money(q.relocation||0)+', severance '+money(q.severance||0)+'. Total '+money(q.total)+'. The land becomes vacant; fund its replacement separately.',[{title:'Pay compensation and clear the site',cost:q.total,apply:()=>{if(G!==town)return;const r=urbanClearance(x,y,q.total,reviewedKey);toast(r.reason);updateHeader();if(active)renderPanel(active);}},{title:'Keep this property',apply:()=>{}}]);
 }
 const urbanConstructionBase=renderConstructionFull;renderConstructionFull=function(){return urbanNeighbourhoodPanel()+urbanConstructionBase();};
 const urbanInspectBase=renderInspectFull;renderInspectFull=function(){const b=selected&&readBuild(selected.id);return urbanInspectBase()+(b?urbanInspectPanel(b):'');};
