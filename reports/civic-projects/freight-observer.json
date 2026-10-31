@@ -1,0 +1,9 @@
+{
+  "source_sha256": "dbe96511846a1ae4eda713103979df519dea9ff278c4a155a245699d24f01864",
+  "controlledStressFixture": true,
+  "commissionedArrival": 180,
+  "recentRows": 36,
+  "realPaidDeliveries": 43,
+  "cashDelta": 0,
+  "goodsError": 0
+}
