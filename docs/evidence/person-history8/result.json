@@ -1,0 +1,129 @@
+{
+  "source_sha256": "cc9f02a1c84a8e4aadc5df3d22bf8a9a382ed7c1ee5210742bff4cc5d31bfce6",
+  "boundary": {
+    "rngSeed": 2,
+    "syntheticInactiveHistory": 8000,
+    "recordsBefore": 8000,
+    "recordsAfter": 8001,
+    "newBirths": 1,
+    "reportedLivingBefore": 166,
+    "creator": "birthsAndGenerations",
+    "importAccepted": false,
+    "structureValidBeforeImport": true,
+    "cashPreserved": true,
+    "priorTitlesPreserved": true,
+    "archiveHash": "81020a3e"
+  },
+  "natural": {
+    "samples": [
+      {
+        "year": 2,
+        "records": 215,
+        "living": 209,
+        "deceased": 0,
+        "departed": 6,
+        "retired": 0,
+        "personBytes": 65784,
+        "households": 82
+      },
+      {
+        "year": 4,
+        "records": 250,
+        "living": 241,
+        "deceased": 0,
+        "departed": 9,
+        "retired": 0,
+        "personBytes": 75002,
+        "households": 88
+      },
+      {
+        "year": 6,
+        "records": 264,
+        "living": 255,
+        "deceased": 0,
+        "departed": 9,
+        "retired": 0,
+        "personBytes": 78455,
+        "households": 88
+      },
+      {
+        "year": 8,
+        "records": 287,
+        "living": 278,
+        "deceased": 0,
+        "departed": 9,
+        "retired": 0,
+        "personBytes": 85170,
+        "households": 90
+      },
+      {
+        "year": 10,
+        "records": 313,
+        "living": 301,
+        "deceased": 3,
+        "departed": 9,
+        "retired": 0,
+        "personBytes": 93769,
+        "households": 98
+      },
+      {
+        "year": 12,
+        "records": 337,
+        "living": 314,
+        "deceased": 6,
+        "departed": 17,
+        "retired": 0,
+        "personBytes": 101290,
+        "households": 105
+      },
+      {
+        "year": 14,
+        "records": 349,
+        "living": 322,
+        "deceased": 8,
+        "departed": 19,
+        "retired": 4,
+        "personBytes": 104832,
+        "households": 106
+      },
+      {
+        "year": 16,
+        "records": 363,
+        "living": 322,
+        "deceased": 13,
+        "departed": 28,
+        "retired": 17,
+        "personBytes": 109178,
+        "households": 108
+      },
+      {
+        "year": 18,
+        "records": 367,
+        "living": 323,
+        "deceased": 16,
+        "departed": 28,
+        "retired": 27,
+        "personBytes": 111579,
+        "households": 111
+      },
+      {
+        "year": 20,
+        "records": 376,
+        "living": 331,
+        "deceased": 17,
+        "departed": 28,
+        "retired": 34,
+        "personBytes": 115062,
+        "households": 113
+      }
+    ]
+  },
+  "offlineEncoding": {
+    "allFieldsAndIdsEqual": true,
+    "records": 376,
+    "originalBytes": 115062,
+    "packedBytes": 60938,
+    "decodedSha256": "a4657cd01c9e85d2b811a4541b7bdb6a25fda88574f820145a4af43a21d2b137",
+    "productionFormat": false
+  }
+}
