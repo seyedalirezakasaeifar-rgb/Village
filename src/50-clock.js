@@ -24,7 +24,7 @@ function* stagedTick(){if(!G||pendingEvent)return;ensureSystems();yield 'ensureS
  if(G.day%30===0){yield* stagedOutwardMigration();yield 'outwardMigration';autonomousDevelopment();yield 'autonomousDevelopment';}
  migrationFamilyArrivalDay();yield 'migrationFamilyArrivalDay';
 
- recompute();yield 'recompute';updateCouncilAndMissions();yield 'updateCouncilAndMissions';systemsDay();yield 'systemsDay';
+ recompute();yield 'recompute';updateCouncilAndMissions();yield 'updateCouncilAndMissions';yield* stagedSystemsDay();yield 'systemsDay';
  if(G.day%30===0){monthlyReview();yield 'monthlyReview';}
  if(G.day%360===0){yearlyDemographics();yield 'yearlyDemographics';electionReview();yield 'electionReview';}
  if(!pendingEvent&&G.day%45===0&&G.day-G.lastEventDay>=37)offerCouncilEvent();

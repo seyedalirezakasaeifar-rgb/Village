@@ -118,6 +118,11 @@ function systemsDay(){
  if(G.day%30===0){const error=Math.abs(totalMoney()-G.accounts.baseline);G.accounts.maxError=Math.max(G.accounts.maxError,error);}
  G.rngState=rngState;
 }
+function* stagedSystemsDay(){
+ ensureSystems();capitalCirculationDay();housingMarketDay();municipalProcurement();householdFormation();yield* stagedOccupyVacantHousing();birthsAndGenerations();expireCouncilLetters();commodityPriceReview();
+ if(G.day%30===0){const error=Math.abs(totalMoney()-G.accounts.baseline);G.accounts.maxError=Math.max(G.accounts.maxError,error);}
+ G.rngState=rngState;
+}
 function checksum(text){let h=2166136261;for(let i=0;i<text.length;i++){h^=text.charCodeAt(i);h=Math.imul(h,16777619);}return (h>>>0).toString(16);}
 function archivePayload(){G.rngState=rngState;G.trafficState={vehicles:traffic,clock:frameClock,elapsed:trafficElapsed,gates:[...intersectionGates],serial:vehicleSerial};G.visualState=visualState;return JSON.stringify(G);}
 function percentile(a,p){if(!a.length)return 0;const b=a.slice().sort((x,y)=>x-y);return b[Math.min(b.length-1,Math.floor(b.length*p))];}

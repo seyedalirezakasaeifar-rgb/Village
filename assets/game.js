@@ -219,6 +219,11 @@ function systemsDay(){
  if(G.day%30===0){const error=Math.abs(totalMoney()-G.accounts.baseline);G.accounts.maxError=Math.max(G.accounts.maxError,error);}
  G.rngState=rngState;
 }
+function* stagedSystemsDay(){
+ ensureSystems();capitalCirculationDay();housingMarketDay();municipalProcurement();householdFormation();yield* stagedOccupyVacantHousing();birthsAndGenerations();expireCouncilLetters();commodityPriceReview();
+ if(G.day%30===0){const error=Math.abs(totalMoney()-G.accounts.baseline);G.accounts.maxError=Math.max(G.accounts.maxError,error);}
+ G.rngState=rngState;
+}
 function checksum(text){let h=2166136261;for(let i=0;i<text.length;i++){h^=text.charCodeAt(i);h=Math.imul(h,16777619);}return (h>>>0).toString(16);}
 function archivePayload(){G.rngState=rngState;G.trafficState={vehicles:traffic,clock:frameClock,elapsed:trafficElapsed,gates:[...intersectionGates],serial:vehicleSerial};G.visualState=visualState;return JSON.stringify(G);}
 function percentile(a,p){if(!a.length)return 0;const b=a.slice().sort((x,y)=>x-y);return b[Math.min(b.length-1,Math.floor(b.length*p))];}
@@ -3043,6 +3048,13 @@ function occupyVacantHousing(){
  for(const vacancy of vacancies){const h=addHouseholdAt(vacancy,2500);if(!h)continue;migrationRegisterTenancy(h,vacancy);story('The '+h.name+' household chose a vacant home after comparing reachable paid work, living costs and outside opportunities.','good',vacancy.id,h.id);return;}
 }
 
+// Preserve the complete vacancy filter before attempting arrivals in stable order.
+function* stagedOccupyVacantHousing(){
+ if(G.day%30!==0||G.stats.population>=2000)return;
+ const vacancies=[];for(const b of G.buildings){if(['home','apartment','tower'].includes(b.kind)&&!b.redevelopment&&!b.relocationReserve&&migrationHousingStatus(b).available>0)vacancies.push(b);yield 'housing-vacancy-filter';}
+ for(const vacancy of vacancies){const h=addHouseholdAt(vacancy,2500);if(h){migrationRegisterTenancy(h,vacancy);story('The '+h.name+' household chose a vacant home after comparing reachable paid work, living costs and outside opportunities.','good',vacancy.id,h.id);return;}yield 'housing-arrival-assessment';}
+}
+
 // SOURCE: 46-transit-network.js
 // Public buses and elevated metro: authoritative daily capacity; independent visual samples.
 const TRANSIT_MODES={bus:{name:'Bus',seats:32,vehicle:6200,tile:0,minutes:1.15,staff:2,upkeep:12,fare:.65},elevated:{name:'Elevated metro',seats:110,vehicle:36000,tile:950,minutes:.42,staff:4,upkeep:40,fare:1.25}};
@@ -3424,7 +3436,7 @@ function* stagedTick(){if(!G||pendingEvent)return;ensureSystems();yield 'ensureS
  if(G.day%30===0){yield* stagedOutwardMigration();yield 'outwardMigration';autonomousDevelopment();yield 'autonomousDevelopment';}
  migrationFamilyArrivalDay();yield 'migrationFamilyArrivalDay';
 
- recompute();yield 'recompute';updateCouncilAndMissions();yield 'updateCouncilAndMissions';systemsDay();yield 'systemsDay';
+ recompute();yield 'recompute';updateCouncilAndMissions();yield 'updateCouncilAndMissions';yield* stagedSystemsDay();yield 'systemsDay';
  if(G.day%30===0){monthlyReview();yield 'monthlyReview';}
  if(G.day%360===0){yearlyDemographics();yield 'yearlyDemographics';electionReview();yield 'electionReview';}
  if(!pendingEvent&&G.day%45===0&&G.day-G.lastEventDay>=37)offerCouncilEvent();

@@ -33,3 +33,10 @@ function occupyVacantHousing(){
  const vacancies=G.buildings.filter(b=>['home','apartment','tower'].includes(b.kind)&&!b.redevelopment&&!b.relocationReserve&&migrationHousingStatus(b).available>0);
  for(const vacancy of vacancies){const h=addHouseholdAt(vacancy,2500);if(!h)continue;migrationRegisterTenancy(h,vacancy);story('The '+h.name+' household chose a vacant home after comparing reachable paid work, living costs and outside opportunities.','good',vacancy.id,h.id);return;}
 }
+
+// Preserve the complete vacancy filter before attempting arrivals in stable order.
+function* stagedOccupyVacantHousing(){
+ if(G.day%30!==0||G.stats.population>=2000)return;
+ const vacancies=[];for(const b of G.buildings){if(['home','apartment','tower'].includes(b.kind)&&!b.redevelopment&&!b.relocationReserve&&migrationHousingStatus(b).available>0)vacancies.push(b);yield 'housing-vacancy-filter';}
+ for(const vacancy of vacancies){const h=addHouseholdAt(vacancy,2500);if(h){migrationRegisterTenancy(h,vacancy);story('The '+h.name+' household chose a vacant home after comparing reachable paid work, living costs and outside opportunities.','good',vacancy.id,h.id);return;}yield 'housing-arrival-assessment';}
+}
