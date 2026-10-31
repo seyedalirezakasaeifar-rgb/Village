@@ -1,0 +1,16 @@
+{
+  "controlledRestartEdge": true,
+  "naturalRestartObserved": false,
+  "day": 241,
+  "reopeningGuard": {
+    "rejection": {
+      "ok": false,
+      "reason": "The enterprise reopened or the premises changed."
+    },
+    "controlledClonedState": true,
+    "resourcesChanged": false
+  },
+  "legacySurveyLoaded": true,
+  "emptyOfficeGuidance": true,
+  "source_sha256": "47b1b35a4a0c4a7184d23ee657430619c09354a43cc110832dd0093ecfd2777e"
+}

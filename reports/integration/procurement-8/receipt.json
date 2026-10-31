@@ -1,0 +1,555 @@
+{
+  "source_sha256": "885a7bf7210056a1eba3d86826d4813fd9746c5277427832100843f2824fad70",
+  "gates": {
+    "reports/procurement/acceptance.json": {
+      "source_sha256": "885a7bf7210056a1eba3d86826d4813fd9746c5277427832100843f2824fad70",
+      "result": {
+        "historyCycles": 30,
+        "final": [
+          {
+            "id": 199,
+            "name": "Greyhaven Port staged order \u00b7 1/2",
+            "firm": 7,
+            "market": "port",
+            "good": "grain",
+            "quantity": 10,
+            "delivered": 10,
+            "price": 2.4124840490018564,
+            "deadline": 41,
+            "status": "fulfilled",
+            "procurementGroup": 199,
+            "procurementStage": 0,
+            "dispatchFrom": 26
+          },
+          {
+            "id": 200,
+            "name": "Greyhaven Port staged order \u00b7 2/2",
+            "firm": 7,
+            "market": "port",
+            "good": "grain",
+            "quantity": 10,
+            "delivered": 10,
+            "price": 2.4124840490018564,
+            "deadline": 56,
+            "status": "fulfilled",
+            "procurementGroup": 199,
+            "procurementStage": 1,
+            "dispatchFrom": 41
+          }
+        ],
+        "cashDrift": -1.1753290891647339e-06,
+        "goods": [
+          {
+            "good": "grain",
+            "opening": 960,
+            "produced": 42597,
+            "consumed": 15872.4,
+            "imports": 11020.853,
+            "exports": 34539.25407712717,
+            "stock": 4166.198922872839,
+            "error": 3.637978807091713e-12,
+            "price": 1.8589056113730673
+          },
+          {
+            "good": "flour",
+            "opening": 960,
+            "produced": 26454,
+            "consumed": 18463.2,
+            "imports": 3928.9139999999998,
+            "exports": 8612.13230360598,
+            "stock": 4267.5816963940215,
+            "error": 9.094947017729282e-13,
+            "price": 2.788358417059601
+          },
+          {
+            "good": "food",
+            "opening": 1920,
+            "produced": 39911,
+            "consumed": 24946.537754079123,
+            "imports": 3997.659,
+            "exports": 16103.191573356546,
+            "stock": 4778.929672564331,
+            "error": -1.8189894035458565e-12,
+            "price": 3.0671942587655607
+          },
+          {
+            "good": "logs",
+            "opening": 720,
+            "produced": 27302,
+            "consumed": 11692.307692307691,
+            "imports": 446.876,
+            "exports": 13920.472238163084,
+            "stock": 2856.096069529225,
+            "error": 4.547473508864641e-13,
+            "price": 1.8589056113730673
+          },
+          {
+            "good": "timber",
+            "opening": 720,
+            "produced": 15200,
+            "consumed": 5853.176470588235,
+            "imports": 420,
+            "exports": 8737.10856047267,
+            "stock": 1749.7149689390944,
+            "error": -4.547473508864641e-13,
+            "price": 3.7178112227461346
+          },
+          {
+            "good": "stone",
+            "opening": 720,
+            "produced": 10290,
+            "consumed": 35,
+            "imports": 66.4,
+            "exports": 9963.4584130893,
+            "stock": 1077.9415869106992,
+            "error": -4.547473508864641e-13,
+            "price": 2.788358417059601
+          },
+          {
+            "good": "manufactures",
+            "opening": 0,
+            "produced": 8490,
+            "consumed": 1567.3409132298968,
+            "imports": 0,
+            "exports": 6627.372782968121,
+            "stock": 295.28630380198143,
+            "error": -3.979039320256561e-13,
+            "price": 8.183392313258777
+          }
+        ],
+        "valid": {
+          "ok": true,
+          "issues": [],
+          "total": 15493516.999998318,
+          "population": 164,
+          "day": 96
+        }
+      },
+      "errors": []
+    },
+    "reports/supplier-selection/controls.json": {
+      "source_sha256": "885a7bf7210056a1eba3d86826d4813fd9746c5277427832100843f2824fad70",
+      "initial": "Compare other suppliers and commodities \u00b7 including food\nRegional buyer \nUpland Cooperative\nGreyhaven Port\nIronridge Works\nCommodity the buyer seeks \ngrain\nflour\nfood\nLocal producer \nBaker & Sons Ltd.\nBaker & Sons Trading\nBaker & Sons Works\nVale Net & Line\n\nThe forecast supports fewer than ten additional units after retained stock, existing promises, handling and freight cash.\n\nHeld / retained units\n80 / 104\nAlready promised units\n0\nForecast / suggested units\n0 / 0\nFreight cash available\n$23,605\n\nBaker & Sons Ltd. \u2192 Greyhaven Port. Quote $3.81/unit; freight $0.20/unit. Suggested-size inventory margin $0 excludes future payroll, tax and disruption. 0 recent output/day, 21 usable dispatch days; standard deadline day 31. Food and other working reserves are retained. Priority dispatch can reduce stock for local buyers. Estimates assume current inputs, attendance, cash and routes persist.\n\nReview this supplier\u2019s food promise",
+      "after25Days": "Compare other suppliers and commodities \u00b7 including food\nRegional buyer \nUpland Cooperative\nGreyhaven Port\nIronridge Works\nCommodity the buyer seeks \ngrain\nflour\nfood\nLocal producer \nBaker & Sons Ltd.\nBaker & Sons Trading\nBaker & Sons Works\nVale Net & Line\n\nA forecast-sized review is available; future output and arrival remain uncertain.\n\nHeld / retained units\n332.06 / 115.86\nAlready promised units\n0\nForecast / suggested units\n2,520 / 200\nFreight cash available\n$22,986\n\nBaker & Sons Ltd. \u2192 Greyhaven Port. Quote $3.81/unit; freight $0.20/unit. Suggested-size inventory margin $417 excludes future payroll, tax and disruption. 127.99 recent output/day, 21 usable dispatch days; standard deadline day 56. Food and other working reserves are retained. Priority dispatch can reduce stock for local buyers. Estimates assume current inputs, attendance, cash and routes persist.\n\nReview this supplier\u2019s food promise",
+      "realFoodCommitment": {
+        "id": 139,
+        "name": "Greyhaven Port supply agreement",
+        "firm": 3,
+        "market": "port",
+        "good": "food",
+        "quantity": 200,
+        "delivered": 0,
+        "price": 3.812457254595668,
+        "deadline": 56,
+        "status": "active"
+      },
+      "settledFoodAgreement": {
+        "id": 139,
+        "name": "Greyhaven Port supply agreement",
+        "firm": 3,
+        "market": "port",
+        "good": "food",
+        "quantity": 200,
+        "delivered": 200,
+        "price": 3.812457254595668,
+        "deadline": 56,
+        "status": "fulfilled"
+      },
+      "errors": []
+    },
+    "reports/port-freight/faults.json": {
+      "source_sha256": "885a7bf7210056a1eba3d86826d4813fd9746c5277427832100843f2824fad70",
+      "controlledFaults": true,
+      "result": {
+        "checks": [
+          {
+            "label": "early cancel",
+            "error": 0,
+            "drift": 0
+          },
+          {
+            "label": "shared capacity and paid road transfer",
+            "error": 0,
+            "drift": 1.862645149230957e-09
+          },
+          {
+            "label": "closure recovery",
+            "error": 0,
+            "drift": 3.725290298461914e-09
+          },
+          {
+            "label": "owned export and delayed buyer settlement",
+            "error": 0,
+            "drift": 3.725290298461914e-09
+          },
+          {
+            "label": "invalid voyage atomic rejection",
+            "error": 0,
+            "drift": 3.725290298461914e-09
+          },
+          {
+            "label": "inspector counts only successful arrivals",
+            "error": 0,
+            "drift": 3.725290298461914e-09
+          }
+        ],
+        "comparisons": [
+          {
+            "firm": 0,
+            "river": 0.212,
+            "road": 0.195,
+            "riverDays": 8,
+            "roadDays": 7
+          },
+          {
+            "firm": 1,
+            "river": 0.215,
+            "road": 0.198,
+            "riverDays": 8,
+            "roadDays": 7
+          },
+          {
+            "firm": 2,
+            "river": 0.218,
+            "road": 0.193,
+            "riverDays": 8,
+            "roadDays": 8
+          },
+          {
+            "firm": 3,
+            "river": 0.215,
+            "road": 0.196,
+            "riverDays": 8,
+            "roadDays": 8
+          },
+          {
+            "firm": 4,
+            "river": 0.215,
+            "road": 0.198,
+            "riverDays": 8,
+            "roadDays": 7
+          },
+          {
+            "firm": 5,
+            "river": 0.194,
+            "road": 0.201,
+            "riverDays": 7,
+            "roadDays": 7
+          },
+          {
+            "firm": 6,
+            "river": 0.215,
+            "road": 0.196,
+            "riverDays": 8,
+            "roadDays": 8
+          },
+          {
+            "firm": 7,
+            "river": 0.227,
+            "road": 0.246,
+            "riverDays": 8,
+            "roadDays": 8
+          },
+          {
+            "firm": 8,
+            "river": 0.257,
+            "road": 0.192,
+            "riverDays": 8,
+            "roadDays": 7
+          },
+          {
+            "firm": 9,
+            "river": 0.155,
+            "road": 0.24,
+            "riverDays": 7,
+            "roadDays": 8
+          },
+          {
+            "firm": 10,
+            "river": 0.227,
+            "road": 0.22600000000000003,
+            "riverDays": 8,
+            "roadDays": 8
+          },
+          {
+            "firm": 11,
+            "river": 0.197,
+            "road": 0.198,
+            "riverDays": 7,
+            "roadDays": 7
+          },
+          {
+            "firm": 12,
+            "river": 0.218,
+            "road": 0.177,
+            "riverDays": 8,
+            "roadDays": 7
+          },
+          {
+            "firm": 13,
+            "river": 0.218,
+            "road": 0.177,
+            "riverDays": 8,
+            "roadDays": 7
+          },
+          {
+            "firm": 14,
+            "river": 0.212,
+            "road": 0.199,
+            "riverDays": 8,
+            "roadDays": 8
+          },
+          {
+            "firm": 15,
+            "river": 0.221,
+            "road": 0.174,
+            "riverDays": 8,
+            "roadDays": 7
+          },
+          {
+            "firm": 16,
+            "river": 0.191,
+            "road": 0.20999999999999996,
+            "riverDays": 7,
+            "roadDays": 7
+          },
+          {
+            "firm": 17,
+            "river": 0.191,
+            "road": 0.20999999999999996,
+            "riverDays": 7,
+            "roadDays": 7
+          },
+          {
+            "firm": 18,
+            "river": 0.218,
+            "road": 0.201,
+            "riverDays": 8,
+            "roadDays": 7
+          },
+          {
+            "firm": 19,
+            "river": 0.257,
+            "road": 0.14400000000000002,
+            "riverDays": 8,
+            "roadDays": 6
+          },
+          {
+            "firm": 20,
+            "river": 0.221,
+            "road": 0.19,
+            "riverDays": 8,
+            "roadDays": 8
+          },
+          {
+            "firm": 21,
+            "river": 0.218,
+            "road": 0.201,
+            "riverDays": 8,
+            "roadDays": 7
+          },
+          {
+            "firm": 22,
+            "river": 0.212,
+            "road": 0.199,
+            "riverDays": 8,
+            "roadDays": 8
+          },
+          {
+            "firm": 23,
+            "river": 0.224,
+            "road": 0.187,
+            "riverDays": 8,
+            "roadDays": 7
+          },
+          {
+            "firm": 24,
+            "river": 0.14,
+            "road": 0.255,
+            "riverDays": 7,
+            "roadDays": 8
+          },
+          {
+            "firm": 25,
+            "river": 0.137,
+            "road": 0.258,
+            "riverDays": 6,
+            "roadDays": 8
+          }
+        ],
+        "claims": 0
+      },
+      "errors": []
+    },
+    "reports/development-save-qa/composite.json": {
+      "source_sha256": "885a7bf7210056a1eba3d86826d4813fd9746c5277427832100843f2824fad70",
+      "controlledCatchment": true,
+      "result": {
+        "grid": 128,
+        "people": 1375,
+        "routes": 2,
+        "settledTickets": 1,
+        "fares": 3.25,
+        "cargo": 18,
+        "providerEscrow": 6000,
+        "mallEscrow": 28000,
+        "cashConserved": true,
+        "receiptsPreserved": true,
+        "faults": {
+          "grid": 128,
+          "schema": 8,
+          "recordsRejected": [
+            "missingMember",
+            "duplicateMember",
+            "householdMismatch",
+            "missingHome",
+            "tileUsedAsHomeId",
+            "missingFirmBuilding",
+            "negativeStock",
+            "invalidStock",
+            "unknownStock",
+            "negativeDeposit",
+            "missingDepositBank",
+            "malformedBank",
+            "malformedLoan",
+            "negativeLoanBank",
+            "duplicateBuildingId",
+            "exhaustedIdCounter",
+            "duplicateHomeId",
+            "orphanWorker",
+            "duplicateWorker",
+            "missingOwner",
+            "missingTitleHolder",
+            "truncatedTiles",
+            "malformedProject",
+            "futureSchema",
+            "invalidDay"
+          ],
+          "truncatedRejected": 4,
+          "callerIndependent": true,
+          "atomicRNGAndTimeline": true
+        }
+      }
+    },
+    "reports/release-tests.json": {
+      "source_sha256": "885a7bf7210056a1eba3d86826d4813fd9746c5277427832100843f2824fad70",
+      "determinism_and_continuation": {
+        "sameSeed": true,
+        "renderIndependent": true,
+        "continuedDays": 120,
+        "valid": {
+          "ok": true,
+          "issues": [],
+          "total": 15489571.999994356,
+          "population": 172,
+          "day": 301
+        }
+      },
+      "malformed_save_atomicity": {
+        "investorRejected": true,
+        "cargoRejected": true,
+        "futureRejected": true,
+        "townPreserved": true
+      },
+      "replicated_zoning": [
+        {
+          "seed": 42,
+          "zone": 0,
+          "population": 192,
+          "homes": 17,
+          "firms": 3,
+          "privateSpend": 494901,
+          "moneyDelta": -1.2569129467010498e-05,
+          "ms": 3819.3999999910593
+        },
+        {
+          "seed": 42,
+          "zone": 100,
+          "population": 177,
+          "homes": 0,
+          "firms": 1,
+          "privateSpend": 0,
+          "moneyDelta": -1.7305836081504822e-05,
+          "ms": 2586.5
+        },
+        {
+          "seed": 101,
+          "zone": 0,
+          "population": 221,
+          "homes": 21,
+          "firms": 8,
+          "privateSpend": 621891,
+          "moneyDelta": -1.55717134475708e-05,
+          "ms": 3504.4000000059605
+        },
+        {
+          "seed": 101,
+          "zone": 100,
+          "population": 183,
+          "homes": 0,
+          "firms": 2,
+          "privateSpend": 0,
+          "moneyDelta": -8.197501301765442e-06,
+          "ms": 2447.5999999940395
+        },
+        {
+          "seed": 909,
+          "zone": 0,
+          "population": 211,
+          "homes": 21,
+          "firms": 5,
+          "privateSpend": 525844,
+          "moneyDelta": -1.1583790183067322e-05,
+          "ms": 3282.5999999940395
+        },
+        {
+          "seed": 909,
+          "zone": 100,
+          "population": 176,
+          "homes": 0,
+          "firms": 1,
+          "privateSpend": 0,
+          "moneyDelta": -1.2626871466636658e-05,
+          "ms": 2481
+        }
+      ],
+      "cargo_ownership": {
+        "consignments": 6,
+        "sampledUnits": 166.3792513597068,
+        "remaining": true,
+        "delayed": 1,
+        "cashConserved": true
+      },
+      "legacy_56_migration": {
+        "v": {
+          "ok": true,
+          "issues": [],
+          "total": 15459920,
+          "population": 169,
+          "day": 1
+        },
+        "after": {
+          "ok": true,
+          "issues": [],
+          "total": 15459919.999999044,
+          "population": 167,
+          "day": 31
+        },
+        "schema": 8
+      },
+      "true_pause": {
+        "identicalScreenshots": true,
+        "milliseconds": 500
+      },
+      "traffic_progress": {
+        "seconds": 1600,
+        "maximumWait": 0.9999999999999999,
+        "peak": 21,
+        "valid": true
+      },
+      "long_run_endurance": [],
+      "browser_errors": []
+    }
+  },
+  "cooperativeEnabled": false
+}

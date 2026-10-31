@@ -1,0 +1,45 @@
+{
+  "source_sha256": "d7bae7f7f79bf2b7d9998b12a641cdd419d19f850fe83772a22d3d8684ffe116",
+  "stages": [
+    {
+      "status": "assessed",
+      "unchanged": true,
+      "stable": true,
+      "items": 1,
+      "tiles": 1,
+      "siteCacheBytes": 27648,
+      "atlasBytes": 10756864
+    },
+    {
+      "status": "acquired",
+      "unchanged": true,
+      "stable": true,
+      "items": 1,
+      "tiles": 1,
+      "siteCacheBytes": 55296,
+      "atlasBytes": 11756544
+    },
+    {
+      "status": "remediating",
+      "unchanged": true,
+      "stable": true,
+      "items": 1,
+      "tiles": 1,
+      "siteCacheBytes": 82944,
+      "atlasBytes": 11756544
+    },
+    {
+      "status": "ready",
+      "unchanged": true,
+      "stable": true,
+      "items": 1,
+      "tiles": 1,
+      "siteCacheBytes": 110592,
+      "atlasBytes": 12756224
+    }
+  ],
+  "renderBenchMs": 1.11,
+  "farRenderBenchMs": 0.4,
+  "errors": [],
+  "fixture": "Controlled quarry closure; actual paid acquisition, ground works and reuse; no grants."
+}

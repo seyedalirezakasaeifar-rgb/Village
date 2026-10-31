@@ -1,5 +1,7 @@
 # Brownfield renewal slice
 
+The subsequent [ordinary-player path](BROWNFIELDS-PLAYER-PATH-8.md) extends this initial closed-site scope with explicitly compensated working-site renewal, withdrawal and reopened-firm safeguards.
+
 Base: integrated `b4f6fe4d0a4d8a78ddfeed59df118560d68646af`. This branch adds closed-industrial renewal only; it does not move the migration, private-service, logistics or rendering systems.
 
 ## Player loop and accounting
