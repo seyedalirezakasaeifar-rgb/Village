@@ -3169,6 +3169,8 @@ function maintainRoads(){
   total+=G.roadWear[id];n++;
  }
  G.stats.roadCondition=Math.round(total/Math.max(1,n));
+ // Keep the scalar quality cache current without rebuilding network routes.
+ if(G.roadMetrics)G.roadMetrics.quality=G.stats.roadCondition;
  // Road wear is an economic measure, not a reason to repaint the terrain.
 }
 const roadId=(x,y)=>y*T+x;
