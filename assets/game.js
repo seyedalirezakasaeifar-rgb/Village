@@ -683,16 +683,16 @@ function financePanel(){
 // Road catchments and shared facility capacity. No clinic/school can count its
 // same places twice when catchments overlap. Derived data is never save authority.
 const serviceAccessCaches=new Map();
-function serviceAccess(kind){
+function serviceAccess(kind,extraSite=null){
  const standard=CIVIC_STANDARDS[kind],net=graph(),limit=kind==='health'?60:40;
- const facilities=G.buildings.filter(b=>b.kind===standard.building&&isPublicFacility(b)),homes=G.households.map(h=>({id:h.id,home:h.home,residents:h.people.filter(id=>G.people[id]&&!G.people[id].deceased&&!G.people[id].movedAway).length})).filter(h=>h.residents);
+ const facilities=G.buildings.filter(b=>b.kind===standard.building&&isPublicFacility(b));if(extraSite)facilities.push(extraSite);const homes=G.households.map(h=>({id:h.id,home:h.home,residents:h.people.filter(id=>G.people[id]&&!G.people[id].deceased&&!G.people[id].movedAway).length})).filter(h=>h.residents);
  const key=facilities.map(b=>b.id).join(',')+'|'+homes.map(h=>h.id+':'+h.home+':'+h.residents).join(',');
- const old=serviceAccessCaches.get(kind);if(old&&old.town===G&&old.net===net&&old.key===key)return old.result;
+ const old=extraSite?null:serviceAccessCaches.get(kind);if(old&&old.town===G&&old.net===net&&old.key===key)return old.result;
  const totalNodes=facilities.length+homes.length+2,sink=totalNodes-1,edges=Array.from({length:totalNodes},()=>[]),homeEdges=[],distances=[],facilityEdges=[],connections=[];
  const link=(a,b,capacity)=>{const edge={to:b,capacity,reverse:edges[b].length};edges[a].push(edge);edges[b].push({to:a,capacity:0,reverse:edges[a].length-1});return edge;};
  facilities.forEach((facility,i)=>{
-  facilityEdges.push(link(0,i+1,standard.capacity));connections.push([]);const port=net.portals.get(facility.id),distance=new Map(),queue=[];
-  if(port!=null){distance.set(port,0);queue.push(port);}
+  facilityEdges.push(link(0,i+1,standard.capacity));connections.push([]);const distance=new Map(),queue=[];
+  const start=facility===extraSite?extraSite.port:net.portals.get(facility.id);if(start!=null){distance.set(start,0);queue.push(start);}
   for(let n=0;n<queue.length;n++){const id=queue[n],d=distance.get(id);if(d>=limit)continue;for(const next of net.neighbors.get(id)||[])if(!distance.has(next)){distance.set(next,d+1);queue.push(next);}}
   distances.push(distance);
  });
@@ -718,8 +718,25 @@ function serviceAccess(kind){
   for(let at=sink;at!==0;){const [from,index]=parents[at];amount=Math.min(amount,edges[from][index].capacity);at=from;}
   for(let at=sink;at!==0;){const [from,index]=parents[at],edge=edges[from][index];edge.capacity-=amount;edges[at][edge.reverse].capacity+=amount;at=from;}served+=amount;
  }
- const result={kind,limit,served:Math.min(served,G.stats.population),population:G.stats.population,coverage:G.stats.population?Math.min(1,served/G.stats.population):0,households:homes.map((h,j)=>{const port=net.portals.get(h.home),reachable=distances.map(d=>d.get(port)).filter(d=>d!=null);return {...h,served:clamp(h.residents-homeEdges[j].capacity,0,h.residents),distance:reachable.length?Math.min(...reachable):null};})};
- serviceAccessCaches.set(kind,{town:G,net,key,result});return result;
+ const result={kind,limit,served:Math.min(served,G.stats.population),population:G.stats.population,coverage:G.stats.population?Math.min(1,served/G.stats.population):0,households:homes.map((h,j)=>{const port=net.portals.get(h.home),reachable=distances.map(d=>d.get(port)).filter(d=>d!=null),row={...h,served:clamp(h.residents-homeEdges[j].capacity,0,h.residents),distance:reachable.length?Math.min(...reachable):null};if(extraSite)row.siteDistance=port==null?null:distances[facilities.length-1].get(port)??null;return row;})};
+ if(!extraSite)serviceAccessCaches.set(kind,{town:G,net,key,result});return result;
+}
+// Prospective civic-site routing reuses the live catchment allocator without
+// adding a building, touching town state, or reserving any service capacity.
+let placementServicePreviewCache=null;
+function schoolPlacementPreview(x,y){
+ const key=[G.day,roadsVersion,G.buildings.length,G.nextId,G.stats.population,x,y,G.treasury,G.policy.educationBudget].join(':');if(placementServicePreviewCache?.town===G&&placementServicePreviewCache.key===key)return placementServicePreviewCache.value;
+ const cost=buildCost.school;if(!canPlace(x,y,true,'school'))return {valid:false,cost,affordable:G.treasury>=cost,treasury:G.treasury};
+ const net=graph(),choices=[];for(const id of footprintFor(x,y,'school')){const xx=id%T,yy=id/T|0;for(const [dx,dy]of roadOffsets){const ax=xx+dx,ay=yy+dy;if(ax>=0&&ax<T&&ay>=0&&ay<T){const road=roadId(ax,ay);if(G.tiles[road]===1)choices.push(road);}}}
+ const port=choices.find(id=>net.parts[id]===net.mainPart)??choices[0]??null,current=serviceAccess('school'),projected=serviceAccess('school',{id:-1,x,y,port});
+ const currentReach=new Set(current.households.filter(h=>h.distance!=null).map(h=>h.id)),newlyReachable=projected.households.filter(h=>h.distance!=null&&!currentReach.has(h.id)).reduce((n,h)=>n+h.residents,0),incrementalPlaces=Math.max(0,projected.served-current.served),siteServed=projected.households.filter(h=>h.siteDistance!=null),siteResidents=siteServed.reduce((n,h)=>n+h.residents,0),siteMeanDistance=siteResidents?siteServed.reduce((n,h)=>n+h.siteDistance*h.residents,0)/siteResidents:null,siteBeyondLimit=projected.households.filter(h=>h.siteDistance==null).reduce((n,h)=>n+h.residents,0),population=projected.population,full=population*CIVIC_STANDARDS.school.staff/CIVIC_STANDARDS.school.capacity*Math.max(24,G.policy.minWage)/.65,reachableNeed=full*projected.coverage,provision=G.serviceProvision?.school,staffing=provision?.staffing,staffEligibleHomes=new Set(projected.households.filter(h=>h.distance!=null).map(h=>h.id)),neededLocal=G.people.filter(p=>!p.deceased&&!p.movedAway&&p.age>=18&&p.age<=70&&p.job<0&&qualifiedForService(p,'school')&&staffEligibleHomes.has(p.hh)).length;
+ const value={valid:true,cost,affordable:G.treasury>=cost,treasury:G.treasury,afterBuild:G.treasury-cost,limit:projected.limit,population,existingReach:current.served,projectedReach:projected.served,newlyReachable,incrementalPlaces,siteMeanDistance,siteBeyondLimit,educationBudget:Math.max(0,G.policy.educationBudget||0),reachableNeed,actualPaid:provision?.paid??null,actualCoverage:provision?.coverage??null,eligibleLocalStaff:neededLocal,staffing:staffing?{local:staffing.local,regional:staffing.regional,needed:staffing.needed,pending:staffing.pending}:null};placementServicePreviewCache={town:G,key,value};return value;
+}
+function schoolPlacementHint(x,y){
+ const p=schoolPlacementPreview(x,y);if(!p.valid)return 'School siting · no vacant road-adjacent public site here';
+ const current=p.actualCoverage==null?'not yet measured':Math.round(p.actualCoverage*100)+'% funded coverage · '+money(p.actualPaid||0)+'/day paid';
+ const staff=p.staffing?Math.round(p.staffing.local+p.staffing.regional)+'/'+Math.ceil(p.staffing.needed)+' current staff-equivalents':'not yet measured';
+ return 'School · '+money(p.cost)+' build'+(p.affordable?' · ':' (over budget) · ')+money(p.afterBuild)+' left · road trip '+(p.siteMeanDistance==null?'no homes':Math.round(p.siteMeanDistance)+' segments avg')+'; '+p.siteBeyondLimit+' residents >'+p.limit+' · new reach +'+p.newlyReachable+' residents · shared places +'+Math.min(260,Math.round(p.incrementalPlaces))+'/260 · education '+money(p.educationBudget)+'/day vs ~'+money(p.reachableNeed)+'/day need · '+current+' · '+p.eligibleLocalStaff+' eligible local staff · '+staff+' · estimate, no service promise';
 }
 function drawServiceAccess(g){
  if(!['healthAccess','schoolAccess'].includes(overlay))return;const access=serviceAccess(overlay==='healthAccess'?'health':'school'),byHome=new Map();
@@ -3430,7 +3447,7 @@ function tick(){if(!G||pendingEvent)return;ensureSystems();ensureMarketModel();G
 
 function resetTownTransientUI(){
  cancelTransitDraft();resetTransitForecasts();transitTopologyCache=null;transitDailyCache=null;
- clearTimeout(toastTimeout);toastTimeout=0;$('toast').style.display='none';pendingEvent=null;$('eventDialog').style.display='none';councilOpener=null;panelOpener=null;parcelFocus=null;selected=null;inspectedTrip=null;buildMode='';pointer.down=false;pointer.activeId=null;pointer.hover=null;touches.clear();roadPainted.clear();$('placementHint').style.display='none';$('hint').textContent='DRAG TO PAN · TAP TO INSPECT · PINCH TO ZOOM';
+ clearTimeout(toastTimeout);toastTimeout=0;$('toast').style.display='none';pendingEvent=null;$('eventDialog').style.display='none';councilOpener=null;panelOpener=null;parcelFocus=null;selected=null;inspectedTrip=null;buildMode='';pointer.down=false;pointer.activeId=null;pointer.hover=null;touches.clear();roadPainted.clear();$('placementHint').classList.remove('school-placement');$('placementHint').style.display='none';$('hint').textContent='DRAG TO PAN · TAP TO INSPECT · PINCH TO ZOOM';
 }
 function toast(msg){const el=$('toast');el.textContent=msg;el.style.display='block';clearTimeout(toastTimeout);toastTimeout=setTimeout(()=>el.style.display='none',3300)}
 
@@ -4019,7 +4036,7 @@ function draw(){
  if(overlay==='roads'||overlay==='business'||overlay==='hardship'||overlay==='crime'||overlay==='land')for(const item of displayItems){if(item.kind!=='building'||!visible(item.x,item.y))continue;const b=item.b,f=G.firms[b.firm],h=G.households[b.hh],net=graph();let color=overlay==='roads'?(net.portals.has(b.id)?'#9ecb95':'#bb7760'):overlay==='business'?(f?(f.closed?'#b66856':f.profit>0?'#a1c67d':'#d6b46c'):null):overlay==='hardship'?(h?(h.stress>50?'#b96c56':'#a9ca87'):null):overlay==='land'?(b.value>90000?'#c38864':b.value>45000?'#d0b776':'#9fc087'):null;if(!color)continue;ctx.globalAlpha=.7;diamond(ctx,b.x,b.y,color);ctx.globalAlpha=1;}
  drawServiceAccess(ctx);
  if(selected?.id){const b=readBuild(selected.id);if(b){const p=iso(b.x,b.y);ctx.strokeStyle='#f4e2a5';ctx.lineWidth=2;ctx.beginPath();ctx.ellipse(p[0],p[1]+18,32,16,0,0,Math.PI*2);ctx.stroke();}}
- if(buildMode&&buildMode!=='transit_route'&&pointer.hover){const {x,y}=pointer.hover;if(['fishery','wharf'].includes(buildMode))headerText('placementHint',types[buildMode].n+' · '+money(buildCost[buildMode])+' · '+waterfrontPlacementMessage(x,y,buildMode));if(x>=0&&x<T&&y>=0&&y<T){const valid=buildMode==='road'?[0,3].includes(cityCell(x,y))&&charterOwns(x,y)&&!buildingAt(x,y)&&!G.landUse?.[roadId(x,y)]&&G.treasury>=buildCost.road:buildMode==='repair'?cityCell(x,y)===1:canPlace(x,y,true,buildMode);ctx.globalAlpha=.60;for(const id of footprintFor(x,y,buildMode))diamond(ctx,id%T,id/T|0,valid?'#c8dea4':'#c48069');ctx.globalAlpha=1;}}
+ if(buildMode&&buildMode!=='transit_route'&&pointer.hover){const {x,y}=pointer.hover;if(['fishery','wharf'].includes(buildMode))headerText('placementHint',types[buildMode].n+' · '+money(buildCost[buildMode])+' · '+waterfrontPlacementMessage(x,y,buildMode));if(buildMode==='school'&&x>=0&&x<T&&y>=0&&y<T){$('placementHint').classList.add('school-placement');headerText('placementHint',schoolPlacementHint(x,y));}else $('placementHint').classList.remove('school-placement');if(x>=0&&x<T&&y>=0&&y<T){const valid=buildMode==='road'?[0,3].includes(cityCell(x,y))&&charterOwns(x,y)&&!buildingAt(x,y)&&!G.landUse?.[roadId(x,y)]&&G.treasury>=buildCost.road:buildMode==='repair'?cityCell(x,y)===1:canPlace(x,y,true,buildMode);ctx.globalAlpha=.60;for(const id of footprintFor(x,y,buildMode))diamond(ctx,id%T,id/T|0,valid?'#c8dea4':'#c48069');ctx.globalAlpha=1;}}
  if(nightMode)paintNightScene(ctx,viewBuildings);
 }
 
@@ -4374,7 +4391,7 @@ let touches=new Map();cv.addEventListener('touchstart',e=>{touches=new Map([...e
 cv.addEventListener('touchmove',e=>{touches=new Map([...e.touches].map(t=>[t.identifier,{x:t.clientX,y:t.clientY}]));if(touches.size===2){const a=[...touches.values()],d=Math.hypot(a[0].x-a[1].x,a[0].y-a[1].y);if(pointer.pinch>0){cam.zoom=clamp(cam.zoom*d/pointer.pinch,.025,1.7);dirty=true}pointer.pinch=d}},{passive:true});
 cv.addEventListener('touchend',e=>{touches=new Map([...e.touches].map(t=>[t.identifier,{x:t.clientX,y:t.clientY}]));pointer.pinch=0});
 cv.addEventListener('touchcancel',()=>{touches.clear();pointer.pinch=0;pointer.down=false;pointer.activeId=null;pointer.lastRoad=null;roadPainted.clear();flushRoadBatch();});
-function closeBuildTool(){cancelTransitDraft();flushRoadBatch();buildMode='';pointer.hover=null;pointer.down=false;pointer.activeId=null;pointer.lastRoad=null;roadPainted.clear();dirty=true;$('placementHint').style.display='none';$('hint').textContent='DRAG TO PAN · TAP TO INSPECT';toast('Construction tool closed');}
+function closeBuildTool(){cancelTransitDraft();flushRoadBatch();buildMode='';pointer.hover=null;pointer.down=false;pointer.activeId=null;pointer.lastRoad=null;roadPainted.clear();dirty=true;$('placementHint').classList.remove('school-placement');$('placementHint').style.display='none';$('hint').textContent='DRAG TO PAN · TAP TO INSPECT';toast('Construction tool closed');}
 function construct(kind,x,y,quiet=false){
  if(['transit_depot','elevated_station'].includes(kind)){if(buildTransitFacility(kind,x,y)){updateHeader();save();toast(types[kind].n+' constructed.');}else toast('Needs an owned vacant footprint by a street and '+money(buildCost[kind])+'.');return;}
  if(kind!=='inspect'&&!charterOwns(x,y)){if(!quiet)toast('Regional land: purchase the district in Public Works before developing it.');return;}
@@ -4519,7 +4536,7 @@ $('panelClose').onclick=closePanel;$('topNotice').onclick=()=>openPanel('journal
 $('panelBody').addEventListener('input',e=>{if(e.target.id==='searchPeople'){citizenQuery=e.target.value;return;}const input=e.target.closest('[data-policy]');if(!input)return;let k=input.dataset.policy,value=+input.value;const d=defs.find(d=>d[0]===k);draftPolicy[k]=value;const el=$('show-'+k);if(el)el.textContent=d[5]==='$'?money(value):policyNumber(value)+d[5];const button=$('enactPolicy');if(button)button.disabled=false;const summ=$('draftSummary');if(summ)summ.textContent=Object.keys(draftPolicy).filter(k=>draftPolicy[k]!==G.policy[k]).map(k=>k==='imports'?'Regional inventory imports: '+(G.policy.imports?'OPEN':'RESTRICTED')+' → '+(draftPolicy.imports?'OPEN':'RESTRICTED'):defs.find(d=>d[0]===k)?.[1]+': '+policyNumber(G.policy[k])+' → '+policyNumber(draftPolicy[k])).join(' · ')});
 $('panelBody').addEventListener('change',e=>{if(e.target.id==='searchPeople'){renderPanel('citizens');return;}const input=e.target.closest('[data-policy]');if(!input)return;draftPolicy[input.dataset.policy]=+input.value;const b=$('enactPolicy');if(b)b.disabled=false});
 $('panelBody').addEventListener('click',e=>{const b=e.target.closest('button,[data-house],[data-firm],[data-inspect],[data-ambition]');if(!b)return;
- if(b.dataset.build!==undefined){flushRoadBatch();buildMode=b.dataset.build;if(overlay==='charter'){overlay='none';parcelFocus=null;}dirty=true;$('hint').textContent=buildMode?'TAP A CLEAR ROADSIDE PLOT · '+(buildMode==='road'?'DRAG TO PAINT ROADS':'DRAG TO PAN'):'DRAG TO PAN · TAP TO INSPECT';$('placementHint').style.display=buildMode?'block':'none';$('placementHint').textContent=buildMode?'PLACING '+(types[buildMode]?.n||'ROADS').toUpperCase()+' · COST '+money(buildCost[buildMode])+(['fishery','wharf'].includes(buildMode)?' · SHORE + ROAD'+(buildMode==='wharf'?' + RIVER OUTLET':''):''):'';closePanel();toast(buildMode?'Tap the map to build '+(types[buildMode]?.n||'road')+'.':'Inspection mode enabled');return}
+ if(b.dataset.build!==undefined){flushRoadBatch();buildMode=b.dataset.build;$('placementHint').classList.toggle('school-placement',buildMode==='school');if(overlay==='charter'){overlay='none';parcelFocus=null;}dirty=true;$('hint').textContent=buildMode?'TAP A CLEAR ROADSIDE PLOT · '+(buildMode==='road'?'DRAG TO PAINT ROADS':'DRAG TO PAN'):'DRAG TO PAN · TAP TO INSPECT';$('placementHint').style.display=buildMode?'block':'none';$('placementHint').textContent=buildMode?'PLACING '+(types[buildMode]?.n||'ROADS').toUpperCase()+' · COST '+money(buildCost[buildMode])+(['fishery','wharf'].includes(buildMode)?' · SHORE + ROAD'+(buildMode==='wharf'?' + RIVER OUTLET':''):''):'';closePanel();toast(buildMode?'Tap the map to build '+(types[buildMode]?.n||'road')+'.':'Inspection mode enabled');return}
  if(b.dataset.house!==undefined){const h=G.households[+b.dataset.house];if(h){const house=readBuild(h.home);if(!house){toast('This household no longer has an address in town.');return}selected={id:h.home};openPanel('inspect');const p=iso(house.x,house.y);cam.x=p[0];cam.y=p[1];dirty=true}return}
  if(b.dataset.firm!==undefined){const f=G.firms[+b.dataset.firm];if(f){const house=readBuild(f.building);if(!house){toast('This company no longer has premises in town.');return}selected={id:f.building};openPanel('inspect');const p=iso(house.x,house.y);cam.x=p[0];cam.y=p[1];dirty=true}return}
  if(b.dataset.inspect!==undefined){selected={id:+b.dataset.inspect};openPanel('inspect');const house=readBuild(selected.id);if(house){const p=iso(house.x,house.y);cam.x=p[0];cam.y=p[1];dirty=true}return}

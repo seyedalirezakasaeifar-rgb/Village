@@ -112,3 +112,4 @@ button:active{background:#d5b878;color:#3a3428}
 .cabinet-agendas button:hover{background:#738655}
 .cabinet-agendas button strong{font:15px Georgia,serif;color:#fff1bb}
 .cabinet-agendas button small{font-size:10px;color:#e4e8cd;line-height:1.3;font-weight:400}
+.placement-hint.school-placement{width:min(92vw,780px);max-width:92vw;white-space:normal;text-align:center;line-height:1.35}
