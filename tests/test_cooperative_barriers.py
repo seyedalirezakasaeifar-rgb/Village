@@ -14,6 +14,7 @@ window.__coopBarrier={
  saved:()=>window.__barrierSaved,
  freeze:()=>{cooperativeHarnessHold=true;},
  oracle:()=>{tick();return JSON.parse(archivePayload());},
+ continuation:()=>{for(let i=0;i<15;i++)tick();return archivePayload();},
  startAt:index=>{cooperativeHarnessHold=true;beginCooperativeDay();for(let i=0;i<index;i++){const n=cooperativeJob.iterator.next();if(n.done)return false;}return true;},
  stages:()=>{const it=stagedTick(),a=[];for(let n=it.next();!n.done;n=it.next())a.push(n.value);return a;},
  export:()=>JSON.parse(window.__townArchive.export()),
@@ -37,6 +38,6 @@ with sync_playwright() as pw:
  # Native Back must return the actual dismissal result before acknowledging Android.
  p.evaluate('__coopBarrier.hold()');assert p.evaluate('__townArchive.back()');assert not p.evaluate('__coopBarrier.state().busy');out['nativeBackActualResult']=True
  # Failure restores the preceding completed snapshot, disables the experiment, and reports declined inputs.
- prior=p.evaluate('__townTest.save()');p.evaluate('__coopBarrier.hold()');p.evaluate('__coopBarrier.poison()');p.evaluate('__cooperativeSimulation.finish("fault-test")');assert economic(json.loads(p.evaluate('__townTest.save()')))==economic(json.loads(prior));assert not p.evaluate('__cooperativeSimulation.status().enabled');out['faultRollback']=True
+ prior=p.evaluate('__townTest.save()');expected_continuation=p.evaluate('__coopBarrier.continuation()');assert p.evaluate('s=>__townTest.load(s)',prior);p.evaluate('__coopBarrier.hold()');p.evaluate('__coopBarrier.poison()');p.evaluate('__cooperativeSimulation.finish("fault-test")');assert economic(json.loads(p.evaluate('__townTest.save()')))==economic(json.loads(prior));assert not p.evaluate('__cooperativeSimulation.status().enabled');out['faultRollback']=True;assert economic(json.loads(p.evaluate('__coopBarrier.continuation()')))==economic(json.loads(expected_continuation));out['postFaultContinuationExact']=True
  b.close()
 (ROOT/'reports/cooperative-barriers-8.json').write_text(json.dumps(out,indent=2));print(json.dumps({**out,'boundaries':len(out['boundaries'])},indent=2));print('PASS every suspended boundary exports complete equivalent day, trusted policy replay, pause/save/native/import barriers, and fault rollback')

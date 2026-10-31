@@ -48,7 +48,7 @@ function cooperativeCaptureInput(e){
 for(const type of ['click','input','change','keydown','pointerdown','pointermove','pointerup','pointercancel','pointerleave','touchstart','touchmove','touchend','touchcancel','wheel'])window.addEventListener(type,cooperativeCaptureInput,{capture:true,passive:false});
 window.__cooperativeSimulation={
  enable:setCooperativeSimulation,
- status:()=>({enabled:cooperativeEnabled,busy:cooperativeDayBusy(),displayedDay:cooperativeLastCommittedDay(),workingDay:cooperativeJob?cooperativeJob.day+1:null,stage:cooperativeJob?.stage||null,queued:cooperativeCommands.length,token:cooperativeToken}),
+ status:()=>({enabled:cooperativeEnabled,busy:cooperativeDayBusy(),displayedDay:Number($('date')?.textContent.match(/DAY (\d+)$/)?.[1]||cooperativeLastCommittedDay()),committedDay:cooperativeLastCommittedDay(),workingDay:cooperativeJob?cooperativeJob.day+1:null,stage:cooperativeJob?.stage||null,queued:cooperativeCommands.length,token:cooperativeToken}),
  afterCommit:afterCommittedDay,
  command:(label,fn)=>cooperativeDayBusy()?new Promise((resolve,reject)=>cooperativeQueueCommand({label,reject,run:()=>{try{resolve(fn());}catch(e){reject(e);throw e;}}})):afterCommittedDay(fn),
  finish:finishCooperativeDaySync,
