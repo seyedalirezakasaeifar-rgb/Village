@@ -250,5 +250,5 @@ function frame(now){
  }
  requestAnimationFrame(frame);
 }requestAnimationFrame(frame);
-window.addEventListener('beforeunload',()=>save());document.addEventListener('visibilitychange',()=>{last=performance.now();acc=0;if(document.hidden){save();if(ambient)ambient.pause()}else refreshAmbience()});
+window.addEventListener('beforeunload',()=>save());document.addEventListener('visibilitychange',()=>{last=performance.now();acc=0;if(document.hidden){save();stopGameAudio()}else refreshAmbience()});
 window.addEventListener('error',e=>{console.error(e.error||e.message);toast('Runtime issue: '+(e.message||'Unknown'))});

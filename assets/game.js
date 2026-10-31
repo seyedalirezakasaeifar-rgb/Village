@@ -3106,7 +3106,7 @@ function frame(now){
  }
  requestAnimationFrame(frame);
 }requestAnimationFrame(frame);
-window.addEventListener('beforeunload',()=>save());document.addEventListener('visibilitychange',()=>{last=performance.now();acc=0;if(document.hidden){save();if(ambient)ambient.pause()}else refreshAmbience()});
+window.addEventListener('beforeunload',()=>save());document.addEventListener('visibilitychange',()=>{last=performance.now();acc=0;if(document.hidden){save();stopGameAudio()}else refreshAmbience()});
 window.addEventListener('error',e=>{console.error(e.error||e.message);toast('Runtime issue: '+(e.message||'Unknown'))});
 
 // SOURCE: 71-trip-inspector.js
@@ -3354,7 +3354,7 @@ function closeCouncilDialog(defer=false){
 }
 function showCustomEvent(type,title,text,choices){councilOpener=document.activeElement;pendingEvent={type,title,text,choices};
  $('eventEyebrow').textContent=type;$('eventTitle').textContent=title;$('eventText').textContent=text;
- $('eventChoices').innerHTML=choices.map((c,i)=>`<button data-event-choice="${i}" ${c.cost&&G.treasury<c.cost?'disabled':''}><strong>${esc(c.title)}</strong><small>${esc(c.desc||'')}${c.cost?' · Cost: '+money(c.cost):''}</small></button>`).join('');
+ $('eventChoices').innerHTML=choices.map((c,i)=>`<button data-event-choice="${i}" ${c.cost>0?'data-sound="coin"':''} ${c.cost&&G.treasury<c.cost?'disabled':''}><strong>${esc(c.title)}</strong><small>${esc(c.desc||'')}${c.cost?' · Cost: '+money(c.cost):''}</small></button>`).join('');
  if(type!=='TOWN ARCHIVE'&&COUNCIL_EVENTS.some(e=>e.title===title)){G.councilInbox=G.councilInbox||[];if(!G.councilInbox.some(e=>e.title===title))G.councilInbox.unshift({title,day:G.day});save();}
  $('eventDialog').style.display='flex';$('eventDefer').textContent=(type==='TOWN ARCHIVE'||type==='LAND PURCHASE')?'CANCEL':'DECIDE LATER';$('eventChoices').querySelector('button:not([disabled])')?.focus();
 }
@@ -3567,7 +3567,7 @@ function renderJournalFull(){let j=G.journal.slice().reverse();return head('The 
  head('Government decisions')+j.slice(0,45).map(p=>{let base=p.baseline||{};let delta=(k)=>{let current=k==='treasury'?G.treasury:G.stats[k],old=base[k]||0,d=(current-old);return (d>=0?'+':'')+fmt(d)};return `<div class="entry"><strong>DAY ${p.day}: ${esc(p.name)}</strong><p class="desc">${esc(p.message||'')}</p><div class="compact">Employment ${delta('employment')} pts &nbsp;·&nbsp; Hardship ${delta('hardship')} pts &nbsp;·&nbsp; Safety ${delta('safety')} pts<br>Businesses ${delta('businesses')} &nbsp;·&nbsp; Treasury ${delta('treasury')}</div></div>`}).join('')+
  head('Recent events')+headlineList(24);}
 function renderSettingsFull(){return head('Your game and archive')+strip('Edition',RELEASE.edition+' '+RELEASE.version)+strip('Engine','Offline fixed-step economy + cached pixel canvas')+strip('Living residents',fmt(G.stats.population))+strip('Construction completed',fmt(G.construction))+strip('Town founded',G.scenario)+strip('Automatic saving',autoSaveOK?'Local storage available':'Check backup export')+strip('Simulation speed',speed+'× (1–64×, dynamic workload cap)')+
- `<div class="btnrow"><button id="soundToggle">${soundEnabled?'TURN OFF AMBIENCE & SOUND':'TURN ON AMBIENCE & SOUND'}</button><button id="saveNow" class="action-green">SAVE NOW</button><button id="backupSave">EXPORT BACKUP</button><button id="importSave">RESTORE BACKUP</button><button id="tutorial">GAME MANUAL</button><button id="restart" class="action-red">START NEW TOWN</button></div>`+
+ `<div class="btnrow"><button id="soundToggle" aria-pressed="${soundEnabled}">${soundEnabled?'TURN OFF AMBIENCE & SOUND':'TURN ON AMBIENCE & SOUND'}</button><button id="saveNow" class="action-green">SAVE NOW</button><button id="backupSave">EXPORT BACKUP</button><button id="importSave">RESTORE BACKUP</button><button id="tutorial">GAME MANUAL</button><button id="restart" class="action-red">START NEW TOWN</button></div>`+
  head('Simulation principles')+tip('The economy runs as real linked accounts: wages and purchases move money among firms, families, the town treasury and the external region. Goods have inventory; people have jobs; firms have expenses. Government services spend actual cash and provide observable benefits.')+
  `<div class="notice-banner">Important: This is an experimental, self-contained Android adaptation. Policy coefficients are designed for gameplay, not calibrated forecasts of real municipal outcomes. Retain a text backup if you change devices or uninstall.</div>`;
 }
@@ -3645,7 +3645,7 @@ document.addEventListener('click',e=>{
 });
 // Android uses the system document picker; desktop retains the text archive workflow.
 window.__townArchive={
- suspend:()=>{hostSuspended=true;acc=0;last=performance.now();save();if(ambient)ambient.pause();},
+ suspend:()=>{hostSuspended=true;acc=0;last=performance.now();save();stopGameAudio();},
  resume:()=>{hostSuspended=false;acc=0;last=performance.now();refreshAmbience();},
  export:()=>archivePayload(),
  restore:text=>{const ok=hydrateSave(text);if(ok){save();$('welcome').style.display='none';dirty=true;staticDirty=true;toast('Town restored with its property, bank, cargo and resident records.');}else toast('Archive rejected. The current town is unchanged.');return ok;},
@@ -3707,8 +3707,9 @@ document.addEventListener('click',e=>{if(e.target.closest('[data-open-monetary]'
 // SOURCE: 95-audio.js
 // Licensed synthesized effects from the original TownLedger project, played only after interaction.
 let soundEnabled=true;try{soundEnabled=localStorage.getItem('townledger-audio')!=='off'}catch(e){};let ambient=null,ambientFile='';const audioCache={};
-function refreshAmbience(){if(!soundEnabled||!G||document.hidden){if(ambient)ambient.pause();return}const name=G.weather==='rain'||G.weather==='storm'?'rain':'village';if(name!==ambientFile){if(ambient)ambient.pause();ambient=new Audio('sound/'+name+'.wav');ambient.loop=true;ambient.volume=.10;ambientFile=name}ambient.play().catch(()=>{})}function playSfx(name){if(!soundEnabled)return;try{let a=audioCache[name];if(!a){a=new Audio('sound/'+name+'.wav');a.volume=.22;audioCache[name]=a}a.pause();a.currentTime=0;a.play().catch(()=>{})}catch(e){}}
-document.addEventListener('click',e=>{let b=e.target.closest('button');if(!b)return;let id=b.id;if(id==='newTown'||id==='enactPolicy'||id==='borrow'||id==='repay')playSfx('coin');else if(id==='saveNow')playSfx('save');else if(b.dataset.build!==undefined)playSfx('zone');else if(b.dataset.eventChoice!==undefined)playSfx('coin');else playSfx('click')},{passive:true});
+function stopGameAudio(){if(ambient)ambient.pause();for(const a of Object.values(audioCache))a.pause();}
+function refreshAmbience(){if(!soundEnabled||!G||document.hidden||hostSuspended){stopGameAudio();return}const name=G.weather==='rain'||G.weather==='storm'?'rain':'village';if(name!==ambientFile){if(ambient)ambient.pause();ambient=new Audio('sound/'+name+'.wav');ambient.loop=true;ambient.volume=.10;ambientFile=name}ambient.play().catch(()=>{})}function playSfx(name){if(!soundEnabled||document.hidden||hostSuspended)return;try{let a=audioCache[name];if(!a){a=new Audio('sound/'+name+'.wav');a.volume=.22;audioCache[name]=a}a.pause();a.currentTime=0;a.play().catch(()=>{})}catch(e){}}
+document.addEventListener('click',e=>{let b=e.target.closest('button');if(!b||b.disabled)return;let id=b.id;if(id==='newTown'||id==='enactPolicy'||id==='borrow'||id==='repay'||b.dataset.sound==='coin')playSfx('coin');else if(id==='saveNow')playSfx('save');else if(b.dataset.build!==undefined)playSfx('zone');else playSfx('click')},{passive:true});
 
 // SOURCE: 96-council-programme.js
 // Scenario programmes measure sustained outcomes; they do not grant free resources.
