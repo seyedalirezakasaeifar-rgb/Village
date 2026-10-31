@@ -1,12 +1,15 @@
 package org.townledger.vale;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Build;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebChromeClient;
@@ -14,7 +17,6 @@ import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.webkit.ValueCallback;
 import android.widget.Toast;
 import android.util.AtomicFile;
 import org.json.JSONObject;
@@ -31,9 +33,14 @@ public final class MainActivity extends Activity {
     private WebView web;
     private int archiveRequest;
     private boolean pickerLaunched;
-    private boolean backPending;
+    private final BackNavigation backNavigation=new BackNavigation();
+    private Runnable backTimeout;
+    private boolean activityResumed;
+    private boolean rendererFailed;
+    private AlertDialog recoveryDialog;
+    private AlertDialog savingDialog;
+    private boolean rendererCrashed;
     private Object modernBackToken;
-    private final Runnable exitFallback=new Runnable(){public void run(){if(backPending&&!isFinishing())finish();}};
     private String pendingExportName;
     private final ExecutorService archiveWorker = Executors.newSingleThreadExecutor();
     private static final int WRITE = 410, READ = 411;
@@ -59,11 +66,7 @@ public final class MainActivity extends Activity {
         s.setMixedContentMode(WebSettings.MIXED_CONTENT_NEVER_ALLOW);
         s.setMediaPlaybackRequiresUserGesture(true);
         web.setWebChromeClient(new WebChromeClient());
-        web.setWebViewClient(new WebViewClient() {
-            @Override public boolean shouldOverrideUrlLoading(WebView v, String url) {
-                return !url.equals("file:///android_asset/index.html");
-            }
-        });
+        web.setWebViewClient(Build.VERSION.SDK_INT>=26?new RendererClient26(this):new LocalClient(this));
         web.addJavascriptInterface(new Archive(), "AndroidArchive");
         setContentView(web);
         immersive();
@@ -79,22 +82,54 @@ public final class MainActivity extends Activity {
         super.onWindowFocusChanged(focus); if(focus && web != null) immersive();
     }
     @Override protected void onPause() {
-        web.evaluateJavascript("window.__townArchive && window.__townArchive.suspend()", null);
-        web.onPause(); super.onPause();
+        activityResumed=false;backNavigation.cancel();clearBackTimeout();dismissSavingDialog();
+        if(web!=null){web.evaluateJavascript("window.__townArchive && window.__townArchive.suspend()", null);web.onPause();}super.onPause();
     }
-    @Override protected void onResume() {super.onResume();if(web!=null){web.onResume();web.evaluateJavascript("window.__townArchive && window.__townArchive.resume()",null);immersive();}}
+    @Override protected void onResume() {super.onResume();activityResumed=true;if(web!=null){web.onResume();resumeGame();immersive();}else if(rendererFailed)showRendererRecovery();}
     @Override protected void onSaveInstanceState(Bundle state){state.putInt("archiveRequest",pickerLaunched?archiveRequest:0);if(pickerLaunched&&pendingExportName!=null)state.putString("pendingExportName",pendingExportName);super.onSaveInstanceState(state);}
-    @Override protected void onDestroy(){if(Build.VERSION.SDK_INT>=33&&modernBackToken!=null)BackApi33.detach(this,modernBackToken);archiveWorker.shutdown();if(web!=null){web.removeCallbacks(exitFallback);web.removeJavascriptInterface("AndroidArchive");web.destroy();}super.onDestroy();}
+    @Override protected void onDestroy(){backNavigation.cancel();clearBackTimeout();dismissSavingDialog();if(recoveryDialog!=null)recoveryDialog.dismiss();if(Build.VERSION.SDK_INT>=33&&modernBackToken!=null)BackApi33.detach(this,modernBackToken);archiveWorker.shutdown();if(web!=null){web.removeJavascriptInterface("AndroidArchive");web.destroy();web=null;}super.onDestroy();}
+    private void clearBackTimeout(){if(web!=null&&backTimeout!=null)web.removeCallbacks(backTimeout);backTimeout=null;}
+    private void dismissSavingDialog(){if(savingDialog!=null){savingDialog.dismiss();savingDialog=null;}}
+    private void showSavingDialog(int request){if(!backNavigation.isCurrent(request)||isFinishing()||isDestroyed())return;dismissSavingDialog();savingDialog=new AlertDialog.Builder(this).setTitle("Saving your town…").setMessage("Finishing the on-device save before leaving.").setCancelable(false).show();}
+    private void resumeGame(){if(activityResumed&&web!=null&&!isFinishing()&&!isDestroyed())web.evaluateJavascript("window.__townArchive && window.__townArchive.resume()",null);}
     @Override public void onBackPressed() {
-        if(backPending||web==null)return;
-        backPending=true;web.postDelayed(exitFallback,3000);
-        web.evaluateJavascript("window.__townArchive ? window.__townArchive.back() : false",new ValueCallback<String>(){public void onReceiveValue(String result){
-            if(isFinishing()||isDestroyed())return;
-            if("true".equals(result)){backPending=false;web.removeCallbacks(exitFallback);return;}
-            web.evaluateJavascript("window.__townArchive && window.__townArchive.suspend()",new ValueCallback<String>(){public void onReceiveValue(String saved){
-                web.removeCallbacks(exitFallback);if(!isFinishing()&&!isDestroyed())MainActivity.this.finish();
-            }});
-        }});
+        if(web==null){if(rendererFailed)showRendererRecovery();else finish();return;}
+        final int request=backNavigation.begin();if(request==0)return;
+        backTimeout=new Runnable(){public void run(){if(backNavigation.claim(request)){clearBackTimeout();dismissSavingDialog();message("The town is busy. Back did not close it; try again shortly.");resumeGame();}}};
+        web.postDelayed(backTimeout,4000);
+        web.evaluateJavascript(BackNavigation.script(request),null);
+    }
+    private void receiveBackResult(int request,boolean handled,boolean saved){
+        if(isFinishing()||isDestroyed()||!backNavigation.claim(request))return;
+        clearBackTimeout();dismissSavingDialog();if(handled)return;if(saved){finish();return;}
+        recoveryDialog=new AlertDialog.Builder(this).setTitle("Town could not be saved")
+            .setMessage("Keep playing and export a backup, or leave without saving. Unsaved changes may be lost.")
+            .setPositiveButton("KEEP PLAYING",new DialogInterface.OnClickListener(){public void onClick(DialogInterface d,int which){resumeGame();}})
+            .setNegativeButton("LEAVE WITHOUT SAVING",new DialogInterface.OnClickListener(){public void onClick(DialogInterface d,int which){finish();}})
+            .setOnCancelListener(new DialogInterface.OnCancelListener(){public void onCancel(DialogInterface d){resumeGame();}}).show();
+    }
+    private static class LocalClient extends WebViewClient {
+        final MainActivity owner;LocalClient(MainActivity owner){this.owner=owner;}
+        @Override public boolean shouldOverrideUrlLoading(WebView v,String url){return !url.equals("file:///android_asset/index.html");}
+    }
+    // This class is instantiated only where the renderer-loss API exists.
+    private static final class RendererClient26 extends LocalClient {
+        RendererClient26(MainActivity owner){super(owner);}
+        @Override public boolean onRenderProcessGone(WebView view,android.webkit.RenderProcessGoneDetail detail){owner.rendererLost(view,detail.didCrash());return true;}
+    }
+    private void rendererLost(WebView failed,boolean crashed){
+        if(failed!=web)return;
+        backNavigation.cancel();clearBackTimeout();dismissSavingDialog();if(recoveryDialog!=null){recoveryDialog.dismiss();recoveryDialog=null;}web=null;rendererFailed=true;rendererCrashed=crashed;
+        if(failed.getParent() instanceof ViewGroup)((ViewGroup)failed.getParent()).removeView(failed);
+        failed.destroy();
+        if(activityResumed&&!isFinishing()&&!isDestroyed())showRendererRecovery();
+    }
+    private void showRendererRecovery(){
+        if(isFinishing()||isDestroyed()||(recoveryDialog!=null&&recoveryDialog.isShowing()))return;
+        recoveryDialog=new AlertDialog.Builder(this).setTitle(rendererCrashed?"Game view stopped":"Android reclaimed the game view")
+            .setMessage("Reopen the game. Choose Continue if a completed save is available. Recent unsaved changes may be unavailable.")
+            .setPositiveButton("REOPEN GAME",new DialogInterface.OnClickListener(){public void onClick(DialogInterface d,int which){recreate();}})
+            .setNegativeButton("CLOSE",new DialogInterface.OnClickListener(){public void onClick(DialogInterface d,int which){finish();}}).setCancelable(false).show();
     }
     // Keep newer platform types out of the API-24 Activity's field signatures.
     private static final class BackApi33 {
@@ -117,6 +152,8 @@ public final class MainActivity extends Activity {
         }catch(Exception ex){pickerLaunched=false;archiveRequest=0;message("No document chooser is available on this device");}
     }
     public final class Archive {
+        @JavascriptInterface public void backSaving(final int request){runOnUiThread(new Runnable(){public void run(){showSavingDialog(request);}});}
+        @JavascriptInterface public void backResult(final int request,final boolean handled,final boolean saved){runOnUiThread(new Runnable(){public void run(){receiveBackResult(request,handled,saved);}});}
         @JavascriptInterface public void writeBackup(final String text) {
             runOnUiThread(new Runnable() {public void run() {
                 if(isFinishing()||isDestroyed())return;
@@ -152,7 +189,7 @@ public final class MainActivity extends Activity {
                 }else{
                     byte[] bytes;try(InputStream in=getContentResolver().openInputStream(uri)){bytes=ArchiveIO.read(in);}
                     final String quoted=JSONObject.quote(ArchiveIO.decode(bytes));
-                    runOnUiThread(new Runnable(){public void run(){if(!isFinishing()&&!isDestroyed())web.evaluateJavascript("window.__townArchive && window.__townArchive.restore("+quoted+")",null);}});
+                    runOnUiThread(new Runnable(){public void run(){if(isFinishing()||isDestroyed())return;if(web==null){message("Reopen the game before restoring this backup. The backup file is unchanged.");return;}web.evaluateJavascript("window.__townArchive && window.__townArchive.restore("+quoted+")",null);}});
                 }
             }catch(Exception ex){message("Could not read or write the town archive. The current town is unchanged.");}
             finally{runOnUiThread(new Runnable(){public void run(){archiveRequest=0;pendingExportName=null;}});}
