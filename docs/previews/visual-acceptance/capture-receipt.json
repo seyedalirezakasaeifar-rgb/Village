@@ -1,0 +1,28 @@
+{
+  "source_sha256": "2c43fb2630cd1e3a37522ac7d1aeaa325c391d8f1b98bd7156684637bdb5c0a7",
+  "origin": "Loopback HTTP, shipped assets",
+  "controlledFixtures": true,
+  "allDeedsNetwork": {
+    "grid": 128,
+    "deeds": 21,
+    "relocatedHouseholds": 29,
+    "routes": [
+      1,
+      2,
+      3
+    ],
+    "capital": 191450,
+    "total": 15493516.999999993
+  },
+  "captures": [
+    "network-near",
+    "network-far",
+    "rail-crossing",
+    "rail-night",
+    "market-hall",
+    "market-night",
+    "private-school",
+    "private-fire"
+  ],
+  "errors": []
+}

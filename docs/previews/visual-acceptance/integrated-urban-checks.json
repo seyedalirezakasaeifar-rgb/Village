@@ -1,0 +1,21 @@
+{
+  "size": 128,
+  "footprint": 6,
+  "width": 3,
+  "depth": 2,
+  "clipped": false,
+  "unchanged": true,
+  "stable": true,
+  "atlasBytes": 4587744,
+  "atlasSize": 62,
+  "status": "stocked",
+  "band": {
+    "band": "No resident income",
+    "rent": 0,
+    "condition": 100,
+    "agricultural": true
+  },
+  "source_sha256": "8c0231f3474fb1d8a3b47f7e64878ccb7861420d728b4242e6d2080d452b4006",
+  "controlledFundedRetailFixture": true,
+  "errors": []
+}

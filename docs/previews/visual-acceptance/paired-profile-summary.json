@@ -1,0 +1,140 @@
+{
+  "before": {
+    "source_sha256": "293fe306631099dfaacdd37e724d4c6e3b89991f56a1e15c50f872606f662c90",
+    "renderer": {
+      "drawCount": 118,
+      "drawMedianMs": 1.5,
+      "drawP95Ms": 44.40000000037253,
+      "drawP99Ms": 66,
+      "tickMedianMs": 12.600000001490116,
+      "tickP95Ms": 35.29999999888241,
+      "actualSpeed": 68.16840448553998,
+      "backlogDays": 8.881784197001252e-15
+    },
+    "rafP99Ms": 183.30000000000018,
+    "simulatedDays": 288,
+    "elapsedSeconds": 8.050488795999627,
+    "stages": {
+      "ground": {
+        "totalMs": 144.7,
+        "maxMs": 15.3,
+        "count": 20
+      },
+      "scene": {
+        "totalMs": 104.3,
+        "maxMs": 9.7,
+        "count": 25
+      },
+      "static": {
+        "totalMs": 261.0,
+        "maxMs": 25.1,
+        "count": 25
+      },
+      "shadows": {
+        "totalMs": 0.2,
+        "maxMs": 0.1,
+        "count": 28
+      },
+      "spriteCache": {
+        "totalMs": 190.0,
+        "maxMs": 1.7,
+        "count": 20269
+      },
+      "sprite": {
+        "totalMs": 362.9,
+        "maxMs": 2.5,
+        "count": 38326
+      },
+      "transitInfrastructure": {
+        "totalMs": 1.8,
+        "maxMs": 0.1,
+        "count": 143
+      },
+      "districtLife": {
+        "totalMs": 36.6,
+        "maxMs": 1.2,
+        "count": 143
+      },
+      "transitActors": {
+        "totalMs": 0.2,
+        "maxMs": 0.1,
+        "count": 143
+      },
+      "urbanOverlay": {
+        "totalMs": 0.1,
+        "maxMs": 0.1,
+        "count": 143
+      }
+    },
+    "errors": []
+  },
+  "after": {
+    "source_sha256": "efa872431ad6090b0f6771fabfed9c798a69957e87b182774e9039258dfde49d",
+    "renderer": {
+      "drawCount": 128,
+      "drawMedianMs": 1.300000000745058,
+      "drawP95Ms": 29.100000001490116,
+      "drawP99Ms": 48.09999999962747,
+      "tickMedianMs": 12,
+      "tickP95Ms": 41,
+      "actualSpeed": 61.676175486917145,
+      "backlogDays": 0.94690909090904
+    },
+    "rafP99Ms": 133.39999999999964,
+    "simulatedDays": 303,
+    "elapsedSeconds": 8.120229889000257,
+    "stages": {
+      "ground": {
+        "totalMs": 149.2,
+        "maxMs": 17.5,
+        "count": 20
+      },
+      "scene": {
+        "totalMs": 106.5,
+        "maxMs": 10.5,
+        "count": 27
+      },
+      "static": {
+        "totalMs": 268.2,
+        "maxMs": 22.6,
+        "count": 27
+      },
+      "shadows": {
+        "totalMs": 0.1,
+        "maxMs": 0.1,
+        "count": 31
+      },
+      "spriteCache": {
+        "totalMs": 101.1,
+        "maxMs": 4.7,
+        "count": 22444
+      },
+      "sprite": {
+        "totalMs": 219.6,
+        "maxMs": 6.5,
+        "count": 42425
+      },
+      "transitInfrastructure": {
+        "totalMs": 0.8,
+        "maxMs": 0.1,
+        "count": 150
+      },
+      "districtLife": {
+        "totalMs": 32.9,
+        "maxMs": 0.5,
+        "count": 150
+      },
+      "transitActors": {
+        "totalMs": 0.4,
+        "maxMs": 0.1,
+        "count": 150
+      },
+      "urbanOverlay": {
+        "totalMs": 0.1,
+        "maxMs": 0.1,
+        "count": 150
+      }
+    },
+    "errors": []
+  }
+}

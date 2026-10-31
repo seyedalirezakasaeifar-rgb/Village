@@ -26,7 +26,7 @@ function drawDistrictLife(g,visible){
    g.fillStyle='#344f45e8';g.fillRect(p[0]-width/2,p[1]-16/z,width,12/z);g.fillStyle='#f2dfaa';g.textAlign='center';g.fillText(text,p[0],p[1]-7/z);
   }
   // These are active consignments, not invented trucks or instantaneous sales.
-  if(rows.length){g.setTransform(dpr,0,0,dpr,0,0);g.font='7px Arial';g.fillStyle='#e9dfbf';g.textAlign='center';g.fillText(rows.reduce((n,r)=>n+r.inbound+r.outbound,0)+' OWNED LOADS · queues/outside legs included',cw*.53,12);transform();}
+  if(rows.length){const legendX=cw<640?cw/2:cw*.53,legendTop=cw<640?88:1;g.setTransform(dpr,0,0,dpr,0,0);g.fillStyle='#344f45e8';g.fillRect(legendX-135,legendTop,270,15);g.font='8px Arial';g.fillStyle='#e9dfbf';g.textAlign='center';g.fillText(rows.reduce((n,r)=>n+r.inbound+r.outbound,0)+' OWNED LOADS · queues/outside legs included',legendX,legendTop+11);transform();}
   g.restore();
  }
  if(z>=.45&&z<1){
