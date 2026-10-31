@@ -1,7 +1,7 @@
 function dailyEconomy(){
  ensureMarketModel();recruitPrivateServiceStaff();marketOpen=true;const P=G.policy,live=G.firms.filter(f=>!f.closed),counts={};
  for(const f of live)counts[f.kind]=(counts[f.kind]||0)+1;
- for(const f of G.firms){f.revenue=f.pendingRevenue||0;f.pendingRevenue=0;f.expenses=f.pendingFreightExpense||0;f.pendingFreightExpense=0;f.debtDue=0;f.cogs=f.pendingCogs||0;f.pendingCogs=0;f.purchases=0;f.payroll=0;f.nonSalesIncome=0;f.recoveries=0;f.salesQty=f.pendingSalesQty||0;f.pendingSalesQty=0;f.production=0;f.profit=0;f.tax=0;f.age++;}
+ for(const f of G.firms){f.revenue=f.pendingRevenue||0;f.pendingRevenue=0;f.expenses=(f.pendingFreightExpense||0)+(f.pendingReturnAdjustment||0);f.pendingFreightExpense=0;f.pendingReturnAdjustment=0;f.debtDue=0;f.cogs=f.pendingCogs||0;f.pendingCogs=0;f.purchases=0;f.payroll=0;f.nonSalesIncome=0;f.recoveries=0;f.salesQty=f.pendingSalesQty||0;f.pendingSalesQty=0;f.production=0;f.profit=0;f.tax=0;f.age++;}
  for(const p of G.people){p.previousPublicRole=p.publicWork?(p.publicRole||''):'';p.publicRole='';p.publicWork=false;p.publicIncome=0;p.commuteBlocked=false;}
  for(const h of G.households){h.income=0;h.crimeLossToday=0;h.recoveredLosses=0;h.serviceReceipts=0;h.wages=0;h.pension=0;h.rentalIncome=0;h.dividends=0;h.debtService=0;h.debtDue=0;h.propertyPaid=0;h.propertyMaintenance=0;h.rent=0;h.food=0;h.tax=0;h.incomeTax=0;h.energyTax=0;h.aid=0;h.utilities=0;h.energyRebate=0;h.travel=0;h.travelDue=0;h.shoppingTravel=0;h.discretionary=0;h.last=[];}
  G.market.unmetFood=0;G.market.consumedFood=0;G.market.externalSales=0;G.market.imports=0;G.market.foodDisconnected=0;G.market.blockedCommutes=0;
@@ -28,7 +28,7 @@ function dailyEconomy(){
   const expectedOrders=Math.max(1,f.salesTrend,(exportPool[recipe.out]||0)/Math.max(1,producerCounts[recipe.out])*(G.regionalDemand||1)*.8),target=expectedOrders*4.5,inventory=f.stock[recipe.out]||0;
   let quantity=Math.max(0,Math.min(capacity,target-inventory));
   if(recipe.inp){const ratio=recipe.amount/recipe.qty,need=quantity*ratio;
-   if((f.stock[recipe.inp]||0)+pendingGoods(f,recipe.inp)<need*3)trade(f,recipe.inp,need*4-(f.stock[recipe.inp]||0));
+   const reorderDays=procurementLeadDays(f,recipe.inp)+1;if((f.stock[recipe.inp]||0)+pendingGoods(f,recipe.inp)<need*reorderDays)trade(f,recipe.inp,need*(reorderDays+2)-(f.stock[recipe.inp]||0));
    quantity=Math.min(quantity,(f.stock[recipe.inp]||0)/ratio);}
   quantity=Math.floor(quantity);if(quantity<=0)continue;
   let inputCost=0;if(recipe.inp){const used=quantity*recipe.amount/recipe.qty;inputCost=takeInventory(f,recipe.inp,used);goodsEntry(recipe.inp,'consumed',used);}
@@ -48,8 +48,8 @@ function dailyEconomy(){
  for(const f of live){if(servicePools[f.kind]&&workingStaff(f).length){const capacity=clamp(workingStaff(f).length/(SECTOR_WORKERS[f.kind]||3),0,1.8);serviceSales(f,servicePools[f.kind]/counts[f.kind]*Math.min(1.4,capacity)*(G.regionalDemand||1));}}
  // Retailers order inventory to cover a few days of expected household demand.
  const grocers=live.filter(f=>f.kind==='grocer');
- for(const f of grocers){const daily=Math.max(15,reachableRetailDemand(f),f.salesTrend),target=daily*5;
-  if((f.stock.food||0)+pendingGoods(f,'food')<daily*3)trade(f,'food',Math.max(0,target-(f.stock.food||0)));
+ for(const f of grocers){const daily=Math.max(15,reachableRetailDemand(f),f.salesTrend),reorderDays=procurementLeadDays(f,'food')+1,target=daily*(reorderDays+2);
+  if((f.stock.food||0)+pendingGoods(f,'food')<daily*reorderDays)trade(f,'food',Math.max(0,target-(f.stock.food||0)));
   f.retailCapacity=workingStaff(f).length*80;}
  // A public employee cannot be counted six times across six service budgets.
  G.actualServiceFunding={police:fundedPublicPayroll(P.policeBudget),fire:fundedPublicPayroll(P.defenseBudget),outreach:fundedPublicPayroll(P.outreachBudget),transit:fundedPublicPayroll(P.transitBudget||0)};

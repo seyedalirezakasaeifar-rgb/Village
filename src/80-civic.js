@@ -219,7 +219,7 @@ function closeCouncilDialog(defer=false){
  if(active==='agenda')renderPanel(active);save();
  const target=councilOpener?.isConnected?councilOpener:$('tabs').querySelector('[data-panel="agenda"]');target?.focus();councilOpener=null;
 }
-function directTransactionDialog(type){return ['REGIONAL EXCHANGE','REGIONAL ROADS','DISTRICT PLANNING','FIRST DELIVERY','TOWN DIRECTION','OBSERVED OUTCOMES'].includes(type)}
+function directTransactionDialog(type){return ['REGIONAL EXCHANGE','REGIONAL ROADS','DISTRICT PLANNING','FIRST DELIVERY','TOWN DIRECTION','OBSERVED OUTCOMES','LOGISTICS CHOICE','CARGO RECOVERY'].includes(type)}
 function showCustomEvent(type,title,text,choices){councilOpener=document.activeElement;pendingEvent={type,title,text,choices};
  $('eventEyebrow').textContent=type;$('eventTitle').textContent=title;$('eventText').textContent=text;
  $('eventChoices').innerHTML=choices.map((c,i)=>`<button data-event-choice="${i}" ${c.cost>0?'data-sound="coin"':''} ${c.cost&&G.treasury<c.cost?'disabled':''}><strong>${esc(c.title)}</strong><small>${esc(c.desc||'')}${c.cost?' · Cost: '+money(c.cost):''}</small></button>`).join('');

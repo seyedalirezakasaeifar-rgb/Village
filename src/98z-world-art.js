@@ -13,14 +13,16 @@ function regionalRoadExtension(m,id){
 const shipmentGeometry=new WeakMap();
 function shipmentVisualPose(order){
  if(!order.path?.length)return null;
+ const view=regionalShipmentVisualState(order);if(view&&!view.visible)return null;const path=view?.path||order.path;if(!path.length)return null;
+ if(view?.parked){const end=roadCenter(path[path.length-1]),before=roadCenter(path[Math.max(0,path.length-2)]);return{x:end[0],y:end[1],dx:end[0]-before[0]||1,dy:end[1]-before[1]||.5,loading:true};}
  const m=OUTSIDE_MARKETS.find(m=>m.id===order.market);if(!m)return null;
- const elapsed=clamp((G.day-order.started+Math.min(1,acc/1.65))/Math.max(1,order.travelDays),0,.999999);
- const gate=order.direction==='import'?order.path[0]:fromEnd(order.path),extension=regionalRoadExtension(m,gate);
+ const elapsed=clamp((G.day-(view?.started??order.started)+Math.min(1,acc/1.65))/Math.max(1,view?.travelDays??order.travelDays),0,.999999);
+ const gate=order.direction==='import'?path[0]:fromEnd(path),extension=regionalRoadExtension(m,gate);
  let geometry=shipmentGeometry.get(order);
- if(!geometry||geometry.path!==order.path||geometry.direction!==order.direction){
-  const centers=order.path.map(roadCenter);
+ if(!geometry||geometry.path!==path||geometry.direction!==order.direction){
+  const centers=path.map(roadCenter);
   if(extension.boundary){if(order.direction==='import')centers.unshift(extension.end);else centers.push(extension.end);}
-  geometry={path:order.path,direction:order.direction,centers};shipmentGeometry.set(order,geometry);
+  geometry={path,direction:order.direction,centers};shipmentGeometry.set(order,geometry);
  }
  const centers=geometry.centers;
  // Loading and inspection occupy a small part of the actual consignment's
