@@ -1,0 +1,23 @@
+{
+  "checkpoint": "662ec6f3b0998ce3c3c560d5bef39e4e17a4bcc1",
+  "source_sha256": "abe9c4bbdd86f8c2b9a3776d2996e2c32803f4dd0521791d25ba90cf6c398882",
+  "seed": 8142026,
+  "startedUTC": "2026-10-31T21:38:37.074382+00:00",
+  "dueUTC": "2026-10-31T22:38:37.074382+00:00",
+  "pid": 18770,
+  "status": "running",
+  "secondsRequested": 3600,
+  "httpOrigin": true,
+  "assetManifestSha256": "f63b543ec1c13633c59aef7bbf3ac6c30dd61a4691dc5c562c8f5a3aa163a4f6",
+  "driverSha256": "7448eebcfd4621ecef0e73b296c4cb55d5e7c71bd48caf63d7424eb4a6d4bc0c",
+  "toolSession": 41122,
+  "output": "/workspace/scratch/save-acceptance-662ec6f",
+  "firstLegacyPreflight": {
+    "groups": 6,
+    "preserved": true,
+    "idempotent": true,
+    "continuedDays": 30
+  },
+  "lateCheckpoints": "Every 30-second checkpoint after elapsed 1800 seconds, private raw archive retained without rotation",
+  "result": "PENDING; no terminal result"
+}
