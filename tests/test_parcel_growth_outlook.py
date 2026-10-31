@@ -41,6 +41,8 @@ with sync_playwright() as pw:
     assert 'No paid passenger route is currently used' in text
     assert 'Forecast service coverage at this address' in text
     assert 'do not extend those civic catchments' in text
+    assert 'Employment outlook:' in text and 'vacancies' in text
+    assert 'Roadside sites currently support Farm' in text and 'regional working capital' in text
     assert 'Visit Cottage site (59, 14)' in page.locator('#eventChoices').inner_text()
     evidence = ROOT / 'docs/previews/parcel-growth-outlook'
     evidence.mkdir(parents=True, exist_ok=True)

@@ -20,12 +20,23 @@ The sample job review distinguishes a road commute's modeled travel cost from a 
 
 The underlying passenger engine was already acceptance-tested through actual bus/elevated-route controls, paid fares, driver payroll, finite seats, a broken elevated alignment, bus detour, 21 repeated district purchases, occupied-home redevelopment by a stop, and exact archive continuation in `tests/test_transit_network.py` and `tests/test_transit_combined_redevelopment.py`. A real seed-42 founding test also purchased East Meadow ($30,606), constructed a road into the new parcel, opened a cottage, then paid $9,000 for a depot and $13,300 for a frequent bus route from that parcel to a live grocer. On day two that route was staffed by four existing residents, operated at 98 peak seats and 38.8-minute headway for $139.63/day, and carried/charged two actual boardings. The new household remained unemployed: there were no funded reachable vacancies, so the route did not invent jobs or promise an arrival. This exposes a realistic boundary of the feature: transit can make a real destination reachable without creating a position or extending civic catchments.
 
+## Ordinary-funded employment path from an expanded deed
+
+The growth outlook now counts townwide vacancies and cash-backed openings, eligible local jobseekers, and funded sample offers remaining after local applicants. It also identifies private-investment gates and up to two legal roadside employer sites in the selected deed, including normal municipal construction cost, regional startup working capital and initial job capacity. New positions are forecast, not guaranteed: the market adjusts firm staffing to actual sales, orders, cash, wages and access.
+
+The seed-42 founding replay makes the cause concrete. After buying East Meadow for $30,606, connecting one $90 street tile and opening a $20,000 cottage, all 26 town firms were staffed to their current posts. Seven local jobseekers were immediately eligible for work search, but there were zero vacancies and zero cash-backed openings; the two-adult sample had no funded job offers. Private business demand was 13/100, below the private-investment entry threshold of 17. The parcel had housing and a working bus, but its job market could not offer a remaining position.
+
+The mayor placed a roadside farm at (57, 26) through normal construction for $3,100 and $12,000 regional enterprise working capital. It hired four existing jobseekers who had been unemployed before construction. The regional market bought its grain. At day 122, the farm remained open with three supported positions, all held by workers originally hired from the idle local pool. It had no additional cooperative field titles in this seed; its base production site produced 63 units, sold 66.7 that day and earned about $16.86/day net profit, with $12,590 working cash. The bus remained staffed and operating. This is a persistent paid-job checkpoint in the observed simulation, not a guarantee against future changes in prices, inputs or demand. The complete run validates every commodity balance and town state, then repeats the next 30 days exactly after save and restore. Evidence is in [`reports/development-8.0/expanded-parcel-employment.json`](../../reports/development-8.0/expanded-parcel-employment.json).
+
+The intervention changes employment by adding a real employer and startup capital, rather than reallocating vacancies at existing firms. The market trimmed the four initial posts to three after observing sales. That gives the player a usable route to grow the town while letting demand decide how many jobs last.
+
 ## Verification
 
 ```
 python tools/assemble.py
 node --check assets/game.js
 TOWNLEDGER_USE_HTTP=1 PYTHONPATH=tools/browser_http_adapter:tests python tests/test_parcel_growth_outlook.py
+TOWNLEDGER_USE_HTTP=1 PYTHONPATH=tools/browser_http_adapter:tests python tests/test_expanded_parcel_employment.py
 ```
 
 The source-hashed control result and inspected prospectus screenshot are in [`docs/previews/parcel-growth-outlook`](../previews/parcel-growth-outlook/).
