@@ -139,6 +139,39 @@ function seekPrivateServiceInvestment(requested=null){
   story('An entrepreneur financed a private '+(kind==='school'?'school':'fire brigade')+'. Forecast: '+policyNumber(plan.clients)+' paying clients/day, '+money(plan.payroll+plan.overhead)+' operating costs/day; 45 funded construction days. Public competition, affordability and qualified staffing can change.','neutral',b.id);return 'An entrepreneur has financed a new service site.';
  }return 'No proposal covers qualified payroll, operating costs and capital return from currently unserved, affordable customers. Existing providers, public coverage, family budgets, fees and actual vouchers affect viability.';
 }
+function* stagedSeekPrivateServiceInvestment(requested=null){
+ if(!G.policy.privateServices)return 'Private service entry is not licensed.';if(!G.autoBuild&&!requested)return 'Private development is paused.';if(G.projects.some(p=>p.privateService))return 'A private service site is already under construction.';
+ let proposalBase=null;const candidateProjection={};
+ for(const kind of requested?[requested]:['school','fire']){
+  if(!['school','fire'].includes(kind))continue;const wage=Math.max(G.policy.minWage,36),cost=buildCost[kind],capital=6000,minimum=kind==='school'?1:2,requiredReturn=(cost+capital)*((G.policy.policyRate||0)/100+.08)/360;
+  const available=G.people.filter(p=>!p.publicWork&&!p.previousPublicRole&&privateQualified(p,{privateService:kind}));if(available.length<minimum)continue;
+  const contexts=new Map(),staffBids=new Map();let staffPorts=null;
+  const evaluate=(site,exclude=null)=>{
+   if(!proposalBase)proposalBase=privateProposalBase();const net=proposalBase.net;
+   if(!staffPorts)staffPorts=available.map(person=>({person,port:net.portals.get(G.households[person.hh]?.home)}));
+   if(!contexts.has(exclude))contexts.set(exclude,{base:proposalBase,kind,exclude,clients:new Map()});const context=contexts.get(exclude);
+   const port=net.portals.get(site.id)??roadOffsets.map(([dx,dy])=>roadId(site.x+dx,site.y+dy)).find(id=>G.tiles[id]===1),distances=privateServiceDistances(port),bids=[];
+   for(const item of staffPorts)if((distances.get(item.port)??Infinity)<=40){const p=item.person;if(!staffBids.has(p))staffBids.set(p,p.job<0?wage:Math.max(wage,workerIncome(G.firms[p.job])*1.121));bids.push(staffBids.get(p));}bids.sort((a,b)=>a-b);
+   const demand=privateServiceDemand(kind,site,exclude,context),plans=[];
+   for(let staff=minimum;staff<=2;staff++){if(staff>bids.length)continue;const offered=bids[staff-1],fee=privateServiceFee(kind,demand,staff,offered),forecast=privateServiceForecast(kind,site,fee,staff,exclude,offered,context);if(forecast.net>requiredReturn)plans.push(forecast);}return plans.sort((a,b)=>b.net-a.net)[0]||null;};
+  let awaitingReview=false;
+  for(const closed of G.firms.filter(f=>f.privateService===kind&&f.closed&&G.day-(f.closedDay||0)>=120)){yield 'private-provider-recovery';
+   const plan=evaluate(readBuild(closed.building),closed.id);if(!plan){delete closed.serviceRecoverySince;continue;}
+   // Require viable demand in two monthly reviews before risking fresh capital.
+   if(closed.serviceRecoverySince==null){closed.serviceRecoverySince=G.day;awaitingReview=true;continue;}if(G.day-closed.serviceRecoverySince<30){awaitingReview=true;continue;}
+   if(G.region<=capital+50000)continue;G.region-=capital;closed.cash+=capital;closed.owner=-1;readBuild(closed.building).owner=-1;closed.closed=false;closed.jobs=plan.staff;closed.wage=plan.wage;closed.strain=0;closed.lossDays=0;closed.serviceWeakDays=0;closed.serviceFee=plan.fee;closed.serviceClientTrend=plan.clients;delete closed.serviceRecoverySince;
+   story('A new operator recapitalized '+closed.name+' after two viable fee-paying demand reviews; '+plan.staff+' planned staff, '+policyNumber(plan.clients)+' forecast clients/day.','good',closed.building);return 'A provider has been recapitalized after sustained demand reviews.';
+  }
+  if(awaitingReview)continue;
+  if(G.firms.filter(f=>f.privateService===kind&&!f.closed).length>=Math.max(1,Math.ceil(G.stats.population/(kind==='school'?180:400))))continue;
+  const candidates=buildableCandidates('housing',candidateProjection).filter(p=>canPlace(p.x,p.y,true,kind)).slice(0,50),assessed=[];for(const p of candidates){assessed.push({p,plan:evaluate(p)});yield 'private-provider-site';}const choices=assessed.filter(o=>o.plan).sort((a,b)=>b.plan.net-a.plan.net),choice=choices[0];if(!choice||G.region<cost+capital+50000)continue;
+  if(!privateContract(cost))return 'Construction capital is unavailable.';const {p:site,plan}=choice,b=startDevelopmentProject('firm',site,cost*10,45,{firmKind:kind,capital,privateService:kind,serviceFee:plan.fee});if(!b)return 'No permitted, connected site is available.';
+  const project=G.projects.find(p=>p.id===b.id);G.region-=capital;project.serviceEscrow=capital;project.serviceStaff=plan.staff;project.serviceWage=plan.wage;b.title={kind:'investor',id:0};
+  story('An entrepreneur financed a private '+(kind==='school'?'school':'fire brigade')+'. Forecast: '+policyNumber(plan.clients)+' paying clients/day, '+money(plan.payroll+plan.overhead)+' operating costs/day; 45 funded construction days. Public competition, affordability and qualified staffing can change.','neutral',b.id);return 'An entrepreneur has financed a new service site.';
+ }return 'No proposal covers qualified payroll, operating costs and capital return from currently unserved, affordable customers. Existing providers, public coverage, family budgets, fees and actual vouchers affect viability.';
+}
+function* stagedPrivateServiceInvestmentDay(){if(G.day%30===0)yield* stagedSeekPrivateServiceInvestment();}
+
 function privateServiceInvestmentDay(){if(G.day%30===0)seekPrivateServiceInvestment()}
 function validatePrivateServices(data){if(data.projects.some(p=>p.serviceWage!=null&&(!p.privateService||!Number.isFinite(p.serviceWage)||p.serviceWage<0||p.serviceWage>1000)))return false;if(data.firms.some(f=>f.serviceWeakDays!=null&&(!Number.isInteger(f.serviceWeakDays)||f.serviceWeakDays<0||f.serviceWeakDays>90)))return false;if(data.firms.some(f=>f.serviceClientTrend!=null&&(!Number.isFinite(f.serviceClientTrend)||f.serviceClientTrend<0||f.serviceClientTrend>data.people.length))||data.firms.some(f=>f.serviceRecoverySince!=null&&(!Number.isInteger(f.serviceRecoverySince)||f.serviceRecoverySince<1||f.serviceRecoverySince>data.day))||data.projects.some(p=>p.serviceStaff!=null&&(!p.privateService||!Number.isInteger(p.serviceStaff)||p.serviceStaff<1||p.serviceStaff>2)))return false;if(data.projects.some(p=>p.serviceEscrow!=null&&!p.privateService))return false;if(data.privateTrainingCompletions!=null&&(!Number.isSafeInteger(data.privateTrainingCompletions)||data.privateTrainingCompletions<0))return false;return data.firms.every(f=>!f.privateService||['school','fire'].includes(f.privateService)&&f.kind===f.privateService&&Number.isFinite(f.serviceFee)&&f.serviceFee>=0&&f.serviceFee<=20)&&data.people.every(p=>p.privateLearningDays==null||Number.isFinite(p.privateLearningDays)&&p.privateLearningDays>=0&&p.privateLearningDays<121)&&data.projects.every(p=>!p.privateService||p.kind==='firm'&&p.firmKind===p.privateService&&['school','fire'].includes(p.privateService)&&Number.isFinite(p.serviceFee)&&p.serviceFee>=0&&p.serviceFee<=20&&Number.isFinite(p.serviceEscrow)&&p.serviceEscrow>=0&&p.serviceEscrow<=1000000)}
 
