@@ -1,0 +1,12 @@
+{
+  "source_sha256": "cd95b60f6cb9566cdf633342011dc17cbea3fc7c7960eb4cb7ce4b4f1b1296f4",
+  "viewport": [
+    844,
+    390
+  ],
+  "density": 2,
+  "scenario": "regional",
+  "seed": 42,
+  "day": 181,
+  "runtime": "Chromium 154, host browser; not native Android"
+}

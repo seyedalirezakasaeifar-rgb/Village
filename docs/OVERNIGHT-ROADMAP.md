@@ -47,3 +47,9 @@ The overnight target is a cohesive advancement beyond repairs. Treat these as su
 5. **Release engineering alongside the upgrade.** Profile heavy layer updates, use bounded detail/actor tiers and memory limits, continue fault/migration/lifecycle testing, and test a leaner software emulator or explicitly document its resource failures. Finish with immutable artifact/evidence checks and a clear distinction between browser, emulated Android and physical-device results.
 
 Suggested next substantial phase after services: implement the original terrain/material/lighting and building-activity slice for one fixed-camera town, benchmark it, then extend to transport and the remaining world. Use that visible slice to guide the full art pass rather than accumulating unrelated effects.
+
+## Credit and physical-market development checkpoint
+
+Implemented observed-surplus/stressed-payment lending, household debt priority, impaired-portfolio quote spreads, funded 30-day equipment commissioning, reachable grocery choice and disrupted-work recovery. Corrected late business costs and daily household loss reporting. Services and credit now have tutorial/inspection links and dated explanations. See CREDIT-AND-MARKETS-DEVELOPMENT.md for mechanisms, tests and limits. No new APK/version in this slice.
+
+Next: make ambitions and scenario progression reflect the richer service/market constraints, review readable in-world decision feedback and long-session memory, then finish fault/native and frozen release QA. Healthy full employment alone is not a meaningful completion criterion.

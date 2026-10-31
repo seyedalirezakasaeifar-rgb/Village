@@ -3,7 +3,7 @@ from test_mobile_rendering import ROOT,html
 from playwright.sync_api import sync_playwright
 import json,os
 source=(ROOT/'assets/game.js').read_text()
-source=source.replace('// SOURCE: 99-instrumentation.js', '''window.__serviceProbe=()=>{const before={health:G.health,education:G.education,total:totalMoney(),treasury:G.treasury};extendedCivicDay();return {before,health:G.health,education:G.education,total:totalMoney(),treasury:G.treasury,provision:G.serviceProvision,ratios:G.actualServiceFunding};};
+source=source.replace('// SOURCE: 99-instrumentation.js', '''window.__serviceProbe=()=>{const before={health:G.health,education:G.education,total:totalMoney(),treasury:G.treasury};fundCivicServices();extendedCivicDay();return {before,health:G.health,education:G.education,total:totalMoney(),treasury:G.treasury,provision:G.serviceProvision,ratios:G.actualServiceFunding};};
 // SOURCE: 99-instrumentation.js''')
 rows=[]
 with sync_playwright() as pw:

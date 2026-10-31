@@ -23,37 +23,39 @@ function bankEquity(b){return b.cash+(b.regionCredit||0)+bankLoans(b.id)-bankDep
 function availableBank(b){const reserve=Math.max(bankDeposits(b.id)*((G.policy.bankReserve??12)/100),Math.max(0,bankEquity(b))*.30);return Math.max(0,b.cash-reserve)}
 function bestBank(loan=false){return G.banks.filter(b=>!b.closed&&availableBank(b)>3500&&bankEquity(b)>1000).sort((a,b)=>loan?a.loanAPY-b.loanAPY:b.depositAPY-a.depositAPY)[0]||null}
 function bankLoan(kind,id,amount,term=360){
- ensureFinance();let owner=kind==='firm'?G.firms[id]:G.households[id];if(!owner||owner.closed)return null;
- if(G.loans.some(l=>l.status==='active'&&l.ownerType===kind&&l.ownerId===id))return null;
+ ensureFinance();if(!['firm','household'].includes(kind)||!Number.isFinite(amount)||amount<=0||!Number.isInteger(term)||term<30||term>3600)return null;let owner=kind==='firm'?G.firms[id]:G.households[id];if(!owner||owner.closed)return null;const decline=reason=>{owner.creditDecision={day:G.day,requested:amount,approved:false,reason};return null;};
+ if(G.loans.some(l=>l.status==='active'&&l.ownerType===kind&&l.ownerId===id))return decline('An active loan already finances this borrower');
  const strict=(G.policy.lendingRules??35)/100;const score=clamp(owner.creditScore??.65,.05,.99);
  const ratio=kind==='firm'?amount/Math.max(1,owner.cash+1500):amount/Math.max(1,owner.cash+(owner.deposits?Object.values(owner.deposits).reduce((a,v)=>a+v,0):0));
- if(score < .32+strict*.25||ratio>7.8-strict*3.2||amount<100)return null;
- const b=G.banks.filter(b=>!b.closed&&availableBank(b)>=amount*1.20&&bankEquity(b)>amount*.08).sort((a,b)=>a.loanAPY-b.loanAPY)[0];if(!b)return null;
- const rate=b.loanAPY+strict*.022+(1-score)*.055;
+ if(amount<100)return decline('Requested advance is below the lending minimum');if(score<.32+strict*.25)return decline('Credit standing does not meet current lending standards');if(ratio>7.8-strict*3.2)return decline('Request exceeds the borrower liquidity limit');
+ const b=G.banks.filter(b=>!b.closed&&availableBank(b)>=amount*1.20&&bankEquity(b)>amount*.08).sort((a,b)=>a.loanAPY-b.loanAPY)[0];if(!b)return decline('No bank has sufficient lendable reserves and equity');
+ const rate=b.loanAPY+strict*.022+(1-score)*.055;const assessment=assessCredit(kind,owner,amount,term,rate);owner.creditDecision={day:G.day,requested:amount,...assessment};if(!assessment.approved)return null;
  b.cash-=amount;owner.cash+=amount;
  const loan={id:(G.nextLoanId= Math.max(G.nextLoanId||0,G.loans.length)+1),bankId:b.id,ownerType:kind,ownerId:id,original:amount,balance:amount,rate,spread:Math.max(.02,rate-(G.policy.policyRate||0)/100),fixedRate:false,term,created:G.day,arrears:0,status:'active',paid:0};
  G.loans.push(loan);b.loansOriginated++;G.finance.creditIssued+=amount;
  if(kind==='firm')owner.debt=(owner.debt||0)+amount;
  return loan;
 }
-function loanPayments(){
- for(const l of G.loans){if(l.status!=='active'||l.balance<=0)continue;
-  const owner=l.ownerType==='firm'?G.firms[l.ownerId]:G.households[l.ownerId];if(!owner){l.status='default';continue;}
+function loanPayments(loans=G.loans){
+ for(const l of loans){if(l.status!=='active'||l.balance<=0||l.lastPaymentDay===G.day)continue;l.lastPaymentDay=G.day;
+  const owner=l.ownerType==='firm'?G.firms[l.ownerId]:G.households[l.ownerId];if(!owner){l.status='default';l.defaultedDay=G.day;continue;}
   const lender=l.bankId<0?null:G.banks[l.bankId];
   if(G.day%30===0&&l.fixedRate!==true){const benchmark=(G.policy.policyRate||0)/100,spread=l.spread??Math.max(.025,l.rate-.03);l.spread=spread;l.rate=l.rate*.75+(benchmark+spread)*.25;}
   const interest=l.balance*l.rate/360;
   const minPrincipal=Math.min(l.balance,l.original/Math.max(30,l.term));
-  const due=minPrincipal+interest;
+  const due=minPrincipal+interest;l.scheduledDue=due;owner.debtDue=(owner.debtDue||0)+due;
   // Borrowers cannot pay more than cash. Failed firms cannot create repayment funds.
+  if(l.ownerType==='household'&&owner.cash<due)for(const [id,deposit] of Object.entries(owner.deposits||{})){withdrawal(owner,G.banks[+id],Math.min(deposit,due-owner.cash));if(owner.cash>=due)break;}
   const paid=Math.min(Math.max(0,owner.cash),due);
   const paidInterest=Math.min(paid,interest),paidPrincipal=Math.max(0,paid-paidInterest);
   owner.cash-=paid;if(l.ownerType==='household')owner.debtService=(owner.debtService||0)+paid;if(lender&&!lender.closed){lender.cash+=paid;lender.interestEarned+=paidInterest}else G.region+=paid;
+  l.paidToday=paid;
   l.balance=Math.max(0,l.balance-paidPrincipal+(interest-paidInterest));l.paid+=paid;
-  if(l.ownerType==='firm'){owner.debt=Math.max(0,(owner.debt||0)-paidPrincipal+(interest-paidInterest));owner.expenses=(owner.expenses||0)+paidInterest;}
+  if(l.ownerType==='firm'){owner.debt=Math.max(0,(owner.debt||0)-paidPrincipal+(interest-paidInterest));owner.expenses=(owner.expenses||0)+interest;}
   if(paid<due*.8){l.arrears++;owner.creditScore=clamp(owner.creditScore-.004,.08,.99);}else {l.arrears=Math.max(0,l.arrears-1);owner.creditScore=clamp(owner.creditScore+.0004,.08,.99);}
   if(l.balance<.01){l.balance=0;l.status='repaid';if(l.ownerType==='firm')owner.debt=0;}
   else if(l.arrears>=95||owner.closed&&l.arrears>=12){
-   l.status='default';if(l.ownerType==='firm'){owner.debt=Math.max(0,(owner.debt||0)-l.balance);G.finance.businessDefaults++;}
+   l.status='default';l.defaultedDay=G.day;if(l.ownerType==='firm'){owner.debt=Math.max(0,(owner.debt||0)-l.balance);G.finance.businessDefaults++;}
    else G.finance.householdDefaults++;
    if(lender&&!lender.closed)lender.losses+=l.balance;
    owner.creditScore=clamp(owner.creditScore-.22,.05,.99);
@@ -148,7 +150,9 @@ function bankCompetition(){
   const stress=Math.max(0,1.25-liquid);
   const demand=clamp((G.stats.businesses||20)/80,0,.6);
   const risk=clamp((G.policy.lendingRules??35)/100,0,1);
-  const targetLoan=clamp((G.policy.policyRate||0)/100+.022+(b.id%3)*.004+risk*.018+stress*.025+demand*.008,.018,.34);
+  const exposure=G.loans.filter(l=>l.bankId===b.id),active=exposure.filter(l=>l.status==='active'),arrears=active.reduce((n,l)=>n+l.balance*clamp(l.arrears/95,0,1),0),recentLoss=exposure.filter(l=>l.status==='default'&&l.defaultedDay>=(b.createdDay||0)&&G.day-l.defaultedDay<360).reduce((n,l)=>n+l.balance,0);
+  const creditRisk=clamp((arrears+recentLoss)/Math.max(1,active.reduce((n,l)=>n+l.balance,0)+recentLoss),0,1);b.creditRisk=creditRisk;
+  const targetLoan=clamp((G.policy.policyRate||0)/100+.022+(b.id%3)*.004+risk*.018+stress*.025+demand*.008+creditRisk*.04,.018,.34);
   b.loanAPY=b.loanAPY*.72+targetLoan*.28;
   const targetDeposit=clamp((G.policy.policyRate||0)/100*.78+.002+(b.id%3)*.001+stress*.004,.001,.18);
   b.depositAPY=b.depositAPY*.75+targetDeposit*.25;
@@ -165,7 +169,7 @@ function bankMarketEntry(){
  G.region-=initial;
  const retired=G.banks.find(b=>b.closed);const id=retired?retired.id:G.banks.length;
  const names=['Riverside Savings & Loan','County Agricultural Credit','Broadway Commercial Bank','East Bank Mutual','Cooperative Industrial Bank','Western Exchange Bank'];
- const bank={id,name:names[((G.finance.failures||0)+id)%names.length],cash:initial,depositAPY:.027,loanAPY:.081,closed:false,runDays:0,losses:0,interestEarned:0,interestPaid:0,loansOriginated:0};
+ const bank={id,name:names[((G.finance.failures||0)+id)%names.length],cash:initial,depositAPY:.027,loanAPY:.081,closed:false,runDays:0,losses:0,interestEarned:0,interestPaid:0,loansOriginated:0,createdDay:G.day};
  if(retired)G.banks[id]=bank;else G.banks.push(bank);
  let branch=G.buildings.find(b=>b.kind==='bank'&&(b.bankId===retired?.id||G.banks[b.bankId]?.closed));
  if(!branch){const candidates=buildableCandidates('business');let place=candidates[0];if(place){branch={id:G.nextId++,kind:'bank',x:place.x,y:place.y,value:75000,condition:100,owner:-1,firm:-1,hh:-1};G.buildings.push(branch);invalidateRoads(false);}}
@@ -175,14 +179,14 @@ function bankMarketEntry(){
  return true;
 }
 function bankDaily(){
- ensureFinance();loanPayments();regionalCapitalMarket();bankCompetition();bankMarketEntry();
+ ensureFinance();loanPayments(G.loans.filter(l=>l.ownerType==='firm'||!G.households[l.ownerId]?.people.length));regionalCapitalMarket();bankCompetition();bankMarketEntry();
  // Keep fulfilled and defaulted loan history bounded; active loans are never discarded.
  if(G.loans.length>2500){const past=G.loans.filter(l=>l.status!=='active');const removable=new Set(past.slice(0,Math.max(0,G.loans.length-1800)).map(l=>l.id));if(removable.size)G.loans=G.loans.filter(l=>!removable.has(l.id));}
 
  // Overnight funds deposited with the regional clearing market earn a floating yield.
  // Every dollar of interest is paid by that counterparty; no currency is minted.
  for(const b of G.banks){if(b.closed)continue;const yieldRate=clamp((G.policy.policyRate||0)/100*.85,.001,.17);const earnings=Math.min(G.region,b.cash*yieldRate/360);G.region-=earnings;b.cash+=earnings;b.interestEarned+=earnings;}
- for(const bank of G.banks){if(bank.closed)continue;const expense=Math.min(bank.cash,4+G.loans.filter(l=>l.bankId===bank.id&&l.status==='active').length*.22);bank.cash-=expense;const beneficiaries=G.households.filter(h=>h.people.length>0);if(beneficiaries.length){let worker=beneficiaries[(G.day+bank.id*17)%beneficiaries.length];worker.cash+=expense*.7;G.region+=expense*.3;}else G.region+=expense;}
+ for(const bank of G.banks){if(bank.closed)continue;const expense=Math.min(bank.cash,4+G.loans.filter(l=>l.bankId===bank.id&&l.status==='active').length*.22);bank.cash-=expense;const beneficiaries=G.households.filter(h=>h.people.length>0);if(beneficiaries.length){let worker=beneficiaries[(G.day+bank.id*17)%beneficiaries.length];worker.cash+=expense*.7;worker.income+=expense*.7;worker.serviceReceipts=(worker.serviceReceipts||0)+expense*.7;G.region+=expense*.3;}else G.region+=expense;}
  for(const b of G.banks){if(b.closed)continue;
   // Interest accrues daily to depositors as a claim on bank assets.
   // It is capped by the bank's non-impaired equity to avoid uncontrolled negative values.
@@ -250,7 +254,7 @@ function liquidateFirm(f,reason){
   const bank=l.bankId>=0?G.banks[l.bankId]:null;
   if(bank&&!bank.closed)bank.cash+=amount;else G.region+=amount;
   if(l.balance<.01){l.balance=0;l.status='repaid';}
-  else {l.status='default';G.finance.businessDefaults++;if(bank&&!bank.closed)bank.losses+=l.balance;f.creditScore=clamp((f.creditScore||.6)-.20,.05,.99);}
+  else {l.status='default';l.defaultedDay=G.day;G.finance.businessDefaults++;if(bank&&!bank.closed)bank.losses+=l.balance;f.creditScore=clamp((f.creditScore||.6)-.20,.05,.99);}
  }
  const residual=Math.max(0,f.cash);f.cash=0;f.debt=0;
  const shareholder=G.households[f.owner];if(shareholder)shareholder.cash+=residual;else G.region+=residual;

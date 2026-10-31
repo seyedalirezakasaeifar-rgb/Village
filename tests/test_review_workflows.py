@@ -7,7 +7,7 @@ with sync_playwright() as pw:
  errors=[];p.on('pageerror',lambda e:errors.append(str(e)));p.set_content(html);p.add_script_tag(content=(ROOT/'assets/game.js').read_text());p.locator('#newTown').click();p.locator('#pause').click()
  p.locator('[data-panel=policies]').click();initial=p.evaluate('__townTest.get().policy.imports');saved=p.evaluate('__townTest.save()')
  p.locator('#tradeToggle').click();assert p.evaluate('__townTest.get().policy.imports')==initial
- p.locator('[data-policy=incomeTax]').fill('17');assert 'Regional imports' in p.locator('#draftSummary').inner_text()
+ p.locator('[data-policy=incomeTax]').fill('17');assert 'Regional inventory imports' in p.locator('#draftSummary').inner_text()
  p.locator('#resetPolicy').click();assert p.evaluate('__townTest.get().policy.imports')==initial
  p.locator('#tradeToggle').click();p.locator('#enactPolicy').click();assert p.evaluate('__townTest.get().policy.imports')!=initial
  p.evaluate('__townTest.offerPetition()');p.locator('[data-panel=agenda]').click();title=p.evaluate('__townTest.inbox()[0].title');p.locator('[data-inbox="0"]').click()

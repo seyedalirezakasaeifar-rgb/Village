@@ -7,6 +7,7 @@ measurements, not native Android FPS claims.
 from pathlib import Path
 from playwright.sync_api import sync_playwright
 import json
+import hashlib
 import math
 import time
 
@@ -28,6 +29,7 @@ def percentile(values, fraction):
 
 
 def test_live_large_town_ui_and_render_budget():
+    source=(ROOT/'assets/game.js').read_bytes();source_sha=hashlib.sha256(source).hexdigest()
     with sync_playwright() as pw:
         browser = pw.chromium.launch(
             executable_path='/usr/bin/chromium',
@@ -39,7 +41,7 @@ def test_live_large_town_ui_and_render_budget():
         errors = []
         page.on('pageerror', lambda error: errors.append(str(error)))
         page.set_content(HTML)
-        page.add_script_tag(content=(ROOT / 'assets/game.js').read_text())
+        page.add_script_tag(content=source.decode())
         page.locator('#newTown').click()
         page.locator('#pause').click()
         town = page.evaluate('''()=>{
@@ -117,7 +119,9 @@ def test_live_large_town_ui_and_render_budget():
                        'panelError': 'Panel error' in body})
             page.locator('#panelClose').click()
         conservation = abs(end['total'] - town['total'])
+        assert hashlib.sha256((ROOT/'assets/game.js').read_bytes()).hexdigest()==source_sha
         result = {
+            'source_sha256':source_sha,
             'viewport': [844, 390], 'synthetic': town, 'requestedSpeed': 64,
             'elapsedSeconds': elapsed, 'simulatedDays': end['day'] - start['day'],
             'rafP50Ms': percentile(raf, .50), 'rafP95Ms': percentile(raf, .95),

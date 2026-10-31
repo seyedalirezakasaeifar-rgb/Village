@@ -136,7 +136,7 @@ function assignJobs(){
     const mismatch=Math.abs(candidate.skill-.7)*3,rank=distance*.74+mismatch+candidate.id*.00001;
     if(rank<score){score=rank;best=i}
    }
-   if(best<0)break;const person=free.splice(best,1)[0];person.job=f.id;f.workers.push(person.id);
+   if(best<0)break;const person=free.splice(best,1)[0];person.job=f.id;person.commuteBlockedDays=0;person.commuteBlocked=false;f.workers.push(person.id);
   }
  }
 }

@@ -17,9 +17,8 @@ function ensureMarketModel(){
  }
 }
 function foodRetailTarget(f){
- const rivals=Math.max(1,G.firms.filter(s=>!s.closed&&s.kind==='grocer').length);
- const volume=Math.max(15,G.stats.population*1.6/rivals),cost=f.unitCost?.food||marketPrice('food');
- return (cost+workerIncome(f)*Math.max(1,f.jobs)/volume+.12)*(1.10+G.policy.businessRegulation*.0004);
+ const staff=Math.max(1,workingStaff(f).length),volume=Math.max(15,Math.min(reachableRetailDemand(f),staff*80)),cost=f.unitCost?.food||marketPrice('food');
+ return (cost+workerIncome(f)*staff/volume+.12)*(1.10+G.policy.businessRegulation*.0004);
 }
 function recordInventoryPurchase(f,good,qty,total){
  const held=(f.stock[good]||0)+pendingGoods(f,good);f.unitCost=f.unitCost||{};
@@ -55,8 +54,8 @@ function planEnterprise(f){
  desired=clamp(desired,1,Math.ceil(base*f.scale*2));
  if(f.marginTrend<-.18&&f.cash<wage*Math.max(1,f.jobs)*60)desired=Math.min(desired,Math.max(1,f.jobs-1));
  if(desired>f.jobs&&f.cash<wage*(desired-f.jobs)*35+1800)desired=f.jobs;
- if(desired!==f.jobs){f.jobs+=Math.sign(desired-f.jobs);while(f.workers.length>f.jobs){const id=f.workers.pop();if(G.people[id])G.people[id].job=-1;}}
- if(f.marginTrend>.16&&f.cash>wage*f.jobs*100&&f.scale<2.2){const cost=1500+base*130,annualGain=f.revenueTrend*.015*360*(1-G.policy.profitTax/100);if(f.cash>cost+6000&&annualGain>cost*((G.policy.policyRate||0)/100+.08)){f.cash-=cost;G.region+=cost;f.scale+=.06;f.capex=(f.capex||0)+cost;}}
+ if(desired!==f.jobs){f.jobs+=Math.sign(desired-f.jobs);while(f.workers.length>f.jobs){const blocked=f.workers.findIndex(id=>!workerCanCommute(G.people[id],f)),id=f.workers.splice(blocked<0?f.workers.length-1:blocked,1)[0];if(G.people[id])G.people[id].job=-1;}}
+ if(f.workers.some(id=>workerCanCommute(G.people[id],f))&&!f.pendingEquipment&&f.marginTrend>.16&&f.cash>wage*f.jobs*100&&f.scale<2.2&&(recipe?f.ratedOutput>0&&f.salesTrend*1.12>=f.ratedOutput&&(!recipe.inp||(f.stock[recipe.inp]||0)+pendingGoods(f,recipe.inp)>=recipe.amount*f.workers.length/base):f.jobs>=Math.ceil(base*f.scale*2)&&f.workers.length>=f.jobs)){const cost=1500+base*130,annualGain=f.revenueTrend*.015*360*(1-G.policy.profitTax/100);if(f.cash>cost+6000&&annualGain>cost*((G.policy.policyRate||0)/100+.08)){f.cash-=cost;G.region+=cost;f.pendingEquipment={gain:.06,cost,ordered:G.day,ready:G.day+30};f.capex=(f.capex||0)+cost;}}
  const unemployment=G.stats.unemployment||0;
  if(f.marginTrend>.18&&unemployment<9)f.wage=Math.min(80,f.wage*1.0015);
  else if(f.marginTrend<0)f.wage=Math.max(G.policy.minWage,f.wage*.998);

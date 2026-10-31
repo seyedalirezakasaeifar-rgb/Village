@@ -1,6 +1,6 @@
 # TownLedger 7.0.5 — The Working City
 
-Development after this checkpoint adds [local service access, staffing and training](docs/LOCAL-SERVICE-DEVELOPMENT.md). Those source changes are not contained in the signed7.0.5 checkpoint APK.
+Development after this checkpoint adds [local service access, staffing and training](docs/LOCAL-SERVICE-DEVELOPMENT.md). Development also adds [credit, household budgets and physical markets](docs/CREDIT-AND-MARKETS-DEVELOPMENT.md). These source changes are not contained in the signed 7.0.5 checkpoint APK.
 
 An offline government and town-economy game. This release rebuilds the operating model, the starting towns, monetary controls, road generation, animation and interface palette.
 
