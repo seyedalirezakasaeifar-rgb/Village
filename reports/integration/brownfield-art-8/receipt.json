@@ -1,0 +1,134 @@
+{
+  "source_sha256": "7c6fe4c9092f051ad2883d026fa9e2a31e2882de02b7e491953adfd6136863db",
+  "gates": {
+    "docs/previews/brownfield-art/checks.json": {
+      "source_sha256": "7c6fe4c9092f051ad2883d026fa9e2a31e2882de02b7e491953adfd6136863db",
+      "stages": [
+        {
+          "status": "assessed",
+          "unchanged": true,
+          "stable": true,
+          "items": 1,
+          "tiles": 1,
+          "siteCacheBytes": 27648,
+          "atlasBytes": 10520832
+        },
+        {
+          "status": "acquired",
+          "unchanged": true,
+          "stable": true,
+          "items": 1,
+          "tiles": 1,
+          "siteCacheBytes": 55296,
+          "atlasBytes": 11520512
+        },
+        {
+          "status": "remediating",
+          "unchanged": true,
+          "stable": true,
+          "items": 1,
+          "tiles": 1,
+          "siteCacheBytes": 82944,
+          "atlasBytes": 11520512
+        },
+        {
+          "status": "ready",
+          "unchanged": true,
+          "stable": true,
+          "items": 1,
+          "tiles": 1,
+          "siteCacheBytes": 110592,
+          "atlasBytes": 12520192
+        }
+      ],
+      "renderBenchMs": 2.98,
+      "farRenderBenchMs": 0.38,
+      "errors": [],
+      "fixture": "Controlled quarry closure; actual paid acquisition, ground works and reuse; no grants."
+    },
+    "reports/brownfields/results.json": {
+      "day": 23,
+      "remaining": 0,
+      "moneyError": -7.450580596923828e-07,
+      "site": {
+        "id": 24,
+        "x": 25,
+        "y": 30,
+        "name": "Quarry Ltd.",
+        "kind": "quarry",
+        "formerJobs": 3,
+        "industrialAgeDays": 0,
+        "tiles": [
+          3865
+        ],
+        "assessment": 300,
+        "remediation": 2250,
+        "days": 20,
+        "clearance": 44750,
+        "status": "ready",
+        "remaining": 0,
+        "assessedDay": 1,
+        "acquiredDay": 1,
+        "startedDay": 1,
+        "lastWorkDay": 23,
+        "readyDay": 23
+      },
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15493516.999999255,
+        "population": 657,
+        "day": 23
+      },
+      "reuseArms": [
+        "park",
+        "home",
+        "grocer"
+      ],
+      "source_sha256": "7c6fe4c9092f051ad2883d026fa9e2a31e2882de02b7e491953adfd6136863db",
+      "actualControls": true,
+      "cancelNoMutation": true,
+      "insufficientCash": true,
+      "recipientCredited": 44750,
+      "regionalTitleFallback": true,
+      "errors": []
+    },
+    "docs/previews/render-precision-audit/brown-integrated/compositor-checks.json": {
+      "old": {
+        "channels": 332,
+        "max": 24
+      },
+      "fixed": {
+        "channels": 0,
+        "max": 0
+      },
+      "unchanged": true,
+      "underlayBytes": 550400,
+      "source_sha256": "7c6fe4c9092f051ad2883d026fa9e2a31e2882de02b7e491953adfd6136863db",
+      "errors": []
+    },
+    "docs/previews/region-locator/checks.json": {
+      "source_sha256": "7c6fe4c9092f051ad2883d026fa9e2a31e2882de02b7e491953adfd6136863db",
+      "results": [
+        {
+          "zoom": 1.1,
+          "unchanged": true,
+          "cacheBuilds": 0,
+          "meanMs": 0.0075,
+          "bytes": 652288,
+          "marks": 2
+        },
+        {
+          "zoom": 0.2,
+          "unchanged": true,
+          "cacheBuilds": 0,
+          "meanMs": 0.00850000001490116,
+          "bytes": 652288,
+          "marks": 2
+        }
+      ],
+      "errors": []
+    }
+  },
+  "captureLimit": "Brownfield fixture uses opaque set_content origin, producing storage warning; not native storage failure or clean final UI evidence."
+}
