@@ -70,8 +70,9 @@ function normalizeRegionArchive(input){
  for(const s of [...(data.regionalTrade?.shipments||[]),...(data.regionalTrade?.recent||[])])for(const key of ['path','activePath'])if(Array.isArray(s[key]))s[key]=list(s[key]);
  for(const v of data.trafficState?.vehicles||[])if(Array.isArray(v.path))v.path=list(v.path);
  if(data.trafficState)data.trafficState.gates=(data.trafficState.gates||[]).map(([id,v])=>[tile(id),v]);
- // Transform candidate state only; rejected archives must not change live routes.
- if(data.transit)data.transit=remapTransitState(data.transit,tile);
+ // Transform the cloned candidate through transit's pure API before validation.
+ // Builds without the transit engine cannot adopt a transit-bearing archive.
+ if(data.transit){if(typeof remapTransitState!=='function')return null;data.transit=remapTransitState(data.transit,tile);}
  data.gridSize=T;if(oldSize===56)data.charter=newCharter();return data;
 }
 function centerTownCamera(zoom=.95){const hall=G.buildings.find(b=>b.kind==='townhall')||{x:28,y:28};const p=iso(hall.x+1,hall.y+1);cam={x:p[0],y:p[1]+28,zoom};dirty=true;}
