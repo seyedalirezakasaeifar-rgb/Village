@@ -1,0 +1,118 @@
+{
+  "source_sha256": "bbe067a6758207db1462d90e017d33c9c827754a340c7e1ed805ca21e3cf2753",
+  "fixture_sha256": "ad6256fd85d4146fda9eeac0b16d5b182ed352c23bbd96af3b320553c29ce786",
+  "hostChromium": true,
+  "physicalAndroid": false,
+  "rows": [
+    {
+      "kind": "export",
+      "callMs": 317.9000000022352,
+      "totalMs": 318,
+      "result": 41700,
+      "commands": 0,
+      "day": 41700,
+      "busy": false,
+      "queued": 0,
+      "total": 15493517.000209816,
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15493517.000209816,
+        "population": 779,
+        "day": 41700
+      },
+      "barriers": [
+        {
+          "reason": "synchronous export",
+          "ms": 283.30000000074506
+        }
+      ]
+    },
+    {
+      "kind": "suspend",
+      "callMs": 339.19999999925494,
+      "totalMs": 369.80000000074506,
+      "result": true,
+      "commands": 0,
+      "day": 41700,
+      "busy": false,
+      "queued": 0,
+      "total": 15493517.000209816,
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15493517.000209816,
+        "population": 779,
+        "day": 41700
+      },
+      "barriers": [
+        {
+          "reason": "native suspension",
+          "ms": 271.30000000074506
+        }
+      ]
+    },
+    {
+      "kind": "save",
+      "callMs": 0.10000000149011612,
+      "totalMs": 482.69999999925494,
+      "result": true,
+      "commands": 0,
+      "day": 41700,
+      "busy": false,
+      "queued": 0,
+      "total": 15493517.000209816,
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15493517.000209816,
+        "population": 779,
+        "day": 41700
+      },
+      "barriers": null
+    },
+    {
+      "kind": "exit",
+      "callMs": 0.19999999925494194,
+      "totalMs": 424,
+      "result": true,
+      "commands": 0,
+      "day": 41700,
+      "busy": false,
+      "queued": 0,
+      "total": 15493517.000209816,
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15493517.000209816,
+        "population": 779,
+        "day": 41700
+      },
+      "barriers": null
+    },
+    {
+      "kind": "overflow",
+      "callMs": 317.5,
+      "totalMs": 317.69999999925494,
+      "result": null,
+      "commands": 300,
+      "day": 41700,
+      "busy": false,
+      "queued": 0,
+      "total": 15493517.00020982,
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15493517.00020982,
+        "population": 779,
+        "day": 41700
+      },
+      "barriers": [
+        {
+          "reason": "input queue capacity",
+          "ms": 316.80000000074506
+        }
+      ]
+    }
+  ]
+}

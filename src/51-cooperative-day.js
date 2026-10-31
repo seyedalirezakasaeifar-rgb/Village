@@ -16,7 +16,15 @@ function cooperativeEffect(name,fn,args){if(!cooperativeJob)return fn(...args);c
 function afterCommittedDay(fn){if(!cooperativeJob){try{return Promise.resolve(fn());}catch(e){return Promise.reject(e);}}return new Promise((resolve,reject)=>cooperativeJob.waiters.push({fn,resolve,reject,town:G}));}
 function cooperativeBanner(){let el=$('cooperativeStatus');if(!el){el=document.createElement('div');el.id='cooperativeStatus';el.setAttribute('role','status');el.style.cssText='position:fixed;top:76px;left:50%;transform:translateX(-50%);z-index:11000;max-width:90vw;padding:6px 12px;background:#203e34;color:#fff3d5;border:1px solid #d4b873;font:12px sans-serif;pointer-events:none';document.body.appendChild(el);}el.hidden=!cooperativeJob;if(cooperativeJob)el.textContent='Finishing day '+(cooperativeJob.day+1)+' · last completed day '+cooperativeJob.day+(cooperativeCommands.length?' · '+cooperativeCommands.length+' input events queued':'');}
 function cooperativePost(){cooperativeChannel.port2.postMessage(cooperativeJob?.token);}
-cooperativeChannel.port1.onmessage=e=>{if(cooperativeJob&&e.data===cooperativeJob.token)cooperativePump(false);};
+cooperativeChannel.port1.onmessage=e=>{if(e.data?.admit===cooperativeToken){cooperativeAdmitBetweenFrames();return;}if(cooperativeJob&&e.data===cooperativeJob.token)cooperativePump(false);};
+function cooperativeAdmitBetweenFrames(){
+ if(!cooperativeEnabled||cooperativeJob||!G||paused||hostSuspended||pendingEvent||document.hidden||acc<1.65)return;
+ const now=performance.now(),fps=speed>=32?Math.min(20,gameOptions.fps):gameOptions.fps;
+ // Leave a completed-state window for the next RAF whenever publication is due.
+ if(now-lastHeader>=250||dirty&&now-lastMapDraw>=1000/fps)return;
+ if(beginCooperativeDay())acc-=1.65;
+}
+
 function beginCooperativeDay(){
  if(cooperativeJob||!G||pendingEvent||pointer.down||touches.size)return false;
  // Recovery/export authority is a completed-day snapshot; never a suspended generator.
@@ -35,6 +43,7 @@ function cooperativeCommit(job){
  if(typeof cooperativeClockCommit==='function')cooperativeClockCommit(job.cpu);cooperativeClearPreview();cooperativeBanner();
  for(const fn of cooperativeEffects.values())try{fn();}catch(e){console.error(e);}cooperativeEffects.clear();
  cooperativeFlushCommands();for(const w of job.waiters){try{w.resolve(w.town===G?w.fn():false);}catch(e){w.reject(e);}}
+ if(cooperativeEnabled)cooperativeChannel.port2.postMessage({admit:cooperativeToken});
 }
 function cooperativeFail(job,error){
  cooperativeJob=null;simulationBusy=job.previousBusy;cooperativeToken++;G=job.snapshot;rngState=job.rng;marketOpen=job.transients.marketOpen;crewDay=job.transients.crewDay;crewsUsed=job.transients.crewsUsed;regionalCrews=job.transients.regionalCrews;transitReservationVersion=job.transients.transitReservationVersion;restoreTransport();trafficClock=job.transients.trafficClock;migrationReportOwner=job.transients.migrationOwned?G:null;migrationRecent=job.transients.migrationRecent;migrationObservedDay=job.transients.migrationObservedDay;migrationSessionCounts=job.transients.migrationSessionCounts;civicCandidateSets.clear();for(const [k,v]of job.transients.civicCandidates)civicCandidateSets.set(k,v);roadsVersion++;roadNetwork=null;transitTopologyCache=null;transitDailyCache=null;cacheBuildingsFor=null;staticDirty=true;dirty=true;paused=true;acc=0;cooperativeEnabled=false;

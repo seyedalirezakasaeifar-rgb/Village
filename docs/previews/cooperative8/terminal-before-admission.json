@@ -1,0 +1,533 @@
+{
+  "source_sha256": "bbe067a6758207db1462d90e017d33c9c827754a340c7e1ed805ca21e3cf2753",
+  "hostChromium": true,
+  "physicalAndroid": false,
+  "retainedTerminalFixture": true,
+  "fixtureSha256": "ad6256fd85d4146fda9eeac0b16d5b182ed352c23bbd96af3b320553c29ce786",
+  "rows": [
+    {
+      "variant": "synchronous",
+      "variantSourceSha256": "bbe067a6758207db1462d90e017d33c9c827754a340c7e1ed805ca21e3cf2753",
+      "enabled": false,
+      "days": 314,
+      "actualSpeed": 42.97873046421077,
+      "raf": {
+        "n": 313,
+        "p95Ms": 66.70000000000073,
+        "p99Ms": 283.2999999999993,
+        "maxMs": 350
+      },
+      "timerDelivery": {
+        "n": 205,
+        "p95Ms": 161.59999999776483,
+        "p99Ms": 388.30000000074506,
+        "maxMs": 504.0999999977648
+      },
+      "trustedHandler": {
+        "n": 15,
+        "p95Ms": 144.89999999850988,
+        "p99Ms": 144.89999999850988,
+        "maxMs": 144.89999999850988
+      },
+      "trustedNextRaf": {
+        "n": 15,
+        "p95Ms": 194.80000000074506,
+        "p99Ms": 194.80000000074506,
+        "maxMs": 194.80000000074506
+      },
+      "presentation": {
+        "archivePayload": {
+          "n": 0,
+          "p95Ms": 0,
+          "p99Ms": 0,
+          "maxMs": 0,
+          "totalMs": 0
+        },
+        "persistSnapshot": {
+          "n": 0,
+          "p95Ms": 0,
+          "p99Ms": 0,
+          "maxMs": 0,
+          "totalMs": 0
+        },
+        "save": {
+          "n": 0,
+          "p95Ms": 0,
+          "p99Ms": 0,
+          "maxMs": 0,
+          "totalMs": 0
+        },
+        "updateHeader": {
+          "n": 55,
+          "p95Ms": 2.699999999254942,
+          "p99Ms": 3.599999997764826,
+          "maxMs": 3.599999997764826,
+          "totalMs": 65.6000000052154
+        },
+        "renderPanel": {
+          "n": 0,
+          "p95Ms": 0,
+          "p99Ms": 0,
+          "maxMs": 0,
+          "totalMs": 0
+        },
+        "draw": {
+          "n": 163,
+          "p95Ms": 12.100000001490116,
+          "p99Ms": 31.5,
+          "maxMs": 46.69999999925494,
+          "totalMs": 1164.5000000037253
+        }
+      },
+      "breakdown": {
+        "dailyEconomy": {
+          "n": 314,
+          "p95Ms": 31.599999997764826,
+          "p99Ms": 46.600000001490116,
+          "maxMs": 94.30000000074506,
+          "totalMs": 6200.699999969453
+        },
+        "occupyVacantHousing": {
+          "n": 314,
+          "p95Ms": 0.09999999776482582,
+          "p99Ms": 116.30000000074506,
+          "maxMs": 127.30000000074506,
+          "totalMs": 712.1999999843538
+        },
+        "seekPrivateServiceInvestment": {
+          "n": 10,
+          "p95Ms": 181.80000000074506,
+          "p99Ms": 181.80000000074506,
+          "maxMs": 181.80000000074506,
+          "totalMs": 1062.1999999955297
+        },
+        "urbanRetailProposal": {
+          "n": 3,
+          "p95Ms": 104.30000000074506,
+          "p99Ms": 104.30000000074506,
+          "maxMs": 104.30000000074506,
+          "totalMs": 282.6000000052154
+        }
+      },
+      "causalMutation": {
+        "n": 15,
+        "p95Ms": 199,
+        "p99Ms": 199,
+        "maxMs": 199
+      },
+      "causalPaintOpportunity": {
+        "n": 15,
+        "p95Ms": 284.6000000014901,
+        "p99Ms": 284.6000000014901,
+        "maxMs": 284.6000000014901
+      },
+      "causalMissing": 0,
+      "dayWait": {
+        "n": 0,
+        "p95Ms": 0,
+        "p99Ms": 0,
+        "maxMs": 0
+      },
+      "completedDraws": 163,
+      "maxDrawGapMs": 377.0,
+      "inputToNextDraw": {
+        "n": 15,
+        "p95Ms": 54.5,
+        "p99Ms": 54.5,
+        "maxMs": 54.5
+      },
+      "slices": {
+        "n": 0,
+        "p95Ms": 0,
+        "p99Ms": 0,
+        "maxMs": 0
+      },
+      "tickCpu": {
+        "n": 180,
+        "p95Ms": 48.599999997764826,
+        "p99Ms": 290.9000000022352,
+        "maxMs": 329.19999999925494
+      },
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15493517.000209844,
+        "population": 774,
+        "day": 41997
+      },
+      "moneyDrift": 2.421438694000244e-08,
+      "queue": 0,
+      "errors": [],
+      "completedDay": 41997,
+      "uiDay": "YEAR 117 \u00b7 MONTH 8 \u00b7 DAY 41990"
+    },
+    {
+      "variant": "cooperative-json",
+      "variantSourceSha256": "38bd590fc88f0c4b628544d077c8e1edf028682e1caba754771f87abe125c00c",
+      "enabled": true,
+      "days": 168,
+      "actualSpeed": 23.071353069941022,
+      "raf": {
+        "n": 551,
+        "p95Ms": 33.400000000000546,
+        "p99Ms": 66.69999999999982,
+        "maxMs": 133.30000000000018
+      },
+      "timerDelivery": {
+        "n": 305,
+        "p95Ms": 80.10000000149012,
+        "p99Ms": 116.20000000298023,
+        "maxMs": 151.80000000074506
+      },
+      "trustedHandler": {
+        "n": 15,
+        "p95Ms": 84,
+        "p99Ms": 84,
+        "maxMs": 84
+      },
+      "trustedNextRaf": {
+        "n": 15,
+        "p95Ms": 84.69999999925494,
+        "p99Ms": 84.69999999925494,
+        "maxMs": 84.69999999925494
+      },
+      "presentation": {
+        "archivePayload": {
+          "n": 0,
+          "p95Ms": 0,
+          "p99Ms": 0,
+          "maxMs": 0,
+          "totalMs": 0
+        },
+        "persistSnapshot": {
+          "n": 0,
+          "p95Ms": 0,
+          "p99Ms": 0,
+          "maxMs": 0,
+          "totalMs": 0
+        },
+        "save": {
+          "n": 0,
+          "p95Ms": 0,
+          "p99Ms": 0,
+          "maxMs": 0,
+          "totalMs": 0
+        },
+        "updateHeader": {
+          "n": 41,
+          "p95Ms": 3.300000000745058,
+          "p99Ms": 8.699999999254942,
+          "maxMs": 8.699999999254942,
+          "totalMs": 59.400000005960464
+        },
+        "renderPanel": {
+          "n": 0,
+          "p95Ms": 0,
+          "p99Ms": 0,
+          "maxMs": 0,
+          "totalMs": 0
+        },
+        "draw": {
+          "n": 150,
+          "p95Ms": 12.800000000745058,
+          "p99Ms": 30.599999997764826,
+          "maxMs": 50.600000001490116,
+          "totalMs": 927.4999999925494
+        }
+      },
+      "breakdown": {
+        "beginCooperativeDay": {
+          "n": 168,
+          "p95Ms": 26,
+          "p99Ms": 29.400000002235174,
+          "maxMs": 34.599999997764826,
+          "totalMs": 3676.099999997765
+        },
+        "cooperativePump": {
+          "n": 614,
+          "p95Ms": 27.599999997764826,
+          "p99Ms": 80,
+          "maxMs": 145.40000000223517,
+          "totalMs": 6051.999999996275
+        },
+        "dailyEconomy": {
+          "n": 169,
+          "p95Ms": 36.19999999925494,
+          "p99Ms": 71.60000000149012,
+          "maxMs": 110,
+          "totalMs": 3509.299999985844
+        },
+        "stagedOccupyVacantHousing": {
+          "n": 5620,
+          "p95Ms": 0.19999999925494194,
+          "p99Ms": 0.6000000014901161,
+          "maxMs": 6.800000000745058,
+          "totalMs": 240.2000000104308
+        },
+        "cooperativeFlushCommands": {
+          "n": 169,
+          "p95Ms": 0.5,
+          "p99Ms": 2,
+          "maxMs": 4.600000001490116,
+          "totalMs": 13.700000010430813
+        },
+        "cooperativeCommit": {
+          "n": 169,
+          "p95Ms": 0.6000000014901161,
+          "p99Ms": 3.100000001490116,
+          "maxMs": 4.600000001490116,
+          "totalMs": 26.80000001564622
+        },
+        "stagedSeekPrivateServiceInvestment": {
+          "n": 336,
+          "p95Ms": 1.300000000745058,
+          "p99Ms": 80.29999999701977,
+          "maxMs": 145,
+          "totalMs": 698.5999999828637
+        },
+        "stagedUrbanRetailProposal": {
+          "n": 11078,
+          "p95Ms": 0,
+          "p99Ms": 0.10000000149011612,
+          "maxMs": 83,
+          "totalMs": 183.40000000223517
+        }
+      },
+      "causalMutation": {
+        "n": 15,
+        "p95Ms": 237.70000000298023,
+        "p99Ms": 237.70000000298023,
+        "maxMs": 237.70000000298023
+      },
+      "causalPaintOpportunity": {
+        "n": 15,
+        "p95Ms": 263.30000000074506,
+        "p99Ms": 263.30000000074506,
+        "maxMs": 263.30000000074506
+      },
+      "causalMissing": 1,
+      "dayWait": {
+        "n": 169,
+        "p95Ms": 9.100000001490116,
+        "p99Ms": 17.399999991059303,
+        "maxMs": 18.300000000745058
+      },
+      "completedDraws": 150,
+      "maxDrawGapMs": 372.20000000298023,
+      "inputToNextDraw": {
+        "n": 15,
+        "p95Ms": 247.40000000223517,
+        "p99Ms": 247.40000000223517,
+        "maxMs": 247.40000000223517
+      },
+      "slices": {
+        "n": 615,
+        "p95Ms": 27.5,
+        "p99Ms": 80,
+        "maxMs": 145.40000000223517
+      },
+      "tickCpu": {
+        "n": 169,
+        "p95Ms": 115.69999999552965,
+        "p99Ms": 325.1000000014901,
+        "maxMs": 329.5
+      },
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15493517.000209868,
+        "population": 774,
+        "day": 41850
+      },
+      "moneyDrift": 4.470348358154297e-08,
+      "queue": 0,
+      "errors": [],
+      "completedDay": 41850,
+      "uiDay": "YEAR 117 \u00b7 MONTH 3 \u00b7 DAY 41846"
+    },
+    {
+      "variant": "cooperative-copy",
+      "variantSourceSha256": "bbe067a6758207db1462d90e017d33c9c827754a340c7e1ed805ca21e3cf2753",
+      "enabled": true,
+      "days": 200,
+      "actualSpeed": 27.452415812589805,
+      "raf": {
+        "n": 634,
+        "p95Ms": 33.30000000000018,
+        "p99Ms": 66.60000000000036,
+        "maxMs": 183.30000000000018
+      },
+      "timerDelivery": {
+        "n": 373,
+        "p95Ms": 66.80000000074506,
+        "p99Ms": 91.80000000074506,
+        "maxMs": 217.69999999925494
+      },
+      "trustedHandler": {
+        "n": 16,
+        "p95Ms": 80.5,
+        "p99Ms": 80.5,
+        "maxMs": 80.5
+      },
+      "trustedNextRaf": {
+        "n": 16,
+        "p95Ms": 81.40000000223517,
+        "p99Ms": 81.40000000223517,
+        "maxMs": 81.40000000223517
+      },
+      "presentation": {
+        "archivePayload": {
+          "n": 0,
+          "p95Ms": 0,
+          "p99Ms": 0,
+          "maxMs": 0,
+          "totalMs": 0
+        },
+        "persistSnapshot": {
+          "n": 0,
+          "p95Ms": 0,
+          "p99Ms": 0,
+          "maxMs": 0,
+          "totalMs": 0
+        },
+        "save": {
+          "n": 0,
+          "p95Ms": 0,
+          "p99Ms": 0,
+          "maxMs": 0,
+          "totalMs": 0
+        },
+        "updateHeader": {
+          "n": 40,
+          "p95Ms": 3.300000000745058,
+          "p99Ms": 3.800000000745058,
+          "maxMs": 3.800000000745058,
+          "totalMs": 57.39999998733401
+        },
+        "renderPanel": {
+          "n": 0,
+          "p95Ms": 0,
+          "p99Ms": 0,
+          "maxMs": 0,
+          "totalMs": 0
+        },
+        "draw": {
+          "n": 159,
+          "p95Ms": 12.300000000745058,
+          "p99Ms": 28.199999999254942,
+          "maxMs": 43.19999999925494,
+          "totalMs": 996.9000000320375
+        }
+      },
+      "breakdown": {
+        "beginCooperativeDay": {
+          "n": 200,
+          "p95Ms": 15.300000000745058,
+          "p99Ms": 22.900000002235174,
+          "maxMs": 23.800000000745058,
+          "totalMs": 2363.299999963492
+        },
+        "cooperativePump": {
+          "n": 724,
+          "p95Ms": 25.800000000745058,
+          "p99Ms": 74.5,
+          "maxMs": 210.5,
+          "totalMs": 6997.999999959022
+        },
+        "dailyEconomy": {
+          "n": 201,
+          "p95Ms": 33.099999997764826,
+          "p99Ms": 48.80000000074506,
+          "maxMs": 134.09999999776483,
+          "totalMs": 4048.399999987334
+        },
+        "stagedOccupyVacantHousing": {
+          "n": 6933,
+          "p95Ms": 0.19999999925494194,
+          "p99Ms": 0.6000000014901161,
+          "maxMs": 6.199999999254942,
+          "totalMs": 363.19999999925494
+        },
+        "cooperativeFlushCommands": {
+          "n": 201,
+          "p95Ms": 0.4000000022351742,
+          "p99Ms": 0.8000000007450581,
+          "maxMs": 1.4000000022351742,
+          "totalMs": 9.699999999254942
+        },
+        "cooperativeCommit": {
+          "n": 201,
+          "p95Ms": 0.5999999977648258,
+          "p99Ms": 1.5,
+          "maxMs": 2.699999999254942,
+          "totalMs": 27.19999999552965
+        },
+        "stagedSeekPrivateServiceInvestment": {
+          "n": 392,
+          "p95Ms": 1.5,
+          "p99Ms": 75.5,
+          "maxMs": 209.59999999776483,
+          "totalMs": 817.2999999821186
+        },
+        "stagedUrbanRetailProposal": {
+          "n": 11078,
+          "p95Ms": 0,
+          "p99Ms": 0.10000000149011612,
+          "maxMs": 76.69999999925494,
+          "totalMs": 184.49999998137355
+        }
+      },
+      "causalMutation": {
+        "n": 15,
+        "p95Ms": 257.80000000074506,
+        "p99Ms": 257.80000000074506,
+        "maxMs": 257.80000000074506
+      },
+      "causalPaintOpportunity": {
+        "n": 15,
+        "p95Ms": 322.80000000074506,
+        "p99Ms": 322.80000000074506,
+        "maxMs": 322.80000000074506
+      },
+      "causalMissing": 1,
+      "dayWait": {
+        "n": 201,
+        "p95Ms": 9.699999999254942,
+        "p99Ms": 18.399999998509884,
+        "maxMs": 20.100000001490116
+      },
+      "completedDraws": 159,
+      "maxDrawGapMs": 384.3999999985099,
+      "inputToNextDraw": {
+        "n": 16,
+        "p95Ms": 259.3999999985099,
+        "p99Ms": 259.3999999985099,
+        "maxMs": 259.3999999985099
+      },
+      "slices": {
+        "n": 725,
+        "p95Ms": 25.699999999254942,
+        "p99Ms": 74.40000000223517,
+        "maxMs": 210.39999999850988
+      },
+      "tickCpu": {
+        "n": 180,
+        "p95Ms": 67.00000000745058,
+        "p99Ms": 286.70000000298023,
+        "maxMs": 293.40000000968575
+      },
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15493517.000209881,
+        "population": 773,
+        "day": 41882
+      },
+      "moneyDrift": 5.774199962615967e-08,
+      "queue": 0,
+      "errors": [],
+      "completedDay": 41882,
+      "uiDay": "YEAR 117 \u00b7 MONTH 5 \u00b7 DAY 41880"
+    }
+  ]
+}

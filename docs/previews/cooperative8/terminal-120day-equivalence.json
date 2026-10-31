@@ -1,0 +1,9 @@
+{
+  "source_sha256": "bbe067a6758207db1462d90e017d33c9c827754a340c7e1ed805ca21e3cf2753",
+  "fixture_sha256": "ad6256fd85d4146fda9eeac0b16d5b182ed352c23bbd96af3b320553c29ce786",
+  "days": 120,
+  "exactArchive": true,
+  "exactRng": true,
+  "endDay": 41801,
+  "total": 15493517.00020986
+}

@@ -1,0 +1,1142 @@
+{
+  "source_sha256": "b17a552dffde03bd6cd9f445e0bde9c70dc2fa9a41849e0e21ae54e4bd714bfa",
+  "fixture_sha256": "ad6256fd85d4146fda9eeac0b16d5b182ed352c23bbd96af3b320553c29ce786",
+  "hostChromium": true,
+  "physicalAndroid": false,
+  "samplesPerSection": 5,
+  "rows": [
+    {
+      "key": "households",
+      "jsonBytes": 802329,
+      "samples": [
+        4.199999999254942,
+        3.5,
+        3.899999998509884,
+        4.300000000745058,
+        5.199999999254942
+      ]
+    },
+    {
+      "key": "people",
+      "jsonBytes": 907439,
+      "samples": [
+        2.7000000029802322,
+        2.900000002235174,
+        2.199999999254942,
+        2.199999999254942,
+        2.199999999254942
+      ]
+    },
+    {
+      "key": "observations",
+      "jsonBytes": 529688,
+      "samples": [
+        1.1000000014901161,
+        0.8999999985098839,
+        1.1000000014901161,
+        1.199999999254942,
+        1.0999999977648258
+      ]
+    },
+    {
+      "key": "regionalTrade",
+      "jsonBytes": 282662,
+      "samples": [
+        1.1000000014901161,
+        0.9000000022351742,
+        1.3999999985098839,
+        0.6999999992549419,
+        0.8000000007450581
+      ]
+    },
+    {
+      "key": "firms",
+      "jsonBytes": 195537,
+      "samples": [
+        1.1000000014901161,
+        0.5,
+        0.6999999992549419,
+        0.3999999985098839,
+        0.5
+      ]
+    },
+    {
+      "key": "buildings",
+      "jsonBytes": 174218,
+      "samples": [
+        0.3999999985098839,
+        0.8000000007450581,
+        0.3999999985098839,
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "key": "streetNames",
+      "jsonBytes": 133832,
+      "samples": [
+        0.6999999992549419,
+        0.5,
+        0.30000000074505806,
+        0.3999999985098839,
+        0.19999999925494194
+      ]
+    },
+    {
+      "key": "roadClasses",
+      "jsonBytes": 88254,
+      "samples": [
+        0.6000000014901161,
+        0.30000000074505806,
+        0.29999999701976776,
+        0.4000000022351742,
+        0.3999999985098839
+      ]
+    },
+    {
+      "key": "journal",
+      "jsonBytes": 89868,
+      "samples": [
+        0.30000000074505806,
+        0.3999999985098839,
+        0.3999999985098839,
+        0.30000000074505806,
+        0.30000000074505806
+      ]
+    },
+    {
+      "key": "tiles",
+      "jsonBytes": 32769,
+      "samples": [
+        0.19999999925494194,
+        0.19999999925494194,
+        0.19999999925494194,
+        0.10000000149011612,
+        0.19999999925494194
+      ]
+    },
+    {
+      "key": "transactions",
+      "jsonBytes": 150800,
+      "samples": [
+        0.19999999925494194,
+        0.19999999925494194,
+        0.19999999925494194,
+        0.10000000149011612,
+        0.19999999925494194
+      ]
+    },
+    {
+      "key": "history",
+      "jsonBytes": 46604,
+      "samples": [
+        0.3999999985098839,
+        0.09999999776482582,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.09999999776482582
+      ]
+    },
+    {
+      "key": "roadWear",
+      "jsonBytes": 59871,
+      "samples": [
+        0.19999999925494194,
+        0.09999999776482582,
+        0.19999999925494194,
+        0.10000000149011612,
+        0.19999999925494194
+      ]
+    },
+    {
+      "key": "transit",
+      "jsonBytes": 26444,
+      "samples": [
+        0.10000000149011612,
+        0.19999999925494194,
+        0.09999999776482582,
+        0,
+        0.10000000149011612
+      ]
+    },
+    {
+      "key": "privateRoads",
+      "jsonBytes": 28618,
+      "samples": [
+        0.10000000149011612,
+        0,
+        0.10000000149011612,
+        0.09999999776482582,
+        0
+      ]
+    },
+    {
+      "key": "events",
+      "jsonBytes": 22307,
+      "samples": [
+        0.09999999776482582,
+        0.09999999776482582,
+        0,
+        0.10000000149011612,
+        0
+      ]
+    },
+    {
+      "key": "charter",
+      "jsonBytes": 1230,
+      "samples": [
+        0.09999999776482582,
+        0,
+        0,
+        0.10000000149011612,
+        0
+      ]
+    },
+    {
+      "key": "fieldOwner",
+      "jsonBytes": 1125,
+      "samples": [
+        0,
+        0.09999999776482582,
+        0,
+        0,
+        0.10000000149011612
+      ]
+    },
+    {
+      "key": "cases",
+      "jsonBytes": 16837,
+      "samples": [
+        0,
+        0,
+        0.09999999776482582,
+        0.10000000149011612,
+        0
+      ]
+    },
+    {
+      "key": "landUse",
+      "jsonBytes": 1162,
+      "samples": [
+        0,
+        0,
+        0,
+        0,
+        0.10000000149011612
+      ]
+    },
+    {
+      "key": "regionalDemand",
+      "jsonBytes": 18,
+      "samples": [
+        0.10000000149011612,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "urban",
+      "jsonBytes": 2922,
+      "samples": [
+        0,
+        0,
+        0.10000000149011612,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "trafficState",
+      "jsonBytes": 15398,
+      "samples": [
+        0,
+        0,
+        0,
+        0.10000000149011612,
+        0
+      ]
+    },
+    {
+      "key": "freight",
+      "jsonBytes": 2984,
+      "samples": [
+        0,
+        0,
+        0,
+        0,
+        0.10000000149011612
+      ]
+    },
+    {
+      "key": "homes",
+      "jsonBytes": 2647,
+      "samples": [
+        0.09999999776482582,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "development",
+      "jsonBytes": 7275,
+      "samples": [
+        0.09999999776482582,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "loans",
+      "jsonBytes": 2547,
+      "samples": [
+        0,
+        0,
+        0,
+        0.09999999776482582,
+        0
+      ]
+    },
+    {
+      "key": "councilArchive",
+      "jsonBytes": 5026,
+      "samples": [
+        0,
+        0.09999999776482582,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "market",
+      "jsonBytes": 309,
+      "samples": [
+        0.09999999776482582,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "gridSize",
+      "jsonBytes": 3,
+      "samples": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "climateSeasons",
+      "jsonBytes": 5,
+      "samples": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "climateWeather",
+      "jsonBytes": 5,
+      "samples": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "version",
+      "jsonBytes": 1,
+      "samples": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "day",
+      "jsonBytes": 5,
+      "samples": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "year",
+      "jsonBytes": 3,
+      "samples": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "month",
+      "jsonBytes": 2,
+      "samples": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "policy",
+      "jsonBytes": 620,
+      "samples": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "treasury",
+      "jsonBytes": 17,
+      "samples": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "debt",
+      "jsonBytes": 1,
+      "samples": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "publicReserve",
+      "jsonBytes": 1,
+      "samples": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "region",
+      "jsonBytes": 18,
+      "samples": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "projects",
+      "jsonBytes": 2,
+      "samples": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "metro",
+      "jsonBytes": 265,
+      "samples": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "fieldCount",
+      "jsonBytes": 53,
+      "samples": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "airport",
+      "jsonBytes": 274,
+      "samples": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "autoBuild",
+      "jsonBytes": 4,
+      "samples": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "nextId",
+      "jsonBytes": 3,
+      "samples": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "records",
+      "jsonBytes": 2,
+      "samples": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "stats",
+      "jsonBytes": 515,
+      "samples": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "cumulative",
+      "jsonBytes": 374,
+      "samples": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "speed",
+      "jsonBytes": 2,
+      "samples": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "scenario",
+      "jsonBytes": 12,
+      "samples": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "achievements",
+      "jsonBytes": 35,
+      "samples": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "council",
+      "jsonBytes": 211,
+      "samples": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "ambition",
+      "jsonBytes": 10,
+      "samples": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "ambitionDays",
+      "jsonBytes": 135,
+      "samples": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "lastMonth",
+      "jsonBytes": 530,
+      "samples": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "crisesHandled",
+      "jsonBytes": 1,
+      "samples": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "policyOutcomes",
+      "jsonBytes": 2,
+      "samples": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "construction",
+      "jsonBytes": 4,
+      "samples": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "worldSeed",
+      "jsonBytes": 8,
+      "samples": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "weather",
+      "jsonBytes": 7,
+      "samples": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "season",
+      "jsonBytes": 1,
+      "samples": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "neighborhoods",
+      "jsonBytes": 2,
+      "samples": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "lastEventDay",
+      "jsonBytes": 5,
+      "samples": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "unrest",
+      "jsonBytes": 1,
+      "samples": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "education",
+      "jsonBytes": 18,
+      "samples": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "health",
+      "jsonBytes": 2,
+      "samples": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "historyLong",
+      "jsonBytes": 2,
+      "samples": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "roadMetrics",
+      "jsonBytes": 142,
+      "samples": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "banks",
+      "jsonBytes": 1392,
+      "samples": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "finance",
+      "jsonBytes": 179,
+      "samples": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "nextLoanId",
+      "jsonBytes": 1,
+      "samples": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "schema",
+      "jsonBytes": 1,
+      "samples": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "release",
+      "jsonBytes": 7,
+      "samples": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "investors",
+      "jsonBytes": 92,
+      "samples": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "policyExperiments",
+      "jsonBytes": 2,
+      "samples": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "transport",
+      "jsonBytes": 67,
+      "samples": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "accounts",
+      "jsonBytes": 55,
+      "samples": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "scenarioSeed",
+      "jsonBytes": 2,
+      "samples": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "goodsAccounts",
+      "jsonBytes": 818,
+      "samples": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "goodsPrices",
+      "jsonBytes": 192,
+      "samples": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "housingMarket",
+      "jsonBytes": 154,
+      "samples": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "goodsCompensation",
+      "jsonBytes": 830,
+      "samples": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "waterway",
+      "jsonBytes": 8921,
+      "samples": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "scenarioProgramme",
+      "jsonBytes": 288,
+      "samples": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "rngState",
+      "jsonBytes": 10,
+      "samples": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "visualState",
+      "jsonBytes": 10,
+      "samples": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "recentCouncilEvents",
+      "jsonBytes": 190,
+      "samples": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "serviceProvision",
+      "jsonBytes": 4,
+      "samples": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "privateServiceProvision",
+      "jsonBytes": 4,
+      "samples": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "nextFreight",
+      "jsonBytes": 6,
+      "samples": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "actualServiceFunding",
+      "jsonBytes": 125,
+      "samples": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "civicStaffing",
+      "jsonBytes": 94,
+      "samples": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "civicTrainingLastDay",
+      "jsonBytes": 5,
+      "samples": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "civicTraining",
+      "jsonBytes": 918,
+      "samples": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "councilInbox",
+      "jsonBytes": 157,
+      "samples": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "mayorJourney",
+      "jsonBytes": 242,
+      "samples": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "lastEconomicSignal",
+      "jsonBytes": 24,
+      "samples": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "privateTrainingCompletions",
+      "jsonBytes": 5,
+      "samples": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "civicTrainingCompletions",
+      "jsonBytes": 2,
+      "samples": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "tenancyVersion",
+      "jsonBytes": 1,
+      "samples": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "tenancyMigration",
+      "jsonBytes": 65,
+      "samples": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ]
+}

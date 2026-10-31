@@ -6,7 +6,7 @@ source=(ROOT/'assets/game.js').read_text()
 probe=r'''
 let cooperativeHarnessHold=false;const harnessPump=cooperativePump;cooperativePump=function(sync){if(cooperativeHarnessHold&&!sync)return;return harnessPump(sync);};
 window.__coopBarrier={
- prepare:()=>{chosenScenario='settlement';seed(42);paused=true;for(let i=0;i<28;i++)tick();return archivePayload();},
+ prepare:()=>{chosenScenario='settlement';seed(42);paused=true;for(let i=0;i<28;i++)tick();const lot=buildableCandidates('business').find(p=>canPlace(p.x,p.y,true,'square'));construct('square',lot.x,lot.y);const venue=G.buildings.find(b=>b.kind==='square');if(!authorizeCivicGathering(reviewCivicGathering({venue:venue.id,start:G.day+1})).ok)throw Error('Calendar preparation rejected');return archivePayload();},
  hold:(stage='dailyEconomy')=>{cooperativeHarnessHold=true;if(!beginCooperativeDay())throw Error('Busy');for(let i=0;i<10000;i++){const next=cooperativeJob.iterator.next();if(next.done)throw Error('No such stage '+stage);if(next.value===stage)break;}return {day:G.day,displayed:cooperativeLastCommittedDay(),header:$('date').textContent,treasury:G.treasury,policy:G.policy.minWage};},
  release:()=>{cooperativeHarnessHold=false;cooperativePost();return afterCommittedDay(()=>({day:G.day,busy:cooperativeDayBusy(),treasury:G.treasury,policy:G.policy.minWage,paused,queue:cooperativeCommands.length,token:cooperativeToken}));},
  state:()=>({day:G.day,busy:cooperativeDayBusy(),paused,policy:G.policy.minWage,queue:cooperativeCommands.length,header:$('date').textContent,bank:JSON.stringify(G.banks),total:totalMoney(),token:cooperativeToken}),
