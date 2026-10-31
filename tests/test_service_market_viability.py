@@ -1,0 +1,22 @@
+"""Controlled customer competition, affordability, staffing and recapitalization forecasts."""
+from test_mobile_rendering import ROOT,html
+from playwright.sync_api import sync_playwright
+import json,hashlib
+source=(ROOT/'assets/game.js').read_text();sha=hashlib.sha256(source.encode()).hexdigest()
+probe=r'''
+window.__viability=()=>{__townTest.reset('settlement',42);G.autoBuild=false;G.policy.privateServices=0;G.policy.educationBudget=0;G.policy.serviceVoucherBudget=0;G.civicTraining=[];
+ const b=G.buildings.find(b=>b.kind==='school'),f=createFirm('school',b.x,b.y,true,()=>b);G.region-=f.cash;f.privateService='school';f.serviceFee=3;f.wage=36;f.jobs=10;b.title={kind:'firm',id:f.id};const total=totalMoney();
+ for(const p of G.people)if(p.age>=18&&p.age<=60)p.skill=.6;
+ const workers=G.people.filter(p=>privateQualified(p,f)).slice(0,10);for(const p of workers){if(p.job>=0)G.firms[p.job].workers=G.firms[p.job].workers.filter(id=>id!==p.id);p.job=f.id;f.workers.push(p.id);}for(const h of G.households)h.income=1000;
+ G.serviceProvision={school:{coverage:0}};G.actualServiceFunding={school:0};privatePublicSchoolCache=null;G.privateServiceProvision=null;privateServiceDay();
+ const own=privateServiceForecast('school',b,3,2,f.id),entrant=privateServiceForecast('school',b,3,2);if(!(own.clients>0&&entrant.clients<own.clients*.1))throw Error('Incumbent customers promised again: '+JSON.stringify({own,entrant}));
+ const served=f.clientsToday;f.serviceClientTrend=8;G.day=30;planPrivateService(f);if(f.jobs!==1||f.workers.length!==1||workers.filter(p=>p.job===f.id).length!==1)throw Error('Payroll did not follow staffing plan');
+ for(const h of G.households){G.region+=h.cash;h.cash=0;for(const [id,n] of Object.entries(h.deposits||{}))withdrawal(h,G.banks[+id],n);G.region+=h.cash;h.cash=0;h.income=0;h.privateServiceFees=0;}G.privateServiceProvision=null;
+ const poor=privateServiceForecast('school',b,3,1);if(poor.clients!==0||poor.net>=0)throw Error('Unfunded household/voucher demand counted');G.policy.serviceVoucherBudget=1;const tiny=privateServiceForecast('school',b,3,1);if(tiny.revenue>1.000001||tiny.net>=0)throw Error('One dollar promised blanket subsidy');
+ G.region+=f.cash;f.cash=0;for(const id of f.workers)G.people[id].job=-1;f.workers=[];for(let day=0;day<90;day++){G.day++;privateServiceDay();}if(!f.closed||f.serviceWeakDays!==90)throw Error('Unfunded zero-payroll provider stayed alive');if(Math.abs(totalMoney()-total)>.001)throw Error('Forecast or staffing changed cash');return {served,own:own.clients,competing:entrant.clients,released:9,poor,tiny,zeroPayrollExit:true,cashDrift:totalMoney()-total};};
+window.__serviceSoak=seed=>{__townTest.reset('settlement',seed);G.policy.educationBudget=0;G.policy.privateServices=1;G.policy.serviceVoucherBudget=60;const total=totalMoney(),closed=[],counts=new Map();for(let i=0;i<1080;i++){const alive=new Set(G.firms.filter(f=>f.privateService&&!f.closed).map(f=>f.id));tick();for(const f of G.firms)if(f.privateService&&f.closed&&alive.has(f.id)){closed.push({id:f.id,day:G.day});counts.set(f.id,(counts.get(f.id)||0)+1);}}const v=validateTown();if(!v.ok||Math.abs(totalMoney()-total)>.001)throw Error('Soak balances invalid');return {seed,day:G.day,closed,maxSameProviderClosures:Math.max(0,...counts.values()),providers:G.firms.filter(f=>f.privateService).map(f=>({id:f.id,closed:!!f.closed,clients:f.clientsToday||0,staff:workingStaff(f).length,cash:f.cash})),cashDrift:totalMoney()-total};};
+'''
+with sync_playwright() as pw:
+ b=pw.chromium.launch(executable_path='/usr/bin/chromium',args=['--no-sandbox']);p=b.new_page();errors=[];p.on('pageerror',lambda e:errors.append(str(e)));p.set_content(html);p.add_script_tag(content=source.replace('// SOURCE: 99-instrumentation.js',probe+'\n// SOURCE: 99-instrumentation.js'));p.locator('#newTown').click();p.locator('#pause').click();r=p.evaluate('__viability()');rows=[p.evaluate('s=>__serviceSoak(s)',s) for s in [42,101,909]];assert all(a['maxSameProviderClosures']<=1 for a in rows),rows;assert not errors,errors;b.close()
+assert hashlib.sha256((ROOT/'assets/game.js').read_bytes()).hexdigest()==sha
+(ROOT/'reports/development-8.0/service-market-viability.json').write_text(json.dumps({'source_sha256':sha,'controlledCompetition':r,'naturalThreeYearSeeds':rows,'errors':errors},indent=2)+'\n');print('PASS served customers not double forecast, shared affordability/voucher budget, real staffing release and three-seed three-year provider turnover',r,rows)

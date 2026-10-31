@@ -5,7 +5,7 @@ import json,hashlib,os
 kind=os.environ.get("TOWNLEDGER_TEST_PROVIDER","school")
 source=(ROOT/'assets/game.js').read_text();sha=hashlib.sha256(source.encode()).hexdigest()
 probe=r'''
-window.__serviceEntrySetup=()=>{__townTest.reset('settlement',42);G.autoBuild=false;G.policy.privateServices=1;G.policy.educationBudget=0;G.policy.defenseBudget=0;G.policy.serviceVoucherBudget=100;for(const p of G.people)if(p.age>=18&&p.age<=60)p.skill=.6;G.policy.privateTuitionCap=4;G.policy.privateFireFeeCap=1;return totalMoney()};
+window.__serviceEntrySetup=()=>{__townTest.reset('settlement',42);G.autoBuild=false;G.policy.privateServices=1;G.policy.educationBudget=0;G.policy.defenseBudget=0;G.policy.serviceVoucherBudget=100;for(const p of G.people)if(p.age>=18&&p.age<=60)p.skill=.6;G.policy.privateTuitionCap=4;G.policy.privateFireFeeCap=1;__townTest.step(1);return totalMoney()};
 window.__serviceEntryCheck=()=>({total:totalMoney(),pending:G.projects.filter(p=>p.privateService).map(p=>({kind:p.privateService,escrow:p.serviceEscrow,remaining:p.remaining})),providers:G.firms.filter(f=>f.privateService).map(f=>({id:f.id,kind:f.privateService,clients:f.clientsToday,staff:f.workers.length,cash:f.cash,closed:f.closed,owner:f.owner,publicFacility:isPublicFacility(readBuild(f.building))})),valid:validateTown()});
 window.__serviceLicenseOff=()=>{G.policy.privateServices=0;return seekPrivateServiceInvestment('fire')};
 '''

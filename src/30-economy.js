@@ -35,6 +35,8 @@ function dailyEconomy(){
   const old=f.stock[recipe.out]||0;f.unitCost[recipe.out]=((f.unitCost[recipe.out]||0)*old+inputCost)/Math.max(1,old+quantity);
   f.stock[recipe.out]=old+quantity;f.production=quantity;goodsEntry(recipe.out,'produced',quantity);
  }
+ // An authorized promise receives current output above working stock before spot buyers.
+ dispatchRegionalContracts();
  // The external market has finite sector orders and a downward-sloping demand curve.
 
  const exportOffset=live.length?G.day%live.length:0;for(const f of live.slice(exportOffset).concat(live.slice(0,exportOffset))){const out=formulas[f.kind]?.out;if(out&&workingStaff(f).length){
@@ -103,6 +105,7 @@ function dailyEconomy(){
 }
 function finalizeMarketBooks(){
  for(const f of G.firms){if(f.closed)continue;f.profit=f.revenue-(f.cogs||0)-f.expenses;f.tax=Math.min(f.cash,Math.max(0,f.profit)*G.policy.profitTax/100);f.cash-=f.tax;transferTreasury(f.tax,'profitTax');f.netProfit=f.profit-f.tax;
+  if(formulas[f.kind]?.out)f.productionTrend=(f.productionTrend??f.production)*.965+f.production*.035;
   f.salesTrend=f.salesTrend*.965+(f.salesQty||0)*.035;f.revenueTrend=f.revenueTrend*.965+Math.max(0,f.revenue-f.recoveries)*.035;f.marginTrend=f.marginTrend*.965+clamp(f.netProfit/Math.max(1,f.revenue,f.revenueTrend),-1,1)*.035;
   f.operating={sales:Math.max(0,f.revenue-f.nonSalesIncome),otherIncome:f.nonSalesIncome,costOfGoods:f.cogs||0,payroll:f.payroll||0,otherCosts:Math.max(0,f.expenses-(f.payroll||0)),profitTax:f.tax,netProfit:f.netProfit,purchases:f.purchases||0,inventoryValue:Object.entries(f.stock).reduce((n,[k,q])=>n+q*(f.unitCost[k]??marketPrice(k)),0)};
   if(f.cash<Math.max(100,workerIncome(f)*f.jobs*2))f.strain++;else f.strain=Math.max(0,f.strain-2);
