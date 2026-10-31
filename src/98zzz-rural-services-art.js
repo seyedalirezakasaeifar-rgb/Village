@@ -131,6 +131,7 @@ function paintNightScene(g,items){
   if(nightEmissionCanvas.width!==cv.width)nightEmissionCanvas.width=cv.width;if(nightEmissionCanvas.height!==cv.height)nightEmissionCanvas.height=cv.height;
   const n=nightEmissionCanvas.getContext('2d');n.setTransform(1,0,0,1,0,0);n.clearRect(0,0,cv.width,cv.height);n.setTransform(dpr,0,0,dpr,0,0);n.translate(cw/2,ch/2);n.scale(cam.zoom,cam.zoom);n.translate(-cam.x,-cam.y);
   for(const item of items){
+   if(item.kind==='guideway'||item.kind==='transitPier'){n.globalCompositeOperation='destination-out';paintTransitStructure(n,item);n.globalCompositeOperation='source-over';continue;}
    const sprite=spriteFor(item),x=Math.round(item.x-sprite.anchorX),y=Math.round(item.y-sprite.anchorY);
    // Remove a rear building's emission wherever an opaque foreground sprite
    // covers it. A light cannot shine through the front neighbour's roof.
