@@ -1,4 +1,4 @@
-function tick(){if(!G||pendingEvent)return;ensureSystems();ensureMarketModel();G.day++;if(G.day%30===0){G.month++;if(G.month>12){G.month=1;G.year++}};
+function tick(){if(!G||pendingEvent)return;simulationTickActive=true;let committed=false;try{ensureSystems();ensureMarketModel();G.day++;if(G.day%30===0){G.month++;if(G.month>12){G.month=1;G.year++}};
  regionalFreightDay();freightDay();completeEquipmentOrders();completeDevelopmentProjects();dailyEconomy();urbanMunicipalHousingDay();bankDaily();metroOperatingDay();airfieldOperatingDay();incidents();investigateCases();extendedCivicDay();maintainRoads();finalizeMarketBooks();if(G.day%30===0&&G.debt>0){const interest=G.debt*((G.policy.policyRate||0)/100+.015)/12,paid=Math.min(G.treasury,interest);G.treasury-=paid;G.region+=paid;G.debt+=interest-paid;story('Interest on municipal borrowing: '+money(interest)+'.')}if(G.day%10===0)assignJobs();if(G.day%30===0)privateInvestmentAndHousing();
 
  if(G.day%30===0){outwardMigration();autonomousDevelopment();}
@@ -14,7 +14,8 @@ function tick(){if(!G||pendingEvent)return;ensureSystems();ensureMarketModel();G
  G.history.push({day:G.day,employment:G.stats.employment,hardship:G.stats.hardship,safety:G.stats.safety,treasury:Math.round(G.treasury),businesses:G.stats.businesses,deposits:(G.banks||[]).reduce((n,b)=>n+bankDeposits(b.id),0),crime:G.stats.dailyCrime,approval:G.council.approval,education:G.education,health:G.health});if(G.history.length>240)G.history.shift();
  if(G.day%60===0){const signal=marketSignal();if(signal.kind!=='normal'&&signal.title!==G.lastEconomicSignal){story(signal.title+'. '+signal.description,signal.kind==='good'?'good':'bad');G.lastEconomicSignal=signal.title;}}
  // Autosaves are scheduled in wall time by the frame controller.
- dirty=true;
+ dirty=true;committed=true;
+ }finally{simulationTickActive=false;const requested=saveAfterCommittedTick;saveAfterCommittedTick=false;if(committed&&requested&&!simulationBusy)save();}
 }
 
 function resetTownTransientUI(){
