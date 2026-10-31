@@ -1,0 +1,30 @@
+{
+  "source_sha256": "d90bb509173a803b75c3cdc432fea57ce2f1e2abbcb13b8886c56d8feaffe515",
+  "checkpoint_sha256": "ad6256fd85d4146fda9eeac0b16d5b182ed352c23bbd96af3b320553c29ce786",
+  "roadDistancesFromExclusiveMs": 16387.655999999995,
+  "callerExclusiveMs": {
+    "roadDistance <- transitOperatingDay <- dailyEconomy": 8356.024999999981,
+    "roadDistance <- workerCanCommute <- dailyEconomy": 3570.13600000001,
+    "roadDistance <- exportRoutes <- settleRegionalExport <- regionBuy <- dailyEconomy": 1659.288000000003,
+    "roadDistance <- costAt <- urbanHousingMobility <- urbanEvolutionDay": 737.0949999999998,
+    "roadDistance <- privateServiceDistance <- privateServiceDay <- dailyEconomy": 578.3620000000004,
+    "roadDistance <- trade <- dailyEconomy": 488.81399999999996,
+    "roadDistance <- roadServiceDistance <- publicFireResponse <- privateProposalResponse <- privateServiceDemand <- evaluate <- seekPrivateServiceInvestment": 305.1780000000001,
+    "roadDistance <- workerCanCommute <- planEnterprise <- dailyEconomy": 225.55499999999998,
+    "roadDistance <- workerCanCommute <- logisticsDepots <- regionalQuote <- procurementLeadDays <- dailyEconomy": 166.69699999999992,
+    "roadDistance <- roadExportDistance <- exportRoutes <- settleRegionalExport <- regionBuy <- dailyEconomy": 87.38900000000001,
+    "assignJobs <- dailyEconomy": 73.03000000000002,
+    "assignJobs": 51.52400000000001,
+    "roadDistance <- workerCanCommute <- logisticsDepots <- regionalQuote <- dispatchRoadExport <- settleRegionalExport <- regionBuy": 27.284999999999997,
+    "roadDistance <- workerCanCommute <- logisticsDepots <- regionalQuote <- regionalImportLandedPrice <- trade <- dailyEconomy": 22.971000000000004,
+    "roadDistance <- workerCanCommute <- logisticsDepots <- regionalLogisticsDay": 15.491000000000001,
+    "roadDistance <- roadServiceDistance <- closestRoadBuilding <- incidents": 10.112000000000002,
+    "roadDistance <- roadServiceDistance <- publicFireResponse <- incidents": 5.701,
+    "roadDistance <- workerCanCommute <- logisticsDepots <- regionalQuote <- regionImport <- trade <- dailyEconomy": 3.199,
+    "regionalQuote <- dispatchRoadExport <- settleRegionalExport <- regionBuy <- dailyEconomy": 1.136,
+    "assignJobs <- yearlyDemographics": 1.083,
+    "transitOperatingDay <- dailyEconomy": 1.074,
+    "roadDistance <- privateServiceDistance <- recruitPrivateServiceStaff <- dailyEconomy": 0.511
+  },
+  "finding": "The bounded 32-tree shared LRU is an apparent late-workload thrashing bottleneck; route/distance semantics remain transit/economics ownership. No routing production change made."
+}
