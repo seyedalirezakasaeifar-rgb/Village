@@ -4,7 +4,16 @@ function isPublicFacility(b){return !(b.firm>=0&&G.firms[b.firm]?.privateService
 function privateQualified(p,f){return !p.deceased&&!p.movedAway&&p.age>=18&&p.age<=70&&p.health>=60&&p.skill>=(f.privateService==='school'?.55:.4)}
 function privateEligiblePupil(p){return !p.deceased&&!p.movedAway&&p.age>=6&&(p.age<=24||p.age<=60&&p.skill<.7)}
 function privateServiceDistance(f,h){const a=graph().portals.get(f.building),b=graph().portals.get(h.home);return a==null||b==null?Infinity:roadDistance(a,b)}
-function privateSchoolPublicGap(h){return 1-publicCivicCoverage('school',h.id)}
+let privatePublicSchoolCache = null;
+function privateSchoolPublicGap(h) {
+ const net = graph(), provision = G.serviceProvision?.school;
+ if (!privatePublicSchoolCache || privatePublicSchoolCache.town !== G || privatePublicSchoolCache.day !== G.day || privatePublicSchoolCache.net !== net || privatePublicSchoolCache.provision !== provision || privatePublicSchoolCache.population !== G.stats.population) {
+  const access = serviceAccess('school'), coverage = new Map();
+  for (const home of access.households) coverage.set(home.id, provision && access.coverage ? clamp(home.served / home.residents * provision.coverage / access.coverage, 0, 1) : 0);
+  privatePublicSchoolCache = {town:G, day:G.day, net, provision, population:G.stats.population, coverage};
+ }
+ return 1 - (privatePublicSchoolCache.coverage.get(h.id) || 0);
+}
 function privateServiceDemand(kind, site = null) {
  const net = graph();
  const sitePort = site ? net.portals.get(site.id) ?? roadOffsets.map(([dx, dy]) => roadId(site.x + dx, site.y + dy)).find(id => G.tiles[id] === 1) : null;
@@ -27,7 +36,7 @@ function planPrivateService(f){if(G.day%30!==0)return;const demand=privateServic
 function recruitPrivateServiceStaff(){for(const f of G.firms.filter(f=>f.privateService&&!f.closed)){if(f.workers.length>=f.jobs||f.cash<workerIncome(f)*20)continue;for(const p of G.people){if(f.workers.length>=f.jobs)break;if(p.job<0||p.job===f.id||p.publicWork||p.previousPublicRole||!privateQualified(p,f)||G.day-(p.privateJobChange||-90)<60)continue;const old=G.firms[p.job];if(!old||old.closed||workerIncome(f)<workerIncome(old)*1.12||privateServiceDistance(f,G.households[p.hh])>40)continue;old.workers=old.workers.filter(id=>id!==p.id);p.job=f.id;p.privateJobChange=G.day;f.workers.push(p.id);}}}
 function privateServiceDay(){
  if(G.privateServiceProvision?.day===G.day)return;
- const state={version:1,day:G.day,school:{},fire:{},tuition:0,memberships:0,vouchers:0,pupils:0,fireMembers:0};G.privateServiceProvision=state;let vouchers=Math.min(G.treasury,G.policy.serviceVoucherBudget||0);const enrolled=new Set(),publicStudents=new Set((G.civicTraining||[]).filter(c=>publicCivicCoverage('school',G.people[c.person]?.hh)>0).map(c=>c.person));
+ const state={version:1,day:G.day,school:{},fire:{},tuition:0,memberships:0,vouchers:0,pupils:0,fireMembers:0};G.privateServiceProvision=state;let vouchers=Math.min(G.treasury,G.policy.serviceVoucherBudget||0);const enrolled=new Set(),publicStudents=new Set((G.civicTraining||[]).filter(c=>G.households[G.people[c.person]?.hh]&&privateSchoolPublicGap(G.households[G.people[c.person].hh])<1).map(c=>c.person));
  for(const h of G.households)h.privateServiceFees=0;
  for(const f of G.firms.filter(f=>f.privateService)){f.clientsYesterday=f.clientsToday||0;f.clientsToday=0;f.privateReceipts=0;f.privateVouchers=0;f.serviceCapacity=0;if(f.closed)continue;const qualified=workingStaff(f).filter(id=>privateQualified(G.people[id],f));if(!qualified.length)continue;const kind=f.privateService,quality=clamp(qualified.reduce((n,id)=>n+G.people[id].skill,0)/qualified.length/.75,.6,1),capacity=qualified.length*(kind==='school'?16:90);f.serviceCapacity=capacity;let left=capacity;const fee=Math.min(Math.max(0,f.serviceFee||0),kind==='school'?G.policy.privateTuitionCap:G.policy.privateFireFeeCap);
   const homes=G.households.filter(h=>h.people.length&&privateServiceDistance(f,h)<=40).sort((a,b)=>householdLiquidity(a)/a.people.length-householdLiquidity(b)/b.people.length||a.id-b.id);
@@ -41,7 +50,7 @@ function privateServiceDay(){
  }
  const publicCoverage=G.serviceProvision?.school?.coverage||0,additional=G.households.reduce((n,h)=>n+(state.school[h.id]||0)*h.people.length,0)/Math.max(1,G.stats.population);G.actualServiceFunding.school=clamp(publicCoverage+additional,0,1);
 }
-function privateFireResponse(b){let best=0;const subscription=b.hh>=0?G.privateServiceProvision?.fire?.[b.hh]||0:0;for(const f of G.firms.filter(f=>f.privateService==='fire'&&!f.closed&&f.serviceCapacity>0)){const distance=roadServiceDistance(b,readBuild(f.building));if(!Number.isFinite(distance))continue;const reach=clamp(1-distance/58,0,1),staff=clamp(f.serviceCapacity/180,0,1);best=Math.max(best,reach*staff*(.25+.65*subscription));}return best}
+function privateFireResponse(b){let best=0;const subscription=b.hh>=0?G.privateServiceProvision?.fire?.[b.hh]||0:0;for(const f of G.firms.filter(f=>f.privateService==='fire'&&!f.closed&&f.serviceCapacity>0)){const distance=roadServiceDistance(readBuild(f.building),b);if(!Number.isFinite(distance))continue;const reach=clamp(1-distance/58,0,1),staff=clamp(f.serviceCapacity/180,0,1);best=Math.max(best,reach*staff*(.25+.65*subscription));}return best}
 function seekPrivateServiceInvestment(requested=null){
  if(!G.policy.privateServices)return 'Private service entry is not licensed.';if(!G.autoBuild&&!requested)return 'Private development is paused.';if(G.projects.some(p=>p.privateService))return 'A private service site is already under construction.';
  for(const kind of requested?[requested]:['school','fire']){const demand=privateServiceDemand(kind),fee=privateServiceFee(kind,demand),wage=Math.max(G.policy.minWage,36),served=Math.min(demand,kind==='school'?32:180),net=served*fee-wage*2-6,cost=buildCost[kind],capital=6000,requiredReturn=(cost+capital)*((G.policy.policyRate||0)/100+.08)/360;
@@ -54,7 +63,20 @@ function seekPrivateServiceInvestment(requested=null){
  }return 'No investor cleared the staffing, fee-paying demand and return tests. Public coverage, household income, fee caps and finance affect viability.';
 }
 function privateServiceInvestmentDay(){if(G.day%30===0)seekPrivateServiceInvestment()}
-function validatePrivateServices(data){if(data.privateTrainingCompletions!=null&&(!Number.isSafeInteger(data.privateTrainingCompletions)||data.privateTrainingCompletions<0))return false;return data.firms.every(f=>!f.privateService||['school','fire'].includes(f.privateService)&&f.kind===f.privateService&&Number.isFinite(f.serviceFee)&&f.serviceFee>=0&&f.serviceFee<=20)&&data.people.every(p=>p.privateLearningDays==null||Number.isFinite(p.privateLearningDays)&&p.privateLearningDays>=0&&p.privateLearningDays<121)&&data.projects.every(p=>!p.privateService||p.kind==='firm'&&p.firmKind===p.privateService&&['school','fire'].includes(p.privateService)&&Number.isFinite(p.serviceFee)&&p.serviceFee>=0&&p.serviceFee<=20&&Number.isFinite(p.serviceEscrow)&&p.serviceEscrow>=0&&p.serviceEscrow<=1000000)}
+function validatePrivateServices(data){if(data.projects.some(p=>p.serviceEscrow!=null&&!p.privateService))return false;if(data.privateTrainingCompletions!=null&&(!Number.isSafeInteger(data.privateTrainingCompletions)||data.privateTrainingCompletions<0))return false;return data.firms.every(f=>!f.privateService||['school','fire'].includes(f.privateService)&&f.kind===f.privateService&&Number.isFinite(f.serviceFee)&&f.serviceFee>=0&&f.serviceFee<=20)&&data.people.every(p=>p.privateLearningDays==null||Number.isFinite(p.privateLearningDays)&&p.privateLearningDays>=0&&p.privateLearningDays<121)&&data.projects.every(p=>!p.privateService||p.kind==='firm'&&p.firmKind===p.privateService&&['school','fire'].includes(p.privateService)&&Number.isFinite(p.serviceFee)&&p.serviceFee>=0&&p.serviceFee<=20&&Number.isFinite(p.serviceEscrow)&&p.serviceEscrow>=0&&p.serviceEscrow<=1000000)}
 
 const publicCivicCoverage=localCivicCoverage;localCivicCoverage=function(kind,id){const base=publicCivicCoverage(kind,id);return kind==='school'?clamp(base+(G.privateServiceProvision?.school?.[id]||0),0,1):base};
-function publicFireResponse(b){if(!b)return 0;const stations=G.buildings.filter(s=>s.kind==='fire'&&isPublicFacility(s)),distance=stations.length?Math.min(...stations.map(s=>roadServiceDistance(b,s))):80;return clamp(1-distance/58,0,1)*defensePower()}
+let privatePublicFireCache = null;
+function publicFireResponse(b) {
+ if (!b) return 0;
+ const net = graph(), funded = G.actualServiceFunding?.fire, budget = G.policy.defenseBudget;
+ if (!privatePublicFireCache || privatePublicFireCache.town !== G || privatePublicFireCache.net !== net || privatePublicFireCache.day !== G.day || privatePublicFireCache.funded !== funded || privatePublicFireCache.budget !== budget || privatePublicFireCache.count !== G.buildings.length || privatePublicFireCache.population !== G.stats.population) {
+  privatePublicFireCache = {town:G, net, day:G.day, funded, budget, count:G.buildings.length, population:G.stats.population, power:defensePower(), stations:G.buildings.filter(s=>s.kind==='fire'&&isPublicFacility(s)), values:new Map()};
+ }
+ const cache = privatePublicFireCache;
+ if (!cache.values.has(b.id)) {
+  const distance = cache.stations.length ? Math.min(...cache.stations.map(station => roadServiceDistance(station, b))) : 80;
+  cache.values.set(b.id, clamp(1-distance/58,0,1)*cache.power);
+ }
+ return cache.values.get(b.id);
+}

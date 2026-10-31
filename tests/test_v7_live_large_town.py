@@ -143,6 +143,12 @@ def test_live_large_town_ui_and_render_budget():
         assert all(not row['panelError'] for row in ui), ui
         assert not errors, errors
         assert renderer['drawP95Ms'] < 50, renderer
+        # Paint-only acceptance missed a real service-lookup regression: the
+        # renderer passed while simulation fell to 7x and RAF stalled for 1.45s.
+        # These remain isolated host checks, not physical Android guarantees.
+        assert renderer['actualSpeed'] >= 40, renderer
+        assert result['rafP99Ms'] < 500, result['rafP99Ms']
+        assert all(row['toNextFrameMs'] < 250 for row in ui), ui
         browser.close()
         print(json.dumps(result, indent=2), flush=True)
 

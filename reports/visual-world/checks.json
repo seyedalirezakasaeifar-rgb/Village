@@ -8,9 +8,9 @@
   "atlasSize": 114,
   "renderBenchMs": {
     "far": 0.24,
-    "town": 0.14,
-    "close": 0.08
+    "town": 0.21,
+    "close": 0.09
   },
-  "source_sha256": "4f683a699fc73e87d390e4ce2f8757a7ccdf1237059fdc631f8d99977412cd44",
+  "source_sha256": "693a41ba587aa734c93f9966906d44e10964d2f928e8325d3a4edbe1916a3e68",
   "errors": []
 }
