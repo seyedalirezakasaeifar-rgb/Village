@@ -1,0 +1,43 @@
+{
+  "base": "6e8665e3cdee520148f44947e49cdc8e7ddae4c6",
+  "source_sha256": "51e3ef71127d616960e8e4184fa0961813cdd63e626c7992e67dd1a61909776a",
+  "gates": [
+    {
+      "script": "test_growth_land_planning.py",
+      "exit_code": 0
+    },
+    {
+      "script": "test_urban_planning_boundaries.py",
+      "exit_code": 0
+    },
+    {
+      "script": "test_review_workflows.py",
+      "exit_code": 0
+    },
+    {
+      "script": "test_region_survey.py",
+      "exit_code": 0
+    },
+    {
+      "script": "audit_growth_journey.py",
+      "exit_code": 0,
+      "years": 3,
+      "seeds": [
+        42
+      ]
+    }
+  ],
+  "files": {
+    "results.json": "b0907d2ee80a83cd3408ac98d8d8cfb7362212fb254940da77fb89dce8713192",
+    "planning-scope.png": "8b2217f92b28381e0238e3cc4a3a37c3e5c38991a8aa0fcf4bd0a6872b31518d",
+    "regional-42-planned.json.gz": "7785b78a961619e8767ad9f83dcfcc82eddd93156f78a2e247a387cdcb61136c",
+    "test_region_survey.py.log": "9fafdfa116171f083c68ddf248e170a5c99b9e30ab33571161dfd9f5d6fc36a7",
+    "journey.log": "eeae3394180444acdb74c5ab3ec7bf3a5740d5dc9023c6d0c75f0476e37b77b6",
+    "test_growth_land_planning.py.log": "b0907d2ee80a83cd3408ac98d8d8cfb7362212fb254940da77fb89dce8713192",
+    "journey.json.gz": "6135bdedf1bb7fcb39c5de079d9e141f1e874cc21eeed6072136b8f69298924c",
+    "test_urban_planning_boundaries.py.log": "a61b8bec16fb2daa55ebb76e7b01a119a90199e1bdbcd5138bd1694d8968d48b",
+    "planning-mobile.png": "ed20ad0854f14c40299f7e55e53493210d6d023a2943a0432cbdfead622b6486",
+    "summary.json": "9d3c643a403a616e1d9c3bc0a874b1385cbd1dea75f4add650a14d4ee5903f7d",
+    "test_review_workflows.py.log": "0936a00f8209ff031cd19768a6c19414c1743ab1d9670a2b861407bbe203a7fa"
+  }
+}

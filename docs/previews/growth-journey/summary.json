@@ -1,0 +1,113 @@
+{
+  "source_sha256": "51e3ef71127d616960e8e4184fa0961813cdd63e626c7992e67dd1a61909776a",
+  "seed": 42,
+  "days": 1080,
+  "population": 886,
+  "treasury": 615843.0258730656,
+  "debt": 0,
+  "owned": [
+    "east-meadow",
+    "county-ridge",
+    "river-reach",
+    "orchard-downs",
+    "high-common",
+    "belt-78-2"
+  ],
+  "landCapital": 210684,
+  "publicRoadTiles": 105,
+  "parcels": [
+    {
+      "id": "east-meadow",
+      "pop": 0,
+      "connected": 3,
+      "staffed": 1,
+      "fishery": false,
+      "wharf": false,
+      "care": 0,
+      "school": 0
+    },
+    {
+      "id": "county-ridge",
+      "pop": 0,
+      "connected": 0,
+      "staffed": 0,
+      "fishery": false,
+      "wharf": false,
+      "care": 0,
+      "school": 0
+    },
+    {
+      "id": "river-reach",
+      "pop": 0,
+      "connected": 1,
+      "staffed": 1,
+      "fishery": false,
+      "wharf": false,
+      "care": 0,
+      "school": 0
+    },
+    {
+      "id": "orchard-downs",
+      "pop": 0,
+      "connected": 1,
+      "staffed": 1,
+      "fishery": false,
+      "wharf": false,
+      "care": 0,
+      "school": 0
+    },
+    {
+      "id": "high-common",
+      "pop": 0,
+      "connected": 0,
+      "staffed": 0,
+      "fishery": false,
+      "wharf": false,
+      "care": 0,
+      "school": 0
+    },
+    {
+      "id": "belt-78-2",
+      "pop": 0,
+      "connected": 0,
+      "staffed": 0,
+      "fishery": false,
+      "wharf": false,
+      "care": 0,
+      "school": 0
+    }
+  ],
+  "publicSchool": 0.28611738148984195,
+  "publicCare": 0.5869074492099323,
+  "fieldsFirstQuarter": 35,
+  "fieldsFinal": 80,
+  "renewals": [
+    {
+      "day": 1020,
+      "action": "Farm relocated; four urban dwellings commissioned",
+      "cost": 51600
+    },
+    {
+      "day": 840,
+      "action": "Farm relocated; four urban dwellings commissioned",
+      "cost": 53600
+    },
+    {
+      "day": 720,
+      "action": "Farm relocated; four urban dwellings commissioned",
+      "cost": 51600
+    }
+  ],
+  "incomeBands": {
+    "Middle income": 25,
+    "Higher income": 3
+  },
+  "valid": {
+    "ok": true,
+    "issues": [],
+    "total": 15493516.999995423,
+    "population": 886,
+    "day": 1081
+  },
+  "errors": []
+}
