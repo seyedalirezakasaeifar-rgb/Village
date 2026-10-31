@@ -1,5 +1,5 @@
 {
-  "source_sha256": "624a5cb4e7e816d5e8232b3470c65505e151330908c7de33825e4d81094b92ef",
+  "source_sha256": "cb9965525c56ab4df79584d4edf1afef7494162bfeba27dc274b385928e8fd72",
   "determinism_and_continuation": {
     "sameSeed": true,
     "renderIndependent": true,
@@ -27,7 +27,7 @@
       "firms": 6,
       "privateSpend": 549757,
       "moneyDelta": -1.5951693058013916e-05,
-      "ms": 2292.399999999907
+      "ms": 2141.5999999996275
     },
     {
       "seed": 42,
@@ -37,7 +37,7 @@
       "firms": 2,
       "privateSpend": 0,
       "moneyDelta": -1.1295080184936523e-05,
-      "ms": 1273.4000000001397
+      "ms": 1247.5
     },
     {
       "seed": 101,
@@ -47,7 +47,7 @@
       "firms": 5,
       "privateSpend": 532160,
       "moneyDelta": -1.5584751963615417e-05,
-      "ms": 1662.3000000000466
+      "ms": 1538.4000000003725
     },
     {
       "seed": 101,
@@ -57,7 +57,7 @@
       "firms": 2,
       "privateSpend": 0,
       "moneyDelta": -5.129724740982056e-06,
-      "ms": 1153.3000000000466
+      "ms": 1171.1000000000931
     },
     {
       "seed": 909,
@@ -67,7 +67,7 @@
       "firms": 4,
       "privateSpend": 508803,
       "moneyDelta": -1.567043364048004e-05,
-      "ms": 1483.3000000000466
+      "ms": 1306.9000000003725
     },
     {
       "seed": 909,
@@ -77,7 +77,7 @@
       "firms": 2,
       "privateSpend": 0,
       "moneyDelta": -7.782131433486938e-06,
-      "ms": 1009.8999999999069
+      "ms": 1005.1999999997206
     }
   ],
   "cargo_ownership": {
@@ -91,14 +91,14 @@
     "v": {
       "ok": true,
       "issues": [],
-      "total": 15439644,
+      "total": 15421188,
       "population": 169,
       "day": 1
     },
     "after": {
       "ok": true,
       "issues": [],
-      "total": 15439643.999999288,
+      "total": 15421187.999999238,
       "population": 169,
       "day": 31
     },

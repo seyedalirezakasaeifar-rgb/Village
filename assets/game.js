@@ -2696,13 +2696,15 @@ function transitRouting(){
  const signature=topology.routes.map(r=>r.valid&&r.stats?.operating?r.id+':'+r.stats.headway:'').join('|');
  // Geometry and timetable determine routing costs. Day, fares and ridership do not.
  if(transitDailyCache?.town===G&&transitDailyCache.topology===topology&&transitDailyCache.signature===signature){transitDailyCache.service=state.lastDay;return transitDailyCache;}
- const nodes=[],edges=[],roadNodes=new Map(),access=new Map();for(const route of topology.routes){if(!route.valid||!route.stats?.operating)continue;const base=nodes.length;
-  for(let i=0;i<route.stops.length;i++){const road=route.stopRoads[i],id=nodes.length;nodes.push({route:route.id,index:i,road,headway:route.stats.headway,mode:route.mode});edges.push([]);if(!roadNodes.has(road))roadNodes.set(road,[]);roadNodes.get(road).push(id);
+ const nodes=[],edges=[],roadNodes=new Map(),access=new Map(),patterns=new Map();for(const route of topology.routes){if(!route.valid||!route.stats?.operating)continue;const base=nodes.length,patternKey=route.mode+'|'+route.stopRoads.join(',')+'|'+route.offsets.join(',');if(!patterns.has(patternKey))patterns.set(patternKey,patterns.size);const pattern=patterns.get(patternKey);
+  for(let i=0;i<route.stops.length;i++){const road=route.stopRoads[i],id=nodes.length;nodes.push({route:route.id,index:i,road,pattern,headway:route.stats.headway,mode:route.mode});edges.push([]);if(!roadNodes.has(road))roadNodes.set(road,[]);roadNodes.get(road).push(id);
    for(const [walkRoad,distance] of topology.walks.get(road)||[]){if(!access.has(walkRoad))access.set(walkRoad,[]);access.get(walkRoad).push([id,distance]);}
    if(i){const time=(route.offsets[i]-route.offsets[i-1])*TRANSIT_MODES[route.mode].minutes+1;edges[id-1].push([id,time]);edges[id].push([id-1,time]);}}
   route.nodeBase=base;
  }
- for(let i=0;i<nodes.length;i++){const a=nodes[i];for(const [road,distance] of topology.walks.get(a.road)||[])if(distance<=3)for(const j of roadNodes.get(road)||[])if(nodes[j].route!==a.route)edges[i].push([j,distance*2+nodes[j].headway/2+2]);}
+ // A same-stop switch between identical ride patterns adds a wait without a new destination.
+ // Keep cross-stop walks/transfers: these can bridge a real shortcut or another corridor.
+ for(let i=0;i<nodes.length;i++){const a=nodes[i];for(const [road,distance] of topology.walks.get(a.road)||[])if(distance<=3)for(const j of roadNodes.get(road)||[])if(nodes[j].route!==a.route&&(nodes[j].pattern!==a.pattern||nodes[j].index!==a.index))edges[i].push([j,distance*2+nodes[j].headway/2+2]);}
  return transitDailyCache={town:G,topology,signature,service:state.lastDay,nodes,edges,access,homes:new Map(),journeys:new Map(),capacity:new Map()};
 }
 function transitCapacityMask(routing,units){

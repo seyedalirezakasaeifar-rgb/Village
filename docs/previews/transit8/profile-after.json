@@ -136,5 +136,7 @@
       "transitHeapPush @2328",
       0.5
     ]
-  ]
+  ],
+  "source_sha256": "205bf95c5232d3f7dd29545594ebfdaa5ac352fcff3ec387dfe46aaa1e8e1682",
+  "method": "Chromium CDP CPU profiler, 100 microsecond sampling; fixture setup plus five operating days"
 }
