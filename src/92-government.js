@@ -54,7 +54,7 @@ window.__townArchive={
  prepareExit:()=>G?window.__townArchive.suspend():Promise.resolve(true),
  resume:()=>{hostSuspended=false;acc=0;last=performance.now();refreshAmbience();},
  export:()=>archivePayload(),
- restore:text=>{const ok=hydrateSave(text);if(ok){save();$('welcome').style.display='none';dirty=true;staticDirty=true;toast('Town restored with its property, bank, cargo and resident records.');}else toast('Archive rejected. The current town is unchanged.');return ok;},
+ restore:text=>{const ok=hydrateSave(text);if(ok){save();$('welcome').style.display='none';dirty=true;staticDirty=true;toast('Town restored with its property, bank, cargo and resident records.');}else toast(archiveRestoreError(text));return ok;},
  back:()=>{if($('helpDialog').style.display!=='none'){hideHelpDialog();return true;}if(pendingEvent){closeCouncilDialog(true);return true;}if(active){closePanel();return true;}if(buildMode){closeBuildTool();return true;}return false;}
 };
 const originalExport=exportSave,originalImport=importSave;
