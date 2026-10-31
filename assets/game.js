@@ -5737,10 +5737,11 @@ function reviewRegionalProcurement(spec){
  if(!s||!f||f.closed||!m||!owns(m.exports,spec.good)||formulas[f.kind]?.out!==spec.good||!Array.isArray(stages)||stages.length<1||stages.length>2)return fail('Supplier or milestone specification unavailable.');
  if(s.contracts.filter(c=>c.status==='active').length+stages.length>3)return fail('Both milestones require free agreement slots.');
  const q=regionalQuote(f,m,spec.good,'export');if(!q)return fail('No funded freight route.');
+ const depot=logisticsDepots(true).find(d=>d.id===q.depot),futureDailyCapacity=Math.min(120,m.capacity*.85,depot?.capacity||0);
  let previous=G.day,total=0;const existing=s.contracts.filter(c=>c.status==='active').reduce((n,c)=>n+Math.max(0,c.quantity-c.delivered-s.shipments.filter(o=>o.contract===c.id).reduce((a,o)=>a+o.qty,0)),0),reserve=regionalContractReserve(f,spec.good),free=Math.max(0,(f.stock[spec.good]||0)-reserve),production=Math.max(0,f.productionTrend??f.production??0),rows=[];
  for(const t of stages){if(!Number.isInteger(t.quantity)||t.quantity<10||t.quantity>districtContractSize(f)||!Number.isInteger(t.deadline)||t.deadline<=previous||t.deadline>G.day+30)return fail('Invalid milestone quantity or arrival deadline.');
  const days=Math.max(0,t.deadline-previous-q.days-1);total+=t.quantity;
- const physical=Math.max(0,free+production*Math.max(0,t.deadline-G.day-q.days-1)-existing),capacity=Math.max(0,Math.min(120,q.capacity,regionalLoadingLeft())*Math.max(0,t.deadline-G.day-q.days-1)-existing),forecast=Math.floor(Math.max(0,Math.min(physical,capacity,q.freight>0?f.cash/q.freight:physical)));
+ const physical=Math.max(0,free+production*Math.max(0,t.deadline-G.day-q.days-1)-existing),capacity=Math.max(0,futureDailyCapacity*Math.max(0,t.deadline-G.day-q.days-1)-existing),forecast=Math.floor(Math.max(0,Math.min(physical,capacity,q.freight>0?f.cash/q.freight:physical)));
  if(stages.length===2&&(days===0||total>forecast))return fail('The combined milestones exceed shared stock, output, freight cash or handling forecast. Reduce the order or improve capacity.');
  rows.push({quantity:t.quantity,deadline:t.deadline,dispatchFrom:previous,forecast,freight:t.quantity*q.freight});previous=t.deadline;
  }
