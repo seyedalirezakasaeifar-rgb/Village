@@ -1,0 +1,23 @@
+{
+  "source_sha256": "98ab6d44286d2d6300c4533d70e10819a5c102ebfc6e6a09be61b87115883388",
+  "exactCanonical": false,
+  "trafficBefore": 4,
+  "trafficAfter": 0,
+  "differences": [
+    {
+      "path": ".trafficState.vehicles",
+      "beforeLength": 4,
+      "afterLength": 0
+    },
+    {
+      "path": ".regionalTrade",
+      "missingBefore": true,
+      "missingAfter": false
+    },
+    {
+      "path": ".roadMetrics",
+      "beforeType": "dict",
+      "afterType": "NoneType"
+    }
+  ]
+}

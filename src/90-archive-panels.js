@@ -145,7 +145,7 @@ $('helpDialog').addEventListener('keydown',e=>{
 });
 $('scenarioPicker').addEventListener('click',e=>{let b=e.target.closest('[data-scenario]');if(!b)return;chosenScenario=b.dataset.scenario;document.querySelectorAll('[data-scenario]').forEach(v=>v.classList.toggle('chosen',v===b))});
 
-function enterContinuedTown(){centerTownCamera();invalidateRoads();paused=false;speed=SPEED_PRESETS.includes(G.speed)?G.speed:1;acc=0;fit();$('welcome').style.display='none';dirty=true;staticDirty=true;updateHeader();openPanel('overview');}
+function enterContinuedTown(){centerTownCamera();invalidateRoads(false);G.roadMetrics=roadMetrics();paused=false;speed=SPEED_PRESETS.includes(G.speed)?G.speed:1;acc=0;fit();$('welcome').style.display='none';dirty=true;staticDirty=true;updateHeader();openPanel('overview');}
 function legacyRecoveryChoices(){
  const local=localSaveCandidates()[0],indexed=saveCandidates[0];
  if(!local||!indexed||local.format===1||indexed.format===1||local.payload===indexed.payload)return null;
