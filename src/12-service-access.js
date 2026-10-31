@@ -3,7 +3,7 @@
 const serviceAccessCaches=new Map();
 function serviceAccess(kind){
  const standard=CIVIC_STANDARDS[kind],net=graph(),limit=kind==='health'?60:40;
- const facilities=G.buildings.filter(b=>b.kind===standard.building),homes=G.households.map(h=>({id:h.id,home:h.home,residents:h.people.filter(id=>G.people[id]&&!G.people[id].deceased&&!G.people[id].movedAway).length})).filter(h=>h.residents);
+ const facilities=G.buildings.filter(b=>b.kind===standard.building&&isPublicFacility(b)),homes=G.households.map(h=>({id:h.id,home:h.home,residents:h.people.filter(id=>G.people[id]&&!G.people[id].deceased&&!G.people[id].movedAway).length})).filter(h=>h.residents);
  const key=facilities.map(b=>b.id).join(',')+'|'+homes.map(h=>h.id+':'+h.home+':'+h.residents).join(',');
  const old=serviceAccessCaches.get(kind);if(old&&old.town===G&&old.net===net&&old.key===key)return old.result;
  const totalNodes=facilities.length+homes.length+2,sink=totalNodes-1,edges=Array.from({length:totalNodes},()=>[]),homeEdges=[],distances=[],facilityEdges=[],connections=[];

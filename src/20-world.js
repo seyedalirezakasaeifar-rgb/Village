@@ -126,7 +126,7 @@ function createFirm(kind,x,y,setup=false,addFn=null){
  const b=addFn?addFn(kind,x,y):{id:G.nextId++,kind,x,y,value:Math.round(types[kind].cost*10),condition:100,owner:-1,firm:-1,hh:-1};
  if(!addFn){G.tiles[y*T+x]=0;G.buildings.push(b);if(LANDMARK_SIZE[kind]&&!setup)reserveFootprint(b,kind);}
  const f={id:G.firms.length,building:b.id,name:(kind==='grocer'?'Village Stores':kind==='bakery'?'Baker & Sons':types[kind].n)+' '+pick(['& Co.','Ltd.','Works','Trading','of '+pick(['Oakford','Hawthorn','Eastmead'])]),kind,
- cash:Math.round(rn(10000,24000)),stock:{grain:40,flour:40,food:80,logs:30,timber:30,stone:30},jobs:SECTOR_WORKERS[kind]||3,workers:[],wage:Math.round(rn(26,37)),price:rn(4,7),debt:0,revenue:0,expenses:0,profit:0,tax:0,theft:0,age:0,strain:0,history:[],owner:G.households.length?random()*G.households.length|0:-1};
+ cash:Math.round(rn(10000,24000)),stock:['school','fire'].includes(kind)?{}:{grain:40,flour:40,food:80,logs:30,timber:30,stone:30},jobs:SECTOR_WORKERS[kind]||3,workers:[],wage:Math.round(rn(26,37)),price:rn(4,7),debt:0,revenue:0,expenses:0,profit:0,tax:0,theft:0,age:0,strain:0,history:[],owner:G.households.length?random()*G.households.length|0:-1};
  if(G.goodsAccounts)for(const [good,qty] of Object.entries(f.stock))goodsEntry(good,'imports',qty);
  G.firms.push(f);b.firm=f.id;if(!setup)invalidateRoads();return f;
 }
@@ -139,7 +139,7 @@ function assignJobs(){
   if(!workplace||port==null)continue;
   while(f.workers.length<f.jobs&&free.length){let best=-1,score=Infinity;
    for(let i=0;i<free.length;i++){const candidate=free[i],hh=G.households[candidate.hh],home=hh&&readBuild(hh.home);
-    if(!home)continue;const hport=net.portals.get(home.id);if(hport==null||net.parts[hport]!==net.parts[port])continue;
+    if(!home||f.privateService&&!privateQualified(candidate,f))continue;const hport=net.portals.get(home.id);if(hport==null||net.parts[hport]!==net.parts[port])continue;
     const distance=roadDistance(hport,port);
     if(distance>maxJourney&&!hasMetroCommute(home,workplace))continue;
     const mismatch=Math.abs(candidate.skill-.7)*3,rank=distance*.74+mismatch+candidate.id*.00001;

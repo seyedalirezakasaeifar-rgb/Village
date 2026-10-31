@@ -114,11 +114,11 @@ function completeDevelopmentProjects(){
    completeAirfield(b,p);
   }else if(p.kind==='firm'){
    b.kind=p.firmKind;b.value=types[b.kind].cost*10;
-   const capital=Math.min(p.capital,Math.max(0,G.region-1000));
-   const fee=Math.min(G.policy.permitFee,Math.max(0,G.region-capital));
-   G.region-=capital+fee;
+   const capital=p.privateService?Math.max(0,p.serviceEscrow||0):Math.min(p.capital,Math.max(0,G.region-1000));
+   const fee=Math.min(G.policy.permitFee,Math.max(0,G.region-(p.privateService?0:capital)));
+   G.region-=(p.privateService?0:capital)+fee;
    const f=createFirm(b.kind,b.x,b.y,true,()=>b);
-   f.cash=capital;transferTreasury(fee,'permits');
+   f.cash=capital;if(p.privateService){f.privateService=p.privateService;f.serviceFee=p.serviceFee;f.wage=Math.max(G.policy.minWage,36);f.name=p.privateService==='school'?'Independent Learning House '+f.id:'Mutual Fire Brigade '+f.id;b.title={kind:'firm',id:f.id};b.owner=f.owner;}transferTreasury(fee,'permits');
    if(G.policy.lendingRules<70&&(G.stats.marketConfidence||50)>48&&G.day%3===0){const loan=bankLoan('firm',f.id,Math.round(Math.min(2400,capital*.17)),480);if(loan)f.jobs=Math.min(18,f.jobs+1)}
    G.development.firms++;
    story('New private enterprise completed: '+f.name+' opened its doors.','good',b.id);

@@ -3,7 +3,7 @@ function municipalProcurement(){
  if(G.day%30!==0||G.projects.some(p=>p.kind==='public'))return;
  const services=[['school',260,G.policy.educationBudget],['clinic',350,G.policy.healthBudget],['police',400,G.policy.policeBudget],['fire',450,G.policy.defenseBudget]];
  for(const [kind,capacity,budget] of services){
-  const count=G.buildings.filter(b=>b.kind===kind).length;
+  const count=G.buildings.filter(b=>b.kind===kind&&isPublicFacility(b)).length;
   if(G.stats.population<=count*capacity||budget<60)continue;
   const cost=buildCost[kind],programmes=['policeBudget','defenseBudget','educationBudget','healthBudget','aidBudget','roadBudget'].reduce((n,k)=>n+G.policy[k],0);
   if(G.treasury<cost+programmes*45)continue;

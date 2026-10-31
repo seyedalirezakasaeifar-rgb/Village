@@ -18,9 +18,9 @@ function civicTrainingDay(coverage){
  if(G.civicTrainingLastDay===G.day)return;G.civicTrainingLastDay=G.day;
  if(!G.civicTraining)G.civicTraining=[];
  G.civicTraining=G.civicTraining.filter(c=>{const p=G.people[c.person];return p&&!p.deceased&&!p.movedAway&&p.age>=18&&p.age<=70;});
- const places=G.buildings.filter(b=>b.kind==='school').length*2;
+ const places=G.buildings.filter(b=>b.kind==='school'&&isPublicFacility(b)).length*2;
  if(coverage>0&&G.serviceProvision?.school?.paid>0){
-  for(const course of G.civicTraining.slice(0,places)){course.days+=localCivicCoverage('school',G.people[course.person].hh);if(course.days>=120){const p=G.people[course.person];p.skill=Math.min(1.3,p.skill+.1);course.complete=true;G.civicTrainingCompletions=(G.civicTrainingCompletions||0)+1;story(p.name+' completed a funded adult-training term. Qualification grows through sustained teaching, not an instant grant.','good',0,p.hh);}}
+  for(const course of G.civicTraining.slice(0,places)){course.days+=publicCivicCoverage('school',G.people[course.person].hh);if(course.days>=120){const p=G.people[course.person];p.skill=Math.min(1.3,p.skill+.1);course.complete=true;G.civicTrainingCompletions=(G.civicTrainingCompletions||0)+1;story(p.name+' completed a funded adult-training term. Qualification grows through sustained teaching, not an instant grant.','good',0,p.hh);}}
   G.civicTraining=G.civicTraining.filter(c=>!c.complete);
   const enrolled=new Set(G.civicTraining.map(c=>c.person));
   const access=serviceAccess('school'),reachable=new Set(access.households.filter(h=>h.served>0).map(h=>h.id));

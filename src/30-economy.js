@@ -1,5 +1,5 @@
 function dailyEconomy(){
- ensureMarketModel();marketOpen=true;const P=G.policy,live=G.firms.filter(f=>!f.closed),counts={};
+ ensureMarketModel();recruitPrivateServiceStaff();marketOpen=true;const P=G.policy,live=G.firms.filter(f=>!f.closed),counts={};
  for(const f of live)counts[f.kind]=(counts[f.kind]||0)+1;
  for(const f of G.firms){f.revenue=f.pendingRevenue||0;f.pendingRevenue=0;f.expenses=f.pendingFreightExpense||0;f.pendingFreightExpense=0;f.debtDue=0;f.cogs=f.pendingCogs||0;f.pendingCogs=0;f.purchases=0;f.payroll=0;f.nonSalesIncome=0;f.recoveries=0;f.salesQty=f.pendingSalesQty||0;f.pendingSalesQty=0;f.production=0;f.profit=0;f.tax=0;f.age++;}
  for(const p of G.people){p.previousPublicRole=p.publicWork?(p.publicRole||''):'';p.publicRole='';p.publicWork=false;p.publicIncome=0;p.commuteBlocked=false;}
@@ -95,6 +95,7 @@ function dailyEconomy(){
  if(P.propertyTax>0)for(const b of G.buildings.filter(b=>['home','apartment','tower'].includes(b.kind))){const owner=b.owner===-2?propertyInvestor():G.households[b.owner];if(!owner)continue;const pay=Math.min(owner.cash,b.value*P.propertyTax/100/360);owner.cash-=pay;owner.propertyPaid=(owner.propertyPaid||0)+pay;transferTreasury(pay,'propertyTax');}
  const poor=living.slice().sort((a,b)=>a.cash/a.people.length-b.cash/b.people.length);
  for(const [budgetKey,limit] of [['aidBudget',30],['energyAidBudget',8]]){let left=Math.min(P[budgetKey]||0,G.treasury);for(const h of poor){if(left<.01||h.cash/h.people.length>300)break;const amount=Math.min(left,limit);h.cash+=amount;h.aid+=amount;G.treasury-=amount;left-=amount;G.cumulative.welfare+=amount;G.cumulative.spending+=amount;}}
+ privateServiceDay();
  for(const h of living){const workers=h.people.some(id=>(G.people[id]?.job>=0&&!G.people[id]?.commuteBlocked)||G.people[id]?.publicWork);h.worklessness=workers?0:(h.worklessness||0)+1;h.stress=clamp(h.stress+(h.cash<h.people.length*50?.12:workers?-.06:.02),0,100);}
  const foodPrice=grocers.length?grocers.reduce((a,f)=>a+f.price,0)/grocers.length:G.market.baseFoodPrice,previous=G.market.cpi;
  G.market.cpi=100*(.55*foodPrice/G.market.baseFoodPrice+.25*(G.housingMarket?.rentIndex||1)+.20);G.market.inflation=(G.market.cpi/Math.max(1,previous)-1)*360*100;
@@ -113,7 +114,7 @@ function finalizeMarketBooks(){
  updateCreditObservations();marketOpen=false;
 }
 function policePower(){const b=G.buildings.filter(b=>b.kind==='police').length,court=G.buildings.filter(b=>b.kind==='courthouse').length;const funded=G.actualServiceFunding?.police??1;return clamp(.035+funded*((G.policy.policeBudget/(G.stats.population*.7+1))*.48 + b*.10+court*.05),.035,.95)}
-function defensePower(){const b=G.buildings.filter(b=>b.kind==='fire').length;const funded=G.actualServiceFunding?.fire??1;return clamp(.025+funded*((G.policy.defenseBudget/(G.stats.population*.65+1))*.50+b*.1),.025,.96)}
+function defensePower(){const b=G.buildings.filter(b=>b.kind==='fire'&&isPublicFacility(b)).length;const funded=G.actualServiceFunding?.fire??1;return clamp(.025+funded*((G.policy.defenseBudget/(G.stats.population*.65+1))*.50+b*.1),.025,.96)}
 function incidents(){
  const unemployment=1-G.people.filter(p=>!p.deceased&&p.movedAway!==true&&p.age>=16&&p.age<=70&&((p.job>=0&&!p.commuteBlocked)||p.publicWork)).length/Math.max(1,G.people.filter(p=>!p.deceased&&p.movedAway!==true&&p.age>=16&&p.age<=70).length);
  const residentHouseholds=G.households.filter(h=>h.people.length>0);
@@ -130,7 +131,7 @@ function incidents(){
       G.cases.unshift(item);G.cases.length=Math.min(G.cases.length,100);emergencyDispatch(b,'police');G.cumulative.crime+=1;story(item.text,'bad',b.id,hid);
     }
  }
- if(random()<.025*G.stats.population/300){const b=pick(G.buildings.filter(b=>b.kind!=='road'));if(b){const station=closestRoadBuilding(b.x,b.y,'fire');const distance=station?roadServiceDistance(b,station):80;const localResponse=clamp(1-distance/58,0,1)*defensePower();let damage=rn(1,16)*(1-localResponse*.78);emergencyDispatch(b,'fire');
+ if(random()<.025*G.stats.population/300){const b=pick(G.buildings.filter(b=>b.kind!=='road'));if(b){const localResponse=Math.max(publicFireResponse(b),privateFireResponse(b));let damage=rn(1,16)*(1-localResponse*.78);emergencyDispatch(b,'fire');
      b.condition=clamp(b.condition-damage,0,100);G.cumulative.fires++;
      const recovery=Math.max(0,damage)*b.value/2500;let owner=b.kind==='home'?G.households[b.owner]:G.firms[b.firm];
      if(owner&&owner.cash){let paid=Math.min(owner.cash,recovery);owner.cash-=paid;if(b.kind==='home')owner.propertyMaintenance=(owner.propertyMaintenance||0)+paid;else owner.expenses=(owner.expenses||0)+paid;G.region+=paid;b.condition=clamp(b.condition+paid*2500/b.value,0,100)}

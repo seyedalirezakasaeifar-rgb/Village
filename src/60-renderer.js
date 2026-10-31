@@ -126,7 +126,7 @@ function beginVehicle(source=null,target=null,emergency=false){
  let style=emergency?'emergency':from.kind==='farm'?'tractor':visualRandom()<.28?'pedestrian':visualRandom()<.48?'truck':'car';let v={id:++vehicleSerial,path,segment:0,fraction:0,speed:emergency?4.3:style==='pedestrian'?.53:style==='tractor'?.68:1+visualRandom()*.4,style,color,emergency,wait:0,age:0,from:from.id,to:to.id};traffic.push(v);return v;
 }
 function roadServiceDistance(site,station){if(!site||!station)return Infinity;const net=graph(),a=net.portals.get(site.id),b=net.portals.get(station.id);if(a==null||b==null||net.parts[a]!==net.parts[b])return Infinity;return roadDistance(a,b);}
-function closestRoadBuilding(x,y,kind){const net=graph(),site=buildingAt(x,y);if(!site)return null;let best=null,d=Infinity;for(const b of net.connected){if(kind&&b.kind!==kind)continue;const distance=roadServiceDistance(site,b);if(distance<d){best=b;d=distance}}return best}
+function closestRoadBuilding(x,y,kind){const net=graph(),site=buildingAt(x,y);if(!site)return null;let best=null,d=Infinity;for(const b of net.connected){if(kind&&b.kind!==kind)continue;if(b.firm>=0&&G.firms[b.firm]?.privateService&&(G.firms[b.firm].closed||!(G.firms[b.firm].serviceCapacity>0)))continue;const distance=roadServiceDistance(site,b);if(distance<d){best=b;d=distance}}return best}
 function emergencyDispatch(site,kind){if(!site)return;const service=closestRoadBuilding(site.x,site.y,kind);if(service){const v=beginVehicle(service,site,true);if(v){v.speed=5.5;return}}}
 let trafficElapsed=0,intersectionGates=new Map();
 function trafficUpdate(dt){

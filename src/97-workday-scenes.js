@@ -7,7 +7,7 @@ function workdayScenes(items){
   if(f&&!f.closed&&workingStaff(f).length&&f.production>0){if(['mill','sawmill','factory'].includes(b.kind))scene='machinery';else if(['farm','fishery','forestry'].includes(b.kind))scene='harvest';}
   if(f&&!f.closed&&b.kind==='wharf'&&workingStaff(f).length&&(f.cargoToday||0)>0)scene='loading';
   if(b.kind==='clinic'&&G.serviceProvision?.health?.paid>0&&G.serviceProvision.health.coverage>0)scene='care';
-  if(b.kind==='school'&&G.serviceProvision?.school?.paid>0&&G.serviceProvision.school.coverage>0)scene='teaching';
+  if(b.kind==='school'&&(f?.privateService==='school'?!f.closed&&(f.clientsToday||0)>0:G.serviceProvision?.school?.paid>0&&G.serviceProvision.school.coverage>0))scene='teaching';
   if(b.kind==='worksite'||b.redevelopment){const p=G.projects.find(p=>p.id===b.id);if(p&&!p.reason&&p.remaining>0)scene='construction';}
   if(!scene)continue;const front=point(item.w*.10,item.d*.48,0),portal=graph().portals.get(b.id),road=portal==null?null:roadCenter(portal);const x=road&&road[1]>=item.y?item.x*.35+road[0]*.65:item.x+front[0],y=road&&road[1]>=item.y?item.y*.35+road[1]*.65:item.y+front[1];scenes.push({kind:'workday',scene,b,f,x,y,dx:1,dy:.5});
  }

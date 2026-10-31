@@ -3,7 +3,7 @@ function policyNumber(value){return Number(value||0).toLocaleString('en-CA',{max
 // A stock-flow consistent operating model. Inventory purchases are assets;
 // cost of goods becomes expense when sold, rather than when a warehouse fills.
 function householdLiquidity(h){return h.cash+Object.values(h.deposits||{}).reduce((n,v)=>n+Math.max(0,v),0);}
-const SECTOR_WORKERS={farm:4,fishery:3,wharf:2,mill:3,bakery:3,grocer:2,forestry:3,sawmill:3,quarry:3,contractor:4,tavern:3,factory:7,warehouse:4,office:6,college:5,airport:6};
+const SECTOR_WORKERS={school:2,fire:2,farm:4,fishery:3,wharf:2,mill:3,bakery:3,grocer:2,forestry:3,sawmill:3,quarry:3,contractor:4,tavern:3,factory:7,warehouse:4,office:6,college:5,airport:6};
 function ensureMarketModel(){
  if(!G.market)G.market={version:2,cpi:100,inflation:0,baseFoodPrice:5.2,unmetFood:0,consumedFood:0,externalSales:0,imports:0,privateRestartCapital:0};
  G.market.version=2;for(const p of G.people)if(p.age>70&&p.job>=0){p.job=-1;p.retired=true;}
@@ -33,7 +33,7 @@ function takeInventory(f,good,qty,sold=false){
 }
 function marketOutputPrice(f,good){return f.ask?.[good]||marketPrice(good);}
 function planEnterprise(f){
- if(f.closed)return;
+ if(f.closed)return;if(f.privateService){planPrivateService(f);return;}
  const wage=workerIncome(f),base=SECTOR_WORKERS[f.kind]||4,recipe=formulas[f.kind]?.out?formulas[f.kind]:null;
  if(f.kind==='grocer'){const target=foodRetailTarget(f);f.price=f.age<3?target:f.price*.93+target*.07;}
  if(recipe){
@@ -77,7 +77,7 @@ function fundedPublicPayroll(amount,share=.65,eligible=null,role=''){
 // remaining purchases pay regional staff/suppliers, including when locals work.
 const CIVIC_STANDARDS={health:{building:'clinic',capacity:350,staff:5},school:{building:'school',capacity:260,staff:10}};
 function purchaseCivicService(kind,authorized){
- const standard=CIVIC_STANDARDS[kind],population=Math.max(0,G.stats.population),facilities=G.buildings.filter(b=>b.kind===standard.building).length;
+ const standard=CIVIC_STANDARDS[kind],population=Math.max(0,G.stats.population),facilities=G.buildings.filter(b=>b.kind===standard.building&&isPublicFacility(b)).length;
  const wage=Math.max(24,G.policy.minWage),required=population*standard.staff/standard.capacity*wage/.65;
  const facilityCoverage=population?Math.min(1,facilities*standard.capacity/population):0;
  const access=serviceAccess(kind),staffing=civicStaffCapacity(kind,authorized,access),requested=Math.min(Math.max(0,authorized),required*Math.min(access.coverage,staffing.coverage)),paid=requested*fundedPublicPayroll(requested,.65,p=>qualifiedForService(p,kind)&&civicCandidateSets.get(kind).has(p.id),kind);
@@ -91,7 +91,7 @@ function restartViableEnterprise(){
  const open=G.firms.filter(f=>!f.closed),population=G.stats.population;
  const desired={grocer:Math.ceil(population/100),farm:Math.ceil(population/100),mill:Math.ceil(population/220),bakery:Math.ceil(population/140),office:Math.ceil(population/120),factory:Math.ceil(population/240),contractor:Math.ceil(population/180),tavern:Math.ceil(population/160),forestry:1,sawmill:1,quarry:1,warehouse:Math.ceil(population/300)};
  const counts={};for(const f of open)counts[f.kind]=(counts[f.kind]||0)+1;
- for(const f of G.firms){if(!f.closed||!readBuild(f.building)||G.day-(f.closedDay||0)<120||(counts[f.kind]||0)>=(desired[f.kind]||1))continue;
+ for(const f of G.firms){if(f.privateService||!f.closed||!readBuild(f.building)||G.day-(f.closedDay||0)<120||(counts[f.kind]||0)>=(desired[f.kind]||1))continue;
   // An investment must clear a return hurdle and afford the actual legal payroll.
   const base=SECTOR_WORKERS[f.kind]||3,wage=Math.max(G.policy.minWage,28),recipe=formulas[f.kind]?.out?formulas[f.kind]:null;
   const perWorkerRevenue=recipe?recipe.qty/base*marketPrice(recipe.out)-(recipe.amount||0)/base*marketPrice(recipe.inp):f.kind==='grocer'?65*(foodRetailTarget({...f,jobs:2})-marketPrice('food')):48;
