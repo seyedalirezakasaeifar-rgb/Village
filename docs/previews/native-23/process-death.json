@@ -1,0 +1,30 @@
+{
+  "outcome": "FAIL",
+  "source_sha256": "bfe43741326367358e50bc5b7180b2dee5ec080133eefb002c5669dce02dab97",
+  "serial": "emulator-5556",
+  "input": "CDP trusted browser events; not physical touch",
+  "clock_control": "public host suspend bridge holds simulation around Continue to isolate persistence",
+  "physical_device": false,
+  "installed_apk_sha256": "a12972a478fd868bc9d11ee6e3e963214e0d91eb48515937b8ca918e3f7ed11c",
+  "stage": "Continue completed",
+  "initial_pid": "4486",
+  "old_pid": "4486",
+  "background_pid": "4486",
+  "process_gone": true,
+  "relaunched_pid": "4654",
+  "new_pid": "4654",
+  "actual_process_changed": true,
+  "before_sha256": "2577c32b8a6296f1c50e632a2a8ebeb2d446749cf43d1a39812973d7b61852ae",
+  "after_sha256": "1d0cb35b08c009346e7c148abd20ad57da6463bd1d7b37a166896453b7cd9e96",
+  "before_day": 1,
+  "after_day": 1,
+  "before_people": 169,
+  "after_people": 169,
+  "different_top_level_fields": [
+    "buildings",
+    "firms",
+    "recentCouncilEvents",
+    "stats"
+  ],
+  "error": "AssertionError('Recovered state differs; see hashes and differing fields (payloads not retained)')"
+}

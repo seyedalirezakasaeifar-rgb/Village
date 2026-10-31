@@ -1,0 +1,13 @@
+INSTRUMENTATION_STATUS: progress=Production bridge launched actual DocumentsUI create-document activity
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: progress=Actual DocumentsUI Save selection completed production export and resumed host
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: progress=Actual DocumentsUI Open selection imported exact Unicode bytes from the exported synthetic document
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: progress=Successful system document roundtrip leaves host resumed and archive request idle
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_RESULT: checks=[Production bridge launched actual DocumentsUI create-document activity, Actual DocumentsUI Save selection completed production export and resumed host, Actual DocumentsUI Open selection imported exact Unicode bytes from the exported synthetic document, Successful system document roundtrip leaves host resumed and archive request idle]
+INSTRUMENTATION_RESULT: outcome=PASS
+INSTRUMENTATION_RESULT: selectionMethod=document row accessibility click
+INSTRUMENTATION_RESULT: syntheticFilename=TownLedger-QA-1564977.json
+INSTRUMENTATION_CODE: -1
