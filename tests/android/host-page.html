@@ -1,0 +1,4 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head><body><h1>Private native host recovery checks</h1><p>This fixture is not the game.</p><script>
+window.qaMode='handled';window.qaResumes=0;
+window.__townArchive={back:function(){return qaMode==='handled'},suspend:function(){return Promise.resolve(true)},resume:function(){qaResumes++},prepareExit:function(){if(qaMode==='hung')return new Promise(function(){});return Promise.resolve(qaMode==='saved')}};
+</script></body></html>
