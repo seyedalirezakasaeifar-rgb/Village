@@ -1,3 +1,32 @@
+// Imported legacy occupants are history, not additional housing capacity.
+function normalizeArchiveTenancies(data){
+ if(data.tenancyVersion!=null&&data.tenancyVersion!==1)return false;
+ const legacy=data.tenancyVersion==null,shared=[],retired=[];
+ for(const b of data.buildings){
+  const capacity=housingUnitCapacity(b),occupants=residentHouseholdsAt(b,data),ids=occupants.map(h=>h.id).sort((a,c)=>a-c),roster=b.legacySharedTenants;
+  if(roster!=null&&(!capacity||!Array.isArray(roster)||!roster.length||roster.length>data.households.length||roster.some((id,i)=>!Number.isSafeInteger(id)||!data.households[id]||i&&id<=roster[i-1])))return false;
+  if(!capacity)continue;
+  if(ids.length>capacity){
+   if(!legacy&&(!roster||ids.some(id=>!roster.includes(id))))return false;
+   if(legacy){if(roster&&ids.some(id=>!roster.includes(id)))return false;b.legacySharedTenants=ids;shared.push(b.id);}
+  }
+  if(b.relocationReserve&&ids.length){
+   if(!legacy||b.kind!=='home'||b.municipalRehousing!==true||b.owner!==-1||b.title?.kind!=='municipal')return false;
+   b.relocationReserve=false;retired.push(b.id);
+  }
+  pruneLegacySharedTenants(b,data);
+  b.hh=ids.length?ids[0]:-1;if(b.kind!=='home')b.units=ids;
+ }
+ data.tenancyVersion=1;
+ if(legacy&&(shared.length||retired.length)){
+  data.tenancyMigration={version:1,shared:shared.sort((a,b)=>a-b),retiredReservations:retired.sort((a,b)=>a-b)};
+  if(!Array.isArray(data.events))data.events=[];
+  data.events.push({day:data.day,text:'Archive migration retained '+shared.length+' inherited shared dwellings without adding capacity and retired '+retired.length+' obsolete occupied municipal reservations. Every resident, home assignment, balance and property title was preserved.',type:'neutral'});
+ }
+ const report=data.tenancyMigration;
+ if(report!=null&&(!report||report.version!==1||!['shared','retiredReservations'].every(k=>Array.isArray(report[k])&&report[k].length<=3000&&report[k].every((id,i)=>Number.isSafeInteger(id)&&id>0&&(!i||id>report[k][i-1])))))return false;
+ return true;
+}
 // Validate financial and identity records before adopting a candidate. Building IDs
 // are stable identifiers, never array offsets or atlas tile indexes.
 function validateArchiveRecords(data){
@@ -37,6 +66,7 @@ function hydrateSave(raw){
    if(idSet.has(b.id))return false;idSet.add(b.id);
   }
   for(const h of data.households)for(const id of h.people){if(memberSet.has(id)||data.people[id].hh!==h.id||data.people[id].deceased||data.people[id].movedAway)return false;memberSet.add(id)}
+  if(!normalizeArchiveTenancies(data))return false;
   if(!validateUrbanRetailLabour(data)||!validateArchiveRecords(data)||!validatePublicPlaces(data)||!validateTownSituations(data)||!validateCivicCampaign(data)||!validateUrbanRehousing(data)||!validateUrban(data)||!validateCivicProjects(data)||!validateMayorJourney(data)||!validatePrivateServices(data)||!validateDistrictProgrammes(data)||!validateRegionalTrade(data)||!validateWaterfrontArchive(data)||!validateGoodsAccounting(data))return false;
   if(!validateTransit(data)||!validateCivicState(data)||!validateCreditState(data)||!validateScenarioProgramme(data)||!validateCharter(data))return false;
   data.version=3;data.policy={...defaults,...data.policy};
