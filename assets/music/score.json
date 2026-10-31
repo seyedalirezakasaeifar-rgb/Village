@@ -1,0 +1,33 @@
+{
+  "original": true,
+  "license": "CC0-1.0",
+  "tracks": [
+    {
+      "file": "morning-ledger.ogg",
+      "title": "Morning Ledger",
+      "bpm": 78,
+      "seconds": 201.92307692307693,
+      "sha256": "7d4757811e18762e1ca6d34a21480159af87a4a729d3199657343cec670f35c7",
+      "rms": 0.039730191230773926,
+      "peak": 0.1796487271785736
+    },
+    {
+      "file": "river-and-road.ogg",
+      "title": "River And Road",
+      "bpm": 92,
+      "seconds": 171.95652173913044,
+      "sha256": "838a9c6877a4a5253b4861b9cf8db88a72e3e5c29760d6cae360d776b96883f8",
+      "rms": 0.03875589370727539,
+      "peak": 0.17904743552207947
+    },
+    {
+      "file": "lamplit-windows.ogg",
+      "title": "Lamplit Windows",
+      "bpm": 70,
+      "seconds": 224.42857142857142,
+      "sha256": "9a9b21c3deb9bd972e7b997d6d6d42446a3e2d7da479090090e7899ff872c986",
+      "rms": 0.040101367980241776,
+      "peak": 0.17624618113040924
+    }
+  ]
+}
