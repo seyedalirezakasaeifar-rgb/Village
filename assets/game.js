@@ -3541,6 +3541,7 @@ function copyCooperativeState(value){
 }
 // Experimental scheduler. Never persisted or enabled by an ordinary founding/load.
 const COOPERATIVE_DAY_DEFAULT=false;
+const COOPERATIVE_BETWEEN_FRAME_ADMISSION=false;
 let cooperativeEnabled=COOPERATIVE_DAY_DEFAULT,cooperativeJob=null,cooperativeToken=0,cooperativeReplaying=false;
 const cooperativeEffects=new Map(),cooperativeCommands=[],cooperativeSamples={slices:[],days:[],commands:[],errors:[]};
 const cooperativeChannel=new MessageChannel();
@@ -3577,7 +3578,7 @@ function cooperativeCommit(job){
  if(typeof cooperativeClockCommit==='function')cooperativeClockCommit(job.cpu);cooperativeClearPreview();cooperativeBanner();
  for(const fn of cooperativeEffects.values())try{fn();}catch(e){console.error(e);}cooperativeEffects.clear();
  cooperativeFlushCommands();for(const w of job.waiters){try{w.resolve(w.town===G?w.fn():false);}catch(e){w.reject(e);}}
- if(cooperativeEnabled)cooperativeChannel.port2.postMessage({admit:cooperativeToken});
+ if(cooperativeEnabled&&COOPERATIVE_BETWEEN_FRAME_ADMISSION)cooperativeChannel.port2.postMessage({admit:cooperativeToken});
 }
 function cooperativeFail(job,error){
  cooperativeJob=null;simulationBusy=job.previousBusy;cooperativeToken++;G=job.snapshot;rngState=job.rng;marketOpen=job.transients.marketOpen;crewDay=job.transients.crewDay;crewsUsed=job.transients.crewsUsed;regionalCrews=job.transients.regionalCrews;transitReservationVersion=job.transients.transitReservationVersion;restoreTransport();trafficClock=job.transients.trafficClock;migrationReportOwner=job.transients.migrationOwned?G:null;migrationRecent=job.transients.migrationRecent;migrationObservedDay=job.transients.migrationObservedDay;migrationSessionCounts=job.transients.migrationSessionCounts;civicCandidateSets.clear();for(const [k,v]of job.transients.civicCandidates)civicCandidateSets.set(k,v);roadsVersion++;roadNetwork=null;transitTopologyCache=null;transitDailyCache=null;cacheBuildingsFor=null;staticDirty=true;dirty=true;paused=true;acc=0;cooperativeEnabled=false;

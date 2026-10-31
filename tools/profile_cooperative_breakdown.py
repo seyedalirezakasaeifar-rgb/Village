@@ -31,8 +31,9 @@ def summary(values):
 with sync_playwright() as pw:
  b=pw.chromium.launch(executable_path='/usr/bin/chromium',args=['--no-sandbox'])
  json_source=source.replace('snapshot=copyCooperativeState({...G,','snapshot=JSON.stringify({...G,').replace('G=job.snapshot;','G=JSON.parse(job.snapshot);').replace('G=copyCooperativeState(cooperativeJob.snapshot);','G=JSON.parse(cooperativeJob.snapshot);')
- raf_source=source.replace('if(cooperativeEnabled)cooperativeChannel.port2.postMessage({admit:cooperativeToken});','void 0;')
- for variant,enabled,case_source in [('synchronous',False,source),('cooperative-copy-raf',True,raf_source),('cooperative-json',True,json_source),('cooperative-copy',True,source)]:
+ raf_source=source
+ admit_source=source.replace('const COOPERATIVE_BETWEEN_FRAME_ADMISSION=false;','const COOPERATIVE_BETWEEN_FRAME_ADMISSION=true;')
+ for variant,enabled,case_source in [('synchronous',False,source),('cooperative-copy-raf',True,raf_source),('cooperative-json',True,json_source),('cooperative-copy-admission',True,admit_source)]:
   p=b.new_page(viewport={'width':844,'height':390},has_touch=True);errors=[];p.on('pageerror',lambda e:errors.append(str(e)));p.route('**/game.js',lambda route:route.fulfill(content_type='application/javascript',body=case_source.replace('// SOURCE: 05-systems.js',measure+'\n// SOURCE: 05-systems.js').replace('// SOURCE: 99-instrumentation.js',fixture+'\n'+probe+'\n'+extra+'\n// SOURCE: 99-instrumentation.js')));p.goto(f'http://127.0.0.1:{server.server_port}/index.html');p.locator('#newTown').click();p.locator('#pause').click();assert p.evaluate('s=>__townTest.load(s)',late);p.evaluate('()=>{paused=true;hostSuspended=false;}');p.evaluate('(on)=>__cooperativeSimulation.enable(on)',enabled);p.locator('#panelClose').click();p.locator('#speedRange').fill('6');p.locator('#pause').click();p.evaluate('()=>{window.__cooperativeProfileRun=__cooperativeProfile.run();}')
   for i in range(16):
    p.wait_for_timeout(550);p.locator('#mapStatusToggle').tap()
