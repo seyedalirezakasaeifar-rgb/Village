@@ -1,0 +1,40 @@
+{
+  "source_sha256": "5b6254e8159fcd77dc1d216e0e407e66408563365599ad7281eded0c3717b907",
+  "styles": {
+    "civic7.css": "9f312ee6465076207d4bfeb01996f755b59a125df8a7d16b47592713549d511e",
+    "style.css": "e666e2db01e419d7a65bb7050fb63f4c70a0d58348bdffa4ea7a54fbd8a67015",
+    "vale.css": "6aaa9781eb11e5b0d205a720451d3fbc5384b92fb783e457d5d33f4a94be9bb9"
+  },
+  "images": {
+    "waterfront-evening.png": "cf471b5bf2b00a6fa0170c0491d58f3db437ab419a7bb54a2b947faef1c81b12",
+    "waterfront-day.png": "ca942296630267ea1ddc14c747933b45e3e947c58992b3b89ab097b2f160addd"
+  },
+  "actual_control_journey": {
+    "httpOrigin": true,
+    "source_sha256": "5b6254e8159fcd77dc1d216e0e407e66408563365599ad7281eded0c3717b907",
+    "day": 184,
+    "roadTilesPainted": 24,
+    "newFisheryCrew": 2,
+    "newWharfCrew": 1,
+    "newWharfCargo": 36.173582392227374,
+    "newWharfProfit": -29.12430842744393,
+    "householdUtilityConnected": true,
+    "careBeforeFunding": 0.4,
+    "careCoverage": 0.9835164835164834,
+    "careStaffing": {
+      "local": 1,
+      "regional": 1.557142857142857,
+      "needed": 2.6,
+      "coverage": 0.9835164835164834,
+      "pending": {
+        "target": 1.6,
+        "day": 214
+      },
+      "qualification": 0.7
+    },
+    "treasury": 55904.402670894466,
+    "cashDrift": -3.505498170852661e-06,
+    "roundTrip": true
+  },
+  "note": "Actual HTTP-origin Chromium screenshots, model paused; native performance/touch not certified"
+}
