@@ -12,16 +12,18 @@ gates=['test_save_chronology.py','test_save_storage.py','test_older_webview_layo
 manifest={'version':meta['version'],'source_sha256':source,'assets':asset_hashes,'gates':[]}
 for name in gates:
  assert digest(ROOT/'assets/game.js')==source,'Source changed before '+name
+ script_hash=digest(ROOT/'tests'/name)
  log=out/(name+'.log')
  with log.open('w') as stream:
   result=subprocess.run([sys.executable,'tests/'+name],cwd=ROOT,env=env,stdout=stream,stderr=subprocess.STDOUT)
  assert all(digest(ROOT/path)==sha for path,sha in asset_hashes.items()),'Assets changed during '+name
- manifest['gates'].append({'script':name,'exit_code':result.returncode,'source_sha256':source,'log_sha256':digest(log)})
+ assert digest(ROOT/'tests'/name)==script_hash,'Test changed during '+name
+ manifest['gates'].append({'script':name,'script_sha256':script_hash,'exit_code':result.returncode,'source_sha256':source,'log_sha256':digest(log)})
  (out/'candidate-gates.json').write_text(json.dumps(manifest,indent=2)+'\n')
  print(name,result.returncode,flush=True)
  if result.returncode:raise SystemExit(result.returncode)
 subprocess.run([sys.executable,'tools/build_android.py'],cwd=ROOT,env=env,check=True)
-assert digest(ROOT/'assets/game.js')==source,'Build changed verified source'
+assert all(digest(ROOT/path)==sha for path,sha in asset_hashes.items()),'Build changed verified assets'
 subprocess.run([sys.executable,'tests/verify_package.py'],cwd=ROOT,env=env,check=True)
 manifest['android']=json.loads((ROOT/'reports/android-build.json').read_text())
 manifest['package_assets_verified']=True

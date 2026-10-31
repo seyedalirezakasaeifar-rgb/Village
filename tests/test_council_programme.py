@@ -12,8 +12,10 @@ window.__programmeProbe=()=>{const original=G,originalMetrics=programmeMetrics;t
  }finally{G=original;programmeMetrics=originalMetrics;}};
 window.__transientProbe=()=>{toast('Message from a different town');showCustomEvent('TEST','Old decision','Do not apply to the next town',[{title:'Continue',apply:()=>{}}]);};
 // SOURCE: 99-instrumentation.js''')
+# This originless programme fixture uses successful in-memory local storage;
+# denied-store warning behavior is covered by test_save_chronology.py.
 with sync_playwright() as pw:
- b=pw.chromium.launch(executable_path='/usr/bin/chromium',args=['--no-sandbox']);p=b.new_page(viewport={'width':844,'height':390});errors=[];p.on('pageerror',lambda e:errors.append(str(e)));p.set_content(html);p.add_script_tag(content=script);p.locator('#newTown').click();p.locator('#pause').click();rows=p.evaluate('__programmeProbe()');assert len(rows)==5
+ b=pw.chromium.launch(executable_path='/usr/bin/chromium',args=['--no-sandbox']);p=b.new_page(viewport={'width':844,'height':390});errors=[];p.on('pageerror',lambda e:errors.append(str(e)));p.set_content(html);p.add_script_tag(content="const fixtureStore=new Map();Object.defineProperty(window,'localStorage',{value:{getItem:k=>fixtureStore.get(k)??null,setItem:(k,v)=>fixtureStore.set(k,String(v)),removeItem:k=>fixtureStore.delete(k)}})");p.add_script_tag(content=script);p.locator('#newTown').click();p.locator('#pause').click();rows=p.evaluate('__programmeProbe()');assert len(rows)==5
  p.evaluate('__transientProbe();__townTest.reset("settlement",42)');assert not p.locator('#toast').is_visible() and not p.locator('#eventDialog').is_visible();p.evaluate('__townTest.step(90)');passive=json.loads(p.evaluate('__townTest.save()'))['scenarioProgramme'];assert passive['stage']==1,passive
  p.locator('[data-panel=agenda]').click();p.locator('[data-panel=overview]').click();button=p.locator('[data-programme-panel=community]').first;assert button.bounding_box()['y']+button.bounding_box()['height']<=p.locator('#panel').bounding_box()['y']+p.locator('#panel').bounding_box()['height'];button.click();assert 'local care and learning' in p.locator('#panelBody').inner_text().lower()
  p.locator('[data-panel=policies]').click()
