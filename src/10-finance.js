@@ -1,3 +1,19 @@
+// Compact only discharged receipts; active debts and default claims remain intact.
+function compactSettledLoans(){
+ if(G.loans.length<=2500)return;let remaining=Math.max(0,G.loans.length-1800);const keep=[];
+ for(const loan of G.loans){if(!remaining||loan.status!=='repaid'||loan.balance!==0||!Number.isSafeInteger(loan.id)||!Number.isFinite(loan.original)||loan.original<0||!Number.isFinite(loan.paid)||loan.paid<0){keep.push(loan);continue;}
+  const h=G.settledLoanHistory||(G.settledLoanHistory={version:1,count:0,original:0,paid:0,maxId:0,households:{},firms:{},banks:{}}),key=loan.ownerType==='firm'?'firms':'households';
+  for(const row of [h,h[key][loan.ownerId]||(h[key][loan.ownerId]={count:0,original:0,paid:0}),h.banks[loan.bankId]||(h.banks[loan.bankId]={count:0,original:0,paid:0})]){row.count++;row.original+=loan.original;row.paid+=loan.paid;}
+  h.maxId=Math.max(h.maxId,loan.id);G.nextLoanId=Math.max(G.nextLoanId||0,loan.id);remaining--;
+ }G.loans=keep;
+}
+function validateSettledLoanHistory(data){
+ const h=data.settledLoanHistory;if(h==null)return true;
+ const row=r=>r&&Number.isSafeInteger(r.count)&&r.count>=0&&Number.isFinite(r.original)&&r.original>=0&&Number.isFinite(r.paid)&&r.paid>=0;
+ if(h.version!==1||!row(h)||!Number.isSafeInteger(h.maxId)||h.maxId<0||h.maxId>data.nextLoanId)return false;
+ for(const [key,owners] of [['households',data.households],['firms',data.firms],['banks',data.banks||[]]]){const group=h[key];if(!group||typeof group!=='object'||Array.isArray(group)||Object.keys(group).length>owners.length)return false;for(const [id,r]of Object.entries(group))if(!/^\d+$/.test(id)||!owners[+id]||!row(r))return false;}
+ return true;
+}
 function ensureFinance(){
  if(!G)return;
  if(!Array.isArray(G.banks))G.banks=[];
@@ -24,6 +40,7 @@ function availableBank(b){const reserve=Math.max(bankDeposits(b.id)*((G.policy.b
 function bestBank(loan=false){return G.banks.filter(b=>!b.closed&&availableBank(b)>3500&&bankEquity(b)>1000).sort((a,b)=>loan?a.loanAPY-b.loanAPY:b.depositAPY-a.depositAPY)[0]||null}
 function bankLoan(kind,id,amount,term=360){
  ensureFinance();if(!['firm','household'].includes(kind)||!Number.isFinite(amount)||amount<=0||!Number.isInteger(term)||term<30||term>3600)return null;let owner=kind==='firm'?G.firms[id]:G.households[id];if(!owner||owner.closed)return null;const decline=reason=>{owner.creditDecision={day:G.day,requested:amount,approved:false,reason};return null;};
+ compactSettledLoans();if(G.loans.length>=10000)return decline('The retained debt ledger is full of protected obligations. No advance was issued; existing debts and claims remain intact.');
  if(G.loans.some(l=>l.status==='active'&&l.ownerType===kind&&l.ownerId===id))return decline('An active loan already finances this borrower');
  const strict=(G.policy.lendingRules??35)/100;const score=clamp(owner.creditScore??.65,.05,.99);
  const ratio=kind==='firm'?amount/Math.max(1,owner.cash+1500):amount/Math.max(1,owner.cash+(owner.deposits?Object.values(owner.deposits).reduce((a,v)=>a+v,0):0));
@@ -181,7 +198,7 @@ function bankMarketEntry(){
 function bankDaily(){
  ensureFinance();loanPayments(G.loans.filter(l=>l.ownerType==='firm'||!G.households[l.ownerId]?.people.length));regionalCapitalMarket();bankCompetition();bankMarketEntry();
  // Keep fulfilled and defaulted loan history bounded; active loans are never discarded.
- if(G.loans.length>2500){const past=G.loans.filter(l=>l.status!=='active');const removable=new Set(past.slice(0,Math.max(0,G.loans.length-1800)).map(l=>l.id));if(removable.size)G.loans=G.loans.filter(l=>!removable.has(l.id));}
+ compactSettledLoans();
 
  // Overnight funds deposited with the regional clearing market earn a floating yield.
  // Every dollar of interest is paid by that counterparty; no currency is minted.
