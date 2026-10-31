@@ -5347,7 +5347,7 @@ function observedChart(key,color='#7f9968'){
 }
 function policyImpactCard(){
  const e=fromEnd(G.policyExperiments);if(!e)return tip('Enact a policy package to begin a measured before-and-after record. Town readings are sampled every ten simulated days.');
- const later=e.after||(G.observations||[]).filter(o=>Number(o.day)>Number(e.day)).slice(-1)[0];
+ let later=e.after||null;for(const o of G.observations||[])if(Number(o.day)>Number(e.day)&&(!later||Number(o.day)>Number(later.day)))later=o;
  const before=e.before||{},changes=(e.changes||[]).map(c=>{
   const name=defs.find(d=>d[0]===c.key)?.[1]||c.key;
   return `${esc(name)}: ${esc(fmt(c.from))} → ${esc(fmt(c.to))}`;
@@ -5365,7 +5365,8 @@ function policyImpactCard(){
  if(!later){body=`<p class="desc">No post-change reading yet. Town indicators are sampled every ten simulated days; wait for the next reading to compare.</p>`;}
  else {
   const elapsed=Math.max(0,Number(later.day)-Number(e.day));
-  body=`<small>BEFORE: ${Number.isFinite(Number(before.day))?'day '+before.day:'enactment snapshot'} · AFTER: day ${later.day} (${elapsed} simulated days later)</small>`+
+  const beforeLabel=Number.isFinite(Number(before.day))?(Number(before.day)===Number(e.day)?'before: day '+before.day:'last pre-change reading: day '+before.day):'enactment snapshot';
+  body=`<small>${beforeLabel} · AFTER: day ${later.day} (${elapsed} simulated days after enactment)</small>`+
    metrics.map(k=>{const label=specs[k][0],a=Number(before[k]),b=Number(later[k]),valid=before[k]!=null&&later[k]!=null&&Number.isFinite(a)&&Number.isFinite(b);return strip(label,`${value(k,a)} → ${value(k,b)}${valid?' · Δ '+(b-a>0?'+':'')+value(k,b-a):''}`)}).join('')+
    `<p class="desc">These are observed town changes after the package, not proof it caused them. Other events and delayed effects also influence the readings.</p>`;
  }
