@@ -65,6 +65,8 @@
     "day": 33,
     "existingPrerequisite": true
   },
+  "migrationAware": true,
+  "naturalVacancyAssessment": "Illustrative two adults, age30, skill0.45, health90. These are not actual applicants; no money, jobs, seats or school places are reserved. No funded reachable job remains after local jobseekers; Expected take-home pay does not cover rent, food, utilities and fares Take-home $0/day; essentials $23/day; surplus \u2212$23/day. rent: $0.00/day; food: $15.25/day; utilities: $4.59/day; commuting: $0.00/day; shopping: $3.49/day; propertyTax: $0.00/day; debtService: $0.00/day; privateFees: $0.00/day. Funded reachable offers: none after local jobseekers. Forecast care 68.5%, learning 0%. Outside Upland Cooperative: reference take-home $49/day, essentials $28/day. Outside wages/rent are a reference, not a foreign job offer. Any forecast private-school fees are included in essentials without assumed vouchers.",
   "initialPlan": {
     "parcel": "orchard-downs",
     "metrics": {
@@ -75,6 +77,11 @@
       "wharf": false,
       "care": 0,
       "school": 0
+    },
+    "housing": {
+      "available": true,
+      "vacancies": 0,
+      "homes": []
     },
     "sites": [
       {
@@ -108,73 +115,61 @@
         "distance": 2
       },
       {
-        "kind": "home",
+        "kind": "clinic",
         "x": 41,
         "y": 66,
         "cells": [
           8489
         ],
-        "cost": 20000,
-        "distance": 2
-      },
-      {
-        "kind": "home",
-        "x": 42,
-        "y": 64,
-        "cells": [
-          8234
-        ],
-        "cost": 20000,
-        "distance": 3
-      },
-      {
-        "kind": "home",
-        "x": 44,
-        "y": 66,
-        "cells": [
-          8492
-        ],
-        "cost": 20000,
-        "distance": 3
-      },
-      {
-        "kind": "clinic",
-        "x": 42,
-        "y": 63,
-        "cells": [
-          8106
-        ],
         "cost": 8000,
-        "distance": 4
+        "distance": 2
       },
       {
         "kind": "school",
         "x": 44,
-        "y": 64,
+        "y": 66,
         "cells": [
-          8236,
-          8237,
-          8364,
-          8365
+          8492,
+          8493,
+          8620,
+          8621
         ],
         "cost": 6900,
-        "distance": 5
+        "distance": 3
       }
     ],
     "missing": [],
     "roadCost": 0,
-    "cost": 102800
+    "cost": 42800
   },
-  "afterFourNormalHomes": {
+  "afterReviewedHousingPhase": {
     "parcel": "orchard-downs",
     "metrics": {
-      "pop": 8,
-      "connected": 4,
+      "pop": 0,
+      "connected": 1,
       "staffed": 0,
       "fishery": false,
       "wharf": false,
-      "care": 0.6730769230769231,
+      "care": 0,
       "school": 0
+    },
+    "housing": {
+      "available": true,
+      "vacancies": 1,
+      "homes": [
+        {
+          "building": 105,
+          "capacity": 1,
+          "households": [],
+          "occupied": 0,
+          "available": 1,
+          "overcrowded": false,
+          "reviewRequired": false,
+          "legacySharedTenants": [],
+          "reserved": false,
+          "underConstruction": false
+        }
+      ]
     },
     "sites": [
       {
@@ -198,23 +193,113 @@
         "business": true
       },
       {
+        "kind": "clinic",
+        "x": 41,
+        "y": 66,
+        "cells": [
+          8489
+        ],
+        "cost": 8000,
+        "distance": 2
+      },
+      {
         "kind": "school",
         "x": 44,
-        "y": 64,
+        "y": 66,
         "cells": [
-          8236,
-          8237,
-          8364,
-          8365
+          8492,
+          8493,
+          8620,
+          8621
         ],
         "cost": 6900,
-        "distance": 5
+        "distance": 3
       }
     ],
     "missing": [],
     "roadCost": 0,
-    "cost": 14800
+    "cost": 22800
   },
   "errors": [],
-  "source_sha256": "20f4a86cec91f6b2a61de4b184e90e3800180d259dbbeaecf20f9aa6e3de4e64"
+  "migrationPreviewDependency": null,
+  "source_sha256": "ac508646259dfe4f59bfa4dff20697865237ad9023992c692c00416e57e03292",
+  "controlledUnfundedAddress": "Illustrative two adults, age30, skill0.45, health90. These are not actual applicants; no money, jobs, seats or school places are reserved. No funded reachable job remains after local jobseekers; Expected take-home pay does not cover rent, food, utilities and fares Take-home $0/day; essentials $23/day; surplus \u2212$23/day. rent: $0.00/day; food: $15.26/day; utilities: $4.59/day; commuting: $0.00/day; shopping: $3.49/day; propertyTax: $0.00/day; debtService: $0.00/day; privateFees: $0.00/day. Funded reachable offers: none after local jobseekers. Forecast care 68.5%, learning 0%. Outside Upland Cooperative: reference take-home $49/day, essentials $28/day. Outside wages/rent are a reference, not a foreign job offer. Any forecast private-school fees are included in essentials without assumed vouchers.",
+  "unfundedVacancyPlan": {
+    "parcel": "orchard-downs",
+    "metrics": {
+      "pop": 0,
+      "connected": 1,
+      "staffed": 0,
+      "fishery": false,
+      "wharf": false,
+      "care": 0,
+      "school": 0
+    },
+    "housing": {
+      "available": true,
+      "vacancies": 1,
+      "homes": [
+        {
+          "building": 105,
+          "capacity": 1,
+          "households": [],
+          "occupied": 0,
+          "available": 1,
+          "overcrowded": false,
+          "reviewRequired": false,
+          "legacySharedTenants": [],
+          "reserved": false,
+          "underConstruction": false
+        }
+      ]
+    },
+    "sites": [
+      {
+        "kind": "grocer",
+        "x": 43,
+        "y": 67,
+        "cells": [
+          8619
+        ],
+        "cost": 4300,
+        "business": true
+      },
+      {
+        "kind": "bakery",
+        "x": 42,
+        "y": 67,
+        "cells": [
+          8618
+        ],
+        "cost": 3600,
+        "business": true
+      },
+      {
+        "kind": "clinic",
+        "x": 41,
+        "y": 66,
+        "cells": [
+          8489
+        ],
+        "cost": 8000,
+        "distance": 2
+      },
+      {
+        "kind": "school",
+        "x": 44,
+        "y": 66,
+        "cells": [
+          8492,
+          8493,
+          8620,
+          8621
+        ],
+        "cost": 6900,
+        "distance": 3
+      }
+    ],
+    "missing": [],
+    "roadCost": 0,
+    "cost": 22800
+  }
 }
