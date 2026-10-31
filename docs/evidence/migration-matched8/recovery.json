@@ -1,0 +1,2348 @@
+{
+  "source_commit": "662ec6f3b0998ce3c3c560d5bef39e4e17a4bcc1",
+  "source_sha256": "abe9c4bbdd86f8c2b9a3776d2996e2c32803f4dd0521791d25ba90cf6c398882",
+  "method": "Controlled cottage vacancy follows actual departure. Published firm capacity is enlarged to isolate causes; no residents, money, skills, stock or wages granted. Funding stress moves existing payroll cash into region then exactly reverses it; access stress removes and restores the same road tiles; construction stress marks then completes redevelopment on the same empty cottage. Blocked admission attempted once; after exact repair at most 40 ordinary probabilistic invitations, without RNG overrides. This proves causal recovery boundaries, not organic job creation or player construction costs.",
+  "rows": [
+    {
+      "seed": 42,
+      "variant": "funding",
+      "initial": {
+        "eligible": true,
+        "reasons": [],
+        "home": 55,
+        "housing": {
+          "building": 55,
+          "capacity": 1,
+          "households": [],
+          "occupied": 0,
+          "available": 1,
+          "overcrowded": false,
+          "reviewRequired": false,
+          "legacySharedTenants": [],
+          "reserved": false,
+          "underConstruction": false
+        },
+        "offers": [
+          {
+            "person": 0,
+            "firm": 0,
+            "wage": 36,
+            "distance": 16,
+            "fare": 0.49000000000000005,
+            "mode": "road"
+          },
+          {
+            "person": 1,
+            "firm": 0,
+            "wage": 36,
+            "distance": 16,
+            "fare": 0.49000000000000005,
+            "mode": "road"
+          }
+        ],
+        "expectedNet": 63.36,
+        "essentials": 34.48256453955366,
+        "budget": {
+          "rent": 8.781186379375,
+          "food": 18.661378160178664,
+          "utilities": 4.59,
+          "commuting": 0.9800000000000001,
+          "shopping": 1.4700000000000002,
+          "propertyTax": 0,
+          "debtService": 0,
+          "privateFees": 0
+        },
+        "foodShop": 17,
+        "rent": 8.781186379375,
+        "surplus": 28.877435460446343,
+        "outside": {
+          "market": "upland",
+          "name": "Upland Cooperative",
+          "net": 49.28,
+          "essentials": 32.795047466723574,
+          "surplus": 16.484952533276427,
+          "referenceOnly": true,
+          "carriedObligations": 0
+        },
+        "services": {
+          "health": 0.6852409638554217,
+          "school": 0.3272375215146299,
+          "forecastOnly": true
+        },
+        "pullProbability": 0.6708261617900172,
+        "capital": 2500,
+        "note": "Outside wages/rents are a founding-policy reference; market food prices are live. Funded vacancies, route capacity and quoted private learning places can change before arrival; any private fee forecast is included in essentials, without assumed vouchers."
+      },
+      "blocked": {
+        "eligible": false,
+        "reasons": [
+          "No funded reachable job remains after local jobseekers",
+          "Expected take-home pay does not cover rent, food, utilities and fares"
+        ],
+        "home": 55,
+        "housing": {
+          "building": 55,
+          "capacity": 1,
+          "households": [],
+          "occupied": 0,
+          "available": 1,
+          "overcrowded": false,
+          "reviewRequired": false,
+          "legacySharedTenants": [],
+          "reserved": false,
+          "underConstruction": false
+        },
+        "offers": [],
+        "expectedNet": 0,
+        "essentials": 33.50256453955366,
+        "budget": {
+          "rent": 8.781186379375,
+          "food": 18.661378160178664,
+          "utilities": 4.59,
+          "commuting": 0,
+          "shopping": 1.4700000000000002,
+          "propertyTax": 0,
+          "debtService": 0,
+          "privateFees": 0
+        },
+        "foodShop": 17,
+        "rent": 8.781186379375,
+        "surplus": -33.50256453955366,
+        "outside": {
+          "market": "upland",
+          "name": "Upland Cooperative",
+          "net": 49.28,
+          "essentials": 32.795047466723574,
+          "surplus": 16.484952533276427,
+          "referenceOnly": true,
+          "carriedObligations": 0
+        },
+        "services": {
+          "health": 0.6852409638554217,
+          "school": 0.3272375215146299,
+          "forecastOnly": true
+        },
+        "pullProbability": 0,
+        "capital": 2500,
+        "note": "Outside wages/rents are a founding-policy reference; market food prices are live. Funded vacancies, route capacity and quoted private learning places can change before arrival; any private fee forecast is included in essentials, without assumed vouchers."
+      },
+      "deniedState": {
+        "newPeople": 0,
+        "cashDrift": 0
+      },
+      "restored": {
+        "eligible": true,
+        "reasons": [],
+        "home": 55,
+        "housing": {
+          "building": 55,
+          "capacity": 1,
+          "households": [],
+          "occupied": 0,
+          "available": 1,
+          "overcrowded": false,
+          "reviewRequired": false,
+          "legacySharedTenants": [],
+          "reserved": false,
+          "underConstruction": false
+        },
+        "offers": [
+          {
+            "person": 0,
+            "firm": 0,
+            "wage": 36,
+            "distance": 16,
+            "fare": 0.49000000000000005,
+            "mode": "road"
+          },
+          {
+            "person": 1,
+            "firm": 0,
+            "wage": 36,
+            "distance": 16,
+            "fare": 0.49000000000000005,
+            "mode": "road"
+          }
+        ],
+        "expectedNet": 63.36,
+        "essentials": 34.48256453955366,
+        "budget": {
+          "rent": 8.781186379375,
+          "food": 18.661378160178664,
+          "utilities": 4.59,
+          "commuting": 0.9800000000000001,
+          "shopping": 1.4700000000000002,
+          "propertyTax": 0,
+          "debtService": 0,
+          "privateFees": 0
+        },
+        "foodShop": 17,
+        "rent": 8.781186379375,
+        "surplus": 28.877435460446343,
+        "outside": {
+          "market": "upland",
+          "name": "Upland Cooperative",
+          "net": 49.28,
+          "essentials": 32.795047466723574,
+          "surplus": 16.484952533276427,
+          "referenceOnly": true,
+          "carriedObligations": 0
+        },
+        "services": {
+          "health": 0.6852409638554217,
+          "school": 0.3272375215146299,
+          "forecastOnly": true
+        },
+        "pullProbability": 0.6708261617900172,
+        "capital": 2500,
+        "note": "Outside wages/rents are a founding-policy reference; market food prices are live. Funded vacancies, route capacity and quoted private learning places can change before arrival; any private fee forecast is included in essentials, without assumed vouchers."
+      },
+      "attempts": 1,
+      "admitted": {
+        "id": 67,
+        "people": [
+          169,
+          170
+        ],
+        "cash": 2500,
+        "home": 55,
+        "offers": [
+          {
+            "person": 169,
+            "age": 44,
+            "skill": 0.5175801146659069,
+            "firm": 0
+          },
+          {
+            "person": 170,
+            "age": 37,
+            "skill": 0.4781392190721817,
+            "firm": 0
+          }
+        ],
+        "capitalRegionDelta": -2500
+      },
+      "peopleAdded": 2,
+      "capitalDrift": 0,
+      "afterDay": {
+        "cash": 2485.1284660666756,
+        "income": 72,
+        "incomeTax": 8.64,
+        "people": [
+          169,
+          170
+        ],
+        "jobs": [
+          0,
+          0
+        ],
+        "home": 55,
+        "housing": {
+          "building": 55,
+          "capacity": 1,
+          "households": [
+            67
+          ],
+          "occupied": 1,
+          "available": 0,
+          "overcrowded": false,
+          "reviewRequired": false,
+          "legacySharedTenants": [],
+          "reserved": false,
+          "underConstruction": false
+        }
+      },
+      "cashDrift": 1.862645149230957e-09,
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15493517.000000002,
+        "population": 168,
+        "day": 31
+      },
+      "roundTrip": true
+    },
+    {
+      "seed": 42,
+      "variant": "access",
+      "initial": {
+        "eligible": true,
+        "reasons": [],
+        "home": 55,
+        "housing": {
+          "building": 55,
+          "capacity": 1,
+          "households": [],
+          "occupied": 0,
+          "available": 1,
+          "overcrowded": false,
+          "reviewRequired": false,
+          "legacySharedTenants": [],
+          "reserved": false,
+          "underConstruction": false
+        },
+        "offers": [
+          {
+            "person": 0,
+            "firm": 0,
+            "wage": 36,
+            "distance": 16,
+            "fare": 0.49000000000000005,
+            "mode": "road"
+          },
+          {
+            "person": 1,
+            "firm": 0,
+            "wage": 36,
+            "distance": 16,
+            "fare": 0.49000000000000005,
+            "mode": "road"
+          }
+        ],
+        "expectedNet": 63.36,
+        "essentials": 34.48256453955366,
+        "budget": {
+          "rent": 8.781186379375,
+          "food": 18.661378160178664,
+          "utilities": 4.59,
+          "commuting": 0.9800000000000001,
+          "shopping": 1.4700000000000002,
+          "propertyTax": 0,
+          "debtService": 0,
+          "privateFees": 0
+        },
+        "foodShop": 17,
+        "rent": 8.781186379375,
+        "surplus": 28.877435460446343,
+        "outside": {
+          "market": "upland",
+          "name": "Upland Cooperative",
+          "net": 49.28,
+          "essentials": 32.795047466723574,
+          "surplus": 16.484952533276427,
+          "referenceOnly": true,
+          "carriedObligations": 0
+        },
+        "services": {
+          "health": 0.6852409638554217,
+          "school": 0.3272375215146299,
+          "forecastOnly": true
+        },
+        "pullProbability": 0.6708261617900172,
+        "capital": 2500,
+        "note": "Outside wages/rents are a founding-policy reference; market food prices are live. Funded vacancies, route capacity and quoted private learning places can change before arrival; any private fee forecast is included in essentials, without assumed vouchers."
+      },
+      "blocked": {
+        "eligible": false,
+        "reasons": [
+          "The home has no connected road gateway",
+          "No reachable staffed food shop or funded entry-staffed shop",
+          "No funded reachable job remains after local jobseekers",
+          "Expected take-home pay does not cover rent, food, utilities and fares"
+        ],
+        "home": 55,
+        "housing": {
+          "building": 55,
+          "capacity": 1,
+          "households": [],
+          "occupied": 0,
+          "available": 1,
+          "overcrowded": false,
+          "reviewRequired": false,
+          "legacySharedTenants": [],
+          "reserved": false,
+          "underConstruction": false
+        },
+        "offers": [],
+        "expectedNet": 0,
+        "essentials": 34.149652709128915,
+        "budget": {
+          "rent": 8.418321945625,
+          "food": 21.141330763503912,
+          "utilities": 4.59,
+          "commuting": 0,
+          "shopping": 0,
+          "propertyTax": 0,
+          "debtService": 0,
+          "privateFees": 0
+        },
+        "foodShop": null,
+        "rent": 8.418321945625,
+        "surplus": -34.149652709128915,
+        "outside": {
+          "market": "upland",
+          "name": "Upland Cooperative",
+          "net": 49.28,
+          "essentials": 32.795047466723574,
+          "surplus": 16.484952533276427,
+          "referenceOnly": true,
+          "carriedObligations": 0
+        },
+        "services": {
+          "health": 0,
+          "school": 0,
+          "forecastOnly": true
+        },
+        "pullProbability": 0,
+        "capital": 2500,
+        "note": "Outside wages/rents are a founding-policy reference; market food prices are live. Funded vacancies, route capacity and quoted private learning places can change before arrival; any private fee forecast is included in essentials, without assumed vouchers."
+      },
+      "deniedState": {
+        "newPeople": 0,
+        "cashDrift": 0
+      },
+      "restored": {
+        "eligible": true,
+        "reasons": [],
+        "home": 55,
+        "housing": {
+          "building": 55,
+          "capacity": 1,
+          "households": [],
+          "occupied": 0,
+          "available": 1,
+          "overcrowded": false,
+          "reviewRequired": false,
+          "legacySharedTenants": [],
+          "reserved": false,
+          "underConstruction": false
+        },
+        "offers": [
+          {
+            "person": 0,
+            "firm": 0,
+            "wage": 36,
+            "distance": 16,
+            "fare": 0.49000000000000005,
+            "mode": "road"
+          },
+          {
+            "person": 1,
+            "firm": 0,
+            "wage": 36,
+            "distance": 16,
+            "fare": 0.49000000000000005,
+            "mode": "road"
+          }
+        ],
+        "expectedNet": 63.36,
+        "essentials": 34.48256453955366,
+        "budget": {
+          "rent": 8.781186379375,
+          "food": 18.661378160178664,
+          "utilities": 4.59,
+          "commuting": 0.9800000000000001,
+          "shopping": 1.4700000000000002,
+          "propertyTax": 0,
+          "debtService": 0,
+          "privateFees": 0
+        },
+        "foodShop": 17,
+        "rent": 8.781186379375,
+        "surplus": 28.877435460446343,
+        "outside": {
+          "market": "upland",
+          "name": "Upland Cooperative",
+          "net": 49.28,
+          "essentials": 32.795047466723574,
+          "surplus": 16.484952533276427,
+          "referenceOnly": true,
+          "carriedObligations": 0
+        },
+        "services": {
+          "health": 0.6852409638554217,
+          "school": 0.3272375215146299,
+          "forecastOnly": true
+        },
+        "pullProbability": 0.6708261617900172,
+        "capital": 2500,
+        "note": "Outside wages/rents are a founding-policy reference; market food prices are live. Funded vacancies, route capacity and quoted private learning places can change before arrival; any private fee forecast is included in essentials, without assumed vouchers."
+      },
+      "attempts": 1,
+      "admitted": {
+        "id": 67,
+        "people": [
+          169,
+          170
+        ],
+        "cash": 2500,
+        "home": 55,
+        "offers": [
+          {
+            "person": 169,
+            "age": 44,
+            "skill": 0.5175801146659069,
+            "firm": 0
+          },
+          {
+            "person": 170,
+            "age": 37,
+            "skill": 0.4781392190721817,
+            "firm": 0
+          }
+        ],
+        "capitalRegionDelta": -2500
+      },
+      "peopleAdded": 2,
+      "capitalDrift": 0,
+      "afterDay": {
+        "cash": 2485.1284660666756,
+        "income": 72,
+        "incomeTax": 8.64,
+        "people": [
+          169,
+          170
+        ],
+        "jobs": [
+          0,
+          0
+        ],
+        "home": 55,
+        "housing": {
+          "building": 55,
+          "capacity": 1,
+          "households": [
+            67
+          ],
+          "occupied": 1,
+          "available": 0,
+          "overcrowded": false,
+          "reviewRequired": false,
+          "legacySharedTenants": [],
+          "reserved": false,
+          "underConstruction": false
+        }
+      },
+      "cashDrift": 1.862645149230957e-09,
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15493517.000000002,
+        "population": 168,
+        "day": 31
+      },
+      "roundTrip": true
+    },
+    {
+      "seed": 42,
+      "variant": "construction",
+      "initial": {
+        "eligible": true,
+        "reasons": [],
+        "home": 55,
+        "housing": {
+          "building": 55,
+          "capacity": 1,
+          "households": [],
+          "occupied": 0,
+          "available": 1,
+          "overcrowded": false,
+          "reviewRequired": false,
+          "legacySharedTenants": [],
+          "reserved": false,
+          "underConstruction": false
+        },
+        "offers": [
+          {
+            "person": 0,
+            "firm": 0,
+            "wage": 36,
+            "distance": 16,
+            "fare": 0.49000000000000005,
+            "mode": "road"
+          },
+          {
+            "person": 1,
+            "firm": 0,
+            "wage": 36,
+            "distance": 16,
+            "fare": 0.49000000000000005,
+            "mode": "road"
+          }
+        ],
+        "expectedNet": 63.36,
+        "essentials": 34.48256453955366,
+        "budget": {
+          "rent": 8.781186379375,
+          "food": 18.661378160178664,
+          "utilities": 4.59,
+          "commuting": 0.9800000000000001,
+          "shopping": 1.4700000000000002,
+          "propertyTax": 0,
+          "debtService": 0,
+          "privateFees": 0
+        },
+        "foodShop": 17,
+        "rent": 8.781186379375,
+        "surplus": 28.877435460446343,
+        "outside": {
+          "market": "upland",
+          "name": "Upland Cooperative",
+          "net": 49.28,
+          "essentials": 32.795047466723574,
+          "surplus": 16.484952533276427,
+          "referenceOnly": true,
+          "carriedObligations": 0
+        },
+        "services": {
+          "health": 0.6852409638554217,
+          "school": 0.3272375215146299,
+          "forecastOnly": true
+        },
+        "pullProbability": 0.6708261617900172,
+        "capital": 2500,
+        "note": "Outside wages/rents are a founding-policy reference; market food prices are live. Funded vacancies, route capacity and quoted private learning places can change before arrival; any private fee forecast is included in essentials, without assumed vouchers."
+      },
+      "blocked": {
+        "eligible": false,
+        "reasons": [
+          "No unreserved vacant household unit",
+          "No funded reachable job remains after local jobseekers",
+          "Expected take-home pay does not cover rent, food, utilities and fares"
+        ],
+        "home": 55,
+        "housing": {
+          "building": 55,
+          "capacity": 1,
+          "households": [],
+          "occupied": 0,
+          "available": 1,
+          "overcrowded": false,
+          "reviewRequired": false,
+          "legacySharedTenants": [],
+          "reserved": false,
+          "underConstruction": true
+        },
+        "offers": [],
+        "expectedNet": 0,
+        "essentials": 33.50256453955366,
+        "budget": {
+          "rent": 8.781186379375,
+          "food": 18.661378160178664,
+          "utilities": 4.59,
+          "commuting": 0,
+          "shopping": 1.4700000000000002,
+          "propertyTax": 0,
+          "debtService": 0,
+          "privateFees": 0
+        },
+        "foodShop": 17,
+        "rent": 8.781186379375,
+        "surplus": -33.50256453955366,
+        "outside": {
+          "market": "upland",
+          "name": "Upland Cooperative",
+          "net": 49.28,
+          "essentials": 32.795047466723574,
+          "surplus": 16.484952533276427,
+          "referenceOnly": true,
+          "carriedObligations": 0
+        },
+        "services": {
+          "health": 0.6852409638554217,
+          "school": 0.3272375215146299,
+          "forecastOnly": true
+        },
+        "pullProbability": 0,
+        "capital": 2500,
+        "note": "Outside wages/rents are a founding-policy reference; market food prices are live. Funded vacancies, route capacity and quoted private learning places can change before arrival; any private fee forecast is included in essentials, without assumed vouchers."
+      },
+      "deniedState": {
+        "newPeople": 0,
+        "cashDrift": 0
+      },
+      "restored": {
+        "eligible": true,
+        "reasons": [],
+        "home": 55,
+        "housing": {
+          "building": 55,
+          "capacity": 1,
+          "households": [],
+          "occupied": 0,
+          "available": 1,
+          "overcrowded": false,
+          "reviewRequired": false,
+          "legacySharedTenants": [],
+          "reserved": false,
+          "underConstruction": false
+        },
+        "offers": [
+          {
+            "person": 0,
+            "firm": 0,
+            "wage": 36,
+            "distance": 16,
+            "fare": 0.49000000000000005,
+            "mode": "road"
+          },
+          {
+            "person": 1,
+            "firm": 0,
+            "wage": 36,
+            "distance": 16,
+            "fare": 0.49000000000000005,
+            "mode": "road"
+          }
+        ],
+        "expectedNet": 63.36,
+        "essentials": 34.48256453955366,
+        "budget": {
+          "rent": 8.781186379375,
+          "food": 18.661378160178664,
+          "utilities": 4.59,
+          "commuting": 0.9800000000000001,
+          "shopping": 1.4700000000000002,
+          "propertyTax": 0,
+          "debtService": 0,
+          "privateFees": 0
+        },
+        "foodShop": 17,
+        "rent": 8.781186379375,
+        "surplus": 28.877435460446343,
+        "outside": {
+          "market": "upland",
+          "name": "Upland Cooperative",
+          "net": 49.28,
+          "essentials": 32.795047466723574,
+          "surplus": 16.484952533276427,
+          "referenceOnly": true,
+          "carriedObligations": 0
+        },
+        "services": {
+          "health": 0.6852409638554217,
+          "school": 0.3272375215146299,
+          "forecastOnly": true
+        },
+        "pullProbability": 0.6708261617900172,
+        "capital": 2500,
+        "note": "Outside wages/rents are a founding-policy reference; market food prices are live. Funded vacancies, route capacity and quoted private learning places can change before arrival; any private fee forecast is included in essentials, without assumed vouchers."
+      },
+      "attempts": 1,
+      "admitted": {
+        "id": 67,
+        "people": [
+          169,
+          170
+        ],
+        "cash": 2500,
+        "home": 55,
+        "offers": [
+          {
+            "person": 169,
+            "age": 22,
+            "skill": 0.9849899613065645,
+            "firm": 0
+          },
+          {
+            "person": 170,
+            "age": 33,
+            "skill": 0.6530512111377902,
+            "firm": 0
+          }
+        ],
+        "capitalRegionDelta": -2500
+      },
+      "peopleAdded": 2,
+      "capitalDrift": 0,
+      "afterDay": {
+        "cash": 2485.1284660666756,
+        "income": 72,
+        "incomeTax": 8.64,
+        "people": [
+          169,
+          170
+        ],
+        "jobs": [
+          0,
+          0
+        ],
+        "home": 55,
+        "housing": {
+          "building": 55,
+          "capacity": 1,
+          "households": [
+            67
+          ],
+          "occupied": 1,
+          "available": 0,
+          "overcrowded": false,
+          "reviewRequired": false,
+          "legacySharedTenants": [],
+          "reserved": false,
+          "underConstruction": false
+        }
+      },
+      "cashDrift": 1.862645149230957e-09,
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15493517.000000002,
+        "population": 168,
+        "day": 31
+      },
+      "roundTrip": true
+    },
+    {
+      "seed": 101,
+      "variant": "funding",
+      "initial": {
+        "eligible": true,
+        "reasons": [],
+        "home": 74,
+        "housing": {
+          "building": 74,
+          "capacity": 1,
+          "households": [],
+          "occupied": 0,
+          "available": 1,
+          "overcrowded": false,
+          "reviewRequired": false,
+          "legacySharedTenants": [],
+          "reserved": false,
+          "underConstruction": false
+        },
+        "offers": [
+          {
+            "person": 0,
+            "firm": 0,
+            "wage": 30,
+            "distance": 12,
+            "fare": 0.42000000000000004,
+            "mode": "road"
+          },
+          {
+            "person": 1,
+            "firm": 0,
+            "wage": 30,
+            "distance": 12,
+            "fare": 0.42000000000000004,
+            "mode": "road"
+          }
+        ],
+        "expectedNet": 52.8,
+        "essentials": 30.070886397398322,
+        "budget": {
+          "rent": 8.952649793125,
+          "food": 14.848236604273321,
+          "utilities": 4.59,
+          "commuting": 0.8400000000000001,
+          "shopping": 0.8400000000000001,
+          "propertyTax": 0,
+          "debtService": 0,
+          "privateFees": 0
+        },
+        "foodShop": 1,
+        "rent": 8.952649793125,
+        "surplus": 22.729113602601675,
+        "outside": {
+          "market": "upland",
+          "name": "Upland Cooperative",
+          "net": 49.28,
+          "essentials": 31.555625559304747,
+          "surplus": 17.724374440695254,
+          "referenceOnly": true,
+          "carriedObligations": 0
+        },
+        "services": {
+          "health": 0.6811377245508983,
+          "school": 0.32527801539777584,
+          "forecastOnly": true
+        },
+        "pullProbability": 0.668805246649558,
+        "capital": 2500,
+        "note": "Outside wages/rents are a founding-policy reference; market food prices are live. Funded vacancies, route capacity and quoted private learning places can change before arrival; any private fee forecast is included in essentials, without assumed vouchers."
+      },
+      "blocked": {
+        "eligible": false,
+        "reasons": [
+          "No funded reachable job remains after local jobseekers",
+          "Expected take-home pay does not cover rent, food, utilities and fares"
+        ],
+        "home": 74,
+        "housing": {
+          "building": 74,
+          "capacity": 1,
+          "households": [],
+          "occupied": 0,
+          "available": 1,
+          "overcrowded": false,
+          "reviewRequired": false,
+          "legacySharedTenants": [],
+          "reserved": false,
+          "underConstruction": false
+        },
+        "offers": [],
+        "expectedNet": 0,
+        "essentials": 29.230886397398322,
+        "budget": {
+          "rent": 8.952649793125,
+          "food": 14.848236604273321,
+          "utilities": 4.59,
+          "commuting": 0,
+          "shopping": 0.8400000000000001,
+          "propertyTax": 0,
+          "debtService": 0,
+          "privateFees": 0
+        },
+        "foodShop": 1,
+        "rent": 8.952649793125,
+        "surplus": -29.230886397398322,
+        "outside": {
+          "market": "upland",
+          "name": "Upland Cooperative",
+          "net": 49.28,
+          "essentials": 31.555625559304747,
+          "surplus": 17.724374440695254,
+          "referenceOnly": true,
+          "carriedObligations": 0
+        },
+        "services": {
+          "health": 0.6811377245508983,
+          "school": 0.32527801539777584,
+          "forecastOnly": true
+        },
+        "pullProbability": 0,
+        "capital": 2500,
+        "note": "Outside wages/rents are a founding-policy reference; market food prices are live. Funded vacancies, route capacity and quoted private learning places can change before arrival; any private fee forecast is included in essentials, without assumed vouchers."
+      },
+      "deniedState": {
+        "newPeople": 0,
+        "cashDrift": 0
+      },
+      "restored": {
+        "eligible": true,
+        "reasons": [],
+        "home": 74,
+        "housing": {
+          "building": 74,
+          "capacity": 1,
+          "households": [],
+          "occupied": 0,
+          "available": 1,
+          "overcrowded": false,
+          "reviewRequired": false,
+          "legacySharedTenants": [],
+          "reserved": false,
+          "underConstruction": false
+        },
+        "offers": [
+          {
+            "person": 0,
+            "firm": 0,
+            "wage": 30,
+            "distance": 12,
+            "fare": 0.42000000000000004,
+            "mode": "road"
+          },
+          {
+            "person": 1,
+            "firm": 0,
+            "wage": 30,
+            "distance": 12,
+            "fare": 0.42000000000000004,
+            "mode": "road"
+          }
+        ],
+        "expectedNet": 52.8,
+        "essentials": 30.070886397398322,
+        "budget": {
+          "rent": 8.952649793125,
+          "food": 14.848236604273321,
+          "utilities": 4.59,
+          "commuting": 0.8400000000000001,
+          "shopping": 0.8400000000000001,
+          "propertyTax": 0,
+          "debtService": 0,
+          "privateFees": 0
+        },
+        "foodShop": 1,
+        "rent": 8.952649793125,
+        "surplus": 22.729113602601675,
+        "outside": {
+          "market": "upland",
+          "name": "Upland Cooperative",
+          "net": 49.28,
+          "essentials": 31.555625559304747,
+          "surplus": 17.724374440695254,
+          "referenceOnly": true,
+          "carriedObligations": 0
+        },
+        "services": {
+          "health": 0.6811377245508983,
+          "school": 0.32527801539777584,
+          "forecastOnly": true
+        },
+        "pullProbability": 0.668805246649558,
+        "capital": 2500,
+        "note": "Outside wages/rents are a founding-policy reference; market food prices are live. Funded vacancies, route capacity and quoted private learning places can change before arrival; any private fee forecast is included in essentials, without assumed vouchers."
+      },
+      "attempts": 1,
+      "admitted": {
+        "id": 67,
+        "people": [
+          169,
+          170
+        ],
+        "cash": 2500,
+        "home": 74,
+        "offers": [
+          {
+            "person": 169,
+            "age": 44,
+            "skill": 0.5175801146659069,
+            "firm": 0
+          },
+          {
+            "person": 170,
+            "age": 37,
+            "skill": 0.4781392190721817,
+            "firm": 0
+          }
+        ],
+        "capitalRegionDelta": -2500
+      },
+      "peopleAdded": 2,
+      "capitalDrift": 0,
+      "afterDay": {
+        "cash": 2509.3281692744076,
+        "income": 60,
+        "incomeTax": 7.2,
+        "people": [
+          169,
+          170
+        ],
+        "jobs": [
+          0,
+          0
+        ],
+        "home": 74,
+        "housing": {
+          "building": 74,
+          "capacity": 1,
+          "households": [
+            67
+          ],
+          "occupied": 1,
+          "available": 0,
+          "overcrowded": false,
+          "reviewRequired": false,
+          "legacySharedTenants": [],
+          "reserved": false,
+          "underConstruction": false
+        }
+      },
+      "cashDrift": -1.30385160446167e-08,
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15489571.999999987,
+        "population": 169,
+        "day": 31
+      },
+      "roundTrip": true
+    },
+    {
+      "seed": 101,
+      "variant": "access",
+      "initial": {
+        "eligible": true,
+        "reasons": [],
+        "home": 74,
+        "housing": {
+          "building": 74,
+          "capacity": 1,
+          "households": [],
+          "occupied": 0,
+          "available": 1,
+          "overcrowded": false,
+          "reviewRequired": false,
+          "legacySharedTenants": [],
+          "reserved": false,
+          "underConstruction": false
+        },
+        "offers": [
+          {
+            "person": 0,
+            "firm": 0,
+            "wage": 30,
+            "distance": 12,
+            "fare": 0.42000000000000004,
+            "mode": "road"
+          },
+          {
+            "person": 1,
+            "firm": 0,
+            "wage": 30,
+            "distance": 12,
+            "fare": 0.42000000000000004,
+            "mode": "road"
+          }
+        ],
+        "expectedNet": 52.8,
+        "essentials": 30.070886397398322,
+        "budget": {
+          "rent": 8.952649793125,
+          "food": 14.848236604273321,
+          "utilities": 4.59,
+          "commuting": 0.8400000000000001,
+          "shopping": 0.8400000000000001,
+          "propertyTax": 0,
+          "debtService": 0,
+          "privateFees": 0
+        },
+        "foodShop": 1,
+        "rent": 8.952649793125,
+        "surplus": 22.729113602601675,
+        "outside": {
+          "market": "upland",
+          "name": "Upland Cooperative",
+          "net": 49.28,
+          "essentials": 31.555625559304747,
+          "surplus": 17.724374440695254,
+          "referenceOnly": true,
+          "carriedObligations": 0
+        },
+        "services": {
+          "health": 0.6811377245508983,
+          "school": 0.32527801539777584,
+          "forecastOnly": true
+        },
+        "pullProbability": 0.668805246649558,
+        "capital": 2500,
+        "note": "Outside wages/rents are a founding-policy reference; market food prices are live. Funded vacancies, route capacity and quoted private learning places can change before arrival; any private fee forecast is included in essentials, without assumed vouchers."
+      },
+      "blocked": {
+        "eligible": false,
+        "reasons": [
+          "The home has no connected road gateway",
+          "No reachable staffed food shop or funded entry-staffed shop",
+          "No funded reachable job remains after local jobseekers",
+          "Expected take-home pay does not cover rent, food, utilities and fares"
+        ],
+        "home": 74,
+        "housing": {
+          "building": 74,
+          "capacity": 1,
+          "households": [],
+          "occupied": 0,
+          "available": 1,
+          "overcrowded": false,
+          "reviewRequired": false,
+          "legacySharedTenants": [],
+          "reserved": false,
+          "underConstruction": false
+        },
+        "offers": [],
+        "expectedNet": 0,
+        "essentials": 32.95036978249345,
+        "budget": {
+          "rent": 8.512693281875,
+          "food": 19.84767650061846,
+          "utilities": 4.59,
+          "commuting": 0,
+          "shopping": 0,
+          "propertyTax": 0,
+          "debtService": 0,
+          "privateFees": 0
+        },
+        "foodShop": null,
+        "rent": 8.512693281875,
+        "surplus": -32.95036978249345,
+        "outside": {
+          "market": "upland",
+          "name": "Upland Cooperative",
+          "net": 49.28,
+          "essentials": 31.555625559304747,
+          "surplus": 17.724374440695254,
+          "referenceOnly": true,
+          "carriedObligations": 0
+        },
+        "services": {
+          "health": 0,
+          "school": 0,
+          "forecastOnly": true
+        },
+        "pullProbability": 0,
+        "capital": 2500,
+        "note": "Outside wages/rents are a founding-policy reference; market food prices are live. Funded vacancies, route capacity and quoted private learning places can change before arrival; any private fee forecast is included in essentials, without assumed vouchers."
+      },
+      "deniedState": {
+        "newPeople": 0,
+        "cashDrift": 0
+      },
+      "restored": {
+        "eligible": true,
+        "reasons": [],
+        "home": 74,
+        "housing": {
+          "building": 74,
+          "capacity": 1,
+          "households": [],
+          "occupied": 0,
+          "available": 1,
+          "overcrowded": false,
+          "reviewRequired": false,
+          "legacySharedTenants": [],
+          "reserved": false,
+          "underConstruction": false
+        },
+        "offers": [
+          {
+            "person": 0,
+            "firm": 0,
+            "wage": 30,
+            "distance": 12,
+            "fare": 0.42000000000000004,
+            "mode": "road"
+          },
+          {
+            "person": 1,
+            "firm": 0,
+            "wage": 30,
+            "distance": 12,
+            "fare": 0.42000000000000004,
+            "mode": "road"
+          }
+        ],
+        "expectedNet": 52.8,
+        "essentials": 30.070886397398322,
+        "budget": {
+          "rent": 8.952649793125,
+          "food": 14.848236604273321,
+          "utilities": 4.59,
+          "commuting": 0.8400000000000001,
+          "shopping": 0.8400000000000001,
+          "propertyTax": 0,
+          "debtService": 0,
+          "privateFees": 0
+        },
+        "foodShop": 1,
+        "rent": 8.952649793125,
+        "surplus": 22.729113602601675,
+        "outside": {
+          "market": "upland",
+          "name": "Upland Cooperative",
+          "net": 49.28,
+          "essentials": 31.555625559304747,
+          "surplus": 17.724374440695254,
+          "referenceOnly": true,
+          "carriedObligations": 0
+        },
+        "services": {
+          "health": 0.6811377245508983,
+          "school": 0.32527801539777584,
+          "forecastOnly": true
+        },
+        "pullProbability": 0.668805246649558,
+        "capital": 2500,
+        "note": "Outside wages/rents are a founding-policy reference; market food prices are live. Funded vacancies, route capacity and quoted private learning places can change before arrival; any private fee forecast is included in essentials, without assumed vouchers."
+      },
+      "attempts": 1,
+      "admitted": {
+        "id": 67,
+        "people": [
+          169,
+          170
+        ],
+        "cash": 2500,
+        "home": 74,
+        "offers": [
+          {
+            "person": 169,
+            "age": 44,
+            "skill": 0.5175801146659069,
+            "firm": 0
+          },
+          {
+            "person": 170,
+            "age": 37,
+            "skill": 0.4781392190721817,
+            "firm": 0
+          }
+        ],
+        "capitalRegionDelta": -2500
+      },
+      "peopleAdded": 2,
+      "capitalDrift": 0,
+      "afterDay": {
+        "cash": 2509.3281692744076,
+        "income": 60,
+        "incomeTax": 7.2,
+        "people": [
+          169,
+          170
+        ],
+        "jobs": [
+          0,
+          0
+        ],
+        "home": 74,
+        "housing": {
+          "building": 74,
+          "capacity": 1,
+          "households": [
+            67
+          ],
+          "occupied": 1,
+          "available": 0,
+          "overcrowded": false,
+          "reviewRequired": false,
+          "legacySharedTenants": [],
+          "reserved": false,
+          "underConstruction": false
+        }
+      },
+      "cashDrift": -1.30385160446167e-08,
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15489571.999999987,
+        "population": 169,
+        "day": 31
+      },
+      "roundTrip": true
+    },
+    {
+      "seed": 101,
+      "variant": "construction",
+      "initial": {
+        "eligible": true,
+        "reasons": [],
+        "home": 74,
+        "housing": {
+          "building": 74,
+          "capacity": 1,
+          "households": [],
+          "occupied": 0,
+          "available": 1,
+          "overcrowded": false,
+          "reviewRequired": false,
+          "legacySharedTenants": [],
+          "reserved": false,
+          "underConstruction": false
+        },
+        "offers": [
+          {
+            "person": 0,
+            "firm": 0,
+            "wage": 30,
+            "distance": 12,
+            "fare": 0.42000000000000004,
+            "mode": "road"
+          },
+          {
+            "person": 1,
+            "firm": 0,
+            "wage": 30,
+            "distance": 12,
+            "fare": 0.42000000000000004,
+            "mode": "road"
+          }
+        ],
+        "expectedNet": 52.8,
+        "essentials": 30.070886397398322,
+        "budget": {
+          "rent": 8.952649793125,
+          "food": 14.848236604273321,
+          "utilities": 4.59,
+          "commuting": 0.8400000000000001,
+          "shopping": 0.8400000000000001,
+          "propertyTax": 0,
+          "debtService": 0,
+          "privateFees": 0
+        },
+        "foodShop": 1,
+        "rent": 8.952649793125,
+        "surplus": 22.729113602601675,
+        "outside": {
+          "market": "upland",
+          "name": "Upland Cooperative",
+          "net": 49.28,
+          "essentials": 31.555625559304747,
+          "surplus": 17.724374440695254,
+          "referenceOnly": true,
+          "carriedObligations": 0
+        },
+        "services": {
+          "health": 0.6811377245508983,
+          "school": 0.32527801539777584,
+          "forecastOnly": true
+        },
+        "pullProbability": 0.668805246649558,
+        "capital": 2500,
+        "note": "Outside wages/rents are a founding-policy reference; market food prices are live. Funded vacancies, route capacity and quoted private learning places can change before arrival; any private fee forecast is included in essentials, without assumed vouchers."
+      },
+      "blocked": {
+        "eligible": false,
+        "reasons": [
+          "No unreserved vacant household unit",
+          "No funded reachable job remains after local jobseekers",
+          "Expected take-home pay does not cover rent, food, utilities and fares"
+        ],
+        "home": 74,
+        "housing": {
+          "building": 74,
+          "capacity": 1,
+          "households": [],
+          "occupied": 0,
+          "available": 1,
+          "overcrowded": false,
+          "reviewRequired": false,
+          "legacySharedTenants": [],
+          "reserved": false,
+          "underConstruction": true
+        },
+        "offers": [],
+        "expectedNet": 0,
+        "essentials": 29.230886397398322,
+        "budget": {
+          "rent": 8.952649793125,
+          "food": 14.848236604273321,
+          "utilities": 4.59,
+          "commuting": 0,
+          "shopping": 0.8400000000000001,
+          "propertyTax": 0,
+          "debtService": 0,
+          "privateFees": 0
+        },
+        "foodShop": 1,
+        "rent": 8.952649793125,
+        "surplus": -29.230886397398322,
+        "outside": {
+          "market": "upland",
+          "name": "Upland Cooperative",
+          "net": 49.28,
+          "essentials": 31.555625559304747,
+          "surplus": 17.724374440695254,
+          "referenceOnly": true,
+          "carriedObligations": 0
+        },
+        "services": {
+          "health": 0.6811377245508983,
+          "school": 0.32527801539777584,
+          "forecastOnly": true
+        },
+        "pullProbability": 0,
+        "capital": 2500,
+        "note": "Outside wages/rents are a founding-policy reference; market food prices are live. Funded vacancies, route capacity and quoted private learning places can change before arrival; any private fee forecast is included in essentials, without assumed vouchers."
+      },
+      "deniedState": {
+        "newPeople": 0,
+        "cashDrift": 0
+      },
+      "restored": {
+        "eligible": true,
+        "reasons": [],
+        "home": 74,
+        "housing": {
+          "building": 74,
+          "capacity": 1,
+          "households": [],
+          "occupied": 0,
+          "available": 1,
+          "overcrowded": false,
+          "reviewRequired": false,
+          "legacySharedTenants": [],
+          "reserved": false,
+          "underConstruction": false
+        },
+        "offers": [
+          {
+            "person": 0,
+            "firm": 0,
+            "wage": 30,
+            "distance": 12,
+            "fare": 0.42000000000000004,
+            "mode": "road"
+          },
+          {
+            "person": 1,
+            "firm": 0,
+            "wage": 30,
+            "distance": 12,
+            "fare": 0.42000000000000004,
+            "mode": "road"
+          }
+        ],
+        "expectedNet": 52.8,
+        "essentials": 30.070886397398322,
+        "budget": {
+          "rent": 8.952649793125,
+          "food": 14.848236604273321,
+          "utilities": 4.59,
+          "commuting": 0.8400000000000001,
+          "shopping": 0.8400000000000001,
+          "propertyTax": 0,
+          "debtService": 0,
+          "privateFees": 0
+        },
+        "foodShop": 1,
+        "rent": 8.952649793125,
+        "surplus": 22.729113602601675,
+        "outside": {
+          "market": "upland",
+          "name": "Upland Cooperative",
+          "net": 49.28,
+          "essentials": 31.555625559304747,
+          "surplus": 17.724374440695254,
+          "referenceOnly": true,
+          "carriedObligations": 0
+        },
+        "services": {
+          "health": 0.6811377245508983,
+          "school": 0.32527801539777584,
+          "forecastOnly": true
+        },
+        "pullProbability": 0.668805246649558,
+        "capital": 2500,
+        "note": "Outside wages/rents are a founding-policy reference; market food prices are live. Funded vacancies, route capacity and quoted private learning places can change before arrival; any private fee forecast is included in essentials, without assumed vouchers."
+      },
+      "attempts": 1,
+      "admitted": {
+        "id": 67,
+        "people": [
+          169,
+          170
+        ],
+        "cash": 2500,
+        "home": 74,
+        "offers": [
+          {
+            "person": 169,
+            "age": 22,
+            "skill": 0.9849899613065645,
+            "firm": 0
+          },
+          {
+            "person": 170,
+            "age": 33,
+            "skill": 0.6530512111377902,
+            "firm": 0
+          }
+        ],
+        "capitalRegionDelta": -2500
+      },
+      "peopleAdded": 2,
+      "capitalDrift": 0,
+      "afterDay": {
+        "cash": 2509.3281692744076,
+        "income": 60,
+        "incomeTax": 7.2,
+        "people": [
+          169,
+          170
+        ],
+        "jobs": [
+          0,
+          0
+        ],
+        "home": 74,
+        "housing": {
+          "building": 74,
+          "capacity": 1,
+          "households": [
+            67
+          ],
+          "occupied": 1,
+          "available": 0,
+          "overcrowded": false,
+          "reviewRequired": false,
+          "legacySharedTenants": [],
+          "reserved": false,
+          "underConstruction": false
+        }
+      },
+      "cashDrift": -1.30385160446167e-08,
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15489571.999999987,
+        "population": 169,
+        "day": 31
+      },
+      "roundTrip": true
+    },
+    {
+      "seed": 909,
+      "variant": "funding",
+      "initial": {
+        "eligible": true,
+        "reasons": [],
+        "home": 40,
+        "housing": {
+          "building": 40,
+          "capacity": 1,
+          "households": [],
+          "occupied": 0,
+          "available": 1,
+          "overcrowded": false,
+          "reviewRequired": false,
+          "legacySharedTenants": [],
+          "reserved": false,
+          "underConstruction": false
+        },
+        "offers": [
+          {
+            "person": 0,
+            "firm": 0,
+            "wage": 31,
+            "distance": 12,
+            "fare": 0.42000000000000004,
+            "mode": "road"
+          },
+          {
+            "person": 1,
+            "firm": 0,
+            "wage": 31,
+            "distance": 12,
+            "fare": 0.42000000000000004,
+            "mode": "road"
+          }
+        ],
+        "expectedNet": 54.56,
+        "essentials": 28.87328966973696,
+        "budget": {
+          "rent": 8.9985062875,
+          "food": 13.53478338223696,
+          "utilities": 4.59,
+          "commuting": 0.8400000000000001,
+          "shopping": 0.9100000000000001,
+          "propertyTax": 0,
+          "debtService": 0,
+          "privateFees": 0
+        },
+        "foodShop": 1,
+        "rent": 8.9985062875,
+        "surplus": 25.686710330263043,
+        "outside": {
+          "market": "upland",
+          "name": "Upland Cooperative",
+          "net": 49.28,
+          "essentials": 29.761518147642565,
+          "surplus": 19.518481852357436,
+          "referenceOnly": true,
+          "carriedObligations": 0
+        },
+        "services": {
+          "health": 0.6852409638554217,
+          "school": 0.3272375215146299,
+          "forecastOnly": true
+        },
+        "pullProbability": 0.6708261617900172,
+        "capital": 2500,
+        "note": "Outside wages/rents are a founding-policy reference; market food prices are live. Funded vacancies, route capacity and quoted private learning places can change before arrival; any private fee forecast is included in essentials, without assumed vouchers."
+      },
+      "blocked": {
+        "eligible": false,
+        "reasons": [
+          "No funded reachable job remains after local jobseekers",
+          "Expected take-home pay does not cover rent, food, utilities and fares"
+        ],
+        "home": 40,
+        "housing": {
+          "building": 40,
+          "capacity": 1,
+          "households": [],
+          "occupied": 0,
+          "available": 1,
+          "overcrowded": false,
+          "reviewRequired": false,
+          "legacySharedTenants": [],
+          "reserved": false,
+          "underConstruction": false
+        },
+        "offers": [],
+        "expectedNet": 0,
+        "essentials": 28.03328966973696,
+        "budget": {
+          "rent": 8.9985062875,
+          "food": 13.53478338223696,
+          "utilities": 4.59,
+          "commuting": 0,
+          "shopping": 0.9100000000000001,
+          "propertyTax": 0,
+          "debtService": 0,
+          "privateFees": 0
+        },
+        "foodShop": 1,
+        "rent": 8.9985062875,
+        "surplus": -28.03328966973696,
+        "outside": {
+          "market": "upland",
+          "name": "Upland Cooperative",
+          "net": 49.28,
+          "essentials": 29.761518147642565,
+          "surplus": 19.518481852357436,
+          "referenceOnly": true,
+          "carriedObligations": 0
+        },
+        "services": {
+          "health": 0.6852409638554217,
+          "school": 0.3272375215146299,
+          "forecastOnly": true
+        },
+        "pullProbability": 0,
+        "capital": 2500,
+        "note": "Outside wages/rents are a founding-policy reference; market food prices are live. Funded vacancies, route capacity and quoted private learning places can change before arrival; any private fee forecast is included in essentials, without assumed vouchers."
+      },
+      "deniedState": {
+        "newPeople": 0,
+        "cashDrift": 0
+      },
+      "restored": {
+        "eligible": true,
+        "reasons": [],
+        "home": 40,
+        "housing": {
+          "building": 40,
+          "capacity": 1,
+          "households": [],
+          "occupied": 0,
+          "available": 1,
+          "overcrowded": false,
+          "reviewRequired": false,
+          "legacySharedTenants": [],
+          "reserved": false,
+          "underConstruction": false
+        },
+        "offers": [
+          {
+            "person": 0,
+            "firm": 0,
+            "wage": 31,
+            "distance": 12,
+            "fare": 0.42000000000000004,
+            "mode": "road"
+          },
+          {
+            "person": 1,
+            "firm": 0,
+            "wage": 31,
+            "distance": 12,
+            "fare": 0.42000000000000004,
+            "mode": "road"
+          }
+        ],
+        "expectedNet": 54.56,
+        "essentials": 28.87328966973696,
+        "budget": {
+          "rent": 8.9985062875,
+          "food": 13.53478338223696,
+          "utilities": 4.59,
+          "commuting": 0.8400000000000001,
+          "shopping": 0.9100000000000001,
+          "propertyTax": 0,
+          "debtService": 0,
+          "privateFees": 0
+        },
+        "foodShop": 1,
+        "rent": 8.9985062875,
+        "surplus": 25.686710330263043,
+        "outside": {
+          "market": "upland",
+          "name": "Upland Cooperative",
+          "net": 49.28,
+          "essentials": 29.761518147642565,
+          "surplus": 19.518481852357436,
+          "referenceOnly": true,
+          "carriedObligations": 0
+        },
+        "services": {
+          "health": 0.6852409638554217,
+          "school": 0.3272375215146299,
+          "forecastOnly": true
+        },
+        "pullProbability": 0.6708261617900172,
+        "capital": 2500,
+        "note": "Outside wages/rents are a founding-policy reference; market food prices are live. Funded vacancies, route capacity and quoted private learning places can change before arrival; any private fee forecast is included in essentials, without assumed vouchers."
+      },
+      "attempts": 1,
+      "admitted": {
+        "id": 67,
+        "people": [
+          169,
+          170
+        ],
+        "cash": 2500,
+        "home": 40,
+        "offers": [
+          {
+            "person": 169,
+            "age": 44,
+            "skill": 0.5175801146659069,
+            "firm": 0
+          },
+          {
+            "person": 170,
+            "age": 37,
+            "skill": 0.4781392190721817,
+            "firm": 0
+          }
+        ],
+        "capitalRegionDelta": -2500
+      },
+      "peopleAdded": 2,
+      "capitalDrift": 0,
+      "afterDay": {
+        "cash": 2509.6668110447436,
+        "income": 62,
+        "incomeTax": 7.44,
+        "people": [
+          169,
+          170
+        ],
+        "jobs": [
+          0,
+          0
+        ],
+        "home": 40,
+        "housing": {
+          "building": 40,
+          "capacity": 1,
+          "households": [
+            67
+          ],
+          "occupied": 1,
+          "available": 0,
+          "overcrowded": false,
+          "reviewRequired": false,
+          "legacySharedTenants": [],
+          "reserved": false,
+          "underConstruction": false
+        }
+      },
+      "cashDrift": -3.725290298461914e-09,
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15484590.999999996,
+        "population": 168,
+        "day": 31
+      },
+      "roundTrip": true
+    },
+    {
+      "seed": 909,
+      "variant": "access",
+      "initial": {
+        "eligible": true,
+        "reasons": [],
+        "home": 40,
+        "housing": {
+          "building": 40,
+          "capacity": 1,
+          "households": [],
+          "occupied": 0,
+          "available": 1,
+          "overcrowded": false,
+          "reviewRequired": false,
+          "legacySharedTenants": [],
+          "reserved": false,
+          "underConstruction": false
+        },
+        "offers": [
+          {
+            "person": 0,
+            "firm": 0,
+            "wage": 31,
+            "distance": 12,
+            "fare": 0.42000000000000004,
+            "mode": "road"
+          },
+          {
+            "person": 1,
+            "firm": 0,
+            "wage": 31,
+            "distance": 12,
+            "fare": 0.42000000000000004,
+            "mode": "road"
+          }
+        ],
+        "expectedNet": 54.56,
+        "essentials": 28.87328966973696,
+        "budget": {
+          "rent": 8.9985062875,
+          "food": 13.53478338223696,
+          "utilities": 4.59,
+          "commuting": 0.8400000000000001,
+          "shopping": 0.9100000000000001,
+          "propertyTax": 0,
+          "debtService": 0,
+          "privateFees": 0
+        },
+        "foodShop": 1,
+        "rent": 8.9985062875,
+        "surplus": 25.686710330263043,
+        "outside": {
+          "market": "upland",
+          "name": "Upland Cooperative",
+          "net": 49.28,
+          "essentials": 29.761518147642565,
+          "surplus": 19.518481852357436,
+          "referenceOnly": true,
+          "carriedObligations": 0
+        },
+        "services": {
+          "health": 0.6852409638554217,
+          "school": 0.3272375215146299,
+          "forecastOnly": true
+        },
+        "pullProbability": 0.6708261617900172,
+        "capital": 2500,
+        "note": "Outside wages/rents are a founding-policy reference; market food prices are live. Funded vacancies, route capacity and quoted private learning places can change before arrival; any private fee forecast is included in essentials, without assumed vouchers."
+      },
+      "blocked": {
+        "eligible": false,
+        "reasons": [
+          "The home has no connected road gateway",
+          "No reachable staffed food shop or funded entry-staffed shop",
+          "No funded reachable job remains after local jobseekers",
+          "Expected take-home pay does not cover rent, food, utilities and fares"
+        ],
+        "home": 40,
+        "housing": {
+          "building": 40,
+          "capacity": 1,
+          "households": [],
+          "occupied": 0,
+          "available": 1,
+          "overcrowded": false,
+          "reviewRequired": false,
+          "legacySharedTenants": [],
+          "reserved": false,
+          "underConstruction": false
+        },
+        "offers": [],
+        "expectedNet": 0,
+        "essentials": 31.103013403491143,
+        "budget": {
+          "rent": 8.537947583125,
+          "food": 17.975065820366144,
+          "utilities": 4.59,
+          "commuting": 0,
+          "shopping": 0,
+          "propertyTax": 0,
+          "debtService": 0,
+          "privateFees": 0
+        },
+        "foodShop": null,
+        "rent": 8.537947583125,
+        "surplus": -31.103013403491143,
+        "outside": {
+          "market": "upland",
+          "name": "Upland Cooperative",
+          "net": 49.28,
+          "essentials": 29.761518147642565,
+          "surplus": 19.518481852357436,
+          "referenceOnly": true,
+          "carriedObligations": 0
+        },
+        "services": {
+          "health": 0,
+          "school": 0,
+          "forecastOnly": true
+        },
+        "pullProbability": 0,
+        "capital": 2500,
+        "note": "Outside wages/rents are a founding-policy reference; market food prices are live. Funded vacancies, route capacity and quoted private learning places can change before arrival; any private fee forecast is included in essentials, without assumed vouchers."
+      },
+      "deniedState": {
+        "newPeople": 0,
+        "cashDrift": 0
+      },
+      "restored": {
+        "eligible": true,
+        "reasons": [],
+        "home": 40,
+        "housing": {
+          "building": 40,
+          "capacity": 1,
+          "households": [],
+          "occupied": 0,
+          "available": 1,
+          "overcrowded": false,
+          "reviewRequired": false,
+          "legacySharedTenants": [],
+          "reserved": false,
+          "underConstruction": false
+        },
+        "offers": [
+          {
+            "person": 0,
+            "firm": 0,
+            "wage": 31,
+            "distance": 12,
+            "fare": 0.42000000000000004,
+            "mode": "road"
+          },
+          {
+            "person": 1,
+            "firm": 0,
+            "wage": 31,
+            "distance": 12,
+            "fare": 0.42000000000000004,
+            "mode": "road"
+          }
+        ],
+        "expectedNet": 54.56,
+        "essentials": 28.87328966973696,
+        "budget": {
+          "rent": 8.9985062875,
+          "food": 13.53478338223696,
+          "utilities": 4.59,
+          "commuting": 0.8400000000000001,
+          "shopping": 0.9100000000000001,
+          "propertyTax": 0,
+          "debtService": 0,
+          "privateFees": 0
+        },
+        "foodShop": 1,
+        "rent": 8.9985062875,
+        "surplus": 25.686710330263043,
+        "outside": {
+          "market": "upland",
+          "name": "Upland Cooperative",
+          "net": 49.28,
+          "essentials": 29.761518147642565,
+          "surplus": 19.518481852357436,
+          "referenceOnly": true,
+          "carriedObligations": 0
+        },
+        "services": {
+          "health": 0.6852409638554217,
+          "school": 0.3272375215146299,
+          "forecastOnly": true
+        },
+        "pullProbability": 0.6708261617900172,
+        "capital": 2500,
+        "note": "Outside wages/rents are a founding-policy reference; market food prices are live. Funded vacancies, route capacity and quoted private learning places can change before arrival; any private fee forecast is included in essentials, without assumed vouchers."
+      },
+      "attempts": 1,
+      "admitted": {
+        "id": 67,
+        "people": [
+          169,
+          170
+        ],
+        "cash": 2500,
+        "home": 40,
+        "offers": [
+          {
+            "person": 169,
+            "age": 44,
+            "skill": 0.5175801146659069,
+            "firm": 0
+          },
+          {
+            "person": 170,
+            "age": 37,
+            "skill": 0.4781392190721817,
+            "firm": 0
+          }
+        ],
+        "capitalRegionDelta": -2500
+      },
+      "peopleAdded": 2,
+      "capitalDrift": 0,
+      "afterDay": {
+        "cash": 2509.6668110447436,
+        "income": 62,
+        "incomeTax": 7.44,
+        "people": [
+          169,
+          170
+        ],
+        "jobs": [
+          0,
+          0
+        ],
+        "home": 40,
+        "housing": {
+          "building": 40,
+          "capacity": 1,
+          "households": [
+            67
+          ],
+          "occupied": 1,
+          "available": 0,
+          "overcrowded": false,
+          "reviewRequired": false,
+          "legacySharedTenants": [],
+          "reserved": false,
+          "underConstruction": false
+        }
+      },
+      "cashDrift": -3.725290298461914e-09,
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15484590.999999996,
+        "population": 168,
+        "day": 31
+      },
+      "roundTrip": true
+    },
+    {
+      "seed": 909,
+      "variant": "construction",
+      "initial": {
+        "eligible": true,
+        "reasons": [],
+        "home": 40,
+        "housing": {
+          "building": 40,
+          "capacity": 1,
+          "households": [],
+          "occupied": 0,
+          "available": 1,
+          "overcrowded": false,
+          "reviewRequired": false,
+          "legacySharedTenants": [],
+          "reserved": false,
+          "underConstruction": false
+        },
+        "offers": [
+          {
+            "person": 0,
+            "firm": 0,
+            "wage": 31,
+            "distance": 12,
+            "fare": 0.42000000000000004,
+            "mode": "road"
+          },
+          {
+            "person": 1,
+            "firm": 0,
+            "wage": 31,
+            "distance": 12,
+            "fare": 0.42000000000000004,
+            "mode": "road"
+          }
+        ],
+        "expectedNet": 54.56,
+        "essentials": 28.87328966973696,
+        "budget": {
+          "rent": 8.9985062875,
+          "food": 13.53478338223696,
+          "utilities": 4.59,
+          "commuting": 0.8400000000000001,
+          "shopping": 0.9100000000000001,
+          "propertyTax": 0,
+          "debtService": 0,
+          "privateFees": 0
+        },
+        "foodShop": 1,
+        "rent": 8.9985062875,
+        "surplus": 25.686710330263043,
+        "outside": {
+          "market": "upland",
+          "name": "Upland Cooperative",
+          "net": 49.28,
+          "essentials": 29.761518147642565,
+          "surplus": 19.518481852357436,
+          "referenceOnly": true,
+          "carriedObligations": 0
+        },
+        "services": {
+          "health": 0.6852409638554217,
+          "school": 0.3272375215146299,
+          "forecastOnly": true
+        },
+        "pullProbability": 0.6708261617900172,
+        "capital": 2500,
+        "note": "Outside wages/rents are a founding-policy reference; market food prices are live. Funded vacancies, route capacity and quoted private learning places can change before arrival; any private fee forecast is included in essentials, without assumed vouchers."
+      },
+      "blocked": {
+        "eligible": false,
+        "reasons": [
+          "No unreserved vacant household unit",
+          "No funded reachable job remains after local jobseekers",
+          "Expected take-home pay does not cover rent, food, utilities and fares"
+        ],
+        "home": 40,
+        "housing": {
+          "building": 40,
+          "capacity": 1,
+          "households": [],
+          "occupied": 0,
+          "available": 1,
+          "overcrowded": false,
+          "reviewRequired": false,
+          "legacySharedTenants": [],
+          "reserved": false,
+          "underConstruction": true
+        },
+        "offers": [],
+        "expectedNet": 0,
+        "essentials": 28.03328966973696,
+        "budget": {
+          "rent": 8.9985062875,
+          "food": 13.53478338223696,
+          "utilities": 4.59,
+          "commuting": 0,
+          "shopping": 0.9100000000000001,
+          "propertyTax": 0,
+          "debtService": 0,
+          "privateFees": 0
+        },
+        "foodShop": 1,
+        "rent": 8.9985062875,
+        "surplus": -28.03328966973696,
+        "outside": {
+          "market": "upland",
+          "name": "Upland Cooperative",
+          "net": 49.28,
+          "essentials": 29.761518147642565,
+          "surplus": 19.518481852357436,
+          "referenceOnly": true,
+          "carriedObligations": 0
+        },
+        "services": {
+          "health": 0.6852409638554217,
+          "school": 0.3272375215146299,
+          "forecastOnly": true
+        },
+        "pullProbability": 0,
+        "capital": 2500,
+        "note": "Outside wages/rents are a founding-policy reference; market food prices are live. Funded vacancies, route capacity and quoted private learning places can change before arrival; any private fee forecast is included in essentials, without assumed vouchers."
+      },
+      "deniedState": {
+        "newPeople": 0,
+        "cashDrift": 0
+      },
+      "restored": {
+        "eligible": true,
+        "reasons": [],
+        "home": 40,
+        "housing": {
+          "building": 40,
+          "capacity": 1,
+          "households": [],
+          "occupied": 0,
+          "available": 1,
+          "overcrowded": false,
+          "reviewRequired": false,
+          "legacySharedTenants": [],
+          "reserved": false,
+          "underConstruction": false
+        },
+        "offers": [
+          {
+            "person": 0,
+            "firm": 0,
+            "wage": 31,
+            "distance": 12,
+            "fare": 0.42000000000000004,
+            "mode": "road"
+          },
+          {
+            "person": 1,
+            "firm": 0,
+            "wage": 31,
+            "distance": 12,
+            "fare": 0.42000000000000004,
+            "mode": "road"
+          }
+        ],
+        "expectedNet": 54.56,
+        "essentials": 28.87328966973696,
+        "budget": {
+          "rent": 8.9985062875,
+          "food": 13.53478338223696,
+          "utilities": 4.59,
+          "commuting": 0.8400000000000001,
+          "shopping": 0.9100000000000001,
+          "propertyTax": 0,
+          "debtService": 0,
+          "privateFees": 0
+        },
+        "foodShop": 1,
+        "rent": 8.9985062875,
+        "surplus": 25.686710330263043,
+        "outside": {
+          "market": "upland",
+          "name": "Upland Cooperative",
+          "net": 49.28,
+          "essentials": 29.761518147642565,
+          "surplus": 19.518481852357436,
+          "referenceOnly": true,
+          "carriedObligations": 0
+        },
+        "services": {
+          "health": 0.6852409638554217,
+          "school": 0.3272375215146299,
+          "forecastOnly": true
+        },
+        "pullProbability": 0.6708261617900172,
+        "capital": 2500,
+        "note": "Outside wages/rents are a founding-policy reference; market food prices are live. Funded vacancies, route capacity and quoted private learning places can change before arrival; any private fee forecast is included in essentials, without assumed vouchers."
+      },
+      "attempts": 1,
+      "admitted": {
+        "id": 67,
+        "people": [
+          169,
+          170
+        ],
+        "cash": 2500,
+        "home": 40,
+        "offers": [
+          {
+            "person": 169,
+            "age": 22,
+            "skill": 0.9849899613065645,
+            "firm": 0
+          },
+          {
+            "person": 170,
+            "age": 33,
+            "skill": 0.6530512111377902,
+            "firm": 0
+          }
+        ],
+        "capitalRegionDelta": -2500
+      },
+      "peopleAdded": 2,
+      "capitalDrift": 0,
+      "afterDay": {
+        "cash": 2509.6668110447436,
+        "income": 62,
+        "incomeTax": 7.44,
+        "people": [
+          169,
+          170
+        ],
+        "jobs": [
+          0,
+          0
+        ],
+        "home": 40,
+        "housing": {
+          "building": 40,
+          "capacity": 1,
+          "households": [
+            67
+          ],
+          "occupied": 1,
+          "available": 0,
+          "overcrowded": false,
+          "reviewRequired": false,
+          "legacySharedTenants": [],
+          "reserved": false,
+          "underConstruction": false
+        }
+      },
+      "cashDrift": -3.725290298461914e-09,
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15484590.999999996,
+        "population": 168,
+        "day": 31
+      },
+      "roundTrip": true
+    }
+  ],
+  "pageErrors": []
+}

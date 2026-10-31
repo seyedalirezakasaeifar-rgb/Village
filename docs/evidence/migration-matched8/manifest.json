@@ -1,0 +1,58 @@
+{
+  "source_commit": "662ec6f3b0998ce3c3c560d5bef39e4e17a4bcc1",
+  "source_sha256": "abe9c4bbdd86f8c2b9a3776d2996e2c32803f4dd0521791d25ba90cf6c398882",
+  "artifacts": {
+    "histories.json.gz": {
+      "bytes": 1124767,
+      "sha256": "1e2a373374ccc395b69aedc7b8abff48393cd1b915ffe3ebff2da7ddb15277e0"
+    },
+    "intermediate-collapsed-trade-controls.log": {
+      "bytes": 3094,
+      "sha256": "dc4f6ec15eceb023bb058092a3ddf9457fb459f0e276db19662834b0fadec5a9"
+    },
+    "intermediate-drawer-toggle.log": {
+      "bytes": 3461,
+      "sha256": "dcd417c0ab1e232624306227c5c546e239c9c228fa739bbc5e2def38e9738368"
+    },
+    "intermediate-invalid-fixture.log": {
+      "bytes": 6044,
+      "sha256": "2adfa60200b0e7e3773443184e4eb89cab0188532c4d6e444780a51b93fe1129"
+    },
+    "migration-regressions.json.gz": {
+      "bytes": 20740,
+      "sha256": "90de841089860cafa60ce509eca2fe02f5eb15a4b8ef6617b00850c878888060"
+    },
+    "natural.log": {
+      "bytes": 2762,
+      "sha256": "d74e7e9a69201704eb1d26a9f637bfe9ab8851692118ae8e2ba621eff5f3fb40"
+    },
+    "recovery.json": {
+      "bytes": 68492,
+      "sha256": "d007abdd6a0577739710ea977bf92f84a0fff55323d944f1f32bed41afdee99e"
+    },
+    "recovery.log": {
+      "bytes": 2187,
+      "sha256": "d6f476c6863a8209b0a7c4dcd7b176177363e645c4ce70f67cd34685c99de569"
+    },
+    "regression.log": {
+      "bytes": 208,
+      "sha256": "87254d239bd67240f7c44df3f63e0b226962831d49509b2b3cee9234f5d41ea7"
+    },
+    "summary.json.gz": {
+      "bytes": 128400,
+      "sha256": "d1f24bde50a447ac8a233f9bbb564ccf9fb60f8f5009f4f9b28185be1f40beb7"
+    },
+    "supplier.log": {
+      "bytes": 2000,
+      "sha256": "5ef13b7664505e80eb6946b529c4367e472a72c261d1450953e1dc6a007e94cb"
+    },
+    "trade-comparison.json.gz": {
+      "bytes": 81689,
+      "sha256": "db0b75329b218e41e2ec4a5745e62e7341a7180b9650413c53432f7cad0243b0"
+    },
+    "trade.log": {
+      "bytes": 272,
+      "sha256": "9671d6cac7c0c8016ca0cacea29a978f363c849993b9c1c183a5149a20da9621"
+    }
+  }
+}
