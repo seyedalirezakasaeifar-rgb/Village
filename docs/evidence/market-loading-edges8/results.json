@@ -1,0 +1,998 @@
+{
+  "source_sha256": "3bf1b09324f77ad8fb09c617c115070ebfad6ab18c750bc36d2b4617be073a85",
+  "rows": [
+    {
+      "case": "no waiting essentials",
+      "before": {
+        "day": 1,
+        "treasury": 90000,
+        "total": 15493517,
+        "priority": "balanced",
+        "reliefUntil": 0,
+        "queue": [],
+        "calendar": []
+      },
+      "review": {
+        "ok": false,
+        "reason": "No essential imports currently wait at the county interchange. Extra crews cannot shorten an outside voyage, repair roads or staff a river dock."
+      },
+      "after": {
+        "day": 1,
+        "treasury": 90000,
+        "total": 15493517,
+        "priority": "balanced",
+        "reliefUntil": 0,
+        "queue": [],
+        "calendar": []
+      }
+    },
+    {
+      "case": "insufficient treasury",
+      "before": {
+        "day": 10,
+        "treasury": 0.35,
+        "total": 15493516.999999996,
+        "priority": "balanced",
+        "reliefUntil": 0,
+        "queue": [
+          {
+            "id": 5,
+            "stage": "unloading",
+            "handled": 20,
+            "qty": 120
+          },
+          {
+            "id": 6,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 7,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 8,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 9,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 10,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 11,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 12,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 13,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 14,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 15,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 16,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 17,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 60
+          }
+        ],
+        "calendar": []
+      },
+      "review": {
+        "ok": false,
+        "reason": "Treasury cannot purchase even one handling unit."
+      },
+      "after": {
+        "day": 10,
+        "treasury": 0.35,
+        "total": 15493516.999999996,
+        "priority": "balanced",
+        "reliefUntil": 0,
+        "queue": [
+          {
+            "id": 5,
+            "stage": "unloading",
+            "handled": 20,
+            "qty": 120
+          },
+          {
+            "id": 6,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 7,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 8,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 9,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 10,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 11,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 12,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 13,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 14,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 15,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 16,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 17,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 60
+          }
+        ],
+        "calendar": []
+      }
+    },
+    {
+      "case": "repeated confirm",
+      "before": {
+        "day": 10,
+        "treasury": 90000,
+        "total": 15493516.999999996,
+        "priority": "balanced",
+        "reliefUntil": 0,
+        "queue": [
+          {
+            "id": 5,
+            "stage": "unloading",
+            "handled": 20,
+            "qty": 120
+          },
+          {
+            "id": 6,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 7,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 8,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 9,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 10,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 11,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 12,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 13,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 14,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 15,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 16,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 17,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 60
+          }
+        ],
+        "calendar": []
+      },
+      "first": {
+        "ok": true,
+        "reason": "Essential-import priority and contingent extra shifts authorized. Gathering preparation was not purchased. Stop future shifts in Depot operations; spent work is not refundable."
+      },
+      "middle": {
+        "day": 10,
+        "treasury": 90000,
+        "total": 15493516.999999996,
+        "priority": "essentials",
+        "reliefUntil": 40,
+        "queue": [
+          {
+            "id": 5,
+            "stage": "unloading",
+            "handled": 20,
+            "qty": 120
+          },
+          {
+            "id": 6,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 7,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 8,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 9,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 10,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 11,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 12,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 13,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 14,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 15,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 16,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 17,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 60
+          }
+        ],
+        "calendar": []
+      },
+      "second": {
+        "ok": false,
+        "reason": "Cargo, calendar, policy or funds changed. Review the choice again."
+      },
+      "after": {
+        "day": 10,
+        "treasury": 90000,
+        "total": 15493516.999999996,
+        "priority": "essentials",
+        "reliefUntil": 40,
+        "queue": [
+          {
+            "id": 5,
+            "stage": "unloading",
+            "handled": 20,
+            "qty": 120
+          },
+          {
+            "id": 6,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 7,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 8,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 9,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 10,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 11,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 12,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 13,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 14,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 15,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 16,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 17,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 60
+          }
+        ],
+        "calendar": []
+      }
+    },
+    {
+      "case": "queue changed after quote",
+      "before": {
+        "day": 10,
+        "treasury": 90000,
+        "total": 15493516.999999996,
+        "priority": "balanced",
+        "reliefUntil": 0,
+        "queue": [
+          {
+            "id": 5,
+            "stage": "unloading",
+            "handled": 20,
+            "qty": 120
+          },
+          {
+            "id": 6,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 7,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 8,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 9,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 10,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 11,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 12,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 13,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 14,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 15,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 16,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 17,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 60
+          }
+        ],
+        "calendar": []
+      },
+      "changed": {
+        "day": 11,
+        "treasury": 90357.87452587626,
+        "total": 15493516.999999983,
+        "priority": "balanced",
+        "reliefUntil": 0,
+        "queue": [
+          {
+            "id": 9,
+            "stage": "unloading",
+            "handled": 40,
+            "qty": 120
+          },
+          {
+            "id": 10,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 11,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 12,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 13,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 14,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 15,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 16,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 17,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 60
+          }
+        ],
+        "calendar": []
+      },
+      "result": {
+        "ok": false,
+        "reason": "Cargo, calendar, policy or funds changed. Review the choice again."
+      },
+      "after": {
+        "day": 11,
+        "treasury": 90357.87452587626,
+        "total": 15493516.999999983,
+        "priority": "balanced",
+        "reliefUntil": 0,
+        "queue": [
+          {
+            "id": 9,
+            "stage": "unloading",
+            "handled": 40,
+            "qty": 120
+          },
+          {
+            "id": 10,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 11,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 12,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 13,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 14,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 15,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 16,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 17,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 60
+          }
+        ],
+        "calendar": []
+      }
+    },
+    {
+      "case": "gathering cancelled",
+      "before": {
+        "day": 10,
+        "treasury": 87272,
+        "total": 15493516.999999996,
+        "priority": "balanced",
+        "reliefUntil": 0,
+        "queue": [
+          {
+            "id": 5,
+            "stage": "unloading",
+            "handled": 20,
+            "qty": 120
+          },
+          {
+            "id": 6,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 7,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 8,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 9,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 10,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 11,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 12,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 13,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 14,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 15,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 16,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 17,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 60
+          }
+        ],
+        "calendar": [
+          {
+            "id": 1,
+            "status": "scheduled"
+          }
+        ]
+      },
+      "cancelled": {
+        "day": 10,
+        "treasury": 87272,
+        "total": 15493516.999999996,
+        "priority": "balanced",
+        "reliefUntil": 0,
+        "queue": [
+          {
+            "id": 5,
+            "stage": "unloading",
+            "handled": 20,
+            "qty": 120
+          },
+          {
+            "id": 6,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 7,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 8,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 9,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 10,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 11,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 12,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 13,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 14,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 15,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 16,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 17,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 60
+          }
+        ],
+        "calendar": [
+          {
+            "id": 1,
+            "status": "cancelled"
+          }
+        ]
+      },
+      "result": {
+        "ok": false,
+        "reason": "Cargo, calendar, policy or funds changed. Review the choice again."
+      },
+      "after": {
+        "day": 10,
+        "treasury": 87272,
+        "total": 15493516.999999996,
+        "priority": "balanced",
+        "reliefUntil": 0,
+        "queue": [
+          {
+            "id": 5,
+            "stage": "unloading",
+            "handled": 20,
+            "qty": 120
+          },
+          {
+            "id": 6,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 7,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 8,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 9,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 10,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 11,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 12,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 13,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 14,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 15,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 16,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 120
+          },
+          {
+            "id": 17,
+            "stage": "unloading",
+            "handled": 0,
+            "qty": 60
+          }
+        ],
+        "calendar": [
+          {
+            "id": 1,
+            "status": "cancelled"
+          }
+        ]
+      }
+    }
+  ],
+  "errors": []
+}
