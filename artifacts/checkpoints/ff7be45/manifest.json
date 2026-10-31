@@ -1,0 +1,40 @@
+{
+  "source_commit": "98e3bb771f478eeb52e305a08dff3c15abbf1aed",
+  "game_sha256": "ff7be45ffa028258a7d9229205d18c5ea1c5b2ac2fa5a91aa78bf1c819e6b7c3",
+  "version": "7.1.0",
+  "code": 20,
+  "development_checkpoint": true,
+  "device_certification": false,
+  "native_css_rerun": "pending separate scratch debug APK",
+  "gate_count": 40,
+  "gate_manifest_sha256": "e5e7ab679a9aa6347176d0a8d91d94e6d2fbda115c4936b145bcfcd99c3ab8c3",
+  "files": [
+    {
+      "path": "TownLedger-Android.apk",
+      "bytes": 1422709,
+      "sha256": "ae381e874c78bb263ff8401afa1c9e89f6283ece53ed0e1df164e3bc3101ca89"
+    },
+    {
+      "path": "TownLedger-source.zip",
+      "bytes": 4365348,
+      "sha256": "835e921f5d960923d06af848b87e7b47c71251606bcb1923fba0e5873dffb781"
+    }
+  ],
+  "source_entries": 294,
+  "assets": {
+    "assets/civic7.css": "c27ad35b9758a988a6514661ec3eedc6f4a8c4ea6ff61fee4478156f0c376505",
+    "assets/style.css": "e666e2db01e419d7a65bb7050fb63f4c70a0d58348bdffa4ea7a54fbd8a67015",
+    "assets/game.js": "ff7be45ffa028258a7d9229205d18c5ea1c5b2ac2fa5a91aa78bf1c819e6b7c3",
+    "assets/index.html": "c92dedcb2165a207d8c6d67868d3941e6a30b0226f1ba9af67265f4fcc389912",
+    "assets/vale.css": "6aaa9781eb11e5b0d205a720451d3fbc5384b92fb783e457d5d33f4a94be9bb9",
+    "assets/sound/click.wav": "f442b590c799bbcf972e69d1c1f172881cb5bf81116bf114bc015080d5057c91",
+    "assets/sound/rain.wav": "8d5d04ed401b06df35d964915fcb0705b71f25d6460b7d789841138fadbe3e01",
+    "assets/sound/build.wav": "88377b20c3bbca59a8fcabafe837b6e07508bbdba36112c7f643deea943ba551",
+    "assets/sound/zone.wav": "9d2e5ce6837c95bed60894c43c91f410a675d720369e8245d151653ca1a3541a",
+    "assets/sound/error.wav": "b5d5ded784fb78f162ec098a741ef921c2f10113a13b0d76043966546bcbf0c5",
+    "assets/sound/LICENSE.txt": "66435b1de18b054246e451607fdbfdbdea1e1f770fb214518bfb556f79cd591e",
+    "assets/sound/village.wav": "5789b8988371c6720931a270c433690cdbce4f5dfb6ae7859f4c9b9ed8e857bb",
+    "assets/sound/coin.wav": "99edffa3814662def67c66a9401791043b5221a331ee6edf552d862703a7c7af",
+    "assets/sound/save.wav": "e94121e8f98c3343759ee0606aa23924396cef4445935f4be3267ae9e79b1d6d"
+  }
+}
