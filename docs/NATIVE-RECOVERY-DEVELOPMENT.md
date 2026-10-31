@@ -21,3 +21,11 @@ The earlier software emulator produced SystemUI ANRs and a renderer-termination 
 Native dialog presentation, renderer-kill recovery and provider behavior still need a reliable device/emulator test. Host-JVM/browser tests and SDK compilation do not certify those Android UI paths.
 
 A separate [Android host harness](../tests/android/README.md) isolates these native paths in a test-only APK with a lightweight same-origin page. It can terminate only its own WebView renderer through the supported API and check recovery/persistent data. Its run remains pending until an explicit instrumentation result is recorded; it does not substitute for full-game touch, provider or physical-device testing.
+
+## Actual Android host result
+
+The standard separate instrumentation APK passed **nine native host checks** on the API30 software emulator: handled-layer acknowledgement, failed-save retention, Keep playing/resume, hung-save timeout, rejection of a late saved acknowledgement, actual supported renderer termination, recovery without finishing the host, recreated-view persistence, and acknowledged successful exit. Android reported the intentional termination as `didCrash=false`; it was not a SystemUI ANR. The [curated evidence](previews/native-recovery/evidence.json) binds the unchanged production Java files, harness, fixture and APK hashes.
+
+The initial self-targeting harness failed to resolve its Activity before executing any checks. A normal debuggable target plus a separately signed test-only instrumentation APK then exercised the supported route successfully. The emulator stopped after the test. No root or security-setting changes were used.
+
+These are actual Android host/dialog/renderer/storage checks with a lightweight same-origin page and programmatic framework actions. Full-game physical touch, device FPS/thermals and the system document picker remain separate, unverified acceptance stages.

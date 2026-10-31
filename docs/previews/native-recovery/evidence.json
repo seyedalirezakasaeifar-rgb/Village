@@ -1,0 +1,52 @@
+{
+  "outcome": "PASS",
+  "configuration": "API30 AOSP x86_64;4GB;2cores;Swangle;Vulkan disabled;software CPU/no KVM",
+  "source_commit": "0b9fe0b388debeeb6dd99e99b99d7b3c049f4a6d",
+  "production_java_sha256": {
+    "BackNavigation.java": "5e6b38bd787ccdaa9006173d7c8ac82d208c90cc571d13ecc56e68af0f69b2ee",
+    "MainActivity.java": "a827a053dba39718f029b6c149307e0043a0ec21aef483f679778c68a50b33c1",
+    "ArchiveIO.java": "1f2d9a5ba00e535fb6dd08ab17e53d1817b70251d9579c80868ce7a08d256c56"
+  },
+  "harness_and_apks": {
+    "source_commit": "0b9fe0b388debeeb6dd99e99b99d7b3c049f4a6d",
+    "production_java_sha256": {
+      "BackNavigation.java": "5e6b38bd787ccdaa9006173d7c8ac82d208c90cc571d13ecc56e68af0f69b2ee",
+      "MainActivity.java": "a827a053dba39718f029b6c149307e0043a0ec21aef483f679778c68a50b33c1",
+      "ArchiveIO.java": "1f2d9a5ba00e535fb6dd08ab17e53d1817b70251d9579c80868ce7a08d256c56"
+    },
+    "harness_sha256": "67758f8fab00da67dcc8401fb4cfc5a8e0908a97ace26f34f2f2582a4ac5dcce",
+    "fixture_sha256": "670c4919ecb8c190be743bfd978557f020080d24e3a7893dcab6edaa853645b4",
+    "files": [
+      {
+        "path": "TownLedger-native-host-fixture.apk",
+        "sha256": "f637867e83f70e58c4622668d041bbfa382261324281f3bebbb6b5044e4ebfdc",
+        "bytes": 1426805
+      },
+      {
+        "path": "TownLedger-native-host-tests.apk",
+        "sha256": "61afb8a8a58e0bdf216c8b24d1736c6ef7ea9d40a0d965a1b36b2c398c6a3736",
+        "bytes": 20823
+      }
+    ],
+    "note": "Separate normal-debug target plus test-only instrumentation; no full-game FPS/touch claim"
+  },
+  "checks": [
+    "Handled layer acknowledged without timeout or exit",
+    "Failed save does not finish Activity",
+    "Keep playing resumes renderer",
+    "Hung save timeout preserves Activity",
+    "Late saved acknowledgement cannot exit after timeout",
+    "Terminated only the app's WebView renderer through API29",
+    "Renderer termination retains host and offers recovery",
+    "Recreated view retains same-origin persistent data",
+    "Acknowledged successful save allows exit"
+  ],
+  "actualRendererTermination": true,
+  "rendererDidCrash": false,
+  "userUnlocked": true,
+  "nativeDialogActions": "programmatic framework button activation",
+  "lightweightSameOriginFixture": true,
+  "fullGameFPS": false,
+  "physicalTouch": false,
+  "systemDocumentPicker": false
+}

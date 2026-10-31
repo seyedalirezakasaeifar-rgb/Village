@@ -13,6 +13,9 @@ with zipfile.ZipFile(apk) as z:
  assert dex[12:32]==hashlib.sha1(dex[32:]).digest()
  assert struct.unpack_from('<I',dex,8)[0]==zlib.adler32(dex[12:])&0xffffffff
  assert b'Lorg/townledger/vale/MainActivity;' in dex
+ assert b'Lorg/townledger/vale/BackNavigation;' in dex
+ assert b'backResult' in dex and b'onRenderProcessGone' in dex
+ assert b'RecoveryHarness' not in dex,'Private instrumentation leaked into game APK'
  assert b'writeBackup' in dex and b'openBackup' in dex
  assets={}
  for p in (ROOT/'assets').rglob('*'):
@@ -28,6 +31,7 @@ assert "versionName='"+metadata['version']+"'" in badging
 assert "versionCode='"+str(metadata['code'])+"'" in badging
 assert "targetSdkVersion:'36'" in badging and "sdkVersion:'24'" in badging
 assert 'uses-permission:' not in badging
+assert 'application-debuggable' not in badging and 'testOnly=' not in badging,'Private test build is not a game deliverable'
 sdk_signer=next(iter(sorted(build.TOOLROOT.glob('build-tools/*/apksigner'),reverse=True)),None)
 signer=[str(sdk_signer)] if sdk_signer else ['java','-cp',str(build.TOOLROOT/'usr/share/java/apksigner.jar')+':'+str(build.TOOLROOT/'usr/share/java/apksig.jar'),'com.android.apksigner.ApkSignerTool']
 verification=subprocess.check_output([*signer,'verify','--verbose','--print-certs',str(apk)],env=build.env,text=True)
