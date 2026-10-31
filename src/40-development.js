@@ -23,7 +23,7 @@ function cityDemand(){
   grocer:ratio('grocer',45),bakery:ratio('bakery',76),farm:ratio('farm',90),
   mill:ratio('mill',130),forestry:ratio('forestry',170),sawmill:ratio('sawmill',190),
   contractor:ratio('contractor',105),quarry:ratio('quarry',135),tavern:ratio('tavern',145),
-  fishery:ratio('fishery',245),factory:residents>=190?ratio('factory',280):0,warehouse:residents>=220?ratio('warehouse',290):0,office:residents>=240?ratio('office',310):0,college:residents>=320?ratio('college',600):0
+  fishery:ratio('fishery',245),wharf:waterfrontDemand(),factory:residents>=190?ratio('factory',280):0,warehouse:residents>=220?ratio('warehouse',290):0,office:residents>=240?ratio('office',310):0,college:residents>=320?ratio('college',600):0
  };
  const foodShort=G.firms.filter(f=>!f.closed&&f.kind==='grocer').some(f=>(f.stock.food||0)<35);
  if(foodShort){applicants.farm+=12;applicants.bakery+=10;applicants.grocer+=5}
@@ -37,7 +37,7 @@ function countBuildableLots(radius){
 }
 function buildableCandidates(focus='housing'){
  const net=graph(),places=[];
- for(let y=5;y<T-5;y++)for(let x=5;x<T-5;x++){
+ for(let y=3;y<T-3;y++)for(let x=3;x<T-3;x++){
   if(!canPlace(x,y))continue;
   const adjacent=roadOffsets.map(([dx,dy])=>roadId(x+dx,y+dy)).filter(id=>net.parts[id]===net.mainPart);
   if(!adjacent.length)continue;
@@ -65,7 +65,7 @@ function privatelyBuiltRoads(demand){
    for(let k=1;k<=8;k++){const xx=x+dx*k,yy=y+dy*k,n=roadId(xx,yy);
     if(xx<5||xx>T-6||yy<5||yy>T-6){valid=false;break;}
     if(G.tiles[n]===1){connects=k>=5;break;}
-    if(![0,3].includes(G.tiles[n])||G.landUse?.[n]||buildingAt(xx,yy)){valid=false;break;}
+    if(!charterOwns(xx,yy)||![0,3].includes(G.tiles[n])||G.landUse?.[n]||buildingAt(xx,yy)){valid=false;break;}
     // No one-lot parallel strips; leave space for real blocks and legal plots.
     if(k>2&&roadOffsets.some(([ax,ay])=>(ax*dx+ay*dy===0)&&cityCell(xx+ax,yy+ay)===1)){valid=false;break;}
     cells.push(n);
@@ -156,7 +156,7 @@ function privatelyBuiltFirm(demand){
   if(score<13)break;
   const competitors=G.firms.filter(f=>f.kind===choice&&!f.closed&&f.age>45);
   if(competitors.length>=2&&competitors.filter(f=>f.netProfit< -75).length>competitors.length*.55)continue;
-  const spot=candidates.find(v=>canPlace(v.x,v.y,true,choice)&&(choice!=='fishery'||[-1,0,1].some(dx=>[-1,0,1].some(dy=>cityCell(v.x+dx,v.y+dy)===2))));
+  const spot=candidates.find(v=>canPlace(v.x,v.y,true,choice));
   if(spot){kind=choice;place=spot;break}
  }
  if(!kind||!place)return false;
@@ -322,7 +322,7 @@ function fieldLotsNear(farm,limit=6){
  for(let radius=1;radius<=6;radius++)for(let dy=-radius;dy<=radius;dy++)for(let dx=-radius;dx<=radius;dx++){
   if(Math.abs(dx)+Math.abs(dy)!==radius)continue;
   const x=site.x+dx,y=site.y+dy,id=roadId(x,y);
-  if(x<3||y<3||x>=T-3||y>=T-3||G.tiles[id]!==0||G.landUse?.[id]||buildingAt(x,y))continue;
+  if(!charterOwns(x,y)||x<3||y<3||x>=T-3||y>=T-3||G.tiles[id]!==0||G.landUse?.[id]||buildingAt(x,y))continue;
   // Grow a continuous farm belt, not isolated strips inside the central square.
   const civicDistance=Math.abs(x-27)+Math.abs(y-27);
   if(civicDistance<8)continue;
@@ -448,7 +448,7 @@ function airfieldCandidate(){
   for(const [dx,dy] of vectors){const runway=[];
    for(let i=2;i<=7;i++)for(let w=0;w<2;w++){
     const xx=x+dx*i+(dy?w:0),yy=y+dy*i+(dx?w:0),id=roadId(xx,yy);
-    if(xx<3||yy<3||xx>=T-3||yy>=T-3||![0,3].includes(cityCell(xx,yy))||G.landUse?.[id]||buildingAt(xx,yy)){runway.length=0;break}
+    if(!charterOwns(xx,yy)||xx<3||yy<3||xx>=T-3||yy>=T-3||![0,3].includes(cityCell(xx,yy))||G.landUse?.[id]||buildingAt(xx,yy)){runway.length=0;break}
     runway.push(id);
    }
    if(runway.length!==12)continue;

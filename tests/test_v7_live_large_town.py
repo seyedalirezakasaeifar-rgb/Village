@@ -47,10 +47,10 @@ def test_live_large_town_ui_and_render_budget():
         town = page.evaluate('''()=>{
           __townTest.reset('settlement',42);
           const g=JSON.parse(__townTest.save());
-          const occupied=new Set(g.buildings.flatMap(b=>b.footprint||[b.y*56+b.x]));
+          const occupied=new Set(g.buildings.flatMap(b=>b.footprint||[b.y*g.gridSize+b.x]));
           const free=[];
           for(let y=3;y<53;y++)for(let x=3;x<53;x++){
-            const id=y*56+x;
+            const id=y*g.gridSize+x;
             if(g.tiles[id]===0&&!occupied.has(id)&&!g.landUse?.[id])free.push([x,y]);
           }
           let n=0;
@@ -80,6 +80,8 @@ def test_live_large_town_ui_and_render_budget():
         page.locator('#speedRange').fill('6')
         page.locator('#pause').click()
         page.wait_for_timeout(700)
+        # Measure the warmed interval; retain founding/loading costs separately.
+        startup = page.evaluate('''()=>{const p=__townTest.perf(),r={frames:p.frames.slice(),ticks:p.ticks.slice()};p.frames.length=0;p.ticks.length=0;return r;}''')
         start = page.evaluate('__townTest.get()')
         wall_start = time.perf_counter()
         raf = page.evaluate('''()=>new Promise(resolve=>{
@@ -127,7 +129,7 @@ def test_live_large_town_ui_and_render_budget():
             'rafP50Ms': percentile(raf, .50), 'rafP95Ms': percentile(raf, .95),
             'rafP99Ms': percentile(raf, .99),
             'rafOver50ms': sum(value > 50 for value in raf),
-            'renderer': renderer, 'ui': ui,
+            'renderer': renderer, 'ui': ui, 'foundingAndWarmup':startup,
             'moneyConservationDrift': conservation, 'errors': errors,
         }
         report_path = ROOT / 'reports/v7.0/live-large-town.json'

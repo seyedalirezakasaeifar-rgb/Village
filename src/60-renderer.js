@@ -16,7 +16,7 @@ function ensureRoadWear(){if(!G.roadWear||!Array.isArray(G.roadWear)||G.roadWear
 function maintainRoads(){
  ensureRoadWear();
  const net=graph(),privateSet=new Set(G.privateRoads||[]);
- const publicCount=Math.max(1,net.neighbors.size-privateSet.size);
+ const publicCount=Math.max(1,charterRoadCount());
  const publicBudget=clamp(G.policy.roadBudget,0,250)*(G.actualServiceFunding?.roads??1);
  const publicRepair=publicBudget/publicCount*.23;
  // Private lanes are maintained by locally subscribed user charges, not the
@@ -32,7 +32,7 @@ function maintainRoads(){
  let total=0,n=0;
  for(const id of net.neighbors.keys()){
   const old=G.roadWear[id];
-  const repair=privateSet.has(id)?privateRepair:publicRepair;
+  const repair=privateSet.has(id)?privateRepair:charterOwns(id%T,id/T|0)?publicRepair:.045;
   G.roadWear[id]=clamp(old-.045-(G.weather==='storm'?.065:0)+repair,25,100);
   total+=G.roadWear[id];n++;
  }

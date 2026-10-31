@@ -70,3 +70,8 @@ button:focus-visible,select:focus-visible,input:focus-visible,summary:focus-visi
 
 /* Older Android WebView fallbacks use ordinary selectors and physical edges. */
 .modal,.map-vignette{top:0;right:0;bottom:0;left:0}button:focus,select:focus,input:focus,summary:focus{outline:3px solid #964919;outline-offset:2px}button:focus:not(:focus-visible),select:focus:not(:focus-visible),input:focus:not(:focus-visible),summary:focus:not(:focus-visible){outline:none}
+.charter-office,.charter-district{border:1px solid #9aaa83;padding:12px;margin:0 0 12px;background:#e2e5cc}.charter-district.selected{border:2px solid #8a6d35}.charter-district>small{font-size:10px;letter-spacing:.1em}.charter-plan{display:block;width:min(100%,260px);height:180px;margin:10px auto;background:#e9e4cc}.charter-office h3,.charter-district h3{margin:5px 0 9px}
+
+body.surveying-region #topNotice,body.surveying-region #liveEconomy{display:none!important}
+
+#charterOffice>summary,details.council-card>summary{min-height:44px;padding:10px 6px;cursor:pointer;font-weight:700}#charterOffice button,[data-waterfront-camera],[data-waterfront-build]{min-height:44px}

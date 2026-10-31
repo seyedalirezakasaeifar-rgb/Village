@@ -5,6 +5,7 @@ function workdayScenes(items){
  const scenes=[],cap=fastRenderEnabled()?3:gameOptions.quality==='high'?12:7;
  for(let n=items.length-1;n>=0;n--){const item=items[n],b=item.b;if(!b||scenes.length>=cap)continue;const f=G.firms[b.firm];let scene=null;
   if(f&&!f.closed&&workingStaff(f).length&&f.production>0){if(['mill','sawmill','factory'].includes(b.kind))scene='machinery';else if(['farm','fishery','forestry'].includes(b.kind))scene='harvest';}
+  if(f&&!f.closed&&b.kind==='wharf'&&workingStaff(f).length&&(f.cargoToday||0)>0)scene='loading';
   if(b.kind==='clinic'&&G.serviceProvision?.health?.paid>0&&G.serviceProvision.health.coverage>0)scene='care';
   if(b.kind==='school'&&G.serviceProvision?.school?.paid>0&&G.serviceProvision.school.coverage>0)scene='teaching';
   if(b.kind==='worksite'||b.redevelopment){const p=G.projects.find(p=>p.id===b.id);if(p&&!p.reason&&p.remaining>0)scene='construction';}
@@ -27,6 +28,8 @@ function paintWorkdayScene(g,a,clock){
  }else if(a.scene==='harvest'){
   person(-5+Math.sin(phase*.6)*3,0,'#9c8054',.93,true);g.fillStyle='#ad8d5d';g.fillRect(5,-4,8,5);g.fillStyle='#d3be87';g.fillRect(5,-5,8,2);
   if(a.b.kind==='fishery'){segment(g,[-5,-9],[5,-21+Math.sin(phase)*1.2],'#b3a37a');segment(g,[5,-21+Math.sin(phase)*1.2],[11,-3],'#ddd7b099');}else for(let j=0;j<3;j++){segment(g,[6+j*2,-5],[6+j*2,-10],'#b8ad65');g.fillStyle='#d2bd72';g.fillRect(5+j*2,-11,3,3);}
+ }else if(a.scene==='loading'){
+  const step=(phase*.22)%1;person(-12+step*20,step*6,'#718b80',.93,true);g.fillStyle='#c8aa72';g.fillRect(-14+step*20,-5+step*6,7,5);segment(g,[-13+step*20,-4+step*6],[-8+step*20,-2+step*6],'#8d7854');box(g,.12,.12,.13,.11,0,5,'#b69a65');
  }else if(a.scene==='care'){
   person(-7,0,'#d3d8c3',.97,true);g.fillStyle='#477b66';g.fillRect(-9,-8,4,1);person(8,5+Math.sin(phase*.5),'#8b7765',.87);g.fillStyle='#c7b587';g.fillRect(0,-2,5,4);g.fillStyle='#607d6b';g.fillRect(1,-1,3,1);
  }else if(a.scene==='teaching'){

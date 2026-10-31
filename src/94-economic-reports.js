@@ -1,7 +1,7 @@
 const workingEconomyBase=renderEconomy;
 renderEconomy=function(){
  const m=G.market||{},fs=G.firms.filter(f=>!f.closed),sales=fs.reduce((n,f)=>n+(f.operating?.sales??f.revenue),0),inputs=fs.reduce((n,f)=>n+(f.cogs||0),0),payroll=fs.reduce((n,f)=>n+(f.payroll||0),0),profit=fs.reduce((n,f)=>n+(f.netProfit||0),0);
- const publicRoads=Math.max(0,graph().neighbors.size-(G.privateRoads||[]).length),maintenance=publicRoads*.045/.23,issues=[];
+ const publicRoads=charterRoadCount(),maintenance=publicRoads*.045/.23,issues=[];
  if((G.policy.roadBudget||0)*(G.actualServiceFunding?.roads??1)<maintenance*.9)issues.push('Road upkeep: approximately '+money(maintenance)+'/day is needed to offset ordinary wear on public streets; '+money(G.policy.roadBudget||0)+'/day is authorized. Growing infrastructure needs a larger maintenance budget.');
  if(m.blockedCommutes>0)issues.push('Work access: '+fmt(m.blockedCommutes)+' contracted workers could not reach their workplace. Restore the road connection; extra credit cannot supply missing work hours.');
  if(m.foodDisconnected>0)issues.push('Grocery access: '+fmt(m.foodDisconnected)+' residents have no operating grocer on their road network. Income or cheaper credit cannot deliver across a missing connection.');

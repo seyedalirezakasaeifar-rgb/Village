@@ -24,3 +24,5 @@ function groceryChoices(h,home,grocers){
 function sharesRoadNetwork(a,b){if(!a||!b)return false;const net=graph(),x=net.portals.get(a.id),y=net.portals.get(b.id);return x!=null&&y!=null&&net.parts[x]===net.parts[y];}
 function workerCanCommute(person,firm){const h=G.households[person.hh];return sharesRoadNetwork(h&&readBuild(h.home),readBuild(firm.building));}
 function workingStaff(f){return f.attendingWorkers||f.workers;}
+
+function regionalUtilityAccess(home){if(!home)return false;const net=graph(),port=net.portals.get(home.id);return port!=null&&net.parts[port]===net.mainPart;}

@@ -12,7 +12,7 @@ const esc=x=>String(x==null?'':x).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;'
 const rn=(a,b)=>a+random()*(b-a),pick=a=>a[random()*a.length|0];
 const first=['Arthur','Alice','Thomas','Eleanor','Henry','Margaret','Jack','Edith','Charles','Emily','George','Rose','William','Florence','James','Clara','Robert','Agnes','Daniel','Ivy','Samuel','Hannah','Oliver','Mabel','Edward','Beatrice','Frederick','Ada','Joseph','Grace','Peter','Julia','Benjamin','Isabel'];
 const surnames=['Bennett','Parker','Sutton','Miller','Hughes','Clarke','Foster','Wright','Carter','Howard','Taylor','Moore','Campbell','Ward','Russell','Harris','Reed','Turner','Hill','Smith','Brooks','Davies','Morgan','Baker','Wilson','Grant'];
-const T=56, TW=72, TH=36, RW=T*TW+140,RH=T*TH+120;
+const T=80, TW=72, TH=36, RW=T*TW+140,RH=T*TH+120;
 const types={
  bank:{n:'Bank Branch',cost:0,col:'#a3b0a6',jobs:0},
  worksite:{n:'Private Construction Site',cost:0,col:'#c0a076',jobs:0},
@@ -43,13 +43,14 @@ const types={
  courthouse:{n:'Magistrates Court',cost:8400,col:'#9a9887',jobs:0,build:'Court'},
  watchtower:{n:'Watchtower',cost:4900,col:'#879089',jobs:0,build:'Watchtower'},
  square:{n:'Market Square',cost:2500,col:'#aca486',jobs:0,build:'Market Square'},
+ wharf:{n:'River Cargo Wharf',cost:7600,col:'#819b98',jobs:2,build:'Cargo wharf'},
  fishery:{n:'River Fishery',cost:3500,col:'#75a5a2',jobs:7,build:'Fishery'},
  tavern:{n:'Village Tavern',cost:3200,col:'#b28c56',jobs:6,build:'Tavern'},
 };
 const goods={grain:2,flour:3,food:3.3,logs:2,timber:4,stone:3,manufactures:8.5};
 const formulas={farm:{out:'grain',qty:140,inp:null,amount:0},mill:{out:'flour',qty:175,inp:'grain',amount:105},bakery:{out:'food',qty:200,inp:'flour',amount:105},grocer:{out:null,qty:0,inp:'food',amount:0},forestry:{out:'logs',qty:170},sawmill:{out:'timber',qty:130,inp:'logs',amount:100},quarry:{out:'stone',qty:125},fishery:{out:'food',qty:130},factory:{out:'manufactures',qty:85,inp:'timber',amount:58}};
-const buildIcons={metro_station:'Ⓜ',repair:'↻',road:'═',home:'⌂',grocer:'▣',bakery:'♨',mill:'◈',farm:'❖',forestry:'♣',sawmill:'▥',quarry:'◆',contractor:'⚒',police:'♜',fire:'♨',clinic:'✚',park:'♣',school:'✎',courthouse:'⚖',watchtower:'♜',square:'◉',fishery:'≈',tavern:'♨',factory:'⚙',warehouse:'▤',office:'▦',college:'♜'};
-const buildCost={metro_station:18000,road:150,repair:135,home:20000,grocer:4300,bakery:3600,mill:4800,farm:3100,forestry:3000,sawmill:4100,quarry:3900,contractor:4400,police:7600,fire:6900,clinic:8000,park:550,school:6900,courthouse:8400,watchtower:4900,square:2500,fishery:3500,tavern:3200,factory:9800,warehouse:12000,office:14200,college:18000};
+const buildIcons={metro_station:'Ⓜ',repair:'↻',road:'═',home:'⌂',grocer:'▣',bakery:'♨',mill:'◈',farm:'❖',forestry:'♣',sawmill:'▥',quarry:'◆',contractor:'⚒',police:'♜',fire:'♨',clinic:'✚',park:'♣',school:'✎',courthouse:'⚖',watchtower:'♜',square:'◉',wharf:'⚓',fishery:'≈',tavern:'♨',factory:'⚙',warehouse:'▤',office:'▦',college:'♜'};
+const buildCost={metro_station:18000,road:150,repair:135,home:20000,grocer:4300,bakery:3600,mill:4800,farm:3100,forestry:3000,sawmill:4100,quarry:3900,contractor:4400,police:7600,fire:6900,clinic:8000,park:550,school:6900,courthouse:8400,watchtower:4900,square:2500,wharf:7600,fishery:3500,tavern:3200,factory:9800,warehouse:12000,office:14200,college:18000};
 const defs=[
  ['pensionDaily','Retirement pension / person / day',0,40,1,'$','Treasury-funded income for residents over 70. Benefits are shared proportionally if funds fall short; an ageing population raises the fiscal cost.'],
  ['policyRate','Policy interest rate (annual)',0,20,.25,'%','Benchmark set by the monetary authority. Bank funding, new and variable-rate credit, savings and investment hurdles adjust with a lag. Higher rates restrain borrowing and demand; lower rates do not make insolvent projects viable.'],
@@ -92,7 +93,7 @@ const FIN_BANK_NAMES=['Vale Mutual Savings','Mercantile & County Bank','First Bo
 
 // SOURCE: 05-systems.js
 // Deterministic model services. Presentation has its own hash-based randomness.
-const RELEASE=Object.freeze({"version":"7.0.5","code":19,"edition":"The Working City","schema":5,"package":"org.townledger.vale"});
+const RELEASE=Object.freeze({"version":"7.1.0","code":20,"edition":"The Working City","schema":6,"package":"org.townledger.vale"});
 let rngState=42,visualState=918273,simulationBusy=false;
 const perfStats={frames:[],ticks:[],effective:1,backlog:0,days:0,elapsed:0,errors:[]};
 function random(){rngState=(rngState+0x6D2B79F5)>>>0;let t=rngState;t=Math.imul(t^(t>>>15),t|1);t^=t+Math.imul(t^(t>>>7),t|61);return ((t^(t>>>14))>>>0)/4294967296;}
@@ -225,7 +226,7 @@ function weatherEnabled(){return G?.climateWeather===true;}
 function visualMonth(){return seasonsEnabled()?G.month:5;}
 function applyPresentationOptions(){
  document.body.classList.toggle('large-text',gameOptions.largeText);document.body.classList.toggle('hide-hints',!gameOptions.showHints);
- if(typeof atlas!=='undefined')atlas.clear();if(typeof fit==='function')fit();staticDirty=true;dirty=true;
+ if(typeof atlas!=='undefined'){atlas.clear();atlasBytes=0;}if(typeof fit==='function')fit();staticDirty=true;dirty=true;
 }
 // Apply classes now; renderer initialization follows in the ordered bundle.
 document.body.classList.toggle('large-text',gameOptions.largeText);document.body.classList.toggle('hide-hints',!gameOptions.showHints);
@@ -236,7 +237,7 @@ function policyNumber(value){return Number(value||0).toLocaleString('en-CA',{max
 // A stock-flow consistent operating model. Inventory purchases are assets;
 // cost of goods becomes expense when sold, rather than when a warehouse fills.
 function householdLiquidity(h){return h.cash+Object.values(h.deposits||{}).reduce((n,v)=>n+Math.max(0,v),0);}
-const SECTOR_WORKERS={farm:4,fishery:3,mill:3,bakery:3,grocer:2,forestry:3,sawmill:3,quarry:3,contractor:4,tavern:3,factory:7,warehouse:4,office:6,college:5,airport:6};
+const SECTOR_WORKERS={farm:4,fishery:3,wharf:2,mill:3,bakery:3,grocer:2,forestry:3,sawmill:3,quarry:3,contractor:4,tavern:3,factory:7,warehouse:4,office:6,college:5,airport:6};
 function ensureMarketModel(){
  if(!G.market)G.market={version:2,cpi:100,inflation:0,baseFoodPrice:5.2,unmetFood:0,consumedFood:0,externalSales:0,imports:0,privateRestartCapital:0};
  G.market.version=2;for(const p of G.people)if(p.age>70&&p.job>=0){p.job=-1;p.retired=true;}
@@ -288,7 +289,7 @@ function planEnterprise(f){
  if(f.marginTrend<-.18&&f.cash<wage*Math.max(1,f.jobs)*60)desired=Math.min(desired,Math.max(1,f.jobs-1));
  if(desired>f.jobs&&f.cash<wage*(desired-f.jobs)*35+1800)desired=f.jobs;
  if(desired!==f.jobs){f.jobs+=Math.sign(desired-f.jobs);while(f.workers.length>f.jobs){const blocked=f.workers.findIndex(id=>!workerCanCommute(G.people[id],f)),id=f.workers.splice(blocked<0?f.workers.length-1:blocked,1)[0];if(G.people[id])G.people[id].job=-1;}}
- if(f.workers.some(id=>workerCanCommute(G.people[id],f))&&!f.pendingEquipment&&f.marginTrend>.16&&f.cash>wage*f.jobs*100&&f.scale<2.2&&(recipe?f.ratedOutput>0&&f.salesTrend*1.12>=f.ratedOutput&&(!recipe.inp||(f.stock[recipe.inp]||0)+pendingGoods(f,recipe.inp)>=recipe.amount*f.workers.length/base):f.jobs>=Math.ceil(base*f.scale*2)&&f.workers.length>=f.jobs)){const cost=1500+base*130,annualGain=f.revenueTrend*.015*360*(1-G.policy.profitTax/100);if(f.cash>cost+6000&&annualGain>cost*((G.policy.policyRate||0)/100+.08)){f.cash-=cost;G.region+=cost;f.pendingEquipment={gain:.06,cost,ordered:G.day,ready:G.day+30};f.capex=(f.capex||0)+cost;}}
+ if((f.kind!=='fishery'||!f.fishingWaterLimit)&&f.workers.some(id=>workerCanCommute(G.people[id],f))&&!f.pendingEquipment&&f.marginTrend>.16&&f.cash>wage*f.jobs*100&&f.scale<2.2&&(recipe?f.ratedOutput>0&&f.salesTrend*1.12>=f.ratedOutput&&(!recipe.inp||(f.stock[recipe.inp]||0)+pendingGoods(f,recipe.inp)>=recipe.amount*f.workers.length/base):f.jobs>=Math.ceil(base*f.scale*2)&&f.workers.length>=f.jobs)){const cost=1500+base*130,annualGain=f.revenueTrend*.015*360*(1-G.policy.profitTax/100);if(f.cash>cost+6000&&annualGain>cost*((G.policy.policyRate||0)/100+.08)){f.cash-=cost;G.region+=cost;f.pendingEquipment={gain:.06,cost,ordered:G.day,ready:G.day+30};f.capex=(f.capex||0)+cost;}}
  const unemployment=G.stats.unemployment||0;
  if(f.marginTrend>.18&&unemployment<9)f.wage=Math.min(80,f.wage*1.0015);
  else if(f.marginTrend<0)f.wage=Math.max(G.policy.minWage,f.wage*.998);
@@ -802,6 +803,7 @@ function validateCreditState(data){
  for(const owner of [...data.households,...data.firms])if(owner.creditDecision){const c=owner.creditDecision;if(typeof c.approved!=='boolean'||!Number.isInteger(c.day)||c.day<1||c.day>data.day||!Number.isFinite(c.requested)||c.requested<0||typeof c.reason!=='string'||c.reason.length>500)return false;for(const key of ['scheduled','stressed','capacity','recurring','essential'])if(c[key]!=null&&(!Number.isFinite(c[key])||c[key]<0))return false;}
 
  const fields=['netIncomeTrend','incomeVariance','essentialDueTrend','essentialDue','travelDue'];
+ for(const h of data.households)if(h.utilityConnected!=null&&typeof h.utilityConnected!=='boolean')return false;
  for(const h of data.households)for(const key of fields)if(h[key]!=null&&(!Number.isFinite(h[key])||h[key]<0))return false;
  for(const f of data.firms)if(f.pendingEquipment){const o=f.pendingEquipment;if(!Number.isFinite(o.cost)||o.cost<=0||!Number.isFinite(o.gain)||o.gain<=0||o.gain>1.2||!Number.isInteger(o.ordered)||o.ordered<1||o.ordered>data.day||o.ready!==o.ordered+30)return false;}
  for(const l of data.loans||[])for(const key of ['lastPaymentDay','defaultedDay'])if(l[key]!=null&&(!Number.isInteger(l[key])||l[key]<1||l[key]>data.day))return false;
@@ -842,6 +844,69 @@ function sharesRoadNetwork(a,b){if(!a||!b)return false;const net=graph(),x=net.p
 function workerCanCommute(person,firm){const h=G.households[person.hh];return sharesRoadNetwork(h&&readBuild(h.home),readBuild(firm.building));}
 function workingStaff(f){return f.attendingWorkers||f.workers;}
 
+function regionalUtilityAccess(home){if(!home)return false;const net=graph(),port=net.portals.get(home.id);return port!=null&&net.parts[port]===net.mainPart;}
+
+// SOURCE: 18-region-charter.js
+// The original 56×56 town keeps every existing right. Five real outer districts
+// extend the region to 80×80; undeveloped regional land requires a mayoral deed.
+const CHARTER_BASE=56;
+let parcelFocus=null;
+const ANNEX_PARCELS=[
+ {id:'east-meadow',name:'East Meadow',x:56,y:2,w:22,h:26,description:'A large eastern tract with woodland and lake frontage.'},
+ {id:'county-ridge',name:'County Ridge',x:56,y:28,w:22,h:28,description:'Eastern upland for a new connected district.'},
+ {id:'river-reach',name:'Lower River Reach',x:2,y:56,w:26,h:22,description:'New southern riverbank, suitable for working waterfronts.'},
+ {id:'orchard-downs',name:'Orchard Downs',x:28,y:56,w:28,h:22,description:'A substantial southern tract for homes, farms and civic sites.'},
+ {id:'high-common',name:'High Common',x:56,y:56,w:22,h:22,description:'The far southeastern common, reached through an adjoining district.'}
+];
+function newCharter(){return {version:1,owned:[],deeds:[],revision:0};}
+function regionalTerrain(x,y,seedValue){
+ if(x<5+Math.sin(y*.2)*1.7||x===5&&y%4===0)return 2;
+ if(x>=56&&((x-66)*(x-66)/36+(y-22)*(y-22)/64)<1)return 2;
+ return hash((y*T+x)^((seedValue||42)>>>0))%100<31?3:0;
+}
+function parcelForTile(x,y){return ANNEX_PARCELS.find(p=>x>=p.x&&x<p.x+p.w&&y>=p.y&&y<p.y+p.h)||null;}
+function charterOwns(x,y){if(x<0||y<0||x>=T||y>=T)return false;if(x<CHARTER_BASE&&y<CHARTER_BASE)return true;const p=parcelForTile(x,y);return !!p&&!!G.charter?.owned.includes(p.id);}
+function charterFootprint(x,y,kind){return footprintFor(x,y,kind).every(id=>charterOwns(id%T,id/T|0));}
+function charterRoadCount(){const privateSet=new Set(G.privateRoads||[]);return [...graph().neighbors.keys()].filter(id=>!privateSet.has(id)&&charterOwns(id%T,id/T|0)).length;}
+function parcelSurvey(p){let land=0,water=0,forest=0,roads=0;for(let y=p.y;y<p.y+p.h;y++)for(let x=p.x;x<p.x+p.w;x++){const cell=G.tiles[roadId(x,y)];if(cell===2)water++;else{land++;if(cell===3)forest++;if(cell===1)roads++;}}return {land,water,forest,roads,area:p.w*p.h,price:12000+land*42+roads*75};}
+function parcelAdjacent(p){const owned=G.charter?.owned||[];return p.x===56&&p.y<56||p.y===56&&p.x<56||ANNEX_PARCELS.some(q=>owned.includes(q.id)&&((q.x+q.w===p.x||p.x+p.w===q.x)&&Math.max(q.y,p.y)<Math.min(q.y+q.h,p.y+p.h)||(q.y+q.h===p.y||p.y+p.h===q.y)&&Math.max(q.x,p.x)<Math.min(q.x+q.w,p.x+p.w)));}
+function purchaseParcel(id,quotedPrice){
+ const p=ANNEX_PARCELS.find(p=>p.id===id);if(!p||!G.charter||G.charter.owned.includes(id)||!parcelAdjacent(p))return false;const quote=parcelSurvey(p);if(!Number.isFinite(quotedPrice)||quotedPrice!==quote.price||G.treasury<quote.price)return false;
+ G.treasury-=quote.price;G.region+=quote.price;G.charter.owned.push(id);G.charter.deeds.push({id,price:quote.price,day:G.day});G.charter.revision++;G.cumulative.landPurchases=(G.cumulative.landPurchases||0)+quote.price;
+ book('Municipal land budget','Regional land authority',quote.price,'Annexation deed: '+p.name);G.journal.push({day:G.day,name:'District annexed',message:p.name+': '+quote.area+' new regional tiles, '+quote.land+' land tiles. Development rights purchased for '+money(quote.price)+'. Existing private titles are unchanged.',baseline:{...G.stats,treasury:G.treasury}});
+ story('The mayor acquired '+p.name+'. Roads and service coverage must still be developed.','good');invalidateRoads(false);staticDirty=true;dirty=true;updateHeader();save();return true;
+}
+function validateCharter(data){
+ const c=data.charter;if(!c||c.version!==1||!Array.isArray(c.owned)||new Set(c.owned).size!==c.owned.length||c.owned.some(id=>!ANNEX_PARCELS.some(p=>p.id===id))||!Array.isArray(c.deeds)||c.deeds.length!==c.owned.length||!Number.isInteger(c.revision)||c.revision!==c.owned.length)return false;
+ const seen=new Set();for(const d of c.deeds){if(!d||seen.has(d.id)||!c.owned.includes(d.id)||!Number.isInteger(d.day)||d.day<1||d.day>data.day||!Number.isFinite(d.price)||d.price<12000||d.price>100000)return false;seen.add(d.id);}
+ const ownsTile=(id)=>{const x=id%T,y=id/T|0;if(x<CHARTER_BASE&&y<CHARTER_BASE)return true;const p=parcelForTile(x,y);return !!p&&c.owned.includes(p.id);};
+ if(data.tiles.some((type,id)=>type===1&&!ownsTile(id)))return false;
+ if(data.buildings.some(b=>(b.footprint||[b.y*T+b.x]).some(id=>!ownsTile(id))))return false;
+ if(Object.keys(data.landUse||{}).some(id=>!ownsTile(+id))||(data.privateRoads||[]).some(id=>!ownsTile(id)))return false;
+ if(c.owned.includes('high-common')&&!c.owned.some(id=>id==='county-ridge'||id==='orchard-downs'))return false;
+ return true;
+}
+function normalizeRegionArchive(input){
+ if(!input||!Array.isArray(input.tiles))return input;
+ if(input.tiles.length===T*T){if(input.gridSize!==T)return null;return input;}
+ if(input.tiles.length!==CHARTER_BASE*CHARTER_BASE||(input.gridSize!=null&&input.gridSize!==CHARTER_BASE))return null;
+ const data=JSON.parse(JSON.stringify(input)),oldSize=CHARTER_BASE,count=oldSize*oldSize;
+ const tile=id=>{if(!Number.isInteger(+id)||+id<0||+id>=count)throw Error('Invalid legacy regional tile');return (+id/oldSize|0)*T+(+id%oldSize);};
+ const list=a=>a.map(tile),map=object=>Object.fromEntries(Object.entries(object||{}).map(([id,v])=>[tile(id),v]));
+ const tiles=Array.from({length:T*T},(_,id)=>regionalTerrain(id%T,id/T|0,data.worldSeed||data.scenarioSeed));for(let y=0;y<oldSize;y++)for(let x=0;x<oldSize;x++)tiles[y*T+x]=data.tiles[y*oldSize+x];data.tiles=tiles;
+ for(const b of data.buildings||[])if(Array.isArray(b.footprint))b.footprint=list(b.footprint);
+ for(const key of ['roadClasses','streetNames','landUse','fieldOwner'])if(data[key])data[key]=map(data[key]);
+ if(Array.isArray(data.roadWear)){const wear=new Array(T*T).fill(100);for(let id=0;id<Math.min(count,data.roadWear.length);id++)wear[tile(id)]=data.roadWear[id];data.roadWear=wear;}
+ if(Array.isArray(data.privateRoads))data.privateRoads=list(data.privateRoads);
+ for(const p of data.projects||[])for(const key of ['plots','runway'])if(Array.isArray(p[key]))p[key]=list(p[key]);
+ if(data.airport?.runway)data.airport.runway=list(data.airport.runway);
+ for(const s of data.freight||[])if(Array.isArray(s.path))s.path=list(s.path);
+ for(const v of data.trafficState?.vehicles||[])if(Array.isArray(v.path))v.path=list(v.path);
+ if(data.trafficState)data.trafficState.gates=[];
+ data.gridSize=T;data.charter=newCharter();return data;
+}
+function centerTownCamera(zoom=.95){const hall=G.buildings.find(b=>b.kind==='townhall')||{x:28,y:28};const p=iso(hall.x+1,hall.y+1);cam={x:p[0],y:p[1]+28,zoom};dirty=true;}
+
 // SOURCE: 19-street-plan.js
 // A connected street hierarchy: through routes, collectors, and short local streets.
 // No nested decorative rings. Imported towns retain their existing parcels and streets.
@@ -862,14 +927,15 @@ function seed(seedValue=42){
  crewDay=-1;crewsUsed=new Map();regionalCrews=0;rngState=(Number(seedValue)>>>0)||42;visualState=918273;traffic=[];trafficClock=0;frameClock=0;trafficElapsed=0;vehicleSerial=0;intersectionGates.clear();
  draftPolicy={};roadBatchDirty=false;
  const tiles=new Array(T*T).fill(0),streets=foundingStreetPlan();
- for(let y=0;y<T;y++)for(let x=0;x<T;x++){
+ for(let y=0;y<CHARTER_BASE;y++)for(let x=0;x<CHARTER_BASE;x++){
    let road=streets.classes[y*T+x]!=null;
    if(road)tiles[y*T+x]=1;
    else if(x<5+Math.sin(y*.2)*1.7 || x===5 && y%4===0)tiles[y*T+x]=2;
    else if((x<11||x>46||y<11||y>46)&&random()<.39)tiles[y*T+x]=3;
    else if(random()<.085)tiles[y*T+x]=3;
  }
- G={roadClasses:streets.classes,streetNames:streets.names,climateSeasons:gameOptions.seasons,climateWeather:gameOptions.weather,version:3,day:1,year:1,month:1,tiles,buildings:[],homes:[],people:[],households:[],firms:[],policy:{...defaults},
+ for(let y=0;y<T;y++)for(let x=0;x<T;x++)if(x>=CHARTER_BASE||y>=CHARTER_BASE)tiles[y*T+x]=regionalTerrain(x,y,seedValue);
+ G={gridSize:T,charter:newCharter(),roadClasses:streets.classes,streetNames:streets.names,climateSeasons:gameOptions.seasons,climateWeather:gameOptions.weather,version:3,day:1,year:1,month:1,tiles,buildings:[],homes:[],people:[],households:[],firms:[],policy:{...defaults},
     treasury:90000,debt:0,publicReserve:0,region:15000000,projects:[],metro:{cash:0,stations:[],lines:[],fare:2.75,rides:0,revenue:0,expenses:0,dailyRides:0,daysInDeficit:0,operating:false,invested:0},development:{homes:0,firms:0,roads:0,stations:0,lastReport:null,decisions:[]},privateRoads:[],landUse:{},fieldOwner:{},fieldCount:{},airport:null,autoBuild:true,nextId:1,history:[],events:[],journal:[],records:[],stats:{},cumulative:{incomeTax:0,profitTax:0,propertyTax:0,foodTax:0,utilityTax:0,commercialRate:0,permits:0,tariffs:0,spending:0,crime:0,fires:0,welfare:0},cases:[],speed:1,scenario:chosenScenario,achievements:[],council:{approval:65,elections:0,confidence:65,factions:{workers:60,merchants:62,homeowners:60,public:66},lastApproval:65},ambition:chosenScenario==='regional'?'education':chosenScenario==='hardtimes'?'families':'balanced',ambitionDays:{},lastMonth:{},crisesHandled:0,policyOutcomes:[],construction:0,worldSeed:Math.floor(random()*99999999),weather:'clear',season:0,regionalDemand:1,neighborhoods:[],lastEventDay:1,unrest:0,education:46,health:74,historyLong:[]};
  const add=(kind,x,y,opt={})=>{if(G.tiles[roadId(x,y)]===1||G.tiles[roadId(x,y)]===2)throw Error('Founding structure overlaps a roadway or river');G.tiles[roadId(x,y)]=0;let b={id:G.nextId++,kind,x,y,value:Math.round(types[kind].cost*10),condition:100,owner:-1,firm:-1,hh:-1,...opt};G.buildings.push(b);return b};
  add('townhall',26,26,{value:150000});add('police',24,26,{value:90000});add('fire',29,26,{value:80000});add('clinic',28,29,{value:74000});add('school',25,28,{value:70000});add('square',28,26,{value:15000});
@@ -931,7 +997,7 @@ function seed(seedValue=42){
  for(let b of G.buildings)if(b.kind==='home')b.owner=(random()<.35?b.hh:random()*G.households.length|0);
  assignJobs();recompute();const counts={population:G.people.length,employment:G.stats.employment,hardship:G.stats.hardship,safety:G.stats.safety,businesses:G.firms.length,treasury:G.treasury};
  G.journal.push({day:1,name:'Village founded',message:'Town hall records open. Follow real people, employers and policy consequences.',baseline:counts});
- G.events.push({day:1,text:'A new council has taken responsibility for the prosperity of the Vale.',type:'neutral'});setupScenario();seedBanks();ensureSystems();initializeScenario();ensureMarketModel();G.scenarioSeed=seedValue;G.accounts={baseline:totalMoney(),maxError:0};housingMarketDay(true);recordObservation();initializeScenarioProgramme();save();
+ G.events.push({day:1,text:'A new council has taken responsibility for the prosperity of the Vale.',type:'neutral'});setupScenario();seedBanks();ensureSystems();initializeScenario();initializeWaterfrontStart();ensureMarketModel();G.scenarioSeed=seedValue;G.accounts={baseline:totalMoney(),maxError:0};housingMarketDay(true);recordObservation();initializeScenarioProgramme();save();
  staticDirty=true;dirty=true;
 }
 function cityCell(x,y){return x>=0&&x<T&&y>=0&&y<T?G.tiles[y*T+x]:-1}
@@ -957,10 +1023,11 @@ function canPlace(x,y,roads=true,kind='home',ignore=null){
  const dims=LANDMARK_SIZE[kind]||[1,1];if(x<2||y<2||x+dims[0]>T-2||y+dims[1]>T-2)return false;
  let access=false;
  for(let dy=0;dy<dims[1];dy++)for(let dx=0;dx<dims[0];dx++){
-  const ax=x+dx,ay=y+dy,id=roadId(ax,ay),owner=buildingAt(ax,ay);
+  const ax=x+dx,ay=y+dy,id=roadId(ax,ay),owner=buildingAt(ax,ay);if(!charterOwns(ax,ay))return false;
   if(![0,3].includes(G.tiles[id])||G.landUse?.[id]||(owner&&owner.id!==ignore?.id))return false;
   if(nearRoad(ax,ay))access=true;
  }
+ if((kind==='fishery'||kind==='wharf')&&!waterfrontSite(x,y,kind))return false;
  return !roads||access;
 }
 function reserveFootprint(b,kind=b.kind){b.footprint=footprintFor(b.x,b.y,kind);for(const id of b.footprint)if(G.tiles[id]===3)G.tiles[id]=0;invalidateBuildingIndex();invalidateRoads(false);staticDirty=true;}
@@ -1008,7 +1075,7 @@ function credit(h,amount){h.cash+=amount}
 function transferBudget(to,amount,cat){let paid=Math.max(0,Math.min(G.treasury,amount));G.treasury-=paid;to.cash+=paid;G.cumulative.spending+=paid;return paid}
 function story(text,type='neutral',bid=-1,hid=-1){G.events.unshift({day:G.day,text,type,bid,hid});if(G.events.length>160)G.events.length=160}
 function transferTreasury(amount,cat){const pay=Math.max(0,amount);G.treasury+=pay;G.cumulative[cat]=(G.cumulative[cat]||0)+pay;return pay}
-function regionBuy(f,good,amount,price=marketPrice(good)){if(!f||!G.region)return 0;const portal=graph().portals.get(f.building);const linked=portal!=null&&graph().parts[portal]===graph().mainPart;const access=linked?1:0;const regionalDemand=(1+G.buildings.filter(b=>b.kind==='square').length*.025+G.firms.filter(f=>f.kind==='warehouse'&&!f.closed).length*.065+(G.airport?.operating ? .13 : 0))*(G.scenario==='hardtimes'&&G.day<540?.52:G.scenario==='frontier'&&G.day<280?.78:1);const qty=Math.max(0,Math.min(f.stock[good]||0,amount*access*regionalDemand*clamp(G.regionalDemand||1,.30,1.3),G.region/Math.max(price,1)));const cash=qty*price;if(G.market)G.market.externalSales+=cash;takeInventory(f,good,qty,true);f.cash+=cash;G.region-=cash;goodsEntry(good,'exports',qty);f.revenue+=cash;return qty}
+function regionBuy(f,good,amount,price=marketPrice(good)){if(!f||!G.region)return 0;const portal=graph().portals.get(f.building);const linked=portal!=null&&graph().parts[portal]===graph().mainPart;const access=linked?1:0;const regionalDemand=(1+G.buildings.filter(b=>b.kind==='square').length*.025+G.firms.filter(f=>f.kind==='warehouse'&&!f.closed).length*.065+(G.airport?.operating ? .13 : 0))*(G.scenario==='hardtimes'&&G.day<540?.52:G.scenario==='frontier'&&G.day<280?.78:1);const qty=Math.max(0,Math.min(f.stock[good]||0,amount*access*regionalDemand*clamp(G.regionalDemand||1,.30,1.3),G.region/Math.max(price,1)));return settleRegionalExport(f,good,qty,price)}
 function regionImport(f,good,qty){if(!G.policy.imports)return 0;const net=graph(),port=net.portals.get(f.building);if(port==null||net.parts[port]!==net.mainPart)return 0;const tariff=G.policy.importTariff/100;const unit=marketPrice(good)*(1+tariff);let n=Math.max(0,Math.min(qty,Math.floor(f.cash/unit)));if(n<=0)return 0;
  const total=n*unit,levy=total*tariff/(1+tariff);recordInventoryPurchase(f,good,n,total);f.cash-=total;f.stock[good]=(f.stock[good]||0)+n;goodsEntry(good,'imports',n);G.region+=total-levy;if(G.market)G.market.imports+=total-levy;transferTreasury(levy,'tariffs');return n;
 }
@@ -1029,6 +1096,94 @@ function trade(f,good,units){units=Math.max(0,units-pendingGoods(f,good));if(uni
  }
  if(left>0)regionImport(f,good,left);
  return units-left;
+}
+
+// SOURCE: 21-waterfront.js
+// Water has physical catchments and outlets. Cargo title passes to the regional
+// buyer on collection; manifests describe that buyer's paid journey, not town stock.
+let waterNetworkTown=null,waterNetworkRoads=null,waterNetworkCache=null,waterDayTown=null,waterDayNumber=-1,operatingWharves=[];
+function waterNetwork(){
+ const roads=graph();if(waterNetworkTown===G&&waterNetworkRoads===roads)return waterNetworkCache;
+ const nodes=new Set(),parts=new Int32Array(T*T).fill(-1),components=[],toGateway=new Int32Array(T*T).fill(-1);
+ for(let id=0;id<T*T;id++){const x=id%T,y=id/T|0;
+  // A road across the natural river is a bridge, not an artificial dam.
+  if(G.tiles[id]===2||G.tiles[id]===1&&(x<5+Math.sin(y*.2)*1.7||x===5&&y%4===0))nodes.add(id);
+ }
+ const adjacent=id=>{const x=id%T,y=id/T|0;return roadOffsets.map(([dx,dy])=>[x+dx,y+dy]).filter(([x,y])=>x>=0&&y>=0&&x<T&&y<T).map(([x,y])=>y*T+x).filter(n=>nodes.has(n));};
+ for(const start of nodes){if(parts[start]>=0)continue;const index=components.length,cells=[start],gates=[];parts[start]=index;
+  for(let i=0;i<cells.length;i++){const at=cells[i],x=at%T,y=at/T|0;if(y===0||y===T-1)gates.push(at);for(const n of adjacent(at))if(parts[n]<0){parts[n]=index;cells.push(n);}}
+  components.push({id:index,cells,gates,catchCapacity:cells.length*1.2});
+  const queue=gates.slice();for(const gate of gates)toGateway[gate]=gate;
+  for(let i=0;i<queue.length;i++)for(const n of adjacent(queue[i]))if(toGateway[n]<0){toGateway[n]=queue[i];queue.push(n);}
+ }
+ waterNetworkTown=G;waterNetworkRoads=roads;waterNetworkCache={nodes,parts,components,toGateway,adjacent};waterDayTown=null;return waterNetworkCache;
+}
+function waterfrontSite(x,y,kind='fishery'){
+ const water=waterNetwork(),choices=[];
+ for(let dy=-1;dy<=1;dy++)for(let dx=-1;dx<=1;dx++){const xx=x+dx,yy=y+dy;if(xx<0||yy<0||xx>=T||yy>=T)continue;const id=roadId(xx,yy),part=water.parts[id],area=water.components[part];if(area&&area.cells.length>=8&&(kind!=='wharf'||area.gates.length))choices.push({id,part,distance:Math.abs(dx)+Math.abs(dy)});}
+ choices.sort((a,b)=>a.distance-b.distance||a.id-b.id);return choices[0]||null;
+}
+function waterOutletPath(start){const w=waterNetwork(),path=[];let at=start;for(let i=0;i<T*T&&at>=0;i++){path.push(at);const next=w.toGateway[at];if(next===at)return path;at=next;}return [];}
+function ensureWaterfront(){
+ if(!G.waterway)G.waterway={version:1,serial:0,manifests:[],exports:0,fees:0};
+ return G.waterway;
+}
+function prepareWaterfrontDay(live=G.firms.filter(f=>!f.closed)){
+ const network=waterNetwork(),state=ensureWaterfront();if(waterDayTown===G&&waterDayNumber===G.day)return;
+ waterDayTown=G;waterDayNumber=G.day;operatingWharves=[];state.manifests=state.manifests.filter(m=>m.started+m.duration>=G.day);state.todayCargo=0;state.todayFees=0;
+ const groups=new Map();for(const f of live){f.shippingToday=0;if(f.kind==='fishery'){f.fishingAllowance=0;const b=readBuild(f.building),site=b&&waterfrontSite(b.x,b.y);f.waterPart=site?.part??-1;
+   if(site&&workingStaff(f).length){const capacity=formulas.fishery.qty*workingStaff(f).length/SECTOR_WORKERS.fishery*(.82+workingStaff(f).reduce((n,id)=>n+(G.people[id]?.skill||.5),0)/workingStaff(f).length*.25+G.education*.0015)*(1+(f.scale-1)*.25);if(!groups.has(site.part))groups.set(site.part,[]);groups.get(site.part).push({f,capacity});}
+  }else if(f.kind==='wharf'){f.cargoToday=0;f.handlingFees=0;const b=readBuild(f.building),site=b&&waterfrontSite(b.x,b.y,'wharf'),path=site?waterOutletPath(site.id):[];const capacity=workingStaff(f).length*600*(1+((f.scale||1)-1)*.25);f.cargoCapacity=capacity;
+   if(path.length&&capacity>0)operatingWharves.push({f,b,site,path,remaining:capacity});
+  }
+ }
+ for(const [part,list] of groups){const available=network.components[part].catchCapacity,total=list.reduce((n,v)=>n+v.capacity,0);for(const {f,capacity} of list){f.fishingAllowance=capacity*Math.min(1,available/Math.max(1,total));f.fishingWaterLimit=total>available;}}
+}
+function roadExportDistance(f){const net=graph(),from=net.portals.get(f.building);if(from==null||net.parts[from]!==net.mainPart)return Infinity;
+ // The original eastern High Street border is the regional haulage interchange.
+ let gate=roadId(49,27);if(!net.neighbors.has(gate)||net.parts[gate]!==net.mainPart)gate=[...net.neighbors.keys()].find(id=>net.parts[id]===net.mainPart);return gate==null?Infinity:roadDistance(from,gate);
+}
+function exportRoutes(f){
+ if(waterDayTown!==G||waterDayNumber!==G.day)prepareWaterfrontDay();
+ const net=graph(),port=net.portals.get(f.building),distance=roadExportDistance(f),routes=[];
+ if(Number.isFinite(distance))routes.push({mode:'road',unit:.08+distance*.004,capacity:Infinity});
+ if(port!=null)for(const wharf of operatingWharves){if(wharf.remaining<=0||wharf.f.closed||!workingStaff(wharf.f).length)continue;const wp=net.portals.get(wharf.b.id);if(wp==null||net.parts[port]!==net.parts[wp])continue;const lastMile=roadDistance(port,wp);if(!Number.isFinite(lastMile))continue;
+  routes.push({mode:'river',unit:.10+lastMile*.001+wharf.path.length*.0005,capacity:wharf.remaining,wharf,lastMile});
+ }
+ return routes.sort((a,b)=>a.unit-b.unit||(a.wharf?.f.id??-1)-(b.wharf?.f.id??-1));
+}
+function settleRegionalExport(f,good,requested,price){
+ let remaining=requested,sold=0;const state=ensureWaterfront();
+ for(const route of exportRoutes(f)){const quantity=Math.max(0,Math.min(remaining,route.capacity,G.region/Math.max(price,.01)));if(quantity<=0||route.unit>=price)continue;
+  const gross=quantity*price,freight=quantity*route.unit;takeInventory(f,good,quantity,true);goodsEntry(good,'exports',quantity);G.region-=gross;f.cash+=gross;f.revenue+=gross;if(G.market)G.market.externalSales+=gross;
+  // The carrier is paid from the actual sale. Handling income belongs to the
+  // wharf; the regional haulier receives only the residual, once.
+  f.cash-=freight;f.expenses+=freight;f.shippingToday=(f.shippingToday||0)+freight;G.cumulative.freight=(G.cumulative.freight||0)+freight;
+  if(route.mode==='river'){const w=route.wharf,handling=quantity*.10;enterpriseRevenue(w.f,handling);G.region+=freight-handling;w.remaining-=quantity;w.f.cargoToday+=quantity;w.f.handlingFees+=handling;state.todayCargo+=quantity;state.todayFees+=handling;state.exports+=quantity;state.fees+=handling;
+   const last=state.manifests.find(m=>m.started===G.day&&m.port===w.f.id&&m.good===good);if(last)last.qty+=quantity;else{state.serial++;state.manifests.push({id:state.serial,port:w.f.id,good,qty:quantity,path:w.path.slice(),started:G.day,duration:Math.max(2,Math.ceil(w.path.length/8)),ownership:'regional'});if(state.manifests.length>48)state.manifests.shift();}
+  }else G.region+=freight;
+  remaining-=quantity;sold+=quantity;if(remaining<.00001)break;
+ }
+ return sold;
+}
+function waterfrontDemand(){const active=G.firms.filter(f=>f.kind==='wharf'&&!f.closed);return active.length?0:Math.min(80,G.stats.population/5);}
+function initializeWaterfrontStart(){
+ // New settlements inherit a paid, privately capitalised landing. Existing
+ // archives are never given free firms, roads or title changes during migration.
+ for(let x=5;x<=8;x++){const id=roadId(x,27);if(!buildingAt(x,27)){G.tiles[id]=1;G.roadClasses[id]='local';G.streetNames[id]='Landing Lane';}}
+ const side=roadId(5,26);if(!buildingAt(5,26)&&G.tiles[side]!==2){G.tiles[side]=1;G.roadClasses[side]='local';G.streetNames[side]='Landing Lane';}invalidateRoads();
+ for(const [kind,x,y] of [['fishery',4,27],['wharf',4,26]]){if(!canPlace(x,y,true,kind)||G.region<25000)continue;const f=createFirm(kind,x,y);if(!f)continue;G.region-=f.cash;privateContract(types[kind].cost);f.name=kind==='fishery'?'Vale Net & Line':'Vale River Landing';f.owner=G.households.length?0:-1;}
+ assignJobs();ensureWaterfront();
+}
+function validateWaterfrontArchive(data){
+ const w=data.waterway;if(w==null)return true;if(w.version!==1||['todayCargo','todayFees'].some(k=>w[k]!=null&&(!Number.isFinite(w[k])||w[k]<0))||!Number.isSafeInteger(w.serial)||w.serial<0||!Array.isArray(w.manifests)||w.manifests.length>48||!Number.isFinite(w.exports)||w.exports<0||!Number.isFinite(w.fees)||w.fees<0)return false;
+ const ids=new Set();return w.manifests.every(m=>{if(!m||!Number.isInteger(m.id)||m.id<1||m.id>w.serial||ids.has(m.id)||!Number.isInteger(m.port)||data.firms[m.port]?.kind!=='wharf'||!owns(goods,m.good)||!Number.isFinite(m.qty)||m.qty<=0||m.ownership!=='regional'||!Number.isInteger(m.started)||m.started<1||m.started>data.day||!Number.isInteger(m.duration)||m.duration<1||m.duration>T*T||!Array.isArray(m.path)||m.path.length<1||m.path.length>T*T)return false;ids.add(m.id);const b=data.buildings.find(b=>b.id===data.firms[m.port].building),start=m.path[0],end=m.path[m.path.length-1];if(!b||Math.abs(start%T-b.x)>1||Math.abs((start/T|0)-b.y)>1||![0,T-1].includes(end/T|0))return false;
+  return m.path.every((id,i)=>Number.isInteger(id)&&id>=0&&id<T*T&&(data.tiles[id]===2||data.tiles[id]===1&&(id%T<5+Math.sin((id/T|0)*.2)*1.7||id%T===5&&(id/T|0)%4===0))&&(!i||Math.abs(id%T-m.path[i-1]%T)+Math.abs((id/T|0)-(m.path[i-1]/T|0))===1));});
+}
+function waterfrontFirmReport(f){
+ if(f.kind==='fishery'){const b=readBuild(f.building),site=waterfrontSite(b.x,b.y),area=site&&waterNetwork().components[site.part];return head('Working water')+strip('Fishing water',area?(area.gates.length?'Connected river':'Inland lake')+' · '+area.cells.length+' water tiles':'No usable fishing water')+strip('Catch today',policyNumber(f.production||0)+' food units')+strip('Shared daily catch limit',area?policyNumber(area.catchCapacity):'0')+tip('Crews land food for the existing grocery and regional markets. Fisheries sharing water share its finite catch capacity; extra equipment cannot create fish.');}
+ if(f.kind==='wharf'){const b=readBuild(f.building),site=waterfrontSite(b.x,b.y,'wharf');return head('Working waterfront')+strip('Regional water route',site?'Open river outlet':'No navigable regional outlet')+strip('Cargo handled today',policyNumber(f.cargoToday||0)+' units')+strip('Crew handling capacity',policyNumber(f.cargoCapacity||0)+' units / day')+strip('Handling receipts',money(f.handlingFees||0))+tip('Exporters choose the lowest delivered freight quote. Each attending worker handles 600 units daily; the wharf earns $0.10 per unit actually loaded. Road collection and the river journey are included. No cargo means no handling revenue.');}
+ return (f.shippingToday||0)>0?strip('Regional freight paid today',money(f.shippingToday)):'';
 }
 
 // SOURCE: 25-scenarios.js
@@ -1075,6 +1230,7 @@ function dailyEconomy(){
   const site=readBuild(f.building),due=(site?.value||0)*(P.commercialRate||0)/100/360,rate=Math.min(f.cash,due);f.cash-=rate;f.expenses+=rate;transferTreasury(rate,'commercialRate');
   const overhead=Math.min(f.cash,2+f.workers.length*(.6+P.businessRegulation*.035));f.cash-=overhead;f.expenses+=overhead;G.region+=overhead;
  }
+ prepareWaterfrontDay(live);
  if(G.day%7===0)assignJobs();
  const exportPool={grain:250+G.stats.population*.45,flour:70+G.stats.population*.18,food:100+G.stats.population*.30,logs:100+G.stats.population*.20,timber:65+G.stats.population*.18,stone:70+G.stats.population*.12,manufactures:35+G.stats.population*.15};
  const producerCounts={};if(G.scenario==='regional')exportPool.manufactures*=6;else if(G.scenario==='industrial')exportPool.manufactures*=2.5;
@@ -1085,6 +1241,7 @@ function dailyEconomy(){
   const skill=workingStaff(f).reduce((a,id)=>a+(G.people[id]?.skill||.5),0)/workingStaff(f).length;
   let capacity=recipe.qty*workingStaff(f).length/base*(.82+skill*.25+G.education*.0015)*(1+(f.scale-1)*.25);
   if(kind==='farm'){capacity*=1+Math.min(.9,(G.fieldCount?.[f.id]||0)*.035);if(seasonsEnabled())capacity*=[.85,1.15,1.35,.65][Math.floor((G.month-1)/3)];if(G.weather==='drought')capacity*=.72;}
+  if(kind==='fishery')capacity=Math.min(capacity,f.fishingAllowance||0);
   f.ratedOutput=capacity;
   const expectedOrders=Math.max(1,f.salesTrend,(exportPool[recipe.out]||0)/Math.max(1,producerCounts[recipe.out])*(G.regionalDemand||1)*.8),target=expectedOrders*4.5,inventory=f.stock[recipe.out]||0;
   let quantity=Math.max(0,Math.min(capacity,target-inventory));
@@ -1098,7 +1255,7 @@ function dailyEconomy(){
  }
  // The external market has finite sector orders and a downward-sloping demand curve.
 
- for(const f of live){const out=formulas[f.kind]?.out;if(out&&workingStaff(f).length){
+ const exportOffset=live.length?G.day%live.length:0;for(const f of live.slice(exportOffset).concat(live.slice(0,exportOffset))){const out=formulas[f.kind]?.out;if(out&&workingStaff(f).length){
   const ask=marketOutputPrice(f,out),relative=ask/Math.max(.1,marketPrice(out));
   const orders=exportPool[out]/producerCounts[out]*Math.pow(clamp(1/relative,.25,1.7),1.7);
   const keep=Math.max(10,f.salesTrend*.8);regionBuy(f,out,Math.max(0,Math.min(orders,(f.stock[out]||0)-keep)),ask);
@@ -1138,8 +1295,8 @@ function dailyEconomy(){
 
   G.market.consumedFood+=need-remaining;G.market.unmetFood+=remaining;
   h.stress=clamp(h.stress+(remaining>.1?remaining*.30:-.20),0,100);
-  const cold=seasonsEnabled()&&(G.month>=10||G.month<=2),bill=h.people.length*(2.25+(cold?1.8:0))*(1+P.utilityTax/100),energy=Math.min(h.cash,bill),levy=energy-energy/(1+P.utilityTax/100);
-  h.cash-=energy;h.utilities=energy;h.energyTax=levy;G.region+=energy-levy;transferTreasury(levy,'utilityTax');if(energy<bill*.8)h.stress=clamp(h.stress+.35,0,100);
+  const cold=seasonsEnabled()&&(G.month>=10||G.month<=2),bill=h.people.length*(2.25+(cold?1.8:0))*(1+P.utilityTax/100),energy=regionalUtilityAccess(home)?Math.min(h.cash,bill):0,levy=energy-energy/(1+P.utilityTax/100);
+  h.utilityConnected=regionalUtilityAccess(home);h.utilityDue=bill;h.cash-=energy;h.utilities=energy;h.energyTax=levy;G.region+=energy-levy;transferTreasury(levy,'utilityTax');if(energy<bill*.8)h.stress=clamp(h.stress+.35,0,100);
   for(const id of h.people){const person=G.people[id];if(person.job<0||person.commuteBlocked)continue;const firm=G.firms[person.job],work=firm&&readBuild(firm.building);if(!work||!home)continue;const dist=Math.abs(home.x-work.x)+Math.abs(home.y-work.y),metro=hasMetroCommute(home,work)&&G.metro?.operating;
    const fareDue=metro?G.metro.fare:dist*.035*(1-clamp(P.transitBudget*(G.actualServiceFunding?.transit||0)/280,0,.65)),fare=Math.min(h.cash,fareDue);h.travelDue+=fareDue;h.cash-=fare;h.travel+=fare;if(metro){G.metro.cash+=fare;G.metro.dailyRides++;G.metro.rides++;G.metro.revenue+=fare;}else G.region+=fare;}
   loanPayments(householdLoans.get(h.id)||[]);
@@ -1265,7 +1422,7 @@ function cityDemand(){
   grocer:ratio('grocer',45),bakery:ratio('bakery',76),farm:ratio('farm',90),
   mill:ratio('mill',130),forestry:ratio('forestry',170),sawmill:ratio('sawmill',190),
   contractor:ratio('contractor',105),quarry:ratio('quarry',135),tavern:ratio('tavern',145),
-  fishery:ratio('fishery',245),factory:residents>=190?ratio('factory',280):0,warehouse:residents>=220?ratio('warehouse',290):0,office:residents>=240?ratio('office',310):0,college:residents>=320?ratio('college',600):0
+  fishery:ratio('fishery',245),wharf:waterfrontDemand(),factory:residents>=190?ratio('factory',280):0,warehouse:residents>=220?ratio('warehouse',290):0,office:residents>=240?ratio('office',310):0,college:residents>=320?ratio('college',600):0
  };
  const foodShort=G.firms.filter(f=>!f.closed&&f.kind==='grocer').some(f=>(f.stock.food||0)<35);
  if(foodShort){applicants.farm+=12;applicants.bakery+=10;applicants.grocer+=5}
@@ -1279,7 +1436,7 @@ function countBuildableLots(radius){
 }
 function buildableCandidates(focus='housing'){
  const net=graph(),places=[];
- for(let y=5;y<T-5;y++)for(let x=5;x<T-5;x++){
+ for(let y=3;y<T-3;y++)for(let x=3;x<T-3;x++){
   if(!canPlace(x,y))continue;
   const adjacent=roadOffsets.map(([dx,dy])=>roadId(x+dx,y+dy)).filter(id=>net.parts[id]===net.mainPart);
   if(!adjacent.length)continue;
@@ -1307,7 +1464,7 @@ function privatelyBuiltRoads(demand){
    for(let k=1;k<=8;k++){const xx=x+dx*k,yy=y+dy*k,n=roadId(xx,yy);
     if(xx<5||xx>T-6||yy<5||yy>T-6){valid=false;break;}
     if(G.tiles[n]===1){connects=k>=5;break;}
-    if(![0,3].includes(G.tiles[n])||G.landUse?.[n]||buildingAt(xx,yy)){valid=false;break;}
+    if(!charterOwns(xx,yy)||![0,3].includes(G.tiles[n])||G.landUse?.[n]||buildingAt(xx,yy)){valid=false;break;}
     // No one-lot parallel strips; leave space for real blocks and legal plots.
     if(k>2&&roadOffsets.some(([ax,ay])=>(ax*dx+ay*dy===0)&&cityCell(xx+ax,yy+ay)===1)){valid=false;break;}
     cells.push(n);
@@ -1398,7 +1555,7 @@ function privatelyBuiltFirm(demand){
   if(score<13)break;
   const competitors=G.firms.filter(f=>f.kind===choice&&!f.closed&&f.age>45);
   if(competitors.length>=2&&competitors.filter(f=>f.netProfit< -75).length>competitors.length*.55)continue;
-  const spot=candidates.find(v=>canPlace(v.x,v.y,true,choice)&&(choice!=='fishery'||[-1,0,1].some(dx=>[-1,0,1].some(dy=>cityCell(v.x+dx,v.y+dy)===2))));
+  const spot=candidates.find(v=>canPlace(v.x,v.y,true,choice));
   if(spot){kind=choice;place=spot;break}
  }
  if(!kind||!place)return false;
@@ -1564,7 +1721,7 @@ function fieldLotsNear(farm,limit=6){
  for(let radius=1;radius<=6;radius++)for(let dy=-radius;dy<=radius;dy++)for(let dx=-radius;dx<=radius;dx++){
   if(Math.abs(dx)+Math.abs(dy)!==radius)continue;
   const x=site.x+dx,y=site.y+dy,id=roadId(x,y);
-  if(x<3||y<3||x>=T-3||y>=T-3||G.tiles[id]!==0||G.landUse?.[id]||buildingAt(x,y))continue;
+  if(!charterOwns(x,y)||x<3||y<3||x>=T-3||y>=T-3||G.tiles[id]!==0||G.landUse?.[id]||buildingAt(x,y))continue;
   // Grow a continuous farm belt, not isolated strips inside the central square.
   const civicDistance=Math.abs(x-27)+Math.abs(y-27);
   if(civicDistance<8)continue;
@@ -1690,7 +1847,7 @@ function airfieldCandidate(){
   for(const [dx,dy] of vectors){const runway=[];
    for(let i=2;i<=7;i++)for(let w=0;w<2;w++){
     const xx=x+dx*i+(dy?w:0),yy=y+dy*i+(dx?w:0),id=roadId(xx,yy);
-    if(xx<3||yy<3||xx>=T-3||yy>=T-3||![0,3].includes(cityCell(xx,yy))||G.landUse?.[id]||buildingAt(xx,yy)){runway.length=0;break}
+    if(!charterOwns(xx,yy)||xx<3||yy<3||xx>=T-3||yy>=T-3||![0,3].includes(cityCell(xx,yy))||G.landUse?.[id]||buildingAt(xx,yy)){runway.length=0;break}
     runway.push(id);
    }
    if(runway.length!==12)continue;
@@ -1896,7 +2053,7 @@ function tick(){if(!G||pendingEvent)return;ensureSystems();ensureMarketModel();G
 function save(){if(!G||simulationBusy)return;let payload;try{payload=archivePayload()}catch(e){autoSaveOK=false;return}try{const key='townledger-v6';const prev=localStorage.getItem(key);if(prev){let valid=false;try{const e=JSON.parse(prev);valid=e.checksum===checksum(e.payload)}catch(_){}if(valid){localStorage.removeItem('townledger-village-founder-3');localStorage.setItem(key+'-backup',prev);}}localStorage.setItem(key,JSON.stringify({checksum:checksum(payload),payload}));localStorage.removeItem('townledger-village-founder-3');autoSaveOK=true;}catch(e){autoSaveOK=false;}if(window.indexedDB)writeIndexedDB(payload);}
 function load(){try{for(const key of ['townledger-v6','townledger-v6-backup']){try{const e=JSON.parse(localStorage.getItem(key)||'null');if(e&&e.checksum===checksum(e.payload)&&hydrateSave(e.payload))return true;}catch(_){}}let s=localStorage.getItem('townledger-village-founder-3')||localStorage.getItem('townledger-village-civic-2');if(!s)return false;return hydrateSave(s)}catch(e){return false}}
 function resetTownTransientUI(){
- clearTimeout(toastTimeout);toastTimeout=0;$('toast').style.display='none';pendingEvent=null;$('eventDialog').style.display='none';councilOpener=null;panelOpener=null;selected=null;inspectedTrip=null;buildMode='';pointer.down=false;pointer.activeId=null;pointer.hover=null;touches.clear();roadPainted.clear();$('placementHint').style.display='none';$('hint').textContent='DRAG TO PAN · TAP TO INSPECT · PINCH TO ZOOM';
+ clearTimeout(toastTimeout);toastTimeout=0;$('toast').style.display='none';pendingEvent=null;$('eventDialog').style.display='none';councilOpener=null;panelOpener=null;parcelFocus=null;selected=null;inspectedTrip=null;buildMode='';pointer.down=false;pointer.activeId=null;pointer.hover=null;touches.clear();roadPainted.clear();$('placementHint').style.display='none';$('hint').textContent='DRAG TO PAN · TAP TO INSPECT · PINCH TO ZOOM';
 }
 function toast(msg){const el=$('toast');el.textContent=msg;el.style.display='block';clearTimeout(toastTimeout);toastTimeout=setTimeout(()=>el.style.display='none',3300)}
 
@@ -1919,7 +2076,7 @@ function ensureRoadWear(){if(!G.roadWear||!Array.isArray(G.roadWear)||G.roadWear
 function maintainRoads(){
  ensureRoadWear();
  const net=graph(),privateSet=new Set(G.privateRoads||[]);
- const publicCount=Math.max(1,net.neighbors.size-privateSet.size);
+ const publicCount=Math.max(1,charterRoadCount());
  const publicBudget=clamp(G.policy.roadBudget,0,250)*(G.actualServiceFunding?.roads??1);
  const publicRepair=publicBudget/publicCount*.23;
  // Private lanes are maintained by locally subscribed user charges, not the
@@ -1935,7 +2092,7 @@ function maintainRoads(){
  let total=0,n=0;
  for(const id of net.neighbors.keys()){
   const old=G.roadWear[id];
-  const repair=privateSet.has(id)?privateRepair:publicRepair;
+  const repair=privateSet.has(id)?privateRepair:charterOwns(id%T,id/T|0)?publicRepair:.045;
   G.roadWear[id]=clamp(old-.045-(G.weather==='storm'?.065:0)+repair,25,100);
   total+=G.roadWear[id];n++;
  }
@@ -2090,7 +2247,7 @@ function vehiclePosition(v){
 // SOURCE: 65-landscape.js
 // Original code-native pixel art. One unit = one owned 72 × 36 isometric tile.
 // All architectural forms use the same projection, anchor and sunlight direction.
-let nightMode=false,displayItems=[],buildingItemsById=new Map(),atlas=new Map(),sceneSignature='',lastSceneMonth=0,landscapeRevision=0;
+let nightMode=false,displayItems=[],buildingItemsById=new Map(),atlas=new Map(),atlasBytes=0,sceneSignature='',lastSceneMonth=0,landscapeRevision=0;
 const viewRaster=document.createElement('canvas'),viewBackgroundRaster=document.createElement('canvas');let viewRasterKey='',viewBackgroundKey='',viewBuildings=[];
 const SEASONS=[{grass:['#8f9b69','#929f6d','#96a36f','#9ba773','#9da875'],dark:'#788b58',leaf:['#536c41','#69844a','#809650'],water:'#6b9895'},
  {grass:['#7c994f','#819e52','#86a558','#8aaa5e','#8eaa60'],dark:'#6b7f48',leaf:['#315b3c','#4e7d42','#83a34e'],water:'#4c9297'},
@@ -2220,6 +2377,10 @@ function architecture(g,b,w,d){
  }else if(kind==='airport'){
   box(g,-.72,-.65,1.2,.65,0,20,'#c2baa0');slab(g,-.76,-.69,1.28,.73,22,roof);for(let j=0;j<5;j++)windowPane(g,-.6+j*.2,.01,7,'front',nightMode,.15,9);
   box(g,.5,-.62,.23,.23,0,48,'#aaa894');box(g,.43,-.69,.37,.37,48,10,'#779795');slab(g,.39,-.73,.45,.45,60,'#5f7470');
+ }else if(kind==='wharf'||kind==='fishery'){
+  box(g,-.34,-.29,.61,.53,1,kind==='wharf'?20:16,'#a99670');gable(g,-.34,-.29,.61,.53,kind==='wharf'?21:17,9,'#648887');door(g,-.08,.25,1,.15);windowPane(g,.28,-.18,8,'side',nightMode,.14,6);
+  for(let j=0;j<3;j++){box(g,-.34+j*.20,.30,.15,.12,0,4,'#b79b63');segment(g,point(-.33+j*.20,.31,4),point(-.20+j*.20,.42,4),'#dcc39a');}
+  if(kind==='wharf'){segment(g,point(.32,-.25,0),point(.32,-.25,37),'#8d8159',2);segment(g,point(.32,-.25,35),point(-.30,-.25,35),'#c4ad78',2);segment(g,point(-.26,-.25,35),point(-.26,-.25,9),'#535e51');}else{for(let k=0;k<4;k++)segment(g,point(-.30+k*.13,-.30,4),point(-.30+k*.13,-.30,12),'#c7bea0');}
  }else if(kind==='quarry'){
   slab(g,-.38,-.38,.76,.76,1,'#a4aa95');slab(g,-.29,-.29,.58,.58,2,'#8e9685');slab(g,-.17,-.16,.34,.33,3,'#727e73');box(g,.1,-.4,.2,.17,0,14,'#b8ad86');
  }else if(kind==='forestry'){
@@ -2265,11 +2426,15 @@ function streetProp(g,kind){
 function spriteFor(item){
  const season=Math.floor((visualMonth()-1)/3),b=item.b,variant=b?(b.kind==='home'?b.id%120:b.id%24):0;
  const key=item.kind==='streetprop'?`prop:${item.id%3}:${nightMode}`:item.kind==='tree'?`tree:${season}:${item.id%11}`:`${b.kind}:${variant}:${item.w}:${item.d}:${season}:${nightMode}:${b.condition<45}:${b.firm>=0&&G.firms[b.firm]?.closed}:${b.redevelopment?'renewal':''}:${appearanceKey(b)}`;
- if(atlas.has(key))return atlas.get(key);
- const c=document.createElement('canvas');c.width=256;c.height=320;const g=c.getContext('2d');g.translate(128,240);
+ if(atlas.has(key)){const cached=atlas.get(key);atlas.delete(key);atlas.set(key,cached);return cached;}
+ // Tight, conservative sprite envelopes avoid uploading acres of transparent
+ // pixels whenever a dense viewport changes. Geometry keeps its world anchor.
+ const side=item.kind==='building'?Math.ceil((item.w+item.d)*18+20):36,top=item.kind==='building'?(b.kind==='tower'?192:112):72,bottom=item.kind==='building'?Math.ceil((item.w+item.d)*18+24):24;
+ const c=document.createElement('canvas');c.width=side*2;c.height=top+bottom;c.anchorX=side;c.anchorY=top;const g=c.getContext('2d');g.translate(c.anchorX,c.anchorY);
  if(item.kind==='streetprop')streetProp(g,item.id%3);else if(item.kind==='tree')tree(g,0,0,item.id%11,.83);else{polygon(g,[point(-item.w*.4,-item.d*.4),point(item.w*.6,-item.d*.4),point(item.w*.9,item.d*.3),point(0,item.d*.7)],'#48523f30');architecture(g,b.kind==='worksite'||b.redevelopment?b:{...b,id:variant},item.w,item.d);parcelDetails(g,b,item.w,item.d);architecturalIdentity(g,b,item.w,item.d);}
- atlas.set(key,c);if(atlas.size>600){const oldest=atlas.keys().next().value;atlas.delete(oldest);}return c;
+ atlas.set(key,c);atlasBytes+=c.width*c.height*4;while(atlas.size>600||atlasBytes>48*1024*1024){const oldest=atlas.keys().next().value,retired=atlas.get(oldest);atlasBytes-=retired.width*retired.height*4;atlas.delete(oldest);}return c;
 }
+function drawSceneSprite(g,item){const sprite=spriteFor(item);g.drawImage(sprite,Math.round(item.x-sprite.anchorX),Math.round(item.y-sprite.anchorY));}
 function prepareScene(){
  displayItems=[];const occupied=new Set(G.buildings.flatMap(b=>footprintOf(b)));
  for(let y=0;y<T;y++)for(let x=0;x<T;x++){const id=roadId(x,y);if(G.tiles[id]===3&&!occupied.has(id)&&!G.landUse?.[id]&&hash(id+G.worldSeed)%4!==0){const [px,py]=iso(x,y);displayItems.push({kind:'tree',id,x:px,y:py+18,w:1,d:1});}}
@@ -2287,16 +2452,18 @@ function drawGround(){
  const fastRender=fastRenderEnabled();
  // Uploading a changed full-world bitmap can stall software Canvas. At 64×,
  // retain a half-resolution ground layer; buildings and labels stay independent.
- groundScale=fastRender?.5:1;
+ groundScale=Math.min(fastRender?.5:1,Math.sqrt((fastRender?2200000:9000000)/(RW*RH)));
  const width=Math.round(RW*groundScale),height=Math.round(RH*groundScale);
  if(bitmap.width!==width||bitmap.height!==height){bitmap.width=width;bitmap.height=height;}
  const s=seasonPalette(),net=graph();bg.setTransform(groundScale,0,0,groundScale,0,0);bg.fillStyle='#5d7967';bg.fillRect(0,0,RW,RH);
  const occupied=new Set(G.buildings.flatMap(b=>footprintOf(b)));
+ const fastGrass=s.grass.map(c=>tone(c,.92));
  for(let y=0;y<T;y++)for(let x=0;x<T;x++){
   const id=roadId(x,y),type=G.tiles[id],h=hash(id+G.worldSeed),p=iso(x,y),lu=G.landUse?.[id];
   const tileColor=type===2?s.water:type===1?'#b3b09a':lu===1?(visualMonth()>=10?'#c8cbb5':visualMonth()>=7?'#b4a36d':'#99a06a'):lu===2?'#aa9b7b':lu===3?'#7b827a':s.grass[(Math.floor(Math.sin(x*.18+y*.11)*1.4+Math.cos(y*.22)*.8)+7)%5];
-  if(fastRender)diamondFast(bg,x,y,tileColor);else diamond(bg,x,y,tileColor);
-  if(type===2){bg.fillStyle='#b5cdc0';if(h%3===0)bg.fillRect(p[0]-12+(h%17),p[1]+16,9,1);if(x<T-1&&G.tiles[id+1]!==2){segment(bg,[p[0]+35,p[1]+18],[p[0],p[1]+35],'#bdbaa0',3);}}
+  if(fastRender)diamondFast(bg,x,y,!charterOwns(x,y)&&type!==2?(type===3?fastGrass[1]:fastGrass[2]):tileColor);else diamond(bg,x,y,tileColor);
+  if(!fastRender&&!charterOwns(x,y)&&type!==2){polygon(bg,[[p[0],p[1]],[p[0]+36,p[1]+18],[p[0],p[1]+36],[p[0]-36,p[1]+18]],'#a5ac8430');}
+  if(!fastRender&&type===2){bg.fillStyle='#b5cdc0';if(h%3===0)bg.fillRect(p[0]-12+(h%17),p[1]+16,9,1);if(x<T-1&&G.tiles[id+1]!==2){segment(bg,[p[0]+35,p[1]+18],[p[0],p[1]+35],'#bdbaa0',3);}}
   else if(!fastRender&&type!==1&&!occupied.has(id)&&!lu){for(let j=0;j<3;j++){let k=hash(h+j*37);bg.fillStyle=j===0?s.dark:tone(s.grass[2],1.04);bg.fillRect(p[0]-15+(k%30),p[1]+9+((k>>>8)%16),2+(k%3),1);}if(h%37===0&&visualMonth()<10){bg.fillStyle=visualMonth()<4?'#e2d5ad':'#c9b486';bg.fillRect(p[0]+5,p[1]+21,2,2);}}
   if(!fastRender&&gameOptions.decor&&gameOptions.quality!=='low'&&type===0&&!occupied.has(id)&&!lu){
    // Sparse wildflowers and small blade clusters, arranged by the town seed.
@@ -2321,7 +2488,7 @@ let groundSignature='',groundRevision=0,groundScale=1;
 function drawStatic(){
  const signature=[G.worldSeed,visualMonth(),gameOptions.decor,gameOptions.quality,fastRenderEnabled(),
   G.tiles.join(''),JSON.stringify(G.landUse||{}),JSON.stringify(G.roadClasses||{}),
-  JSON.stringify(G.airport?.runway||[])].join('|');
+  JSON.stringify(G.airport?.runway||[]),G.charter?.revision||0].join('|');
  if(signature!==groundSignature){drawGround();groundSignature=signature;groundRevision++;}
  prepareScene();landscapeRevision++;staticDirty=false;lastSceneMonth=visualMonth();
 }
@@ -2363,7 +2530,7 @@ function drawConstructionProgress(g,visible){
  }
 }
 function draw(){
- if(!G||!dirty)return;dirty=false;if(staticDirty||lastSceneMonth!==visualMonth())drawStatic();
+ if(!G||!dirty)return;dirty=false;document.body.classList.toggle('surveying-region',overlay==='charter');if(staticDirty||lastSceneMonth!==visualMonth())drawStatic();
  ctx.setTransform(1,0,0,1,0,0);ctx.fillStyle='#6d8774';ctx.fillRect(0,0,cv.width,cv.height);
  const sx=cam.x-cw/(2*cam.zoom),sy=cam.y-ch/(2*cam.zoom),ww=cw/cam.zoom,hh=ch/cam.zoom;
  ctx.setTransform(dpr,0,0,dpr,0,0);ctx.imageSmoothingEnabled=false;transform();ctx.imageSmoothingEnabled=false;
@@ -2389,27 +2556,27 @@ function draw(){
    return item.x>=sx-xMargin&&item.x<=sx+ww+xMargin&&item.y>=sy-bottomMargin&&item.y<=sy+hh+topMargin;
   });
   paintCastShadows(vg,viewBuildings);
-  for(const item of viewBuildings)vg.drawImage(spriteFor(item),Math.round(item.x-128),Math.round(item.y-240));
+  for(const item of viewBuildings)drawSceneSprite(vg,item);
   viewRasterKey=key;
  }
  ctx.setTransform(1,0,0,1,0,0);ctx.drawImage(viewRaster,0,0);transform();
- drawConstructionProgress(ctx,visible);drawInspectedRoute(ctx);
- const visibleParcels=viewBuildings.filter(item=>visible(item.x,item.y,0)),actors=[...buildingActivity(visibleParcels),...workdayScenes(visibleParcels)];if(gameOptions.traffic)for(const v of traffic){const p=vehiclePosition(v);if(visible(p.x,p.y,15))actors.push({kind:'vehicle',v,...p});}actors.sort((a,b)=>a.y-b.y);
+ drawConstructionProgress(ctx,visible);drawInspectedRoute(ctx);drawWaterfrontPiers(ctx,visible);
+ const visibleParcels=viewBuildings.filter(item=>visible(item.x,item.y,0)),actors=[...buildingActivity(visibleParcels),...workdayScenes(visibleParcels),...waterfrontActors(visible)];if(gameOptions.traffic)for(const v of traffic){const p=vehiclePosition(v);if(visible(p.x,p.y,15))actors.push({kind:'vehicle',v,...p});}actors.sort((a,b)=>a.y-b.y);
  if(actors.length){
   // Clip subsequent foreground re-paints to the actors' damage rectangles.
-  ctx.save();ctx.beginPath();for(const a of actors)ctx.rect(a.x-25,a.y-32,56,52);ctx.clip();
+  ctx.save();ctx.beginPath();for(const a of actors)if(a.kind==='boat')ctx.rect(a.x-44,a.y-32,88,64);else ctx.rect(a.x-25,a.y-32,56,52);ctx.clip();
   const layered=[...actors,...viewBuildings.filter(a=>actors.some(v=>a.y>=v.y&&Math.abs(a.x-v.x)<112&&a.y-v.y<220))].sort((a,b)=>a.y-b.y);
-  for(const a of layered){if(a.kind==='vehicle')vehiclePaint(ctx,a.v,a,frameClock);else if(a.kind==='workday')paintWorkdayScene(ctx,a,frameClock);else ctx.drawImage(spriteFor(a),Math.round(a.x-128),Math.round(a.y-240));}ctx.restore();
+  for(const a of layered){if(a.kind==='vehicle')vehiclePaint(ctx,a.v,a,frameClock);else if(a.kind==='boat')paintWaterBoat(ctx,a,frameClock);else if(a.kind==='workday')paintWorkdayScene(ctx,a,frameClock);else drawSceneSprite(ctx,a);}ctx.restore();
  }
 
- paintTownLight(ctx);
+ drawCharterBounds(ctx);paintTownLight(ctx);
  atmosphere(ctx,sx,sy,ww,hh);
  drawAviation(ctx);
  if(overlay==='metro')drawMetroOverlay(ctx);
  if(overlay==='roads'||overlay==='business'||overlay==='hardship'||overlay==='crime'||overlay==='land')for(const item of displayItems){if(item.kind!=='building'||!visible(item.x,item.y))continue;const b=item.b,f=G.firms[b.firm],h=G.households[b.hh],net=graph();let color=overlay==='roads'?(net.portals.has(b.id)?'#9ecb95':'#bb7760'):overlay==='business'?(f?(f.closed?'#b66856':f.profit>0?'#a1c67d':'#d6b46c'):null):overlay==='hardship'?(h?(h.stress>50?'#b96c56':'#a9ca87'):null):overlay==='land'?(b.value>90000?'#c38864':b.value>45000?'#d0b776':'#9fc087'):null;if(!color)continue;ctx.globalAlpha=.7;diamond(ctx,b.x,b.y,color);ctx.globalAlpha=1;}
  drawServiceAccess(ctx);
  if(selected?.id){const b=readBuild(selected.id);if(b){const p=iso(b.x,b.y);ctx.strokeStyle='#f4e2a5';ctx.lineWidth=2;ctx.beginPath();ctx.ellipse(p[0],p[1]+18,32,16,0,0,Math.PI*2);ctx.stroke();}}
- if(buildMode&&pointer.hover){const {x,y}=pointer.hover;if(x>=0&&x<T&&y>=0&&y<T){const valid=buildMode==='road'?cityCell(x,y)===0&&!buildingAt(x,y):buildMode==='repair'?cityCell(x,y)===1:canPlace(x,y,true,buildMode);ctx.globalAlpha=.60;for(const id of footprintFor(x,y,buildMode))diamond(ctx,id%T,id/T|0,valid?'#c8dea4':'#c48069');ctx.globalAlpha=1;}}
+ if(buildMode&&pointer.hover){const {x,y}=pointer.hover;if(x>=0&&x<T&&y>=0&&y<T){const valid=buildMode==='road'?[0,3].includes(cityCell(x,y))&&charterOwns(x,y)&&!buildingAt(x,y):buildMode==='repair'?cityCell(x,y)===1:canPlace(x,y,true,buildMode);ctx.globalAlpha=.60;for(const id of footprintFor(x,y,buildMode))diamond(ctx,id%T,id/T|0,valid?'#c8dea4':'#c48069');ctx.globalAlpha=1;}}
  if(nightMode){ctx.setTransform(dpr,0,0,dpr,0,0);ctx.fillStyle='#233c6460';ctx.fillRect(0,0,cw,ch);transform();for(const item of displayItems){if(item.kind!=='building'||!visible(item.x,item.y)||item.b.kind==='worksite')continue;const b=item.b;if(b.firm>=0&&G.firms[b.firm]?.closed)continue;const glow=ctx.createRadialGradient(item.x,item.y-12,1,item.x,item.y-12,28);glow.addColorStop(0,'#eac57a36');glow.addColorStop(1,'#eac57a00');ctx.fillStyle=glow;ctx.fillRect(item.x-28,item.y-40,56,56);}}
 }
 
@@ -2664,7 +2831,7 @@ function onTap(sx,sy){if(!G)return;const r=cv.getBoundingClientRect();const [x,y
  const mx=(sx-r.left-cw/2)/cam.zoom+cam.x,my=(sy-r.top-ch/2)/cam.zoom+cam.y;
  if(inspectTripAt(mx,my))return;
  let b=buildingAt(x,y);if(!b){const hit=G.buildings.filter(v=>{const pos=iso(v.x,v.y);return Math.abs(mx-pos[0])<20&&my>=pos[1]-38&&my<=pos[1]+33}).sort((a,b)=>iso(b.x,b.y)[1]-iso(a.x,a.y)[1]);b=hit[0]}
- if(b){selected={id:b.id};openPanel('inspect')}else{selected=null;toast('Unoccupied land. Private investors assess access, demand and expected returns.')}
+ if(b){selected={id:b.id};openPanel('inspect')}else if(!charterOwns(x,y)&&parcelForTile(x,y)){parcelFocus=parcelForTile(x,y).id;openPanel('construction');revealCharterOffice();document.querySelector('[data-parcel-card="'+parcelFocus+'"]')?.scrollIntoView({block:'start'});}else{selected=null;toast('Unoccupied land. Private investors assess access, demand and expected returns.')}
  dirty=true;
 }
 cv.addEventListener('pointerdown',e=>{if(pointer.down){pointer.moved=true;return;}pointer.activeId=e.pointerId;roadPainted.clear();pointer.lastRoad=buildMode==='road'?toWorld(e.clientX-cv.getBoundingClientRect().left,e.clientY-cv.getBoundingClientRect().top):null;pointer.down=true;pointer.startX=pointer.px=e.clientX;pointer.startY=pointer.py=e.clientY;pointer.moved=false;try{cv.setPointerCapture(e.pointerId)}catch(err){} });
@@ -2679,27 +2846,27 @@ window.addEventListener('keydown',e=>{
  // keyboard users stranded behind an open drawer or transient help/archive form.
  if(window.__townArchive?.back?.())e.preventDefault();
 });cv.addEventListener('pointercancel',()=>{flushRoadBatch();pointer.down=false;pointer.activeId=null;pointer.lastRoad=null;roadPainted.clear()});cv.addEventListener('pointerleave',()=>{pointer.hover=null;dirty=true});
-cv.addEventListener('wheel',e=>{e.preventDefault();cam.zoom=clamp(cam.zoom*(e.deltaY<0?1.12:.89),.26,1.7);dirty=true},{passive:false});
+cv.addEventListener('wheel',e=>{e.preventDefault();cam.zoom=clamp(cam.zoom*(e.deltaY<0?1.12:.89),.08,1.7);dirty=true},{passive:false});
 let touches=new Map();cv.addEventListener('touchstart',e=>{touches=new Map([...e.touches].map(t=>[t.identifier,{x:t.clientX,y:t.clientY}]));if(touches.size===2){pointer.moved=true;const a=[...touches.values()];pointer.pinch=Math.hypot(a[0].x-a[1].x,a[0].y-a[1].y)}},{passive:true});
-cv.addEventListener('touchmove',e=>{touches=new Map([...e.touches].map(t=>[t.identifier,{x:t.clientX,y:t.clientY}]));if(touches.size===2){const a=[...touches.values()],d=Math.hypot(a[0].x-a[1].x,a[0].y-a[1].y);if(pointer.pinch>0){cam.zoom=clamp(cam.zoom*d/pointer.pinch,.26,1.7);dirty=true}pointer.pinch=d}},{passive:true});
+cv.addEventListener('touchmove',e=>{touches=new Map([...e.touches].map(t=>[t.identifier,{x:t.clientX,y:t.clientY}]));if(touches.size===2){const a=[...touches.values()],d=Math.hypot(a[0].x-a[1].x,a[0].y-a[1].y);if(pointer.pinch>0){cam.zoom=clamp(cam.zoom*d/pointer.pinch,.08,1.7);dirty=true}pointer.pinch=d}},{passive:true});
 cv.addEventListener('touchend',e=>{touches=new Map([...e.touches].map(t=>[t.identifier,{x:t.clientX,y:t.clientY}]));pointer.pinch=0});
 cv.addEventListener('touchcancel',()=>{touches.clear();pointer.pinch=0;pointer.down=false;pointer.activeId=null;pointer.lastRoad=null;roadPainted.clear();flushRoadBatch();});
 function construct(kind,x,y,quiet=false){
+ if(kind!=='inspect'&&!charterOwns(x,y)){if(!quiet)toast('Regional land: purchase the district in Public Works before developing it.');return;}
  if(kind==='inspect'){buildMode='';const target=buildingAt(x,y);if(target){selected={id:target.id};openPanel('inspect')}else toast('No building is present at this lot.');dirty=true;return}
  if(kind==='repair'){if(x<0||x>=T||y<0||y>=T||cityCell(x,y)!==1){if(!quiet)toast('Select an existing road tile to resurface.');return}ensureRoadWear();if(G.roadWear[roadId(x,y)]>96){if(!quiet)toast('This street is already in excellent condition.');return}if(G.treasury<buildCost.repair){if(!quiet)toast('Insufficient town funds.');return}G.treasury-=buildCost.repair;G.region+=buildCost.repair;G.roadWear[roadId(x,y)]=100;G.construction++;staticDirty=true;dirty=true;updateHeader();if(!quiet)toast('Street resurfaced.');return}
  if(kind==='road'){
    if(x<0||x>=T||y<0||y>=T)return;
-   if(cityCell(x,y)!==0||G.landUse?.[roadId(x,y)]||buildingAt(x,y)){if(!quiet)toast('Road requires vacant, unreserved land.');return}
+   if(![0,3].includes(cityCell(x,y))||G.landUse?.[roadId(x,y)]||buildingAt(x,y)){if(!quiet)toast('Road requires vacant, unreserved land.');return}
    if(G.treasury<buildCost.road){if(!quiet)toast('Insufficient town funds for this road.');return}
    G.treasury-=buildCost.road;G.region+=buildCost.road;G.tiles[y*T+x]=1;ensureRoadWear();G.roadWear[roadId(x,y)]=100;G.construction++;dirty=true;
    if(quiet){roadBatchDirty=true;return;}invalidateRoads();staticDirty=true;recompute();updateHeader();save();return;
  }
  if(!canPlace(x,y,true,kind)){toast('This project requires a fully vacant footprint with road access.');return}
- if(kind==='fishery'&&!Array.from({length:9},(_,i)=>[x+(i%3)-1,y+Math.floor(i/3)-1]).some(([a,b])=>cityCell(a,b)===2)){toast('A fishery must adjoin the river.');return}
  if(kind==='forestry'&&!Array.from({length:25},(_,i)=>[x+(i%5)-2,y+Math.floor(i/5)-2]).some(([a,b])=>cityCell(a,b)===3)){toast('Forestry operations require nearby woodland.');return}
  const cost=buildCost[kind];if(G.treasury<cost){toast('Town treasury cannot afford '+types[kind].n+' ('+money(cost)+').');return}
  G.treasury-=cost;G.region+=cost;
- if(['grocer','bakery','mill','farm','forestry','sawmill','quarry','contractor','tavern','fishery','factory','warehouse','office','college'].includes(kind)){
+ if(['grocer','bakery','mill','farm','forestry','sawmill','quarry','contractor','tavern','fishery','wharf','factory','warehouse','office','college'].includes(kind)){
    if(G.region<15000){toast('Regional investment capital is exhausted.');G.treasury+=cost;G.region-=cost;return}
    G.region-=12000+G.policy.permitFee;const newFirm=createFirm(kind,x,y);newFirm.cash=12000;transferTreasury(G.policy.permitFee,'permits');assignJobs();story('New local enterprise: '+types[kind].n+' opens on a developed lot.','good');
  }else if(kind==='home'){
@@ -2782,7 +2949,7 @@ function openPanel(tab,opener=null){panelOpener=opener||document.activeElement;a
 function closePanel(){const previous=active;active='';$('gameRoot').classList.remove('drawer-open');$('panel').classList.remove('show');$('tabs').querySelectorAll('button').forEach(b=>b.classList.remove('active'));const returnTarget=panelOpener?.isConnected&&panelOpener!==document.body&&panelOpener.getClientRects().length?panelOpener:$('tabs').querySelector(`button[data-panel="${previous}"]`);if(returnTarget)returnTarget.focus();panelOpener=null}
 function economySnapshot(){
  const demand=cityDemand(),activeFirms=G.firms.filter(f=>!f.closed),families=G.households.filter(h=>h.people.some(id=>G.people[id]&&!G.people[id].deceased&&!G.people[id].movedAway));
- const byType={},kindSections={farm:'Agriculture',fishery:'Agriculture',forestry:'Resource extraction',quarry:'Resource extraction',mill:'Manufacturing',sawmill:'Manufacturing',factory:'Manufacturing',bakery:'Food & retail',grocer:'Food & retail',tavern:'Food & retail',warehouse:'Logistics',contractor:'Construction',office:'Services',college:'Services'};
+ const byType={},kindSections={farm:'Agriculture',fishery:'Agriculture',wharf:'Logistics',forestry:'Resource extraction',quarry:'Resource extraction',mill:'Manufacturing',sawmill:'Manufacturing',factory:'Manufacturing',bakery:'Food & retail',grocer:'Food & retail',tavern:'Food & retail',warehouse:'Logistics',contractor:'Construction',office:'Services',college:'Services'};
  for(const f of G.firms){const sector=kindSections[f.kind]||'Other services',entry=byType[sector]||(byType[sector]={sector,open:0,closed:0,workers:0,jobs:0,profit:0,sales:0,capital:0,atRisk:0});
   if(f.closed)entry.closed++;else {entry.open++;entry.workers+=f.workers.length;entry.jobs+=f.jobs;entry.profit+=f.profit||0;entry.sales+=f.revenue||0;entry.capital+=f.cash||0;if(f.profit<0&&f.cash<Math.max(2500,f.wage*f.jobs*12))entry.atRisk++;}
  }
@@ -2874,12 +3041,12 @@ $('panelBody').addEventListener('click',e=>{const b=e.target.closest('button,[da
  if(b.id==='borrow'){let limit=Math.max(25000,G.stats.population*350);if(G.debt+5000>limit||G.region<5000){toast('Regional lender declined: the credit limit or available funds have been reached.');return;}G.debt+=5000;G.treasury+=5000;G.region-=5000;story('Council borrowed $5,000 from the regional lender.');recompute();updateHeader();save();renderPanel(active)}
  if(b.id==='repay'){let v=Math.min(5000,G.debt,G.treasury);G.debt-=v;G.treasury-=v;G.region+=v;recompute();updateHeader();save();renderPanel(active)}
 });
-$('zoomIn').onclick=()=>{cam.zoom=clamp(cam.zoom*1.22,.26,1.7);dirty=true};$('zoomOut').onclick=()=>{cam.zoom=clamp(cam.zoom/1.22,.26,1.7);dirty=true};$('center').onclick=()=>{cam.x=RW/2;cam.y=RH/2;cam.zoom=.95;dirty=true};$('overlayToggle').onclick=()=>{overlay=overlay==='none'?'roads':overlay==='roads'?'metro':overlay==='metro'?'hardship':overlay==='hardship'?'crime':overlay==='crime'?'business':'none';dirty=true;toast('Map overlay: '+overlay)};
+$('zoomIn').onclick=()=>{cam.zoom=clamp(cam.zoom*1.22,.08,1.7);dirty=true};$('zoomOut').onclick=()=>{cam.zoom=clamp(cam.zoom/1.22,.08,1.7);dirty=true};$('center').onclick=()=>{if(overlay==='charter'){overlay='none';parcelFocus=null;}centerTownCamera();};$('overlayToggle').onclick=()=>{overlay=overlay==='none'?'roads':overlay==='roads'?'metro':overlay==='metro'?'hardship':overlay==='hardship'?'crime':overlay==='crime'?'business':'none';dirty=true;toast('Map overlay: '+overlay)};
  $('pause').onclick=()=>{paused=!paused;fit();updateHeader();if(paused){draw();save()}};const SPEED_PRESETS=[1,2,4,8,16,32,64];
  $('speed').onclick=()=>{const index=SPEED_PRESETS.indexOf(speed);speed=SPEED_PRESETS[(index+1)%SPEED_PRESETS.length];acc=0;sampleDays=0;sampleSeconds=0;G.speed=speed;fit();updateHeader()};
  $('speedRange').addEventListener('input',e=>{speed=SPEED_PRESETS[+e.target.value]||1;acc=0;sampleDays=0;sampleSeconds=0;if(G)G.speed=speed;fit();updateHeader();});
 $('speedRange').addEventListener('change',()=>{if(G)save();});
-function start(newVillage){if(newVillage){seed(Number($('townSeed')?.value)||42)}else if(!load())seed();cam={x:RW/2,y:RH/2,zoom:.95};invalidateRoads();buildMode='';selected=null;overlay='none';paused=false;speed=SPEED_PRESETS.includes(G.speed)?G.speed:1;acc=0;fit();$('welcome').style.display='none';dirty=true;staticDirty=true;updateHeader();openPanel('overview');}
+function start(newVillage){if(newVillage){seed(Number($('townSeed')?.value)||42)}else if(!load())seed();centerTownCamera();invalidateRoads();buildMode='';selected=null;overlay='none';paused=false;speed=SPEED_PRESETS.includes(G.speed)?G.speed:1;acc=0;fit();$('welcome').style.display='none';dirty=true;staticDirty=true;updateHeader();openPanel('overview');}
 $('newTown').onclick=()=>{start(true);refreshAmbience()};$('continue').onclick=()=>{start(false);refreshAmbience()};
 try{if(localStorage.getItem('townledger-v6')||localStorage.getItem('townledger-v6-backup')||localStorage.getItem('townledger-village-founder-3')||localStorage.getItem('townledger-village-civic-2'))$('continue').style.display='block'}catch(e){}
 window.addEventListener('resize',fit);fit();
@@ -3156,12 +3323,12 @@ function showCustomEvent(type,title,text,choices){councilOpener=document.activeE
  $('eventEyebrow').textContent=type;$('eventTitle').textContent=title;$('eventText').textContent=text;
  $('eventChoices').innerHTML=choices.map((c,i)=>`<button data-event-choice="${i}" ${c.cost&&G.treasury<c.cost?'disabled':''}><strong>${esc(c.title)}</strong><small>${esc(c.desc||'')}${c.cost?' · Cost: '+money(c.cost):''}</small></button>`).join('');
  if(type!=='TOWN ARCHIVE'&&COUNCIL_EVENTS.some(e=>e.title===title)){G.councilInbox=G.councilInbox||[];if(!G.councilInbox.some(e=>e.title===title))G.councilInbox.unshift({title,day:G.day});save();}
- $('eventDialog').style.display='flex';$('eventDefer').textContent=type==='TOWN ARCHIVE'?'CANCEL':'DECIDE LATER';$('eventChoices').querySelector('button:not([disabled])')?.focus();
+ $('eventDialog').style.display='flex';$('eventDefer').textContent=(type==='TOWN ARCHIVE'||type==='LAND PURCHASE')?'CANCEL':'DECIDE LATER';$('eventChoices').querySelector('button:not([disabled])')?.focus();
 }
 $('eventChoices').addEventListener('click',e=>{
  const b=e.target.closest('button[data-event-choice]');if(!b||!pendingEvent)return;
  const evt=pendingEvent,c=evt.choices[+b.dataset.eventChoice];if(!c)return;
- if(evt.type==='TOWN ARCHIVE'){closeCouncilDialog();c.apply();return;}
+ if(evt.type==='TOWN ARCHIVE'||evt.type==='LAND PURCHASE'){if(c.cost&&G.treasury<c.cost)return;closeCouncilDialog();c.apply();return;}
  const goodsBefore=stockTotals();const fundsBefore=totalMoney();if(c.cost){if(G.treasury<c.cost)return;G.treasury-=c.cost;G.region+=c.cost;G.cumulative.spending+=c.cost;}
  try{c.apply()}catch(ex){console.error('Council decision',ex)}
  const goodsAfter=stockTotals();for(const k of Object.keys(goods)){const delta=goodsAfter[k]-goodsBefore[k];goodsEntry(k,delta>=0?'imports':'consumed',Math.abs(delta));}
@@ -3210,9 +3377,9 @@ $('eventDialog').addEventListener('keydown',e=>{
 // SOURCE: 90-archive-panels.js
 function hydrateSave(raw){
  const previousTown=G;
- try{const data=typeof raw==='string'?JSON.parse(raw):raw;
+ try{let data=typeof raw==='string'?JSON.parse(raw):raw;data=normalizeRegionArchive(data);
   if(!data||![2,3].includes(data.version)||!Array.isArray(data.tiles)||data.tiles.length!==T*T||!Array.isArray(data.firms)||!Array.isArray(data.people)||!Array.isArray(data.buildings)||!Array.isArray(data.households)||!data.policy||!Number.isFinite(data.treasury)||data.tiles.some(t=>!Number.isInteger(t)||t<0||t>3)||!Number.isFinite(data.region)||data.region<0||data.households.length>3000||data.people.length>8000||data.firms.length>3000)return false;
-  if(data.schema!=null&&(!Number.isInteger(data.schema)||data.schema<0||data.schema>5))return false;
+  if(data.schema!=null&&(!Number.isInteger(data.schema)||data.schema<0||data.schema>6))return false;
   if(data.investors&&(!Array.isArray(data.investors)||data.investors.length!==1||data.investors.some(a=>!Number.isFinite(a.cash)||a.cash<0)))return false;
   if(data.freight&&(!Array.isArray(data.freight)||data.freight.length>10000||data.freight.some(s=>!Number.isInteger(s.from)||!data.firms[s.from]||!Number.isInteger(s.to)||!data.firms[s.to]||!owns(goods,s.good)||!Number.isFinite(s.qty)||s.qty<=0||!Number.isFinite(s.remaining))))return false;
   // Reject structurally broken saves before they can replace the running town.
@@ -3229,7 +3396,8 @@ function hydrateSave(raw){
    if(idSet.has(b.id))return false;idSet.add(b.id);
   }
   for(const h of data.households)for(const id of h.people){if(memberSet.has(id)||data.people[id].hh!==h.id||data.people[id].deceased||data.people[id].movedAway)return false;memberSet.add(id)}
-  if(!validateCivicState(data)||!validateCreditState(data)||!validateScenarioProgramme(data))return false;
+  if(!validateWaterfrontArchive(data))return false;
+  if(!validateCivicState(data)||!validateCreditState(data)||!validateScenarioProgramme(data)||!validateCharter(data))return false;
   data.version=3;data.policy={...defaults,...data.policy};
   data.banks=Array.isArray(data.banks)?data.banks.filter(b=>b&&Number.isInteger(b.id)&&b.id>=0&&b.id<12&&Number.isFinite(b.cash)&&b.cash>=0&&Number.isFinite(b.depositAPY)&&Number.isFinite(b.loanAPY)).slice(0,12):[];
   data.loans=Array.isArray(data.loans)?data.loans.filter(l=>l&&Number.isInteger(l.id)&&Number.isFinite(l.balance)&&l.balance>=0&&['active','repaid','default'].includes(l.status)).slice(0,10000):[];
@@ -3249,7 +3417,7 @@ function hydrateSave(raw){
   if(data.households.some(h=>!h||!Array.isArray(h.people)||!Number.isFinite(h.cash)||h.cash<0)||data.firms.some(f=>!f||!Array.isArray(f.workers)||!Number.isFinite(f.cash)||f.cash<0))return false;
   const workerIDs=new Set();for(const f of data.firms){for(const id of f.workers){if(workerIDs.has(id)||!data.people[id]||data.people[id].deceased||data.people[id].movedAway||data.people[id].job!==f.id)return false;workerIDs.add(id)}}
   for(const loan of data.loans||[])if(loan.fixedRate==null)loan.fixedRate=true;
-  G=data;resetTownTransientUI();G.serviceProvision=null;crewDay=-1;crewsUsed=new Map();regionalCrews=0;ensureSystems();rngState=Number.isInteger(G.rngState)?G.rngState:G.scenarioSeed;ensureFinance();ensureMarketModel();if(!G.banks.length)seedBanks();draftPolicy={};roadBatchDirty=false;invalidateRoads();cacheBuildingsFor=null;recompute();G.stats.approval=Math.round(G.council.approval);G.stats.health=Math.round(G.health);G.stats.education=Math.round(G.education);G.stats.marketConfidence=G.stats.marketConfidence||55;G.stats.wellbeing=G.stats.wellbeing??70;ensureScenarioProgramme();restoreTransport();staticDirty=true;dirty=true;updateHeader();return true;
+  G=data;resetTownTransientUI();G.serviceProvision=null;crewDay=-1;crewsUsed=new Map();regionalCrews=0;ensureSystems();rngState=Number.isInteger(G.rngState)?G.rngState:G.scenarioSeed;ensureFinance();ensureMarketModel();if(!G.banks.length)seedBanks();draftPolicy={};roadBatchDirty=false;invalidateRoads();cacheBuildingsFor=null;recompute();G.stats.approval=Math.round(G.council.approval);G.stats.health=Math.round(G.health);G.stats.education=Math.round(G.education);G.stats.marketConfidence=G.stats.marketConfidence||55;G.stats.wellbeing=G.stats.wellbeing??70;ensureScenarioProgramme();if(!previousTown)centerTownCamera();restoreTransport();staticDirty=true;dirty=true;updateHeader();return true;
  }catch(e){G=previousTown;invalidateRoads();cacheBuildingsFor=null;staticDirty=true;dirty=true;console.error('Invalid save',e);return false}
 }
 function writeIndexedDB(text){
@@ -3267,7 +3435,7 @@ function openTutorialDialog(opener=document.activeElement){helpOpener=opener;$('
 function exportSave(){
  const text=archivePayload();const dialog=$('helpDialog');helpOpener=document.activeElement;dialog.querySelector('.paper').innerHTML=`<h2 id="helpTitle">YOUR TOWN ARCHIVE</h2><p>Copy this backup into a text file. Paste it here later to restore the village, even after reinstalling.</p><textarea id="saveText" style="display:block;width:100%;height:145px;background:#f7efd9;color:#183425;font:11px monospace;touch-action:pan-y;border:1px solid #8a8c6c;padding:9px"></textarea><button id="copySave" class="menu-primary">SELECT AND COPY</button><button id="archiveClose">CLOSE</button>`;dialog.style.display='flex';$('saveText').value=text;$('saveText').focus();$('copySave').onclick=()=>{$('saveText').focus();$('saveText').select();try{document.execCommand('copy')}catch(e){};toast('Backup text selected for copying.')};$('archiveClose').onclick=hideHelpDialog;
 }
-function importSave(){const dialog=$('helpDialog');helpOpener=document.activeElement;dialog.querySelector('.paper').innerHTML=`<h2 id="helpTitle">RESTORE A TOWN</h2><p>Paste a TownLedger backup below. Your current game will be replaced after validation.</p><textarea id="importText" style="display:block;width:100%;height:145px;background:#f7efd9;color:#183425;font:11px monospace;touch-action:pan-y;border:1px solid #8a8c6c;padding:9px"></textarea><button id="restoreGo" class="menu-primary">RESTORE THIS TOWN</button><button id="restoreCancel">CANCEL</button>`;dialog.style.display='flex';$('importText').focus();$('restoreGo').onclick=()=>{if(hydrateSave($('importText').value)){cam={x:RW/2,y:RH/2,zoom:.68};save();dialog.style.display='none';restoreHelpMarkup();toast('Town archive restored.');renderPanel('overview');$('tabs').querySelector('button[data-panel="overview"]')?.focus();helpOpener=null;}else toast('The backup is invalid or incompatible.')};$('restoreCancel').onclick=hideHelpDialog;}
+function importSave(){const dialog=$('helpDialog');helpOpener=document.activeElement;dialog.querySelector('.paper').innerHTML=`<h2 id="helpTitle">RESTORE A TOWN</h2><p>Paste a TownLedger backup below. Your current game will be replaced after validation.</p><textarea id="importText" style="display:block;width:100%;height:145px;background:#f7efd9;color:#183425;font:11px monospace;touch-action:pan-y;border:1px solid #8a8c6c;padding:9px"></textarea><button id="restoreGo" class="menu-primary">RESTORE THIS TOWN</button><button id="restoreCancel">CANCEL</button>`;dialog.style.display='flex';$('importText').focus();$('restoreGo').onclick=()=>{if(hydrateSave($('importText').value)){centerTownCamera(.68);save();dialog.style.display='none';restoreHelpMarkup();toast('Town archive restored.');renderPanel('overview');$('tabs').querySelector('button[data-panel="overview"]')?.focus();helpOpener=null;}else toast('The backup is invalid or incompatible.')};$('restoreCancel').onclick=hideHelpDialog;}
 const originalHelp=$('helpDialog').querySelector('.paper').innerHTML;
 function restoreHelpMarkup(){$('helpDialog').querySelector('.paper').innerHTML=originalHelp;$('helpClose').onclick=hideHelpDialog}
 $('helpClose').onclick=hideHelpDialog;$('howTo').onclick=()=>openTutorialDialog($('howTo'));
@@ -3353,7 +3521,7 @@ function renderBusinessesFull(){let fs=G.firms.slice();if(filterFirms==='open')f
  `<div class="statgrid">${stat('Enterprises trading',G.stats.businesses)}${stat('Market confidence',G.stats.marketConfidence+'/100')}${stat('Regional demand',Math.round((G.regionalDemand||1)*100)+'/100')}${stat('Businesses on road grid',G.stats.roadAccess+'%')}${stat('Freight fees paid',money(G.cumulative.freight||0))}</div>`+
  `<div class="filter-row">${[['all','All'],['open','Trading'],['closed','Closed'],['losing','Loss-making'],['rich','Most capital'],['poor','Least capital']].map(([k,n])=>`<button class="${filterFirms===k?'on':''}" data-filter-firms="${k}">${n}</button>`).join('')}</div>`+
  fs.slice(0,90).map(f=>`<div class="entry" data-firm="${f.id}"><div style="display:flex;justify-content:space-between;gap:7px"><strong>${esc(f.name)}</strong><span class="pill">${f.closed?'CLOSED':'TRADING'}</span></div><small>${esc(types[f.kind].n)} · ${f.workers.length} / ${f.jobs} jobs · Capital ${money(f.cash)}<br>Revenue ${money(f.revenue)} · Profit ${money(f.profit)} · Tax ${money(f.tax)}</small></div>`).join('');}
-function renderConstructionFull(){const cats=[['all','All'],['housing','Housing'],['commerce','Commerce'],['production','Industry'],['services','Civic works']];let groups={housing:['road','home','park','square'],commerce:['grocer','bakery','tavern'],production:['farm','mill','fishery','forestry','sawmill','quarry','contractor'],services:['police','fire','clinic','school','courthouse','watchtower','park','square','road','repair']};let keys=constructionCategory==='all'?Object.keys(buildCost).filter(k=>k!=='metro_station'):groups[constructionCategory]||Object.keys(buildCost).filter(k=>k!=='metro_station');
+function renderConstructionFull(){const cats=[['all','All'],['housing','Housing'],['commerce','Commerce'],['production','Industry'],['waterfront','Waterfront'],['services','Civic works']];let groups={waterfront:['fishery','wharf','road'],housing:['road','home','park','square'],commerce:['grocer','bakery','tavern'],production:['farm','mill','fishery','forestry','sawmill','quarry','contractor'],services:['police','fire','clinic','school','courthouse','watchtower','park','square','road','repair']};let keys=constructionCategory==='all'?Object.keys(buildCost).filter(k=>k!=='metro_station'):groups[constructionCategory]||Object.keys(buildCost).filter(k=>k!=='metro_station');
  return head('Build the borough')+tip('Choose a structure, then tap vacant land beside an existing road. Paint roads by dragging. Industrial and retail firms receive private investment, but council must authorize the site.')+
  `<div class="statgrid">${stat('Buildings in town',G.buildings.length)}${stat('Developed road tiles',G.tiles.filter(t=>t===1).length)}${stat('Road condition',Math.round(G.stats.roadCondition??100)+'%')}${stat('Firms with road access',(roadMetrics().connectedFirms)+' / '+roadMetrics().totalFirms)}${stat('Homes with road access',roadMetrics().connectedHomes+' / '+roadMetrics().totalHomes)}</div>`+
  `<div class="filter-row">${cats.map(([k,n])=>`<button class="${constructionCategory===k?'on':''}" data-build-category="${k}">${n}</button>`).join('')}</div>`+
@@ -3374,10 +3542,10 @@ function renderInspectFull(){const b=selected&&readBuild(selected.id);if(!b)retu
  let html=`<div class="scenario-badge">PLOT ${b.x} · ${b.y} · ${esc(types[b.kind].n)}</div>`+head('Property report')+`<div class="statgrid">${stat('Estimated property value',money(b.value))}${stat('Physical condition',Math.round(b.condition)+'/100')}${stat('Land footprint',footprintOf(b).length+' plots')}</div>`;
  if(h){let people=h.people.map(id=>G.people[id]).filter(p=>p&&!p.deceased&&p.movedAway!==true),working=people.filter(p=>(p.job>=0&&!p.commuteBlocked)||p.publicWork),net=h.income-h.tax-h.food-h.rent-(h.utilities||0)-(h.travel||0)-(h.debtService||0)-(h.propertyPaid||0)-(h.discretionary||0)-(h.propertyMaintenance||0)-(h.crimeLossToday||0)+(h.recoveredLosses||0)+h.aid;let note=net<0?'Spending currently exceeds earnings. Low savings could place the family at risk.':h.stress>65?'Members of this household are experiencing substantial hardship.':'This household can presently meet its daily needs.';
  html+=head('The '+h.name+' household')+tip(note)+`<div class="statgrid">${stat('Savings',money(h.cash),h.cash<200?'negative':'')}${stat('Wellbeing',Math.round(100-h.stress)+'/100')}${stat('After-expense daily flow',money(net),net<0?'negative':'positive')}${stat('Family members employed',working.length+'/'+people.length)}</div>`+
- head('Banking & household credit')+creditDecisionReport(h)+strip('Deposits',money(Object.values(h.deposits||{}).reduce((a,v)=>a+v,0)))+strip('Credit standing',Math.round((h.creditScore??.65)*100)+'/100')+strip('Scheduled debt today',money(h.debtDue||0))+strip('Loan balance',money(G.loans.filter(l=>l.ownerType==='household'&&l.ownerId===h.id&&l.status==='active').reduce((a,l)=>a+l.balance,0)))+head('The daily household ledger')+strip('Earned wages',money(h.wages??h.income))+strip('Retirement pension',money(h.pension||0))+strip('Rental receipts',money(h.rentalIncome||0))+strip('Dividends',money(h.dividends||0))+strip('Income tax paid',money(h.incomeTax??h.tax))+strip('Energy levy',money(h.energyTax||0))+strip('Food basket',money(h.food))+strip('Heating and electricity',money(h.utilities||0))+strip('Work and shopping travel',money(h.travel||0))+strip('Local service receipts',money(h.serviceReceipts||0))+strip('Housing payment',money(h.rent))+strip('Public assistance',money(h.aid))+strip('Property repair spending',money(h.propertyMaintenance||0))+strip('Burglaries today / recorded total',money(h.crimeLossToday||0)+' / '+money(h.crimeLoss))+strip('Recovered losses today',money(h.recoveredLosses||0))+strip('Perceived security',Math.round(h.security)+'/100')+
+ head('Banking & household credit')+creditDecisionReport(h)+strip('Deposits',money(Object.values(h.deposits||{}).reduce((a,v)=>a+v,0)))+strip('Credit standing',Math.round((h.creditScore??.65)*100)+'/100')+strip('Scheduled debt today',money(h.debtDue||0))+strip('Loan balance',money(G.loans.filter(l=>l.ownerType==='household'&&l.ownerId===h.id&&l.status==='active').reduce((a,l)=>a+l.balance,0)))+head('The daily household ledger')+strip('Earned wages',money(h.wages??h.income))+strip('Retirement pension',money(h.pension||0))+strip('Rental receipts',money(h.rentalIncome||0))+strip('Dividends',money(h.dividends||0))+strip('Income tax paid',money(h.incomeTax??h.tax))+strip('Energy levy',money(h.energyTax||0))+strip('Food basket',money(h.food))+strip('Heating and electricity',money(h.utilities||0))+strip('Regional utility link',h.utilityConnected==null?'Not yet observed':h.utilityConnected?'Connected through the road corridor':'No link · reconnect to the high street')+strip('Work and shopping travel',money(h.travel||0))+strip('Local service receipts',money(h.serviceReceipts||0))+strip('Housing payment',money(h.rent))+strip('Public assistance',money(h.aid))+strip('Property repair spending',money(h.propertyMaintenance||0))+strip('Burglaries today / recorded total',money(h.crimeLossToday||0)+' / '+money(h.crimeLoss))+strip('Recovered losses today',money(h.recoveredLosses||0))+strip('Perceived security',Math.round(h.security)+'/100')+
  householdServiceReport(h.id)+head('People who live here')+people.map(p=>`<div class="entry"><strong>${esc(p.name)}</strong><small>Age ${p.age} · ${p.job>=0?(p.commuteBlocked?'Road connection interrupted · ':'')+esc(G.firms[p.job]?.name||'Employed'):(p.publicWork?'Municipal day work':'Not employed')}<br>Health ${Math.round(p.health)}/100 · Skill ${Math.round(p.skill*100)}/100</small></div>`).join('');}
  else if(f){html+=head(f.name)+tip(f.closed?'This business is currently closed. New investors may reopen it if conditions permit.':'A private company facing real demand, wages, supply costs, taxes and regulation.')+`<div class="statgrid">${stat('Working capital',money(f.cash),f.cash<600?'negative':'')}${stat('Staff',f.workers.length+'/'+f.jobs)}${stat('Sales today',money(f.revenue))}${stat('Operating profit',money(f.profit),f.profit<0?'negative':'positive')}</div>`+
- head('Business accounts')+creditDecisionReport(f)+strip('Installed capacity factor',policyNumber(f.scale||1)+'×')+(f.pendingEquipment?strip('Funded equipment commissioning','Day '+f.pendingEquipment.ready)+tip('Paid '+money(f.pendingEquipment.cost)+'. Capacity changes when the order is commissioned; workers, inputs and customers still limit output.'):'')+strip('Attending workers today',workingStaff(f).length+' / '+f.workers.length+' contracted')+strip('Road access',graph().portals.has(b.id)&&graph().parts[graph().portals.get(b.id)]===graph().mainPart?'Connected to high street':'Disconnected · no road freight')+strip('Operating expenses',money(f.expenses))+strip('Profit taxes',money(f.tax))+strip('Profit after tax',money(f.netProfit??f.profit))+strip('Effective daily wage',money(workerIncome(f)))+strip('Cash stolen',money(f.theft))+strip('Days trading',f.age)+
+ head('Business accounts')+waterfrontFirmReport(f)+creditDecisionReport(f)+strip('Installed capacity factor',policyNumber(f.scale||1)+'×')+(f.pendingEquipment?strip('Funded equipment commissioning','Day '+f.pendingEquipment.ready)+tip('Paid '+money(f.pendingEquipment.cost)+'. Capacity changes when the order is commissioned; workers, inputs and customers still limit output.'):'')+strip('Attending workers today',workingStaff(f).length+' / '+f.workers.length+' contracted')+strip('Road access',graph().portals.has(b.id)&&graph().parts[graph().portals.get(b.id)]===graph().mainPart?'Connected to high street':'Disconnected · no road freight')+strip('Operating expenses',money(f.expenses))+strip('Profit taxes',money(f.tax))+strip('Profit after tax',money(f.netProfit??f.profit))+strip('Effective daily wage',money(workerIncome(f)))+strip('Cash stolen',money(f.theft))+strip('Days trading',f.age)+
  strip('Outstanding bank debt',money(f.debt||0))+strip('Credit standing',Math.round((f.creditScore??.68)*100)+'/100')+
  head('Inventory available')+Object.keys(goods).map(k=>strip(k,fmt(f.stock[k]||0)+' units')).join('')+
  head('Employees')+f.workers.slice(0,25).map(id=>{let p=G.people[id];return p?`<div class="line"><span>${esc(p.name)}</span><span>${esc(G.households[p.hh]?.name||'')}</span></div>`:''}).join('');}
@@ -3480,7 +3648,7 @@ document.addEventListener('change',e=>{const k=e.target.dataset.preference;if(k)
 const workingEconomyBase=renderEconomy;
 renderEconomy=function(){
  const m=G.market||{},fs=G.firms.filter(f=>!f.closed),sales=fs.reduce((n,f)=>n+(f.operating?.sales??f.revenue),0),inputs=fs.reduce((n,f)=>n+(f.cogs||0),0),payroll=fs.reduce((n,f)=>n+(f.payroll||0),0),profit=fs.reduce((n,f)=>n+(f.netProfit||0),0);
- const publicRoads=Math.max(0,graph().neighbors.size-(G.privateRoads||[]).length),maintenance=publicRoads*.045/.23,issues=[];
+ const publicRoads=charterRoadCount(),maintenance=publicRoads*.045/.23,issues=[];
  if((G.policy.roadBudget||0)*(G.actualServiceFunding?.roads??1)<maintenance*.9)issues.push('Road upkeep: approximately '+money(maintenance)+'/day is needed to offset ordinary wear on public streets; '+money(G.policy.roadBudget||0)+'/day is authorized. Growing infrastructure needs a larger maintenance budget.');
  if(m.blockedCommutes>0)issues.push('Work access: '+fmt(m.blockedCommutes)+' contracted workers could not reach their workplace. Restore the road connection; extra credit cannot supply missing work hours.');
  if(m.foodDisconnected>0)issues.push('Grocery access: '+fmt(m.foodDisconnected)+' residents have no operating grocer on their road network. Income or cheaper credit cannot deliver across a missing connection.');
@@ -3585,6 +3753,7 @@ function workdayScenes(items){
  const scenes=[],cap=fastRenderEnabled()?3:gameOptions.quality==='high'?12:7;
  for(let n=items.length-1;n>=0;n--){const item=items[n],b=item.b;if(!b||scenes.length>=cap)continue;const f=G.firms[b.firm];let scene=null;
   if(f&&!f.closed&&workingStaff(f).length&&f.production>0){if(['mill','sawmill','factory'].includes(b.kind))scene='machinery';else if(['farm','fishery','forestry'].includes(b.kind))scene='harvest';}
+  if(f&&!f.closed&&b.kind==='wharf'&&workingStaff(f).length&&(f.cargoToday||0)>0)scene='loading';
   if(b.kind==='clinic'&&G.serviceProvision?.health?.paid>0&&G.serviceProvision.health.coverage>0)scene='care';
   if(b.kind==='school'&&G.serviceProvision?.school?.paid>0&&G.serviceProvision.school.coverage>0)scene='teaching';
   if(b.kind==='worksite'||b.redevelopment){const p=G.projects.find(p=>p.id===b.id);if(p&&!p.reason&&p.remaining>0)scene='construction';}
@@ -3607,6 +3776,8 @@ function paintWorkdayScene(g,a,clock){
  }else if(a.scene==='harvest'){
   person(-5+Math.sin(phase*.6)*3,0,'#9c8054',.93,true);g.fillStyle='#ad8d5d';g.fillRect(5,-4,8,5);g.fillStyle='#d3be87';g.fillRect(5,-5,8,2);
   if(a.b.kind==='fishery'){segment(g,[-5,-9],[5,-21+Math.sin(phase)*1.2],'#b3a37a');segment(g,[5,-21+Math.sin(phase)*1.2],[11,-3],'#ddd7b099');}else for(let j=0;j<3;j++){segment(g,[6+j*2,-5],[6+j*2,-10],'#b8ad65');g.fillStyle='#d2bd72';g.fillRect(5+j*2,-11,3,3);}
+ }else if(a.scene==='loading'){
+  const step=(phase*.22)%1;person(-12+step*20,step*6,'#718b80',.93,true);g.fillStyle='#c8aa72';g.fillRect(-14+step*20,-5+step*6,7,5);segment(g,[-13+step*20,-4+step*6],[-8+step*20,-2+step*6],'#8d7854');box(g,.12,.12,.13,.11,0,5,'#b69a65');
  }else if(a.scene==='care'){
   person(-7,0,'#d3d8c3',.97,true);g.fillStyle='#477b66';g.fillRect(-9,-8,4,1);person(8,5+Math.sin(phase*.5),'#8b7765',.87);g.fillStyle='#c7b587';g.fillRect(0,-2,5,4);g.fillStyle='#607d6b';g.fillRect(1,-1,3,1);
  }else if(a.scene==='teaching'){
@@ -3616,6 +3787,81 @@ function paintWorkdayScene(g,a,clock){
  }
  g.restore();
 }
+
+// SOURCE: 98-charter-ui.js
+function charterPlan(){return `<svg class="charter-plan" viewBox="0 0 82 82" role="img" aria-label="Original town and five adjoining regional districts"><rect x="0" y="0" width="56" height="56" fill="#78946b" stroke="#344f3d" stroke-width=".5"/>${ANNEX_PARCELS.map(p=>`<rect x="${p.x}" y="${p.y}" width="${p.w}" height="${p.h}" fill="${G.charter.owned.includes(p.id)?'#78946b':p.id===parcelFocus?'#d4b873':'#d7d3b3'}" stroke="#536c4b" stroke-width=".5"/>`).join('')}<path d="M5 0 4 18 6 30 4 49 5 65 4 80" stroke="#7baba4" stroke-width="3" fill="none"/><ellipse cx="66" cy="22" rx="6" ry="8" fill="#7baba4"/><text x="18" y="29" font-size="4" fill="#fff3d5">ORIGINAL TOWN</text></svg>`;}
+function charterPanel(){
+ const area=CHARTER_BASE*CHARTER_BASE+ANNEX_PARCELS.filter(p=>G.charter.owned.includes(p.id)).reduce((n,p)=>n+p.w*p.h,0);
+ return `<details id="charterOffice" class="charter-accordion"><summary>Expand the borough · ${ANNEX_PARCELS.length-G.charter.owned.length} districts available</summary>`+head('Expand the borough')+`<section class="charter-office"><h3>New land, a real civic commitment</h3><p class="desc">The original 56 × 56 town retains its rights. Five substantial outer districts extend this region to 80 × 80. A deed makes new land available for development; it does not create roads, workers, utilities or service coverage. Existing private property titles remain unchanged.</p>${charterPlan()}${strip('Chartered surface',fmt(area)+' regional tiles')}${strip('Outer districts acquired',G.charter.owned.length+' / '+ANNEX_PARCELS.length)}<div class="btnrow"><button data-charter-overview>View regional boundaries</button><button data-charter-home>Return to town</button></div></section>`+
+ ANNEX_PARCELS.map(p=>{const q=parcelSurvey(p),owned=G.charter.owned.includes(p.id),near=parcelAdjacent(p),deed=G.charter.deeds.find(d=>d.id===p.id);return `<section class="charter-district ${p.id===parcelFocus?'selected':''}" data-parcel-card="${p.id}"><small>${owned?'DEED RECORDED':near?'REGIONAL LAND AVAILABLE':'ADJOINING DEED REQUIRED'}</small><h3>${esc(p.name)}</h3><p class="desc">${esc(p.description)}</p>${strip('District surface',q.area+' tiles · '+p.w+' × '+p.h)}${strip('Land / water',q.land+' / '+q.water+' tiles')}${strip(owned?'Price paid':'Development-rights price',money(owned?deed.price:q.price))}${owned?strip('Acquired','Day '+deed.day):tip(near?'A connection from existing streets is still required. New households and firms face the usual utility bills, paid staffing and local service catchments.':'Acquire County Ridge or Orchard Downs before this far corner.')}<div class="btnrow"><button data-parcel-preview="${p.id}">Preview district</button>${owned?'':`<button data-parcel-buy="${p.id}" ${!near||G.treasury<q.price?'disabled':''}>Review purchase · ${money(q.price)}</button>`}</div>${!owned&&G.treasury<q.price?`<p class="desc">Treasury shortfall: ${money(q.price-G.treasury)}. This is a one-time land outlay; retain funds for construction and recurring commitments.</p>`:''}</section>`;}).join('')+'</details>';
+}
+function revealCharterOffice(){const office=$('charterOffice');if(office)office.open=true;}
+function previewParcel(id){const p=ANNEX_PARCELS.find(p=>p.id===id);if(!p)return;parcelFocus=id;overlay='charter';const center=iso(p.x+p.w/2,p.y+p.h/2);cam={x:center[0],y:center[1]+18,zoom:clamp(Math.min((cw-70)/((p.w+p.h)*36),(ch-50)/((p.w+p.h)*18)),.08,.55)};closePanel();dirty=true;toast(p.name+': '+(G.charter.owned.includes(id)?'chartered land':'regional land · review its deed in Public Works'));}
+function requestParcelPurchase(id){const p=ANNEX_PARCELS.find(p=>p.id===id);if(!p||G.charter.owned.includes(id)||!parcelAdjacent(p))return;const q=parcelSurvey(p),town=G;if(G.treasury<q.price){toast('Insufficient treasury for this district.');return;}
+ showCustomEvent('LAND PURCHASE','Acquire '+p.name+'?',q.area+' new regional tiles, including '+q.land+' land and '+q.water+' water tiles. Pay '+money(q.price)+' to the regional land authority. Existing private titles stay intact. Roads, utilities, buildings and service staffing are separate commitments.',[{title:'Acquire the district',desc:'One-time price '+money(q.price)+'. The deed expands municipal development rights.',cost:q.price,apply:()=>{if(G!==town||!purchaseParcel(id,q.price)){toast('The quote is no longer valid. Review the district again.');return;}parcelFocus=id;openPanel('construction');revealCharterOffice();document.querySelector('[data-parcel-card="'+id+'"]')?.scrollIntoView({block:'start'});}},{title:'Keep the current boundary',desc:'No payment and no change to ownership.',apply:()=>{}}]);
+}
+function drawCharterBounds(g){
+ if(!G.charter)return;g.save();g.lineJoin='round';
+ for(const p of ANNEX_PARCELS){const owned=G.charter.owned.includes(p.id);if(owned&&overlay!=='charter'&&parcelFocus!==p.id)continue;
+  const points=[[p.x-.5,p.y-.5],[p.x+p.w-.5,p.y-.5],[p.x+p.w-.5,p.y+p.h-.5],[p.x-.5,p.y+p.h-.5]].map(([x,y])=>{const q=iso(x,y);return[q[0],q[1]+18]});
+  g.strokeStyle=owned?'#bfd2a4':'#d4b777';g.lineWidth=(parcelFocus===p.id?2.5:1.2)/cam.zoom;g.setLineDash(owned?[]:[7/cam.zoom,5/cam.zoom]);g.beginPath();points.forEach((q,i)=>i?g.lineTo(...q):g.moveTo(...q));g.closePath();g.stroke();
+  if(overlay==='charter'||parcelFocus===p.id){const q=iso(p.x+p.w/2,p.y+p.h/2),text=p.name+(owned?' · OWNED':' · REGIONAL LAND');g.font=(11/cam.zoom)+'px Arial';const w=g.measureText(text).width;g.fillStyle='#f1ead3ed';g.fillRect(q[0]-w/2-6/cam.zoom,q[1]-10/cam.zoom,w+12/cam.zoom,20/cam.zoom);g.fillStyle='#29422e';g.textAlign='center';g.textBaseline='middle';g.fillText(text,q[0],q[1]);}
+ }
+ g.setLineDash([]);g.restore();
+}
+const charterConstructionBase=renderConstructionFull;renderConstructionFull=function(){return charterPanel()+charterConstructionBase();};
+document.addEventListener('click',e=>{const b=e.target.closest('button');if(!b||!G)return;if(b.dataset.parcelPreview)previewParcel(b.dataset.parcelPreview);if(b.dataset.parcelBuy)requestParcelPurchase(b.dataset.parcelBuy);if(b.hasAttribute('data-charter-home')){overlay='none';parcelFocus=null;closePanel();centerTownCamera();}if(b.hasAttribute('data-charter-overview')){overlay='charter';parcelFocus=null;closePanel();const p=iso(40,40);cam={x:p[0],y:p[1]+18,zoom:Math.max(.08,Math.min((cw-30)/RW,(ch-25)/RH))};dirty=true;}});
+
+// SOURCE: 98-waterfront-art.js
+// Original river craft. Animation samples only staffed fishing or paid cargo;
+// its bounded visual clock never draws from the simulation's seeded RNG.
+function drawWaterfrontPiers(g,visible){
+ for(const f of G.firms){if(!['fishery','wharf'].includes(f.kind))continue;const b=readBuild(f.building);if(!b)continue;const p=iso(b.x+.5,b.y+.5);if(!visible(p[0],p[1],80))continue;const site=waterfrontSite(b.x,b.y,f.kind);if(!site)continue;const water=iso(site.id%T+.5,(site.id/T|0)+.5),dx=water[0]-p[0],dy=water[1]-p[1],length=Math.hypot(dx,dy)||1,px=-dy/length*5,py=dx/length*5;
+  polygon(g,[[p[0]+px,p[1]+py],[water[0]+px,water[1]+py],[water[0]-px,water[1]-py],[p[0]-px,p[1]-py]],f.closed?'#897f62':'#b49a6d');
+  for(let k=0;k<=6;k++){const t=k/6,x=p[0]+dx*t,y=p[1]+dy*t;segment(g,[x-px,y-py],[x+px,y+py],'#806e50');}
+  for(const side of [-1,1]){const x=water[0]+px*side,y=water[1]+py*side;segment(g,[x,y+6],[x,y-5],'#6d6851',2);g.fillStyle='#d2bd88';g.fillRect(x-2,y-5,4,2);}
+  if(!f.closed&&f.kind==='wharf'&&(f.cargoToday||0)>0){g.fillStyle='#ceaf72';g.fillRect(water[0]-3,water[1]-6,6,5);g.fillStyle='#8c7654';g.fillRect(water[0],water[1]-6,1,5);}
+ }
+}
+function fishingRoute(site){
+ const w=waterNetwork(),path=[site.id],used=new Set(path);let current=site.id;
+ for(let i=0;i<8;i++){const next=w.adjacent(current).filter(n=>!used.has(n)).sort((a,b)=>{const ax=a%T,bx=b%T;return ax-bx||a-b;})[0];if(next==null)break;path.push(next);used.add(next);current=next;}
+ return path;
+}
+let waterVesselTown=null,waterVesselClock=0,waterVessels=new Map();
+function waterfrontActors(visible){
+ if(!gameOptions.traffic||!gameOptions.effects||gameOptions.reducedMotion||gameOptions.quality==='low'||cam.zoom<.32)return [];
+ if(waterVesselTown!==G||frameClock<waterVesselClock){waterVessels=new Map();waterVesselTown=G;waterVesselClock=frameClock;}
+ const elapsed=Math.min(.25,Math.max(0,frameClock-waterVesselClock));waterVesselClock=frameClock;
+ const cap=fastRenderEnabled()?2:gameOptions.quality==='high'?10:6,actors=[],orders=new Map();
+ for(const m of (G.waterway?.manifests||[]).slice().reverse())if(!orders.has(m.port))orders.set(m.port,m);
+ for(const f of G.firms){if(!['fishery','wharf'].includes(f.kind))continue;const b=readBuild(f.building);if(!b||b.firm!==f.id){waterVessels.delete(f.id);continue;}
+  const m=orders.get(f.id),fishing=f.kind==='fishery',working=!f.closed&&workingStaff(f).length>0,hasOrder=working&&(fishing?f.production>0:!!m),token=fishing?G.day:m?.id;
+  let vessel=waterVessels.get(f.id);
+  if(hasOrder&&(!vessel||!vessel.active&&vessel.lastToken!==token)){
+   const site=waterfrontSite(b.x,b.y,f.kind),path=fishing?(site?fishingRoute(site):[]):m.path;
+   if(path.length>=2&&(vessel||waterVessels.size<32)){vessel={id:f.id+(fishing?10000:50000),f,path:path.slice(),travel:0,cargo:fishing?'fish':m.good,quantity:fishing?f.production:m.qty,lastToken:token,active:true};waterVessels.set(f.id,vessel);}
+  }
+  if(vessel&&!vessel.active&&f.closed){waterVessels.delete(f.id);continue;}if(!vessel)continue;const span=vessel.path.length-1;
+  // A vessel keeps the same paid load and continuous route across simulation
+  // days. New manifests never teleport a boat or change its cargo mid-voyage.
+  if(vessel.active){vessel.travel+=elapsed*(fishing?.32:.48);if(vessel.travel>=span*2){vessel.travel=0;vessel.active=false;}}
+  const returning=!vessel.active||vessel.travel>span,travel=vessel.travel>span?span*2-vessel.travel:vessel.travel,index=Math.min(span-1,Math.floor(travel)),fraction=travel-index,a=vessel.path[index],c=vessel.path[index+1],p=iso(a%T+.5,(a/T|0)+.5),q=iso(c%T+.5,(c/T|0)+.5),x=p[0]+(q[0]-p[0])*fraction,y=p[1]+(q[1]-p[1])*fraction;
+  if(G.tiles[fraction<.5?a:c]===1||!visible(x,y,30))continue;actors.push({kind:'boat',x,y,dx:(q[0]-p[0])*(returning?-1:1),dy:(q[1]-p[1])*(returning?-1:1),returning,...vessel});
+ }
+ for(const id of waterVessels.keys())if(!G.firms[id]||!readBuild(G.firms[id].building))waterVessels.delete(id);
+ return actors.slice(0,cap);
+}
+function paintWaterBoat(g,a,clock){
+ const cargo=a.cargo!=='fish',length=cargo?17:10,width=cargo?6:4,m=Math.hypot(a.dx,a.dy)||1;g.save();g.translate(a.x,a.y);g.transform(a.dx/m,a.dy/m,-a.dy/m*.85,a.dx/m*.65,0,0);
+ const wake=.55+Math.sin(clock*5+a.id)*.15;for(let j=0;j<3;j++){g.globalAlpha=(.28-j*.06)*wake;segment(g,[-length-2-j*4,-width-j*2],[-length+3-j*4,width+j*2],'#e3e7c8',1);}g.globalAlpha=1;
+ polygon(g,[[-length,-width],[length-3,-width],[length+3,0],[length-3,width],[-length,width],[-length-2,0]],'#425d57');polygon(g,[[-length+1,-width+1],[length-3,-width+1],[length,0],[length-3,width-1],[-length+1,width-1]],cargo?'#c3b88e':'#ad8b5d');
+ if(cargo){g.fillStyle='#e4d5ac';g.fillRect(-length+2,-width+1,6,width*2-2);g.fillStyle='#648d91';g.fillRect(-length+6,-width+1,2,width*2-2);if(!a.returning){for(let j=0;j<3;j++){g.fillStyle=['#b77851','#999c68','#cfb36f'][j];g.fillRect(-4+j*5,-width+1,4,width*2-2);g.fillStyle='#76654c';g.fillRect(-4+j*5,-width+1,1,width*2-2);}}}else{g.fillStyle='#718d78';g.fillRect(-3,-2,5,4);g.fillStyle='#d2b088';g.fillRect(-1,-3,2,2);segment(g,[2,-width],[5,-width-5],'#dbd1a4');}
+ segment(g,[-length+1,-width],[length-3,-width],'#e1c995');g.restore();
+}
+function waterfrontPanel(){const state=G.waterway||{},wharves=G.firms.filter(f=>f.kind==='wharf'&&!f.closed),fisheries=G.firms.filter(f=>f.kind==='fishery'&&!f.closed);return `<details class="council-card"><summary>Working waterfront · fisheries & river cargo</summary><p class="desc">Build beside real water and a connected road. Fisheries turn staffed catch into food. Cargo wharves require a river outlet; an enclosed lake can support fishing, but cannot carry regional exports. Exporters compare road and river freight costs. A dock without crews or competitive orders earns nothing.</p><div class="statgrid">${stat('Trading fisheries',fisheries.length)}${stat('Trading cargo wharves',wharves.length)}${stat('River cargo today',policyNumber(state.todayCargo||0))}${stat('Wharf receipts today',money(state.todayFees||0))}</div><p class="desc">A cargo manifest belongs to its paying regional buyer after collection. Boats are bounded samples of those paid voyages and actual fishing work; visual speed does not change inventory or money.</p><button data-waterfront-camera="1">Visit the river landing</button><button data-waterfront-build="1">Choose a waterfront business</button></details>`;}
+const waterfrontConstructionBase=renderConstructionFull;renderConstructionFull=function(){return waterfrontConstructionBase()+waterfrontPanel();};
+document.addEventListener('click',e=>{if(e.target.closest('[data-waterfront-camera]')){const b=G.buildings.find(b=>b.kind==='wharf')||G.buildings.find(b=>b.kind==='fishery')||{x:5,y:27},p=iso(b.x+.5,b.y+.5);cam={x:p[0]+40,y:p[1],zoom:1.15};closePanel();dirty=true;}if(e.target.closest('[data-waterfront-build]')){constructionCategory='waterfront';openPanel('construction');$('panelBody').scrollTop=0;}});
 
 // SOURCE: 99-instrumentation.js
 // Read-only / test instrumentation. No remote telemetry is used.

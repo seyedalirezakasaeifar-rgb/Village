@@ -12,6 +12,7 @@ function dailyEconomy(){
   const site=readBuild(f.building),due=(site?.value||0)*(P.commercialRate||0)/100/360,rate=Math.min(f.cash,due);f.cash-=rate;f.expenses+=rate;transferTreasury(rate,'commercialRate');
   const overhead=Math.min(f.cash,2+f.workers.length*(.6+P.businessRegulation*.035));f.cash-=overhead;f.expenses+=overhead;G.region+=overhead;
  }
+ prepareWaterfrontDay(live);
  if(G.day%7===0)assignJobs();
  const exportPool={grain:250+G.stats.population*.45,flour:70+G.stats.population*.18,food:100+G.stats.population*.30,logs:100+G.stats.population*.20,timber:65+G.stats.population*.18,stone:70+G.stats.population*.12,manufactures:35+G.stats.population*.15};
  const producerCounts={};if(G.scenario==='regional')exportPool.manufactures*=6;else if(G.scenario==='industrial')exportPool.manufactures*=2.5;
@@ -22,6 +23,7 @@ function dailyEconomy(){
   const skill=workingStaff(f).reduce((a,id)=>a+(G.people[id]?.skill||.5),0)/workingStaff(f).length;
   let capacity=recipe.qty*workingStaff(f).length/base*(.82+skill*.25+G.education*.0015)*(1+(f.scale-1)*.25);
   if(kind==='farm'){capacity*=1+Math.min(.9,(G.fieldCount?.[f.id]||0)*.035);if(seasonsEnabled())capacity*=[.85,1.15,1.35,.65][Math.floor((G.month-1)/3)];if(G.weather==='drought')capacity*=.72;}
+  if(kind==='fishery')capacity=Math.min(capacity,f.fishingAllowance||0);
   f.ratedOutput=capacity;
   const expectedOrders=Math.max(1,f.salesTrend,(exportPool[recipe.out]||0)/Math.max(1,producerCounts[recipe.out])*(G.regionalDemand||1)*.8),target=expectedOrders*4.5,inventory=f.stock[recipe.out]||0;
   let quantity=Math.max(0,Math.min(capacity,target-inventory));
@@ -35,7 +37,7 @@ function dailyEconomy(){
  }
  // The external market has finite sector orders and a downward-sloping demand curve.
 
- for(const f of live){const out=formulas[f.kind]?.out;if(out&&workingStaff(f).length){
+ const exportOffset=live.length?G.day%live.length:0;for(const f of live.slice(exportOffset).concat(live.slice(0,exportOffset))){const out=formulas[f.kind]?.out;if(out&&workingStaff(f).length){
   const ask=marketOutputPrice(f,out),relative=ask/Math.max(.1,marketPrice(out));
   const orders=exportPool[out]/producerCounts[out]*Math.pow(clamp(1/relative,.25,1.7),1.7);
   const keep=Math.max(10,f.salesTrend*.8);regionBuy(f,out,Math.max(0,Math.min(orders,(f.stock[out]||0)-keep)),ask);
@@ -75,8 +77,8 @@ function dailyEconomy(){
 
   G.market.consumedFood+=need-remaining;G.market.unmetFood+=remaining;
   h.stress=clamp(h.stress+(remaining>.1?remaining*.30:-.20),0,100);
-  const cold=seasonsEnabled()&&(G.month>=10||G.month<=2),bill=h.people.length*(2.25+(cold?1.8:0))*(1+P.utilityTax/100),energy=Math.min(h.cash,bill),levy=energy-energy/(1+P.utilityTax/100);
-  h.cash-=energy;h.utilities=energy;h.energyTax=levy;G.region+=energy-levy;transferTreasury(levy,'utilityTax');if(energy<bill*.8)h.stress=clamp(h.stress+.35,0,100);
+  const cold=seasonsEnabled()&&(G.month>=10||G.month<=2),bill=h.people.length*(2.25+(cold?1.8:0))*(1+P.utilityTax/100),energy=regionalUtilityAccess(home)?Math.min(h.cash,bill):0,levy=energy-energy/(1+P.utilityTax/100);
+  h.utilityConnected=regionalUtilityAccess(home);h.utilityDue=bill;h.cash-=energy;h.utilities=energy;h.energyTax=levy;G.region+=energy-levy;transferTreasury(levy,'utilityTax');if(energy<bill*.8)h.stress=clamp(h.stress+.35,0,100);
   for(const id of h.people){const person=G.people[id];if(person.job<0||person.commuteBlocked)continue;const firm=G.firms[person.job],work=firm&&readBuild(firm.building);if(!work||!home)continue;const dist=Math.abs(home.x-work.x)+Math.abs(home.y-work.y),metro=hasMetroCommute(home,work)&&G.metro?.operating;
    const fareDue=metro?G.metro.fare:dist*.035*(1-clamp(P.transitBudget*(G.actualServiceFunding?.transit||0)/280,0,.65)),fare=Math.min(h.cash,fareDue);h.travelDue+=fareDue;h.cash-=fare;h.travel+=fare;if(metro){G.metro.cash+=fare;G.metro.dailyRides++;G.metro.rides++;G.metro.revenue+=fare;}else G.region+=fare;}
   loanPayments(householdLoans.get(h.id)||[]);

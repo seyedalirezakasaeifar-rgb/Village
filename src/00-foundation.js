@@ -11,7 +11,7 @@ const esc=x=>String(x==null?'':x).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;'
 const rn=(a,b)=>a+random()*(b-a),pick=a=>a[random()*a.length|0];
 const first=['Arthur','Alice','Thomas','Eleanor','Henry','Margaret','Jack','Edith','Charles','Emily','George','Rose','William','Florence','James','Clara','Robert','Agnes','Daniel','Ivy','Samuel','Hannah','Oliver','Mabel','Edward','Beatrice','Frederick','Ada','Joseph','Grace','Peter','Julia','Benjamin','Isabel'];
 const surnames=['Bennett','Parker','Sutton','Miller','Hughes','Clarke','Foster','Wright','Carter','Howard','Taylor','Moore','Campbell','Ward','Russell','Harris','Reed','Turner','Hill','Smith','Brooks','Davies','Morgan','Baker','Wilson','Grant'];
-const T=56, TW=72, TH=36, RW=T*TW+140,RH=T*TH+120;
+const T=80, TW=72, TH=36, RW=T*TW+140,RH=T*TH+120;
 const types={
  bank:{n:'Bank Branch',cost:0,col:'#a3b0a6',jobs:0},
  worksite:{n:'Private Construction Site',cost:0,col:'#c0a076',jobs:0},
@@ -42,13 +42,14 @@ const types={
  courthouse:{n:'Magistrates Court',cost:8400,col:'#9a9887',jobs:0,build:'Court'},
  watchtower:{n:'Watchtower',cost:4900,col:'#879089',jobs:0,build:'Watchtower'},
  square:{n:'Market Square',cost:2500,col:'#aca486',jobs:0,build:'Market Square'},
+ wharf:{n:'River Cargo Wharf',cost:7600,col:'#819b98',jobs:2,build:'Cargo wharf'},
  fishery:{n:'River Fishery',cost:3500,col:'#75a5a2',jobs:7,build:'Fishery'},
  tavern:{n:'Village Tavern',cost:3200,col:'#b28c56',jobs:6,build:'Tavern'},
 };
 const goods={grain:2,flour:3,food:3.3,logs:2,timber:4,stone:3,manufactures:8.5};
 const formulas={farm:{out:'grain',qty:140,inp:null,amount:0},mill:{out:'flour',qty:175,inp:'grain',amount:105},bakery:{out:'food',qty:200,inp:'flour',amount:105},grocer:{out:null,qty:0,inp:'food',amount:0},forestry:{out:'logs',qty:170},sawmill:{out:'timber',qty:130,inp:'logs',amount:100},quarry:{out:'stone',qty:125},fishery:{out:'food',qty:130},factory:{out:'manufactures',qty:85,inp:'timber',amount:58}};
-const buildIcons={metro_station:'Ⓜ',repair:'↻',road:'═',home:'⌂',grocer:'▣',bakery:'♨',mill:'◈',farm:'❖',forestry:'♣',sawmill:'▥',quarry:'◆',contractor:'⚒',police:'♜',fire:'♨',clinic:'✚',park:'♣',school:'✎',courthouse:'⚖',watchtower:'♜',square:'◉',fishery:'≈',tavern:'♨',factory:'⚙',warehouse:'▤',office:'▦',college:'♜'};
-const buildCost={metro_station:18000,road:150,repair:135,home:20000,grocer:4300,bakery:3600,mill:4800,farm:3100,forestry:3000,sawmill:4100,quarry:3900,contractor:4400,police:7600,fire:6900,clinic:8000,park:550,school:6900,courthouse:8400,watchtower:4900,square:2500,fishery:3500,tavern:3200,factory:9800,warehouse:12000,office:14200,college:18000};
+const buildIcons={metro_station:'Ⓜ',repair:'↻',road:'═',home:'⌂',grocer:'▣',bakery:'♨',mill:'◈',farm:'❖',forestry:'♣',sawmill:'▥',quarry:'◆',contractor:'⚒',police:'♜',fire:'♨',clinic:'✚',park:'♣',school:'✎',courthouse:'⚖',watchtower:'♜',square:'◉',wharf:'⚓',fishery:'≈',tavern:'♨',factory:'⚙',warehouse:'▤',office:'▦',college:'♜'};
+const buildCost={metro_station:18000,road:150,repair:135,home:20000,grocer:4300,bakery:3600,mill:4800,farm:3100,forestry:3000,sawmill:4100,quarry:3900,contractor:4400,police:7600,fire:6900,clinic:8000,park:550,school:6900,courthouse:8400,watchtower:4900,square:2500,wharf:7600,fishery:3500,tavern:3200,factory:9800,warehouse:12000,office:14200,college:18000};
 const defs=[
  ['pensionDaily','Retirement pension / person / day',0,40,1,'$','Treasury-funded income for residents over 70. Benefits are shared proportionally if funds fall short; an ageing population raises the fiscal cost.'],
  ['policyRate','Policy interest rate (annual)',0,20,.25,'%','Benchmark set by the monetary authority. Bank funding, new and variable-rate credit, savings and investment hurdles adjust with a lag. Higher rates restrain borrowing and demand; lower rates do not make insolvent projects viable.'],

@@ -223,12 +223,12 @@ function showCustomEvent(type,title,text,choices){councilOpener=document.activeE
  $('eventEyebrow').textContent=type;$('eventTitle').textContent=title;$('eventText').textContent=text;
  $('eventChoices').innerHTML=choices.map((c,i)=>`<button data-event-choice="${i}" ${c.cost&&G.treasury<c.cost?'disabled':''}><strong>${esc(c.title)}</strong><small>${esc(c.desc||'')}${c.cost?' · Cost: '+money(c.cost):''}</small></button>`).join('');
  if(type!=='TOWN ARCHIVE'&&COUNCIL_EVENTS.some(e=>e.title===title)){G.councilInbox=G.councilInbox||[];if(!G.councilInbox.some(e=>e.title===title))G.councilInbox.unshift({title,day:G.day});save();}
- $('eventDialog').style.display='flex';$('eventDefer').textContent=type==='TOWN ARCHIVE'?'CANCEL':'DECIDE LATER';$('eventChoices').querySelector('button:not([disabled])')?.focus();
+ $('eventDialog').style.display='flex';$('eventDefer').textContent=(type==='TOWN ARCHIVE'||type==='LAND PURCHASE')?'CANCEL':'DECIDE LATER';$('eventChoices').querySelector('button:not([disabled])')?.focus();
 }
 $('eventChoices').addEventListener('click',e=>{
  const b=e.target.closest('button[data-event-choice]');if(!b||!pendingEvent)return;
  const evt=pendingEvent,c=evt.choices[+b.dataset.eventChoice];if(!c)return;
- if(evt.type==='TOWN ARCHIVE'){closeCouncilDialog();c.apply();return;}
+ if(evt.type==='TOWN ARCHIVE'||evt.type==='LAND PURCHASE'){if(c.cost&&G.treasury<c.cost)return;closeCouncilDialog();c.apply();return;}
  const goodsBefore=stockTotals();const fundsBefore=totalMoney();if(c.cost){if(G.treasury<c.cost)return;G.treasury-=c.cost;G.region+=c.cost;G.cumulative.spending+=c.cost;}
  try{c.apply()}catch(ex){console.error('Council decision',ex)}
  const goodsAfter=stockTotals();for(const k of Object.keys(goods)){const delta=goodsAfter[k]-goodsBefore[k];goodsEntry(k,delta>=0?'imports':'consumed',Math.abs(delta));}

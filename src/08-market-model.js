@@ -3,7 +3,7 @@ function policyNumber(value){return Number(value||0).toLocaleString('en-CA',{max
 // A stock-flow consistent operating model. Inventory purchases are assets;
 // cost of goods becomes expense when sold, rather than when a warehouse fills.
 function householdLiquidity(h){return h.cash+Object.values(h.deposits||{}).reduce((n,v)=>n+Math.max(0,v),0);}
-const SECTOR_WORKERS={farm:4,fishery:3,mill:3,bakery:3,grocer:2,forestry:3,sawmill:3,quarry:3,contractor:4,tavern:3,factory:7,warehouse:4,office:6,college:5,airport:6};
+const SECTOR_WORKERS={farm:4,fishery:3,wharf:2,mill:3,bakery:3,grocer:2,forestry:3,sawmill:3,quarry:3,contractor:4,tavern:3,factory:7,warehouse:4,office:6,college:5,airport:6};
 function ensureMarketModel(){
  if(!G.market)G.market={version:2,cpi:100,inflation:0,baseFoodPrice:5.2,unmetFood:0,consumedFood:0,externalSales:0,imports:0,privateRestartCapital:0};
  G.market.version=2;for(const p of G.people)if(p.age>70&&p.job>=0){p.job=-1;p.retired=true;}
@@ -55,7 +55,7 @@ function planEnterprise(f){
  if(f.marginTrend<-.18&&f.cash<wage*Math.max(1,f.jobs)*60)desired=Math.min(desired,Math.max(1,f.jobs-1));
  if(desired>f.jobs&&f.cash<wage*(desired-f.jobs)*35+1800)desired=f.jobs;
  if(desired!==f.jobs){f.jobs+=Math.sign(desired-f.jobs);while(f.workers.length>f.jobs){const blocked=f.workers.findIndex(id=>!workerCanCommute(G.people[id],f)),id=f.workers.splice(blocked<0?f.workers.length-1:blocked,1)[0];if(G.people[id])G.people[id].job=-1;}}
- if(f.workers.some(id=>workerCanCommute(G.people[id],f))&&!f.pendingEquipment&&f.marginTrend>.16&&f.cash>wage*f.jobs*100&&f.scale<2.2&&(recipe?f.ratedOutput>0&&f.salesTrend*1.12>=f.ratedOutput&&(!recipe.inp||(f.stock[recipe.inp]||0)+pendingGoods(f,recipe.inp)>=recipe.amount*f.workers.length/base):f.jobs>=Math.ceil(base*f.scale*2)&&f.workers.length>=f.jobs)){const cost=1500+base*130,annualGain=f.revenueTrend*.015*360*(1-G.policy.profitTax/100);if(f.cash>cost+6000&&annualGain>cost*((G.policy.policyRate||0)/100+.08)){f.cash-=cost;G.region+=cost;f.pendingEquipment={gain:.06,cost,ordered:G.day,ready:G.day+30};f.capex=(f.capex||0)+cost;}}
+ if((f.kind!=='fishery'||!f.fishingWaterLimit)&&f.workers.some(id=>workerCanCommute(G.people[id],f))&&!f.pendingEquipment&&f.marginTrend>.16&&f.cash>wage*f.jobs*100&&f.scale<2.2&&(recipe?f.ratedOutput>0&&f.salesTrend*1.12>=f.ratedOutput&&(!recipe.inp||(f.stock[recipe.inp]||0)+pendingGoods(f,recipe.inp)>=recipe.amount*f.workers.length/base):f.jobs>=Math.ceil(base*f.scale*2)&&f.workers.length>=f.jobs)){const cost=1500+base*130,annualGain=f.revenueTrend*.015*360*(1-G.policy.profitTax/100);if(f.cash>cost+6000&&annualGain>cost*((G.policy.policyRate||0)/100+.08)){f.cash-=cost;G.region+=cost;f.pendingEquipment={gain:.06,cost,ordered:G.day,ready:G.day+30};f.capex=(f.capex||0)+cost;}}
  const unemployment=G.stats.unemployment||0;
  if(f.marginTrend>.18&&unemployment<9)f.wage=Math.min(80,f.wage*1.0015);
  else if(f.marginTrend<0)f.wage=Math.max(G.policy.minWage,f.wage*.998);

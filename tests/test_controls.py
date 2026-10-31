@@ -14,14 +14,14 @@ with sync_playwright() as pw:
  assert page.evaluate("document.activeElement===document.querySelector('[data-panel=overview]')"), 'Escape should return keyboard focus to the panel launcher'
  page.locator('[data-panel=overview]').click();page.locator('#panelClose').click();page.locator('#pause').click()
  page.locator('[data-panel=construction]').click();page.locator('[data-build=park]').click()
- state=page.evaluate('JSON.parse(__townTest.save())');box=page.locator('#view').bounding_box()
- occupied={i for x in state['buildings'] for i in x.get('footprint',[x['y']*56+x['x']])}
- def screen(x,y):return (box['x']+box['width']/2+.95*(x-y)*36,box['y']+box['height']/2+.95*((x+y)*18+50-(56*36+120)/2))
+ state=page.evaluate('JSON.parse(__townTest.save())');box=page.locator('#view').bounding_box();camera=page.evaluate('__townTest.view().camera');grid=state['gridSize']
+ occupied={i for x in state['buildings'] for i in x.get('footprint',[x['y']*grid+x['x']])}
+ def screen(x,y):return (box['x']+box['width']/2+camera['zoom']*((x-y)*36+(grid*72+140)/2-camera['x']),box['y']+box['height']/2+camera['zoom']*((x+y)*18+50-camera['y']))
  legal=[]
  for y in range(5,51):
   for x in range(5,51):
-   i=y*56+x;sx,sy=screen(x,y)
-   if state['tiles'][i]==0 and i not in occupied and not state['landUse'].get(str(i)) and any(state['tiles'][(y+dy)*56+x+dx]==1 for dx,dy in [(1,0),(-1,0),(0,1),(0,-1)]) and 80<sx<760 and 175<sy<315:legal.append((x,y))
+   i=y*grid+x;sx,sy=screen(x,y)
+   if state['tiles'][i]==0 and i not in occupied and not state['landUse'].get(str(i)) and any(state['tiles'][(y+dy)*grid+x+dx]==1 for dx,dy in [(1,0),(-1,0),(0,1),(0,-1)]) and 80<sx<760 and 175<sy<315:legal.append((x,y))
  assert legal
  x,y=legal[0];sx,sy=screen(x,y);page.touchscreen.tap(sx,sy)
  after=page.evaluate('JSON.parse(__townTest.save())')

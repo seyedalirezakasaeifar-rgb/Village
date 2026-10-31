@@ -2,7 +2,7 @@
 
 ## Current development status
 
-Current source uses save schema 5. Later source slices add local service staffing/training, credit metadata and scenario programmes with optional validated migration fields. The signed 7.0.5 checkpoint APK does not contain every later source change. Follow the exact candidate QA notes and APK metadata when installing.
+Current source uses save schema 6. The regional grid is now 80 × 80: old 56 × 56 archives retain every original tile and private title, with all tile-indexed paths, fields, footprints and roads remapped to the new stride. Five genuinely new outer districts require recorded mayoral deeds. Waterway manifests record regional-owned exports and are validated separately from town-owned delivery inventory. Later source slices add local service staffing/training, credit metadata and scenario programmes with optional validated migration fields. The signed 7.0.5 checkpoint APK does not contain every later source change. Follow the exact candidate QA notes and APK metadata when installing.
 
 The original private signing key was not supplied with the imported source. Builds made in this workspace use a new, persistent development signing identity, kept outside the public repository. An older installation with the same package and a different certificate cannot be updated in place: export and verify a town backup before uninstalling anything. A matching package name alone does not prove update compatibility. Historical version-specific notes below describe earlier build lines, not a guarantee about a newly supplied APK.
 
@@ -14,7 +14,7 @@ In 5.6, export the town from Options. Open 6.0, choose Options, and import that 
 
 ## Schema
 
-The legacy `version: 3` field is retained for compatibility. New saves add `schema: 5`, release identity, RNG state, property investors, cargo, commodity accounts, price history, policy observations and visual trip state. Future schema numbers are rejected.
+The legacy `version: 3` field is retained for compatibility. New saves add `schema: 6`, release identity, RNG state, property investors, cargo, commodity accounts, price history, policy observations and visual trip state. Future schema numbers are rejected.
 
 Legacy 5.6 and compatible earlier version-2/3 JSON towns are validated and supplied with missing fields. Missing commodity accounts take their opening inventory from the imported town, including any cargo already present. This does not invent past production history.
 

@@ -21,7 +21,7 @@ with sync_playwright() as p:
         if(v.route.length<2)throw Error('Degenerate route');
         for(let k=0;k<v.route.length;k++){
           let at=v.route[k];if(g.tiles[at]!==1)throw Error('Vehicle entered non-road');
-          if(k){let previous=v.route[k-1],dx=Math.abs(previous%56-at%56),dy=Math.abs(Math.floor(previous/56)-Math.floor(at/56));if(dx+dy!==1)throw Error('Nonadjacent road segment');}
+          if(k){let previous=v.route[k-1],dx=Math.abs(previous%g.gridSize-at%g.gridSize),dy=Math.abs(Math.floor(previous/g.gridSize)-Math.floor(at/g.gridSize));if(dx+dy!==1)throw Error('Nonadjacent road segment');}
         }
         if(v.fraction<0||v.fraction>1)throw Error('Bad position interpolation');
       }

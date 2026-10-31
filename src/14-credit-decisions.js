@@ -26,6 +26,7 @@ function validateCreditState(data){
  for(const owner of [...data.households,...data.firms])if(owner.creditDecision){const c=owner.creditDecision;if(typeof c.approved!=='boolean'||!Number.isInteger(c.day)||c.day<1||c.day>data.day||!Number.isFinite(c.requested)||c.requested<0||typeof c.reason!=='string'||c.reason.length>500)return false;for(const key of ['scheduled','stressed','capacity','recurring','essential'])if(c[key]!=null&&(!Number.isFinite(c[key])||c[key]<0))return false;}
 
  const fields=['netIncomeTrend','incomeVariance','essentialDueTrend','essentialDue','travelDue'];
+ for(const h of data.households)if(h.utilityConnected!=null&&typeof h.utilityConnected!=='boolean')return false;
  for(const h of data.households)for(const key of fields)if(h[key]!=null&&(!Number.isFinite(h[key])||h[key]<0))return false;
  for(const f of data.firms)if(f.pendingEquipment){const o=f.pendingEquipment;if(!Number.isFinite(o.cost)||o.cost<=0||!Number.isFinite(o.gain)||o.gain<=0||o.gain>1.2||!Number.isInteger(o.ordered)||o.ordered<1||o.ordered>data.day||o.ready!==o.ordered+30)return false;}
  for(const l of data.loans||[])for(const key of ['lastPaymentDay','defaultedDay'])if(l[key]!=null&&(!Number.isInteger(l[key])||l[key]<1||l[key]>data.day))return false;

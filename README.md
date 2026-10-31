@@ -1,4 +1,4 @@
-# TownLedger 7.0.5 — The Working City
+# TownLedger 7.1.0 development — The Working City
 
 Current source extends the signed 7.0.5 checkpoint. These changes have not yet been packaged as a new release:
 
@@ -7,10 +7,15 @@ Current source extends the signed 7.0.5 checkpoint. These changes have not yet b
 - [Council programmes and original workday animation](docs/COUNCIL-PROGRAMME-DEVELOPMENT.md)
 - [Native archives, lifecycle and older WebView](docs/NATIVE-ARCHIVE-DEVELOPMENT.md)
 - [Portable seeds and clearer phone controls](docs/MAP-AND-SEEDS-DEVELOPMENT.md)
+- [Mayor-purchased districts and productive waterfront](docs/REGION-AND-WATERFRONT-DEVELOPMENT.md)
 
 An offline government and town-economy game. This release rebuilds the operating model, the starting towns, monetary controls, road generation, animation and interface palette.
 
-## Install
+## Current 7.1.0 source
+
+The 80 × 80 region preserves the original town and offers five substantial outer districts for explicit mayoral purchase. Public Works previews costs and boundaries before a deed is acquired. Fisheries produce real food within shared water limits; staffed river wharves earn paid freight income when their routes beat regional road haulage. Original docks, working crews, fishing craft and cargo barges follow those businesses. Current archives use schema 6 and remap legacy 56 × 56 maps without taking their original property rights. This source checkpoint has not yet been packaged as a new release.
+
+## Earlier signed checkpoint
 
 Version 7.0.5 (code 19, save schema 5) has a signed development APK built with the official Android SDK. Package assets, signature, DEX integrity and alignment were verified. Android installation and device gameplay have not been run. The new development signer differs from the older baseline; export and verify your town backup before uninstalling an older installation if Android refuses the update. The original private signing key is not included.
 

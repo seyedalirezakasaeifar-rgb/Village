@@ -60,7 +60,7 @@ with sync_playwright() as pw:
       const s=g.freight.find(s=>s.path.length>4);if(!s)throw Error('No routed shipment');
       const before=__townTest.get().total,qty=s.qty,freightId=s.id;
       const from=g.firms[s.from],site=g.buildings.find(b=>b.id===from.building);
-      const footprint=site.footprint||[site.y*56+site.x];for(const id of footprint){for(const [dx,dy] of [[1,0],[-1,0],[0,1],[0,-1]]){const n=id+dx+dy*56;if(g.tiles[n]===1)g.tiles[n]=0;}}
+      const footprint=site.footprint||[site.y*g.gridSize+site.x];for(const id of footprint){for(const [dx,dy] of [[1,0],[-1,0],[0,1],[0,-1]]){const n=id+dx+dy*g.gridSize;if(g.tiles[n]===1)g.tiles[n]=0;}}
       if(!__townTest.load(g))throw Error('Severed road town rejected');__townTest.step(1);
       const after=JSON.parse(__townTest.save());const held=after.freight.find(x=>x.id===freightId);
       // Alternative access may exist, so a delay is not guaranteed in this town.
