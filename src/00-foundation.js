@@ -52,6 +52,7 @@ const goods={grain:2,flour:3,food:3.3,logs:2,timber:4,stone:3,manufactures:8.5};
 const formulas={farm:{out:'grain',qty:140,inp:null,amount:0},mill:{out:'flour',qty:175,inp:'grain',amount:105},bakery:{out:'food',qty:200,inp:'flour',amount:105},grocer:{out:null,qty:0,inp:'food',amount:0},forestry:{out:'logs',qty:170},sawmill:{out:'timber',qty:130,inp:'logs',amount:100},quarry:{out:'stone',qty:125},fishery:{out:'food',qty:130},factory:{out:'manufactures',qty:85,inp:'timber',amount:58}};
 const buildIcons={transit_depot:'▤',elevated_station:'E',metro_station:'Ⓜ',repair:'↻',road:'═',home:'⌂',grocer:'▣',bakery:'♨',mill:'◈',farm:'❖',forestry:'♣',sawmill:'▥',quarry:'◆',contractor:'⚒',police:'♜',fire:'♨',clinic:'✚',park:'♣',school:'✎',courthouse:'⚖',watchtower:'♜',square:'◉',wharf:'⚓',fishery:'≈',tavern:'♨',factory:'⚙',warehouse:'▤',office:'▦',college:'♜'};
 const buildCost={transit_depot:9000,elevated_station:12500,metro_station:18000,road:150,repair:135,home:20000,grocer:4300,bakery:3600,mill:4800,farm:3100,forestry:3000,sawmill:4100,quarry:3900,contractor:4400,police:7600,fire:6900,clinic:8000,park:550,school:6900,courthouse:8400,watchtower:4900,square:2500,wharf:7600,fishery:3500,tavern:3200,factory:9800,warehouse:12000,office:14200,college:18000};
+const PUBLIC_SERVICE_BUDGET_LIMIT=50000;
 const defs=[
  ['privateServices','License new private schools and brigades',0,1,1,'','One permits entrepreneurial entry; zero stops new licenses without confiscating existing providers.'],
  ['privateTuitionCap','Private tuition ceiling / learner / day',0,8,.25,'$','Maximum fee per equivalent learner-day. A low ceiling improves prices only if an operator can still cover qualified teaching and premises costs.'],
@@ -75,8 +76,8 @@ const defs=[
  ['outreachBudget','Community outreach / day',0,300,10,'$','Local support services that reduce isolation and some risk factors.'],
  ['employmentSubsidy','Wage subsidy / worker / day',0,15,1,'$','Town reimburses employers per filled job, subject to available funds.'],
  ['importTariff','Import tariff',0,40,1,'%','Adds costs to imported food and industrial materials, producing revenue.'],
- ['healthBudget','Clinic & public health / day',0,500,10,'$','Fund preventive treatment, clinic equipment and household health.'],
- ['educationBudget','School & training / day',0,500,10,'$','Raises worker skill and increases business productivity gradually.'],
+ ['healthBudget','Clinic & public health / day',0,PUBLIC_SERVICE_BUDGET_LIMIT,1,'$','Fund preventive treatment, clinic equipment and household health.'],
+ ['educationBudget','School & training / day',0,PUBLIC_SERVICE_BUDGET_LIMIT,1,'$','Raises worker skill and increases business productivity gradually.'],
  ['roadBudget','Road maintenance / day',0,250,10,'$','Upkeep for roads and local access; poor service lowers trade efficiency.'],
  ['zoningRestriction','Building restrictions',0,100,5,'%','Higher restrictions slow private homebuilding, reducing housing supply.'],
  ['businessRegulation','Business compliance rules',0,100,5,'%','Safeguards can lower workplace incidents but add costs to local firms.'],

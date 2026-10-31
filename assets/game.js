@@ -53,6 +53,7 @@ const goods={grain:2,flour:3,food:3.3,logs:2,timber:4,stone:3,manufactures:8.5};
 const formulas={farm:{out:'grain',qty:140,inp:null,amount:0},mill:{out:'flour',qty:175,inp:'grain',amount:105},bakery:{out:'food',qty:200,inp:'flour',amount:105},grocer:{out:null,qty:0,inp:'food',amount:0},forestry:{out:'logs',qty:170},sawmill:{out:'timber',qty:130,inp:'logs',amount:100},quarry:{out:'stone',qty:125},fishery:{out:'food',qty:130},factory:{out:'manufactures',qty:85,inp:'timber',amount:58}};
 const buildIcons={transit_depot:'▤',elevated_station:'E',metro_station:'Ⓜ',repair:'↻',road:'═',home:'⌂',grocer:'▣',bakery:'♨',mill:'◈',farm:'❖',forestry:'♣',sawmill:'▥',quarry:'◆',contractor:'⚒',police:'♜',fire:'♨',clinic:'✚',park:'♣',school:'✎',courthouse:'⚖',watchtower:'♜',square:'◉',wharf:'⚓',fishery:'≈',tavern:'♨',factory:'⚙',warehouse:'▤',office:'▦',college:'♜'};
 const buildCost={transit_depot:9000,elevated_station:12500,metro_station:18000,road:150,repair:135,home:20000,grocer:4300,bakery:3600,mill:4800,farm:3100,forestry:3000,sawmill:4100,quarry:3900,contractor:4400,police:7600,fire:6900,clinic:8000,park:550,school:6900,courthouse:8400,watchtower:4900,square:2500,wharf:7600,fishery:3500,tavern:3200,factory:9800,warehouse:12000,office:14200,college:18000};
+const PUBLIC_SERVICE_BUDGET_LIMIT=50000;
 const defs=[
  ['privateServices','License new private schools and brigades',0,1,1,'','One permits entrepreneurial entry; zero stops new licenses without confiscating existing providers.'],
  ['privateTuitionCap','Private tuition ceiling / learner / day',0,8,.25,'$','Maximum fee per equivalent learner-day. A low ceiling improves prices only if an operator can still cover qualified teaching and premises costs.'],
@@ -76,8 +77,8 @@ const defs=[
  ['outreachBudget','Community outreach / day',0,300,10,'$','Local support services that reduce isolation and some risk factors.'],
  ['employmentSubsidy','Wage subsidy / worker / day',0,15,1,'$','Town reimburses employers per filled job, subject to available funds.'],
  ['importTariff','Import tariff',0,40,1,'%','Adds costs to imported food and industrial materials, producing revenue.'],
- ['healthBudget','Clinic & public health / day',0,500,10,'$','Fund preventive treatment, clinic equipment and household health.'],
- ['educationBudget','School & training / day',0,500,10,'$','Raises worker skill and increases business productivity gradually.'],
+ ['healthBudget','Clinic & public health / day',0,PUBLIC_SERVICE_BUDGET_LIMIT,1,'$','Fund preventive treatment, clinic equipment and household health.'],
+ ['educationBudget','School & training / day',0,PUBLIC_SERVICE_BUDGET_LIMIT,1,'$','Raises worker skill and increases business productivity gradually.'],
  ['roadBudget','Road maintenance / day',0,250,10,'$','Upkeep for roads and local access; poor service lowers trade efficiency.'],
  ['zoningRestriction','Building restrictions',0,100,5,'%','Higher restrictions slow private homebuilding, reducing housing supply.'],
  ['businessRegulation','Business compliance rules',0,100,5,'%','Safeguards can lower workplace incidents but add costs to local firms.'],
@@ -997,6 +998,63 @@ function publicFireResponse(b) {
   cache.values.set(b.id, clamp(1-distance/58,0,1)*cache.power);
  }
  return cache.values.get(b.id);
+}
+
+// SOURCE: 17-service-budget-plan.js
+// Public service authorizations are explicit daily dollars, never percentages or
+// automatic population multipliers. Planning reads state; only enactment applies it.
+const SERVICE_BUDGET_KEYS={healthBudget:'health',educationBudget:'school'};
+let serviceBudgetErrorTown=null,serviceBudgetInputErrors={};
+function serviceBudgetMoney(value){const n=Number(value)||0;return '$'+n.toLocaleString('en-CA',{minimumFractionDigits:Math.abs(n-Math.round(n))>1e-8?2:0,maximumFractionDigits:2});}
+function isServiceBudgetKey(key){return owns(SERVICE_BUDGET_KEYS,key);}
+function parseServiceBudget(value){
+ if(typeof value!=='number'&&(typeof value!=='string'||!/^\d+(?:\.\d+)?$/.test(value)))return {ok:false,reason:'Enter a daily dollar amount from $0 to $50,000.'};
+ const amount=Number(value);if(!Number.isFinite(amount)||amount<0||amount>PUBLIC_SERVICE_BUDGET_LIMIT)return {ok:false,reason:'Enter a finite daily dollar amount from $0 to $50,000.'};
+ return {ok:true,value:Math.round(amount*100)/100};
+}
+function validateServiceBudgetArchive(data){
+ for(const key of Object.keys(SERVICE_BUDGET_KEYS)){if(!owns(data.policy,key))continue;const checked=parseServiceBudget(data.policy[key]);if(!checked.ok)return false;}
+ return true;
+}
+function serviceBudgetErrors(){if(serviceBudgetErrorTown!==G){serviceBudgetErrorTown=G;serviceBudgetInputErrors={};}return serviceBudgetInputErrors;}
+function prepareServiceBudgetEnactment(){
+ if(Object.keys(serviceBudgetErrors()).length)return {ok:false,reason:'Correct the daily service amount before enacting the policy package.'};
+ const values={};for(const key of Object.keys(SERVICE_BUDGET_KEYS))if(owns(draftPolicy,key)){const parsed=parseServiceBudget(draftPolicy[key]);if(!parsed.ok)return parsed;values[key]=parsed.value;}
+ for(const [key,value] of Object.entries(values))draftPolicy[key]=value;return {ok:true};
+}
+function publicServiceBudgetEstimate(kind,policy=G?.policy||defaults){
+ const standard=CIVIC_STANDARDS[kind],population=G?G.people.reduce((n,p)=>n+Number(!p.deceased&&!p.movedAway),0):0,wage=Math.max(24,Number(policy.minWage)||24),full=population*standard.staff/standard.capacity*wage/.65;
+ const access=G?serviceAccess(kind):{coverage:0,served:0,households:[]},facilities=G?G.buildings.filter(b=>b.kind===standard.building&&isPublicFacility(b)).length:0,provision=G?.serviceProvision?.[kind],publicCoverage=provision?.coverage||0;
+ let privateCoverage=0;if(kind==='school'&&G?.privateServiceProvision?.school)for(const h of G.households)privateCoverage+=(G.privateServiceProvision.school[h.id]||0)*h.people.length/Math.max(1,population);
+ privateCoverage=clamp(privateCoverage,0,1);const reachable=full*clamp(access.coverage||0,0,1),combinedGap=full*Math.min(clamp(access.coverage||0,0,1),Math.max(0,1-privateCoverage));
+ return {kind,population,wage,full,reachable,combinedGap,facilities,observed:!!provision,access:clamp(access.coverage||0,0,1),publicCoverage,privateCoverage,combinedCoverage:clamp(publicCoverage+privateCoverage,0,1),staffing:provision?.staffing||null,pendingDay:G?.civicStaffing?.[kind]?.pending?.day||null};
+}
+function serviceBudgetRange(key,policy={...(G?.policy||defaults),...draftPolicy}){
+ const estimate=publicServiceBudgetEstimate(SERVICE_BUDGET_KEYS[key],policy),current=Number(G?.policy?.[key])||0,proposed=Number(policy[key])||0;
+ const desired=Math.max(500,estimate.full*1.25,current,proposed),quantum=desired<=1000?100:desired<=10000?250:1000;
+ return {min:0,max:Math.min(PUBLIC_SERVICE_BUDGET_LIMIT,Math.ceil(desired/quantum)*quantum),step:.01,hardMax:PUBLIC_SERVICE_BUDGET_LIMIT};
+}
+function serviceBudgetOutlook(policy={...(G?.policy||defaults),...draftPolicy}){
+ const keys=['policeBudget','defenseBudget','healthBudget','educationBudget','aidBudget','energyAidBudget','outreachBudget','roadBudget','transitBudget','militiaBudget','serviceVoucherBudget'];
+ let ceiling=keys.reduce((n,k)=>n+(Number(policy[k])||0),0);
+ ceiling+=(G?.stats.employed||0)*(Number(policy.employmentSubsidy)||0);
+ ceiling+=(G?G.people.filter(p=>!p.deceased&&!p.movedAway&&p.age>70).length:0)*(Number(policy.pensionDaily)||0);
+ ceiling+=(G?.debt||0)*((Number(policy.policyRate)||0)/100+.015)/360;
+ ceiling+=G?.regionalTrade?.reliefUntil>=G?.day?108:0;
+ ceiling+=G?G.buildings.filter(b=>b.municipalRehousing&&b.kind==='home').length:0;
+ if(G?.transit?.routes.length){
+  const drivers=G.transit.routes.reduce((n,r)=>n+(TRANSIT_LEVELS[r.level]?.vehicles||0)*(TRANSIT_MODES[r.mode]?.staff||0),0);
+  ceiling+=transitOperatingCommitment()+drivers*(Math.max(24,policy.minWage)-Math.max(24,G.policy.minWage))-(Number(policy.transitBudget)||0);
+ }
+ const estimates={health:publicServiceBudgetEstimate('health',policy),school:publicServiceBudgetEstimate('school',policy)};
+ const currentNeed=ceiling-(Number(policy.healthBudget)||0)-(Number(policy.educationBudget)||0)+Math.min(Number(policy.healthBudget)||0,estimates.health.reachable)+Math.min(Number(policy.educationBudget)||0,estimates.school.reachable);
+ const taxes=['incomeTax','profitTax','propertyTax','foodTax','utilityTax','commercialRate','tariffs','permits','housingRents'];
+ const receipts=taxes.reduce((n,k)=>n+(Number.isFinite(G?.cumulative?.[k])?G.cumulative[k]:0),0)+(G?.transit?.fares||0),dailyReceipts=receipts/Math.max(1,(G?.day||1)-1),cash=Math.max(0,G?.treasury||0),deficit=currentNeed-dailyReceipts;
+ return {ceiling,currentNeed,dailyReceipts,cash,deficit,runway:deficit>0?cash/deficit:null,estimates};
+}
+function serviceBudgetRecommendation(key,policy={...(G?.policy||defaults),...draftPolicy}){
+ const outlook=serviceBudgetOutlook(policy),estimate=outlook.estimates[SERVICE_BUDGET_KEYS[key]],other=outlook.currentNeed-Math.min(Number(policy[key])||0,estimate.reachable),cashEnvelope=Math.max(0,outlook.dailyReceipts+outlook.cash/30-other);
+ return {amount:Math.max(0,Math.min(PUBLIC_SERVICE_BUDGET_LIMIT,Math.floor(Math.min(estimate.reachable,cashEnvelope)))),cashEnvelope,estimate,outlook};
 }
 
 // SOURCE: 18-region-charter.js
@@ -4424,6 +4482,7 @@ function hydrateSave(raw){
  const previousTown=G;let rollback=null;
  try{let data=typeof raw==='string'?JSON.parse(raw):raw;data=normalizeRegionArchive(data);
   if(!data||![2,3].includes(data.version)||!Array.isArray(data.tiles)||data.tiles.length!==T*T||!Array.isArray(data.firms)||!Array.isArray(data.people)||!Array.isArray(data.buildings)||!Array.isArray(data.households)||!data.policy||!Number.isFinite(data.treasury)||data.tiles.some(t=>!Number.isInteger(t)||t<0||t>3)||!Number.isFinite(data.region)||data.region<0||data.households.length>3000||data.people.length>8000||data.firms.length>3000)return false;
+  if(!validateServiceBudgetArchive(data))return false;
   if(data.schema!=null&&(!Number.isInteger(data.schema)||data.schema<0||data.schema>RELEASE.schema))return false;
   if(data.investors&&(!Array.isArray(data.investors)||data.investors.length!==1||data.investors.some(a=>!Number.isFinite(a.cash)||a.cash<0)))return false;
   if(data.freight&&(!Array.isArray(data.freight)||data.freight.length>10000||data.freight.some(s=>!Number.isInteger(s.from)||!data.firms[s.from]||!Number.isInteger(s.to)||!data.firms[s.to]||!owns(goods,s.good)||!Number.isFinite(s.qty)||s.qty<=0||!Number.isFinite(s.remaining))))return false;
@@ -4573,13 +4632,13 @@ function renderCommunityFull(){let s=G.stats;return head('Local care and learnin
 function renderPoliciesFull(){let sections=[['Taxation','incomeTax','profitTax','propertyTax','commercialRate','foodTax','utilityTax'],['Work and enterprise','minWage','employmentSubsidy','permitFee','businessRegulation','zoningRestriction'],['Government services','pensionDaily','policeBudget','defenseBudget','healthBudget','educationBudget','aidBudget','energyAidBudget','outreachBudget','roadBudget','transitBudget','militiaBudget'],['Monetary policy and credit','policyRate','bankReserve','lendingRules','depositGuarantee','treasuryInvestment'],['Trade and exchange','importTariff']];let changes=Object.keys(draftPolicy).filter(k=>draftPolicy[k]!==G.policy[k]);let projected=defs.filter(d=>changes.includes(d[0])).map(d=>`${d[1]}: ${policyNumber(G.policy[d[0]])} → ${policyNumber(draftPolicy[d[0]])}${d[5]==='$'?' dollars':d[5]}`).join('<br>');if(changes.includes('imports'))projected+=(projected?'<br>':'')+'Regional inventory imports: '+(G.policy.imports?'OPEN':'RESTRICTED')+' → '+(draftPolicy.imports?'OPEN':'RESTRICTED');
  return `<div class="notice-banner" style="background:#3b4b36;border-color:#938459">The market runs itself. You set rules and fiscal priorities. Select a council programme or adjust rates manually, then enact the package and watch the town adapt over time.</div>`+
  `<div class="cabinet-agendas"><button data-cabinet="enterprise"><strong>Make room for enterprise</strong><small>Lower taxes, permits and barriers to development.</small></button><button data-cabinet="housing"><strong>Open the housing market</strong><small>Ease planning rules and improve access.</small></button><button data-cabinet="services"><strong>Invest in families</strong><small>Finance schools, care, relief and roads.</small></button><button data-cabinet="austerity"><strong>Balance the council purse</strong><small>Reduce spending and slow new commitments.</small></button></div>`+
- sections.map((group,index)=>`<details class="policy-group" ${index===0?'open':''}><summary>${esc(group[0])}</summary>`+group.slice(1).map(k=>{let d=defs.find(d=>d[0]===k);if(!d)return '';let [key,name,lo,hi,step,unit,help]=d,v=draftPolicy[key]??G.policy[key];return `<div class="range"><label><b>${esc(name)}</b><span id="show-${key}">${unit==='$'?money(v):policyNumber(v)+unit}</span></label><input type="range" data-policy="${key}" aria-label="${esc(name)}" min="${lo}" max="${hi}" step="${step}" value="${v}"><p class="desc">${esc(help)}</p></div>`}).join('')+'</details>').join('')+
+ sections.map((group,index)=>`<details class="policy-group" ${index===0?'open':''}><summary>${esc(group[0])}</summary>`+group.slice(1).map(k=>{let d=defs.find(d=>d[0]===k);if(!d)return '';if(isServiceBudgetKey(k))return serviceBudgetControlHtml(k);let [key,name,lo,hi,step,unit,help]=d,v=draftPolicy[key]??G.policy[key];return `<div class="range"><label><b>${esc(name)}</b><span id="show-${key}">${unit==='$'?money(v):policyNumber(v)+unit}</span></label><input type="range" data-policy="${key}" aria-label="${esc(name)}" min="${lo}" max="${hi}" step="${step}" value="${v}"><p class="desc">${esc(help)}</p></div>`}).join('')+'</details>').join('')+
  `<div class="line"><span>Regional inventory imports</span><button id="tradeToggle" class="small ${(draftPolicy.imports??G.policy.imports)?'on':''}">${(draftPolicy.imports??G.policy.imports)?'ALLOWED':'RESTRICTED'}</button></div>`+
- `<div class="council-card"><h3>Proposed policy package</h3><p class="desc" id="draftSummary">${changes.length?projected:'Move one or more controls to propose changes.'}</p><div class="btnrow"><button id="enactPolicy" class="action-green" ${changes.length?'':'disabled'}>ENACT POLICY CHANGES</button><button id="resetPolicy">Discard changes</button></div></div>`;
+ `<div id="serviceBudgetOutlook">${serviceBudgetOutlookHtml()}</div><div class="council-card"><h3>Proposed policy package</h3><p class="desc" id="draftSummary">${changes.length?projected:'Move one or more controls to propose changes.'}</p><div class="btnrow"><button id="enactPolicy" class="action-green" ${changes.length?'':'disabled'}>ENACT POLICY CHANGES</button><button id="resetPolicy">Discard changes</button></div></div>`;
 }
-function enactPolicyPackage(){let changes=Object.keys(draftPolicy).filter(k=>draftPolicy[k]!==G.policy[k]);if(!changes.length){toast('No policy changes have been proposed.');return}
+function enactPolicyPackage(){const serviceCheck=prepareServiceBudgetEnactment();if(!serviceCheck.ok){toast(serviceCheck.reason);return;}let changes=Object.keys(draftPolicy).filter(k=>draftPolicy[k]!==G.policy[k]);if(!changes.length){toast('No policy changes have been proposed.');return}
  let before={...G.stats,treasury:G.treasury},names=[];ensureSystems();G.policyExperiments.push({day:G.day,before:fromEnd(G.observations)||{...before},changes:changes.map(k=>({key:k,from:G.policy[k],to:draftPolicy[k]})),after:null});G.policyExperiments=G.policyExperiments.slice(-30);
- for(let k of changes){let old=G.policy[k],value=draftPolicy[k],d=defs.find(d=>d[0]===k);if(k==='imports'){G.policy.imports=!!value;names.push('Regional inventory imports: '+(old?'OPEN':'RESTRICTED')+' → '+(value?'OPEN':'RESTRICTED'));continue;}if(!d)continue;G.policy[k]=value;names.push(d[1]+': '+fmt(old)+' → '+fmt(value));}
+ for(let k of changes){let old=G.policy[k],value=draftPolicy[k],d=defs.find(d=>d[0]===k);if(k==='imports'){G.policy.imports=!!value;names.push('Regional inventory imports: '+(old?'OPEN':'RESTRICTED')+' → '+(value?'OPEN':'RESTRICTED'));continue;}if(!d)continue;G.policy[k]=value;names.push(d[1]+': '+(isServiceBudgetKey(k)?serviceBudgetMoney(old)+'/day → '+serviceBudgetMoney(value)+'/day':fmt(old)+' → '+fmt(value))); }
  G.council.approval=clamp(G.council.approval-Math.min(6,changes.length*.7),5,97);G.journal.push({day:G.day,name:'Council policy package',message:names.join(' · '),baseline:before});if(G.journal.length>160)G.journal.shift();story('Council enacted '+changes.length+' economic and civic policy changes.','neutral');draftPolicy={};recompute();save();updateHeader();renderPanel('policies');toast('Policy package enacted. Let time pass to observe the effects.');}
 function renderTreasuryFull(){let c=G.cumulative,P=G.policy,s=G.stats;let revenues=['incomeTax','profitTax','propertyTax','foodTax','utilityTax','commercialRate','tariffs','permits'].reduce((n,k)=>n+(c[k]||0),0);let daily=(P.policeBudget+P.defenseBudget+P.healthBudget+P.educationBudget+P.aidBudget+(P.energyAidBudget||0)+P.outreachBudget+P.roadBudget+(P.transitBudget||0)+P.militiaBudget+(P.serviceVoucherBudget||0))+(s.employed||0)*P.employmentSubsidy;daily+=G.people.filter(p=>!p.deceased&&!p.movedAway&&p.age>70).length*(P.pensionDaily||0);daily+=(G.regionalTrade?.reliefUntil>=G.day?108:0);daily+=G.debt*((P.policyRate||0)/100+.015)/360;daily+=transitOperatingCommitment()-(G.transit?.routes.length?(P.transitBudget||0):0);revenues+=G.transit?.fares||0;let avgRev=(revenues/Math.max(1,G.day-1));let forecast=avgRev-daily;
  return head('Public balance sheet')+`<div class="statgrid">${stat('Liquid municipal cash',money(G.treasury),G.treasury<5000?'negative':'')}${stat('Outstanding debt',money(G.debt))}${stat('Receipts since founding',money(revenues))}${stat('Public spending',money(c.spending||0))}</div>`+
@@ -5189,7 +5248,7 @@ function civicProjectReviewFood(){
  showCustomEvent('CIVIC PROJECT','A food bridge for '+f.name,fmt(amount)+' food from '+q.m.name+'; estimated '+money(cost)+' paid by this enterprise, approximately '+q.days+' days in transit. Shop cash '+money(f.cash)+'. Tariffs and freight are included. Imported stock can compete with local producers; loading capacity can split the order. The town gets no grant.',[{title:'Place the paid project order',cost:0,apply:()=>{const current=G.civicProjects?.active.food;if(G!==town||current?.id!==pid||!G.policy.imports||f.closed){toast('The project or import policy changed.');return;}const s=ensureRegionalTrade(),before=s.serial;let n=0;for(let lot=0;lot<2&&n+.001<amount;lot++){const accepted=dispatchRegional(f,'food',amount-n,'import',regionalQuote(f,q.m,'food','import'));if(!accepted)break;n+=accepted;}if(n>0){current.orders.push(...s.shipments.filter(o=>o.id>before&&o.firm===f.id).map(o=>o.id));save();}else toast('Working capital or loading capacity is unavailable; no order was placed.');openCivicProjects('food');}}]);
 }
 function civicProjectSchoolBudget(){
- const estimate=Math.ceil(G.stats.population*CIVIC_STANDARDS.school.staff/CIVIC_STANDARDS.school.capacity*Math.max(24,G.policy.minWage)/.65/10)*10,target=clamp(Math.max(G.policy.educationBudget,estimate),0,500),increase=target-G.policy.educationBudget;
+ const estimate=Math.ceil(G.stats.population*CIVIC_STANDARDS.school.staff/CIVIC_STANDARDS.school.capacity*Math.max(24,G.policy.minWage)/.65/10)*10,target=clamp(Math.max(G.policy.educationBudget,estimate),0,PUBLIC_SERVICE_BUDGET_LIMIT),increase=target-G.policy.educationBudget;
  showCustomEvent('CIVIC PROJECT','A recurring teaching promise','Prepare education authorization '+money(target)+'/day, '+money(increase)+'/day above the current setting. Over 120 fully purchased days the additional authorization is '+money(increase*120)+'. Actual purchases depend on reachable places and staff. New buildings are not included. This drafts one policy for review; it does not enact it.',[{title:'Draft the teaching allocation',cost:0,apply:()=>{draftPolicy.educationBudget=target;openPanel('policies');const input=document.querySelector('[data-policy="educationBudget"]');if(input){input.closest('details').open=true;input.scrollIntoView({block:'center'});input.focus();}}}]);
 }
 function civicProjectOffers(){
@@ -5280,6 +5339,43 @@ $('eventDialog').addEventListener('keydown',e=>{
  if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}
  else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
 });
+
+// SOURCE: 98-service-budget-ui.js
+function serviceBudgetEstimateHtml(key){
+ const policy={...G.policy,...draftPolicy},e=publicServiceBudgetEstimate(SERVICE_BUDGET_KEYS[key],policy),recommended=serviceBudgetRecommendation(key,policy),full=Math.min(PUBLIC_SERVICE_BUDGET_LIMIT,Math.ceil(e.full)),gap=Math.min(PUBLIC_SERVICE_BUDGET_LIMIT,Math.ceil(e.combinedGap));
+ return `<p class="desc">${fmt(e.population)} residents · full public standard ${serviceBudgetMoney(e.full)}/day · currently reachable public need ${serviceBudgetMoney(e.reachable)}/day.</p><p class="desc">${e.observed?'Observed public provision '+Math.round(e.publicCoverage*100)+'%':'No current purchase measured after this archive or policy refresh'}${e.observed&&e.kind==='school'?' · public + purchased private learning index '+Math.round(e.combinedCoverage*100)+'%':''}. ${e.facilities} public facilities; ${Math.round(e.access*100)}% geographic/capacity access.</p><div class="btnrow"><button data-service-budget-key="${key}" data-service-budget-preset="full">Draft ${serviceBudgetMoney(full)}/day public standard</button>${e.kind==='school'&&e.privateCoverage>0?`<button data-service-budget-key="${key}" data-service-budget-preset="combined">Draft ${serviceBudgetMoney(gap)}/day with current private purchases</button>`:''}<button data-service-budget-key="${key}" data-service-budget-preset="cash">Draft ${serviceBudgetMoney(recommended.amount)}/day within a 30-day cash plan</button></div><details><summary>How this estimate works</summary><p class="desc">The standard prices ${e.kind==='school'?'ten school staff per 260':'five clinic staff per 350'} residents at ${serviceBudgetMoney(e.wage)}/staff-day, including the existing supplier share. Actual purchases still require treasury cash, qualified staff and reachable facilities. ${e.pendingDay?'Regional recruitment is pending until day '+e.pendingDay+'.':'Additional regional recruitment normally takes 30 days.'} Private purchases may change after public investment; the combined-gap estimate assumes today’s purchases continue. Learning indices are service equivalents, not a count of every pupil enrolled.</p></details>`;
+}
+function serviceBudgetControlHtml(key){
+ delete serviceBudgetErrors()[key];const d=defs.find(d=>d[0]===key),value=draftPolicy[key]??G.policy[key],range=serviceBudgetRange(key);
+ return `<div class="range service-budget-control" data-service-budget-control="${key}"><label for="serviceBudgetAmount-${key}"><b>${esc(d[1])}</b><span id="show-${key}">${serviceBudgetMoney(value)}</span></label><div class="service-budget-amount"><span aria-hidden="true">$</span><input id="serviceBudgetAmount-${key}" type="number" inputmode="decimal" min="0" max="${range.hardMax}" step="any" value="${esc(value)}" data-service-budget-amount="${key}" aria-label="${esc(d[1])} daily dollar amount" aria-describedby="serviceBudgetHint-${key}"><span>/ day</span></div><input type="range" data-policy="${key}" aria-label="${esc(d[1])}" min="0" max="${range.max}" step="${range.step}" value="${esc(value)}"><p class="desc" id="serviceBudgetHint-${key}">Enter exact daily dollars, up to ${serviceBudgetMoney(range.hardMax)}. Changes remain a proposal until enacted; unused authorization stays in the treasury.</p><p class="service-budget-error" data-service-budget-error="${key}" role="status"></p><div id="serviceBudgetEstimate-${key}">${serviceBudgetEstimateHtml(key)}</div></div>`;
+}
+function serviceBudgetOutlookHtml(){
+ const o=serviceBudgetOutlook();return `<section class="council-card service-budget-outlook"><h3>Review the proposed daily commitments</h3>${strip('Full authorization ceiling',serviceBudgetMoney(o.ceiling)+'/day')}${strip('Bounded by current reachable service need',serviceBudgetMoney(o.currentNeed)+'/day')}${strip('Historical daily receipts',serviceBudgetMoney(o.dailyReceipts)+'/day')}${strip('Cash at that current-need bound',o.runway==null?'Historical receipts cover this bound':fmt(Math.max(0,o.runway))+' days')}<p class="desc">The ceiling is not an immediate charge. The current-need bound assumes reachable service capacity can recruit; actual purchases may be lower. This cash plan uses receipts since founding and today’s cash, not a promise of future income. Growth, prices, staffing and new policy effects can change it.</p></section>`;
+}
+function updateServiceBudgetControls(changedKey=null,preset=false){
+ if(active!=='policies')return;const errors=serviceBudgetErrors();
+ for(const key of Object.keys(SERVICE_BUDGET_KEYS)){
+  const control=document.querySelector('[data-service-budget-control="'+key+'"]');if(!control)continue;const value=draftPolicy[key]??G.policy[key],amount=control.querySelector('[data-service-budget-amount]'),slider=control.querySelector('[data-policy]'),range=serviceBudgetRange(key);
+  slider.max=range.max;slider.value=value;if(!errors[key]&&(preset||document.activeElement!==amount||changedKey!==key))amount.value=value;
+  const label=$('show-'+key);if(label)label.textContent=serviceBudgetMoney(value);const hint=control.querySelector('[data-service-budget-error]');hint.textContent=errors[key]||'';
+  amount.setCustomValidity(errors[key]||'');amount.setAttribute('aria-invalid',errors[key]?'true':'false');const estimate=$('serviceBudgetEstimate-'+key);if(estimate)estimate.innerHTML=serviceBudgetEstimateHtml(key);
+ }
+ const changes=Object.keys(draftPolicy).filter(k=>draftPolicy[k]!==G.policy[k]),button=$('enactPolicy');if(button)button.disabled=!changes.length||Object.keys(errors).length>0;
+ const summary=$('draftSummary');if(summary)summary.textContent=changes.length?changes.map(k=>k==='imports'?'Regional inventory imports: '+(G.policy.imports?'OPEN':'RESTRICTED')+' → '+(draftPolicy.imports?'OPEN':'RESTRICTED'):(defs.find(d=>d[0]===k)?.[1]||k)+': '+(isServiceBudgetKey(k)?serviceBudgetMoney(G.policy[k])+'/day → '+serviceBudgetMoney(draftPolicy[k])+'/day':policyNumber(G.policy[k])+' → '+policyNumber(draftPolicy[k]))).join(' · '):'Move one or more controls to propose changes.';
+ const outlook=$('serviceBudgetOutlook');if(outlook)outlook.innerHTML=serviceBudgetOutlookHtml();
+}
+document.addEventListener('input',e=>{
+ if(!G||active!=='policies')return;const amount=e.target.closest('[data-service-budget-amount]');
+ if(amount){const key=amount.dataset.serviceBudgetAmount,parsed=parseServiceBudget(amount.value);if(parsed.ok){draftPolicy[key]=parsed.value;delete serviceBudgetErrors()[key];}else serviceBudgetErrors()[key]=parsed.reason;updateServiceBudgetControls(key);return;}
+ const slider=e.target.closest('[data-policy]');if(slider){const key=slider.dataset.policy;if(isServiceBudgetKey(key))delete serviceBudgetErrors()[key];updateServiceBudgetControls(key,isServiceBudgetKey(key));}
+});
+document.addEventListener('click',e=>{
+ const button=e.target.closest('[data-service-budget-preset]');if(!button||!G)return;const key=button.dataset.serviceBudgetKey;if(!isServiceBudgetKey(key))return;
+ const estimate=publicServiceBudgetEstimate(SERVICE_BUDGET_KEYS[key],{...G.policy,...draftPolicy}),mode=button.dataset.serviceBudgetPreset,value=mode==='full'?Math.ceil(estimate.full):mode==='combined'?Math.ceil(estimate.combinedGap):serviceBudgetRecommendation(key).amount,parsed=parseServiceBudget(Math.min(PUBLIC_SERVICE_BUDGET_LIMIT,value));
+ if(!parsed.ok)return;draftPolicy[key]=parsed.value;delete serviceBudgetErrors()[key];updateServiceBudgetControls(key,true);toast('Daily budget proposal prepared. Review and enact the package to apply it.');
+});
+
+document.addEventListener('change',e=>{if(G&&active==='policies'&&e.target.closest('[data-policy]'))updateServiceBudgetControls(e.target.dataset.policy);});
 
 // SOURCE: 98-status-deck.js
 // One compact, optional map signal replaces three simultaneous opaque overlays.
