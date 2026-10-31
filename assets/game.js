@@ -6948,7 +6948,7 @@ inspectWaterTripAt=function(x,y){
 const paidPortSelectedInfoBase=selectedWaterInfo;
 selectedWaterInfo=function(){
  if(!selectedWaterTrip?.consignment)return paidPortSelectedInfoBase();
- const labels={'outside':'River/sea voyage','origin-loading':'Supplier preparing cargo','collecting':'Road collection to dock','loading':'Dock loading','departing':'Leaving the dock','unloading':'Dock unloading','delivering':'Road delivery from dock','awaiting-payment':'Buyer payment pending','returning':'Returning to owner'};
+ const labels={'outside':'Regional voyage','origin-loading':'Supplier preparing cargo','collecting':'Freight collection','loading':'Freight loading','departing':'Leaving the loading site','unloading':'Freight unloading','delivering':'Last-mile delivery','awaiting-payment':'Buyer payment pending','returning':'Returning to owner'};
  const id=selectedWaterTrip.consignment,o=G.regionalTrade?.shipments.find(o=>o.id===id),recent=G.regionalTrade?.recent.find(o=>o.id===id),record=o||recent;
  return {cargo:record?.good||selectedWaterTrip.cargo,quantity:record?.qty||selectedWaterTrip.quantity,journey:o?(o.stage==='return-outside'?'Owned cargo returning toward recovery':o.direction==='import'?'Owned import · '+(labels[o.stage]||'In transit'):'Owned export · '+(labels[o.stage]||'In transit')):recent?'Consignment completed · '+(recent.status||'see accounts'):'Previously selected owned consignment'};
 };
@@ -6957,7 +6957,7 @@ const paidPortRouteBase=drawSelectedWaterRoute;
 drawSelectedWaterRoute=function(g){
  if(!selectedWaterTrip?.consignment){paidPortRouteBase(g);return;}
  if(!selected||readBuild(selected.id)?.firm!==selectedWaterTrip.firm){selectedWaterTrip=null;return;}
- const o=G.regionalTrade?.shipments.find(o=>o.id===selectedWaterTrip.consignment),path=o?.waterPath||selectedWaterTrip.path;g.save();g.strokeStyle='#f2d492';g.lineWidth=2/Math.max(.32,cam.zoom);g.setLineDash([5/cam.zoom,4/cam.zoom]);g.beginPath();path.forEach((id,i)=>{const q=iso(id%T+.5,(id/T|0)+.5);i?g.lineTo(...q):g.moveTo(...q)});g.stroke();g.restore();
+ const o=G.regionalTrade?.shipments.find(o=>o.id===selectedWaterTrip.consignment),path=o?(o.mode==='river'?o.waterPath:o.activePath):selectedWaterTrip.path;if(!path?.length)return;g.save();g.strokeStyle='#f2d492';g.lineWidth=2/Math.max(.32,cam.zoom);g.setLineDash([5/cam.zoom,4/cam.zoom]);g.beginPath();path.forEach((id,i)=>{const q=iso(id%T+.5,(id/T|0)+.5);i?g.lineTo(...q):g.moveTo(...q)});g.stroke();g.restore();
 };
 
 // SOURCE: 98zzzzzzzzz-port-prospects.js
