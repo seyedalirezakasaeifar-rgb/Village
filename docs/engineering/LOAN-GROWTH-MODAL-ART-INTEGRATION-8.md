@@ -15,4 +15,4 @@ The six warmed whole-model pairs on rejected branch 3362827 show exact 180-day m
 - Stale-review f457b95 is not available via advertised remote refs; GitHub fetch_commit returns 422 “No commit found.” Await a published full hash/ref rather than inventing the patch.
 - Native stale-build guard 49b65af is integrated; its Python harness compiles. Its historical cc9f02a1 device evidence is not relabelled as current. The next transit/service parcel-outlook refinement and night/shore art are queued. No final packaging or release publication.
 - Receipt collection now normalizes source_sha256/sourceSha256 field names. The affected reports were regenerated on unchanged source before freezing all twelve gates.
-- Native first-run welcome/hitbox behavior is under investigation, not a confirmed product defect. Actual first-run usability remains a high-priority native acceptance gate.
+- Native investigation resolved the welcome hitbox report: the zero box was queried after successful founding; the screenshot preceded tap completion. No startup-control bug was established and no speculative CSS fix was made. Further actual district/gathering native controls remain pending.
