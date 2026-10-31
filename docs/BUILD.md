@@ -59,4 +59,12 @@ TOWNLEDGER_BROWSER=/path/to/chromium python tests/capture_release.py
 
 The output is `TownLedger-The-Working-City-7.0.apk`; version 7.0.0 / code 14 / schema 5. The same signing material used for 6.0/6.1 is required to preserve update compatibility. The build script derives filenames and metadata from `release.json`.
 
+## Version 7.0.1 source update
+
+Current `release.json` is 7.0.1 / code 15 / schema 5. The source adds keyboard Escape handling for drawer dismissal; returns focus to the drawer/dialog launcher; labels the Help/archive dialog, traps Tab focus inside it; and restores tutorial markup when Android Back/Escape closes temporary archive screens. The output name derived by the build is `TownLedger-The-Working-City-7.0.1.apk`.
+
+The original private signing keystore is not present in this source archive. The previous APK's public certificate cannot be used to sign an update. Set `TOWNLEDGER_KEYSTORE` to the original keystore and provide its credentials through the build script's supported environment variables to preserve in-place update compatibility. If you instead build with a fresh development key, Android will treat it as a different signer; users must export saves and reinstall rather than update. Do not weaken APK signing or claim update compatibility without verifying the signer.
+
+This source tree has not produced a 7.0.1 APK in the review environment: Android build-tools and the required platform `android.jar` were absent, and SDK installation was unavailable. The baseline 7.0.0 APK is not a substitute for a rebuilt package. Complete the packaging and install/update checks on a machine with the official Android SDK and an authorized signing key.
+
 Current checks include `test_v7_model.py`, `test_v7_default_starts.py`, `test_v7_scenarios.py`, `test_v7_policy_experiments.py`, `test_v7_liquidity.py` and `test_v7_contrast.py`. The endurance harness records the source hash before opening the app and rejects changes during the run. Do not edit the assembled game while testing. `TOWNLEDGER_CORE_ONLY=1` runs the deterministic/save/stock/traffic gates separately from the long scenario suite.

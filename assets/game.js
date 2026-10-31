@@ -88,7 +88,7 @@ const FIN_BANK_NAMES=['Vale Mutual Savings','Mercantile & County Bank','First Bo
 
 // SOURCE: 05-systems.js
 // Deterministic model services. Presentation has its own hash-based randomness.
-const RELEASE=Object.freeze({"version":"7.0.0","code":14,"edition":"The Working City","schema":5,"package":"org.townledger.vale"});
+const RELEASE=Object.freeze({"version":"7.0.1","code":15,"edition":"The Working City","schema":5,"package":"org.townledger.vale"});
 let rngState=42,visualState=918273,simulationBusy=false;
 const perfStats={frames:[],ticks:[],effective:1,backlog:0,days:0,elapsed:0,errors:[]};
 function random(){rngState=(rngState+0x6D2B79F5)>>>0;let t=rngState;t=Math.imul(t^(t>>>15),t|1);t^=t+Math.imul(t^(t>>>7),t|61);return ((t^(t>>>14))>>>0)/4294967296;}
@@ -2265,7 +2265,13 @@ cv.addEventListener('pointerdown',e=>{if(pointer.down){pointer.moved=true;return
 cv.addEventListener('pointermove',e=>{if(!pointer.down||pointer.activeId!==e.pointerId||touches.size>1)return;let dx=e.clientX-pointer.px,dy=e.clientY-pointer.py;if(Math.abs(e.clientX-pointer.startX)>7||Math.abs(e.clientY-pointer.startY)>7)pointer.moved=true;
  if(buildMode==='road'){let br=cv.getBoundingClientRect(),pt=toWorld(e.clientX-br.left,e.clientY-br.top);let prev=pointer.lastRoad||pt;let dxg=pt[0]-prev[0],dyg=pt[1]-prev[1],steps=Math.max(Math.abs(dxg),Math.abs(dyg),1);for(let k=0;k<=steps;k++){let ax=Math.round(prev[0]+dxg*k/steps),ay=Math.round(prev[1]+dyg*k/steps),key=ax+'/'+ay;if(!roadPainted.has(key)){roadPainted.add(key);construct('road',ax,ay,true)}}pointer.lastRoad=pt}else{cam.x-=dx/cam.zoom;cam.y-=dy/cam.zoom;cam.x=clamp(cam.x,0,RW);cam.y=clamp(cam.y,0,RH)}pointer.px=e.clientX;pointer.py=e.clientY;let rect=cv.getBoundingClientRect(),tile=toWorld(e.clientX-rect.left,e.clientY-rect.top);pointer.hover={x:tile[0],y:tile[1]};dirty=true});
 cv.addEventListener('pointerup',e=>{if(pointer.activeId!==e.pointerId)return;if(pointer.down&&!pointer.moved)onTap(e.clientX,e.clientY);flushRoadBatch();pointer.down=false;pointer.activeId=null;pointer.lastRoad=null;roadPainted.clear()});
-window.addEventListener('keydown',e=>{if(e.key==='Escape'&&buildMode){buildMode='';pointer.hover=null;dirty=true;$('placementHint').style.display='none';$('hint').textContent='DRAG TO PAN · TAP TO INSPECT';toast('Construction tool closed')}});cv.addEventListener('pointercancel',()=>{flushRoadBatch();pointer.down=false;pointer.activeId=null;pointer.lastRoad=null;roadPainted.clear()});cv.addEventListener('pointerleave',()=>{pointer.hover=null;dirty=true});
+window.addEventListener('keydown',e=>{
+ if(e.key!=='Escape')return;
+ if(buildMode){buildMode='';pointer.hover=null;dirty=true;$('placementHint').style.display='none';$('hint').textContent='DRAG TO PAN · TAP TO INSPECT';toast('Construction tool closed');e.preventDefault();return;}
+ // Match Android Back: dismiss the top navigation layer rather than leaving
+ // keyboard users stranded behind an open drawer or transient help/archive form.
+ if(window.__townArchive?.back?.())e.preventDefault();
+});cv.addEventListener('pointercancel',()=>{flushRoadBatch();pointer.down=false;pointer.activeId=null;pointer.lastRoad=null;roadPainted.clear()});cv.addEventListener('pointerleave',()=>{pointer.hover=null;dirty=true});
 cv.addEventListener('wheel',e=>{e.preventDefault();cam.zoom=clamp(cam.zoom*(e.deltaY<0?1.12:.89),.26,1.7);dirty=true},{passive:false});
 let touches=new Map();cv.addEventListener('touchstart',e=>{touches=new Map([...e.touches].map(t=>[t.identifier,{x:t.clientX,y:t.clientY}]));if(touches.size===2){pointer.moved=true;const a=[...touches.values()];pointer.pinch=Math.hypot(a[0].x-a[1].x,a[0].y-a[1].y)}},{passive:true});
 cv.addEventListener('touchmove',e=>{touches=new Map([...e.touches].map(t=>[t.identifier,{x:t.clientX,y:t.clientY}]));if(touches.size===2){const a=[...touches.values()],d=Math.hypot(a[0].x-a[1].x,a[0].y-a[1].y);if(pointer.pinch>0){cam.zoom=clamp(cam.zoom*d/pointer.pinch,.26,1.7);dirty=true}pointer.pinch=d}},{passive:true});
@@ -2365,7 +2371,7 @@ function renderInspect(){const b=selected&&readBuild(selected.id);if(!b)return '
  html+=`<p class="desc">Ownership and all financial amounts are modelled local accounts, not decorative scores.</p>`;return html;
 }
 function openPanel(tab){active=tab;$('panel').classList.add('show');$('panelBody').scrollTop=0;$('tabs').querySelectorAll('button').forEach(b=>b.classList.toggle('active',b.dataset.panel===tab));renderPanel(tab)}
-function closePanel(){active='';$('panel').classList.remove('show');$('tabs').querySelectorAll('button').forEach(b=>b.classList.remove('active'))}
+function closePanel(){const previous=active;active='';$('panel').classList.remove('show');$('tabs').querySelectorAll('button').forEach(b=>b.classList.remove('active'));const returnTarget=$('tabs').querySelector(`button[data-panel="${previous}"]`);if(returnTarget)returnTarget.focus()}
 function economySnapshot(){
  const demand=cityDemand(),activeFirms=G.firms.filter(f=>!f.closed),families=G.households.filter(h=>h.people.some(id=>G.people[id]&&!G.people[id].deceased&&!G.people[id].movedAway));
  const byType={},kindSections={farm:'Agriculture',fishery:'Agriculture',forestry:'Resource extraction',quarry:'Resource extraction',mill:'Manufacturing',sawmill:'Manufacturing',factory:'Manufacturing',bakery:'Food & retail',grocer:'Food & retail',tavern:'Food & retail',warehouse:'Logistics',contractor:'Construction',office:'Services',college:'Services'};
@@ -2442,7 +2448,7 @@ $('panelBody').addEventListener('click',e=>{const b=e.target.closest('button,[da
  ]);return}
  if(b.id==='backupSave'){exportSave();return}
  if(b.id==='importSave'){importSave();return}
- if(b.id==='tutorial'){ $('helpDialog').style.display='flex';return}
+ if(b.id==='tutorial'){openTutorialDialog(b);return}
  if(b.id==='toggleDevelopment'){G.autoBuild=!G.autoBuild;save();renderPanel(active);toast(G.autoBuild?'Private investment resumed.':'New private construction paused.');return;}
  if(b.id==='overlayMetro'){overlay=overlay==='metro'?'none':'metro';dirty=true;renderPanel(active);return;}
  if(b.id==='overlayR'){overlay=overlay==='roads'?'none':'roads';dirty=true;renderPanel(active);return}
@@ -2797,13 +2803,28 @@ function writeIndexedDB(text){
 }
 function discoverIndexedDB(){try{const req=indexedDB.open('townledger-save',1);req.onupgradeneeded=()=>{if(!req.result.objectStoreNames.contains('saves'))req.result.createObjectStore('saves')};req.onsuccess=()=>{try{const db=req.result,tx=db.transaction('saves');const r=tx.objectStore('saves').get('latest');r.onsuccess=()=>{if(r.result){window.__idbSave=r.result;$('continue').style.display='block'}};tx.oncomplete=()=>db.close()}catch(e){}}}catch(e){}}
 discoverIndexedDB();
-function exportSave(){
- const text=archivePayload();const dialog=$('helpDialog');dialog.querySelector('.paper').innerHTML=`<h2>YOUR TOWN ARCHIVE</h2><p>Copy this backup into a text file. Paste it here later to restore the village, even after reinstalling.</p><textarea id="saveText" style="display:block;width:100%;height:145px;background:#f7efd9;color:#183425;font:11px monospace;touch-action:pan-y;border:1px solid #8a8c6c;padding:9px"></textarea><button id="copySave" class="menu-primary">SELECT AND COPY</button><button id="archiveClose">CLOSE</button>`;dialog.style.display='flex';$('saveText').value=text;$('copySave').onclick=()=>{$('saveText').focus();$('saveText').select();try{document.execCommand('copy')}catch(e){};toast('Backup text selected for copying.')};$('archiveClose').onclick=()=>{dialog.style.display='none';restoreHelpMarkup()};
+let helpOpener=null;
+function hideHelpDialog(){
+ $('helpDialog').style.display='none';restoreHelpMarkup();
+ if(helpOpener?.isConnected)helpOpener.focus();
+ helpOpener=null;
 }
-function importSave(){const dialog=$('helpDialog');dialog.querySelector('.paper').innerHTML=`<h2>RESTORE A TOWN</h2><p>Paste a TownLedger backup below. Your current game will be replaced after validation.</p><textarea id="importText" style="display:block;width:100%;height:145px;background:#f7efd9;color:#183425;font:11px monospace;touch-action:pan-y;border:1px solid #8a8c6c;padding:9px"></textarea><button id="restoreGo" class="menu-primary">RESTORE THIS TOWN</button><button id="restoreCancel">CANCEL</button>`;dialog.style.display='flex';$('restoreGo').onclick=()=>{if(hydrateSave($('importText').value)){cam={x:RW/2,y:RH/2,zoom:.68};save();dialog.style.display='none';restoreHelpMarkup();toast('Town archive restored.');renderPanel('overview')}else toast('The backup is invalid or incompatible.')};$('restoreCancel').onclick=()=>{dialog.style.display='none';restoreHelpMarkup()};}
+function openTutorialDialog(opener=document.activeElement){helpOpener=opener;$('helpDialog').style.display='flex';$('helpClose').focus()}
+function exportSave(){
+ const text=archivePayload();const dialog=$('helpDialog');helpOpener=document.activeElement;dialog.querySelector('.paper').innerHTML=`<h2 id="helpTitle">YOUR TOWN ARCHIVE</h2><p>Copy this backup into a text file. Paste it here later to restore the village, even after reinstalling.</p><textarea id="saveText" style="display:block;width:100%;height:145px;background:#f7efd9;color:#183425;font:11px monospace;touch-action:pan-y;border:1px solid #8a8c6c;padding:9px"></textarea><button id="copySave" class="menu-primary">SELECT AND COPY</button><button id="archiveClose">CLOSE</button>`;dialog.style.display='flex';$('saveText').value=text;$('saveText').focus();$('copySave').onclick=()=>{$('saveText').focus();$('saveText').select();try{document.execCommand('copy')}catch(e){};toast('Backup text selected for copying.')};$('archiveClose').onclick=hideHelpDialog;
+}
+function importSave(){const dialog=$('helpDialog');helpOpener=document.activeElement;dialog.querySelector('.paper').innerHTML=`<h2 id="helpTitle">RESTORE A TOWN</h2><p>Paste a TownLedger backup below. Your current game will be replaced after validation.</p><textarea id="importText" style="display:block;width:100%;height:145px;background:#f7efd9;color:#183425;font:11px monospace;touch-action:pan-y;border:1px solid #8a8c6c;padding:9px"></textarea><button id="restoreGo" class="menu-primary">RESTORE THIS TOWN</button><button id="restoreCancel">CANCEL</button>`;dialog.style.display='flex';$('importText').focus();$('restoreGo').onclick=()=>{if(hydrateSave($('importText').value)){cam={x:RW/2,y:RH/2,zoom:.68};save();dialog.style.display='none';restoreHelpMarkup();toast('Town archive restored.');renderPanel('overview');$('tabs').querySelector('button[data-panel="overview"]')?.focus();helpOpener=null;}else toast('The backup is invalid or incompatible.')};$('restoreCancel').onclick=hideHelpDialog;}
 const originalHelp=$('helpDialog').querySelector('.paper').innerHTML;
-function restoreHelpMarkup(){$('helpDialog').querySelector('.paper').innerHTML=originalHelp;$('helpClose').onclick=()=>{$('helpDialog').style.display='none'}}
-$('helpClose').onclick=()=>{$('helpDialog').style.display='none'};$('howTo').onclick=()=>{$('helpDialog').style.display='flex'};
+function restoreHelpMarkup(){$('helpDialog').querySelector('.paper').innerHTML=originalHelp;$('helpClose').onclick=hideHelpDialog}
+$('helpClose').onclick=hideHelpDialog;$('howTo').onclick=()=>openTutorialDialog($('howTo'));
+$('helpDialog').addEventListener('keydown',e=>{
+ if(e.key!=='Tab'||$('helpDialog').style.display==='none')return;
+ const items=[...$('helpDialog').querySelectorAll('button:not([disabled]),textarea:not([disabled]),input:not([disabled]),select:not([disabled]),[href],[tabindex]:not([tabindex="-1"])')].filter(el=>el.offsetParent!==null);
+ if(!items.length)return;
+ const first=items[0],last=items[items.length-1];
+ if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}
+ else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}
+});
 $('scenarioPicker').addEventListener('click',e=>{let b=e.target.closest('[data-scenario]');if(!b)return;chosenScenario=b.dataset.scenario;document.querySelectorAll('[data-scenario]').forEach(v=>v.classList.toggle('chosen',v===b))});
 
 // Override continue to support the IndexedDB fallback when localStorage is inaccessible.
@@ -2958,7 +2979,7 @@ window.__townArchive={
  suspend:()=>{save();},
  export:()=>archivePayload(),
  restore:text=>{const ok=hydrateSave(text);if(ok){save();$('welcome').style.display='none';dirty=true;staticDirty=true;toast('Town restored with its property, bank, cargo and resident records.');}else toast('Archive rejected. The current town is unchanged.');return ok;},
- back:()=>{if($('helpDialog').style.display!=='none'){$('helpDialog').style.display='none';return true;}if(active){closePanel();return true;}return false;}
+ back:()=>{if($('helpDialog').style.display!=='none'){hideHelpDialog();return true;}if(active){closePanel();return true;}return false;}
 };
 const originalExport=exportSave,originalImport=importSave;
 exportSave=function(){if(window.AndroidArchive)window.AndroidArchive.writeBackup(archivePayload());else originalExport();};

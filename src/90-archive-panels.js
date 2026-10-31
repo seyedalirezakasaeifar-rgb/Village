@@ -46,13 +46,28 @@ function writeIndexedDB(text){
 }
 function discoverIndexedDB(){try{const req=indexedDB.open('townledger-save',1);req.onupgradeneeded=()=>{if(!req.result.objectStoreNames.contains('saves'))req.result.createObjectStore('saves')};req.onsuccess=()=>{try{const db=req.result,tx=db.transaction('saves');const r=tx.objectStore('saves').get('latest');r.onsuccess=()=>{if(r.result){window.__idbSave=r.result;$('continue').style.display='block'}};tx.oncomplete=()=>db.close()}catch(e){}}}catch(e){}}
 discoverIndexedDB();
-function exportSave(){
- const text=archivePayload();const dialog=$('helpDialog');dialog.querySelector('.paper').innerHTML=`<h2>YOUR TOWN ARCHIVE</h2><p>Copy this backup into a text file. Paste it here later to restore the village, even after reinstalling.</p><textarea id="saveText" style="display:block;width:100%;height:145px;background:#f7efd9;color:#183425;font:11px monospace;touch-action:pan-y;border:1px solid #8a8c6c;padding:9px"></textarea><button id="copySave" class="menu-primary">SELECT AND COPY</button><button id="archiveClose">CLOSE</button>`;dialog.style.display='flex';$('saveText').value=text;$('copySave').onclick=()=>{$('saveText').focus();$('saveText').select();try{document.execCommand('copy')}catch(e){};toast('Backup text selected for copying.')};$('archiveClose').onclick=()=>{dialog.style.display='none';restoreHelpMarkup()};
+let helpOpener=null;
+function hideHelpDialog(){
+ $('helpDialog').style.display='none';restoreHelpMarkup();
+ if(helpOpener?.isConnected)helpOpener.focus();
+ helpOpener=null;
 }
-function importSave(){const dialog=$('helpDialog');dialog.querySelector('.paper').innerHTML=`<h2>RESTORE A TOWN</h2><p>Paste a TownLedger backup below. Your current game will be replaced after validation.</p><textarea id="importText" style="display:block;width:100%;height:145px;background:#f7efd9;color:#183425;font:11px monospace;touch-action:pan-y;border:1px solid #8a8c6c;padding:9px"></textarea><button id="restoreGo" class="menu-primary">RESTORE THIS TOWN</button><button id="restoreCancel">CANCEL</button>`;dialog.style.display='flex';$('restoreGo').onclick=()=>{if(hydrateSave($('importText').value)){cam={x:RW/2,y:RH/2,zoom:.68};save();dialog.style.display='none';restoreHelpMarkup();toast('Town archive restored.');renderPanel('overview')}else toast('The backup is invalid or incompatible.')};$('restoreCancel').onclick=()=>{dialog.style.display='none';restoreHelpMarkup()};}
+function openTutorialDialog(opener=document.activeElement){helpOpener=opener;$('helpDialog').style.display='flex';$('helpClose').focus()}
+function exportSave(){
+ const text=archivePayload();const dialog=$('helpDialog');helpOpener=document.activeElement;dialog.querySelector('.paper').innerHTML=`<h2 id="helpTitle">YOUR TOWN ARCHIVE</h2><p>Copy this backup into a text file. Paste it here later to restore the village, even after reinstalling.</p><textarea id="saveText" style="display:block;width:100%;height:145px;background:#f7efd9;color:#183425;font:11px monospace;touch-action:pan-y;border:1px solid #8a8c6c;padding:9px"></textarea><button id="copySave" class="menu-primary">SELECT AND COPY</button><button id="archiveClose">CLOSE</button>`;dialog.style.display='flex';$('saveText').value=text;$('saveText').focus();$('copySave').onclick=()=>{$('saveText').focus();$('saveText').select();try{document.execCommand('copy')}catch(e){};toast('Backup text selected for copying.')};$('archiveClose').onclick=hideHelpDialog;
+}
+function importSave(){const dialog=$('helpDialog');helpOpener=document.activeElement;dialog.querySelector('.paper').innerHTML=`<h2 id="helpTitle">RESTORE A TOWN</h2><p>Paste a TownLedger backup below. Your current game will be replaced after validation.</p><textarea id="importText" style="display:block;width:100%;height:145px;background:#f7efd9;color:#183425;font:11px monospace;touch-action:pan-y;border:1px solid #8a8c6c;padding:9px"></textarea><button id="restoreGo" class="menu-primary">RESTORE THIS TOWN</button><button id="restoreCancel">CANCEL</button>`;dialog.style.display='flex';$('importText').focus();$('restoreGo').onclick=()=>{if(hydrateSave($('importText').value)){cam={x:RW/2,y:RH/2,zoom:.68};save();dialog.style.display='none';restoreHelpMarkup();toast('Town archive restored.');renderPanel('overview');$('tabs').querySelector('button[data-panel="overview"]')?.focus();helpOpener=null;}else toast('The backup is invalid or incompatible.')};$('restoreCancel').onclick=hideHelpDialog;}
 const originalHelp=$('helpDialog').querySelector('.paper').innerHTML;
-function restoreHelpMarkup(){$('helpDialog').querySelector('.paper').innerHTML=originalHelp;$('helpClose').onclick=()=>{$('helpDialog').style.display='none'}}
-$('helpClose').onclick=()=>{$('helpDialog').style.display='none'};$('howTo').onclick=()=>{$('helpDialog').style.display='flex'};
+function restoreHelpMarkup(){$('helpDialog').querySelector('.paper').innerHTML=originalHelp;$('helpClose').onclick=hideHelpDialog}
+$('helpClose').onclick=hideHelpDialog;$('howTo').onclick=()=>openTutorialDialog($('howTo'));
+$('helpDialog').addEventListener('keydown',e=>{
+ if(e.key!=='Tab'||$('helpDialog').style.display==='none')return;
+ const items=[...$('helpDialog').querySelectorAll('button:not([disabled]),textarea:not([disabled]),input:not([disabled]),select:not([disabled]),[href],[tabindex]:not([tabindex="-1"])')].filter(el=>el.offsetParent!==null);
+ if(!items.length)return;
+ const first=items[0],last=items[items.length-1];
+ if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}
+ else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}
+});
 $('scenarioPicker').addEventListener('click',e=>{let b=e.target.closest('[data-scenario]');if(!b)return;chosenScenario=b.dataset.scenario;document.querySelectorAll('[data-scenario]').forEach(v=>v.classList.toggle('chosen',v===b))});
 
 // Override continue to support the IndexedDB fallback when localStorage is inaccessible.

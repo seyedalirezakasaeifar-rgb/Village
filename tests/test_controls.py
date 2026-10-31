@@ -7,7 +7,12 @@ with sync_playwright() as pw:
  b=pw.chromium.launch(executable_path=os.environ.get('TOWNLEDGER_BROWSER','/usr/bin/chromium'),args=['--no-sandbox','--disable-dev-shm-usage'])
  page=b.new_page(viewport={'width':844,'height':390},has_touch=True,is_mobile=True)
  errors=[];page.on('pageerror',lambda e:errors.append(str(e)))
- page.goto((R/'assets/index.html').as_uri());page.locator('#townSeed').fill('42');page.locator('#newTown').click();page.locator('#panelClose').click();page.locator('#pause').click()
+ page.goto((R/'assets/index.html').as_uri());page.locator('#townSeed').fill('42');page.locator('#newTown').click()
+ assert page.locator('#panel').evaluate("e=>e.classList.contains('show')")
+ page.locator('#panelClose').focus();page.keyboard.press('Escape')
+ assert not page.locator('#panel').evaluate("e=>e.classList.contains('show')")
+ assert page.evaluate("document.activeElement===document.querySelector('[data-panel=overview]')"), 'Escape should return keyboard focus to the panel launcher'
+ page.locator('[data-panel=overview]').click();page.locator('#panelClose').click();page.locator('#pause').click()
  page.locator('[data-panel=construction]').click();page.locator('[data-build=park]').click()
  state=page.evaluate('JSON.parse(__townTest.save())');box=page.locator('#view').bounding_box()
  occupied={i for x in state['buildings'] for i in x.get('footprint',[x['y']*56+x['x']])}
@@ -43,6 +48,20 @@ with sync_playwright() as pw:
  page.locator('#enactPolicy').click();assert page.evaluate('__townTest.get().policy.incomeTax')==18
  page.locator('#panelClose').click();page.locator('#speedRange').fill('6')
  assert page.locator('#speed').inner_text()=='64×'
+ page.locator('[data-panel=settings]').click();page.locator('#backupSave').click()
+ assert page.locator('#helpDialog').is_visible()
+ assert page.locator('#helpDialog').get_attribute('role')=='dialog' and page.locator('#helpDialog').get_attribute('aria-modal')=='true'
+ assert page.locator('#helpDialog').inner_text().startswith('YOUR TOWN ARCHIVE')
+ page.keyboard.press('Shift+Tab');assert page.evaluate("document.activeElement.id==='archiveClose'"), 'modal keyboard focus should wrap backward'
+ page.keyboard.press('Tab');assert page.evaluate("document.activeElement.id==='saveText'"), 'modal keyboard focus should wrap forward'
+ page.keyboard.press('Escape')
+ assert page.locator('#helpDialog').is_hidden()
+ assert page.evaluate("document.activeElement===document.querySelector('#backupSave')"), 'archive dismissal should return focus to its opener'
+ page.locator('#tutorial').click()
+ assert 'THE TOWN CHARTER' in page.locator('#helpDialog').inner_text()
+ page.locator('#helpClose').click()
+ assert page.evaluate("document.activeElement===document.querySelector('#tutorial')"), 'manual dismissal should return focus to its opener'
+ page.locator('#panelClose').click()
  page.evaluate('__townTest.step(360)');assert page.locator('#eventDialog').is_hidden()
  assert page.evaluate('JSON.parse(__townTest.save()).council.elections')==1
  assert not errors,errors

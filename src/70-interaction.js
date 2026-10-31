@@ -12,7 +12,13 @@ cv.addEventListener('pointerdown',e=>{if(pointer.down){pointer.moved=true;return
 cv.addEventListener('pointermove',e=>{if(!pointer.down||pointer.activeId!==e.pointerId||touches.size>1)return;let dx=e.clientX-pointer.px,dy=e.clientY-pointer.py;if(Math.abs(e.clientX-pointer.startX)>7||Math.abs(e.clientY-pointer.startY)>7)pointer.moved=true;
  if(buildMode==='road'){let br=cv.getBoundingClientRect(),pt=toWorld(e.clientX-br.left,e.clientY-br.top);let prev=pointer.lastRoad||pt;let dxg=pt[0]-prev[0],dyg=pt[1]-prev[1],steps=Math.max(Math.abs(dxg),Math.abs(dyg),1);for(let k=0;k<=steps;k++){let ax=Math.round(prev[0]+dxg*k/steps),ay=Math.round(prev[1]+dyg*k/steps),key=ax+'/'+ay;if(!roadPainted.has(key)){roadPainted.add(key);construct('road',ax,ay,true)}}pointer.lastRoad=pt}else{cam.x-=dx/cam.zoom;cam.y-=dy/cam.zoom;cam.x=clamp(cam.x,0,RW);cam.y=clamp(cam.y,0,RH)}pointer.px=e.clientX;pointer.py=e.clientY;let rect=cv.getBoundingClientRect(),tile=toWorld(e.clientX-rect.left,e.clientY-rect.top);pointer.hover={x:tile[0],y:tile[1]};dirty=true});
 cv.addEventListener('pointerup',e=>{if(pointer.activeId!==e.pointerId)return;if(pointer.down&&!pointer.moved)onTap(e.clientX,e.clientY);flushRoadBatch();pointer.down=false;pointer.activeId=null;pointer.lastRoad=null;roadPainted.clear()});
-window.addEventListener('keydown',e=>{if(e.key==='Escape'&&buildMode){buildMode='';pointer.hover=null;dirty=true;$('placementHint').style.display='none';$('hint').textContent='DRAG TO PAN · TAP TO INSPECT';toast('Construction tool closed')}});cv.addEventListener('pointercancel',()=>{flushRoadBatch();pointer.down=false;pointer.activeId=null;pointer.lastRoad=null;roadPainted.clear()});cv.addEventListener('pointerleave',()=>{pointer.hover=null;dirty=true});
+window.addEventListener('keydown',e=>{
+ if(e.key!=='Escape')return;
+ if(buildMode){buildMode='';pointer.hover=null;dirty=true;$('placementHint').style.display='none';$('hint').textContent='DRAG TO PAN · TAP TO INSPECT';toast('Construction tool closed');e.preventDefault();return;}
+ // Match Android Back: dismiss the top navigation layer rather than leaving
+ // keyboard users stranded behind an open drawer or transient help/archive form.
+ if(window.__townArchive?.back?.())e.preventDefault();
+});cv.addEventListener('pointercancel',()=>{flushRoadBatch();pointer.down=false;pointer.activeId=null;pointer.lastRoad=null;roadPainted.clear()});cv.addEventListener('pointerleave',()=>{pointer.hover=null;dirty=true});
 cv.addEventListener('wheel',e=>{e.preventDefault();cam.zoom=clamp(cam.zoom*(e.deltaY<0?1.12:.89),.26,1.7);dirty=true},{passive:false});
 let touches=new Map();cv.addEventListener('touchstart',e=>{touches=new Map([...e.touches].map(t=>[t.identifier,{x:t.clientX,y:t.clientY}]));if(touches.size===2){pointer.moved=true;const a=[...touches.values()];pointer.pinch=Math.hypot(a[0].x-a[1].x,a[0].y-a[1].y)}},{passive:true});
 cv.addEventListener('touchmove',e=>{touches=new Map([...e.touches].map(t=>[t.identifier,{x:t.clientX,y:t.clientY}]));if(touches.size===2){const a=[...touches.values()],d=Math.hypot(a[0].x-a[1].x,a[0].y-a[1].y);if(pointer.pinch>0){cam.zoom=clamp(cam.zoom*d/pointer.pinch,.26,1.7);dirty=true}pointer.pinch=d}},{passive:true});
@@ -112,7 +118,7 @@ function renderInspect(){const b=selected&&readBuild(selected.id);if(!b)return '
  html+=`<p class="desc">Ownership and all financial amounts are modelled local accounts, not decorative scores.</p>`;return html;
 }
 function openPanel(tab){active=tab;$('panel').classList.add('show');$('panelBody').scrollTop=0;$('tabs').querySelectorAll('button').forEach(b=>b.classList.toggle('active',b.dataset.panel===tab));renderPanel(tab)}
-function closePanel(){active='';$('panel').classList.remove('show');$('tabs').querySelectorAll('button').forEach(b=>b.classList.remove('active'))}
+function closePanel(){const previous=active;active='';$('panel').classList.remove('show');$('tabs').querySelectorAll('button').forEach(b=>b.classList.remove('active'));const returnTarget=$('tabs').querySelector(`button[data-panel="${previous}"]`);if(returnTarget)returnTarget.focus()}
 function economySnapshot(){
  const demand=cityDemand(),activeFirms=G.firms.filter(f=>!f.closed),families=G.households.filter(h=>h.people.some(id=>G.people[id]&&!G.people[id].deceased&&!G.people[id].movedAway));
  const byType={},kindSections={farm:'Agriculture',fishery:'Agriculture',forestry:'Resource extraction',quarry:'Resource extraction',mill:'Manufacturing',sawmill:'Manufacturing',factory:'Manufacturing',bakery:'Food & retail',grocer:'Food & retail',tavern:'Food & retail',warehouse:'Logistics',contractor:'Construction',office:'Services',college:'Services'};
@@ -189,7 +195,7 @@ $('panelBody').addEventListener('click',e=>{const b=e.target.closest('button,[da
  ]);return}
  if(b.id==='backupSave'){exportSave();return}
  if(b.id==='importSave'){importSave();return}
- if(b.id==='tutorial'){ $('helpDialog').style.display='flex';return}
+ if(b.id==='tutorial'){openTutorialDialog(b);return}
  if(b.id==='toggleDevelopment'){G.autoBuild=!G.autoBuild;save();renderPanel(active);toast(G.autoBuild?'Private investment resumed.':'New private construction paused.');return;}
  if(b.id==='overlayMetro'){overlay=overlay==='metro'?'none':'metro';dirty=true;renderPanel(active);return;}
  if(b.id==='overlayR'){overlay=overlay==='roads'?'none':'roads';dirty=true;renderPanel(active);return}
