@@ -1,0 +1,11 @@
+# Strict recovery and experimental scheduler native checkpoint
+
+Actual API30/WebView83 emulator5556, existing setup reused. Candidate65356a71c7180db73232801e5082daac3e6d66d7 and installed JS5cb2fc915dafbd64a0d805bfa8ad245abd6b9074f744a55773c8e5d81413e844: strict fresh day1 process-death recovery PASS. Completed native save, background am kill, confirmed disappeared process, new PID6197, valid Continue, exact full-state hashes identical. No defaults ignored and no canonical comparison weakened. Test controller disables WebSocket keepalive to tolerate the software emulator; clock held by public suspend bridge. No raw saves retained. See ../previews/native-653/process-death.json.
+
+Prototype35fdbbf5a595b406a301c7e76eb571f51d0028db installed JS0e4c28dbf0517c480d7344ba106054a6833e312bcee3071f2281521925375172: existing full native game/audio/lifecycle harness PASS with experimental flag explicitly enabled by test instrumentation after founding. Production game assets unchanged; no ordinary preference enabled it. This covers native Back, real trusted music progression, pause/resume/save, archive roundtrip, crossfade, and 2000-resident load with ongoing music.
+
+Additional runtime debugger probe delivered browser-trusted two-touch events and300 pan moves during a deliberately held partial day. All300 distinct synthetic monetary transfer commands executed and queue drained; valid town and conserved total observed. Held native Back, suspend and export each ended with busy=false; suspend returned save success. Back returned false accurately when no dismissal existed. Inputs are CDP browser events inside actual Android WebView, not physical touch or device performance certification.
+
+The follow-on action-equivalence driver timed out because its own diagnostic hold remained enabled before asynchronous days. Releasing that hold allowed continuation. This is recorded as an incomplete diagnostic, not a game defect or an equivalence pass. No300-road-paint fidelity or import-during-yield certification is claimed. Prototype remains disabled for production; timing regressions remain owner's separate concern. These partial results do not justify enabling it.
+
+Scratch keys and APKs remain private. Emulator remains running on stable653 candidate with paused synthetic town. Earlier1cf shadow/bus/pedestrian source binding remains separate.

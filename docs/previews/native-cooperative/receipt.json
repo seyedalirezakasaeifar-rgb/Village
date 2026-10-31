@@ -1,0 +1,72 @@
+{
+  "count": 300,
+  "status": {
+    "enabled": true,
+    "busy": false,
+    "displayedDay": 13,
+    "committedDay": 13,
+    "workingDay": null,
+    "stage": null,
+    "queued": 0,
+    "token": 32
+  },
+  "valid": {
+    "ok": true,
+    "issues": [],
+    "total": 15580991.999999939,
+    "population": 169,
+    "day": 13
+  },
+  "source_sha256": "0e4c28dbf0517c480d7344ba106054a6833e312bcee3071f2281521925375172",
+  "driver_limitation": "300 trusted pan events and two-touch gesture delivered; full receipt driver timed out because diagnostic hold remained enabled before queued equivalence. Hold released, no equivalence claim.",
+  "back": {
+    "busy": false,
+    "result": false
+  },
+  "suspend": {
+    "busy": false,
+    "result": true
+  },
+  "export": {
+    "busy": false,
+    "result": "omitted"
+  },
+  "barriers": [
+    {
+      "reason": "input queue capacity",
+      "ms": 122.00000000032014
+    }
+  ],
+  "sample_errors": [],
+  "candidate": "35fdbbf5a595b406a301c7e76eb571f51d0028db",
+  "full_game_harness_outcome": "PASS",
+  "full_game_harness_flag": "__cooperativeSimulation.enable(true), test instrumentation only",
+  "remaining": "No native 300-road-paint fidelity, import-during-yield, or full queued-action equivalence certification; production remains disabled.",
+  "framework_checks": [
+    "Native input founds a valid town",
+    "Test-only cooperative flag enabled",
+    "Full game has visible nonzero native map",
+    "Native map contains rendered scene pixels",
+    "Three settlement economy days validate in actual native engine",
+    "Native overview panel opens",
+    "Native economy panel opens",
+    "Native community panel opens",
+    "Native agenda panel opens",
+    "Native policies panel opens",
+    "Native settings panel opens",
+    "Native Back dismisses topmost confirmation while retaining settings and town",
+    "Next native Back dismisses underlying drawer without exit",
+    "Native Vorbis soundtrack advances real media playback after explicit music control touch",
+    "Native pause holds a running simulation day",
+    "Native suspension parks observed map painting, Overview DOM and extra storage writes",
+    "Native pause stops soundtrack and effects media",
+    "Native resume avoids a backlog burst after suspension",
+    "Native resume restarts soundtrack",
+    "Native suspend and resume preserve the player's own pause preference",
+    "Native full-game archive roundtrip validates",
+    "Native soundtrack reports no decoder error after gesture playback",
+    "Native soundtrack crossfade runs two streaming media elements",
+    "Native crossfade retires and unloads previous media source",
+    "No captured full-game JavaScript errors"
+  ]
+}
