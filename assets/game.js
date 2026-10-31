@@ -3412,7 +3412,7 @@ function renderTransitForecast(r,dismissible=false){
 // A new founding/import is a new timeline; logical order survives clock changes.
 let saveEpoch=0,saveOrder=0,saveRevision=0,saveTown='',saveStoreReady=false;
 let saveStorePromise=Promise.resolve(),saveWrites=Promise.resolve(),saveCandidates=[],saveWarningEpoch=0,savePendingWrite=null,saveWriteRunning=false,waitingSave=null;
-let simulationTickActive=false,saveAfterCommittedTick=false;
+let simulationTickActive=false,saveAfterCommittedTick=false,saveAfterCommittedTickWaiters=[];
 function beginSaveTimeline(){saveEpoch++;saveRevision=0;autoSaveOK=false;try{saveTown=Array.from(crypto.getRandomValues(new Uint32Array(4)),n=>n.toString(16)).join('-')}catch(_){saveTown='session-'+saveEpoch+'-'+Math.random().toString(36).slice(2)}return saveEpoch;}
 function saveEnvelope(payload){
  if(!saveTown)beginSaveTimeline();
@@ -3458,12 +3458,20 @@ function save(){
  if(!G||simulationBusy)return Promise.resolve(false);
  // In-tick callers request persistence after the whole day commits. A review
  // during monthly settlement must not capture pre-history/pre-RNG state.
- if(simulationTickActive){saveAfterCommittedTick=true;return Promise.resolve(true);}
+ if(simulationTickActive){saveAfterCommittedTick=true;return new Promise(resolve=>saveAfterCommittedTickWaiters.push(resolve));}
  const epoch=saveEpoch;
  // During the bounded startup read, serialize only the latest active town once.
  if(!saveStoreReady){if(waitingSave?.epoch===epoch)return waitingSave.promise;const promise=saveStorePromise.then(()=>epoch===saveEpoch?save():false);waitingSave={epoch,promise};return promise;}
  let payload;try{payload=archivePayload()}catch(_){autoSaveOK=false;return Promise.resolve(false)}
  return persistSnapshot(payload,epoch);
+}
+function finishCommittedTickSave(committed){
+ const requested=saveAfterCommittedTick,waiters=saveAfterCommittedTickWaiters;saveAfterCommittedTick=false;saveAfterCommittedTickWaiters=[];
+ if(!requested)return;
+ const resolveAll=ok=>{for(const resolve of waiters)resolve(!!ok);};
+ if(!committed||simulationBusy){resolveAll(false);return;}
+ let result;try{result=save()}catch(_){resolveAll(false);return;}
+ Promise.resolve(result).then(resolveAll,()=>resolveAll(false));
 }
 function restoreSaveEnvelope(e){observeSaveOrder(e);if(!hydrateSave(e.payload))return false;saveTown=e.town||saveTown;saveRevision=e.revision||0;autoSaveOK=true;return true;}
 function load(){
@@ -3492,7 +3500,7 @@ function tick(){if(!G||pendingEvent)return;simulationTickActive=true;let committ
  if(G.day%60===0){const signal=marketSignal();if(signal.kind!=='normal'&&signal.title!==G.lastEconomicSignal){story(signal.title+'. '+signal.description,signal.kind==='good'?'good':'bad');G.lastEconomicSignal=signal.title;}}
  // Autosaves are scheduled in wall time by the frame controller.
  dirty=true;committed=true;
- }finally{simulationTickActive=false;const requested=saveAfterCommittedTick;saveAfterCommittedTick=false;if(committed&&requested&&!simulationBusy)save();}
+ }finally{simulationTickActive=false;finishCommittedTickSave(committed);}
 }
 
 function resetTownTransientUI(){
