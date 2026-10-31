@@ -1,0 +1,70 @@
+{
+  "source_sha256": "dbc77e0fb769fb75a7b9d93db0e6cc5649500ef960558b2b63a81526fcced26f",
+  "rows": [
+    {
+      "groups": [
+        {
+          "building": 58,
+          "households": [
+            272,
+            273
+          ]
+        },
+        {
+          "building": 64,
+          "households": [
+            281,
+            285
+          ]
+        },
+        {
+          "building": 70,
+          "households": [
+            306,
+            308
+          ]
+        },
+        {
+          "building": 85,
+          "households": [
+            245,
+            250
+          ]
+        },
+        {
+          "building": 86,
+          "households": [
+            180,
+            256
+          ]
+        },
+        {
+          "building": 113,
+          "households": [
+            321,
+            323
+          ]
+        }
+      ],
+      "preserved": true,
+      "idempotent": true
+    },
+    {
+      "versionGrowthRejected": true,
+      "unauthorizedOccupantsRejected": true,
+      "malformedRosterRejected": true,
+      "atomic": true,
+      "occupiedMunicipalHomePreserved": true,
+      "exactContinuationDays": 30
+    },
+    {
+      "unlistedArrivalRejected": true,
+      "departedRosterPrunedWithoutGrowth": true
+    },
+    {
+      "exactDay183Restored": true,
+      "householdsPreserved": true,
+      "municipalOwnershipPreserved": true
+    }
+  ]
+}
