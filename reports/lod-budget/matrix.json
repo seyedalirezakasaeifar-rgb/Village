@@ -1,0 +1,1816 @@
+{
+  "source_sha256": "8c7d3216d05355c6b15467c357bdc71f34e14d3714204f7a43c5e4cb8b03b26c",
+  "hostOnly": true,
+  "rows": [
+    {
+      "town": "dense2000",
+      "view": "near",
+      "speed": 0,
+      "seconds": 4.0121,
+      "days": 0,
+      "actualRate": 0.0,
+      "rafP99": 16.800000000000182,
+      "panelToRAF": 64.5,
+      "calls": {},
+      "population": 2000,
+      "buildings": 719,
+      "pausedPaint": {
+        "calls": {
+          "neighbourhoodAmbient": {
+            "calls": 6,
+            "ms": 0.09999999962747097,
+            "actors": 24
+          },
+          "buildingActivity": {
+            "calls": 6,
+            "ms": 0.19999999925494194,
+            "actors": 72
+          },
+          "workdayScenes": {
+            "calls": 6,
+            "ms": 0.09999999962747097,
+            "actors": 42
+          },
+          "spriteFor": {
+            "calls": 486,
+            "ms": 1.800000000745058,
+            "actors": 0
+          },
+          "drawSceneSprite": {
+            "calls": 486,
+            "ms": 3.400000000372529,
+            "actors": 0
+          },
+          "draw": {
+            "calls": 6,
+            "ms": 25,
+            "actors": 0
+          }
+        },
+        "modelUnchanged": true
+      },
+      "hiddenTrafficUnchanged": true
+    },
+    {
+      "town": "dense2000",
+      "view": "near",
+      "speed": 1,
+      "seconds": 4.0019,
+      "days": 2,
+      "actualRate": 0.8246083110522502,
+      "rafP99": 16.800000000000182,
+      "panelToRAF": 42.79999999888241,
+      "calls": {
+        "trafficUpdate": {
+          "calls": 240,
+          "ms": 8,
+          "actors": 0
+        },
+        "neighbourhoodAmbient": {
+          "calls": 88,
+          "ms": 0.9000000022351742,
+          "actors": 352
+        },
+        "buildingActivity": {
+          "calls": 88,
+          "ms": 2.2999999970197678,
+          "actors": 1056
+        },
+        "workdayScenes": {
+          "calls": 88,
+          "ms": 2.799999998882413,
+          "actors": 616
+        },
+        "spriteFor": {
+          "calls": 7840,
+          "ms": 23.69999999180436,
+          "actors": 0
+        },
+        "drawSceneSprite": {
+          "calls": 7840,
+          "ms": 46.90000000037253,
+          "actors": 0
+        },
+        "draw": {
+          "calls": 88,
+          "ms": 388.3999999947846,
+          "actors": 0
+        },
+        "vehiclePosition": {
+          "calls": 298,
+          "ms": 1.0000000018626451,
+          "actors": 0
+        },
+        "tick": {
+          "calls": 2,
+          "ms": 62.600000001490116,
+          "actors": 0
+        }
+      },
+      "population": 2000,
+      "buildings": 719,
+      "pausedPaint": {
+        "calls": {
+          "neighbourhoodAmbient": {
+            "calls": 6,
+            "ms": 0.2999999988824129,
+            "actors": 24
+          },
+          "buildingActivity": {
+            "calls": 6,
+            "ms": 0,
+            "actors": 72
+          },
+          "workdayScenes": {
+            "calls": 6,
+            "ms": 0.09999999962747097,
+            "actors": 42
+          },
+          "vehiclePosition": {
+            "calls": 42,
+            "ms": 0.19999999925494194,
+            "actors": 0
+          },
+          "spriteFor": {
+            "calls": 552,
+            "ms": 0.9999999962747097,
+            "actors": 0
+          },
+          "drawSceneSprite": {
+            "calls": 552,
+            "ms": 2.5999999940395355,
+            "actors": 0
+          },
+          "draw": {
+            "calls": 6,
+            "ms": 22.90000000037253,
+            "actors": 0
+          }
+        },
+        "modelUnchanged": true
+      },
+      "hiddenTrafficUnchanged": false
+    },
+    {
+      "town": "dense2000",
+      "view": "near",
+      "speed": 8,
+      "seconds": 4.0101,
+      "days": 19,
+      "actualRate": 7.817760155607091,
+      "rafP99": 16.80000000000109,
+      "panelToRAF": 45,
+      "calls": {
+        "trafficUpdate": {
+          "calls": 240,
+          "ms": 11.09999999590218,
+          "actors": 0
+        },
+        "neighbourhoodAmbient": {
+          "calls": 88,
+          "ms": 1.099999999627471,
+          "actors": 352
+        },
+        "buildingActivity": {
+          "calls": 88,
+          "ms": 2.999999998137355,
+          "actors": 1056
+        },
+        "workdayScenes": {
+          "calls": 88,
+          "ms": 1.8000000026077032,
+          "actors": 616
+        },
+        "vehiclePosition": {
+          "calls": 945,
+          "ms": 1.200000001117587,
+          "actors": 0
+        },
+        "spriteFor": {
+          "calls": 9780,
+          "ms": 25.100000001490116,
+          "actors": 0
+        },
+        "drawSceneSprite": {
+          "calls": 9780,
+          "ms": 53.10000001639128,
+          "actors": 0
+        },
+        "draw": {
+          "calls": 88,
+          "ms": 514.7999999988824,
+          "actors": 0
+        },
+        "tick": {
+          "calls": 19,
+          "ms": 346.1000000052154,
+          "actors": 0
+        }
+      },
+      "population": 2000,
+      "buildings": 719,
+      "pausedPaint": {
+        "calls": {
+          "neighbourhoodAmbient": {
+            "calls": 6,
+            "ms": 0.30000000074505806,
+            "actors": 24
+          },
+          "buildingActivity": {
+            "calls": 6,
+            "ms": 0.2000000011175871,
+            "actors": 72
+          },
+          "workdayScenes": {
+            "calls": 6,
+            "ms": 0.09999999962747097,
+            "actors": 42
+          },
+          "vehiclePosition": {
+            "calls": 90,
+            "ms": 0.2000000011175871,
+            "actors": 0
+          },
+          "spriteFor": {
+            "calls": 642,
+            "ms": 1.400000000372529,
+            "actors": 0
+          },
+          "drawSceneSprite": {
+            "calls": 642,
+            "ms": 3.399999998509884,
+            "actors": 0
+          },
+          "draw": {
+            "calls": 6,
+            "ms": 26.40000000037253,
+            "actors": 0
+          }
+        },
+        "modelUnchanged": true
+      },
+      "hiddenTrafficUnchanged": false
+    },
+    {
+      "town": "dense2000",
+      "view": "near",
+      "speed": 64,
+      "seconds": 4.010899999999256,
+      "days": 144,
+      "actualRate": 59.2385748834536,
+      "rafP99": 183.40000000000146,
+      "panelToRAF": 58.59999999962747,
+      "calls": {
+        "tick": {
+          "calls": 147,
+          "ms": 3240.099999992177,
+          "actors": 0
+        },
+        "trafficUpdate": {
+          "calls": 151,
+          "ms": 15.90000000782311,
+          "actors": 0
+        },
+        "spriteFor": {
+          "calls": 10413,
+          "ms": 32.30000001192093,
+          "actors": 0
+        },
+        "drawSceneSprite": {
+          "calls": 10413,
+          "ms": 64.59999999403954,
+          "actors": 0
+        },
+        "neighbourhoodAmbient": {
+          "calls": 64,
+          "ms": 1.4999999981373549,
+          "actors": 256
+        },
+        "buildingActivity": {
+          "calls": 64,
+          "ms": 4.800000008195639,
+          "actors": 320
+        },
+        "workdayScenes": {
+          "calls": 64,
+          "ms": 3.399999998509884,
+          "actors": 192
+        },
+        "vehiclePosition": {
+          "calls": 1791,
+          "ms": 1.799999998882413,
+          "actors": 0
+        },
+        "draw": {
+          "calls": 64,
+          "ms": 654.1999999918044,
+          "actors": 0
+        }
+      },
+      "population": 1985,
+      "buildings": 723,
+      "pausedPaint": {
+        "calls": {
+          "neighbourhoodAmbient": {
+            "calls": 6,
+            "ms": 0.19999999925494194,
+            "actors": 24
+          },
+          "buildingActivity": {
+            "calls": 6,
+            "ms": 0.09999999962747097,
+            "actors": 72
+          },
+          "workdayScenes": {
+            "calls": 6,
+            "ms": 0.4000000022351742,
+            "actors": 42
+          },
+          "vehiclePosition": {
+            "calls": 198,
+            "ms": 0.09999999962747097,
+            "actors": 0
+          },
+          "spriteFor": {
+            "calls": 732,
+            "ms": 1.5,
+            "actors": 0
+          },
+          "drawSceneSprite": {
+            "calls": 732,
+            "ms": 3.400000000372529,
+            "actors": 0
+          },
+          "draw": {
+            "calls": 6,
+            "ms": 34.90000000037253,
+            "actors": 0
+          }
+        },
+        "modelUnchanged": true
+      },
+      "hiddenTrafficUnchanged": false
+    },
+    {
+      "town": "dense2000",
+      "view": "far",
+      "speed": 0,
+      "seconds": 4.008999999999254,
+      "days": 0,
+      "actualRate": 0.0,
+      "rafP99": 16.799999999999272,
+      "panelToRAF": 39.79999999888241,
+      "calls": {},
+      "population": 1982,
+      "buildings": 724,
+      "pausedPaint": {
+        "calls": {
+          "neighbourhoodAmbient": {
+            "calls": 6,
+            "ms": 0,
+            "actors": 0
+          },
+          "buildingActivity": {
+            "calls": 6,
+            "ms": 0.10000000149011612,
+            "actors": 0
+          },
+          "workdayScenes": {
+            "calls": 6,
+            "ms": 0,
+            "actors": 0
+          },
+          "draw": {
+            "calls": 6,
+            "ms": 7.900000000372529,
+            "actors": 0
+          }
+        },
+        "modelUnchanged": true
+      },
+      "hiddenTrafficUnchanged": true
+    },
+    {
+      "town": "dense2000",
+      "view": "far",
+      "speed": 1,
+      "seconds": 4.008899999999255,
+      "days": 2,
+      "actualRate": 0.8231684501984616,
+      "rafP99": 16.799999999999272,
+      "panelToRAF": 46.19999999925494,
+      "calls": {
+        "trafficUpdate": {
+          "calls": 242,
+          "ms": 0.6999999973922968,
+          "actors": 0
+        },
+        "neighbourhoodAmbient": {
+          "calls": 90,
+          "ms": 0,
+          "actors": 0
+        },
+        "buildingActivity": {
+          "calls": 90,
+          "ms": 0.09999999962747097,
+          "actors": 0
+        },
+        "workdayScenes": {
+          "calls": 90,
+          "ms": 0.10000000149011612,
+          "actors": 0
+        },
+        "draw": {
+          "calls": 90,
+          "ms": 111.00000000186265,
+          "actors": 0
+        },
+        "tick": {
+          "calls": 2,
+          "ms": 33.09999999962747,
+          "actors": 0
+        }
+      },
+      "population": 1982,
+      "buildings": 724,
+      "pausedPaint": {
+        "calls": {
+          "neighbourhoodAmbient": {
+            "calls": 6,
+            "ms": 0,
+            "actors": 0
+          },
+          "buildingActivity": {
+            "calls": 6,
+            "ms": 0,
+            "actors": 0
+          },
+          "workdayScenes": {
+            "calls": 6,
+            "ms": 0,
+            "actors": 0
+          },
+          "draw": {
+            "calls": 6,
+            "ms": 4.699999999254942,
+            "actors": 0
+          }
+        },
+        "modelUnchanged": true
+      },
+      "hiddenTrafficUnchanged": true
+    },
+    {
+      "town": "dense2000",
+      "view": "far",
+      "speed": 8,
+      "seconds": 4.010099999999256,
+      "days": 19,
+      "actualRate": 7.817760155608542,
+      "rafP99": 50.099999999998545,
+      "panelToRAF": 43.899999998509884,
+      "calls": {
+        "trafficUpdate": {
+          "calls": 220,
+          "ms": 0.7000000029802322,
+          "actors": 0
+        },
+        "neighbourhoodAmbient": {
+          "calls": 81,
+          "ms": 0.09999999962747097,
+          "actors": 0
+        },
+        "buildingActivity": {
+          "calls": 81,
+          "ms": 0.19999999925494194,
+          "actors": 0
+        },
+        "workdayScenes": {
+          "calls": 81,
+          "ms": 0.09999999962747097,
+          "actors": 0
+        },
+        "draw": {
+          "calls": 81,
+          "ms": 167.69999998621643,
+          "actors": 0
+        },
+        "tick": {
+          "calls": 19,
+          "ms": 587.3000000007451,
+          "actors": 0
+        },
+        "spriteFor": {
+          "calls": 1445,
+          "ms": 4.799999997019768,
+          "actors": 0
+        },
+        "drawSceneSprite": {
+          "calls": 2708,
+          "ms": 11.199999999254942,
+          "actors": 0
+        }
+      },
+      "population": 1979,
+      "buildings": 725,
+      "pausedPaint": {
+        "calls": {
+          "neighbourhoodAmbient": {
+            "calls": 6,
+            "ms": 0,
+            "actors": 0
+          },
+          "buildingActivity": {
+            "calls": 6,
+            "ms": 0,
+            "actors": 0
+          },
+          "workdayScenes": {
+            "calls": 6,
+            "ms": 0,
+            "actors": 0
+          },
+          "draw": {
+            "calls": 6,
+            "ms": 5.599999999627471,
+            "actors": 0
+          }
+        },
+        "modelUnchanged": true
+      },
+      "hiddenTrafficUnchanged": false
+    },
+    {
+      "town": "dense2000",
+      "view": "far",
+      "speed": 64,
+      "seconds": 4.014300000000003,
+      "days": 151,
+      "actualRate": 62.065615424856084,
+      "rafP99": 183.3000000000029,
+      "panelToRAF": 61.90000000037253,
+      "calls": {
+        "tick": {
+          "calls": 153,
+          "ms": 3234.500000009313,
+          "actors": 0
+        },
+        "trafficUpdate": {
+          "calls": 171,
+          "ms": 0.8000000007450581,
+          "actors": 0
+        },
+        "neighbourhoodAmbient": {
+          "calls": 62,
+          "ms": 0,
+          "actors": 0
+        },
+        "buildingActivity": {
+          "calls": 62,
+          "ms": 0.19999999925494194,
+          "actors": 0
+        },
+        "workdayScenes": {
+          "calls": 62,
+          "ms": 0.09999999962747097,
+          "actors": 0
+        },
+        "draw": {
+          "calls": 62,
+          "ms": 349.9000000040978,
+          "actors": 0
+        },
+        "spriteFor": {
+          "calls": 9407,
+          "ms": 36.30000000819564,
+          "actors": 0
+        },
+        "drawSceneSprite": {
+          "calls": 17543,
+          "ms": 80.80000001192093,
+          "actors": 0
+        }
+      },
+      "population": 1970,
+      "buildings": 727,
+      "pausedPaint": {
+        "calls": {
+          "neighbourhoodAmbient": {
+            "calls": 6,
+            "ms": 0,
+            "actors": 0
+          },
+          "buildingActivity": {
+            "calls": 6,
+            "ms": 0,
+            "actors": 0
+          },
+          "workdayScenes": {
+            "calls": 6,
+            "ms": 0,
+            "actors": 0
+          },
+          "draw": {
+            "calls": 6,
+            "ms": 5.5,
+            "actors": 0
+          }
+        },
+        "modelUnchanged": true
+      },
+      "hiddenTrafficUnchanged": false
+    },
+    {
+      "town": "dense2000",
+      "view": "offscreen",
+      "speed": 0,
+      "seconds": 4.015599999999257,
+      "days": 0,
+      "actualRate": 0.0,
+      "rafP99": 16.80000000000291,
+      "panelToRAF": 28.09999999962747,
+      "calls": {},
+      "population": 1967,
+      "buildings": 727,
+      "pausedPaint": {
+        "calls": {
+          "neighbourhoodAmbient": {
+            "calls": 6,
+            "ms": 0,
+            "actors": 0
+          },
+          "buildingActivity": {
+            "calls": 6,
+            "ms": 0,
+            "actors": 0
+          },
+          "workdayScenes": {
+            "calls": 6,
+            "ms": 0,
+            "actors": 0
+          },
+          "vehiclePosition": {
+            "calls": 216,
+            "ms": 0.19999999925494194,
+            "actors": 0
+          },
+          "draw": {
+            "calls": 6,
+            "ms": 6.099999999627471,
+            "actors": 0
+          }
+        },
+        "modelUnchanged": true
+      },
+      "hiddenTrafficUnchanged": true
+    },
+    {
+      "town": "dense2000",
+      "view": "offscreen",
+      "speed": 1,
+      "seconds": 4.010899999998881,
+      "days": 2,
+      "actualRate": 0.822757984492488,
+      "rafP99": 16.80000000000291,
+      "panelToRAF": 40.5,
+      "calls": {
+        "trafficUpdate": {
+          "calls": 241,
+          "ms": 12.700000010430813,
+          "actors": 0
+        },
+        "neighbourhoodAmbient": {
+          "calls": 88,
+          "ms": 0.19999999925494194,
+          "actors": 0
+        },
+        "buildingActivity": {
+          "calls": 88,
+          "ms": 0.30000000074505806,
+          "actors": 0
+        },
+        "workdayScenes": {
+          "calls": 88,
+          "ms": 0.2000000011175871,
+          "actors": 0
+        },
+        "vehiclePosition": {
+          "calls": 1941,
+          "ms": 1.5000000018626451,
+          "actors": 0
+        },
+        "draw": {
+          "calls": 88,
+          "ms": 110,
+          "actors": 0
+        },
+        "tick": {
+          "calls": 2,
+          "ms": 31.300000000745058,
+          "actors": 0
+        }
+      },
+      "population": 1967,
+      "buildings": 727,
+      "pausedPaint": {
+        "calls": {
+          "neighbourhoodAmbient": {
+            "calls": 6,
+            "ms": 0,
+            "actors": 0
+          },
+          "buildingActivity": {
+            "calls": 6,
+            "ms": 0,
+            "actors": 0
+          },
+          "workdayScenes": {
+            "calls": 6,
+            "ms": 0,
+            "actors": 0
+          },
+          "vehiclePosition": {
+            "calls": 90,
+            "ms": 0.09999999962747097,
+            "actors": 0
+          },
+          "draw": {
+            "calls": 6,
+            "ms": 4.300000000745058,
+            "actors": 0
+          }
+        },
+        "modelUnchanged": true
+      },
+      "hiddenTrafficUnchanged": false
+    },
+    {
+      "town": "dense2000",
+      "view": "offscreen",
+      "speed": 8,
+      "seconds": 4.002199999999997,
+      "days": 19,
+      "actualRate": 7.833191744540509,
+      "rafP99": 16.799999999995634,
+      "panelToRAF": 46.30000000074506,
+      "calls": {
+        "trafficUpdate": {
+          "calls": 241,
+          "ms": 9.599999994039536,
+          "actors": 0
+        },
+        "neighbourhoodAmbient": {
+          "calls": 90,
+          "ms": 1.0000000037252903,
+          "actors": 0
+        },
+        "buildingActivity": {
+          "calls": 90,
+          "ms": 0.3999999985098839,
+          "actors": 0
+        },
+        "workdayScenes": {
+          "calls": 90,
+          "ms": 0.19999999925494194,
+          "actors": 0
+        },
+        "vehiclePosition": {
+          "calls": 1728,
+          "ms": 1.1000000052154064,
+          "actors": 0
+        },
+        "draw": {
+          "calls": 90,
+          "ms": 117.90000000037253,
+          "actors": 0
+        },
+        "tick": {
+          "calls": 19,
+          "ms": 342.10000000335276,
+          "actors": 0
+        }
+      },
+      "population": 1967,
+      "buildings": 727,
+      "pausedPaint": {
+        "calls": {
+          "neighbourhoodAmbient": {
+            "calls": 6,
+            "ms": 0,
+            "actors": 0
+          },
+          "buildingActivity": {
+            "calls": 6,
+            "ms": 0,
+            "actors": 0
+          },
+          "workdayScenes": {
+            "calls": 6,
+            "ms": 0,
+            "actors": 0
+          },
+          "vehiclePosition": {
+            "calls": 120,
+            "ms": 0.09999999962747097,
+            "actors": 0
+          },
+          "draw": {
+            "calls": 6,
+            "ms": 4.100000001490116,
+            "actors": 0
+          }
+        },
+        "modelUnchanged": true
+      },
+      "hiddenTrafficUnchanged": false
+    },
+    {
+      "town": "dense2000",
+      "view": "offscreen",
+      "speed": 64,
+      "seconds": 4.008799999999624,
+      "days": 131,
+      "actualRate": 53.91887846737683,
+      "rafP99": 200,
+      "panelToRAF": 58.09999999962747,
+      "calls": {
+        "tick": {
+          "calls": 134,
+          "ms": 3758.799999995157,
+          "actors": 0
+        },
+        "trafficUpdate": {
+          "calls": 138,
+          "ms": 10.90000000782311,
+          "actors": 0
+        },
+        "neighbourhoodAmbient": {
+          "calls": 59,
+          "ms": 0.3999999985098839,
+          "actors": 0
+        },
+        "buildingActivity": {
+          "calls": 59,
+          "ms": 0,
+          "actors": 0
+        },
+        "workdayScenes": {
+          "calls": 59,
+          "ms": 0.30000000074505806,
+          "actors": 0
+        },
+        "vehiclePosition": {
+          "calls": 1693,
+          "ms": 1.2999999970197678,
+          "actors": 0
+        },
+        "draw": {
+          "calls": 59,
+          "ms": 223.1999999973923,
+          "actors": 0
+        }
+      },
+      "population": 1961,
+      "buildings": 731,
+      "pausedPaint": {
+        "calls": {
+          "neighbourhoodAmbient": {
+            "calls": 6,
+            "ms": 0,
+            "actors": 0
+          },
+          "buildingActivity": {
+            "calls": 6,
+            "ms": 0,
+            "actors": 0
+          },
+          "workdayScenes": {
+            "calls": 6,
+            "ms": 0,
+            "actors": 0
+          },
+          "vehiclePosition": {
+            "calls": 204,
+            "ms": 0,
+            "actors": 0
+          },
+          "draw": {
+            "calls": 6,
+            "ms": 4.099999999627471,
+            "actors": 0
+          }
+        },
+        "modelUnchanged": true
+      },
+      "hiddenTrafficUnchanged": false
+    },
+    {
+      "town": "lateTown",
+      "view": "near",
+      "speed": 0,
+      "seconds": 4.0136000000007455,
+      "days": 0,
+      "actualRate": 0.0,
+      "rafP99": 16.800000000000182,
+      "panelToRAF": 48.30000000074506,
+      "calls": {},
+      "population": 778,
+      "buildings": 797,
+      "pausedPaint": {
+        "calls": {
+          "neighbourhoodAmbient": {
+            "calls": 6,
+            "ms": 0.30000000074505806,
+            "actors": 24
+          },
+          "buildingActivity": {
+            "calls": 6,
+            "ms": 0.3000000026077032,
+            "actors": 72
+          },
+          "workdayScenes": {
+            "calls": 6,
+            "ms": 0.09999999962747097,
+            "actors": 42
+          },
+          "vehiclePosition": {
+            "calls": 204,
+            "ms": 0.2999999988824129,
+            "actors": 0
+          },
+          "spriteFor": {
+            "calls": 816,
+            "ms": 3.1000000070780516,
+            "actors": 0
+          },
+          "drawSceneSprite": {
+            "calls": 816,
+            "ms": 6.200000004842877,
+            "actors": 0
+          },
+          "draw": {
+            "calls": 6,
+            "ms": 39,
+            "actors": 0
+          }
+        },
+        "modelUnchanged": true
+      },
+      "hiddenTrafficUnchanged": true
+    },
+    {
+      "town": "lateTown",
+      "view": "near",
+      "speed": 1,
+      "seconds": 4.0094000000007455,
+      "days": 2,
+      "actualRate": 0.8230657953807019,
+      "rafP99": 33.29999999999927,
+      "panelToRAF": 49.70000000111759,
+      "calls": {
+        "trafficUpdate": {
+          "calls": 232,
+          "ms": 25.700000002980232,
+          "actors": 0
+        },
+        "neighbourhoodAmbient": {
+          "calls": 87,
+          "ms": 1.0999999977648258,
+          "actors": 348
+        },
+        "buildingActivity": {
+          "calls": 87,
+          "ms": 3,
+          "actors": 1044
+        },
+        "workdayScenes": {
+          "calls": 87,
+          "ms": 2.600000001490116,
+          "actors": 609
+        },
+        "vehiclePosition": {
+          "calls": 2966,
+          "ms": 4.099999997764826,
+          "actors": 0
+        },
+        "spriteFor": {
+          "calls": 12005,
+          "ms": 34.0999999884516,
+          "actors": 0
+        },
+        "drawSceneSprite": {
+          "calls": 12005,
+          "ms": 71.1999999973923,
+          "actors": 0
+        },
+        "draw": {
+          "calls": 87,
+          "ms": 550.3999999817461,
+          "actors": 0
+        },
+        "tick": {
+          "calls": 2,
+          "ms": 185.7999999988824,
+          "actors": 0
+        }
+      },
+      "population": 778,
+      "buildings": 797,
+      "pausedPaint": {
+        "calls": {
+          "neighbourhoodAmbient": {
+            "calls": 6,
+            "ms": 0,
+            "actors": 24
+          },
+          "buildingActivity": {
+            "calls": 6,
+            "ms": 0.19999999925494194,
+            "actors": 72
+          },
+          "workdayScenes": {
+            "calls": 6,
+            "ms": 0,
+            "actors": 42
+          },
+          "vehiclePosition": {
+            "calls": 216,
+            "ms": 0,
+            "actors": 0
+          },
+          "spriteFor": {
+            "calls": 792,
+            "ms": 1.5000000018626451,
+            "actors": 0
+          },
+          "drawSceneSprite": {
+            "calls": 792,
+            "ms": 3.299999998882413,
+            "actors": 0
+          },
+          "draw": {
+            "calls": 6,
+            "ms": 28.09999999962747,
+            "actors": 0
+          }
+        },
+        "modelUnchanged": true
+      },
+      "hiddenTrafficUnchanged": false
+    },
+    {
+      "town": "lateTown",
+      "view": "near",
+      "speed": 8,
+      "seconds": 4.001200000001117,
+      "days": 19,
+      "actualRate": 7.835149455161263,
+      "rafP99": 33.5,
+      "panelToRAF": 56.80000000074506,
+      "calls": {
+        "trafficUpdate": {
+          "calls": 207,
+          "ms": 24.09999999217689,
+          "actors": 0
+        },
+        "neighbourhoodAmbient": {
+          "calls": 82,
+          "ms": 1.6000000052154064,
+          "actors": 328
+        },
+        "buildingActivity": {
+          "calls": 82,
+          "ms": 1.5999999959021807,
+          "actors": 984
+        },
+        "workdayScenes": {
+          "calls": 82,
+          "ms": 2.3999999947845936,
+          "actors": 568
+        },
+        "vehiclePosition": {
+          "calls": 2792,
+          "ms": 2.899999998509884,
+          "actors": 0
+        },
+        "spriteFor": {
+          "calls": 12101,
+          "ms": 46.099999986588955,
+          "actors": 0
+        },
+        "drawSceneSprite": {
+          "calls": 12101,
+          "ms": 84.79999999329448,
+          "actors": 0
+        },
+        "draw": {
+          "calls": 82,
+          "ms": 618.4999999888241,
+          "actors": 0
+        },
+        "tick": {
+          "calls": 19,
+          "ms": 889.0999999996275,
+          "actors": 0
+        }
+      },
+      "population": 779,
+      "buildings": 797,
+      "pausedPaint": {
+        "calls": {
+          "neighbourhoodAmbient": {
+            "calls": 6,
+            "ms": 0.09999999962747097,
+            "actors": 24
+          },
+          "buildingActivity": {
+            "calls": 6,
+            "ms": 0,
+            "actors": 72
+          },
+          "workdayScenes": {
+            "calls": 6,
+            "ms": 0.2000000011175871,
+            "actors": 42
+          },
+          "vehiclePosition": {
+            "calls": 198,
+            "ms": 0.10000000149011612,
+            "actors": 0
+          },
+          "spriteFor": {
+            "calls": 864,
+            "ms": 2.6000000033527613,
+            "actors": 0
+          },
+          "drawSceneSprite": {
+            "calls": 864,
+            "ms": 4.400000004097819,
+            "actors": 0
+          },
+          "draw": {
+            "calls": 6,
+            "ms": 33.59999999962747,
+            "actors": 0
+          }
+        },
+        "modelUnchanged": true
+      },
+      "hiddenTrafficUnchanged": false
+    },
+    {
+      "town": "lateTown",
+      "view": "near",
+      "speed": 64,
+      "seconds": 4.017499999999629,
+      "days": 113,
+      "actualRate": 46.40945861854816,
+      "rafP99": 266.7000000000007,
+      "panelToRAF": 68.09999999962747,
+      "calls": {
+        "tick": {
+          "calls": 116,
+          "ms": 3437.0000000037253,
+          "actors": 0
+        },
+        "trafficUpdate": {
+          "calls": 116,
+          "ms": 15.600000003352761,
+          "actors": 0
+        },
+        "neighbourhoodAmbient": {
+          "calls": 55,
+          "ms": 2.400000000372529,
+          "actors": 220
+        },
+        "buildingActivity": {
+          "calls": 55,
+          "ms": 1.599999999627471,
+          "actors": 275
+        },
+        "workdayScenes": {
+          "calls": 55,
+          "ms": 1.200000001117587,
+          "actors": 165
+        },
+        "vehiclePosition": {
+          "calls": 2046,
+          "ms": 2.2999999970197678,
+          "actors": 0
+        },
+        "spriteFor": {
+          "calls": 8611,
+          "ms": 23.600000005215406,
+          "actors": 0
+        },
+        "drawSceneSprite": {
+          "calls": 8611,
+          "ms": 50.99999999627471,
+          "actors": 0
+        },
+        "draw": {
+          "calls": 55,
+          "ms": 504.19999999180436,
+          "actors": 0
+        }
+      },
+      "population": 771,
+      "buildings": 797,
+      "pausedPaint": {
+        "calls": {
+          "neighbourhoodAmbient": {
+            "calls": 6,
+            "ms": 0.10000000149011612,
+            "actors": 24
+          },
+          "buildingActivity": {
+            "calls": 6,
+            "ms": 0.09999999962747097,
+            "actors": 72
+          },
+          "workdayScenes": {
+            "calls": 6,
+            "ms": 0.2999999988824129,
+            "actors": 42
+          },
+          "vehiclePosition": {
+            "calls": 264,
+            "ms": 0.19999999925494194,
+            "actors": 0
+          },
+          "spriteFor": {
+            "calls": 738,
+            "ms": 2.3000000044703484,
+            "actors": 0
+          },
+          "drawSceneSprite": {
+            "calls": 738,
+            "ms": 3.800000000745058,
+            "actors": 0
+          },
+          "draw": {
+            "calls": 6,
+            "ms": 31.299999998882413,
+            "actors": 0
+          }
+        },
+        "modelUnchanged": true
+      },
+      "hiddenTrafficUnchanged": false
+    },
+    {
+      "town": "lateTown",
+      "view": "far",
+      "speed": 0,
+      "seconds": 4.0050999999996275,
+      "days": 0,
+      "actualRate": 0.0,
+      "rafP99": 16.799999999999272,
+      "panelToRAF": 29,
+      "calls": {},
+      "population": 771,
+      "buildings": 797,
+      "pausedPaint": {
+        "calls": {
+          "neighbourhoodAmbient": {
+            "calls": 6,
+            "ms": 0,
+            "actors": 0
+          },
+          "buildingActivity": {
+            "calls": 6,
+            "ms": 0,
+            "actors": 0
+          },
+          "workdayScenes": {
+            "calls": 6,
+            "ms": 0,
+            "actors": 0
+          },
+          "draw": {
+            "calls": 6,
+            "ms": 6,
+            "actors": 0
+          }
+        },
+        "modelUnchanged": true
+      },
+      "hiddenTrafficUnchanged": true
+    },
+    {
+      "town": "lateTown",
+      "view": "far",
+      "speed": 1,
+      "seconds": 4.005700000000372,
+      "days": 2,
+      "actualRate": 0.8238260478816919,
+      "rafP99": 16.80000000000291,
+      "panelToRAF": 43.90000000037253,
+      "calls": {
+        "trafficUpdate": {
+          "calls": 241,
+          "ms": 0.9000000040978193,
+          "actors": 0
+        },
+        "neighbourhoodAmbient": {
+          "calls": 88,
+          "ms": 0,
+          "actors": 0
+        },
+        "buildingActivity": {
+          "calls": 88,
+          "ms": 0.2000000011175871,
+          "actors": 0
+        },
+        "workdayScenes": {
+          "calls": 88,
+          "ms": 0.09999999962747097,
+          "actors": 0
+        },
+        "draw": {
+          "calls": 88,
+          "ms": 126.2000000141561,
+          "actors": 0
+        },
+        "tick": {
+          "calls": 2,
+          "ms": 39.69999999925494,
+          "actors": 0
+        }
+      },
+      "population": 771,
+      "buildings": 797,
+      "pausedPaint": {
+        "calls": {
+          "neighbourhoodAmbient": {
+            "calls": 6,
+            "ms": 0.09999999962747097,
+            "actors": 0
+          },
+          "buildingActivity": {
+            "calls": 6,
+            "ms": 0,
+            "actors": 0
+          },
+          "workdayScenes": {
+            "calls": 6,
+            "ms": 0,
+            "actors": 0
+          },
+          "draw": {
+            "calls": 6,
+            "ms": 4.799999998882413,
+            "actors": 0
+          }
+        },
+        "modelUnchanged": true
+      },
+      "hiddenTrafficUnchanged": true
+    },
+    {
+      "town": "lateTown",
+      "view": "far",
+      "speed": 8,
+      "seconds": 4.006200000000747,
+      "days": 19,
+      "actualRate": 7.825370675451588,
+      "rafP99": 33.400000000001455,
+      "panelToRAF": 47.09999999962747,
+      "calls": {
+        "trafficUpdate": {
+          "calls": 220,
+          "ms": 0.40000000037252903,
+          "actors": 0
+        },
+        "neighbourhoodAmbient": {
+          "calls": 84,
+          "ms": 0.2999999988824129,
+          "actors": 0
+        },
+        "buildingActivity": {
+          "calls": 84,
+          "ms": 0.2000000011175871,
+          "actors": 0
+        },
+        "workdayScenes": {
+          "calls": 84,
+          "ms": 0,
+          "actors": 0
+        },
+        "draw": {
+          "calls": 84,
+          "ms": 137.29999999329448,
+          "actors": 0
+        },
+        "tick": {
+          "calls": 19,
+          "ms": 655.3000000007451,
+          "actors": 0
+        },
+        "spriteFor": {
+          "calls": 1590,
+          "ms": 4.700000001117587,
+          "actors": 0
+        },
+        "drawSceneSprite": {
+          "calls": 2424,
+          "ms": 11.500000001862645,
+          "actors": 0
+        }
+      },
+      "population": 774,
+      "buildings": 797,
+      "pausedPaint": {
+        "calls": {
+          "neighbourhoodAmbient": {
+            "calls": 6,
+            "ms": 0,
+            "actors": 0
+          },
+          "buildingActivity": {
+            "calls": 6,
+            "ms": 0,
+            "actors": 0
+          },
+          "workdayScenes": {
+            "calls": 6,
+            "ms": 0.09999999962747097,
+            "actors": 0
+          },
+          "draw": {
+            "calls": 6,
+            "ms": 4.599999999627471,
+            "actors": 0
+          }
+        },
+        "modelUnchanged": true
+      },
+      "hiddenTrafficUnchanged": false
+    },
+    {
+      "town": "lateTown",
+      "view": "far",
+      "speed": 64,
+      "seconds": 4.0163999999996305,
+      "days": 124,
+      "actualRate": 50.94114132059028,
+      "rafP99": 233.40000000000146,
+      "panelToRAF": 66.30000000074506,
+      "calls": {
+        "trafficUpdate": {
+          "calls": 130,
+          "ms": 0.40000000037252903,
+          "actors": 0
+        },
+        "tick": {
+          "calls": 125,
+          "ms": 3607.9999999981374,
+          "actors": 0
+        },
+        "neighbourhoodAmbient": {
+          "calls": 56,
+          "ms": 0.09999999962747097,
+          "actors": 0
+        },
+        "buildingActivity": {
+          "calls": 56,
+          "ms": 0.2000000011175871,
+          "actors": 0
+        },
+        "workdayScenes": {
+          "calls": 56,
+          "ms": 0.10000000149011612,
+          "actors": 0
+        },
+        "draw": {
+          "calls": 56,
+          "ms": 272.19999999925494,
+          "actors": 0
+        },
+        "spriteFor": {
+          "calls": 12720,
+          "ms": 32.79999999888241,
+          "actors": 0
+        },
+        "drawSceneSprite": {
+          "calls": 19392,
+          "ms": 80.70000000111759,
+          "actors": 0
+        }
+      },
+      "population": 774,
+      "buildings": 797,
+      "pausedPaint": {
+        "calls": {
+          "neighbourhoodAmbient": {
+            "calls": 6,
+            "ms": 0.09999999962747097,
+            "actors": 0
+          },
+          "buildingActivity": {
+            "calls": 6,
+            "ms": 0,
+            "actors": 0
+          },
+          "workdayScenes": {
+            "calls": 6,
+            "ms": 0,
+            "actors": 0
+          },
+          "draw": {
+            "calls": 6,
+            "ms": 4.599999999627471,
+            "actors": 0
+          }
+        },
+        "modelUnchanged": true
+      },
+      "hiddenTrafficUnchanged": false
+    },
+    {
+      "town": "lateTown",
+      "view": "offscreen",
+      "speed": 0,
+      "seconds": 4.012500000000371,
+      "days": 0,
+      "actualRate": 0.0,
+      "rafP99": 16.80000000000291,
+      "panelToRAF": 27.40000000037253,
+      "calls": {},
+      "population": 772,
+      "buildings": 797,
+      "pausedPaint": {
+        "calls": {
+          "neighbourhoodAmbient": {
+            "calls": 6,
+            "ms": 0.09999999962747097,
+            "actors": 0
+          },
+          "buildingActivity": {
+            "calls": 6,
+            "ms": 0,
+            "actors": 0
+          },
+          "workdayScenes": {
+            "calls": 6,
+            "ms": 0.10000000149011612,
+            "actors": 0
+          },
+          "vehiclePosition": {
+            "calls": 288,
+            "ms": 0.19999999925494194,
+            "actors": 0
+          },
+          "draw": {
+            "calls": 6,
+            "ms": 6.899999998509884,
+            "actors": 0
+          }
+        },
+        "modelUnchanged": true
+      },
+      "hiddenTrafficUnchanged": true
+    },
+    {
+      "town": "lateTown",
+      "view": "offscreen",
+      "speed": 1,
+      "seconds": 4.016400000000372,
+      "days": 2,
+      "actualRate": 0.8216313116222722,
+      "rafP99": 16.80000000000291,
+      "panelToRAF": 45,
+      "calls": {
+        "trafficUpdate": {
+          "calls": 242,
+          "ms": 24.700000010430813,
+          "actors": 0
+        },
+        "neighbourhoodAmbient": {
+          "calls": 88,
+          "ms": 0.6000000014901161,
+          "actors": 0
+        },
+        "buildingActivity": {
+          "calls": 88,
+          "ms": 0.09999999962747097,
+          "actors": 0
+        },
+        "workdayScenes": {
+          "calls": 88,
+          "ms": 0.5,
+          "actors": 0
+        },
+        "vehiclePosition": {
+          "calls": 3688,
+          "ms": 2.2000000048428774,
+          "actors": 0
+        },
+        "draw": {
+          "calls": 88,
+          "ms": 116.00000000372529,
+          "actors": 0
+        },
+        "tick": {
+          "calls": 2,
+          "ms": 43.80000000074506,
+          "actors": 0
+        }
+      },
+      "population": 772,
+      "buildings": 797,
+      "pausedPaint": {
+        "calls": {
+          "neighbourhoodAmbient": {
+            "calls": 6,
+            "ms": 0,
+            "actors": 0
+          },
+          "buildingActivity": {
+            "calls": 6,
+            "ms": 0,
+            "actors": 0
+          },
+          "workdayScenes": {
+            "calls": 6,
+            "ms": 0,
+            "actors": 0
+          },
+          "vehiclePosition": {
+            "calls": 222,
+            "ms": 0.19999999925494194,
+            "actors": 0
+          },
+          "draw": {
+            "calls": 6,
+            "ms": 5,
+            "actors": 0
+          }
+        },
+        "modelUnchanged": true
+      },
+      "hiddenTrafficUnchanged": false
+    },
+    {
+      "town": "lateTown",
+      "view": "offscreen",
+      "speed": 8,
+      "seconds": 4.0050999999996275,
+      "days": 19,
+      "actualRate": 7.827519912112785,
+      "rafP99": 33.400000000001455,
+      "panelToRAF": 44.59999999962747,
+      "calls": {
+        "trafficUpdate": {
+          "calls": 220,
+          "ms": 28.100000005215406,
+          "actors": 0
+        },
+        "neighbourhoodAmbient": {
+          "calls": 84,
+          "ms": 0.30000000074505806,
+          "actors": 0
+        },
+        "buildingActivity": {
+          "calls": 84,
+          "ms": 0.09999999962747097,
+          "actors": 0
+        },
+        "workdayScenes": {
+          "calls": 84,
+          "ms": 0.599999999627471,
+          "actors": 0
+        },
+        "vehiclePosition": {
+          "calls": 3256,
+          "ms": 1.9999999981373549,
+          "actors": 0
+        },
+        "draw": {
+          "calls": 84,
+          "ms": 132.19999999180436,
+          "actors": 0
+        },
+        "tick": {
+          "calls": 19,
+          "ms": 749.5000000018626,
+          "actors": 0
+        }
+      },
+      "population": 775,
+      "buildings": 797,
+      "pausedPaint": {
+        "calls": {
+          "neighbourhoodAmbient": {
+            "calls": 6,
+            "ms": 0,
+            "actors": 0
+          },
+          "buildingActivity": {
+            "calls": 6,
+            "ms": 0,
+            "actors": 0
+          },
+          "workdayScenes": {
+            "calls": 6,
+            "ms": 0,
+            "actors": 0
+          },
+          "vehiclePosition": {
+            "calls": 234,
+            "ms": 0,
+            "actors": 0
+          },
+          "draw": {
+            "calls": 6,
+            "ms": 4.600000001490116,
+            "actors": 0
+          }
+        },
+        "modelUnchanged": true
+      },
+      "hiddenTrafficUnchanged": false
+    },
+    {
+      "town": "lateTown",
+      "view": "offscreen",
+      "speed": 64,
+      "seconds": 4.0075,
+      "days": 138,
+      "actualRate": 56.81846537741733,
+      "rafP99": 266.6999999999971,
+      "panelToRAF": 97.79999999888241,
+      "calls": {
+        "trafficUpdate": {
+          "calls": 150,
+          "ms": 16,
+          "actors": 0
+        },
+        "tick": {
+          "calls": 139,
+          "ms": 4175.400000002235,
+          "actors": 0
+        },
+        "neighbourhoodAmbient": {
+          "calls": 58,
+          "ms": 0.599999999627471,
+          "actors": 0
+        },
+        "buildingActivity": {
+          "calls": 58,
+          "ms": 0.10000000149011612,
+          "actors": 0
+        },
+        "workdayScenes": {
+          "calls": 58,
+          "ms": 0.6000000014901161,
+          "actors": 0
+        },
+        "vehiclePosition": {
+          "calls": 2354,
+          "ms": 2.400000000372529,
+          "actors": 0
+        },
+        "draw": {
+          "calls": 58,
+          "ms": 99.69999999925494,
+          "actors": 0
+        }
+      },
+      "population": 766,
+      "buildings": 798,
+      "pausedPaint": {
+        "calls": {
+          "neighbourhoodAmbient": {
+            "calls": 6,
+            "ms": 0,
+            "actors": 0
+          },
+          "buildingActivity": {
+            "calls": 6,
+            "ms": 0,
+            "actors": 0
+          },
+          "workdayScenes": {
+            "calls": 6,
+            "ms": 0,
+            "actors": 0
+          },
+          "vehiclePosition": {
+            "calls": 252,
+            "ms": 0.19999999925494194,
+            "actors": 0
+          },
+          "draw": {
+            "calls": 6,
+            "ms": 4.900000000372529,
+            "actors": 0
+          }
+        },
+        "modelUnchanged": true
+      },
+      "hiddenTrafficUnchanged": false
+    }
+  ],
+  "errors": []
+}
