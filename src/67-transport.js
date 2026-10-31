@@ -27,6 +27,7 @@ function spawnPurposeTrip(){
  const freights=G.freight||[];if(freights.length&&vehicleSerial%3===0){const s=freights[vehicleSerial%freights.length],f=G.firms[s.from],t=G.firms[s.to];const v=beginVehicle(readBuild(f.building),readBuild(t.building));if(v){setPurposeStyle(v,'truck');v.reason=s.qty.toFixed(0)+' '+s.good+' → '+t.name;v.shipment=s.id;return v;}}
  const employed=G.people.filter(p=>!p.deceased&&!p.movedAway&&p.job>=0);if(!employed.length)return null;
  const p=employed[hash(vehicleSerial+G.day)%employed.length],h=G.households[p.hh],f=G.firms[p.job];
+ if(p.transitTrip?.day===G.day)return null;
  const home=readBuild(h.home),work=readBuild(f.building);if(!home||!work||f.closed)return null;
  const returning=vehicleSerial%2===1;const v=beginVehicle(returning?work:home,returning?home:work);if(v){setPurposeStyle(v,(p.id%3===0)?'pedestrian':'car');v.person=p.id;v.reason=p.name+(returning?' returning home':' commuting to '+f.name);}return v;
 }

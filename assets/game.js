@@ -14,6 +14,8 @@ const first=['Arthur','Alice','Thomas','Eleanor','Henry','Margaret','Jack','Edit
 const surnames=['Bennett','Parker','Sutton','Miller','Hughes','Clarke','Foster','Wright','Carter','Howard','Taylor','Moore','Campbell','Ward','Russell','Harris','Reed','Turner','Hill','Smith','Brooks','Davies','Morgan','Baker','Wilson','Grant'];
 const T=80, TW=72, TH=36, RW=T*TW+140,RH=T*TH+120;
 const types={
+ transit_depot:{n:'Transit Depot',cost:9000,col:'#668f99',jobs:0,build:'Transit depot'},
+ elevated_station:{n:'Elevated Metro Station',cost:12500,col:'#70abb7',jobs:0,build:'Elevated station'},
  bank:{n:'Bank Branch',cost:0,col:'#a3b0a6',jobs:0},
  worksite:{n:'Private Construction Site',cost:0,col:'#c0a076',jobs:0},
  apartment:{n:'Apartment House',cost:0,col:'#b7ab91',jobs:0},
@@ -49,8 +51,8 @@ const types={
 };
 const goods={grain:2,flour:3,food:3.3,logs:2,timber:4,stone:3,manufactures:8.5};
 const formulas={farm:{out:'grain',qty:140,inp:null,amount:0},mill:{out:'flour',qty:175,inp:'grain',amount:105},bakery:{out:'food',qty:200,inp:'flour',amount:105},grocer:{out:null,qty:0,inp:'food',amount:0},forestry:{out:'logs',qty:170},sawmill:{out:'timber',qty:130,inp:'logs',amount:100},quarry:{out:'stone',qty:125},fishery:{out:'food',qty:130},factory:{out:'manufactures',qty:85,inp:'timber',amount:58}};
-const buildIcons={metro_station:'Ⓜ',repair:'↻',road:'═',home:'⌂',grocer:'▣',bakery:'♨',mill:'◈',farm:'❖',forestry:'♣',sawmill:'▥',quarry:'◆',contractor:'⚒',police:'♜',fire:'♨',clinic:'✚',park:'♣',school:'✎',courthouse:'⚖',watchtower:'♜',square:'◉',wharf:'⚓',fishery:'≈',tavern:'♨',factory:'⚙',warehouse:'▤',office:'▦',college:'♜'};
-const buildCost={metro_station:18000,road:150,repair:135,home:20000,grocer:4300,bakery:3600,mill:4800,farm:3100,forestry:3000,sawmill:4100,quarry:3900,contractor:4400,police:7600,fire:6900,clinic:8000,park:550,school:6900,courthouse:8400,watchtower:4900,square:2500,wharf:7600,fishery:3500,tavern:3200,factory:9800,warehouse:12000,office:14200,college:18000};
+const buildIcons={transit_depot:'▤',elevated_station:'E',metro_station:'Ⓜ',repair:'↻',road:'═',home:'⌂',grocer:'▣',bakery:'♨',mill:'◈',farm:'❖',forestry:'♣',sawmill:'▥',quarry:'◆',contractor:'⚒',police:'♜',fire:'♨',clinic:'✚',park:'♣',school:'✎',courthouse:'⚖',watchtower:'♜',square:'◉',wharf:'⚓',fishery:'≈',tavern:'♨',factory:'⚙',warehouse:'▤',office:'▦',college:'♜'};
+const buildCost={transit_depot:9000,elevated_station:12500,metro_station:18000,road:150,repair:135,home:20000,grocer:4300,bakery:3600,mill:4800,farm:3100,forestry:3000,sawmill:4100,quarry:3900,contractor:4400,police:7600,fire:6900,clinic:8000,park:550,school:6900,courthouse:8400,watchtower:4900,square:2500,wharf:7600,fishery:3500,tavern:3200,factory:9800,warehouse:12000,office:14200,college:18000};
 const defs=[
  ['privateServices','License new private schools and brigades',0,1,1,'','One permits entrepreneurial entry; zero stops new licenses without confiscating existing providers.'],
  ['privateTuitionCap','Private tuition ceiling / learner / day',0,8,.25,'$','Maximum fee per equivalent learner-day. A low ceiling improves prices only if an operator can still cover qualified teaching and premises costs.'],
@@ -70,7 +72,7 @@ const defs=[
  ['defenseBudget','Fire and civil defence / day',0,800,10,'$','Maintains emergency preparedness. Stations improve response.'],
  ['aidBudget','Housing assistance / day',0,600,10,'$','Direct household transfers, prioritized by hardship and low savings.'],
  ['energyAidBudget','Heating assistance / day',0,400,10,'$','Pays energy bills for low-cash households, especially in winter.'],
- ['transitBudget','Commuter transit / day',0,250,10,'$','Supports journeys to work and improves access to jobs across the borough.'],
+ ['transitBudget','Commuter transit / day',0,250,10,'$','Legacy commuter support while no public routes exist. Public bus and elevated metro service is authorized separately in Public Works, with quoted fleet, staffing and daily costs.'],
  ['outreachBudget','Community outreach / day',0,300,10,'$','Local support services that reduce isolation and some risk factors.'],
  ['employmentSubsidy','Wage subsidy / worker / day',0,15,1,'$','Town reimburses employers per filled job, subject to available funds.'],
  ['importTariff','Import tariff',0,40,1,'%','Adds costs to imported food and industrial materials, producing revenue.'],
@@ -106,6 +108,7 @@ function hash(n){n=Math.imul((n^0x9e3779b9)>>>0,0x85ebca6b);n^=n>>>13;return (Ma
 function book(from,to,amount,reason,entity=-1){if(!(amount>0))return;G.transactions=G.transactions||[];G.transactions.push({day:G.day,from,to,amount,reason,entity});if(G.transactions.length>800)G.transactions.splice(0,G.transactions.length-800);}
 function ensureSystems(){
  if(!G)return;
+ ensureTransit();
  if(G.airport?.runway)for(const id of G.airport.runway)if(G.tiles[id]===3)G.tiles[id]=0;
  G.climateSeasons=G.climateSeasons===true;G.climateWeather=G.climateWeather===true;if(!G.climateWeather)G.weather='clear';G.nextLoanId=G.nextLoanId??0;G.schema=RELEASE.schema;G.release=RELEASE.version;G.development={fields:0,redevelopments:0,towers:0,airfields:0,...G.development};
  G.investors=G.investors||[{id:0,name:'Vale Property Partnership',cash:0,invested:0,spending:0}];
@@ -781,7 +784,7 @@ function validateCivicState(data){
  if(data.civicTraining!=null){if(!Array.isArray(data.civicTraining)||data.civicTraining.length>data.people.length)return false;const seen=new Set();
   for(const c of data.civicTraining){if(!c||!Number.isInteger(c.person)||!data.people[c.person]||seen.has(c.person)||!Number.isFinite(c.days)||c.days<0||c.days>=120||!Number.isInteger(c.started)||c.started<1||c.started>data.day)return false;seen.add(c.person);}}
  if(data.civicTrainingLastDay!=null&&(!Number.isInteger(data.civicTrainingLastDay)||data.civicTrainingLastDay>data.day||data.civicTrainingLastDay<1))return false;
- return data.people.every(p=>[p.publicRole,p.previousPublicRole].every(role=>role==null||['','health','school'].includes(role)));
+ return data.people.every(p=>[p.publicRole,p.previousPublicRole].every(role=>role==null||['','health','school','transit'].includes(role)));
 }
 function civicTrainingPanel(){
  const courses=G.civicTraining||[];return head('Local qualifications and training')+tip('Each operating school offers two adult-training places. A term needs 120 equivalent funded teaching days and adds 10 skill points; partial coverage progresses more slowly. Regional staffing contracts provide a recovery path when no local qualified worker is available.')+(courses.length?courses.map(c=>{const p=G.people[c.person];return `<div class="entry"><strong>${esc(p.name)}</strong><small>${Math.floor(c.days)} / 120 funded days · Skill ${Math.round(p.skill*100)}/100</small><button data-house="${p.hh}">Inspect household</button></div>`;}).join(''):tip('No adult course is active. Fund reachable schools to open places.'));
@@ -848,13 +851,13 @@ function reachableRetailDemand(f){return householdMarket().stores.get(f.id)?.dem
 function groceryChoices(h,home,grocers){
  const market=householdMarket(),port=home&&market.net.portals.get(home.id),need=Math.max(1,h.people.length*1.6),discount=1-clamp(G.policy.transitBudget*(G.actualServiceFunding?.transit||0)/280,0,.65),choices=[];
  for(const f of grocers){const distance=market.stores.get(f.id)?.distance.get(port);if(distance==null)continue;
-  const destination=readBuild(f.building),roadFare=distance*.035*2*discount,metro=G.metro?.operating&&hasMetroCommute(home,destination)&&G.metro.fare*2<roadFare,travel=metro?G.metro.fare*2:roadFare;
-  choices.push({f,distance,travel,metro,score:f.price*(1+G.policy.foodTax/100)+travel/need});
+  const destination=readBuild(f.building),journey=transitJourney(home,destination,2),publicTransit=journey&&journey.time<=90&&journey.fare*2<distance*.035*2*discount&&journey.routes.every(id=>{const s=G.transit.routes.find(r=>r.id===id).stats;return s.reserved+2<=s.capacity;})?journey:null,roadFare=distance*.035*2*discount,metro=G.metro?.operating&&hasMetroCommute(home,destination)&&G.metro.fare*2<roadFare,travel=publicTransit?publicTransit.fare*2:metro?G.metro.fare*2:roadFare;
+  choices.push({f,distance,travel,metro:!publicTransit&&metro,transit:publicTransit,score:f.price*(1+G.policy.foodTax/100)+travel/need});
  }
  return choices.sort((a,b)=>a.score-b.score||a.f.id-b.f.id);
 }
 function sharesRoadNetwork(a,b){if(!a||!b)return false;const net=graph(),x=net.portals.get(a.id),y=net.portals.get(b.id);return x!=null&&y!=null&&net.parts[x]===net.parts[y];}
-function workerCanCommute(person,firm){const h=G.households[person.hh];return sharesRoadNetwork(h&&readBuild(h.home),readBuild(firm.building));}
+function workerCanCommute(person,firm){const h=G.households[person.hh],home=h&&readBuild(h.home),work=readBuild(firm.building);if(!sharesRoadNetwork(home,work))return false;if(!G.transit?.routes.length)return true;if(person.transitTrip?.day===G.day||hasMetroCommute(home,work))return true;const net=graph();return roadDistance(net.portals.get(home.id),net.portals.get(work.id))<=60+(G.transit?.routes.length?0:(G.policy.transitBudget||0)/8);}
 function workingStaff(f){return f.attendingWorkers||f.workers;}
 
 function regionalUtilityAccess(home){if(!home)return false;const net=graph(),port=net.portals.get(home.id);return port!=null&&net.parts[port]===net.mainPart;}
@@ -1104,7 +1107,7 @@ function cityCell(x,y){return x>=0&&x<T&&y>=0&&y<T?G.tiles[y*T+x]:-1}
 // A site owns every square in its footprint. Legacy saves without a footprint
 // retain their one-square plot; newly built landmarks reserve all their land.
 const LANDMARK_SIZE={farm:[2,2],factory:[2,2],warehouse:[2,2],college:[2,2],
- airport:[2,2],metro_station:[2,2],tower:[2,2],apartment:[2,2],school:[2,2]};
+ transit_depot:[2,2],airport:[2,2],metro_station:[2,2],tower:[2,2],apartment:[2,2],school:[2,2]};
 function footprintFor(x,y,kind){const [w,h]=LANDMARK_SIZE[kind]||[1,1];const result=[];
  for(let dy=0;dy<h;dy++)for(let dx=0;dx<w;dx++)result.push((y+dy)*T+x+dx);
  return result;}
@@ -1125,7 +1128,7 @@ function canPlace(x,y,roads=true,kind='home',ignore=null){
  let access=false;
  for(let dy=0;dy<dims[1];dy++)for(let dx=0;dx<dims[0];dx++){
   const ax=x+dx,ay=y+dy,id=roadId(ax,ay),owner=buildingAt(ax,ay);if(!charterOwns(ax,ay))return false;
-  if(![0,3].includes(G.tiles[id])||G.landUse?.[id]||(owner&&owner.id!==ignore?.id))return false;
+  if(transitRightOfWay(id)||![0,3].includes(G.tiles[id])||G.landUse?.[id]||(owner&&owner.id!==ignore?.id))return false;
   if(nearRoad(ax,ay))access=true;
  }
  if((kind==='fishery'||kind==='wharf')&&!waterfrontSite(x,y,kind))return false;
@@ -1154,7 +1157,7 @@ function createFirm(kind,x,y,setup=false,addFn=null){
 function assignJobs(){
  if(!G||!G.people)return;
  const free=G.people.filter(p=>!p.deceased&&p.movedAway!==true&&p.age>=16&&p.age<=70&&p.job<0&&!p.publicWork&&!p.previousPublicRole&&(p.searchAfter||0)<=G.day);
- const net=graph(),maxJourney=60+(G.policy.transitBudget||0)/8;
+ const net=graph(),maxJourney=60+(G.transit?.routes.length?0:(G.policy.transitBudget||0)/8);
  const vacancies=G.firms.filter(f=>!f.closed&&f.workers.length<f.jobs).sort((a,b)=>(b.wage-a.wage));
  for(const f of vacancies){let workplace=readBuild(f.building),port=net.portals.get(f.building);
   if(!workplace||port==null)continue;
@@ -1162,7 +1165,7 @@ function assignJobs(){
    for(let i=0;i<free.length;i++){const candidate=free[i],hh=G.households[candidate.hh],home=hh&&readBuild(hh.home);
     if(!home||f.privateService&&!privateQualified(candidate,f))continue;const hport=net.portals.get(home.id);if(hport==null||net.parts[hport]!==net.parts[port])continue;
     const distance=roadDistance(hport,port);
-    if(distance>maxJourney&&!hasMetroCommute(home,workplace))continue;
+    if(distance>maxJourney&&!hasMetroCommute(home,workplace)&&!transitAccess(home,workplace))continue;
     const mismatch=Math.abs(candidate.skill-.7)*3,rank=distance*.74+mismatch+candidate.id*.00001;
     if(rank<score){score=rank;best=i}
    }
@@ -1410,6 +1413,7 @@ function dailyEconomy(){
  for(const p of G.people){p.previousPublicRole=p.publicWork?(p.publicRole||''):'';p.publicRole='';p.publicWork=false;p.publicIncome=0;p.commuteBlocked=false;}
  for(const h of G.households){h.income=0;h.crimeLossToday=0;h.recoveredLosses=0;h.serviceReceipts=0;h.wages=0;h.pension=0;h.rentalIncome=0;h.dividends=0;h.debtService=0;h.debtDue=0;h.propertyPaid=0;h.propertyMaintenance=0;h.rent=0;h.food=0;h.tax=0;h.incomeTax=0;h.energyTax=0;h.aid=0;h.utilities=0;h.energyRebate=0;h.travel=0;h.travelDue=0;h.shoppingTravel=0;h.discretionary=0;h.last=[];}
  G.market.unmetFood=0;G.market.consumedFood=0;G.market.externalSales=0;G.market.imports=0;G.market.foodDisconnected=0;G.market.blockedCommutes=0;
+ transitOperatingDay();
  for(const f of live){planEnterprise(f);f.attendingWorkers=f.workers.filter(id=>workerCanCommute(G.people[id],f));const attending=new Set(f.attendingWorkers);if(!attending.size)f.ratedOutput=0;
   const wage=workerIncome(f);for(const id of f.workers.slice()){const person=G.people[id],h=G.households[person?.hh];if(!h)continue;if(!attending.has(id)){person.commuteBlocked=true;person.commuteBlockedDays=(person.commuteBlockedDays||0)+1;G.market.blockedCommutes++;if(person.commuteBlockedDays>=30){person.job=-1;person.commuteBlockedDays=0;person.searchAfter=G.day+1;f.workers=f.workers.filter(p=>p!==id);}continue;}person.commuteBlockedDays=0;
    const gross=Math.min(wage,f.cash),tax=gross*P.incomeTax/100;f.cash-=gross;f.expenses+=gross;f.payroll+=gross;h.cash+=gross-tax;h.income+=gross;h.wages+=gross;h.incomeTax+=tax;h.tax+=tax;transferTreasury(tax,'incomeTax');if(gross<wage*.9){f.strain++;person.unpaidDays=(person.unpaidDays||0)+1;}else person.unpaidDays=0;if(person.unpaidDays>=7){person.job=-1;person.searchAfter=G.day+7;f.workers=f.workers.filter(v=>v!==id);}}
@@ -1457,7 +1461,7 @@ function dailyEconomy(){
   if((f.stock.food||0)+pendingGoods(f,'food')<daily*3)trade(f,'food',Math.max(0,target-(f.stock.food||0)));
   f.retailCapacity=workingStaff(f).length*80;}
  // A public employee cannot be counted six times across six service budgets.
- G.actualServiceFunding={police:fundedPublicPayroll(P.policeBudget),fire:fundedPublicPayroll(P.defenseBudget),outreach:fundedPublicPayroll(P.outreachBudget),transit:fundedPublicPayroll(P.transitBudget||0)};
+ G.actualServiceFunding={police:fundedPublicPayroll(P.policeBudget),fire:fundedPublicPayroll(P.defenseBudget),outreach:fundedPublicPayroll(P.outreachBudget),transit:G.transit?.routes.length?0:fundedPublicPayroll(P.transitBudget||0)};
  const retirees=G.people.filter(p=>!p.deceased&&!p.movedAway&&p.age>70),pensionDue=retirees.length*(P.pensionDaily||0),pensionPaid=Math.min(G.treasury,pensionDue);G.treasury-=pensionPaid;G.cumulative.spending+=pensionPaid;G.cumulative.pensions=(G.cumulative.pensions||0)+pensionPaid;for(const p of retirees){const h=G.households[p.hh],amount=pensionPaid/Math.max(1,retirees.length);h.cash+=amount;h.income+=amount;h.pension+=amount;}G.market.pensionFunding=pensionDue>0?pensionPaid/pensionDue:1;
  fundCivicServices();
  const householdLoans=new Map();for(const l of G.loans)if(l.status==='active'&&l.ownerType==='household'){if(!householdLoans.has(l.ownerId))householdLoans.set(l.ownerId,[]);householdLoans.get(l.ownerId).push(l);}
@@ -1476,15 +1480,17 @@ function dailyEconomy(){
   const home=readBuild(h.home);
   let need=h.people.length*1.6,remaining=need;
   const reachable=groceryChoices(h,home,grocers),shops=reachable.filter(o=>o.f.stock.food>0&&o.f.retailCapacity>0);if(!reachable.length)G.market.foodDisconnected+=h.people.length;
-  for(const {f,travel,metro} of shops){const unit=f.price*(1+P.foodTax/100),q=Math.min(remaining,f.stock.food,f.retailCapacity,Math.max(0,h.cash-travel)/unit);if(q<=0)continue;
-   h.cash-=travel;h.travel+=travel;h.travelDue+=travel;h.shoppingTravel+=travel;if(metro){G.metro.cash+=travel;G.metro.dailyRides+=2;G.metro.rides+=2;G.metro.revenue+=travel;}else G.region+=travel;
+  for(let {f,travel,metro,transit,distance} of shops){const unit=f.price*(1+P.foodTax/100);let q=Math.min(remaining,f.stock.food,f.retailCapacity,Math.max(0,h.cash-travel)/unit);if(q<=0)continue;
+   if(transit&&!transitReserve(transit,2)){transit=null;metro=false;travel=distance*.035*2;q=Math.min(remaining,f.stock.food,f.retailCapacity,Math.max(0,h.cash-travel)/unit);if(q<=0)continue;}
+   if(transit){transitDemand(transit,false,2);transitCollectFare(h,transit,2);h.shoppingTravel+=travel;}else{
+   h.cash-=travel;h.travel+=travel;h.travelDue+=travel;h.shoppingTravel+=travel;if(metro){G.metro.cash+=travel;G.metro.dailyRides+=2;G.metro.rides+=2;G.metro.revenue+=travel;}else G.region+=travel;}
    const net=q*f.price,tax=net*P.foodTax/100;h.cash-=net+tax;h.food+=net+tax;f.cash+=net;f.revenue+=net;takeInventory(f,'food',q,true);f.retailCapacity-=q;goodsEntry('food','consumed',q);transferTreasury(tax,'foodTax');remaining-=q;if(remaining<.001)break;}
 
   G.market.consumedFood+=need-remaining;G.market.unmetFood+=remaining;
   h.stress=clamp(h.stress+(remaining>.1?remaining*.30:-.20),0,100);
   const cold=seasonsEnabled()&&(G.month>=10||G.month<=2),bill=h.people.length*(2.25+(cold?1.8:0))*(1+P.utilityTax/100),energy=regionalUtilityAccess(home)?Math.min(h.cash,bill):0,levy=energy-energy/(1+P.utilityTax/100);
   h.utilityConnected=regionalUtilityAccess(home);h.utilityDue=bill;h.cash-=energy;h.utilities=energy;h.energyTax=levy;G.region+=energy-levy;transferTreasury(levy,'utilityTax');if(energy<bill*.8)h.stress=clamp(h.stress+.35,0,100);
-  for(const id of h.people){const person=G.people[id];if(person.job<0||person.commuteBlocked)continue;const firm=G.firms[person.job],work=firm&&readBuild(firm.building);if(!work||!home)continue;const dist=Math.abs(home.x-work.x)+Math.abs(home.y-work.y),metro=hasMetroCommute(home,work)&&G.metro?.operating;
+  for(const id of h.people){const person=G.people[id];if(person.job<0||person.commuteBlocked)continue;const firm=G.firms[person.job],work=firm&&readBuild(firm.building);if(!work||!home)continue;if(person.transitTrip?.day===G.day){transitCollectFare(h,person.transitTrip);continue;}const dist=Math.abs(home.x-work.x)+Math.abs(home.y-work.y),metro=hasMetroCommute(home,work)&&G.metro?.operating;
    const fareDue=metro?G.metro.fare:dist*.035*(1-clamp(P.transitBudget*(G.actualServiceFunding?.transit||0)/280,0,.65)),fare=Math.min(h.cash,fareDue);h.travelDue+=fareDue;h.cash-=fare;h.travel+=fare;if(metro){G.metro.cash+=fare;G.metro.dailyRides++;G.metro.rides++;G.metro.revenue+=fare;}else G.region+=fare;}
   loanPayments(householdLoans.get(h.id)||[]);
   const propertyReserve=propertyDue.get(h.id)||0;h.essentialDue=(h.rentDue||0)+need*(reachable[0]?.f.price||retailReference)*(1+P.foodTax/100)+bill+h.travelDue+propertyReserve;
@@ -2231,6 +2237,175 @@ function occupyVacantHousing(){
  story('The '+h.name+' household moved into a vacant home after finding local job opportunities.','good',vacancy.id,h.id);
 }
 
+// SOURCE: 46-transit-network.js
+// Public buses and elevated metro: authoritative daily capacity; independent visual samples.
+const TRANSIT_MODES={bus:{name:'Bus',seats:32,vehicle:6200,tile:0,minutes:1.15,staff:2,upkeep:12,fare:.65},elevated:{name:'Elevated metro',seats:110,vehicle:36000,tile:950,minutes:.42,staff:4,upkeep:40,fare:1.25}};
+const TRANSIT_LEVELS=[{name:'Suspended',vehicles:0},{name:'Local',vehicles:1},{name:'Frequent',vehicles:2},{name:'High frequency',vehicles:4}];
+const TRANSIT_COLORS=['#f0ad56','#51b9c3','#c385b9','#8abf77','#ef8175','#8ba6e9'];
+let transitTopologyCache=null,transitDailyCache=null;
+function ensureTransit(){if(!G.transit)G.transit={version:1,revision:0,next:1,routes:[],tracks:[],capital:0,fares:0,expenses:0,lastDay:0,daily:{rides:0,denied:0,revenue:0,expenses:0,staff:0}};return G.transit;}
+function transitChanged(){ensureTransit().revision++;for(const p of G.people)p.transitTrip=null;transitTopologyCache=null;transitDailyCache=null;householdMarketCache=null;dirty=true;staticDirty=true;}
+function transitStopRoad(mode,id,net=graph()){return mode==='bus'?id:net.portals.get(id);}
+function transitOwnedRoad(id){return Number.isInteger(id)&&id>=0&&id<G.tiles.length&&G.tiles[id]===1&&charterOwns(id%T,id/T|0);}
+function transitWalkTree(start,limit=5,net=graph()){
+ const distances=new Map();if(start==null||!net.neighbors.has(start))return distances;distances.set(start,0);const queue=[start];
+ for(let i=0;i<queue.length;i++){const at=queue[i],d=distances.get(at);if(d>=limit)continue;for(const n of net.neighbors.get(at)||[])if(!distances.has(n)){distances.set(n,d+1);queue.push(n);}}
+ return distances;
+}
+function transitRoadPath(a,b,net=graph()){
+ if(!transitOwnedRoad(a)||!transitOwnedRoad(b))return [];
+ const parent=new Map([[a,-1]]),queue=[a];for(let i=0;i<queue.length;i++){const at=queue[i];if(at===b)break;for(const next of net.neighbors.get(at)||[])if(!parent.has(next)&&transitOwnedRoad(next)){parent.set(next,at);queue.push(next);}}
+ if(!parent.has(b))return [];const result=[];for(let at=b;at!==-1;at=parent.get(at))result.push(at);return result.reverse();
+}
+function transitPaths(mode,stops,net=graph()){
+ const legs=[],path=[],offsets=[0];for(let i=1;i<stops.length;i++){const leg=transitRoadPath(transitStopRoad(mode,stops[i-1],net),transitStopRoad(mode,stops[i],net),net);if(leg.length<2)return null;legs.push(leg);path.push(...(i===1?leg:leg.slice(1)));offsets.push(path.length-1);}
+ return {legs,path,offsets};
+}
+// Expansion integration: map tile indices only; institution IDs and stop offsets are stable.
+function remapTransitTiles(mapTile){
+ if(!G.transit)return;const state=G.transit;
+ state.tracks=state.tracks.map(mapTile);
+ for(const r of state.routes){r.path=r.path.map(mapTile);if(r.mode==='bus')r.stops=r.stops.map(mapTile);}
+ transitChanged();
+}
+function transitRightOfWay(id){return !!G.transit?.tracks.includes(id);}
+function removeUnusedGuideway(){
+ const state=ensureTransit(),used=new Set(state.routes.filter(r=>r.mode==='elevated').flatMap(r=>r.path)),retired=state.tracks.filter(id=>!used.has(id));if(!retired.length)return false;
+ const salvage=Math.min(G.region,retired.length*TRANSIT_MODES.elevated.tile*.15);G.region-=salvage;G.treasury+=salvage;state.tracks=state.tracks.filter(id=>used.has(id));book('Regional material salvagers','Municipal treasury',salvage,'Decommissioned unused elevated guideway');transitChanged();return true;
+}
+function transitDepotLoad(id,except=-1){return ensureTransit().routes.filter(r=>r.depot===id&&r.id!==except).reduce((n,r)=>n+r.vehicles*(r.mode==='elevated'?2:1),0);}
+function transitQuote(spec,editing=-1){
+ const state=ensureTransit(),mode=spec?.mode,depot=readBuild(spec?.depot),stops=spec?.stops,level=spec?.level,definition=TRANSIT_MODES[mode];
+ if(!definition||!depot||depot.kind!=='transit_depot'||!Array.isArray(stops)||stops.length<2||stops.length>16||new Set(stops).size!==stops.length||!Number.isInteger(level)||level<1||level>3)return {ok:false,reason:'Choose a depot, service level and 2–16 distinct stops.'};
+ if(state.routes.length>=48&&editing<0)return {ok:false,reason:'Network limit: 48 routes. Extend or replace existing corridors.'};
+ if(stops.some(id=>mode==='bus'?!transitOwnedRoad(id):readBuild(id)?.kind!=='elevated_station'))return {ok:false,reason:'Bus stops need owned streets; elevated stops need completed elevated stations.'};
+ const vehicles=TRANSIT_LEVELS[level].vehicles;if(transitDepotLoad(depot.id,editing)+vehicles*(mode==='elevated'?2:1)>8)return {ok:false,reason:'Depot has eight vehicle bays; each metro set needs two. Build another depot or lower service.'};
+ const net=graph(),route=transitPaths(mode,stops,net),port=net.portals.get(depot.id),first=transitStopRoad(mode,stops[0],net);
+ if(!route||!transitRoadPath(port,first,net).length)return {ok:false,reason:'All stops and the depot must connect through owned streets. Water and private plots cannot be crossed.'};
+ const existing=state.routes.find(r=>r.id===editing),newVehicles=Math.max(0,vehicles-(existing?.vehicles||0)),newTrack=mode==='elevated'?[...new Set(route.path)].filter(id=>!state.tracks.includes(id)):[];
+ if(existing&&existing.mode!==mode)return {ok:false,reason:'Retire the old route before changing transport mode.'};
+ const cost=newVehicles*definition.vehicle+newTrack.length*definition.tile+(editing<0?900:0),cycle=2*(route.path.length-1)*definition.minutes+stops.length*2;
+ const operating=vehicles*definition.staff*Math.max(24,G.policy.minWage)+vehicles*definition.upkeep+route.path.length*(mode==='bus'?.11:.28);
+ const token=[state.revision,roadsVersion,G.policy.minWage,mode,depot.id,stops.join(','),level,editing,cost].join('|');
+ return {ok:true,mode,depot:depot.id,stops:stops.slice(),level,vehicles,path:route.path,offsets:route.offsets,newTrack,cost,cycle,headway:cycle/vehicles,capacity:Math.floor(vehicles*definition.seats*120/cycle),operating,token};
+}
+function buildTransitRoute(spec,quote,editing=-1){
+ const current=transitQuote(spec,editing);if(!current.ok||!quote||quote.token!==current.token||G.treasury<current.cost)return false;
+ const state=ensureTransit(),existing=state.routes.find(r=>r.id===editing);if(editing>=0&&!existing)return false;
+ G.treasury-=current.cost;G.region+=current.cost;G.cumulative.spending+=current.cost;state.capital+=current.cost;book('Municipal transit capital','Regional vehicle and guideway suppliers',current.cost,'Public '+TRANSIT_MODES[spec.mode].name+' route');
+ const id=existing?.id||state.next++,route={id,name:existing?.name||TRANSIT_MODES[spec.mode].name+' '+id,mode:spec.mode,depot:spec.depot,stops:spec.stops.slice(),level:spec.level,vehicles:current.vehicles,path:current.path,offsets:current.offsets,color:existing?.color||TRANSIT_COLORS[(id-1)%TRANSIT_COLORS.length],built:existing?.built||G.day,capital:(existing?.capital||0)+current.cost,stats:{operating:false,capacity:0,reserved:0,boardings:0,demand:0,denied:0,staff:[],required:0,headway:0,reliability:0,expenses:0,status:'Service begins next day'}};
+ if(existing){const salvage=Math.min(G.region,Math.max(0,existing.vehicles-current.vehicles)*TRANSIT_MODES[existing.mode].vehicle*.4);G.region-=salvage;G.treasury+=salvage;book('Regional used vehicle buyers','Municipal treasury',salvage,'Route fleet resized',existing.id);state.routes[state.routes.indexOf(existing)]=route;}else state.routes.push(route);
+ state.tracks=[...new Set(state.tracks.concat(current.newTrack))];transitChanged();return route;
+}
+function setTransitLevel(id,level){const r=ensureTransit().routes.find(r=>r.id===id);if(!r||!Number.isInteger(level)||level<0||level>3)return false;if(level===r.level)return false;if(level===0){r.level=0;r.stats.operating=false;r.stats.status='Suspended by council';transitChanged();return true;}const q=transitQuote({...r,level},id);return q.ok&&!!buildTransitRoute({...r,level},q,id);}
+function deleteTransitRoute(id){
+ const state=ensureTransit(),route=state.routes.find(r=>r.id===id);if(!route)return false;
+ const refund=Math.min(G.region,route.vehicles*TRANSIT_MODES[route.mode].vehicle*.4);G.region-=refund;G.treasury+=refund;state.routes=state.routes.filter(r=>r!==route);book('Regional used vehicle buyers','Municipal treasury',refund,'Retired route vehicle resale',id);transitChanged();return true;
+}
+function buildTransitFacility(kind,x,y){
+ if(!['transit_depot','elevated_station'].includes(kind)||!Number.isInteger(x)||!Number.isInteger(y)||!canPlace(x,y,true,kind)||G.treasury<buildCost[kind])return false;
+ const cost=buildCost[kind],b={id:G.nextId++,kind,x,y,value:cost,condition:100,owner:-1,firm:-1,hh:-1,title:{kind:'municipal',id:-1},footprint:footprintFor(x,y,kind)};
+ G.treasury-=cost;G.region+=cost;G.cumulative.spending+=cost;G.buildings.push(b);reserveFootprint(b);G.construction++;ensureTransit().capital+=cost;transitChanged();return b;
+}
+function transitInfrastructureInUse(id){return !!G.transit?.routes.some(r=>r.depot===id||r.mode==='elevated'&&r.stops.includes(id));}
+function removeTransitFacility(id){
+ const b=readBuild(id),state=ensureTransit();if(!b||!['transit_depot','elevated_station'].includes(b.kind)||transitInfrastructureInUse(id))return false;
+ const refund=Math.min(G.region,buildCost[b.kind]*.15);G.region-=refund;G.treasury+=refund;G.buildings=G.buildings.filter(a=>a!==b);invalidateBuildingIndex();invalidateRoads(false);transitChanged();return true;
+}
+function transitTopology(){
+ const state=ensureTransit(),net=graph();if(transitTopologyCache?.town===G&&transitTopologyCache.net===net&&transitTopologyCache.revision===state.revision)return transitTopologyCache;
+ const routes=[],walks=new Map();for(const r of state.routes){const route=r.mode==='elevated'?{path:r.path,offsets:r.offsets}:transitPaths(r.mode,r.stops,net),depotPort=net.portals.get(r.depot),start=transitStopRoad(r.mode,r.stops[0],net);
+  const valid=!!route&&!!readBuild(r.depot)&&route.path.every(transitOwnedRoad)&&(r.mode!=='elevated'||r.stops.every((id,i)=>route.path[route.offsets[i]]===transitStopRoad(r.mode,id,net)))&&r.stops.every(id=>r.mode==='bus'||readBuild(id)?.kind==='elevated_station')&&net.parts[depotPort]>=0&&net.parts[depotPort]===net.parts[start];
+  const runtime={...r,...(route||{}),valid,stopRoads:r.stops.map(id=>transitStopRoad(r.mode,id,net))};routes.push(runtime);
+  for(const stop of runtime.stopRoads)if(!walks.has(stop))walks.set(stop,transitWalkTree(stop,5,net));
+ }
+ return transitTopologyCache={town:G,net,revision:state.revision,routes,walks};
+}
+// Heap keeps many-household routing bounded; no shortest-path work occurs per frame.
+function transitHeapPush(heap,value){heap.push(value);let i=heap.length-1;while(i){const p=(i-1)>>1;if(heap[p][0]<=value[0])break;heap[i]=heap[p];i=p;}heap[i]=value;}
+function transitHeapPop(heap){const first=heap[0],last=heap.pop();if(heap.length){let i=0;while(i*2+1<heap.length){let j=i*2+1;if(j+1<heap.length&&heap[j+1][0]<heap[j][0])j++;if(heap[j][0]>=last[0])break;heap[i]=heap[j];i=j;}heap[i]=last;}return first;}
+function transitRouting(){
+ const topology=transitTopology(),state=ensureTransit();if(transitDailyCache?.town===G&&transitDailyCache.topology===topology&&transitDailyCache.day===G.day&&transitDailyCache.service===state.lastDay)return transitDailyCache;
+ const nodes=[],edges=[],roadNodes=new Map();for(const route of topology.routes){if(!route.valid||!route.stats?.operating)continue;const base=nodes.length;
+  for(let i=0;i<route.stops.length;i++){const road=route.stopRoads[i],id=nodes.length;nodes.push({route:route.id,index:i,road,headway:route.stats.headway,mode:route.mode});edges.push([]);if(!roadNodes.has(road))roadNodes.set(road,[]);roadNodes.get(road).push(id);
+   if(i){const time=(route.offsets[i]-route.offsets[i-1])*TRANSIT_MODES[route.mode].minutes+1;edges[id-1].push([id,time]);edges[id].push([id-1,time]);}}
+  route.nodeBase=base;
+ }
+ for(let i=0;i<nodes.length;i++){const a=nodes[i];for(const [road,distance] of topology.walks.get(a.road)||[])if(distance<=3)for(const j of roadNodes.get(road)||[])if(nodes[j].route!==a.route)edges[i].push([j,distance*2+nodes[j].headway/2+2]);}
+ return transitDailyCache={town:G,topology,day:G.day,service:state.lastDay,nodes,edges,homes:new Map()};
+}
+function transitJourney(home,destination,capacityUnits=0){
+ if(!home||!destination||!G.transit?.routes.length)return null;const routing=transitRouting(),net=routing.topology.net,origin=net.portals.get(home.id),goal=net.portals.get(destination.id);if(origin==null||goal==null||origin===goal||!routing.nodes.length)return null;
+ const blocked=new Set(capacityUnits>0?ensureTransit().routes.filter(r=>r.stats.reserved+capacityUnits>r.stats.capacity).map(r=>r.id):[]),treeKey=origin+'|'+[...blocked].join(',');
+ let tree=routing.homes.get(treeKey);if(!tree){const count=routing.nodes.length,distance=new Array(count).fill(Infinity),parent=new Array(count).fill(-1),heap=[];
+  for(let i=0;i<count;i++){const node=routing.nodes[i],walk=routing.topology.walks.get(node.road)?.get(origin);if(walk!=null&&!blocked.has(node.route)){distance[i]=walk*2+node.headway/2;transitHeapPush(heap,[distance[i],i]);}}
+  while(heap.length){const [cost,i]=transitHeapPop(heap);if(cost!==distance[i])continue;for(const [j,time] of routing.edges[i])if(!blocked.has(routing.nodes[j].route)&&cost+time<distance[j]){distance[j]=cost+time;parent[j]=i;transitHeapPush(heap,[distance[j],j]);}}
+  tree={distance,parent};if(routing.homes.size>=512)routing.homes.delete(routing.homes.keys().next().value);routing.homes.set(treeKey,tree);
+ }
+ let best=-1,time=Infinity;for(let i=0;i<routing.nodes.length;i++){const node=routing.nodes[i],walk=routing.topology.walks.get(node.road)?.get(goal);if(walk!=null&&!blocked.has(node.route)&&tree.distance[i]+walk*2<time){best=i;time=tree.distance[i]+walk*2;}}
+ if(best<0)return null;const chain=[];for(let at=best;at>=0;at=tree.parent[at])chain.push(at);chain.reverse();
+ // An itinerary must travel between stops: walking to and from a single stop is not a ride.
+ const routeIds=[];for(let i=1;i<chain.length;i++)if(routing.nodes[chain[i]].route===routing.nodes[chain[i-1]].route){const id=routing.nodes[chain[i]].route;if(!routeIds.includes(id))routeIds.push(id);}
+ if(!routeIds.length||routeIds.length>3)return null;
+ return {routes:routeIds,time,fare:Math.max(...routeIds.map(id=>TRANSIT_MODES[ensureTransit().routes.find(r=>r.id===id).mode].fare)),transfers:routeIds.length-1};
+}
+function transitAccess(home,destination){const journey=transitJourney(home,destination);return !!journey&&journey.time<=90;}
+function transitReserve(journey,units=1){
+ if(!journey)return false;const routes=journey.routes.map(id=>ensureTransit().routes.find(r=>r.id===id));if(routes.some(r=>!r?.stats.operating||r.stats.reserved+units>r.stats.capacity))return false;
+ for(const r of routes)r.stats.reserved+=units;return true;
+}
+function transitDemand(journey,denied=false,units=1){if(!journey)return;for(const id of journey.routes){const s=ensureTransit().routes.find(r=>r.id===id)?.stats;if(s){s.demand+=units;if(denied)s.denied+=units;}}}
+function transitCollectFare(h,journey,units=1){
+ if(journey.settled)return 0;journey.settled=true;
+ const due=journey.fare*units,paid=Math.min(h.cash,due);h.cash-=paid;h.travel+=paid;h.travelDue+=due;G.treasury+=paid;const state=ensureTransit();state.fares+=paid;state.daily.revenue+=paid;state.daily.rides+=units;
+ for(const id of journey.routes){const s=state.routes.find(r=>r.id===id)?.stats;if(s)s.boardings+=units;}return paid;
+}
+function transitOperatingCommitment(){return (G.transit?.routes.length?transitTopology().routes:[]).reduce((sum,r)=>{if(!r.level)return sum;const d=TRANSIT_MODES[r.mode],vehicles=TRANSIT_LEVELS[r.level].vehicles;return sum+vehicles*d.staff*Math.max(24,G.policy.minWage)+vehicles*d.upkeep+r.path.length*(r.mode==='bus'?.11:.28);},0);}
+function transitOperatingDay(){
+ const state=ensureTransit();if(state.lastDay===G.day)return;state.lastDay=G.day;state.daily={rides:0,denied:0,revenue:0,expenses:0,staff:0};
+ const topology=transitTopology();for(const route of topology.routes){const r=state.routes.find(a=>a.id===route.id),definition=TRANSIT_MODES[r.mode],required=r.level?TRANSIT_LEVELS[r.level].vehicles*definition.staff:0;
+  const previous=r.stats;r.stats={operating:false,capacity:0,reserved:0,boardings:0,demand:0,denied:0,staff:[],required,status:!r.level?'Suspended by council':!route.valid?'Street, station or depot disconnected':'Insufficient budget or drivers',headway:0,reliability:0,expenses:0,lastDemand:previous?.demand||0,lastDenied:previous?.denied||0};route.stats=r.stats;
+  if(!required||!route.valid)continue;
+  const depotPort=topology.net.portals.get(r.depot),local=transitWalkTree(depotPort,60,topology.net),wage=Math.max(24,G.policy.minWage),vehicles=TRANSIT_LEVELS[r.level].vehicles;
+  const candidates=G.people.filter(p=>!p.deceased&&!p.movedAway&&p.age>=18&&p.age<=70&&p.job<0&&!p.publicWork&&!(p.publicIncome>0)&&(!p.previousPublicRole||p.previousPublicRole==='transit')&&p.skill>=.3&&local.has(topology.net.portals.get(G.households[p.hh]?.home))).sort((a,b)=>(a.previousPublicRole==='transit'?0:1)-(b.previousPublicRole==='transit'?0:1)||a.id-b.id);
+  const maintenance=vehicles*definition.upkeep+route.path.length*(r.mode==='bus'?.11:.28),staff=Math.min(required,candidates.length,Math.max(0,Math.floor((G.treasury-maintenance)/wage)));
+  if(staff<definition.staff)continue;const actualVehicles=Math.min(vehicles,Math.floor(staff/definition.staff)),actualStaff=actualVehicles*definition.staff,cost=actualStaff*wage+maintenance;
+  G.treasury-=cost;G.cumulative.spending+=cost;G.region+=maintenance;
+  for(const p of candidates.slice(0,actualStaff)){const h=G.households[p.hh],tax=wage*G.policy.incomeTax/100;h.cash+=wage-tax;h.income+=wage;h.wages+=wage;h.tax+=tax;h.incomeTax+=tax;transferTreasury(tax,'incomeTax');p.publicWork=true;p.publicIncome=wage;p.publicRole='transit';r.stats.staff.push(p.id);}
+  let reliability=1;if(r.mode==='bus'){const wear=route.path.reduce((sum,id)=>sum+(G.roadWear?.[id]??100),0)/route.path.length;reliability=clamp(.65+wear*.0035,.65,1);}
+  const cycle=2*(route.path.length-1)*definition.minutes+r.stops.length*2;r.stats.operating=true;r.stats.reliability=reliability;r.stats.headway=cycle/actualVehicles/reliability;r.stats.capacity=Math.floor(actualVehicles*definition.seats*120/cycle*reliability);r.stats.expenses=cost;r.stats.status=actualVehicles<vehicles?'Reduced: driver or budget shortage':'Operating';state.daily.expenses+=cost;state.daily.staff+=actualStaff;state.expenses+=cost;
+ }
+ transitDailyCache=null;
+ // Deterministic daily allocation rotates priority, rather than giving low IDs perpetual first access.
+ const commuters=G.people.filter(p=>!p.deceased&&!p.movedAway&&p.job>=0),offset=commuters.length?G.day%commuters.length:0;
+ for(const p of commuters)p.transitTrip=null;
+ for(const p of commuters.slice(offset).concat(commuters.slice(0,offset))){const h=G.households[p.hh],home=readBuild(h?.home),work=readBuild(G.firms[p.job]?.building);if(!home||!work)continue;
+  const journey=transitJourney(home,work),distance=roadDistance(topology.net.portals.get(home.id),topology.net.portals.get(work.id));if(!journey||journey.time>90||distance<8||journey.time>=distance*2)continue;
+  if(h.cash<journey.fare)continue;let chosen=journey,boarded=transitReserve(chosen);if(!boarded){const alternative=transitJourney(home,work,1);if(alternative&&alternative.time<=90&&alternative.time<distance*2&&h.cash>=alternative.fare){chosen=alternative;boarded=transitReserve(chosen);}}transitDemand(chosen);if(boarded){p.transitTrip={...chosen,day:G.day};transitCollectFare(h,p.transitTrip);}else{state.daily.denied++;for(const id of journey.routes){const s=state.routes.find(r=>r.id===id).stats;s.denied++;}}
+ }
+}
+function transitRenderSnapshot(){const state=ensureTransit(),topology=transitTopology();return {revision:state.revision,routes:topology.routes.map(r=>({id:r.id,name:r.name,mode:r.mode,color:r.color,path:r.path,stops:r.stops,valid:r.valid,...r.stats})),stations:G.buildings.filter(b=>b.kind==='elevated_station').map(b=>({id:b.id,x:b.x,y:b.y,kind:b.kind})),depots:G.buildings.filter(b=>b.kind==='transit_depot').map(b=>({id:b.id,x:b.x,y:b.y,kind:b.kind}))};}
+function transitVehiclePoses(time=frameClock,zoom=cam.zoom){
+ if(zoom<.38||!G.transit?.routes.length)return [];const result=[];for(const r of transitTopology().routes){if(!r.valid||!r.stats?.operating||!r.path?.length)continue;const count=Math.min(4,r.stats.staff.length/TRANSIT_MODES[r.mode].staff),span=r.path.length-1;
+  for(let i=0;i<count;i++){const phase=(time*(r.mode==='bus'?.48:.85)+i*span*2/count)%(span*2),forward=phase<span,position=forward?phase:span*2-phase,segment=Math.min(span-1,Math.floor(position)),fraction=position-segment,a=roadCenter(r.path[segment]),b=roadCenter(r.path[segment+1]),elevation=r.mode==='elevated'?28:0;result.push({kind:'transit',mode:r.mode,route:r.id,color:r.color,x:a[0]+(b[0]-a[0])*fraction,y:a[1]+(b[1]-a[1])*fraction-elevation,dx:(b[0]-a[0])*(forward?1:-1),dy:(b[1]-a[1])*(forward?1:-1),elevation,load:r.stats.boardings/Math.max(1,r.stats.capacity)});}
+ }return result;
+}
+function validateTransit(data){
+ const s=data.transit;if(s==null)return true;const finite=n=>Number.isFinite(n)&&n>=0,integer=n=>Number.isSafeInteger(n)&&n>=0,cell=n=>integer(n)&&n<data.tiles.length;
+ if(!s||s.version!==1||!integer(s.revision)||!integer(s.next)||s.next<1||!Array.isArray(s.routes)||s.routes.length>48||!Array.isArray(s.tracks)||s.tracks.length>data.tiles.length||new Set(s.tracks).size!==s.tracks.length||!s.tracks.every(cell)||!['capital','fares','expenses'].every(k=>finite(s[k]))||!integer(s.lastDay)||s.lastDay>data.day)return false;
+ const ids=new Set(),builds=new Map(data.buildings.map(b=>[b.id,b])),loads=new Map(),staff=new Set();
+ for(const r of s.routes){if(!r||!integer(r.id)||r.id<1||r.id>=s.next||ids.has(r.id)||!owns(TRANSIT_MODES,r.mode)||builds.get(r.depot)?.kind!=='transit_depot'||typeof r.name!=='string'||r.name.length>80||!TRANSIT_COLORS.includes(r.color)||!integer(r.level)||r.level>3||![1,2,4].includes(r.vehicles)||r.level>0&&r.vehicles!==TRANSIT_LEVELS[r.level].vehicles||!finite(r.capital)||!integer(r.built)||r.built>data.day)return false;ids.add(r.id);
+  if(!Array.isArray(r.stops)||r.stops.length<2||r.stops.length>16||new Set(r.stops).size!==r.stops.length||r.stops.some(id=>r.mode==='bus'?!cell(id):builds.get(id)?.kind!=='elevated_station'))return false;
+  if(!Array.isArray(r.path)||r.path.length<2||r.path.length>data.tiles.length*16||!r.path.every(cell)||r.path.some((id,i)=>i&&Math.abs(id%T-r.path[i-1]%T)+Math.abs((id/T|0)-(r.path[i-1]/T|0))!==1)||!Array.isArray(r.offsets)||r.offsets.length!==r.stops.length||r.offsets[0]!==0||fromEnd(r.offsets)!==r.path.length-1||r.offsets.some((v,i)=>!integer(v)||v>=r.path.length||i&&v<=r.offsets[i-1]))return false;
+  if(r.mode==='elevated'&&r.path.some(id=>!s.tracks.includes(id)))return false;
+  const st=r.stats;if(!st||typeof st.status!=='string'||st.status.length>128||typeof st.operating!=='boolean'||!['capacity','reserved','boardings','demand','denied','required','headway','reliability','expenses'].every(k=>finite(st[k]??0))||!Array.isArray(st.staff||[])||new Set(st.staff||[]).size!==(st.staff||[]).length||(st.staff||[]).some(id=>!integer(id)||!data.people[id]||staff.has(id))||st.reliability>1||['capacity','reserved','boardings','demand','denied','required'].some(k=>!integer(st[k]))||st.capacity<st.reserved||st.capacity<st.boardings||st.staff.length>16||st.operating&&(!r.level||st.staff.length<TRANSIT_MODES[r.mode].staff||!st.capacity||!st.headway))return false;
+  for(const id of st.staff||[])staff.add(id);loads.set(r.depot,(loads.get(r.depot)||0)+r.vehicles*(r.mode==='elevated'?2:1));
+ }
+ for(const p of data.people){const trip=p.transitTrip;if(trip==null)continue;if(!trip||!integer(trip.day)||trip.day<1||trip.day>data.day||!finite(trip.time)||trip.time>90||![.65,1.25].includes(trip.fare)||!Array.isArray(trip.routes)||!trip.routes.length||trip.routes.length>3||new Set(trip.routes).size!==trip.routes.length||trip.routes.some(id=>!ids.has(id))||trip.transfers!==trip.routes.length-1||trip.settled!==true)return false;}
+ if([...loads.values()].some(n=>n>8)||!s.daily||!['rides','denied','revenue','expenses','staff'].every(k=>finite(s.daily[k])))return false;
+ return true;
+}
+
 // SOURCE: 49-persistence.js
 // Persistence chronology is separate from simulated days and deterministic exports.
 // A new founding/import is a new timeline; logical order survives clock changes.
@@ -2316,6 +2491,7 @@ function tick(){if(!G||pendingEvent)return;ensureSystems();ensureMarketModel();G
 }
 
 function resetTownTransientUI(){
+ cancelTransitDraft();transitTopologyCache=null;transitDailyCache=null;
  clearTimeout(toastTimeout);toastTimeout=0;$('toast').style.display='none';pendingEvent=null;$('eventDialog').style.display='none';councilOpener=null;panelOpener=null;parcelFocus=null;selected=null;inspectedTrip=null;buildMode='';pointer.down=false;pointer.activeId=null;pointer.hover=null;touches.clear();roadPainted.clear();$('placementHint').style.display='none';$('hint').textContent='DRAG TO PAN · TAP TO INSPECT · PINCH TO ZOOM';
 }
 function toast(msg){const el=$('toast');el.textContent=msg;el.style.display='block';clearTimeout(toastTimeout);toastTimeout=setTimeout(()=>el.style.display='none',3300)}
@@ -2501,6 +2677,7 @@ function trafficUpdate(dt){
   }}
  for(const v of traffic)if(v.wait>4&&v.fraction<.001)detour(v);
  if(intersectionGates.size>450){for(const [k,t] of intersectionGates)if(trafficElapsed-t>3)intersectionGates.delete(k)}
+ if(G.transit?.routes.some(r=>r.stats?.operating)&&cam.zoom>=.38)dirty=true;
  if(traffic.length||G.airport?.operating||G.metro?.operating||G.buildings.some(b=>b.kind==='factory'||b.kind==='mill'||b.kind==='worksite')||overlay==='metro')dirty=true;
 }
 
@@ -2580,6 +2757,7 @@ function tree(g,u,v,id,scale=1){
  if(visualMonth()>=10){g.fillStyle='#edf0e6';for(let j=0;j<4;j++)g.fillRect(-10+j*6,-35+(j%2)*5,9,2);}g.restore();
 }
 function architecture(g,b,w,d){
+ if(['transit_depot','elevated_station'].includes(b.kind)){transitFacilityArt(g,b,w,d);return;}
  const id=b.id,kind=b.redevelopment?'worksite':b.kind,v=id%8,winter=visualMonth()>=10,occupied=(b.hh>=0&&G.households[b.hh]?.people.length)||b.units?.some(id=>G.households[id]?.people.length),closed=b.firm>=0&&G.firms[b.firm]?.closed;
  const stone=['#dbca9e','#d4b78b','#c6c6a0','#e4d0aa'],roofs=['#9f553d','#617b78','#aa6d45','#466c59','#bd884a','#627f8e','#886050','#b0774b'];
  const wall=closed?'#9d9a85':kind==='home'?['#dcc596','#b9c7a4','#b77c59','#9fb6b7','#d7c39a','#cbc5a3','#cfae84','#b6bc8e'][id%8]:kind==='police'?'#a3b5ae':kind==='fire'?'#bf7856':stone[id%4],roof=winter?'#c4cfc1':roofs[id%8],lit=nightMode&&!!occupied;
@@ -2834,6 +3012,7 @@ function draw(){
   viewRasterKey=key;
  }
  ctx.setTransform(1,0,0,1,0,0);ctx.drawImage(viewRaster,0,0);transform();
+ drawTransitInfrastructure(ctx,visible);
  drawConstructionProgress(ctx,visible);drawInspectedRoute(ctx);drawWaterLife(ctx,visible);drawWaterfrontPiers(ctx,visible);drawSelectedWaterRoute(ctx);drawRegionalGates(ctx,visible);
  const visibleParcels=viewBuildings.filter(item=>visible(item.x,item.y,0)),actors=[...buildingActivity(visibleParcels),...workdayScenes(visibleParcels),...waterfrontActors(visible),...regionalCargoActors().filter(a=>visible(a.x,a.y,15))];if(visualDetailBudget().traffic)for(const v of traffic){const p=vehiclePosition(v);if(visible(p.x,p.y,15))actors.push({kind:'vehicle',v,...p});}actors.sort((a,b)=>a.y-b.y);
  if(actors.length){
@@ -2845,12 +3024,12 @@ function draw(){
 
  drawCharterBounds(ctx);paintTownLight(ctx);
  if(cam.zoom>=.45)atmosphere(ctx,sx,sy,ww,hh);
- drawAviation(ctx);
+ drawAviation(ctx);drawTransitVehicles(ctx,visible);
  if(overlay==='metro')drawMetroOverlay(ctx);
  if(overlay==='roads'||overlay==='business'||overlay==='hardship'||overlay==='crime'||overlay==='land')for(const item of displayItems){if(item.kind!=='building'||!visible(item.x,item.y))continue;const b=item.b,f=G.firms[b.firm],h=G.households[b.hh],net=graph();let color=overlay==='roads'?(net.portals.has(b.id)?'#9ecb95':'#bb7760'):overlay==='business'?(f?(f.closed?'#b66856':f.profit>0?'#a1c67d':'#d6b46c'):null):overlay==='hardship'?(h?(h.stress>50?'#b96c56':'#a9ca87'):null):overlay==='land'?(b.value>90000?'#c38864':b.value>45000?'#d0b776':'#9fc087'):null;if(!color)continue;ctx.globalAlpha=.7;diamond(ctx,b.x,b.y,color);ctx.globalAlpha=1;}
  drawServiceAccess(ctx);
  if(selected?.id){const b=readBuild(selected.id);if(b){const p=iso(b.x,b.y);ctx.strokeStyle='#f4e2a5';ctx.lineWidth=2;ctx.beginPath();ctx.ellipse(p[0],p[1]+18,32,16,0,0,Math.PI*2);ctx.stroke();}}
- if(buildMode&&pointer.hover){const {x,y}=pointer.hover;if(['fishery','wharf'].includes(buildMode))headerText('placementHint',types[buildMode].n+' · '+money(buildCost[buildMode])+' · '+waterfrontPlacementMessage(x,y,buildMode));if(x>=0&&x<T&&y>=0&&y<T){const valid=buildMode==='road'?[0,3].includes(cityCell(x,y))&&charterOwns(x,y)&&!buildingAt(x,y)&&!G.landUse?.[roadId(x,y)]&&G.treasury>=buildCost.road:buildMode==='repair'?cityCell(x,y)===1:canPlace(x,y,true,buildMode);ctx.globalAlpha=.60;for(const id of footprintFor(x,y,buildMode))diamond(ctx,id%T,id/T|0,valid?'#c8dea4':'#c48069');ctx.globalAlpha=1;}}
+ if(buildMode&&buildMode!=='transit_route'&&pointer.hover){const {x,y}=pointer.hover;if(['fishery','wharf'].includes(buildMode))headerText('placementHint',types[buildMode].n+' · '+money(buildCost[buildMode])+' · '+waterfrontPlacementMessage(x,y,buildMode));if(x>=0&&x<T&&y>=0&&y<T){const valid=buildMode==='road'?[0,3].includes(cityCell(x,y))&&charterOwns(x,y)&&!buildingAt(x,y)&&!G.landUse?.[roadId(x,y)]&&G.treasury>=buildCost.road:buildMode==='repair'?cityCell(x,y)===1:canPlace(x,y,true,buildMode);ctx.globalAlpha=.60;for(const id of footprintFor(x,y,buildMode))diamond(ctx,id%T,id/T|0,valid?'#c8dea4':'#c48069');ctx.globalAlpha=1;}}
  if(nightMode){ctx.setTransform(dpr,0,0,dpr,0,0);ctx.fillStyle='#233c6460';ctx.fillRect(0,0,cw,ch);transform();for(const item of displayItems){if(item.kind!=='building'||!visible(item.x,item.y)||item.b.kind==='worksite')continue;const b=item.b;if(b.firm>=0&&G.firms[b.firm]?.closed)continue;const glow=ctx.createRadialGradient(item.x,item.y-12,1,item.x,item.y-12,28);glow.addColorStop(0,'#eac57a36');glow.addColorStop(1,'#eac57a00');ctx.fillStyle=glow;ctx.fillRect(item.x-28,item.y-40,56,56);}}
 }
 
@@ -2973,6 +3152,7 @@ function spawnPurposeTrip(){
  const freights=G.freight||[];if(freights.length&&vehicleSerial%3===0){const s=freights[vehicleSerial%freights.length],f=G.firms[s.from],t=G.firms[s.to];const v=beginVehicle(readBuild(f.building),readBuild(t.building));if(v){setPurposeStyle(v,'truck');v.reason=s.qty.toFixed(0)+' '+s.good+' → '+t.name;v.shipment=s.id;return v;}}
  const employed=G.people.filter(p=>!p.deceased&&!p.movedAway&&p.job>=0);if(!employed.length)return null;
  const p=employed[hash(vehicleSerial+G.day)%employed.length],h=G.households[p.hh],f=G.firms[p.job];
+ if(p.transitTrip?.day===G.day)return null;
  const home=readBuild(h.home),work=readBuild(f.building);if(!home||!work||f.closed)return null;
  const returning=vehicleSerial%2===1;const v=beginVehicle(returning?work:home,returning?home:work);if(v){setPurposeStyle(v,(p.id%3===0)?'pedestrian':'car');v.person=p.id;v.reason=p.name+(returning?' returning home':' commuting to '+f.name);}return v;
 }
@@ -3054,6 +3234,44 @@ function paintCastShadows(g,items){
  }
 }
 
+// SOURCE: 68-transit-art.js
+// Original initial transit art. Poses are cosmetic; they cannot deliver passengers or collect fares.
+function transitFacilityArt(g,b,w,d){
+ if(b.kind==='transit_depot'){
+  slab(g,-w/2,-d/2,w,d,0,'#8b9690');box(g,-.78,-.68,1.35,1.05,1,25,'#8daaa9','#c5c7b3');
+  for(let i=0;i<3;i++){const u=-.68+i*.41;box(g,u,.38,.30,.025,1,16,'#314b50','#82999a');for(let k=3;k<16;k+=4)segment(g,point(u,.41,k),point(u+.30,.41,k),'#6c8587');}
+  box(g,.32,-.65,.42,.90,1,32,'#c3b492','#799ca0');windowPane(g,.36,.27,17,'front',nightMode,.25,9);
+  for(let i=0;i<2;i++){box(g,-.60+i*.65,.60,.44,.17,1,7,i?'#dcad66':'#6ebcc0','#e8e1c4');windowPane(g,-.57+i*.65,.78,4,'front',false,.34,3);}
+  const p=point(-.12,.44,23);g.fillStyle='#edf0d3';g.font='bold 6px sans-serif';g.fillText('CITY TRANSIT',p[0]-22,p[1]);
+ }else{
+  slab(g,-.48,-.48,.96,.96,0,'#adb5aa');for(const [u,v] of [[-.31,-.28],[.30,.28]])box(g,u,v,.13,.14,0,28,'#7c9698','#c3cfca');
+  slab(g,-.49,-.24,.98,.48,28,'#d0d1b9');box(g,-.47,-.22,.94,.44,29,3,'#a6bebb','#d5dfd2');
+  for(let i=0;i<4;i++)segment(g,point(-.40+i*.25,.23,31),point(-.40+i*.25,.23,40),'#5c7d83',1.2);
+  slab(g,-.52,-.30,1.04,.60,42,'#65a6b3');slab(g,-.46,-.25,.92,.50,43,'#c6dbd5');
+  for(let i=0;i<6;i++)slab(g,.25,.28+i*.032,.20,.034,i*4,'#b9c9c2');
+  box(g,-.40,.32,.18,.11,1,16,'#4f8998','#9ac7c4');const p=point(-.36,.45,10);g.fillStyle='#fff2c3';g.font='bold 7px sans-serif';g.fillText('E',p[0],p[1]);
+ }
+}
+function drawTransitInfrastructure(g,visible){
+ if(!G.transit&&!transitDraft)return;const state=ensureTransit();g.save();g.lineJoin='round';g.lineCap='round';
+ // Guideways are continuous over legal street rights of way. Cull individual supports at regional zoom.
+ if(state.tracks.length){const tracks=new Set(state.tracks);for(const id of state.tracks){const [x,y]=roadCenter(id);if(!visible(x,y,70))continue;
+  if(cam.zoom>=.38&&id%3===0){segment(g,[x,y+13],[x,y-16],'#607c80',5);segment(g,[x+2,y+12],[x+2,y-15],'#adc4bd',2);}
+  for(const next of [id+1,id+T])if(tracks.has(next)&&Math.abs(id%T-next%T)+Math.abs((id/T|0)-(next/T|0))===1){const q=roadCenter(next);segment(g,[x,y-21],[q[0],q[1]-21],'#4e7077',13);segment(g,[x,y-25],[q[0],q[1]-25],'#c2d2c6',11);segment(g,[x,y-28],[q[0],q[1]-28],'#6f969b',3);}
+ }}
+ if(overlay==='transit'||buildMode==='transit_route'){
+  for(const r of transitTopology().routes){g.globalAlpha=r.stats?.operating?.85:.45;g.strokeStyle=r.color;g.lineWidth=r.mode==='bus'?3:4;g.beginPath();let started=false;for(const id of r.path||[]){const p=roadCenter(id);if(!started){g.moveTo(p[0],p[1]-(r.mode==='elevated'?27:0));started=true;}else g.lineTo(p[0],p[1]-(r.mode==='elevated'?27:0));}g.stroke();
+   for(const id of r.stopRoads){const p=roadCenter(id);if(!visible(p[0],p[1],30))continue;g.fillStyle=r.color;g.beginPath();g.arc(p[0],p[1]+(r.mode==='elevated'?-27:0),5,0,Math.PI*2);g.fill();g.strokeStyle='#233c41';g.lineWidth=1;g.stroke();}
+  }
+  if(transitDraft){g.globalAlpha=1;for(let i=0;i<transitDraft.stops.length;i++){const id=transitStopRoad(transitDraft.mode,transitDraft.stops[i]);if(id==null)continue;const p=roadCenter(id);g.fillStyle='#fff0b3';g.beginPath();g.arc(p[0],p[1],10,0,Math.PI*2);g.fill();g.fillStyle='#27484c';g.font='bold 11px sans-serif';g.textAlign='center';g.fillText(String(i+1),p[0],p[1]+4);}}
+ }
+ g.restore();
+}
+function drawTransitVehicles(g,visible){for(const pose of transitVehiclePoses()){if(!visible(pose.x,pose.y,60))continue;g.save();g.translate(pose.x,pose.y);g.rotate(Math.atan2(pose.dy,pose.dx));
+ const metro=pose.mode==='elevated',wagons=metro?2:1,length=metro?22:24;g.fillStyle='#183c4240';g.fillRect(-length/2+3,3+(metro?18:2),length*wagons,7);
+ for(let i=0;i<wagons;i++){const at=i*(length+2)-length*wagons/2;g.fillStyle='#294d54';g.fillRect(at,-6,length,12);g.fillStyle=pose.color;g.fillRect(at+1,-6,length-2,9);g.fillStyle='#e1e7ce';g.fillRect(at+2,-4,length-4,5);g.fillStyle='#406b78';for(let j=0;j<4;j++)g.fillRect(at+3+j*4,-3,3,3);g.fillStyle='#173e48';g.fillRect(at+length-4,-5,3,8);g.fillStyle=nightMode?'#f3d392':'#d6e4d1';g.fillRect(at+length-1,-5,2,2);g.fillRect(at+length-1,3,2,2);}
+ g.restore();}}
+
 // SOURCE: 69-civic-materials.js
 // Stable visual states follow property condition, occupation and funded capex.
 function propertyAppearance(b){
@@ -3101,6 +3319,7 @@ const pointer={down:false,startX:0,startY:0,px:0,py:0,moved:false,pinch:0,buildT
 function toWorld(x,y){const wx=(x-cw/2)/cam.zoom+cam.x,wy=(y-ch/2)/cam.zoom+cam.y;
  let r=(wx-RW/2)/(TW/2),s=(wy-32-TH/2)/(TH/2);return [Math.floor((s+r)/2+.5),Math.floor((s-r)/2+.5)]}
 function onTap(sx,sy){if(!G)return;const r=cv.getBoundingClientRect();const [x,y]=toWorld(sx-r.left,sy-r.top);if(!buildMode&&overlay==='charter'&&charterSurveyTap(sx-r.left,sy-r.top,x,y))return;if(x<0||x>=T||y<0||y>=T)return;
+ if(transitMapTap(x,y))return;
  if(buildMode){construct(buildMode,x,y);return}
  const mx=(sx-r.left-cw/2)/cam.zoom+cam.x,my=(sy-r.top-ch/2)/cam.zoom+cam.y;
  if(inspectWaterTripAt(mx,my)||inspectTripAt(mx,my))return;
@@ -3126,8 +3345,9 @@ let touches=new Map();cv.addEventListener('touchstart',e=>{touches=new Map([...e
 cv.addEventListener('touchmove',e=>{touches=new Map([...e.touches].map(t=>[t.identifier,{x:t.clientX,y:t.clientY}]));if(touches.size===2){const a=[...touches.values()],d=Math.hypot(a[0].x-a[1].x,a[0].y-a[1].y);if(pointer.pinch>0){cam.zoom=clamp(cam.zoom*d/pointer.pinch,.025,1.7);dirty=true}pointer.pinch=d}},{passive:true});
 cv.addEventListener('touchend',e=>{touches=new Map([...e.touches].map(t=>[t.identifier,{x:t.clientX,y:t.clientY}]));pointer.pinch=0});
 cv.addEventListener('touchcancel',()=>{touches.clear();pointer.pinch=0;pointer.down=false;pointer.activeId=null;pointer.lastRoad=null;roadPainted.clear();flushRoadBatch();});
-function closeBuildTool(){flushRoadBatch();buildMode='';pointer.hover=null;pointer.down=false;pointer.activeId=null;pointer.lastRoad=null;roadPainted.clear();dirty=true;$('placementHint').style.display='none';$('hint').textContent='DRAG TO PAN · TAP TO INSPECT';toast('Construction tool closed');}
+function closeBuildTool(){cancelTransitDraft();flushRoadBatch();buildMode='';pointer.hover=null;pointer.down=false;pointer.activeId=null;pointer.lastRoad=null;roadPainted.clear();dirty=true;$('placementHint').style.display='none';$('hint').textContent='DRAG TO PAN · TAP TO INSPECT';toast('Construction tool closed');}
 function construct(kind,x,y,quiet=false){
+ if(['transit_depot','elevated_station'].includes(kind)){if(buildTransitFacility(kind,x,y)){updateHeader();save();toast(types[kind].n+' constructed.');}else toast('Needs an owned vacant footprint by a street and '+money(buildCost[kind])+'.');return;}
  if(kind!=='inspect'&&!charterOwns(x,y)){if(!quiet)toast('Regional land: purchase the district in Public Works before developing it.');return;}
  if(kind==='inspect'){buildMode='';const target=buildingAt(x,y);if(target){selected={id:target.id};openPanel('inspect')}else toast('No building is present at this lot.');dirty=true;return}
  if(kind==='repair'){if(x<0||x>=T||y<0||y>=T||cityCell(x,y)!==1){if(!quiet)toast('Select an existing road tile to resurface.');return}ensureRoadWear();if(G.roadWear[roadId(x,y)]>96){if(!quiet)toast('This street is already in excellent condition.');return}if(G.treasury<buildCost.repair){if(!quiet)toast('Insufficient town funds.');return}G.treasury-=buildCost.repair;G.region+=buildCost.repair;G.roadWear[roadId(x,y)]=100;G.construction++;staticDirty=true;dirty=true;updateHeader();if(!quiet)toast('Street resurfaced.');return}
@@ -3262,6 +3482,7 @@ const names={economy:'The Living Economy',banking:'Banks & Credit',overview:'Tow
 function renderPanel(tab){if(!G)return;const sc=$('panelBody');const y=sc.scrollTop;let contents='';
  try{contents=({overview:renderOverviewFull,economy:renderEconomy,agenda:renderAgenda,community:renderCommunityFull,policies:renderPoliciesFull,treasury:renderTreasuryFull,banking:financePanel,citizens:renderCitizensFull,businesses:renderBusinessesFull,construction:renderConstructionFull,journal:renderJournalFull,settings:renderSettingsFull,inspect:renderInspectFull,trip:renderTripInspector}[tab]||renderOverview)()}
  catch(e){contents='<div class="event">Panel error: '+esc(e.message)+'</div>';console.error(e)}
+ if(tab==='construction')contents=transitOfficePanel()+contents;
  $('panelTitle').textContent=names[tab]||'TownLedger';sc.innerHTML=contents;sc.scrollTop=y;
 }
 function journalPolicy(k,old,nv){const base={...G.stats,treasury:G.treasury};G.journal.push({day:G.day,name:defs.find(d=>d[0]===k)?.[1]||k,message:`Policy revised from ${fmt(old)} to ${fmt(nv)}.`,baseline:base});if(G.journal.length>100)G.journal.shift();story('Council revised '+(defs.find(d=>d[0]===k)?.[1]||k)+'.','neutral')}
@@ -3351,6 +3572,52 @@ function frame(now){
 }requestAnimationFrame(frame);
 window.addEventListener('beforeunload',()=>save());document.addEventListener('visibilitychange',()=>{last=performance.now();acc=0;if(document.hidden){save();stopGameAudio()}else refreshAmbience()});
 window.addEventListener('error',e=>{console.error(e.error||e.message);toast('Runtime issue: '+(e.message||'Unknown'))});
+
+// SOURCE: 71-transit-office.js
+// Public Works network office; map picks only draft a route. Capital is spent after quote review.
+let transitDraft=null;
+function cancelTransitDraft(){transitDraft=null;}
+function startTransitDraft(mode,editing=-1){
+ const routes=ensureTransit().routes,old=routes.find(r=>r.id===editing),depots=G.buildings.filter(b=>b.kind==='transit_depot');if(!depots.length){toast('Build a transit depot beside an owned street first.');return false;}
+ transitDraft={town:G,mode:old?.mode||mode,depot:old?.depot||depots[0].id,stops:old?old.stops.slice():[],level:old?.level||1,editing,quote:null};buildMode='transit_route';overlay='transit';dirty=true;openPanel('construction');return true;
+}
+function transitMapTap(x,y){
+ if(buildMode!=='transit_route'||!transitDraft)return false;if(transitDraft.town!==G){closeBuildTool();return true;}
+ const draft=transitDraft,id=draft.mode==='bus'?roadId(x,y):buildingAt(x,y)?.id;
+ if(draft.mode==='bus'?!transitOwnedRoad(id):readBuild(id)?.kind!=='elevated_station'){toast(draft.mode==='bus'?'Tap an owned road tile for a bus stop.':'Tap an elevated station. Build stations on vacant roadside plots first.');return true;}
+ if(draft.stops.includes(id)){toast('This stop is already on the route. Use Undo to remove the latest stop.');return true;}if(draft.stops.length>=16){toast('Sixteen stops per route. Create a connecting route for another corridor.');return true;}
+ draft.stops.push(id);draft.quote=null;dirty=true;transitDraftHint();toast('Stop '+draft.stops.length+' added. Open Public Works to review, or continue tapping stops.');return true;
+}
+function transitDraftHint(){if(!transitDraft)return;$('placementHint').style.display='block';$('placementHint').textContent=TRANSIT_MODES[transitDraft.mode].name.toUpperCase()+' ROUTE · '+transitDraft.stops.length+' STOPS · TAP '+(transitDraft.mode==='bus'?'STREETS':'STATIONS')+' · PUBLIC WORKS TO REVIEW';$('hint').textContent='DRAG TO PAN · TAP TO ADD STOPS · ESC/BACK TO CANCEL';}
+function transitOfficePanel(){
+ const state=ensureTransit(),depots=G.buildings.filter(b=>b.kind==='transit_depot'),stations=G.buildings.filter(b=>b.kind==='elevated_station'),d=transitDraft?.town===G?transitDraft:null;
+ let html=`<div class="council-card transit-office"><h3>City transit</h3><p class="desc">Build a depot, choose a bus corridor, then tap street stops and review the capital and daily wage bill. Elevated metro uses roadside stations and guideway over existing streets. Passengers walk up to five street tiles and can transfer between routes.</p><div class="statgrid">${stat('Passenger journeys today',state.daily.rides)}${stat('Peak passengers left behind',state.daily.denied)}${stat('Fares today',money(state.daily.revenue))}${stat('Operating cost today',money(state.daily.expenses))}</div><div class="filter-row"><button data-build="transit_depot">DEPOT · ${money(buildCost.transit_depot)}</button><button data-build="elevated_station">ELEVATED STATION · ${money(buildCost.elevated_station)}</button><button data-transit-action="new-bus" ${depots.length?'':'disabled'}>NEW BUS ROUTE</button><button data-transit-action="new-elevated" ${depots.length&&stations.length>=2?'':'disabled'}>NEW ELEVATED ROUTE</button><button data-transit-action="overlay">${overlay==='transit'?'HIDE':'SHOW'} TRANSIT MAP</button></div><p class="desc">Each depot holds eight bus bays; each metro set needs two. Driver wages require available residents with basic skills and a street route to the depot. Fare: $0.65 bus / $1.25 metro, including transfers. Building a route authorizes its quoted daily operations; reduce or suspend service to save costs. The commuter-budget policy funds the legacy support service only while no public routes exist.</p>`;
+ if(d){const quote=d.quote,reason=quote&&!quote.ok?quote.reason:'';html+=`<div class="entry"><strong>${d.editing>=0?'REPLAN':'PLAN'} ${TRANSIT_MODES[d.mode].name.toUpperCase()} · ${d.stops.length} stops</strong><label class="desc">Depot <select id="transitDepot" aria-label="Route depot">${depots.map(b=>`<option value="${b.id}" ${b.id===d.depot?'selected':''}>Depot ${b.id} · ${transitDepotLoad(b.id,d.editing)}/8 bays used</option>`).join('')}</select></label><label class="desc">Service <select id="transitLevel" aria-label="Route service level">${TRANSIT_LEVELS.slice(1).map((l,i)=>`<option value="${i+1}" ${i+1===d.level?'selected':''}>${l.name} · ${l.vehicles} vehicle${l.vehicles>1?'s':''}</option>`).join('')}</select></label><p class="desc">${d.stops.map((id,i)=>`${i+1}. ${d.mode==='bus'?esc(G.streetNames?.[id]||'Street')+' ('+id%T+','+(id/T|0)+')':'Station '+id}`).join(' → ')||'No stops yet. Select stops on the map.'}</p><div class="filter-row"><button data-transit-action="map">PICK STOPS ON MAP</button><button data-transit-action="undo" ${d.stops.length?'':'disabled'}>UNDO STOP</button><button data-transit-action="quote">REVIEW COST</button><button data-transit-action="cancel">CANCEL</button></div>${reason?`<p class="negative">${esc(reason)}</p>`:''}${quote?.ok?`<p class="desc">Capital due now <strong>${money(quote.cost)}</strong> · daily operations up to <strong>${money(quote.operating)}</strong><br>Peak capacity ${quote.capacity} one-way riders · ideal headway ${fmt(quote.headway)} minutes. Actual capacity falls with driver shortages or worn bus streets. Rails and stations remain after a route closes.</p><button data-transit-action="build" ${G.treasury>=quote.cost?'':'disabled'}>AUTHORIZE ${d.editing>=0?'REVISED':'NEW'} ROUTE · ${money(quote.cost)}</button>`:''}</div>`;}
+ for(const r of state.routes){const s=r.stats,occupancy=s.capacity?Math.round(s.reserved/s.capacity*100):0;html+=`<details class="entry"><summary><strong style="color:${r.color}">● ${esc(r.name)}</strong> · ${esc(s.status)} · ${s.boardings||0} rides</summary><p class="desc">${r.stops.length} stops · ${TRANSIT_LEVELS[r.level].name} · ${r.vehicles} owned vehicle${r.vehicles>1?'s':''}<br>Drivers ${s.staff?.length||0}/${s.required||0} · reliability ${Math.round((s.reliability||0)*100)}% · headway ${fmt(s.headway||0)} min<br>Peak demand ${s.demand||0} · capacity ${s.capacity||0} · reserved ${occupancy}% · left behind ${s.denied||0}<br>Daily wages and maintenance ${money(s.expenses||0)} · capital invested ${money(r.capital)}<br>${s.denied?'Crowded: increase frequency or add a parallel corridor.':s.status.includes('driver')||s.status.includes('Driver')?'Recruitable drivers or operating cash are missing; increasing the fleet will not solve this.':'Connect homes to jobs and shops on different stops; a route with no useful destinations attracts no riders.'}</p><div class="filter-row">${TRANSIT_LEVELS.map((l,i)=>`<button data-transit-level="${r.id}:${i}" ${r.level===i?'disabled':''}>${l.name}</button>`).join('')}<button data-transit-action="edit" data-route="${r.id}">REPLAN STOPS</button><button data-transit-action="focus" data-route="${r.id}">SHOW ROUTE</button><button data-transit-action="retire" data-route="${r.id}">RETIRE & SELL FLEET · UP TO ${money(r.vehicles*TRANSIT_MODES[r.mode].vehicle*.4)}</button></div></details>`;}
+ const unusedTrack=state.tracks.filter(id=>!state.routes.some(r=>r.mode==='elevated'&&r.path.includes(id))).length;
+ if(unusedTrack)html+=`<button data-transit-action="remove-guideway">REMOVE ${unusedTrack} UNUSED GUIDEWAY TILES · 15% SALVAGE</button>`;
+ if(depots.length||stations.length)html+=`<details><summary>Infrastructure and unused sites</summary>${[...depots,...stations].map(b=>`<div class="entry"><strong>${esc(types[b.kind].n)} ${b.id}</strong><small>${b.kind==='transit_depot'?transitDepotLoad(b.id)+'/8 bays committed':'Roadside passenger access'} · (${b.x},${b.y})</small><button data-inspect="${b.id}">VIEW SITE</button><button data-transit-action="remove-site" data-site="${b.id}" ${state.routes.some(r=>r.depot===b.id||r.mode==='elevated'&&r.stops.includes(b.id))?'disabled':''}>REMOVE UNUSED SITE · 15% SALVAGE</button></div>`).join('')}</details>`;
+ return html+'</div>';
+}
+$('panelBody').addEventListener('change',e=>{if(!transitDraft)return;if(e.target.id==='transitDepot')transitDraft.depot=+e.target.value;else if(e.target.id==='transitLevel')transitDraft.level=+e.target.value;else return;transitDraft.quote=null;renderPanel('construction');});
+$('panelBody').addEventListener('click',e=>{
+ const b=e.target.closest('[data-transit-action],[data-transit-level]');if(!b)return;
+ if(b.dataset.transitLevel){const [id,level]=b.dataset.transitLevel.split(':').map(Number),r=ensureTransit().routes.find(r=>r.id===id);if(level>0&&r&&TRANSIT_LEVELS[level].vehicles>r.vehicles){startTransitDraft(r.mode,id);transitDraft.level=level;transitDraft.quote=transitQuote(transitDraft,id);renderPanel('construction');return;}if(!setTransitLevel(id,level))toast('Change unavailable: check depot space, funds and connected streets.');else save();renderPanel('construction');return;}
+ const action=b.dataset.transitAction,id=+b.dataset.route;
+ if(action==='new-bus'||action==='new-elevated'){startTransitDraft(action==='new-bus'?'bus':'elevated');}
+ else if(action==='edit')startTransitDraft('bus',id);
+ else if(action==='overlay'){overlay=overlay==='transit'?'none':'transit';dirty=true;}
+ else if(action==='map'&&transitDraft){buildMode='transit_route';overlay='transit';closePanel();transitDraftHint();return;}
+ else if(action==='undo'&&transitDraft){transitDraft.stops.pop();transitDraft.quote=null;dirty=true;}
+ else if(action==='quote'&&transitDraft)transitDraft.quote=transitQuote(transitDraft,transitDraft.editing);
+ else if(action==='cancel'){cancelTransitDraft();closeBuildTool();}
+ else if(action==='build'&&transitDraft){const d=transitDraft;if(buildTransitRoute(d,d.quote,d.editing)){cancelTransitDraft();closeBuildTool();save();toast('Route authorized. Drivers and vehicles begin service on the next simulated day.');}else{d.quote=transitQuote(d,d.editing);toast('Quote changed or funds unavailable. Review the current cost before authorizing.');}}
+ else if(action==='retire'){if(deleteTransitRoute(id)){save();toast('Route retired. Vehicles sold; stations and guideway retained.');}}
+ else if(action==='remove-guideway'){if(removeUnusedGuideway()){save();toast('Unused guideway decommissioned. Used corridors were retained.');}}
+ else if(action==='remove-site'){if(removeTransitFacility(+b.dataset.site)){save();toast('Unused site removed. Salvage returned to the treasury.');}}
+ else if(action==='focus'){const r=ensureTransit().routes.find(r=>r.id===id);if(r){const cell=r.path[r.path.length/2|0],p=iso(cell%T,cell/T|0);cam.x=p[0];cam.y=p[1];overlay='transit';closePanel();dirty=true;return;}}
+ updateHeader();renderPanel('construction');
+});
 
 // SOURCE: 71-trip-inspector.js
 // A transport sample can be inspected without changing economic cargo or jobs.
@@ -3675,7 +3942,7 @@ function hydrateSave(raw){
   }
   for(const h of data.households)for(const id of h.people){if(memberSet.has(id)||data.people[id].hh!==h.id||data.people[id].deceased||data.people[id].movedAway)return false;memberSet.add(id)}
   if(!validateMayorJourney(data)||!validatePrivateServices(data)||!validateDistrictProgrammes(data)||!validateRegionalTrade(data)||!validateWaterfrontArchive(data)||!validateGoodsAccounting(data))return false;
-  if(!validateCivicState(data)||!validateCreditState(data)||!validateScenarioProgramme(data)||!validateCharter(data))return false;
+  if(!validateTransit(data)||!validateCivicState(data)||!validateCreditState(data)||!validateScenarioProgramme(data)||!validateCharter(data))return false;
   data.version=3;data.policy={...defaults,...data.policy};
   data.banks=Array.isArray(data.banks)?data.banks.filter(b=>b&&Number.isInteger(b.id)&&b.id>=0&&b.id<12&&Number.isFinite(b.cash)&&b.cash>=0&&Number.isFinite(b.depositAPY)&&Number.isFinite(b.loanAPY)).slice(0,12):[];
   data.loans=Array.isArray(data.loans)?data.loans.filter(l=>l&&Number.isInteger(l.id)&&Number.isFinite(l.balance)&&l.balance>=0&&['active','repaid','default'].includes(l.status)).slice(0,10000):[];
@@ -3798,7 +4065,7 @@ function serviceProvisionPanel(){
 function renderCommunityFull(){let s=G.stats;return head('Local care and learning')+serviceProvisionPanel()+head('Private growth and mobility')+developmentPanel()+head('Banking & enterprise finance')+strip('Competing banks',G.banks.filter(b=>!b.closed).length+' operating')+strip('Outstanding bank credit',money(G.loans.filter(l=>l.status==='active').reduce((n,l)=>n+l.balance,0)))+head('Constabulary & civil defence')+`<div class="statgrid">${stat('Public safety',s.safety+'/100')}${stat('Crime reports · 30 days',s.dailyCrime)}${stat('Emergency readiness',s.preparedness+'%')}${stat('Residents in hardship',s.hardship+'%')}</div>`+
  tip('Incidents affect named residents and firms. Police staffing and funding reduce risk; underfunded emergency services leave properties more exposed to fire and storm damage.')+
  head('People, health and schools')+`<div class="statgrid">${stat('Public health',Math.round(G.health)+'/100')}${stat('Education level',Math.round(G.education)+'/100')}${stat('Wellbeing',s.wellbeing+'/100')}${stat('Community security',s.safety+'/100')}</div>`+
- head('Road network and emergency reach')+strip('Pavement condition',Math.round(G.stats.roadCondition??100)+' / 100')+strip('Main road-network tiles',roadMetrics().roadTiles)+strip('Disconnected road clusters',Math.max(0,roadMetrics().roadClusters-1))+strip('Firms connected to town',roadMetrics().connectedFirms+' / '+roadMetrics().totalFirms)+strip('Funded road maintenance',Math.round((G.actualServiceFunding?.roads??1)*100)+'% of budget')+`<div class="btnrow"><button id="overlayR">${overlay==='roads'?'✓ ':''}Road-access map</button></div>`+head('Funded services')+strip('Actual patrol budget paid',Math.round((G.actualServiceFunding?.police??1)*100)+'% of authorized')+strip('Actual fire budget paid',Math.round((G.actualServiceFunding?.fire??1)*100)+'% of authorized')+strip('Constabulary per day',money(G.policy.policeBudget))+strip('Fire & rescue per day',money(G.policy.defenseBudget))+strip('Medical services per day',money(G.policy.healthBudget))+strip('Schools & training per day',money(G.policy.educationBudget))+strip('Civil defence volunteers',money(G.policy.militiaBudget))+strip('Household relief per day',money(G.policy.aidBudget))+strip('Heating assistance',money(G.policy.energyAidBudget||0))+strip('Commuter transit',money(G.policy.transitBudget||0))+
+ head('Road network and emergency reach')+strip('Pavement condition',Math.round(G.stats.roadCondition??100)+' / 100')+strip('Main road-network tiles',roadMetrics().roadTiles)+strip('Disconnected road clusters',Math.max(0,roadMetrics().roadClusters-1))+strip('Firms connected to town',roadMetrics().connectedFirms+' / '+roadMetrics().totalFirms)+strip('Funded road maintenance',Math.round((G.actualServiceFunding?.roads??1)*100)+'% of budget')+`<div class="btnrow"><button id="overlayR">${overlay==='roads'?'✓ ':''}Road-access map</button></div>`+head('Funded services')+strip('Actual patrol budget paid',Math.round((G.actualServiceFunding?.police??1)*100)+'% of authorized')+strip('Actual fire budget paid',Math.round((G.actualServiceFunding?.fire??1)*100)+'% of authorized')+strip('Constabulary per day',money(G.policy.policeBudget))+strip('Fire & rescue per day',money(G.policy.defenseBudget))+strip('Medical services per day',money(G.policy.healthBudget))+strip('Schools & training per day',money(G.policy.educationBudget))+strip('Civil defence volunteers',money(G.policy.militiaBudget))+strip('Household relief per day',money(G.policy.aidBudget))+strip('Heating assistance',money(G.policy.energyAidBudget||0))+strip('Public transit / commuter support',money(G.transit?.routes.length?transitOperatingCommitment():G.policy.transitBudget||0))+
  `<div class="btnrow"><button id="overlayC">${overlay==='crime'?'✓ ':' '}Crime map</button><button id="overlayH">${overlay==='hardship'?'✓ ':' '}Hardship map</button></div>`+
  head('Constabulary incident log')+(G.cases.length?G.cases.slice(0,15).map(eventHtml).join(''):tip('No recorded incidents. This does not mean risk is zero.'))+
  head('Safety across time')+miniChart('safety');}
@@ -3813,10 +4080,10 @@ function enactPolicyPackage(){let changes=Object.keys(draftPolicy).filter(k=>dra
  let before={...G.stats,treasury:G.treasury},names=[];ensureSystems();G.policyExperiments.push({day:G.day,before:fromEnd(G.observations)||{...before},changes:changes.map(k=>({key:k,from:G.policy[k],to:draftPolicy[k]})),after:null});G.policyExperiments=G.policyExperiments.slice(-30);
  for(let k of changes){let old=G.policy[k],value=draftPolicy[k],d=defs.find(d=>d[0]===k);if(k==='imports'){G.policy.imports=!!value;names.push('Regional inventory imports: '+(old?'OPEN':'RESTRICTED')+' → '+(value?'OPEN':'RESTRICTED'));continue;}if(!d)continue;G.policy[k]=value;names.push(d[1]+': '+fmt(old)+' → '+fmt(value));}
  G.council.approval=clamp(G.council.approval-Math.min(6,changes.length*.7),5,97);G.journal.push({day:G.day,name:'Council policy package',message:names.join(' · '),baseline:before});if(G.journal.length>160)G.journal.shift();story('Council enacted '+changes.length+' economic and civic policy changes.','neutral');draftPolicy={};recompute();save();updateHeader();renderPanel('policies');toast('Policy package enacted. Let time pass to observe the effects.');}
-function renderTreasuryFull(){let c=G.cumulative,P=G.policy,s=G.stats;let revenues=['incomeTax','profitTax','propertyTax','foodTax','utilityTax','commercialRate','tariffs','permits'].reduce((n,k)=>n+(c[k]||0),0);let daily=(P.policeBudget+P.defenseBudget+P.healthBudget+P.educationBudget+P.aidBudget+(P.energyAidBudget||0)+P.outreachBudget+P.roadBudget+(P.transitBudget||0)+P.militiaBudget+(P.serviceVoucherBudget||0))+(s.employed||0)*P.employmentSubsidy;daily+=G.people.filter(p=>!p.deceased&&!p.movedAway&&p.age>70).length*(P.pensionDaily||0);daily+=G.debt*((P.policyRate||0)/100+.015)/360;let avgRev=(revenues/Math.max(1,G.day-1));let forecast=avgRev-daily;
+function renderTreasuryFull(){let c=G.cumulative,P=G.policy,s=G.stats;let revenues=['incomeTax','profitTax','propertyTax','foodTax','utilityTax','commercialRate','tariffs','permits'].reduce((n,k)=>n+(c[k]||0),0);let daily=(P.policeBudget+P.defenseBudget+P.healthBudget+P.educationBudget+P.aidBudget+(P.energyAidBudget||0)+P.outreachBudget+P.roadBudget+(P.transitBudget||0)+P.militiaBudget+(P.serviceVoucherBudget||0))+(s.employed||0)*P.employmentSubsidy;daily+=G.people.filter(p=>!p.deceased&&!p.movedAway&&p.age>70).length*(P.pensionDaily||0);daily+=G.debt*((P.policyRate||0)/100+.015)/360;daily+=transitOperatingCommitment()-(G.transit?.routes.length?(P.transitBudget||0):0);revenues+=G.transit?.fares||0;let avgRev=(revenues/Math.max(1,G.day-1));let forecast=avgRev-daily;
  return head('Public balance sheet')+`<div class="statgrid">${stat('Liquid municipal cash',money(G.treasury),G.treasury<5000?'negative':'')}${stat('Outstanding debt',money(G.debt))}${stat('Receipts since founding',money(revenues))}${stat('Public spending',money(c.spending||0))}</div>`+
  `<div class="council-card"><h3>Budget outlook</h3><p class="desc">Authorization is a ceiling. Health and school services retain funds that exceed current operating need or facility capacity; compare actual provision in Services.</p>${strip('Average daily receipts since founding',money(avgRev))}${strip('Authorized daily programmes',money(daily))}${strip('Difference at full authorization',money(forecast))}<div class="desc">A backward-looking estimate, not a guaranteed forecast. Receipts change with employment, business profitability, imports and other conditions; annual taxes accrue daily.</div></div>`+
- strip('Pensions paid',money(c.pensions||0))+strip('Pension funding today',Math.round((G.market?.pensionFunding??1)*100)+'%')+head('Cumulative receipts')+strip('Income tax',money(c.incomeTax||0))+strip('Company profit tax',money(c.profitTax||0))+strip('Annual property tax instalments',money(c.propertyTax||0))+strip('Food sales tax',money(c.foodTax||0))+strip('Domestic energy levy',money(c.utilityTax||0))+strip('Commercial property rates',money(c.commercialRate||0))+strip('Import duties',money(c.tariffs||0))+strip('Business licences',money(c.permits||0))+
+ strip('Pensions paid',money(c.pensions||0))+strip('Pension funding today',Math.round((G.market?.pensionFunding??1)*100)+'%')+head('Cumulative receipts')+strip('Income tax',money(c.incomeTax||0))+strip('Company profit tax',money(c.profitTax||0))+strip('Annual property tax instalments',money(c.propertyTax||0))+strip('Food sales tax',money(c.foodTax||0))+strip('Domestic energy levy',money(c.utilityTax||0))+strip('Commercial property rates',money(c.commercialRate||0))+strip('Import duties',money(c.tariffs||0))+strip('Business licences',money(c.permits||0))+strip('Public passenger fares',money(G.transit?.fares||0))+
  head('Financial instruments')+`<div class="btnrow"><button id="borrow">Draw $5,000 credit</button><button id="repay" ${G.debt<=0?'disabled':''}>Repay up to $5,000</button></div>`+tip('Regional credit is capped at '+money(Math.max(25000,s.population*350))+'. Credit creates matching debt; monthly interest uses the policy benchmark plus a 1.5-point regional spread. Private investment is not municipal borrowing.')+
  head('Cash reserve over time')+miniChart('treasury');}
 function renderCitizensFull(){let hs=G.households.filter(h=>h.people.length);if(filterPeople==='struggling')hs=hs.filter(h=>h.cash/Math.max(1,h.people.length)<600||h.stress>50);if(filterPeople==='jobless')hs=hs.filter(h=>h.people.some(id=>G.people[id]?.age>=16&&G.people[id]?.age<=70&&G.people[id]?.job<0&&!G.people[id]?.publicWork));if(filterPeople==='wealthy')hs.sort((a,b)=>b.cash-a.cash);if(filterPeople==='lowcash')hs.sort((a,b)=>a.cash-b.cash);if(citizenQuery.trim())hs=hs.filter(h=>(h.name+' '+h.people.map(id=>G.people[id]?.name||'').join(' ')).toLowerCase().includes(citizenQuery.trim().toLowerCase()));
@@ -3925,7 +4192,7 @@ window.__townArchive={
  resume:()=>{hostSuspended=false;acc=0;last=performance.now();refreshAmbience();},
  export:()=>archivePayload(),
  restore:text=>{const ok=hydrateSave(text);if(ok){save();$('welcome').style.display='none';dirty=true;staticDirty=true;toast('Town restored with its property, bank, cargo and resident records.');}else toast('Archive rejected. The current town is unchanged.');return ok;},
- back:()=>{if($('helpDialog').style.display!=='none'){hideHelpDialog();return true;}if(pendingEvent){closeCouncilDialog(true);return true;}if(active){closePanel();return true;}return false;}
+ back:()=>{if($('helpDialog').style.display!=='none'){hideHelpDialog();return true;}if(pendingEvent){closeCouncilDialog(true);return true;}if(active){closePanel();return true;}if(buildMode){closeBuildTool();return true;}return false;}
 };
 const originalExport=exportSave,originalImport=importSave;
 exportSave=function(){if(window.AndroidArchive)window.AndroidArchive.writeBackup(archivePayload());else originalExport();};

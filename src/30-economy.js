@@ -5,6 +5,7 @@ function dailyEconomy(){
  for(const p of G.people){p.previousPublicRole=p.publicWork?(p.publicRole||''):'';p.publicRole='';p.publicWork=false;p.publicIncome=0;p.commuteBlocked=false;}
  for(const h of G.households){h.income=0;h.crimeLossToday=0;h.recoveredLosses=0;h.serviceReceipts=0;h.wages=0;h.pension=0;h.rentalIncome=0;h.dividends=0;h.debtService=0;h.debtDue=0;h.propertyPaid=0;h.propertyMaintenance=0;h.rent=0;h.food=0;h.tax=0;h.incomeTax=0;h.energyTax=0;h.aid=0;h.utilities=0;h.energyRebate=0;h.travel=0;h.travelDue=0;h.shoppingTravel=0;h.discretionary=0;h.last=[];}
  G.market.unmetFood=0;G.market.consumedFood=0;G.market.externalSales=0;G.market.imports=0;G.market.foodDisconnected=0;G.market.blockedCommutes=0;
+ transitOperatingDay();
  for(const f of live){planEnterprise(f);f.attendingWorkers=f.workers.filter(id=>workerCanCommute(G.people[id],f));const attending=new Set(f.attendingWorkers);if(!attending.size)f.ratedOutput=0;
   const wage=workerIncome(f);for(const id of f.workers.slice()){const person=G.people[id],h=G.households[person?.hh];if(!h)continue;if(!attending.has(id)){person.commuteBlocked=true;person.commuteBlockedDays=(person.commuteBlockedDays||0)+1;G.market.blockedCommutes++;if(person.commuteBlockedDays>=30){person.job=-1;person.commuteBlockedDays=0;person.searchAfter=G.day+1;f.workers=f.workers.filter(p=>p!==id);}continue;}person.commuteBlockedDays=0;
    const gross=Math.min(wage,f.cash),tax=gross*P.incomeTax/100;f.cash-=gross;f.expenses+=gross;f.payroll+=gross;h.cash+=gross-tax;h.income+=gross;h.wages+=gross;h.incomeTax+=tax;h.tax+=tax;transferTreasury(tax,'incomeTax');if(gross<wage*.9){f.strain++;person.unpaidDays=(person.unpaidDays||0)+1;}else person.unpaidDays=0;if(person.unpaidDays>=7){person.job=-1;person.searchAfter=G.day+7;f.workers=f.workers.filter(v=>v!==id);}}
@@ -52,7 +53,7 @@ function dailyEconomy(){
   if((f.stock.food||0)+pendingGoods(f,'food')<daily*3)trade(f,'food',Math.max(0,target-(f.stock.food||0)));
   f.retailCapacity=workingStaff(f).length*80;}
  // A public employee cannot be counted six times across six service budgets.
- G.actualServiceFunding={police:fundedPublicPayroll(P.policeBudget),fire:fundedPublicPayroll(P.defenseBudget),outreach:fundedPublicPayroll(P.outreachBudget),transit:fundedPublicPayroll(P.transitBudget||0)};
+ G.actualServiceFunding={police:fundedPublicPayroll(P.policeBudget),fire:fundedPublicPayroll(P.defenseBudget),outreach:fundedPublicPayroll(P.outreachBudget),transit:G.transit?.routes.length?0:fundedPublicPayroll(P.transitBudget||0)};
  const retirees=G.people.filter(p=>!p.deceased&&!p.movedAway&&p.age>70),pensionDue=retirees.length*(P.pensionDaily||0),pensionPaid=Math.min(G.treasury,pensionDue);G.treasury-=pensionPaid;G.cumulative.spending+=pensionPaid;G.cumulative.pensions=(G.cumulative.pensions||0)+pensionPaid;for(const p of retirees){const h=G.households[p.hh],amount=pensionPaid/Math.max(1,retirees.length);h.cash+=amount;h.income+=amount;h.pension+=amount;}G.market.pensionFunding=pensionDue>0?pensionPaid/pensionDue:1;
  fundCivicServices();
  const householdLoans=new Map();for(const l of G.loans)if(l.status==='active'&&l.ownerType==='household'){if(!householdLoans.has(l.ownerId))householdLoans.set(l.ownerId,[]);householdLoans.get(l.ownerId).push(l);}
@@ -71,15 +72,17 @@ function dailyEconomy(){
   const home=readBuild(h.home);
   let need=h.people.length*1.6,remaining=need;
   const reachable=groceryChoices(h,home,grocers),shops=reachable.filter(o=>o.f.stock.food>0&&o.f.retailCapacity>0);if(!reachable.length)G.market.foodDisconnected+=h.people.length;
-  for(const {f,travel,metro} of shops){const unit=f.price*(1+P.foodTax/100),q=Math.min(remaining,f.stock.food,f.retailCapacity,Math.max(0,h.cash-travel)/unit);if(q<=0)continue;
-   h.cash-=travel;h.travel+=travel;h.travelDue+=travel;h.shoppingTravel+=travel;if(metro){G.metro.cash+=travel;G.metro.dailyRides+=2;G.metro.rides+=2;G.metro.revenue+=travel;}else G.region+=travel;
+  for(let {f,travel,metro,transit,distance} of shops){const unit=f.price*(1+P.foodTax/100);let q=Math.min(remaining,f.stock.food,f.retailCapacity,Math.max(0,h.cash-travel)/unit);if(q<=0)continue;
+   if(transit&&!transitReserve(transit,2)){transit=null;metro=false;travel=distance*.035*2;q=Math.min(remaining,f.stock.food,f.retailCapacity,Math.max(0,h.cash-travel)/unit);if(q<=0)continue;}
+   if(transit){transitDemand(transit,false,2);transitCollectFare(h,transit,2);h.shoppingTravel+=travel;}else{
+   h.cash-=travel;h.travel+=travel;h.travelDue+=travel;h.shoppingTravel+=travel;if(metro){G.metro.cash+=travel;G.metro.dailyRides+=2;G.metro.rides+=2;G.metro.revenue+=travel;}else G.region+=travel;}
    const net=q*f.price,tax=net*P.foodTax/100;h.cash-=net+tax;h.food+=net+tax;f.cash+=net;f.revenue+=net;takeInventory(f,'food',q,true);f.retailCapacity-=q;goodsEntry('food','consumed',q);transferTreasury(tax,'foodTax');remaining-=q;if(remaining<.001)break;}
 
   G.market.consumedFood+=need-remaining;G.market.unmetFood+=remaining;
   h.stress=clamp(h.stress+(remaining>.1?remaining*.30:-.20),0,100);
   const cold=seasonsEnabled()&&(G.month>=10||G.month<=2),bill=h.people.length*(2.25+(cold?1.8:0))*(1+P.utilityTax/100),energy=regionalUtilityAccess(home)?Math.min(h.cash,bill):0,levy=energy-energy/(1+P.utilityTax/100);
   h.utilityConnected=regionalUtilityAccess(home);h.utilityDue=bill;h.cash-=energy;h.utilities=energy;h.energyTax=levy;G.region+=energy-levy;transferTreasury(levy,'utilityTax');if(energy<bill*.8)h.stress=clamp(h.stress+.35,0,100);
-  for(const id of h.people){const person=G.people[id];if(person.job<0||person.commuteBlocked)continue;const firm=G.firms[person.job],work=firm&&readBuild(firm.building);if(!work||!home)continue;const dist=Math.abs(home.x-work.x)+Math.abs(home.y-work.y),metro=hasMetroCommute(home,work)&&G.metro?.operating;
+  for(const id of h.people){const person=G.people[id];if(person.job<0||person.commuteBlocked)continue;const firm=G.firms[person.job],work=firm&&readBuild(firm.building);if(!work||!home)continue;if(person.transitTrip?.day===G.day){transitCollectFare(h,person.transitTrip);continue;}const dist=Math.abs(home.x-work.x)+Math.abs(home.y-work.y),metro=hasMetroCommute(home,work)&&G.metro?.operating;
    const fareDue=metro?G.metro.fare:dist*.035*(1-clamp(P.transitBudget*(G.actualServiceFunding?.transit||0)/280,0,.65)),fare=Math.min(h.cash,fareDue);h.travelDue+=fareDue;h.cash-=fare;h.travel+=fare;if(metro){G.metro.cash+=fare;G.metro.dailyRides++;G.metro.rides++;G.metro.revenue+=fare;}else G.region+=fare;}
   loanPayments(householdLoans.get(h.id)||[]);
   const propertyReserve=propertyDue.get(h.id)||0;h.essentialDue=(h.rentDue||0)+need*(reachable[0]?.f.price||retailReference)*(1+P.foodTax/100)+bill+h.travelDue+propertyReserve;

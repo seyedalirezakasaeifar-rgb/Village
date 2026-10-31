@@ -83,7 +83,7 @@ function cityCell(x,y){return x>=0&&x<T&&y>=0&&y<T?G.tiles[y*T+x]:-1}
 // A site owns every square in its footprint. Legacy saves without a footprint
 // retain their one-square plot; newly built landmarks reserve all their land.
 const LANDMARK_SIZE={farm:[2,2],factory:[2,2],warehouse:[2,2],college:[2,2],
- airport:[2,2],metro_station:[2,2],tower:[2,2],apartment:[2,2],school:[2,2]};
+ transit_depot:[2,2],airport:[2,2],metro_station:[2,2],tower:[2,2],apartment:[2,2],school:[2,2]};
 function footprintFor(x,y,kind){const [w,h]=LANDMARK_SIZE[kind]||[1,1];const result=[];
  for(let dy=0;dy<h;dy++)for(let dx=0;dx<w;dx++)result.push((y+dy)*T+x+dx);
  return result;}
@@ -104,7 +104,7 @@ function canPlace(x,y,roads=true,kind='home',ignore=null){
  let access=false;
  for(let dy=0;dy<dims[1];dy++)for(let dx=0;dx<dims[0];dx++){
   const ax=x+dx,ay=y+dy,id=roadId(ax,ay),owner=buildingAt(ax,ay);if(!charterOwns(ax,ay))return false;
-  if(![0,3].includes(G.tiles[id])||G.landUse?.[id]||(owner&&owner.id!==ignore?.id))return false;
+  if(transitRightOfWay(id)||![0,3].includes(G.tiles[id])||G.landUse?.[id]||(owner&&owner.id!==ignore?.id))return false;
   if(nearRoad(ax,ay))access=true;
  }
  if((kind==='fishery'||kind==='wharf')&&!waterfrontSite(x,y,kind))return false;
@@ -133,7 +133,7 @@ function createFirm(kind,x,y,setup=false,addFn=null){
 function assignJobs(){
  if(!G||!G.people)return;
  const free=G.people.filter(p=>!p.deceased&&p.movedAway!==true&&p.age>=16&&p.age<=70&&p.job<0&&!p.publicWork&&!p.previousPublicRole&&(p.searchAfter||0)<=G.day);
- const net=graph(),maxJourney=60+(G.policy.transitBudget||0)/8;
+ const net=graph(),maxJourney=60+(G.transit?.routes.length?0:(G.policy.transitBudget||0)/8);
  const vacancies=G.firms.filter(f=>!f.closed&&f.workers.length<f.jobs).sort((a,b)=>(b.wage-a.wage));
  for(const f of vacancies){let workplace=readBuild(f.building),port=net.portals.get(f.building);
   if(!workplace||port==null)continue;
@@ -141,7 +141,7 @@ function assignJobs(){
    for(let i=0;i<free.length;i++){const candidate=free[i],hh=G.households[candidate.hh],home=hh&&readBuild(hh.home);
     if(!home||f.privateService&&!privateQualified(candidate,f))continue;const hport=net.portals.get(home.id);if(hport==null||net.parts[hport]!==net.parts[port])continue;
     const distance=roadDistance(hport,port);
-    if(distance>maxJourney&&!hasMetroCommute(home,workplace))continue;
+    if(distance>maxJourney&&!hasMetroCommute(home,workplace)&&!transitAccess(home,workplace))continue;
     const mismatch=Math.abs(candidate.skill-.7)*3,rank=distance*.74+mismatch+candidate.id*.00001;
     if(rank<score){score=rank;best=i}
    }

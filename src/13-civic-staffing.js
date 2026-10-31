@@ -35,7 +35,7 @@ function validateCivicState(data){
  if(data.civicTraining!=null){if(!Array.isArray(data.civicTraining)||data.civicTraining.length>data.people.length)return false;const seen=new Set();
   for(const c of data.civicTraining){if(!c||!Number.isInteger(c.person)||!data.people[c.person]||seen.has(c.person)||!Number.isFinite(c.days)||c.days<0||c.days>=120||!Number.isInteger(c.started)||c.started<1||c.started>data.day)return false;seen.add(c.person);}}
  if(data.civicTrainingLastDay!=null&&(!Number.isInteger(data.civicTrainingLastDay)||data.civicTrainingLastDay>data.day||data.civicTrainingLastDay<1))return false;
- return data.people.every(p=>[p.publicRole,p.previousPublicRole].every(role=>role==null||['','health','school'].includes(role)));
+ return data.people.every(p=>[p.publicRole,p.previousPublicRole].every(role=>role==null||['','health','school','transit'].includes(role)));
 }
 function civicTrainingPanel(){
  const courses=G.civicTraining||[];return head('Local qualifications and training')+tip('Each operating school offers two adult-training places. A term needs 120 equivalent funded teaching days and adds 10 skill points; partial coverage progresses more slowly. Regional staffing contracts provide a recovery path when no local qualified worker is available.')+(courses.length?courses.map(c=>{const p=G.people[c.person];return `<div class="entry"><strong>${esc(p.name)}</strong><small>${Math.floor(c.days)} / 120 funded days · Skill ${Math.round(p.skill*100)}/100</small><button data-house="${p.hh}">Inspect household</button></div>`;}).join(''):tip('No adult course is active. Fund reachable schools to open places.'));
