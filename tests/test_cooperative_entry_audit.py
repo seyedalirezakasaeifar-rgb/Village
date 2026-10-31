@@ -13,7 +13,7 @@ window.__entryAudit={
  drag:()=>{for(let i=0;i<500;i++)cv.dispatchEvent(new PointerEvent('pointermove',{bubbles:true,pointerId:123,pointerType:'touch',clientX:i,clientY:100}));return cooperativeCommands.length;}
 };
 '''
-out={'source_sha256':hashlib.sha256(source.encode()).hexdigest(),'prototype_commit':'d997da1','cases':{}}
+out={'source_sha256':hashlib.sha256(source.encode()).hexdigest(),'prototype_commit':'e68ff5f','cases':{}}
 with sync_playwright() as pw:
  b=pw.chromium.launch(executable_path='/usr/bin/chromium',args=['--no-sandbox']);
  for case in ['publicRead','publicMutation','publicStep','publicModal','staleControl','dragFlood','nativeExport','nativeResume','pause']:

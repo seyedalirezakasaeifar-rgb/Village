@@ -1,6 +1,6 @@
 {
-  "source_sha256": "bb3087687f7ac38a8cd28da440570d63cf0b56d10a873b1ab74124a1d28b5e56",
-  "prototype_commit": "d997da1",
+  "source_sha256": "f9de43910ba45962320c9996c0d575ff890bdf2ab2e18341afa19c8d5c9290d0",
+  "prototype_commit": "e68ff5f",
   "cases": {
     "publicRead": {
       "before": {
@@ -194,8 +194,8 @@
         "modal": "none",
         "pending": false
       },
-      "result": 500,
-      "needsAttention": true
+      "result": 1,
+      "needsAttention": false
     },
     "nativeExport": {
       "before": {
@@ -253,9 +253,9 @@
           "modal": "none",
           "pending": false
         },
-        "markup": "\u2161"
+        "markup": "<svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path fill=\"currentColor\" d=\"M6 4H10V20H6ZM14 4H18V20H14Z\"></path></svg>"
       },
-      "needsAttention": true
+      "needsAttention": false
     }
   }
 }
