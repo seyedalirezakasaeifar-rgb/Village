@@ -1,6 +1,6 @@
 {
-  "version": "7.1.0",
-  "code": 20,
+  "version": "7.1.1",
+  "code": 21,
   "edition": "The Working City",
   "schema": 6,
   "package": "org.townledger.vale"

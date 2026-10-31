@@ -1,4 +1,4 @@
-# Build and verify TownLedger 7.1.0 development
+# Build and verify TownLedger 7.1.1 candidate
 
 Run `python3 tools/assemble.py` after editing the ordered `src/` modules. Python 3 and Node.js are required. Serve `assets/` with `python3 -m http.server 8000 --directory assets` for browser play.
 
@@ -13,7 +13,7 @@ ANDROID_HOME=/path/to/sdk python3 tests/verify_package.py
 
 The script creates a development signer when the supplied path does not exist. Retain it privately for subsequent compatible builds. Its default development password is `android`; protect the file with filesystem permissions. Never commit it or put it in a source or delivery archive. For distribution, use an authorized release signing process. The original baseline key is unavailable; this build does not promise an in-place update from it.
 
-Current candidate output: `TownLedger-The-Working-City-7.1.0.apk` (created only when the build is run). Version, code and package come from `release.json`. The verifier checks exact assets, DEX integrity, manifest metadata, requested permissions, signatures and alignment. Reports under `reports/` are generated and ignored. Neither script installs or launches the APK.
+Current candidate output: `TownLedger-The-Working-City-7.1.1.apk` (created only when the build is run). Version, code and package come from `release.json`. The verifier checks exact assets, DEX integrity, manifest metadata, requested permissions, signatures and alignment. Reports under `reports/` are generated and ignored. Neither script installs or launches the APK.
 
 ## Browser QA
 
@@ -30,3 +30,13 @@ python3 tests/test_v7_scenarios.py
 ```
 
 The first three load bundled HTML in Chromium directly and do not need file URL access. Older scripts use local file navigation; environments that forbid it need an approved local HTTP server adapter. Run performance measurements alone, without concurrent builds or simulation tests. Absolute timing assertions are host-specific; preserve the JSON and describe the host and scenario. Live performance uses an authored synthetic town and real requestAnimationFrame callbacks. It is not an Android FPS benchmark.
+
+## Immutable candidate acceptance
+
+Run the complete46 gates and production build in one frozen pass:
+
+```sh
+ANDROID_HOME=/path/to/sdk TOWNLEDGER_KEYSTORE=/private/path/stable-key.p12 TOWNLEDGER_USE_HTTP=1 python3 tools/qa_candidate.py
+```
+
+The opt-in HTTP adapter serves only bundled current/historical game assets over127.0.0.1. It does not expose build outputs or signing keys. It is included in this source tree; no private environment shim is needed. For an individual file-navigation test, add `PYTHONPATH=tools/browser_http_adapter TOWNLEDGER_USE_HTTP=1`. Native source, test inputs, metadata and assets must remain unchanged during acceptance. Performance gates must run without another emulator/simulation competing for the host.

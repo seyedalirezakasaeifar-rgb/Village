@@ -1,4 +1,4 @@
-# TownLedger 7.1.0 development — The Working City
+# TownLedger 7.1.1 candidate — The Working City
 
 Current source extends the signed 7.0.5 checkpoint. A standalone 7.1.0 development APK and matching source are available in [the current checkpoint](artifacts/checkpoints/ff7be45/README.md). This is an intermediate build, not the final overnight handoff or a store release:
 

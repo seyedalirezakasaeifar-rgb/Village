@@ -93,7 +93,7 @@ const FIN_BANK_NAMES=['Vale Mutual Savings','Mercantile & County Bank','First Bo
 
 // SOURCE: 05-systems.js
 // Deterministic model services. Presentation has its own hash-based randomness.
-const RELEASE=Object.freeze({"version":"7.1.0","code":20,"edition":"The Working City","schema":6,"package":"org.townledger.vale"});
+const RELEASE=Object.freeze({"version":"7.1.1","code":21,"edition":"The Working City","schema":6,"package":"org.townledger.vale"});
 let rngState=42,visualState=918273,simulationBusy=false;
 const perfStats={frames:[],ticks:[],effective:1,backlog:0,days:0,elapsed:0,errors:[]};
 function random(){rngState=(rngState+0x6D2B79F5)>>>0;let t=rngState;t=Math.imul(t^(t>>>15),t|1);t^=t+Math.imul(t^(t>>>7),t|61);return ((t^(t>>>14))>>>0)/4294967296;}
