@@ -1,6 +1,6 @@
 # Food shortage and recovery check (8.0)
 
-**Source:** `codex/8-balance-lab` at `03a5db9`; game-bundle SHA-256 `c2bf453d27bd77507f8b29c09df23187f7db216f4505e921f65cd6db9ed76447`. The deterministic browser harness and full daily observations are in [`results.json`](../evidence/food-shortage-recovery8/results.json). This is a two-seed model check, not a balance benchmark.
+**Source:** `codex/8-balance-lab` at `0780b70`; game-bundle SHA-256 `ad4c5ae3ee9ad3379403eb3e36b8b03b6f617d1c3639f42243523e8c8c6e9865`. The deterministic browser harness and full daily observations are in [`results.json`](../evidence/food-shortage-recovery8/results.json). This is a two-seed model check, not a balance benchmark.
 
 ## Method
 
@@ -20,6 +20,16 @@ The road test stranded import cargo long enough to exercise the existing recover
 
 ## Interpretation and limit
 
-CPI currently reflects grocer prices (55%), rent index (25%), and a fixed remainder; it does not include food availability. A falling CPI can coexist with unmet food demand, as this regional road test demonstrates. The player should be able to see stockouts and unmet demand alongside price measures. Regional access recovered immediately at the route level, but household food demand did not fully recover during the following 120 days. Further work should explain the demand/access lag and test more town seeds before changing coefficients.
+CPI currently reflects grocer prices (55%), rent index (25%), and a fixed remainder; it does not include food availability. A falling CPI can coexist with unmet food demand, as this regional road test demonstrates. The player should be able to see stockouts and unmet demand alongside price measures. Regional access recovered immediately at the route level, but household food demand did not fully recover during the following 120 days.
+
+## Household-level cause and player feedback
+
+A read-only matched audit of regional seed 909 recorded affected shoppers at days 196, 211, 241, 271 and 301 in both the continuous-import control and road-outage/reopening history. In the reopened arm at day 196, 40 households (82 people) left 131.2 units unmet. All could reach grocery stores; none were classified as cash-limited. Their pre-shop cash ranged from $932 to $2,850, and combined bank deposits were about $62,607. Ten of 13 grocers had food and staffed sales capacity, but the affected households reached them after that capacity had been consumed. Town grocers held 10,039 units, yet the daily sellable amount was 960 against 1,091 units of estimated household need. On day 301, stores held 11,280 units, but sellable capacity was 1,120 against 1,138 units needed; six households (12 people) left 17.6 units unmet. No measured household had a missing grocery road connection on these sample days.
+
+The connected control also shows this is a retail-throughput constraint rather than a shortage unique to the road cut: on day 196, 92 households (190 people) left 304 units unmet with 4,175 grocer units in stock. Only 800 units were sellable that day against 1,104 units of household need. Some reachable shops had inventory but no remaining staffed capacity, while other shops had capacity but no inventory. The per-household trace records shopping order, store distances, available inventory/capacity, purchases, cash, deposits and stress; the complete trace is in [`household-access-audit.json`](../evidence/food-shortage-recovery8/household-access-audit.json).
+
+The game now records daily unmet food and grocery disconnection in its existing 240-day history. The economic report displays today's unmet demand, total unmet units and affected days across the last 30 recorded days, plus staffed, stocked grocer sales capacity against estimated household need. It warns that inventory can remain unsold when active retail throughput is short. This is a feedback change only; no food demand, staffing, prices or hardship thresholds were tuned. Tests confirmed the warning appears during sustained unmet demand and clears when the rolling measure returns to zero. Older saved history entries without the new fields are counted only as recorded days, so they do not fabricate earlier shortages.
+
+The hardship indicator remains a threshold on stress and liquid assets, so measured hardship can stay at zero even as rotating late shoppers miss that day's purchase. The rolling food measure makes that gap visible without relabeling the game's existing hardship statistic. Further work should test more seeds before changing retail coefficients.
 
 Only two seeds were run. The road cut freezes the existing external gateway locations in the harness so removing those boundary roads represents loss of external access rather than allowing the game's dynamic gateway picker to move the portal inward. It does not claim to test an in-game road-closure UI. Full daily paths, money/goods accounts, cargo backlog and replay data are retained in the evidence file.
