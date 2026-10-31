@@ -1,0 +1,98 @@
+{
+  "source_sha256": "d187f0cb9eca7d7eaa34b43dca354b9158eb68eb31336d889471095a73fb08e3",
+  "assetOrigin": "opaque set_content",
+  "camera": {
+    "x": 4678,
+    "y": 1032,
+    "zoom": 0.95
+  },
+  "viewport": [
+    844,
+    390
+  ],
+  "network": null,
+  "networkEnd": null,
+  "zoom": 0.95,
+  "synthetic": {
+    "population": 2000,
+    "households": 678,
+    "buildings": 713,
+    "total": 15493517
+  },
+  "requestedSpeed": 64,
+  "elapsedSeconds": 8.094352449000326,
+  "simulatedDays": 199,
+  "rafP50Ms": 33.29999999999927,
+  "rafP95Ms": 100.09999999999945,
+  "rafP99Ms": 466.59999999999945,
+  "rafOver50ms": 36,
+  "profile": null,
+  "renderer": {
+    "drawCount": 106,
+    "drawMedianMs": 5.100000000093132,
+    "drawP95Ms": 38.200000000186265,
+    "drawP99Ms": 52.39999999990687,
+    "tickMedianMs": 17.59999999962747,
+    "tickP95Ms": 66.39999999990687,
+    "actualSpeed": 67.06667957030875,
+    "backlogDays": 1.6438787878788037
+  },
+  "ui": [
+    {
+      "panel": "[data-panel=economy]",
+      "toNextFrameMs": 105.40000000037253,
+      "panelError": false
+    },
+    {
+      "panel": "[data-panel=citizens]",
+      "toNextFrameMs": 60.39999999990687,
+      "panelError": false
+    },
+    {
+      "panel": "[data-panel=businesses]",
+      "toNextFrameMs": 150.1999999997206,
+      "panelError": false
+    },
+    {
+      "panel": "[data-panel=settings]",
+      "toNextFrameMs": 60.3000000002794,
+      "panelError": false
+    }
+  ],
+  "foundingAndWarmup": {
+    "frames": [
+      567.3999999999069,
+      1.1000000000931323,
+      1.3999999999068677,
+      39.1999999997206,
+      2.599999999627471,
+      163.5,
+      37.5,
+      3,
+      2.3999999999068677,
+      9.200000000186265,
+      5.7000000001862645,
+      2,
+      10.799999999813735,
+      12.900000000372529,
+      2.1999999997206032,
+      3.3000000002793968
+    ],
+    "ticks": [
+      160.79999999981374,
+      65.29999999981374,
+      35.60000000009313,
+      43.5,
+      91.6999999997206,
+      64.20000000018626,
+      38.299999999813735,
+      21.600000000093132,
+      30.799999999813735,
+      57.10000000009313,
+      32.8000000002794,
+      69.29999999981374
+    ]
+  },
+  "moneyConservationDrift": 3.4868717193603516e-06,
+  "errors": []
+}
