@@ -1,0 +1,224 @@
+{
+  "source_sha256": "3570ef6e14dbd08908232955768f355b198c1c869021289204825cd952d038ed",
+  "controlledFaults": true,
+  "result": {
+    "checks": [
+      {
+        "label": "early cancel",
+        "error": 0,
+        "drift": 0
+      },
+      {
+        "label": "shared capacity and paid road transfer",
+        "error": 0,
+        "drift": 1.862645149230957e-09
+      },
+      {
+        "label": "closure recovery",
+        "error": 0,
+        "drift": 3.725290298461914e-09
+      },
+      {
+        "label": "owned export and delayed buyer settlement",
+        "error": 0,
+        "drift": 3.725290298461914e-09
+      },
+      {
+        "label": "invalid voyage atomic rejection",
+        "error": 0,
+        "drift": 3.725290298461914e-09
+      },
+      {
+        "label": "inspector counts only successful arrivals",
+        "error": 0,
+        "drift": 3.725290298461914e-09
+      }
+    ],
+    "comparisons": [
+      {
+        "firm": 0,
+        "river": 0.212,
+        "road": 0.195,
+        "riverDays": 8,
+        "roadDays": 7
+      },
+      {
+        "firm": 1,
+        "river": 0.215,
+        "road": 0.198,
+        "riverDays": 8,
+        "roadDays": 7
+      },
+      {
+        "firm": 2,
+        "river": 0.218,
+        "road": 0.193,
+        "riverDays": 8,
+        "roadDays": 8
+      },
+      {
+        "firm": 3,
+        "river": 0.215,
+        "road": 0.196,
+        "riverDays": 8,
+        "roadDays": 8
+      },
+      {
+        "firm": 4,
+        "river": 0.215,
+        "road": 0.198,
+        "riverDays": 8,
+        "roadDays": 7
+      },
+      {
+        "firm": 5,
+        "river": 0.194,
+        "road": 0.201,
+        "riverDays": 7,
+        "roadDays": 7
+      },
+      {
+        "firm": 6,
+        "river": 0.215,
+        "road": 0.196,
+        "riverDays": 8,
+        "roadDays": 8
+      },
+      {
+        "firm": 7,
+        "river": 0.227,
+        "road": 0.246,
+        "riverDays": 8,
+        "roadDays": 8
+      },
+      {
+        "firm": 8,
+        "river": 0.257,
+        "road": 0.192,
+        "riverDays": 8,
+        "roadDays": 7
+      },
+      {
+        "firm": 9,
+        "river": 0.155,
+        "road": 0.24,
+        "riverDays": 7,
+        "roadDays": 8
+      },
+      {
+        "firm": 10,
+        "river": 0.227,
+        "road": 0.22600000000000003,
+        "riverDays": 8,
+        "roadDays": 8
+      },
+      {
+        "firm": 11,
+        "river": 0.197,
+        "road": 0.198,
+        "riverDays": 7,
+        "roadDays": 7
+      },
+      {
+        "firm": 12,
+        "river": 0.218,
+        "road": 0.177,
+        "riverDays": 8,
+        "roadDays": 7
+      },
+      {
+        "firm": 13,
+        "river": 0.218,
+        "road": 0.177,
+        "riverDays": 8,
+        "roadDays": 7
+      },
+      {
+        "firm": 14,
+        "river": 0.212,
+        "road": 0.199,
+        "riverDays": 8,
+        "roadDays": 8
+      },
+      {
+        "firm": 15,
+        "river": 0.221,
+        "road": 0.174,
+        "riverDays": 8,
+        "roadDays": 7
+      },
+      {
+        "firm": 16,
+        "river": 0.191,
+        "road": 0.20999999999999996,
+        "riverDays": 7,
+        "roadDays": 7
+      },
+      {
+        "firm": 17,
+        "river": 0.191,
+        "road": 0.20999999999999996,
+        "riverDays": 7,
+        "roadDays": 7
+      },
+      {
+        "firm": 18,
+        "river": 0.218,
+        "road": 0.201,
+        "riverDays": 8,
+        "roadDays": 7
+      },
+      {
+        "firm": 19,
+        "river": 0.257,
+        "road": 0.14400000000000002,
+        "riverDays": 8,
+        "roadDays": 6
+      },
+      {
+        "firm": 20,
+        "river": 0.221,
+        "road": 0.19,
+        "riverDays": 8,
+        "roadDays": 8
+      },
+      {
+        "firm": 21,
+        "river": 0.218,
+        "road": 0.201,
+        "riverDays": 8,
+        "roadDays": 7
+      },
+      {
+        "firm": 22,
+        "river": 0.212,
+        "road": 0.199,
+        "riverDays": 8,
+        "roadDays": 8
+      },
+      {
+        "firm": 23,
+        "river": 0.224,
+        "road": 0.187,
+        "riverDays": 8,
+        "roadDays": 7
+      },
+      {
+        "firm": 24,
+        "river": 0.14,
+        "road": 0.255,
+        "riverDays": 7,
+        "roadDays": 8
+      },
+      {
+        "firm": 25,
+        "river": 0.137,
+        "road": 0.258,
+        "riverDays": 6,
+        "roadDays": 8
+      }
+    ],
+    "claims": 0
+  },
+  "errors": []
+}

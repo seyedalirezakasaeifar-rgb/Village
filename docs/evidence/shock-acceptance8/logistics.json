@@ -1,0 +1,109 @@
+{
+  "source_sha256": "3570ef6e14dbd08908232955768f355b198c1c869021289204825cd952d038ed",
+  "result": {
+    "history": [
+      "outside",
+      "return-outside",
+      "return-outside",
+      "settled"
+    ],
+    "delivered": [
+      "outside",
+      "outside",
+      "delivering",
+      "delivering",
+      "settled"
+    ],
+    "claims": 0,
+    "deliveredCount": 1,
+    "cancelled": 5,
+    "cashDrift": 3.725290298461914e-09,
+    "goods": [
+      {
+        "good": "grain",
+        "opening": 960,
+        "produced": 0,
+        "consumed": 0,
+        "imports": 80,
+        "exports": 40,
+        "stock": 1000,
+        "error": 0,
+        "price": 2
+      },
+      {
+        "good": "flour",
+        "opening": 960,
+        "produced": 0,
+        "consumed": 0,
+        "imports": 80,
+        "exports": 40,
+        "stock": 1000,
+        "error": 0,
+        "price": 3
+      },
+      {
+        "good": "food",
+        "opening": 1920,
+        "produced": 0,
+        "consumed": 0,
+        "imports": 400,
+        "exports": 260,
+        "stock": 2060,
+        "error": 0,
+        "price": 3.3
+      },
+      {
+        "good": "logs",
+        "opening": 720,
+        "produced": 0,
+        "consumed": 0,
+        "imports": 60,
+        "exports": 30,
+        "stock": 750,
+        "error": 0,
+        "price": 2
+      },
+      {
+        "good": "timber",
+        "opening": 720,
+        "produced": 0,
+        "consumed": 0,
+        "imports": 60,
+        "exports": 30,
+        "stock": 750,
+        "error": 0,
+        "price": 4
+      },
+      {
+        "good": "stone",
+        "opening": 720,
+        "produced": 0,
+        "consumed": 0,
+        "imports": 60,
+        "exports": 30,
+        "stock": 750,
+        "error": 0,
+        "price": 3
+      },
+      {
+        "good": "manufactures",
+        "opening": 0,
+        "produced": 0,
+        "consumed": 0,
+        "imports": 0,
+        "exports": 0,
+        "stock": 0,
+        "error": 0,
+        "price": 8.5
+      }
+    ],
+    "valid": {
+      "ok": true,
+      "issues": [],
+      "total": 15493517.000000004,
+      "population": 169,
+      "day": 18
+    }
+  },
+  "errors": []
+}
