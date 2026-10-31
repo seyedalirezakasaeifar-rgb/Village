@@ -1166,7 +1166,7 @@ function exportRoutes(f){
 }
 function settleRegionalExport(f,good,requested,price){
  let remaining=requested,sold=0;const state=ensureWaterfront();
- for(const route of exportRoutes(f)){const quantity=Math.max(0,Math.min(remaining,route.capacity,G.region/Math.max(price,.01)));if(quantity<=0||route.unit>=price)continue;
+ for(const route of exportRoutes(f)){if(route.mode==='road'){const n=dispatchRoadExport(f,good,remaining,price);remaining-=n;sold+=n;continue}const quantity=Math.max(0,Math.min(remaining,route.capacity,G.region/Math.max(price,.01)));if(quantity<=0||route.unit>=price)continue;
   const gross=quantity*price,freight=quantity*route.unit;takeInventory(f,good,quantity,true);goodsEntry(good,'exports',quantity);G.region-=gross;f.cash+=gross;f.revenue+=gross;if(G.market)G.market.externalSales+=gross;
   // The carrier is paid from the actual sale. Handling income belongs to the
   // wharf; the regional haulier receives only the residual, once.
@@ -1216,6 +1216,51 @@ function waterfrontPlacementMessage(x,y,kind){
  return road!=null?'Ready: vacant shore with a connected road. Crews and orders are still required.':'Shore site available, but this road is isolated. Connect it to town before crews can work.';
 }
 
+// SOURCE: 22-regional-markets.js
+// Named counterparties share the existing conserved external cash account.
+// Orders own physical stock until arrival; graphics never settle a transaction.
+const OUTSIDE_MARKETS=[
+ {id:'upland',name:'Upland Cooperative',direction:'north',days:2,capacity:700,imports:{grain:.86,food:.94,logs:1.06},exports:{timber:1.10,manufactures:1.16,stone:1.04}},
+ {id:'port',name:'Greyhaven Port',direction:'east',days:3,capacity:900,imports:{manufactures:.85,timber:.94,food:1.08},exports:{grain:1.07,flour:1.13,food:1.10}},
+ {id:'ridge',name:'Ironridge Works',direction:'south',days:4,capacity:600,imports:{stone:.84,logs:.91,grain:1.06},exports:{timber:1.18,food:1.15,manufactures:1.03}}
+];
+function ensureRegionalTrade(){if(!G.regionalTrade)G.regionalTrade={version:1,serial:0,shipments:[],recent:[],contracts:[],delivered:0,late:0};return G.regionalTrade}
+function regionalMarketQuote(m,good,side){const cycle=Math.sin(Math.floor(G.day/30)*.7+OUTSIDE_MARKETS.indexOf(m)*1.8+Object.keys(goods).indexOf(good));return marketPrice(good)*(m[side]?.[good]||1)*(1+cycle*.045)}
+let regionalRouteCache=null;
+function regionalGateway(m){
+ const net=graph();if(regionalRouteCache?.net!==net){const nodes=[...net.neighbors.keys()].filter(id=>net.parts[id]===net.mainPart),gates={};for(const market of OUTSIDE_MARKETS){const score=id=>market.direction==='north'?-(id/T|0):market.direction==='south'?(id/T|0):id%T;gates[market.id]=nodes.sort((a,b)=>score(b)-score(a)||a-b)[0];}regionalRouteCache={net,gates};}return regionalRouteCache.gates[m.id];
+}
+function regionalRoadPath(f,m){const port=graph().portals.get(f.building),gate=regionalGateway(m);return port==null||gate==null?[]:routeBetween(port,gate)}
+function regionalCapacity(m,good,direction){const s=ensureRegionalTrade();return Math.max(0,m.capacity*(.85+.15*Math.sin(Math.floor(G.day/30)*.6+OUTSIDE_MARKETS.indexOf(m)))-s.shipments.filter(o=>o.market===m.id&&o.started===G.day).reduce((n,o)=>n+o.qty,0))}
+function regionalQuote(f,m,good,direction){const path=regionalRoadPath(f,m);if(!path.length)return null;const price=regionalMarketQuote(m,good,direction==='import'?'imports':'exports'),freight=.06+(path.length-1)*.003+m.days*.015;return {m,path,price,freight,days:m.days+Math.max(1,Math.ceil((path.length-1)/24)),capacity:regionalCapacity(m,good,direction)}}
+function regionalExpense(f,cost){if(marketOpen)f.expenses+=cost;else f.pendingFreightExpense=(f.pendingFreightExpense||0)+cost;f.shippingToday=(f.shippingToday||0)+cost}
+function dispatchRegional(f,good,requested,direction,quote,contract=null){
+ const s=ensureRegionalTrade();if(!quote||s.shipments.length>=240||!f||f.closed||!(requested>0))return 0;const tariff=direction==='import'?G.policy.importTariff/100:0,unit=direction==='import'?quote.price*(1+tariff)+quote.freight:quote.freight;
+ let qty=Math.min(requested,quote.capacity,direction==='export'?(f.stock[good]||0):Infinity,unit>0?f.cash/unit:Infinity);qty=Math.floor(qty*1000)/1000;if(qty<.001)return 0;
+ const freight=qty*quote.freight,price=contract?.price||quote.price;let inventoryCost=0;
+ if(direction==='import'){const total=qty*(quote.price*(1+tariff))+freight,levy=qty*quote.price*tariff;recordInventoryPurchase(f,good,qty,total);f.cash-=total;G.region+=total-levy;transferTreasury(levy,'tariffs');goodsEntry(good,'imports',qty);if(G.market)G.market.imports+=total-levy;}
+ else{inventoryCost=takeInventory(f,good,qty,false);f.cash-=freight;G.region+=freight;regionalExpense(f,freight);}
+ const path=direction==='import'?quote.path.slice().reverse():quote.path.slice();s.shipments.push({id:++s.serial,firm:f.id,market:quote.m.id,good,qty,direction,price,inventoryCost,freight,path,started:G.day,due:G.day+quote.days,travelDays:quote.days,status:'travelling',contract:contract?.id||null});return qty;
+}
+const instantaneousRegionalImport=regionImport;
+regionImport=function(f,good,qty){if(!G.policy.imports)return 0;const quotes=OUTSIDE_MARKETS.map(m=>regionalQuote(f,m,good,'import')).filter(Boolean).sort((a,b)=>a.price+a.freight-b.price-b.freight);let left=qty,ordered=0;for(const q of quotes){const n=dispatchRegional(f,good,left,'import',q);ordered+=n;left-=n;if(left<.001)break}return ordered};
+const localPendingGoods=pendingGoods;
+pendingGoods=function(f,good){return localPendingGoods(f,good)+(G.regionalTrade?.shipments||[]).filter(o=>o.direction==='import'&&o.firm===f.id&&o.good===good).reduce((n,o)=>n+o.qty,0)};
+const localStockTotals=stockTotals;
+stockTotals=function(){const totals=localStockTotals();for(const o of G.regionalTrade?.shipments||[])totals[o.good]=(totals[o.good]||0)+o.qty;return totals};
+function dispatchRoadExport(f,good,qty,ask){const quotes=OUTSIDE_MARKETS.map(m=>regionalQuote(f,m,good,'export')).filter(q=>q&&q.price>=ask*.88&&q.price>q.freight).sort((a,b)=>(b.price-b.freight)-(a.price-a.freight));let left=qty,sent=0;for(const q of quotes){const n=dispatchRegional(f,good,left,'export',q);sent+=n;left-=n;if(left<.001)break}return sent}
+function regionalFreightDay(){
+ const s=ensureRegionalTrade(),keep=[];for(const o of s.shipments){if(G.day<o.due){keep.push(o);continue}const f=G.firms[o.firm],m=OUTSIDE_MARKETS.find(m=>m.id===o.market),path=f&&regionalRoadPath(f,m);
+  if(!f||!path?.length){o.status='Route interrupted';s.late++;keep.push(o);continue}
+  if(o.direction==='export'&&G.region+1e-8<o.qty*o.price){o.status='Buyer awaiting liquidity';s.late++;keep.push(o);continue}
+  if(o.direction==='import'){f.stock[o.good]=(f.stock[o.good]||0)+o.qty;}
+  else{const gross=o.qty*o.price;G.region-=gross;enterpriseRevenue(f,gross);f.pendingCogs=(f.pendingCogs||0)+o.inventoryCost;f.pendingSalesQty=(f.pendingSalesQty||0)+o.qty;goodsEntry(o.good,'exports',o.qty);if(G.market)G.market.externalSales+=gross;const c=s.contracts.find(c=>c.id===o.contract);if(c)c.delivered+=o.qty;}
+  s.delivered++;s.recent.unshift({...o,arrived:G.day,status:'Delivered'});if(s.recent.length>36)s.recent.length=36;
+ }s.shipments=keep;
+ for(const c of s.contracts){if(c.status!=='active')continue;const f=G.firms[c.firm];if(c.delivered+.001>=c.quantity&&G.day<=c.deadline){c.status='fulfilled';story('Trade agreement fulfilled: '+c.name+'. Payment reached '+f.name+'.','good',f.building);continue}if(G.day>c.deadline){c.status='missed';story('Trade agreement window missed: '+c.name+'. Paid cargo still travels; no invented fine. Review capacity before renewing.','bad',f?.building);continue}const reserved=s.shipments.filter(o=>o.contract===c.id).reduce((n,o)=>n+o.qty,0),need=c.quantity-c.delivered-reserved;if(need>.001&&f&&!f.closed){const m=OUTSIDE_MARKETS.find(m=>m.id===c.market),q=regionalQuote(f,m,c.good,'export'),buffer=c.good==='food'?Math.max(20,G.stats.population*.8):10;dispatchRegional(f,c.good,Math.max(0,Math.min(need,(f.stock[c.good]||0)-buffer)),'export',q,c);}}
+}
+function validateRegionalTrade(data){const s=data.regionalTrade;if(s==null)return true;if(s.version!==1||!Number.isSafeInteger(s.serial)||s.serial<0||!Array.isArray(s.shipments)||s.shipments.length>240||!Array.isArray(s.recent)||s.recent.length>36||!Array.isArray(s.contracts)||s.contracts.length>24)return false;const ids=new Set();return s.shipments.every(o=>{if(!o||!Number.isInteger(o.id)||o.id<1||o.id>s.serial||ids.has(o.id)||!data.firms[o.firm]||!OUTSIDE_MARKETS.some(m=>m.id===o.market)||!owns(goods,o.good)||!['import','export'].includes(o.direction)||!['qty','price','freight','inventoryCost'].every(k=>Number.isFinite(o[k])&&o[k]>=0)||o.qty<=0||!Number.isInteger(o.due)||o.due<o.started||!Number.isInteger(o.started)||o.started>data.day||!Array.isArray(o.path)||!o.path.length||o.path.length>T*T)return false;ids.add(o.id);return o.path.every((id,i)=>Number.isInteger(id)&&id>=0&&id<T*T&&(!i||Math.abs(id%T-o.path[i-1]%T)+Math.abs((id/T|0)-(o.path[i-1]/T|0))===1));})&&s.contracts.every(c=>c&&Number.isInteger(c.id)&&data.firms[c.firm]&&OUTSIDE_MARKETS.some(m=>m.id===c.market)&&owns(goods,c.good)&&['active','fulfilled','missed','cancelled'].includes(c.status)&&['quantity','delivered','price','deadline'].every(k=>Number.isFinite(c[k])&&c[k]>=0));}
+
 // SOURCE: 25-scenarios.js
 // Existing capital in authored starts is funded before the opening balance sheet.
 function initializeScenario(){
@@ -1249,7 +1294,7 @@ function initializeScenario(){
 function dailyEconomy(){
  ensureMarketModel();marketOpen=true;const P=G.policy,live=G.firms.filter(f=>!f.closed),counts={};
  for(const f of live)counts[f.kind]=(counts[f.kind]||0)+1;
- for(const f of G.firms){f.revenue=f.pendingRevenue||0;f.pendingRevenue=0;f.expenses=0;f.debtDue=0;f.cogs=f.pendingCogs||0;f.pendingCogs=0;f.purchases=0;f.payroll=0;f.nonSalesIncome=0;f.recoveries=0;f.salesQty=f.pendingSalesQty||0;f.pendingSalesQty=0;f.production=0;f.profit=0;f.tax=0;f.age++;}
+ for(const f of G.firms){f.revenue=f.pendingRevenue||0;f.pendingRevenue=0;f.expenses=f.pendingFreightExpense||0;f.pendingFreightExpense=0;f.debtDue=0;f.cogs=f.pendingCogs||0;f.pendingCogs=0;f.purchases=0;f.payroll=0;f.nonSalesIncome=0;f.recoveries=0;f.salesQty=f.pendingSalesQty||0;f.pendingSalesQty=0;f.production=0;f.profit=0;f.tax=0;f.age++;}
  for(const p of G.people){p.previousPublicRole=p.publicWork?(p.publicRole||''):'';p.publicRole='';p.publicWork=false;p.publicIncome=0;p.commuteBlocked=false;}
  for(const h of G.households){h.income=0;h.crimeLossToday=0;h.recoveredLosses=0;h.serviceReceipts=0;h.wages=0;h.pension=0;h.rentalIncome=0;h.dividends=0;h.debtService=0;h.debtDue=0;h.propertyPaid=0;h.propertyMaintenance=0;h.rent=0;h.food=0;h.tax=0;h.incomeTax=0;h.energyTax=0;h.aid=0;h.utilities=0;h.energyRebate=0;h.travel=0;h.travelDue=0;h.shoppingTravel=0;h.discretionary=0;h.last=[];}
  G.market.unmetFood=0;G.market.consumedFood=0;G.market.externalSales=0;G.market.imports=0;G.market.foodDisconnected=0;G.market.blockedCommutes=0;
@@ -2138,7 +2183,7 @@ function load(){
 
 // SOURCE: 50-clock.js
 function tick(){if(!G||pendingEvent)return;ensureSystems();ensureMarketModel();G.day++;if(G.day%30===0){G.month++;if(G.month>12){G.month=1;G.year++}};
- freightDay();completeEquipmentOrders();completeDevelopmentProjects();dailyEconomy();bankDaily();metroOperatingDay();airfieldOperatingDay();incidents();investigateCases();extendedCivicDay();maintainRoads();finalizeMarketBooks();if(G.day%30===0&&G.debt>0){const interest=G.debt*((G.policy.policyRate||0)/100+.015)/12,paid=Math.min(G.treasury,interest);G.treasury-=paid;G.region+=paid;G.debt+=interest-paid;story('Interest on municipal borrowing: '+money(interest)+'.')}if(G.day%10===0)assignJobs();if(G.day%30===0)privateInvestmentAndHousing();
+ regionalFreightDay();freightDay();completeEquipmentOrders();completeDevelopmentProjects();dailyEconomy();bankDaily();metroOperatingDay();airfieldOperatingDay();incidents();investigateCases();extendedCivicDay();maintainRoads();finalizeMarketBooks();if(G.day%30===0&&G.debt>0){const interest=G.debt*((G.policy.policyRate||0)/100+.015)/12,paid=Math.min(G.treasury,interest);G.treasury-=paid;G.region+=paid;G.debt+=interest-paid;story('Interest on municipal borrowing: '+money(interest)+'.')}if(G.day%10===0)assignJobs();if(G.day%30===0)privateInvestmentAndHousing();
 
  if(G.day%30===0){outwardMigration();autonomousDevelopment();}
  if(G.day%45===0&&G.stats.population<2000){let success=G.stats.employment>88&&G.stats.hardship<35&&G.firms.some(f=>!f.closed&&f.workers.length<f.jobs);
@@ -2677,7 +2722,7 @@ function draw(){
  }
  ctx.setTransform(1,0,0,1,0,0);ctx.drawImage(viewRaster,0,0);transform();
  drawConstructionProgress(ctx,visible);drawInspectedRoute(ctx);drawWaterLife(ctx,visible);drawWaterfrontPiers(ctx,visible);drawSelectedWaterRoute(ctx);
- const visibleParcels=viewBuildings.filter(item=>visible(item.x,item.y,0)),actors=[...buildingActivity(visibleParcels),...workdayScenes(visibleParcels),...waterfrontActors(visible)];if(visualDetailBudget().traffic)for(const v of traffic){const p=vehiclePosition(v);if(visible(p.x,p.y,15))actors.push({kind:'vehicle',v,...p});}actors.sort((a,b)=>a.y-b.y);
+ const visibleParcels=viewBuildings.filter(item=>visible(item.x,item.y,0)),actors=[...buildingActivity(visibleParcels),...workdayScenes(visibleParcels),...waterfrontActors(visible),...regionalCargoActors().filter(a=>visible(a.x,a.y,15))];if(visualDetailBudget().traffic)for(const v of traffic){const p=vehiclePosition(v);if(visible(p.x,p.y,15))actors.push({kind:'vehicle',v,...p});}actors.sort((a,b)=>a.y-b.y);
  if(actors.length){
   // Clip subsequent foreground re-paints to the actors' damage rectangles.
   ctx.save();ctx.beginPath();for(const a of actors)if(a.kind==='boat')ctx.rect(a.x-44,a.y-32,88,64);else ctx.rect(a.x-25,a.y-32,56,52);ctx.clip();
@@ -3514,7 +3559,7 @@ function hydrateSave(raw){
    if(idSet.has(b.id))return false;idSet.add(b.id);
   }
   for(const h of data.households)for(const id of h.people){if(memberSet.has(id)||data.people[id].hh!==h.id||data.people[id].deceased||data.people[id].movedAway)return false;memberSet.add(id)}
-  if(!validateWaterfrontArchive(data)||!validateGoodsAccounting(data))return false;
+  if(!validateRegionalTrade(data)||!validateWaterfrontArchive(data)||!validateGoodsAccounting(data))return false;
   if(!validateCivicState(data)||!validateCreditState(data)||!validateScenarioProgramme(data)||!validateCharter(data))return false;
   data.version=3;data.policy={...defaults,...data.policy};
   data.banks=Array.isArray(data.banks)?data.banks.filter(b=>b&&Number.isInteger(b.id)&&b.id>=0&&b.id<12&&Number.isFinite(b.cash)&&b.cash>=0&&Number.isFinite(b.depositAPY)&&Number.isFinite(b.loanAPY)).slice(0,12):[];
@@ -4021,6 +4066,21 @@ const charterConstructionBase=renderConstructionFull;renderConstructionFull=func
 document.addEventListener('click',e=>{const b=e.target.closest('button');if(!b||!G)return;if(b.dataset.parcelPreview)previewParcel(b.dataset.parcelPreview);if(b.dataset.parcelBuy)requestParcelPurchase(b.dataset.parcelBuy);if(b.hasAttribute('data-charter-home')){overlay='none';parcelFocus=null;closePanel();centerTownCamera();}if(b.hasAttribute('data-charter-overview')){overlay='charter';parcelFocus=null;closePanel();const p=iso(40,40);cam={x:p[0],y:p[1]+18,zoom:Math.max(.025,Math.min((cw-24)/RW,(ch-100)/RH))};cam.y+=38/cam.zoom;dirty=true;}});
 
 const charterBackBase=window.__townArchive.back;window.__townArchive.back=()=>{if(!active&&!pendingEvent&&$('helpDialog').style.display==='none'){if(buildMode){closeBuildTool();return true;}if(overlay==='charter'){overlay='none';parcelFocus=null;centerTownCamera();return true;}}return charterBackBase();};
+
+// SOURCE: 98-trade-ui.js
+function regionalTradePanel(){const s=ensureRegionalTrade(),activeContracts=s.contracts.filter(c=>c.status==='active');return head('The regional exchange')+tip('Imports are paid inventories on the road, not instant shelf stock. Road exports earn receipts on arrival; river buyers take title at dock collection. Market quotes change monthly; road capacity and working capital limit dispatch. Regional buyers share the conserved external cash account.')+
+ `<div class="statgrid">${stat('Consignments travelling',s.shipments.length)}${stat('Completed deliveries',s.delivered)}${stat('Active agreements',activeContracts.length)}${stat('Delayed cargo',s.shipments.filter(o=>o.due<G.day).length)}</div>`+
+ OUTSIDE_MARKETS.map(m=>`<details class="council-card"><summary>${esc(m.name)} · ${m.days} days outside town</summary><p class="desc">Supplies ${Object.keys(m.imports).join(', ')}; values ${Object.keys(m.exports).join(', ')}. Shared daily handling ${m.capacity} units. Prices below exclude local road freight and import duties.</p><table class="report-table"><tr><th>Commodity</th><th>Buy from region</th><th>Sell to region</th></tr>${Object.keys(goods).map(k=>`<tr><td>${esc(k)}</td><td>${money(regionalMarketQuote(m,k,'imports'))}</td><td>${money(regionalMarketQuote(m,k,'exports'))}</td></tr>`).join('')}</table></details>`).join('')+
+ head('A reliable surplus earns a relationship')+tip('Broker one limited30-day export agreement. The supplying enterprise receives the sale; town hall receives no artificial reward. Preview stock, local reserve, freight and approximate inventory margin. Missed windows remain in the agreement record, but never confiscate stock or invent money.')+
+ OUTSIDE_MARKETS.map((m,i)=>{const good=Object.keys(m.exports)[i%Object.keys(m.exports).length],suppliers=G.firms.filter(f=>!f.closed&&formulas[f.kind]?.out===good).sort((a,b)=>(b.stock[good]||0)-(a.stock[good]||0)),f=suppliers[0];if(!f)return `<p class="desc">${esc(m.name)} seeks ${good}. Establish a connected producer to negotiate.</p>`;const q=regionalQuote(f,m,good,'export'),price=regionalMarketQuote(m,good,'exports')*1.08,cost=f.unitCost?.[good]||marketPrice(good),quantity=200;return `<div class="council-card"><h3>${esc(m.name)} · ${quantity} ${good}</h3><p class="desc">Supplier ${esc(f.name)} · held ${policyNumber(f.stock[good]||0)} · ${q?q.days+' days to arrive':'No connected regional road'}. Quote ${money(price)}/unit; road freight ${money(q?.freight||0)}/unit. Estimated inventory margin ${money((price-cost-(q?.freight||0))*quantity)} before future payroll, taxes and disruption. ${good==='food'?'Local food reserve retained.':'Ten units retained for local working stock.'}</p><button data-trade-offer="${m.id}" data-trade-firm="${f.id}" data-trade-good="${good}" ${!q||activeContracts.length>=3?'disabled':''}>Review30-day agreement</button></div>`}).join('')+
+ s.contracts.slice(-8).reverse().map(c=>`<div class="entry"><b>${esc(c.name)} · ${esc(c.status)}</b><p class="desc">${policyNumber(c.delivered)} / ${policyNumber(c.quantity)} ${c.good} arrived · deadline day${c.deadline} · ${money(c.price)}/unit</p>${c.status==='active'?`<button data-trade-cancel="${c.id}">Cancel undelivered commitment</button>`:''}</div>`).join('')+
+ head('Follow a real consignment')+s.shipments.slice(0,16).map(o=>`<button class="entry" data-regional-cargo="${o.id}">${o.direction==='import'?'INBOUND':'OUTBOUND'} · ${policyNumber(o.qty)} ${o.good} · ${esc(OUTSIDE_MARKETS.find(m=>m.id===o.market)?.name)}<br><small>${esc(G.firms[o.firm]?.name)} · expected day${o.due} · ${esc(o.status)}</small></button>`).join('');}
+const regionalEconomyBase=renderEconomy;renderEconomy=function(){return regionalTradePanel()+regionalEconomyBase()};
+document.addEventListener('click',e=>{const offer=e.target.closest('[data-trade-offer]'),cancel=e.target.closest('[data-trade-cancel]'),cargo=e.target.closest('[data-regional-cargo]');if(offer){const m=OUTSIDE_MARKETS.find(m=>m.id===offer.dataset.tradeOffer),f=G.firms[+offer.dataset.tradeFirm],good=offer.dataset.tradeGood,q=regionalQuote(f,m,good,'export');if(!q)return;const price=regionalMarketQuote(m,good,'exports')*1.08;showCustomEvent('REGIONAL EXCHANGE','A30-day delivery agreement',`${f.name} may supply200 ${good} to ${m.name} at ${money(price)}/unit. Revenue is received only when cargo arrives. Routes, working capital and local reserves constrain dispatch. You can decline or cancel future dispatch; cargo already paid for remains in transit.`,[{title:'Authorize supplier agreement',cost:0,apply:()=>{const s=ensureRegionalTrade();if(s.contracts.filter(c=>c.status==='active').length>=3||f.closed)return;if(s.contracts.length>=24){const old=s.contracts.findIndex(c=>c.status!=='active');if(old<0)return;s.contracts.splice(old,1)}s.contracts.push({id:++s.serial,name:m.name+' supply agreement',firm:f.id,market:m.id,good,quantity:200,delivered:0,price,deadline:G.day+30,status:'active'});story('Council brokered a limited '+good+' agreement with '+m.name+'.','neutral',f.building)}}]);}
+ if(cancel){const c=ensureRegionalTrade().contracts.find(c=>c.id===+cancel.dataset.tradeCancel);if(c?.status==='active'){c.status='cancelled';save();renderPanel('economy')}}if(cargo){const o=ensureRegionalTrade().shipments.find(o=>o.id===+cargo.dataset.regionalCargo);if(o){inspectedTrip={path:o.path.slice(),regional:o.id,from:-1,to:-1,style:'truck',reason:o.direction+' '+o.qty+' '+o.good};const p=roadCenter(o.path[Math.floor(o.path.length/2)]);cam={x:p[0],y:p[1],zoom:1};openPanel('trip');dirty=true}}});
+function regionalCargoActors(){if(!visualDetailBudget().traffic)return [];const s=G.regionalTrade?.shipments||[],cap=fastRenderEnabled()?3:12,result=[];for(const o of s){if(result.length>=cap)break;const elapsed=clamp((G.day-o.started+Math.min(1,acc/1.65))/Math.max(1,o.travelDays),0,.999),at=elapsed*(o.path.length-1),index=Math.floor(at),a=roadCenter(o.path[index]),b=roadCenter(o.path[Math.min(index+1,o.path.length-1)]),fraction=at-index;result.push({kind:'vehicle',v:{style:'truck',color:o.direction==='import'?'#6a9d9a':'#bf9c60',id:o.id,path:o.path,segment:index,fraction,regional:o.id},x:a[0]+(b[0]-a[0])*fraction,y:a[1]+(b[1]-a[1])*fraction,dx:b[0]-a[0],dy:b[1]-a[1]});}return result}
+const regionalTripBase=renderTripInspector;renderTripInspector=function(){if(!inspectedTrip?.regional)return regionalTripBase();const o=(G.regionalTrade?.shipments||[]).find(o=>o.id===inspectedTrip.regional)||(G.regionalTrade?.recent||[]).find(o=>o.id===inspectedTrip.regional);if(!o)return tip('That consignment is no longer in the recent delivery ledger.');return head('Regional freight · '+(o.direction==='import'?'inbound':'outbound'))+strip('Counterparty',OUTSIDE_MARKETS.find(m=>m.id===o.market).name)+strip('Enterprise',G.firms[o.firm].name)+strip('Cargo',policyNumber(o.qty)+' '+o.good)+strip('Expected arrival','Day '+o.due)+strip('State',o.status)+tip(o.direction==='import'?'The enterprise already owns and paid for this inventory; it becomes usable on arrival.':'The supplier owns this cargo until delivery. Buyer payment and export accounting occur on arrival, once.')+`<button data-inspect="${G.firms[o.firm].building}">Inspect enterprise</button>`};
+const regionalInspectTripBase=inspectTripAt;inspectTripAt=function(x,y){for(const a of regionalCargoActors())if(Math.hypot(a.x-x,a.y-y)<16/cam.zoom){inspectedTrip={regional:a.v.regional,path:a.v.path.slice()};openPanel('trip');return true}return regionalInspectTripBase(x,y)};
 
 // SOURCE: 98-waterfront-art.js
 // Original river craft. Animation samples only staffed fishing or paid cargo;

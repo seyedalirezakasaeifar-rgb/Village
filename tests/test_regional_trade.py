@@ -1,0 +1,20 @@
+"""Regional inventory title, arrival accounting, contracts, UI and distant LOD."""
+from test_mobile_rendering import ROOT,html
+from playwright.sync_api import sync_playwright
+import json,hashlib
+source=(ROOT/'assets/game.js').read_text();sha=hashlib.sha256(source.encode()).hexdigest()
+probe=r'''
+window.__tradeProbe=()=>{const f=G.firms.find(f=>!f.closed&&formulas[f.kind]?.out==='grain'),m=OUTSIDE_MARKETS[0],total=totalMoney(),cash=f.cash,stock=f.stock.grain||0,q=regionalQuote(f,m,'grain','import');if(!q)throw Error('Missing gateway');
+ const qty=dispatchRegional(f,'grain',10,'import',q),s=ensureRegionalTrade(),o=s.shipments.at(-1);if(qty!==10||f.stock.grain!==stock||pendingGoods(f,'grain')<10)throw Error('Import is not paid inventory in transit');if(Math.abs(totalMoney()-total)>.0001)throw Error('Import cash lost');
+ G.day=o.due;regionalFreightDay();if(Math.abs(f.stock.grain-stock-10)>.00001)throw Error('Import did not arrive');const arrived=f.stock.grain;regionalFreightDay();if(f.stock.grain!==arrived)throw Error('Arrival duplicated');
+ const quote=regionalQuote(f,m,'grain','export'),beforeCash=f.cash,beforeStock=f.stock.grain;dispatchRegional(f,'grain',5,'export',quote);const e=s.shipments.at(-1);if(f.cash>=beforeCash||f.stock.grain!==beforeStock-5)throw Error('Export not reserved with carrier paid');if(Math.max(...goodsBalance().map(x=>Math.abs(x.error)))>.001)throw Error('Town-owned export in transit missing from goods');
+ G.day=e.due;const regionalCash=G.region;G.treasury+=regionalCash;G.region=0;regionalFreightDay();if(!s.shipments.some(o=>o.id===e.id))throw Error('Unfunded buyer minted payment');G.region=regionalCash;G.treasury-=regionalCash;regionalFreightDay();if(Math.abs(f.cash-(beforeCash-e.freight+5*e.price))>.001)throw Error('Export arrival settlement wrong');regionalFreightDay();if(Math.abs(totalMoney()-total)>.001)throw Error('Freight cash lost');
+ const balance=Math.max(...goodsBalance().map(x=>Math.abs(x.error))),v=validateTown();return{importQty:qty,exportQty:5,cashDrift:totalMoney()-total,goodsError:balance,delivered:s.delivered,gateway:regionalGateway(m),valid:v};};
+'''
+with sync_playwright() as pw:
+ b=pw.chromium.launch(executable_path='/usr/bin/chromium',args=['--no-sandbox']);p=b.new_page(viewport={'width':844,'height':390},has_touch=True);errors=[];p.on('pageerror',lambda e:errors.append(str(e)));p.set_content(html);p.add_script_tag(content=source.replace('// SOURCE: 99-instrumentation.js',probe+'\n// SOURCE: 99-instrumentation.js'));p.locator('#newTown').click();p.locator('#pause').click();p.locator('#panelClose').click();r=p.evaluate('__tradeProbe()');assert r['valid']['ok'] and r['goodsError']<.001,r
+ p.locator('[data-panel=economy]').click();assert 'Upland Cooperative' in p.locator('#panelBody').inner_text();p.locator('[data-trade-offer]:not([disabled])').first.click();p.locator('[data-event-choice="0"]').click();g=json.loads(p.evaluate('__townTest.save()'));assert g['regionalTrade']['contracts'][-1]['status']=='active';p.locator('#panelClose').click();p.evaluate('__townTest.step(90)');assert p.evaluate('__townTest.validate().ok');assert max(abs(x['error']) for x in p.evaluate('__townTest.goods()'))<.001
+ g=json.loads(p.evaluate('__townTest.save()'));assert g['regionalTrade']['delivered']>2;bad=json.loads(json.dumps(g));bad['regionalTrade']['shipments']=[{'id':-1}];assert not p.evaluate('s=>__townTest.load(s)',json.dumps(bad));assert p.evaluate('s=>__townTest.load(s)',json.dumps(g));assert not errors,errors
+ out=ROOT/'reports/development-8.0';out.mkdir(exist_ok=True);p.locator('[data-panel=economy]').click();p.screenshot(path=str(out/'regional-exchange.png'));b.close()
+assert hashlib.sha256((ROOT/'assets/game.js').read_bytes()).hexdigest()==sha
+(out/'regional-trade.json').write_text(json.dumps({'source_sha256':sha,'accounting':r,'day':g['day'],'delivered':g['regionalTrade']['delivered'],'contracts':g['regionalTrade']['contracts'],'errors':errors},indent=2)+'\n');print('PASS paid import/owned export transit, arrival exactly once, conserved cash/goods, actual contract controls,90day run, save validation',r)

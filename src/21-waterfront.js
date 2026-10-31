@@ -54,7 +54,7 @@ function exportRoutes(f){
 }
 function settleRegionalExport(f,good,requested,price){
  let remaining=requested,sold=0;const state=ensureWaterfront();
- for(const route of exportRoutes(f)){const quantity=Math.max(0,Math.min(remaining,route.capacity,G.region/Math.max(price,.01)));if(quantity<=0||route.unit>=price)continue;
+ for(const route of exportRoutes(f)){if(route.mode==='road'){const n=dispatchRoadExport(f,good,remaining,price);remaining-=n;sold+=n;continue}const quantity=Math.max(0,Math.min(remaining,route.capacity,G.region/Math.max(price,.01)));if(quantity<=0||route.unit>=price)continue;
   const gross=quantity*price,freight=quantity*route.unit;takeInventory(f,good,quantity,true);goodsEntry(good,'exports',quantity);G.region-=gross;f.cash+=gross;f.revenue+=gross;if(G.market)G.market.externalSales+=gross;
   // The carrier is paid from the actual sale. Handling income belongs to the
   // wharf; the regional haulier receives only the residual, once.
