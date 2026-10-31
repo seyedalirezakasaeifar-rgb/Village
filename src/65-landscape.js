@@ -205,20 +205,30 @@ function prepareScene(){
 }
 function fastRenderEnabled(){return !!G&&!paused&&speed>=64&&gameOptions.quality!=='high'}
 function diamondFast(g,x,y,fill){const p=iso(x,y);g.beginPath();g.moveTo(p[0],p[1]);g.lineTo(p[0]+TW/2,p[1]+TH/2);g.lineTo(p[0],p[1]+TH);g.lineTo(p[0]-TW/2,p[1]+TH/2);g.closePath();g.fillStyle=fill;g.fill()}
-let groundBaseTown=null,groundBaseStyle='';
+let groundBaseTown=null,groundBaseStyle='',groundTileState=null;
 function drawGround(){
  const fastRender=fastRenderEnabled();
  // Uploading a changed full-world bitmap can stall software Canvas. At 64×,
  // retain a half-resolution ground layer; buildings and labels stay independent.
  groundScale=Math.min(fastRender?.5:1,Math.sqrt((fastRender?2200000:9000000)/(RW*RH)));
- const width=Math.round(RW*groundScale),height=Math.round(RH*groundScale),baseStyle=[Math.floor((visualMonth()-1)/3),width,height,fastRender,gameOptions.decor,gameOptions.quality].join('|'),fullTerrain=groundBaseTown!==G||groundBaseStyle!==baseStyle;
+ const width=Math.round(RW*groundScale),height=Math.round(RH*groundScale),baseStyle=[visualMonth(),width,height,fastRender,gameOptions.decor,gameOptions.quality,JSON.stringify(G.airport?.runway||[])].join('|'),fullTerrain=groundBaseTown!==G||groundBaseStyle!==baseStyle;
  if(bitmap.width!==width||bitmap.height!==height){bitmap.width=width;bitmap.height=height;}
- const s=seasonPalette(),net=graph();bg.setTransform(groundScale,0,0,groundScale,0,0);if(fullTerrain){bg.fillStyle='#5d7967';bg.fillRect(0,0,RW,RH);groundBaseTown=G;groundBaseStyle=baseStyle;}
- const occupied=new Set(G.buildings.flatMap(b=>footprintOf(b)));
+ const s=seasonPalette(),net=graph(),occupied=new Set(G.buildings.flatMap(b=>footprintOf(b))),nextState=new Uint16Array(T*T),chunks=new Map();
+ // Retain unchanged terrain even after every deed is owned. Repaint dirty
+ // projected chunks under a pixel-aligned clip, replaying the same ordered art.
+ const chunkW=256,chunkH=128;
+ for(let y=0;y<T;y++)for(let x=0;x<T;x++){
+  const id=roadId(x,y),road=G.roadClasses?.[id],state=G.tiles[id]|((G.landUse?.[id]||0)<<3)|(occupied.has(id)?128:0)|(charterOwns(x,y)?256:0)|(road==='arterial'?512:road==='collector'?1024:0);nextState[id]=state;
+  if(fullTerrain||groundTileState?.[id]===state)continue;const p=iso(x,y);
+  for(let cy=Math.floor((p[1]-24)/chunkH);cy<=Math.floor((p[1]+60)/chunkH);cy++)for(let cx=Math.floor((p[0]-64)/chunkW);cx<=Math.floor((p[0]+64)/chunkW);cx++)chunks.set(cx+','+cy,[cx*chunkW,cy*chunkH]);
+ }
+ groundTileState=nextState;if(!fullTerrain&&!chunks.size)return;
+ const intersects=(x,y)=>{for(let cy=Math.floor((y-24)/chunkH);cy<=Math.floor((y+60)/chunkH);cy++)for(let cx=Math.floor((x-64)/chunkW);cx<=Math.floor((x+64)/chunkW);cx++)if(chunks.has(cx+','+cy))return true;return false;};
+ bg.save();if(!fullTerrain){bg.setTransform(1,0,0,1,0,0);bg.beginPath();for(const [x,y] of chunks.values()){const l=Math.floor(x*groundScale),t=Math.floor(y*groundScale),r=Math.ceil((x+chunkW)*groundScale),b=Math.ceil((y+chunkH)*groundScale);bg.rect(l,t,r-l,b-t);}bg.clip();}bg.setTransform(groundScale,0,0,groundScale,0,0);
+ bg.fillStyle='#5d7967';bg.fillRect(0,0,RW,RH);groundBaseTown=G;groundBaseStyle=baseStyle;
  const fastGrass=s.grass.map(c=>tone(c,.92));
  for(let y=0;y<T;y++)for(let x=0;x<T;x++){
-  if(!fullTerrain&&!charterOwns(x,y))continue;
-  const id=roadId(x,y),type=G.tiles[id],h=hash(id+G.worldSeed),p=iso(x,y),lu=G.landUse?.[id];
+  const id=roadId(x,y),type=G.tiles[id],h=hash(id+G.worldSeed),p=iso(x,y),lu=G.landUse?.[id];if(!fullTerrain&&!intersects(p[0],p[1]))continue;
   // Unowned outer belts need survey detail, not full urban ground decoration.
   if(!charterOwns(x,y)&&type!==2){diamondFast(bg,x,y,type===3?fastGrass[1]:fastGrass[2]);continue;}
   const tileColor=type===2?s.water:type===1?'#b3b09a':lu===1?(visualMonth()>=10?'#c8cbb5':visualMonth()>=7?'#b4a36d':'#99a06a'):lu===2?'#aa9b7b':lu===3?'#7b827a':s.grass[(Math.floor(Math.sin(x*.18+y*.11)*1.4+Math.cos(y*.22)*.8)+7)%5];
@@ -244,6 +254,7 @@ function drawGround(){
  for(const [id,links] of net.neighbors){if(links.length<3)continue;const a=roadCenter(id);bg.fillStyle='#717d77';bg.beginPath();bg.ellipse(...a,17,9,0,0,Math.PI*2);bg.fill();
   if(!fastRender)for(const n of links){const q=roadCenter(n),dx=q[0]-a[0],dy=q[1]-a[1],l=Math.hypot(dx,dy),ux=dx/l,uy=dy/l,nx=-uy,ny=ux;for(let j=0;j<4;j++){const x=a[0]+ux*(21+j*3),y=a[1]+uy*(21+j*3);segment(bg,[x+nx*6,y+ny*6],[x-nx*6,y-ny*6],'#d4d3b8',1.4);}}
  }
+ bg.restore();
 }
 let groundSignature='',groundRevision=0,groundScale=1;
 function drawStatic(){

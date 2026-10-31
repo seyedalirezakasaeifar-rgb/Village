@@ -10,6 +10,7 @@ import json
 import hashlib
 import math
 import time
+import os
 
 ROOT = Path(__file__).resolve().parents[1]
 HTML = (ROOT / 'assets/index.html').read_text()
@@ -19,7 +20,7 @@ HTML = HTML.replace(
 ).replace('<script src="game.js"></script>', '')
 
 # Include every shipped stylesheet; set_content has no asset base URL.
-for sheet in ['vale.css','civic7.css']:
+for sheet in ['vale.css','civic7.css','mayor8.css']:
     HTML=HTML.replace('<link rel="stylesheet" href="'+sheet+'">','<style>'+(ROOT/'assets'/sheet).read_text()+'</style>')
 
 
@@ -41,7 +42,10 @@ def test_live_large_town_ui_and_render_budget():
         errors = []
         page.on('pageerror', lambda error: errors.append(str(error)))
         page.set_content(HTML)
-        page.add_script_tag(content=source.decode())
+        bundle=source.decode()
+        if os.environ.get('TOWNLEDGER_LIVE_TRANSIT')=='1':bundle=bundle.replace('// SOURCE: 99-instrumentation.js',(ROOT/'tools/qa_live_network.js').read_text()+'\n// SOURCE: 99-instrumentation.js')
+        if os.environ.get('TOWNLEDGER_LIVE_PROFILE')=='1':bundle=bundle.replace('// SOURCE: 99-instrumentation.js',(ROOT/'tools/qa_render_profile.js').read_text()+'\n// SOURCE: 99-instrumentation.js')
+        page.add_script_tag(content=bundle)
         page.locator('#newTown').click()
         page.locator('#pause').click()
         town = page.evaluate('''()=>{
@@ -76,6 +80,10 @@ def test_live_large_town_ui_and_render_budget():
           return {population:g.people.length,households:g.households.length,
             buildings:g.buildings.length,total:__townTest.get().total};
         }''')
+        network=page.evaluate('__liveNetworkBuild()') if os.environ.get('TOWNLEDGER_LIVE_TRANSIT')=='1' else None
+        if network:town['total']=network['total']
+        zoom=float(os.environ.get('TOWNLEDGER_LIVE_ZOOM','.95'))
+        page.evaluate('(zoom)=>__townTest.capture({zoom})',zoom)
         page.locator('#panelClose').click()
         page.locator('#speedRange').fill('6')
         page.locator('#pause').click()
@@ -124,12 +132,12 @@ def test_live_large_town_ui_and_render_budget():
         assert hashlib.sha256((ROOT/'assets/game.js').read_bytes()).hexdigest()==source_sha
         result = {
             'source_sha256':source_sha,
-            'viewport': [844, 390], 'synthetic': town, 'requestedSpeed': 64,
+            'viewport': [844, 390], 'network':network,'zoom':zoom, 'synthetic': town, 'requestedSpeed': 64,
             'elapsedSeconds': elapsed, 'simulatedDays': end['day'] - start['day'],
             'rafP50Ms': percentile(raf, .50), 'rafP95Ms': percentile(raf, .95),
             'rafP99Ms': percentile(raf, .99),
             'rafOver50ms': sum(value > 50 for value in raf),
-            'renderer': renderer, 'ui': ui, 'foundingAndWarmup':startup,
+            'profile':page.evaluate('window.__liveProfile||null'),'renderer': renderer, 'ui': ui, 'foundingAndWarmup':startup,
             'moneyConservationDrift': conservation, 'errors': errors,
         }
         report_path = ROOT / 'reports/v7.0/live-large-town.json'
