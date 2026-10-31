@@ -1,0 +1,18 @@
+"""Named square/loading-court art follows actual property, deletion and presentation budgets."""
+from test_mobile_rendering import ROOT
+from playwright.sync_api import sync_playwright
+import http.server,threading,json,hashlib,base64
+source=(ROOT/'assets/game.js').read_text();out=ROOT/'docs/previews/public-place-art';out.mkdir(parents=True,exist_ok=True)
+probe=r'''window.__placeArtCheck=()=>{const before=JSON.stringify(G),p=publicPlaceCues()[0],b=readBuild(p.building),item=buildingItemsById.get(b.id),oldZoom=cam.zoom;cam.zoom=1.2;const actors=neighbourhoodAmbient([item]),again=neighbourhoodAmbient([item]);const sprite=spriteFor(item),bytes=atlasBytes,oldCues=publicPlaceCues;cam.zoom=.2;publicPlaceCues=()=>{throw Error('Far place iteration')};drawNamedPlaces(ctx,()=>true);const far=neighbourhoodAmbient(new Proxy([],{get(){throw Error('Far ambient iteration')}}));publicPlaceCues=oldCues;cam.zoom=oldZoom;window.__placeSprite=sprite.toDataURL();const buildings=G.buildings;G.buildings=buildings.filter(x=>x.id!==p.building);invalidateBuildingIndex();const removed=namedPlaceFor(b)===null;G.buildings=buildings;invalidateBuildingIndex();return{kind:b.kind,actors:actors.length,stable:JSON.stringify(actors)===JSON.stringify(again),far:far.length,removed,unchanged:before===JSON.stringify(G),bytes,cacheEntries:namedPlaceArtIndex.entries.size,width:sprite.width,height:sprite.height};};'''
+class Handler(http.server.SimpleHTTPRequestHandler):
+ def __init__(self,*a,**k):super().__init__(*a,directory=str(ROOT/'assets'),**k)
+ def log_message(self,*a):pass
+server=http.server.ThreadingHTTPServer(('127.0.0.1',0),Handler);threading.Thread(target=server.serve_forever,daemon=True).start();rows=[]
+try:
+ with sync_playwright() as w:
+  browser=w.chromium.launch(executable_path='/usr/bin/chromium',args=['--no-sandbox']);p=browser.new_page(viewport={'width':844,'height':390});errors=[];p.on('pageerror',lambda e:errors.append(str(e)));p.route('**/game.js',lambda r:r.fulfill(body=source.replace('// SOURCE: 99-instrumentation.js',probe+'\n// SOURCE: 99-instrumentation.js'),content_type='text/javascript'));p.goto('http://127.0.0.1:'+str(server.server_port)+'/index.html');p.locator('#townSeed').fill('42');p.locator('#newTown').click();p.locator('#pause').click();p.evaluate('__townTest.step(2)');saved=p.evaluate('__townTest.save()')
+  for kind in ['square','warehouse']:
+   assert p.evaluate('s=>__townTest.load(s)',saved);p.keyboard.press('Escape');p.locator('[data-panel=overview]').click();p.locator('[data-civic-projects]').click();p.locator('[data-public-place='+kind+']').click();p.locator('#publicPlaceName').fill('Copper & Cedar');p.locator('[data-event-choice="0"]').click();p.locator('[data-public-visit]').click();p.evaluate('__townTest.capture({zoom:1.25})');r=p.evaluate('__placeArtCheck()');assert r['unchanged'] and r['removed'] and r['stable'] and r['far']==0 and r['cacheEntries']<=24 and r['bytes']<=48*1024*1024,r;assert r['actors']==(1 if kind=='square' else 0),r;(out/(kind+'-sprite.png')).write_bytes(base64.b64decode(p.evaluate('__placeSprite').split(',')[1]));p.locator('#view').screenshot(path=str(out/(kind+'.png')));p.evaluate('__townTest.capture({night:true})');p.locator('#view').screenshot(path=str(out/(kind+'-night.png')));p.evaluate('__townTest.capture({zoom:.2,night:false})');p.locator('#view').screenshot(path=str(out/(kind+'-far.png')));rows.append(r)
+  assert not errors,errors;browser.close()
+finally:server.shutdown();server.server_close()
+(out/'checks.json').write_text(json.dumps({'source_sha256':hashlib.sha256(source.encode()).hexdigest(),'actualControls':True,'origin':'HTTP assets','rows':rows,'errors':errors},indent=2)+'\n');print(rows)
