@@ -1,0 +1,195 @@
+{
+  "source_sha256": "9babe460d40d551ee1c897b2a6db3b3379853d777fee3ad66c3f45a7b5cdd4b0",
+  "gates": {
+    "reports/brownfields/results.json": {
+      "day": 23,
+      "remaining": 0,
+      "moneyError": -7.450580596923828e-07,
+      "site": {
+        "id": 24,
+        "x": 25,
+        "y": 30,
+        "name": "Quarry Ltd.",
+        "kind": "quarry",
+        "formerJobs": 3,
+        "industrialAgeDays": 0,
+        "tiles": [
+          3865
+        ],
+        "assessment": 300,
+        "remediation": 2250,
+        "days": 20,
+        "clearance": 44750,
+        "status": "ready",
+        "remaining": 0,
+        "assessedDay": 1,
+        "acquiredDay": 1,
+        "startedDay": 1,
+        "lastWorkDay": 23,
+        "readyDay": 23
+      },
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15493516.999999255,
+        "population": 657,
+        "day": 23
+      },
+      "reuseArms": [
+        "park",
+        "home",
+        "grocer"
+      ],
+      "source_sha256": "9babe460d40d551ee1c897b2a6db3b3379853d777fee3ad66c3f45a7b5cdd4b0",
+      "actualControls": true,
+      "cancelNoMutation": true,
+      "insufficientCash": true,
+      "recipientCredited": 44750,
+      "regionalTitleFallback": true,
+      "errors": []
+    },
+    "docs/previews/region-locator/checks.json": {
+      "source_sha256": "9babe460d40d551ee1c897b2a6db3b3379853d777fee3ad66c3f45a7b5cdd4b0",
+      "results": [
+        {
+          "zoom": 1.1,
+          "unchanged": true,
+          "cacheBuilds": 0,
+          "meanMs": 0.00899999998509884,
+          "bytes": 652288,
+          "marks": 2
+        },
+        {
+          "zoom": 0.2,
+          "unchanged": true,
+          "cacheBuilds": 0,
+          "meanMs": 0.0075,
+          "bytes": 652288,
+          "marks": 2
+        }
+      ],
+      "errors": []
+    },
+    "reports/release-tests.json": {
+      "source_sha256": "9babe460d40d551ee1c897b2a6db3b3379853d777fee3ad66c3f45a7b5cdd4b0",
+      "determinism_and_continuation": {
+        "sameSeed": true,
+        "renderIndependent": true,
+        "continuedDays": 120,
+        "valid": {
+          "ok": true,
+          "issues": [],
+          "total": 15489571.999994356,
+          "population": 172,
+          "day": 301
+        }
+      },
+      "malformed_save_atomicity": {
+        "investorRejected": true,
+        "cargoRejected": true,
+        "futureRejected": true,
+        "townPreserved": true
+      },
+      "replicated_zoning": [
+        {
+          "seed": 42,
+          "zone": 0,
+          "population": 192,
+          "homes": 17,
+          "firms": 3,
+          "privateSpend": 494901,
+          "moneyDelta": -1.2569129467010498e-05,
+          "ms": 3639.4000000059605
+        },
+        {
+          "seed": 42,
+          "zone": 100,
+          "population": 177,
+          "homes": 0,
+          "firms": 1,
+          "privateSpend": 0,
+          "moneyDelta": -1.7305836081504822e-05,
+          "ms": 2318.2999999970198
+        },
+        {
+          "seed": 101,
+          "zone": 0,
+          "population": 221,
+          "homes": 21,
+          "firms": 8,
+          "privateSpend": 621891,
+          "moneyDelta": -1.55717134475708e-05,
+          "ms": 3417.5
+        },
+        {
+          "seed": 101,
+          "zone": 100,
+          "population": 183,
+          "homes": 0,
+          "firms": 2,
+          "privateSpend": 0,
+          "moneyDelta": -8.197501301765442e-06,
+          "ms": 2279.2000000029802
+        },
+        {
+          "seed": 909,
+          "zone": 0,
+          "population": 211,
+          "homes": 21,
+          "firms": 5,
+          "privateSpend": 525844,
+          "moneyDelta": -1.1583790183067322e-05,
+          "ms": 2941.1000000089407
+        },
+        {
+          "seed": 909,
+          "zone": 100,
+          "population": 176,
+          "homes": 0,
+          "firms": 1,
+          "privateSpend": 0,
+          "moneyDelta": -1.2626871466636658e-05,
+          "ms": 2251
+        }
+      ],
+      "cargo_ownership": {
+        "consignments": 6,
+        "sampledUnits": 166.3792513597068,
+        "remaining": true,
+        "delayed": 1,
+        "cashConserved": true
+      },
+      "legacy_56_migration": {
+        "v": {
+          "ok": true,
+          "issues": [],
+          "total": 15445582,
+          "population": 169,
+          "day": 1
+        },
+        "after": {
+          "ok": true,
+          "issues": [],
+          "total": 15445581.999999292,
+          "population": 166,
+          "day": 31
+        },
+        "schema": 8
+      },
+      "true_pause": {
+        "identicalScreenshots": true,
+        "milliseconds": 500
+      },
+      "traffic_progress": {
+        "seconds": 1600,
+        "maximumWait": 0.9999999999999999,
+        "peak": 21,
+        "valid": true
+      },
+      "long_run_endurance": [],
+      "browser_errors": []
+    }
+  },
+  "cooperativeEnabled": false,
+  "requiredPrototypeReconciliation": "Insert brownfieldDay before privateServiceInvestmentDay in stagedTick, matching tick exactly."
+}
