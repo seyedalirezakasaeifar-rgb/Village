@@ -1,6 +1,6 @@
-# TownLedger7.1.1 — The Working City
+# TownLedger 7.1.1 — The Working City
 
-- Buy five substantial outer districts through the mayor's land office. Preview boundaries/prices, confirm deeds, then extend roads and services into the80×80 region. Older56×56 towns migrate without losing their original titles.
+- Buy five substantial outer districts through the mayor's land office. Preview boundaries/prices, confirm deeds, then extend roads and services into the 80×80 region. Older56×56 towns migrate without losing their original titles.
 - Build productive fisheries and river wharves. Catch limits, crews, cargo capacity, road/river quotes and paid handling income affect the economy. Original docks, workers, fishing craft and barges follow their work.
 - Richer original terrain, building materials/frontages, lighting, road hierarchy and workday activity; smoother vessel turns and continuous voyages. Graphics/motion settings and speed tiers control rendering work.
 - Stronger service-access, qualified-staff/recruitment/training, credit, household-budget and investment feedback. Scenario programmes and policy journals explain sustained outcomes and remaining constraints.

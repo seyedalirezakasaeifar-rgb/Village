@@ -2,7 +2,7 @@
 
 ## Android
 
-Download the standalone **TownLedger7.1.1 Android APK**. You do not need to unpack the source ZIP. Open the APK and follow Android's normal installation prompts. Package: `org.townledger.vale`; version7.1.1/code21; minimum Android7/API24 with a current Android System WebView/Chrome.
+Download the standalone **TownLedger 7.1.1 Android APK**. You do not need to unpack the source ZIP. Open the APK and follow Android's normal installation prompts. Package: `org.townledger.vale`; version7.1.1/code21; minimum Android7/API24 with a current Android System WebView/Chrome.
 
 The APK uses the same persistent development signer as this project's recent signed checkpoints. Its signer differs from the original baseline APK. If Android refuses an update because the signatures differ, preserve a verified backup before uninstalling the older app. Uninstalling can erase local game storage. No private signing key is included in any deliverable.
 
@@ -12,7 +12,7 @@ The APK uses the same persistent development signer as this project's recent sig
 2. Android opens its document chooser. Choose a destination and wait for the saved confirmation. Keep a separate copy and check the file exists and is not empty; restore/validate it in another compatible build when possible.
 3. In7.1.1, choose **Options → Restore backup**, select the JSON archive, and inspect the restored town, treasury and properties.
 
-Desktop browser builds provide a text-copy/paste archive fallback. Archives are validated before replacing the running town. Native exports/imports are bounded to8MiB of UTF-8; an error does not count as a completed backup. Keep the older export if you may return to an older build: older engines do not understand expanded schema6 towns.
+Desktop browser builds provide a text-copy/paste archive fallback. Archives are validated before replacing the running town. Native exports/imports are bounded to 8MiB of UTF-8; an error does not count as a completed backup. Keep the older export if you may return to an older build: older engines do not understand expanded schema 6 towns.
 
 ## Recovery and controls
 

@@ -22,3 +22,5 @@ Physical-device FPS/thermals, full-game physical touch and system document-picke
 ## Candidate captures
 
 [Daylight](previews/7.1.1/waterfront-day.png), [evening](previews/7.1.1/waterfront-evening.png), and a [silent12-second actual browser animation](previews/7.1.1/waterfront.mp4) show the working waterfront after the real-control mayor journey. Captured frames/timestamps are encoded directly; the clip is not an Android FPS measurement. Its manifest binds the exact candidate assets.
+
+The current candidate passed all46 scripts with frozen source/native/test inputs and package verification. The unchanged2000-resident/64× browser benchmark passed three isolated runs: draw p9537.0/38.5/35.4ms. These exact-candidate reports accompany the bundle; none is a physical-device FPS measurement.
