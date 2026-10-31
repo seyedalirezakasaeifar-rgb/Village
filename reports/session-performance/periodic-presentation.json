@@ -1,0 +1,214 @@
+{
+  "source_sha256": "4109990351be43eff847ba330e2ab5f6518bacc34d9905a34344b9238e4965f8",
+  "rows": {
+    "periodic": {
+      "calls": {
+        "panel": [
+          {
+            "frame": 0,
+            "tab": "economy",
+            "day": 1
+          }
+        ],
+        "save": [
+          {
+            "frame": 0,
+            "day": 1
+          }
+        ]
+      },
+      "panelPending": false,
+      "savePending": false,
+      "revision": 3,
+      "ok": true,
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15526319,
+        "population": 169,
+        "day": 1
+      },
+      "total": 15526319
+    },
+    "burst": {
+      "calls": {
+        "panel": [],
+        "save": []
+      },
+      "panelPending": false,
+      "savePending": false,
+      "revision": 4,
+      "ok": true,
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15526319,
+        "population": 169,
+        "day": 1
+      },
+      "total": 15526319
+    },
+    "runningBurst": {
+      "calls": {
+        "panel": [],
+        "save": [
+          {
+            "frame": 0,
+            "day": 1
+          }
+        ]
+      },
+      "panelPending": false,
+      "savePending": false,
+      "revision": 5,
+      "ok": true,
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15526319,
+        "population": 169,
+        "day": 1
+      },
+      "total": 15526319
+    },
+    "manual": {
+      "calls": {
+        "panel": [],
+        "save": [
+          {
+            "frame": 0,
+            "day": 1
+          }
+        ]
+      },
+      "panelPending": false,
+      "savePending": false,
+      "revision": 7,
+      "ok": true,
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15526319,
+        "population": 169,
+        "day": 1
+      },
+      "total": 15526319
+    },
+    "failedManual": {
+      "calls": {
+        "panel": [],
+        "save": [
+          {
+            "frame": 0,
+            "day": 1
+          },
+          {
+            "frame": 0,
+            "day": 1
+          }
+        ]
+      },
+      "panelPending": false,
+      "savePending": false,
+      "revision": 9,
+      "ok": false,
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15526319,
+        "population": 169,
+        "day": 1
+      },
+      "total": 15526319
+    },
+    "focus": {
+      "calls": {
+        "panel": [],
+        "save": []
+      },
+      "panelPending": false,
+      "savePending": false,
+      "revision": 10,
+      "ok": true,
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15526319,
+        "population": 169,
+        "day": 1
+      },
+      "total": 15526319
+    },
+    "suspended": {
+      "calls": {
+        "panel": [],
+        "save": [
+          {
+            "frame": 0,
+            "day": 1
+          }
+        ]
+      },
+      "panelPending": false,
+      "savePending": false,
+      "revision": 11,
+      "ok": true,
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15526319,
+        "population": 169,
+        "day": 1
+      },
+      "total": 15526319
+    },
+    "busy": {
+      "calls": {
+        "panel": [],
+        "save": []
+      },
+      "panelPending": false,
+      "savePending": false,
+      "revision": 11,
+      "ok": true,
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15526319,
+        "population": 169,
+        "day": 1
+      },
+      "total": 15526319
+    },
+    "stale": {
+      "calls": {
+        "panel": [
+          {
+            "frame": 0,
+            "tab": "economy",
+            "day": 1
+          }
+        ],
+        "save": [
+          {
+            "frame": 0,
+            "day": 1
+          }
+        ]
+      },
+      "panelPending": false,
+      "savePending": false,
+      "revision": 1,
+      "ok": true,
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15489572,
+        "population": 169,
+        "day": 1
+      },
+      "total": 15489572
+    }
+  },
+  "errors": []
+}

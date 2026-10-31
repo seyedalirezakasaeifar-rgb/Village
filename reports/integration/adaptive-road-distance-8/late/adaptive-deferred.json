@@ -1,0 +1,870 @@
+{
+  "source_sha256": "4109990351be43eff847ba330e2ab5f6518bacc34d9905a34344b9238e4965f8",
+  "checkpoint_sha256": "ad6256fd85d4146fda9eeac0b16d5b182ed352c23bbd96af3b320553c29ce786",
+  "cacheBaseline": false,
+  "hostChromiumOnly": true,
+  "physicalAndroid": false,
+  "errors": [],
+  "actions": [
+    {
+      "kind": "touch",
+      "index": 0
+    },
+    {
+      "kind": "touch",
+      "index": 1
+    },
+    {
+      "kind": "touch",
+      "index": 2
+    },
+    {
+      "kind": "touch",
+      "index": 3
+    },
+    {
+      "kind": "touch",
+      "index": 4
+    },
+    {
+      "kind": "touch",
+      "index": 5
+    },
+    {
+      "kind": "explicit-save",
+      "index": 5
+    },
+    {
+      "kind": "touch",
+      "index": 6
+    },
+    {
+      "kind": "touch",
+      "index": 7
+    },
+    {
+      "kind": "touch",
+      "index": 8
+    },
+    {
+      "kind": "touch",
+      "index": 9
+    },
+    {
+      "kind": "touch",
+      "index": 10
+    },
+    {
+      "kind": "touch",
+      "index": 11
+    },
+    {
+      "kind": "explicit-save",
+      "index": 11
+    }
+  ],
+  "initialHeapAfterGC": {
+    "usedSize": 16221204,
+    "totalSize": 17321984,
+    "embedderHeapUsedSize": 4053608,
+    "backingStorageSize": 2330231
+  },
+  "initial": {
+    "day": 41681,
+    "population": 778,
+    "people": 3108,
+    "households": 876,
+    "firms": 81,
+    "buildings": 797,
+    "total": 15493517.000209823,
+    "valid": {
+      "ok": true,
+      "issues": [],
+      "total": 15493517.000209823,
+      "population": 778,
+      "day": 41681
+    },
+    "goodsError": 3.684908733703196e-08,
+    "autoBuild": true,
+    "privateEntry": 1,
+    "requestedSpeed": 64,
+    "routes": 48,
+    "operating": 9,
+    "drivers": 18,
+    "atlasBytes": 12412160,
+    "serviceCaches": 0,
+    "backlog": 0,
+    "musicError": "",
+    "musicTrack": 6,
+    "musicDecks": 1,
+    "roadCache": {
+      "aggregate": {
+        "graphs": 98,
+        "queries": 20,
+        "hits": 0,
+        "builds": 20,
+        "evictions": 0,
+        "maxBytes": 13860
+      },
+      "baseline": null,
+      "current": {
+        "roads": 5666,
+        "compactRows": 0,
+        "compactBytes": 0,
+        "denseRows": 0
+      }
+    }
+  },
+  "end": {
+    "day": 42470,
+    "population": 776,
+    "people": 3160,
+    "households": 889,
+    "firms": 84,
+    "buildings": 800,
+    "total": 15493517.000208974,
+    "valid": {
+      "ok": true,
+      "issues": [],
+      "total": 15493517.000208974,
+      "population": 776,
+      "day": 42470
+    },
+    "goodsError": 3.6074197851121426e-08,
+    "autoBuild": true,
+    "privateEntry": 1,
+    "requestedSpeed": 64,
+    "routes": 48,
+    "operating": 16,
+    "drivers": 32,
+    "atlasBytes": 29727232,
+    "serviceCaches": 2,
+    "backlog": 4.2196363636362975,
+    "musicError": "",
+    "musicTrack": 6,
+    "musicDecks": 1,
+    "roadCache": {
+      "aggregate": {
+        "graphs": 109,
+        "queries": 4504562,
+        "hits": 4502780,
+        "builds": 1782,
+        "evictions": 0,
+        "maxBytes": 2277732
+      },
+      "baseline": null,
+      "current": {
+        "roads": 5666,
+        "compactRows": 169,
+        "compactBytes": 1915108,
+        "denseRows": 32
+      }
+    }
+  },
+  "browserMetricDeltas": {
+    "LayoutCount": 303,
+    "RecalcStyleCount": 378,
+    "LayoutDuration": 0.150185,
+    "RecalcStyleDuration": 0.095077,
+    "DevToolsCommandDuration": 0.16778600000000002,
+    "ScriptDuration": 28.617959,
+    "V8CompileDuration": 0,
+    "TaskDuration": 30.496018,
+    "TaskOtherDuration": 1.465011
+  },
+  "seconds": 30.17290000000037,
+  "days": 785,
+  "actualRate": 42.92759396677098,
+  "components": {
+    "dailyEconomy": {
+      "count": 785,
+      "totalMs": 14999.200000006706,
+      "p50Ms": 17.300000000745058,
+      "p95Ms": 28.799999998882413,
+      "p99Ms": 46.30000000074506,
+      "maxMs": 86.69999999925494
+    },
+    "maintainRoads": {
+      "count": 785,
+      "totalMs": 608.199999993667,
+      "p50Ms": 0.7000000011175871,
+      "p95Ms": 1.1000000014901161,
+      "p99Ms": 2,
+      "maxMs": 2.900000000372529
+    },
+    "recompute": {
+      "count": 1615,
+      "totalMs": 688.7999999690801,
+      "p50Ms": 0.40000000037252903,
+      "p95Ms": 0.6999999992549419,
+      "p99Ms": 1.5,
+      "maxMs": 3.300000000745058
+    },
+    "systemsDay": {
+      "count": 785,
+      "totalMs": 2132.2000000216067,
+      "p50Ms": 0.09999999962747097,
+      "p95Ms": 0.2999999988824129,
+      "p99Ms": 124,
+      "maxMs": 155.59999999962747
+    },
+    "privateServiceInvestmentDay": {
+      "count": 785,
+      "totalMs": 2570.400000002235,
+      "p50Ms": 0,
+      "p95Ms": 0,
+      "p99Ms": 102.60000000149012,
+      "maxMs": 180.09999999962747
+    },
+    "urbanEvolutionDay": {
+      "count": 785,
+      "totalMs": 856.7000000011176,
+      "p50Ms": 0,
+      "p95Ms": 0,
+      "p99Ms": 80.5,
+      "maxMs": 105.29999999888241
+    },
+    "tick": {
+      "count": 785,
+      "totalMs": 25586.199999958277,
+      "p50Ms": 22,
+      "p95Ms": 49.30000000074506,
+      "p99Ms": 317.40000000037253,
+      "maxMs": 481.19999999925494
+    },
+    "updateHeader": {
+      "count": 101,
+      "totalMs": 143.19999999180436,
+      "p50Ms": 1.400000000372529,
+      "p95Ms": 2.099999999627471,
+      "p99Ms": 2.699999999254942,
+      "maxMs": 4
+    },
+    "draw": {
+      "count": 391,
+      "totalMs": 1862.600000018254,
+      "p50Ms": 2.400000000372529,
+      "p95Ms": 12.799999998882413,
+      "p99Ms": 21.199999999254942,
+      "maxMs": 210.19999999925494
+    },
+    "frame": {
+      "count": 785,
+      "totalMs": 27695.499999994412,
+      "p50Ms": 23.59999999962747,
+      "p95Ms": 59.30000000074506,
+      "p99Ms": 318.19999999925494,
+      "maxMs": 502.69999999925494
+    },
+    "assignJobs": {
+      "count": 237,
+      "totalMs": 75.7999999858439,
+      "p50Ms": 0.19999999925494194,
+      "p95Ms": 1.099999999627471,
+      "p99Ms": 2.400000000372529,
+      "maxMs": 6.899999998509884
+    },
+    "renderPanel": {
+      "count": 14,
+      "totalMs": 217.50000000186265,
+      "p50Ms": 14.299999998882413,
+      "p95Ms": 29.5,
+      "p99Ms": 29.5,
+      "maxMs": 29.5
+    },
+    "archivePayload": {
+      "count": 3,
+      "totalMs": 71.19999999925494,
+      "p50Ms": 22,
+      "p95Ms": 27.199999999254942,
+      "p99Ms": 27.199999999254942,
+      "maxMs": 27.199999999254942
+    },
+    "checksum": {
+      "count": 15,
+      "totalMs": 85.90000000223517,
+      "p50Ms": 6.900000000372529,
+      "p95Ms": 8.699999999254942,
+      "p99Ms": 8.699999999254942,
+      "maxMs": 8.699999999254942
+    },
+    "readSaveEnvelope": {
+      "count": 12,
+      "totalMs": 145.0000000037253,
+      "p50Ms": 16.600000001490116,
+      "p95Ms": 23.700000001117587,
+      "p99Ms": 23.700000001117587,
+      "maxMs": 23.700000001117587
+    },
+    "persistSnapshot": {
+      "count": 3,
+      "totalMs": 268.2000000011176,
+      "p50Ms": 85.09999999962747,
+      "p95Ms": 98.80000000074506,
+      "p99Ms": 98.80000000074506,
+      "maxMs": 98.80000000074506
+    },
+    "save": {
+      "count": 3,
+      "totalMs": 339.40000000037253,
+      "p50Ms": 107.09999999962747,
+      "p95Ms": 126,
+      "p99Ms": 126,
+      "maxMs": 126
+    }
+  },
+  "raf": {
+    "count": 784,
+    "totalMs": 30148.800000000003,
+    "p50Ms": 33.29999999999927,
+    "p95Ms": 83.20000000000073,
+    "p99Ms": 316.59999999999854,
+    "maxMs": 500.09999999999854
+  },
+  "touchDelivery": {
+    "count": 22,
+    "totalMs": 1413.4000000022352,
+    "p50Ms": 68.5,
+    "p95Ms": 109.40000000037253,
+    "p99Ms": 312.6000000014901,
+    "maxMs": 312.6000000014901
+  },
+  "touchNextRAF": {
+    "count": 22,
+    "totalMs": 2277.7000000029802,
+    "p50Ms": 93.59999999962747,
+    "p95Ms": 159.19999999925494,
+    "p99Ms": 336.1000000014901,
+    "maxMs": 336.1000000014901
+  },
+  "longtasks": [
+    {
+      "start": 4219.5,
+      "duration": 58
+    },
+    {
+      "start": 4278.199999999255,
+      "duration": 55
+    },
+    {
+      "start": 4573.699999999255,
+      "duration": 69
+    },
+    {
+      "start": 4681.800000000745,
+      "duration": 318
+    },
+    {
+      "start": 5001.4000000003725,
+      "duration": 129
+    },
+    {
+      "start": 5385.9000000003725,
+      "duration": 52
+    },
+    {
+      "start": 5539.800000000745,
+      "duration": 61
+    },
+    {
+      "start": 6139.5999999996275,
+      "duration": 196
+    },
+    {
+      "start": 6336.800000000745,
+      "duration": 63
+    },
+    {
+      "start": 7275.800000000745,
+      "duration": 277
+    },
+    {
+      "start": 7553.5,
+      "duration": 99
+    },
+    {
+      "start": 7655,
+      "duration": 53
+    },
+    {
+      "start": 8155.300000000745,
+      "duration": 52
+    },
+    {
+      "start": 8556.900000000373,
+      "duration": 298
+    },
+    {
+      "start": 9601.199999999255,
+      "duration": 164
+    },
+    {
+      "start": 9765.300000000745,
+      "duration": 65
+    },
+    {
+      "start": 10522.400000000373,
+      "duration": 235
+    },
+    {
+      "start": 10757.699999999255,
+      "duration": 60
+    },
+    {
+      "start": 11562.800000000745,
+      "duration": 255
+    },
+    {
+      "start": 11819.900000000373,
+      "duration": 64
+    },
+    {
+      "start": 12665.800000000745,
+      "duration": 282
+    },
+    {
+      "start": 13801.900000000373,
+      "duration": 333
+    },
+    {
+      "start": 14984.300000000745,
+      "duration": 265
+    },
+    {
+      "start": 15994.099999999627,
+      "duration": 250
+    },
+    {
+      "start": 17007.099999999627,
+      "duration": 320
+    },
+    {
+      "start": 17445.5,
+      "duration": 111
+    },
+    {
+      "start": 18316.800000000745,
+      "duration": 267
+    },
+    {
+      "start": 19352.699999999255,
+      "duration": 248
+    },
+    {
+      "start": 20024.099999999627,
+      "duration": 233
+    },
+    {
+      "start": 20561.300000000745,
+      "duration": 323
+    },
+    {
+      "start": 21608.400000000373,
+      "duration": 259
+    },
+    {
+      "start": 22643.900000000373,
+      "duration": 504
+    },
+    {
+      "start": 23148.800000000745,
+      "duration": 74
+    },
+    {
+      "start": 23225.099999999627,
+      "duration": 51
+    },
+    {
+      "start": 24046.699999999255,
+      "duration": 115
+    },
+    {
+      "start": 24163.099999999627,
+      "duration": 397
+    },
+    {
+      "start": 24563,
+      "duration": 65
+    },
+    {
+      "start": 25050.300000000745,
+      "duration": 51
+    },
+    {
+      "start": 25437.800000000745,
+      "duration": 297
+    },
+    {
+      "start": 25735.199999999255,
+      "duration": 87
+    },
+    {
+      "start": 26496.199999999255,
+      "duration": 380
+    },
+    {
+      "start": 26876.900000000373,
+      "duration": 61
+    },
+    {
+      "start": 27637.5,
+      "duration": 465
+    },
+    {
+      "start": 28102.800000000745,
+      "duration": 100
+    },
+    {
+      "start": 28397.5,
+      "duration": 68
+    },
+    {
+      "start": 29008.199999999255,
+      "duration": 268
+    },
+    {
+      "start": 29276.900000000373,
+      "duration": 71
+    },
+    {
+      "start": 29373.5,
+      "duration": 76
+    },
+    {
+      "start": 30153.900000000373,
+      "duration": 240
+    },
+    {
+      "start": 30394.699999999255,
+      "duration": 51
+    },
+    {
+      "start": 30446.699999999255,
+      "duration": 126
+    },
+    {
+      "start": 31363,
+      "duration": 252
+    },
+    {
+      "start": 32221.199999999255,
+      "duration": 109
+    },
+    {
+      "start": 32553.400000000373,
+      "duration": 166
+    },
+    {
+      "start": 33434.800000000745,
+      "duration": 260
+    }
+  ],
+  "heap": {
+    "usedSize": 55778464,
+    "totalSize": 118087680,
+    "embedderHeapUsedSize": 7556672,
+    "backingStorageSize": 9119414
+  },
+  "cpuExclusiveTop": [
+    {
+      "function": "dailyEconomy",
+      "line": 2057,
+      "url": "http://127.0.0.1:42067/game.js",
+      "ms": 2106.52
+    },
+    {
+      "function": "(program)",
+      "line": 0,
+      "url": "",
+      "ms": 1679.7610000000002
+    },
+    {
+      "function": "urbanSpatial",
+      "line": 1728,
+      "url": "http://127.0.0.1:42067/game.js",
+      "ms": 1086.3080000000002
+    },
+    {
+      "function": "seekPrivateServiceInvestment",
+      "line": 967,
+      "url": "http://127.0.0.1:42067/game.js",
+      "ms": 1055.5849999999996
+    },
+    {
+      "function": "replacement",
+      "line": 7241,
+      "url": "http://127.0.0.1:42067/game.js",
+      "ms": 1006.9920000000021
+    },
+    {
+      "function": "transitJourney",
+      "line": 3147,
+      "url": "http://127.0.0.1:42067/game.js",
+      "ms": 762.5549999999993
+    },
+    {
+      "function": "buildableCandidates",
+      "line": 2296,
+      "url": "http://127.0.0.1:42067/game.js",
+      "ms": 720.6220000000002
+    },
+    {
+      "function": "urbanDescriptor",
+      "line": 1756,
+      "url": "http://127.0.0.1:42067/game.js",
+      "ms": 718.4690000000005
+    },
+    {
+      "function": "householdLiquidity",
+      "line": 256,
+      "url": "http://127.0.0.1:42067/game.js",
+      "ms": 558.7580000000002
+    },
+    {
+      "function": "privateServiceDay",
+      "line": 949,
+      "url": "http://127.0.0.1:42067/game.js",
+      "ms": 501.95200000000045
+    },
+    {
+      "function": "(garbage collector)",
+      "line": 0,
+      "url": "",
+      "ms": 477.8970000000002
+    },
+    {
+      "function": "drawImage",
+      "line": 0,
+      "url": "",
+      "ms": 405.46700000000044
+    },
+    {
+      "function": "urbanRetailProposal",
+      "line": 1875,
+      "url": "http://127.0.0.1:42067/game.js",
+      "ms": 373.821
+    },
+    {
+      "function": "addHouseholdAt",
+      "line": 2677,
+      "url": "http://127.0.0.1:42067/game.js",
+      "ms": 348.3670000000002
+    },
+    {
+      "function": "recompute",
+      "line": 2203,
+      "url": "http://127.0.0.1:42067/game.js",
+      "ms": 341.217
+    },
+    {
+      "function": "stationHubs",
+      "line": 2440,
+      "url": "http://127.0.0.1:42067/game.js",
+      "ms": 300.7010000000003
+    },
+    {
+      "function": "regionBuy",
+      "line": 1325,
+      "url": "http://127.0.0.1:42067/game.js",
+      "ms": 298.8
+    },
+    {
+      "function": "householdMarket",
+      "line": 828,
+      "url": "http://127.0.0.1:42067/game.js",
+      "ms": 282.08500000000015
+    },
+    {
+      "function": "transitOperatingDay",
+      "line": 3176,
+      "url": "http://127.0.0.1:42067/game.js",
+      "ms": 281.8330000000001
+    },
+    {
+      "function": "tick",
+      "line": 3388,
+      "url": "http://127.0.0.1:42067/game.js",
+      "ms": 252.16500000000005
+    },
+    {
+      "function": "maintainRoads",
+      "line": 3439,
+      "url": "http://127.0.0.1:42067/game.js",
+      "ms": 243.65900000000002
+    },
+    {
+      "function": "groceryChoices",
+      "line": 842,
+      "url": "http://127.0.0.1:42067/game.js",
+      "ms": 243.158
+    },
+    {
+      "function": "coverage",
+      "line": 2930,
+      "url": "http://127.0.0.1:42067/game.js",
+      "ms": 226.67900000000003
+    },
+    {
+      "function": "finalizeMarketBooks",
+      "line": 2165,
+      "url": "http://127.0.0.1:42067/game.js",
+      "ms": 219.2120000000002
+    },
+    {
+      "function": "regionalQuote",
+      "line": 1563,
+      "url": "http://127.0.0.1:42067/game.js",
+      "ms": 205.401
+    },
+    {
+      "function": "",
+      "line": 1560,
+      "url": "http://127.0.0.1:42067/game.js",
+      "ms": 205.22000000000006
+    },
+    {
+      "function": "charterRoadCount",
+      "line": 1107,
+      "url": "http://127.0.0.1:42067/game.js",
+      "ms": 199.35700000000006
+    },
+    {
+      "function": "roadDistanceRow",
+      "line": 3525,
+      "url": "http://127.0.0.1:42067/game.js",
+      "ms": 193.545
+    },
+    {
+      "function": "",
+      "line": 1559,
+      "url": "http://127.0.0.1:42067/game.js",
+      "ms": 192.366
+    },
+    {
+      "function": "transitJourney",
+      "line": 3147,
+      "url": "http://127.0.0.1:42067/game.js",
+      "ms": 186.73900000000015
+    },
+    {
+      "function": "roadDistanceRow",
+      "line": 3525,
+      "url": "http://127.0.0.1:42067/game.js",
+      "ms": 184.61899999999997
+    },
+    {
+      "function": "workerCanCommute",
+      "line": 851,
+      "url": "http://127.0.0.1:42067/game.js",
+      "ms": 182.07800000000003
+    },
+    {
+      "function": "buildableCandidates",
+      "line": 2296,
+      "url": "http://127.0.0.1:42067/game.js",
+      "ms": 182.0189999999999
+    },
+    {
+      "function": "serviceAccess",
+      "line": 686,
+      "url": "http://127.0.0.1:42067/game.js",
+      "ms": 179.06100000000012
+    },
+    {
+      "function": "buildableCandidates",
+      "line": 2296,
+      "url": "http://127.0.0.1:42067/game.js",
+      "ms": 163.55999999999992
+    },
+    {
+      "function": "residentHouseholdsAt",
+      "line": 2866,
+      "url": "http://127.0.0.1:42067/game.js",
+      "ms": 163.17400000000004
+    },
+    {
+      "function": "draw",
+      "line": 3950,
+      "url": "http://127.0.0.1:42067/game.js",
+      "ms": 158.6960000000001
+    },
+    {
+      "function": "serviceAccess",
+      "line": 686,
+      "url": "http://127.0.0.1:42067/game.js",
+      "ms": 155.06699999999995
+    },
+    {
+      "function": "fundedPublicPayroll",
+      "line": 318,
+      "url": "http://127.0.0.1:42067/game.js",
+      "ms": 152.45800000000006
+    },
+    {
+      "function": "",
+      "line": 1472,
+      "url": "http://127.0.0.1:42067/game.js",
+      "ms": 145.766
+    },
+    {
+      "function": "civicStaffCapacity",
+      "line": 743,
+      "url": "http://127.0.0.1:42067/game.js",
+      "ms": 138.37099999999995
+    },
+    {
+      "function": "serviceAccess",
+      "line": 686,
+      "url": "http://127.0.0.1:42067/game.js",
+      "ms": 132.777
+    },
+    {
+      "function": "",
+      "line": 954,
+      "url": "http://127.0.0.1:42067/game.js",
+      "ms": 123.72599999999997
+    },
+    {
+      "function": "",
+      "line": 2679,
+      "url": "http://127.0.0.1:42067/game.js",
+      "ms": 123.438
+    },
+    {
+      "function": "privatelyBuiltFirm",
+      "line": 2413,
+      "url": "http://127.0.0.1:42067/game.js",
+      "ms": 119.74099999999999
+    },
+    {
+      "function": "incidents",
+      "line": 2180,
+      "url": "http://127.0.0.1:42067/game.js",
+      "ms": 119.47799999999995
+    },
+    {
+      "function": "drawImage",
+      "line": 0,
+      "url": "",
+      "ms": 118.387
+    },
+    {
+      "function": "sharesRoadNetwork",
+      "line": 850,
+      "url": "http://127.0.0.1:42067/game.js",
+      "ms": 113.984
+    },
+    {
+      "function": "logisticsPath",
+      "line": 1558,
+      "url": "http://127.0.0.1:42067/game.js",
+      "ms": 113.86599999999999
+    },
+    {
+      "function": "ensureMarketModel",
+      "line": 258,
+      "url": "http://127.0.0.1:42067/game.js",
+      "ms": 110.91299999999997
+    }
+  ]
+}
