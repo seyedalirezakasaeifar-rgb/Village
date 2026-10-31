@@ -275,24 +275,14 @@ function liquidityStress(){
 }
 function outwardMigration(){
  if(G.day%30!==0)return 0;
- const hardship=G.stats.hardship||0,unemployment=G.stats.unemployment||0;
- if(hardship<25&&unemployment<26&&(G.regionalDemand||1)>.68)return 0;
- const chance=clamp(.035+Math.max(0,hardship-25)*.004+Math.max(0,unemployment-26)*.003,0,.27);
- if(random()>chance)return 0;
- const choices=G.households.filter(h=>h.home>=0&&h.people.length>0&&h.stress>42&&h.cash<Math.max(550,h.people.length*260))
-  .sort((a,b)=>(b.stress-a.stress)+(a.cash-b.cash)*.005);
- if(!choices.length)return 0;
- const h=choices[0],oldHome=readBuild(h.home),departures=h.people.slice();
- for(const id of departures){const p=G.people[id];if(!p)continue;p.movedAway=true;p.job=-1;
-  for(const f of G.firms)if(f.workers.includes(id))f.workers=f.workers.filter(n=>n!==id);
- }
- h.people=[];
- // External migrants take cash with them. Their remaining bank deposits are
- // still real liabilities to external depositors, not municipal residents.
- G.region+=Math.max(0,h.cash);h.cash=0;
- story('The '+h.name+' family left town after persistent hardship and weak job prospects, leaving a vacant home.','bad',oldHome?.id||0);
- recompute();return departures.length;
+ const choices=G.households.filter(h=>h.people.length&&h.home>=0&&((h.stress||0)>42||(h.worklessness||0)>20)&&migrationSpendable(h).spendable<90*Math.max(1,expectedHouseholdEssentials(h)+migrationDebtDue(h))).map(h=>({h,assessment:migrationEmigrationAssessment(h)})).filter(x=>x.assessment.eligible).sort((a,b)=>a.assessment.runwayDays-b.assessment.runwayDays||a.h.id-b.h.id);
+ for(const {h,assessment} of choices){if(random()>=assessment.probability)continue;const home=readBuild(h.home),departures=h.people.slice();
+  for(const id of departures){const p=G.people[id];if(!p)continue;p.movedAway=true;p.job=-1;for(const f of G.firms)if(f.workers.includes(id))f.workers=f.workers.filter(n=>n!==id);}
+  h.people=[];G.region+=Math.max(0,h.cash);h.cash=0;migrationReleaseTenancy(h);migrationRecord('departure',{household:h.id,people:departures.length,assessment});
+  story('The '+h.name+' family left after a persistent budget shortfall and a better outside reference. Their financial claims and property titles remain recorded.','bad',home?.id||0);recompute();return departures.length;
+ }return 0;
 }
+
 function reverseRedevelopment(){
  if(G.day%60!==0||!G.autoBuild)return false;
  const d=cityDemand();

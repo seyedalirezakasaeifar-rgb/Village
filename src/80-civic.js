@@ -245,7 +245,7 @@ function yearlyDemographics(){
  for(const p of G.people){
   if(p.deceased||p.movedAway)continue;p.age++;if(p.age>70&&p.job>=0){const f=G.firms[p.job];if(f)f.workers=f.workers.filter(id=>id!==p.id);p.job=-1;p.retired=true;p.publicWork=false;}
   if(p.age>85&&(p.age>95||random()<.17)){
-   p.deceased=true;p.job=-1;
+   p.deceased=true;p.job=-1;migrationRecord('death',{household:p.hh,person:p.id,people:1});
    const h=G.households[p.hh];if(h)h.people=h.people.filter(id=>id!==p.id);
    for(const f of G.firms)f.workers=f.workers.filter(id=>id!==p.id);
    deaths++;
@@ -255,9 +255,9 @@ function yearlyDemographics(){
  // Vacant homes can receive a new household from outside town. Do not clone
  // an existing resident into two household rosters, and keep external cash balanced.
  for(const h of G.households){
-  if(h.people.length||!readBuild(h.home)||G.stats.population>=2000||G.region<1000||cityDemand().housingPressure<48)continue;
+  if(h.people.length||!readBuild(h.home)||G.stats.population>=2000||G.region<1000)continue;
   const building=readBuild(h.home),newHousehold=addHouseholdAt(building,900);
-  if(newHousehold){if(building.hh===h.id)building.hh=newHousehold.id;if(Array.isArray(building.units))building.units=building.units.map(id=>id===h.id?newHousehold.id:id);h.home=-1;story('A newcomer household rented an empty home; the former estate retains its balances and title.','neutral',building.id,newHousehold.id);}
+  if(newHousehold){migrationRegisterTenancy(newHousehold,building);migrationReleaseTenancy(h);story('A newcomer household rented an empty home; the former estate retains its balances and title.','neutral',building.id,newHousehold.id);}
 
  }
  assignJobs();
