@@ -1,0 +1,41 @@
+{
+  "source_sha256": "5239373ffba7c324fcf9d2cd586c74e5284902abf13cb7c268764bd9a1e13139",
+  "result": {
+    "actualRepayment": true,
+    "syntheticHistoricalReceipts": 10000,
+    "newLoanId": 10001,
+    "priorMaximum": 10000,
+    "newArchiveImportable": true,
+    "retained": 1801,
+    "protectedClaimsPreserved": true,
+    "exactReplayDays": 30,
+    "summary": {
+      "version": 1,
+      "count": 8200,
+      "original": 820000,
+      "paid": 823286.4472956562,
+      "maxId": 8200,
+      "households": {
+        "1": {
+          "count": 8200,
+          "original": 820000,
+          "paid": 823286.4472956562
+        }
+      },
+      "firms": {},
+      "banks": {
+        "0": {
+          "count": 8200,
+          "original": 820000,
+          "paid": 823286.4472956562
+        }
+      }
+    },
+    "moneyPreserved": true,
+    "protectedCapacity": {
+      "protectedDefaults": 10000,
+      "claimsPreserved": true,
+      "explicitRefusal": true
+    }
+  }
+}

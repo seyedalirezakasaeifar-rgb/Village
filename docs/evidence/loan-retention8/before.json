@@ -1,0 +1,13 @@
+{
+  "source_sha256": "73345dc2d9f750b9411131d8169ed1bb1d062940bc7938c452f42c8fddf29260",
+  "result": {
+    "actualRepayment": true,
+    "syntheticHistoricalReceipts": 10000,
+    "newLoanId": 10001,
+    "priorMaximum": 10000,
+    "newArchiveImportable": false,
+    "retained": 10000,
+    "summary": null,
+    "moneyPreserved": true
+  }
+}
