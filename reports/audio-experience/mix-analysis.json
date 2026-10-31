@@ -1,0 +1,88 @@
+{
+  "sha256sVerified": true,
+  "method": "FFmpeg EBU R128 analysis of complete decoded committed files; no listening",
+  "tracks": [
+    {
+      "file": "morning-ledger.ogg",
+      "integratedLUFS": -25.7,
+      "loudnessRangeLU": 2.6,
+      "truePeakDBFS": -14.9,
+      "runtimeMixGain": 1.636,
+      "compensatedLUFS": -21.42
+    },
+    {
+      "file": "river-and-road.ogg",
+      "integratedLUFS": -25.8,
+      "loudnessRangeLU": 2.7,
+      "truePeakDBFS": -14.9,
+      "runtimeMixGain": 1.677,
+      "compensatedLUFS": -21.31
+    },
+    {
+      "file": "lamplit-windows.ogg",
+      "integratedLUFS": -25.8,
+      "loudnessRangeLU": 3.1,
+      "truePeakDBFS": -15.1,
+      "runtimeMixGain": 1.621,
+      "compensatedLUFS": -21.6
+    },
+    {
+      "file": "orchard-footpaths.ogg",
+      "integratedLUFS": -21.6,
+      "loudnessRangeLU": 5.6,
+      "truePeakDBFS": -9.4,
+      "runtimeMixGain": 1.0,
+      "compensatedLUFS": -21.6
+    },
+    {
+      "file": "rails-to-greyhaven.ogg",
+      "integratedLUFS": -21.8,
+      "loudnessRangeLU": 5.4,
+      "truePeakDBFS": -9.5,
+      "runtimeMixGain": 1.0,
+      "compensatedLUFS": -21.8
+    },
+    {
+      "file": "waterline-work.ogg",
+      "integratedLUFS": -21.5,
+      "loudnessRangeLU": 5.9,
+      "truePeakDBFS": -9.2,
+      "runtimeMixGain": 1.0,
+      "compensatedLUFS": -21.5
+    },
+    {
+      "file": "market-day.ogg",
+      "integratedLUFS": -22.1,
+      "loudnessRangeLU": 5.4,
+      "truePeakDBFS": -9.9,
+      "runtimeMixGain": 1.0,
+      "compensatedLUFS": -22.1
+    },
+    {
+      "file": "after-the-rain.ogg",
+      "integratedLUFS": -22.0,
+      "loudnessRangeLU": 6.1,
+      "truePeakDBFS": -10.3,
+      "runtimeMixGain": 1.0,
+      "compensatedLUFS": -22.0
+    },
+    {
+      "file": "a-borough-grows.ogg",
+      "integratedLUFS": -21.4,
+      "loudnessRangeLU": 6.1,
+      "truePeakDBFS": -10.1,
+      "runtimeMixGain": 1.0,
+      "compensatedLUFS": -21.4
+    },
+    {
+      "file": "quiet-river-reprise.ogg",
+      "integratedLUFS": -21.7,
+      "loudnessRangeLU": 5.3,
+      "truePeakDBFS": -9.5,
+      "runtimeMixGain": 1.0,
+      "compensatedLUFS": -21.7
+    }
+  ],
+  "source_sha256": "ad1125f3d98f04278071bae186fab945368ed42825b62004808642a3f89531e2",
+  "compensatedSpreadLU": 0.79
+}

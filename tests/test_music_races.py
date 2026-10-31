@@ -21,7 +21,22 @@ window.__musicRace=async()=>{
  playMusicTrack(2);const next=__mediaRequests[__mediaRequests.length-1];next.resolve();await Promise.resolve();stopMusic();
  if(musicDecks.length!==1||!musicDecks[0].audio.paused||musicFade)throw Error('Suspend retained fade/tail');
  const retired=__media.filter(a=>a!==musicDecks[0].audio&&a.loads>0);if(retired.length<2||retired.some(a=>a.src!==''||!a.paused))throw Error('Retired decoder sources retained');
- return {staleRejectionIgnored:true,suspendDecks:musicDecks.length,fadeStopped:true,retiredSourcesCleared:retired.length,activeDeckLimit:2};
+ // Native resume creates another play epoch for the same element. Its later
+ // media errors must still surface, while old play-promise failures stay stale.
+ refreshMusic();const resumed=__mediaRequests[__mediaRequests.length-1];resumed.resolve();await Promise.resolve();resumed.audio.dispatchEvent(new Event('error'));
+ if(!musicError||!resumed.audio.paused)throw Error('Resumed current media error was ignored');
+ musicError='';playMusicTrack(3);const pending=__mediaRequests[__mediaRequests.length-1],incoming=musicDecks[musicDecks.length-1],tail=incoming.previous,tailGain=tail.gain;
+ // The synchronous play mock marks paused=false before its deferred promise
+ // resolves, exactly the interval in which ordinary refreshes used to cut tails.
+ refreshMusic();refreshMusic();
+ if(musicDecks.length!==2||incoming.gain!==0||incoming.previous!==tail||tail.retired||tail.gain!==tailGain)throw Error('Routine refresh interrupted a pending handoff');
+ pending.resolve();await Promise.resolve();stopMusic();refreshMusic();__mediaRequests[__mediaRequests.length-1].resolve();await Promise.resolve();
+ const fullTrack=musicTrack;incoming.audio.duration=100;incoming.audio.currentTime=95;incoming.audio.dispatchEvent(new Event('timeupdate'));
+ if(musicTrack!==fullTrack)throw Error('Partial stream duration truncated the composition');
+ incoming.audio.currentTime=MUSIC_TRACKS[fullTrack].seconds-7;incoming.audio.dispatchEvent(new Event('timeupdate'));
+ if(musicTrack===fullTrack)throw Error('Full score duration did not hand off');
+ stopMusic();
+ return {staleRejectionIgnored:true,suspendDecks:musicDecks.length,fadeStopped:true,retiredSourcesCleared:retired.length,activeDeckLimit:2,resumedMediaErrorSurfaced:true,pendingHandoffPreserved:true,partialDurationIgnored:true};
 };
 '''
 with sync_playwright() as pw:

@@ -1,0 +1,4622 @@
+{
+  "source_sha256": "ad1125f3d98f04278071bae186fab945368ed42825b62004808642a3f89531e2",
+  "realMedia": true,
+  "acceleratedFadeClockOnly": true,
+  "manualHandoffs": 300,
+  "foregroundDwellSeconds": 180,
+  "elapsedSeconds": 232.08,
+  "metadata": [
+    {
+      "index": 2,
+      "history": [
+        "a-borough-grows",
+        "lamplit-windows"
+      ],
+      "duration": 106.2225,
+      "expected": 224.429
+    },
+    {
+      "index": 5,
+      "history": [
+        "a-borough-grows",
+        "lamplit-windows",
+        "waterline-work"
+      ],
+      "duration": 143.237781,
+      "expected": 275.786
+    },
+    {
+      "index": 6,
+      "history": [
+        "a-borough-grows",
+        "lamplit-windows",
+        "waterline-work",
+        "market-day"
+      ],
+      "duration": 155.020281,
+      "expected": 306.955
+    },
+    {
+      "index": 7,
+      "history": [
+        "a-borough-grows",
+        "lamplit-windows",
+        "waterline-work",
+        "market-day",
+        "after-the-rain"
+      ],
+      "duration": 177.682219,
+      "expected": 379.682
+    },
+    {
+      "index": 4,
+      "history": [
+        "a-borough-grows",
+        "lamplit-windows",
+        "waterline-work",
+        "market-day",
+        "after-the-rain",
+        "rails-to-greyhaven"
+      ],
+      "duration": 150.630125,
+      "expected": 287.457
+    },
+    {
+      "index": 3,
+      "history": [
+        "lamplit-windows",
+        "waterline-work",
+        "market-day",
+        "after-the-rain",
+        "rails-to-greyhaven",
+        "orchard-footpaths"
+      ],
+      "duration": 145.488813,
+      "expected": 281.5
+    },
+    {
+      "index": 8,
+      "history": [
+        "waterline-work",
+        "market-day",
+        "after-the-rain",
+        "rails-to-greyhaven",
+        "orchard-footpaths",
+        "a-borough-grows"
+      ],
+      "duration": 182.097156,
+      "expected": 355.184
+    },
+    {
+      "index": 0,
+      "history": [
+        "market-day",
+        "after-the-rain",
+        "rails-to-greyhaven",
+        "orchard-footpaths",
+        "a-borough-grows",
+        "morning-ledger"
+      ],
+      "duration": 93.585781,
+      "expected": 201.923
+    },
+    {
+      "index": 9,
+      "history": [
+        "after-the-rain",
+        "rails-to-greyhaven",
+        "orchard-footpaths",
+        "a-borough-grows",
+        "morning-ledger",
+        "quiet-river-reprise"
+      ],
+      "duration": 183.659031,
+      "expected": 361.5
+    },
+    {
+      "index": 2,
+      "history": [
+        "rails-to-greyhaven",
+        "orchard-footpaths",
+        "a-borough-grows",
+        "morning-ledger",
+        "quiet-river-reprise",
+        "lamplit-windows"
+      ],
+      "duration": 106.2225,
+      "expected": 224.429
+    },
+    {
+      "index": 7,
+      "history": [
+        "orchard-footpaths",
+        "a-borough-grows",
+        "morning-ledger",
+        "quiet-river-reprise",
+        "lamplit-windows",
+        "after-the-rain"
+      ],
+      "duration": 177.682219,
+      "expected": 379.682
+    },
+    {
+      "index": 4,
+      "history": [
+        "a-borough-grows",
+        "morning-ledger",
+        "quiet-river-reprise",
+        "lamplit-windows",
+        "after-the-rain",
+        "rails-to-greyhaven"
+      ],
+      "duration": 150.630125,
+      "expected": 287.457
+    },
+    {
+      "index": 3,
+      "history": [
+        "morning-ledger",
+        "quiet-river-reprise",
+        "lamplit-windows",
+        "after-the-rain",
+        "rails-to-greyhaven",
+        "orchard-footpaths"
+      ],
+      "duration": 145.488813,
+      "expected": 281.5
+    },
+    {
+      "index": 8,
+      "history": [
+        "quiet-river-reprise",
+        "lamplit-windows",
+        "after-the-rain",
+        "rails-to-greyhaven",
+        "orchard-footpaths",
+        "a-borough-grows"
+      ],
+      "duration": 182.097156,
+      "expected": 355.184
+    },
+    {
+      "index": 5,
+      "history": [
+        "lamplit-windows",
+        "after-the-rain",
+        "rails-to-greyhaven",
+        "orchard-footpaths",
+        "a-borough-grows",
+        "waterline-work"
+      ],
+      "duration": 143.237781,
+      "expected": 275.786
+    },
+    {
+      "index": 6,
+      "history": [
+        "after-the-rain",
+        "rails-to-greyhaven",
+        "orchard-footpaths",
+        "a-borough-grows",
+        "waterline-work",
+        "market-day"
+      ],
+      "duration": 155.020281,
+      "expected": 306.955
+    },
+    {
+      "index": 1,
+      "history": [
+        "rails-to-greyhaven",
+        "orchard-footpaths",
+        "a-borough-grows",
+        "waterline-work",
+        "market-day",
+        "river-and-road"
+      ],
+      "duration": 80.9,
+      "expected": 171.957
+    },
+    {
+      "index": 2,
+      "history": [
+        "orchard-footpaths",
+        "a-borough-grows",
+        "waterline-work",
+        "market-day",
+        "river-and-road",
+        "lamplit-windows"
+      ],
+      "duration": 106.2225,
+      "expected": 224.429
+    },
+    {
+      "index": 0,
+      "history": [
+        "a-borough-grows",
+        "waterline-work",
+        "market-day",
+        "river-and-road",
+        "lamplit-windows",
+        "morning-ledger"
+      ],
+      "duration": 93.585781,
+      "expected": 201.923
+    },
+    {
+      "index": 4,
+      "history": [
+        "waterline-work",
+        "market-day",
+        "river-and-road",
+        "lamplit-windows",
+        "morning-ledger",
+        "rails-to-greyhaven"
+      ],
+      "duration": 150.630125,
+      "expected": 287.457
+    },
+    {
+      "index": 9,
+      "history": [
+        "market-day",
+        "river-and-road",
+        "lamplit-windows",
+        "morning-ledger",
+        "rails-to-greyhaven",
+        "quiet-river-reprise"
+      ],
+      "duration": 183.659031,
+      "expected": 361.5
+    },
+    {
+      "index": 8,
+      "history": [
+        "river-and-road",
+        "lamplit-windows",
+        "morning-ledger",
+        "rails-to-greyhaven",
+        "quiet-river-reprise",
+        "a-borough-grows"
+      ],
+      "duration": 182.097156,
+      "expected": 355.184
+    },
+    {
+      "index": 5,
+      "history": [
+        "lamplit-windows",
+        "morning-ledger",
+        "rails-to-greyhaven",
+        "quiet-river-reprise",
+        "a-borough-grows",
+        "waterline-work"
+      ],
+      "duration": 143.237781,
+      "expected": 275.786
+    },
+    {
+      "index": 6,
+      "history": [
+        "morning-ledger",
+        "rails-to-greyhaven",
+        "quiet-river-reprise",
+        "a-borough-grows",
+        "waterline-work",
+        "market-day"
+      ],
+      "duration": 155.020281,
+      "expected": 306.955
+    },
+    {
+      "index": 3,
+      "history": [
+        "rails-to-greyhaven",
+        "quiet-river-reprise",
+        "a-borough-grows",
+        "waterline-work",
+        "market-day",
+        "orchard-footpaths"
+      ],
+      "duration": 145.488813,
+      "expected": 281.5
+    },
+    {
+      "index": 7,
+      "history": [
+        "quiet-river-reprise",
+        "a-borough-grows",
+        "waterline-work",
+        "market-day",
+        "orchard-footpaths",
+        "after-the-rain"
+      ],
+      "duration": 177.682219,
+      "expected": 379.682
+    },
+    {
+      "index": 1,
+      "history": [
+        "a-borough-grows",
+        "waterline-work",
+        "market-day",
+        "orchard-footpaths",
+        "after-the-rain",
+        "river-and-road"
+      ],
+      "duration": 80.9,
+      "expected": 171.957
+    },
+    {
+      "index": 9,
+      "history": [
+        "waterline-work",
+        "market-day",
+        "orchard-footpaths",
+        "after-the-rain",
+        "river-and-road",
+        "quiet-river-reprise"
+      ],
+      "duration": 183.659031,
+      "expected": 361.5
+    },
+    {
+      "index": 4,
+      "history": [
+        "market-day",
+        "orchard-footpaths",
+        "after-the-rain",
+        "river-and-road",
+        "quiet-river-reprise",
+        "rails-to-greyhaven"
+      ],
+      "duration": 150.630125,
+      "expected": 287.457
+    },
+    {
+      "index": 0,
+      "history": [
+        "orchard-footpaths",
+        "after-the-rain",
+        "river-and-road",
+        "quiet-river-reprise",
+        "rails-to-greyhaven",
+        "morning-ledger"
+      ],
+      "duration": 93.585781,
+      "expected": 201.923
+    },
+    {
+      "index": 6,
+      "history": [
+        "after-the-rain",
+        "river-and-road",
+        "quiet-river-reprise",
+        "rails-to-greyhaven",
+        "morning-ledger",
+        "market-day"
+      ],
+      "duration": 155.020281,
+      "expected": 306.955
+    },
+    {
+      "index": 8,
+      "history": [
+        "river-and-road",
+        "quiet-river-reprise",
+        "rails-to-greyhaven",
+        "morning-ledger",
+        "market-day",
+        "a-borough-grows"
+      ],
+      "duration": 182.097156,
+      "expected": 355.184
+    },
+    {
+      "index": 7,
+      "history": [
+        "quiet-river-reprise",
+        "rails-to-greyhaven",
+        "morning-ledger",
+        "market-day",
+        "a-borough-grows",
+        "after-the-rain"
+      ],
+      "duration": 177.682219,
+      "expected": 379.682
+    },
+    {
+      "index": 3,
+      "history": [
+        "rails-to-greyhaven",
+        "morning-ledger",
+        "market-day",
+        "a-borough-grows",
+        "after-the-rain",
+        "orchard-footpaths"
+      ],
+      "duration": 145.488813,
+      "expected": 281.5
+    },
+    {
+      "index": 2,
+      "history": [
+        "morning-ledger",
+        "market-day",
+        "a-borough-grows",
+        "after-the-rain",
+        "orchard-footpaths",
+        "lamplit-windows"
+      ],
+      "duration": 106.2225,
+      "expected": 224.429
+    },
+    {
+      "index": 9,
+      "history": [
+        "market-day",
+        "a-borough-grows",
+        "after-the-rain",
+        "orchard-footpaths",
+        "lamplit-windows",
+        "quiet-river-reprise"
+      ],
+      "duration": 183.659031,
+      "expected": 361.5
+    },
+    {
+      "index": 5,
+      "history": [
+        "a-borough-grows",
+        "after-the-rain",
+        "orchard-footpaths",
+        "lamplit-windows",
+        "quiet-river-reprise",
+        "waterline-work"
+      ],
+      "duration": 143.237781,
+      "expected": 275.786
+    },
+    {
+      "index": 4,
+      "history": [
+        "after-the-rain",
+        "orchard-footpaths",
+        "lamplit-windows",
+        "quiet-river-reprise",
+        "waterline-work",
+        "rails-to-greyhaven"
+      ],
+      "duration": 150.630125,
+      "expected": 287.457
+    },
+    {
+      "index": 0,
+      "history": [
+        "orchard-footpaths",
+        "lamplit-windows",
+        "quiet-river-reprise",
+        "waterline-work",
+        "rails-to-greyhaven",
+        "morning-ledger"
+      ],
+      "duration": 93.585781,
+      "expected": 201.923
+    },
+    {
+      "index": 8,
+      "history": [
+        "lamplit-windows",
+        "quiet-river-reprise",
+        "waterline-work",
+        "rails-to-greyhaven",
+        "morning-ledger",
+        "a-borough-grows"
+      ],
+      "duration": 182.097156,
+      "expected": 355.184
+    },
+    {
+      "index": 1,
+      "history": [
+        "quiet-river-reprise",
+        "waterline-work",
+        "rails-to-greyhaven",
+        "morning-ledger",
+        "a-borough-grows",
+        "river-and-road"
+      ],
+      "duration": 80.9,
+      "expected": 171.957
+    },
+    {
+      "index": 3,
+      "history": [
+        "waterline-work",
+        "rails-to-greyhaven",
+        "morning-ledger",
+        "a-borough-grows",
+        "river-and-road",
+        "orchard-footpaths"
+      ],
+      "duration": 145.488813,
+      "expected": 281.5
+    },
+    {
+      "index": 6,
+      "history": [
+        "rails-to-greyhaven",
+        "morning-ledger",
+        "a-borough-grows",
+        "river-and-road",
+        "orchard-footpaths",
+        "market-day"
+      ],
+      "duration": 155.020281,
+      "expected": 306.955
+    },
+    {
+      "index": 2,
+      "history": [
+        "morning-ledger",
+        "a-borough-grows",
+        "river-and-road",
+        "orchard-footpaths",
+        "market-day",
+        "lamplit-windows"
+      ],
+      "duration": 106.2225,
+      "expected": 224.429
+    },
+    {
+      "index": 7,
+      "history": [
+        "a-borough-grows",
+        "river-and-road",
+        "orchard-footpaths",
+        "market-day",
+        "lamplit-windows",
+        "after-the-rain"
+      ],
+      "duration": 177.682219,
+      "expected": 379.682
+    },
+    {
+      "index": 0,
+      "history": [
+        "river-and-road",
+        "orchard-footpaths",
+        "market-day",
+        "lamplit-windows",
+        "after-the-rain",
+        "morning-ledger"
+      ],
+      "duration": 93.585781,
+      "expected": 201.923
+    },
+    {
+      "index": 4,
+      "history": [
+        "orchard-footpaths",
+        "market-day",
+        "lamplit-windows",
+        "after-the-rain",
+        "morning-ledger",
+        "rails-to-greyhaven"
+      ],
+      "duration": 150.630125,
+      "expected": 287.457
+    },
+    {
+      "index": 8,
+      "history": [
+        "market-day",
+        "lamplit-windows",
+        "after-the-rain",
+        "morning-ledger",
+        "rails-to-greyhaven",
+        "a-borough-grows"
+      ],
+      "duration": 182.097156,
+      "expected": 355.184
+    },
+    {
+      "index": 3,
+      "history": [
+        "lamplit-windows",
+        "after-the-rain",
+        "morning-ledger",
+        "rails-to-greyhaven",
+        "a-borough-grows",
+        "orchard-footpaths"
+      ],
+      "duration": 145.488813,
+      "expected": 281.5
+    },
+    {
+      "index": 6,
+      "history": [
+        "after-the-rain",
+        "morning-ledger",
+        "rails-to-greyhaven",
+        "a-borough-grows",
+        "orchard-footpaths",
+        "market-day"
+      ],
+      "duration": 155.020281,
+      "expected": 306.955
+    },
+    {
+      "index": 5,
+      "history": [
+        "morning-ledger",
+        "rails-to-greyhaven",
+        "a-borough-grows",
+        "orchard-footpaths",
+        "market-day",
+        "waterline-work"
+      ],
+      "duration": 143.237781,
+      "expected": 275.786
+    },
+    {
+      "index": 9,
+      "history": [
+        "rails-to-greyhaven",
+        "a-borough-grows",
+        "orchard-footpaths",
+        "market-day",
+        "waterline-work",
+        "quiet-river-reprise"
+      ],
+      "duration": 183.659031,
+      "expected": 361.5
+    },
+    {
+      "index": 7,
+      "history": [
+        "a-borough-grows",
+        "orchard-footpaths",
+        "market-day",
+        "waterline-work",
+        "quiet-river-reprise",
+        "after-the-rain"
+      ],
+      "duration": 177.682219,
+      "expected": 379.682
+    },
+    {
+      "index": 0,
+      "history": [
+        "orchard-footpaths",
+        "market-day",
+        "waterline-work",
+        "quiet-river-reprise",
+        "after-the-rain",
+        "morning-ledger"
+      ],
+      "duration": 93.585781,
+      "expected": 201.923
+    },
+    {
+      "index": 8,
+      "history": [
+        "market-day",
+        "waterline-work",
+        "quiet-river-reprise",
+        "after-the-rain",
+        "morning-ledger",
+        "a-borough-grows"
+      ],
+      "duration": 182.097156,
+      "expected": 355.184
+    },
+    {
+      "index": 3,
+      "history": [
+        "waterline-work",
+        "quiet-river-reprise",
+        "after-the-rain",
+        "morning-ledger",
+        "a-borough-grows",
+        "orchard-footpaths"
+      ],
+      "duration": 145.488813,
+      "expected": 281.5
+    },
+    {
+      "index": 1,
+      "history": [
+        "quiet-river-reprise",
+        "after-the-rain",
+        "morning-ledger",
+        "a-borough-grows",
+        "orchard-footpaths",
+        "river-and-road"
+      ],
+      "duration": 80.9,
+      "expected": 171.957
+    },
+    {
+      "index": 2,
+      "history": [
+        "after-the-rain",
+        "morning-ledger",
+        "a-borough-grows",
+        "orchard-footpaths",
+        "river-and-road",
+        "lamplit-windows"
+      ],
+      "duration": 106.2225,
+      "expected": 224.429
+    },
+    {
+      "index": 6,
+      "history": [
+        "morning-ledger",
+        "a-borough-grows",
+        "orchard-footpaths",
+        "river-and-road",
+        "lamplit-windows",
+        "market-day"
+      ],
+      "duration": 155.020281,
+      "expected": 306.955
+    },
+    {
+      "index": 7,
+      "history": [
+        "a-borough-grows",
+        "orchard-footpaths",
+        "river-and-road",
+        "lamplit-windows",
+        "market-day",
+        "after-the-rain"
+      ],
+      "duration": 177.682219,
+      "expected": 379.682
+    },
+    {
+      "index": 5,
+      "history": [
+        "orchard-footpaths",
+        "river-and-road",
+        "lamplit-windows",
+        "market-day",
+        "after-the-rain",
+        "waterline-work"
+      ],
+      "duration": 143.237781,
+      "expected": 275.786
+    },
+    {
+      "index": 0,
+      "history": [
+        "river-and-road",
+        "lamplit-windows",
+        "market-day",
+        "after-the-rain",
+        "waterline-work",
+        "morning-ledger"
+      ],
+      "duration": 93.585781,
+      "expected": 201.923
+    },
+    {
+      "index": 8,
+      "history": [
+        "lamplit-windows",
+        "market-day",
+        "after-the-rain",
+        "waterline-work",
+        "morning-ledger",
+        "a-borough-grows"
+      ],
+      "duration": 182.097156,
+      "expected": 355.184
+    },
+    {
+      "index": 3,
+      "history": [
+        "market-day",
+        "after-the-rain",
+        "waterline-work",
+        "morning-ledger",
+        "a-borough-grows",
+        "orchard-footpaths"
+      ],
+      "duration": 145.488813,
+      "expected": 281.5
+    },
+    {
+      "index": 4,
+      "history": [
+        "after-the-rain",
+        "waterline-work",
+        "morning-ledger",
+        "a-borough-grows",
+        "orchard-footpaths",
+        "rails-to-greyhaven"
+      ],
+      "duration": 150.630125,
+      "expected": 287.457
+    },
+    {
+      "index": 9,
+      "history": [
+        "waterline-work",
+        "morning-ledger",
+        "a-borough-grows",
+        "orchard-footpaths",
+        "rails-to-greyhaven",
+        "quiet-river-reprise"
+      ],
+      "duration": 183.659031,
+      "expected": 361.5
+    },
+    {
+      "index": 6,
+      "history": [
+        "morning-ledger",
+        "a-borough-grows",
+        "orchard-footpaths",
+        "rails-to-greyhaven",
+        "quiet-river-reprise",
+        "market-day"
+      ],
+      "duration": 155.020281,
+      "expected": 306.955
+    },
+    {
+      "index": 7,
+      "history": [
+        "a-borough-grows",
+        "orchard-footpaths",
+        "rails-to-greyhaven",
+        "quiet-river-reprise",
+        "market-day",
+        "after-the-rain"
+      ],
+      "duration": 177.682219,
+      "expected": 379.682
+    },
+    {
+      "index": 0,
+      "history": [
+        "orchard-footpaths",
+        "rails-to-greyhaven",
+        "quiet-river-reprise",
+        "market-day",
+        "after-the-rain",
+        "morning-ledger"
+      ],
+      "duration": 93.585781,
+      "expected": 201.923
+    },
+    {
+      "index": 8,
+      "history": [
+        "rails-to-greyhaven",
+        "quiet-river-reprise",
+        "market-day",
+        "after-the-rain",
+        "morning-ledger",
+        "a-borough-grows"
+      ],
+      "duration": 182.097156,
+      "expected": 355.184
+    },
+    {
+      "index": 3,
+      "history": [
+        "quiet-river-reprise",
+        "market-day",
+        "after-the-rain",
+        "morning-ledger",
+        "a-borough-grows",
+        "orchard-footpaths"
+      ],
+      "duration": 145.488813,
+      "expected": 281.5
+    },
+    {
+      "index": 4,
+      "history": [
+        "market-day",
+        "after-the-rain",
+        "morning-ledger",
+        "a-borough-grows",
+        "orchard-footpaths",
+        "rails-to-greyhaven"
+      ],
+      "duration": 150.630125,
+      "expected": 287.457
+    },
+    {
+      "index": 2,
+      "history": [
+        "after-the-rain",
+        "morning-ledger",
+        "a-borough-grows",
+        "orchard-footpaths",
+        "rails-to-greyhaven",
+        "lamplit-windows"
+      ],
+      "duration": 106.2225,
+      "expected": 224.429
+    },
+    {
+      "index": 6,
+      "history": [
+        "morning-ledger",
+        "a-borough-grows",
+        "orchard-footpaths",
+        "rails-to-greyhaven",
+        "lamplit-windows",
+        "market-day"
+      ],
+      "duration": 155.020281,
+      "expected": 306.955
+    },
+    {
+      "index": 7,
+      "history": [
+        "a-borough-grows",
+        "orchard-footpaths",
+        "rails-to-greyhaven",
+        "lamplit-windows",
+        "market-day",
+        "after-the-rain"
+      ],
+      "duration": 177.682219,
+      "expected": 379.682
+    },
+    {
+      "index": 0,
+      "history": [
+        "orchard-footpaths",
+        "rails-to-greyhaven",
+        "lamplit-windows",
+        "market-day",
+        "after-the-rain",
+        "morning-ledger"
+      ],
+      "duration": 93.585781,
+      "expected": 201.923
+    },
+    {
+      "index": 5,
+      "history": [
+        "rails-to-greyhaven",
+        "lamplit-windows",
+        "market-day",
+        "after-the-rain",
+        "morning-ledger",
+        "waterline-work"
+      ],
+      "duration": 143.237781,
+      "expected": 275.786
+    },
+    {
+      "index": 8,
+      "history": [
+        "lamplit-windows",
+        "market-day",
+        "after-the-rain",
+        "morning-ledger",
+        "waterline-work",
+        "a-borough-grows"
+      ],
+      "duration": 182.097156,
+      "expected": 355.184
+    },
+    {
+      "index": 3,
+      "history": [
+        "market-day",
+        "after-the-rain",
+        "morning-ledger",
+        "waterline-work",
+        "a-borough-grows",
+        "orchard-footpaths"
+      ],
+      "duration": 145.488813,
+      "expected": 281.5
+    },
+    {
+      "index": 2,
+      "history": [
+        "after-the-rain",
+        "morning-ledger",
+        "waterline-work",
+        "a-borough-grows",
+        "orchard-footpaths",
+        "lamplit-windows"
+      ],
+      "duration": 106.2225,
+      "expected": 224.429
+    },
+    {
+      "index": 6,
+      "history": [
+        "morning-ledger",
+        "waterline-work",
+        "a-borough-grows",
+        "orchard-footpaths",
+        "lamplit-windows",
+        "market-day"
+      ],
+      "duration": 155.020281,
+      "expected": 306.955
+    },
+    {
+      "index": 9,
+      "history": [
+        "waterline-work",
+        "a-borough-grows",
+        "orchard-footpaths",
+        "lamplit-windows",
+        "market-day",
+        "quiet-river-reprise"
+      ],
+      "duration": 183.659031,
+      "expected": 361.5
+    },
+    {
+      "index": 0,
+      "history": [
+        "a-borough-grows",
+        "orchard-footpaths",
+        "lamplit-windows",
+        "market-day",
+        "quiet-river-reprise",
+        "morning-ledger"
+      ],
+      "duration": 93.585781,
+      "expected": 201.923
+    },
+    {
+      "index": 5,
+      "history": [
+        "orchard-footpaths",
+        "lamplit-windows",
+        "market-day",
+        "quiet-river-reprise",
+        "morning-ledger",
+        "waterline-work"
+      ],
+      "duration": 143.237781,
+      "expected": 275.786
+    },
+    {
+      "index": 8,
+      "history": [
+        "lamplit-windows",
+        "market-day",
+        "quiet-river-reprise",
+        "morning-ledger",
+        "waterline-work",
+        "a-borough-grows"
+      ],
+      "duration": 182.097156,
+      "expected": 355.184
+    },
+    {
+      "index": 3,
+      "history": [
+        "market-day",
+        "quiet-river-reprise",
+        "morning-ledger",
+        "waterline-work",
+        "a-borough-grows",
+        "orchard-footpaths"
+      ],
+      "duration": 145.488813,
+      "expected": 281.5
+    },
+    {
+      "index": 2,
+      "history": [
+        "quiet-river-reprise",
+        "morning-ledger",
+        "waterline-work",
+        "a-borough-grows",
+        "orchard-footpaths",
+        "lamplit-windows"
+      ],
+      "duration": 106.2225,
+      "expected": 224.429
+    },
+    {
+      "index": 4,
+      "history": [
+        "morning-ledger",
+        "waterline-work",
+        "a-borough-grows",
+        "orchard-footpaths",
+        "lamplit-windows",
+        "rails-to-greyhaven"
+      ],
+      "duration": 150.630125,
+      "expected": 287.457
+    },
+    {
+      "index": 1,
+      "history": [
+        "waterline-work",
+        "a-borough-grows",
+        "orchard-footpaths",
+        "lamplit-windows",
+        "rails-to-greyhaven",
+        "river-and-road"
+      ],
+      "duration": 80.9,
+      "expected": 171.957
+    },
+    {
+      "index": 0,
+      "history": [
+        "a-borough-grows",
+        "orchard-footpaths",
+        "lamplit-windows",
+        "rails-to-greyhaven",
+        "river-and-road",
+        "morning-ledger"
+      ],
+      "duration": 93.585781,
+      "expected": 201.923
+    },
+    {
+      "index": 6,
+      "history": [
+        "orchard-footpaths",
+        "lamplit-windows",
+        "rails-to-greyhaven",
+        "river-and-road",
+        "morning-ledger",
+        "market-day"
+      ],
+      "duration": 155.020281,
+      "expected": 306.955
+    },
+    {
+      "index": 5,
+      "history": [
+        "lamplit-windows",
+        "rails-to-greyhaven",
+        "river-and-road",
+        "morning-ledger",
+        "market-day",
+        "waterline-work"
+      ],
+      "duration": 143.237781,
+      "expected": 275.786
+    },
+    {
+      "index": 7,
+      "history": [
+        "rails-to-greyhaven",
+        "river-and-road",
+        "morning-ledger",
+        "market-day",
+        "waterline-work",
+        "after-the-rain"
+      ],
+      "duration": 177.682219,
+      "expected": 379.682
+    },
+    {
+      "index": 8,
+      "history": [
+        "river-and-road",
+        "morning-ledger",
+        "market-day",
+        "waterline-work",
+        "after-the-rain",
+        "a-borough-grows"
+      ],
+      "duration": 182.097156,
+      "expected": 355.184
+    },
+    {
+      "index": 3,
+      "history": [
+        "morning-ledger",
+        "market-day",
+        "waterline-work",
+        "after-the-rain",
+        "a-borough-grows",
+        "orchard-footpaths"
+      ],
+      "duration": 145.488813,
+      "expected": 281.5
+    },
+    {
+      "index": 2,
+      "history": [
+        "market-day",
+        "waterline-work",
+        "after-the-rain",
+        "a-borough-grows",
+        "orchard-footpaths",
+        "lamplit-windows"
+      ],
+      "duration": 106.2225,
+      "expected": 224.429
+    },
+    {
+      "index": 0,
+      "history": [
+        "waterline-work",
+        "after-the-rain",
+        "a-borough-grows",
+        "orchard-footpaths",
+        "lamplit-windows",
+        "morning-ledger"
+      ],
+      "duration": 93.585781,
+      "expected": 201.923
+    },
+    {
+      "index": 6,
+      "history": [
+        "after-the-rain",
+        "a-borough-grows",
+        "orchard-footpaths",
+        "lamplit-windows",
+        "morning-ledger",
+        "market-day"
+      ],
+      "duration": 155.020281,
+      "expected": 306.955
+    },
+    {
+      "index": 5,
+      "history": [
+        "a-borough-grows",
+        "orchard-footpaths",
+        "lamplit-windows",
+        "morning-ledger",
+        "market-day",
+        "waterline-work"
+      ],
+      "duration": 143.237781,
+      "expected": 275.786
+    },
+    {
+      "index": 7,
+      "history": [
+        "orchard-footpaths",
+        "lamplit-windows",
+        "morning-ledger",
+        "market-day",
+        "waterline-work",
+        "after-the-rain"
+      ],
+      "duration": 177.682219,
+      "expected": 379.682
+    },
+    {
+      "index": 8,
+      "history": [
+        "lamplit-windows",
+        "morning-ledger",
+        "market-day",
+        "waterline-work",
+        "after-the-rain",
+        "a-borough-grows"
+      ],
+      "duration": 182.097156,
+      "expected": 355.184
+    },
+    {
+      "index": 3,
+      "history": [
+        "morning-ledger",
+        "market-day",
+        "waterline-work",
+        "after-the-rain",
+        "a-borough-grows",
+        "orchard-footpaths"
+      ],
+      "duration": 145.488813,
+      "expected": 281.5
+    },
+    {
+      "index": 4,
+      "history": [
+        "market-day",
+        "waterline-work",
+        "after-the-rain",
+        "a-borough-grows",
+        "orchard-footpaths",
+        "rails-to-greyhaven"
+      ],
+      "duration": 150.630125,
+      "expected": 287.457
+    },
+    {
+      "index": 0,
+      "history": [
+        "waterline-work",
+        "after-the-rain",
+        "a-borough-grows",
+        "orchard-footpaths",
+        "rails-to-greyhaven",
+        "morning-ledger"
+      ],
+      "duration": 93.585781,
+      "expected": 201.923
+    },
+    {
+      "index": 1,
+      "history": [
+        "after-the-rain",
+        "a-borough-grows",
+        "orchard-footpaths",
+        "rails-to-greyhaven",
+        "morning-ledger",
+        "river-and-road"
+      ],
+      "duration": 80.9,
+      "expected": 171.957
+    },
+    {
+      "index": 6,
+      "history": [
+        "a-borough-grows",
+        "orchard-footpaths",
+        "rails-to-greyhaven",
+        "morning-ledger",
+        "river-and-road",
+        "market-day"
+      ],
+      "duration": 155.020281,
+      "expected": 306.955
+    },
+    {
+      "index": 2,
+      "history": [
+        "orchard-footpaths",
+        "rails-to-greyhaven",
+        "morning-ledger",
+        "river-and-road",
+        "market-day",
+        "lamplit-windows"
+      ],
+      "duration": 106.2225,
+      "expected": 224.429
+    },
+    {
+      "index": 7,
+      "history": [
+        "rails-to-greyhaven",
+        "morning-ledger",
+        "river-and-road",
+        "market-day",
+        "lamplit-windows",
+        "after-the-rain"
+      ],
+      "duration": 177.682219,
+      "expected": 379.682
+    },
+    {
+      "index": 3,
+      "history": [
+        "morning-ledger",
+        "river-and-road",
+        "market-day",
+        "lamplit-windows",
+        "after-the-rain",
+        "orchard-footpaths"
+      ],
+      "duration": 145.488813,
+      "expected": 281.5
+    },
+    {
+      "index": 8,
+      "history": [
+        "river-and-road",
+        "market-day",
+        "lamplit-windows",
+        "after-the-rain",
+        "orchard-footpaths",
+        "a-borough-grows"
+      ],
+      "duration": 182.097156,
+      "expected": 355.184
+    },
+    {
+      "index": 4,
+      "history": [
+        "market-day",
+        "lamplit-windows",
+        "after-the-rain",
+        "orchard-footpaths",
+        "a-borough-grows",
+        "rails-to-greyhaven"
+      ],
+      "duration": 150.630125,
+      "expected": 287.457
+    },
+    {
+      "index": 0,
+      "history": [
+        "lamplit-windows",
+        "after-the-rain",
+        "orchard-footpaths",
+        "a-borough-grows",
+        "rails-to-greyhaven",
+        "morning-ledger"
+      ],
+      "duration": 93.585781,
+      "expected": 201.923
+    },
+    {
+      "index": 6,
+      "history": [
+        "after-the-rain",
+        "orchard-footpaths",
+        "a-borough-grows",
+        "rails-to-greyhaven",
+        "morning-ledger",
+        "market-day"
+      ],
+      "duration": 155.020281,
+      "expected": 306.955
+    },
+    {
+      "index": 5,
+      "history": [
+        "orchard-footpaths",
+        "a-borough-grows",
+        "rails-to-greyhaven",
+        "morning-ledger",
+        "market-day",
+        "waterline-work"
+      ],
+      "duration": 143.237781,
+      "expected": 275.786
+    },
+    {
+      "index": 1,
+      "history": [
+        "a-borough-grows",
+        "rails-to-greyhaven",
+        "morning-ledger",
+        "market-day",
+        "waterline-work",
+        "river-and-road"
+      ],
+      "duration": 80.9,
+      "expected": 171.957
+    },
+    {
+      "index": 3,
+      "history": [
+        "rails-to-greyhaven",
+        "morning-ledger",
+        "market-day",
+        "waterline-work",
+        "river-and-road",
+        "orchard-footpaths"
+      ],
+      "duration": 145.488813,
+      "expected": 281.5
+    },
+    {
+      "index": 8,
+      "history": [
+        "morning-ledger",
+        "market-day",
+        "waterline-work",
+        "river-and-road",
+        "orchard-footpaths",
+        "a-borough-grows"
+      ],
+      "duration": 182.097156,
+      "expected": 355.184
+    },
+    {
+      "index": 9,
+      "history": [
+        "market-day",
+        "waterline-work",
+        "river-and-road",
+        "orchard-footpaths",
+        "a-borough-grows",
+        "quiet-river-reprise"
+      ],
+      "duration": 183.659031,
+      "expected": 361.5
+    },
+    {
+      "index": 0,
+      "history": [
+        "waterline-work",
+        "river-and-road",
+        "orchard-footpaths",
+        "a-borough-grows",
+        "quiet-river-reprise",
+        "morning-ledger"
+      ],
+      "duration": 93.585781,
+      "expected": 201.923
+    },
+    {
+      "index": 6,
+      "history": [
+        "river-and-road",
+        "orchard-footpaths",
+        "a-borough-grows",
+        "quiet-river-reprise",
+        "morning-ledger",
+        "market-day"
+      ],
+      "duration": 155.020281,
+      "expected": 306.955
+    },
+    {
+      "index": 4,
+      "history": [
+        "orchard-footpaths",
+        "a-borough-grows",
+        "quiet-river-reprise",
+        "morning-ledger",
+        "market-day",
+        "rails-to-greyhaven"
+      ],
+      "duration": 150.630125,
+      "expected": 287.457
+    },
+    {
+      "index": 7,
+      "history": [
+        "a-borough-grows",
+        "quiet-river-reprise",
+        "morning-ledger",
+        "market-day",
+        "rails-to-greyhaven",
+        "after-the-rain"
+      ],
+      "duration": 177.682219,
+      "expected": 379.682
+    },
+    {
+      "index": 3,
+      "history": [
+        "quiet-river-reprise",
+        "morning-ledger",
+        "market-day",
+        "rails-to-greyhaven",
+        "after-the-rain",
+        "orchard-footpaths"
+      ],
+      "duration": 145.488813,
+      "expected": 281.5
+    },
+    {
+      "index": 1,
+      "history": [
+        "morning-ledger",
+        "market-day",
+        "rails-to-greyhaven",
+        "after-the-rain",
+        "orchard-footpaths",
+        "river-and-road"
+      ],
+      "duration": 80.9,
+      "expected": 171.957
+    },
+    {
+      "index": 2,
+      "history": [
+        "market-day",
+        "rails-to-greyhaven",
+        "after-the-rain",
+        "orchard-footpaths",
+        "river-and-road",
+        "lamplit-windows"
+      ],
+      "duration": 106.2225,
+      "expected": 224.429
+    },
+    {
+      "index": 0,
+      "history": [
+        "rails-to-greyhaven",
+        "after-the-rain",
+        "orchard-footpaths",
+        "river-and-road",
+        "lamplit-windows",
+        "morning-ledger"
+      ],
+      "duration": 93.585781,
+      "expected": 201.923
+    },
+    {
+      "index": 8,
+      "history": [
+        "after-the-rain",
+        "orchard-footpaths",
+        "river-and-road",
+        "lamplit-windows",
+        "morning-ledger",
+        "a-borough-grows"
+      ],
+      "duration": 182.097156,
+      "expected": 355.184
+    },
+    {
+      "index": 9,
+      "history": [
+        "orchard-footpaths",
+        "river-and-road",
+        "lamplit-windows",
+        "morning-ledger",
+        "a-borough-grows",
+        "quiet-river-reprise"
+      ],
+      "duration": 183.659031,
+      "expected": 361.5
+    },
+    {
+      "index": 5,
+      "history": [
+        "river-and-road",
+        "lamplit-windows",
+        "morning-ledger",
+        "a-borough-grows",
+        "quiet-river-reprise",
+        "waterline-work"
+      ],
+      "duration": 143.237781,
+      "expected": 275.786
+    },
+    {
+      "index": 3,
+      "history": [
+        "lamplit-windows",
+        "morning-ledger",
+        "a-borough-grows",
+        "quiet-river-reprise",
+        "waterline-work",
+        "orchard-footpaths"
+      ],
+      "duration": 145.488813,
+      "expected": 281.5
+    },
+    {
+      "index": 6,
+      "history": [
+        "morning-ledger",
+        "a-borough-grows",
+        "quiet-river-reprise",
+        "waterline-work",
+        "orchard-footpaths",
+        "market-day"
+      ],
+      "duration": 155.020281,
+      "expected": 306.955
+    },
+    {
+      "index": 4,
+      "history": [
+        "a-borough-grows",
+        "quiet-river-reprise",
+        "waterline-work",
+        "orchard-footpaths",
+        "market-day",
+        "rails-to-greyhaven"
+      ],
+      "duration": 150.630125,
+      "expected": 287.457
+    },
+    {
+      "index": 0,
+      "history": [
+        "quiet-river-reprise",
+        "waterline-work",
+        "orchard-footpaths",
+        "market-day",
+        "rails-to-greyhaven",
+        "morning-ledger"
+      ],
+      "duration": 93.585781,
+      "expected": 201.923
+    },
+    {
+      "index": 7,
+      "history": [
+        "waterline-work",
+        "orchard-footpaths",
+        "market-day",
+        "rails-to-greyhaven",
+        "morning-ledger",
+        "after-the-rain"
+      ],
+      "duration": 177.682219,
+      "expected": 379.682
+    },
+    {
+      "index": 8,
+      "history": [
+        "orchard-footpaths",
+        "market-day",
+        "rails-to-greyhaven",
+        "morning-ledger",
+        "after-the-rain",
+        "a-borough-grows"
+      ],
+      "duration": 182.097156,
+      "expected": 355.184
+    },
+    {
+      "index": 2,
+      "history": [
+        "market-day",
+        "rails-to-greyhaven",
+        "morning-ledger",
+        "after-the-rain",
+        "a-borough-grows",
+        "lamplit-windows"
+      ],
+      "duration": 106.2225,
+      "expected": 224.429
+    },
+    {
+      "index": 3,
+      "history": [
+        "rails-to-greyhaven",
+        "morning-ledger",
+        "after-the-rain",
+        "a-borough-grows",
+        "lamplit-windows",
+        "orchard-footpaths"
+      ],
+      "duration": 145.488813,
+      "expected": 281.5
+    },
+    {
+      "index": 1,
+      "history": [
+        "morning-ledger",
+        "after-the-rain",
+        "a-borough-grows",
+        "lamplit-windows",
+        "orchard-footpaths",
+        "river-and-road"
+      ],
+      "duration": 80.9,
+      "expected": 171.957
+    },
+    {
+      "index": 9,
+      "history": [
+        "after-the-rain",
+        "a-borough-grows",
+        "lamplit-windows",
+        "orchard-footpaths",
+        "river-and-road",
+        "quiet-river-reprise"
+      ],
+      "duration": 183.659031,
+      "expected": 361.5
+    },
+    {
+      "index": 6,
+      "history": [
+        "a-borough-grows",
+        "lamplit-windows",
+        "orchard-footpaths",
+        "river-and-road",
+        "quiet-river-reprise",
+        "market-day"
+      ],
+      "duration": 155.020281,
+      "expected": 306.955
+    },
+    {
+      "index": 4,
+      "history": [
+        "lamplit-windows",
+        "orchard-footpaths",
+        "river-and-road",
+        "quiet-river-reprise",
+        "market-day",
+        "rails-to-greyhaven"
+      ],
+      "duration": 150.630125,
+      "expected": 287.457
+    },
+    {
+      "index": 7,
+      "history": [
+        "orchard-footpaths",
+        "river-and-road",
+        "quiet-river-reprise",
+        "market-day",
+        "rails-to-greyhaven",
+        "after-the-rain"
+      ],
+      "duration": 177.682219,
+      "expected": 379.682
+    },
+    {
+      "index": 2,
+      "history": [
+        "river-and-road",
+        "quiet-river-reprise",
+        "market-day",
+        "rails-to-greyhaven",
+        "after-the-rain",
+        "lamplit-windows"
+      ],
+      "duration": 106.2225,
+      "expected": 224.429
+    },
+    {
+      "index": 0,
+      "history": [
+        "quiet-river-reprise",
+        "market-day",
+        "rails-to-greyhaven",
+        "after-the-rain",
+        "lamplit-windows",
+        "morning-ledger"
+      ],
+      "duration": 93.585781,
+      "expected": 201.923
+    },
+    {
+      "index": 3,
+      "history": [
+        "market-day",
+        "rails-to-greyhaven",
+        "after-the-rain",
+        "lamplit-windows",
+        "morning-ledger",
+        "orchard-footpaths"
+      ],
+      "duration": 145.488813,
+      "expected": 281.5
+    },
+    {
+      "index": 1,
+      "history": [
+        "rails-to-greyhaven",
+        "after-the-rain",
+        "lamplit-windows",
+        "morning-ledger",
+        "orchard-footpaths",
+        "river-and-road"
+      ],
+      "duration": 80.9,
+      "expected": 171.957
+    },
+    {
+      "index": 5,
+      "history": [
+        "after-the-rain",
+        "lamplit-windows",
+        "morning-ledger",
+        "orchard-footpaths",
+        "river-and-road",
+        "waterline-work"
+      ],
+      "duration": 143.237781,
+      "expected": 275.786
+    },
+    {
+      "index": 6,
+      "history": [
+        "lamplit-windows",
+        "morning-ledger",
+        "orchard-footpaths",
+        "river-and-road",
+        "waterline-work",
+        "market-day"
+      ],
+      "duration": 155.020281,
+      "expected": 306.955
+    },
+    {
+      "index": 4,
+      "history": [
+        "morning-ledger",
+        "orchard-footpaths",
+        "river-and-road",
+        "waterline-work",
+        "market-day",
+        "rails-to-greyhaven"
+      ],
+      "duration": 150.630125,
+      "expected": 287.457
+    },
+    {
+      "index": 8,
+      "history": [
+        "orchard-footpaths",
+        "river-and-road",
+        "waterline-work",
+        "market-day",
+        "rails-to-greyhaven",
+        "a-borough-grows"
+      ],
+      "duration": 182.097156,
+      "expected": 355.184
+    },
+    {
+      "index": 2,
+      "history": [
+        "river-and-road",
+        "waterline-work",
+        "market-day",
+        "rails-to-greyhaven",
+        "a-borough-grows",
+        "lamplit-windows"
+      ],
+      "duration": 106.2225,
+      "expected": 224.429
+    },
+    {
+      "index": 3,
+      "history": [
+        "waterline-work",
+        "market-day",
+        "rails-to-greyhaven",
+        "a-borough-grows",
+        "lamplit-windows",
+        "orchard-footpaths"
+      ],
+      "duration": 145.488813,
+      "expected": 281.5
+    },
+    {
+      "index": 0,
+      "history": [
+        "market-day",
+        "rails-to-greyhaven",
+        "a-borough-grows",
+        "lamplit-windows",
+        "orchard-footpaths",
+        "morning-ledger"
+      ],
+      "duration": 93.585781,
+      "expected": 201.923
+    },
+    {
+      "index": 9,
+      "history": [
+        "rails-to-greyhaven",
+        "a-borough-grows",
+        "lamplit-windows",
+        "orchard-footpaths",
+        "morning-ledger",
+        "quiet-river-reprise"
+      ],
+      "duration": 183.659031,
+      "expected": 361.5
+    },
+    {
+      "index": 1,
+      "history": [
+        "a-borough-grows",
+        "lamplit-windows",
+        "orchard-footpaths",
+        "morning-ledger",
+        "quiet-river-reprise",
+        "river-and-road"
+      ],
+      "duration": 80.9,
+      "expected": 171.957
+    },
+    {
+      "index": 6,
+      "history": [
+        "lamplit-windows",
+        "orchard-footpaths",
+        "morning-ledger",
+        "quiet-river-reprise",
+        "river-and-road",
+        "market-day"
+      ],
+      "duration": 155.020281,
+      "expected": 306.955
+    },
+    {
+      "index": 7,
+      "history": [
+        "orchard-footpaths",
+        "morning-ledger",
+        "quiet-river-reprise",
+        "river-and-road",
+        "market-day",
+        "after-the-rain"
+      ],
+      "duration": 177.682219,
+      "expected": 379.682
+    },
+    {
+      "index": 5,
+      "history": [
+        "morning-ledger",
+        "quiet-river-reprise",
+        "river-and-road",
+        "market-day",
+        "after-the-rain",
+        "waterline-work"
+      ],
+      "duration": 143.237781,
+      "expected": 275.786
+    },
+    {
+      "index": 8,
+      "history": [
+        "quiet-river-reprise",
+        "river-and-road",
+        "market-day",
+        "after-the-rain",
+        "waterline-work",
+        "a-borough-grows"
+      ],
+      "duration": 182.097156,
+      "expected": 355.184
+    },
+    {
+      "index": 0,
+      "history": [
+        "river-and-road",
+        "market-day",
+        "after-the-rain",
+        "waterline-work",
+        "a-borough-grows",
+        "morning-ledger"
+      ],
+      "duration": 93.585781,
+      "expected": 201.923
+    },
+    {
+      "index": 2,
+      "history": [
+        "market-day",
+        "after-the-rain",
+        "waterline-work",
+        "a-borough-grows",
+        "morning-ledger",
+        "lamplit-windows"
+      ],
+      "duration": 106.2225,
+      "expected": 224.429
+    },
+    {
+      "index": 4,
+      "history": [
+        "after-the-rain",
+        "waterline-work",
+        "a-borough-grows",
+        "morning-ledger",
+        "lamplit-windows",
+        "rails-to-greyhaven"
+      ],
+      "duration": 150.630125,
+      "expected": 287.457
+    },
+    {
+      "index": 6,
+      "history": [
+        "waterline-work",
+        "a-borough-grows",
+        "morning-ledger",
+        "lamplit-windows",
+        "rails-to-greyhaven",
+        "market-day"
+      ],
+      "duration": 155.020281,
+      "expected": 306.955
+    },
+    {
+      "index": 7,
+      "history": [
+        "a-borough-grows",
+        "morning-ledger",
+        "lamplit-windows",
+        "rails-to-greyhaven",
+        "market-day",
+        "after-the-rain"
+      ],
+      "duration": 177.682219,
+      "expected": 379.682
+    },
+    {
+      "index": 3,
+      "history": [
+        "morning-ledger",
+        "lamplit-windows",
+        "rails-to-greyhaven",
+        "market-day",
+        "after-the-rain",
+        "orchard-footpaths"
+      ],
+      "duration": 145.488813,
+      "expected": 281.5
+    },
+    {
+      "index": 1,
+      "history": [
+        "lamplit-windows",
+        "rails-to-greyhaven",
+        "market-day",
+        "after-the-rain",
+        "orchard-footpaths",
+        "river-and-road"
+      ],
+      "duration": 80.9,
+      "expected": 171.957
+    },
+    {
+      "index": 0,
+      "history": [
+        "rails-to-greyhaven",
+        "market-day",
+        "after-the-rain",
+        "orchard-footpaths",
+        "river-and-road",
+        "morning-ledger"
+      ],
+      "duration": 93.585781,
+      "expected": 201.923
+    },
+    {
+      "index": 8,
+      "history": [
+        "market-day",
+        "after-the-rain",
+        "orchard-footpaths",
+        "river-and-road",
+        "morning-ledger",
+        "a-borough-grows"
+      ],
+      "duration": 182.097156,
+      "expected": 355.184
+    },
+    {
+      "index": 4,
+      "history": [
+        "after-the-rain",
+        "orchard-footpaths",
+        "river-and-road",
+        "morning-ledger",
+        "a-borough-grows",
+        "rails-to-greyhaven"
+      ],
+      "duration": 150.630125,
+      "expected": 287.457
+    },
+    {
+      "index": 6,
+      "history": [
+        "orchard-footpaths",
+        "river-and-road",
+        "morning-ledger",
+        "a-borough-grows",
+        "rails-to-greyhaven",
+        "market-day"
+      ],
+      "duration": 155.020281,
+      "expected": 306.955
+    },
+    {
+      "index": 2,
+      "history": [
+        "river-and-road",
+        "morning-ledger",
+        "a-borough-grows",
+        "rails-to-greyhaven",
+        "market-day",
+        "lamplit-windows"
+      ],
+      "duration": 106.2225,
+      "expected": 224.429
+    },
+    {
+      "index": 9,
+      "history": [
+        "morning-ledger",
+        "a-borough-grows",
+        "rails-to-greyhaven",
+        "market-day",
+        "lamplit-windows",
+        "quiet-river-reprise"
+      ],
+      "duration": 183.659031,
+      "expected": 361.5
+    },
+    {
+      "index": 3,
+      "history": [
+        "a-borough-grows",
+        "rails-to-greyhaven",
+        "market-day",
+        "lamplit-windows",
+        "quiet-river-reprise",
+        "orchard-footpaths"
+      ],
+      "duration": 145.488813,
+      "expected": 281.5
+    },
+    {
+      "index": 0,
+      "history": [
+        "rails-to-greyhaven",
+        "market-day",
+        "lamplit-windows",
+        "quiet-river-reprise",
+        "orchard-footpaths",
+        "morning-ledger"
+      ],
+      "duration": 93.585781,
+      "expected": 201.923
+    },
+    {
+      "index": 5,
+      "history": [
+        "market-day",
+        "lamplit-windows",
+        "quiet-river-reprise",
+        "orchard-footpaths",
+        "morning-ledger",
+        "waterline-work"
+      ],
+      "duration": 143.237781,
+      "expected": 275.786
+    },
+    {
+      "index": 8,
+      "history": [
+        "lamplit-windows",
+        "quiet-river-reprise",
+        "orchard-footpaths",
+        "morning-ledger",
+        "waterline-work",
+        "a-borough-grows"
+      ],
+      "duration": 182.097156,
+      "expected": 355.184
+    },
+    {
+      "index": 4,
+      "history": [
+        "quiet-river-reprise",
+        "orchard-footpaths",
+        "morning-ledger",
+        "waterline-work",
+        "a-borough-grows",
+        "rails-to-greyhaven"
+      ],
+      "duration": 150.630125,
+      "expected": 287.457
+    },
+    {
+      "index": 6,
+      "history": [
+        "orchard-footpaths",
+        "morning-ledger",
+        "waterline-work",
+        "a-borough-grows",
+        "rails-to-greyhaven",
+        "market-day"
+      ],
+      "duration": 155.020281,
+      "expected": 306.955
+    },
+    {
+      "index": 1,
+      "history": [
+        "morning-ledger",
+        "waterline-work",
+        "a-borough-grows",
+        "rails-to-greyhaven",
+        "market-day",
+        "river-and-road"
+      ],
+      "duration": 80.9,
+      "expected": 171.957
+    },
+    {
+      "index": 2,
+      "history": [
+        "waterline-work",
+        "a-borough-grows",
+        "rails-to-greyhaven",
+        "market-day",
+        "river-and-road",
+        "lamplit-windows"
+      ],
+      "duration": 106.2225,
+      "expected": 224.429
+    },
+    {
+      "index": 0,
+      "history": [
+        "a-borough-grows",
+        "rails-to-greyhaven",
+        "market-day",
+        "river-and-road",
+        "lamplit-windows",
+        "morning-ledger"
+      ],
+      "duration": 93.585781,
+      "expected": 201.923
+    },
+    {
+      "index": 3,
+      "history": [
+        "rails-to-greyhaven",
+        "market-day",
+        "river-and-road",
+        "lamplit-windows",
+        "morning-ledger",
+        "orchard-footpaths"
+      ],
+      "duration": 145.488813,
+      "expected": 281.5
+    },
+    {
+      "index": 8,
+      "history": [
+        "market-day",
+        "river-and-road",
+        "lamplit-windows",
+        "morning-ledger",
+        "orchard-footpaths",
+        "a-borough-grows"
+      ],
+      "duration": 182.097156,
+      "expected": 355.184
+    },
+    {
+      "index": 5,
+      "history": [
+        "river-and-road",
+        "lamplit-windows",
+        "morning-ledger",
+        "orchard-footpaths",
+        "a-borough-grows",
+        "waterline-work"
+      ],
+      "duration": 143.237781,
+      "expected": 275.786
+    },
+    {
+      "index": 6,
+      "history": [
+        "lamplit-windows",
+        "morning-ledger",
+        "orchard-footpaths",
+        "a-borough-grows",
+        "waterline-work",
+        "market-day"
+      ],
+      "duration": 155.020281,
+      "expected": 306.955
+    },
+    {
+      "index": 9,
+      "history": [
+        "morning-ledger",
+        "orchard-footpaths",
+        "a-borough-grows",
+        "waterline-work",
+        "market-day",
+        "quiet-river-reprise"
+      ],
+      "duration": 183.659031,
+      "expected": 361.5
+    },
+    {
+      "index": 7,
+      "history": [
+        "orchard-footpaths",
+        "a-borough-grows",
+        "waterline-work",
+        "market-day",
+        "quiet-river-reprise",
+        "after-the-rain"
+      ],
+      "duration": 177.682219,
+      "expected": 379.682
+    },
+    {
+      "index": 2,
+      "history": [
+        "a-borough-grows",
+        "waterline-work",
+        "market-day",
+        "quiet-river-reprise",
+        "after-the-rain",
+        "lamplit-windows"
+      ],
+      "duration": 106.2225,
+      "expected": 224.429
+    },
+    {
+      "index": 0,
+      "history": [
+        "waterline-work",
+        "market-day",
+        "quiet-river-reprise",
+        "after-the-rain",
+        "lamplit-windows",
+        "morning-ledger"
+      ],
+      "duration": 93.585781,
+      "expected": 201.923
+    },
+    {
+      "index": 8,
+      "history": [
+        "market-day",
+        "quiet-river-reprise",
+        "after-the-rain",
+        "lamplit-windows",
+        "morning-ledger",
+        "a-borough-grows"
+      ],
+      "duration": 182.097156,
+      "expected": 355.184
+    },
+    {
+      "index": 3,
+      "history": [
+        "quiet-river-reprise",
+        "after-the-rain",
+        "lamplit-windows",
+        "morning-ledger",
+        "a-borough-grows",
+        "orchard-footpaths"
+      ],
+      "duration": 145.488813,
+      "expected": 281.5
+    },
+    {
+      "index": 6,
+      "history": [
+        "after-the-rain",
+        "lamplit-windows",
+        "morning-ledger",
+        "a-borough-grows",
+        "orchard-footpaths",
+        "market-day"
+      ],
+      "duration": 155.020281,
+      "expected": 306.955
+    },
+    {
+      "index": 5,
+      "history": [
+        "lamplit-windows",
+        "morning-ledger",
+        "a-borough-grows",
+        "orchard-footpaths",
+        "market-day",
+        "waterline-work"
+      ],
+      "duration": 143.237781,
+      "expected": 275.786
+    },
+    {
+      "index": 9,
+      "history": [
+        "morning-ledger",
+        "a-borough-grows",
+        "orchard-footpaths",
+        "market-day",
+        "waterline-work",
+        "quiet-river-reprise"
+      ],
+      "duration": 183.659031,
+      "expected": 361.5
+    },
+    {
+      "index": 4,
+      "history": [
+        "a-borough-grows",
+        "orchard-footpaths",
+        "market-day",
+        "waterline-work",
+        "quiet-river-reprise",
+        "rails-to-greyhaven"
+      ],
+      "duration": 150.630125,
+      "expected": 287.457
+    },
+    {
+      "index": 0,
+      "history": [
+        "orchard-footpaths",
+        "market-day",
+        "waterline-work",
+        "quiet-river-reprise",
+        "rails-to-greyhaven",
+        "morning-ledger"
+      ],
+      "duration": 93.585781,
+      "expected": 201.923
+    },
+    {
+      "index": 8,
+      "history": [
+        "market-day",
+        "waterline-work",
+        "quiet-river-reprise",
+        "rails-to-greyhaven",
+        "morning-ledger",
+        "a-borough-grows"
+      ],
+      "duration": 182.097156,
+      "expected": 355.184
+    },
+    {
+      "index": 3,
+      "history": [
+        "waterline-work",
+        "quiet-river-reprise",
+        "rails-to-greyhaven",
+        "morning-ledger",
+        "a-borough-grows",
+        "orchard-footpaths"
+      ],
+      "duration": 145.488813,
+      "expected": 281.5
+    },
+    {
+      "index": 6,
+      "history": [
+        "quiet-river-reprise",
+        "rails-to-greyhaven",
+        "morning-ledger",
+        "a-borough-grows",
+        "orchard-footpaths",
+        "market-day"
+      ],
+      "duration": 155.020281,
+      "expected": 306.955
+    },
+    {
+      "index": 2,
+      "history": [
+        "rails-to-greyhaven",
+        "morning-ledger",
+        "a-borough-grows",
+        "orchard-footpaths",
+        "market-day",
+        "lamplit-windows"
+      ],
+      "duration": 106.2225,
+      "expected": 224.429
+    },
+    {
+      "index": 9,
+      "history": [
+        "morning-ledger",
+        "a-borough-grows",
+        "orchard-footpaths",
+        "market-day",
+        "lamplit-windows",
+        "quiet-river-reprise"
+      ],
+      "duration": 183.659031,
+      "expected": 361.5
+    },
+    {
+      "index": 1,
+      "history": [
+        "a-borough-grows",
+        "orchard-footpaths",
+        "market-day",
+        "lamplit-windows",
+        "quiet-river-reprise",
+        "river-and-road"
+      ],
+      "duration": 80.9,
+      "expected": 171.957
+    },
+    {
+      "index": 4,
+      "history": [
+        "orchard-footpaths",
+        "market-day",
+        "lamplit-windows",
+        "quiet-river-reprise",
+        "river-and-road",
+        "rails-to-greyhaven"
+      ],
+      "duration": 150.630125,
+      "expected": 287.457
+    },
+    {
+      "index": 0,
+      "history": [
+        "market-day",
+        "lamplit-windows",
+        "quiet-river-reprise",
+        "river-and-road",
+        "rails-to-greyhaven",
+        "morning-ledger"
+      ],
+      "duration": 93.585781,
+      "expected": 201.923
+    },
+    {
+      "index": 3,
+      "history": [
+        "lamplit-windows",
+        "quiet-river-reprise",
+        "river-and-road",
+        "rails-to-greyhaven",
+        "morning-ledger",
+        "orchard-footpaths"
+      ],
+      "duration": 145.488813,
+      "expected": 281.5
+    },
+    {
+      "index": 6,
+      "history": [
+        "quiet-river-reprise",
+        "river-and-road",
+        "rails-to-greyhaven",
+        "morning-ledger",
+        "orchard-footpaths",
+        "market-day"
+      ],
+      "duration": 155.020281,
+      "expected": 306.955
+    },
+    {
+      "index": 8,
+      "history": [
+        "river-and-road",
+        "rails-to-greyhaven",
+        "morning-ledger",
+        "orchard-footpaths",
+        "market-day",
+        "a-borough-grows"
+      ],
+      "duration": 182.097156,
+      "expected": 355.184
+    },
+    {
+      "index": 9,
+      "history": [
+        "rails-to-greyhaven",
+        "morning-ledger",
+        "orchard-footpaths",
+        "market-day",
+        "a-borough-grows",
+        "quiet-river-reprise"
+      ],
+      "duration": 183.659031,
+      "expected": 361.5
+    },
+    {
+      "index": 7,
+      "history": [
+        "morning-ledger",
+        "orchard-footpaths",
+        "market-day",
+        "a-borough-grows",
+        "quiet-river-reprise",
+        "after-the-rain"
+      ],
+      "duration": 177.682219,
+      "expected": 379.682
+    },
+    {
+      "index": 2,
+      "history": [
+        "orchard-footpaths",
+        "market-day",
+        "a-borough-grows",
+        "quiet-river-reprise",
+        "after-the-rain",
+        "lamplit-windows"
+      ],
+      "duration": 106.2225,
+      "expected": 224.429
+    },
+    {
+      "index": 0,
+      "history": [
+        "market-day",
+        "a-borough-grows",
+        "quiet-river-reprise",
+        "after-the-rain",
+        "lamplit-windows",
+        "morning-ledger"
+      ],
+      "duration": 93.585781,
+      "expected": 201.923
+    },
+    {
+      "index": 3,
+      "history": [
+        "a-borough-grows",
+        "quiet-river-reprise",
+        "after-the-rain",
+        "lamplit-windows",
+        "morning-ledger",
+        "orchard-footpaths"
+      ],
+      "duration": 145.488813,
+      "expected": 281.5
+    },
+    {
+      "index": 4,
+      "history": [
+        "quiet-river-reprise",
+        "after-the-rain",
+        "lamplit-windows",
+        "morning-ledger",
+        "orchard-footpaths",
+        "rails-to-greyhaven"
+      ],
+      "duration": 150.630125,
+      "expected": 287.457
+    },
+    {
+      "index": 6,
+      "history": [
+        "after-the-rain",
+        "lamplit-windows",
+        "morning-ledger",
+        "orchard-footpaths",
+        "rails-to-greyhaven",
+        "market-day"
+      ],
+      "duration": 155.020281,
+      "expected": 306.955
+    },
+    {
+      "index": 8,
+      "history": [
+        "lamplit-windows",
+        "morning-ledger",
+        "orchard-footpaths",
+        "rails-to-greyhaven",
+        "market-day",
+        "a-borough-grows"
+      ],
+      "duration": 182.097156,
+      "expected": 355.184
+    },
+    {
+      "index": 1,
+      "history": [
+        "morning-ledger",
+        "orchard-footpaths",
+        "rails-to-greyhaven",
+        "market-day",
+        "a-borough-grows",
+        "river-and-road"
+      ],
+      "duration": 80.9,
+      "expected": 171.957
+    },
+    {
+      "index": 5,
+      "history": [
+        "orchard-footpaths",
+        "rails-to-greyhaven",
+        "market-day",
+        "a-borough-grows",
+        "river-and-road",
+        "waterline-work"
+      ],
+      "duration": 143.237781,
+      "expected": 275.786
+    },
+    {
+      "index": 0,
+      "history": [
+        "rails-to-greyhaven",
+        "market-day",
+        "a-borough-grows",
+        "river-and-road",
+        "waterline-work",
+        "morning-ledger"
+      ],
+      "duration": 93.585781,
+      "expected": 201.923
+    },
+    {
+      "index": 3,
+      "history": [
+        "market-day",
+        "a-borough-grows",
+        "river-and-road",
+        "waterline-work",
+        "morning-ledger",
+        "orchard-footpaths"
+      ],
+      "duration": 145.488813,
+      "expected": 281.5
+    },
+    {
+      "index": 7,
+      "history": [
+        "a-borough-grows",
+        "river-and-road",
+        "waterline-work",
+        "morning-ledger",
+        "orchard-footpaths",
+        "after-the-rain"
+      ],
+      "duration": 177.682219,
+      "expected": 379.682
+    },
+    {
+      "index": 4,
+      "history": [
+        "river-and-road",
+        "waterline-work",
+        "morning-ledger",
+        "orchard-footpaths",
+        "after-the-rain",
+        "rails-to-greyhaven"
+      ],
+      "duration": 150.630125,
+      "expected": 287.457
+    },
+    {
+      "index": 8,
+      "history": [
+        "waterline-work",
+        "morning-ledger",
+        "orchard-footpaths",
+        "after-the-rain",
+        "rails-to-greyhaven",
+        "a-borough-grows"
+      ],
+      "duration": 182.097156,
+      "expected": 355.184
+    },
+    {
+      "index": 6,
+      "history": [
+        "morning-ledger",
+        "orchard-footpaths",
+        "after-the-rain",
+        "rails-to-greyhaven",
+        "a-borough-grows",
+        "market-day"
+      ],
+      "duration": 155.020281,
+      "expected": 306.955
+    },
+    {
+      "index": 2,
+      "history": [
+        "orchard-footpaths",
+        "after-the-rain",
+        "rails-to-greyhaven",
+        "a-borough-grows",
+        "market-day",
+        "lamplit-windows"
+      ],
+      "duration": 106.2225,
+      "expected": 224.429
+    },
+    {
+      "index": 5,
+      "history": [
+        "after-the-rain",
+        "rails-to-greyhaven",
+        "a-borough-grows",
+        "market-day",
+        "lamplit-windows",
+        "waterline-work"
+      ],
+      "duration": 143.237781,
+      "expected": 275.786
+    },
+    {
+      "index": 0,
+      "history": [
+        "rails-to-greyhaven",
+        "a-borough-grows",
+        "market-day",
+        "lamplit-windows",
+        "waterline-work",
+        "morning-ledger"
+      ],
+      "duration": 93.585781,
+      "expected": 201.923
+    },
+    {
+      "index": 9,
+      "history": [
+        "a-borough-grows",
+        "market-day",
+        "lamplit-windows",
+        "waterline-work",
+        "morning-ledger",
+        "quiet-river-reprise"
+      ],
+      "duration": 183.659031,
+      "expected": 361.5
+    },
+    {
+      "index": 7,
+      "history": [
+        "market-day",
+        "lamplit-windows",
+        "waterline-work",
+        "morning-ledger",
+        "quiet-river-reprise",
+        "after-the-rain"
+      ],
+      "duration": 177.682219,
+      "expected": 379.682
+    },
+    {
+      "index": 3,
+      "history": [
+        "lamplit-windows",
+        "waterline-work",
+        "morning-ledger",
+        "quiet-river-reprise",
+        "after-the-rain",
+        "orchard-footpaths"
+      ],
+      "duration": 145.488813,
+      "expected": 281.5
+    },
+    {
+      "index": 6,
+      "history": [
+        "waterline-work",
+        "morning-ledger",
+        "quiet-river-reprise",
+        "after-the-rain",
+        "orchard-footpaths",
+        "market-day"
+      ],
+      "duration": 155.020281,
+      "expected": 306.955
+    },
+    {
+      "index": 4,
+      "history": [
+        "morning-ledger",
+        "quiet-river-reprise",
+        "after-the-rain",
+        "orchard-footpaths",
+        "market-day",
+        "rails-to-greyhaven"
+      ],
+      "duration": 150.630125,
+      "expected": 287.457
+    },
+    {
+      "index": 1,
+      "history": [
+        "quiet-river-reprise",
+        "after-the-rain",
+        "orchard-footpaths",
+        "market-day",
+        "rails-to-greyhaven",
+        "river-and-road"
+      ],
+      "duration": 80.9,
+      "expected": 171.957
+    },
+    {
+      "index": 0,
+      "history": [
+        "after-the-rain",
+        "orchard-footpaths",
+        "market-day",
+        "rails-to-greyhaven",
+        "river-and-road",
+        "morning-ledger"
+      ],
+      "duration": 93.585781,
+      "expected": 201.923
+    },
+    {
+      "index": 8,
+      "history": [
+        "orchard-footpaths",
+        "market-day",
+        "rails-to-greyhaven",
+        "river-and-road",
+        "morning-ledger",
+        "a-borough-grows"
+      ],
+      "duration": 182.097156,
+      "expected": 355.184
+    },
+    {
+      "index": 5,
+      "history": [
+        "market-day",
+        "rails-to-greyhaven",
+        "river-and-road",
+        "morning-ledger",
+        "a-borough-grows",
+        "waterline-work"
+      ],
+      "duration": 143.237781,
+      "expected": 275.786
+    },
+    {
+      "index": 2,
+      "history": [
+        "rails-to-greyhaven",
+        "river-and-road",
+        "morning-ledger",
+        "a-borough-grows",
+        "waterline-work",
+        "lamplit-windows"
+      ],
+      "duration": 106.2225,
+      "expected": 224.429
+    },
+    {
+      "index": 9,
+      "history": [
+        "river-and-road",
+        "morning-ledger",
+        "a-borough-grows",
+        "waterline-work",
+        "lamplit-windows",
+        "quiet-river-reprise"
+      ],
+      "duration": 183.659031,
+      "expected": 361.5
+    },
+    {
+      "index": 3,
+      "history": [
+        "morning-ledger",
+        "a-borough-grows",
+        "waterline-work",
+        "lamplit-windows",
+        "quiet-river-reprise",
+        "orchard-footpaths"
+      ],
+      "duration": 145.488813,
+      "expected": 281.5
+    },
+    {
+      "index": 6,
+      "history": [
+        "a-borough-grows",
+        "waterline-work",
+        "lamplit-windows",
+        "quiet-river-reprise",
+        "orchard-footpaths",
+        "market-day"
+      ],
+      "duration": 155.020281,
+      "expected": 306.955
+    },
+    {
+      "index": 0,
+      "history": [
+        "waterline-work",
+        "lamplit-windows",
+        "quiet-river-reprise",
+        "orchard-footpaths",
+        "market-day",
+        "morning-ledger"
+      ],
+      "duration": 93.585781,
+      "expected": 201.923
+    },
+    {
+      "index": 1,
+      "history": [
+        "lamplit-windows",
+        "quiet-river-reprise",
+        "orchard-footpaths",
+        "market-day",
+        "morning-ledger",
+        "river-and-road"
+      ],
+      "duration": 80.9,
+      "expected": 171.957
+    },
+    {
+      "index": 8,
+      "history": [
+        "quiet-river-reprise",
+        "orchard-footpaths",
+        "market-day",
+        "morning-ledger",
+        "river-and-road",
+        "a-borough-grows"
+      ],
+      "duration": 182.097156,
+      "expected": 355.184
+    },
+    {
+      "index": 4,
+      "history": [
+        "orchard-footpaths",
+        "market-day",
+        "morning-ledger",
+        "river-and-road",
+        "a-borough-grows",
+        "rails-to-greyhaven"
+      ],
+      "duration": 150.630125,
+      "expected": 287.457
+    },
+    {
+      "index": 9,
+      "history": [
+        "market-day",
+        "morning-ledger",
+        "river-and-road",
+        "a-borough-grows",
+        "rails-to-greyhaven",
+        "quiet-river-reprise"
+      ],
+      "duration": 183.659031,
+      "expected": 361.5
+    },
+    {
+      "index": 2,
+      "history": [
+        "morning-ledger",
+        "river-and-road",
+        "a-borough-grows",
+        "rails-to-greyhaven",
+        "quiet-river-reprise",
+        "lamplit-windows"
+      ],
+      "duration": 106.2225,
+      "expected": 224.429
+    },
+    {
+      "index": 3,
+      "history": [
+        "river-and-road",
+        "a-borough-grows",
+        "rails-to-greyhaven",
+        "quiet-river-reprise",
+        "lamplit-windows",
+        "orchard-footpaths"
+      ],
+      "duration": 145.488813,
+      "expected": 281.5
+    },
+    {
+      "index": 7,
+      "history": [
+        "a-borough-grows",
+        "rails-to-greyhaven",
+        "quiet-river-reprise",
+        "lamplit-windows",
+        "orchard-footpaths",
+        "after-the-rain"
+      ],
+      "duration": 177.682219,
+      "expected": 379.682
+    },
+    {
+      "index": 5,
+      "history": [
+        "rails-to-greyhaven",
+        "quiet-river-reprise",
+        "lamplit-windows",
+        "orchard-footpaths",
+        "after-the-rain",
+        "waterline-work"
+      ],
+      "duration": 143.237781,
+      "expected": 275.786
+    },
+    {
+      "index": 8,
+      "history": [
+        "quiet-river-reprise",
+        "lamplit-windows",
+        "orchard-footpaths",
+        "after-the-rain",
+        "waterline-work",
+        "a-borough-grows"
+      ],
+      "duration": 182.097156,
+      "expected": 355.184
+    },
+    {
+      "index": 4,
+      "history": [
+        "lamplit-windows",
+        "orchard-footpaths",
+        "after-the-rain",
+        "waterline-work",
+        "a-borough-grows",
+        "rails-to-greyhaven"
+      ],
+      "duration": 150.630125,
+      "expected": 287.457
+    },
+    {
+      "index": 0,
+      "history": [
+        "orchard-footpaths",
+        "after-the-rain",
+        "waterline-work",
+        "a-borough-grows",
+        "rails-to-greyhaven",
+        "morning-ledger"
+      ],
+      "duration": 93.585781,
+      "expected": 201.923
+    },
+    {
+      "index": 2,
+      "history": [
+        "after-the-rain",
+        "waterline-work",
+        "a-borough-grows",
+        "rails-to-greyhaven",
+        "morning-ledger",
+        "lamplit-windows"
+      ],
+      "duration": 106.2225,
+      "expected": 224.429
+    },
+    {
+      "index": 3,
+      "history": [
+        "waterline-work",
+        "a-borough-grows",
+        "rails-to-greyhaven",
+        "morning-ledger",
+        "lamplit-windows",
+        "orchard-footpaths"
+      ],
+      "duration": 145.488813,
+      "expected": 281.5
+    },
+    {
+      "index": 9,
+      "history": [
+        "a-borough-grows",
+        "rails-to-greyhaven",
+        "morning-ledger",
+        "lamplit-windows",
+        "orchard-footpaths",
+        "quiet-river-reprise"
+      ],
+      "duration": 183.659031,
+      "expected": 361.5
+    },
+    {
+      "index": 1,
+      "history": [
+        "rails-to-greyhaven",
+        "morning-ledger",
+        "lamplit-windows",
+        "orchard-footpaths",
+        "quiet-river-reprise",
+        "river-and-road"
+      ],
+      "duration": 80.9,
+      "expected": 171.957
+    },
+    {
+      "index": 5,
+      "history": [
+        "morning-ledger",
+        "lamplit-windows",
+        "orchard-footpaths",
+        "quiet-river-reprise",
+        "river-and-road",
+        "waterline-work"
+      ],
+      "duration": 143.237781,
+      "expected": 275.786
+    },
+    {
+      "index": 8,
+      "history": [
+        "lamplit-windows",
+        "orchard-footpaths",
+        "quiet-river-reprise",
+        "river-and-road",
+        "waterline-work",
+        "a-borough-grows"
+      ],
+      "duration": 182.097156,
+      "expected": 355.184
+    },
+    {
+      "index": 0,
+      "history": [
+        "orchard-footpaths",
+        "quiet-river-reprise",
+        "river-and-road",
+        "waterline-work",
+        "a-borough-grows",
+        "morning-ledger"
+      ],
+      "duration": 93.585781,
+      "expected": 201.923
+    },
+    {
+      "index": 6,
+      "history": [
+        "quiet-river-reprise",
+        "river-and-road",
+        "waterline-work",
+        "a-borough-grows",
+        "morning-ledger",
+        "market-day"
+      ],
+      "duration": 155.020281,
+      "expected": 306.955
+    },
+    {
+      "index": 3,
+      "history": [
+        "river-and-road",
+        "waterline-work",
+        "a-borough-grows",
+        "morning-ledger",
+        "market-day",
+        "orchard-footpaths"
+      ],
+      "duration": 145.488813,
+      "expected": 281.5
+    },
+    {
+      "index": 9,
+      "history": [
+        "waterline-work",
+        "a-borough-grows",
+        "morning-ledger",
+        "market-day",
+        "orchard-footpaths",
+        "quiet-river-reprise"
+      ],
+      "duration": 183.659031,
+      "expected": 361.5
+    },
+    {
+      "index": 7,
+      "history": [
+        "a-borough-grows",
+        "morning-ledger",
+        "market-day",
+        "orchard-footpaths",
+        "quiet-river-reprise",
+        "after-the-rain"
+      ],
+      "duration": 177.682219,
+      "expected": 379.682
+    },
+    {
+      "index": 1,
+      "history": [
+        "morning-ledger",
+        "market-day",
+        "orchard-footpaths",
+        "quiet-river-reprise",
+        "after-the-rain",
+        "river-and-road"
+      ],
+      "duration": 80.9,
+      "expected": 171.957
+    },
+    {
+      "index": 8,
+      "history": [
+        "market-day",
+        "orchard-footpaths",
+        "quiet-river-reprise",
+        "after-the-rain",
+        "river-and-road",
+        "a-borough-grows"
+      ],
+      "duration": 182.097156,
+      "expected": 355.184
+    },
+    {
+      "index": 0,
+      "history": [
+        "orchard-footpaths",
+        "quiet-river-reprise",
+        "after-the-rain",
+        "river-and-road",
+        "a-borough-grows",
+        "morning-ledger"
+      ],
+      "duration": 93.585781,
+      "expected": 201.923
+    },
+    {
+      "index": 4,
+      "history": [
+        "quiet-river-reprise",
+        "after-the-rain",
+        "river-and-road",
+        "a-borough-grows",
+        "morning-ledger",
+        "rails-to-greyhaven"
+      ],
+      "duration": 150.630125,
+      "expected": 287.457
+    },
+    {
+      "index": 2,
+      "history": [
+        "after-the-rain",
+        "river-and-road",
+        "a-borough-grows",
+        "morning-ledger",
+        "rails-to-greyhaven",
+        "lamplit-windows"
+      ],
+      "duration": 106.2225,
+      "expected": 224.429
+    },
+    {
+      "index": 3,
+      "history": [
+        "river-and-road",
+        "a-borough-grows",
+        "morning-ledger",
+        "rails-to-greyhaven",
+        "lamplit-windows",
+        "orchard-footpaths"
+      ],
+      "duration": 145.488813,
+      "expected": 281.5
+    },
+    {
+      "index": 9,
+      "history": [
+        "a-borough-grows",
+        "morning-ledger",
+        "rails-to-greyhaven",
+        "lamplit-windows",
+        "orchard-footpaths",
+        "quiet-river-reprise"
+      ],
+      "duration": 183.659031,
+      "expected": 361.5
+    },
+    {
+      "index": 5,
+      "history": [
+        "morning-ledger",
+        "rails-to-greyhaven",
+        "lamplit-windows",
+        "orchard-footpaths",
+        "quiet-river-reprise",
+        "waterline-work"
+      ],
+      "duration": 143.237781,
+      "expected": 275.786
+    },
+    {
+      "index": 6,
+      "history": [
+        "rails-to-greyhaven",
+        "lamplit-windows",
+        "orchard-footpaths",
+        "quiet-river-reprise",
+        "waterline-work",
+        "market-day"
+      ],
+      "duration": 155.020281,
+      "expected": 306.955
+    },
+    {
+      "index": 0,
+      "history": [
+        "lamplit-windows",
+        "orchard-footpaths",
+        "quiet-river-reprise",
+        "waterline-work",
+        "market-day",
+        "morning-ledger"
+      ],
+      "duration": 93.585781,
+      "expected": 201.923
+    },
+    {
+      "index": 7,
+      "history": [
+        "orchard-footpaths",
+        "quiet-river-reprise",
+        "waterline-work",
+        "market-day",
+        "morning-ledger",
+        "after-the-rain"
+      ],
+      "duration": 177.682219,
+      "expected": 379.682
+    },
+    {
+      "index": 8,
+      "history": [
+        "quiet-river-reprise",
+        "waterline-work",
+        "market-day",
+        "morning-ledger",
+        "after-the-rain",
+        "a-borough-grows"
+      ],
+      "duration": 182.097156,
+      "expected": 355.184
+    },
+    {
+      "index": 2,
+      "history": [
+        "waterline-work",
+        "market-day",
+        "morning-ledger",
+        "after-the-rain",
+        "a-borough-grows",
+        "lamplit-windows"
+      ],
+      "duration": 106.2225,
+      "expected": 224.429
+    },
+    {
+      "index": 1,
+      "history": [
+        "market-day",
+        "morning-ledger",
+        "after-the-rain",
+        "a-borough-grows",
+        "lamplit-windows",
+        "river-and-road"
+      ],
+      "duration": 80.9,
+      "expected": 171.957
+    },
+    {
+      "index": 9,
+      "history": [
+        "morning-ledger",
+        "after-the-rain",
+        "a-borough-grows",
+        "lamplit-windows",
+        "river-and-road",
+        "quiet-river-reprise"
+      ],
+      "duration": 183.659031,
+      "expected": 361.5
+    },
+    {
+      "index": 6,
+      "history": [
+        "after-the-rain",
+        "a-borough-grows",
+        "lamplit-windows",
+        "river-and-road",
+        "quiet-river-reprise",
+        "market-day"
+      ],
+      "duration": 155.020281,
+      "expected": 306.955
+    },
+    {
+      "index": 0,
+      "history": [
+        "a-borough-grows",
+        "lamplit-windows",
+        "river-and-road",
+        "quiet-river-reprise",
+        "market-day",
+        "morning-ledger"
+      ],
+      "duration": 93.585781,
+      "expected": 201.923
+    },
+    {
+      "index": 4,
+      "history": [
+        "lamplit-windows",
+        "river-and-road",
+        "quiet-river-reprise",
+        "market-day",
+        "morning-ledger",
+        "rails-to-greyhaven"
+      ],
+      "duration": 150.630125,
+      "expected": 287.457
+    },
+    {
+      "index": 8,
+      "history": [
+        "river-and-road",
+        "quiet-river-reprise",
+        "market-day",
+        "morning-ledger",
+        "rails-to-greyhaven",
+        "a-borough-grows"
+      ],
+      "duration": 182.097156,
+      "expected": 355.184
+    },
+    {
+      "index": 3,
+      "history": [
+        "quiet-river-reprise",
+        "market-day",
+        "morning-ledger",
+        "rails-to-greyhaven",
+        "a-borough-grows",
+        "orchard-footpaths"
+      ],
+      "duration": 145.488813,
+      "expected": 281.5
+    },
+    {
+      "index": 5,
+      "history": [
+        "market-day",
+        "morning-ledger",
+        "rails-to-greyhaven",
+        "a-borough-grows",
+        "orchard-footpaths",
+        "waterline-work"
+      ],
+      "duration": 143.237781,
+      "expected": 275.786
+    },
+    {
+      "index": 1,
+      "history": [
+        "morning-ledger",
+        "rails-to-greyhaven",
+        "a-borough-grows",
+        "orchard-footpaths",
+        "waterline-work",
+        "river-and-road"
+      ],
+      "duration": 80.9,
+      "expected": 171.957
+    },
+    {
+      "index": 7,
+      "history": [
+        "rails-to-greyhaven",
+        "a-borough-grows",
+        "orchard-footpaths",
+        "waterline-work",
+        "river-and-road",
+        "after-the-rain"
+      ],
+      "duration": 177.682219,
+      "expected": 379.682
+    },
+    {
+      "index": 0,
+      "history": [
+        "a-borough-grows",
+        "orchard-footpaths",
+        "waterline-work",
+        "river-and-road",
+        "after-the-rain",
+        "morning-ledger"
+      ],
+      "duration": 93.585781,
+      "expected": 201.923
+    },
+    {
+      "index": 4,
+      "history": [
+        "orchard-footpaths",
+        "waterline-work",
+        "river-and-road",
+        "after-the-rain",
+        "morning-ledger",
+        "rails-to-greyhaven"
+      ],
+      "duration": 150.630125,
+      "expected": 287.457
+    },
+    {
+      "index": 8,
+      "history": [
+        "waterline-work",
+        "river-and-road",
+        "after-the-rain",
+        "morning-ledger",
+        "rails-to-greyhaven",
+        "a-borough-grows"
+      ],
+      "duration": 182.097156,
+      "expected": 355.184
+    },
+    {
+      "index": 2,
+      "history": [
+        "river-and-road",
+        "after-the-rain",
+        "morning-ledger",
+        "rails-to-greyhaven",
+        "a-borough-grows",
+        "lamplit-windows"
+      ],
+      "duration": 106.2225,
+      "expected": 224.429
+    },
+    {
+      "index": 6,
+      "history": [
+        "after-the-rain",
+        "morning-ledger",
+        "rails-to-greyhaven",
+        "a-borough-grows",
+        "lamplit-windows",
+        "market-day"
+      ],
+      "duration": 155.020281,
+      "expected": 306.955
+    },
+    {
+      "index": 5,
+      "history": [
+        "morning-ledger",
+        "rails-to-greyhaven",
+        "a-borough-grows",
+        "lamplit-windows",
+        "market-day",
+        "waterline-work"
+      ],
+      "duration": 143.237781,
+      "expected": 275.786
+    },
+    {
+      "index": 9,
+      "history": [
+        "rails-to-greyhaven",
+        "a-borough-grows",
+        "lamplit-windows",
+        "market-day",
+        "waterline-work",
+        "quiet-river-reprise"
+      ],
+      "duration": 183.659031,
+      "expected": 361.5
+    },
+    {
+      "index": 0,
+      "history": [
+        "a-borough-grows",
+        "lamplit-windows",
+        "market-day",
+        "waterline-work",
+        "quiet-river-reprise",
+        "morning-ledger"
+      ],
+      "duration": 93.585781,
+      "expected": 201.923
+    },
+    {
+      "index": 4,
+      "history": [
+        "lamplit-windows",
+        "market-day",
+        "waterline-work",
+        "quiet-river-reprise",
+        "morning-ledger",
+        "rails-to-greyhaven"
+      ],
+      "duration": 150.630125,
+      "expected": 287.457
+    },
+    {
+      "index": 3,
+      "history": [
+        "market-day",
+        "waterline-work",
+        "quiet-river-reprise",
+        "morning-ledger",
+        "rails-to-greyhaven",
+        "orchard-footpaths"
+      ],
+      "duration": 145.488813,
+      "expected": 281.5
+    },
+    {
+      "index": 8,
+      "history": [
+        "waterline-work",
+        "quiet-river-reprise",
+        "morning-ledger",
+        "rails-to-greyhaven",
+        "orchard-footpaths",
+        "a-borough-grows"
+      ],
+      "duration": 182.097156,
+      "expected": 355.184
+    },
+    {
+      "index": 2,
+      "history": [
+        "quiet-river-reprise",
+        "morning-ledger",
+        "rails-to-greyhaven",
+        "orchard-footpaths",
+        "a-borough-grows",
+        "lamplit-windows"
+      ],
+      "duration": 106.2225,
+      "expected": 224.429
+    },
+    {
+      "index": 5,
+      "history": [
+        "morning-ledger",
+        "rails-to-greyhaven",
+        "orchard-footpaths",
+        "a-borough-grows",
+        "lamplit-windows",
+        "waterline-work"
+      ],
+      "duration": 143.237781,
+      "expected": 275.786
+    },
+    {
+      "index": 9,
+      "history": [
+        "rails-to-greyhaven",
+        "orchard-footpaths",
+        "a-borough-grows",
+        "lamplit-windows",
+        "waterline-work",
+        "quiet-river-reprise"
+      ],
+      "duration": 183.659031,
+      "expected": 361.5
+    },
+    {
+      "index": 6,
+      "history": [
+        "orchard-footpaths",
+        "a-borough-grows",
+        "lamplit-windows",
+        "waterline-work",
+        "quiet-river-reprise",
+        "market-day"
+      ],
+      "duration": 155.020281,
+      "expected": 306.955
+    }
+  ],
+  "snapshots": [
+    {
+      "label": "initial",
+      "seconds": 1.85,
+      "heapBytes": 4499668,
+      "processPssBytes": 447029248,
+      "chromiumProcesses": 10,
+      "media": [
+        {
+          "src": "sound/click.wav",
+          "paused": false,
+          "time": 0.035194
+        },
+        {
+          "src": "music/a-borough-grows.ogg",
+          "paused": false,
+          "time": 0.23367
+        },
+        {
+          "src": "sound/coin.wav",
+          "paused": false,
+          "time": 0.24
+        },
+        {
+          "src": "sound/village.wav",
+          "paused": false,
+          "time": 0.2166
+        }
+      ],
+      "referencedDecks": 1,
+      "history": [
+        "a-borough-grows"
+      ]
+    },
+    {
+      "label": "handoff-20",
+      "seconds": 5.04,
+      "heapBytes": 4760748,
+      "processPssBytes": 510965760,
+      "chromiumProcesses": 10,
+      "media": [
+        {
+          "src": "sound/click.wav",
+          "paused": true,
+          "time": 0.075
+        },
+        {
+          "src": "sound/coin.wav",
+          "paused": true,
+          "time": 0.24
+        },
+        {
+          "src": "sound/village.wav",
+          "paused": false,
+          "time": 3.379445
+        },
+        {
+          "src": "music/rails-to-greyhaven.ogg",
+          "paused": false,
+          "time": 0.068742
+        }
+      ],
+      "referencedDecks": 1,
+      "history": [
+        "waterline-work",
+        "market-day",
+        "river-and-road",
+        "lamplit-windows",
+        "morning-ledger",
+        "rails-to-greyhaven"
+      ]
+    },
+    {
+      "label": "handoff-40",
+      "seconds": 8.29,
+      "heapBytes": 4766868,
+      "processPssBytes": 550559744,
+      "chromiumProcesses": 10,
+      "media": [
+        {
+          "src": "sound/click.wav",
+          "paused": true,
+          "time": 0.075
+        },
+        {
+          "src": "sound/coin.wav",
+          "paused": true,
+          "time": 0.24
+        },
+        {
+          "src": "sound/village.wav",
+          "paused": false,
+          "time": 6.598168
+        },
+        {
+          "src": "music/a-borough-grows.ogg",
+          "paused": false,
+          "time": 0.083238
+        }
+      ],
+      "referencedDecks": 1,
+      "history": [
+        "lamplit-windows",
+        "quiet-river-reprise",
+        "waterline-work",
+        "rails-to-greyhaven",
+        "morning-ledger",
+        "a-borough-grows"
+      ]
+    },
+    {
+      "label": "handoff-60",
+      "seconds": 11.7,
+      "heapBytes": 4786292,
+      "processPssBytes": 532217856,
+      "chromiumProcesses": 10,
+      "media": [
+        {
+          "src": "sound/click.wav",
+          "paused": true,
+          "time": 0.075
+        },
+        {
+          "src": "sound/coin.wav",
+          "paused": true,
+          "time": 0.24
+        },
+        {
+          "src": "sound/village.wav",
+          "paused": false,
+          "time": 9.931436
+        },
+        {
+          "src": "music/after-the-rain.ogg",
+          "paused": false,
+          "time": 0.096989
+        }
+      ],
+      "referencedDecks": 1,
+      "history": [
+        "a-borough-grows",
+        "orchard-footpaths",
+        "river-and-road",
+        "lamplit-windows",
+        "market-day",
+        "after-the-rain"
+      ]
+    },
+    {
+      "label": "handoff-80",
+      "seconds": 15.01,
+      "heapBytes": 4795912,
+      "processPssBytes": 640834560,
+      "chromiumProcesses": 10,
+      "media": [
+        {
+          "src": "sound/click.wav",
+          "paused": true,
+          "time": 0.075
+        },
+        {
+          "src": "sound/coin.wav",
+          "paused": true,
+          "time": 0.24
+        },
+        {
+          "src": "sound/village.wav",
+          "paused": false,
+          "time": 13.25386
+        },
+        {
+          "src": "music/lamplit-windows.ogg",
+          "paused": false,
+          "time": 0.081806
+        }
+      ],
+      "referencedDecks": 1,
+      "history": [
+        "after-the-rain",
+        "morning-ledger",
+        "waterline-work",
+        "a-borough-grows",
+        "orchard-footpaths",
+        "lamplit-windows"
+      ]
+    },
+    {
+      "label": "handoff-100",
+      "seconds": 18.21,
+      "heapBytes": 4797232,
+      "processPssBytes": 653747200,
+      "chromiumProcesses": 10,
+      "media": [
+        {
+          "src": "sound/click.wav",
+          "paused": true,
+          "time": 0.021372
+        },
+        {
+          "src": "sound/coin.wav",
+          "paused": true,
+          "time": 0.24
+        },
+        {
+          "src": "sound/village.wav",
+          "paused": false,
+          "time": 16.422253
+        },
+        {
+          "src": "music/after-the-rain.ogg",
+          "paused": false,
+          "time": 0.025275
+        }
+      ],
+      "referencedDecks": 1,
+      "history": [
+        "orchard-footpaths",
+        "lamplit-windows",
+        "morning-ledger",
+        "market-day",
+        "waterline-work",
+        "after-the-rain"
+      ]
+    },
+    {
+      "label": "handoff-120",
+      "seconds": 21.5,
+      "heapBytes": 4799308,
+      "processPssBytes": 652063744,
+      "chromiumProcesses": 10,
+      "media": [
+        {
+          "src": "sound/click.wav",
+          "paused": true,
+          "time": 0.075
+        },
+        {
+          "src": "sound/coin.wav",
+          "paused": true,
+          "time": 0.24
+        },
+        {
+          "src": "sound/village.wav",
+          "paused": false,
+          "time": 1.557969
+        },
+        {
+          "src": "music/market-day.ogg",
+          "paused": false,
+          "time": 0.089412
+        }
+      ],
+      "referencedDecks": 1,
+      "history": [
+        "river-and-road",
+        "orchard-footpaths",
+        "a-borough-grows",
+        "quiet-river-reprise",
+        "morning-ledger",
+        "market-day"
+      ]
+    },
+    {
+      "label": "handoff-140",
+      "seconds": 24.8,
+      "heapBytes": 4799704,
+      "processPssBytes": 654431232,
+      "chromiumProcesses": 10,
+      "media": [
+        {
+          "src": "sound/click.wav",
+          "paused": true,
+          "time": 0.075
+        },
+        {
+          "src": "sound/coin.wav",
+          "paused": true,
+          "time": 0.24
+        },
+        {
+          "src": "sound/village.wav",
+          "paused": false,
+          "time": 4.805317
+        },
+        {
+          "src": "music/market-day.ogg",
+          "paused": false,
+          "time": 0.085442
+        }
+      ],
+      "referencedDecks": 1,
+      "history": [
+        "a-borough-grows",
+        "lamplit-windows",
+        "orchard-footpaths",
+        "river-and-road",
+        "quiet-river-reprise",
+        "market-day"
+      ]
+    },
+    {
+      "label": "handoff-160",
+      "seconds": 28.05,
+      "heapBytes": 4801768,
+      "processPssBytes": 655619072,
+      "chromiumProcesses": 10,
+      "media": [
+        {
+          "src": "sound/click.wav",
+          "paused": true,
+          "time": 0.075
+        },
+        {
+          "src": "sound/coin.wav",
+          "paused": true,
+          "time": 0.24
+        },
+        {
+          "src": "sound/village.wav",
+          "paused": false,
+          "time": 8.015591
+        },
+        {
+          "src": "music/morning-ledger.ogg",
+          "paused": false,
+          "time": 0.074788
+        }
+      ],
+      "referencedDecks": 1,
+      "history": [
+        "river-and-road",
+        "market-day",
+        "after-the-rain",
+        "waterline-work",
+        "a-borough-grows",
+        "morning-ledger"
+      ]
+    },
+    {
+      "label": "handoff-180",
+      "seconds": 31.34,
+      "heapBytes": 4799740,
+      "processPssBytes": 648925184,
+      "chromiumProcesses": 10,
+      "media": [
+        {
+          "src": "sound/click.wav",
+          "paused": true,
+          "time": 0.075
+        },
+        {
+          "src": "sound/coin.wav",
+          "paused": true,
+          "time": 0.24
+        },
+        {
+          "src": "sound/village.wav",
+          "paused": false,
+          "time": 11.279848
+        },
+        {
+          "src": "music/lamplit-windows.ogg",
+          "paused": false,
+          "time": 0.067432
+        }
+      ],
+      "referencedDecks": 1,
+      "history": [
+        "waterline-work",
+        "a-borough-grows",
+        "rails-to-greyhaven",
+        "market-day",
+        "river-and-road",
+        "lamplit-windows"
+      ]
+    },
+    {
+      "label": "handoff-200",
+      "seconds": 34.51,
+      "heapBytes": 4799704,
+      "processPssBytes": 645015552,
+      "chromiumProcesses": 10,
+      "media": [
+        {
+          "src": "sound/click.wav",
+          "paused": true,
+          "time": 0.075
+        },
+        {
+          "src": "sound/coin.wav",
+          "paused": true,
+          "time": 0.24
+        },
+        {
+          "src": "sound/village.wav",
+          "paused": false,
+          "time": 14.412339
+        },
+        {
+          "src": "music/lamplit-windows.ogg",
+          "paused": false,
+          "time": 0.068228
+        }
+      ],
+      "referencedDecks": 1,
+      "history": [
+        "rails-to-greyhaven",
+        "morning-ledger",
+        "a-borough-grows",
+        "orchard-footpaths",
+        "market-day",
+        "lamplit-windows"
+      ]
+    },
+    {
+      "label": "handoff-220",
+      "seconds": 37.78,
+      "heapBytes": 4801840,
+      "processPssBytes": 645933056,
+      "chromiumProcesses": 10,
+      "media": [
+        {
+          "src": "sound/click.wav",
+          "paused": true,
+          "time": 0.075
+        },
+        {
+          "src": "sound/coin.wav",
+          "paused": true,
+          "time": 0.24
+        },
+        {
+          "src": "sound/village.wav",
+          "paused": false,
+          "time": 17.680543
+        },
+        {
+          "src": "music/after-the-rain.ogg",
+          "paused": false,
+          "time": 0.082674
+        }
+      ],
+      "referencedDecks": 1,
+      "history": [
+        "a-borough-grows",
+        "river-and-road",
+        "waterline-work",
+        "morning-ledger",
+        "orchard-footpaths",
+        "after-the-rain"
+      ]
+    },
+    {
+      "label": "handoff-240",
+      "seconds": 41.06,
+      "heapBytes": 4801768,
+      "processPssBytes": 645220352,
+      "chromiumProcesses": 10,
+      "media": [
+        {
+          "src": "sound/click.wav",
+          "paused": true,
+          "time": 0.075
+        },
+        {
+          "src": "sound/coin.wav",
+          "paused": true,
+          "time": 0.24
+        },
+        {
+          "src": "sound/village.wav",
+          "paused": false,
+          "time": 2.818416
+        },
+        {
+          "src": "music/morning-ledger.ogg",
+          "paused": false,
+          "time": 0.079025
+        }
+      ],
+      "referencedDecks": 1,
+      "history": [
+        "waterline-work",
+        "lamplit-windows",
+        "quiet-river-reprise",
+        "orchard-footpaths",
+        "market-day",
+        "morning-ledger"
+      ]
+    },
+    {
+      "label": "handoff-260",
+      "seconds": 44.34,
+      "heapBytes": 4799704,
+      "processPssBytes": 645683200,
+      "chromiumProcesses": 10,
+      "media": [
+        {
+          "src": "sound/click.wav",
+          "paused": true,
+          "time": 0.075
+        },
+        {
+          "src": "sound/coin.wav",
+          "paused": true,
+          "time": 0.24
+        },
+        {
+          "src": "sound/village.wav",
+          "paused": false,
+          "time": 6.069515
+        },
+        {
+          "src": "music/orchard-footpaths.ogg",
+          "paused": false,
+          "time": 0.078992
+        }
+      ],
+      "referencedDecks": 1,
+      "history": [
+        "river-and-road",
+        "waterline-work",
+        "a-borough-grows",
+        "morning-ledger",
+        "market-day",
+        "orchard-footpaths"
+      ]
+    },
+    {
+      "label": "handoff-280",
+      "seconds": 47.54,
+      "heapBytes": 4799656,
+      "processPssBytes": 647145472,
+      "chromiumProcesses": 10,
+      "media": [
+        {
+          "src": "sound/click.wav",
+          "paused": true,
+          "time": 0.007823
+        },
+        {
+          "src": "sound/coin.wav",
+          "paused": true,
+          "time": 0.24
+        },
+        {
+          "src": "sound/village.wav",
+          "paused": false,
+          "time": 9.236506
+        },
+        {
+          "src": "music/rails-to-greyhaven.ogg",
+          "paused": false,
+          "time": 0.020936
+        }
+      ],
+      "referencedDecks": 1,
+      "history": [
+        "lamplit-windows",
+        "river-and-road",
+        "quiet-river-reprise",
+        "market-day",
+        "morning-ledger",
+        "rails-to-greyhaven"
+      ]
+    },
+    {
+      "label": "handoff-300",
+      "seconds": 50.81,
+      "heapBytes": 4799704,
+      "processPssBytes": 646297600,
+      "chromiumProcesses": 10,
+      "media": [
+        {
+          "src": "sound/click.wav",
+          "paused": true,
+          "time": 0.075
+        },
+        {
+          "src": "sound/coin.wav",
+          "paused": true,
+          "time": 0.24
+        },
+        {
+          "src": "sound/village.wav",
+          "paused": false,
+          "time": 12.471691
+        },
+        {
+          "src": "music/market-day.ogg",
+          "paused": false,
+          "time": 0.075791
+        }
+      ],
+      "referencedDecks": 1,
+      "history": [
+        "orchard-footpaths",
+        "a-borough-grows",
+        "lamplit-windows",
+        "waterline-work",
+        "quiet-river-reprise",
+        "market-day"
+      ]
+    },
+    {
+      "label": "rapid-next-burst",
+      "seconds": 51.58,
+      "heapBytes": 4800160,
+      "processPssBytes": 644773888,
+      "chromiumProcesses": 10,
+      "media": [
+        {
+          "src": "sound/click.wav",
+          "paused": true,
+          "time": 0.075
+        },
+        {
+          "src": "sound/coin.wav",
+          "paused": true,
+          "time": 0.24
+        },
+        {
+          "src": "sound/village.wav",
+          "paused": false,
+          "time": 13.239523
+        },
+        {
+          "src": "music/a-borough-grows.ogg",
+          "paused": false,
+          "time": 0.075632
+        }
+      ],
+      "referencedDecks": 1,
+      "history": [
+        "market-day",
+        "lamplit-windows",
+        "morning-ledger",
+        "orchard-footpaths",
+        "after-the-rain",
+        "a-borough-grows"
+      ]
+    },
+    {
+      "label": "foreground-dwell",
+      "seconds": 231.69,
+      "heapBytes": 4834428,
+      "processPssBytes": 629647360,
+      "chromiumProcesses": 10,
+      "media": [
+        {
+          "src": "sound/click.wav",
+          "paused": true,
+          "time": 0.075
+        },
+        {
+          "src": "sound/coin.wav",
+          "paused": true,
+          "time": 0.24
+        },
+        {
+          "src": "sound/village.wav",
+          "paused": false,
+          "time": 11.910355
+        },
+        {
+          "src": "music/a-borough-grows.ogg",
+          "paused": false,
+          "time": 180.182531
+        }
+      ],
+      "referencedDecks": 1,
+      "history": [
+        "market-day",
+        "lamplit-windows",
+        "morning-ledger",
+        "orchard-footpaths",
+        "after-the-rain",
+        "a-borough-grows"
+      ]
+    },
+    {
+      "label": "final-resume",
+      "seconds": 231.81,
+      "heapBytes": 4815908,
+      "processPssBytes": 636028928,
+      "chromiumProcesses": 10,
+      "media": [
+        {
+          "src": "sound/click.wav",
+          "paused": true,
+          "time": 0.075
+        },
+        {
+          "src": "sound/coin.wav",
+          "paused": true,
+          "time": 0.24
+        },
+        {
+          "src": "sound/village.wav",
+          "paused": false,
+          "time": 12.035903
+        },
+        {
+          "src": "music/a-borough-grows.ogg",
+          "paused": false,
+          "time": 180.300202
+        }
+      ],
+      "referencedDecks": 1,
+      "history": [
+        "market-day",
+        "lamplit-windows",
+        "morning-ledger",
+        "orchard-footpaths",
+        "after-the-rain",
+        "a-borough-grows"
+      ]
+    }
+  ],
+  "errors": [],
+  "subjectiveListening": false,
+  "physicalAndroid": false
+}
