@@ -59,3 +59,9 @@ Next: make ambitions and scenario progression reflect the richer service/market 
 Five distinct three-chapter council programmes now connect sustained goals to actual report/actions, with explicit reset/completion semantics and a common-scale services/employment chart. Added bounded original production/civic workday scenes, tested all 60 Council choices and four severe inherited-credit-loss/guarantee recovery branches. Strict paused-image regression and unchanged header DOM checks remain. A timed browser/archive/menu/heap session is running before the next performance check. See COUNCIL-PROGRAMME-DEVELOPMENT.md. No APK/version change.
 
 After the timed run: inspect growth-adjusted heap/cache data and real-session faults, address any confirmed issue, then continue visual hierarchy/transport polish and native/save-fault work before final balance and immutable release QA.
+
+## Native and older-engine checkpoint
+
+The 20-minute real-RAF run and isolated performance check passed; programme notes now contain exact measurements. Implemented bounded worker-based native archive transport and suspend/resume boundaries, compiled/tested the Android host, and used a lower-resolution software emulator to find and fix the unsupported Object.hasOwn call in actual WebView 83. Native model/save/panel probes then passed. System UI ANR prevents a full interactive Android certification. See NATIVE-ARCHIVE-DEVELOPMENT.md. A scratch debug APK is not a release candidate.
+
+A further confirmed portability lead is the seeded founding-lot sort: its comparator consumes random numbers, so different engine sorting algorithms can produce different starting balances for the same seed. Replace the random comparator with precomputed seeded keys and test alternate stable sort algorithms before the next generation/balance pass. Continue the map's information hierarchy and responsive small-landscape controls afterward.

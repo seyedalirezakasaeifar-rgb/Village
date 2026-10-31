@@ -25,7 +25,7 @@ const SCENARIO_PROGRAMMES={
  industrial:{title:'An industrial social contract',chapters:[programmeChapter('Work that sustains families','Judge industrial expansion by paid work and essential living conditions.',[['work',80],'food','hardship']),programmeChapter('Skills behind the factories','Support actual adult training and reachable public care.',['training','learning','care']),programmeChapter('Investment with resilience','Keep the workforce connected and retain family and public buffers.',['work','access','buffers','cash'],60)]},
  regional:{title:'A city beyond full employment',chapters:[programmeChapter('An accessible regional city','A strong headline job market still needs reachable work and funded local places.',['access','care','learning']),programmeChapter('Broader capability','Complete sustained adult learning while families retain liquid savings.',['training','buffers',['learning',70]]),programmeChapter('A sustainable civic settlement','Carry the commitments through two months with a public reserve.',['work',['care',75],['learning',70],'cash'],60)]}
 };
-function programmeDefinition(){return Object.hasOwn(SCENARIO_PROGRAMMES,G.scenario)?SCENARIO_PROGRAMMES[G.scenario]:SCENARIO_PROGRAMMES.settlement;}
+function programmeDefinition(){return owns(SCENARIO_PROGRAMMES,G.scenario)?SCENARIO_PROGRAMMES[G.scenario]:SCENARIO_PROGRAMMES.settlement;}
 function initializeScenarioProgramme(){G.scenarioProgramme={version:1,scenario:G.scenario,started:G.day,stage:0,held:0,lastDay:G.day,completed:[],baseline:programmeMetrics()};}
 function ensureScenarioProgramme(){if(!G.scenarioProgramme)initializeScenarioProgramme();}
 function programmeRuleMet(rule,metrics){return rule.direction==='min'?metrics[rule.metric]+.00001>=rule.target:metrics[rule.metric]-.00001<=rule.target;}
@@ -38,7 +38,7 @@ function updateScenarioProgramme(){
  G.journal.push({day:G.day,name:final?'Council programme complete':'Council chapter complete',message,baseline:{...G.stats,treasury:G.treasury}});story(message,'good');
 }
 function validateScenarioProgramme(data){
- if(data.scenario!=null&&!Object.hasOwn(SCENARIO_PROGRAMMES,data.scenario))return false;
+ if(data.scenario!=null&&!owns(SCENARIO_PROGRAMMES,data.scenario))return false;
  if(data.civicTrainingCompletions!=null&&(!Number.isInteger(data.civicTrainingCompletions)||data.civicTrainingCompletions<0||data.civicTrainingCompletions>1000000))return false;
  const p=data.scenarioProgramme;if(p==null)return true;const definition=SCENARIO_PROGRAMMES[data.scenario]||SCENARIO_PROGRAMMES.settlement;
  if(p.version!==1||p.scenario!==data.scenario||!Number.isInteger(p.started)||p.started<1||p.started>data.day||!Number.isInteger(p.lastDay)||p.lastDay<p.started||p.lastDay>data.day||!Number.isInteger(p.stage)||p.stage<0||p.stage>definition.chapters.length||!Number.isInteger(p.held)||p.held<0||p.held>=(definition.chapters[p.stage]?.days||1)||!Array.isArray(p.completed)||p.completed.length!==p.stage)return false;

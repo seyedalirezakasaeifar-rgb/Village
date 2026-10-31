@@ -50,7 +50,8 @@ document.addEventListener('click',e=>{
 });
 // Android uses the system document picker; desktop retains the text archive workflow.
 window.__townArchive={
- suspend:()=>{save();},
+ suspend:()=>{hostSuspended=true;acc=0;last=performance.now();save();if(ambient)ambient.pause();},
+ resume:()=>{hostSuspended=false;acc=0;last=performance.now();refreshAmbience();},
  export:()=>archivePayload(),
  restore:text=>{const ok=hydrateSave(text);if(ok){save();$('welcome').style.display='none';dirty=true;staticDirty=true;toast('Town restored with its property, bank, cargo and resident records.');}else toast('Archive rejected. The current town is unchanged.');return ok;},
  back:()=>{if($('helpDialog').style.display!=='none'){hideHelpDialog();return true;}if(pendingEvent){closeCouncilDialog(true);return true;}if(active){closePanel();return true;}return false;}

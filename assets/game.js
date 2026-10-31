@@ -4,6 +4,7 @@
 (function(){
 // Negative indexing without requiring a recent Android WebView Array.at.
 function fromEnd(values,offset=1){return values[values.length-offset];}
+function owns(object,key){return Object.prototype.hasOwnProperty.call(object,key);}
 const ART_DATA={};
 const $=id=>document.getElementById(id), clamp=(x,a,b)=>Math.max(a,Math.min(b,x)),money=x=>(x<0?'−':'')+'$'+Math.round(Math.abs(x)).toLocaleString('en-CA');
 const fmt=x=>Number(x||0).toLocaleString('en-CA',{maximumFractionDigits:1});
@@ -80,6 +81,7 @@ const defs=[
  ['treasuryInvestment','Regional reserve investment share',0,100,5,'%','Share of surplus municipal cash available to buy outside-region securities when trade liquidity is low.']
 ];
 const defaults={policyRate:3,pensionDaily:16,incomeTax:12,profitTax:12,propertyTax:1.1,foodTax:4,utilityTax:2,commercialRate:.6,energyAidBudget:35,transitBudget:35,minWage:28,permitFee:250,policeBudget:180,defenseBudget:140,aidBudget:100,outreachBudget:40,employmentSubsidy:0,importTariff:0,healthBudget:70,educationBudget:90,roadBudget:25,zoningRestriction:25,businessRegulation:25,militiaBudget:25,bankReserve:12,lendingRules:35,depositGuarantee:0,treasuryInvestment:60,imports:true};
+let hostSuspended=false;
 let G=null,active='',buildMode='',selected=null,paused=false,speed=1,toastTimeout=0,chosenScenario='settlement',draftPolicy={},overlay='none',pendingEvent=null,previousDailyCash=0,autoSaveOK=true,filterPeople='all',filterFirms='all',citizenQuery='',constructionCategory='all',showTutorial=true,roadPainted=new Set(),roadBatchDirty=false;
 let bitmap=document.createElement('canvas');bitmap.width=RW;bitmap.height=RH;let bg=bitmap.getContext('2d',{alpha:false,willReadFrequently:false});
 const cv=$('view'),ctx=cv.getContext('2d',{alpha:false});let cw=1000,ch=600,dpr=1,cam={x:RW/2,y:RH/2,zoom:.68};let dirty=true,staticDirty=true;let vehicles=[];
@@ -2877,7 +2879,7 @@ window.addEventListener('resize',fit);fit();
 let last=performance.now(),acc=0,lastMapDraw=0,lastHeader=0,lastPanel=0,lastAutosave=performance.now(),speedSample=0,sampleDays=0,sampleSeconds=0;
 function frame(now){
  const raw=Math.max(0,(now-last)/1000);last=now;
- if(G&&!paused&&!pendingEvent&&!document.hidden){
+ if(G&&!paused&&!hostSuspended&&!pendingEvent&&!document.hidden){
   // Admit requested wall time, then do a bounded amount of real simulation work.
   // A bounded queue avoids a multi-minute catchup after an interrupted phone frame.
   const dt=Math.min(raw,.25);acc=Math.min(acc+dt*speed,1.65*8);
@@ -2897,7 +2899,7 @@ function frame(now){
  }
  requestAnimationFrame(frame);
 }requestAnimationFrame(frame);
-window.addEventListener('beforeunload',()=>save());document.addEventListener('visibilitychange',()=>{if(document.hidden){save();last=performance.now();if(ambient)ambient.pause()}else refreshAmbience()});
+window.addEventListener('beforeunload',()=>save());document.addEventListener('visibilitychange',()=>{last=performance.now();acc=0;if(document.hidden){save();if(ambient)ambient.pause()}else refreshAmbience()});
 window.addEventListener('error',e=>{console.error(e.error||e.message);toast('Runtime issue: '+(e.message||'Unknown'))});
 
 // SOURCE: 71-trip-inspector.js
@@ -3205,7 +3207,7 @@ function hydrateSave(raw){
   if(!data||![2,3].includes(data.version)||!Array.isArray(data.tiles)||data.tiles.length!==T*T||!Array.isArray(data.firms)||!Array.isArray(data.people)||!Array.isArray(data.buildings)||!Array.isArray(data.households)||!data.policy||!Number.isFinite(data.treasury)||data.tiles.some(t=>!Number.isInteger(t)||t<0||t>3)||!Number.isFinite(data.region)||data.region<0||data.households.length>3000||data.people.length>8000||data.firms.length>3000)return false;
   if(data.schema!=null&&(!Number.isInteger(data.schema)||data.schema<0||data.schema>5))return false;
   if(data.investors&&(!Array.isArray(data.investors)||data.investors.length!==1||data.investors.some(a=>!Number.isFinite(a.cash)||a.cash<0)))return false;
-  if(data.freight&&(!Array.isArray(data.freight)||data.freight.length>10000||data.freight.some(s=>!Number.isInteger(s.from)||!data.firms[s.from]||!Number.isInteger(s.to)||!data.firms[s.to]||!Object.hasOwn(goods,s.good)||!Number.isFinite(s.qty)||s.qty<=0||!Number.isFinite(s.remaining))))return false;
+  if(data.freight&&(!Array.isArray(data.freight)||data.freight.length>10000||data.freight.some(s=>!Number.isInteger(s.from)||!data.firms[s.from]||!Number.isInteger(s.to)||!data.firms[s.to]||!owns(goods,s.good)||!Number.isFinite(s.qty)||s.qty<=0||!Number.isFinite(s.remaining))))return false;
   // Reject structurally broken saves before they can replace the running town.
   // These checks also protect long-playing towns from partial imports and invalid IDs.
   if(!Array.isArray(data.homes)||!Array.isArray(data.projects??[])||
@@ -3435,7 +3437,8 @@ document.addEventListener('click',e=>{
 });
 // Android uses the system document picker; desktop retains the text archive workflow.
 window.__townArchive={
- suspend:()=>{save();},
+ suspend:()=>{hostSuspended=true;acc=0;last=performance.now();save();if(ambient)ambient.pause();},
+ resume:()=>{hostSuspended=false;acc=0;last=performance.now();refreshAmbience();},
  export:()=>archivePayload(),
  restore:text=>{const ok=hydrateSave(text);if(ok){save();$('welcome').style.display='none';dirty=true;staticDirty=true;toast('Town restored with its property, bank, cargo and resident records.');}else toast('Archive rejected. The current town is unchanged.');return ok;},
  back:()=>{if($('helpDialog').style.display!=='none'){hideHelpDialog();return true;}if(pendingEvent){closeCouncilDialog(true);return true;}if(active){closePanel();return true;}return false;}
@@ -3527,7 +3530,7 @@ const SCENARIO_PROGRAMMES={
  industrial:{title:'An industrial social contract',chapters:[programmeChapter('Work that sustains families','Judge industrial expansion by paid work and essential living conditions.',[['work',80],'food','hardship']),programmeChapter('Skills behind the factories','Support actual adult training and reachable public care.',['training','learning','care']),programmeChapter('Investment with resilience','Keep the workforce connected and retain family and public buffers.',['work','access','buffers','cash'],60)]},
  regional:{title:'A city beyond full employment',chapters:[programmeChapter('An accessible regional city','A strong headline job market still needs reachable work and funded local places.',['access','care','learning']),programmeChapter('Broader capability','Complete sustained adult learning while families retain liquid savings.',['training','buffers',['learning',70]]),programmeChapter('A sustainable civic settlement','Carry the commitments through two months with a public reserve.',['work',['care',75],['learning',70],'cash'],60)]}
 };
-function programmeDefinition(){return Object.hasOwn(SCENARIO_PROGRAMMES,G.scenario)?SCENARIO_PROGRAMMES[G.scenario]:SCENARIO_PROGRAMMES.settlement;}
+function programmeDefinition(){return owns(SCENARIO_PROGRAMMES,G.scenario)?SCENARIO_PROGRAMMES[G.scenario]:SCENARIO_PROGRAMMES.settlement;}
 function initializeScenarioProgramme(){G.scenarioProgramme={version:1,scenario:G.scenario,started:G.day,stage:0,held:0,lastDay:G.day,completed:[],baseline:programmeMetrics()};}
 function ensureScenarioProgramme(){if(!G.scenarioProgramme)initializeScenarioProgramme();}
 function programmeRuleMet(rule,metrics){return rule.direction==='min'?metrics[rule.metric]+.00001>=rule.target:metrics[rule.metric]-.00001<=rule.target;}
@@ -3540,7 +3543,7 @@ function updateScenarioProgramme(){
  G.journal.push({day:G.day,name:final?'Council programme complete':'Council chapter complete',message,baseline:{...G.stats,treasury:G.treasury}});story(message,'good');
 }
 function validateScenarioProgramme(data){
- if(data.scenario!=null&&!Object.hasOwn(SCENARIO_PROGRAMMES,data.scenario))return false;
+ if(data.scenario!=null&&!owns(SCENARIO_PROGRAMMES,data.scenario))return false;
  if(data.civicTrainingCompletions!=null&&(!Number.isInteger(data.civicTrainingCompletions)||data.civicTrainingCompletions<0||data.civicTrainingCompletions>1000000))return false;
  const p=data.scenarioProgramme;if(p==null)return true;const definition=SCENARIO_PROGRAMMES[data.scenario]||SCENARIO_PROGRAMMES.settlement;
  if(p.version!==1||p.scenario!==data.scenario||!Number.isInteger(p.started)||p.started<1||p.started>data.day||!Number.isInteger(p.lastDay)||p.lastDay<p.started||p.lastDay>data.day||!Number.isInteger(p.stage)||p.stage<0||p.stage>definition.chapters.length||!Number.isInteger(p.held)||p.held<0||p.held>=(definition.chapters[p.stage]?.days||1)||!Array.isArray(p.completed)||p.completed.length!==p.stage)return false;

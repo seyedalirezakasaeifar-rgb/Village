@@ -1,5 +1,11 @@
 # Save and installation migration
 
+## Current development status
+
+Current source uses save schema 5. Later source slices add local service staffing/training, credit metadata and scenario programmes with optional validated migration fields. The signed 7.0.5 checkpoint APK does not contain every later source change. Follow the exact candidate QA notes and APK metadata when installing.
+
+The original private signing key was not supplied with the imported source. Builds made in this workspace use a new, persistent development signing identity, kept outside the public repository. An older installation with the same package and a different certificate cannot be updated in place: export and verify a town backup before uninstalling anything. A matching package name alone does not prove update compatibility. Historical version-specific notes below describe earlier build lines, not a guarantee about a newly supplied APK.
+
 ## Install alongside 5.6
 
 6.0 uses package `org.townledger.vale`. The supplied 5.6 app used `org.townledger.android`, and its private update signing key was not supplied. The new package avoids forcing an uninstall or overwriting the old installation. Both can remain installed.
@@ -8,7 +14,7 @@ In 5.6, export the town from Options. Open 6.0, choose Options, and import that 
 
 ## Schema
 
-The legacy `version: 3` field is retained for compatibility. New saves add `schema: 4`, release identity, RNG state, property investors, cargo, commodity accounts, price history, policy observations and visual trip state. Future schema numbers are rejected.
+The legacy `version: 3` field is retained for compatibility. New saves add `schema: 5`, release identity, RNG state, property investors, cargo, commodity accounts, price history, policy observations and visual trip state. Future schema numbers are rejected.
 
 Legacy 5.6 and compatible earlier version-2/3 JSON towns are validated and supplied with missing fields. Missing commodity accounts take their opening inventory from the imported town, including any cargo already present. This does not invent past production history.
 
@@ -37,3 +43,11 @@ Compatible 6.0 archives remain schema 4. Missing `climateSeasons` and `climateWe
 7.0 retains the package and signer, with version code 14. Schema 5 adds operating inventory costs, order and sales trends, company treasury distributions, pensions, retirement handling, monetary controls and the new economic rules. Legacy loans without a rate-type field retain fixed rates. Newly issued variable-rate contracts adjust with the benchmark. Presentation preferences persist locally; climate rules remain in the town archive.
 
 An imported city retains its physical streets, buildings and residents. The new named street plan and reauthored starting demographics apply to new towns. Existing economic results will change under the new rules; retain a previous export if preserving the old model matters. Older builds reject schema-5 saves rather than silently interpreting their balances with old rules.
+
+## Native archive transport under development
+
+The Android source now prepares an export as a private atomic UTF-8 file before opening the document chooser. Its pending filename and active chooser survive Activity recreation without putting the full town in an Android Bundle. Only one chooser/transfer is admitted at once. Document-provider reading/writing and quoting run on a worker, with UI updates returned to the main thread. Exports use a truncating destination mode; a provider error may leave an incomplete chosen destination, while the live town remains unchanged.
+
+The limit is 8 MiB of UTF-8 bytes, rather than Java character count. Invalid Unicode is rejected and a UTF-8 BOM on import is accepted. The byte limit is a transport ceiling, not a guarantee that every phone can restore the largest archive. Provider cancellation and failures do not replace the running town. Pure-Java tests cover boundaries, Unicode, malformed input and failed streams; actual provider/Activity behavior still needs native checks for the exact candidate.
+
+The native suspension hook now stops simulation and clears queued wall time, then resumes without catching up the background interval. The user's own pause preference is retained. Android Back waits for the save callback before finishing, with a bounded escape if the renderer does not respond. Abrupt process termination can still occur before an asynchronous save completes; retain manual exports for important towns.

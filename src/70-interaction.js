@@ -224,7 +224,7 @@ window.addEventListener('resize',fit);fit();
 let last=performance.now(),acc=0,lastMapDraw=0,lastHeader=0,lastPanel=0,lastAutosave=performance.now(),speedSample=0,sampleDays=0,sampleSeconds=0;
 function frame(now){
  const raw=Math.max(0,(now-last)/1000);last=now;
- if(G&&!paused&&!pendingEvent&&!document.hidden){
+ if(G&&!paused&&!hostSuspended&&!pendingEvent&&!document.hidden){
   // Admit requested wall time, then do a bounded amount of real simulation work.
   // A bounded queue avoids a multi-minute catchup after an interrupted phone frame.
   const dt=Math.min(raw,.25);acc=Math.min(acc+dt*speed,1.65*8);
@@ -244,5 +244,5 @@ function frame(now){
  }
  requestAnimationFrame(frame);
 }requestAnimationFrame(frame);
-window.addEventListener('beforeunload',()=>save());document.addEventListener('visibilitychange',()=>{if(document.hidden){save();last=performance.now();if(ambient)ambient.pause()}else refreshAmbience()});
+window.addEventListener('beforeunload',()=>save());document.addEventListener('visibilitychange',()=>{last=performance.now();acc=0;if(document.hidden){save();if(ambient)ambient.pause()}else refreshAmbience()});
 window.addEventListener('error',e=>{console.error(e.error||e.message);toast('Runtime issue: '+(e.message||'Unknown'))});

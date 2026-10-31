@@ -3,6 +3,7 @@
 (function(){
 // Negative indexing without requiring a recent Android WebView Array.at.
 function fromEnd(values,offset=1){return values[values.length-offset];}
+function owns(object,key){return Object.prototype.hasOwnProperty.call(object,key);}
 const ART_DATA={};
 const $=id=>document.getElementById(id), clamp=(x,a,b)=>Math.max(a,Math.min(b,x)),money=x=>(x<0?'−':'')+'$'+Math.round(Math.abs(x)).toLocaleString('en-CA');
 const fmt=x=>Number(x||0).toLocaleString('en-CA',{maximumFractionDigits:1});
@@ -79,6 +80,7 @@ const defs=[
  ['treasuryInvestment','Regional reserve investment share',0,100,5,'%','Share of surplus municipal cash available to buy outside-region securities when trade liquidity is low.']
 ];
 const defaults={policyRate:3,pensionDaily:16,incomeTax:12,profitTax:12,propertyTax:1.1,foodTax:4,utilityTax:2,commercialRate:.6,energyAidBudget:35,transitBudget:35,minWage:28,permitFee:250,policeBudget:180,defenseBudget:140,aidBudget:100,outreachBudget:40,employmentSubsidy:0,importTariff:0,healthBudget:70,educationBudget:90,roadBudget:25,zoningRestriction:25,businessRegulation:25,militiaBudget:25,bankReserve:12,lendingRules:35,depositGuarantee:0,treasuryInvestment:60,imports:true};
+let hostSuspended=false;
 let G=null,active='',buildMode='',selected=null,paused=false,speed=1,toastTimeout=0,chosenScenario='settlement',draftPolicy={},overlay='none',pendingEvent=null,previousDailyCash=0,autoSaveOK=true,filterPeople='all',filterFirms='all',citizenQuery='',constructionCategory='all',showTutorial=true,roadPainted=new Set(),roadBatchDirty=false;
 let bitmap=document.createElement('canvas');bitmap.width=RW;bitmap.height=RH;let bg=bitmap.getContext('2d',{alpha:false,willReadFrequently:false});
 const cv=$('view'),ctx=cv.getContext('2d',{alpha:false});let cw=1000,ch=600,dpr=1,cam={x:RW/2,y:RH/2,zoom:.68};let dirty=true,staticDirty=true;let vehicles=[];
