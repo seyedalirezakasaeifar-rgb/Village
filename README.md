@@ -17,7 +17,7 @@ Development phase notes:
 
 An offline government and town-economy game. This release rebuilds the operating model, the starting towns, monetary controls, road generation, animation and interface palette.
 
-## Current 7.1.0 source
+## Current 7.1.1 source
 
 The 80 × 80 region preserves the original town and offers five substantial outer districts for explicit mayoral purchase. Public Works previews costs and boundaries before a deed is acquired. Fisheries produce real food within shared water limits; staffed river wharves earn paid freight income when their routes beat regional road haulage. Original docks, working crews, fishing craft and cargo barges follow those businesses. Current archives use schema 6 and remap legacy 56 × 56 maps without taking their original property rights. The development APK has matching source assets, a verified signature and real Java DEX; native device certification remains incomplete.
 
