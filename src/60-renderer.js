@@ -178,6 +178,7 @@ function trafficUpdate(dt){
   }}
  for(const v of traffic)if(v.wait>4&&v.fraction<.001)detour(v);
  if(intersectionGates.size>450){for(const [k,t] of intersectionGates)if(trafficElapsed-t>3)intersectionGates.delete(k)}
+ if(G.transit?.routes.some(r=>r.stats?.operating)&&cam.zoom>=.38)dirty=true;
  if(traffic.length||G.airport?.operating||G.metro?.operating||G.buildings.some(b=>b.kind==='factory'||b.kind==='mill'||b.kind==='worksite')||overlay==='metro')dirty=true;
 }
 

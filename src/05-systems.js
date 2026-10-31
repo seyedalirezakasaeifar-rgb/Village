@@ -8,6 +8,7 @@ function hash(n){n=Math.imul((n^0x9e3779b9)>>>0,0x85ebca6b);n^=n>>>13;return (Ma
 function book(from,to,amount,reason,entity=-1){if(!(amount>0))return;G.transactions=G.transactions||[];G.transactions.push({day:G.day,from,to,amount,reason,entity});if(G.transactions.length>800)G.transactions.splice(0,G.transactions.length-800);}
 function ensureSystems(){
  if(!G)return;
+ ensureTransit();
  if(G.airport?.runway)for(const id of G.airport.runway)if(G.tiles[id]===3)G.tiles[id]=0;
  G.climateSeasons=G.climateSeasons===true;G.climateWeather=G.climateWeather===true;if(!G.climateWeather)G.weather='clear';G.nextLoanId=G.nextLoanId??0;G.schema=RELEASE.schema;G.release=RELEASE.version;G.development={fields:0,redevelopments:0,towers:0,airfields:0,...G.development};
  G.investors=G.investors||[{id:0,name:'Vale Property Partnership',cash:0,invested:0,spending:0}];

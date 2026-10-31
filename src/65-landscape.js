@@ -61,6 +61,7 @@ function tree(g,u,v,id,scale=1){
  if(visualMonth()>=10){g.fillStyle='#edf0e6';for(let j=0;j<4;j++)g.fillRect(-10+j*6,-35+(j%2)*5,9,2);}g.restore();
 }
 function architecture(g,b,w,d){
+ if(['transit_depot','elevated_station'].includes(b.kind)){transitFacilityArt(g,b,w,d);return;}
  const id=b.id,kind=b.redevelopment?'worksite':b.kind,v=id%8,winter=visualMonth()>=10,occupied=(b.hh>=0&&G.households[b.hh]?.people.length)||b.units?.some(id=>G.households[id]?.people.length),closed=b.firm>=0&&G.firms[b.firm]?.closed;
  const stone=['#dbca9e','#d4b78b','#c6c6a0','#e4d0aa'],roofs=['#9f553d','#617b78','#aa6d45','#466c59','#bd884a','#627f8e','#886050','#b0774b'];
  const wall=closed?'#9d9a85':kind==='home'?['#dcc596','#b9c7a4','#b77c59','#9fb6b7','#d7c39a','#cbc5a3','#cfae84','#b6bc8e'][id%8]:kind==='police'?'#a3b5ae':kind==='fire'?'#bf7856':stone[id%4],roof=winter?'#c4cfc1':roofs[id%8],lit=nightMode&&!!occupied;
@@ -320,6 +321,7 @@ function draw(){
   viewRasterKey=key;
  }
  ctx.setTransform(1,0,0,1,0,0);ctx.drawImage(viewRaster,0,0);transform();
+ drawTransitInfrastructure(ctx,visible);
  drawConstructionProgress(ctx,visible);drawInspectedRoute(ctx);drawWaterLife(ctx,visible);drawWaterfrontPiers(ctx,visible);drawSelectedWaterRoute(ctx);drawRegionalGates(ctx,visible);drawDistrictLife(ctx,visible);
  const visibleParcels=viewBuildings.filter(item=>visible(item.x,item.y,0)),actors=[...neighbourhoodAmbient(visibleParcels),...buildingActivity(visibleParcels),...workdayScenes(visibleParcels),...waterfrontActors(visible),...regionalCargoActors().filter(a=>visible(a.x,a.y,15))];if(visualDetailBudget().traffic)for(const v of traffic){const p=vehiclePosition(v);if(visible(p.x,p.y,15))actors.push({kind:'vehicle',v,...p});}actors.sort((a,b)=>a.y-b.y);
  if(actors.length){
@@ -331,11 +333,11 @@ function draw(){
 
  drawCharterBounds(ctx);drawUrbanOverlay(ctx,visible);paintTownLight(ctx);
  if(cam.zoom>=.45)atmosphere(ctx,sx,sy,ww,hh);
- drawAviation(ctx);
+ drawAviation(ctx);drawTransitVehicles(ctx,visible);
  if(overlay==='metro')drawMetroOverlay(ctx);
  if(overlay==='roads'||overlay==='business'||overlay==='hardship'||overlay==='crime'||overlay==='land')for(const item of displayItems){if(item.kind!=='building'||!visible(item.x,item.y))continue;const b=item.b,f=G.firms[b.firm],h=G.households[b.hh],net=graph();let color=overlay==='roads'?(net.portals.has(b.id)?'#9ecb95':'#bb7760'):overlay==='business'?(f?(f.closed?'#b66856':f.profit>0?'#a1c67d':'#d6b46c'):null):overlay==='hardship'?(h?(h.stress>50?'#b96c56':'#a9ca87'):null):overlay==='land'?(b.value>90000?'#c38864':b.value>45000?'#d0b776':'#9fc087'):null;if(!color)continue;ctx.globalAlpha=.7;diamond(ctx,b.x,b.y,color);ctx.globalAlpha=1;}
  drawServiceAccess(ctx);
  if(selected?.id){const b=readBuild(selected.id);if(b){const p=iso(b.x,b.y);ctx.strokeStyle='#f4e2a5';ctx.lineWidth=2;ctx.beginPath();ctx.ellipse(p[0],p[1]+18,32,16,0,0,Math.PI*2);ctx.stroke();}}
- if(buildMode&&pointer.hover){const {x,y}=pointer.hover;if(['fishery','wharf'].includes(buildMode))headerText('placementHint',types[buildMode].n+' · '+money(buildCost[buildMode])+' · '+waterfrontPlacementMessage(x,y,buildMode));if(x>=0&&x<T&&y>=0&&y<T){const valid=buildMode==='road'?[0,3].includes(cityCell(x,y))&&charterOwns(x,y)&&!buildingAt(x,y)&&!G.landUse?.[roadId(x,y)]&&G.treasury>=buildCost.road:buildMode==='repair'?cityCell(x,y)===1:canPlace(x,y,true,buildMode);ctx.globalAlpha=.60;for(const id of footprintFor(x,y,buildMode))diamond(ctx,id%T,id/T|0,valid?'#c8dea4':'#c48069');ctx.globalAlpha=1;}}
+ if(buildMode&&buildMode!=='transit_route'&&pointer.hover){const {x,y}=pointer.hover;if(['fishery','wharf'].includes(buildMode))headerText('placementHint',types[buildMode].n+' · '+money(buildCost[buildMode])+' · '+waterfrontPlacementMessage(x,y,buildMode));if(x>=0&&x<T&&y>=0&&y<T){const valid=buildMode==='road'?[0,3].includes(cityCell(x,y))&&charterOwns(x,y)&&!buildingAt(x,y)&&!G.landUse?.[roadId(x,y)]&&G.treasury>=buildCost.road:buildMode==='repair'?cityCell(x,y)===1:canPlace(x,y,true,buildMode);ctx.globalAlpha=.60;for(const id of footprintFor(x,y,buildMode))diamond(ctx,id%T,id/T|0,valid?'#c8dea4':'#c48069');ctx.globalAlpha=1;}}
  if(nightMode)paintNightScene(ctx,viewBuildings);
 }
