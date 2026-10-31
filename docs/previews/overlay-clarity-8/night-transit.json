@@ -1,0 +1,30 @@
+{
+  "fixture": "validated actual bus/elevated-route fixture; five simulated days; low-quality and reduced-motion visual settings",
+  "source_sha256": "bf56b67f9bbe79f85fbf08577260395d81fcb47d6963c1ebff856dc3abbb7139",
+  "captures": [
+    {
+      "routes": 2,
+      "day": 6,
+      "rides": 6,
+      "key": "TRANSIT \u00b7 solid line/square stop bus \u00b7 dashed line/circle metro",
+      "viewport": [
+        844,
+        390
+      ],
+      "dpr": 1,
+      "errors": []
+    },
+    {
+      "routes": 2,
+      "day": 6,
+      "rides": 6,
+      "key": "TRANSIT \u00b7 solid line/square stop bus \u00b7 dashed line/circle metro",
+      "viewport": [
+        390,
+        844
+      ],
+      "dpr": 2,
+      "errors": []
+    }
+  ]
+}

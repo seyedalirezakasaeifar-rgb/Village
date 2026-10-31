@@ -23,8 +23,8 @@ function drawTransitInfrastructure(g,visible){
   for(const next of [id+1,id+T])if(tracks.has(next)&&Math.abs(id%T-next%T)+Math.abs((id/T|0)-(next/T|0))===1){const q=roadCenter(next);segment(g,[x,y-21],[q[0],q[1]-21],'#4e7077',13);segment(g,[x,y-25],[q[0],q[1]-25],'#c2d2c6',11);segment(g,[x,y-28],[q[0],q[1]-28],'#6f969b',3);}
  }}
  if(overlay==='transit'||buildMode==='transit_route'){
-  for(const r of transitTopology().routes){g.globalAlpha=r.stats?.operating?.85:.45;g.strokeStyle=r.color;g.lineWidth=r.mode==='bus'?3:4;g.beginPath();let started=false;for(const id of r.path||[]){const p=roadCenter(id);if(!started){g.moveTo(p[0],p[1]-(r.mode==='elevated'?27:0));started=true;}else g.lineTo(p[0],p[1]-(r.mode==='elevated'?27:0));}g.stroke();
-   for(const id of r.stopRoads){const p=roadCenter(id);if(!visible(p[0],p[1],30))continue;g.fillStyle=r.color;g.beginPath();g.arc(p[0],p[1]+(r.mode==='elevated'?-27:0),5,0,Math.PI*2);g.fill();g.strokeStyle='#233c41';g.lineWidth=1;g.stroke();}
+  for(const r of transitTopology().routes){g.globalAlpha=r.stats?.operating?.85:.45;g.strokeStyle=r.color;g.lineWidth=r.mode==='bus'?3:4;g.setLineDash(r.mode==='elevated'?[8,4]:[]);g.beginPath();let started=false;for(const id of r.path||[]){const p=roadCenter(id);if(!started){g.moveTo(p[0],p[1]-(r.mode==='elevated'?27:0));started=true;}else g.lineTo(p[0],p[1]-(r.mode==='elevated'?27:0));}g.stroke();g.setLineDash([]);
+   for(const id of r.stopRoads){const p=roadCenter(id);if(!visible(p[0],p[1],30))continue;g.fillStyle=r.color;g.strokeStyle='#233c41';g.lineWidth=1;if(r.mode==='bus'){g.fillRect(p[0]-4,p[1]-4,8,8);g.strokeRect(p[0]-4,p[1]-4,8,8);}else{g.beginPath();g.arc(p[0],p[1]-27,5,0,Math.PI*2);g.fill();g.stroke();}}
   }
   if(transitDraft){g.globalAlpha=1;for(let i=0;i<transitDraft.stops.length;i++){const id=transitStopRoad(transitDraft.mode,transitDraft.stops[i]);if(id==null)continue;const p=roadCenter(id);g.fillStyle='#fff0b3';g.beginPath();g.arc(p[0],p[1],10,0,Math.PI*2);g.fill();g.fillStyle='#27484c';g.font='bold 11px sans-serif';g.textAlign='center';g.fillText(String(i+1),p[0],p[1]+4);}}
  }

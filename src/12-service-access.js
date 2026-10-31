@@ -57,9 +57,10 @@ function schoolPlacementHint(x,y){
  return 'School · '+money(p.cost)+' build'+(p.affordable?' · ':' (over budget) · ')+money(p.afterBuild)+' left · road trip '+(p.siteMeanDistance==null?'no homes':Math.round(p.siteMeanDistance)+' segments avg')+'; '+p.siteBeyondLimit+' residents >'+p.limit+' · new reach +'+p.newlyReachable+' residents · shared places +'+Math.min(260,Math.round(p.incrementalPlaces))+'/260 · education '+money(p.educationBudget)+'/day vs ~'+money(p.reachableNeed)+'/day need · '+current+' · '+p.eligibleLocalStaff+' eligible local staff · '+staff+' · estimate, no service promise';
 }
 function drawServiceAccess(g){
- if(!['healthAccess','schoolAccess'].includes(overlay))return;const access=serviceAccess(overlay==='healthAccess'?'health':'school'),byHome=new Map();
+ if(!['healthAccess','schoolAccess'].includes(overlay))return;g.save();const access=serviceAccess(overlay==='healthAccess'?'health':'school'),byHome=new Map();
  for(const h of access.households){const entry=byHome.get(h.home)||{served:0,residents:0};entry.served+=h.served;entry.residents+=h.residents;byHome.set(h.home,entry);}
- for(const [id,h] of byHome){const b=readBuild(id);if(!b)continue;const p=iso(b.x,b.y);if(Math.abs(p[0]-cam.x)>cw/(2*cam.zoom)+72||Math.abs(p[1]-cam.y)>ch/(2*cam.zoom)+72)continue;g.globalAlpha=.55;diamond(g,b.x,b.y,h.served>=h.residents-1e-6?'#a4d09b':h.served?'#e0c076':'#ce8069');if(cam.zoom>.65){g.globalAlpha=1;g.font=`bold ${10/cam.zoom}px Arial`;g.textAlign='center';g.fillStyle='#173c2c';g.fillText(h.served>=h.residents-1e-6?'+':h.served>0?'!':'×',p[0],p[1]+21);}}g.globalAlpha=1;
+ for(const [id,h] of byHome){const b=readBuild(id);if(!b)continue;const p=iso(b.x,b.y);if(Math.abs(p[0]-cam.x)>cw/(2*cam.zoom)+72||Math.abs(p[1]-cam.y)>ch/(2*cam.zoom)+72)continue;g.globalAlpha=.55;diamond(g,b.x,b.y,h.served>=h.residents-1e-6?'#a4d09b':h.served?'#e0c076':'#ce8069');if(cam.zoom>.45){const x=p[0],y=p[1]+21,r=6/cam.zoom;g.globalAlpha=1;g.beginPath();g.arc(x,y,r,0,Math.PI*2);g.fillStyle='#f5f0dc';g.fill();g.strokeStyle='#20382d';g.lineWidth=1.6/cam.zoom;g.stroke();g.font=`bold ${9/cam.zoom}px Arial`;g.textAlign='center';g.textBaseline='middle';g.lineWidth=1/cam.zoom;g.fillStyle='#172d25';g.fillText(h.served>=h.residents-1e-6?'+':h.served>0?'!':'X',x,y+.3/cam.zoom);}}
+ g.restore();
 }
 
 function householdServiceReport(id){
