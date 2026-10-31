@@ -1,0 +1,485 @@
+{
+  "source_sha256": "27ae071ac52278a51b3388c0a50e8107f9a28a3f34ef01a35396ea3dd9be0c92",
+  "unassistedResourceAndPopulationState": true,
+  "pure": {
+    "report": {
+      "ok": true,
+      "stamp": "transit-review-1",
+      "day": 1,
+      "revision": 1,
+      "roadsVersion": 25,
+      "treasury": 81000,
+      "quoteToken": "1|25|28|bus|103|3483,3484|1|-1|7100",
+      "editing": -1,
+      "route": 1,
+      "mode": "bus",
+      "level": 1,
+      "capital": 7100,
+      "status": "no-useful-trips",
+      "catchment": {
+        "households": 0,
+        "residents": 0,
+        "jobSites": 14,
+        "jobs": 43,
+        "filledJobs": 43,
+        "shops": 3,
+        "stockedShops": 3,
+        "teachingSites": 1,
+        "operatingTeachingSites": 0
+      },
+      "service": {
+        "capitalAffordable": true,
+        "requiredDrivers": 2,
+        "availableDrivers": 22,
+        "assignedDrivers": 2,
+        "operating": true,
+        "capacity": 609,
+        "idealCapacity": 609,
+        "headway": 6.3,
+        "reliability": 1,
+        "operatingCost": 68.22,
+        "authorizedCost": 68.22,
+        "cashAfterCapital": 73900,
+        "otherAuthorizedNeed": 1089
+      },
+      "opportunities": {
+        "workTrips": 0,
+        "headway": 6.3,
+        "capacity": 609,
+        "condition": "Preferred work trips at requested frequency with required drivers/funding and current jobs/cash, before seat competition."
+      },
+      "demand": {
+        "counts": {
+          "eligible": 0,
+          "boarded": 0,
+          "denied": 0,
+          "shortTrips": 0,
+          "slowTrips": 0,
+          "otherRoutes": 0,
+          "unaffordable": 0,
+          "shoppingBoardings": 0
+        },
+        "travel": {
+          "samples": 0,
+          "averageMinutesSaved": 0,
+          "averageTransitMinutes": 0,
+          "averageRoadMinutes": 0,
+          "averageRoadCost": 0,
+          "averageTransitFare": 0
+        },
+        "commuteBoardings": 0,
+        "totalBoardings": 0,
+        "ticketFares": {
+          "commutes": 0,
+          "shopping": 0
+        }
+      },
+      "fares": {
+        "low": 0,
+        "high": 0
+      },
+      "publicFunding": {
+        "low": 68.22,
+        "high": 68.22
+      },
+      "options": [
+        {
+          "level": 1,
+          "name": "Local",
+          "drivers": 2,
+          "headway": 6.3,
+          "capacity": 609,
+          "operating": 68.22
+        },
+        {
+          "level": 2,
+          "name": "Frequent",
+          "drivers": 4,
+          "headway": 3.15,
+          "capacity": 1219,
+          "operating": 136.22
+        },
+        {
+          "level": 3,
+          "name": "High frequency",
+          "drivers": 8,
+          "headway": 1.575,
+          "capacity": 2438,
+          "operating": 272.22
+        }
+      ],
+      "actions": [
+        {
+          "kind": "origins",
+          "text": "These stops reach 43 filled business jobs but no households within the walking limit. Connect residential origins before adding frequency."
+        },
+        {
+          "kind": "walk",
+          "text": "Working households lie six to eight street steps from a stop. A closer stop or a legal street connection may improve access.",
+          "targets": [
+            {
+              "household": 64,
+              "building": 98,
+              "name": "Russell household",
+              "workers": 1
+            }
+          ]
+        },
+        {
+          "kind": "demand",
+          "text": "Low use in this snapshot. Check destinations and first/last walking links; compare a smaller fleet before committing more capital."
+        }
+      ],
+      "observed": null,
+      "assumptions": [
+        "Current jobs, road access, street wear and available local drivers; construction completion and tomorrow\u2019s jobs can change them.",
+        "Range compares current affordable work trips with work plus one currently stocked shopping trip per household; future wages, rents, output and prices can change purchases.",
+        "Transfer fares are shared between routes for this estimate; the treasury collects each actual fare once.",
+        "Teaching destinations are context. Fare estimates cover work and food shopping, and do not grant extra school or clinic coverage.",
+        "Public funding can support useful access even when fares do not cover costs. These are snapshot scenarios, not a profit guarantee."
+      ],
+      "calculationMs": 8.5
+    },
+    "noEconomicWrites": true,
+    "cached": true,
+    "noPerFrameScans": true
+  },
+  "poorRoute": {
+    "paused": true,
+    "day": 2,
+    "treasury": 74226.94170118518,
+    "total": 15493516.999999996,
+    "routes": [
+      {
+        "id": 1,
+        "name": "Bus 1",
+        "mode": "bus",
+        "depot": 103,
+        "stops": [
+          3483,
+          3484
+        ],
+        "level": 1,
+        "vehicles": 1,
+        "path": [
+          3483,
+          3484
+        ],
+        "offsets": [
+          0,
+          1
+        ],
+        "color": "#f0ad56",
+        "built": 1,
+        "capital": 7100,
+        "stats": {
+          "operating": true,
+          "capacity": 609,
+          "reserved": 0,
+          "boardings": 0,
+          "demand": 0,
+          "denied": 0,
+          "staff": [
+            10,
+            16
+          ],
+          "required": 2,
+          "status": "Operating",
+          "headway": 6.3,
+          "reliability": 1,
+          "expenses": 68.22,
+          "lastDemand": 0,
+          "lastDenied": 0
+        }
+      }
+    ],
+    "daily": {
+      "rides": 0,
+      "denied": 0,
+      "revenue": 0,
+      "expenses": 68.22,
+      "staff": 2
+    },
+    "population": 169,
+    "fare": 0.65
+  },
+  "recoveryProposal": {
+    "spec": {
+      "mode": "bus",
+      "depot": 103,
+      "stops": [
+        3087,
+        1813
+      ],
+      "level": 2
+    },
+    "report": {
+      "ok": true,
+      "stamp": "transit-review-8",
+      "day": 2,
+      "revision": 2,
+      "roadsVersion": 25,
+      "treasury": 74226.94170118518,
+      "quoteToken": "2|25|28|bus|103|3087,1813|2|1|6200",
+      "editing": 1,
+      "route": 1,
+      "mode": "bus",
+      "level": 2,
+      "capital": 6200,
+      "status": "public-funding-needed",
+      "catchment": {
+        "households": 11,
+        "residents": 27,
+        "jobSites": 1,
+        "jobs": 4,
+        "filledJobs": 4,
+        "shops": 0,
+        "stockedShops": 0,
+        "teachingSites": 0,
+        "operatingTeachingSites": 0
+      },
+      "service": {
+        "capitalAffordable": true,
+        "requiredDrivers": 4,
+        "availableDrivers": 18,
+        "assignedDrivers": 4,
+        "operating": true,
+        "capacity": 188,
+        "idealCapacity": 188,
+        "headway": 20.402146862272097,
+        "reliability": 0.9998947727272727,
+        "operatingCost": 137.87,
+        "authorizedCost": 137.87,
+        "cashAfterCapital": 68026.94170118518,
+        "otherAuthorizedNeed": 1089
+      },
+      "opportunities": {
+        "workTrips": 4,
+        "headway": 20.402146862272097,
+        "capacity": 188,
+        "condition": "Preferred work trips at requested frequency with required drivers/funding and current jobs/cash, before seat competition."
+      },
+      "demand": {
+        "counts": {
+          "eligible": 4,
+          "boarded": 4,
+          "denied": 0,
+          "shortTrips": 0,
+          "slowTrips": 0,
+          "otherRoutes": 0,
+          "unaffordable": 0,
+          "shoppingBoardings": 0
+        },
+        "travel": {
+          "samples": 4,
+          "averageMinutesSaved": 2.3989265688639536,
+          "averageTransitMinutes": 31.101073431136044,
+          "averageRoadMinutes": 33.5,
+          "averageRoadCost": 0.6212500000000001,
+          "averageTransitFare": 0.65
+        },
+        "commuteBoardings": 4,
+        "totalBoardings": 4,
+        "ticketFares": {
+          "commutes": 2.6,
+          "shopping": 0
+        }
+      },
+      "fares": {
+        "low": 2.6,
+        "high": 2.6
+      },
+      "publicFunding": {
+        "low": 135.27,
+        "high": 135.27
+      },
+      "options": [
+        {
+          "level": 1,
+          "name": "Local",
+          "drivers": 2,
+          "headway": 40.804293724544195,
+          "capacity": 94,
+          "operating": 69.87
+        },
+        {
+          "level": 2,
+          "name": "Frequent",
+          "drivers": 4,
+          "headway": 20.402146862272097,
+          "capacity": 188,
+          "operating": 137.87
+        },
+        {
+          "level": 3,
+          "name": "High frequency",
+          "drivers": 8,
+          "headway": 10.201073431136049,
+          "capacity": 376,
+          "operating": 273.87
+        }
+      ],
+      "actions": [
+        {
+          "kind": "destination",
+          "text": "Some reachable households work beyond these stops. Replan or extend toward their actual workplaces.",
+          "targets": [
+            {
+              "firm": 9,
+              "building": 19,
+              "name": "Farm Works",
+              "workers": 4
+            },
+            {
+              "firm": 16,
+              "building": 26,
+              "name": "Construction Co. Works",
+              "workers": 4
+            },
+            {
+              "firm": 5,
+              "building": 15,
+              "name": "Flour Mill Works",
+              "workers": 2
+            }
+          ]
+        },
+        {
+          "kind": "demand",
+          "text": "Low use in this snapshot. Check destinations and first/last walking links; compare a smaller fleet before committing more capital."
+        }
+      ],
+      "observed": {
+        "boardings": 0,
+        "demand": 0,
+        "denied": 0,
+        "expenses": 68.22,
+        "networkFares": 0,
+        "networkExpenses": 68.22
+      },
+      "assumptions": [
+        "Current jobs, road access, street wear and available local drivers; construction completion and tomorrow\u2019s jobs can change them.",
+        "Range compares current affordable work trips with work plus one currently stocked shopping trip per household; future wages, rents, output and prices can change purchases.",
+        "Transfer fares are shared between routes for this estimate; the treasury collects each actual fare once.",
+        "Teaching destinations are context. Fare estimates cover work and food shopping, and do not grant extra school or clinic coverage.",
+        "Public funding can support useful access even when fares do not cover costs. These are snapshot scenarios, not a profit guarantee."
+      ],
+      "calculationMs": 0.599999999627471
+    }
+  },
+  "recovered": {
+    "paused": true,
+    "day": 4,
+    "treasury": 67587.31715177595,
+    "total": 15493516.999999996,
+    "routes": [
+      {
+        "id": 1,
+        "name": "Bus 1",
+        "mode": "bus",
+        "depot": 103,
+        "stops": [
+          3087,
+          1813
+        ],
+        "level": 2,
+        "vehicles": 2,
+        "path": [
+          3087,
+          2959,
+          2831,
+          2703,
+          2704,
+          2705,
+          2706,
+          2707,
+          2708,
+          2709,
+          2581,
+          2453,
+          2325,
+          2197,
+          2069,
+          1941,
+          1813
+        ],
+        "offsets": [
+          0,
+          16
+        ],
+        "color": "#f0ad56",
+        "built": 1,
+        "capital": 13300,
+        "stats": {
+          "operating": true,
+          "capacity": 188,
+          "reserved": 4,
+          "boardings": 4,
+          "demand": 4,
+          "denied": 0,
+          "staff": [
+            10,
+            16,
+            40,
+            45
+          ],
+          "required": 4,
+          "status": "Operating",
+          "headway": 20.40429417645623,
+          "reliability": 0.9997895454545453,
+          "expenses": 137.87,
+          "lastDemand": 0,
+          "lastDenied": 0
+        }
+      }
+    ],
+    "daily": {
+      "rides": 4,
+      "denied": 0,
+      "revenue": 2.6,
+      "expenses": 137.87,
+      "staff": 4
+    },
+    "population": 169,
+    "fare": 0.65
+  },
+  "edges": {
+    "unfunded": {
+      "capitalAffordable": true,
+      "requiredDrivers": 4,
+      "availableDrivers": 17,
+      "assignedDrivers": 0,
+      "operating": false,
+      "capacity": 0,
+      "idealCapacity": 188,
+      "headway": 0,
+      "reliability": 0.999684318181818,
+      "operatingCost": 0,
+      "authorizedCost": 137.87,
+      "cashAfterCapital": 0,
+      "otherAuthorizedNeed": 1089
+    },
+    "unstaffed": {
+      "capitalAffordable": true,
+      "requiredDrivers": 4,
+      "availableDrivers": 0,
+      "assignedDrivers": 0,
+      "operating": false,
+      "capacity": 0,
+      "idealCapacity": 188,
+      "headway": 0,
+      "reliability": 0.999684318181818,
+      "operatingCost": 0,
+      "authorizedCost": 137.87,
+      "cashAfterCapital": 67587.31715177595,
+      "otherAuthorizedNeed": 1089
+    },
+    "staleAffordabilityRejected": true,
+    "restored": true
+  },
+  "forecastReplay": {
+    "days": 15,
+    "exact": true
+  },
+  "errors": []
+}

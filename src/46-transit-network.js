@@ -53,7 +53,7 @@ function transitQuote(spec,editing=-1){
  return {ok:true,mode,depot:depot.id,stops:stops.slice(),level,vehicles,path:route.path,offsets:route.offsets,newTrack,cost,cycle,headway:cycle/vehicles,capacity:Math.floor(vehicles*definition.seats*120/cycle),operating,token};
 }
 function buildTransitRoute(spec,quote,editing=-1){
- const current=transitQuote(spec,editing);if(!current.ok||!quote||quote.token!==current.token||G.treasury<current.cost)return false;
+ const current=transitQuote(spec,editing);if(!current.ok||!quote||quote.token!==current.token||G.treasury<current.cost||quote.forecastStamp!=null&&!transitForecastFresh(quote.forecastStamp))return false;
  const state=ensureTransit(),existing=state.routes.find(r=>r.id===editing);if(editing>=0&&!existing)return false;
  G.treasury-=current.cost;G.region+=current.cost;G.cumulative.spending+=current.cost;state.capital+=current.cost;book('Municipal transit capital','Regional vehicle and guideway suppliers',current.cost,'Public '+TRANSIT_MODES[spec.mode].name+' route');
  const id=existing?.id||state.next++,route={id,name:existing?.name||TRANSIT_MODES[spec.mode].name+' '+id,mode:spec.mode,depot:spec.depot,stops:spec.stops.slice(),level:spec.level,vehicles:current.vehicles,path:current.path,offsets:current.offsets,color:existing?.color||TRANSIT_COLORS[(id-1)%TRANSIT_COLORS.length],built:existing?.built||G.day,capital:(existing?.capital||0)+current.cost,stats:{operating:false,capacity:0,reserved:0,boardings:0,demand:0,denied:0,staff:[],required:0,headway:0,reliability:0,expenses:0,status:'Service begins next day'}};
@@ -87,12 +87,12 @@ function transitTopology(){
 // Heap keeps many-household routing bounded; no shortest-path work occurs per frame.
 function transitHeapPush(heap,value){heap.push(value);let i=heap.length-1;while(i){const p=(i-1)>>1;if(heap[p][0]<=value[0])break;heap[i]=heap[p];i=p;}heap[i]=value;}
 function transitHeapPop(heap){const first=heap[0],last=heap.pop();if(heap.length){let i=0;while(i*2+1<heap.length){let j=i*2+1;if(j+1<heap.length&&heap[j+1][0]<heap[j][0])j++;if(heap[j][0]>=last[0])break;heap[i]=heap[j];i=j;}heap[i]=last;}return first;}
-function transitRouting(){
- const topology=transitTopology(),state=ensureTransit();
- if(transitDailyCache?.town===G&&transitDailyCache.topology===topology&&transitDailyCache.service===state.lastDay)return transitDailyCache;
+function transitRouting(topologyOverride=null){
+ const topology=topologyOverride||transitTopology(),state=ensureTransit();
+ if(!topologyOverride&&transitDailyCache?.town===G&&transitDailyCache.topology===topology&&transitDailyCache.service===state.lastDay)return transitDailyCache;
  const signature=topology.routes.map(r=>r.valid&&r.stats?.operating?r.id+':'+r.stats.headway:'').join('|');
  // Geometry and timetable determine routing costs. Day, fares and ridership do not.
- if(transitDailyCache?.town===G&&transitDailyCache.topology===topology&&transitDailyCache.signature===signature){transitDailyCache.service=state.lastDay;return transitDailyCache;}
+ if(!topologyOverride&&transitDailyCache?.town===G&&transitDailyCache.topology===topology&&transitDailyCache.signature===signature){transitDailyCache.service=state.lastDay;return transitDailyCache;}
  const nodes=[],edges=[],roadNodes=new Map(),access=new Map(),patterns=new Map();for(const route of topology.routes){if(!route.valid||!route.stats?.operating)continue;const base=nodes.length,patternKey=route.mode+'|'+route.stopRoads.join(',')+'|'+route.offsets.join(',');if(!patterns.has(patternKey))patterns.set(patternKey,patterns.size);const pattern=patterns.get(patternKey);
   for(let i=0;i<route.stops.length;i++){const road=route.stopRoads[i],id=nodes.length;nodes.push({route:route.id,index:i,road,pattern,headway:route.stats.headway,mode:route.mode});edges.push([]);if(!roadNodes.has(road))roadNodes.set(road,[]);roadNodes.get(road).push(id);
    for(const [walkRoad,distance] of topology.walks.get(road)||[]){if(!access.has(walkRoad))access.set(walkRoad,[]);access.get(walkRoad).push([id,distance]);}
@@ -102,16 +102,17 @@ function transitRouting(){
  // A same-stop switch between identical ride patterns adds a wait without a new destination.
  // Keep cross-stop walks/transfers: these can bridge a real shortcut or another corridor.
  for(let i=0;i<nodes.length;i++){const a=nodes[i];for(const [road,distance] of topology.walks.get(a.road)||[])if(distance<=3)for(const j of roadNodes.get(road)||[])if(nodes[j].route!==a.route&&(nodes[j].pattern!==a.pattern||nodes[j].index!==a.index))edges[i].push([j,distance*2+nodes[j].headway/2+2]);}
- return transitDailyCache={town:G,topology,signature,service:state.lastDay,nodes,edges,access,homes:new Map(),journeys:new Map(),capacity:new Map()};
+ const routing={town:G,topology,signature,service:state.lastDay,nodes,edges,access,homes:new Map(),journeys:new Map(),capacity:new Map()};
+ if(topologyOverride){routing.forecastRoutes=topology.routes;routing.forecastVersion=0;return routing;}return transitDailyCache=routing;
 }
 function transitCapacityMask(routing,units){
  if(!units)return {blocked:new Set(),key:''};
- let cached=routing.capacity.get(units);if((units===1||units===2)&&cached?.version===transitReservationVersion)return cached;
- const blocked=new Set(ensureTransit().routes.filter(r=>r.stats.reserved+units>r.stats.capacity).map(r=>r.id));
- cached={blocked,key:[...blocked].join(','),version:transitReservationVersion};routing.capacity.set(units,cached);return cached;
+ const version=routing.forecastRoutes?routing.forecastVersion:transitReservationVersion;let cached=routing.capacity.get(units);if((units===1||units===2)&&cached?.version===version)return cached;
+ const blocked=new Set((routing.forecastRoutes||ensureTransit().routes).filter(r=>r.stats.reserved+units>r.stats.capacity).map(r=>r.id));
+ cached={blocked,key:[...blocked].join(','),version};routing.capacity.set(units,cached);return cached;
 }
-function transitJourney(home,destination,capacityUnits=0){
- if(!home||!destination||!G.transit?.routes.length)return null;const routing=transitRouting(),net=routing.topology.net,origin=net.portals.get(home.id),goal=net.portals.get(destination.id);if(origin==null||goal==null||origin===goal||!routing.nodes.length)return null;
+function transitJourney(home,destination,capacityUnits=0,routingOverride=null){
+ if(!home||!destination||!routingOverride&&!G.transit?.routes.length)return null;const routing=routingOverride||transitRouting(),net=routing.topology.net,origin=net.portals.get(home.id),goal=net.portals.get(destination.id);if(origin==null||goal==null||origin===goal||!routing.nodes.length)return null;
  const {blocked,key}=transitCapacityMask(routing,capacityUnits),treeKey=origin+'|'+key,tripKey=origin+'>'+goal+'|'+key,copy=trip=>trip?{...trip,routes:trip.routes.slice()}:null;
  const cached=routing.journeys.get(tripKey);if(cached!==undefined)return copy(cached);
  const finish=trip=>{if(routing.journeys.size>=4096)routing.journeys.delete(routing.journeys.keys().next().value);routing.journeys.set(tripKey,trip);return copy(trip);};
@@ -128,9 +129,9 @@ function transitJourney(home,destination,capacityUnits=0){
  return finish({routes:routeIds,time,fare:Math.max(...routeIds.map(id=>TRANSIT_MODES[routing.topology.records.get(id).mode].fare)),transfers:routeIds.length-1});
 }
 function transitAccess(home,destination){const journey=transitJourney(home,destination);return !!journey&&journey.time<=90;}
-function transitReserve(journey,units=1){
- if(!journey)return false;const records=transitTopology().records,routes=journey.routes.map(id=>records.get(id));if(routes.some(r=>!r?.stats.operating||r.stats.reserved+units>r.stats.capacity))return false;
- for(const r of routes){const before=r.stats.capacity-r.stats.reserved;r.stats.reserved+=units;const after=before-units;if(before>=2&&after<2||before>=1&&after<1)transitReservationVersion++;}return true;
+function transitReserve(journey,units=1,routingOverride=null){
+ if(!journey)return false;const records=(routingOverride?.topology||transitTopology()).records,routes=journey.routes.map(id=>records.get(id));if(routes.some(r=>!r?.stats.operating||r.stats.reserved+units>r.stats.capacity))return false;
+ for(const r of routes){const before=r.stats.capacity-r.stats.reserved;r.stats.reserved+=units;const after=before-units;if(before>=2&&after<2||before>=1&&after<1){if(routingOverride)routingOverride.forecastVersion++;else transitReservationVersion++;}}return true;
 }
 function transitDemand(journey,denied=false,units=1){if(!journey)return;for(const id of journey.routes){const s=transitTopology().records.get(id)?.stats;if(s){s.demand+=units;if(denied)s.denied+=units;}}}
 function transitCollectFare(h,journey,units=1){

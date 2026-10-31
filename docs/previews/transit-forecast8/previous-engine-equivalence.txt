@@ -1,0 +1,332 @@
+{"routes": 8, "speedup": 3.5833333319535963, "exact_equivalence": true}
+{"routes": 12, "speedup": 5.0294117668005525, "exact_equivalence": true}
+{"routes": 48, "speedup": 19.34374999336069, "exact_equivalence": true}
+{"routes": 12, "speedup": 4.857142857142857, "exact_equivalence": true}
+{"routes": 48, "speedup": 39.709677400146916, "exact_equivalence": true}
+{
+  "source_sha256": "a04287be4e85943b6c1cba03229416463eac05c48ef35b1af338625a5beb66ca",
+  "reference_commit": "eb2e88c",
+  "reference_module_sha256": "d125f7e8f13c11f7d0254ade7c0665f21301045035907c3ab740ed367d0d95d6",
+  "cases": [
+    {
+      "routes": 8,
+      "distributedOrigins": false,
+      "riders": 2000,
+      "baseline": {
+        "implementation": "baseline",
+        "times": [
+          39.40000000037253,
+          41.70000000111759,
+          20.899999998509884,
+          18.40000000037253,
+          12.900000000372529,
+          13.099999999627471,
+          11.700000001117587,
+          11.199999999254942,
+          13.300000000745058,
+          11.399999998509884,
+          11.799999998882413,
+          11.800000000745058
+        ],
+        "poseMs": 0.00599999999627471,
+        "state": {
+          "routes": 8,
+          "nodes": 128,
+          "cacheStable": true,
+          "assigned": 1120,
+          "drivers": 32,
+          "denied": 880
+        },
+        "median_ms": 12.900000000372529
+      },
+      "optimized": {
+        "implementation": "optimized",
+        "times": [
+          19,
+          9.599999999627471,
+          4.400000000372529,
+          5,
+          4.099999999627471,
+          3.800000000745058,
+          2.799999998882413,
+          3.599999999627471,
+          2.400000000372529,
+          3.600000001490116,
+          3.400000000372529,
+          2.5
+        ],
+        "poseMs": 0.006999999992549419,
+        "state": {
+          "routes": 8,
+          "nodes": 128,
+          "cacheStable": true,
+          "assigned": 1120,
+          "drivers": 32,
+          "denied": 880
+        },
+        "median_ms": 3.600000001490116
+      },
+      "exact_equivalence": true,
+      "speedup": 3.5833333319535963
+    },
+    {
+      "routes": 12,
+      "distributedOrigins": false,
+      "riders": 2000,
+      "baseline": {
+        "implementation": "baseline",
+        "times": [
+          47.29999999888241,
+          41,
+          24.399999998509884,
+          18.100000001490116,
+          19,
+          17.399999998509884,
+          17.09999999962747,
+          16.699999999254942,
+          15.800000000745058,
+          16.199999999254942,
+          15.5,
+          16
+        ],
+        "poseMs": 0.00900000000372529,
+        "state": {
+          "routes": 12,
+          "nodes": 192,
+          "cacheStable": true,
+          "assigned": 1680,
+          "drivers": 48,
+          "denied": 320
+        },
+        "median_ms": 17.09999999962747
+      },
+      "optimized": {
+        "implementation": "optimized",
+        "times": [
+          22.40000000037253,
+          8.199999999254942,
+          5.800000000745058,
+          6.900000000372529,
+          5.299999998882413,
+          2.900000000372529,
+          3.200000001117587,
+          3.5,
+          3.399999998509884,
+          2.800000000745058,
+          2.599999999627471,
+          3.100000001490116
+        ],
+        "poseMs": 0.00799999998882413,
+        "state": {
+          "routes": 12,
+          "nodes": 192,
+          "cacheStable": true,
+          "assigned": 1680,
+          "drivers": 48,
+          "denied": 320
+        },
+        "median_ms": 3.399999998509884
+      },
+      "exact_equivalence": true,
+      "speedup": 5.0294117668005525
+    },
+    {
+      "routes": 48,
+      "distributedOrigins": false,
+      "riders": 2000,
+      "baseline": {
+        "implementation": "baseline",
+        "times": [
+          107.19999999925494,
+          78.30000000074506,
+          69.30000000074506,
+          66.09999999962747,
+          61.90000000037253,
+          62.09999999962747,
+          60.69999999925494,
+          64.59999999962747,
+          60.59999999962747,
+          60.69999999925494,
+          60.70000000111759,
+          60.59999999962747
+        ],
+        "poseMs": 0.025,
+        "state": {
+          "routes": 48,
+          "nodes": 768,
+          "cacheStable": true,
+          "assigned": 2000,
+          "drivers": 192,
+          "denied": 0
+        },
+        "median_ms": 61.90000000037253
+      },
+      "optimized": {
+        "implementation": "optimized",
+        "times": [
+          42.5,
+          7,
+          7.099999999627471,
+          4.800000000745058,
+          5,
+          2.699999999254942,
+          3.5,
+          3.200000001117587,
+          2.900000000372529,
+          3,
+          2.599999999627471,
+          2.700000001117587
+        ],
+        "poseMs": 0.025,
+        "state": {
+          "routes": 48,
+          "nodes": 768,
+          "cacheStable": true,
+          "assigned": 2000,
+          "drivers": 192,
+          "denied": 0
+        },
+        "median_ms": 3.200000001117587
+      },
+      "exact_equivalence": true,
+      "speedup": 19.34374999336069
+    },
+    {
+      "routes": 12,
+      "distributedOrigins": true,
+      "riders": 2000,
+      "baseline": {
+        "implementation": "baseline",
+        "times": [
+          72.59999999962747,
+          43.69999999925494,
+          24.90000000037253,
+          18.5,
+          16.90000000037253,
+          17.5,
+          16.90000000037253,
+          16.40000000037253,
+          16.699999999254942,
+          17,
+          17.59999999962747,
+          17
+        ],
+        "poseMs": 0.011000000014901161,
+        "state": {
+          "routes": 12,
+          "nodes": 192,
+          "cacheStable": true,
+          "assigned": 875,
+          "drivers": 48,
+          "denied": 0
+        },
+        "median_ms": 17
+      },
+      "optimized": {
+        "implementation": "optimized",
+        "times": [
+          44.5,
+          6.300000000745058,
+          5.899999998509884,
+          4.900000000372529,
+          3.599999999627471,
+          3.399999998509884,
+          3.5,
+          3.699999999254942,
+          2.699999999254942,
+          3.200000001117587,
+          3.5,
+          2.400000000372529
+        ],
+        "poseMs": 0.00899999998509884,
+        "state": {
+          "routes": 12,
+          "nodes": 192,
+          "cacheStable": true,
+          "assigned": 875,
+          "drivers": 48,
+          "denied": 0
+        },
+        "median_ms": 3.5
+      },
+      "exact_equivalence": true,
+      "speedup": 4.857142857142857
+    },
+    {
+      "routes": 48,
+      "distributedOrigins": true,
+      "riders": 2000,
+      "baseline": {
+        "implementation": "baseline",
+        "times": [
+          184,
+          154.5,
+          125.19999999925494,
+          123.30000000074506,
+          123.09999999962747,
+          123.5,
+          117.5,
+          125.20000000111759,
+          117.90000000037253,
+          115.19999999925494,
+          114.19999999925494,
+          115.10000000149012
+        ],
+        "poseMs": 0.02599999999627471,
+        "state": {
+          "routes": 48,
+          "nodes": 768,
+          "cacheStable": true,
+          "assigned": 875,
+          "drivers": 192,
+          "denied": 0
+        },
+        "median_ms": 123.09999999962747
+      },
+      "optimized": {
+        "implementation": "optimized",
+        "times": [
+          124.70000000111759,
+          6.299999998882413,
+          4.600000001490116,
+          4.299999998882413,
+          5,
+          3.100000001490116,
+          1.8999999985098839,
+          2,
+          3.899999998509884,
+          2.399999998509884,
+          2,
+          2.200000001117587
+        ],
+        "poseMs": 0.03099999999627471,
+        "state": {
+          "routes": 48,
+          "nodes": 768,
+          "cacheStable": true,
+          "assigned": 875,
+          "drivers": 192,
+          "denied": 0
+        },
+        "median_ms": 3.100000001490116
+      },
+      "exact_equivalence": true,
+      "speedup": 39.709677400146916
+    }
+  ],
+  "exact_transition_cases": [
+    "bus funded",
+    "unchanged timetable",
+    "capacity exhausted",
+    "next day restores capacity",
+    "worn street timetable",
+    "no funding",
+    "closed street",
+    "street reopened",
+    "route edited",
+    "frequency reduced",
+    "suspended",
+    "retired"
+  ]
+}
+PASS exact previous-module equivalence: model/accounts/tickets/capacity, 12 invalidation transitions, 8/12/48 routes and 2,000 riders
