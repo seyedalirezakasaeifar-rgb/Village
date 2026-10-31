@@ -4,7 +4,7 @@
 Does not install, run, sign a release, or use the production signing key.
 """
 from pathlib import Path
-import argparse, hashlib, json, os, shutil, subprocess
+import argparse, hashlib, json, os, shutil, subprocess, zipfile
 import xml.etree.ElementTree as ET
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -53,6 +53,12 @@ def main():
             aapt_args += ['-A', assets]
         run(aapt_args)
         import zipfile
+        if assets == ROOT / 'assets':
+            with zipfile.ZipFile(stage / 'unsigned.apk') as check:
+                source_game = hashlib.sha256((ROOT / 'assets/game.js').read_bytes()).hexdigest()
+                packaged_game = hashlib.sha256(check.read('assets/game.js')).hexdigest()
+            if source_game != packaged_game:
+                raise RuntimeError('Packaged assets/game.js differs from source distribution')
         with zipfile.ZipFile(stage / 'unsigned.apk', 'a', compression=zipfile.ZIP_STORED) as archive:
             archive.write(stage / 'classes.dex', 'classes.dex')
         run([tools / 'zipalign', '-f', '4', stage / 'unsigned.apk', stage / 'aligned.apk'])
@@ -85,6 +91,12 @@ def main():
     hashes = {str(p.relative_to(ROOT)): hashlib.sha256(p.read_bytes()).hexdigest() for p in java + [ROOT / ('tests/android/' + harness + '.java'), ROOT / 'tests/android/ArchiveProvider.java'] if p.is_file()}
     hashes.update({'assets/' + str(p.relative_to(assets)): hashlib.sha256(p.read_bytes()).hexdigest() for p in assets.rglob('*') if p.is_file()})
     report = {'source_commit': subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip(), 'source_files': hashes, 'artifacts': {p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p in [target, test]}, 'game_assets': args.game, 'asset_source': 'assets' if args.game else 'tests/android/host-page.html', 'sdk_platform': jar.parent.name, 'build_tools': tools.name, 'run_status': 'NOT RUN', 'production_signer_used': False}
+    if args.game:
+        with zipfile.ZipFile(target) as check:
+            embedded = hashlib.sha256(check.read('assets/game.js')).hexdigest()
+        expected = hashlib.sha256((ROOT / 'assets/game.js').read_bytes()).hexdigest()
+        if embedded != expected:
+            raise RuntimeError('Signed APK contains stale game.js')
     (out / 'build-evidence.json').write_text(json.dumps(report, indent=2) + '\n')
     print('Built test-only APKs. Install both with adb install -t, then run:')
     print('adb shell am instrument -w org.townledger.vale.tests/org.townledger.vale.' + harness)
