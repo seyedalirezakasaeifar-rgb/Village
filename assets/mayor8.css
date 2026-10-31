@@ -14,3 +14,24 @@
 .civic-operating-chapter{border:1px solid #92a185;border-top:4px solid #547461;background:#edf0df;padding:12px;border-radius:6px;margin-bottom:14px}.civic-operating-chapter>small{font-size:10px;letter-spacing:.8px}.civic-operating-chapter h3{margin:7px 0;font-size:18px}.civic-operating-chapter>.desc{font-size:12px;line-height:1.5}.civic-operating-chapter button,.civic-campaign-shortcut{min-height:36px;white-space:normal}.civic-campaign-shortcut{margin-top:9px;width:100%;text-align:left}.civic-delivery-archive>summary{cursor:pointer;font-size:13px;font-weight:700;padding:12px 3px}
 
 .decision-hint{color:#203d2e;background:#edf1e2;border:1px solid #8da77f;border-radius:5px;margin:0 0 12px;padding:0 10px;overflow-wrap:break-word}.decision-hint>summary{box-sizing:border-box;min-height:40px;padding:9px 0;font:700 13px/1.5 Arial,sans-serif;cursor:pointer;color:#203d2e}.decision-hint>p{font:13px/1.5 Arial,sans-serif;margin:2px 0 10px}.decision-hint .btnrow{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}.decision-hint button{flex:1 1 145px;min-height:42px;white-space:normal;font-size:12px}
+/* Keep a decision's safe exit in view on short landscape screens. Scroll the
+   alternatives inside the sheet so a long offer cannot hide Cancel/Defer. */
+.event-paper{display:flex;flex-direction:column;overflow:hidden}
+.event-paper .event-copy{flex:1 1 42%;min-height:0;overflow-y:auto;overscroll-behavior:contain;touch-action:pan-y}
+.event-paper #eventChoices{flex:1 1 58%;min-height:112px;overflow-y:auto;overscroll-behavior:contain;touch-action:pan-y}
+.event-paper #eventDefer,.event-paper #eventFootnote{flex:0 0 auto}
+.event-paper #eventChoices button,.event-paper #eventChoices button strong,.event-paper #eventChoices button small{overflow-wrap:anywhere;white-space:normal}
+.event-paper #eventDefer{margin:8px 0 4px}
+
+/* The Larger text preference also covers decision sheets, help and large
+   account figures. Flex values may wrap instead of disappearing at phone width. */
+.large-text .paper{font-size:16px;line-height:1.55}
+.large-text .paper p,.large-text .paper li,.large-text .paper .menu-copy,.large-text .paper small{font-size:15px!important;line-height:1.55}
+.large-text .paper button{min-height:48px;padding:10px 12px;font-size:15px!important;line-height:1.4;overflow-wrap:anywhere;white-space:normal}
+.large-text .event-paper button strong{font-size:16px;line-height:1.4}
+.large-text .event-paper button small{font-size:13px!important}
+.large-text #eventFootnote{font-size:12px!important}
+#panelBody .line>span:first-child{flex:1 1 auto;min-width:0;overflow-wrap:anywhere}
+#panelBody .line>span:last-child{flex:0 1 52%;min-width:0;white-space:normal;overflow-wrap:anywhere}
+#panelBody .stat b{overflow-wrap:anywhere}
+#panelBody .entry strong,#panelBody .council-card h3{overflow-wrap:anywhere}
