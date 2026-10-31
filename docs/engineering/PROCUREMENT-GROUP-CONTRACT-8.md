@@ -11,3 +11,7 @@ Suggested contract:
 - Group outcome derives from its contracts/actual successful deliveries. Cancelled, returned or removed shipments cannot count as fulfillment. Bounded outcome UI may explain partial/late/failed milestones without granting a bonus.
 
 Before integration require: stale quote and second-stage failure atomicity; repeat-click exactly-once authorization; overlapping good/producer/route capacities; cancellation before/between/after stages; travelling cargo closure/return; malformed group imports and legacy saves; exact conservation and continuation/RNG. The economics worker owns implementation; integration lead owns reconciliation. This interface approval is project implementation guidance, not a release-quality claim.
+
+## Bounded-history invariants
+
+At the existing 24-contract history bound, prune completed grouped contracts as whole groups, never one milestone alone. Preserve all active/travelling liabilities and validator references. If a whole group cannot be safely retired, reject new authorization before mutation rather than silently breaking it. Persistent reliability uses explicit validated lifetime counters updated exactly once at authoritative outcomes; it must not be recomputed from the pruned history window. Test repeated group creation through multiple eviction cycles, save/restore, cancellation and duplicate outcome calls.
