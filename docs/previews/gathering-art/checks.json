@@ -1,0 +1,275 @@
+{
+  "source_sha256": "966b9ce660f43d08251b6dc76a4d5964d627d9721e73718634c42459bd352235",
+  "scheduled": {
+    "status": "scheduled",
+    "attendance": 0,
+    "actors": 0,
+    "groundActors": true,
+    "stable": true,
+    "coldStable": true,
+    "unchanged": true,
+    "cacheBytes": 231168,
+    "cacheSize": 3
+  },
+  "checks": [
+    {
+      "viewport": [
+        640,
+        360,
+        1
+      ],
+      "zoom": 1.6,
+      "night": false,
+      "reduced": false,
+      "status": "active",
+      "attendance": 24,
+      "actors": 8,
+      "groundActors": true,
+      "stable": true,
+      "coldStable": true,
+      "unchanged": true,
+      "cacheBytes": 231168,
+      "cacheSize": 3,
+      "renderBenchMs": 1.46
+    },
+    {
+      "viewport": [
+        640,
+        360,
+        1
+      ],
+      "zoom": 1.6,
+      "night": true,
+      "reduced": false,
+      "status": "active",
+      "attendance": 24,
+      "actors": 8,
+      "groundActors": true,
+      "stable": true,
+      "coldStable": true,
+      "unchanged": true,
+      "cacheBytes": 385280,
+      "cacheSize": 5,
+      "renderBenchMs": 1.49
+    },
+    {
+      "viewport": [
+        640,
+        360,
+        1
+      ],
+      "zoom": 0.2,
+      "night": false,
+      "reduced": false,
+      "status": "active",
+      "attendance": 24,
+      "actors": 0,
+      "groundActors": true,
+      "stable": true,
+      "coldStable": true,
+      "unchanged": true,
+      "cacheBytes": 385280,
+      "cacheSize": 5,
+      "renderBenchMs": 0.43
+    },
+    {
+      "viewport": [
+        640,
+        360,
+        1
+      ],
+      "zoom": 1.1,
+      "night": false,
+      "reduced": true,
+      "status": "active",
+      "attendance": 24,
+      "actors": 0,
+      "groundActors": true,
+      "stable": true,
+      "coldStable": true,
+      "unchanged": true,
+      "cacheBytes": 539392,
+      "cacheSize": 7,
+      "renderBenchMs": 0.14
+    },
+    {
+      "viewport": [
+        844,
+        390,
+        2
+      ],
+      "zoom": 1.6,
+      "night": false,
+      "reduced": false,
+      "status": "active",
+      "attendance": 24,
+      "actors": 8,
+      "groundActors": true,
+      "stable": true,
+      "coldStable": true,
+      "unchanged": true,
+      "cacheBytes": 231168,
+      "cacheSize": 3,
+      "renderBenchMs": 2.69
+    },
+    {
+      "viewport": [
+        844,
+        390,
+        2
+      ],
+      "zoom": 1.6,
+      "night": true,
+      "reduced": false,
+      "status": "active",
+      "attendance": 24,
+      "actors": 8,
+      "groundActors": true,
+      "stable": true,
+      "coldStable": true,
+      "unchanged": true,
+      "cacheBytes": 385280,
+      "cacheSize": 5,
+      "renderBenchMs": 2.48
+    },
+    {
+      "viewport": [
+        844,
+        390,
+        2
+      ],
+      "zoom": 0.2,
+      "night": false,
+      "reduced": false,
+      "status": "active",
+      "attendance": 24,
+      "actors": 0,
+      "groundActors": true,
+      "stable": true,
+      "coldStable": true,
+      "unchanged": true,
+      "cacheBytes": 385280,
+      "cacheSize": 5,
+      "renderBenchMs": 0.46
+    },
+    {
+      "viewport": [
+        844,
+        390,
+        2
+      ],
+      "zoom": 1.1,
+      "night": false,
+      "reduced": true,
+      "status": "active",
+      "attendance": 24,
+      "actors": 0,
+      "groundActors": true,
+      "stable": true,
+      "coldStable": true,
+      "unchanged": true,
+      "cacheBytes": 539392,
+      "cacheSize": 7,
+      "renderBenchMs": 0.19
+    },
+    {
+      "viewport": [
+        1280,
+        720,
+        3
+      ],
+      "zoom": 1.6,
+      "night": false,
+      "reduced": false,
+      "status": "active",
+      "attendance": 24,
+      "actors": 8,
+      "groundActors": true,
+      "stable": true,
+      "coldStable": true,
+      "unchanged": true,
+      "cacheBytes": 231168,
+      "cacheSize": 3,
+      "renderBenchMs": 5.9
+    },
+    {
+      "viewport": [
+        1280,
+        720,
+        3
+      ],
+      "zoom": 1.6,
+      "night": true,
+      "reduced": false,
+      "status": "active",
+      "attendance": 24,
+      "actors": 8,
+      "groundActors": true,
+      "stable": true,
+      "coldStable": true,
+      "unchanged": true,
+      "cacheBytes": 385280,
+      "cacheSize": 5,
+      "renderBenchMs": 5.38
+    },
+    {
+      "viewport": [
+        1280,
+        720,
+        3
+      ],
+      "zoom": 0.2,
+      "night": false,
+      "reduced": false,
+      "status": "active",
+      "attendance": 24,
+      "actors": 0,
+      "groundActors": true,
+      "stable": true,
+      "coldStable": true,
+      "unchanged": true,
+      "cacheBytes": 385280,
+      "cacheSize": 5,
+      "renderBenchMs": 0.53
+    },
+    {
+      "viewport": [
+        1280,
+        720,
+        3
+      ],
+      "zoom": 1.1,
+      "night": false,
+      "reduced": true,
+      "status": "active",
+      "attendance": 24,
+      "actors": 0,
+      "groundActors": true,
+      "stable": true,
+      "coldStable": true,
+      "unchanged": true,
+      "cacheBytes": 539392,
+      "cacheSize": 7,
+      "renderBenchMs": 0.26
+    }
+  ],
+  "motion": {
+    "moves": true,
+    "sameSprite": true,
+    "zero": 0,
+    "unchanged": true
+  },
+  "finished": {
+    "status": "complete",
+    "attendance": 24,
+    "actors": 0,
+    "groundActors": true,
+    "stable": true,
+    "coldStable": true,
+    "unchanged": true,
+    "cacheBytes": 385280,
+    "cacheSize": 5
+  },
+  "finishedRenderBenchMs": 1.94,
+  "errors": []
+}
