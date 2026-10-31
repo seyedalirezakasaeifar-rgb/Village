@@ -1611,8 +1611,10 @@ function ensureUrban(){return G.urban||(G.urban={version:1,revision:0,zones:{},d
 function urbanBlockKey(x,y){return Math.floor(x/URBAN_BLOCK)+':'+Math.floor(y/URBAN_BLOCK);}
 function invalidateUrban(){urbanCache=null;}
 function urbanSpatial(){
- const u=ensureUrban(),net=graph(),period=Math.floor(G.day/30);
- if(urbanCache?.town===G&&urbanCache.net===net&&urbanCache.period===period&&urbanCache.count===G.buildings.length&&urbanCache.revision===u.revision)return urbanCache;
+ // Staffing, closures and household income can change daily. A monthly cache
+ // must not carry stale rent/land-value inputs across a save and restore.
+ const u=ensureUrban(),net=graph(),day=G.day;
+ if(urbanCache?.town===G&&urbanCache.net===net&&urbanCache.day===day&&urbanCache.count===G.buildings.length&&urbanCache.revision===u.revision)return urbanCache;
  const residentsByHome=new Map();for(const h of G.households)if(h.people.length){if(!residentsByHome.has(h.home))residentsByHome.set(h.home,[]);residentsByHome.get(h.home).push(h);}
  const homes=new Float32Array(T*T),jobs=new Float32Array(T*T),industry=new Float32Array(T*T),amenity=new Float32Array(T*T),blocks={};
  for(const b of G.buildings){
@@ -1634,7 +1636,7 @@ function urbanSpatial(){
   b.incomeBand=b.residents?(b.perPersonIncome<median*.72?'Lower income':b.perPersonIncome>median*1.4?'Higher income':'Middle income'):'No resident income';
   b.character=b.industry>=2?'Employment quarter':b.retail>=2&&b.jobs>12?'Market centre':b.farms&&b.residents<12?'Agricultural belt':b.residents>=12?'Residential neighbourhood':b.buildings.length>=3?'Mixed quarter':'Open countryside';
  }
- return urbanCache={town:G,net,period,count:G.buildings.length,revision:u.revision,homes,jobs,industry,amenity,blocks,median};
+ return urbanCache={town:G,net,day,count:G.buildings.length,revision:u.revision,homes,jobs,industry,amenity,blocks,median};
 }
 function urbanDescriptor(x,y){
  const c=urbanSpatial(),id=roadId(x,y),block=c.blocks[urbanBlockKey(x,y)],u=ensureUrban(),plan=u.zones[urbanBlockKey(x,y)]?.plan||'market',district=u.districts[urbanBlockKey(x,y)];
