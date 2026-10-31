@@ -1,7 +1,7 @@
 """Joint atlas, cargo, passenger accounts and protected redevelopment acceptance."""
 from test_mobile_rendering import ROOT,html
 from playwright.sync_api import sync_playwright
-import ast,json,hashlib
+import ast,json,hashlib,functools,http.server,threading
 source=(ROOT/'assets/game.js').read_text();sha=hashlib.sha256(source.encode()).hexdigest()
 module=ast.parse((ROOT/'tests/test_transit_network.py').read_text())
 setup=next(ast.literal_eval(n.value) for n in module.body if isinstance(n,ast.Assign) and any(isinstance(t,ast.Name) and t.id=='probe' for t in n.targets))
@@ -40,7 +40,11 @@ window.__jointAnnex=()=>{
 '''
 # Quote API deliberately reuses the authoritative survey price.
 probe=probe.replace('purchaseParcelQuote(p)','parcelSurvey(p).price')
+class Quiet(http.server.SimpleHTTPRequestHandler):
+ def log_message(self,*args):pass
+server=http.server.ThreadingHTTPServer(('127.0.0.1',0),functools.partial(Quiet,directory=str(ROOT/'assets')));threading.Thread(target=server.serve_forever,daemon=True).start()
 with sync_playwright() as pw:
- b=pw.chromium.launch(executable_path='/usr/bin/chromium',args=['--no-sandbox']);p=b.new_page(viewport={'width':844,'height':390});errors=[];p.on('pageerror',lambda e:errors.append(str(e)));p.set_content(html);p.add_script_tag(content=source.replace('// SOURCE: 99-instrumentation.js',setup+'\n'+probe+'\n// SOURCE: 99-instrumentation.js'));p.locator('#newTown').click();p.locator('#pause').click();r=p.evaluate('__transitProbe.setup()');assert r['route'];p.evaluate('__transitProbe.rail()');p.evaluate('__townTest.step(1)');migrations=[p.evaluate('s=>__jointMigration(s)',size) for size in [56,80]];joint=p.evaluate('__jointAnnex()');p.locator('#panelClose').click();p.evaluate('__transitProbe.draw()');p.screenshot(path=str(ROOT/'reports/development-8.0/urban-transit-joint.png'));assert not errors,errors;b.close()
+ b=pw.chromium.launch(executable_path='/usr/bin/chromium',args=['--no-sandbox']);p=b.new_page(viewport={'width':844,'height':390});errors=[];p.on('pageerror',lambda e:errors.append(str(e)));p.route('**/game.js',lambda route:route.fulfill(content_type='application/javascript',body=source.replace('// SOURCE: 99-instrumentation.js',setup+'\n'+probe+'\n// SOURCE: 99-instrumentation.js')));p.goto('http://127.0.0.1:'+str(server.server_port)+'/index.html');p.locator('#newTown').click();p.locator('#pause').click();r=p.evaluate('__transitProbe.setup()');assert r['route'];p.evaluate('__transitProbe.rail()');p.evaluate('__townTest.step(1)');migrations=[p.evaluate('s=>__jointMigration(s)',size) for size in [56,80]];joint=p.evaluate('__jointAnnex()');p.locator('#panelClose').click();p.evaluate('__transitProbe.draw()');p.wait_for_timeout(3500);p.screenshot(path=str(ROOT/'reports/development-8.0/urban-transit-joint.png'));assert not errors,errors;b.close()
+server.shutdown()
 assert hashlib.sha256((ROOT/'assets/game.js').read_bytes()).hexdigest()==sha
 (ROOT/'reports/development-8.0/urban-transit-integration.json').write_text(json.dumps({'source_sha256':sha,'controlledFundedNetwork':True,'migrations':migrations,'joint':joint,'errors':errors},indent=2)+'\n');print('PASS joint56/80 migration, atomic failure,21deeds with live cargo/fares, protected routed depot,60day accounting',migrations,joint)

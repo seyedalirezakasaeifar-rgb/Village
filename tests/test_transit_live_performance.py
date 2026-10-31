@@ -43,7 +43,9 @@ def q(a,p):
 result={'source_sha256':digest,'engine_module_sha256':hashlib.sha256((SOURCE_ROOT/'src/46-transit-network.js').read_bytes()).hexdigest(),'source_root':str(SOURCE_ROOT),'physicalAndroid':False,'hostChromium':True,'rows':[]}
 with sync_playwright() as pw:
  browser=pw.chromium.launch(executable_path='/usr/bin/chromium',args=['--no-sandbox','--disable-dev-shm-usage'])
- for routes,implementation in [(0,'optimized'),(8,'baseline'),(8,'optimized'),(12,'baseline'),(12,'optimized'),(48,'baseline'),(48,'optimized')]:
+ cases=[(0,'optimized'),(8,'baseline'),(8,'optimized'),(12,'baseline'),(12,'optimized'),(48,'baseline'),(48,'optimized')]
+ if os.environ.get('TOWNLEDGER_TRANSIT_MAX_ONLY')=='1':cases=[(48,'optimized')]
+ for routes,implementation in cases:
   page=browser.new_page(viewport={'width':844,'height':390},device_scale_factor=1);errors=[];page.on('pageerror',lambda e:errors.append(str(e)));page.set_content(html);code=source if implementation=='optimized' else baseline;page.add_script_tag(content=code.replace('// SOURCE: 99-instrumentation.js',probe+'\n// SOURCE: 99-instrumentation.js'));page.locator('#newTown').click();page.locator('#pause').click();assert not errors,errors
   town=page.evaluate('__transitLive.large()');network=page.evaluate('(n)=>__transitLive.build(n)',routes);page.locator('#panelClose').click();page.locator('#speedRange').fill('6');page.locator('#pause').click();page.wait_for_timeout(700)
   page.evaluate('()=>{const p=__townTest.perf();p.frames.length=0;p.ticks.length=0;}');initial=page.evaluate('__townTest.get()');started=time.perf_counter()
@@ -60,4 +62,4 @@ with sync_playwright() as pw:
   page.close()
  browser.close()
 assert hashlib.sha256((SOURCE_ROOT/'assets/game.js').read_bytes()).hexdigest()==digest
-print('PASS complete 2,000-resident game at requested 64x with funded 8/12/48-route networks, actual UI, RAF, painting, conservation and unchanged source')
+print('PASS selected 2,000-resident complete-game cases '+str(cases)+' with real operations, UI, RAF, painting, conservation and unchanged source')

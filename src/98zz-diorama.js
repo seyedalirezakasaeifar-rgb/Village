@@ -217,7 +217,7 @@ function productionVent(item){
 // Shadows follow the new massing. Taller rooflines, stepped urban crowns and
 // slender factory stacks cast distinct silhouettes using one fixed sun vector.
 paintCastShadows=function(g,items){
- if(!gameOptions.effects||nightMode)return;
+ if(!gameOptions.effects||nightMode||cam.zoom<.30)return;
  for(const item of items){
   if(item.kind==='tree'){g.fillStyle='#304b4225';g.beginPath();g.ellipse(item.x+16,item.y+5,18,6,.25,0,Math.PI*2);g.fill();continue;}
   const b=item.b;if(!b||b.kind==='park'||b.kind==='square'||b.kind==='quarry')continue;

@@ -89,7 +89,7 @@ def test_live_large_town_ui_and_render_budget():
         page.locator('#pause').click()
         page.wait_for_timeout(700)
         # Measure the warmed interval; retain founding/loading costs separately.
-        startup = page.evaluate('''()=>{const p=__townTest.perf(),r={frames:p.frames.slice(),ticks:p.ticks.slice()};p.frames.length=0;p.ticks.length=0;return r;}''')
+        startup = page.evaluate('''()=>{const p=__townTest.perf(),r={frames:p.frames.slice(),ticks:p.ticks.slice()};p.frames.length=0;p.ticks.length=0;if(window.__liveProfile)window.__liveProfile={};return r;}''')
         start = page.evaluate('__townTest.get()')
         wall_start = time.perf_counter()
         raf = page.evaluate('''()=>new Promise(resolve=>{
@@ -132,7 +132,7 @@ def test_live_large_town_ui_and_render_budget():
         assert hashlib.sha256((ROOT/'assets/game.js').read_bytes()).hexdigest()==source_sha
         result = {
             'source_sha256':source_sha,
-            'viewport': [844, 390], 'network':network,'zoom':zoom, 'synthetic': town, 'requestedSpeed': 64,
+            'camera':page.evaluate('__townTest.view().camera'),'viewport': [844, 390], 'network':network,'networkEnd':page.evaluate('__liveNetworkStatus()') if network else None,'zoom':zoom, 'synthetic': town, 'requestedSpeed': 64,
             'elapsedSeconds': elapsed, 'simulatedDays': end['day'] - start['day'],
             'rafP50Ms': percentile(raf, .50), 'rafP95Ms': percentile(raf, .95),
             'rafP99Ms': percentile(raf, .99),

@@ -6,7 +6,7 @@ source=(ROOT/'assets/game.js').read_text();sha=hashlib.sha256(source.encode()).h
 probe=r'''
 window.__lodProbe=()=>{paused=false;gameOptions.quality='balanced';gameOptions.traffic=true;gameOptions.effects=true;gameOptions.reducedMotion=false;
  const before=JSON.stringify({traffic,trafficClock,trafficElapsed,vehicleSerial}),rows=[];
- for(const zoom of [.08,.2,.44]){cam.zoom=zoom;for(let i=0;i<100;i++)trafficUpdate(.1);const unreadable=new Proxy([],{get(){throw Error('Distant actor iterated parcels')}});if(buildingActivity(unreadable).length||workdayScenes(unreadable).length||waterfrontActors(()=>{throw Error('Distant boat work')}).length)throw Error('Distant actors drawn');rows.push({zoom,budget:visualDetailBudget()});}
+ for(const zoom of [.08,.2,.44]){cam.zoom=zoom;for(let i=0;i<100;i++)trafficUpdate(.1);const unreadable=new Proxy([],{get(){throw Error('Distant actor iterated parcels')}});if(buildingActivity(unreadable).length||workdayScenes(unreadable).length||waterfrontActors(()=>{throw Error('Distant boat work')}).length)throw Error('Distant actors drawn');if(zoom<.3)paintCastShadows({},unreadable);rows.push({zoom,budget:visualDetailBudget(),subpixelShadowsSkipped:zoom<.3});}
  if(JSON.stringify({traffic,trafficClock,trafficElapsed,vehicleSerial})!==before)throw Error('Hidden traffic advanced');
  const day=G.day;__townTest.step(30);if(G.day!==day+30)throw Error('LOD stopped economy');
  cam.zoom=1;paused=false;for(let i=0;i<100;i++)trafficUpdate(.1);if(vehicleSerial===0)throw Error('Nearby traffic did not return');paused=true;

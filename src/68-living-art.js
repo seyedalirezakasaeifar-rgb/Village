@@ -52,7 +52,7 @@ function buildingActivity(items){
  return actors;
 }
 function paintCastShadows(g,items){
- if(!gameOptions.effects||nightMode)return;
+ if(!gameOptions.effects||nightMode||cam.zoom<.30)return;
  for(const item of items){
   if(item.kind==='tree'){g.fillStyle='#344f4326';g.beginPath();g.ellipse(item.x+15,item.y+5,17,6,.25,0,Math.PI*2);g.fill();continue;}
   if(!item.b)continue;

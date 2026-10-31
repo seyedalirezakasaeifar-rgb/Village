@@ -191,7 +191,7 @@ function spriteFor(item){
  c.lightSources=spriteLightRecorder;spriteLightRecorder=previousLights;
  atlas.set(key,c);atlasBytes+=c.width*c.height*4;while(atlas.size>600||atlasBytes>48*1024*1024){const oldest=atlas.keys().next().value,retired=atlas.get(oldest);atlasBytes-=retired.width*retired.height*4;atlas.delete(oldest);}return c;
 }
-function drawSceneSprite(g,item){const sprite=spriteFor(item);g.drawImage(sprite,Math.round(item.x-sprite.anchorX),Math.round(item.y-sprite.anchorY));}
+function drawSceneSprite(g,item){if(item.kind==='tree'&&cam.zoom<.30){g.fillStyle=seasonPalette().leaf[item.id%3];g.beginPath();g.ellipse(item.x,item.y-18,19,13,0,0,Math.PI*2);g.fill();return;}const sprite=spriteFor(item);g.drawImage(sprite,Math.round(item.x-sprite.anchorX),Math.round(item.y-sprite.anchorY));}
 function prepareScene(){
  displayItems=[];const occupied=new Set(G.buildings.flatMap(b=>footprintOf(b)));
  for(let y=0;y<T;y++)for(let x=0;x<T;x++){const id=roadId(x,y);if(G.tiles[id]===3&&!occupied.has(id)&&!G.landUse?.[id]&&hash(id+G.worldSeed)%4!==0){const [px,py]=iso(x,y);displayItems.push({kind:'tree',id,x:px,y:py+18,w:1,d:1});}}
@@ -205,25 +205,26 @@ function prepareScene(){
 }
 function fastRenderEnabled(){return !!G&&!paused&&speed>=64&&gameOptions.quality!=='high'}
 function diamondFast(g,x,y,fill){const p=iso(x,y);g.beginPath();g.moveTo(p[0],p[1]);g.lineTo(p[0]+TW/2,p[1]+TH/2);g.lineTo(p[0],p[1]+TH);g.lineTo(p[0]-TW/2,p[1]+TH/2);g.closePath();g.fillStyle=fill;g.fill()}
-let groundBaseTown=null,groundBaseStyle='',groundTileState=null;
+let groundBaseTown=null,groundBaseStyle='',groundTileState=null,lastGroundOverview=null;
 function drawGround(){
  const fastRender=fastRenderEnabled();
  // Uploading a changed full-world bitmap can stall software Canvas. At 64×,
  // retain a half-resolution ground layer; buildings and labels stay independent.
  groundScale=Math.min(fastRender?.5:1,Math.sqrt((fastRender?2200000:9000000)/(RW*RH)));
+ if(cam.zoom<.24&&gameOptions.quality!=='high')groundScale=Math.min(groundScale,dpr*.21);
  const width=Math.round(RW*groundScale),height=Math.round(RH*groundScale),baseStyle=[visualMonth(),width,height,fastRender,gameOptions.decor,gameOptions.quality,JSON.stringify(G.airport?.runway||[])].join('|'),fullTerrain=groundBaseTown!==G||groundBaseStyle!==baseStyle;
  if(bitmap.width!==width||bitmap.height!==height){bitmap.width=width;bitmap.height=height;}
  const s=seasonPalette(),net=graph(),occupied=new Set(G.buildings.flatMap(b=>footprintOf(b))),nextState=new Uint16Array(T*T),chunks=new Map();
  // Retain unchanged terrain even after every deed is owned. Repaint dirty
  // projected chunks under a pixel-aligned clip, replaying the same ordered art.
- const chunkW=256,chunkH=128;
+ const chunkW=256,chunkH=128,chunkStride=Math.ceil(RW/chunkW)+2;
  for(let y=0;y<T;y++)for(let x=0;x<T;x++){
   const id=roadId(x,y),road=G.roadClasses?.[id],state=G.tiles[id]|((G.landUse?.[id]||0)<<3)|(occupied.has(id)?128:0)|(charterOwns(x,y)?256:0)|(road==='arterial'?512:road==='collector'?1024:0);nextState[id]=state;
   if(fullTerrain||groundTileState?.[id]===state)continue;const p=iso(x,y);
-  for(let cy=Math.floor((p[1]-24)/chunkH);cy<=Math.floor((p[1]+60)/chunkH);cy++)for(let cx=Math.floor((p[0]-64)/chunkW);cx<=Math.floor((p[0]+64)/chunkW);cx++)chunks.set(cx+','+cy,[cx*chunkW,cy*chunkH]);
+  for(let cy=Math.floor((p[1]-24)/chunkH);cy<=Math.floor((p[1]+60)/chunkH);cy++)for(let cx=Math.floor((p[0]-64)/chunkW);cx<=Math.floor((p[0]+64)/chunkW);cx++)chunks.set((cy+1)*chunkStride+cx+1,[cx*chunkW,cy*chunkH]);
  }
  groundTileState=nextState;if(!fullTerrain&&!chunks.size)return;
- const intersects=(x,y)=>{for(let cy=Math.floor((y-24)/chunkH);cy<=Math.floor((y+60)/chunkH);cy++)for(let cx=Math.floor((x-64)/chunkW);cx<=Math.floor((x+64)/chunkW);cx++)if(chunks.has(cx+','+cy))return true;return false;};
+ const intersects=(x,y)=>{for(let cy=Math.floor((y-24)/chunkH);cy<=Math.floor((y+60)/chunkH);cy++)for(let cx=Math.floor((x-64)/chunkW);cx<=Math.floor((x+64)/chunkW);cx++)if(chunks.has((cy+1)*chunkStride+cx+1))return true;return false;};
  bg.save();if(!fullTerrain){bg.setTransform(1,0,0,1,0,0);bg.beginPath();for(const [x,y] of chunks.values()){const l=Math.floor(x*groundScale),t=Math.floor(y*groundScale),r=Math.ceil((x+chunkW)*groundScale),b=Math.ceil((y+chunkH)*groundScale);bg.rect(l,t,r-l,b-t);}bg.clip();}bg.setTransform(groundScale,0,0,groundScale,0,0);
  bg.fillStyle='#5d7967';bg.fillRect(0,0,RW,RH);groundBaseTown=G;groundBaseStyle=baseStyle;
  const fastGrass=s.grass.map(c=>tone(c,.92));
@@ -260,9 +261,9 @@ let groundSignature='',groundRevision=0,groundScale=1;
 function drawStatic(){
  const signature=[G.worldSeed,visualMonth(),gameOptions.decor,gameOptions.quality,fastRenderEnabled(),
   G.tiles.join(''),JSON.stringify(G.landUse||{}),JSON.stringify(G.roadClasses||{}),
-  JSON.stringify(G.airport?.runway||[]),G.charter?.revision||0].join('|');
+  JSON.stringify(G.airport?.runway||[]),G.charter?.revision||0,cam.zoom<.24].join('|');
  if(signature!==groundSignature){drawGround();groundSignature=signature;groundRevision++;}
- prepareScene();landscapeRevision++;staticDirty=false;lastSceneMonth=visualMonth();
+ prepareScene();landscapeRevision++;staticDirty=false;lastSceneMonth=visualMonth();lastGroundOverview=cam.zoom<.24;
 }
 let fastRenderMode=false;
 function fit(){const bounds=cv.getBoundingClientRect(),fast=fastRenderEnabled();if(fast!==fastRenderMode){fastRenderMode=fast;staticDirty=true;viewRasterKey='';viewBackgroundKey='';}dpr=Math.min(window.devicePixelRatio||1,gameOptions.quality==='high'?1.5:gameOptions.quality==='low'?1:1.25)*(fast?0.75:1);cw=Math.max(1,bounds.width);ch=Math.max(1,bounds.height);cv.width=Math.round(cw*dpr);cv.height=Math.round(ch*dpr);dirty=true;}
@@ -302,7 +303,7 @@ function drawConstructionProgress(g,visible){
  }
 }
 function draw(){
- if(!G||!dirty)return;dirty=false;document.body.classList.toggle('surveying-region',overlay==='charter');$('gameRoot').classList.toggle('building-map',!!buildMode);updateRegionSurvey();if(staticDirty||lastSceneMonth!==visualMonth())drawStatic();
+ if(!G||!dirty)return;dirty=false;document.body.classList.toggle('surveying-region',overlay==='charter');$('gameRoot').classList.toggle('building-map',!!buildMode);updateRegionSurvey();if(lastGroundOverview!==(cam.zoom<.24))staticDirty=true;if(staticDirty||lastSceneMonth!==visualMonth())drawStatic();
  ctx.setTransform(1,0,0,1,0,0);ctx.fillStyle='#6d8774';ctx.fillRect(0,0,cv.width,cv.height);
  const sx=cam.x-cw/(2*cam.zoom),sy=cam.y-ch/(2*cam.zoom),ww=cw/cam.zoom,hh=ch/cam.zoom;
  ctx.setTransform(dpr,0,0,dpr,0,0);ctx.imageSmoothingEnabled=false;transform();ctx.imageSmoothingEnabled=false;
@@ -323,6 +324,7 @@ function draw(){
   vg.setTransform(1,0,0,1,0,0);vg.drawImage(viewBackgroundRaster,0,0);vg.setTransform(dpr,0,0,dpr,0,0);vg.translate(cw/2,ch/2);vg.scale(cam.zoom,cam.zoom);vg.translate(-cam.x,-cam.y);
   drawStreetNames(vg,sx,sy,ww,hh);
   viewBuildings=displayItems.filter(item=>{
+   if(item.kind==='streetprop'&&cam.zoom<.4)return false;
    const building=item.kind==='building',treeItem=item.kind==='tree';
    const xMargin=building?132:treeItem?24:38,topMargin=building?172:treeItem?64:55,bottomMargin=building?84:treeItem?34:28;
    return item.x>=sx-xMargin&&item.x<=sx+ww+xMargin&&item.y>=sy-bottomMargin&&item.y<=sy+hh+topMargin;

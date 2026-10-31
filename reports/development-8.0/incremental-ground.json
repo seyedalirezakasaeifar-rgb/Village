@@ -1,11 +1,11 @@
 {
-  "source_sha256": "1001f5b2cbe42da6a8f8e0cb227841d6c3c3f8eee5878f4b55f1cc85c1152c9c",
+  "source_sha256": "293fe306631099dfaacdd37e724d4c6e3b89991f56a1e15c50f872606f662c90",
   "controlledTerrainEdits": true,
   "rows": [
     {
       "fast": false,
       "bitmapPixels": 9001260,
-      "localizedMs": 20.700000002980232,
+      "localizedMs": 10.100000001490116,
       "differingChannels": 12738,
       "maxChannelDelta": 10,
       "selfDiff": 12660,
@@ -93,7 +93,7 @@
     {
       "fast": true,
       "bitmapPixels": 2198644,
-      "localizedMs": 15,
+      "localizedMs": 6,
       "differingChannels": 25,
       "maxChannelDelta": 5,
       "selfDiff": 0,
@@ -178,6 +178,5 @@
         ]
       ]
     }
-  ],
-  "comparison": "Chromium full redraw itself differs at some antialiased edges; require fewer than0.05% channels differing by>2 and maximum12/255; preserve selfDiff as baseline."
+  ]
 }
