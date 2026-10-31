@@ -149,7 +149,12 @@ public final class MainActivity extends Activity {
             i.addCategory(Intent.CATEGORY_OPENABLE);i.setType(request==WRITE?"application/json":"*/*");
             if(request==WRITE)i.putExtra(Intent.EXTRA_TITLE,"TownLedger-town.json");
             pickerLaunched=true;startActivityForResult(i,request);
-        }catch(Exception ex){pickerLaunched=false;archiveRequest=0;message("No document chooser is available on this device");}
+        }catch(Exception ex){
+            pickerLaunched=false;archiveRequest=0;
+            final String abandoned=pendingExportName;pendingExportName=null;
+            if(ArchiveIO.pendingName(abandoned))archiveWorker.execute(new Runnable(){public void run(){pendingExport(abandoned).delete();}});
+            message("No document chooser is available on this device");
+        }
     }
     public final class Archive {
         @JavascriptInterface public void backSaving(final int request){runOnUiThread(new Runnable(){public void run(){showSavingDialog(request);}});}

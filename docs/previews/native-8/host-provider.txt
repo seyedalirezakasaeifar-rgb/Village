@@ -1,0 +1,37 @@
+INSTRUMENTATION_STATUS: progress=Actual external ContentProvider import preserves Unicode and accepts BOM
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: progress=Malformed provider UTF-8 does not reach game restore
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: progress=Provider import over 8 MiB leaves live restore unchanged
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: progress=Cancelled import releases archive busy state
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: progress=Bridge export cancellation clears pending request
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: progress=Cancelled export removes private prepared archive
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: progress=Actual external provider export truncates previous larger document and preserves Unicode
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: progress=Handled layer acknowledged without timeout or exit
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: progress=Failed save does not finish Activity
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: progress=Keep playing resumes renderer
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: progress=Hung save timeout preserves Activity
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: progress=Late saved acknowledgement cannot exit after timeout
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: progress=Terminated only the app's WebView renderer through API29
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: progress=Renderer termination retains host and offers recovery
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: progress=Recreated view retains same-origin persistent data
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: progress=Acknowledged successful save allows exit
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_RESULT: checks=[Actual external ContentProvider import preserves Unicode and accepts BOM, Malformed provider UTF-8 does not reach game restore, Provider import over 8 MiB leaves live restore unchanged, Cancelled import releases archive busy state, Bridge export cancellation clears pending request, Cancelled export removes private prepared archive, Actual external provider export truncates previous larger document and preserves Unicode, Handled layer acknowledged without timeout or exit, Failed save does not finish Activity, Keep playing resumes renderer, Hung save timeout preserves Activity, Late saved acknowledgement cannot exit after timeout, Terminated only the app's WebView renderer through API29, Renderer termination retains host and offers recovery, Recreated view retains same-origin persistent data, Acknowledged successful save allows exit]
+INSTRUMENTATION_RESULT: outcome=PASS
+INSTRUMENTATION_RESULT: rendererDidCrash=false
+INSTRUMENTATION_RESULT: userUnlocked=true
+INSTRUMENTATION_CODE: -1

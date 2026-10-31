@@ -40,3 +40,27 @@ ANDROID_HOME=/path/to/sdk TOWNLEDGER_KEYSTORE=/private/path/stable-key.p12 TOWNL
 ```
 
 The opt-in HTTP adapter serves only bundled current/historical game assets over127.0.0.1. It does not expose build outputs or signing keys. It is included in this source tree; no private environment shim is needed. For an individual file-navigation test, add `PYTHONPATH=tools/browser_http_adapter TOWNLEDGER_USE_HTTP=1`. Native source, test inputs, metadata and assets must remain unchanged during acceptance. Performance gates must run without another emulator/simulation competing for the host.
+
+## Android 8.0 acceptance and SDK requirements
+
+Current native sources require a current platform jar (the acceptance build uses
+**Android API 36**). New platform types live behind runtime guards, but the Java
+compiler still needs their definitions. The historical API-23 distro jar noted
+above cannot compile the API-33 Back adapter. With distro AAPT/DEX/signing tools,
+set `TOWNLEDGER_ANDROID_JAR` to an official API-36 `android.jar`; normal SDK
+installations can use `ANDROID_HOME` with `platforms/android-36` and build tools.
+SDK versions are selected numerically.
+
+The filename follows `release.json`; the current checkpoint produces
+`TownLedger-A-Trading-Town-8.0.0.apk` (code 22, schema 8). The verifier checks the
+exact source assets, real DEX, minimum API 24 / target API 36, zero requested
+permissions, absence of private test classes/debug flags, signature and alignment.
+These checks do not establish device performance or installation compatibility
+with an unrelated certificate. A clean build's generated development signer
+cannot update the privately signed delivered game. The integration lead retains
+the persistent signer outside the repository.
+
+Reproducible scratch host/provider, actual system picker cancellation and full-game
+native probes are documented in [tests/android/README.md](../tests/android/README.md).
+Current receipts and the distinctions between native, host-browser and never-run
+stages are in [the native acceptance notes](engineering/NATIVE-RELEASE-8.md).
