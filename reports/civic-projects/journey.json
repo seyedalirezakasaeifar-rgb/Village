@@ -1,5 +1,5 @@
 {
-  "source_sha256": "dbe96511846a1ae4eda713103979df519dea9ff278c4a155a245699d24f01864",
+  "source_sha256": "6a770b26dc99ece160a4ef9883730f92498f4c0fdd20bbf217e533a3f878a798",
   "realControls": true,
   "paidFoodUnits": 180,
   "foodCertificate": {
@@ -17,7 +17,9 @@
     "output": 0,
     "sales": 0,
     "net": 0,
+    "trainingScope": "all",
     "trainingBaseline": 0,
+    "learning": 0,
     "completed": 7,
     "proof": "180 / 180 commissioned food units arrived"
   },

@@ -9,7 +9,7 @@ with sync_playwright() as pw:
  b=pw.chromium.launch(executable_path='/usr/bin/chromium',args=['--no-sandbox']);rows=[]
  for width,height in [(568,320),(640,360),(720,360),(844,390),(360,640)]:
   p=b.new_page(viewport={'width':width,'height':height},has_touch=True);errors=[];p.on('pageerror',lambda e:errors.append(str(e)));p.set_content(html);p.add_script_tag(content=source);p.locator('#townSeed').fill('42');p.locator('#newTown').click();p.locator('#pause').click();p.evaluate('__townTest.step(30)');p.locator('#panelClose').click();assert p.locator('[data-panel=overview]').evaluate('e=>e===document.activeElement')
-  p.locator('#topNotice').click();assert p.locator('#panelTitle').inner_text()=='Public Record';p.keyboard.press('Escape');assert p.locator('#topNotice').evaluate('e=>e===document.activeElement')
+  p.locator('#mapStatusToggle').click();p.locator('#topNotice').click();assert p.locator('#panelTitle').inner_text()=='Public Record';p.keyboard.press('Escape');assert p.locator('#topNotice').evaluate('e=>e===document.activeElement')
   p.locator('#liveEconomy').click();assert p.locator('#panelTitle').inner_text()=='The Living Economy';assert not p.locator('#topNotice').is_visible();p.keyboard.press('Escape');assert p.locator('#liveEconomy').evaluate('e=>e===document.activeElement')
   assert p.locator('#pauseBanner').evaluate('e=>e.closest("#liveEconomy")!==null');assert p.locator('#tabs .tabico svg').count()==12
   r=p.evaluate('__mapPressureProbe()');assert r=={'access':'Groceries out of reach','food':'Essential food is going unfilled','care':'Care and learning need attention'},r

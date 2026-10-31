@@ -1,0 +1,31 @@
+{
+  "source_sha256": "6a770b26dc99ece160a4ef9883730f92498f4c0fdd20bbf217e533a3f878a798",
+  "layouts": [
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "collapsedMapFraction": 0.14124748490945674,
+      "errors": []
+    },
+    {
+      "viewport": [
+        844,
+        390
+      ],
+      "collapsedMapFraction": 0.06898792233603425,
+      "errors": []
+    },
+    {
+      "viewport": [
+        390,
+        844
+      ],
+      "collapsedMapFraction": 0.06303760137625952,
+      "errors": []
+    }
+  ],
+  "economicStateUnchanged": true,
+  "existingInformationAndActionsRetained": true
+}
