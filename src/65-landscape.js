@@ -179,7 +179,7 @@ function streetProp(g,kind){
 }
 function spriteFor(item){
  const season=Math.floor((visualMonth()-1)/3),b=item.b,variant=b?(b.kind==='home'?b.id%120:b.id%24):0;
- const key=item.kind==='streetprop'?`prop:${item.id%3}:${nightMode}`:item.kind==='tree'?`tree:${season}:${item.id%11}`:`${b.kind}:${variant}:${item.w}:${item.d}:${season}:${nightMode}:${b.condition<45}:${b.firm>=0&&G.firms[b.firm]?.closed}:${b.redevelopment?'renewal':''}:${appearanceKey(b)}`;
+ const key=item.kind==='streetprop'?`prop:${item.id%3}:${nightMode}`:item.kind==='tree'?`tree:${season}:${item.id%11}`:`${b.kind}:${variant}:${item.w}:${item.d}:${season}:${nightMode}:${b.condition<45}:${b.firm>=0&&G.firms[b.firm]?.closed}:${b.redevelopment?'renewal':''}:${appearanceKey(b)}:${parcelForTile(b.x,b.y)?.id||'founding'}`;
  if(atlas.has(key)){const cached=atlas.get(key);atlas.delete(key);atlas.set(key,cached);return cached;}
  // Tight, conservative sprite envelopes avoid uploading acres of transparent
  // pixels whenever a dense viewport changes. Geometry keeps its world anchor.
@@ -274,7 +274,7 @@ function atmosphere(g,sx,sy,ww,hh){
  if(!gameOptions.effects||gameOptions.reducedMotion)return;
  const active=(weatherEnabled()&&(G.weather==='rain'||G.weather==='storm'))||visualMonth()>=10;
  if(active)for(let j=0;j<70;j++){const h=hash(j+G.worldSeed),x=sx+(h%1000)/1000*ww,y=sy+(((h>>>10)%1000)/1000*hh+frameClock*(visualMonth()>=10?12:120))%hh;g.strokeStyle=visualMonth()>=10?'#f8f7e399':'#dce3cf66';g.lineWidth=1;g.beginPath();g.moveTo(x,y);g.lineTo(x+(visualMonth()>=10?1:4),y+(visualMonth()>=10?1:9));g.stroke();}
- for(const item of displayItems){if(item.kind!=='building'||item.x<sx-100||item.x>sx+ww+100||item.y<sy-100||item.y>sy+hh+130)continue;const b=item.b;if(b.firm<0||G.firms[b.firm]?.closed||!workingStaff(G.firms[b.firm]).length||!(G.firms[b.firm]?.production>0)||!['factory','mill','bakery','sawmill'].includes(b.kind))continue;for(let j=0;j<3;j++){const t=(frameClock*.30+j*.40+b.id*.13)%1;g.fillStyle=`rgba(224,221,195,${.30*(1-t)})`;g.fillRect(Math.round(item.x-12+t*17),Math.round(item.y-48-t*24),3+Math.floor(t*6),3+Math.floor(t*5));}}
+ for(const item of viewBuildings){if(item.kind!=='building'||item.x<sx-100||item.x>sx+ww+100||item.y<sy-100||item.y>sy+hh+130)continue;const b=item.b;if(b.firm<0||G.firms[b.firm]?.closed||!workingStaff(G.firms[b.firm]).length||!(G.firms[b.firm]?.production>0)||!['factory','mill','bakery','sawmill'].includes(b.kind))continue;for(let j=0;j<3;j++){const t=(frameClock*.30+j*.40+b.id*.13)%1;g.fillStyle=`rgba(224,221,195,${.30*(1-t)})`;g.fillRect(Math.round(item.x-12+t*17),Math.round(item.y-48-t*24),3+Math.floor(t*6),3+Math.floor(t*5));}}
 }
 function drawConstructionProgress(g,visible){
  for(const project of G.projects){
@@ -324,7 +324,7 @@ function draw(){
  }
 
  drawCharterBounds(ctx);paintTownLight(ctx);
- atmosphere(ctx,sx,sy,ww,hh);
+ if(cam.zoom>=.45)atmosphere(ctx,sx,sy,ww,hh);
  drawAviation(ctx);
  if(overlay==='metro')drawMetroOverlay(ctx);
  if(overlay==='roads'||overlay==='business'||overlay==='hardship'||overlay==='crime'||overlay==='land')for(const item of displayItems){if(item.kind!=='building'||!visible(item.x,item.y))continue;const b=item.b,f=G.firms[b.firm],h=G.households[b.hh],net=graph();let color=overlay==='roads'?(net.portals.has(b.id)?'#9ecb95':'#bb7760'):overlay==='business'?(f?(f.closed?'#b66856':f.profit>0?'#a1c67d':'#d6b46c'):null):overlay==='hardship'?(h?(h.stress>50?'#b96c56':'#a9ca87'):null):overlay==='land'?(b.value>90000?'#c38864':b.value>45000?'#d0b776':'#9fc087'):null;if(!color)continue;ctx.globalAlpha=.7;diamond(ctx,b.x,b.y,color);ctx.globalAlpha=1;}

@@ -1,0 +1,16 @@
+{
+  "maxJump": 0.06783577010429095,
+  "hidden": 0,
+  "poseCalls": 0,
+  "unchanged": true,
+  "pausedStable": true,
+  "atlasBytes": 8624896,
+  "atlasSize": 114,
+  "renderBenchMs": {
+    "far": 0.21,
+    "town": 0.17,
+    "close": 0.09
+  },
+  "source_sha256": "b9a73e58b5da6b133d19db0625b8a9085bd3b1766e2a320dcbbc83ab4f2d9371",
+  "errors": []
+}
