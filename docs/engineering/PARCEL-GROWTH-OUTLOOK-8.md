@@ -14,6 +14,12 @@ The real-control replay followed that path: the player reviewed the outlook, vis
 
 The sample site had no local learning coverage, and the two adults had no school-age learners. Child households still require the normal education and service checks. More distant deeds can also be blocked by an industry charter or agricultural plan; the report names those permission barriers instead of presenting them as weak market demand. Farm titles and production are not changed by the outlook or by building on a separate vacant lot.
 
+## Passenger-service access and civic limits
+
+The sample job review distinguishes a road commute's modeled travel cost from a paid bus/elevated-metro fare. For an offered paid-transit job, it shows the route name and mode, current driver staffing, capacity/reserved seats, and whether at least one seat is available through a capacity-aware journey. This is a point-in-time forecast only; it reserves no seat, and real household arrival repeats the live budget/capacity checks. Clinics and schools remain separate, funded, street-distance catchments. The report shows their forecast coverage and explicitly says that passenger routes do not extend civic coverage. This avoids advertising a transit stop as free health or school access.
+
+The underlying passenger engine was already acceptance-tested through actual bus/elevated-route controls, paid fares, driver payroll, finite seats, a broken elevated alignment, bus detour, 21 repeated district purchases, occupied-home redevelopment by a stop, and exact archive continuation in `tests/test_transit_network.py` and `tests/test_transit_combined_redevelopment.py`. A real seed-42 founding test also purchased East Meadow ($30,606), constructed a road into the new parcel, opened a cottage, then paid $9,000 for a depot and $13,300 for a frequent bus route from that parcel to a live grocer. On day two that route was staffed by four existing residents, operated at 98 peak seats and 38.8-minute headway for $139.63/day, and carried/charged two actual boardings. The new household remained unemployed: there were no funded reachable vacancies, so the route did not invent jobs or promise an arrival. This exposes a realistic boundary of the feature: transit can make a real destination reachable without creating a position or extending civic catchments.
+
 ## Verification
 
 ```

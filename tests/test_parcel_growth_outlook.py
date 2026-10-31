@@ -37,6 +37,10 @@ with sync_playwright() as pw:
     assert 'best legal private home site is (59, 14)' in text
     assert 'current top private housing candidate is (42, 33)' in text
     assert 'passes today’s funded-work, food, access and budget checks' in text
+    assert 'Current sample job access:' in text and 'modeled road travel cost' in text
+    assert 'No paid passenger route is currently used' in text
+    assert 'Forecast service coverage at this address' in text
+    assert 'do not extend those civic catchments' in text
     assert 'Visit Cottage site (59, 14)' in page.locator('#eventChoices').inner_text()
     evidence = ROOT / 'docs/previews/parcel-growth-outlook'
     evidence.mkdir(parents=True, exist_ok=True)
