@@ -3476,6 +3476,13 @@ function resetTownTransientUI(){
 function toast(msg){const el=$('toast');el.textContent=msg;el.style.display='block';clearTimeout(toastTimeout);toastTimeout=setTimeout(()=>el.style.display='none',3300)}
 
 // SOURCE: 51-cooperative-day.js
+// The model is plain archive data. Copy strings by reference while deeply
+// isolating mutable containers; unlike JSON encoding this needs no text buffer.
+function copyCooperativeState(value){
+ if(value===null||typeof value!=='object')return value;
+ if(Array.isArray(value))return value.map(copyCooperativeState);
+ const result={};for(const key of Object.keys(value)){const next=copyCooperativeState(value[key]);if(key==='__proto__')Object.defineProperty(result,key,{value:next,writable:true,enumerable:true,configurable:true});else result[key]=next;}return result;
+}
 // Experimental scheduler. Never persisted or enabled by an ordinary founding/load.
 const COOPERATIVE_DAY_DEFAULT=false;
 let cooperativeEnabled=COOPERATIVE_DAY_DEFAULT,cooperativeJob=null,cooperativeToken=0,cooperativeReplaying=false;
@@ -3491,7 +3498,7 @@ cooperativeChannel.port1.onmessage=e=>{if(cooperativeJob&&e.data===cooperativeJo
 function beginCooperativeDay(){
  if(cooperativeJob||!G||pendingEvent||pointer.down||touches.size)return false;
  // Recovery/export authority is a completed-day snapshot; never a suspended generator.
- const began=performance.now(),snapshot=JSON.stringify({...G,rngState,trafficState:{vehicles:traffic,clock:frameClock,elapsed:trafficElapsed,gates:[...intersectionGates],serial:vehicleSerial},visualState});
+ const began=performance.now(),snapshot=copyCooperativeState({...G,rngState,trafficState:{vehicles:traffic,clock:frameClock,elapsed:trafficElapsed,gates:[...intersectionGates],serial:vehicleSerial},visualState});
  cooperativeJob={town:G,day:G.day,previousBusy:simulationBusy,token:++cooperativeToken,iterator:stagedTick(),snapshot,rng:rngState,transients:{marketOpen,crewDay,crewsUsed:new Map(crewsUsed),regionalCrews,transitReservationVersion,trafficClock,migrationOwned:migrationReportOwner===G,migrationRecent:migrationRecent.slice(),migrationObservedDay,migrationSessionCounts:{...migrationSessionCounts},civicCandidates:new Map([...civicCandidateSets].map(([k,v])=>[k,new Set(v)]))},started:began,cpu:performance.now()-began,stage:'begin',waiters:[]};simulationBusy=true;cooperativeBanner();cooperativePost();return true;
 }
 function cooperativePump(synchronous=false){
@@ -3508,7 +3515,7 @@ function cooperativeCommit(job){
  cooperativeFlushCommands();for(const w of job.waiters){try{w.resolve(w.town===G?w.fn():false);}catch(e){w.reject(e);}}
 }
 function cooperativeFail(job,error){
- cooperativeJob=null;simulationBusy=job.previousBusy;cooperativeToken++;G=JSON.parse(job.snapshot);rngState=job.rng;marketOpen=job.transients.marketOpen;crewDay=job.transients.crewDay;crewsUsed=job.transients.crewsUsed;regionalCrews=job.transients.regionalCrews;transitReservationVersion=job.transients.transitReservationVersion;restoreTransport();trafficClock=job.transients.trafficClock;migrationReportOwner=job.transients.migrationOwned?G:null;migrationRecent=job.transients.migrationRecent;migrationObservedDay=job.transients.migrationObservedDay;migrationSessionCounts=job.transients.migrationSessionCounts;civicCandidateSets.clear();for(const [k,v]of job.transients.civicCandidates)civicCandidateSets.set(k,v);roadsVersion++;roadNetwork=null;transitTopologyCache=null;transitDailyCache=null;cacheBuildingsFor=null;staticDirty=true;dirty=true;paused=true;acc=0;cooperativeEnabled=false;
+ cooperativeJob=null;simulationBusy=job.previousBusy;cooperativeToken++;G=job.snapshot;rngState=job.rng;marketOpen=job.transients.marketOpen;crewDay=job.transients.crewDay;crewsUsed=job.transients.crewsUsed;regionalCrews=job.transients.regionalCrews;transitReservationVersion=job.transients.transitReservationVersion;restoreTransport();trafficClock=job.transients.trafficClock;migrationReportOwner=job.transients.migrationOwned?G:null;migrationRecent=job.transients.migrationRecent;migrationObservedDay=job.transients.migrationObservedDay;migrationSessionCounts=job.transients.migrationSessionCounts;civicCandidateSets.clear();for(const [k,v]of job.transients.civicCandidates)civicCandidateSets.set(k,v);roadsVersion++;roadNetwork=null;transitTopologyCache=null;transitDailyCache=null;cacheBuildingsFor=null;staticDirty=true;dirty=true;paused=true;acc=0;cooperativeEnabled=false;
  cooperativeClearPreview();pointer.down=false;pointer.activeId=null;touches.clear();roadPainted.clear();cooperativeSamples.errors.push(String(error));cooperativeEffects.clear();const declined=cooperativeCommands.length;for(const c of cooperativeCommands)c.reject?.(error);cooperativeCommands.length=0;cooperativeBanner();for(const w of job.waiters)w.reject(error);updateHeader();toast('Experimental scheduler stopped and restored completed day '+G.day+'. '+declined+' queued input events were declined; review them again.');console.error(error);
 }
 function finishCooperativeDaySync(reason='explicit barrier'){if(!cooperativeJob)return;const barrierStarted=performance.now();cooperativeToken++;cooperativeJob.token=cooperativeToken;cooperativePump(true);cooperativeSamples.barriers=cooperativeSamples.barriers||[];cooperativeSamples.barriers.push({reason,ms:performance.now()-barrierStarted});if(cooperativeSamples.barriers.length>100)cooperativeSamples.barriers.shift();}
@@ -7440,7 +7447,7 @@ window.__townTest={view:()=>({camera:{...cam},touchCount:touches.size,pointer:{d
 for(const [name,original]of Object.entries(window.__townTest)){
  if(typeof original!=='function'||['perf','view'].includes(name))continue;
  window.__townTest[name]=function(...args){
-  if(name==='get'&&cooperativeDayBusy()){const working=G;try{G=JSON.parse(cooperativeJob.snapshot);return original(...args);}finally{G=working;}}
+  if(name==='get'&&cooperativeDayBusy()){const working=G;try{G=copyCooperativeState(cooperativeJob.snapshot);return original(...args);}finally{G=working;}}
   finishCooperativeDaySync('diagnostic '+name);return original(...args);
  };
 }

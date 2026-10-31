@@ -8,7 +8,7 @@ window.__townTest={view:()=>({camera:{...cam},touchCount:touches.size,pointer:{d
 for(const [name,original]of Object.entries(window.__townTest)){
  if(typeof original!=='function'||['perf','view'].includes(name))continue;
  window.__townTest[name]=function(...args){
-  if(name==='get'&&cooperativeDayBusy()){const working=G;try{G=JSON.parse(cooperativeJob.snapshot);return original(...args);}finally{G=working;}}
+  if(name==='get'&&cooperativeDayBusy()){const working=G;try{G=copyCooperativeState(cooperativeJob.snapshot);return original(...args);}finally{G=working;}}
   finishCooperativeDaySync('diagnostic '+name);return original(...args);
  };
 }
