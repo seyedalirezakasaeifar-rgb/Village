@@ -1,0 +1,9 @@
+# Same-runtime disabled/enabled codec comparison
+
+Fixed source b9f015806b20e5795bdb1814373b25a8786247c7c67f634ac9104c4c79d4f12f, API30/WebView83 software emulator. Each constructor resets the town, explicitly sets experimental flag, performs two ordinary canonical warmups, then measures one export/import. Full canonical model equality passed and each import advanced save epoch exactly once.
+
+Small169-person town: disabled135511 bytes, encode25.0ms/import192.2ms; enabled135751 bytes, encode176.4ms/import317.1ms. Mid history1000 people/500 households/500 firms: disabled619975 bytes, encode114.0ms/import459.1ms; enabled418253 bytes, encode1972.6ms/import1961.4ms. These paired samples isolate appreciable codec overhead on the same runtime; they are not replicated physical benchmarks. Heap API stayed at the same coarse81.4MB bucket and cannot certify peak.
+
+After actual native Found Your Town input made the ordinary game visible, one direct call through the real native archive restore bridge imported the prior8387584-byte candidate. It returned restored=true after39.34 seconds, with explicit final success. Actual OS screenshot while pending showed unchanged ordinary Town Hall/day1 UI with no visible import-progress state. No provider chooser or user restore-button repeated-tap test was performed, so duplicate-input prevention is not certified by this one-call result. The in-process comparison's epoch increment was exactly1; this is narrower than testing double-tap behavior. This blocks any claim of responsive large imports or truthful blocking-progress UI. Production codec stays disabled.
+
+Receipts in ../previews/native-codec-v2/native-comparison.json and import-ui.json. The earlier huge malformed input was not repeated during comparison. Early-metadata-rejection candidate will receive a separately bound scratch test.

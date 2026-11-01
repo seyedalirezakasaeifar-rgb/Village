@@ -1,0 +1,58 @@
+{
+  "source_sha256": "b9f015806b20e5795bdb1814373b25a8786247c7c67f634ac9104c4c79d4f12f",
+  "results": [
+    {
+      "enabled": false,
+      "people": 169,
+      "households": 67,
+      "firms": 26,
+      "ok": true,
+      "exact": true,
+      "bytes": 135511,
+      "encodeMs": 24.999999999650754,
+      "decodeMs": 192.19999999948777,
+      "adoptions": 1,
+      "heap": 81400000
+    },
+    {
+      "enabled": true,
+      "people": 169,
+      "households": 67,
+      "firms": 26,
+      "ok": true,
+      "exact": true,
+      "bytes": 135751,
+      "encodeMs": 176.39999999850988,
+      "decodeMs": 317.10000000009313,
+      "adoptions": 1,
+      "heap": 81400000
+    },
+    {
+      "enabled": false,
+      "people": 1000,
+      "households": 500,
+      "firms": 500,
+      "ok": true,
+      "exact": true,
+      "bytes": 619975,
+      "encodeMs": 114.00000000139698,
+      "decodeMs": 459.0999999999767,
+      "adoptions": 1,
+      "heap": 81400000
+    },
+    {
+      "enabled": true,
+      "people": 1000,
+      "households": 500,
+      "firms": 500,
+      "ok": true,
+      "exact": true,
+      "bytes": 418253,
+      "encodeMs": 1972.5999999991618,
+      "decodeMs": 1961.4000000001397,
+      "adoptions": 1,
+      "heap": 81400000
+    }
+  ],
+  "outcome": "PASS"
+}

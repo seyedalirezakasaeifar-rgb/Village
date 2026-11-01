@@ -1,0 +1,22 @@
+{
+  "before": {
+    "id": 1,
+    "result": {
+      "result": {
+        "type": "string",
+        "value": "{\"welcome\":\"none\",\"pause\":\"Pause simulation\",\"bytes\":8387584}"
+      }
+    }
+  },
+  "result": {
+    "id": 2,
+    "result": {
+      "result": {
+        "type": "string",
+        "value": "{\"restored\":true,\"population\":171}"
+      }
+    }
+  },
+  "responseSeconds": 39.34261870800037,
+  "method": "direct native archive restore bridge; one invocation; actual OS screenshot while pending"
+}
