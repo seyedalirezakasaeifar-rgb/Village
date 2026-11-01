@@ -119,13 +119,25 @@ function urbanDistrictReview(){
  for(const [key,d] of Object.entries(u.districts))if(!active.has(key)){d.vacantSince=d.vacantSince||G.day;if(G.day-d.vacantSince>=180)delete u.districts[key];}
  u.lastReview=G.day;
 }
+// Keep two small, deterministic 90-day neighbourhood snapshots. This is a
+// factual civic record, not a growth target: no cash, RNG, demand or simulation
+// decisions are touched. Missing blocks in the latest snapshot mean zero.
+function urbanRecordActivity(){
+ const u=ensureUrban(),c=urbanSpatial(),blocks={};
+ for(const b of Object.values(c.blocks)){const households=b.households.map(id=>G.households[id]).filter(h=>h?.people?.length),residents=households.reduce((n,h)=>n+h.people.length,0),occupiedHomes=new Set(households.map(h=>h.home)).size,p= c.profiles[b.key];blocks[b.key]={residents,occupiedHomes,staffedJobs:Math.round(p?.staffedWorkers||0),jobCapacity:Math.round(b.jobs||0)};}
+ const latest={day:G.day,blocks};u.activity=[...(u.activity||[]).slice(-1),latest];
+}
+function urbanActivityDelta(key){const history=G.urban?.activity||[],prior=history.length>1?history[history.length-2]:null,latest=history[history.length-1];if(!prior||!latest||latest.day-prior.day!==90)return null;const a=prior.blocks[key]||{residents:0,occupiedHomes:0,staffedJobs:0,jobCapacity:0},b=latest.blocks[key]||{residents:0,occupiedHomes:0,staffedJobs:0,jobCapacity:0};return {fromDay:prior.day,toDay:latest.day,residents:b.residents-a.residents,occupiedHomes:b.occupiedHomes-a.occupiedHomes,staffedJobs:b.staffedJobs-a.staffedJobs,jobCapacity:b.jobCapacity-a.jobCapacity};}
 function validateUrban(data){
  if((data.projects||[]).some(p=>p.urbanEscrow!=null&&(!p.retailCentre||p.kind!=='firm'||p.firmKind!=='grocer'||!Number.isFinite(p.urbanEscrow)||p.urbanEscrow!==28000||p.capital!==28000)))return false;
  const u=data.urban;if(u==null)return true;if(!u||u.version!==1||!Number.isSafeInteger(u.revision)||u.revision<0||!u.zones||typeof u.zones!=='object'||Array.isArray(u.zones)||!u.districts||typeof u.districts!=='object'||Array.isArray(u.districts)||!Array.isArray(u.renewals)||u.renewals.length>80||!Number.isInteger(u.lastReview)||u.lastReview<0||u.lastReview>data.day)return false;
  const validKey=k=>{if(!/^\d+:\d+$/.test(k))return false;const [x,y]=k.split(':').map(Number);return x<T/8&&y<T/8;};
  if(Object.keys(u.zones).length>T*T/64||Object.keys(u.districts).length>T*T/64)return false;
  if(!Object.entries(u.zones).every(([k,z])=>validKey(k)&&z&&owns(URBAN_PLANS,z.plan)&&Number.isInteger(z.day)&&z.day>=1&&z.day<=data.day))return false;
- return Object.entries(u.districts).every(([k,d])=>validKey(k)&&d&&typeof d.name==='string'&&d.name.length<=50&&typeof d.character==='string'&&d.character.length<=50&&Number.isInteger(d.since)&&d.since>=1&&d.since<=data.day&&Number.isInteger(d.changed)&&d.changed>=d.since&&d.changed<=data.day&&(!d.proposed||(typeof d.proposed==='string'&&d.proposed.length<=50&&Number.isInteger(d.proposedSince)&&d.proposedSince<=data.day)))&&u.renewals.every(r=>r&&Number.isInteger(r.day)&&r.day>=1&&r.day<=data.day&&typeof r.action==='string'&&r.action.length<=100&&Number.isFinite(r.cost)&&r.cost>=0);
+ const districtsValid=Object.entries(u.districts).every(([k,d])=>validKey(k)&&d&&typeof d.name==='string'&&d.name.length<=50&&typeof d.character==='string'&&d.character.length<=50&&Number.isInteger(d.since)&&d.since>=1&&d.since<=data.day&&Number.isInteger(d.changed)&&d.changed>=d.since&&d.changed<=data.day&&(!d.proposed||(typeof d.proposed==='string'&&d.proposed.length<=50&&Number.isInteger(d.proposedSince)&&d.proposedSince<=data.day)));
+ const activity=u.activity;
+ if(activity!=null&&(!Array.isArray(activity)||activity.length>2||activity.some(s=>!s||!Number.isInteger(s.day)||s.day<1||s.day>data.day||!s.blocks||typeof s.blocks!=='object'||Array.isArray(s.blocks)||Object.keys(s.blocks).length>T*T/64||Object.entries(s.blocks).some(([k,v])=>!validKey(k)||!v||!['residents','occupiedHomes','staffedJobs','jobCapacity'].every(n=>Number.isSafeInteger(v[n])&&v[n]>=0&&v[n]<=10000000)))||(activity.length===2&&activity[1].day-activity[0].day!==90)))return false;
+ return districtsValid&&u.renewals.every(r=>r&&Number.isInteger(r.day)&&r.day>=1&&r.day<=data.day&&typeof r.action==='string'&&r.action.length<=100&&Number.isFinite(r.cost)&&r.cost>=0);
 }
 function urbanTitleAccount(b){
  const title=b.title;
@@ -259,7 +271,7 @@ function urbanRetailProposal(explicit=false,reviewedKey=null){
  const project=G.projects.find(p=>p.id===site.id);G.region-=capital;project.urbanEscrow=capital;
  site.footprint=best.footprint;site.retailCentre=true;invalidateBuildingIndex();financeConstruction(cost,site.id);G.development.privateSpend=(G.development.privateSpend||0)+cost;ensureUrban().revision++;invalidateUrban();story('Investors funded a six-plot shopping centre with an anchor food market, covered shopfronts and a loading court. It must recruit staff and buy real inventory before serving its catchment.','good',site.id);return {ok:true,reason:'A privately funded shopping centre is under construction.'};
 }
-function urbanEvolutionDay(){if(G.day%30!==0)return;urbanHousingMobility();urbanDistrictReview();if(!urbanFarmRenewal(cityDemand())&&G.day%90===0)urbanRetailProposal();}
+function urbanEvolutionDay(){if(G.day%30!==0)return;urbanHousingMobility();urbanDistrictReview();if(G.day%90===0){urbanRecordActivity();if(!urbanFarmRenewal(cityDemand()))urbanRetailProposal();}}
 function urbanRentMultiplier(home){if(!home)return 1;const d=urbanDescriptor(home.x,home.y);return clamp(.80+d.landValue/12000+home.condition*.0015+d.amenity*.018-d.pollution*.04,.65,1.55);}
 function urbanHousingMobility(){
  const living=G.households.filter(h=>h.people.length),vacancies=urbanVacancies(-1,false);if(!living.length||!vacancies.length)return 0;const net=graph(),offset=(Math.floor(G.day/30)*24)%living.length;let moved=0;

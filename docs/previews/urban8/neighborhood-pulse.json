@@ -1,0 +1,124 @@
+{
+  "source_sha256": "2e016bbeed6a3ebe3fcdf224a660a27958f2036db925fe11a96ca1d06bb2bfae",
+  "day": 181,
+  "block": "3:3",
+  "samples": [
+    90,
+    180
+  ],
+  "trend": {
+    "fromDay": 90,
+    "toDay": 180,
+    "residents": 0,
+    "occupiedHomes": 0,
+    "staffedJobs": -4,
+    "jobCapacity": -3
+  },
+  "workFlow": {
+    "person": 149,
+    "before": {
+      "local": 0,
+      "elsewhere": 2,
+      "blocked": 0,
+      "searching": 0,
+      "destinations": [
+        [
+          "Construction Co. of Hawthorn",
+          1
+        ],
+        [
+          "Vale River Landing",
+          1
+        ]
+      ],
+      "shops": [
+        {
+          "name": "Village Stores Ltd.",
+          "residents": 2,
+          "staff": 2,
+          "stock": 503
+        },
+        {
+          "name": "Village Stores of Eastmead",
+          "residents": 2,
+          "staff": 1,
+          "stock": 468
+        },
+        {
+          "name": "Village Stores Trading",
+          "residents": 2,
+          "staff": 1,
+          "stock": 439
+        }
+      ],
+      "trend": {
+        "fromDay": 90,
+        "toDay": 180,
+        "residents": 0,
+        "occupiedHomes": 0,
+        "staffedJobs": -4,
+        "jobCapacity": -3
+      }
+    },
+    "after": {
+      "local": 0,
+      "elsewhere": 1,
+      "blocked": 1,
+      "searching": 0,
+      "destinations": [
+        [
+          "Vale River Landing",
+          1
+        ]
+      ],
+      "shops": [
+        {
+          "name": "Village Stores Ltd.",
+          "residents": 2,
+          "staff": 2,
+          "stock": 503
+        },
+        {
+          "name": "Village Stores of Eastmead",
+          "residents": 2,
+          "staff": 1,
+          "stock": 468
+        },
+        {
+          "name": "Village Stores Trading",
+          "residents": 2,
+          "staff": 1,
+          "stock": 439
+        }
+      ],
+      "trend": {
+        "fromDay": 90,
+        "toDay": 180,
+        "residents": 0,
+        "occupiedHomes": 0,
+        "staffedJobs": -4,
+        "jobCapacity": -3
+      }
+    }
+  },
+  "readOnlyMoneyRngGoodsActivityStable": true,
+  "actualOverlay": "healthAccess",
+  "phoneLayout": {
+    "body": false,
+    "panel": false,
+    "buttons": [
+      {
+        "w": 142.328125,
+        "h": 42
+      },
+      {
+        "w": 135.8125,
+        "h": 42
+      }
+    ]
+  },
+  "archiveReplay30dExact": true,
+  "legacyWithoutPulseAccepted": true,
+  "malformedPulseRejectedAtomically": true,
+  "errors": []
+}
