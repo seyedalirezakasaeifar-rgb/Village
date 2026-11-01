@@ -1,0 +1,27 @@
+{
+  "source_sha256": "8d3650009b13fdbdaa564abf31cac9a100b798c6acf88030982e85402b062498",
+  "district": {
+    "key": "2:4",
+    "name": "<img src=x onerror=alert(1)> \u00c5\u533a",
+    "unownedRejected": true,
+    "cancelAndInvalidInputsRejected": true,
+    "stableAfterCharacterChangeAndLoad": true,
+    "phoneViewport": 390,
+    "mapBounds": {
+      "x": 0,
+      "y": 106,
+      "width": 390,
+      "height": 626
+    },
+    "readableAsLiteralText": true,
+    "phoneMapLabel": "<img src=x onerror=\u2026",
+    "moneyUnchanged": true
+  },
+  "publicPlace": {
+    "buildingIdStable": true,
+    "municipalTitle": true,
+    "moneyUnchanged": true,
+    "unicodeAndLiteralText": true,
+    "saveLoad": true
+  }
+}

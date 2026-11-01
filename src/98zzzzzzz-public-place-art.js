@@ -43,7 +43,7 @@ function drawNamedPlaces(g,visible){
  const z=cam.zoom,placed=[];g.save();
  for(const p of publicPlaceCues()){
   if(!p.present||placed.length>=3)continue;const b=readBuild(p.building);if(!b)continue;const q=iso(b.x,b.y),item=buildingItemsById.get(b.id),x=item?item.x:q[0],y=item?item.y+(item.w+item.d)*9+5:q[1]+41;if(!visible(x,y,0))continue;
-  const text=p.name.length>25?p.name.slice(0,24)+'…':p.name,gap=7/z;g.font='bold '+(8/z)+'px Arial';const width=Math.min(150/z,g.measureText(text).width+10/z);
+  const chars=Array.from(p.name),text=chars.length>25?chars.slice(0,24).join('')+'…':p.name,gap=7/z;g.font='bold '+(8/z)+'px Arial';const width=Math.min(150/z,g.measureText(text).width+10/z);
   if(placed.some(r=>Math.abs(r.x-x)<(r.width+width)/2+gap&&Math.abs(r.y-y)<22/z))continue;
   g.fillStyle=p.kind==='square'?'#3f6558ed':'#5c6553ed';g.fillRect(x-width/2,y-8/z,width,12/z);g.fillStyle='#f0e1b8';g.textAlign='center';g.fillText(text,x,y+1/z,width-6/z);placed.push({x,y,width});
  }g.restore();

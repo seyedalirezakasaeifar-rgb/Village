@@ -77,7 +77,7 @@ function validateUrban(data){
  const validKey=k=>{if(!/^\d+:\d+$/.test(k))return false;const [x,y]=k.split(':').map(Number);return x<T/8&&y<T/8;};
  if(Object.keys(u.zones).length>T*T/64||Object.keys(u.districts).length>T*T/64)return false;
  if(!Object.entries(u.zones).every(([k,z])=>validKey(k)&&z&&owns(URBAN_PLANS,z.plan)&&Number.isInteger(z.day)&&z.day>=1&&z.day<=data.day))return false;
- return Object.entries(u.districts).every(([k,d])=>validKey(k)&&d&&typeof d.name==='string'&&d.name.length<=50&&typeof d.character==='string'&&d.character.length<=50&&Number.isInteger(d.since)&&d.since>=1&&d.since<=data.day&&Number.isInteger(d.changed)&&d.changed>=d.since&&d.changed<=data.day&&(!d.proposed||(typeof d.proposed==='string'&&d.proposed.length<=50&&Number.isInteger(d.proposedSince)&&d.proposedSince<=data.day)))&&u.renewals.every(r=>r&&Number.isInteger(r.day)&&r.day>=1&&r.day<=data.day&&typeof r.action==='string'&&r.action.length<=100&&Number.isFinite(r.cost)&&r.cost>=0);
+ return Object.entries(u.districts).every(([k,d])=>validKey(k)&&d&&typeof d.name==='string'&&Array.from(d.name).length<=50&&!/[\u0000-\u001f\u007f-\u009f]/.test(d.name)&&typeof d.character==='string'&&d.character.length<=50&&Number.isInteger(d.since)&&d.since>=1&&d.since<=data.day&&Number.isInteger(d.changed)&&d.changed>=d.since&&d.changed<=data.day&&(!d.proposed||(typeof d.proposed==='string'&&d.proposed.length<=50&&Number.isInteger(d.proposedSince)&&d.proposedSince<=data.day)))&&u.renewals.every(r=>r&&Number.isInteger(r.day)&&r.day>=1&&r.day<=data.day&&typeof r.action==='string'&&r.action.length<=100&&Number.isFinite(r.cost)&&r.cost>=0);
 }
 function urbanTitleAccount(b){
  const title=b.title;
