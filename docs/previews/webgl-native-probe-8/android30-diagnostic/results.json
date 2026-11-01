@@ -1,0 +1,216 @@
+{
+  "url": "file:///android_asset/index.html?cityArt=webgl&cityProbe=1",
+  "initial": {
+    "badge": "QA · WebGL drawn 3 · paused true",
+    "webgl": true,
+    "renderer": "Android Emulator OpenGL ES Translator (Google SwiftShader)",
+    "source": "three0.160.1",
+    "quality": "probe",
+    "lod": "mid",
+    "backingSize": [
+      160,
+      53
+    ],
+    "drawCount": 3,
+    "samples": 3,
+    "drawCalls": 14,
+    "triangles": 24682,
+    "paused": true,
+    "day": 10,
+    "rng": 2147483647
+  },
+  "samples": [
+    {
+      "badge": "QA · WebGL drawn 3 · paused true",
+      "webgl": true,
+      "renderer": "Android Emulator OpenGL ES Translator (Google SwiftShader)",
+      "source": "three0.160.1",
+      "quality": "probe",
+      "lod": "mid",
+      "backingSize": [
+        160,
+        53
+      ],
+      "drawCount": 3,
+      "samples": 3,
+      "drawCalls": 14,
+      "triangles": 24682,
+      "paused": true,
+      "day": 10,
+      "rng": 2147483647
+    },
+    {
+      "badge": "QA · WebGL drawn 3 · paused true",
+      "webgl": true,
+      "renderer": "Android Emulator OpenGL ES Translator (Google SwiftShader)",
+      "source": "three0.160.1",
+      "quality": "probe",
+      "lod": "mid",
+      "backingSize": [
+        160,
+        53
+      ],
+      "drawCount": 3,
+      "samples": 3,
+      "drawCalls": 14,
+      "triangles": 24682,
+      "paused": true,
+      "day": 10,
+      "rng": 2147483647
+    },
+    {
+      "badge": "QA · WebGL drawn 3 · paused true",
+      "webgl": true,
+      "renderer": "Android Emulator OpenGL ES Translator (Google SwiftShader)",
+      "source": "three0.160.1",
+      "quality": "probe",
+      "lod": "mid",
+      "backingSize": [
+        160,
+        53
+      ],
+      "drawCount": 3,
+      "samples": 3,
+      "drawCalls": 14,
+      "triangles": 24682,
+      "paused": true,
+      "day": 10,
+      "rng": 2147483647
+    },
+    {
+      "badge": "QA · WebGL drawn 3 · paused true",
+      "webgl": true,
+      "renderer": "Android Emulator OpenGL ES Translator (Google SwiftShader)",
+      "source": "three0.160.1",
+      "quality": "probe",
+      "lod": "mid",
+      "backingSize": [
+        160,
+        53
+      ],
+      "drawCount": 3,
+      "samples": 3,
+      "drawCalls": 14,
+      "triangles": 24682,
+      "paused": true,
+      "day": 10,
+      "rng": 2147483647
+    },
+    {
+      "badge": "QA · WebGL drawn 3 · paused true",
+      "webgl": true,
+      "renderer": "Android Emulator OpenGL ES Translator (Google SwiftShader)",
+      "source": "three0.160.1",
+      "quality": "probe",
+      "lod": "mid",
+      "backingSize": [
+        160,
+        53
+      ],
+      "drawCount": 3,
+      "samples": 3,
+      "drawCalls": 14,
+      "triangles": 24682,
+      "paused": true,
+      "day": 10,
+      "rng": 2147483647
+    }
+  ],
+  "final": {
+    "badge": "QA · WebGL drawn 3 · paused true",
+    "webgl": true,
+    "renderer": "Android Emulator OpenGL ES Translator (Google SwiftShader)",
+    "source": "three0.160.1",
+    "quality": "probe",
+    "lod": "mid",
+    "backingSize": [
+      160,
+      53
+    ],
+    "drawCount": 3,
+    "samples": 3,
+    "drawCalls": 14,
+    "triangles": 24682,
+    "paused": true,
+    "day": 10,
+    "rng": 2147483647
+  },
+  "save_sha256_initial": "51c145bd18215bed70ae9bd5fbd554c2fdd090f128ff0e5ea4c155aa295d6c93",
+  "save_sha256_final": "51c145bd18215bed70ae9bd5fbd554c2fdd090f128ff0e5ea4c155aa295d6c93",
+  "save_unchanged": true,
+  "draw_count_stationary": true,
+  "paused_all_samples": true,
+  "day_unchanged": true,
+  "cdpScreenshot": "/tmp/webgl-diag-native-success.png",
+  "candidate_commit": "deed02bc4a25603693d6c2a2b287555343ed78ed",
+  "canonical_game_js_sha256": "451bfa6f9686c9ad6c29e2ce19b8614908339596ddd02aa94f8a5e2b70374b03",
+  "qa_apk_sha256": "f2eb06268bb13a10bdabad3b0d0a9d92c36a79d3cee50d9ea065b99007a7bab6",
+  "installed_apk_pullback_sha256": "f2eb06268bb13a10bdabad3b0d0a9d92c36a79d3cee50d9ea065b99007a7bab6",
+  "qa_package": "org.townledger.vale.qagfxdiag",
+  "qa_version": "8.0.0-webgl-diagnostic",
+  "qa_version_code": 900019,
+  "qa_launch_url": "file:///android_asset/index.html?cityArt=webgl&cityProbe=1",
+  "webview": "83.0.4103.120",
+  "android_api": 30,
+  "device": "x86_64 Android emulator, SwiftShader software rendering",
+  "actual_webgl_renderer": "Android Emulator OpenGL ES Translator (Google SwiftShader)",
+  "actual_badge_tap": true,
+  "actual_zoom_tap": true,
+  "actual_context_loss_trigger": "WEBGL_lose_context extension, deliberate test only",
+  "after_zoom": {
+    "badge": "QA · WebGL drawn 4 · paused true",
+    "frameId": 4,
+    "samples": 4,
+    "drawCalls": 14,
+    "triangles": 24682,
+    "zoom": 1.22,
+    "paused": true,
+    "day": 10,
+    "rng": 2147483647,
+    "save_sha256": "51c145bd18215bed70ae9bd5fbd554c2fdd090f128ff0e5ea4c155aa295d6c93",
+    "matches_initial_save": true
+  },
+  "after_context_loss": {
+    "badge": "QA · Canvas fallback · 3D released",
+    "webgl_present": false,
+    "webgl_canvas_present": false,
+    "fallback_canvas_id": "view",
+    "fallback_canvas_visible": true,
+    "paused": true,
+    "day": 10,
+    "save_sha256": "51c145bd18215bed70ae9bd5fbd554c2fdd090f128ff0e5ea4c155aa295d6c93",
+    "failure": null
+  },
+  "screenshots": {
+    "renderer-paused.png": {
+      "path": "renderer-paused.png",
+      "sha256": "5636f42d6867b6b4e5b906d43b3762374189ab189e2ab7703d602c5069019d68",
+      "bytes": 63606
+    },
+    "zoom-requested-redraw.png": {
+      "path": "zoom-requested-redraw.png",
+      "sha256": "4fdcacd1e0d973d575943dd1d988d45483689dc03b359fec8f30ec153b662b88",
+      "bytes": 71266
+    },
+    "webgl-context-loss-canvas-fallback.png": {
+      "path": "webgl-context-loss-canvas-fallback.png",
+      "sha256": "485d6ee03842a484cdd41e4e19359c7aa9e2ffe5ff00e2899a052e9edfb33941",
+      "bytes": 219042
+    }
+  },
+  "software_emulator_top_samples_percent": {
+    "webview_renderer": [
+      45.5,
+      50.5
+    ],
+    "app_main": [
+      25.7,
+      25.8
+    ]
+  },
+  "limitations": [
+    "API30 x86_64 software emulator only; not a physical-device performance result.",
+    "Diagnostic uses a quarter-resolution 160x53 backing buffer, mid LOD, no shadows, and a 13x13-town geometry window.",
+    "Initial town startup/render was slow and produced high CPU use before the diagnostic settled."
+  ]
+}
