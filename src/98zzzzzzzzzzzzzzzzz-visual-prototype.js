@@ -4,13 +4,14 @@ if(new URLSearchParams(location.search).get('cityArt')==='prototype'||window.CIT
  window.CITY_REDESIGN=true;
  document.documentElement.classList.add('city-art-prototype');
  const priorArchitecture=architecture;
- const kit=new Set(['home','apartment','office','grocer','bakery','tavern','factory','warehouse','townhall','school','fire']);
+ const kit=new Set(['home','apartment','office','grocer','bakery','tavern','factory','warehouse','townhall','school','fire','police','clinic','college','courthouse','bank','contractor','mill','sawmill']);
  architecture=function(g,b,w,d){
   if(!kit.has(b.kind)||b.redevelopment){priorArchitecture(g,b,w,d);return;}
-  const residential=b.kind==='home',urban=['apartment','office'].includes(b.kind),industry=['factory','warehouse'].includes(b.kind),id=b.id||0;
+  const residential=b.kind==='home',urban=['apartment','office'].includes(b.kind),industry=['factory','warehouse','mill','sawmill'].includes(b.kind),id=b.id||0;
   const bw=w*(residential?.92:.82),bd=d*(residential?.83:.74),u=-bw/2,v=-bd/2;
-  const masonry=['#c7b79c','#bba58d','#dfd4bd','#a99a86'][id%4],roof=['#343e48','#50504a','#694b3e'][id%3];
+  const masonry=['#c6b99f','#a9957f','#d5cbb6','#a5aaa0','#ba9d80'][id%5],roof=['#343e48','#50504a','#694b3e'][id%3];
   // Broad quiet material planes replace the tiny pastel cottage vocabulary.
+  g.fillStyle='#273e3228';g.beginPath();g.ellipse(8,9,w*30,d*13,.14,0,Math.PI*2);g.fill();
   slab(g,-w*.48,-d*.48,w*.96,d*.96,1,'#8c9182');
   slab(g,u-.08,v-.08,bw+.16,bd+.16,3,'#555a50');
   const floors=urban?3+(id%3):industry?1:residential?2:2,H=industry?38:residential?(id%3===0?37:27):floors*20;
@@ -19,12 +20,12 @@ if(new URLSearchParams(location.search).get('cityArt')==='prototype'||window.CIT
   for(let f=0;f<floors;f++){
    if(residential&&f>0&&H<35)continue;const z=residential?8+f*17:10+f*20,columns=residential?2:3;
    for(let j=0;j<columns;j++){
-    const x=u+.09+j*(bw-.15)/columns,ww=(bw-.22)/columns;
-    polygon(g,[point(x,v+bd+.008,z),point(x+ww,v+bd+.008,z),point(x+ww,v+bd+.008,z+12),point(x,v+bd+.008,z+12)],'#3a3e39');
-    polygon(g,[point(x+.025,v+bd+.015,z+2),point(x+ww-.025,v+bd+.015,z+2),point(x+ww-.025,v+bd+.015,z+11),point(x+.025,v+bd+.015,z+11)],nightMode?'#f5c47d':'#47636c');
+    const ww=Math.min(.17,(bw-.25)/columns),x=u+.10+j*(bw-.18)/columns;
+    polygon(g,[point(x,v+bd+.008,z),point(x+ww,v+bd+.008,z),point(x+ww,v+bd+.008,z+10),point(x,v+bd+.008,z+10)],'#3a3e39');
+    polygon(g,[point(x+.025,v+bd+.015,z+2),point(x+ww-.025,v+bd+.015,z+2),point(x+ww-.025,v+bd+.015,z+9),point(x+.025,v+bd+.015,z+9)],nightMode?'#f5c47d':'#47636c');
     segment(g,point(x,v+bd+.04,z),point(x+ww,v+bd+.04,z),'#dfcfac',2);
     const y=v+.10+j*(bd-.15)/columns;
-    polygon(g,[point(u+bw+.01,y,z),point(u+bw+.01,y+ww,z),point(u+bw+.01,y+ww,z+11),point(u+bw+.01,y,z+11)],nightMode?'#cd9c5e':'#314952');
+    polygon(g,[point(u+bw+.01,y,z),point(u+bw+.01,y+ww,z),point(u+bw+.01,y+ww,z+9),point(u+bw+.01,y,z+9)],nightMode?'#cd9c5e':'#314952');
    }
    if(urban)slab(g,u-.035,v-.035,bw+.07,bd+.07,z+15,'#746f63');
   }
@@ -34,7 +35,7 @@ if(new URLSearchParams(location.search).get('cityArt')==='prototype'||window.CIT
    // A deep covered entry and broad steps give houses a grounded human scale.
    box(g,-.12,v+bd+.01,.25,.15,3,18,'#77786b');slab(g,-.18,v+bd+.01,.36,.23,24,roof);
    for(let j=0;j<3;j++)slab(g,-.17,v+bd+.16+j*.055,.34,.06,6-j*2,'#b1ac95');
-  }else if(['townhall','school','fire'].includes(b.kind)){
+  }else if(['townhall','school','fire','police','clinic','college','courthouse'].includes(b.kind)){
    slab(g,u-.08,v-.08,bw+.16,bd+.16,H+7,roof);
    if(b.kind==='townhall'){box(g,-.17,-.14,.34,.28,H+8,27,'#c4baa3');gable(g,-.19,-.16,.38,.32,H+35,13,roof);const p=point(.17,.15,H+23);g.fillStyle='#eadcbc';g.beginPath();g.arc(p[0],p[1],5,0,Math.PI*2);g.fill();segment(g,[p[0],p[1]],[p[0],p[1]-3],'#33474a');}
    else if(b.kind==='school'){gable(g,u-.04,v-.04,bw+.08,bd+.08,H+8,16,roof);box(g,u+bw*.72,v+.10,.15,.16,H+9,20,'#806752');}
@@ -61,11 +62,16 @@ if(new URLSearchParams(location.search).get('cityArt')==='prototype'||window.CIT
   segment(g,[0,3],[1,-36],'#5c5141',4);segment(g,[1,-17],[-9,-31],'#5c5141',2);
   const evergreen=id%4===0;
   if(evergreen){for(let j=0;j<3;j++)polygon(g,[[-19+j*3,-13-j*13],[0,-46-j*8],[19-j*3,-13-j*13]],['#315449','#3d6150','#507354'][j]);}
-  else for(const [x,y,r] of [[-10,-30,16],[11,-31,17],[0,-45,18]]){g.fillStyle='#345a45';g.beginPath();g.ellipse(x+2,y+4,r,r*.79,0,0,Math.PI*2);g.fill();g.fillStyle=['#5d7c50','#6f8956','#80965e'][id%3];g.beginPath();g.ellipse(x-2,y-2,r*.88,r*.70,0,0,Math.PI*2);g.fill();}
+  else{const crowns=[[-11,-28,12],[10,-31,14],[-5,-45,15],[10,-46,11],[0,-35,15]];
+   for(let j=0;j<crowns.length;j++){const [x,y,r]=crowns[j],seed=(id*13+j*7)%5;g.fillStyle=['#385d43','#476e49','#5c7f50'][j%3];g.beginPath();for(let k=0;k<10;k++){const a=k*Math.PI/5,rr=r*(.84+((k*7+seed)%5)*.065),xx=x+Math.cos(a)*rr,yy=y+Math.sin(a)*rr*.8;k?g.lineTo(xx,yy):g.moveTo(xx,yy);}g.closePath();g.fill();g.fillStyle='#8a9e6250';g.beginPath();g.ellipse(x-4,y-5,r*.50,r*.31,-.4,0,Math.PI*2);g.fill();}
+  }
   g.restore();
  };
  const tileBase=diamond;
  diamond=function(g,x,y,fill,stroke){tileBase(g,x,y,fill,stroke);if(!stroke){g.strokeStyle=fill;g.lineWidth=2.4;g.stroke();}};
+ const detailBase=parcelDetails,identityBase=architecturalIdentity;
+ parcelDetails=function(g,b,w,d){if(!kit.has(b.kind))detailBase(g,b,w,d);};
+ architecturalIdentity=function(g,b,w,d){if(!kit.has(b.kind))identityBase(g,b,w,d);};
  const oldPalette=seasonPalette;
  seasonPalette=function(){const p=oldPalette();return {...p,grass:['#7b886e','#7b886e','#7b886e','#7b886e','#7b886e'],water:'#467d86',dark:'#60765b'};};
  const style=document.createElement('style');style.textContent='.city-art-prototype #mapStatusDeck{width:220px;opacity:.94}.city-art-prototype .topbar{box-shadow:0 2px 12px #132d3030}.city-art-prototype #tabs button{font-family:Arial,sans-serif;font-weight:500}';document.head.appendChild(style);

@@ -1,18 +1,18 @@
 [
   {
     "prototype": false,
-    "drawMs": 1.08,
+    "drawMs": 1.4,
     "errors": [],
     "invariant": true,
     "saveReload": true,
-    "source": "d79c3701b5d99d69b47464b5968f1e3f24f4f1c7cb27375ea88032c459b3b2ad"
+    "source": "6cd48a18f863edc7d0ed85393d8b735c2778032b343a55269f802a0c71e0bc54"
   },
   {
     "prototype": true,
-    "drawMs": 1.01,
+    "drawMs": 1.3,
     "errors": [],
     "invariant": true,
     "saveReload": true,
-    "source": "d79c3701b5d99d69b47464b5968f1e3f24f4f1c7cb27375ea88032c459b3b2ad"
+    "source": "6cd48a18f863edc7d0ed85393d8b735c2778032b343a55269f802a0c71e0bc54"
   }
 ]

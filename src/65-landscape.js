@@ -251,10 +251,12 @@ function drawGround(){
  }
  drawAirfieldGround(bg);
  // Streets have sidewalks and a visible hierarchy, with crossings at junctions.
- for(const [id,links] of net.neighbors){const a=roadCenter(id);for(const n of links){if(n<id)continue;const q=roadCenter(n),kind=G.roadClasses?.[id]||'local',width=kind==='arterial'?32:kind==='collector'?26:20;
-  segment(bg,a,q,'#c4bfa6',width+9);if(!fastRender)segment(bg,a,q,'#7e8881',width+3);segment(bg,a,q,'#717d77',width);if(!fastRender&&kind!=='local'){bg.setLineDash([4,8]);segment(bg,a,q,'#d5c99d',1);bg.setLineDash([]);}
+ if(window.CITY_REDESIGN)bg.lineCap='round';
+ for(const [id,links] of net.neighbors){const a=roadCenter(id);for(const n of links){if(n<id)continue;const q=roadCenter(n),kind=G.roadClasses?.[id]||'local',width=kind==='arterial'?32:kind==='collector'?26:20;if(window.CITY_REDESIGN)continue;
+  segment(bg,a,q,window.CITY_REDESIGN?'#a7ad98':'#c4bfa6',width+9);if(!fastRender)segment(bg,a,q,'#7e8881',width+3);segment(bg,a,q,window.CITY_REDESIGN?'#5e6b65':'#717d77',width);if(!fastRender&&kind!=='local'){bg.setLineDash([4,8]);segment(bg,a,q,'#d5c99d',1);bg.setLineDash([]);}
  }}
- for(const [id,links] of net.neighbors){if(links.length<3)continue;const a=roadCenter(id);bg.fillStyle='#717d77';bg.beginPath();bg.ellipse(...a,17,9,0,0,Math.PI*2);bg.fill();
+ if(window.CITY_REDESIGN)for(const pass of [0,1])for(const [id,links] of net.neighbors)for(const n of links){if(n<id)continue;const kind=G.roadClasses?.[id]||'local',width=kind==='arterial'?32:kind==='collector'?26:20;segment(bg,roadCenter(id),roadCenter(n),pass?'#5e6b65':'#a7ad98',width+(pass?0:9));}
+ for(const [id,links] of net.neighbors){if(window.CITY_REDESIGN||links.length<3)continue;const a=roadCenter(id);bg.fillStyle='#717d77';bg.beginPath();bg.ellipse(...a,17,9,0,0,Math.PI*2);bg.fill();
   if(!fastRender)for(const n of links){const q=roadCenter(n),dx=q[0]-a[0],dy=q[1]-a[1],l=Math.hypot(dx,dy),ux=dx/l,uy=dy/l,nx=-uy,ny=ux;for(let j=0;j<4;j++){const x=a[0]+ux*(21+j*3),y=a[1]+uy*(21+j*3);segment(bg,[x+nx*6,y+ny*6],[x-nx*6,y-ny*6],'#d4d3b8',1.4);}}
  }
  bg.restore();
