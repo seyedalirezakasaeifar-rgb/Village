@@ -20,3 +20,11 @@ The graphics interaction run used the isolated QA package `org.townledger.vale.v
 I also built and installed the intended side-by-side package `org.townledger.vale.v8sidecar`, labeled “TownLedger 8 Side-by-side QA”, from this exact source and the existing private development signer. APK SHA-256: `76ce91c7d0ad22788e18d92d29a3dfa09fba85ff2d93c85187f1919696873582`; the pulled installed APK matched exactly. Version is 8.0.0/code 22. The original `org.townledger.vale` remained installed. This signer is not the original app’s signer, so the package ID stays distinct.
 
 Neither APK nor save files are included here. The screenshots show only a synthetic TownLedger test town. The software-emulator interactions were slow and sometimes took tens of seconds to return; these results do not establish smooth performance on user devices. Full-scene appearance and physical-device performance remain open.
+
+## Cold restore and camera input follow-up
+
+On the installed stable `.v8sidecar` package, I created a fresh synthetic town, paused it at Day 5, and stored a canonical pre-stop checkpoint locally. I sent Android Home, killed the background package process, then relaunched and used the actual Continue button. A QA-only DevTools observer paused immediately after hydration hid the welcome screen and captured the model before the next animation frame. The full 102-field canonical SHA-256 matched exactly before and after: `d295817a2e8c20ed724a7fc844a35a3a37f14cf1ecdec27a39c3c8052928186d`; Day 5 and 169 residents matched, and the town was paused. The observer was injected only at runtime; no product code or archived save was changed for this check.
+
+With the same paused town, a real Android drag changed camera x from 4678 to 4623.9649. A real tap on the plus control changed zoom from 0.95 to 1.159. The canonical save SHA remained the same throughout pan and zoom. [Paused camera screenshot](paused-zoom-pan.png)
+
+The earlier invalid synthetic archive retained by an older QA run showed the app's “No valid town could be recovered” message. I left the original app untouched, founded a fresh synthetic town in the sidecar, and the cold-restore comparison above passed against that new town.
