@@ -1,0 +1,22 @@
+{
+  "source_sha256": "2b2f14477099ee7a3c4a2f34bc590714c5163d4db358fee7f9bd7288e590b0d7",
+  "seed": 42,
+  "viewportChecks": [
+    [
+      844,
+      390
+    ],
+    [
+      390,
+      844
+    ]
+  ],
+  "firstDeliveryDay": 6,
+  "agreementStatus": "fulfilled",
+  "earnedStagesBeforeMigration": 2,
+  "exactReplayDays": 5,
+  "invalidArchiveCases": 5,
+  "errors": [],
+  "realControls": true,
+  "note": "Simulated days and actual browser controls; no claim of a multi-hour human play session or device certification."
+}

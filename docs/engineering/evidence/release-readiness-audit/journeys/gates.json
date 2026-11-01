@@ -1,0 +1,54 @@
+{
+  "source_sha256": "2b2f14477099ee7a3c4a2f34bc590714c5163d4db358fee7f9bd7288e590b0d7",
+  "base": "d2b7086187621ae8c3c147fc3c04764efaadf49d",
+  "gates": [
+    {
+      "test": "test_mayor_journey",
+      "exit_code": 0,
+      "seconds": 13.0,
+      "log_sha256": "24814387399847f01ea8c790c46524e03d129c1b47ef1597553dbc352bf525da"
+    },
+    {
+      "test": "test_civic_calendar_journey",
+      "exit_code": 0,
+      "seconds": 10.36,
+      "log_sha256": "9c6efd0f3bc5f8b43797f71d265014bfc9a32be08a2bec3200e0c8789877c746"
+    },
+    {
+      "test": "test_waterfront_player_journey",
+      "exit_code": 0,
+      "seconds": 13.02,
+      "log_sha256": "db6ef2a223ea3ef40f33314e2004f9f1b5ae4f39e9a11e3b2611994be4b4168c"
+    },
+    {
+      "test": "test_pending_review_flows",
+      "exit_code": 0,
+      "seconds": 4.78,
+      "log_sha256": "d6b044d637e9b97fbf48dcade911e1722492ab9899dbb0f4fa9e5362059d9ec0"
+    },
+    {
+      "test": "test_service_budget_cash_warning",
+      "exit_code": 0,
+      "seconds": 11.18,
+      "log_sha256": "5a0ba6cd31e03bc77e55cb78b6abdb37399c1cb572652335f1a0d4c28ad0a2b2"
+    },
+    {
+      "test": "test_committed_day_save",
+      "exit_code": 0,
+      "seconds": 6.05,
+      "log_sha256": "0bdb1b943f362163e2c640680bcab9042abf7d0e62d60026131a8605eeacfcd6"
+    },
+    {
+      "test": "test_bridge_cold_continue",
+      "exit_code": 0,
+      "seconds": 6.06,
+      "log_sha256": "cd3790b92961bff0942d167593f2f1e8ac8b3e8bc68f519e46f05b028f8377d1"
+    },
+    {
+      "test": "test_upgrade_matrix",
+      "exit_code": 0,
+      "seconds": 8.24,
+      "log_sha256": "5102ed63253cd487fcc5bcb8bc1116a90e313b5200fc67f2d61ff672964e3741"
+    }
+  ]
+}
