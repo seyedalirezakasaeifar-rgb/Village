@@ -165,7 +165,7 @@
   },
   {
     "file": "70-interaction.js",
-    "statement": "$('pause').onclick=()=>{paused=!paused;fit();updateHeader();if(paused){draw();save()}};"
+    "statement": "$('pause').onclick=()=>{paused=!paused;fit();updateHeader();if(paused){if(active&&!['policies','citizens','settings','construction'].includes(active)){renderPan"
   },
   {
     "file": "70-interaction.js",
@@ -627,5 +627,73 @@
   {
     "file": "98zzzzzzzzzzzzzz-parcel-growth-outlook.js",
     "statement": "document.addEventListener('click',e=>{const b=e.target.closest('button');if(b?.dataset.parcelOutlook&&G)reviewParcelGrowthOutlook(b.dataset.parcelOutlook);});"
+  },
+  {
+    "file": "98zzzzzzzzzzzzzzzzz-webgl-snapshot.js",
+    "statement": "window.__cityVisualSnapshot=()=>{if(!G||simulationBusy||roadBatchDirty)return null;const hall=G.buildings.find(b=>b.kind==='townhall')||{x:28,y:28},context=city"
+  },
+  {
+    "file": "98zzzzzzzzzzzzzzzzz-webgl-snapshot.js",
+    "statement": "window.__cityVisualSave=()=>save();"
+  },
+  {
+    "file": "98zzzzzzzzzzzzzzzzz-webgl-snapshot.js",
+    "statement": "window.__cityVisualRevision=()=>G&&!simulationBusy&&!roadBatchDirty?[cityVisualUrbanEpoch,G.day,G.construction,roadsVersion,G.bridgeRevision||0,G.transit?.revis"
+  },
+  {
+    "file": "98zzzzzzzzzzzzzzzzz-webgl-snapshot.js",
+    "statement": "window.__cityVisualTap=(x,y)=>{if(!G||simulationBusy||!Number.isInteger(x)||!Number.isInteger(y)||x<0||y<0||x>=T||y>=T)return false;const p=roadCenter(roadId(x,"
+  },
+  {
+    "file": "98zzzzzzzzzzzzzzzzz-webgl-snapshot.js",
+    "statement": "window.__cityVisualMotionState=()=>G?{paused,busy:simulationBusy||roadBatchDirty,clock:frameClock,reduced:gameOptions.reducedMotion,traffic:gameOptions.traffic,"
+  },
+  {
+    "file": "98zzzzzzzzzzzzzzzzz-webgl-snapshot.js",
+    "statement": "window.__cityVisualActors=(detail,bounds)=>{\n window.__cityVisualActorWork={sources:0,positions:0};\n if(!G||simulationBusy||roadBatchDirty||detail==='far'||game"
+  },
+  {
+    "file": "98zzzzzzzzzzzzzzzzz-webgl-snapshot.js",
+    "statement": "window.__cityVisualResumeCanvas=()=>{staticDirty=true;dirty=true;draw();};"
+  },
+  {
+    "file": "98zzzzzzzzzzzzzzzzz-webgl-snapshot.js",
+    "statement": "window.__cityVisualCameraChanged=({x,z,zoom,height})=>{document.body.classList.toggle('surveying-region',overlay==='charter');$('gameRoot').classList.toggle('bu"
+  },
+  {
+    "file": "98zzzzzzzzzzzzzzzzz-webgl-snapshot.js",
+    "statement": "document.addEventListener('click',e=>{const target=e.target.closest('[data-inspect],[data-house],[data-firm]');if(!target||!window.__webglTaste)return;setTimeou"
+  },
+  {
+    "file": "98zzzzzzzzzzzzzzzzz-webgl-snapshot.js",
+    "statement": "window.__cityVisualTool=()=>buildMode;"
+  },
+  {
+    "file": "98zzzzzzzzzzzzzzzzz-webgl-snapshot.js",
+    "statement": "window.__cityVisualRoadStroke=(points,finish=false)=>{if(!G||simulationBusy)return false;if(finish){flushRoadBatch();return true;}if(buildMode!=='road')return f"
+  },
+  {
+    "file": "98zzzzzzzzzzzzzzzzz-webgl-snapshot.js",
+    "statement": "window.__cityVisualPlacementMode=()=>buildMode==='road'||buildMode==='repair'||!!(types[buildMode]?.build&&buildMode!=='inspect');"
+  },
+  {
+    "file": "98zzzzzzzzzzzzzzzzz-webgl-snapshot.js",
+    "statement": "window.__cityVisualInspectBuilding=id=>{if(!G||simulationBusy)return false;const b=readBuild(id);if(!b)return false;if(buildMode||transitDraft||overlay==='chart"
+  },
+  {
+    "file": "98zzzzzzzzzzzzzzzzz-webgl-snapshot.js",
+    "statement": "window.__cityVisualInspectActor=id=>{\n if(!G||simulationBusy||buildMode||transitDraft)return false;const [kind,key]=id.split(':'),n=Number(key);\n if(kind==='roa"
+  },
+  {
+    "file": "98zzzzzzzzzzzzzzzzz-webgl-snapshot.js",
+    "statement": "window.__cityVisualClearCharter=()=>{if(overlay==='charter'){overlay='none';parcelFocus=null;dirty=true;}};"
+  },
+  {
+    "file": "98zzzzzzzzzzzzzzzzz-webgl-snapshot.js",
+    "statement": "document.addEventListener('click',e=>{const b=e.target.closest('[data-charter-home],[data-charter-overview]');if(!b||!window.__webglTaste)return;if(b.hasAttribu"
+  },
+  {
+    "file": "98zzzzzzzzzzzzzzzzz-webgl-snapshot.js",
+    "statement": "window.__cityVisualQualityNotice=text=>toast(text);"
   }
 ]

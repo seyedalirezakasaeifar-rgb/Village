@@ -1,10 +1,11 @@
+import os
 """Current public civic controls versus combined worker, actual trusted UI."""
 from pathlib import Path
 import sys,json,hashlib,subprocess
 sys.path.insert(0,'tests')
 from test_mobile_rendering import html
 from playwright.sync_api import sync_playwright
-oracleCommit='01eeda3d2ff09822b9422721f75e97fabbc9958a';original=subprocess.check_output(['git','show',oracleCommit+':assets/game.js']).decode();source=Path('assets/game.js').read_text();worker=Path('experimental/worker/model.generated.js').read_text();bridge=Path('experimental/worker/real-view.generated.js').read_text()
+oracleCommit=os.environ.get('WORKER_ORACLE_COMMIT','87811c52cdb9aecd13cd23beebd52f6475c6dd9c');original=subprocess.check_output(['git','show',oracleCommit+':assets/game.js']).decode();source=Path('assets/game.js').read_text();worker=Path('experimental/worker/model.generated.js').read_text();bridge=Path('experimental/worker/real-view.generated.js').read_text()
 hook='''paused=true;window.civicUI={fixture:()=>{seed(42);paused=true;for(let i=0;i<30;i++)tick();pendingEvent=null;active='';$('welcome').style.display='none';return archivePayload();},load:a=>{G=JSON.parse(a);rngState=G.rngState;traffic=[];intersectionGates.clear();const metrics=G.roadMetrics;invalidateRoads(false);restoreTransport();G.roadMetrics=metrics;pendingEvent=null;active='';$('welcome').style.display='none';},model:()=>JSON.parse(archivePayload()),lot:k=>{const before=JSON.stringify([G,rngState]);let best=null,score=-Infinity;for(let y=0;y<56;y++)for(let x=0;x<56;x++)if(canPlace(x,y,true,k)){const n=G.households.reduce((n,h)=>{const b=readBuild(h.home);return n+(b?h.people.length/(1+Math.abs(x-b.x)+Math.abs(y-b.y)):0);},0);if(n>score){score=n;best={x,y};}}if(before!==JSON.stringify([G,rngState]))throw Error('Site probe changed authority');return best;},point:p=>{const pos=iso(p.x,p.y);cam={x:pos[0],y:pos[1],zoom:.8};dirty=true;const r=cv.getBoundingClientRect();return {x:r.left+cw/2,y:r.top+ch/2};}};\n'''
 with sync_playwright() as pw:
  b=pw.chromium.launch(executable_path='/usr/bin/chromium',args=['--no-sandbox']);pages=[];errors=[]

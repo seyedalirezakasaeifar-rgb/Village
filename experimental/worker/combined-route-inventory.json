@@ -1,8 +1,8 @@
 {
-  "sourceCommit": "91619aab90cb4447ff640bc02a0d28ecda7d8089",
-  "economicSourceSha256": "ac119726075abebf96683eb332782a5d55be69e42fe4545a9def0fd8a9ad6d1c",
+  "sourceCommit": "14f27abda1aa93835303184769274767accc1043",
+  "economicSourceSha256": "f08cdd9cf77bed07c94722995f4e14f45ff6c9a2f85c77406badcdfc13eaa905",
   "productionEnabled": false,
-  "registeredOperations": 79,
+  "registeredOperations": 82,
   "modules": [
     {
       "id": "civic",
@@ -46,6 +46,9 @@
     {
       "id": "land-district",
       "operations": [
+        "district-admission",
+        "district-finish",
+        "public-place",
         "regional-approaches",
         "civic-recharter",
         "brownfield-action",
@@ -107,7 +110,7 @@
       ]
     }
   ],
-  "declarativeUiBindings": 89,
+  "declarativeUiBindings": 93,
   "bindings": [
     {
       "module": "civic",
@@ -652,7 +655,8 @@
           "name": "data-parcel-buy",
           "as": "string"
         }
-      }
+      },
+      "refresh": false
     },
     {
       "module": "land-district",
@@ -670,7 +674,8 @@
           "name": "data-district-focus",
           "as": "string"
         }
-      }
+      },
+      "refresh": false
     },
     {
       "module": "land-district",
@@ -683,7 +688,8 @@
           "name": "data-district-budget",
           "as": "string"
         }
-      }
+      },
+      "refresh": false
     },
     {
       "module": "land-district",
@@ -696,14 +702,16 @@
           "name": "data-civic-watch-project",
           "as": "integer"
         }
-      }
+      },
+      "refresh": false
     },
     {
       "module": "land-district",
       "event": "click",
       "selector": "[data-road-remove-tool]",
       "operation": "road-remove-tool",
-      "fields": {}
+      "fields": {},
+      "refresh": false
     },
     {
       "module": "land-district",
@@ -716,7 +724,8 @@
           "name": "data-bridge-repair",
           "as": "integer"
         }
-      }
+      },
+      "refresh": false
     },
     {
       "module": "land-district",
@@ -729,14 +738,16 @@
           "name": "data-bridge-remove",
           "as": "integer"
         }
-      }
+      },
+      "refresh": false
     },
     {
       "module": "land-district",
       "event": "click",
       "selector": "[data-bridge-build]",
       "operation": "bridge-build-tool",
-      "fields": {}
+      "fields": {},
+      "refresh": false
     },
     {
       "module": "land-district",
@@ -786,14 +797,16 @@
           "name": "data-urban-plan",
           "as": "string"
         }
-      }
+      },
+      "refresh": false
     },
     {
       "module": "land-district",
       "event": "click",
       "selector": "[data-urban-rehousing]",
       "operation": "urban-rehousing",
-      "fields": {}
+      "fields": {},
+      "refresh": false
     },
     {
       "module": "land-district",
@@ -806,14 +819,16 @@
           "name": "data-urban-clear",
           "as": "integer"
         }
-      }
+      },
+      "refresh": false
     },
     {
       "module": "land-district",
       "event": "click",
       "selector": "[data-urban-clear-tool]",
       "operation": "urban-clear-tool",
-      "fields": {}
+      "fields": {},
+      "refresh": false
     },
     {
       "module": "land-district",
@@ -826,7 +841,8 @@
           "name": "data-urban-farm-renew",
           "as": "integer"
         }
-      }
+      },
+      "refresh": false
     },
     {
       "module": "land-district",
@@ -849,7 +865,8 @@
       "event": "click",
       "selector": "#regionalApproaches",
       "operation": "regional-approaches",
-      "fields": {}
+      "fields": {},
+      "refresh": false
     },
     {
       "module": "land-district",
@@ -862,7 +879,8 @@
           "name": "data-civic-recharter",
           "as": "string"
         }
-      }
+      },
+      "refresh": false
     },
     {
       "module": "land-district",
@@ -878,6 +896,62 @@
         "action": {
           "source": "attribute",
           "name": "data-brownfield-action",
+          "as": "string"
+        }
+      },
+      "refresh": false
+    },
+    {
+      "module": "land-district",
+      "event": "click",
+      "selector": "[data-district-admission]",
+      "operation": "district-admission",
+      "fields": {
+        "building": {
+          "source": "attribute",
+          "name": "data-district-admission",
+          "as": "integer"
+        }
+      },
+      "refresh": false
+    },
+    {
+      "module": "land-district",
+      "event": "click",
+      "selector": "[data-district-finish]",
+      "operation": "district-finish",
+      "fields": {
+        "index": {
+          "source": "attribute",
+          "name": "data-district-finish",
+          "as": "integer"
+        }
+      },
+      "refresh": false
+    },
+    {
+      "module": "land-district",
+      "event": "click",
+      "selector": "[data-public-place]",
+      "operation": "public-place",
+      "fields": {
+        "kind": {
+          "source": "attribute",
+          "name": "data-public-place",
+          "as": "string"
+        }
+      },
+      "refresh": false
+    },
+    {
+      "module": "land-district",
+      "event": "choice",
+      "selector": "[data-worker-choice]",
+      "operation": "public-place",
+      "fields": {
+        "name": {
+          "source": "input",
+          "selector": "#publicPlaceName",
           "as": "string"
         }
       }
@@ -1257,11 +1331,7 @@
       }
     }
   ],
-  "knownUnimplementedOriginalOperations": [
-    "land-district:public-place",
-    "land-district:district-admission",
-    "land-district:district-finish"
-  ],
+  "knownUnimplementedOriginalOperations": [],
   "nativePathsImplementedButUncertified": [
     "actual supported-runtime async picker/export/restore durability",
     "native lifecycle with model/archive work pending"

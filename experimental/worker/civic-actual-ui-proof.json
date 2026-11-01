@@ -1,9 +1,9 @@
 {
   "productionEnabled": false,
-  "oracleCommit": "01eeda3d2ff09822b9422721f75e97fabbc9958a",
-  "sourceSha256": "ac119726075abebf96683eb332782a5d55be69e42fe4545a9def0fd8a9ad6d1c",
-  "workerSha256": "31bbd28252a6ae13b7117f33ceffc9da03ab531f99e4efe7faf80207f30f081c",
-  "generatedBridgeSha256": "77b84720743bc498479ce1650c30a585579244c5d902539fd2a28810c4edf132",
+  "oracleCommit": "87811c52cdb9aecd13cd23beebd52f6475c6dd9c",
+  "sourceSha256": "f08cdd9cf77bed07c94722995f4e14f45ff6c9a2f85c77406badcdfc13eaa905",
+  "workerSha256": "cd4a65a584619baeddf29bb53a03ac9cd88d67fa2666e6f8fc46071b7b3ee968",
+  "generatedBridgeSha256": "d04af545af206b0627138f7bb7dbe7324fb94cb575b4288b506c6a844cfdaa22",
   "checkpoints": [
     "direction",
     "baseline",
