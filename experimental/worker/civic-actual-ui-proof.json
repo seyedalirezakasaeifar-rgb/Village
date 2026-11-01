@@ -3,7 +3,7 @@
   "oracleCommit": "87811c52cdb9aecd13cd23beebd52f6475c6dd9c",
   "sourceSha256": "f08cdd9cf77bed07c94722995f4e14f45ff6c9a2f85c77406badcdfc13eaa905",
   "workerSha256": "70ba7c53ecef1aa5785ddb3fe0b50eb8e96a26db41bf7199eef9a1423fe15b5c",
-  "generatedBridgeSha256": "af2ac68047c1b38a76e08d0fd7d37e2ea35a794fc709055e243c4819fe3ff347",
+  "generatedBridgeSha256": "fcc5f5f52ad07e31c498026cf0a0f629b664b482b295f625b666c7893dbcc686",
   "checkpoints": [
     "direction",
     "baseline",

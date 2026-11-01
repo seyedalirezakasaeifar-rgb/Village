@@ -1,0 +1,32 @@
+{
+  "syntheticPresentationBranchInputs": true,
+  "economicPlayClaim": false,
+  "modelRngUnchanged": true,
+  "headlineAndDetailExact": true,
+  "cases": [
+    [
+      "Groceries out of reach",
+      "26 firms \u00b7 0 projects \u00b7 0% hardship"
+    ],
+    [
+      "Essential food is going unfilled",
+      "26 firms \u00b7 0 projects \u00b7 0% hardship"
+    ],
+    [
+      "Households under pressure",
+      "26 firms \u00b7 0 projects \u00b7 70% hardship"
+    ],
+    [
+      "A weak labour market",
+      "26 firms \u00b7 0 projects \u00b7 0% hardship"
+    ],
+    [
+      "Strong work and household reserves",
+      "26 firms \u00b7 0 projects \u00b7 0% hardship"
+    ]
+  ],
+  "sourceSha256": "f08cdd9cf77bed07c94722995f4e14f45ff6c9a2f85c77406badcdfc13eaa905",
+  "workerSha256": "70ba7c53ecef1aa5785ddb3fe0b50eb8e96a26db41bf7199eef9a1423fe15b5c",
+  "bridgeSha256": "fcc5f5f52ad07e31c498026cf0a0f629b664b482b295f625b666c7893dbcc686",
+  "pageErrors": []
+}

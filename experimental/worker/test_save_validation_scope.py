@@ -1,0 +1,15 @@
+"""Per-invocation validation reuse retains chronology/corruption/fresh readback."""
+from pathlib import Path
+import sys,json,hashlib
+sys.path.insert(0,'tests')
+from test_mobile_rendering import html
+from playwright.sync_api import sync_playwright
+source=Path('assets/game.js').read_text();worker=Path('experimental/worker/model.generated.js').read_text();bridge=Path('experimental/worker/real-view.generated.js').read_text()
+hook='''let validatorCalls=0;const countSourceRead=readSaveEnvelope;const countRead=value=>{validatorCalls++;return countSourceRead(value);};readSaveEnvelope=countRead;window.scopeSaveTest={fixture:()=>{seed(42);paused=true;pendingEvent=null;return archivePayload();},prepare:(text,corrupt)=>{const backup=JSON.stringify(saveEnvelope(text)),primary=JSON.stringify(saveEnvelope(text));localStorage.setItem('townledger-v6-backup',backup);localStorage.setItem('townledger-v6',corrupt?primary.replace('"checksum":"','"checksum":"BAD'):primary);validatorCalls=0;return backup;},run:async text=>{const before=readSaveEnvelope;const pending=persistSnapshot(text,saveEpoch),syncCalls=validatorCalls;const ok=await pending,calls=validatorCalls;const restored=readSaveEnvelope===before,stored=readSaveEnvelope(localStorage.getItem('townledger-v6'));return {ok,calls,syncCalls,restored,freshReadAdded:validatorCalls===calls+1,payloadExact:stored?.payload===text,order:stored?.order,backup:localStorage.getItem('townledger-v6-backup')};}};'''
+with sync_playwright()as pw:
+ b=pw.chromium.launch(executable_path='/usr/bin/chromium',args=['--no-sandbox']);p=b.new_page();p.route('http://save-scope.test/',lambda r:r.fulfill(body=html,content_type='text/html'));p.goto('http://save-scope.test/');p.add_script_tag(content=source.replace('// SOURCE: 99-instrumentation.js',bridge+hook+'// SOURCE: 99-instrumentation.js'));archive=p.evaluate('scopeSaveTest.fixture()');p.evaluate('''async a=>window.real=await __workerRealView.enable(a.worker,a.archive,{initializeAuthority:async ask=>{const r=await ask({type:'initialize-command-owner'});if(!r.ordinaryDayReady)throw Error('Owner unavailable');}})''',{'worker':worker,'archive':archive});p.evaluate('real.settleSaves()');rows=[]
+ for corrupt in [False,True]:
+  backup=p.evaluate('v=>scopeSaveTest.prepare(v.text,v.corrupt)',{'text':archive,'corrupt':corrupt});r=p.evaluate('scopeSaveTest.run',archive);assert r['ok']and r['restored']and r['freshReadAdded']and r['payloadExact'];assert r['syncCalls']==2,{k:v for k,v in r.items()if k!='backup'}
+  if corrupt:assert r['backup']==backup,'Corrupt primary replaced valid backup'
+  r.pop('backup');rows.append({'corruptPrimary':corrupt,**r})
+ Path('experimental/worker/save-validation-scope-proof.json').write_text(json.dumps({'productionEnabled':False,'validatorFreshAfterSynchronousInvocation':True,'noCrossCallCache':True,'sourceSha256':hashlib.sha256(source.encode()).hexdigest(),'bridgeSha256':hashlib.sha256(bridge.encode()).hexdigest(),'cases':rows},indent=2)+'\n');print('PASS two validations per persist, corrupt primary preserves backup, fresh readback remains strict');b.close()

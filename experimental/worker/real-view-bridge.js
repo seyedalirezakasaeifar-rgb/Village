@@ -97,6 +97,15 @@ async function applyCanonicalDelta(base,patches,yieldTask){
  paused=true;
  // Original synchronous debug mutators must not replace or mutate a stale host model.
  if(window.__townTest){const original=window.__townTest,readonly={};for(const key of Object.keys(original))readonly[key]=['get','view'].includes(key)?original[key]:()=>{throw Error('Worker owns the model; use explicit asynchronous worker commands');};readonly.capture=(opts={})=>{if(!opts||Object.keys(opts).some(k=>!['night','overlay','zoom','x','y'].includes(k)))throw Error('Worker capture accepts presentation fields only');return original.capture(opts);};window.__townTest=Object.freeze(readonly);}
+ // The compact header reads only title/open/projects. Preserve the original
+ // priority order without evaluating household/shop demand for earlier warnings.
+ const sourceLiveStatus=updateLiveStatus,sourceMarketSignal=marketSignal;
+ function workerHeaderSignal(){const s=G.stats;let title;if((G.market?.foodDisconnected||0)>0)title='Groceries out of reach';else if((G.market?.unmetFood||0)>G.stats.population*.08)title='Essential food is going unfilled';else if(s.hardship>35)title='Households under pressure';else if(s.employment<65)title='A weak labour market';else return sourceMarketSignal();return {title,m:{open:G.firms.reduce((n,f)=>n+!f.closed,0),projects:(G.projects||[]).length}};}
+ updateLiveStatus=()=>{const prior=marketSignal;marketSignal=workerHeaderSignal;try{return sourceLiveStatus();}finally{marketSignal=prior;}};
+ // One original persist call checks primary twice. Reuse only identical text
+ // within that synchronous invocation; restore the validator before any ACK.
+ const sourcePersistSnapshot=persistSnapshot;
+ persistSnapshot=(...args)=>{const originalRead=readSaveEnvelope,memo=new Map();readSaveEnvelope=value=>{if(typeof value!=='string')return originalRead(value);if(memo.has(value)){const saved=memo.get(value);return saved?{...saved}:null;}const result=originalRead(value);if(memo.size<2)memo.set(value,result?{...result}:null);return result;};try{return sourcePersistSnapshot(...args);}finally{readSaveEnvelope=originalRead;}};
  // Preserve every requested model preview and its RNG effects in authoritative order.
  const originalRenderPanel=renderPanel,originalClosePanel=closePanel;let panelQueue=Promise.resolve();
  renderPanel=tab=>{if(!G)return;if(['settings','trip'].includes(tab)){originalRenderPanel(tab);renderedPanelName=tab;return;}

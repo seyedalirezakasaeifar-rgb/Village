@@ -1,0 +1,29 @@
+{
+  "productionEnabled": false,
+  "validatorFreshAfterSynchronousInvocation": true,
+  "noCrossCallCache": true,
+  "sourceSha256": "f08cdd9cf77bed07c94722995f4e14f45ff6c9a2f85c77406badcdfc13eaa905",
+  "bridgeSha256": "1054075b5629040c6552b380d947a2f40b89a31c451c8a953b964d9667ca837f",
+  "cases": [
+    {
+      "corruptPrimary": false,
+      "ok": true,
+      "calls": 3,
+      "syncCalls": 2,
+      "restored": true,
+      "freshReadAdded": true,
+      "payloadExact": true,
+      "order": 4
+    },
+    {
+      "corruptPrimary": true,
+      "ok": true,
+      "calls": 3,
+      "syncCalls": 2,
+      "restored": true,
+      "freshReadAdded": true,
+      "payloadExact": true,
+      "order": 7
+    }
+  ]
+}
