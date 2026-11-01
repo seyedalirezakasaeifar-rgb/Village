@@ -1073,6 +1073,7 @@ function seekPrivateServiceInvestment(requested=null){
   if(awaitingReview)continue;
   if(G.firms.filter(f=>f.privateService===kind&&!f.closed).length>=Math.max(1,Math.ceil(G.stats.population/(kind==='school'?180:400))))continue;
   const candidates=buildableCandidates('housing',candidateProjection).filter(p=>canPlace(p.x,p.y,true,kind)).slice(0,50),choices=candidates.map(p=>({p,plan:evaluate(p)})).filter(o=>o.plan).sort((a,b)=>b.plan.net-a.plan.net),choice=choices[0];if(!choice||G.region<cost+capital+50000)continue;
+  const capacityReason=creatorCapacityReason(0,0,1,true);if(capacityReason)return capacityReason;
   if(!privateContract(cost))return 'Construction capital is unavailable.';const {p:site,plan}=choice,b=startDevelopmentProject('firm',site,cost*10,45,{firmKind:kind,capital,privateService:kind,serviceFee:plan.fee});if(!b)return 'No permitted, connected site is available.';
   const project=G.projects.find(p=>p.id===b.id);G.region-=capital;project.serviceEscrow=capital;project.serviceStaff=plan.staff;project.serviceWage=plan.wage;b.title={kind:'investor',id:0};
   story('An entrepreneur financed a private '+(kind==='school'?'school':'fire brigade')+'. Forecast: '+policyNumber(plan.clients)+' paying clients/day, '+money(plan.payroll+plan.overhead)+' operating costs/day; 45 funded construction days. Public competition, affordability and qualified staffing can change.','neutral',b.id);return 'An entrepreneur has financed a new service site.';
@@ -1384,7 +1385,16 @@ function getFootprintIssues(){const occupied=new Map(),issues=[];
   if(occupied.has(id)&&occupied.get(id)!==b.id)issues.push('overlapping structures '+b.id+' / '+occupied.get(id));
   occupied.set(id,b.id);
  }}return issues;}
+// Existing legacy archive record budgets. Pure checks: no money, RNG or IDs change.
+function creatorCapacityReason(people=0,households=0,firms=0,reserveProjects=false){
+ if(G.people.length+people>8000)return 'Person history capacity reached (8,000 records). Existing residents and claims are preserved; new arrivals and births are deferred.';
+ if(G.households.length+households>3000)return 'Household history capacity reached (3,000 records). Existing households and estates are preserved; new households are deferred.';
+ const pending=reserveProjects?(G.projects||[]).filter(p=>p.kind==='firm'||p.kind==='airport').length:0;
+ if(G.firms.length+pending+firms>3000)return 'Enterprise history capacity reached (3,000 records, including committed sites). Existing businesses and claims are preserved; new enterprises are deferred.';
+ return '';
+}
 function createFirm(kind,x,y,setup=false,addFn=null){
+ if(creatorCapacityReason(0,0,1))return null;
  if(!setup&&!canPlace(x,y,true,kind))return null;
  const b=addFn?addFn(kind,x,y):{id:G.nextId++,kind,x,y,value:Math.round(types[kind].cost*10),condition:100,owner:-1,firm:-1,hh:-1};
  if(!addFn){G.tiles[y*T+x]=0;G.buildings.push(b);if(LANDMARK_SIZE[kind]&&!setup)reserveFootprint(b,kind);}
@@ -1628,6 +1638,7 @@ function initializeScenario(){
  const kinds=Object.entries({factory:7,office:12,warehouse:7,grocer:6,bakery:3,farm:2,mill:2,forestry:2,sawmill:4,quarry:1,contractor:3,tavern:7,college:2}).flatMap(([kind,count])=>Array(count).fill(kind));
  // Reserve actual employment sites before bidding housing onto the remaining land.
  for(let n=0;n<kinds.length;n++){
+  if(creatorCapacityReason(0,0,1,true))break;
   const kind=kinds[n%kinds.length];let site=buildableCandidates('business').find(p=>canPlace(p.x,p.y,true,kind));
   if(!site){privatelyBuiltRoads({...cityDemand(),homeDemand:100,businessDemand:100,freeLots:0});site=buildableCandidates('business').find(p=>canPlace(p.x,p.y,true,kind));}if(!site)continue;
   const cost=types[kind].cost,capital=21000;if(G.region<cost+capital+50000)break;
@@ -2058,6 +2069,7 @@ function urbanFarmRenewal(demand,farmId=null,reviewedKey=null){
  u.renewals.unshift({day:G.day,action:'Farm relocated; four urban dwellings commissioned',cost:cost+(account?compensation:0)});u.renewals=u.renewals.slice(0,80);u.revision++;G.development.privateSpend=(G.development.privateSpend||0)+cost+(account?compensation:0);invalidateUrban();invalidateRoads(false);assignJobs();story('A farm moved to the agricultural belt with its existing workers, stocks and accounts. Paid construction is replacing its urban plot with housing.','good',b.id);return manual?{ok:true,reason:'Farm relocated intact. Its fields, staff, stock and accounts continue at the new rural site; four housing units are under paid construction. Existing households are not moved.'}:true;
 }
 function urbanRetailProposal(explicit=false,reviewedKey=null){
+ const capacityReason=creatorCapacityReason(0,0,1,true);if(capacityReason)return {ok:false,reason:capacityReason};
  const preview=explicit==='preview';
  const demand=cityDemand(),blockers=[];
  if(!explicit&&G.autoBuild===false)blockers.push('Automatic private development is paused.');
@@ -2572,6 +2584,7 @@ function privatelyBuiltRoads(demand){
  story('A funded '+name+' extension opened a connected block for development.','good');return true;
 }
 function startDevelopmentProject(kind,place,value,days,extra={}){
+ if((kind==='firm'||kind==='airport')&&creatorCapacityReason(0,0,1,true))return null;
  const target=kind==='firm'?extra.firmKind:kind;
  if(!canPlace(place.x,place.y,true,target))return null;
  const b={id:G.nextId++,kind:'worksite',x:place.x,y:place.y,value,condition:100,owner:-1,firm:-1,hh:-1,developer:true,footprint:footprintFor(place.x,place.y,target)};
@@ -2586,7 +2599,7 @@ function completeDevelopmentProjects(){
  if(!G.projects?.length)return;
  let changed=false;
  for(let i=G.projects.length-1;i>=0;i--){
-  const p=G.projects[i];if(!constructionWork(p))continue;p.remaining--;
+  const p=G.projects[i];if((p.kind==='firm'||p.kind==='airport')&&creatorCapacityReason(0,0,1)){p.reason=creatorCapacityReason(0,0,1);continue;}if(!constructionWork(p))continue;p.remaining--;
   if(p.remaining>0)continue;
   if(p.kind==='fields'){G.projects.splice(i,1);completeFarmFields(p);changed=true;continue;}
   const b=readBuild(p.id);
@@ -2636,6 +2649,7 @@ function privatelyBuiltHome(demand){
  return true;
 }
 function privatelyBuiltFirm(demand){
+ if(creatorCapacityReason(0,0,1,true))return false;
  if(demand.businessDemand<17||demand.hardship>70||G.region<120000||G.policy.permitFee>2800||G.policy.zoningRestriction>=90)return false;
  const capacity=G.people.filter(p=>!p.deceased&&p.movedAway!==true&&p.age>=16&&p.age<=70&&p.job<0).length;
  if(capacity<3&&!(demand.confidence>48&&demand.homeDemand>15&&G.region>250000))return false;
@@ -2902,6 +2916,7 @@ function urbanRedevelopment(demand){
 function addHouseholdAt(building,capital=1700){
  const housing=migrationHousingStatus(building);if(!housing.capacity||housing.available<1||housing.reserved||housing.underConstruction)return null;
  const occupants=Math.min(2,2000-G.people.filter(p=>!p.deceased&&!p.movedAway).length);if(occupants<1)return null;
+ if(creatorCapacityReason(occupants,1))return null;
  const cash=Math.min(Math.max(0,G.region),capital);if(cash<500)return null;
  const profiles=migrationNewProfiles(occupants),assessment=G.day>1?migrationAssessment(building,profiles,cash):null;
  if(assessment&&!assessment.eligible){migrationRecord('arrival-deferred',{home:building.id,assessment});return null;}
@@ -2950,6 +2965,7 @@ function airfieldCandidate(){
  return options[0];
 }
 function airfieldInvestment(demand){
+ if(creatorCapacityReason(0,0,1,true))return false;
  if(G.airport||demand.residents<520||demand.confidence<38||G.policy.zoningRestriction>=72||G.region<850000)return false;
  const site=airfieldCandidate();if(!site)return false;
  const outlay=225000;
@@ -3070,6 +3086,7 @@ function birthsAndGenerations(){
  if(G.day%90!==0||G.stats.population>=2000)return;
  let count=0;
  for(const h of G.households){
+  if(creatorCapacityReason(1))break;
   if(!h.people.length||h.people.length>=6||h.stress>48||G.day-(h.lastBirth||-720)<720)continue;
   const people=h.people.map(id=>G.people[id]).filter(p=>!p.deceased&&!p.movedAway),adults=people.filter(p=>p.age>=20&&p.age<=42);
   if(!adults.length||people.filter(p=>p.age<16).length>=2||!people.some(p=>p.job>=0))continue;
@@ -3197,6 +3214,7 @@ function migrationAcceptOffers(people,assessment){
 }
 function migrationNewProfiles(count){return Array.from({length:count},()=>({age:Math.floor(rn(20,54)),skill:rn(.35,1),health:rn(65,97),life:rn(45,80)}));}
 function migrationFamilyArrivalDay(){
+ if(creatorCapacityReason(1))return;
  if(G.day%45!==0||G.stats.population>=2000)return;
  if(!G.firms.some(f=>!f.closed&&f.workers.length<f.jobs&&f.cash>=(f.workers.length+1)*workerIncome(f)))return;
  const families=G.households.filter(h=>h.people.length>0&&h.people.length<4&&readBuild(h.home));if(!families.length)return;
@@ -3240,6 +3258,7 @@ function municipalProcurement(){
  }
 }
 function householdFormation(){
+ if(creatorCapacityReason(0,1))return;
  if(G.day%90!==0)return;
  const vacant=G.buildings.find(b=>b.kind==='home'&&!b.redevelopment&&!b.relocationReserve&&migrationHousingStatus(b).available>0);if(!vacant)return;
  const young=G.people.find(p=>!p.deceased&&!p.movedAway&&p.age>=20&&p.age<31&&p.job>=0&&G.households[p.hh].people.length>2&&G.households[p.hh].cash>3600);if(!young||!migrationCanReach(vacant,G.firms[young.job]))return;
@@ -4612,6 +4631,8 @@ function construct(kind,x,y,quiet=false){
  }
  if(!canPlace(x,y,true,kind)){toast(districtPlacementReason(x,y,kind)||(['fishery','wharf'].includes(kind)?waterfrontSitingReason(x,y,kind):'This project requires a fully vacant footprint with road access.'));return}
  if(kind==='forestry'&&!Array.from({length:25},(_,i)=>[x+(i%5)-2,y+Math.floor(i/5)-2]).some(([a,b])=>cityCell(a,b)===3)){toast('Forestry operations require nearby woodland.');return}
+ const createsFirm=['grocer','bakery','mill','farm','forestry','sawmill','quarry','contractor','tavern','fishery','wharf','factory','warehouse','office','college'].includes(kind);
+ const capacityReason=createsFirm?creatorCapacityReason(0,0,1,true):'';if(capacityReason){if(!quiet)toast(capacityReason);return;}
  const cost=buildCost[kind];if(G.treasury<cost){toast('Town treasury cannot afford '+types[kind].n+' ('+money(cost)+').');return}
  G.treasury-=cost;G.region+=cost;
  if(['grocer','bakery','mill','farm','forestry','sawmill','quarry','contractor','tavern','fishery','wharf','factory','warehouse','office','college'].includes(kind)){
@@ -4636,7 +4657,8 @@ function renderOverview(){const s=G.stats;
 }
 function eventHtml(e){return `<div class="event"><strong>Day ${e.day}</strong> · ${esc(e.text)} ${e.bid>0?`<button class="small" data-inspect="${e.bid}">View</button>`:''}</div>`}
 function renderCommunity(){const s=G.stats;
- return head('Community condition')+`<div class="statgrid">${stat('Safety index',s.safety+'/100')}${stat('Crime / last 30 days',fmt(s.dailyCrime))}${stat('Emergency readiness',s.preparedness+'%')}${stat('Households in hardship',s.hardship+'%')}</div>`+
+ const capacityNotice=[creatorCapacityReason(1),creatorCapacityReason(0,1),creatorCapacityReason(0,0,1,true)].filter(Boolean);
+ return (capacityNotice.length?head('Long-session record capacity')+'<p class="desc">'+capacityNotice.map(esc).join('<br>')+'</p>':'')+head('Community condition')+`<div class="statgrid">${stat('Safety index',s.safety+'/100')}${stat('Crime / last 30 days',fmt(s.dailyCrime))}${stat('Emergency readiness',s.preparedness+'%')}${stat('Households in hardship',s.hardship+'%')}</div>`+
  `<p class="desc">Funding and stations affect response capacity. Hardship, job loss and isolation affect risks. Theft removes real money from victims and transfers it to another local household; incidents are attached to locations.</p>`+
  head('Community expenditure')+line('Policing / day',money(G.policy.policeBudget))+line('Fire & defence / day',money(G.policy.defenseBudget))+line('Housing assistance / day',money(G.policy.aidBudget))+line('Outreach / day',money(G.policy.outreachBudget))+
  head('Local incident register')+(G.cases.length?G.cases.slice(0,15).map(eventHtml).join(''):'<p class="desc">No criminal incidents recorded yet.</p>')+

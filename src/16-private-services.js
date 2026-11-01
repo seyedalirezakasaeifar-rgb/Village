@@ -134,6 +134,7 @@ function seekPrivateServiceInvestment(requested=null){
   if(awaitingReview)continue;
   if(G.firms.filter(f=>f.privateService===kind&&!f.closed).length>=Math.max(1,Math.ceil(G.stats.population/(kind==='school'?180:400))))continue;
   const candidates=buildableCandidates('housing',candidateProjection).filter(p=>canPlace(p.x,p.y,true,kind)).slice(0,50),choices=candidates.map(p=>({p,plan:evaluate(p)})).filter(o=>o.plan).sort((a,b)=>b.plan.net-a.plan.net),choice=choices[0];if(!choice||G.region<cost+capital+50000)continue;
+  const capacityReason=creatorCapacityReason(0,0,1,true);if(capacityReason)return capacityReason;
   if(!privateContract(cost))return 'Construction capital is unavailable.';const {p:site,plan}=choice,b=startDevelopmentProject('firm',site,cost*10,45,{firmKind:kind,capital,privateService:kind,serviceFee:plan.fee});if(!b)return 'No permitted, connected site is available.';
   const project=G.projects.find(p=>p.id===b.id);G.region-=capital;project.serviceEscrow=capital;project.serviceStaff=plan.staff;project.serviceWage=plan.wage;b.title={kind:'investor',id:0};
   story('An entrepreneur financed a private '+(kind==='school'?'school':'fire brigade')+'. Forecast: '+policyNumber(plan.clients)+' paying clients/day, '+money(plan.payroll+plan.overhead)+' operating costs/day; 45 funded construction days. Public competition, affordability and qualified staffing can change.','neutral',b.id);return 'An entrepreneur has financed a new service site.';
