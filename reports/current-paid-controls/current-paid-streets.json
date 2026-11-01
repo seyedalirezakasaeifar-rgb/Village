@@ -1,0 +1,1091 @@
+{
+  "base": "d2b7086",
+  "hostTestOwnerOnly": true,
+  "productionComposition": false,
+  "source_sha256": "6ed9d208b0112e4e360f40ef21063b68c519aefd9df3e1b39071c02c78e22a02",
+  "experiment_sha256": {
+    "root-capacity-api.js": "cfc65e914a4e5a3d54914f39b0f20ccda3be4734d17db079a8f18847aaaa4e65",
+    "paid-command-root.js": "7f60a8bc904420e95899ad88acde18b6a13dc689cab5172b19d070d383e8e1c6"
+  },
+  "minimalRegistryOwner": false,
+  "hostTrustedPointer": true,
+  "physicalAndroid": false,
+  "productionEnabled": false,
+  "reservationFaultInjection": true,
+  "cases": [
+    {
+      "kind": "tap",
+      "exactNormalModelRng": true,
+      "normal": [
+        {
+          "rng": 2592646554,
+          "built": 1,
+          "status": {
+            "enabled": false,
+            "active": false,
+            "halted": false,
+            "last": null,
+            "protocol": {
+              "enabled": false,
+              "halted": false,
+              "active": false,
+              "kind": null,
+              "phase": "idle",
+              "last": null,
+              "pendingSaveGenerations": 0
+            },
+            "metrics": {
+              "captures": 0,
+              "certificates": 0,
+              "restores": 0,
+              "last": null
+            }
+          },
+          "exactRefusal": null,
+          "batchFlushed": true,
+          "cashConserved": true,
+          "committedWrites": [
+            {
+              "active": false,
+              "construction": 1,
+              "treasury": 90208.45899709838
+            }
+          ],
+          "pointerReleased": true
+        },
+        {
+          "rng": 2592646554,
+          "built": 1,
+          "status": {
+            "enabled": true,
+            "active": false,
+            "halted": false,
+            "last": {
+              "ok": true,
+              "joined": false,
+              "value": null,
+              "command": "construction",
+              "ms": 131.10000000149012,
+              "code": null,
+              "publicationErrors": []
+            },
+            "protocol": {
+              "enabled": true,
+              "halted": false,
+              "active": false,
+              "kind": null,
+              "phase": "idle",
+              "last": {
+                "kind": "command",
+                "ok": true,
+                "effectErrors": []
+              },
+              "pendingSaveGenerations": 0
+            },
+            "metrics": {
+              "captures": 1,
+              "certificates": 2,
+              "restores": 0,
+              "last": null
+            }
+          },
+          "exactRefusal": null,
+          "batchFlushed": true,
+          "cashConserved": true,
+          "committedWrites": [
+            {
+              "active": false,
+              "construction": 1,
+              "treasury": 90208.45899709838
+            }
+          ],
+          "pointerReleased": true
+        }
+      ],
+      "forcedRefusal": {
+        "rng": 2592646554,
+        "built": 0,
+        "status": {
+          "enabled": true,
+          "active": false,
+          "halted": false,
+          "last": {
+            "ok": false,
+            "reason": "Test reservation refusal",
+            "command": "construction",
+            "ms": 274.6000000014901,
+            "code": "refused",
+            "publicationErrors": []
+          },
+          "protocol": {
+            "enabled": true,
+            "halted": false,
+            "active": false,
+            "kind": null,
+            "phase": "idle",
+            "last": {
+              "kind": "command",
+              "ok": false,
+              "reason": "Test reservation refusal",
+              "effectErrors": []
+            },
+            "pendingSaveGenerations": 0
+          },
+          "metrics": {
+            "captures": 1,
+            "certificates": 2,
+            "restores": 1,
+            "last": null
+          }
+        },
+        "exactRefusal": true,
+        "batchFlushed": true,
+        "cashConserved": true,
+        "committedWrites": [],
+        "pointerReleased": true
+      }
+    },
+    {
+      "kind": "repair",
+      "exactNormalModelRng": true,
+      "normal": [
+        {
+          "rng": 2592646554,
+          "built": 1,
+          "status": {
+            "enabled": false,
+            "active": false,
+            "halted": false,
+            "last": null,
+            "protocol": {
+              "enabled": false,
+              "halted": false,
+              "active": false,
+              "kind": null,
+              "phase": "idle",
+              "last": null,
+              "pendingSaveGenerations": 0
+            },
+            "metrics": {
+              "captures": 0,
+              "certificates": 0,
+              "restores": 0,
+              "last": null
+            }
+          },
+          "exactRefusal": null,
+          "batchFlushed": true,
+          "cashConserved": true,
+          "committedWrites": [
+            {
+              "active": false,
+              "construction": 1,
+              "treasury": 90223.45899709838
+            }
+          ],
+          "pointerReleased": true
+        },
+        {
+          "rng": 2592646554,
+          "built": 1,
+          "status": {
+            "enabled": true,
+            "active": false,
+            "halted": false,
+            "last": {
+              "ok": true,
+              "joined": false,
+              "value": null,
+              "command": "construction",
+              "ms": 118.89999999850988,
+              "code": null,
+              "publicationErrors": []
+            },
+            "protocol": {
+              "enabled": true,
+              "halted": false,
+              "active": false,
+              "kind": null,
+              "phase": "idle",
+              "last": {
+                "kind": "command",
+                "ok": true,
+                "effectErrors": []
+              },
+              "pendingSaveGenerations": 0
+            },
+            "metrics": {
+              "captures": 1,
+              "certificates": 2,
+              "restores": 0,
+              "last": null
+            }
+          },
+          "exactRefusal": null,
+          "batchFlushed": true,
+          "cashConserved": true,
+          "committedWrites": [
+            {
+              "active": false,
+              "construction": 1,
+              "treasury": 90223.45899709838
+            }
+          ],
+          "pointerReleased": true
+        }
+      ],
+      "forcedRefusal": {
+        "rng": 2592646554,
+        "built": 0,
+        "status": {
+          "enabled": true,
+          "active": false,
+          "halted": false,
+          "last": {
+            "ok": false,
+            "reason": "Test reservation refusal",
+            "command": "construction",
+            "ms": 277.8999999985099,
+            "code": "refused",
+            "publicationErrors": []
+          },
+          "protocol": {
+            "enabled": true,
+            "halted": false,
+            "active": false,
+            "kind": null,
+            "phase": "idle",
+            "last": {
+              "kind": "command",
+              "ok": false,
+              "reason": "Test reservation refusal",
+              "effectErrors": []
+            },
+            "pendingSaveGenerations": 0
+          },
+          "metrics": {
+            "captures": 1,
+            "certificates": 2,
+            "restores": 1,
+            "last": null
+          }
+        },
+        "exactRefusal": true,
+        "batchFlushed": true,
+        "cashConserved": true,
+        "committedWrites": [],
+        "pointerReleased": true
+      }
+    },
+    {
+      "kind": "stroke",
+      "exactNormalModelRng": true,
+      "normal": [
+        {
+          "rng": 2592646554,
+          "built": 5,
+          "status": {
+            "enabled": false,
+            "active": false,
+            "halted": false,
+            "last": null,
+            "protocol": {
+              "enabled": false,
+              "halted": false,
+              "active": false,
+              "kind": null,
+              "phase": "idle",
+              "last": null,
+              "pendingSaveGenerations": 0
+            },
+            "metrics": {
+              "captures": 0,
+              "certificates": 0,
+              "restores": 0,
+              "last": null
+            }
+          },
+          "exactRefusal": null,
+          "batchFlushed": true,
+          "cashConserved": true,
+          "committedWrites": [
+            {
+              "active": false,
+              "construction": 5,
+              "treasury": 89608.45899709838
+            }
+          ],
+          "pointerReleased": true
+        },
+        {
+          "rng": 2592646554,
+          "built": 5,
+          "status": {
+            "enabled": true,
+            "active": false,
+            "halted": false,
+            "last": {
+              "ok": true,
+              "joined": false,
+              "value": {
+                "built": 5
+              },
+              "command": "road-stroke",
+              "ms": 126.5,
+              "code": null,
+              "publicationErrors": []
+            },
+            "protocol": {
+              "enabled": true,
+              "halted": false,
+              "active": false,
+              "kind": null,
+              "phase": "idle",
+              "last": {
+                "kind": "command",
+                "ok": true,
+                "effectErrors": []
+              },
+              "pendingSaveGenerations": 0
+            },
+            "metrics": {
+              "captures": 1,
+              "certificates": 2,
+              "restores": 0,
+              "last": null
+            }
+          },
+          "exactRefusal": null,
+          "batchFlushed": true,
+          "cashConserved": true,
+          "committedWrites": [
+            {
+              "active": false,
+              "construction": 5,
+              "treasury": 89608.45899709838
+            }
+          ],
+          "pointerReleased": true
+        }
+      ],
+      "forcedRefusal": {
+        "rng": 2592646554,
+        "built": 0,
+        "status": {
+          "enabled": true,
+          "active": false,
+          "halted": false,
+          "last": {
+            "ok": false,
+            "reason": "Test reservation refusal",
+            "command": "road-stroke",
+            "ms": 272.29999999701977,
+            "code": "refused",
+            "publicationErrors": []
+          },
+          "protocol": {
+            "enabled": true,
+            "halted": false,
+            "active": false,
+            "kind": null,
+            "phase": "idle",
+            "last": {
+              "kind": "command",
+              "ok": false,
+              "reason": "Test reservation refusal",
+              "effectErrors": []
+            },
+            "pendingSaveGenerations": 0
+          },
+          "metrics": {
+            "captures": 1,
+            "certificates": 2,
+            "restores": 1,
+            "last": null
+          }
+        },
+        "exactRefusal": true,
+        "batchFlushed": true,
+        "cashConserved": true,
+        "committedWrites": [],
+        "pointerReleased": true
+      }
+    },
+    {
+      "kind": "mixed",
+      "exactNormalModelRng": true,
+      "normal": [
+        {
+          "rng": 2592646554,
+          "built": 4,
+          "status": {
+            "enabled": false,
+            "active": false,
+            "halted": false,
+            "last": null,
+            "protocol": {
+              "enabled": false,
+              "halted": false,
+              "active": false,
+              "kind": null,
+              "phase": "idle",
+              "last": null,
+              "pendingSaveGenerations": 0
+            },
+            "metrics": {
+              "captures": 0,
+              "certificates": 0,
+              "restores": 0,
+              "last": null
+            }
+          },
+          "exactRefusal": null,
+          "batchFlushed": true,
+          "cashConserved": true,
+          "committedWrites": [
+            {
+              "active": false,
+              "construction": 5,
+              "treasury": 89608.45899709838
+            }
+          ],
+          "pointerReleased": true
+        },
+        {
+          "rng": 2592646554,
+          "built": 4,
+          "status": {
+            "enabled": true,
+            "active": false,
+            "halted": false,
+            "last": {
+              "ok": true,
+              "joined": false,
+              "value": {
+                "built": 4
+              },
+              "command": "road-stroke",
+              "ms": 136.29999999701977,
+              "code": null,
+              "publicationErrors": []
+            },
+            "protocol": {
+              "enabled": true,
+              "halted": false,
+              "active": false,
+              "kind": null,
+              "phase": "idle",
+              "last": {
+                "kind": "command",
+                "ok": true,
+                "effectErrors": []
+              },
+              "pendingSaveGenerations": 0
+            },
+            "metrics": {
+              "captures": 1,
+              "certificates": 2,
+              "restores": 0,
+              "last": null
+            }
+          },
+          "exactRefusal": null,
+          "batchFlushed": true,
+          "cashConserved": true,
+          "committedWrites": [
+            {
+              "active": false,
+              "construction": 5,
+              "treasury": 89608.45899709838
+            }
+          ],
+          "pointerReleased": true
+        }
+      ],
+      "forcedRefusal": {
+        "rng": 2592646554,
+        "built": 0,
+        "status": {
+          "enabled": true,
+          "active": false,
+          "halted": false,
+          "last": {
+            "ok": false,
+            "reason": "Test reservation refusal",
+            "command": "road-stroke",
+            "ms": 302.30000000447035,
+            "code": "refused",
+            "publicationErrors": []
+          },
+          "protocol": {
+            "enabled": true,
+            "halted": false,
+            "active": false,
+            "kind": null,
+            "phase": "idle",
+            "last": {
+              "kind": "command",
+              "ok": false,
+              "reason": "Test reservation refusal",
+              "effectErrors": []
+            },
+            "pendingSaveGenerations": 0
+          },
+          "metrics": {
+            "captures": 1,
+            "certificates": 2,
+            "restores": 1,
+            "last": null
+          }
+        },
+        "exactRefusal": true,
+        "batchFlushed": true,
+        "cashConserved": true,
+        "committedWrites": [],
+        "pointerReleased": true
+      }
+    },
+    {
+      "kind": "backtrack",
+      "exactNormalModelRng": true,
+      "normal": [
+        {
+          "rng": 2592646554,
+          "built": 5,
+          "status": {
+            "enabled": false,
+            "active": false,
+            "halted": false,
+            "last": null,
+            "protocol": {
+              "enabled": false,
+              "halted": false,
+              "active": false,
+              "kind": null,
+              "phase": "idle",
+              "last": null,
+              "pendingSaveGenerations": 0
+            },
+            "metrics": {
+              "captures": 0,
+              "certificates": 0,
+              "restores": 0,
+              "last": null
+            }
+          },
+          "exactRefusal": null,
+          "batchFlushed": true,
+          "cashConserved": true,
+          "committedWrites": [
+            {
+              "active": false,
+              "construction": 5,
+              "treasury": 89608.45899709838
+            }
+          ],
+          "pointerReleased": true
+        },
+        {
+          "rng": 2592646554,
+          "built": 5,
+          "status": {
+            "enabled": true,
+            "active": false,
+            "halted": false,
+            "last": {
+              "ok": true,
+              "joined": false,
+              "value": {
+                "built": 5
+              },
+              "command": "road-stroke",
+              "ms": 131,
+              "code": null,
+              "publicationErrors": []
+            },
+            "protocol": {
+              "enabled": true,
+              "halted": false,
+              "active": false,
+              "kind": null,
+              "phase": "idle",
+              "last": {
+                "kind": "command",
+                "ok": true,
+                "effectErrors": []
+              },
+              "pendingSaveGenerations": 0
+            },
+            "metrics": {
+              "captures": 1,
+              "certificates": 2,
+              "restores": 0,
+              "last": null
+            }
+          },
+          "exactRefusal": null,
+          "batchFlushed": true,
+          "cashConserved": true,
+          "committedWrites": [
+            {
+              "active": false,
+              "construction": 5,
+              "treasury": 89608.45899709838
+            }
+          ],
+          "pointerReleased": true
+        }
+      ],
+      "forcedRefusal": {
+        "rng": 2592646554,
+        "built": 0,
+        "status": {
+          "enabled": true,
+          "active": false,
+          "halted": false,
+          "last": {
+            "ok": false,
+            "reason": "Test reservation refusal",
+            "command": "road-stroke",
+            "ms": 264.80000000447035,
+            "code": "refused",
+            "publicationErrors": []
+          },
+          "protocol": {
+            "enabled": true,
+            "halted": false,
+            "active": false,
+            "kind": null,
+            "phase": "idle",
+            "last": {
+              "kind": "command",
+              "ok": false,
+              "reason": "Test reservation refusal",
+              "effectErrors": []
+            },
+            "pendingSaveGenerations": 0
+          },
+          "metrics": {
+            "captures": 1,
+            "certificates": 2,
+            "restores": 1,
+            "last": null
+          }
+        },
+        "exactRefusal": true,
+        "batchFlushed": true,
+        "cashConserved": true,
+        "committedWrites": [],
+        "pointerReleased": true
+      }
+    },
+    {
+      "kind": "subtile",
+      "exactNormalModelRng": true,
+      "normal": [
+        {
+          "rng": 2592646554,
+          "built": 1,
+          "status": {
+            "enabled": false,
+            "active": false,
+            "halted": false,
+            "last": null,
+            "protocol": {
+              "enabled": false,
+              "halted": false,
+              "active": false,
+              "kind": null,
+              "phase": "idle",
+              "last": null,
+              "pendingSaveGenerations": 0
+            },
+            "metrics": {
+              "captures": 0,
+              "certificates": 0,
+              "restores": 0,
+              "last": null
+            }
+          },
+          "exactRefusal": null,
+          "batchFlushed": true,
+          "cashConserved": true,
+          "committedWrites": [
+            {
+              "active": false,
+              "construction": 1,
+              "treasury": 90208.45899709838
+            }
+          ],
+          "pointerReleased": true
+        },
+        {
+          "rng": 2592646554,
+          "built": 1,
+          "status": {
+            "enabled": true,
+            "active": false,
+            "halted": false,
+            "last": {
+              "ok": true,
+              "joined": false,
+              "value": {
+                "built": 1
+              },
+              "command": "road-stroke",
+              "ms": 127.89999999850988,
+              "code": null,
+              "publicationErrors": []
+            },
+            "protocol": {
+              "enabled": true,
+              "halted": false,
+              "active": false,
+              "kind": null,
+              "phase": "idle",
+              "last": {
+                "kind": "command",
+                "ok": true,
+                "effectErrors": []
+              },
+              "pendingSaveGenerations": 0
+            },
+            "metrics": {
+              "captures": 1,
+              "certificates": 2,
+              "restores": 0,
+              "last": null
+            }
+          },
+          "exactRefusal": null,
+          "batchFlushed": true,
+          "cashConserved": true,
+          "committedWrites": [
+            {
+              "active": false,
+              "construction": 1,
+              "treasury": 90208.45899709838
+            }
+          ],
+          "pointerReleased": true
+        }
+      ],
+      "forcedRefusal": {
+        "rng": 2592646554,
+        "built": 0,
+        "status": {
+          "enabled": true,
+          "active": false,
+          "halted": false,
+          "last": {
+            "ok": false,
+            "reason": "Test reservation refusal",
+            "command": "road-stroke",
+            "ms": 269.79999999701977,
+            "code": "refused",
+            "publicationErrors": []
+          },
+          "protocol": {
+            "enabled": true,
+            "halted": false,
+            "active": false,
+            "kind": null,
+            "phase": "idle",
+            "last": {
+              "kind": "command",
+              "ok": false,
+              "reason": "Test reservation refusal",
+              "effectErrors": []
+            },
+            "pendingSaveGenerations": 0
+          },
+          "metrics": {
+            "captures": 1,
+            "certificates": 2,
+            "restores": 1,
+            "last": null
+          }
+        },
+        "exactRefusal": true,
+        "batchFlushed": true,
+        "cashConserved": true,
+        "committedWrites": [],
+        "pointerReleased": true
+      }
+    },
+    {
+      "kind": "cancel",
+      "exactNormalModelRng": true,
+      "normal": [
+        {
+          "rng": 2592646554,
+          "built": 5,
+          "status": {
+            "enabled": false,
+            "active": false,
+            "halted": false,
+            "last": null,
+            "protocol": {
+              "enabled": false,
+              "halted": false,
+              "active": false,
+              "kind": null,
+              "phase": "idle",
+              "last": null,
+              "pendingSaveGenerations": 0
+            },
+            "metrics": {
+              "captures": 0,
+              "certificates": 0,
+              "restores": 0,
+              "last": null
+            }
+          },
+          "exactRefusal": null,
+          "batchFlushed": true,
+          "cashConserved": true,
+          "committedWrites": [
+            {
+              "active": false,
+              "construction": 5,
+              "treasury": 89608.45899709838
+            }
+          ],
+          "pointerReleased": true
+        },
+        {
+          "rng": 2592646554,
+          "built": 5,
+          "status": {
+            "enabled": true,
+            "active": false,
+            "halted": false,
+            "last": {
+              "ok": true,
+              "joined": false,
+              "value": {
+                "built": 5
+              },
+              "command": "road-stroke",
+              "ms": 125.79999999701977,
+              "code": null,
+              "publicationErrors": []
+            },
+            "protocol": {
+              "enabled": true,
+              "halted": false,
+              "active": false,
+              "kind": null,
+              "phase": "idle",
+              "last": {
+                "kind": "command",
+                "ok": true,
+                "effectErrors": []
+              },
+              "pendingSaveGenerations": 0
+            },
+            "metrics": {
+              "captures": 1,
+              "certificates": 2,
+              "restores": 0,
+              "last": null
+            }
+          },
+          "exactRefusal": null,
+          "batchFlushed": true,
+          "cashConserved": true,
+          "committedWrites": [
+            {
+              "active": false,
+              "construction": 5,
+              "treasury": 89608.45899709838
+            }
+          ],
+          "pointerReleased": true
+        }
+      ],
+      "forcedRefusal": {
+        "rng": 2592646554,
+        "built": 0,
+        "status": {
+          "enabled": true,
+          "active": false,
+          "halted": false,
+          "last": {
+            "ok": false,
+            "reason": "Test reservation refusal",
+            "command": "road-stroke",
+            "ms": 269.1000000014901,
+            "code": "refused",
+            "publicationErrors": []
+          },
+          "protocol": {
+            "enabled": true,
+            "halted": false,
+            "active": false,
+            "kind": null,
+            "phase": "idle",
+            "last": {
+              "kind": "command",
+              "ok": false,
+              "reason": "Test reservation refusal",
+              "effectErrors": []
+            },
+            "pendingSaveGenerations": 0
+          },
+          "metrics": {
+            "captures": 1,
+            "certificates": 2,
+            "restores": 1,
+            "last": null
+          }
+        },
+        "exactRefusal": true,
+        "batchFlushed": true,
+        "cashConserved": true,
+        "committedWrites": [],
+        "pointerReleased": true
+      }
+    },
+    {
+      "kind": "recovery",
+      "exactNormalModelRng": true,
+      "normal": [
+        {
+          "rng": 2592646554,
+          "built": 5,
+          "status": {
+            "enabled": false,
+            "active": false,
+            "halted": false,
+            "last": null,
+            "protocol": {
+              "enabled": false,
+              "halted": false,
+              "active": false,
+              "kind": null,
+              "phase": "idle",
+              "last": null,
+              "pendingSaveGenerations": 0
+            },
+            "metrics": {
+              "captures": 0,
+              "certificates": 0,
+              "restores": 0,
+              "last": null
+            }
+          },
+          "exactRefusal": null,
+          "batchFlushed": true,
+          "cashConserved": true,
+          "committedWrites": [
+            {
+              "active": false,
+              "construction": 5,
+              "treasury": 89608.45899709838
+            }
+          ],
+          "pointerReleased": true
+        },
+        {
+          "rng": 2592646554,
+          "built": 5,
+          "status": {
+            "enabled": true,
+            "active": false,
+            "halted": false,
+            "last": {
+              "ok": true,
+              "joined": false,
+              "value": {
+                "built": 5
+              },
+              "command": "road-stroke",
+              "ms": 116.10000000149012,
+              "code": null,
+              "publicationErrors": []
+            },
+            "protocol": {
+              "enabled": true,
+              "halted": false,
+              "active": false,
+              "kind": null,
+              "phase": "idle",
+              "last": {
+                "kind": "command",
+                "ok": true,
+                "effectErrors": []
+              },
+              "pendingSaveGenerations": 0
+            },
+            "metrics": {
+              "captures": 2,
+              "certificates": 3,
+              "restores": 1,
+              "last": null
+            }
+          },
+          "exactRefusal": null,
+          "batchFlushed": true,
+          "cashConserved": true,
+          "committedWrites": [
+            {
+              "active": false,
+              "construction": 5,
+              "treasury": 89608.45899709838
+            }
+          ],
+          "pointerReleased": true
+        }
+      ],
+      "forcedRefusal": {
+        "rng": 2592646554,
+        "built": 0,
+        "status": {
+          "enabled": true,
+          "active": false,
+          "halted": false,
+          "last": {
+            "ok": false,
+            "reason": "Test reservation refusal",
+            "command": "road-stroke",
+            "ms": 291.6000000014901,
+            "code": "refused",
+            "publicationErrors": []
+          },
+          "protocol": {
+            "enabled": true,
+            "halted": false,
+            "active": false,
+            "kind": null,
+            "phase": "idle",
+            "last": {
+              "kind": "command",
+              "ok": false,
+              "reason": "Test reservation refusal",
+              "effectErrors": []
+            },
+            "pendingSaveGenerations": 0
+          },
+          "metrics": {
+            "captures": 1,
+            "certificates": 2,
+            "restores": 1,
+            "last": null
+          }
+        },
+        "exactRefusal": true,
+        "batchFlushed": true,
+        "cashConserved": true,
+        "committedWrites": [],
+        "pointerReleased": true
+      }
+    }
+  ],
+  "oversized": {
+    "syntheticApiProbe": true,
+    "rejectedBeforeCapture": true,
+    "zeroModelCalls": true,
+    "unchanged": true
+  }
+}
