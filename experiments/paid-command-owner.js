@@ -11,8 +11,9 @@
   const now=()=>performance.now();
   function structural(){
    if(!G||![2,3].includes(G.version)||!Array.isArray(G.people)||G.people.length>8000||!Array.isArray(G.households)||G.households.length>3000||!Array.isArray(G.firms)||G.firms.length>3000||G.loans!=null&&(!Array.isArray(G.loans)||G.loans.length>10000))return {ok:false,reason:'Legacy identity or debt record limit reached'};
-   if(!Number.isFinite(G.treasury)||!Number.isFinite(G.region)||G.region<0||!Number.isFinite(G.debt)||G.debt<0||!Number.isFinite(totalMoney())||!validateArchiveRecords(G)||!validateBridgeArchive(G))return {ok:false,reason:'Current command structure or finances are invalid'};
-   return {ok:true};
+   const cash=totalMoney();
+   if(!Number.isFinite(G.treasury)||!Number.isFinite(G.region)||G.region<0||!Number.isFinite(G.debt)||G.debt<0||!Number.isFinite(cash)||!validateArchiveRecords(G)||!validateBridgeArchive(G))return {ok:false,reason:'Current command structure or finances are invalid'};
+   return {ok:true,cash};
   }
   // Reuses the selected shared fence, never an additional controller or saver.
   p.installFences(s);
@@ -29,7 +30,7 @@
    enter:x=>{activeSnapshot=x;simulationBusy=true;},leave:x=>{simulationBusy=x.busy;activeSnapshot=null;},
    certify:meta=>{const start=now(),decision=structural();if(meta.kind==='initial')return decision;
     if(meta.kind!=='command'||mode()!=='paid-command'||!allowed.has(meta.intent?.kind))return {ok:false,reason:'Unsupported paid command'};
-    if(decision.ok&&(!activeSnapshot||Math.abs(totalMoney()-activeSnapshot.money)>.001))return {ok:false,reason:'Paid command changed total cash'};
+    if(decision.ok&&(!activeSnapshot||Math.abs(decision.cash-activeSnapshot.money)>.001))return {ok:false,reason:'Paid command changed total cash'};
     const sample=samples[samples.length-1];if(sample)sample.checkMs=now()-start;
     return decision;
    },
