@@ -1,0 +1,120 @@
+{
+  "source": "87811c52",
+  "hardwareNotBenchmarked": true,
+  "rows": [
+    {
+      "backend": "ANGLE (Qualcomm, Adreno (TM) 730, OpenGL ES 3.2)",
+      "syntheticLabel": true,
+      "balanced": {
+        "quality": "balanced",
+        "automatic": true,
+        "reason": "Identified GPU; measured frame guard active"
+      },
+      "performance": {
+        "quality": "economy",
+        "automatic": true,
+        "reason": "Performance selected; measured frame guard active"
+      },
+      "rich": {
+        "quality": "reference",
+        "automatic": false,
+        "reason": "Rich detail selected"
+      }
+    },
+    {
+      "backend": "ANGLE (ARM, Mali-G715, OpenGL ES 3.2)",
+      "syntheticLabel": true,
+      "balanced": {
+        "quality": "balanced",
+        "automatic": true,
+        "reason": "Identified GPU; measured frame guard active"
+      },
+      "performance": {
+        "quality": "economy",
+        "automatic": true,
+        "reason": "Performance selected; measured frame guard active"
+      },
+      "rich": {
+        "quality": "reference",
+        "automatic": false,
+        "reason": "Rich detail selected"
+      }
+    },
+    {
+      "backend": "PowerVR Rogue GE8320",
+      "syntheticLabel": true,
+      "balanced": {
+        "quality": "balanced",
+        "automatic": true,
+        "reason": "Identified GPU; measured frame guard active"
+      },
+      "performance": {
+        "quality": "economy",
+        "automatic": true,
+        "reason": "Performance selected; measured frame guard active"
+      },
+      "rich": {
+        "quality": "reference",
+        "automatic": false,
+        "reason": "Rich detail selected"
+      }
+    },
+    {
+      "backend": "Samsung Xclipse 920",
+      "syntheticLabel": true,
+      "balanced": {
+        "quality": "canvas",
+        "automatic": true,
+        "reason": "Unclassified renderer capability"
+      },
+      "performance": {
+        "quality": "economy",
+        "automatic": true,
+        "reason": "Performance selected; measured frame guard active"
+      },
+      "rich": {
+        "quality": "reference",
+        "automatic": false,
+        "reason": "Rich detail selected"
+      }
+    },
+    {
+      "backend": "WebKit WebGL",
+      "syntheticLabel": true,
+      "balanced": {
+        "quality": "canvas",
+        "automatic": true,
+        "reason": "Unclassified renderer capability"
+      },
+      "performance": {
+        "quality": "economy",
+        "automatic": true,
+        "reason": "Performance selected; measured frame guard active"
+      },
+      "rich": {
+        "quality": "reference",
+        "automatic": false,
+        "reason": "Rich detail selected"
+      }
+    },
+    {
+      "backend": "Google SwiftShader",
+      "syntheticLabel": true,
+      "balanced": {
+        "quality": "canvas",
+        "automatic": true,
+        "reason": "Software renderer capability"
+      },
+      "performance": {
+        "quality": "economy",
+        "automatic": true,
+        "reason": "Performance selected; measured frame guard active"
+      },
+      "rich": {
+        "quality": "reference",
+        "automatic": false,
+        "reason": "Rich detail selected"
+      }
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "capabilityFallback": {
+    "quality": "canvas",
+    "automatic": true,
+    "reason": "Software renderer capability",
+    "backend": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)"
+  },
+  "explicitPerformanceRetry": true,
+  "explicitRichRetryAndSaved": true,
+  "cameraRetained": {
+    "x": 30,
+    "z": 30
+  },
+  "archiveInvariant": true,
+  "save": true,
+  "errors": []
+}

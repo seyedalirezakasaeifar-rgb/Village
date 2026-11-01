@@ -1,0 +1,40 @@
+{
+  "sourceCommit": "87811c52cdb9aecd13cd23beebd52f6475c6dd9c",
+  "runtimeUnmodified": true,
+  "modules": {
+    "assets/webgl-view.js": "55164f63aed7f4e7809e07af32ca2d6db776be7ebaa0ebcdbdb036fc7eb22f79",
+    "assets/webgl-transit-geometry.js": "46a6e7308dcefbf8f9925b7c55d11b7cbff6d813fe38c1a5247cbdf7428433ee",
+    "assets/webgl-taste.js": "041e8ef36c2841c67448d1aeb8904108b24e26b5406a1fb517f2b0c9805fa479",
+    "assets/webgl-static-batch.js": "ef5927cf016acc06ec768f71e1beac5c12f21e6bf9ca9c034c155a68587fc292",
+    "assets/webgl-quality-policy.js": "51a341506b5a5b9b942084027b77d5dcde46f6c2f3823a9a7d43724edeefb041",
+    "assets/webgl-materials.js": "1ec2ded334a92ec0397d9e2ebc4444d19eee5472df11abcc35dd7205504f1b04",
+    "assets/webgl-map-overlay.js": "d4df7a9a75c7da788f87c9f22ad4e97e8f192a359b8103ef576045335f318cb2",
+    "assets/webgl-entry.js": "6be8f01b0726f27cbd472ef0d11f1e1a4bca04a3c433292538a23b40d5d72d14",
+    "assets/webgl-economy-facades.js": "a9eb09d198d19d3b6f268ee233949d7e63521eabb36c7e41d7c636a1805acacd",
+    "assets/webgl-bridges.js": "74942b383da346235286d096f7e376a9c5b378993b135586c5df780c46a60ace",
+    "assets/webgl-actors.js": "e7f761691a2edcc9ddb7937dad3d50464fb3ff73129ac8b22e418cbe1fb094cb",
+    "assets/newfoundland-workplaces.js": "9bb59f5ab1347328c2afb1818e29701e00b1da1bef649569f3b55dbc20bd619a",
+    "assets/newfoundland-specialized.js": "6941345479806d6bf28d444b1248e23d4194929cbaa2dc19282da6acaafaba78",
+    "assets/newfoundland-kit.js": "79be3c5956bbcb3b9db5a9c84ce10be46892cee568e44e864b92d3ba926fae2c",
+    "assets/newfoundland-families.js": "207d24e6078e19b0fe56a4a30d16f0e6f5552bf7baf00b14f3b2f88bf1d0d757",
+    "assets/game.js": "037c92b56d4b736f2c9c2bb96a950ae194bc815d1a393d36b3634f4272521d94"
+  },
+  "browserScriptsPassed": [
+    "test_webgl_paused_actor_options.py",
+    "test_webgl_paused_boat_lod.py",
+    "test_webgl_tier_actor_resources.py",
+    "test_webgl_night_overlays.py",
+    "test_webgl_settings_discovery.py",
+    "test_webgl_quality_recovery.py",
+    "test_webgl_economy_controls.py",
+    "test_graphics_release_comparison_878.py"
+  ],
+  "nodeScriptsPassed": [
+    "test_webgl_economy_envelopes.mjs",
+    "test_webgl_actor_layer.mjs",
+    "test_webgl_actor_options.mjs",
+    "test_webgl_bridge_geometry.mjs",
+    "test_webgl_quality_policy.mjs",
+    "test_webgl_static_batch.mjs"
+  ]
+}

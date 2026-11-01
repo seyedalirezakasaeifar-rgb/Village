@@ -1,6 +1,6 @@
 {
   "sourceModules": {
-    "assets/game.js": "9a0f9837671de4f2b4e0177a43a60c852bb5baa2cd09643d360cfc3f2d123c58",
+    "assets/game.js": "037c92b56d4b736f2c9c2bb96a950ae194bc815d1a393d36b3634f4272521d94",
     "assets/webgl-actors.js": "e7f761691a2edcc9ddb7937dad3d50464fb3ff73129ac8b22e418cbe1fb094cb",
     "assets/webgl-bridges.js": "74942b383da346235286d096f7e376a9c5b378993b135586c5df780c46a60ace",
     "assets/webgl-economy-facades.js": "a9eb09d198d19d3b6f268ee233949d7e63521eabb36c7e41d7c636a1805acacd",
@@ -21,7 +21,7 @@
     {
       "overlay": "roads",
       "stats": {
-        "marks": 72,
+        "marks": 74,
         "areas": 0,
         "routes": 0
       },
@@ -51,7 +51,7 @@
     {
       "overlay": "hardship",
       "stats": {
-        "marks": 44,
+        "marks": 46,
         "areas": 0,
         "routes": 0
       },
@@ -81,7 +81,7 @@
     {
       "overlay": "land",
       "stats": {
-        "marks": 72,
+        "marks": 74,
         "areas": 0,
         "routes": 0
       },
@@ -96,7 +96,7 @@
     {
       "overlay": "healthAccess",
       "stats": {
-        "marks": 44,
+        "marks": 46,
         "areas": 0,
         "routes": 0
       },
@@ -111,7 +111,7 @@
     {
       "overlay": "schoolAccess",
       "stats": {
-        "marks": 44,
+        "marks": 46,
         "areas": 0,
         "routes": 0
       },
