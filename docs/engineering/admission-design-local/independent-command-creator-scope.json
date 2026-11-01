@@ -1,0 +1,52 @@
+{
+  "workerCommit": "f77ceddbba004d120a1f40ea90a9ac5037b061f2",
+  "paidCommit": "e13a21b80efb80561b60ec41cda7a1c938cca5e1",
+  "sourceSha256": "7619b1fafdf5f05a8a3d8c79ea5669aaa13f5262957dd34a3e7c1b3479681461",
+  "baseWorkerSha256": "304b28f85b5b3011b929500fb3c95ac5fdd825241fa35958d876367f59390935",
+  "instrumentedWorkerSha256": "65361bba73513e6977f0dcdd4aba08431800da6f47b726b1479ea4c53b23fe80",
+  "ownerSha256": "108376582841c5a6ace499f1b0e656ae00014db9fd697d1a46c7c0691760c947",
+  "instrumentedOwnerSha256": "ec231825fb1c50cecf6b0febdc9a29a8f558b643e4cbdecbca129c430f411885",
+  "certificateCounterOnlyInstrumentation": true,
+  "controlledConstructionReadiness": true,
+  "stubCreatorOnlyInExplicitFault": true,
+  "productionActivation": false,
+  "nativeStorageTested": false,
+  "cases": {
+    "competition": {
+      "actualStepOneSlotExactlyOneCompletion": true,
+      "oldOverbookedProjectPreserved": true,
+      "blockedPhaseExactArchiveMoneyIdsRng": true,
+      "ordinaryCaptureSamples": 0,
+      "ordinaryCertificateDelta": 0,
+      "scopeIdleAfterStep": true
+    },
+    "forcedCreatorFailure": {
+      "failure": "TypeError: Cannot set properties of null (setting 'cash')",
+      "noPartialSuccess": true,
+      "fences": {
+        "export": "Error: Recover the last committed town before accessing model state",
+        "save-prepare": "Error: Recover the last committed town before accessing model state",
+        "step": "Error: Recover the last committed town before accessing model state"
+      },
+      "lastCompletedArchiveRecoveryExact": true,
+      "recoveredDayExactAgainstUninterrupted": true,
+      "fullDayRollbackClaim": false,
+      "actualNativeWriteClaim": false
+    },
+    "people": {
+      "capRefusalExactArchiveMoneyIdsRng": true,
+      "snapshots": 0
+    },
+    "households": {
+      "capRefusalExactArchiveMoneyIdsRng": true,
+      "snapshots": 0
+    },
+    "lowerHistoryRecovery": {
+      "sameEnabledOwnerAndWorker": true,
+      "restoredSupportedArchive": true,
+      "ordinaryDayResumes": true,
+      "snapshots": 0,
+      "noInTownHistoryPruning": true
+    }
+  }
+}
