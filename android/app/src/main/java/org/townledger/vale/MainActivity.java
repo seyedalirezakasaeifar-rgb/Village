@@ -33,6 +33,8 @@ public final class MainActivity extends Activity {
     private WebView web;
     private int archiveRequest;
     private boolean pickerLaunched;
+    private boolean restoringArchive;
+    private AlertDialog importDialog;
     private final BackNavigation backNavigation=new BackNavigation();
     private Runnable backTimeout;
     private boolean activityResumed;
@@ -87,12 +89,14 @@ public final class MainActivity extends Activity {
     }
     @Override protected void onResume() {super.onResume();activityResumed=true;if(web!=null){web.onResume();resumeGame();immersive();}else if(rendererFailed)showRendererRecovery();}
     @Override protected void onSaveInstanceState(Bundle state){state.putInt("archiveRequest",pickerLaunched?archiveRequest:0);if(pickerLaunched&&pendingExportName!=null)state.putString("pendingExportName",pendingExportName);super.onSaveInstanceState(state);}
-    @Override protected void onDestroy(){backNavigation.cancel();clearBackTimeout();dismissSavingDialog();if(recoveryDialog!=null)recoveryDialog.dismiss();if(Build.VERSION.SDK_INT>=33&&modernBackToken!=null)BackApi33.detach(this,modernBackToken);archiveWorker.shutdown();if(web!=null){web.removeJavascriptInterface("AndroidArchive");web.destroy();web=null;}super.onDestroy();}
+    @Override protected void onDestroy(){finishImport();backNavigation.cancel();clearBackTimeout();dismissSavingDialog();if(recoveryDialog!=null)recoveryDialog.dismiss();if(Build.VERSION.SDK_INT>=33&&modernBackToken!=null)BackApi33.detach(this,modernBackToken);archiveWorker.shutdown();if(web!=null){web.removeJavascriptInterface("AndroidArchive");web.destroy();web=null;}super.onDestroy();}
     private void clearBackTimeout(){if(web!=null&&backTimeout!=null)web.removeCallbacks(backTimeout);backTimeout=null;}
     private void dismissSavingDialog(){if(savingDialog!=null){savingDialog.dismiss();savingDialog=null;}}
     private void showSavingDialog(int request){if(!backNavigation.isCurrent(request)||isFinishing()||isDestroyed())return;dismissSavingDialog();savingDialog=new AlertDialog.Builder(this).setTitle("Saving your town…").setMessage("Finishing the on-device save before leaving.").setCancelable(false).show();}
     private void resumeGame(){if(activityResumed&&web!=null&&!isFinishing()&&!isDestroyed())web.evaluateJavascript("window.__townArchive && window.__townArchive.resume()",null);}
+    private void finishImport(){restoringArchive=false;archiveRequest=0;if(importDialog!=null){importDialog.dismiss();importDialog=null;}if(web!=null)web.requestFocus();}
     @Override public void onBackPressed() {
+        if(restoringArchive)return;
         if(web==null){if(rendererFailed)showRendererRecovery();else finish();return;}
         final int request=backNavigation.begin();if(request==0)return;
         backTimeout=new Runnable(){public void run(){if(backNavigation.claim(request)){clearBackTimeout();dismissSavingDialog();message("The town is busy. Back did not close it; try again shortly.");resumeGame();}}};
@@ -119,6 +123,7 @@ public final class MainActivity extends Activity {
     }
     private void rendererLost(WebView failed,boolean crashed){
         if(failed!=web)return;
+        finishImport();
         backNavigation.cancel();clearBackTimeout();dismissSavingDialog();if(recoveryDialog!=null){recoveryDialog.dismiss();recoveryDialog=null;}web=null;rendererFailed=true;rendererCrashed=crashed;
         if(failed.getParent() instanceof ViewGroup)((ViewGroup)failed.getParent()).removeView(failed);
         failed.destroy();
@@ -157,12 +162,13 @@ public final class MainActivity extends Activity {
         }
     }
     public final class Archive {
+        @JavascriptInterface public void restoreResult(final boolean ok){runOnUiThread(new Runnable(){public void run(){if(!restoringArchive)return;finishImport();if(!ok)message("Backup could not be restored. The current town is unchanged.");}});}
         @JavascriptInterface public void backSaving(final int request){runOnUiThread(new Runnable(){public void run(){showSavingDialog(request);}});}
         @JavascriptInterface public void backResult(final int request,final boolean handled,final boolean saved){runOnUiThread(new Runnable(){public void run(){receiveBackResult(request,handled,saved);}});}
         @JavascriptInterface public void writeBackup(final String text) {
             runOnUiThread(new Runnable() {public void run() {
                 if(isFinishing()||isDestroyed())return;
-                if(archiveRequest!=0){message("Finish the open archive chooser first");return;}
+                if(archiveRequest!=0||restoringArchive){message("Finish the open archive operation first");return;}
                 archiveRequest=WRITE;pendingExportName="pending-town-export-"+UUID.randomUUID().toString()+".json";final AtomicFile prepared=pendingExport(pendingExportName);
                 archiveWorker.execute(new Runnable() {public void run() {
                     FileOutputStream out=null;
@@ -175,7 +181,7 @@ public final class MainActivity extends Activity {
         }
         @JavascriptInterface public void openBackup(){runOnUiThread(new Runnable() {public void run() {
             if(isFinishing()||isDestroyed())return;
-                if(archiveRequest!=0){message("Finish the open archive chooser first");return;}
+                if(archiveRequest!=0||restoringArchive){message("Finish the open archive operation first");return;}
             archiveRequest=READ;launchPicker(READ);
         }});}
     }
@@ -185,6 +191,7 @@ public final class MainActivity extends Activity {
         pickerLaunched=false;final AtomicFile prepared=request==WRITE&&pendingExportName!=null?pendingExport(pendingExportName):null;
         if(result!=RESULT_OK||data==null||data.getData()==null){archiveRequest=0;pendingExportName=null;if(prepared!=null)archiveWorker.execute(new Runnable(){public void run(){prepared.delete();}});return;}
         final Uri uri=data.getData();
+        if(request==READ){restoringArchive=true;importDialog=new AlertDialog.Builder(this).setTitle("Restoring town…").setMessage("Checking the backup before replacing your current town. Large archives can take a while.").setCancelable(false).show();}
         archiveWorker.execute(new Runnable(){public void run(){
             try {
                 if(request==WRITE){
@@ -194,10 +201,10 @@ public final class MainActivity extends Activity {
                 }else{
                     byte[] bytes;try(InputStream in=getContentResolver().openInputStream(uri)){bytes=ArchiveIO.read(in);}
                     final String quoted=JSONObject.quote(ArchiveIO.decode(bytes));
-                    runOnUiThread(new Runnable(){public void run(){if(isFinishing()||isDestroyed())return;if(web==null){message("Reopen the game before restoring this backup. The backup file is unchanged.");return;}web.evaluateJavascript("window.__townArchive && window.__townArchive.restore("+quoted+")",null);}});
+                    runOnUiThread(new Runnable(){public void run(){if(isFinishing()||isDestroyed())return;if(web==null){finishImport();message("Reopen the game before restoring this backup. The backup file is unchanged.");return;}getWindow().getDecorView().postOnAnimation(new Runnable(){public void run(){getWindow().getDecorView().postOnAnimation(new Runnable(){public void run(){if(web==null||isDestroyed()){finishImport();return;}web.evaluateJavascript("(function(){var box=document.createElement('div');box.setAttribute('role','alertdialog');box.setAttribute('aria-label','Restoring town');box.style.cssText='position:fixed;inset:0;z-index:2147483647;background:rgba(22,43,35,.94);color:#fff4d5;display:flex;align-items:center;justify-content:center;padding:32px;text-align:center;font:18px sans-serif';box.textContent='Restoring town… Checking the backup before replacing your current town. Large archives can take a while.';document.body.appendChild(box);document.body.setAttribute('aria-busy','true');requestAnimationFrame(function(){requestAnimationFrame(function(){setTimeout(function(){var ok=false;try{ok=!!(window.__townArchive&&window.__townArchive.restore("+quoted+"));}catch(e){}finally{box.remove();document.body.removeAttribute('aria-busy');AndroidArchive.restoreResult(ok);}},0);});});})()",null);}});}});}});
                 }
-            }catch(Exception ex){message("Could not read or write the town archive. The current town is unchanged.");}
-            finally{runOnUiThread(new Runnable(){public void run(){archiveRequest=0;pendingExportName=null;}});}
+            }catch(Exception ex){runOnUiThread(new Runnable(){public void run(){if(request==READ)finishImport();}});message("Could not read or write the town archive. The current town is unchanged.");}
+            finally{runOnUiThread(new Runnable(){public void run(){if(request==WRITE)archiveRequest=0;pendingExportName=null;}});}
         }});
     }
 }
