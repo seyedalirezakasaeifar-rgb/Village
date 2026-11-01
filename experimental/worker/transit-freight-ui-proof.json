@@ -1,19 +1,120 @@
 {
   "sourceSha256": "5df42ea1348872ad692a53bfa6ea1081472d1c8783ec9ace2b5cf011bcfb6e20",
   "workerSha256": "968b897efa5e8909357027065e0888a793821e2b3d7f2884d0f6ed8735233950",
+  "accounting": {
+    "money": 15493516.999999985,
+    "goods": [
+      {
+        "good": "grain",
+        "opening": 960,
+        "produced": 857,
+        "consumed": 79.2,
+        "imports": 810,
+        "exports": 356.2167337536193,
+        "stock": 2191.583266246381,
+        "error": 0,
+        "price": 2
+      },
+      {
+        "good": "flour",
+        "opening": 960,
+        "produced": 132,
+        "consumed": 119.69999999999999,
+        "imports": 906.836,
+        "exports": 0,
+        "stock": 1879.1360000000002,
+        "error": 2.2737367544323206e-13,
+        "price": 3
+      },
+      {
+        "good": "food",
+        "opening": 1920,
+        "produced": 360,
+        "consumed": 270.40000000000003,
+        "imports": 160,
+        "exports": 182.4829945611728,
+        "stock": 1987.1170054388272,
+        "error": 0,
+        "price": 3.3
+      },
+      {
+        "good": "logs",
+        "opening": 720,
+        "produced": 372,
+        "consumed": 30,
+        "imports": 420,
+        "exports": 0,
+        "stock": 1482,
+        "error": 0,
+        "price": 2
+      },
+      {
+        "good": "timber",
+        "opening": 720,
+        "produced": 39,
+        "consumed": 29.341176470588234,
+        "imports": 180,
+        "exports": 0,
+        "stock": 909.6588235294117,
+        "error": 0,
+        "price": 4
+      },
+      {
+        "good": "stone",
+        "opening": 720,
+        "produced": 131,
+        "consumed": 0,
+        "imports": 60,
+        "exports": 104.63999999999999,
+        "stock": 806.36,
+        "error": 0,
+        "price": 3
+      },
+      {
+        "good": "manufactures",
+        "opening": 0,
+        "produced": 43,
+        "consumed": 15.347285096345772,
+        "imports": 0,
+        "exports": 0,
+        "stock": 27.652714903654207,
+        "error": -2.1316282072803006e-14,
+        "price": 8.5
+      }
+    ],
+    "valid": {
+      "ok": true,
+      "issues": [],
+      "total": 15493516.999999985,
+      "population": 169,
+      "day": 2
+    }
+  },
   "normalResources": true,
   "actualUiFullModelRng": [
     "new bus draft",
+    "draft configuration 2",
+    "draft configuration 1",
+    "draft undo",
     "trusted map stops and authoritative quote",
+    "ordinary day invalidates quote",
+    "stale build refusal no payment",
+    "refreshed transit quote",
     "paid route build",
+    "second draft start",
+    "draft cancellation",
     "service level 0",
     "service level 1",
     "paid route retirement",
+    "paid unused depot removal actual UI",
+    "extra shift authorization actual UI",
+    "stop extra shifts actual UI",
     "freight priority",
     "freight routing",
     "paid import recall actual controls"
   ],
   "saveBarriers": true,
+  "writerFailureThenRetryWithoutEconomicReplay": true,
   "nativeDurability": false,
   "pageErrors": []
 }

@@ -1,0 +1,102 @@
+{
+  "sourceSha256": "5df42ea1348872ad692a53bfa6ea1081472d1c8783ec9ace2b5cf011bcfb6e20",
+  "workerSha256": "968b897efa5e8909357027065e0888a793821e2b3d7f2884d0f6ed8735233950",
+  "accounting": {
+    "money": 15493516.999999996,
+    "goods": [
+      {
+        "good": "grain",
+        "opening": 960,
+        "produced": 0,
+        "consumed": 0,
+        "imports": 80,
+        "exports": 0,
+        "stock": 1040,
+        "error": 0,
+        "price": 2
+      },
+      {
+        "good": "flour",
+        "opening": 960,
+        "produced": 0,
+        "consumed": 0,
+        "imports": 80,
+        "exports": 0,
+        "stock": 1040,
+        "error": 0,
+        "price": 3
+      },
+      {
+        "good": "food",
+        "opening": 1920,
+        "produced": 0,
+        "consumed": 0,
+        "imports": 220,
+        "exports": 0,
+        "stock": 2140,
+        "error": 0,
+        "price": 3.3
+      },
+      {
+        "good": "logs",
+        "opening": 720,
+        "produced": 0,
+        "consumed": 0,
+        "imports": 60,
+        "exports": 0,
+        "stock": 780,
+        "error": 0,
+        "price": 2
+      },
+      {
+        "good": "timber",
+        "opening": 720,
+        "produced": 0,
+        "consumed": 0,
+        "imports": 60,
+        "exports": 0,
+        "stock": 780,
+        "error": 0,
+        "price": 4
+      },
+      {
+        "good": "stone",
+        "opening": 720,
+        "produced": 0,
+        "consumed": 0,
+        "imports": 1980,
+        "exports": 0,
+        "stock": 2700,
+        "error": 0,
+        "price": 3
+      },
+      {
+        "good": "manufactures",
+        "opening": 0,
+        "produced": 0,
+        "consumed": 0,
+        "imports": 0,
+        "exports": 0,
+        "stock": 0,
+        "error": 0,
+        "price": 8.5
+      }
+    ],
+    "valid": {
+      "ok": true,
+      "issues": [],
+      "total": 15493516.999999996,
+      "population": 169,
+      "day": 10
+    }
+  },
+  "normalResources": true,
+  "fixture": "existing paid peak-arrival fixture; time advanced to create backlog; no grants",
+  "transferCandidates": 13,
+  "actualUiFullModelRng": [
+    "paid depot transfer actual UI"
+  ],
+  "saveBarriers": true,
+  "nativeDurability": false,
+  "pageErrors": []
+}
