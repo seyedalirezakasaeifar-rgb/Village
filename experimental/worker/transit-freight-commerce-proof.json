@@ -1,0 +1,104 @@
+{
+  "sourceSha256": "5df42ea1348872ad692a53bfa6ea1081472d1c8783ec9ace2b5cf011bcfb6e20",
+  "workerSha256": "98e88afa7f9950ab03e9b022bcbd640ea1a98b04fc83572814c5a7981ba3dfec",
+  "accounting": {
+    "money": 15493516.999999406,
+    "goods": [
+      {
+        "good": "grain",
+        "opening": 960,
+        "produced": 13201,
+        "consumed": 4581.6,
+        "imports": 6006.661,
+        "exports": 11477.72983518761,
+        "stock": 4108.331164812393,
+        "error": 3.637978807091713e-12,
+        "price": 1.9472
+      },
+      {
+        "good": "flour",
+        "opening": 960,
+        "produced": 7636,
+        "consumed": 6155.1,
+        "imports": 3853.293,
+        "exports": 2305.9211157110244,
+        "stock": 3988.2718842889763,
+        "error": 4.547473508864641e-13,
+        "price": 2.9208000000000003
+      },
+      {
+        "good": "food",
+        "opening": 1920,
+        "produced": 13778,
+        "consumed": 7845.73775407912,
+        "imports": 2487.754,
+        "exports": 4959.184828617465,
+        "stock": 5380.831417303415,
+        "error": 9.094947017729282e-13,
+        "price": 3.2128799999999997
+      },
+      {
+        "good": "logs",
+        "opening": 720,
+        "produced": 8528,
+        "consumed": 3153.0769230769233,
+        "imports": 446.876,
+        "exports": 4281.754938502994,
+        "stock": 2260.044138420083,
+        "error": 0,
+        "price": 1.9472
+      },
+      {
+        "good": "timber",
+        "opening": 720,
+        "produced": 4099,
+        "consumed": 1771.9058823529413,
+        "imports": 420,
+        "exports": 2056.4725100578435,
+        "stock": 1410.6216075892148,
+        "error": -4.547473508864641e-13,
+        "price": 3.8944
+      },
+      {
+        "good": "stone",
+        "opening": 720,
+        "produced": 3582,
+        "consumed": 0.7,
+        "imports": 60,
+        "exports": 3267.056432473799,
+        "stock": 1094.2435675262009,
+        "error": -2.2737367544323206e-13,
+        "price": 2.9208000000000003
+      },
+      {
+        "good": "manufactures",
+        "opening": 0,
+        "produced": 2595,
+        "consumed": 476.7210061512013,
+        "imports": 0,
+        "exports": 2078.323676635218,
+        "stock": 39.955317213580884,
+        "error": 7.815970093361102e-14,
+        "price": 8.641100342101293
+      }
+    ],
+    "valid": {
+      "ok": true,
+      "issues": [],
+      "total": 15493516.999999406,
+      "population": 166,
+      "day": 31
+    }
+  },
+  "normalResources": true,
+  "repeatedPaidRiverChoiceRefusesUnchanged": true,
+  "actualUiFullModelRng": [
+    "staged order two milestones actual UI",
+    "group cancellation retains liabilities",
+    "supplier agreement actual UI",
+    "paid river dispatch actual UI"
+  ],
+  "saveBarriers": true,
+  "nativeDurability": false,
+  "pageErrors": []
+}
