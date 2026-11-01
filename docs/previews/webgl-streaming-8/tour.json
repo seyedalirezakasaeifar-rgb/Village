@@ -1,0 +1,327 @@
+{
+  "steps": [
+    {
+      "lod": "near",
+      "selected": {
+        "minX": 8,
+        "minZ": 8,
+        "maxX": 48,
+        "maxZ": 48,
+        "lod": "near",
+        "key": "8:8:48:48:near"
+      },
+      "loaded": 100,
+      "calls": 17,
+      "triangles": 115366,
+      "buildMs": 18.700000002980232,
+      "memory": {
+        "geometries": 10,
+        "textures": 1
+      },
+      "canvasCount": 1
+    },
+    {
+      "lod": "mid",
+      "selected": {
+        "minX": 0,
+        "minZ": 0,
+        "maxX": 56,
+        "maxZ": 56,
+        "lod": "mid",
+        "key": "0:0:56:56:mid"
+      },
+      "loaded": 102,
+      "calls": 17,
+      "triangles": 91554,
+      "buildMs": 19.400000005960464,
+      "memory": {
+        "geometries": 10,
+        "textures": 1
+      },
+      "canvasCount": 1
+    },
+    {
+      "lod": "far",
+      "selected": {
+        "minX": 0,
+        "minZ": 0,
+        "maxX": 72,
+        "maxZ": 72,
+        "lod": "far",
+        "key": "0:0:72:72:far"
+      },
+      "loaded": 102,
+      "calls": 17,
+      "triangles": 76990,
+      "buildMs": 21.399999998509884,
+      "memory": {
+        "geometries": 10,
+        "textures": 1
+      },
+      "canvasCount": 1
+    },
+    {
+      "lod": "near",
+      "selected": {
+        "minX": 40,
+        "minZ": 0,
+        "maxX": 88,
+        "maxZ": 40,
+        "lod": "near",
+        "key": "40:0:88:40:near"
+      },
+      "loaded": 5,
+      "calls": 5,
+      "triangles": 88058,
+      "buildMs": 2,
+      "memory": {
+        "geometries": 4,
+        "textures": 1
+      },
+      "canvasCount": 1
+    },
+    {
+      "lod": "mid",
+      "selected": {
+        "minX": 80,
+        "minZ": 80,
+        "maxX": 127,
+        "maxZ": 127,
+        "lod": "mid",
+        "key": "80:80:127:127:mid"
+      },
+      "loaded": 0,
+      "calls": 3,
+      "triangles": 20330,
+      "buildMs": 1,
+      "memory": {
+        "geometries": 3,
+        "textures": 1
+      },
+      "canvasCount": 1
+    },
+    {
+      "lod": "far",
+      "selected": {
+        "minX": 0,
+        "minZ": 0,
+        "maxX": 48,
+        "maxZ": 48,
+        "lod": "far",
+        "key": "0:0:48:48:far"
+      },
+      "loaded": 102,
+      "calls": 14,
+      "triangles": 59846,
+      "buildMs": 10.100000001490116,
+      "memory": {
+        "geometries": 8,
+        "textures": 1
+      },
+      "canvasCount": 1
+    },
+    {
+      "lod": "near",
+      "selected": {
+        "minX": 104,
+        "minZ": 0,
+        "maxX": 127,
+        "maxZ": 24,
+        "lod": "near",
+        "key": "104:0:127:24:near"
+      },
+      "loaded": 0,
+      "calls": 3,
+      "triangles": 23746,
+      "buildMs": 0.8999999985098839,
+      "memory": {
+        "geometries": 3,
+        "textures": 1
+      },
+      "canvasCount": 1
+    },
+    {
+      "lod": "mid",
+      "selected": {
+        "minX": 0,
+        "minZ": 0,
+        "maxX": 48,
+        "maxZ": 48,
+        "lod": "mid",
+        "key": "0:0:48:48:mid"
+      },
+      "loaded": 102,
+      "calls": 17,
+      "triangles": 80310,
+      "buildMs": 10.300000004470348,
+      "memory": {
+        "geometries": 10,
+        "textures": 1
+      },
+      "canvasCount": 1
+    },
+    {
+      "lod": "near",
+      "selected": {
+        "minX": 8,
+        "minZ": 8,
+        "maxX": 40,
+        "maxZ": 40,
+        "lod": "near",
+        "key": "8:8:40:40:near"
+      },
+      "loaded": 95,
+      "calls": 16,
+      "triangles": 89738,
+      "buildMs": 10.600000001490116,
+      "memory": {
+        "geometries": 10,
+        "textures": 1
+      },
+      "canvasCount": 1
+    },
+    {
+      "lod": "mid",
+      "selected": {
+        "minX": 0,
+        "minZ": 0,
+        "maxX": 48,
+        "maxZ": 48,
+        "lod": "mid",
+        "key": "0:0:48:48:mid"
+      },
+      "loaded": 102,
+      "calls": 17,
+      "triangles": 80310,
+      "buildMs": 13.200000002980232,
+      "memory": {
+        "geometries": 10,
+        "textures": 1
+      },
+      "canvasCount": 1
+    },
+    {
+      "lod": "far",
+      "selected": {
+        "minX": 0,
+        "minZ": 0,
+        "maxX": 56,
+        "maxZ": 56,
+        "lod": "far",
+        "key": "0:0:56:56:far"
+      },
+      "loaded": 102,
+      "calls": 17,
+      "triangles": 66194,
+      "buildMs": 12.300000004470348,
+      "memory": {
+        "geometries": 10,
+        "textures": 1
+      },
+      "canvasCount": 1
+    },
+    {
+      "lod": "near",
+      "selected": {
+        "minX": 48,
+        "minZ": 0,
+        "maxX": 80,
+        "maxZ": 32,
+        "lod": "near",
+        "key": "48:0:80:32:near"
+      },
+      "loaded": 0,
+      "calls": 4,
+      "triangles": 46214,
+      "buildMs": 1.1000000014901161,
+      "memory": {
+        "geometries": 4,
+        "textures": 1
+      },
+      "canvasCount": 1
+    },
+    {
+      "lod": "mid",
+      "selected": {
+        "minX": 88,
+        "minZ": 88,
+        "maxX": 127,
+        "maxZ": 127,
+        "lod": "mid",
+        "key": "88:88:127:127:mid"
+      },
+      "loaded": 0,
+      "calls": 3,
+      "triangles": 14030,
+      "buildMs": 0.9000000059604645,
+      "memory": {
+        "geometries": 3,
+        "textures": 1
+      },
+      "canvasCount": 1
+    },
+    {
+      "lod": "far",
+      "selected": {
+        "minX": 0,
+        "minZ": 0,
+        "maxX": 32,
+        "maxZ": 32,
+        "lod": "far",
+        "key": "0:0:32:32:far"
+      },
+      "loaded": 58,
+      "calls": 14,
+      "triangles": 31826,
+      "buildMs": 5.9000000059604645,
+      "memory": {
+        "geometries": 8,
+        "textures": 1
+      },
+      "canvasCount": 1
+    },
+    {
+      "lod": "near",
+      "selected": {
+        "minX": 112,
+        "minZ": 0,
+        "maxX": 127,
+        "maxZ": 16,
+        "lod": "near",
+        "key": "112:0:127:16:near"
+      },
+      "loaded": 0,
+      "calls": 3,
+      "triangles": 9330,
+      "buildMs": 0.7999999970197678,
+      "memory": {
+        "geometries": 3,
+        "textures": 1
+      },
+      "canvasCount": 1
+    },
+    {
+      "lod": "mid",
+      "selected": {
+        "minX": 0,
+        "minZ": 0,
+        "maxX": 56,
+        "maxZ": 56,
+        "lod": "mid",
+        "key": "0:0:56:56:mid"
+      },
+      "loaded": 102,
+      "calls": 17,
+      "triangles": 91554,
+      "buildMs": 11.400000005960464,
+      "memory": {
+        "geometries": 10,
+        "textures": 1
+      },
+      "canvasCount": 1
+    }
+  ],
+  "archiveInvariant": true,
+  "save": true,
+  "errors": []
+}
