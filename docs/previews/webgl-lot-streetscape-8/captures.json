@@ -1,0 +1,30 @@
+[
+  {
+    "mode": "town-off",
+    "archiveDigest": "926fa8cd2b8e81dab28ed31626a47e16a06e51aa9c4e115b5768415ca5bd5cdc",
+    "header": "TL\nTOWNLEDGER\nTHE WORKING CITY\nRESIDENTS\n169\nMUNICIPAL CASH\n$90,362\nEMPLOYMENT\n93%\nSAFETY\n88/100\nCOUNCIL TRUST\n65%\nYEAR 1 \u00b7 MONTH 1 \u00b7 DAY 2\nTHE WORKING CITY\n1\u00d7",
+    "stateInvariant": true,
+    "errors": []
+  },
+  {
+    "mode": "town-on",
+    "archiveDigest": "926fa8cd2b8e81dab28ed31626a47e16a06e51aa9c4e115b5768415ca5bd5cdc",
+    "header": "TL\nTOWNLEDGER\nTHE WORKING CITY\nRESIDENTS\n169\nMUNICIPAL CASH\n$90,362\nEMPLOYMENT\n93%\nSAFETY\n88/100\nCOUNCIL TRUST\n65%\nYEAR 1 \u00b7 MONTH 1 \u00b7 DAY 2\nTHE WORKING CITY\n1\u00d7",
+    "stateInvariant": true,
+    "errors": []
+  },
+  {
+    "mode": "dense-close-off",
+    "archiveDigest": "5df7442ff661353733fca435c3d5dde4eab470658aee6b15bf98573f87050edd",
+    "header": "TL\nTOWNLEDGER\nTHE WORKING CITY\nRESIDENTS\n166\nMUNICIPAL CASH\n$31,123\nEMPLOYMENT\n93%\nSAFETY\n91/100\nCOUNCIL TRUST\n72%\nYEAR 1 \u00b7 MONTH 2 \u00b7 DAY 52\nTHE WORKING CITY\n1\u00d7",
+    "stateInvariant": true,
+    "errors": []
+  },
+  {
+    "mode": "dense-close-on",
+    "archiveDigest": "5df7442ff661353733fca435c3d5dde4eab470658aee6b15bf98573f87050edd",
+    "header": "TL\nTOWNLEDGER\nTHE WORKING CITY\nRESIDENTS\n166\nMUNICIPAL CASH\n$31,123\nEMPLOYMENT\n93%\nSAFETY\n91/100\nCOUNCIL TRUST\n72%\nYEAR 1 \u00b7 MONTH 2 \u00b7 DAY 52\nTHE WORKING CITY\n1\u00d7",
+    "stateInvariant": true,
+    "errors": []
+  }
+]
