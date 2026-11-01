@@ -4,7 +4,7 @@ const TRANSIT_LEVELS=[{name:'Suspended',vehicles:0},{name:'Local',vehicles:1},{n
 const TRANSIT_COLORS=['#f0ad56','#51b9c3','#c385b9','#8abf77','#ef8175','#8ba6e9'];
 let transitTopologyCache=null,transitDailyCache=null,transitReservationVersion=0;
 function ensureTransit(){if(!G.transit)G.transit={version:1,revision:0,next:1,routes:[],tracks:[],capital:0,fares:0,expenses:0,lastDay:0,daily:{rides:0,denied:0,revenue:0,expenses:0,staff:0}};return G.transit;}
-function transitChanged(){ensureTransit().revision++;transitReservationVersion++;for(const p of G.people)p.transitTrip=null;transitTopologyCache=null;transitDailyCache=null;householdMarketCache=null;dirty=true;staticDirty=true;}
+function transitChanged(){if(G.stats)G.stats.townBalance=G.treasury+(G.publicReserve||0)-G.debt;ensureTransit().revision++;transitReservationVersion++;for(const p of G.people)p.transitTrip=null;transitTopologyCache=null;transitDailyCache=null;householdMarketCache=null;dirty=true;staticDirty=true;}
 function transitStopRoad(mode,id,net=graph()){return mode==='bus'?id:net.portals.get(id);}
 function transitOwnedRoad(id){return Number.isInteger(id)&&id>=0&&id<G.tiles.length&&roadSurface(id)&&charterOwns(id%T,id/T|0);}
 function transitWalkTree(start,limit=5,net=graph()){
