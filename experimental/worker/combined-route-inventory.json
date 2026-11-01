@@ -1,8 +1,8 @@
 {
-  "sourceCommit": "80598e2c3604074a4d3741cd9a2d2b7e32ff319c",
+  "sourceCommit": "91619aab90cb4447ff640bc02a0d28ecda7d8089",
   "economicSourceSha256": "ac119726075abebf96683eb332782a5d55be69e42fe4545a9def0fd8a9ad6d1c",
   "productionEnabled": false,
-  "registeredOperations": 78,
+  "registeredOperations": 79,
   "modules": [
     {
       "id": "civic",
@@ -70,6 +70,7 @@
     {
       "id": "transit-freight",
       "operations": [
+        "focus",
         "report",
         "hide-report",
         "overlay",
@@ -106,7 +107,7 @@
       ]
     }
   ],
-  "declarativeUiBindings": 88,
+  "declarativeUiBindings": 89,
   "bindings": [
     {
       "module": "civic",
@@ -1240,6 +1241,20 @@
       "selector": "[data-transit-action=\"overlay\"]",
       "operation": "overlay",
       "fields": {}
+    },
+    {
+      "module": "transit-freight",
+      "event": "click",
+      "selector": "[data-transit-action=\"focus\"]",
+      "operation": "focus",
+      "refresh": false,
+      "fields": {
+        "id": {
+          "source": "attribute",
+          "name": "data-route",
+          "as": "integer"
+        }
+      }
     }
   ],
   "knownUnimplementedOriginalOperations": [
