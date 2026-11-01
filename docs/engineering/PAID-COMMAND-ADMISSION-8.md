@@ -1,10 +1,12 @@
 # Paid commands on the shared root — disabled prototype
 
+This records the original455a12f scope. Later direct controls, road input and the mandatory owner runtime registry are specified in [PAID-DIRECT-COVERAGE-8.md](PAID-DIRECT-COVERAGE-8.md); its coverage table supersedes the older remaining-boundary list below.
+
 Base: `4ee829c731da5f517ebb7a11277fa0691bed2bec` (`codex/8-root-admission-api`). This layer uses exactly `__capacityAdmissionProtocol.shared`. It introduces no second controller, checkpoint engine, save fence or automatic-day wrapper. Both experiments remain outside assembled source. Production has no new activation flag.
 
 ## Integration
 
-Inject `experiments/root-capacity-api.js` inside the game closure before instrumentation, followed by a game-hook owner and `experiments/paid-command-root.js`. Call `__installPaidCommandLayer(ownerAdapter)` after the owner configures the common shared API. Its adapter needs `.shared`, `.metrics()` and `.registerRuntime(adapter)`; a configured owner can omit metrics/registry and attach the paid layer without replacing hooks. Do not stack the earlier refusal-only prototype. Nested construction, completion and grant work joins the existing day or command root; it cannot certify or save independently. Unexpected model errors restore and rethrow; top-level public controls show a truthful failure after rollback.
+Inject `experiments/root-capacity-api.js` inside the game closure before instrumentation, followed by a game-hook owner and `experiments/paid-command-root.js`. Call `__installPaidCommandLayer(ownerAdapter)` after the owner configures the common shared API. Its adapter needs `.shared`, `.metrics()` and `.registerRuntime(adapter)`; a configured owner can omit metrics but must supply its runtime registry; attaching the paid layer never replaces hooks. Do not stack the earlier refusal-only prototype. Nested construction, completion and grant work joins the existing day or command root; it cannot certify or save independently. Unexpected model errors restore and rethrow; top-level public controls show a truthful failure after rollback.
 
 `experiments/game-capacity-root-adapter.js` is a reference hook owner for independent tests, not an approved reservation policy. It captures game/archive/cache runtime and uses the owner's identity-preserving graph journal, leaving opaque DOM references out of traversal. It restores original G, array/entity references, RNG, crew maps, chronology and runtime on refusal. It never uses hydration to commit. Register additional runtime before enabling. A production owner must audit its own complete mutation surface; the reference is not proof that arbitrary callbacks or automatic days are covered.
 

@@ -1,0 +1,6 @@
+// Test fixture only: one shared controller; owner knows G and registered runtime only.
+window.__installMinimalPaidTestOwner=function(denied){
+ const p=__capacityAdmissionProtocol,s=p.shared,bridge=p.installFences(s),registry=[],metrics={captures:0,certificates:0,restores:0,last:null};
+ s.configure({capture:info=>{const runtime=registry.map(a=>a.capture());metrics.captures++;return {town:G,busy:simulationBusy,runtime,graph:p.graphSnapshot([G,...runtime])};},restore:snapshot=>{p.graphRestore(snapshot.graph);G=snapshot.town;registry.forEach((a,i)=>a.restore(snapshot.runtime[i]));metrics.restores++;},enter:()=>{simulationBusy=true;},leave:snapshot=>{simulationBusy=snapshot.busy;},certify:info=>{metrics.certificates++;try{if(!inactivePersonCodecEnabled||!validateArchiveRecords(G))return {ok:false,reason:'Test owner rejected records'};if(info.kind==='initial')encodeInactiveLogicalArchive(JSON.stringify(G));else bridge.serializeCandidate();return denied()?{ok:false,reason:'Test capacity reservation refusal'}:{ok:true};}catch(error){return {ok:false,reason:error.message};}},generation:()=>saveEpoch,onRefusal:()=>{},onFatal:()=>{paused=true;simulationBusy=false;}});
+ return {shared:s,metrics:()=>({...metrics}),registerRuntime:a=>{if(s.status().enabled||s.isActive())throw Error('Register while disabled');registry.push(a);}};
+};
