@@ -12,7 +12,7 @@ function seed(seedValue=42){
    else if(random()<.085)tiles[y*T+x]=3;
  }
  for(let y=0;y<T;y++)for(let x=0;x<T;x++)if(x>=CHARTER_BASE||y>=CHARTER_BASE)tiles[y*T+x]=regionalTerrain(x,y,seedValue);
- G={serviceProvision:null,privateServiceProvision:null,tenancyVersion:1,gridSize:T,charter:newCharter(),roadClasses:streets.classes,streetNames:streets.names,climateSeasons:gameOptions.seasons,climateWeather:gameOptions.weather,version:3,day:1,year:1,month:1,tiles,buildings:[],homes:[],people:[],households:[],firms:[],policy:{...defaults},
+ G={serviceProvision:null,privateServiceProvision:null,tenancyVersion:1,gridSize:T,charter:newCharter(),bridges:[],bridgeRevision:0,roadClasses:streets.classes,streetNames:streets.names,climateSeasons:gameOptions.seasons,climateWeather:gameOptions.weather,version:3,day:1,year:1,month:1,tiles,buildings:[],homes:[],people:[],households:[],firms:[],policy:{...defaults},
     treasury:90000,debt:0,publicReserve:0,region:15000000,projects:[],metro:{cash:0,stations:[],lines:[],fare:2.75,rides:0,revenue:0,expenses:0,dailyRides:0,daysInDeficit:0,operating:false,invested:0},development:{homes:0,firms:0,roads:0,stations:0,lastReport:null,decisions:[]},privateRoads:[],landUse:{},fieldOwner:{},fieldCount:{},airport:null,autoBuild:true,nextId:1,history:[],events:[],journal:[],records:[],stats:{},cumulative:{incomeTax:0,profitTax:0,propertyTax:0,foodTax:0,utilityTax:0,commercialRate:0,permits:0,tariffs:0,spending:0,crime:0,fires:0,welfare:0},cases:[],speed:1,scenario:chosenScenario,achievements:[],council:{approval:65,elections:0,confidence:65,factions:{workers:60,merchants:62,homeowners:60,public:66},lastApproval:65},ambition:chosenScenario==='regional'?'education':chosenScenario==='hardtimes'?'families':'balanced',ambitionDays:{},lastMonth:{},crisesHandled:0,policyOutcomes:[],construction:0,worldSeed:Math.floor(random()*99999999),weather:'clear',season:0,regionalDemand:1,neighborhoods:[],lastEventDay:1,unrest:0,education:46,health:74,historyLong:[]};
  buildRegionalApproaches(true);
  const add=(kind,x,y,opt={})=>{if(G.tiles[roadId(x,y)]===1||G.tiles[roadId(x,y)]===2)throw Error('Founding structure overlaps a roadway or river');G.tiles[roadId(x,y)]=0;let b={id:G.nextId++,kind,x,y,value:Math.round(types[kind].cost*10),condition:100,owner:-1,firm:-1,hh:-1,...opt};G.buildings.push(b);return b};
@@ -97,7 +97,7 @@ function refreshBuildingIndex(){if(cacheBuildingsFor===G&&cacheBuildingsCount===
  for(const b of G.buildings){buildingsById.set(b.id,b);for(const id of footprintOf(b))if(!buildingsByTile.has(id))buildingsByTile.set(id,b);}
 }
 function buildingAt(x,y){if(x<0||x>=T||y<0||y>=T)return null;refreshBuildingIndex();return buildingsByTile.get(y*T+x)||null;}
-function nearRoad(x,y){return roadOffsets.some(d=>cityCell(x+d[0],y+d[1])===1)}
+function nearRoad(x,y){return roadOffsets.some(d=>roadSurface(roadId(x+d[0],y+d[1])))}
 function canPlace(x,y,roads=true,kind='home',ignore=null){
  const dims=LANDMARK_SIZE[kind]||[1,1];if(x<2||y<2||x+dims[0]>T-2||y+dims[1]>T-2)return false;
  let access=false;
@@ -114,7 +114,7 @@ function findLandmarkLot(kind,candidates){return candidates.find(v=>canPlace(v.x
 function getFootprintIssues(){const occupied=new Map(),issues=[];
  for(const b of G.buildings){for(const id of footprintOf(b)){
   if(!Number.isInteger(id)||id<0||id>=T*T){issues.push('invalid footprint '+b.id);continue;}
-  if(G.tiles[id]===1)issues.push('structure on roadway '+b.id+' at '+id);
+  if(G.tiles[id]===1||G.tiles[id]===4)issues.push('structure on roadway '+b.id+' at '+id);
   if(G.tiles[id]===2)issues.push('structure in water '+b.id+' at '+id);
   if(G.landUse?.[id])issues.push('structure overlapping reserved land '+b.id+' at '+id);
   if(occupied.has(id)&&occupied.get(id)!==b.id)issues.push('overlapping structures '+b.id+' / '+occupied.get(id));

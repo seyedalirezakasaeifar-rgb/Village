@@ -2,7 +2,7 @@ function setPurposeStyle(v,style){v.style=style;v.speed=style==='pedestrian'?.53
 function restoreTransport(){
  const state=G.trafficState;visualState=G.visualState||918273;
  traffic=[];trafficClock=0;intersectionGates.clear();
- if(state){traffic=(state.vehicles||[]).filter(v=>Array.isArray(v.path)&&v.path.length>=2&&v.path.every(n=>Number.isInteger(n)&&G.tiles[n]===1)&&Number.isInteger(v.segment)&&v.segment>=0&&v.segment<v.path.length-1&&Number.isFinite(v.fraction)&&v.fraction>=0&&v.fraction<1).slice(0,80).map(v=>({...v,path:v.path.slice()}));frameClock=Number(state.clock)||0;trafficElapsed=Number(state.elapsed)||0;vehicleSerial=Number(state.serial)||0;intersectionGates=new Map((state.gates||[]).filter(a=>Array.isArray(a)&&a.length===2));}
+ if(state){traffic=(state.vehicles||[]).filter(v=>Array.isArray(v.path)&&v.path.length>=2&&v.path.every(roadSurface)&&Number.isInteger(v.segment)&&v.segment>=0&&v.segment<v.path.length-1&&Number.isFinite(v.fraction)&&v.fraction>=0&&v.fraction<1).slice(0,80).map(v=>({...v,path:v.path.slice()}));frameClock=Number(state.clock)||0;trafficElapsed=Number(state.elapsed)||0;vehicleSerial=Number(state.serial)||0;intersectionGates=new Map((state.gates||[]).filter(a=>Array.isArray(a)&&a.length===2));}
 }
 function pendingGoods(firm,good){return (G.freight||[]).filter(s=>s.to===firm.id&&s.good===good).reduce((n,s)=>n+s.qty,0);}
 function dispatchGoods(seller,buyer,good,qty,path){

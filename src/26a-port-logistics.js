@@ -47,7 +47,7 @@ validateRegionalTrade=function(data){
  return [...(data.regionalTrade?.shipments||[]),...(data.regionalTrade?.recent||[])].every(o=>{
   if(o.mode==null)return data.firms[o.depot]?.kind!=='wharf'&&o.waterPath==null&&o.outsideDays==null;if(o.mode!=='river'||o.market!=='port'||!Number.isInteger(o.depot)||!['import','export'].includes(o.direction)||data.firms[o.depot]?.kind!=='wharf'||!Number.isInteger(o.outsideDays)||o.outsideDays<1||o.outsideDays>T*T||!Array.isArray(o.waterPath)||!o.waterPath.length||o.waterPath.length>T*T)return false;
   const b=data.buildings.find(b=>b.id===data.firms[o.depot].building),start=o.waterPath[0];if((!b&&(!data.firms[o.depot].demolished||(data.regionalTrade.shipments||[]).includes(o)))||(b&&(Math.abs(start%T-b.x)>1||Math.abs((start/T|0)-b.y)>1))||![0,T-1].includes(o.waterPath[o.waterPath.length-1]/T|0))return false;
-  return o.waterPath.every((id,i)=>Number.isInteger(id)&&id>=0&&id<T*T&&(data.tiles[id]===2||data.tiles[id]===1&&(id%T<5+Math.sin((id/T|0)*.2)*1.7||id%T===5&&(id/T|0)%4===0))&&(!i||Math.abs(id%T-o.waterPath[i-1]%T)+Math.abs((id/T|0)-(o.waterPath[i-1]/T|0))===1));
+  return o.waterPath.every((id,i)=>Number.isInteger(id)&&id>=0&&id<T*T&&(data.tiles[id]===2||data.tiles[id]===4||data.tiles[id]===1&&(id%T<5+Math.sin((id/T|0)*.2)*1.7||id%T===5&&(id/T|0)%4===0))&&(!i||Math.abs(id%T-o.waterPath[i-1]%T)+Math.abs((id/T|0)-(o.waterPath[i-1]/T|0))===1));
  });
 };
 // Read-only cargo pose contract. Exactly one actor per outside river consignment;
