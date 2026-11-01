@@ -1,4 +1,4 @@
-"""Sequential real-clock actor option, warm-cache and disposal checks for both tiers."""
+"""Sequential saved actual-trip actor option, warm-cache and disposal checks for both tiers."""
 from pathlib import Path
 import subprocess,json,hashlib
 from playwright.sync_api import sync_playwright
@@ -12,7 +12,7 @@ try:
  with sync_playwright()as w:
   for tier in ['economy','reference']:
    b=w.chromium.launch(executable_path='/usr/bin/chromium',args=['--no-sandbox']);p=b.new_page(viewport={'width':844,'height':390});p.set_default_timeout(90000);errors=[];p.on('pageerror',lambda e:errors.append(str(e)))
-   p.goto('http://127.0.0.1:8816/index.html?cityArt=webgl&cityQuality='+tier);p.locator('#newTown').click();p.locator('#panelClose').click();ready(p);p.evaluate('__webglTaste.focus(26,26,3.5)');p.wait_for_function('__webglTaste.actorStats.actors>0',timeout=60000);p.locator('#pause').click();p.locator('[data-panel=settings]').click();before=p.evaluate('__townTest.save()');p.locator('#panelClose').click();ready(p);row={'tier':tier,'options':[],'cache':[],'backend':p.evaluate('__webglTaste.renderer')}
+   p.goto('http://127.0.0.1:8816/index.html?cityArt=webgl&cityQuality='+tier);p.locator('#newTown').click();p.locator('#pause').click();p.locator('#panelClose').click();assert p.evaluate('(s)=>__townTest.load(s)',(R/'docs/previews/webgl-actor-options-8/lod-fixture.json').read_text());ready(p);p.evaluate('__webglTaste.focus(4,26,3.5)');p.wait_for_function('__webglTaste.actorStats.actors>0',timeout=60000);p.locator('[data-panel=settings]').click();before=p.evaluate('__townTest.save()');p.locator('#panelClose').click();ready(p);row={'tier':tier,'options':[],'cache':[],'backend':p.evaluate('__webglTaste.renderer')}
    for option in ['traffic','effects']:
     initial=p.evaluate('__webglTaste.actorStats.actors');assert initial>0
     p.locator('[data-panel=settings]').click();p.locator('[data-option='+option+']').click();p.locator('#panelClose').click();p.wait_for_function('()=>{const v=__webglTaste,e=__cityVisualActors(v.lod,v.selected).filter(a=>(a.opacity??1)>0);return JSON.stringify(e.map(a=>a.id))===JSON.stringify(v.actorStats.poses.map(a=>a.id));}');off=p.evaluate('__webglTaste.actorStats.actors');assert option!="traffic" or off==0;assert p.evaluate('__townTest.save()')==before

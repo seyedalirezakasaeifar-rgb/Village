@@ -1,0 +1,12 @@
+{
+  "realTouchPinchAcrossLODBands": true,
+  "pinchZoom": 2.3333333333333335,
+  "releasedPointers": true,
+  "roadModePinchDoesNotBuild": true,
+  "noAccidentalInspectOrBuild": true,
+  "hudZoomCenter": true,
+  "realLocatorNavigation": true,
+  "archiveInvariant": true,
+  "save": true,
+  "errors": []
+}
