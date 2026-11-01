@@ -1,0 +1,45 @@
+{
+  "result": "NATIVE_RUNTIME_GUARD_CONFIRMED_BLOCKS_MODEL_ADMISSION",
+  "prototype_commit": "6ec4713b44ea344cfbd7befaef13e429f7fde93e",
+  "device": "Android 11/API 30 emulator-5556",
+  "webview": "Chrome 83.0.4103.120",
+  "page_origin": "file:///android_asset/index.html",
+  "generated_worker_sha256": "be2d1f0e8b0337229db99ca29058e818c636ce768315e3d11468b1edd724def0",
+  "runtime_guard_sha256": "3c7e2327f398a83d449aaadfc2fbbb7412c65fa1f505863905cc020011f24ce9",
+  "native_result": {
+    "page_arithmetic_ok": false,
+    "worker_runtime_status_received": true,
+    "worker_arithmetic_ok": false,
+    "selection": "unsupported-runtime",
+    "unsigned_shift_2147483648_actual": "2147483647",
+    "signed_or_2147483648_actual": "2147483647",
+    "imul_4294967295_times_5_actual": "2147483643",
+    "imul_2147483648_times_1_actual": "2147483647"
+  },
+  "model_admission": "not attempted; the native page guard rejected before load",
+  "saved_storage_before_after_equal": true,
+  "storage_summary": [
+    {
+      "slot": "townledger-music",
+      "chars": 192,
+      "fnv32": "1dceba7f"
+    },
+    {
+      "slot": "townledger-v6",
+      "chars": 151714,
+      "fnv32": "c7d8a7a8"
+    },
+    {
+      "slot": "townledger-v6-backup",
+      "chars": 386830,
+      "fnv32": "8bdf7159"
+    }
+  ],
+  "host_test": "PASS; dynamic arithmetic gate, rejected worker admission, and fallback selection",
+  "disposition": "Guard safely refuses worker activation on this WebView without changing the saved archive or RNG. It does not make this legacy runtime's main-thread arithmetic correct.",
+  "limitations": [
+    "Emulator-only; no physical-device confirmation.",
+    "No worker day, command, or export was run after the guard rejected admission.",
+    "No production code or saved state was modified."
+  ]
+}
