@@ -1,0 +1,13 @@
+{
+  "composed_source_sha256": "9726a817d6b4765090849737af797e58a6a9aa0efaa6002fbbc03b5bb29c890f",
+  "automatic_adapter_sha256": "3cb5af784f2cd5d790ea43526b4aa637711b1fbf578f2fb155547728fa36cf19",
+  "paid_dependency": "455a12f1d01943bc9a8846b437146612e5f9bfd2",
+  "result": {
+    "oneSharedController": true,
+    "realConstructionAndCouncilChoice": true,
+    "dayCount": 60,
+    "exactArchiveRngMoney": true,
+    "committedArchiveSelfImports": true,
+    "productionAssembled": false
+  }
+}

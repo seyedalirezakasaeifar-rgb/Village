@@ -1,6 +1,6 @@
 {
-  "base_source_sha256": "8be2585815ad9585f3fde86d2fb00909589b44f39956c4faa0e146fe47bb970a",
-  "adapter_sha256": "a85a299d5c2f91d95b38aea438c7ad9feba5d8cd5f1754a2f04cebacf3caa527",
+  "base_source_sha256": "ca0aae2519b7ca619c65af69e0231b181f5bafb14dbfe80c5c84c590b6c829c9",
+  "adapter_sha256": "3cb5af784f2cd5d790ea43526b4aa637711b1fbf578f2fb155547728fa36cf19",
   "result": {
     "oracleDays": 360,
     "exactArchiveAndRng": true,
@@ -17,9 +17,20 @@
       "bytes": 524488,
       "logicalBytes": 525123,
       "nodes": 57084,
-      "reserveBytes": 769024,
-      "reserveNodes": 55764,
-      "roads": 385
+      "reserveBytes": 256697,
+      "reserveNodes": 33507,
+      "roads": 385,
+      "visual": {
+        "roads": 385,
+        "actorCount": 80,
+        "reasonBytes": 85,
+        "actorBytes": 3004,
+        "bytes": 256697,
+        "nodes": 33507
+      },
+      "rawBytes": 524488,
+      "normalizedBytes": 519754,
+      "normalizationGrowth": -4734
     },
     "productionAssembled": false
   }

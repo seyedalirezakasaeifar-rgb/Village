@@ -1,0 +1,54 @@
+{
+  "base_source_sha256": "ca0aae2519b7ca619c65af69e0231b181f5bafb14dbfe80c5c84c590b6c829c9",
+  "adapter_sha256": "3cb5af784f2cd5d790ea43526b4aa637711b1fbf578f2fb155547728fa36cf19",
+  "result": {
+    "dialogOnlyVisibleAfterCommit": true,
+    "choiceNotExecuted": true,
+    "coalescedSaveMatchesCompletedDay": true,
+    "pendingDialogBlocksNextDay": true,
+    "caughtRefusalRestoresModelRngAndDOM": true,
+    "rejectedSaveFalse": true,
+    "retryPass": true,
+    "longNameReserveRefusesWithoutTruncation": true,
+    "exactImportNormalizationExpansionRefusedAtomically": true,
+    "regularCertificate": {
+      "bytes": 368470,
+      "logicalBytes": 368306,
+      "nodes": 50051,
+      "reserveBytes": 256617,
+      "reserveNodes": 33507,
+      "roads": 385,
+      "visual": {
+        "roads": 385,
+        "actorCount": 80,
+        "reasonBytes": 84,
+        "actorBytes": 3003,
+        "bytes": 256617,
+        "nodes": 33507
+      },
+      "rawBytes": 368470,
+      "normalizedBytes": 367592,
+      "normalizationGrowth": -878
+    },
+    "longNameCertificate": {
+      "bytes": 508458,
+      "logicalBytes": 508294,
+      "nodes": 50051,
+      "reserveBytes": 11453737,
+      "reserveNodes": 33507,
+      "roads": 385,
+      "visual": {
+        "roads": 385,
+        "actorCount": 80,
+        "reasonBytes": 140048,
+        "actorBytes": 142967,
+        "bytes": 11453737,
+        "nodes": 33507
+      },
+      "rawBytes": 508458,
+      "normalizedBytes": 507580,
+      "normalizationGrowth": -878
+    },
+    "productionAssembled": false
+  }
+}

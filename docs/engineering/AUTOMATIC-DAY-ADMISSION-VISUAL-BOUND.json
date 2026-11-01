@@ -1,0 +1,35 @@
+{
+  "base_source_sha256": "ca0aae2519b7ca619c65af69e0231b181f5bafb14dbfe80c5c84c590b6c829c9",
+  "adapter_sha256": "3cb5af784f2cd5d790ea43526b4aa637711b1fbf578f2fb155547728fa36cf19",
+  "result": {
+    "rows": [
+      {
+        "roadCount": 0,
+        "actualBytes": 47970,
+        "reservedBytes": 56032,
+        "actualNodes": 1526,
+        "reservedNodes": 1552,
+        "fullReserveExceedsSupportedNodeBudget": false
+      },
+      {
+        "roadCount": 385,
+        "actualBytes": 174499,
+        "reservedBytes": 256617,
+        "actualNodes": 33481,
+        "reservedNodes": 33507,
+        "fullReserveExceedsSupportedNodeBudget": false
+      },
+      {
+        "roadCount": 16384,
+        "actualBytes": 7569355,
+        "reservedBytes": 8592096,
+        "actualNodes": 1361398,
+        "reservedNodes": 1361424,
+        "fullReserveExceedsSupportedNodeBudget": true
+      }
+    ],
+    "nonNumericGrowthRejected": true,
+    "syntheticSerializerUpperBounds": true,
+    "productionAssembled": false
+  }
+}
