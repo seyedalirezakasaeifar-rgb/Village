@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/workspace/retention-negative/tests/test_committed_day_save.py", line 64, in <module>
+    assert live['history'][-1]['day'] == saved['history'][-1]['day'] == 30, (live['history'][-1], saved['history'][-1])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ({'day': 30, 'employment': 94, 'hardship': 0, 'safety': 91, 'treasury': 99011, 'businesses': 26, 'deposits': 31219.917053022964, 'crime': 1, 'approval': 72.32378458197088, 'education': 46.18642857142858, 'health': 74.15411153846138}, {'day': 29, 'employment': 93, 'hardship': 0, 'safety': 91, 'treasury': 99083, 'businesses': 26, 'deposits': 23903.162815343756, 'crime': 1, 'approval': 72.32378458197088, 'education': 46.18000000000001, 'health': 74.14870769230754})

@@ -2,8 +2,9 @@
 // A new founding/import is a new timeline; logical order survives clock changes.
 let saveEpoch=0,saveOrder=0,saveRevision=0,saveTown='',saveStoreReady=false;
 let saveStorePromise=Promise.resolve(),saveWrites=Promise.resolve(),saveCandidates=[],saveWarningEpoch=0,savePendingWrite=null,saveWriteRunning=false,waitingSave=null;
+let simulationTickFailed=false;
 let simulationTickActive=false,saveAfterCommittedTick=false,saveAfterCommittedTickWaiters=[];
-function beginSaveTimeline(){saveEpoch++;saveRevision=0;autoSaveOK=false;try{saveTown=Array.from(crypto.getRandomValues(new Uint32Array(4)),n=>n.toString(16)).join('-')}catch(_){saveTown='session-'+saveEpoch+'-'+Math.random().toString(36).slice(2)}return saveEpoch;}
+function beginSaveTimeline(){simulationTickFailed=false;saveEpoch++;saveRevision=0;autoSaveOK=false;try{saveTown=Array.from(crypto.getRandomValues(new Uint32Array(4)),n=>n.toString(16)).join('-')}catch(_){saveTown='session-'+saveEpoch+'-'+Math.random().toString(36).slice(2)}return saveEpoch;}
 function saveEnvelope(payload){
  if(!saveTown)beginSaveTimeline();
  if(saveOrder>=Number.MAX_SAFE_INTEGER-1)throw Error('Save chronology exhausted');
@@ -45,7 +46,7 @@ function persistSnapshot(payload,epoch){
  return write.then(idbOK=>{const ok=localOK||idbOK;if(epoch===saveEpoch&&revision===saveRevision&&town===saveTown){autoSaveOK=ok;if(ok)saveWarningEpoch=0;else if(saveWarningEpoch!==epoch){saveWarningEpoch=epoch;toast('On-device saving is unavailable. Export a backup before leaving.')}}return ok;});
 }
 function save(){
- if(!G||simulationBusy)return Promise.resolve(false);
+ if(!G||simulationBusy||simulationTickFailed)return Promise.resolve(false);
  // In-tick callers request persistence after the whole day commits. A review
  // during monthly settlement must not capture pre-history/pre-RNG state.
  if(simulationTickActive){saveAfterCommittedTick=true;return new Promise(resolve=>saveAfterCommittedTickWaiters.push(resolve));}

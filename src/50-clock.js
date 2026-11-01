@@ -1,4 +1,4 @@
-function tick(){if(!G||pendingEvent)return;simulationTickActive=true;let committed=false;try{ensureSystems();ensureMarketModel();G.day++;if(G.day%30===0){G.month++;if(G.month>12){G.month=1;G.year++}};
+function tick(){if(!G||pendingEvent||simulationTickFailed)return;simulationTickActive=true;let committed=false;try{ensureSystems();ensureMarketModel();G.day++;if(G.day%30===0){G.month++;if(G.month>12){G.month=1;G.year++}};
  regionalFreightDay();freightDay();completeEquipmentOrders();completeDevelopmentProjects();dailyEconomy();urbanMunicipalHousingDay();bankDaily();metroOperatingDay();airfieldOperatingDay();incidents();investigateCases();extendedCivicDay();maintainRoads();finalizeMarketBooks();if(G.day%30===0&&G.debt>0){const interest=G.debt*((G.policy.policyRate||0)/100+.015)/12,paid=Math.min(G.treasury,interest);G.treasury-=paid;G.region+=paid;G.debt+=interest-paid;story('Interest on municipal borrowing: '+money(interest)+'.')}if(G.day%10===0)assignJobs();if(G.day%30===0)privateInvestmentAndHousing();
 
  if(G.day%30===0){outwardMigration();autonomousDevelopment();}
@@ -15,7 +15,7 @@ function tick(){if(!G||pendingEvent)return;simulationTickActive=true;let committ
  if(G.day%60===0){const signal=marketSignal();if(signal.kind!=='normal'&&signal.title!==G.lastEconomicSignal){story(signal.title+'. '+signal.description,signal.kind==='good'?'good':'bad');G.lastEconomicSignal=signal.title;}}
  // Autosaves are scheduled in wall time by the frame controller.
  dirty=true;committed=true;
- }finally{simulationTickActive=false;finishCommittedTickSave(committed);}
+ }catch(error){simulationTickFailed=true;autoSaveOK=false;paused=true;acc=0;toast('Day update failed. Reload the last saved town or restore a valid backup.');throw error;}finally{simulationTickActive=false;finishCommittedTickSave(committed);}
 }
 
 function resetTownTransientUI(){

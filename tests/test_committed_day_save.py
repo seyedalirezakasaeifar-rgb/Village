@@ -116,6 +116,21 @@ try:
         assert page.evaluate('__dayBoundary.inTickResults()') == [False]
         assert page.evaluate('__dayBoundary.persisted().day') == before_fault
         assert page.evaluate('__dayBoundary.deferredState()') == {'requested': False, 'waiters': 0}
+        assert page.evaluate('__dayBoundary.manualSave()') is False, 'A later manual save must not bless the partially executed failed day'
+        fault_day = page.evaluate('__townTest.get().day')
+        page.evaluate('__dayBoundary.commitOneDay()')
+        assert page.evaluate('__townTest.get().day') == fault_day, 'A failed day cannot be skipped and then persisted as complete'
+        assert page.evaluate('__townArchive.export()') is None, 'A failed partial day cannot be exported as a valid backup'
+        assert not page.evaluate('__townArchive.restore("{broken")')
+        assert page.evaluate('__dayBoundary.manualSave()') is False, 'Invalid restoration cannot clear the failed-day fence'
+        if not (page.locator('#panel').evaluate('e=>e.classList.contains("show")') and 'active' in (page.locator('[data-panel=settings]').get_attribute('class') or '')):
+            page.locator('[data-panel=settings]').click()
+        page.locator('#saveNow').click()
+        page.wait_for_function("document.querySelector('#toast').textContent.includes('Reload the last saved town')")
+        page.locator('#backupSave').click()
+        assert page.locator('#helpDialog').is_hidden()
+        assert page.evaluate('__townArchive.restore(JSON.stringify(__dayBoundary.persisted()))')
+        assert page.evaluate('__dayBoundary.manualSave()'), 'Valid committed restoration must permit real persistence again'
 
         # Three in-tick requests coalesce to one write; no caller sees success
         # until IndexedDB settles, and all callers receive the real result.

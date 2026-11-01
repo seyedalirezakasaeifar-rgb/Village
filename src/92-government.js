@@ -77,12 +77,12 @@ window.__townArchive={
  suspend:()=>{hostSuspended=true;acc=0;last=performance.now();stopGameAudio();return save();},
  prepareExit:()=>G?window.__townArchive.suspend():Promise.resolve(true),
  resume:()=>{hostSuspended=false;acc=0;last=performance.now();refreshAmbience();},
- export:()=>archivePayload(),
+ export:()=>simulationTickFailed?null:archivePayload(),
  restore:text=>{const ok=hydrateSave(text);if(ok){save();$('welcome').style.display='none';dirty=true;staticDirty=true;if(active){renderPanel(active);$('panelClose').focus();}toast('Town restored with its property, bank, cargo and resident records.');}else toast(archiveRestoreError(text));return ok;},
  back:()=>{if($('helpDialog').style.display!=='none'){hideHelpDialog();return true;}if(pendingEvent){closeCouncilDialog(true);return true;}if(active){closePanel();return true;}if(buildMode){closeBuildTool();return true;}return false;}
 };
 const originalExport=exportSave,originalImport=importSave;
-exportSave=function(){if(window.AndroidArchive)window.AndroidArchive.writeBackup(archivePayload());else originalExport();};
+exportSave=function(){if(simulationTickFailed){toast('Day update failed. Reload the last saved town or restore a valid backup.');return;}if(window.AndroidArchive)window.AndroidArchive.writeBackup(archivePayload());else originalExport();};
 importSave=function(){if(window.AndroidArchive)window.AndroidArchive.openBackup();else originalImport();};
 
 if($('townSeed')){try{$('townSeed').value=String(crypto.getRandomValues(new Uint32Array(1))[0]||42);}catch(_){$('townSeed').value=String(Date.now()%4294967295||42);}}

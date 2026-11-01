@@ -1,0 +1,44 @@
+{
+  "sourceSha256": "346992b501f8622b007dddc6bf75baadbf850f6211b8989c6c3ccfcdefc98207",
+  "instrumentedSha256": "74d0eea9eabd75beb3b12e66a601b461d13b25345aaca6d84c94abd01695fa91",
+  "scenarios": [
+    {
+      "scenario": "annex quote and report interruption",
+      "displayedParcel": "East Meadow",
+      "displayedPrice": 30606.0,
+      "pointerCovered": true,
+      "pendingTickUnchanged": true,
+      "actualDeed": [
+        "east-meadow"
+      ],
+      "treasuryDelta": 30606,
+      "regionCredit": 30606,
+      "focusAfterPurchase": "East Meadow"
+    },
+    {
+      "scenario": "town restore during pending deed review",
+      "dialogRevoked": true,
+      "loadedScenario": "settlement",
+      "loadedDeedPrice": 30606,
+      "loadedTreasury": 59394,
+      "panelRefreshed": true,
+      "focusAfterLoad": "panelClose"
+    },
+    {
+      "scenario": "neighbourhood plan target and focus",
+      "targetGrid": "grid (20, 22)",
+      "plan": "Residential neighbourhood",
+      "displayedPrice": 600.0,
+      "treasuryDelta": 600,
+      "focusAfterPurchase": "Change the 8 \u00d7 8 neighbourhood plan"
+    },
+    {
+      "scenario": "brownfield assessment quote",
+      "target": "Review assess \u00b7 Sawmill Ltd. \u00b7 grid (31, 28)",
+      "displayedPrice": 300,
+      "treasuryDelta": 300,
+      "recordedStatus": "assessed",
+      "focusAfterPurchase": "brownfield office"
+    }
+  ]
+}

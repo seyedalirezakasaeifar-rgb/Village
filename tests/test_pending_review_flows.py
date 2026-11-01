@@ -15,8 +15,9 @@ probe = '''window.__reviewAudit={
  restore:text=>window.__townArchive.restore(text)
 };
 // SOURCE: 99-instrumentation.js'''
+bundle_sha256 = hashlib.sha256(source.encode()).hexdigest()
 source = source.replace('// SOURCE: 99-instrumentation.js', probe)
-results = {'sourceSha256': hashlib.sha256(source.encode()).hexdigest(), 'scenarios': []}
+results = {'sourceSha256': bundle_sha256, 'instrumentedSha256': hashlib.sha256(source.encode()).hexdigest(), 'scenarios': []}
 
 def parsed_save(page):
     return json.loads(page.evaluate('__townTest.save()'))
