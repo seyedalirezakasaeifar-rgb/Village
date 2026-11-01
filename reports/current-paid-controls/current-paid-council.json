@@ -1,0 +1,371 @@
+{
+  "source_sha256": "6ed9d208b0112e4e360f40ef21063b68c519aefd9df3e1b39071c02c78e22a02",
+  "runtime_sha256": {
+    "root-capacity-api.js": "cfc65e914a4e5a3d54914f39b0f20ccda3be4734d17db079a8f18847aaaa4e65",
+    "paid-command-root.js": "7f60a8bc904420e95899ad88acde18b6a13dc689cab5172b19d070d383e8e1c6"
+  },
+  "hostTestOwnerOnly": true,
+  "productionComposition": false,
+  "cases": [
+    {
+      "event": "A petition from the shopkeepers",
+      "choice": 0,
+      "exactModelRngAndNormalized": true,
+      "completedPaymentsPreserved": true
+    },
+    {
+      "event": "A petition from the shopkeepers",
+      "choice": 1,
+      "exactModelRngAndNormalized": true,
+      "completedPaymentsPreserved": true
+    },
+    {
+      "event": "A petition from the shopkeepers",
+      "choice": 2,
+      "exactModelRngAndNormalized": true,
+      "completedPaymentsPreserved": true
+    },
+    {
+      "event": "The bridge needs repairs",
+      "choice": 0,
+      "exactModelRngAndNormalized": true,
+      "completedPaymentsPreserved": true
+    },
+    {
+      "event": "The bridge needs repairs",
+      "choice": 1,
+      "exactModelRngAndNormalized": true,
+      "completedPaymentsPreserved": true
+    },
+    {
+      "event": "The bridge needs repairs",
+      "choice": 2,
+      "exactModelRngAndNormalized": true,
+      "completedPaymentsPreserved": true
+    },
+    {
+      "event": "Families facing eviction",
+      "choice": 0,
+      "exactModelRngAndNormalized": true,
+      "completedPaymentsPreserved": true
+    },
+    {
+      "event": "Families facing eviction",
+      "choice": 1,
+      "exactModelRngAndNormalized": true,
+      "completedPaymentsPreserved": true
+    },
+    {
+      "event": "Families facing eviction",
+      "choice": 2,
+      "exactModelRngAndNormalized": true,
+      "completedPaymentsPreserved": true
+    },
+    {
+      "event": "A merchant wants to expand",
+      "choice": 0,
+      "exactModelRngAndNormalized": true,
+      "completedPaymentsPreserved": true
+    },
+    {
+      "event": "A merchant wants to expand",
+      "choice": 1,
+      "exactModelRngAndNormalized": true,
+      "completedPaymentsPreserved": true
+    },
+    {
+      "event": "A merchant wants to expand",
+      "choice": 2,
+      "exactModelRngAndNormalized": true,
+      "completedPaymentsPreserved": true
+    },
+    {
+      "event": "Illness spreads at the school",
+      "choice": 0,
+      "exactModelRngAndNormalized": true,
+      "completedPaymentsPreserved": true
+    },
+    {
+      "event": "Illness spreads at the school",
+      "choice": 1,
+      "exactModelRngAndNormalized": true,
+      "completedPaymentsPreserved": true
+    },
+    {
+      "event": "Illness spreads at the school",
+      "choice": 2,
+      "exactModelRngAndNormalized": true,
+      "completedPaymentsPreserved": true
+    },
+    {
+      "event": "The industrial safety dispute",
+      "choice": 0,
+      "exactModelRngAndNormalized": true,
+      "completedPaymentsPreserved": true
+    },
+    {
+      "event": "The industrial safety dispute",
+      "choice": 1,
+      "exactModelRngAndNormalized": true,
+      "completedPaymentsPreserved": true
+    },
+    {
+      "event": "The industrial safety dispute",
+      "choice": 2,
+      "exactModelRngAndNormalized": true,
+      "completedPaymentsPreserved": true
+    },
+    {
+      "event": "A dry summer threatens the farms",
+      "choice": 0,
+      "exactModelRngAndNormalized": true,
+      "completedPaymentsPreserved": true
+    },
+    {
+      "event": "A dry summer threatens the farms",
+      "choice": 1,
+      "exactModelRngAndNormalized": true,
+      "completedPaymentsPreserved": true
+    },
+    {
+      "event": "A dry summer threatens the farms",
+      "choice": 2,
+      "exactModelRngAndNormalized": true,
+      "completedPaymentsPreserved": true
+    },
+    {
+      "event": "The night watch requests support",
+      "choice": 0,
+      "exactModelRngAndNormalized": true,
+      "completedPaymentsPreserved": true
+    },
+    {
+      "event": "The night watch requests support",
+      "choice": 1,
+      "exactModelRngAndNormalized": true,
+      "completedPaymentsPreserved": true
+    },
+    {
+      "event": "The night watch requests support",
+      "choice": 2,
+      "exactModelRngAndNormalized": true,
+      "completedPaymentsPreserved": true
+    },
+    {
+      "event": "A new regional trade agreement",
+      "choice": 0,
+      "exactModelRngAndNormalized": true,
+      "completedPaymentsPreserved": true
+    },
+    {
+      "event": "A new regional trade agreement",
+      "choice": 1,
+      "exactModelRngAndNormalized": true,
+      "completedPaymentsPreserved": true
+    },
+    {
+      "event": "A new regional trade agreement",
+      "choice": 2,
+      "exactModelRngAndNormalized": true,
+      "completedPaymentsPreserved": true
+    },
+    {
+      "event": "Flooding on the low road",
+      "choice": 0,
+      "exactModelRngAndNormalized": true,
+      "completedPaymentsPreserved": true
+    },
+    {
+      "event": "Flooding on the low road",
+      "choice": 1,
+      "exactModelRngAndNormalized": true,
+      "completedPaymentsPreserved": true
+    },
+    {
+      "event": "Flooding on the low road",
+      "choice": 2,
+      "exactModelRngAndNormalized": true,
+      "completedPaymentsPreserved": true
+    },
+    {
+      "event": "The apprentices ask for a school",
+      "choice": 0,
+      "exactModelRngAndNormalized": true,
+      "completedPaymentsPreserved": true
+    },
+    {
+      "event": "The apprentices ask for a school",
+      "choice": 1,
+      "exactModelRngAndNormalized": true,
+      "completedPaymentsPreserved": true
+    },
+    {
+      "event": "The apprentices ask for a school",
+      "choice": 2,
+      "exactModelRngAndNormalized": true,
+      "completedPaymentsPreserved": true
+    },
+    {
+      "event": "Council must address the deficit",
+      "choice": 0,
+      "exactModelRngAndNormalized": true,
+      "completedPaymentsPreserved": true
+    },
+    {
+      "event": "Council must address the deficit",
+      "choice": 1,
+      "exactModelRngAndNormalized": true,
+      "completedPaymentsPreserved": true
+    },
+    {
+      "event": "Council must address the deficit",
+      "choice": 2,
+      "exactModelRngAndNormalized": true,
+      "completedPaymentsPreserved": true
+    },
+    {
+      "event": "The bakers face a flour shortage",
+      "choice": 0,
+      "exactModelRngAndNormalized": true,
+      "completedPaymentsPreserved": true
+    },
+    {
+      "event": "The bakers face a flour shortage",
+      "choice": 1,
+      "exactModelRngAndNormalized": true,
+      "completedPaymentsPreserved": true
+    },
+    {
+      "event": "The bakers face a flour shortage",
+      "choice": 2,
+      "exactModelRngAndNormalized": true,
+      "completedPaymentsPreserved": true
+    },
+    {
+      "event": "Petition for fair wages",
+      "choice": 0,
+      "exactModelRngAndNormalized": true,
+      "completedPaymentsPreserved": true
+    },
+    {
+      "event": "Petition for fair wages",
+      "choice": 1,
+      "exactModelRngAndNormalized": true,
+      "completedPaymentsPreserved": true
+    },
+    {
+      "event": "Petition for fair wages",
+      "choice": 2,
+      "exactModelRngAndNormalized": true,
+      "completedPaymentsPreserved": true
+    },
+    {
+      "event": "The housing shortage petition",
+      "choice": 0,
+      "exactModelRngAndNormalized": true,
+      "completedPaymentsPreserved": true
+    },
+    {
+      "event": "The housing shortage petition",
+      "choice": 1,
+      "exactModelRngAndNormalized": true,
+      "completedPaymentsPreserved": true
+    },
+    {
+      "event": "The housing shortage petition",
+      "choice": 2,
+      "exactModelRngAndNormalized": true,
+      "completedPaymentsPreserved": true
+    },
+    {
+      "event": "A theft at the market square",
+      "choice": 0,
+      "exactModelRngAndNormalized": true,
+      "completedPaymentsPreserved": true
+    },
+    {
+      "event": "A theft at the market square",
+      "choice": 1,
+      "exactModelRngAndNormalized": true,
+      "completedPaymentsPreserved": true
+    },
+    {
+      "event": "A theft at the market square",
+      "choice": 2,
+      "exactModelRngAndNormalized": true,
+      "completedPaymentsPreserved": true
+    },
+    {
+      "event": "Refugees from the flooded valley",
+      "choice": 0,
+      "exactModelRngAndNormalized": true,
+      "completedPaymentsPreserved": true
+    },
+    {
+      "event": "Refugees from the flooded valley",
+      "choice": 1,
+      "exactModelRngAndNormalized": true,
+      "completedPaymentsPreserved": true
+    },
+    {
+      "event": "Refugees from the flooded valley",
+      "choice": 2,
+      "exactModelRngAndNormalized": true,
+      "completedPaymentsPreserved": true
+    },
+    {
+      "event": "An old mine could reopen",
+      "choice": 0,
+      "exactModelRngAndNormalized": true,
+      "completedPaymentsPreserved": true
+    },
+    {
+      "event": "An old mine could reopen",
+      "choice": 1,
+      "exactModelRngAndNormalized": true,
+      "completedPaymentsPreserved": true
+    },
+    {
+      "event": "An old mine could reopen",
+      "choice": 2,
+      "exactModelRngAndNormalized": true,
+      "completedPaymentsPreserved": true
+    },
+    {
+      "event": "The volunteer brigade wants equipment",
+      "choice": 0,
+      "exactModelRngAndNormalized": true,
+      "completedPaymentsPreserved": true
+    },
+    {
+      "event": "The volunteer brigade wants equipment",
+      "choice": 1,
+      "exactModelRngAndNormalized": true,
+      "completedPaymentsPreserved": true
+    },
+    {
+      "event": "The volunteer brigade wants equipment",
+      "choice": 2,
+      "exactModelRngAndNormalized": true,
+      "completedPaymentsPreserved": true
+    },
+    {
+      "event": "The grocers dispute inspection fees",
+      "choice": 0,
+      "exactModelRngAndNormalized": true,
+      "completedPaymentsPreserved": true
+    },
+    {
+      "event": "The grocers dispute inspection fees",
+      "choice": 1,
+      "exactModelRngAndNormalized": true,
+      "completedPaymentsPreserved": true
+    },
+    {
+      "event": "The grocers dispute inspection fees",
+      "choice": 2,
+      "exactModelRngAndNormalized": true,
+      "completedPaymentsPreserved": true
+    }
+  ]
+}

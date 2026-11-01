@@ -1,0 +1,1539 @@
+{
+  "base": "d2b7086",
+  "hostTestOwnerOnly": true,
+  "productionComposition": false,
+  "source_sha256": "6ed9d208b0112e4e360f40ef21063b68c519aefd9df3e1b39071c02c78e22a02",
+  "hostChromium": true,
+  "physicalAndroid": false,
+  "productionEnabled": false,
+  "reservationFaultInjection": true,
+  "minimalRegistryOwner": false,
+  "optionalMetricsFault": false,
+  "commonRoot": "__capacityAdmissionProtocol.shared",
+  "experiment_sha256": {
+    "root-capacity-api.js": "cfc65e914a4e5a3d54914f39b0f20ccda3be4734d17db079a8f18847aaaa4e65",
+    "paid-command-root.js": "7f60a8bc904420e95899ad88acde18b6a13dc689cab5172b19d070d383e8e1c6"
+  },
+  "cases": [
+    {
+      "action": "policy",
+      "exactNormalModelRng": true,
+      "normal": [
+        {
+          "rng": 2592646554,
+          "projects": 0,
+          "projectsBefore": 0,
+          "status": {
+            "enabled": false,
+            "active": false,
+            "halted": false,
+            "last": null,
+            "protocol": {
+              "enabled": false,
+              "halted": false,
+              "active": false,
+              "kind": null,
+              "phase": "idle",
+              "last": null,
+              "pendingSaveGenerations": 0
+            },
+            "metrics": {
+              "captures": 0,
+              "certificates": 0,
+              "restores": 0,
+              "last": null
+            }
+          },
+          "unchanged": false,
+          "referenceIdentity": null,
+          "rngCalls": [],
+          "cashConserved": true,
+          "committedWrites": [
+            {
+              "active": false,
+              "treasury": 90358.45899709838,
+              "debt": 0,
+              "projects": 0
+            }
+          ]
+        },
+        {
+          "rng": 2592646554,
+          "projects": 0,
+          "projectsBefore": 0,
+          "status": {
+            "enabled": true,
+            "active": false,
+            "halted": false,
+            "last": {
+              "ok": true,
+              "joined": false,
+              "value": null,
+              "command": "panel-control",
+              "ms": 143.39999999850988,
+              "code": null,
+              "publicationErrors": []
+            },
+            "protocol": {
+              "enabled": true,
+              "halted": false,
+              "active": false,
+              "kind": null,
+              "phase": "idle",
+              "last": {
+                "kind": "command",
+                "ok": true,
+                "effectErrors": []
+              },
+              "pendingSaveGenerations": 0
+            },
+            "metrics": {
+              "captures": 1,
+              "certificates": 2,
+              "restores": 0,
+              "last": null
+            }
+          },
+          "unchanged": false,
+          "referenceIdentity": null,
+          "rngCalls": [],
+          "cashConserved": true,
+          "committedWrites": [
+            {
+              "active": false,
+              "treasury": 90358.45899709838,
+              "debt": 0,
+              "projects": 0
+            }
+          ]
+        }
+      ],
+      "forcedReservationRefusal": {
+        "rng": 2592646554,
+        "projects": 0,
+        "projectsBefore": 0,
+        "status": {
+          "enabled": true,
+          "active": false,
+          "halted": false,
+          "last": {
+            "ok": false,
+            "reason": "Test reservation refusal",
+            "command": "panel-control",
+            "ms": 304.19999999552965,
+            "code": "refused",
+            "publicationErrors": []
+          },
+          "protocol": {
+            "enabled": true,
+            "halted": false,
+            "active": false,
+            "kind": null,
+            "phase": "idle",
+            "last": {
+              "kind": "command",
+              "ok": false,
+              "reason": "Test reservation refusal",
+              "effectErrors": []
+            },
+            "pendingSaveGenerations": 0
+          },
+          "metrics": {
+            "captures": 1,
+            "certificates": 2,
+            "restores": 1,
+            "last": null
+          }
+        },
+        "unchanged": true,
+        "referenceIdentity": true,
+        "rngCalls": [],
+        "cashConserved": true,
+        "committedWrites": []
+      }
+    },
+    {
+      "action": "borrow",
+      "exactNormalModelRng": true,
+      "normal": [
+        {
+          "rng": 2592646554,
+          "projects": 0,
+          "projectsBefore": 0,
+          "status": {
+            "enabled": false,
+            "active": false,
+            "halted": false,
+            "last": null,
+            "protocol": {
+              "enabled": false,
+              "halted": false,
+              "active": false,
+              "kind": null,
+              "phase": "idle",
+              "last": null,
+              "pendingSaveGenerations": 0
+            },
+            "metrics": {
+              "captures": 0,
+              "certificates": 0,
+              "restores": 0,
+              "last": null
+            }
+          },
+          "unchanged": false,
+          "referenceIdentity": null,
+          "rngCalls": [],
+          "cashConserved": true,
+          "committedWrites": [
+            {
+              "active": false,
+              "treasury": 95358.45899709838,
+              "debt": 5000,
+              "projects": 0
+            }
+          ]
+        },
+        {
+          "rng": 2592646554,
+          "projects": 0,
+          "projectsBefore": 0,
+          "status": {
+            "enabled": true,
+            "active": false,
+            "halted": false,
+            "last": {
+              "ok": true,
+              "joined": false,
+              "value": null,
+              "command": "panel-control",
+              "ms": 130.79999999701977,
+              "code": null,
+              "publicationErrors": []
+            },
+            "protocol": {
+              "enabled": true,
+              "halted": false,
+              "active": false,
+              "kind": null,
+              "phase": "idle",
+              "last": {
+                "kind": "command",
+                "ok": true,
+                "effectErrors": []
+              },
+              "pendingSaveGenerations": 0
+            },
+            "metrics": {
+              "captures": 1,
+              "certificates": 2,
+              "restores": 0,
+              "last": null
+            }
+          },
+          "unchanged": false,
+          "referenceIdentity": null,
+          "rngCalls": [],
+          "cashConserved": true,
+          "committedWrites": [
+            {
+              "active": false,
+              "treasury": 95358.45899709838,
+              "debt": 5000,
+              "projects": 0
+            }
+          ]
+        }
+      ],
+      "forcedReservationRefusal": {
+        "rng": 2592646554,
+        "projects": 0,
+        "projectsBefore": 0,
+        "status": {
+          "enabled": true,
+          "active": false,
+          "halted": false,
+          "last": {
+            "ok": false,
+            "reason": "Test reservation refusal",
+            "command": "panel-control",
+            "ms": 306.8999999985099,
+            "code": "refused",
+            "publicationErrors": []
+          },
+          "protocol": {
+            "enabled": true,
+            "halted": false,
+            "active": false,
+            "kind": null,
+            "phase": "idle",
+            "last": {
+              "kind": "command",
+              "ok": false,
+              "reason": "Test reservation refusal",
+              "effectErrors": []
+            },
+            "pendingSaveGenerations": 0
+          },
+          "metrics": {
+            "captures": 1,
+            "certificates": 2,
+            "restores": 1,
+            "last": null
+          }
+        },
+        "unchanged": true,
+        "referenceIdentity": true,
+        "rngCalls": [],
+        "cashConserved": true,
+        "committedWrites": []
+      }
+    },
+    {
+      "action": "repay",
+      "exactNormalModelRng": true,
+      "normal": [
+        {
+          "rng": 2592646554,
+          "projects": 0,
+          "projectsBefore": 0,
+          "status": {
+            "enabled": false,
+            "active": false,
+            "halted": false,
+            "last": null,
+            "protocol": {
+              "enabled": false,
+              "halted": false,
+              "active": false,
+              "kind": null,
+              "phase": "idle",
+              "last": null,
+              "pendingSaveGenerations": 0
+            },
+            "metrics": {
+              "captures": 0,
+              "certificates": 0,
+              "restores": 0,
+              "last": null
+            }
+          },
+          "unchanged": false,
+          "referenceIdentity": null,
+          "rngCalls": [],
+          "cashConserved": true,
+          "committedWrites": [
+            {
+              "active": false,
+              "treasury": 90358.45899709838,
+              "debt": 0,
+              "projects": 0
+            }
+          ]
+        },
+        {
+          "rng": 2592646554,
+          "projects": 0,
+          "projectsBefore": 0,
+          "status": {
+            "enabled": true,
+            "active": false,
+            "halted": false,
+            "last": {
+              "ok": true,
+              "joined": false,
+              "value": null,
+              "command": "panel-control",
+              "ms": 115.39999999850988,
+              "code": null,
+              "publicationErrors": []
+            },
+            "protocol": {
+              "enabled": true,
+              "halted": false,
+              "active": false,
+              "kind": null,
+              "phase": "idle",
+              "last": {
+                "kind": "command",
+                "ok": true,
+                "effectErrors": []
+              },
+              "pendingSaveGenerations": 0
+            },
+            "metrics": {
+              "captures": 1,
+              "certificates": 2,
+              "restores": 0,
+              "last": null
+            }
+          },
+          "unchanged": false,
+          "referenceIdentity": null,
+          "rngCalls": [],
+          "cashConserved": true,
+          "committedWrites": [
+            {
+              "active": false,
+              "treasury": 90358.45899709838,
+              "debt": 0,
+              "projects": 0
+            }
+          ]
+        }
+      ],
+      "forcedReservationRefusal": {
+        "rng": 2592646554,
+        "projects": 0,
+        "projectsBefore": 0,
+        "status": {
+          "enabled": true,
+          "active": false,
+          "halted": false,
+          "last": {
+            "ok": false,
+            "reason": "Test reservation refusal",
+            "command": "panel-control",
+            "ms": 278,
+            "code": "refused",
+            "publicationErrors": []
+          },
+          "protocol": {
+            "enabled": true,
+            "halted": false,
+            "active": false,
+            "kind": null,
+            "phase": "idle",
+            "last": {
+              "kind": "command",
+              "ok": false,
+              "reason": "Test reservation refusal",
+              "effectErrors": []
+            },
+            "pendingSaveGenerations": 0
+          },
+          "metrics": {
+            "captures": 1,
+            "certificates": 2,
+            "restores": 1,
+            "last": null
+          }
+        },
+        "unchanged": true,
+        "referenceIdentity": true,
+        "rngCalls": [],
+        "cashConserved": true,
+        "committedWrites": []
+      }
+    },
+    {
+      "action": "toggleDevelopment",
+      "exactNormalModelRng": true,
+      "normal": [
+        {
+          "rng": 2592646554,
+          "projects": 0,
+          "projectsBefore": 0,
+          "status": {
+            "enabled": false,
+            "active": false,
+            "halted": false,
+            "last": null,
+            "protocol": {
+              "enabled": false,
+              "halted": false,
+              "active": false,
+              "kind": null,
+              "phase": "idle",
+              "last": null,
+              "pendingSaveGenerations": 0
+            },
+            "metrics": {
+              "captures": 0,
+              "certificates": 0,
+              "restores": 0,
+              "last": null
+            }
+          },
+          "unchanged": false,
+          "referenceIdentity": null,
+          "rngCalls": [],
+          "cashConserved": true,
+          "committedWrites": [
+            {
+              "active": false,
+              "treasury": 90358.45899709838,
+              "debt": 0,
+              "projects": 0
+            }
+          ]
+        },
+        {
+          "rng": 2592646554,
+          "projects": 0,
+          "projectsBefore": 0,
+          "status": {
+            "enabled": true,
+            "active": false,
+            "halted": false,
+            "last": {
+              "ok": true,
+              "joined": false,
+              "value": null,
+              "command": "panel-control",
+              "ms": 130.20000000298023,
+              "code": null,
+              "publicationErrors": []
+            },
+            "protocol": {
+              "enabled": true,
+              "halted": false,
+              "active": false,
+              "kind": null,
+              "phase": "idle",
+              "last": {
+                "kind": "command",
+                "ok": true,
+                "effectErrors": []
+              },
+              "pendingSaveGenerations": 0
+            },
+            "metrics": {
+              "captures": 1,
+              "certificates": 2,
+              "restores": 0,
+              "last": null
+            }
+          },
+          "unchanged": false,
+          "referenceIdentity": null,
+          "rngCalls": [],
+          "cashConserved": true,
+          "committedWrites": [
+            {
+              "active": false,
+              "treasury": 90358.45899709838,
+              "debt": 0,
+              "projects": 0
+            }
+          ]
+        }
+      ],
+      "forcedReservationRefusal": {
+        "rng": 2592646554,
+        "projects": 0,
+        "projectsBefore": 0,
+        "status": {
+          "enabled": true,
+          "active": false,
+          "halted": false,
+          "last": {
+            "ok": false,
+            "reason": "Test reservation refusal",
+            "command": "panel-control",
+            "ms": 301.1000000014901,
+            "code": "refused",
+            "publicationErrors": []
+          },
+          "protocol": {
+            "enabled": true,
+            "halted": false,
+            "active": false,
+            "kind": null,
+            "phase": "idle",
+            "last": {
+              "kind": "command",
+              "ok": false,
+              "reason": "Test reservation refusal",
+              "effectErrors": []
+            },
+            "pendingSaveGenerations": 0
+          },
+          "metrics": {
+            "captures": 1,
+            "certificates": 2,
+            "restores": 1,
+            "last": null
+          }
+        },
+        "unchanged": true,
+        "referenceIdentity": true,
+        "rngCalls": [],
+        "cashConserved": true,
+        "committedWrites": []
+      }
+    },
+    {
+      "action": "ambition",
+      "exactNormalModelRng": true,
+      "normal": [
+        {
+          "rng": 463188950,
+          "projects": 0,
+          "projectsBefore": 0,
+          "status": {
+            "enabled": false,
+            "active": false,
+            "halted": false,
+            "last": null,
+            "protocol": {
+              "enabled": false,
+              "halted": false,
+              "active": false,
+              "kind": null,
+              "phase": "idle",
+              "last": null,
+              "pendingSaveGenerations": 0
+            },
+            "metrics": {
+              "captures": 0,
+              "certificates": 0,
+              "restores": 0,
+              "last": null
+            }
+          },
+          "unchanged": false,
+          "referenceIdentity": null,
+          "rngCalls": [],
+          "cashConserved": true,
+          "committedWrites": [
+            {
+              "active": false,
+              "treasury": 90358.45899709838,
+              "debt": 0,
+              "projects": 0
+            }
+          ]
+        },
+        {
+          "rng": 463188950,
+          "projects": 0,
+          "projectsBefore": 0,
+          "status": {
+            "enabled": true,
+            "active": false,
+            "halted": false,
+            "last": {
+              "ok": true,
+              "joined": false,
+              "value": null,
+              "command": "panel-control",
+              "ms": 150.39999999850988,
+              "code": null,
+              "publicationErrors": []
+            },
+            "protocol": {
+              "enabled": true,
+              "halted": false,
+              "active": false,
+              "kind": null,
+              "phase": "idle",
+              "last": {
+                "kind": "command",
+                "ok": true,
+                "effectErrors": []
+              },
+              "pendingSaveGenerations": 0
+            },
+            "metrics": {
+              "captures": 1,
+              "certificates": 2,
+              "restores": 0,
+              "last": null
+            }
+          },
+          "unchanged": false,
+          "referenceIdentity": null,
+          "rngCalls": [],
+          "cashConserved": true,
+          "committedWrites": [
+            {
+              "active": false,
+              "treasury": 90358.45899709838,
+              "debt": 0,
+              "projects": 0
+            }
+          ]
+        }
+      ],
+      "forcedReservationRefusal": {
+        "rng": 3675401400,
+        "projects": 0,
+        "projectsBefore": 0,
+        "status": {
+          "enabled": true,
+          "active": false,
+          "halted": false,
+          "last": {
+            "ok": false,
+            "reason": "Test reservation refusal",
+            "command": "panel-control",
+            "ms": 315.3999999985099,
+            "code": "refused",
+            "publicationErrors": []
+          },
+          "protocol": {
+            "enabled": true,
+            "halted": false,
+            "active": false,
+            "kind": null,
+            "phase": "idle",
+            "last": {
+              "kind": "command",
+              "ok": false,
+              "reason": "Test reservation refusal",
+              "effectErrors": []
+            },
+            "pendingSaveGenerations": 0
+          },
+          "metrics": {
+            "captures": 1,
+            "certificates": 2,
+            "restores": 1,
+            "last": null
+          }
+        },
+        "unchanged": true,
+        "referenceIdentity": true,
+        "rngCalls": [],
+        "cashConserved": true,
+        "committedWrites": []
+      }
+    },
+    {
+      "action": "private-provider",
+      "exactNormalModelRng": true,
+      "normal": [
+        {
+          "rng": 3675401400,
+          "projects": 1,
+          "projectsBefore": 0,
+          "status": {
+            "enabled": false,
+            "active": false,
+            "halted": false,
+            "last": null,
+            "protocol": {
+              "enabled": false,
+              "halted": false,
+              "active": false,
+              "kind": null,
+              "phase": "idle",
+              "last": null,
+              "pendingSaveGenerations": 0
+            },
+            "metrics": {
+              "captures": 0,
+              "certificates": 0,
+              "restores": 0,
+              "last": null
+            }
+          },
+          "unchanged": false,
+          "referenceIdentity": null,
+          "rngCalls": [],
+          "cashConserved": true,
+          "committedWrites": [
+            {
+              "active": false,
+              "treasury": 90358.45899709838,
+              "debt": 0,
+              "projects": 1
+            }
+          ]
+        },
+        {
+          "rng": 3675401400,
+          "projects": 1,
+          "projectsBefore": 0,
+          "status": {
+            "enabled": true,
+            "active": false,
+            "halted": false,
+            "last": {
+              "ok": true,
+              "joined": false,
+              "value": "An entrepreneur has financed a new service site.",
+              "command": "panel-control",
+              "ms": 165.10000000149012,
+              "code": null,
+              "publicationErrors": []
+            },
+            "protocol": {
+              "enabled": true,
+              "halted": false,
+              "active": false,
+              "kind": null,
+              "phase": "idle",
+              "last": {
+                "kind": "command",
+                "ok": true,
+                "effectErrors": []
+              },
+              "pendingSaveGenerations": 0
+            },
+            "metrics": {
+              "captures": 1,
+              "certificates": 2,
+              "restores": 0,
+              "last": null
+            }
+          },
+          "unchanged": false,
+          "referenceIdentity": null,
+          "rngCalls": [],
+          "cashConserved": true,
+          "committedWrites": [
+            {
+              "active": false,
+              "treasury": 90358.45899709838,
+              "debt": 0,
+              "projects": 1
+            }
+          ]
+        }
+      ],
+      "forcedReservationRefusal": {
+        "rng": 2592646554,
+        "projects": 0,
+        "projectsBefore": 0,
+        "status": {
+          "enabled": true,
+          "active": false,
+          "halted": false,
+          "last": {
+            "ok": false,
+            "reason": "Test reservation refusal",
+            "command": "panel-control",
+            "ms": 308,
+            "code": "refused",
+            "publicationErrors": []
+          },
+          "protocol": {
+            "enabled": true,
+            "halted": false,
+            "active": false,
+            "kind": null,
+            "phase": "idle",
+            "last": {
+              "kind": "command",
+              "ok": false,
+              "reason": "Test reservation refusal",
+              "effectErrors": []
+            },
+            "pendingSaveGenerations": 0
+          },
+          "metrics": {
+            "captures": 1,
+            "certificates": 2,
+            "restores": 1,
+            "last": null
+          }
+        },
+        "unchanged": true,
+        "referenceIdentity": true,
+        "rngCalls": [],
+        "cashConserved": true,
+        "committedWrites": []
+      }
+    },
+    {
+      "action": "private-fire",
+      "exactNormalModelRng": true,
+      "normal": [
+        {
+          "rng": 3675401400,
+          "projects": 1,
+          "projectsBefore": 0,
+          "status": {
+            "enabled": false,
+            "active": false,
+            "halted": false,
+            "last": null,
+            "protocol": {
+              "enabled": false,
+              "halted": false,
+              "active": false,
+              "kind": null,
+              "phase": "idle",
+              "last": null,
+              "pendingSaveGenerations": 0
+            },
+            "metrics": {
+              "captures": 0,
+              "certificates": 0,
+              "restores": 0,
+              "last": null
+            }
+          },
+          "unchanged": false,
+          "referenceIdentity": null,
+          "rngCalls": [],
+          "cashConserved": true,
+          "committedWrites": [
+            {
+              "active": false,
+              "treasury": 90358.45899709838,
+              "debt": 0,
+              "projects": 1
+            }
+          ]
+        },
+        {
+          "rng": 3675401400,
+          "projects": 1,
+          "projectsBefore": 0,
+          "status": {
+            "enabled": true,
+            "active": false,
+            "halted": false,
+            "last": {
+              "ok": true,
+              "joined": false,
+              "value": "An entrepreneur has financed a new service site.",
+              "command": "panel-control",
+              "ms": 159.5,
+              "code": null,
+              "publicationErrors": []
+            },
+            "protocol": {
+              "enabled": true,
+              "halted": false,
+              "active": false,
+              "kind": null,
+              "phase": "idle",
+              "last": {
+                "kind": "command",
+                "ok": true,
+                "effectErrors": []
+              },
+              "pendingSaveGenerations": 0
+            },
+            "metrics": {
+              "captures": 1,
+              "certificates": 2,
+              "restores": 0,
+              "last": null
+            }
+          },
+          "unchanged": false,
+          "referenceIdentity": null,
+          "rngCalls": [],
+          "cashConserved": true,
+          "committedWrites": [
+            {
+              "active": false,
+              "treasury": 90358.45899709838,
+              "debt": 0,
+              "projects": 1
+            }
+          ]
+        }
+      ],
+      "forcedReservationRefusal": {
+        "rng": 2592646554,
+        "projects": 0,
+        "projectsBefore": 0,
+        "status": {
+          "enabled": true,
+          "active": false,
+          "halted": false,
+          "last": {
+            "ok": false,
+            "reason": "Test reservation refusal",
+            "command": "panel-control",
+            "ms": 299.1000000014901,
+            "code": "refused",
+            "publicationErrors": []
+          },
+          "protocol": {
+            "enabled": true,
+            "halted": false,
+            "active": false,
+            "kind": null,
+            "phase": "idle",
+            "last": {
+              "kind": "command",
+              "ok": false,
+              "reason": "Test reservation refusal",
+              "effectErrors": []
+            },
+            "pendingSaveGenerations": 0
+          },
+          "metrics": {
+            "captures": 1,
+            "certificates": 2,
+            "restores": 1,
+            "last": null
+          }
+        },
+        "unchanged": true,
+        "referenceIdentity": true,
+        "rngCalls": [],
+        "cashConserved": true,
+        "committedWrites": []
+      }
+    },
+    {
+      "action": "land",
+      "exactNormalModelRng": true,
+      "normal": [
+        {
+          "rng": 2592646554,
+          "projects": 0,
+          "projectsBefore": 0,
+          "status": {
+            "enabled": false,
+            "active": false,
+            "halted": false,
+            "last": null,
+            "protocol": {
+              "enabled": false,
+              "halted": false,
+              "active": false,
+              "kind": null,
+              "phase": "idle",
+              "last": null,
+              "pendingSaveGenerations": 0
+            },
+            "metrics": {
+              "captures": 0,
+              "certificates": 0,
+              "restores": 0,
+              "last": null
+            }
+          },
+          "unchanged": false,
+          "referenceIdentity": null,
+          "rngCalls": [],
+          "cashConserved": true,
+          "committedWrites": [
+            {
+              "active": false,
+              "treasury": 90358.45899709838,
+              "debt": 0,
+              "projects": 0
+            },
+            {
+              "active": false,
+              "treasury": 59752.45899709838,
+              "debt": 0,
+              "projects": 0
+            }
+          ]
+        },
+        {
+          "rng": 2592646554,
+          "projects": 0,
+          "projectsBefore": 0,
+          "status": {
+            "enabled": true,
+            "active": false,
+            "halted": false,
+            "last": {
+              "ok": true,
+              "joined": false,
+              "value": {
+                "committed": true
+              },
+              "command": "council-choice",
+              "ms": 156.5,
+              "code": null,
+              "publicationErrors": []
+            },
+            "protocol": {
+              "enabled": true,
+              "halted": false,
+              "active": false,
+              "kind": null,
+              "phase": "idle",
+              "last": {
+                "kind": "command",
+                "ok": true,
+                "effectErrors": []
+              },
+              "pendingSaveGenerations": 0
+            },
+            "metrics": {
+              "captures": 2,
+              "certificates": 3,
+              "restores": 0,
+              "last": null
+            }
+          },
+          "unchanged": false,
+          "referenceIdentity": null,
+          "rngCalls": [],
+          "cashConserved": true,
+          "committedWrites": [
+            {
+              "active": false,
+              "treasury": 59752.45899709838,
+              "debt": 0,
+              "projects": 0
+            }
+          ]
+        }
+      ],
+      "forcedReservationRefusal": {
+        "rng": 2592646554,
+        "projects": 0,
+        "projectsBefore": 0,
+        "status": {
+          "enabled": true,
+          "active": false,
+          "halted": false,
+          "last": {
+            "ok": false,
+            "reason": "Test reservation refusal",
+            "command": "council-choice",
+            "ms": 274.59999999403954,
+            "code": "refused",
+            "publicationErrors": []
+          },
+          "protocol": {
+            "enabled": true,
+            "halted": false,
+            "active": false,
+            "kind": null,
+            "phase": "idle",
+            "last": {
+              "kind": "command",
+              "ok": false,
+              "reason": "Test reservation refusal",
+              "effectErrors": []
+            },
+            "pendingSaveGenerations": 0
+          },
+          "metrics": {
+            "captures": 2,
+            "certificates": 3,
+            "restores": 1,
+            "last": null
+          }
+        },
+        "unchanged": true,
+        "referenceIdentity": true,
+        "rngCalls": [],
+        "cashConserved": true,
+        "committedWrites": []
+      }
+    },
+    {
+      "action": "named-place",
+      "exactNormalModelRng": true,
+      "normal": [
+        {
+          "rng": 4009345279,
+          "projects": 0,
+          "projectsBefore": 0,
+          "status": {
+            "enabled": false,
+            "active": false,
+            "halted": false,
+            "last": null,
+            "protocol": {
+              "enabled": false,
+              "halted": false,
+              "active": false,
+              "kind": null,
+              "phase": "idle",
+              "last": null,
+              "pendingSaveGenerations": 0
+            },
+            "metrics": {
+              "captures": 0,
+              "certificates": 0,
+              "restores": 0,
+              "last": null
+            }
+          },
+          "unchanged": false,
+          "referenceIdentity": null,
+          "rngCalls": [],
+          "cashConserved": true,
+          "committedWrites": [
+            {
+              "active": false,
+              "treasury": 90358.45899709838,
+              "debt": 0,
+              "projects": 0
+            },
+            {
+              "active": false,
+              "treasury": 87858.45899709838,
+              "debt": 0,
+              "projects": 0
+            }
+          ]
+        },
+        {
+          "rng": 4009345279,
+          "projects": 0,
+          "projectsBefore": 0,
+          "status": {
+            "enabled": true,
+            "active": false,
+            "halted": false,
+            "last": {
+              "ok": true,
+              "joined": false,
+              "value": {
+                "committed": true
+              },
+              "command": "council-choice",
+              "ms": 182.60000000149012,
+              "code": null,
+              "publicationErrors": [
+                "Outbox presentation effects must be synchronous"
+              ]
+            },
+            "protocol": {
+              "enabled": true,
+              "halted": false,
+              "active": false,
+              "kind": null,
+              "phase": "idle",
+              "last": {
+                "kind": "command",
+                "ok": true,
+                "effectErrors": [
+                  "Outbox presentation effects must be synchronous"
+                ]
+              },
+              "pendingSaveGenerations": 0
+            },
+            "metrics": {
+              "captures": 2,
+              "certificates": 3,
+              "restores": 0,
+              "last": null
+            }
+          },
+          "unchanged": false,
+          "referenceIdentity": null,
+          "rngCalls": [],
+          "cashConserved": true,
+          "committedWrites": [
+            {
+              "active": false,
+              "treasury": 87858.45899709838,
+              "debt": 0,
+              "projects": 0
+            }
+          ]
+        }
+      ],
+      "forcedReservationRefusal": {
+        "rng": 3675401400,
+        "projects": 0,
+        "projectsBefore": 0,
+        "status": {
+          "enabled": true,
+          "active": false,
+          "halted": false,
+          "last": {
+            "ok": false,
+            "reason": "Test reservation refusal",
+            "command": "council-choice",
+            "ms": 348.80000000447035,
+            "code": "refused",
+            "publicationErrors": []
+          },
+          "protocol": {
+            "enabled": true,
+            "halted": false,
+            "active": false,
+            "kind": null,
+            "phase": "idle",
+            "last": {
+              "kind": "command",
+              "ok": false,
+              "reason": "Test reservation refusal",
+              "effectErrors": []
+            },
+            "pendingSaveGenerations": 0
+          },
+          "metrics": {
+            "captures": 2,
+            "certificates": 3,
+            "restores": 1,
+            "last": null
+          }
+        },
+        "unchanged": true,
+        "referenceIdentity": true,
+        "rngCalls": [],
+        "cashConserved": true,
+        "committedWrites": []
+      }
+    },
+    {
+      "action": "named-warehouse",
+      "exactNormalModelRng": true,
+      "normal": [
+        {
+          "rng": 2745673939,
+          "projects": 0,
+          "projectsBefore": 0,
+          "status": {
+            "enabled": false,
+            "active": false,
+            "halted": false,
+            "last": null,
+            "protocol": {
+              "enabled": false,
+              "halted": false,
+              "active": false,
+              "kind": null,
+              "phase": "idle",
+              "last": null,
+              "pendingSaveGenerations": 0
+            },
+            "metrics": {
+              "captures": 0,
+              "certificates": 0,
+              "restores": 0,
+              "last": null
+            }
+          },
+          "unchanged": false,
+          "referenceIdentity": null,
+          "rngCalls": [],
+          "cashConserved": true,
+          "committedWrites": [
+            {
+              "active": false,
+              "treasury": 90358.45899709838,
+              "debt": 0,
+              "projects": 0
+            },
+            {
+              "active": false,
+              "treasury": 78608.45899709838,
+              "debt": 0,
+              "projects": 0
+            }
+          ]
+        },
+        {
+          "rng": 2745673939,
+          "projects": 0,
+          "projectsBefore": 0,
+          "status": {
+            "enabled": true,
+            "active": false,
+            "halted": false,
+            "last": {
+              "ok": true,
+              "joined": false,
+              "value": {
+                "committed": true
+              },
+              "command": "council-choice",
+              "ms": 238.10000000149012,
+              "code": null,
+              "publicationErrors": [
+                "Outbox presentation effects must be synchronous"
+              ]
+            },
+            "protocol": {
+              "enabled": true,
+              "halted": false,
+              "active": false,
+              "kind": null,
+              "phase": "idle",
+              "last": {
+                "kind": "command",
+                "ok": true,
+                "effectErrors": [
+                  "Outbox presentation effects must be synchronous"
+                ]
+              },
+              "pendingSaveGenerations": 0
+            },
+            "metrics": {
+              "captures": 2,
+              "certificates": 3,
+              "restores": 0,
+              "last": null
+            }
+          },
+          "unchanged": false,
+          "referenceIdentity": null,
+          "rngCalls": [],
+          "cashConserved": true,
+          "committedWrites": [
+            {
+              "active": false,
+              "treasury": 78608.45899709838,
+              "debt": 0,
+              "projects": 0
+            }
+          ]
+        }
+      ],
+      "forcedReservationRefusal": {
+        "rng": 3675401400,
+        "projects": 0,
+        "projectsBefore": 0,
+        "status": {
+          "enabled": true,
+          "active": false,
+          "halted": false,
+          "last": {
+            "ok": false,
+            "reason": "Test reservation refusal",
+            "command": "council-choice",
+            "ms": 306.30000000447035,
+            "code": "refused",
+            "publicationErrors": []
+          },
+          "protocol": {
+            "enabled": true,
+            "halted": false,
+            "active": false,
+            "kind": null,
+            "phase": "idle",
+            "last": {
+              "kind": "command",
+              "ok": false,
+              "reason": "Test reservation refusal",
+              "effectErrors": []
+            },
+            "pendingSaveGenerations": 0
+          },
+          "metrics": {
+            "captures": 2,
+            "certificates": 3,
+            "restores": 1,
+            "last": null
+          }
+        },
+        "unchanged": true,
+        "referenceIdentity": true,
+        "rngCalls": [],
+        "cashConserved": true,
+        "committedWrites": []
+      }
+    }
+  ],
+  "providerDto": {
+    "hostSyntheticAdmissionContext": true,
+    "productionComposition": false,
+    "exactTrustedControl": true,
+    "result": {
+      "ok": true,
+      "joined": false,
+      "value": "An entrepreneur has financed a new service site.",
+      "requestId": 51,
+      "epoch": 5,
+      "reviewToken": null,
+      "provisional": false,
+      "publicationErrors": []
+    }
+  },
+  "providerDtoCreatorRefusal": {
+    "hostSyntheticAdmissionContext": true,
+    "productionComposition": false,
+    "result": {
+      "ok": false,
+      "reason": "The private construction was declined. No investment was committed.",
+      "requestId": 51,
+      "epoch": 5,
+      "reviewToken": null,
+      "provisional": false,
+      "publicationErrors": []
+    },
+    "rollback": {
+      "rng": 2592646554,
+      "projects": 0,
+      "projectsBefore": 0,
+      "status": {
+        "enabled": true,
+        "active": false,
+        "halted": false,
+        "last": {
+          "ok": false,
+          "reason": "The private construction was declined. No investment was committed.",
+          "command": "private-provider",
+          "ms": 314.80000000447035,
+          "code": "refused",
+          "publicationErrors": []
+        },
+        "protocol": {
+          "enabled": true,
+          "halted": false,
+          "active": false,
+          "kind": null,
+          "phase": "idle",
+          "last": {
+            "kind": "command",
+            "ok": false,
+            "reason": "The private construction was declined. No investment was committed.",
+            "effectErrors": []
+          },
+          "pendingSaveGenerations": 0
+        },
+        "metrics": {
+          "captures": 1,
+          "certificates": 1,
+          "restores": 1,
+          "last": null
+        }
+      },
+      "unchanged": true,
+      "referenceIdentity": true,
+      "rngCalls": [],
+      "cashConserved": true,
+      "committedWrites": []
+    }
+  },
+  "creatorRefusal": {
+    "actualControl": true,
+    "leafReturnsNullAfterPaidContract": true,
+    "fullOuterRollback": {
+      "rng": 2592646554,
+      "projects": 0,
+      "projectsBefore": 0,
+      "status": {
+        "enabled": true,
+        "active": false,
+        "halted": false,
+        "last": {
+          "ok": false,
+          "reason": "The private construction was declined. No investment was committed.",
+          "command": "panel-control",
+          "ms": 303.29999999701977,
+          "code": "refused",
+          "publicationErrors": []
+        },
+        "protocol": {
+          "enabled": true,
+          "halted": false,
+          "active": false,
+          "kind": null,
+          "phase": "idle",
+          "last": {
+            "kind": "command",
+            "ok": false,
+            "reason": "The private construction was declined. No investment was committed.",
+            "effectErrors": []
+          },
+          "pendingSaveGenerations": 0
+        },
+        "metrics": {
+          "captures": 1,
+          "certificates": 1,
+          "restores": 1,
+          "last": null
+        }
+      },
+      "unchanged": true,
+      "referenceIdentity": true,
+      "rngCalls": [],
+      "cashConserved": true,
+      "committedWrites": []
+    }
+  }
+}
