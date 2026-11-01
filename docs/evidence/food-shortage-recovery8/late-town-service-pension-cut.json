@@ -1,0 +1,1864 @@
+{
+  "source_commit": "0ba258d9a27e29bbba3e20110bccbe217629c268",
+  "terminal_archive_sha256": "fda70bb0243e2340168f5c8a1ec6f0ff4595b8bedc3e16863168a78bc923c7e1",
+  "baseline_day": 50681,
+  "method": "Matched 60-day continuation from the exact 25-year terminal state; control vs logged native council-policy enactment. Reallocation moves $50/day each from police and fire budgets into public health and school budgets, holding the four-budget sum constant. No cash/goods/people injected.",
+  "result": {
+    "start": {
+      "day": 50681,
+      "population": 721,
+      "treasury": 673.0665142362202,
+      "region": 15.500039781683059,
+      "debt": 0,
+      "policy": {
+        "health": 70,
+        "school": 90,
+        "incomeTax": 12,
+        "pension": 16,
+        "police": 180,
+        "fire": 140,
+        "aid": 100,
+        "outreach": 40,
+        "road": 25,
+        "militia": 25,
+        "transit": 35
+      },
+      "service": {
+        "health": {
+          "actualFunding": 0
+        },
+        "school": {
+          "actualFunding": 0.044382801664355064
+        }
+      },
+      "access": {
+        "health": {
+          "coverage": 0.9001386962552023,
+          "served": 649.0000000000008,
+          "population": 721
+        },
+        "school": {
+          "coverage": 0.9001386962552013,
+          "served": 649.0000000000001,
+          "population": 721
+        }
+      },
+      "health": 25,
+      "education": 15,
+      "hardship": 77,
+      "employment": 30,
+      "aidToday": 135,
+      "pensionFunding": 0.07647168989525982,
+      "pensionPaidToday": 176.1907735186789,
+      "incomeTaxToday": 483.1738325409814,
+      "valid": true
+    },
+    "control": {
+      "label": "control",
+      "action": null,
+      "points": [
+        {
+          "label": "day0",
+          "day": 50681,
+          "population": 721,
+          "treasury": 673.0665142362202,
+          "region": 15.500039781683059,
+          "debt": 0,
+          "policy": {
+            "health": 70,
+            "school": 90,
+            "incomeTax": 12,
+            "pension": 16,
+            "police": 180,
+            "fire": 140,
+            "aid": 100,
+            "outreach": 40,
+            "road": 25,
+            "militia": 25,
+            "transit": 35
+          },
+          "service": {
+            "health": {
+              "actualFunding": 0
+            },
+            "school": {
+              "actualFunding": 0.044382801664355064
+            }
+          },
+          "access": {
+            "health": {
+              "coverage": 0.9001386962552023,
+              "served": 649.0000000000008,
+              "population": 721
+            },
+            "school": {
+              "coverage": 0.9001386962552013,
+              "served": 649.0000000000001,
+              "population": 721
+            }
+          },
+          "health": 25,
+          "education": 15,
+          "hardship": 77,
+          "employment": 30,
+          "aidToday": 135,
+          "pensionFunding": 0.07647168989525982,
+          "pensionPaidToday": 176.1907735186789,
+          "incomeTaxToday": 483.1738325409814,
+          "valid": true
+        },
+        {
+          "label": "day1",
+          "day": 50682,
+          "population": 721,
+          "treasury": 372.7251683242494,
+          "region": 15.500039781683059,
+          "debt": 0,
+          "policy": {
+            "health": 70,
+            "school": 90,
+            "incomeTax": 12,
+            "pension": 16,
+            "police": 180,
+            "fire": 140,
+            "aid": 100,
+            "outreach": 40,
+            "road": 25,
+            "militia": 25,
+            "transit": 35
+          },
+          "service": {
+            "health": {
+              "day": 50682,
+              "authorized": 70,
+              "required": 443.69230769230774,
+              "requested": 70,
+              "paid": 0,
+              "unspent": 70,
+              "population": 721,
+              "facilities": 6,
+              "facilityCoverage": 1,
+              "accessCoverage": 0.9001386962552023,
+              "accessLimit": 60,
+              "accessibleResidents": 649.0000000000008,
+              "staffing": {
+                "local": 232.64285714285714,
+                "regional": 0,
+                "needed": 10.3,
+                "coverage": 0.9001386962552024,
+                "pending": null,
+                "qualification": 0.7
+              },
+              "coverage": 0,
+              "wage": 28,
+              "actualFunding": 0
+            },
+            "school": {
+              "day": 50682,
+              "authorized": 90,
+              "required": 1194.5562130177514,
+              "requested": 90,
+              "paid": 0,
+              "unspent": 90,
+              "population": 721,
+              "facilities": 8,
+              "facilityCoverage": 1,
+              "accessCoverage": 0.9001386962552013,
+              "accessLimit": 40,
+              "accessibleResidents": 649.0000000000001,
+              "staffing": {
+                "local": 234.64285714285714,
+                "regional": 0,
+                "needed": 27.73076923076923,
+                "coverage": 0.9001386962552012,
+                "pending": null,
+                "qualification": 0.55
+              },
+              "coverage": 0,
+              "wage": 28,
+              "actualFunding": 0.044382801664355064
+            }
+          },
+          "access": {
+            "health": {
+              "coverage": 0.9001386962552023,
+              "served": 649.0000000000008,
+              "population": 721
+            },
+            "school": {
+              "coverage": 0.9001386962552013,
+              "served": 649.0000000000001,
+              "population": 721
+            }
+          },
+          "health": 25,
+          "education": 15,
+          "hardship": 77,
+          "employment": 33,
+          "aidToday": 135,
+          "pensionFunding": 0.08442434032575324,
+          "pensionPaidToday": 194.51368011053586,
+          "incomeTaxToday": 536.9338325409815,
+          "valid": true
+        },
+        {
+          "label": "day30",
+          "day": 50711,
+          "population": 715,
+          "treasury": 288.9903071748245,
+          "region": 15.500039781683059,
+          "debt": 0,
+          "policy": {
+            "health": 70,
+            "school": 90,
+            "incomeTax": 12,
+            "pension": 16,
+            "police": 180,
+            "fire": 140,
+            "aid": 100,
+            "outreach": 40,
+            "road": 25,
+            "militia": 25,
+            "transit": 35
+          },
+          "service": {
+            "health": {
+              "day": 50711,
+              "authorized": 70,
+              "required": 440,
+              "requested": 70,
+              "paid": 0,
+              "unspent": 70,
+              "population": 715,
+              "facilities": 6,
+              "facilityCoverage": 1,
+              "accessCoverage": 0.8993006993007002,
+              "accessLimit": 60,
+              "accessibleResidents": 643.0000000000007,
+              "staffing": {
+                "local": 232.64285714285714,
+                "regional": 0,
+                "needed": 10.214285714285714,
+                "coverage": 0.8993006993007002,
+                "pending": null,
+                "qualification": 0.7
+              },
+              "coverage": 0,
+              "wage": 28,
+              "actualFunding": 0
+            },
+            "school": {
+              "day": 50711,
+              "authorized": 90,
+              "required": 1184.6153846153845,
+              "requested": 90,
+              "paid": 0,
+              "unspent": 90,
+              "population": 715,
+              "facilities": 8,
+              "facilityCoverage": 1,
+              "accessCoverage": 0.8993006993007009,
+              "accessLimit": 40,
+              "accessibleResidents": 643.0000000000011,
+              "staffing": {
+                "local": 233.64285714285714,
+                "regional": 0,
+                "needed": 27.5,
+                "coverage": 0.899300699300701,
+                "pending": null,
+                "qualification": 0.55
+              },
+              "coverage": 0,
+              "wage": 28,
+              "actualFunding": 0.044755244755244755
+            }
+          },
+          "access": {
+            "health": {
+              "coverage": 0.8993006993007002,
+              "served": 643.0000000000007,
+              "population": 715
+            },
+            "school": {
+              "coverage": 0.8993006993007009,
+              "served": 643.0000000000011,
+              "population": 715
+            }
+          },
+          "health": 25,
+          "education": 15,
+          "hardship": 77,
+          "employment": 31,
+          "aidToday": 135,
+          "pensionFunding": 0.09579424238868932,
+          "pensionPaidToday": 219.17722658532156,
+          "incomeTaxToday": 503.2091016917739,
+          "valid": true
+        },
+        {
+          "label": "day60",
+          "day": 50741,
+          "population": 715,
+          "treasury": 455.62204161777896,
+          "region": 15.500039781683059,
+          "debt": 0,
+          "policy": {
+            "health": 70,
+            "school": 90,
+            "incomeTax": 12,
+            "pension": 16,
+            "police": 180,
+            "fire": 140,
+            "aid": 100,
+            "outreach": 40,
+            "road": 25,
+            "militia": 25,
+            "transit": 35
+          },
+          "service": {
+            "health": {
+              "day": 50741,
+              "authorized": 70,
+              "required": 440,
+              "requested": 70,
+              "paid": 0,
+              "unspent": 70,
+              "population": 715,
+              "facilities": 6,
+              "facilityCoverage": 1,
+              "accessCoverage": 0.8993006993007002,
+              "accessLimit": 60,
+              "accessibleResidents": 643.0000000000007,
+              "staffing": {
+                "local": 231,
+                "regional": 0,
+                "needed": 10.214285714285714,
+                "coverage": 0.8993006993007002,
+                "pending": null,
+                "qualification": 0.7
+              },
+              "coverage": 0,
+              "wage": 28,
+              "actualFunding": 0
+            },
+            "school": {
+              "day": 50741,
+              "authorized": 90,
+              "required": 1184.6153846153845,
+              "requested": 90,
+              "paid": 0,
+              "unspent": 90,
+              "population": 715,
+              "facilities": 8,
+              "facilityCoverage": 1,
+              "accessCoverage": 0.8993006993007009,
+              "accessLimit": 40,
+              "accessibleResidents": 643.0000000000011,
+              "staffing": {
+                "local": 232,
+                "regional": 0,
+                "needed": 27.5,
+                "coverage": 0.899300699300701,
+                "pending": null,
+                "qualification": 0.55
+              },
+              "coverage": 0,
+              "wage": 28,
+              "actualFunding": 0.044755244755244755
+            }
+          },
+          "access": {
+            "health": {
+              "coverage": 0.8993006993007002,
+              "served": 643.0000000000007,
+              "population": 715
+            },
+            "school": {
+              "coverage": 0.8993006993007009,
+              "served": 643.0000000000011,
+              "population": 715
+            }
+          },
+          "health": 25,
+          "education": 15,
+          "hardship": 77,
+          "employment": 32,
+          "aidToday": 135,
+          "pensionFunding": 0.10278201004380112,
+          "pensionPaidToday": 235.1652389802172,
+          "incomeTaxToday": 526.8852591532593,
+          "valid": true
+        }
+      ],
+      "serviceCalls": [
+        {
+          "day": 50682,
+          "treasuryBefore": 0,
+          "treasuryAfter": 0,
+          "healthPaid": 0,
+          "schoolPaid": 0,
+          "healthCoverage": 0,
+          "schoolCoverage": 0
+        },
+        {
+          "day": 50683,
+          "treasuryBefore": 0,
+          "treasuryAfter": 0,
+          "healthPaid": 0,
+          "schoolPaid": 0,
+          "healthCoverage": 0,
+          "schoolCoverage": 0
+        },
+        {
+          "day": 50684,
+          "treasuryBefore": 0,
+          "treasuryAfter": 0,
+          "healthPaid": 0,
+          "schoolPaid": 0,
+          "healthCoverage": 0,
+          "schoolCoverage": 0
+        },
+        {
+          "day": 50685,
+          "treasuryBefore": 0,
+          "treasuryAfter": 0,
+          "healthPaid": 0,
+          "schoolPaid": 0,
+          "healthCoverage": 0,
+          "schoolCoverage": 0
+        },
+        {
+          "day": 50686,
+          "treasuryBefore": 0,
+          "treasuryAfter": 0,
+          "healthPaid": 0,
+          "schoolPaid": 0,
+          "healthCoverage": 0,
+          "schoolCoverage": 0
+        },
+        {
+          "day": 50687,
+          "treasuryBefore": 0,
+          "treasuryAfter": 0,
+          "healthPaid": 0,
+          "schoolPaid": 0,
+          "healthCoverage": 0,
+          "schoolCoverage": 0
+        },
+        {
+          "day": 50688,
+          "treasuryBefore": 0,
+          "treasuryAfter": 0,
+          "healthPaid": 0,
+          "schoolPaid": 0,
+          "healthCoverage": 0,
+          "schoolCoverage": 0
+        },
+        {
+          "day": 50689,
+          "treasuryBefore": 0,
+          "treasuryAfter": 0,
+          "healthPaid": 0,
+          "schoolPaid": 0,
+          "healthCoverage": 0,
+          "schoolCoverage": 0
+        },
+        {
+          "day": 50690,
+          "treasuryBefore": 0,
+          "treasuryAfter": 0,
+          "healthPaid": 0,
+          "schoolPaid": 0,
+          "healthCoverage": 0,
+          "schoolCoverage": 0
+        },
+        {
+          "day": 50691,
+          "treasuryBefore": 0,
+          "treasuryAfter": 0,
+          "healthPaid": 0,
+          "schoolPaid": 0,
+          "healthCoverage": 0,
+          "schoolCoverage": 0
+        },
+        {
+          "day": 50692,
+          "treasuryBefore": 0,
+          "treasuryAfter": 0,
+          "healthPaid": 0,
+          "schoolPaid": 0,
+          "healthCoverage": 0,
+          "schoolCoverage": 0
+        },
+        {
+          "day": 50693,
+          "treasuryBefore": 0,
+          "treasuryAfter": 0,
+          "healthPaid": 0,
+          "schoolPaid": 0,
+          "healthCoverage": 0,
+          "schoolCoverage": 0
+        },
+        {
+          "day": 50694,
+          "treasuryBefore": 0,
+          "treasuryAfter": 0,
+          "healthPaid": 0,
+          "schoolPaid": 0,
+          "healthCoverage": 0,
+          "schoolCoverage": 0
+        },
+        {
+          "day": 50695,
+          "treasuryBefore": 0,
+          "treasuryAfter": 0,
+          "healthPaid": 0,
+          "schoolPaid": 0,
+          "healthCoverage": 0,
+          "schoolCoverage": 0
+        },
+        {
+          "day": 50696,
+          "treasuryBefore": 0,
+          "treasuryAfter": 0,
+          "healthPaid": 0,
+          "schoolPaid": 0,
+          "healthCoverage": 0,
+          "schoolCoverage": 0
+        },
+        {
+          "day": 50697,
+          "treasuryBefore": 0,
+          "treasuryAfter": 0,
+          "healthPaid": 0,
+          "schoolPaid": 0,
+          "healthCoverage": 0,
+          "schoolCoverage": 0
+        },
+        {
+          "day": 50698,
+          "treasuryBefore": 0,
+          "treasuryAfter": 0,
+          "healthPaid": 0,
+          "schoolPaid": 0,
+          "healthCoverage": 0,
+          "schoolCoverage": 0
+        },
+        {
+          "day": 50699,
+          "treasuryBefore": 0,
+          "treasuryAfter": 0,
+          "healthPaid": 0,
+          "schoolPaid": 0,
+          "healthCoverage": 0,
+          "schoolCoverage": 0
+        },
+        {
+          "day": 50700,
+          "treasuryBefore": 0,
+          "treasuryAfter": 0,
+          "healthPaid": 0,
+          "schoolPaid": 0,
+          "healthCoverage": 0,
+          "schoolCoverage": 0
+        },
+        {
+          "day": 50701,
+          "treasuryBefore": 0,
+          "treasuryAfter": 0,
+          "healthPaid": 0,
+          "schoolPaid": 0,
+          "healthCoverage": 0,
+          "schoolCoverage": 0
+        },
+        {
+          "day": 50702,
+          "treasuryBefore": 0,
+          "treasuryAfter": 0,
+          "healthPaid": 0,
+          "schoolPaid": 0,
+          "healthCoverage": 0,
+          "schoolCoverage": 0
+        },
+        {
+          "day": 50703,
+          "treasuryBefore": 0,
+          "treasuryAfter": 0,
+          "healthPaid": 0,
+          "schoolPaid": 0,
+          "healthCoverage": 0,
+          "schoolCoverage": 0
+        },
+        {
+          "day": 50704,
+          "treasuryBefore": 0,
+          "treasuryAfter": 0,
+          "healthPaid": 0,
+          "schoolPaid": 0,
+          "healthCoverage": 0,
+          "schoolCoverage": 0
+        },
+        {
+          "day": 50705,
+          "treasuryBefore": 0,
+          "treasuryAfter": 0,
+          "healthPaid": 0,
+          "schoolPaid": 0,
+          "healthCoverage": 0,
+          "schoolCoverage": 0
+        },
+        {
+          "day": 50706,
+          "treasuryBefore": 0,
+          "treasuryAfter": 0,
+          "healthPaid": 0,
+          "schoolPaid": 0,
+          "healthCoverage": 0,
+          "schoolCoverage": 0
+        },
+        {
+          "day": 50707,
+          "treasuryBefore": 0,
+          "treasuryAfter": 0,
+          "healthPaid": 0,
+          "schoolPaid": 0,
+          "healthCoverage": 0,
+          "schoolCoverage": 0
+        },
+        {
+          "day": 50708,
+          "treasuryBefore": 0,
+          "treasuryAfter": 0,
+          "healthPaid": 0,
+          "schoolPaid": 0,
+          "healthCoverage": 0,
+          "schoolCoverage": 0
+        },
+        {
+          "day": 50709,
+          "treasuryBefore": 0,
+          "treasuryAfter": 0,
+          "healthPaid": 0,
+          "schoolPaid": 0,
+          "healthCoverage": 0,
+          "schoolCoverage": 0
+        },
+        {
+          "day": 50710,
+          "treasuryBefore": 0,
+          "treasuryAfter": 0,
+          "healthPaid": 0,
+          "schoolPaid": 0,
+          "healthCoverage": 0,
+          "schoolCoverage": 0
+        },
+        {
+          "day": 50711,
+          "treasuryBefore": 0,
+          "treasuryAfter": 0,
+          "healthPaid": 0,
+          "schoolPaid": 0,
+          "healthCoverage": 0,
+          "schoolCoverage": 0
+        },
+        {
+          "day": 50712,
+          "treasuryBefore": 0,
+          "treasuryAfter": 0,
+          "healthPaid": 0,
+          "schoolPaid": 0,
+          "healthCoverage": 0,
+          "schoolCoverage": 0
+        },
+        {
+          "day": 50713,
+          "treasuryBefore": 0,
+          "treasuryAfter": 0,
+          "healthPaid": 0,
+          "schoolPaid": 0,
+          "healthCoverage": 0,
+          "schoolCoverage": 0
+        },
+        {
+          "day": 50714,
+          "treasuryBefore": 0,
+          "treasuryAfter": 0,
+          "healthPaid": 0,
+          "schoolPaid": 0,
+          "healthCoverage": 0,
+          "schoolCoverage": 0
+        },
+        {
+          "day": 50715,
+          "treasuryBefore": 0,
+          "treasuryAfter": 0,
+          "healthPaid": 0,
+          "schoolPaid": 0,
+          "healthCoverage": 0,
+          "schoolCoverage": 0
+        },
+        {
+          "day": 50716,
+          "treasuryBefore": 0,
+          "treasuryAfter": 0,
+          "healthPaid": 0,
+          "schoolPaid": 0,
+          "healthCoverage": 0,
+          "schoolCoverage": 0
+        },
+        {
+          "day": 50717,
+          "treasuryBefore": 0,
+          "treasuryAfter": 0,
+          "healthPaid": 0,
+          "schoolPaid": 0,
+          "healthCoverage": 0,
+          "schoolCoverage": 0
+        },
+        {
+          "day": 50718,
+          "treasuryBefore": 0,
+          "treasuryAfter": 0,
+          "healthPaid": 0,
+          "schoolPaid": 0,
+          "healthCoverage": 0,
+          "schoolCoverage": 0
+        },
+        {
+          "day": 50719,
+          "treasuryBefore": 0,
+          "treasuryAfter": 0,
+          "healthPaid": 0,
+          "schoolPaid": 0,
+          "healthCoverage": 0,
+          "schoolCoverage": 0
+        },
+        {
+          "day": 50720,
+          "treasuryBefore": 0,
+          "treasuryAfter": 0,
+          "healthPaid": 0,
+          "schoolPaid": 0,
+          "healthCoverage": 0,
+          "schoolCoverage": 0
+        },
+        {
+          "day": 50721,
+          "treasuryBefore": 0,
+          "treasuryAfter": 0,
+          "healthPaid": 0,
+          "schoolPaid": 0,
+          "healthCoverage": 0,
+          "schoolCoverage": 0
+        },
+        {
+          "day": 50722,
+          "treasuryBefore": 0,
+          "treasuryAfter": 0,
+          "healthPaid": 0,
+          "schoolPaid": 0,
+          "healthCoverage": 0,
+          "schoolCoverage": 0
+        },
+        {
+          "day": 50723,
+          "treasuryBefore": 0,
+          "treasuryAfter": 0,
+          "healthPaid": 0,
+          "schoolPaid": 0,
+          "healthCoverage": 0,
+          "schoolCoverage": 0
+        },
+        {
+          "day": 50724,
+          "treasuryBefore": 0,
+          "treasuryAfter": 0,
+          "healthPaid": 0,
+          "schoolPaid": 0,
+          "healthCoverage": 0,
+          "schoolCoverage": 0
+        },
+        {
+          "day": 50725,
+          "treasuryBefore": 0,
+          "treasuryAfter": 0,
+          "healthPaid": 0,
+          "schoolPaid": 0,
+          "healthCoverage": 0,
+          "schoolCoverage": 0
+        },
+        {
+          "day": 50726,
+          "treasuryBefore": 0,
+          "treasuryAfter": 0,
+          "healthPaid": 0,
+          "schoolPaid": 0,
+          "healthCoverage": 0,
+          "schoolCoverage": 0
+        },
+        {
+          "day": 50727,
+          "treasuryBefore": 0,
+          "treasuryAfter": 0,
+          "healthPaid": 0,
+          "schoolPaid": 0,
+          "healthCoverage": 0,
+          "schoolCoverage": 0
+        },
+        {
+          "day": 50728,
+          "treasuryBefore": 0,
+          "treasuryAfter": 0,
+          "healthPaid": 0,
+          "schoolPaid": 0,
+          "healthCoverage": 0,
+          "schoolCoverage": 0
+        },
+        {
+          "day": 50729,
+          "treasuryBefore": 0,
+          "treasuryAfter": 0,
+          "healthPaid": 0,
+          "schoolPaid": 0,
+          "healthCoverage": 0,
+          "schoolCoverage": 0
+        },
+        {
+          "day": 50730,
+          "treasuryBefore": 0,
+          "treasuryAfter": 0,
+          "healthPaid": 0,
+          "schoolPaid": 0,
+          "healthCoverage": 0,
+          "schoolCoverage": 0
+        },
+        {
+          "day": 50731,
+          "treasuryBefore": 0,
+          "treasuryAfter": 0,
+          "healthPaid": 0,
+          "schoolPaid": 0,
+          "healthCoverage": 0,
+          "schoolCoverage": 0
+        },
+        {
+          "day": 50732,
+          "treasuryBefore": 0,
+          "treasuryAfter": 0,
+          "healthPaid": 0,
+          "schoolPaid": 0,
+          "healthCoverage": 0,
+          "schoolCoverage": 0
+        },
+        {
+          "day": 50733,
+          "treasuryBefore": 0,
+          "treasuryAfter": 0,
+          "healthPaid": 0,
+          "schoolPaid": 0,
+          "healthCoverage": 0,
+          "schoolCoverage": 0
+        },
+        {
+          "day": 50734,
+          "treasuryBefore": 0,
+          "treasuryAfter": 0,
+          "healthPaid": 0,
+          "schoolPaid": 0,
+          "healthCoverage": 0,
+          "schoolCoverage": 0
+        },
+        {
+          "day": 50735,
+          "treasuryBefore": 0,
+          "treasuryAfter": 0,
+          "healthPaid": 0,
+          "schoolPaid": 0,
+          "healthCoverage": 0,
+          "schoolCoverage": 0
+        },
+        {
+          "day": 50736,
+          "treasuryBefore": 0,
+          "treasuryAfter": 0,
+          "healthPaid": 0,
+          "schoolPaid": 0,
+          "healthCoverage": 0,
+          "schoolCoverage": 0
+        },
+        {
+          "day": 50737,
+          "treasuryBefore": 0,
+          "treasuryAfter": 0,
+          "healthPaid": 0,
+          "schoolPaid": 0,
+          "healthCoverage": 0,
+          "schoolCoverage": 0
+        },
+        {
+          "day": 50738,
+          "treasuryBefore": 0,
+          "treasuryAfter": 0,
+          "healthPaid": 0,
+          "schoolPaid": 0,
+          "healthCoverage": 0,
+          "schoolCoverage": 0
+        },
+        {
+          "day": 50739,
+          "treasuryBefore": 0,
+          "treasuryAfter": 0,
+          "healthPaid": 0,
+          "schoolPaid": 0,
+          "healthCoverage": 0,
+          "schoolCoverage": 0
+        },
+        {
+          "day": 50740,
+          "treasuryBefore": 0,
+          "treasuryAfter": 0,
+          "healthPaid": 0,
+          "schoolPaid": 0,
+          "healthCoverage": 0,
+          "schoolCoverage": 0
+        },
+        {
+          "day": 50741,
+          "treasuryBefore": 0,
+          "treasuryAfter": 0,
+          "healthPaid": 0,
+          "schoolPaid": 0,
+          "healthCoverage": 0,
+          "schoolCoverage": 0
+        }
+      ],
+      "servicePaidDays": {
+        "health": 0,
+        "school": 0
+      },
+      "maxDailyPaid": {
+        "health": 0,
+        "school": 0
+      },
+      "cashDrift": 9.499490261077881e-08,
+      "goodsError": 2.8048816602677107e-08,
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15493517.000233147,
+        "population": 715,
+        "day": 50741
+      }
+    },
+    "intervention": {
+      "label": "income-tax-for-existing-care-budget",
+      "action": {
+        "from": {
+          "pensionDaily": 16,
+          "healthBudget": 70,
+          "educationBudget": 90
+        },
+        "to": {
+          "pensionDaily": 0,
+          "healthBudget": 70,
+          "educationBudget": 90
+        },
+        "pensionPolicyCutPerEligiblePerson": 16
+      },
+      "points": [
+        {
+          "label": "day0",
+          "day": 50681,
+          "population": 721,
+          "treasury": 673.0665142362202,
+          "region": 15.500039781683059,
+          "debt": 0,
+          "policy": {
+            "health": 70,
+            "school": 90,
+            "incomeTax": 12,
+            "pension": 0,
+            "police": 180,
+            "fire": 140,
+            "aid": 100,
+            "outreach": 40,
+            "road": 25,
+            "militia": 25,
+            "transit": 35
+          },
+          "service": {
+            "health": {
+              "actualFunding": 0
+            },
+            "school": {
+              "actualFunding": 0.044382801664355064
+            }
+          },
+          "access": {
+            "health": {
+              "coverage": 0.9001386962552023,
+              "served": 649.0000000000008,
+              "population": 721
+            },
+            "school": {
+              "coverage": 0.9001386962552013,
+              "served": 649.0000000000001,
+              "population": 721
+            }
+          },
+          "health": 25,
+          "education": 15,
+          "hardship": 77,
+          "employment": 30,
+          "aidToday": 135,
+          "pensionFunding": 0.07647168989525982,
+          "pensionPaidToday": 176.1907735186789,
+          "incomeTaxToday": 483.1738325409814,
+          "valid": true
+        },
+        {
+          "label": "day1",
+          "day": 50682,
+          "population": 721,
+          "treasury": 373.0149193709562,
+          "region": 15.500039781683059,
+          "debt": 0,
+          "policy": {
+            "health": 70,
+            "school": 90,
+            "incomeTax": 12,
+            "pension": 0,
+            "police": 180,
+            "fire": 140,
+            "aid": 100,
+            "outreach": 40,
+            "road": 25,
+            "militia": 25,
+            "transit": 35
+          },
+          "service": {
+            "health": {
+              "day": 50682,
+              "authorized": 70,
+              "required": 443.69230769230774,
+              "requested": 70,
+              "paid": 70,
+              "unspent": 0,
+              "population": 721,
+              "facilities": 6,
+              "facilityCoverage": 1,
+              "accessCoverage": 0.9001386962552023,
+              "accessLimit": 60,
+              "accessibleResidents": 649.0000000000008,
+              "staffing": {
+                "local": 232.64285714285714,
+                "regional": 0,
+                "needed": 10.3,
+                "coverage": 0.9001386962552024,
+                "pending": null,
+                "qualification": 0.7
+              },
+              "coverage": 0.15776699029126212,
+              "wage": 28,
+              "actualFunding": 0.15776699029126212
+            },
+            "school": {
+              "day": 50682,
+              "authorized": 90,
+              "required": 1194.5562130177514,
+              "requested": 90,
+              "paid": 90,
+              "unspent": 0,
+              "population": 721,
+              "facilities": 8,
+              "facilityCoverage": 1,
+              "accessCoverage": 0.9001386962552013,
+              "accessLimit": 40,
+              "accessibleResidents": 649.0000000000001,
+              "staffing": {
+                "local": 233.01785714285714,
+                "regional": 0,
+                "needed": 27.73076923076923,
+                "coverage": 0.9001386962552012,
+                "pending": null,
+                "qualification": 0.55
+              },
+              "coverage": 0.07534178720031703,
+              "wage": 28,
+              "actualFunding": 0.1197245888646721
+            }
+          },
+          "access": {
+            "health": {
+              "coverage": 0.9001386962552023,
+              "served": 649.0000000000008,
+              "population": 721
+            },
+            "school": {
+              "coverage": 0.9001386962552013,
+              "served": 649.0000000000001,
+              "population": 721
+            }
+          },
+          "health": 25,
+          "education": 15,
+          "hardship": 77,
+          "employment": 34,
+          "aidToday": 135,
+          "pensionFunding": 1,
+          "pensionPaidToday": 0,
+          "incomeTaxToday": 553.2314395896033,
+          "valid": true
+        },
+        {
+          "label": "day30",
+          "day": 50711,
+          "population": 715,
+          "treasury": 250.33472585702478,
+          "region": 15.500039781683059,
+          "debt": 0,
+          "policy": {
+            "health": 70,
+            "school": 90,
+            "incomeTax": 12,
+            "pension": 0,
+            "police": 180,
+            "fire": 140,
+            "aid": 100,
+            "outreach": 40,
+            "road": 25,
+            "militia": 25,
+            "transit": 35
+          },
+          "service": {
+            "health": {
+              "day": 50711,
+              "authorized": 70,
+              "required": 440,
+              "requested": 70,
+              "paid": 70,
+              "unspent": 0,
+              "population": 715,
+              "facilities": 6,
+              "facilityCoverage": 1,
+              "accessCoverage": 0.8993006993007002,
+              "accessLimit": 60,
+              "accessibleResidents": 643.0000000000007,
+              "staffing": {
+                "local": 234.64285714285714,
+                "regional": 0,
+                "needed": 10.214285714285714,
+                "coverage": 0.8993006993007002,
+                "pending": null,
+                "qualification": 0.7
+              },
+              "coverage": 0.1590909090909091,
+              "wage": 28,
+              "actualFunding": 0.1590909090909091
+            },
+            "school": {
+              "day": 50711,
+              "authorized": 90,
+              "required": 1184.6153846153845,
+              "requested": 90,
+              "paid": 90,
+              "unspent": 0,
+              "population": 715,
+              "facilities": 8,
+              "facilityCoverage": 1,
+              "accessCoverage": 0.8993006993007009,
+              "accessLimit": 40,
+              "accessibleResidents": 643.0000000000011,
+              "staffing": {
+                "local": 236.64285714285714,
+                "regional": 0,
+                "needed": 27.5,
+                "coverage": 0.899300699300701,
+                "pending": null,
+                "qualification": 0.55
+              },
+              "coverage": 0.07597402597402599,
+              "wage": 28,
+              "actualFunding": 0.12072927072927075
+            }
+          },
+          "access": {
+            "health": {
+              "coverage": 0.8993006993007002,
+              "served": 643.0000000000007,
+              "population": 715
+            },
+            "school": {
+              "coverage": 0.8993006993007009,
+              "served": 643.0000000000011,
+              "population": 715
+            }
+          },
+          "health": 25,
+          "education": 15,
+          "hardship": 77,
+          "employment": 32,
+          "aidToday": 135,
+          "pensionFunding": 1,
+          "pensionPaidToday": 0,
+          "incomeTaxToday": 521.9148325122052,
+          "valid": true
+        },
+        {
+          "label": "day60",
+          "day": 50741,
+          "population": 715,
+          "treasury": 401.1135115029575,
+          "region": 15.500039781683059,
+          "debt": 0,
+          "policy": {
+            "health": 70,
+            "school": 90,
+            "incomeTax": 12,
+            "pension": 0,
+            "police": 180,
+            "fire": 140,
+            "aid": 100,
+            "outreach": 40,
+            "road": 25,
+            "militia": 25,
+            "transit": 35
+          },
+          "service": {
+            "health": {
+              "day": 50741,
+              "authorized": 70,
+              "required": 440,
+              "requested": 70,
+              "paid": 70,
+              "unspent": 0,
+              "population": 715,
+              "facilities": 6,
+              "facilityCoverage": 1,
+              "accessCoverage": 0.8993006993007002,
+              "accessLimit": 60,
+              "accessibleResidents": 643.0000000000007,
+              "staffing": {
+                "local": 230.64285714285714,
+                "regional": 0,
+                "needed": 10.214285714285714,
+                "coverage": 0.8993006993007002,
+                "pending": null,
+                "qualification": 0.7
+              },
+              "coverage": 0.1590909090909091,
+              "wage": 28,
+              "actualFunding": 0.1590909090909091
+            },
+            "school": {
+              "day": 50741,
+              "authorized": 90,
+              "required": 1184.6153846153845,
+              "requested": 90,
+              "paid": 90,
+              "unspent": 0,
+              "population": 715,
+              "facilities": 8,
+              "facilityCoverage": 1,
+              "accessCoverage": 0.8993006993007009,
+              "accessLimit": 40,
+              "accessibleResidents": 643.0000000000011,
+              "staffing": {
+                "local": 233.64285714285714,
+                "regional": 0,
+                "needed": 27.5,
+                "coverage": 0.899300699300701,
+                "pending": null,
+                "qualification": 0.55
+              },
+              "coverage": 0.07597402597402599,
+              "wage": 28,
+              "actualFunding": 0.12072927072927075
+            }
+          },
+          "access": {
+            "health": {
+              "coverage": 0.8993006993007002,
+              "served": 643.0000000000007,
+              "population": 715
+            },
+            "school": {
+              "coverage": 0.8993006993007009,
+              "served": 643.0000000000011,
+              "population": 715
+            }
+          },
+          "health": 25,
+          "education": 15,
+          "hardship": 77,
+          "employment": 34,
+          "aidToday": 135,
+          "pensionFunding": 1,
+          "pensionPaidToday": 0,
+          "incomeTaxToday": 539.3962346234376,
+          "valid": true
+        }
+      ],
+      "serviceCalls": [
+        {
+          "day": 50682,
+          "treasuryBefore": 194.5136801105355,
+          "treasuryAfter": 1.8676070486217689,
+          "healthPaid": 70,
+          "schoolPaid": 90,
+          "healthCoverage": 0.15776699029126212,
+          "schoolCoverage": 0.07534178720031703
+        },
+        {
+          "day": 50683,
+          "treasuryBefore": 216.81208524527133,
+          "treasuryAfter": 23.19208524527134,
+          "healthPaid": 70,
+          "schoolPaid": 90,
+          "healthCoverage": 0.15776699029126212,
+          "schoolCoverage": 0.07534178720031703
+        },
+        {
+          "day": 50684,
+          "treasuryBefore": 173.61575170771968,
+          "treasuryAfter": 0.23756863320213437,
+          "healthPaid": 70,
+          "schoolPaid": 90,
+          "healthCoverage": 0.15776699029126212,
+          "schoolCoverage": 0.07534178720031703
+        },
+        {
+          "day": 50685,
+          "treasuryBefore": 193.5962836151879,
+          "treasuryAfter": 1.7960501219846565,
+          "healthPaid": 70,
+          "schoolPaid": 90,
+          "healthCoverage": 0.15776699029126212,
+          "schoolCoverage": 0.07534178720031703
+        },
+        {
+          "day": 50686,
+          "treasuryBefore": 229.09365767814236,
+          "treasuryAfter": 35.473657678142374,
+          "healthPaid": 70,
+          "schoolPaid": 90,
+          "healthCoverage": 0.15776699029126212,
+          "schoolCoverage": 0.07534178720031703
+        },
+        {
+          "day": 50687,
+          "treasuryBefore": 229.4439371773374,
+          "treasuryAfter": 35.823937177337406,
+          "healthPaid": 70,
+          "schoolPaid": 90,
+          "healthCoverage": 0.15776699029126212,
+          "schoolCoverage": 0.07534178720031703
+        },
+        {
+          "day": 50688,
+          "treasuryBefore": 180.7896379334368,
+          "treasuryAfter": 0.7971317588080707,
+          "healthPaid": 70,
+          "schoolPaid": 90,
+          "healthCoverage": 0.15776699029126212,
+          "schoolCoverage": 0.07534178720031703
+        },
+        {
+          "day": 50689,
+          "treasuryBefore": 227.9518103116467,
+          "treasuryAfter": 34.33181031164671,
+          "healthPaid": 70,
+          "schoolPaid": 90,
+          "healthCoverage": 0.15776699029126212,
+          "schoolCoverage": 0.07534178720031703
+        },
+        {
+          "day": 50690,
+          "treasuryBefore": 185.61459549011798,
+          "treasuryAfter": 1.173478448229202,
+          "healthPaid": 70,
+          "schoolPaid": 90,
+          "healthCoverage": 0.15776699029126212,
+          "schoolCoverage": 0.07534178720031703
+        },
+        {
+          "day": 50691,
+          "treasuryBefore": 192.10186865609822,
+          "treasuryAfter": 1.6794857551756601,
+          "healthPaid": 70,
+          "schoolPaid": 90,
+          "healthCoverage": 0.15776699029126212,
+          "schoolCoverage": 0.07534178720031703
+        },
+        {
+          "day": 50692,
+          "treasuryBefore": 209.06193574520026,
+          "treasuryAfter": 15.441935745200272,
+          "healthPaid": 70,
+          "schoolPaid": 90,
+          "healthCoverage": 0.15776699029126212,
+          "schoolCoverage": 0.07534178720031703
+        },
+        {
+          "day": 50693,
+          "treasuryBefore": 232.4946412908313,
+          "treasuryAfter": 38.87464129083131,
+          "healthPaid": 70,
+          "schoolPaid": 90,
+          "healthCoverage": 0.15776699029126212,
+          "schoolCoverage": 0.07534178720031703
+        },
+        {
+          "day": 50694,
+          "treasuryBefore": 168.2712781024965,
+          "treasuryAfter": 0.12625077597558865,
+          "healthPaid": 70,
+          "schoolPaid": 90,
+          "healthCoverage": 0.15776699029126212,
+          "schoolCoverage": 0.07534178720031703
+        },
+        {
+          "day": 50695,
+          "treasuryBefore": 175.17600334829515,
+          "treasuryAfter": 0.35926826116702154,
+          "healthPaid": 70,
+          "schoolPaid": 90,
+          "healthCoverage": 0.15776699029126212,
+          "schoolCoverage": 0.07534178720031703
+        },
+        {
+          "day": 50696,
+          "treasuryBefore": 164.58579613798307,
+          "treasuryAfter": 0.10382830370348894,
+          "healthPaid": 70,
+          "schoolPaid": 90,
+          "healthCoverage": 0.15776699029126212,
+          "schoolCoverage": 0.07534178720031703
+        },
+        {
+          "day": 50697,
+          "treasuryBefore": 158.46279420077784,
+          "treasuryAfter": 0.06657595991753232,
+          "healthPaid": 70,
+          "schoolPaid": 90,
+          "healthCoverage": 0.15776699029126212,
+          "schoolCoverage": 0.07534178720031703
+        },
+        {
+          "day": 50698,
+          "treasuryBefore": 158.84519220650967,
+          "treasuryAfter": 0.06890246938440478,
+          "healthPaid": 70,
+          "schoolPaid": 90,
+          "healthCoverage": 0.15776699029126212,
+          "schoolCoverage": 0.07534178720031703
+        },
+        {
+          "day": 50699,
+          "treasuryBefore": 157.61858904411181,
+          "treasuryAfter": 0.06143981574437625,
+          "healthPaid": 70,
+          "schoolPaid": 90,
+          "healthCoverage": 0.15776699029126212,
+          "schoolCoverage": 0.07534178720031703
+        },
+        {
+          "day": 50700,
+          "treasuryBefore": 181.70179265467291,
+          "treasuryAfter": 0.8682798270644864,
+          "healthPaid": 70,
+          "schoolPaid": 90,
+          "healthCoverage": 0.15776699029126212,
+          "schoolCoverage": 0.07534178720031703
+        },
+        {
+          "day": 50701,
+          "treasuryBefore": 200.19453952769814,
+          "treasuryAfter": 6.5745395276981435,
+          "healthPaid": 70,
+          "schoolPaid": 90,
+          "healthCoverage": 0.1590909090909091,
+          "schoolCoverage": 0.07597402597402599
+        },
+        {
+          "day": 50702,
+          "treasuryBefore": 308.09525098507487,
+          "treasuryAfter": 114.4752509850749,
+          "healthPaid": 70,
+          "schoolPaid": 90,
+          "healthCoverage": 0.1590909090909091,
+          "schoolCoverage": 0.07597402597402599
+        },
+        {
+          "day": 50703,
+          "treasuryBefore": 147.9837448381921,
+          "treasuryAfter": 0.03959839600045374,
+          "healthPaid": 70,
+          "schoolPaid": 83.4437448381921,
+          "healthCoverage": 0.1590909090909091,
+          "schoolCoverage": 0.07043952486340892
+        },
+        {
+          "day": 50704,
+          "treasuryBefore": 147.774063383283,
+          "treasuryAfter": 0.03949889124666371,
+          "healthPaid": 70,
+          "schoolPaid": 83.23406338328299,
+          "healthCoverage": 0.1590909090909091,
+          "schoolCoverage": 0.0702625210378363
+        },
+        {
+          "day": 50705,
+          "treasuryBefore": 165.71972548322813,
+          "treasuryAfter": 0.11072712983995993,
+          "healthPaid": 70,
+          "schoolPaid": 90,
+          "healthCoverage": 0.1590909090909091,
+          "schoolCoverage": 0.07597402597402599
+        },
+        {
+          "day": 50706,
+          "treasuryBefore": 148.88216033898365,
+          "treasuryAfter": 0.04002474087318539,
+          "healthPaid": 70,
+          "schoolPaid": 84.34216033898365,
+          "healthCoverage": 0.1590909090909091,
+          "schoolCoverage": 0.07119792755888231
+        },
+        {
+          "day": 50707,
+          "treasuryBefore": 181.5497346117751,
+          "treasuryAfter": 0.8564192997184576,
+          "healthPaid": 70,
+          "schoolPaid": 90,
+          "healthCoverage": 0.1590909090909091,
+          "schoolCoverage": 0.07597402597402599
+        },
+        {
+          "day": 50708,
+          "treasuryBefore": 136.13793144265057,
+          "treasuryAfter": 0.03397694156197271,
+          "healthPaid": 70,
+          "schoolPaid": 71.59793144265056,
+          "healthCoverage": 0.1590909090909091,
+          "schoolCoverage": 0.060439812256782945
+        },
+        {
+          "day": 50709,
+          "treasuryBefore": 223.61859016587235,
+          "treasuryAfter": 29.998590165872354,
+          "healthPaid": 70,
+          "schoolPaid": 90,
+          "healthCoverage": 0.1590909090909091,
+          "schoolCoverage": 0.07597402597402599
+        },
+        {
+          "day": 50710,
+          "treasuryBefore": 229.37712657230966,
+          "treasuryAfter": 35.75712657230967,
+          "healthPaid": 70,
+          "schoolPaid": 90,
+          "healthCoverage": 0.1590909090909091,
+          "schoolCoverage": 0.07597402597402599
+        },
+        {
+          "day": 50711,
+          "treasuryBefore": 189.03510257417238,
+          "treasuryAfter": 1.4402780007854452,
+          "healthPaid": 70,
+          "schoolPaid": 90,
+          "healthCoverage": 0.1590909090909091,
+          "schoolCoverage": 0.07597402597402599
+        },
+        {
+          "day": 50712,
+          "treasuryBefore": 232.5026137017782,
+          "treasuryAfter": 38.8826137017782,
+          "healthPaid": 70,
+          "schoolPaid": 90,
+          "healthCoverage": 0.1590909090909091,
+          "schoolCoverage": 0.07597402597402599
+        },
+        {
+          "day": 50713,
+          "treasuryBefore": 187.50163129977162,
+          "treasuryAfter": 1.3206672413821852,
+          "healthPaid": 70,
+          "schoolPaid": 90,
+          "healthCoverage": 0.1590909090909091,
+          "schoolCoverage": 0.07597402597402599
+        },
+        {
+          "day": 50714,
+          "treasuryBefore": 209.87093053935817,
+          "treasuryAfter": 16.250930539358176,
+          "healthPaid": 70,
+          "schoolPaid": 90,
+          "healthCoverage": 0.1590909090909091,
+          "schoolCoverage": 0.07597402597402599
+        },
+        {
+          "day": 50715,
+          "treasuryBefore": 227.8261109885366,
+          "treasuryAfter": 34.20611098853662,
+          "healthPaid": 70,
+          "schoolPaid": 90,
+          "healthCoverage": 0.1590909090909091,
+          "schoolCoverage": 0.07597402597402599
+        },
+        {
+          "day": 50716,
+          "treasuryBefore": 205.90362691730732,
+          "treasuryAfter": 12.283626917307329,
+          "healthPaid": 70,
+          "schoolPaid": 90,
+          "healthCoverage": 0.1590909090909091,
+          "schoolCoverage": 0.07597402597402599
+        },
+        {
+          "day": 50717,
+          "treasuryBefore": 203.3135643274807,
+          "treasuryAfter": 9.693564327480697,
+          "healthPaid": 70,
+          "schoolPaid": 90,
+          "healthCoverage": 0.1590909090909091,
+          "schoolCoverage": 0.07597402597402599
+        },
+        {
+          "day": 50718,
+          "treasuryBefore": 214.3619618948624,
+          "treasuryAfter": 20.741961894862396,
+          "healthPaid": 70,
+          "schoolPaid": 90,
+          "healthCoverage": 0.1590909090909091,
+          "schoolCoverage": 0.07597402597402599
+        },
+        {
+          "day": 50719,
+          "treasuryBefore": 207.7676448556629,
+          "treasuryAfter": 14.1476448556629,
+          "healthPaid": 70,
+          "schoolPaid": 90,
+          "healthCoverage": 0.1590909090909091,
+          "schoolCoverage": 0.07597402597402599
+        },
+        {
+          "day": 50720,
+          "treasuryBefore": 228.406512266978,
+          "treasuryAfter": 34.78651226697802,
+          "healthPaid": 70,
+          "schoolPaid": 90,
+          "healthCoverage": 0.1590909090909091,
+          "schoolCoverage": 0.07597402597402599
+        },
+        {
+          "day": 50721,
+          "treasuryBefore": 188.3417001214806,
+          "treasuryAfter": 1.386192609475487,
+          "healthPaid": 70,
+          "schoolPaid": 90,
+          "healthCoverage": 0.1590909090909091,
+          "schoolCoverage": 0.07597402597402599
+        },
+        {
+          "day": 50722,
+          "treasuryBefore": 140.70619113659725,
+          "treasuryAfter": 0.0361448183362545,
+          "healthPaid": 70,
+          "schoolPaid": 76.16619113659725,
+          "healthCoverage": 0.1590909090909091,
+          "schoolCoverage": 0.06429613537504963
+        },
+        {
+          "day": 50723,
+          "treasuryBefore": 206.02160483035166,
+          "treasuryAfter": 12.401604830351669,
+          "healthPaid": 70,
+          "schoolPaid": 90,
+          "healthCoverage": 0.1590909090909091,
+          "schoolCoverage": 0.07597402597402599
+        },
+        {
+          "day": 50724,
+          "treasuryBefore": 189.90404911678198,
+          "treasuryAfter": 1.5080558311089933,
+          "healthPaid": 70,
+          "schoolPaid": 90,
+          "healthCoverage": 0.1590909090909091,
+          "schoolCoverage": 0.07597402597402599
+        },
+        {
+          "day": 50725,
+          "treasuryBefore": 186.95940099384998,
+          "treasuryAfter": 1.2783732775202978,
+          "healthPaid": 70,
+          "schoolPaid": 90,
+          "healthCoverage": 0.1590909090909091,
+          "schoolCoverage": 0.07597402597402599
+        },
+        {
+          "day": 50726,
+          "treasuryBefore": 200.11962448382647,
+          "treasuryAfter": 6.499624483826474,
+          "healthPaid": 70,
+          "schoolPaid": 90,
+          "healthCoverage": 0.1590909090909091,
+          "schoolCoverage": 0.07597402597402599
+        },
+        {
+          "day": 50727,
+          "treasuryBefore": 209.7011637029415,
+          "treasuryAfter": 16.081163702941506,
+          "healthPaid": 70,
+          "schoolPaid": 90,
+          "healthCoverage": 0.1590909090909091,
+          "schoolCoverage": 0.07597402597402599
+        },
+        {
+          "day": 50728,
+          "treasuryBefore": 204.1760229609986,
+          "treasuryAfter": 10.556022960998616,
+          "healthPaid": 70,
+          "schoolPaid": 90,
+          "healthCoverage": 0.1590909090909091,
+          "schoolCoverage": 0.07597402597402599
+        },
+        {
+          "day": 50729,
+          "treasuryBefore": 167.1645391257068,
+          "treasuryAfter": 0.11951737604080012,
+          "healthPaid": 70,
+          "schoolPaid": 90,
+          "healthCoverage": 0.1590909090909091,
+          "schoolCoverage": 0.07597402597402599
+        },
+        {
+          "day": 50730,
+          "treasuryBefore": 176.99263416274417,
+          "treasuryAfter": 0.5009654646940445,
+          "healthPaid": 70,
+          "schoolPaid": 90,
+          "healthCoverage": 0.1590909090909091,
+          "schoolCoverage": 0.07597402597402599
+        },
+        {
+          "day": 50731,
+          "treasuryBefore": 189.5806070468042,
+          "treasuryAfter": 1.482827349650727,
+          "healthPaid": 70,
+          "schoolPaid": 90,
+          "healthCoverage": 0.1590909090909091,
+          "schoolCoverage": 0.07597402597402599
+        },
+        {
+          "day": 50732,
+          "treasuryBefore": 185.45203495987963,
+          "treasuryAfter": 1.16079872687061,
+          "healthPaid": 70,
+          "schoolPaid": 90,
+          "healthCoverage": 0.1590909090909091,
+          "schoolCoverage": 0.07597402597402599
+        },
+        {
+          "day": 50733,
+          "treasuryBefore": 177.49600044141752,
+          "treasuryAfter": 0.5402280344305662,
+          "healthPaid": 70,
+          "schoolPaid": 90,
+          "healthCoverage": 0.1590909090909091,
+          "schoolCoverage": 0.07597402597402599
+        },
+        {
+          "day": 50734,
+          "treasuryBefore": 201.5394459405516,
+          "treasuryAfter": 7.919445940551591,
+          "healthPaid": 70,
+          "schoolPaid": 90,
+          "healthCoverage": 0.1590909090909091,
+          "schoolCoverage": 0.07597402597402599
+        },
+        {
+          "day": 50735,
+          "treasuryBefore": 213.98354153294795,
+          "treasuryAfter": 20.36354153294796,
+          "healthPaid": 70,
+          "schoolPaid": 90,
+          "healthCoverage": 0.1590909090909091,
+          "schoolCoverage": 0.07597402597402599
+        },
+        {
+          "day": 50736,
+          "treasuryBefore": 145.84901081161948,
+          "treasuryAfter": 0.03858535369867565,
+          "healthPaid": 70,
+          "schoolPaid": 81.30901081161947,
+          "healthCoverage": 0.1590909090909091,
+          "schoolCoverage": 0.0686374766591593
+        },
+        {
+          "day": 50737,
+          "treasuryBefore": 225.6636746592291,
+          "treasuryAfter": 32.0436746592291,
+          "healthPaid": 70,
+          "schoolPaid": 90,
+          "healthCoverage": 0.1590909090909091,
+          "schoolCoverage": 0.07597402597402599
+        },
+        {
+          "day": 50738,
+          "treasuryBefore": 224.3847671498685,
+          "treasuryAfter": 30.764767149868515,
+          "healthPaid": 70,
+          "schoolPaid": 90,
+          "healthCoverage": 0.1590909090909091,
+          "schoolCoverage": 0.07597402597402599
+        },
+        {
+          "day": 50739,
+          "treasuryBefore": 191.2979160245924,
+          "treasuryAfter": 1.6167774499182073,
+          "healthPaid": 70,
+          "schoolPaid": 90,
+          "healthCoverage": 0.1590909090909091,
+          "schoolCoverage": 0.07597402597402599
+        },
+        {
+          "day": 50740,
+          "treasuryBefore": 188.7114118956646,
+          "treasuryAfter": 1.415030127861839,
+          "healthPaid": 70,
+          "schoolPaid": 90,
+          "healthCoverage": 0.1590909090909091,
+          "schoolCoverage": 0.07597402597402599
+        },
+        {
+          "day": 50741,
+          "treasuryBefore": 197.8393527416928,
+          "treasuryAfter": 4.21935274169281,
+          "healthPaid": 70,
+          "schoolPaid": 90,
+          "healthCoverage": 0.1590909090909091,
+          "schoolCoverage": 0.07597402597402599
+        }
+      ],
+      "servicePaidDays": {
+        "health": 60,
+        "school": 60
+      },
+      "maxDailyPaid": {
+        "health": 70,
+        "school": 90
+      },
+      "cashDrift": 6.146728992462158e-08,
+      "goodsError": 2.8048816602677107e-08,
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15493517.000233114,
+        "population": 715,
+        "day": 50741
+      }
+    }
+  },
+  "source_sha256": "2fceb86f38436e7698be260a22baf415421c84875389c13b94f99c961976cdbc"
+}
