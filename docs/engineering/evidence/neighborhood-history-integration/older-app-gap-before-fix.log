@@ -1,0 +1,21 @@
+{
+  "source_sha256": "9f65f583976a2f487e0c873506b3f9123804b82c1675e441a2f25e8f0764429d",
+  "olderAppRoundTrip": {
+    "before": 271,
+    "oldObservationDays": [
+      90,
+      180
+    ],
+    "after": 361,
+    "newObservationDays": [
+      180,
+      360
+    ],
+    "selfArchiveValid": false
+  }
+}
+Traceback (most recent call last):
+  File "/workspace/core-recovery/tests/test_history_legacy_gap.py", line 12, in <module>
+    assert first['valid']and len(first['activity'])==1,first
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'day': 361, 'activity': [{'day': 180, 'blocks': {'3:3': {'residents': 2, 'occupiedHomes': 1, 'staffedJobs': 26, 'jobCapacity': 27}, '2:3': {'residents': 23, 'occupiedHomes': 8, 'staffedJobs': 15, 'jobCapacity': 16}, '2:1': {'residents': 0, 'occupiedHomes': 0, 'staffedJobs': 2, 'jobCapacity': 2}, '4:4': {'residents': 22, 'occupiedHomes': 8, 'staffedJobs': 3, 'jobCapacity': 3}, '1:3': {'residents': 7, 'occupiedHomes': 3, 'staffedJobs': 3, 'jobCapacity': 3}, '2:5': {'residents': 0, 'occupiedHomes': 0, 'staffedJobs': 3, 'jobCapacity': 3}, '4:3': {'residents': 23, 'occupiedHomes': 9, 'staffedJobs': 9, 'jobCapacity': 9}, '3:2': {'residents': 5, 'occupiedHomes': 2, 'staffedJobs': 14, 'jobCapacity': 14}, '5:3': {'residents': 10, 'occupiedHomes': 4, 'staffedJobs': 3, 'jobCapacity': 3}, '3:4': {'residents': 5, 'occupiedHomes': 2, 'staffedJobs': 25, 'jobCapacity': 25}, '2:2': {'residents': 25, 'occupiedHomes': 11, 'staffedJobs': 0, 'jobCapacity': 0}, '4:2': {'residents': 20, 'occupiedHomes': 8, 'staffedJobs': 0, 'jobCapacity': 0}, '2:4': {'residents': 27, 'occupiedHomes': 10, 'staffedJobs': 0, 'jobCapacity': 0}, '0:3': {'residents': 0, 'occupiedHomes': 0, 'staffedJobs': 5, 'jobCapacity': 5}}}, {'day': 360, 'blocks': {'3:3': {'residents': 4, 'occupiedHomes': 2, 'staffedJobs': 30, 'jobCapacity': 32}, '2:3': {'residents': 24, 'occupiedHomes': 9, 'staffedJobs': 16, 'jobCapacity': 16}, '2:1': {'residents': 0, 'occupiedHomes': 0, 'staffedJobs': 2, 'jobCapacity': 2}, '4:4': {'residents': 26, 'occupiedHomes': 9, 'staffedJobs': 2, 'jobCapacity': 3}, '1:3': {'residents': 7, 'occupiedHomes': 3, 'staffedJobs': 3, 'jobCapacity': 3}, '2:5': {'residents': 0, 'occupiedHomes': 0, 'staffedJobs': 2, 'jobCapacity': 3}, '4:3': {'residents': 23, 'occupiedHomes': 9, 'staffedJobs': 9, 'jobCapacity': 9}, '3:2': {'residents': 5, 'occupiedHomes': 2, 'staffedJobs': 16, 'jobCapacity': 16}, '5:3': {'residents': 10, 'occupiedHomes': 4, 'staffedJobs': 2, 'jobCapacity': 2}, '3:4': {'residents': 5, 'occupiedHomes': 2, 'staffedJobs': 27, 'jobCapacity': 27}, '2:2': {'residents': 25, 'occupiedHomes': 11, 'staffedJobs': 0, 'jobCapacity': 0}, '4:2': {'residents': 21, 'occupiedHomes': 8, 'staffedJobs': 0, 'jobCapacity': 0}, '2:4': {'residents': 27, 'occupiedHomes': 10, 'staffedJobs': 0, 'jobCapacity': 0}, '0:3': {'residents': 0, 'occupiedHomes': 0, 'staffedJobs': 5, 'jobCapacity': 5}}}], 'valid': False}

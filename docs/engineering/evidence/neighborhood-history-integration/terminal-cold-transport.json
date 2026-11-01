@@ -1,0 +1,173 @@
+{
+  "source_sha256": "84ecbaef6b0ae999a9c5adcd49b9ba1678840cabfc36cf02b617c74a93d208a4",
+  "base": "0a6d217933eb0eac0c42787483ae96c624d23ef5",
+  "base_archive_module_sha256": "e9017594b4b2572c6be614ea382d42fc15b296ca8a2e58f4c3a783b64d407cb4",
+  "archive_module_sha256": "e9017594b4b2572c6be614ea382d42fc15b296ca8a2e58f4c3a783b64d407cb4",
+  "excludedFields": [],
+  "nativeArchiveIOFiveTerminalRoundtripsExact": true,
+  "cases": [
+    {
+      "terminal": "frontier-endurance-town.json",
+      "raw_sha256": "07593862017acdd118addd5f9fc825fe08c163a5e37b32ffc9b6b44d19192ee1",
+      "rawUtf8Bytes": 1517413,
+      "day": 9001,
+      "personRecords": 491,
+      "householdRecords": 149,
+      "firmRecords": 75,
+      "optionalHistoryUtf8Bytes": 3277,
+      "pairedBaseAndCurrentColdStateExact": true,
+      "idempotentColdAndWarm30DayReplayExact": true,
+      "warmCheckpointInheritedTenancyProjection": [],
+      "explicitInheritedTenancyProjection": []
+    },
+    {
+      "terminal": "hardtimes-endurance-town.json",
+      "raw_sha256": "fa9453b0ebd6ebdf10e239244c716835a3aa6b8d1edff27ee21145eb5cf8a647",
+      "rawUtf8Bytes": 900380,
+      "day": 3601,
+      "personRecords": 283,
+      "householdRecords": 89,
+      "firmRecords": 33,
+      "optionalHistoryUtf8Bytes": 2113,
+      "pairedBaseAndCurrentColdStateExact": true,
+      "idempotentColdAndWarm30DayReplayExact": true,
+      "warmCheckpointInheritedTenancyProjection": [],
+      "explicitInheritedTenancyProjection": []
+    },
+    {
+      "terminal": "industrial-endurance-town.json",
+      "raw_sha256": "9ed3dbc98e53c31695b6e5b2b05d3129b753ca58c8d3094281e3d8b23dbce59c",
+      "rawUtf8Bytes": 1413270,
+      "day": 9001,
+      "personRecords": 479,
+      "householdRecords": 148,
+      "firmRecords": 49,
+      "optionalHistoryUtf8Bytes": 3135,
+      "pairedBaseAndCurrentColdStateExact": true,
+      "idempotentColdAndWarm30DayReplayExact": true,
+      "warmCheckpointInheritedTenancyProjection": [],
+      "explicitInheritedTenancyProjection": []
+    },
+    {
+      "terminal": "regional-endurance-town.json",
+      "raw_sha256": "1e4f0433fcea172a66128ab1813bfbb24ceae686373d40dcbd69ba9122d86008",
+      "rawUtf8Bytes": 1752920,
+      "day": 1801,
+      "personRecords": 1003,
+      "householdRecords": 400,
+      "firmRecords": 120,
+      "optionalHistoryUtf8Bytes": 5558,
+      "pairedBaseAndCurrentColdStateExact": true,
+      "idempotentColdAndWarm30DayReplayExact": true,
+      "warmCheckpointInheritedTenancyProjection": [],
+      "explicitInheritedTenancyProjection": [
+        {
+          "path": ".buildings.83.units.1",
+          "before": 324,
+          "after": 311
+        },
+        {
+          "path": ".buildings.83.units.2",
+          "before": 311,
+          "after": 324
+        },
+        {
+          "path": ".buildings.160.units.4",
+          "before": 372,
+          "after": 363
+        },
+        {
+          "path": ".buildings.160.units.5",
+          "before": 373,
+          "after": 366
+        },
+        {
+          "path": ".buildings.160.units.6",
+          "before": 374,
+          "after": 372
+        },
+        {
+          "path": ".buildings.160.units.7",
+          "before": 363,
+          "after": 373
+        },
+        {
+          "path": ".buildings.160.units.8",
+          "before": 366,
+          "after": 374
+        },
+        {
+          "path": ".buildings.161.units.4",
+          "before": 356,
+          "after": 119
+        },
+        {
+          "path": ".buildings.161.units.5",
+          "before": 358,
+          "after": 356
+        },
+        {
+          "path": ".buildings.161.units.6",
+          "before": 359,
+          "after": 358
+        },
+        {
+          "path": ".buildings.161.units.7",
+          "before": 119,
+          "after": 359
+        },
+        {
+          "path": ".buildings.213.units.0",
+          "before": 288,
+          "after": 120
+        },
+        {
+          "path": ".buildings.213.units.1",
+          "before": 290,
+          "after": 288
+        },
+        {
+          "path": ".buildings.213.units.2",
+          "before": 315,
+          "after": 290
+        },
+        {
+          "path": ".buildings.213.units.3",
+          "before": 120,
+          "after": 315
+        },
+        {
+          "path": ".buildings.213.hh",
+          "before": 288,
+          "after": 120
+        }
+      ]
+    },
+    {
+      "terminal": "settlement-endurance-town.json",
+      "raw_sha256": "b1f870490fe3570fe7b5d3d8a998e81c8e7c00865985234b96deb4e953bf06ce",
+      "rawUtf8Bytes": 2537623,
+      "day": 18001,
+      "personRecords": 1252,
+      "householdRecords": 366,
+      "firmRecords": 129,
+      "optionalHistoryUtf8Bytes": 5389,
+      "pairedBaseAndCurrentColdStateExact": true,
+      "idempotentColdAndWarm30DayReplayExact": true,
+      "warmCheckpointInheritedTenancyProjection": [],
+      "explicitInheritedTenancyProjection": [
+        {
+          "path": ".buildings.317.units.2",
+          "before": 262,
+          "after": 259
+        },
+        {
+          "path": ".buildings.317.units.3",
+          "before": 259,
+          "after": 262
+        }
+      ]
+    }
+  ],
+  "scope": "All full states compared against the explicitly reconstructed existing tenancy projection, paired against the pre-history loader. No financial, identity, road, cargo, service receipt, RNG or visual fields omitted."
+}

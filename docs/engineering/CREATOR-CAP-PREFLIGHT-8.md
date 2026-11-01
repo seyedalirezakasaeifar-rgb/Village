@@ -27,3 +27,5 @@ Publication remains paused. All work and synthetic summaries are local; no GitHu
 ## Isolated production verification
 
 The minimal commit applies cleanly on d2b7086187621ae8c3c147fc3c04764efaadf49d with no experimental src89 or root/day owner. All 16 checks and paired 90-day replay pass on the resulting 100-module source SHA256 1f6372888194700baa700010f423b9544d737c432b70291641a0434a94cb20da. The production report is creator-capacity-production.json. The test defaults to the public d2 baseline; CREATOR_PREFLIGHT_BASE may select another exact baseline. This does not certify the separately developed worker integration.
+
+Current independent composition and stronger eligible-path counterexamples are documented in `CREATOR-CAP-INTEGRATION-8.md`; original owner receipts above retain their original scope.

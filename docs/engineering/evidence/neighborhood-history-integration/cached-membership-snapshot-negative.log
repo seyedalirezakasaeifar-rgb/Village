@@ -1,0 +1,22 @@
+{
+  "scenario": "settlement",
+  "elapsed": 180,
+  "phaseOracleDifferences": [],
+  "completeArchiveDifferences": [
+    [
+      ".urban.activity.1.blocks.2:3.occupiedHomes",
+      9,
+      8
+    ],
+    [
+      ".urban.activity.1.blocks.2:3.residents",
+      25,
+      23
+    ]
+  ]
+}
+Traceback (most recent call last):
+  File "/workspace/core-recovery/tests/test_neighborhood_history_independent.py", line 34, in <module>
+    assert reference['expected']==current['expected']and current['archive']==expected,(scenario,elapsed)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ('settlement', 180)

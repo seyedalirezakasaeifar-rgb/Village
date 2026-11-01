@@ -1,0 +1,13 @@
+# Independent creator-cap integration
+
+Base `669c908706af997375680674390e46fd132a970a`; candidate `c91475af7dd079a51a72eb89b413673adae886c1`. Assembled source SHA-256 `8151f2de2616d343715ae802f7052dc2943b96da5481bb139ec7303413717954`.
+
+Ported the nine source changes for the existing 8,000 person / 3,000 household / 3,000 enterprise record budgets. These count historical records, preserving people, estates, firms and financial claims. Future firm/airport projects reserve enterprise slots; paid creation checks before charges and IDs, and automatic people/household creators check before RNG and funds. Oversubscribed old committed projects pause with a truthful reason and keep their remaining work and funded escrow.
+
+The old retail function context conflicted with the current reviewed renewal/retail code. Applied only the one required capacity guard, preserving every current function and save fence. Importantly, the owner test passed an incomplete port without that guard: its retail example was below the population threshold, and its reserved-slot construction example targeted the occupied worksite itself. That pass is preserved as insufficient evidence, together with the rejected context patch.
+
+The additional independent test supplies a genuinely eligible controlled retail proposal and a separate legal vacant paid lot. Removing only the retail guard then consumes RNG before its late site refusal; removing only the paid reservation guard actually charges $4,050 and consumes the last enterprise slot despite its committed reservation. Both counterexamples fail the required preflight contract while the integrated source stays completely unchanged. A valid synthetic legacy archive with 3,000 historical firms and a real funded retail project additionally proves that completion changes only its explanatory reason: remaining work, $28,000 escrow, total money and RNG are preserved.
+
+Seven checks pass on this source: the original 16-case boundary driver with exact ordinary 90-day comparison to the base; the independent eligible-path/reservation/legacy-escrow driver; retail review, adversarial/schema archives, committed-day persistence and credit cashflow. The boundary fixtures explicitly synthesize closed history and controlled eligibility; they are not ordinary growth or balance claims. Full endurance is reserved for the coherent composed source.
+
+This guard does not solve total archive byte/node limits, other entity caps or unlimited save safety. No experimental codec, generic admission owner, worker or renderer is enabled. Native code is unchanged in this commit. See `evidence/creator-cap-integration/` for source-bound evidence and counterexamples.

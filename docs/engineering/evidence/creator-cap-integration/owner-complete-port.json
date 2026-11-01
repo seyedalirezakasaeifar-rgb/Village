@@ -1,0 +1,74 @@
+{
+  "rows": [
+    {
+      "name": "paid construction at 3000",
+      "exactModelAndRng": true
+    },
+    {
+      "name": "leaf firm at 3000",
+      "exactModelAndRng": true
+    },
+    {
+      "name": "private investor at 3000",
+      "exactModelAndRng": true
+    },
+    {
+      "name": "retail at 3000",
+      "exactModelAndRng": true
+    },
+    {
+      "name": "airfield at 3000",
+      "exactModelAndRng": true
+    },
+    {
+      "name": "project at 3000",
+      "exactModelAndRng": true
+    },
+    {
+      "name": "paid construction respects last reserved slot",
+      "exactModelAndRng": true
+    },
+    {
+      "name": "oversubscribed old project deferred",
+      "fundsIdsRemainingAndRngPreserved": true
+    },
+    {
+      "name": "birth cap",
+      "exactModelAndRng": true
+    },
+    {
+      "name": "family arrival cap",
+      "exactModelAndRng": true
+    },
+    {
+      "name": "household arrival person cap",
+      "exactModelAndRng": true
+    },
+    {
+      "name": "formation household cap",
+      "exactModelAndRng": true
+    },
+    {
+      "name": "arrival household cap",
+      "exactModelAndRng": true
+    },
+    {
+      "name": "birth remains capped after final slot",
+      "exactModelAndRng": true
+    },
+    {
+      "name": "actual birth creator 7999 to 8000",
+      "controlledEligibilityAndDraw": true
+    },
+    {
+      "name": "actual firm creator 2999 to 3000",
+      "selfImportable": true
+    }
+  ],
+  "checks10000Ms": 0.40000000037252903,
+  "totalByteNodeProtection": false,
+  "codecsEnabled": false,
+  "ordinary90DayReplayExact": true,
+  "ordinaryArchiveSha256": "18ea7954934a6f7ad163e4d1e7bd06facd203fecc90651bf43c1944e63ec20c1",
+  "source_sha256": "8151f2de2616d343715ae802f7052dc2943b96da5481bb139ec7303413717954"
+}

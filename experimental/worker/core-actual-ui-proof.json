@@ -1,9 +1,9 @@
 {
   "productionEnabled": false,
-  "oracleCommit": "669c908706af997375680674390e46fd132a970a",
-  "sourceSha256": "5df42ea1348872ad692a53bfa6ea1081472d1c8783ec9ace2b5cf011bcfb6e20",
-  "workerSha256": "cd85a8f963db5ceb8b4781504bd3f100bf7631917ba985c19b736efc36a77d6f",
-  "bridgeSha256": "b73bf4ec7499bf82eb071d70ab2ffb6c3536606b56d6e158b22da72f59c5b5d6",
+  "oracleCommit": "01eeda3d2ff09822b9422721f75e97fabbc9958a",
+  "sourceSha256": "ac119726075abebf96683eb332782a5d55be69e42fe4545a9def0fd8a9ad6d1c",
+  "workerSha256": "5f2052f0ad8ea339e429af017798907ca8d1dd75ca9302cff8c709332a6131e7",
+  "bridgeSha256": "b80dce085c2b86d3152bcc56c4a2ee21c8a2af543f3e2011f9727846eeeb637a",
   "trustedActualControlsFullModelRngEqual": [
     "borrow",
     "repay",

@@ -1,0 +1,44 @@
+{
+  "base": "0a6d217933eb0eac0c42787483ae96c624d23ef5",
+  "candidate": "9650b62c7dad3fb8088e908d69ea7355526bd8a0",
+  "base_source_sha256": "0eb5adab795072940e9a5966aae295381daa490c6be2b8e97a32725dc45f9db4",
+  "held_candidate_source_sha256": "74957762c7001030cb380ee11e9d4d7a96de7951a26e078b6925c8f6883cb27f",
+  "reproducedHold": {
+    "base": {
+      "cadence": {
+        "farms": [
+          30,
+          60,
+          90
+        ],
+        "retail": [
+          90
+        ]
+      }
+    },
+    "originalCandidate": {
+      "cadence": {
+        "farms": [
+          90
+        ],
+        "retail": [
+          90
+        ]
+      },
+      "schema": [
+        {
+          "kind": "longAliasKey",
+          "accepted": true
+        },
+        {
+          "kind": "extraSnapshotField",
+          "accepted": true
+        },
+        {
+          "kind": "extraRowField",
+          "accepted": true
+        }
+      ]
+    }
+  }
+}

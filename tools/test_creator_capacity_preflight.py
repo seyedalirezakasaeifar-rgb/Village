@@ -2,6 +2,7 @@ from pathlib import Path
 import sys,json,hashlib,subprocess,os
 ROOT=Path(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT/'tests'))
 from test_mobile_rendering import html
+from neighborhood_history_oracle import ORACLE_PROBE
 from playwright.sync_api import sync_playwright
 source=(ROOT/'assets/game.js').read_text()
 probe=r'''
@@ -24,9 +25,11 @@ with sync_playwright()as pw:
  b=pw.chromium.launch(executable_path='/usr/bin/chromium',args=['--no-sandbox']);p=b.new_page();p.set_content(html);p.add_script_tag(content=source.replace('// SOURCE: 99-instrumentation.js',probe+'\n// SOURCE: 99-instrumentation.js'));p.locator('#newTown').click();p.locator('#pause').click();r=p.evaluate('__creatorCapTest()');p.close()
  archives=[]
  for variant in ['previous','guarded']:
-  base=os.environ.get('CREATOR_PREFLIGHT_BASE','d2b7086187621ae8c3c147fc3c04764efaadf49d');files=subprocess.check_output(['git','ls-tree','-r','--name-only',base,'src/'],cwd=ROOT,text=True).splitlines()
+  base=os.environ.get('CREATOR_PREFLIGHT_BASE','669c908706af997375680674390e46fd132a970a');files=subprocess.check_output(['git','ls-tree','-r','--name-only',base,'src/'],cwd=ROOT,text=True).splitlines()
   code=source if variant=='guarded' else '\n'.join('// SOURCE: '+Path(name).name+'\n'+subprocess.check_output(['git','show',base+':'+name],cwd=ROOT,text=True) for name in sorted(files) if name.endswith('.js'))
-  q=b.new_page();q.set_content(html);q.add_script_tag(content=code);q.locator('#newTown').click();q.locator('#pause').click();archives.append(q.evaluate("()=>{__townTest.reset('settlement',42);__townTest.step(90);return __townTest.save();}"));q.close()
- if archives[0]!=archives[1]:raise AssertionError('Ordinary 90-day replay changed')
- r['ordinary90DayReplayExact']=True;r['ordinaryArchiveSha256']=hashlib.sha256(archives[0].encode()).hexdigest();b.close()
+  q=b.new_page();q.set_content(html);q.add_script_tag(content=code.replace('// SOURCE: 99-instrumentation.js',ORACLE_PROBE+'\n// SOURCE: 99-instrumentation.js'));q.locator('#newTown').click();q.locator('#pause').click();archives.append(q.evaluate("()=>{__resetHistoryOracle();__townTest.reset('settlement',42);__townTest.step(90);return {archive:__townTest.save(),expected:__historyOracle()};}"));q.close()
+ expected=json.loads(archives[0]['archive']);actual=json.loads(archives[1]['archive']);assert archives[0]['expected']==archives[1]['expected']
+ if 'function urbanRecordActivity()' in source and archives[0]['expected']:expected['urban']['activity']=archives[0]['expected']
+ if expected!=actual:raise AssertionError('Ordinary 90-day replay differs from complete state plus independently observed optional history')
+ r['ordinaryComparison']='Complete base state plus independently counted optional activity; zero excluded fields';r['currentOrdinaryArchiveSha256']=hashlib.sha256(archives[1]['archive'].encode()).hexdigest();r['ordinary_reference_commit']=base;r['optionalHistoryComparedToIndependentPhaseOracle']=True;r['ordinary90DayReplayExact']=True;r['ordinaryArchiveSha256']=hashlib.sha256(archives[0]['archive'].encode()).hexdigest();b.close()
 r['source_sha256']=hashlib.sha256(source.encode()).hexdigest();dest=ROOT/'reports/creator-capacity-preflight.json';dest.write_text(json.dumps(r,indent=2)+'\n');print(json.dumps(r,indent=2))

@@ -1,0 +1,10 @@
+REFERENCE POLICY 3bea58b0b8d21cced9611049ee5e5038e57383c7
+Exception in thread "main" java.lang.AssertionError: duplicateResult
+	at org.townledger.vale.CompletionFieldsTest.main(CompletionFieldsTest.java:1)
+Traceback (most recent call last):
+  File "/workspace/core-recovery/tests/test_native_completion_duplicate_fields.py", line 23, in <module>
+    test=Path(tmp)/'CompletionFieldsTest.java';test.write_text(source);subprocess.run(['java','com.sun.tools.javac.Main','-d',tmp,str(guard),str(test)],check=True);subprocess.run(['java','-cp',tmp,'org.townledger.vale.CompletionFieldsTest'],check=True)
+                                                                                                                                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['java', '-cp', '/tmp/tmpnkipjk9h', 'org.townledger.vale.CompletionFieldsTest']' returned non-zero exit status 1.

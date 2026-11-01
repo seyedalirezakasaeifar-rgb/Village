@@ -1,0 +1,14 @@
+{
+  "productionEnabled": false,
+  "testOnlyModule": true,
+  "sourceSha256": "ac119726075abebf96683eb332782a5d55be69e42fe4545a9def0fd8a9ad6d1c",
+  "workerSha256": "26e5ce25fba29181f2cf668bd1bd031bc4caf068fcf08e03dfc1d81908c1e91e",
+  "namedFormAndFootprintSvg": true,
+  "typedChoiceNameForwarded": true,
+  "sourceCivicVisitCameraPanelEffect": true,
+  "sourceParcelPreview": true,
+  "cameraPreservesZoomWithoutYOffset": true,
+  "hostFinancialViewFrozen": true,
+  "namedPlacePurchaseAcceptance": false,
+  "pageErrors": []
+}

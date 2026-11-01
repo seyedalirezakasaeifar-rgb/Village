@@ -1,0 +1,78 @@
+{
+  "rows": [
+    {
+      "name": "paid construction at 3000",
+      "exactModelAndRng": true
+    },
+    {
+      "name": "leaf firm at 3000",
+      "exactModelAndRng": true
+    },
+    {
+      "name": "private investor at 3000",
+      "exactModelAndRng": true
+    },
+    {
+      "name": "retail at 3000",
+      "exactModelAndRng": true
+    },
+    {
+      "name": "airfield at 3000",
+      "exactModelAndRng": true
+    },
+    {
+      "name": "project at 3000",
+      "exactModelAndRng": true
+    },
+    {
+      "name": "paid construction respects last reserved slot",
+      "exactModelAndRng": true
+    },
+    {
+      "name": "oversubscribed old project deferred",
+      "fundsIdsRemainingAndRngPreserved": true
+    },
+    {
+      "name": "birth cap",
+      "exactModelAndRng": true
+    },
+    {
+      "name": "family arrival cap",
+      "exactModelAndRng": true
+    },
+    {
+      "name": "household arrival person cap",
+      "exactModelAndRng": true
+    },
+    {
+      "name": "formation household cap",
+      "exactModelAndRng": true
+    },
+    {
+      "name": "arrival household cap",
+      "exactModelAndRng": true
+    },
+    {
+      "name": "birth remains capped after final slot",
+      "exactModelAndRng": true
+    },
+    {
+      "name": "actual birth creator 7999 to 8000",
+      "controlledEligibilityAndDraw": true
+    },
+    {
+      "name": "actual firm creator 2999 to 3000",
+      "selfImportable": true
+    }
+  ],
+  "checks10000Ms": 0.5,
+  "totalByteNodeProtection": false,
+  "codecsEnabled": false,
+  "ordinaryComparison": "Complete base state plus independently counted optional activity; zero excluded fields",
+  "currentOrdinaryArchiveSha256": "48165bd081c84bbcd13e427bddf249ca941c9b4410765279a1e4abac23b92880",
+  "ordinary_reference_commit": "01eeda3d2ff09822b9422721f75e97fabbc9958a",
+  "optionalHistoryComparedToIndependentPhaseOracle": true,
+  "ordinary90DayReplayExact": true,
+  "ordinaryArchiveSha256": "48165bd081c84bbcd13e427bddf249ca941c9b4410765279a1e4abac23b92880",
+  "source_sha256": "ac119726075abebf96683eb332782a5d55be69e42fe4545a9def0fd8a9ad6d1c"
+}
