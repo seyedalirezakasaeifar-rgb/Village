@@ -1,7 +1,7 @@
 {
   "productionEnabled": false,
   "sourceSha256": "5df42ea1348872ad692a53bfa6ea1081472d1c8783ec9ace2b5cf011bcfb6e20",
-  "workerSha256": "daf12da0940f0c597bb59a72cc05ebdf766a1c6b53db58dbf2fda5fe7c6b7f45",
+  "workerSha256": "167145c7215a2b4a082483f8a51936516d09a566769ddbd67c12456d021d27a8",
   "operations": [
     {
       "operation": "routing",
@@ -24,6 +24,33 @@
       "duplicateAndSchemaRollback": true
     }
   ],
+  "procurementReviews": [
+    {
+      "payload": {
+        "firm": 13,
+        "market": "upland",
+        "good": "timber"
+      },
+      "refusedUnchanged": "Error: The combined milestones exceed shared stock, output, freight cash or handling forecast. Reduce the order or improve capacity."
+    },
+    {
+      "payload": {
+        "firm": 5,
+        "market": "port",
+        "good": "flour"
+      },
+      "refusedUnchanged": "Error: The combined milestones exceed shared stock, output, freight cash or handling forecast. Reduce the order or improve capacity."
+    },
+    {
+      "payload": {
+        "firm": 22,
+        "market": "ridge",
+        "good": "manufactures"
+      },
+      "refusedUnchanged": "Error: The combined milestones exceed shared stock, output, freight cash or handling forecast. Reduce the order or improve capacity."
+    }
+  ],
+  "opaqueReliefChoiceAndRepeatedRefusal": true,
   "absentTargetsRollback": 4,
   "actualUiTested": false,
   "pageErrors": []

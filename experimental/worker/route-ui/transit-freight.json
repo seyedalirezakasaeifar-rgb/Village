@@ -58,5 +58,253 @@
         "as": "integer"
       }
     }
+  },
+  {
+    "event": "click",
+    "selector": "#logisticsRelief",
+    "operation": "relief-review",
+    "fields": {}
+  },
+  {
+    "event": "click",
+    "selector": "[data-trade-cancel]",
+    "operation": "agreement-cancel",
+    "fields": {
+      "id": {
+        "source": "attribute",
+        "name": "data-trade-cancel",
+        "as": "integer"
+      }
+    }
+  },
+  {
+    "event": "click",
+    "selector": "[data-procurement]",
+    "operation": "procurement-review",
+    "fields": {
+      "firm": {
+        "source": "attribute",
+        "name": "data-firm",
+        "as": "integer"
+      },
+      "market": {
+        "source": "attribute",
+        "name": "data-procurement",
+        "as": "string"
+      },
+      "good": {
+        "source": "attribute",
+        "name": "data-good",
+        "as": "string"
+      }
+    }
+  },
+  {
+    "event": "click",
+    "selector": "[data-transit-action=\"new-bus\"]",
+    "operation": "draft-start",
+    "fields": {
+      "mode": {
+        "source": "constant",
+        "value": "bus"
+      },
+      "editing": {
+        "source": "constant",
+        "value": -1
+      }
+    }
+  },
+  {
+    "event": "click",
+    "selector": "[data-transit-action=\"new-elevated\"]",
+    "operation": "draft-start",
+    "fields": {
+      "mode": {
+        "source": "constant",
+        "value": "elevated"
+      },
+      "editing": {
+        "source": "constant",
+        "value": -1
+      }
+    }
+  },
+  {
+    "event": "click",
+    "selector": "[data-transit-action=\"edit\"]",
+    "operation": "draft-start",
+    "fields": {
+      "mode": {
+        "source": "constant",
+        "value": "bus"
+      },
+      "editing": {
+        "source": "attribute",
+        "name": "data-route",
+        "as": "integer"
+      }
+    }
+  },
+  {
+    "event": "click",
+    "selector": "[data-transit-action=\"undo\"]",
+    "operation": "draft-undo",
+    "fields": {}
+  },
+  {
+    "event": "click",
+    "selector": "[data-transit-action=\"quote\"]",
+    "operation": "draft-quote",
+    "fields": {}
+  },
+  {
+    "event": "click",
+    "selector": "[data-transit-action=\"cancel\"]",
+    "operation": "draft-cancel",
+    "fields": {}
+  },
+  {
+    "event": "click",
+    "selector": "[data-transit-action=\"build\"]",
+    "operation": "draft-build",
+    "fields": {}
+  },
+  {
+    "event": "map",
+    "tool": "transit-draft",
+    "operation": "draft-tap",
+    "fields": {
+      "x": {
+        "source": "tile-x",
+        "as": "integer"
+      },
+      "y": {
+        "source": "tile-y",
+        "as": "integer"
+      }
+    }
+  },
+  {
+    "event": "click",
+    "selector": "[data-logistics-cancel]",
+    "operation": "cargo-cancel-review",
+    "fields": {
+      "id": {
+        "source": "attribute",
+        "name": "data-logistics-cancel",
+        "as": "integer"
+      }
+    }
+  },
+  {
+    "event": "click",
+    "selector": "[data-logistics-transfer]",
+    "operation": "cargo-transfer-review",
+    "fields": {
+      "id": {
+        "source": "attribute",
+        "name": "data-logistics-transfer",
+        "as": "integer"
+      }
+    }
+  },
+  {
+    "event": "click",
+    "selector": "[data-trade-offer]",
+    "operation": "offer-review",
+    "fields": {
+      "firm": {
+        "source": "attribute",
+        "name": "data-trade-firm",
+        "as": "integer"
+      },
+      "market": {
+        "source": "attribute",
+        "name": "data-trade-offer",
+        "as": "string"
+      },
+      "good": {
+        "source": "attribute",
+        "name": "data-trade-good",
+        "as": "string"
+      }
+    }
+  },
+  {
+    "event": "click",
+    "selector": "[data-port-freight]",
+    "operation": "port-review",
+    "fields": {
+      "firm": {
+        "source": "attribute",
+        "name": "data-port-freight",
+        "as": "integer"
+      },
+      "dock": {
+        "source": "attribute",
+        "name": "data-port-dock",
+        "as": "integer"
+      },
+      "good": {
+        "source": "attribute",
+        "name": "data-port-good",
+        "as": "string"
+      },
+      "direction": {
+        "source": "attribute",
+        "name": "data-port-direction",
+        "as": "string"
+      }
+    }
+  },
+  {
+    "event": "click",
+    "selector": "[data-transit-action=\"map\"]",
+    "operation": "draft-map",
+    "fields": {}
+  },
+  {
+    "event": "click",
+    "selector": "[data-transit-level]",
+    "operation": "level",
+    "fields": {
+      "key": {
+        "source": "attribute",
+        "name": "data-transit-level",
+        "as": "string"
+      }
+    }
+  },
+  {
+    "event": "change",
+    "selector": "#transitDepot",
+    "operation": "draft-config",
+    "fields": {
+      "field": {
+        "source": "constant",
+        "value": "depot"
+      },
+      "value": {
+        "source": "input",
+        "selector": "#transitDepot",
+        "as": "integer"
+      }
+    }
+  },
+  {
+    "event": "change",
+    "selector": "#transitLevel",
+    "operation": "draft-config",
+    "fields": {
+      "field": {
+        "source": "constant",
+        "value": "level"
+      },
+      "value": {
+        "source": "input",
+        "selector": "#transitLevel",
+        "as": "integer"
+      }
+    }
   }
 ]
