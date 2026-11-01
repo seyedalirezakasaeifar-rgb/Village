@@ -32,14 +32,14 @@
   ],
   "timing": {
     "sync": {
-      "ms": 394.19999999925494,
-      "daysPerSecond": 152.2070015223577,
-      "maxMainTimerGap": 583.3999999985099
+      "ms": 364.29999999701977,
+      "daysPerSecond": 164.69942355336494,
+      "maxMainTimerGap": 553
     },
     "worker": {
-      "ms": 416.6000000014901,
-      "daysPerSecond": 144.02304368647478,
-      "maxMainTimerGap": 21.5
+      "ms": 436.19999999552965,
+      "daysPerSecond": 137.5515818446009,
+      "maxMainTimerGap": 9.700000002980232
     }
   },
   "sourceSha256": "2b2f14477099ee7a3c4a2f34bc590714c5163d4db358fee7f9bd7288e590b0d7",

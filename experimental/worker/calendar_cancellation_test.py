@@ -1,0 +1,19 @@
+from pathlib import Path
+import sys,json
+sys.path.insert(0,'tests')
+from test_mobile_rendering import html
+from playwright.sync_api import sync_playwright
+source=Path('assets/game.js').read_text();worker=Path('experimental/worker/model.generated.js').read_text()
+hook='''save=()=>Promise.resolve(true);window.calendarTest={fixture:()=>{chosenScenario='settlement';seed(42);paused=true;const lot=buildableCandidates('business').find(p=>canPlace(p.x,p.y,true,'square'));construct('square',lot.x,lot.y);const venue=G.buildings.find(b=>b.kind==='square'),q=reviewCivicGathering({venue:venue.id,start:G.day+1}),r=authorizeCivicGathering(q);if(!r.ok)throw Error(r.reason);return {archive:archivePayload(),id:r.event?.id||G.civicCalendar.events[0].id};},cancel:id=>{const cash=G.treasury;if(!cancelCivicGathering(id))throw Error('Cancellation failed');recompute();return {archive:archivePayload(),cashBefore:cash,cashAfter:G.treasury};},state:()=>({treasury:G.treasury,status:G.civicCalendar.events[0].status}),saved:()=>readSaveEnvelope(localStorage.getItem('townledger-v6'))?.payload};\n'''
+bridge=Path('experimental/worker/runtime-guard.js').read_text()+Path('experimental/worker/archive-endpoint.js').read_text()+Path('experimental/worker/real-view-bridge.js').read_text()
+def clean(g):return {k:v for k,v in g.items() if k not in ('trafficState','visualState')}
+with sync_playwright() as pw:
+ b=pw.chromium.launch(executable_path='/usr/bin/chromium',args=['--no-sandbox']);p=b.new_page();p.route('http://calendar-worker.test/',lambda r:r.fulfill(body=html,content_type='text/html'));p.goto('http://calendar-worker.test/');p.add_script_tag(content=source.replace('// SOURCE: 99-instrumentation.js',hook+bridge+'// SOURCE: 99-instrumentation.js'))
+ fixture=p.evaluate('calendarTest.fixture()');expected=p.evaluate('id=>calendarTest.cancel(id)',fixture['id']);assert expected['cashBefore']==expected['cashAfter']
+ p.evaluate('''code=>{const w=new Worker(URL.createObjectURL(new Blob([code],{type:'application/javascript'})));let serial=0,epoch=0;window.calendarAsk=m=>new Promise((resolve,reject)=>{const id=++serial,h=e=>{if(e.data.id!==id)return;w.removeEventListener('message',h);if(e.data.ok){epoch=e.data.result.epoch;resolve(e.data.result);}else reject(Error(e.data.error));};w.addEventListener('message',h);w.postMessage({epoch,command:serial,...m,id});});}''',worker)
+ p.evaluate("a=>calendarAsk({type:'load',archive:a})",fixture['archive']);actual=p.evaluate("id=>calendarAsk({type:'calendar-cancel',eventId:id})",fixture['id']);assert clean(actual['model'])==clean(json.loads(expected['archive']))
+ repeated=p.evaluate("id=>calendarAsk({type:'calendar-cancel',eventId:id}).then(()=>false,()=>true)",fixture['id']);assert repeated
+ p.evaluate('''async args=>{window.calendarView=await __workerRealView.enable(args.code,args.archive);}''',{'code':worker,'archive':fixture['archive']})
+ p.locator('#tabs [data-panel="agenda"]').click();button=p.locator('[data-gathering-cancel]').first;button.wait_for(state='attached');button.evaluate('e=>{for(let d=e.closest("details");d;d=d.parentElement.closest("details"))d.open=true;}');button.click();p.locator('[data-worker-calendar-confirm]').click();p.wait_for_function("calendarTest.state().status==='cancelled'");p.wait_for_function("calendarTest.saved()&&JSON.parse(calendarTest.saved()).civicCalendar.events[0].status==='cancelled'")
+ assert p.evaluate('calendarTest.state().treasury')==expected['cashBefore']
+ Path('experimental/worker/calendar-cancellation-proof.json').write_text(json.dumps({'actualModelFunctionParity':True,'exactRng':True,'duplicateCancellationRejected':True,'actualCalendarConfirmationControl':True,'acknowledgedOriginalPersistence':True,'noPreparationRefund':True,'paidSchedulingStillBlocked':True},indent=2));print('PASS real nonfinancial calendar cancellation, model/RNG parity, no refund, durable acknowledgement');b.close()

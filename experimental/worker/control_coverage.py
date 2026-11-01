@@ -9,7 +9,7 @@ with sync_playwright() as pw:
  b=pw.chromium.launch(executable_path='/usr/bin/chromium',args=['--no-sandbox']);p=b.new_page();errors=[];p.on('pageerror',lambda e:errors.append(e.stack));p.route('http://worker-real.test/',lambda r:r.fulfill(body=html,content_type='text/html'));p.goto('http://worker-real.test/');p.add_script_tag(content=Path('assets/game.js').read_text().replace('// SOURCE: 99-instrumentation.js',bridge+'// SOURCE: 99-instrumentation.js'))
  p.evaluate('''async args=>{window.real=await __workerRealView.enable(args.code,args.archive);}''',{'code':Path('experimental/worker/model.generated.js').read_text(),'archive':archive})
  rows=[]
- selectors=['#borrow','#repay','#toggleDevelopment','[data-private-invite]','[data-parcel-buy]','[data-civic-project-build]','[data-bridge-remove]','[data-bridge-repair]','[data-trade-offer]','[data-logistics-priority]','[data-civic-recharter]','[data-brownfield-action]']
+ selectors=['[data-procurement]','#borrow','#repay','#toggleDevelopment','[data-private-invite]','[data-parcel-buy]','[data-civic-project-build]','[data-bridge-remove]','[data-bridge-repair]','[data-trade-offer]','[data-logistics-priority]','[data-civic-recharter]','[data-brownfield-action]']
  for tab in ['overview','economy','construction','agenda','treasury','banking','businesses','citizens','journal','settings','community','policies']:
   buttons=p.locator('#tabs [data-panel="'+tab+'"]')
   if not buttons.count():continue

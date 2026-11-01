@@ -1,0 +1,7 @@
+{
+  "actualOriginalFunctionParity": true,
+  "exactRng": true,
+  "freeInitialCharterNoCashChange": true,
+  "paidRezoneExplicitlyRefused": true,
+  "refusalPreservesFullModel": true
+}

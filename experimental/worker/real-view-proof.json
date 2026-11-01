@@ -2,7 +2,7 @@
   "realRendererFrozenSnapshot": true,
   "trustedStepPolicyCouncilSaveButtons": true,
   "actualConstructionAndInspection": true,
-  "unsupportedRestartBlocked": true,
+  "restartReviewCancelPreservesTown": true,
   "sourceEpochLoadAvailable": true,
   "productionEnvelopeReadback": true,
   "concurrentSaveCallersOneRevision": true,

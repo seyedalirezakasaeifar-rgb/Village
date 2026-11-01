@@ -1,0 +1,47 @@
+{
+  "sourceSha256": "2b2f14477099ee7a3c4a2f34bc590714c5163d4db358fee7f9bd7288e590b0d7",
+  "rows": [
+    {
+      "scenario": "settlement",
+      "seedDecimal": "42",
+      "exactModelRng": true,
+      "population": 169,
+      "rngDecimal": "3224482224"
+    },
+    {
+      "scenario": "settlement",
+      "seedDecimal": "4294967295",
+      "exactModelRng": true,
+      "population": 169,
+      "rngDecimal": "2649011408"
+    },
+    {
+      "scenario": "hardtimes",
+      "seedDecimal": "42",
+      "exactModelRng": true,
+      "population": 169,
+      "rngDecimal": "3224482224"
+    },
+    {
+      "scenario": "frontier",
+      "seedDecimal": "42",
+      "exactModelRng": true,
+      "population": 96,
+      "rngDecimal": "2012999653"
+    },
+    {
+      "scenario": "industrial",
+      "seedDecimal": "42",
+      "exactModelRng": true,
+      "population": 169,
+      "rngDecimal": "3224482224"
+    },
+    {
+      "scenario": "regional",
+      "seedDecimal": "42",
+      "exactModelRng": true,
+      "population": 657,
+      "rngDecimal": "1311457050"
+    }
+  ]
+}

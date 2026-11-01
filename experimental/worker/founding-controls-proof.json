@@ -1,0 +1,10 @@
+{
+  "actualRestartConfirmationAndCancel": true,
+  "invalidSeedPreservesActiveTown": true,
+  "actualScenarioPickerAndFoundButton": true,
+  "newEpochAndCanonicalPersistence": true,
+  "newScenario": "frontier",
+  "population": 96,
+  "source": "d2b7086",
+  "realtimeRemainsPaused": true
+}

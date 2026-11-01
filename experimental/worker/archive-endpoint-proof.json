@@ -1,11 +1,14 @@
 {
+  "staleSessionRejectedBeforeIdConsumption": true,
   "delayedReply": true,
   "duplicateRejected": true,
   "cancelledSaveNoWrites": true,
   "oldEpochSaveAfterRestoreRejected": true,
   "replies": [
     {
+      "session": null,
       "id": 1,
+      "op": "export",
       "ok": true,
       "epoch": 1,
       "admitted": false,
@@ -15,7 +18,9 @@
       }
     },
     {
+      "session": null,
       "id": 2,
+      "op": "save",
       "ok": false,
       "epoch": 1,
       "admitted": false,
@@ -24,7 +29,9 @@
       "error": "CANCELLED"
     },
     {
+      "session": null,
       "id": 3,
+      "op": "restore",
       "ok": true,
       "epoch": 2,
       "admitted": true,
@@ -34,7 +41,9 @@
       }
     },
     {
+      "session": null,
       "id": 4,
+      "op": "save",
       "ok": false,
       "epoch": 2,
       "admitted": false,

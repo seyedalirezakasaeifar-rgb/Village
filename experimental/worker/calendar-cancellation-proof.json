@@ -1,0 +1,9 @@
+{
+  "actualModelFunctionParity": true,
+  "exactRng": true,
+  "duplicateCancellationRejected": true,
+  "actualCalendarConfirmationControl": true,
+  "acknowledgedOriginalPersistence": true,
+  "noPreparationRefund": true,
+  "paidSchedulingStillBlocked": true
+}

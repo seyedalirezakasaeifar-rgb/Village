@@ -1,7 +1,7 @@
 {
   "sourceCommit": "d2b7086187621ae8c3c147fc3c04764efaadf49d",
   "handlerEntryCount": 101,
-  "routedCommandCount": 12,
+  "routedCommandCount": 21,
   "routedCommandKeys": [
     "visit-panel",
     "mayor-guide",
@@ -14,7 +14,16 @@
     "step:manual",
     "archive:export",
     "archive:restore",
-    "archive:save"
+    "archive:save",
+    "archive:found",
+    "calendar-cancel",
+    "district-initial-focus",
+    "district-report",
+    "calendar-report",
+    "transit-report",
+    "cargo-report",
+    "convene",
+    "defer"
   ],
   "routingIsNotPaidRootCertification": true,
   "viewGroups": [
@@ -32,7 +41,7 @@
     "trip close",
     "read-only reports"
   ],
-  "blockedPendingCount": 69,
+  "blockedPendingCount": 61,
   "blockedPendingByFamily": {
     "paid core": [
       "construct:site",
@@ -46,8 +55,6 @@
       "data-private-invite"
     ],
     "council/custom reviews": [
-      "convene",
-      "eventDefer",
       "data-mayor-direction",
       "data-mayor-baseline",
       "data-situation-choice",
@@ -56,8 +63,7 @@
     "land/district/renewal": [
       "data-parcel-buy",
       "regionalApproaches",
-      "data-district-review",
-      "data-district-focus",
+      "data-district-focus:paid-rezone",
       "data-district-admission",
       "data-district-finish",
       "data-district-budget",
@@ -107,15 +113,9 @@
       "data-port-freight"
     ],
     "calendar": [
-      "data-gathering-review",
-      "data-gathering-cancel"
+      "data-gathering-review"
     ],
-    "founding/legacy archive UI": [
-      "newTown",
-      "continue",
-      "restart",
-      "recoverAutosave"
-    ],
+    "founding/legacy archive UI": [],
     "realtime/native admission": [
       "pause",
       "speed",
@@ -132,6 +132,10 @@
   "additionalOriginalControlAliasesRouted": [
     "backupSave",
     "importSave",
-    "restoreGo"
+    "restoreGo",
+    "newTown",
+    "continue",
+    "restart",
+    "recoverAutosave"
   ]
 }
