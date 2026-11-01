@@ -1,7 +1,7 @@
 {
-  "sourceCommit": "d2b7086187621ae8c3c147fc3c04764efaadf49d",
+  "sourceCommit": "7233d8d17178307a5ebea5eb7cc106f14e42df66",
   "handlerEntryCount": 101,
-  "routedCommandCount": 21,
+  "routedCommandCount": 24,
   "routedCommandKeys": [
     "visit-panel",
     "mayor-guide",
@@ -23,7 +23,10 @@
     "transit-report",
     "cargo-report",
     "convene",
-    "defer"
+    "defer",
+    "prepare-panel",
+    "close-view",
+    "private-provider"
   ],
   "routingIsNotPaidRootCertification": true,
   "viewGroups": [
@@ -41,7 +44,7 @@
     "trip close",
     "read-only reports"
   ],
-  "blockedPendingCount": 61,
+  "blockedPendingCount": 60,
   "blockedPendingByFamily": {
     "paid core": [
       "construct:site",
@@ -51,8 +54,7 @@
       "borrow",
       "repay",
       "toggleDevelopment",
-      "data-ambition",
-      "data-private-invite"
+      "data-ambition"
     ],
     "council/custom reviews": [
       "data-mayor-direction",

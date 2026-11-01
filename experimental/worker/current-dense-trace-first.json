@@ -1,0 +1,183 @@
+{
+  "sourceSha256": "6ed9d208b0112e4e360f40ef21063b68c519aefd9df3e1b39071c02c78e22a02",
+  "workerSha256": "6f05643241f82355b1ca7e56056cef300d906b8bbb5ba0f3fcea243b4eb8a5bd",
+  "fixtureSha256": "ad6256fd85d4146fda9eeac0b16d5b182ed352c23bbd96af3b320553c29ce786",
+  "population": 778,
+  "fullModelRngEqual": true,
+  "productionAdmissionOwner": false,
+  "snapshotCadence": "one full snapshot per31-day batch, not realtime acceptance",
+  "trustedInput": "four actual map pans per matched run",
+  "rows": [
+    {
+      "rep": 0,
+      "mode": "sync",
+      "days": 31,
+      "elapsedMs": 1429.3999999985099,
+      "workerRequestMs": null,
+      "workerProfile": null,
+      "frameMs": {
+        "n": 145,
+        "p95": 16.800000000000182,
+        "max": 1416.6999999999998
+      },
+      "handlerDelayMs": {
+        "n": 4,
+        "p95": 1.3999999985098839,
+        "max": 1.3999999985098839
+      },
+      "inputToRafMs": {
+        "n": 4,
+        "p95": 18.600000001490116,
+        "max": 18.600000001490116
+      },
+      "heapObservedBytes": 74684094,
+      "pageErrors": []
+    },
+    {
+      "rep": 0,
+      "mode": "worker",
+      "days": 31,
+      "elapsedMs": 1597.3999999985099,
+      "workerRequestMs": 1508.6000000014901,
+      "workerProfile": {
+        "tickMs": 1456.7999999597669,
+        "snapshotMs": 72.20000000298023,
+        "snapshots": 2,
+        "stringifyMs": 49.70000000298023,
+        "parseMs": 22.5,
+        "postMs": 14.199999995529652
+      },
+      "frameMs": {
+        "n": 223,
+        "p95": 16.800000000000182,
+        "max": 516.7000000000003
+      },
+      "handlerDelayMs": {
+        "n": 4,
+        "p95": 0.5,
+        "max": 0.5
+      },
+      "inputToRafMs": {
+        "n": 4,
+        "p95": 30.299999997019768,
+        "max": 30.299999997019768
+      },
+      "heapObservedBytes": 71773014,
+      "pageErrors": []
+    },
+    {
+      "rep": 1,
+      "mode": "sync",
+      "days": 31,
+      "elapsedMs": 1493.5,
+      "workerRequestMs": null,
+      "workerProfile": null,
+      "frameMs": {
+        "n": 156,
+        "p95": 16.700000000000728,
+        "max": 1483.4
+      },
+      "handlerDelayMs": {
+        "n": 4,
+        "p95": 2,
+        "max": 2
+      },
+      "inputToRafMs": {
+        "n": 4,
+        "p95": 19,
+        "max": 19
+      },
+      "heapObservedBytes": 73061569,
+      "pageErrors": []
+    },
+    {
+      "rep": 1,
+      "mode": "worker",
+      "days": 31,
+      "elapsedMs": 1538.7000000029802,
+      "workerRequestMs": 1452.8999999985099,
+      "workerProfile": {
+        "tickMs": 1410.9000000059605,
+        "snapshotMs": 66.70000000298023,
+        "snapshots": 2,
+        "stringifyMs": 44.600000001490116,
+        "parseMs": 22,
+        "postMs": 11.300000004470348
+      },
+      "frameMs": {
+        "n": 233,
+        "p95": 16.799999999999955,
+        "max": 516.7000000000003
+      },
+      "handlerDelayMs": {
+        "n": 4,
+        "p95": 2.899999998509884,
+        "max": 2.899999998509884
+      },
+      "inputToRafMs": {
+        "n": 4,
+        "p95": 36.69999999552965,
+        "max": 36.69999999552965
+      },
+      "heapObservedBytes": 58270974,
+      "pageErrors": []
+    },
+    {
+      "rep": 2,
+      "mode": "sync",
+      "days": 31,
+      "elapsedMs": 1511.8000000044703,
+      "workerRequestMs": null,
+      "workerProfile": null,
+      "frameMs": {
+        "n": 166,
+        "p95": 16.799999999999727,
+        "max": 1499.8999999999999
+      },
+      "handlerDelayMs": {
+        "n": 4,
+        "p95": 2,
+        "max": 2
+      },
+      "inputToRafMs": {
+        "n": 4,
+        "p95": 19.600000001490116,
+        "max": 19.600000001490116
+      },
+      "heapObservedBytes": 43104498,
+      "pageErrors": []
+    },
+    {
+      "rep": 2,
+      "mode": "worker",
+      "days": 31,
+      "elapsedMs": 1599.6999999955297,
+      "workerRequestMs": 1511.6000000014901,
+      "workerProfile": {
+        "tickMs": 1466.2999999970198,
+        "snapshotMs": 67.89999999850988,
+        "snapshots": 2,
+        "stringifyMs": 46.400000005960464,
+        "parseMs": 21.49999999254942,
+        "postMs": 12.399999998509884
+      },
+      "frameMs": {
+        "n": 241,
+        "p95": 16.799999999999727,
+        "max": 516.6999999999998
+      },
+      "handlerDelayMs": {
+        "n": 4,
+        "p95": 0.8999999985098839,
+        "max": 0.8999999985098839
+      },
+      "inputToRafMs": {
+        "n": 4,
+        "p95": 32.899999998509884,
+        "max": 32.899999998509884
+      },
+      "heapObservedBytes": 36057956,
+      "pageErrors": []
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+# Authoritative model panel ordering
+
+Follow-up to disabled lifecycle candidate459d750. Model panels now use the original `panelContents` inside the worker. Main-thread model panel generation is replaced by a sequential queue of `prepare-panel` commands; every admitted preview retains its actual source call and RNG effects. Typed context accepts only known panels, validated selection/filter/category fields and bounded policy draft fields. It never assigns arbitrary globals or accepts callbacks/source.
+
+Host snapshots stay frozen. Panel effects install already generated HTML, preserving scroll. Navigation close also sends a causal `close-view` command, including the originally bound close button. Worker-originated navigation publishes active panel/selection before markup. Queued views from an old adoption epoch are discarded before admission. A panel effect for a no-longer-visible tab does not overwrite the current tab. Existing policy-package replies already contain the source render, so the bridge does not request a duplicate render after enactment.
+
+Settings and trip remain explicit local presentation panels: device audio/options and current visual trip inspection remain main-thread owned. The actual settings control is checked to preserve canonical model/RNG. This is not a declaration that all UI interactions are routed.
+
+`panel_ordering_test.py` compares14 ordered panel previews (12 model panel kinds, repeated construction/agenda), including search/filter/draft/inspection context, with exact original host HTML, full model and RNG. It also exercises actual tab, cabinet draft, close and private-provider buttons. Without an owner the provider button and raw construction refuse without changing model/RNG. Status always reports production admission uncertified; normal bundle excludes the reference owner.
+
+Provider UI now invokes the existing serializable shared-root dispatcher, rather than a second paid path. It remains unavailable in the default build until an approved owner is installed. Remaining unsupported paid families are still explicitly refused. Production startup and realtime worker admission remain disabled.
+
+`current-dense-trace-first.json` retains an initial timing diagnostic. Its browser wait delayed the driver's first input until after the synchronous stall; those input values are not a matched responsiveness comparison. The corrected harness uses a driver-side120ms wait and positions the pointer before starting the model batch. The final trace records candidate/source/worker/bridge hashes. Full snapshot cadence is deliberately disclosed as once per31-day batch; this is a bounded model/render diagnostic, not realtime worker gameplay acceptance.
