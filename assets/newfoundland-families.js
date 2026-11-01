@@ -10,7 +10,7 @@ export function newfoundlandFamily(b,state){
   // These cues are authored by the model's urbanBuildingDescriptor, not a
   // second renderer-side income or district classifier. Old saves use a
   // neutral timber form until the authoritative projection is available.
-  const cue=b.architecture?.buildingCue;
+  const cue=state.districtSemanticsAccepted?b.architecture?.buildingCue:undefined;
   if(cue==='nl-historic-town-row')return 'downtown-row';
   if(cue==='nl-outport-house')return 'coastal-saltbox';
   if(cue==='nl-new-suburb-house')return b.id%2?'suburban-cape':'suburban-bungalow';

@@ -1,5 +1,5 @@
 {
-  "sourceSha256": "b8931e5fcb44b511636d55f3d4b79b2d8c2f497e639213e64930032497cf7587",
+  "sourceSha256": "985c89a8715fdc51f1f75cfef39c17bd8f6378e4c5fbedeba389c944b08fa090",
   "fixture": "real purchased East Meadow/paid60grain import; closed view directly stresses condition20",
   "cargo": {
     "id": 1,
@@ -116,6 +116,7 @@
     ]
   },
   "pausedPixelsIdentical": true,
+  "actualRenderedCargoClickOpensOwnedLedger": true,
   "projectionStateInvariant": true,
   "farAgentWork": 0,
   "busyGuard": true,

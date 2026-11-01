@@ -28,9 +28,10 @@ export function newfoundlandBuilding(b,{state,scene,box}){
  for(const u of [-W/2+.018,W/2-.018]){local(u,H/2+.17,D/2+.02,.035,H,.03,trim);local(u,H/2+.17,-D/2-.015,.035,H,.03,trim);}
  for(const [side,attached] of [[-1,left],[1,right]])if(attached){const reach=(localW-W)/2;local(side*(localW/2-reach/2),H/2+.17,0,reach,H,D,'clap:'+color);local(side*(localW/2-.025),H+.23,0,.05,.10,D+.08,trim);}
  local(0,H+.19,0,Math.min(W+.08,localW*.99),.075,D+.10,trim);local(0,H+.25,0,Math.min(W+.10,localW*.99),.055,D+.12,'#66716a');meshRoof(0,H+.27,0,Math.min(W+.08,localW*.99),D+.11,.34,family==='coastal-saltbox'?'saltbox':['suburban-cape','compact-timber'].includes(family)?'gable':family==='rural-biscuitbox'?'flat':b.id%3?'mansard':'hip');
- function window(u,y,v,width=.20,height=.29){local(u,y,v,width+.045,height+.05,.035,trim);local(u,y+.005,v+.025,width,height,.025,'#37596c',.26);local(u,y,v+.044,.014,height,.012,trim);local(u,y,v+.047,width,.014,.012,trim);local(u,y-height/2-.035,v+.04,width+.07,.035,.075,trim);local(u,y+height/2+.035,v+.025,width+.065,.035,.045,trim);}
+ function window(u,y,v,width=.20,height=.29,side=1){local(u,y,v,width+.045,height+.05,.035,trim);local(u,y+.005,v+side*.025,width,height,.025,'#37596c',.26);local(u,y,v+side*.044,.014,height,.012,trim);local(u,y,v+side*.047,width,.014,.012,trim);local(u,y-height/2-.035,v+side*.04,width+.07,.035,.075,trim);local(u,y+height/2+.035,v+side*.025,width+.065,.035,.045,trim);}
  for(let f=0;f<floors;f++)for(const u of [-W*.24,W*.24])if(f||u<0)window(u,.48+f*.55,D/2+.035);
  for(const [side,attached] of [[-1,left],[1,right]])if(!attached)for(let f=0;f<floors;f++)for(const v of [-D*.22,D*.22]){const y=.48+f*.55;local(side*(W/2+.018),y,v,.03,.28,.19,trim);local(side*(W/2+.038),y,v,.02,.22,.13,'#37596c',.26);local(side*(W/2+.054),y,v,.012,.012,.13,trim);}
+ for(let f=0;f<floors;f++)for(const u of [-W*.24,W*.24])window(u,.48+f*.55,-D/2-.035,.18,.25,-1);
  // Distinct doorway, transom, stone steps and slender handrails all stay on plot.
  const doorU=W*.24;local(doorU,.40,D/2+.035,.22,.48,.055,trim);local(doorU,.39,D/2+.07,.16,.40,.025,'#394d4b');local(doorU,.65,D/2+.08,.16,.085,.025,'#708b91',.3);local(doorU+.055,.38,D/2+.09,.018,.018,.018,'#c3a464',.45);
  for(let k=0;k<3;k++)local(doorU,.035+k*.04,D/2+.12-k*.035,.28,.07+k*.055,.08,'#aaa99b');
