@@ -1,0 +1,44 @@
+[
+  {
+    "browserRoundTripMs": 1592.5,
+    "workerRequestMs": 1565.199999999255,
+    "transferAndDispatchMs": 27.10009765625,
+    "profile": {
+      "tickMs": 1428.2999999932945,
+      "snapshotMs": 57.5,
+      "snapshots": 2,
+      "stringifyMs": 37.600000001490116,
+      "parseMs": 19.899999998509884,
+      "postMs": 9.300000000745058
+    },
+    "mainApplication": {
+      "applyMs": 0,
+      "drawMedianMs": 0.19999999925494194,
+      "drawP95Ms": 0.30000000074505806
+    },
+    "syncTickMs": 1391.2999999970198,
+    "projection": false,
+    "exactModelRng": true
+  },
+  {
+    "browserRoundTripMs": 1099.6000000014901,
+    "workerRequestMs": 1098.1000000014901,
+    "transferAndDispatchMs": 1.300048828125,
+    "profile": {
+      "tickMs": 986.3000000044703,
+      "snapshotMs": 31.700000002980232,
+      "snapshots": 2,
+      "stringifyMs": 20.100000001490116,
+      "parseMs": 11.300000000745058,
+      "postMs": 10
+    },
+    "mainApplication": {
+      "applyMs": 0,
+      "drawMedianMs": 0.29999999701976776,
+      "drawP95Ms": 0.6000000014901161
+    },
+    "syncTickMs": 962.8999999985099,
+    "projection": true,
+    "exactModelRng": true
+  }
+]
