@@ -1,0 +1,500 @@
+{
+  "diagnostic_set_content_origin": {
+    "origin": "null",
+    "save": {
+      "origin": "null",
+      "storage": "SecurityError: Failed to read the 'localStorage' property from 'Window': Access is denied for this document.",
+      "autoSaveOK": false,
+      "bridges": 0,
+      "tiles": null,
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15496978,
+        "population": 169,
+        "day": 1
+      },
+      "day": 1,
+      "shipments": []
+    },
+    "toast": "On-device saving is unavailable. Export a backup before leaving.",
+    "toastDisplay": "block"
+  },
+  "http_page_origin": "http://127.0.0.1:8766/index.html",
+  "save_ok_before_reload": true,
+  "saved_bridge_reloaded": {
+    "origin": "http://127.0.0.1:8766",
+    "storage": true,
+    "autoSaveOK": true,
+    "bridges": 1,
+    "tiles": [
+      4,
+      4,
+      4,
+      4,
+      4
+    ],
+    "valid": {
+      "ok": true,
+      "issues": [],
+      "total": 15493517,
+      "population": 171,
+      "day": 1
+    },
+    "day": 1,
+    "shipments": [
+      {
+        "id": 1,
+        "stage": "origin-loading"
+      }
+    ]
+  },
+  "save_ok_after_crossing": true,
+  "reload_after_crossing": {
+    "origin": "http://127.0.0.1:8766",
+    "storage": true,
+    "autoSaveOK": true,
+    "bridges": 1,
+    "tiles": [
+      4,
+      4,
+      4,
+      4,
+      4
+    ],
+    "valid": {
+      "ok": true,
+      "issues": [],
+      "total": 15493516.999999925,
+      "population": 171,
+      "day": 6
+    },
+    "day": 6,
+    "shipments": [
+      {
+        "id": 1,
+        "stage": "delivering"
+      },
+      {
+        "id": 2,
+        "stage": "delivering"
+      },
+      {
+        "id": 10,
+        "stage": "delivering"
+      },
+      {
+        "id": 16,
+        "stage": "delivering"
+      },
+      {
+        "id": 32,
+        "stage": "delivering"
+      },
+      {
+        "id": 35,
+        "stage": "delivering"
+      },
+      {
+        "id": 4,
+        "stage": "outside"
+      },
+      {
+        "id": 5,
+        "stage": "collecting"
+      },
+      {
+        "id": 13,
+        "stage": "collecting"
+      },
+      {
+        "id": 20,
+        "stage": "delivering"
+      },
+      {
+        "id": 50,
+        "stage": "outside"
+      },
+      {
+        "id": 53,
+        "stage": "outside"
+      },
+      {
+        "id": 7,
+        "stage": "outside"
+      },
+      {
+        "id": 9,
+        "stage": "outside"
+      },
+      {
+        "id": 12,
+        "stage": "outside"
+      },
+      {
+        "id": 15,
+        "stage": "outside"
+      },
+      {
+        "id": 17,
+        "stage": "outside"
+      },
+      {
+        "id": 18,
+        "stage": "outside"
+      },
+      {
+        "id": 19,
+        "stage": "outside"
+      },
+      {
+        "id": 22,
+        "stage": "outside"
+      },
+      {
+        "id": 23,
+        "stage": "collecting"
+      },
+      {
+        "id": 29,
+        "stage": "collecting"
+      },
+      {
+        "id": 37,
+        "stage": "outside"
+      },
+      {
+        "id": 39,
+        "stage": "outside"
+      },
+      {
+        "id": 61,
+        "stage": "outside"
+      },
+      {
+        "id": 63,
+        "stage": "outside"
+      },
+      {
+        "id": 3,
+        "stage": "outside"
+      },
+      {
+        "id": 6,
+        "stage": "outside"
+      },
+      {
+        "id": 8,
+        "stage": "outside"
+      },
+      {
+        "id": 11,
+        "stage": "outside"
+      },
+      {
+        "id": 14,
+        "stage": "outside"
+      },
+      {
+        "id": 21,
+        "stage": "outside"
+      },
+      {
+        "id": 24,
+        "stage": "outside"
+      },
+      {
+        "id": 25,
+        "stage": "outside"
+      },
+      {
+        "id": 26,
+        "stage": "outside"
+      },
+      {
+        "id": 27,
+        "stage": "outside"
+      },
+      {
+        "id": 28,
+        "stage": "outside"
+      },
+      {
+        "id": 30,
+        "stage": "outside"
+      },
+      {
+        "id": 31,
+        "stage": "outside"
+      },
+      {
+        "id": 33,
+        "stage": "outside"
+      },
+      {
+        "id": 34,
+        "stage": "outside"
+      },
+      {
+        "id": 36,
+        "stage": "outside"
+      },
+      {
+        "id": 38,
+        "stage": "outside"
+      },
+      {
+        "id": 41,
+        "stage": "outside"
+      },
+      {
+        "id": 42,
+        "stage": "outside"
+      },
+      {
+        "id": 47,
+        "stage": "outside"
+      },
+      {
+        "id": 55,
+        "stage": "outside"
+      },
+      {
+        "id": 69,
+        "stage": "outside"
+      },
+      {
+        "id": 40,
+        "stage": "outside"
+      },
+      {
+        "id": 43,
+        "stage": "outside"
+      },
+      {
+        "id": 44,
+        "stage": "outside"
+      },
+      {
+        "id": 45,
+        "stage": "outside"
+      },
+      {
+        "id": 46,
+        "stage": "outside"
+      },
+      {
+        "id": 48,
+        "stage": "outside"
+      },
+      {
+        "id": 49,
+        "stage": "outside"
+      },
+      {
+        "id": 51,
+        "stage": "outside"
+      },
+      {
+        "id": 52,
+        "stage": "outside"
+      },
+      {
+        "id": 54,
+        "stage": "outside"
+      },
+      {
+        "id": 56,
+        "stage": "outside"
+      },
+      {
+        "id": 57,
+        "stage": "outside"
+      },
+      {
+        "id": 58,
+        "stage": "outside"
+      },
+      {
+        "id": 62,
+        "stage": "collecting"
+      },
+      {
+        "id": 66,
+        "stage": "outside"
+      },
+      {
+        "id": 70,
+        "stage": "outside"
+      },
+      {
+        "id": 59,
+        "stage": "outside"
+      },
+      {
+        "id": 60,
+        "stage": "outside"
+      },
+      {
+        "id": 64,
+        "stage": "outside"
+      },
+      {
+        "id": 65,
+        "stage": "outside"
+      },
+      {
+        "id": 67,
+        "stage": "outside"
+      },
+      {
+        "id": 68,
+        "stage": "outside"
+      },
+      {
+        "id": 71,
+        "stage": "collecting"
+      },
+      {
+        "id": 72,
+        "stage": "origin-loading"
+      },
+      {
+        "id": 73,
+        "stage": "origin-loading"
+      },
+      {
+        "id": 74,
+        "stage": "origin-loading"
+      },
+      {
+        "id": 75,
+        "stage": "origin-loading"
+      },
+      {
+        "id": 76,
+        "stage": "origin-loading"
+      },
+      {
+        "id": 77,
+        "stage": "origin-loading"
+      },
+      {
+        "id": 78,
+        "stage": "origin-loading"
+      },
+      {
+        "id": 79,
+        "stage": "origin-loading"
+      }
+    ]
+  },
+  "crossing_after_reload": {
+    "ok": true,
+    "day": 6,
+    "fraction": 0.5000000000000001,
+    "actor": {
+      "x": 6454.471910112359,
+      "y": 1478.2359550561798
+    },
+    "projection": {
+      "distance": 2.2737367544323206e-13,
+      "t": 0.2244069912609226
+    },
+    "shipment": {
+      "id": 1,
+      "stage": "delivering",
+      "path": [
+        27,
+        155,
+        283,
+        411,
+        539,
+        667,
+        795,
+        923,
+        1051,
+        1179,
+        1307,
+        1435,
+        1563,
+        1691,
+        1692,
+        1693,
+        1694,
+        1695,
+        1696,
+        1697,
+        1698,
+        1699,
+        1700,
+        1701,
+        1702,
+        1703,
+        1704,
+        1705,
+        1706,
+        1707,
+        1835,
+        1963,
+        1964,
+        1965,
+        1966,
+        1967,
+        1968,
+        1969,
+        1970,
+        1971,
+        1972,
+        1973,
+        1974,
+        1975,
+        1976,
+        1977,
+        1978,
+        1979,
+        1980,
+        1981,
+        1982,
+        1983,
+        1984,
+        1985,
+        1986,
+        1987,
+        1988,
+        1989,
+        1990,
+        1991,
+        1992
+      ]
+    }
+  },
+  "screen": {
+    "span": 5,
+    "panelVisible": false,
+    "statusExpanded": "false",
+    "townHall": 1,
+    "zoom": 1,
+    "crossingTruck": {
+      "id": 1,
+      "x": 6454.471910112359,
+      "y": 1478.2359550561798
+    }
+  },
+  "closed": {
+    "condition": 24.75000000000042,
+    "closed": true,
+    "water": true,
+    "days": 215,
+    "totalUnchanged": true,
+    "treasury": 0
+  },
+  "console_errors": [],
+  "source_sha256": "2bc6ed1cdec4259c1a5f51dcaf40f3aa4562349592a4353ccf50c3c2c6243c81",
+  "capture_sha256": {
+    "road-access-planning-overlay.png": "53a7c456a59cdaf2132df8962a0a3f6cd55922e2879110658f0e40276d58a051",
+    "night-neighbourhood.png": "738c35332be8052ce58c3f43ab7bc6e2091d7dcc27b6949bfaea9eb759e7bb30",
+    "bridge-closed-after-underfunding.png": "9bcd64144ce2ed4b17dfd4750c5e5d3d14d2c0bd1706868cb905bfe868a4e657",
+    "bridge-open-with-freight.png": "0e10137966264857429d9edf6d5d4d2f4a2a09482c70c769b22d5995e4bc7623"
+  }
+}
