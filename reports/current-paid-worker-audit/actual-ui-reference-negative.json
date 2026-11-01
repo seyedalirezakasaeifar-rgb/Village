@@ -1,0 +1,31 @@
+{
+  "oracleCommit": "f77ceddbba004d120a1f40ea90a9ac5037b061f2",
+  "oracleSha256": "7619b1fafdf5f05a8a3d8c79ea5669aaa13f5262957dd34a3e7c1b3479681461",
+  "hostSha256": "7619b1fafdf5f05a8a3d8c79ea5669aaa13f5262957dd34a3e7c1b3479681461",
+  "workerSha256": "9651ae95c3fd5bf96f5044e371cb8346572ff8b33e9f46440c6d219408cd109c",
+  "bridgeSha256": "6120ec3465fe1ea599da841e033693a4edf4f98afcca11c09e1879bf0f0fe3d2",
+  "referenceDryRun": true,
+  "productionEnabled": false,
+  "nativeDurability": false,
+  "checks": {
+    "visiblePendingBeforeAcknowledgment": false,
+    "oldFrozenModelUntilAcknowledgment": true,
+    "duplicateTapsSubmitOneChoice": true,
+    "noWriteBeforeCommitAcknowledgment": true,
+    "entireCurrentOracleModelAndRng": true,
+    "noDurableAckBeforeWriter": true,
+    "modelCommittedWhileWritePending": true,
+    "originalWebWriterReadbackExact": true,
+    "tokenAckAfterVerifiedWriter": true,
+    "noUncaughtPageErrors": true,
+    "productionCommandOwner": false
+  },
+  "pendingMarkers": [],
+  "errors": [],
+  "currentModelCovered": false,
+  "allChecksPass": false,
+  "blockedOrFailingChecks": [
+    "visiblePendingBeforeAcknowledgment",
+    "productionCommandOwner"
+  ]
+}
