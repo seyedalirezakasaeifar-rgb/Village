@@ -112,6 +112,7 @@ function migrationAcceptOffers(people,assessment){
 }
 function migrationNewProfiles(count){return Array.from({length:count},()=>({age:Math.floor(rn(20,54)),skill:rn(.35,1),health:rn(65,97),life:rn(45,80)}));}
 function migrationFamilyArrivalDay(){
+ if(creatorCapacityReason(1))return;
  if(G.day%45!==0||G.stats.population>=2000)return;
  if(!G.firms.some(f=>!f.closed&&f.workers.length<f.jobs&&f.cash>=(f.workers.length+1)*workerIncome(f)))return;
  const families=G.households.filter(h=>h.people.length>0&&h.people.length<4&&readBuild(h.home));if(!families.length)return;

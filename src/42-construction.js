@@ -24,6 +24,7 @@ function birthsAndGenerations(){
  if(G.day%90!==0||G.stats.population>=2000)return;
  let count=0;
  for(const h of G.households){
+  if(creatorCapacityReason(1))break;
   if(!h.people.length||h.people.length>=6||h.stress>48||G.day-(h.lastBirth||-720)<720)continue;
   const people=h.people.map(id=>G.people[id]).filter(p=>!p.deceased&&!p.movedAway),adults=people.filter(p=>p.age>=20&&p.age<=42);
   if(!adults.length||people.filter(p=>p.age<16).length>=2||!people.some(p=>p.job>=0))continue;

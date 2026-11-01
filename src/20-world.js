@@ -120,7 +120,16 @@ function getFootprintIssues(){const occupied=new Map(),issues=[];
   if(occupied.has(id)&&occupied.get(id)!==b.id)issues.push('overlapping structures '+b.id+' / '+occupied.get(id));
   occupied.set(id,b.id);
  }}return issues;}
+// Existing legacy archive record budgets. Pure checks: no money, RNG or IDs change.
+function creatorCapacityReason(people=0,households=0,firms=0,reserveProjects=false){
+ if(G.people.length+people>8000)return 'Person history capacity reached (8,000 records). Existing residents and claims are preserved; new arrivals and births are deferred.';
+ if(G.households.length+households>3000)return 'Household history capacity reached (3,000 records). Existing households and estates are preserved; new households are deferred.';
+ const pending=reserveProjects?(G.projects||[]).filter(p=>p.kind==='firm'||p.kind==='airport').length:0;
+ if(G.firms.length+pending+firms>3000)return 'Enterprise history capacity reached (3,000 records, including committed sites). Existing businesses and claims are preserved; new enterprises are deferred.';
+ return '';
+}
 function createFirm(kind,x,y,setup=false,addFn=null){
+ if(creatorCapacityReason(0,0,1))return null;
  if(!setup&&!canPlace(x,y,true,kind))return null;
  const b=addFn?addFn(kind,x,y):{id:G.nextId++,kind,x,y,value:Math.round(types[kind].cost*10),condition:100,owner:-1,firm:-1,hh:-1};
  if(!addFn){G.tiles[y*T+x]=0;G.buildings.push(b);if(LANDMARK_SIZE[kind]&&!setup)reserveFootprint(b,kind);}

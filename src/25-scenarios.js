@@ -5,6 +5,7 @@ function initializeScenario(){
  const kinds=Object.entries({factory:7,office:12,warehouse:7,grocer:6,bakery:3,farm:2,mill:2,forestry:2,sawmill:4,quarry:1,contractor:3,tavern:7,college:2}).flatMap(([kind,count])=>Array(count).fill(kind));
  // Reserve actual employment sites before bidding housing onto the remaining land.
  for(let n=0;n<kinds.length;n++){
+  if(creatorCapacityReason(0,0,1,true))break;
   const kind=kinds[n%kinds.length];let site=buildableCandidates('business').find(p=>canPlace(p.x,p.y,true,kind));
   if(!site){privatelyBuiltRoads({...cityDemand(),homeDemand:100,businessDemand:100,freeLots:0});site=buildableCandidates('business').find(p=>canPlace(p.x,p.y,true,kind));}if(!site)continue;
   const cost=types[kind].cost,capital=21000;if(G.region<cost+capital+50000)break;
