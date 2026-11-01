@@ -1,0 +1,222 @@
+{
+  "source_sha256": "8e6f536de9bc6fc8ee18d7fe1b43baed93c6f720594c2b0df875ba68229a0996",
+  "scenario": "regional",
+  "seed": 42,
+  "arm": "planned",
+  "years": 20,
+  "method": "Fresh regional seed-42 town; 20 years through the existing urban-trajectory harness, quarterly snapshots and normal mayor choices. The planned arm annexes only when current treasury exceeds the quoted deed plus a reserve, connects deeds with paid roads and occasionally funds a local school/clinic; no injected agents, money, land or stocks. Retail review forecasts are recorded then canceled because they are read-only. Labels derive from actual after-tax resident income per person in occupied 8\u00d78 blocks: lower <72% of occupied-block median; higher >140%; otherwise middle.",
+  "actions": 68,
+  "errors": [],
+  "validChecks": true,
+  "cashGoodsTotalError": 2.6036053895950317e-05,
+  "checks": [
+    {
+      "year": 1,
+      "day": 361,
+      "population": 694,
+      "hardship": 2,
+      "medianBlockIncome": 22.328032777816116,
+      "occupiedBlocks": 28,
+      "bands": {
+        "Middle income": {
+          "blocks": 28,
+          "residents": 694,
+          "meanAfterTaxIncomePerResidentPerDay": 22.33133678193587,
+          "meanRentBurden": 0.0,
+          "meanPropertyCondition": 96.15630937129451
+        }
+      },
+      "activeDistricts": 22,
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15493516.999993633,
+        "population": 694,
+        "day": 361
+      }
+    },
+    {
+      "year": 5,
+      "day": 1801,
+      "population": 1057,
+      "hardship": 0,
+      "medianBlockIncome": 24.168697950302924,
+      "occupiedBlocks": 29,
+      "bands": {
+        "Lower income": {
+          "blocks": 1,
+          "residents": 10,
+          "meanAfterTaxIncomePerResidentPerDay": 16.195195482314098,
+          "meanRentBurden": 0.0,
+          "meanPropertyCondition": 96.5
+        },
+        "Middle income": {
+          "blocks": 28,
+          "residents": 1047,
+          "meanAfterTaxIncomePerResidentPerDay": 23.769050209373923,
+          "meanRentBurden": 0.0,
+          "meanPropertyCondition": 96.18534359135683
+        }
+      },
+      "activeDistricts": 24,
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15493516.99999821,
+        "population": 1057,
+        "day": 1801
+      }
+    },
+    {
+      "year": 10,
+      "day": 3601,
+      "population": 1191,
+      "hardship": 4,
+      "medianBlockIncome": 17.707092400639514,
+      "occupiedBlocks": 29,
+      "bands": {
+        "Lower income": {
+          "blocks": 1,
+          "residents": 11,
+          "meanAfterTaxIncomePerResidentPerDay": 10.611663843919763,
+          "meanRentBurden": 0.0,
+          "meanPropertyCondition": 96.5
+        },
+        "Middle income": {
+          "blocks": 28,
+          "residents": 1180,
+          "meanAfterTaxIncomePerResidentPerDay": 18.036037188487445,
+          "meanRentBurden": 0.0,
+          "meanPropertyCondition": 95.93792226016308
+        }
+      },
+      "activeDistricts": 26,
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15493517.000000589,
+        "population": 1191,
+        "day": 3601
+      }
+    },
+    {
+      "year": 15,
+      "day": 5401,
+      "population": 1095,
+      "hardship": 7,
+      "medianBlockIncome": 17.825047342757816,
+      "occupiedBlocks": 30,
+      "bands": {
+        "Lower income": {
+          "blocks": 1,
+          "residents": 2,
+          "meanAfterTaxIncomePerResidentPerDay": 8.0,
+          "meanRentBurden": 0.0,
+          "meanPropertyCondition": 96.75277549087428
+        },
+        "Middle income": {
+          "blocks": 28,
+          "residents": 1091,
+          "meanAfterTaxIncomePerResidentPerDay": 17.536141631751143,
+          "meanRentBurden": 0.0,
+          "meanPropertyCondition": 95.57828013847715
+        },
+        "Higher income": {
+          "blocks": 1,
+          "residents": 2,
+          "meanAfterTaxIncomePerResidentPerDay": 26.56793954875654,
+          "meanRentBurden": 0.0,
+          "meanPropertyCondition": 100.0
+        }
+      },
+      "activeDistricts": 28,
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15493517.000010485,
+        "population": 1095,
+        "day": 5401
+      }
+    },
+    {
+      "year": 20,
+      "day": 7201,
+      "population": 1072,
+      "hardship": 6,
+      "medianBlockIncome": 17.617592322592355,
+      "occupiedBlocks": 31,
+      "bands": {
+        "Lower income": {
+          "blocks": 2,
+          "residents": 9,
+          "meanAfterTaxIncomePerResidentPerDay": 9.741722876133096,
+          "meanRentBurden": 0.0,
+          "meanPropertyCondition": 98.37638774543714
+        },
+        "Middle income": {
+          "blocks": 27,
+          "residents": 1049,
+          "meanAfterTaxIncomePerResidentPerDay": 17.25243896853422,
+          "meanRentBurden": 0.0,
+          "meanPropertyCondition": 94.53749907142115
+        },
+        "Higher income": {
+          "blocks": 2,
+          "residents": 14,
+          "meanAfterTaxIncomePerResidentPerDay": 32.64576566831654,
+          "meanRentBurden": 0.0,
+          "meanPropertyCondition": 97.84512136196892
+        }
+      },
+      "activeDistricts": 28,
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15493517.000024896,
+        "population": 1072,
+        "day": 7201
+      }
+    }
+  ],
+  "interpretation": "Income bands vary but geographic stratification remains small: by year 20 only 2 lower and 2 higher blocks cover 23 of 1072 residents; the rest of residents are in middle-band blocks. The lower band first appears by year 5; higher appears by year 15. Hardship rises to 6 by year 20. Relative labeling does not fabricate classes; broader class geography is not present in this model/run.",
+  "transcript": {
+    "milestones": [
+      {
+        "year": 1,
+        "population": 694,
+        "hardship": 2,
+        "activeMalls": 1
+      },
+      {
+        "year": 2,
+        "population": 763,
+        "hardship": 0,
+        "activeMalls": 1
+      },
+      {
+        "year": 5,
+        "population": 1057,
+        "hardship": 0,
+        "activeMalls": 3
+      },
+      {
+        "year": 10,
+        "population": 1191,
+        "hardship": 4,
+        "activeMalls": 3
+      },
+      {
+        "year": 15,
+        "population": 1095,
+        "hardship": 7,
+        "activeMalls": 2
+      },
+      {
+        "year": 20,
+        "population": 1072,
+        "hardship": 6,
+        "activeMalls": 2
+      }
+    ]
+  }
+}

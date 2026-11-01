@@ -36,7 +36,11 @@ with sync_playwright() as pw:
     run['samples'].append(snap)
     # Real proposal controls, no forced success. Every rejected invitation remains in evidence.
     if quarter%2==0:
-     p.locator('[data-panel=construction]').click();p.locator('#urbanPlanningOffice>summary').click();p.locator('[data-urban-retail]').click();message=p.locator('#toast').inner_text();run['actions'].append({'day':snap['day'],'action':'retail invitation','message':message})
+     p.locator('[data-panel=construction]').click();p.locator('#urbanPlanningOffice>summary').click();p.locator('[data-urban-retail]').click()
+     if p.locator('#eventDialog').is_visible():
+      message=p.locator('#eventTitle').inner_text()+': '+p.locator('#eventText').inner_text();p.locator('#eventDefer').click()
+     else:message=p.locator('#toast').inner_text()
+     run['actions'].append({'day':snap['day'],'action':'retail invitation','message':message})
     # Planned arm spends only actual available cash, retaining a disclosed reserve.
     if arm=='planned' and quarter in [1,5,9,13,17,21]:
      candidates=p.evaluate('__urbanAudit.parcelCandidates()');choice=next((q for q in candidates if snap['treasury']>q['price']+40000),None)
