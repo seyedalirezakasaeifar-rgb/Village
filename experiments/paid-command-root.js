@@ -14,6 +14,7 @@ function restorePaidArchiveRuntime(snapshot){({simulationTickFailed,simulationTi
   class PaidRefusal extends Error{}
   const refuse=reason=>shared.refuse(reason);
   function effect(fn){if(!shared.isActive())return false;shared.afterCommit(null,fn);return true;}
+  function deferUI(fn){if(typeof game.deferDOM==='function'){if(shared.isActive())shared.afterCommit(null,()=>game.deferDOM());else game.deferDOM();return true;}return effect(fn);}
   function run(command,work){
    if(!command||typeof command.kind!=='string'||typeof work!=='function'||work.constructor?.name==='AsyncFunction')throw Error('A structured root command is required');
    const joined=shared.isActive(),start=performance.now();
@@ -46,20 +47,25 @@ function restorePaidArchiveRuntime(snapshot){({simulationTickFailed,simulationTi
     if(q.type==='land-purchase'){if(typeof civicCampaignSync==='function'&&civicCampaignSync())save();effect(()=>playSfx('coin'));return {committed:true};}
    }else if(construction){if(c.cost)throw new PaidRefusal('Construction quote contains an unexpected outer charge.');const q=c.command,p=G.civicProjects?.active[q.projectKind],bp=q.blueprintSignature&&p?civicDistrictBlueprint(p,true):null;
     if(q.town!==G||!p||p.id!==q.projectId||q.price!==buildCost[q.kind]||bp&&civicBlueprintSignature(bp)!==q.blueprintSignature||!canPlace(q.x,q.y,true,q.kind)||G.treasury<q.price)throw new PaidRefusal('The site, plan or funds changed. Review the project again.');
-    closeCouncilDialog();if(bp)p.sitePlans=civicBlueprintSites(bp);const id=G.nextId;construct(q.kind,q.x,q.y);const building=G.buildings.find(b=>b.id>=id&&b.kind===q.kind&&b.x===q.x&&b.y===q.y);if(!building)throw new PaidRefusal('No building was commissioned.');p.building=building.id;if(q.projectKind==='food')p.firm=building.firm;openPanel('agenda');effect(()=>document.querySelector('[data-project-card="'+q.projectKind+'"]')?.scrollIntoView({block:'start'}));
+    closeCouncilDialog();if(bp)p.sitePlans=civicBlueprintSites(bp);const id=G.nextId;construct(q.kind,q.x,q.y);const building=G.buildings.find(b=>b.id>=id&&b.kind===q.kind&&b.x===q.x&&b.y===q.y);if(!building)throw new PaidRefusal('No building was commissioned.');p.building=building.id;if(q.projectKind==='food')p.firm=building.firm;openPanel('agenda');deferUI(()=>document.querySelector('[data-project-card="'+q.projectKind+'"]')?.scrollIntoView({block:'start'}));
    }else{
     const goodsBefore=stockTotals(),fundsBefore=totalMoney();if(c.cost){if(G.treasury<c.cost)throw new PaidRefusal('Treasury cannot fund this council choice.');G.treasury-=c.cost;G.region+=c.cost;G.cumulative.spending+=c.cost;}
     if(road){validateRoadChoice(c);applyRoadChoice(c);}else c.apply();const goodsAfter=stockTotals();for(const key of Object.keys(goods)){const delta=goodsAfter[key]-goodsBefore[key];goodsEntry(key,delta>=0?'imports':'consumed',Math.abs(delta));}
     const funding=totalMoney()-fundsBefore;G.region-=funding;if(Math.abs(funding)>.001)book(funding>0?'Regional capital':'Council settlement',funding>0?'Council decision beneficiaries':'Regional capital',Math.abs(funding),'Explicit council programme settlement');
     G.journal.push({day:G.day,name:evt.title,message:c.title+'. '+(c.desc||''),baseline:{...G.stats,treasury:G.treasury}});story('COUNCIL DECISION: '+c.title+' — '+evt.title,'neutral');G.councilInbox=(G.councilInbox||[]).filter(e=>e.title!==evt.title);closeCouncilDialog();
    }
-   recompute();updateHeader();if(active)renderPanel(active);save();dirty=true;if(typeof civicCampaignSync==='function'&&civicCampaignSync())save();effect(()=>playSfx(c.cost?'coin':'click'));return {committed:true};
+   recompute();updateHeader();if(active&&!directTransactionDialog(evt.type))renderPanel(active);save();dirty=true;if(typeof civicCampaignSync==='function'&&civicCampaignSync())save();effect(()=>playSfx(c.cost?'coin':'click'));return {committed:true};
   });
  }
+ function privateInvitation(kind){
+  if(!['school','fire'].includes(kind))shared.refuse('Unsupported private provider kind.');const projects=new Set(G.projects.map(p=>p.id)),spending=G.investors?.[0]?.spending||0,value=invitePrivateProvider(kind);if((G.investors?.[0]?.spending||0)>spending+.000001&&!G.projects.some(p=>p.privateService===kind&&!projects.has(p.id)))shared.refuse('The private construction was declined. No investment was committed.');return value;
+ }
  function dispatchSerializable(dto,context){
-  const valid=shared.status().enabled&&!shared.isHalted()&&dto&&dto.version===1&&dto.kind==='council-choice'&&Number.isSafeInteger(dto.requestId)&&dto.requestId>0&&Number.isSafeInteger(dto.epoch)&&dto.epoch>=0&&Number.isSafeInteger(dto.reviewToken)&&dto.reviewToken>0&&Number.isSafeInteger(dto.index)&&dto.index>=0&&context&&dto.requestId===context.requestId&&dto.epoch===context.epoch&&dto.reviewToken===context.reviewToken&&pendingEvent&&dto.index<pendingEvent.choices.length;
-  if(!valid){const reason='The admitted epoch, review or choice is stale or unsupported.';if(shared.isActive())shared.refuse(reason);return {ok:false,code:'stale-admission',reason};}
-  const result=dispatchCouncilChoice(pendingEvent,pendingEvent.choices[dto.index]);return {...result,requestId:dto.requestId,epoch:dto.epoch,reviewToken:dto.reviewToken,provisional:!!result.joined,publicationErrors:shared.isActive()?null:shared.status().last?.effectErrors||[]};
+  const identity=shared.status().enabled&&!shared.isHalted()&&dto&&dto.version===1&&Number.isSafeInteger(dto.requestId)&&dto.requestId>0&&Number.isSafeInteger(dto.epoch)&&dto.epoch>=0&&context&&dto.requestId===context.requestId&&dto.epoch===context.epoch;
+  const choice=identity&&dto.kind==='council-choice'&&Number.isSafeInteger(dto.reviewToken)&&dto.reviewToken>0&&dto.reviewToken===context.reviewToken&&Number.isSafeInteger(dto.index)&&dto.index>=0&&pendingEvent&&dto.index<pendingEvent.choices.length&&pendingEvent.choices[dto.index]?.command?.type!=='named-place';
+  const provider=identity&&dto.kind==='private-provider'&&['school','fire'].includes(dto.providerKind)&&!pendingEvent;
+  if(!choice&&!provider){const reason='The admitted identity, epoch, review or command is stale or unsupported.';if(shared.isActive())shared.refuse(reason);return {ok:false,code:'stale-admission',reason,requestId:Number.isSafeInteger(dto?.requestId)?dto.requestId:null,epoch:Number.isSafeInteger(dto?.epoch)?dto.epoch:null,reviewToken:Number.isSafeInteger(dto?.reviewToken)?dto.reviewToken:null};}
+  const result=choice?dispatchCouncilChoice(pendingEvent,pendingEvent.choices[dto.index]):safeRun({kind:'private-provider',providerKind:dto.providerKind},()=>privateInvitation(dto.providerKind));return {...result,requestId:dto.requestId,epoch:dto.epoch,reviewToken:choice?dto.reviewToken:null,provisional:!!result.joined,publicationErrors:shared.isActive()?null:shared.status().last?.effectErrors||[]};
  }
  function routeRoadStroke(event,work){
   if(!isEnabled()||buildMode!=='road'||!pointer.down||pointer.activeId!==event.pointerId||touches.size>1)return false;
@@ -71,8 +77,8 @@ function restorePaidArchiveRuntime(snapshot){({simulationTickFailed,simulationTi
  function routePanelControl(event,work){
   if(!isEnabled())return false;const button=event.target.closest('button,[data-ambition]');if(!button)return false;
   const ids=['enactPolicy','borrow','repay','toggleDevelopment'];const control=ids.includes(button.id)?button.id:button.hasAttribute('data-ambition')?'ambition':button.hasAttribute('data-private-invite')?'private-provider':null;if(!control)return false;
-  event.stopPropagation();const intent={kind:'panel-control',control,...control==='private-provider'?{providerKind:button.dataset.privateInvite}:control==='ambition'?{ambition:button.dataset.ambition}:control==='enactPolicy'?{policy:{...draftPolicy}}:{}},result=safeRun(intent,()=>{let value;if(control==='private-provider'){const kind=button.dataset.privateInvite,projects=new Set(G.projects.map(p=>p.id)),spending=G.investors?.[0]?.spending||0;value=invitePrivateProvider(kind);if((G.investors?.[0]?.spending||0)>spending+.000001&&!G.projects.some(p=>p.privateService===kind&&!projects.has(p.id)))shared.refuse('The private construction was declined. No investment was committed.');}else value=work();effect(()=>playSfx(['enactPolicy','borrow','repay'].includes(control)?'coin':'click'));return value;});notifyRefusal(result);return true;
+  event.stopPropagation();const intent={kind:'panel-control',control,...control==='private-provider'?{providerKind:button.dataset.privateInvite}:control==='ambition'?{ambition:button.dataset.ambition}:control==='enactPolicy'?{policy:{...draftPolicy}}:{}},result=safeRun(intent,()=>{const value=control==='private-provider'?privateInvitation(button.dataset.privateInvite):work();effect(()=>playSfx(['enactPolicy','borrow','repay'].includes(control)?'coin':'click'));return value;});notifyRefusal(result);return true;
  }
- return window.__rootAdmission=Object.freeze({shared,enable:value=>shared.setEnabled(value),enabled:isEnabled,active:shared.isActive,inModel:()=>shared.phase()==='work',deferUI:effect,run,refuse,registerRuntime:entry=>game.registerRuntime(entry),dispatchCouncilChoice,notifyRefusal,routePanelControl,routeRoadStroke,dispatchSerializable,status:()=>({enabled:isEnabled(),active:shared.isActive(),halted:shared.isHalted(),last,protocol:shared.status(),metrics:readMetrics()})});
+ return window.__rootAdmission=Object.freeze({shared,enable:value=>shared.setEnabled(value),enabled:isEnabled,active:shared.isActive,inModel:()=>shared.phase()==='work',deferUI,run,refuse,registerRuntime:entry=>game.registerRuntime(entry),dispatchCouncilChoice,notifyRefusal,routePanelControl,routeRoadStroke,dispatchSerializable,status:()=>({enabled:isEnabled(),active:shared.isActive(),halted:shared.isHalted(),last,protocol:shared.status(),metrics:readMetrics()})});
  };
 })();
