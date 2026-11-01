@@ -330,5 +330,18 @@
     "selector": "[data-transit-action=\"overlay\"]",
     "operation": "overlay",
     "fields": {}
+  },
+  {
+    "event": "click",
+    "selector": "[data-transit-action=\"focus\"]",
+    "operation": "focus",
+    "refresh": false,
+    "fields": {
+      "id": {
+        "source": "attribute",
+        "name": "data-route",
+        "as": "integer"
+      }
+    }
   }
 ]

@@ -1,6 +1,6 @@
 {
   "sourceSha256": "ac119726075abebf96683eb332782a5d55be69e42fe4545a9def0fd8a9ad6d1c",
-  "workerSha256": "aaecaa1e5b194a77fddc3d74e526a389c58bba7e969e5c9f7e7c6b62424d7050",
+  "workerSha256": "62dc2141d3c656f0004fd0d31d0ede47157e18ff0a00fc58bb367dd05f85b7b8",
   "accounting": {
     "money": 15493516.999999985,
     "goods": [
@@ -105,6 +105,7 @@
     "hide demand report actual UI",
     "transit overlay toggle 0",
     "transit overlay toggle 1",
+    "show route preserves zoom actual UI",
     "second draft start",
     "draft cancellation",
     "service level 0",
