@@ -1,0 +1,311 @@
+{
+  "immutable_commit": "d4607eefbadee15a8347568f4e5e8ade7a1c322c",
+  "asset_sha256": "6260809a99d39d3f3c8131bcd9e85343695617d5629950409cca1ba7ef2aa1aa",
+  "publication_verified": "2fc451f5b85b19cbba6166be418fd44e0a4554ec is the remote codex/8-city-continuity tip",
+  "fixture": {
+    "grid": 128,
+    "deeds": 21,
+    "relocatedHouseholds": 29,
+    "routes": [
+      1,
+      2,
+      3
+    ],
+    "capital": 191450,
+    "total": 15493517
+  },
+  "replay": "Repeated the exact transition-index interval 12376\u201315467 three times from a paused 2,000-resident, 21-deed, three-route fixture; each pass included two full cache resets. Renders were state/RNG checked at every 12-mode checkpoint.",
+  "final_state_unchanged": true,
+  "browser_errors": [],
+  "snapshots": [
+    {
+      "heap": {
+        "usedSize": 9695148,
+        "totalSize": 10571776,
+        "embedderHeapUsedSize": 2776016,
+        "backingStorageSize": 2813728
+      },
+      "stats": {
+        "heap": 21700000,
+        "dom": 406,
+        "atlasBytes": 4989696,
+        "atlasEntries": 65,
+        "brownfieldBytes": 0,
+        "nightEmissionBytes": 180000,
+        "viewRasterBytes": 941904,
+        "underlayBytes": 0,
+        "repairBytes": 0,
+        "drawCalls": 9
+      },
+      "snapshot_node_count": 246738,
+      "snapshot_string_count": 45920,
+      "top_retained": [
+        {
+          "name": "system / ExternalStringData",
+          "bytes": 2070777,
+          "count": 607
+        },
+        {
+          "name": "system / JSArrayBufferData",
+          "bytes": 1778568,
+          "count": 55
+        },
+        {
+          "name": "test-harness full-state checkpoint string",
+          "bytes": 1405640,
+          "count": 1
+        },
+        {
+          "name": "(object elements)",
+          "bytes": 676768,
+          "count": 8137
+        },
+        {
+          "name": "Object",
+          "bytes": 498724,
+          "count": 12085
+        }
+      ]
+    },
+    {
+      "heap": {
+        "usedSize": 12076536,
+        "totalSize": 13193216,
+        "embedderHeapUsedSize": 3180904,
+        "backingStorageSize": 2815504
+      },
+      "stats": {
+        "heap": 21700000,
+        "dom": 406,
+        "atlasBytes": 2266112,
+        "atlasEntries": 30,
+        "brownfieldBytes": 0,
+        "nightEmissionBytes": 607680,
+        "viewRasterBytes": 607680,
+        "underlayBytes": 607680,
+        "repairBytes": 607680,
+        "drawCalls": 7223
+      },
+      "snapshot_node_count": 256751,
+      "snapshot_string_count": 46062,
+      "top_retained": [
+        {
+          "name": "system / ExternalStringData",
+          "bytes": 2074509,
+          "count": 764
+        },
+        {
+          "name": "system / JSArrayBufferData",
+          "bytes": 1778568,
+          "count": 55
+        },
+        {
+          "name": "test-harness full-state checkpoint string",
+          "bytes": 1405640,
+          "count": 1
+        },
+        {
+          "name": "(object elements)",
+          "bytes": 714508,
+          "count": 8399
+        },
+        {
+          "name": "Object",
+          "bytes": 499484,
+          "count": 12109
+        }
+      ],
+      "checkpoints": 257
+    },
+    {
+      "heap": {
+        "usedSize": 11994280,
+        "totalSize": 13193216,
+        "embedderHeapUsedSize": 3096216,
+        "backingStorageSize": 3774184
+      },
+      "stats": {
+        "heap": 21700000,
+        "dom": 406,
+        "atlasBytes": 2266112,
+        "atlasEntries": 30,
+        "brownfieldBytes": 0,
+        "nightEmissionBytes": 607680,
+        "viewRasterBytes": 607680,
+        "underlayBytes": 607680,
+        "repairBytes": 607680,
+        "drawCalls": 14437
+      },
+      "snapshot_node_count": 253069,
+      "snapshot_string_count": 44759,
+      "top_retained": [
+        {
+          "name": "system / ExternalStringData",
+          "bytes": 3033009,
+          "count": 749
+        },
+        {
+          "name": "system / JSArrayBufferData",
+          "bytes": 1778568,
+          "count": 55
+        },
+        {
+          "name": "test-harness full-state checkpoint string",
+          "bytes": 1405640,
+          "count": 1
+        },
+        {
+          "name": "(object elements)",
+          "bytes": 746108,
+          "count": 8399
+        },
+        {
+          "name": "Object",
+          "bytes": 499544,
+          "count": 12111
+        }
+      ],
+      "checkpoints": 257
+    },
+    {
+      "heap": {
+        "usedSize": 12098940,
+        "totalSize": 13193216,
+        "embedderHeapUsedSize": 3121320,
+        "backingStorageSize": 3774184
+      },
+      "stats": {
+        "heap": 21700000,
+        "dom": 406,
+        "atlasBytes": 2266112,
+        "atlasEntries": 30,
+        "brownfieldBytes": 0,
+        "nightEmissionBytes": 607680,
+        "viewRasterBytes": 607680,
+        "underlayBytes": 607680,
+        "repairBytes": 607680,
+        "drawCalls": 21651
+      },
+      "snapshot_node_count": 253252,
+      "snapshot_string_count": 44757,
+      "top_retained": [
+        {
+          "name": "system / ExternalStringData",
+          "bytes": 3033009,
+          "count": 749
+        },
+        {
+          "name": "system / JSArrayBufferData",
+          "bytes": 1778568,
+          "count": 55
+        },
+        {
+          "name": "test-harness full-state checkpoint string",
+          "bytes": 1405640,
+          "count": 1
+        },
+        {
+          "name": "(object elements)",
+          "bytes": 772116,
+          "count": 8399
+        },
+        {
+          "name": "Object",
+          "bytes": 499544,
+          "count": 12111
+        }
+      ],
+      "checkpoints": 257
+    }
+  ],
+  "draw_distributions_ms": [
+    {
+      "rebuild": {
+        "n": 3864,
+        "p50": 35.600000001490116,
+        "p95": 189.5,
+        "p99": 224.60000000149012,
+        "max": 295.29999999701977
+      },
+      "warm": {
+        "n": 3348,
+        "p50": 1.2000000029802322,
+        "p95": 3.5,
+        "p99": 8.699999999254942,
+        "max": 62
+      },
+      "cold": {
+        "n": 2,
+        "p50": 47.650000002235174,
+        "p95": 80.10000000149012,
+        "p99": 80.10000000149012,
+        "max": 80.10000000149012
+      }
+    },
+    {
+      "rebuild": {
+        "n": 3864,
+        "p50": 35.59999999962747,
+        "p95": 190.39999999850988,
+        "p99": 218.89999999850988,
+        "max": 279
+      },
+      "warm": {
+        "n": 3348,
+        "p50": 1.199999999254942,
+        "p95": 3.5,
+        "p99": 10.699999999254942,
+        "max": 47.5
+      },
+      "cold": {
+        "n": 2,
+        "p50": 74.99999999813735,
+        "p95": 128.59999999776483,
+        "p99": 128.59999999776483,
+        "max": 128.59999999776483
+      }
+    },
+    {
+      "rebuild": {
+        "n": 3864,
+        "p50": 35.399999998509884,
+        "p95": 190.19999999925494,
+        "p99": 221.90000000223517,
+        "max": 277.3999999985099
+      },
+      "warm": {
+        "n": 3348,
+        "p50": 1.199999999254942,
+        "p95": 3.5,
+        "p99": 10.699999999254942,
+        "max": 50.69999999925494
+      },
+      "cold": {
+        "n": 2,
+        "p50": 46.850000001490116,
+        "p95": 79.30000000074506,
+        "p99": 79.30000000074506,
+        "max": 79.30000000074506
+      }
+    }
+  ],
+  "one_off_profiler_frame_difference": {
+    "occurrence": "one nonrepeatable result during the first timing-profiler version, whose duration arrays were retained across snapshots",
+    "full_frames": [
+      "profiler-drift-before.png",
+      "profiler-drift-after.png"
+    ],
+    "metadata": "profiler-drift-metadata.json",
+    "diff_crop": "profiler-drift-diff-crop.png",
+    "pixel_delta_count": 62,
+    "bounds": [
+      744,
+      221,
+      771,
+      223
+    ],
+    "state_rng_match": true,
+    "later_clean_replays": "all six reset checks matched exact pixels; the transient difference was not reproduced after clearing measurement arrays before snapshots",
+    "interpretation": "single small water-highlight change; no source change justified from this nonrepeatable capture"
+  }
+}

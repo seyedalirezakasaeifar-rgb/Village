@@ -1,0 +1,10 @@
+{
+  "cam": {
+    "x": 4570,
+    "y": 1004,
+    "zoom": 0.65
+  },
+  "zoom": 0.65,
+  "night": true,
+  "overlay": "crime"
+}
