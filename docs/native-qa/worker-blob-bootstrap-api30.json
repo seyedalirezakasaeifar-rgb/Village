@@ -1,0 +1,19 @@
+{
+  "result": "PASS",
+  "scope": "Actual worker prototype Blob bootstrap compatibility only; no production activation",
+  "prototype_commit": "4ddf16058aa4824f73cc97446bc63281484c8b03",
+  "prototype_branch": "codex/8-worker-simulation",
+  "device": "emulator-5556, Android 11/API 30",
+  "webview": "Chrome 83.0.4103.120",
+  "page_origin": "file:///android_asset/index.html",
+  "bootstrap": "Blob URL created from exact experimental/worker/model.generated.js; Worker constructed under file origin; synthetic unsupported request delivered and structured Unknown request response returned from self.onmessage.",
+  "generated_bundle_sha256": "bef06a67b2cb00d9916203e1596650d04e0ebf1758f1a451a2a668915cffdf14",
+  "generated_bundle_bytes": 982790,
+  "npm_ci": "passed",
+  "build_command": "node experimental/worker/build.cjs from repository root",
+  "limitations": [
+    "No valid-town load or simulation step was run in this native smoke.",
+    "No UI/save ownership integration, dense performance, renderer smoothness, or production rollout is certified.",
+    "No Android security settings were changed."
+  ]
+}

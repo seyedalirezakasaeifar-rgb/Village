@@ -25,7 +25,9 @@
     "device": "emulator-5556, Android 11 API 30",
     "webview": "Chrome 83.0.4103.120",
     "result": "PASS",
-    "test": "Created local Blob URL Worker, posted a synthetic string, received exact echo, terminated worker, revoked object URL.",
-    "limits": "Prototype branch 0110b49 was unavailable on the configured Git remote, so this verifies runtime capability only, not its bootstrap or app integration."
+    "prototype_commit": "4ddf16058aa4824f73cc97446bc63281484c8b03",
+    "generated_bundle_sha256": "bef06a67b2cb00d9916203e1596650d04e0ebf1758f1a451a2a668915cffdf14",
+    "test": "Constructed the actual 982790-byte generated Blob Worker from file-origin game page; synthetic unknown request received expected structured Unknown request response.",
+    "limits": "Bootstrap parsing and message handshake only. No valid town model load/step, UI/save integration, or performance certification."
   }
 }
