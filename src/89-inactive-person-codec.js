@@ -39,9 +39,12 @@ function encodeHistoricalEntity(kind,all){
  const history=all.filter(r=>historicalEntity(kind,r)),active=all.filter(r=>!historicalEntity(kind,r)),fields=[...new Set(history.flatMap(r=>Object.keys(r).filter(k=>k!=='id')))].sort();
  return {active,packed:{total:all.length,fields,rows:history.map(r=>{const indices=fields.map((k,i)=>owns(r,k)?i:-1).filter(i=>i>=0);return [r.id,indices,indices.map(i=>r[fields[i]])];})}};
 }
-function decodeHistoricalEntity(kind,active,packed,shared){
+function validateHistoricalEntityDirectory(kind,active,packed){
  const lim=INACTIVE_CODEC_LIMITS;
  if(!packed||!Number.isSafeInteger(packed.total)||packed.total<0||packed.total>lim.entityTotal||!Array.isArray(active)||active.length>lim.entityActive||!Array.isArray(packed.rows)||packed.rows.length>lim.entityInactive||active.length+packed.rows.length!==packed.total||!Array.isArray(packed.fields)||packed.fields.length>lim.entityFields||new Set(packed.fields).size!==packed.fields.length||packed.fields.some((k,i)=>typeof k!=='string'||k.length>128||k==='id'||i&&k<=packed.fields[i-1]))throw Error('Malformed historical '+kind+' directory');
+}
+function decodeHistoricalEntity(kind,active,packed,shared){
+ const lim=INACTIVE_CODEC_LIMITS;
  shared.expansion+=packed.total*16;if(shared.expansion>lim.logicalBytes)throw Error('Decoded archive expansion budget exceeded');
  const records=new Array(packed.total),seen=new Set(),keyBytes=packed.fields.map(k=>new Blob([JSON.stringify(k)]).size),put=r=>{if(!r||!Number.isSafeInteger(r.id)||r.id<0||r.id>=packed.total||seen.has(r.id))throw Error('Duplicate historical entity ID');seen.add(r.id);records[r.id]=r;};
  for(const r of active){if(historicalEntity(kind,r))throw Error('Historical entity in active section');put(r);}
@@ -54,9 +57,17 @@ function decodeInactiveEnvelope(wire,encodedBytes){
  if(!wire||wire.format!=='TownLedgerInactivePeople'||![1,2].includes(wire.version)||wire.schema!==9||wire.logicalSchema!==8||!wire.payload||wire.payload.schema!==9)throw Error('Unsupported inactive identity format');
  const packed=wire.inactive,data=wire.payload;
  if(!packed||!Number.isSafeInteger(packed.total)||packed.total<1||packed.total>lim.total||!Array.isArray(packed.fields)||packed.fields.length>lim.fields||new Set(packed.fields).size!==packed.fields.length||packed.fields.some((k,i)=>typeof k!=='string'||k.length>128||k==='id'||i&&k<=packed.fields[i-1])||!Array.isArray(packed.rows)||packed.rows.length>lim.inactive||!Array.isArray(data.people)||data.people.length>lim.active||data.people.length+packed.rows.length!==packed.total)throw Error('Malformed inactive identity directory');
+ // Reject every directory header before traversing values or reconstructing any
+ // other directory. In particular, invalid firm totals must not decode estates.
+ if(wire.version===2){
+  if(!wire.entities||typeof wire.entities!=='object'||Array.isArray(wire.entities))throw Error('Malformed estate directory');
+  let directories=0;for(const kind in wire.entities)if(owns(wire.entities,kind)){if(kind!=='households'&&kind!=='firms')throw Error('Malformed estate directory');directories++;}
+  if(directories!==2)throw Error('Malformed estate directory');
+  for(const kind of ['households','firms'])validateHistoricalEntityDirectory(kind,data[kind],wire.entities[kind]);
+ }else if(wire.entities!=null)throw Error('Unexpected estate directory');
  const canonicalBytes=inactiveCodecBudget(wire);
  const shared={cells:0,expansion:Math.max(encodedBytes??0,canonicalBytes)+packed.total*16};
- if(wire.version===2){if(!wire.entities||Object.keys(wire.entities).sort().join(',')!=='firms,households')throw Error('Malformed estate directory');for(const kind of ['households','firms'])data[kind]=decodeHistoricalEntity(kind,data[kind],wire.entities[kind],shared);}else if(wire.entities!=null)throw Error('Unexpected estate directory');
+ if(wire.version===2)for(const kind of ['households','firms'])data[kind]=decodeHistoricalEntity(kind,data[kind],wire.entities[kind],shared);
  const keyBytes=packed.fields.map(k=>new Blob([JSON.stringify(k)]).size),people=new Array(packed.total),seen=new Set();let cells=shared.cells,expansion=shared.expansion;if(expansion>lim.logicalBytes)throw Error('Decoded archive expansion budget exceeded');
  const put=p=>{if(!p||!Number.isSafeInteger(p.id)||p.id<0||p.id>=packed.total||seen.has(p.id))throw Error('Duplicate or invalid person ID');seen.add(p.id);people[p.id]=p;};
  for(const p of data.people){if(p.deceased===true||p.movedAway===true)throw Error('Inactive person in active section');put(p);}
