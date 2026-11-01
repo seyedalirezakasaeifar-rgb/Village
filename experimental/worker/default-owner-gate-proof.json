@@ -1,0 +1,8 @@
+{
+  "sourceSha256": "ca9bb2dac72bc8e62160694711e9c99646487c8a19b22f6d7f18e5a4d221e97e",
+  "defaultWorkerSha256": "73061663e21319b2bcf0d35bb8dac2cfe5939d67bdb46426f2df4219bdae0a87",
+  "bothOwnersAbsent": true,
+  "noAdmissionClaim": true,
+  "emptySaveNotPersistedOrCommitted": true,
+  "emptySaveDoesNotWrite": true
+}

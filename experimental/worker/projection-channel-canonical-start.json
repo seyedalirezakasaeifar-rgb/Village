@@ -1,0 +1,100 @@
+{
+  "fixtureSha256": "ad6256fd85d4146fda9eeac0b16d5b182ed352c23bbd96af3b320553c29ce786",
+  "sourceSha256": "218de17d31e130f8f683ab1287307380eb2ec0689b06d39a9003ef26883a1fc7",
+  "exactModelRng62Days": true,
+  "validCouncilChoice": true,
+  "staleAndRepeatedRejected": true,
+  "oldEpochRejected": true,
+  "exportExact": true,
+  "dayEffectsEqual": true,
+  "projectionEnabled": true,
+  "projectionBatchProfile": {
+    "tickMs": 4491.800000011921,
+    "snapshotMs": 186.80000000447035,
+    "snapshots": 12,
+    "stringifyMs": 124.20000000670552,
+    "parseMs": 61.900000002235174,
+    "postMs": 67.69999999552965
+  },
+  "projectionBytes": 38049,
+  "first31DayWallSeconds": {
+    "synchronous": 1.3643678070002352,
+    "workerIncludingSnapshot": 3.9000265130016487
+  },
+  "trustedInputs": [
+    {
+      "trusted": true,
+      "time": 35641.199999999255,
+      "nextFrameMs": 7
+    },
+    {
+      "trusted": true,
+      "time": 35741.10000000149,
+      "nextFrameMs": 7
+    },
+    {
+      "trusted": true,
+      "time": 35836.39999999851,
+      "nextFrameMs": 12.800000000745058
+    },
+    {
+      "trusted": true,
+      "time": 35923.199999999255,
+      "nextFrameMs": 8.400000002235174
+    },
+    {
+      "trusted": true,
+      "time": 36022,
+      "nextFrameMs": 9.5
+    }
+  ],
+  "acks": [
+    {
+      "transferMs": 0.699951171875,
+      "ms": 20.900000002235174,
+      "ok": true,
+      "epoch": 1,
+      "day": 41745
+    },
+    {
+      "transferMs": 3.10009765625,
+      "ms": 8.699999999254942,
+      "ok": true,
+      "epoch": 1,
+      "day": 41748
+    },
+    {
+      "transferMs": 4.599853515625,
+      "ms": 16.900000002235174,
+      "ok": true,
+      "epoch": 1,
+      "day": 41752
+    },
+    {
+      "transferMs": 0.800048828125,
+      "ms": 24.100000001490116,
+      "ok": true,
+      "epoch": 1,
+      "day": 41755
+    },
+    {
+      "transferMs": 0.699951171875,
+      "ms": 17.199999999254942,
+      "ok": true,
+      "epoch": 1,
+      "day": 41759
+    }
+  ],
+  "rafMaxMs": 116.62999999999738,
+  "rafP99Ms": 16.80000000000291,
+  "drawMaxMs": 10.299999997019768,
+  "applyMaxMs": 0.19999999925494194,
+  "longtasks": [],
+  "rafSamples": 142,
+  "limitations": [
+    "Minimal separate readonly UI; not production renderer",
+    "No durable storage writes",
+    "Host Chromium only",
+    "Single matched fixture; not throughput certification"
+  ]
+}

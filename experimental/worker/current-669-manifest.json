@@ -1,0 +1,29 @@
+{
+  "base": "669c908706af997375680674390e46fd132a970a",
+  "creator": "c91475af7dd079a51a72eb89b413673adae886c1",
+  "workerUi": "3a8f1dc8c2bda090d43e2acd46faa287fb10834d plus explicit debug guards",
+  "owner": "e13a21b plus 1b787188b3065c4cbca658690821e626beb0eb6f",
+  "productionEnabled": false,
+  "graphics01daIncluded": false,
+  "sha256": {
+    "assets/game.js": "ca9bb2dac72bc8e62160694711e9c99646487c8a19b22f6d7f18e5a4d221e97e",
+    "experimental/worker/adapter.js": "31ac156d4c7798da91b2e94eac26a2009191e87ec2b1d1fc79b1b6698c93c894",
+    "experimental/worker/paid-worker.js": "d26d4aac0af85192abcb9941ea0dcc25182d633099e86b1f266223e74d08be36",
+    "experimental/worker/real-view-bridge.js": "c96c7f3c5148e9db4b3165cc9b32fd469990af738d84491c3b56c91cf07bc847",
+    "experiments/paid-command-owner.js": "b9705d2dc19d98a349a1ff454dc2ad94467696bf5233cdd5e5de379b2c5a24ea",
+    "experiments/paid-command-root.js": "ffe237b9a7470c170b5a330ac5cd6beb8557fd2a6f0222e19ae40e8170e180f2"
+  },
+  "uiAcceptance": {
+    "visiblePendingBeforeAcknowledgment": true,
+    "oldFrozenModelUntilAcknowledgment": true,
+    "duplicateTapsSubmitOneChoice": true,
+    "noWriteBeforeCommitAcknowledgment": true,
+    "entireCurrentOracleModelAndRng": true,
+    "noDurableAckBeforeWriter": true,
+    "modelCommittedWhileWritePending": true,
+    "originalWebWriterReadbackExact": true,
+    "tokenAckAfterVerifiedWriter": true,
+    "noUncaughtPageErrors": true,
+    "productionCommandOwner": true
+  }
+}

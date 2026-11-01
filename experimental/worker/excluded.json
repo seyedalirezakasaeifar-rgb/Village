@@ -1,0 +1,631 @@
+[
+  {
+    "file": "00-foundation.js",
+    "statement": "'use strict';"
+  },
+  {
+    "file": "00-foundation.js",
+    "declaration": "$=id=>document.getElementById(id)"
+  },
+  {
+    "file": "00-foundation.js",
+    "declaration": "bitmap=document.createElement('canvas')"
+  },
+  {
+    "file": "00-foundation.js",
+    "statement": "bitmap.width=RW;"
+  },
+  {
+    "file": "00-foundation.js",
+    "statement": "bitmap.height=RH;"
+  },
+  {
+    "file": "00-foundation.js",
+    "declaration": "bg=bitmap.getContext('2d',{alpha:false,willReadFrequently:false})"
+  },
+  {
+    "file": "00-foundation.js",
+    "declaration": "cv=$('view')"
+  },
+  {
+    "file": "00-foundation.js",
+    "declaration": "ctx=cv.getContext('2d',{alpha:false})"
+  },
+  {
+    "file": "07-options.js",
+    "statement": "try{const old=JSON.parse(localStorage.getItem('townledger-options')||'{}');for(const k of Object.keys(OPTION_DEFAULTS))if(typeof old[k]===typeof OPTION_DEFAULTS"
+  },
+  {
+    "file": "07-options.js",
+    "statement": "if(!['low','balanced','high'].includes(gameOptions.quality))gameOptions.quality='balanced';"
+  },
+  {
+    "file": "07-options.js",
+    "statement": "if(![20,30,60].includes(gameOptions.fps))gameOptions.fps=30;"
+  },
+  {
+    "file": "07-options.js",
+    "statement": "if(![15,30,60,120].includes(gameOptions.autoSave))gameOptions.autoSave=30;"
+  },
+  {
+    "file": "07-options.js",
+    "statement": "document.body.classList.toggle('large-text',gameOptions.largeText);"
+  },
+  {
+    "file": "07-options.js",
+    "statement": "document.body.classList.toggle('hide-hints',!gameOptions.showHints);"
+  },
+  {
+    "file": "30-brownfields.js",
+    "statement": "urbanRegisterPropertyGuard(b=>brownfieldPermit!==b.id&&BROWNFIELD_KINDS.includes(b.kind)?'Industrial premises: assess and use the brownfield acquisition review "
+  },
+  {
+    "file": "65-landscape.js",
+    "declaration": "viewRaster=document.createElement('canvas')"
+  },
+  {
+    "file": "65-landscape.js",
+    "declaration": "viewBackgroundRaster=document.createElement('canvas')"
+  },
+  {
+    "file": "65-landscape.js",
+    "declaration": "viewUnderlayRaster=document.createElement('canvas')"
+  },
+  {
+    "file": "69-actor-compositor.js",
+    "declaration": "actorRepairRaster=document.createElement('canvas')"
+  },
+  {
+    "file": "70-interaction.js",
+    "statement": "cv.addEventListener('pointerdown',e=>{if(pointer.down){pointer.moved=true;return;}pointer.activeId=e.pointerId;roadPainted.clear();pointer.lastRoad=buildMode==="
+  },
+  {
+    "file": "70-interaction.js",
+    "statement": "cv.addEventListener('pointermove',e=>{if(window.__rootAdmission?.routeRoadStroke?.(e,()=>handleMapPointerMove(e)))return;handleMapPointerMove(e);});"
+  },
+  {
+    "file": "70-interaction.js",
+    "statement": "cv.addEventListener('pointerup',e=>{$('gameRoot').classList.add('map-used');if(pointer.activeId!==e.pointerId)return;if(pointer.down&&!pointer.moved)onTap(e.cli"
+  },
+  {
+    "file": "70-interaction.js",
+    "statement": "window.addEventListener('keydown',e=>{\n if(e.key!=='Escape')return;\n if(pendingEvent||$('helpDialog').style.display!=='none'){if(window.__townArchive?.back?.())"
+  },
+  {
+    "file": "70-interaction.js",
+    "statement": "cv.addEventListener('pointercancel',()=>{flushRoadBatch();pointer.down=false;pointer.activeId=null;pointer.lastRoad=null;roadPainted.clear()});"
+  },
+  {
+    "file": "70-interaction.js",
+    "statement": "cv.addEventListener('pointerleave',()=>{pointer.hover=null;dirty=true});"
+  },
+  {
+    "file": "70-interaction.js",
+    "statement": "cv.addEventListener('wheel',e=>{e.preventDefault();cam.zoom=clamp(cam.zoom*(e.deltaY<0?1.12:.89),.025,1.7);dirty=true},{passive:false});"
+  },
+  {
+    "file": "70-interaction.js",
+    "statement": "cv.addEventListener('touchstart',e=>{touches=new Map([...e.touches].map(t=>[t.identifier,{x:t.clientX,y:t.clientY}]));if(touches.size===2){pointer.moved=true;co"
+  },
+  {
+    "file": "70-interaction.js",
+    "statement": "cv.addEventListener('touchmove',e=>{touches=new Map([...e.touches].map(t=>[t.identifier,{x:t.clientX,y:t.clientY}]));if(touches.size===2){const a=[...touches.va"
+  },
+  {
+    "file": "70-interaction.js",
+    "statement": "cv.addEventListener('touchend',e=>{touches=new Map([...e.touches].map(t=>[t.identifier,{x:t.clientX,y:t.clientY}]));pointer.pinch=0});"
+  },
+  {
+    "file": "70-interaction.js",
+    "statement": "cv.addEventListener('touchcancel',()=>{touches.clear();pointer.pinch=0;pointer.down=false;pointer.activeId=null;pointer.lastRoad=null;roadPainted.clear();flushR"
+  },
+  {
+    "file": "70-interaction.js",
+    "statement": "$('tabs').addEventListener('click',e=>{const b=e.target.closest('button[data-panel]');if(!b)return;const p=b.dataset.panel;if(p===active)closePanel();else openP"
+  },
+  {
+    "file": "70-interaction.js",
+    "statement": "$('panelClose').onclick=closePanel;"
+  },
+  {
+    "file": "70-interaction.js",
+    "statement": "$('topNotice').onclick=()=>openPanel('journal',$('topNotice'));"
+  },
+  {
+    "file": "70-interaction.js",
+    "statement": "$('liveEconomy').onclick=()=>openPanel('economy',$('liveEconomy'));"
+  },
+  {
+    "file": "70-interaction.js",
+    "statement": "$('panelBody').addEventListener('input',e=>{if(e.target.id==='searchPeople'){citizenQuery=e.target.value;return;}const input=e.target.closest('[data-policy]');i"
+  },
+  {
+    "file": "70-interaction.js",
+    "statement": "$('panelBody').addEventListener('change',e=>{if(e.target.id==='searchPeople'){renderPanel('citizens');return;}const input=e.target.closest('[data-policy]');if(!"
+  },
+  {
+    "file": "70-interaction.js",
+    "statement": "$('panelBody').addEventListener('click',e=>{if(window.__rootAdmission?.routePanelControl?.(e,()=>handlePanelAction(e)))return;handlePanelAction(e);});"
+  },
+  {
+    "file": "70-interaction.js",
+    "statement": "$('zoomIn').onclick=()=>{cam.zoom=clamp(cam.zoom*1.22,.025,1.7);dirty=true};"
+  },
+  {
+    "file": "70-interaction.js",
+    "statement": "$('zoomOut').onclick=()=>{cam.zoom=clamp(cam.zoom/1.22,.025,1.7);dirty=true};"
+  },
+  {
+    "file": "70-interaction.js",
+    "statement": "$('center').onclick=()=>{if(overlay==='charter'){overlay='none';parcelFocus=null;}centerTownCamera();};"
+  },
+  {
+    "file": "70-interaction.js",
+    "statement": "$('overlayToggle').onclick=()=>{overlay=overlay==='none'?'roads':overlay==='roads'?'metro':overlay==='metro'?'hardship':overlay==='hardship'?'crime':overlay==='"
+  },
+  {
+    "file": "70-interaction.js",
+    "statement": "$('pause').onclick=()=>{paused=!paused;fit();updateHeader();if(paused){draw();save()}};"
+  },
+  {
+    "file": "70-interaction.js",
+    "statement": "$('speed').onclick=()=>{const index=SPEED_PRESETS.indexOf(speed);speed=SPEED_PRESETS[(index+1)%SPEED_PRESETS.length];acc=0;sampleDays=0;sampleSeconds=0;perfStat"
+  },
+  {
+    "file": "70-interaction.js",
+    "statement": "$('speedRange').addEventListener('input',e=>{speed=SPEED_PRESETS[+e.target.value]||1;acc=0;sampleDays=0;sampleSeconds=0;perfStats.effective=0;if(G)G.speed=speed"
+  },
+  {
+    "file": "70-interaction.js",
+    "statement": "$('speedRange').addEventListener('change',()=>{if(G)save();});"
+  },
+  {
+    "file": "70-interaction.js",
+    "statement": "$('newTown').onclick=()=>{start(true);refreshAmbience()};"
+  },
+  {
+    "file": "70-interaction.js",
+    "statement": "$('continue').onclick=()=>{start(false);refreshAmbience()};"
+  },
+  {
+    "file": "70-interaction.js",
+    "statement": "try{if(localStorage.getItem('townledger-v6')||localStorage.getItem('townledger-v6-backup')||localStorage.getItem('townledger-village-founder-3')||localStorage.g"
+  },
+  {
+    "file": "70-interaction.js",
+    "statement": "window.addEventListener('resize',fit);"
+  },
+  {
+    "file": "70-interaction.js",
+    "statement": "fit();"
+  },
+  {
+    "file": "70-interaction.js",
+    "statement": "requestAnimationFrame(frame);"
+  },
+  {
+    "file": "70-interaction.js",
+    "statement": "window.addEventListener('beforeunload',()=>save());"
+  },
+  {
+    "file": "70-interaction.js",
+    "statement": "document.addEventListener('visibilitychange',()=>{last=performance.now();acc=0;if(document.hidden){save();stopGameAudio()}else refreshAmbience()});"
+  },
+  {
+    "file": "70-interaction.js",
+    "statement": "window.addEventListener('error',e=>{console.error(e.error||e.message);toast('Runtime issue: '+(e.message||'Unknown'))});"
+  },
+  {
+    "file": "71-transit-office.js",
+    "statement": "$('panelBody').addEventListener('change',e=>{if(!transitDraft)return;if(e.target.id==='transitDepot')transitDraft.depot=+e.target.value;else if(e.target.id==='t"
+  },
+  {
+    "file": "71-transit-office.js",
+    "statement": "$('panelBody').addEventListener('click',e=>{\n const b=e.target.closest('[data-transit-action],[data-transit-level]');if(!b)return;\n if(b.dataset.transitLevel){c"
+  },
+  {
+    "file": "71-trip-inspector.js",
+    "statement": "document.addEventListener('click',e=>{if(e.target.closest('[data-trip-close]'))closePanel()});"
+  },
+  {
+    "file": "80-civic.js",
+    "statement": "$('eventChoices').addEventListener('click',e=>{\n const b=e.target.closest('button[data-event-choice]');if(!b||!pendingEvent)return;\n const evt=pendingEvent,c=ev"
+  },
+  {
+    "file": "80-civic.js",
+    "statement": "$('eventDefer').onclick=()=>closeCouncilDialog(true);"
+  },
+  {
+    "file": "80-civic.js",
+    "statement": "$('eventDialog').addEventListener('keydown',e=>{\n if(e.key!=='Tab'||!pendingEvent||$('helpDialog').style.display!=='none')return;\n const controls=[...$('eventDi"
+  },
+  {
+    "file": "90-archive-panels.js",
+    "statement": "saveStorePromise=discoverIndexedDB();",
+    "reason": "Page storage discovery belongs to the original main-thread owner"
+  },
+  {
+    "file": "90-archive-panels.js",
+    "declaration": "originalHelp=$('helpDialog').querySelector('.paper').innerHTML"
+  },
+  {
+    "file": "90-archive-panels.js",
+    "statement": "$('helpClose').onclick=hideHelpDialog;"
+  },
+  {
+    "file": "90-archive-panels.js",
+    "statement": "$('howTo').onclick=()=>openTutorialDialog($('howTo'));"
+  },
+  {
+    "file": "90-archive-panels.js",
+    "statement": "$('helpDialog').addEventListener('keydown',e=>{\n if(e.key!=='Tab'||$('helpDialog').style.display==='none')return;\n const items=[...$('helpDialog').querySelector"
+  },
+  {
+    "file": "90-archive-panels.js",
+    "statement": "$('scenarioPicker').addEventListener('click',e=>{let b=e.target.closest('[data-scenario]');if(!b)return;chosenScenario=b.dataset.scenario;document.querySelector"
+  },
+  {
+    "file": "90-archive-panels.js",
+    "statement": "$('continue').onclick=async()=>{const epoch=saveEpoch,button=$('continue');button.disabled=true;try{await saveStorePromise;if(epoch!==saveEpoch)return;\n const l"
+  },
+  {
+    "file": "92-government.js",
+    "statement": "document.addEventListener('click',e=>{\n const b=e.target.closest('button');if(!b||!G)return;\n if(b.id==='recoverAutosave'){try{const e=readSaveEnvelope(localSto"
+  },
+  {
+    "file": "92-government.js",
+    "statement": "window.__townArchive={\n suspend:()=>{hostSuspended=true;acc=0;last=performance.now();stopGameAudio();return save();},\n prepareExit:()=>G?window.__townArchive.su"
+  },
+  {
+    "file": "92-government.js",
+    "statement": "if($('townSeed')){try{$('townSeed').value=String(crypto.getRandomValues(new Uint32Array(1))[0]||42);}catch(_){$('townSeed').value=String(Date.now()%4294967295||"
+  },
+  {
+    "file": "93-preferences.js",
+    "statement": "document.addEventListener('click',e=>{const b=e.target.closest('[data-option]');if(b){const k=b.dataset.option;changePreference(k,!(k==='seasons'?seasonsEnabled"
+  },
+  {
+    "file": "93-preferences.js",
+    "statement": "document.addEventListener('change',e=>{const k=e.target.dataset.preference;if(k)changePreference(k,typeof OPTION_DEFAULTS[k]==='number'?Number(e.target.value):e"
+  },
+  {
+    "file": "94-economic-reports.js",
+    "statement": "document.addEventListener('click',e=>{if(e.target.closest('[data-open-monetary]')){openPanel('policies');const field=document.querySelector('[data-policy=\"polic"
+  },
+  {
+    "file": "95-audio.js",
+    "statement": "try{soundEnabled=localStorage.getItem('townledger-audio')!=='off'}catch(e){}"
+  },
+  {
+    "file": "95-audio.js",
+    "statement": ";"
+  },
+  {
+    "file": "95-audio.js",
+    "statement": "document.addEventListener('click',e=>{let b=e.target.closest('button');if(!b||b.disabled)return;let id=b.id;if(id==='newTown'||id==='enactPolicy'||id==='borrow'"
+  },
+  {
+    "file": "95-music.js",
+    "statement": "try{const p=JSON.parse(localStorage.getItem('townledger-music')||'{}');if(typeof p.enabled==='boolean')musicEnabled=p.enabled;if(Number.isFinite(p.volume))music"
+  },
+  {
+    "file": "95-music.js",
+    "statement": "document.addEventListener('click',e=>{if(!e.isTrusted)return;musicGesture=true;const b=e.target.closest('button');if(b?.id==='musicToggle'){musicEnabled=!musicE"
+  },
+  {
+    "file": "95-music.js",
+    "statement": "document.addEventListener('input',e=>{if(e.target.id!=='musicVolume')return;musicVolume=clamp(+e.target.value/100,0,1);rememberMusic();setMusicVolumes();refresh"
+  },
+  {
+    "file": "95-music.js",
+    "statement": "document.addEventListener('change',e=>{if(e.target.id!=='musicMood')return;if(['adaptive','quiet','lively'].includes(e.target.value)){musicMood=e.target.value;r"
+  },
+  {
+    "file": "96-council-programme.js",
+    "statement": "document.addEventListener('click',e=>{const b=e.target.closest('[data-programme-panel]');if(b){openPanel(b.dataset.programmePanel);$('panelBody').scrollTop=0;}}"
+  },
+  {
+    "file": "98-alternative-suppliers.js",
+    "statement": "document.addEventListener('change',e=>{if(!['supplierMarket','supplierGood','supplierFirm'].includes(e.target.id)||!G)return;if(e.target.id==='supplierMarket'){"
+  },
+  {
+    "file": "98-charter-ui.js",
+    "statement": "$('surveyDistrict').addEventListener('change',e=>previewParcel(e.target.value));"
+  },
+  {
+    "file": "98-charter-ui.js",
+    "statement": "$('surveyReview').onclick=()=>reviewSurveyDistrict(parcelFocus||$('surveyDistrict').value);"
+  },
+  {
+    "file": "98-charter-ui.js",
+    "statement": "document.addEventListener('click',e=>{const b=e.target.closest('button');if(!b||!G)return;if(b.dataset.parcelPreview)previewParcel(b.dataset.parcelPreview);if(b"
+  },
+  {
+    "file": "98-charter-ui.js",
+    "declaration": "charterBackBase=window.__townArchive.back"
+  },
+  {
+    "file": "98-charter-ui.js",
+    "statement": "window.__townArchive.back=()=>{if(!active&&!pendingEvent&&$('helpDialog').style.display==='none'){if(buildMode){closeBuildTool();return true;}if(overlay==='char"
+  },
+  {
+    "file": "98-district-ui.js",
+    "statement": "document.addEventListener('click',e=>{const review=e.target.closest('[data-district-review]'),b=e.target.closest('[data-district-focus]');if(review)reviewSurvey"
+  },
+  {
+    "file": "98-onboarding-trade.js",
+    "statement": "document.addEventListener('click',e=>{if(e.target.closest('#firstTradeAgreement')){openPanel('economy');const b=document.querySelector('[data-trade-offer]:not(["
+  },
+  {
+    "file": "98-player-experience.js",
+    "statement": "document.addEventListener('click',e=>{\n if(!G)return;const b=e.target.closest('button');if(!b)return;\n const tab=b.dataset.panel||b.dataset.mayorPanel;if(tab&&o"
+  },
+  {
+    "file": "98-private-service-ui.js",
+    "statement": "document.addEventListener('click',e=>{const invite=e.target.closest('[data-private-invite]');if(invite)invitePrivateProvider(invite.dataset.privateInvite);if(e."
+  },
+  {
+    "file": "98-procurement.js",
+    "statement": "document.addEventListener('click',e=>{const b=e.target.closest('[data-procurement]');if(!b)return;const spec={firmId:+b.dataset.firm,marketId:b.dataset.procurem"
+  },
+  {
+    "file": "98-project-opportunities.js",
+    "statement": "document.addEventListener('click',e=>{\n if(!G)return;const b=e.target.closest('button');if(!b)return;\n if(b.hasAttribute('data-civic-projects'))openCivicProject"
+  },
+  {
+    "file": "98-road-bridge.js",
+    "statement": "document.addEventListener('click',e=>{const b=e.target.closest('button');if(!b||!G)return;if(b.hasAttribute('data-bridge-build')){flushRoadBatch();if(typeof tra"
+  },
+  {
+    "file": "98-road-removal.js",
+    "statement": "document.addEventListener('click',e=>{const b=e.target.closest('button');if(!b||!G)return;if(b.hasAttribute('data-road-remove-tool')){flushRoadBatch();if(typeof"
+  },
+  {
+    "file": "98-service-budget-ui.js",
+    "statement": "document.addEventListener('input',e=>{\n if(!G||active!=='policies')return;const amount=e.target.closest('[data-service-budget-amount]');\n if(amount){const key=a"
+  },
+  {
+    "file": "98-service-budget-ui.js",
+    "statement": "document.addEventListener('click',e=>{\n const button=e.target.closest('[data-service-budget-preset]');if(!button||!G)return;const key=button.dataset.serviceBudg"
+  },
+  {
+    "file": "98-service-budget-ui.js",
+    "statement": "document.addEventListener('change',e=>{if(G&&active==='policies'&&e.target.closest('[data-policy]'))updateServiceBudgetControls(e.target.dataset.policy);});"
+  },
+  {
+    "file": "98-status-deck.js",
+    "declaration": "mapStatusDeck=document.createElement('section')"
+  },
+  {
+    "file": "98-status-deck.js",
+    "statement": "mapStatusDeck.id='mapStatusDeck';"
+  },
+  {
+    "file": "98-status-deck.js",
+    "statement": "mapStatusDeck.setAttribute('aria-label','Town signals');"
+  },
+  {
+    "file": "98-status-deck.js",
+    "statement": "mapStatusDeck.innerHTML='<button id=\"mapStatusToggle\" type=\"button\" aria-expanded=\"false\" aria-controls=\"mapStatusDetails\"><span class=\"map-status-caption\">TOWN"
+  },
+  {
+    "file": "98-status-deck.js",
+    "declaration": "mapStatusDetails=mapStatusDeck.querySelector('#mapStatusDetails')"
+  },
+  {
+    "file": "98-status-deck.js",
+    "declaration": "mapStatusToggle=mapStatusDeck.querySelector('#mapStatusToggle')"
+  },
+  {
+    "file": "98-status-deck.js",
+    "statement": "mapStatusDetails.appendChild(document.querySelector('.map-top-left'));"
+  },
+  {
+    "file": "98-status-deck.js",
+    "statement": "mapStatusDetails.appendChild($('liveEconomy'));"
+  },
+  {
+    "file": "98-status-deck.js",
+    "statement": "document.querySelector('.workspace').appendChild(mapStatusDeck);"
+  },
+  {
+    "file": "98-status-deck.js",
+    "statement": "mapStatusToggle.onclick=()=>setMapStatusExpanded(mapStatusToggle.getAttribute('aria-expanded')!=='true');"
+  },
+  {
+    "file": "98-status-deck.js",
+    "declaration": "statusDeckBackBase=window.__townArchive.back"
+  },
+  {
+    "file": "98-status-deck.js",
+    "statement": "window.__townArchive.back=()=>{\n if(!active&&!pendingEvent&&!buildMode&&$('helpDialog').style.display==='none'&&!mapStatusDetails.hidden){setMapStatusExpanded(f"
+  },
+  {
+    "file": "98-stewardship.js",
+    "declaration": "civicWatchSignal=document.createElement('div')"
+  },
+  {
+    "file": "98-stewardship.js",
+    "statement": "civicWatchSignal.id='civicWatchSignal';"
+  },
+  {
+    "file": "98-stewardship.js",
+    "statement": "civicWatchSignal.hidden=true;"
+  },
+  {
+    "file": "98-stewardship.js",
+    "statement": "$('mapStatusDetails').prepend(civicWatchSignal);"
+  },
+  {
+    "file": "98-stewardship.js",
+    "statement": "document.addEventListener('click',e=>{const b=e.target.closest('button');if(!b||!G)return;if(b.hasAttribute('data-civic-recovery-planning')){openPanel('construc"
+  },
+  {
+    "file": "98-sustained-projects.js",
+    "statement": "document.addEventListener('click',e=>{\n if(!G)return;const b=e.target.closest('button');if(!b)return;\n if(b.hasAttribute('data-open-campaign'))openCivicCampaign"
+  },
+  {
+    "file": "98-sustained-projects.js",
+    "statement": "document.addEventListener('click',e=>{if(e.target.closest('[data-civic-retarget-teaching]')){const next=civicRenewalHousehold(true);if(next)civicProjectReview('"
+  },
+  {
+    "file": "98-town-situations.js",
+    "statement": "document.addEventListener('click',e=>{const b=e.target.closest('button');if(!b||!G)return;const state=townSituationView();if(b.dataset.situationVisit){const pla"
+  },
+  {
+    "file": "98-trade-ui.js",
+    "statement": "document.addEventListener('click',e=>{if(e.target.closest('#regionalApproaches')){const cells=[...new Set(regionalApproachPlan().flatMap(p=>p.path))].filter(id="
+  },
+  {
+    "file": "98-urban-ui.js",
+    "statement": "document.addEventListener('click',e=>{const b=e.target.closest('button');if(!b||!G)return;\n if(b.hasAttribute('data-urban-clear-tool')){buildMode='urban_clearan"
+  },
+  {
+    "file": "98-waterfront-art.js",
+    "statement": "document.addEventListener('click',e=>{if(e.target.closest('[data-waterfront-camera]')){const b=G.buildings.find(b=>b.kind==='wharf')||G.buildings.find(b=>b.kind"
+  },
+  {
+    "file": "98x-logistics-ui.js",
+    "statement": "document.addEventListener('click',e=>{const routing=e.target.closest('[data-logistics-routing]');if(routing){ensureRegionalTrade().routePreference=routing.datas"
+  },
+  {
+    "file": "98z-district-followthrough.js",
+    "statement": "document.addEventListener('click',e=>{const b=e.target.closest('button');if(!b||!G)return;if(b.dataset.districtAdmission)reviewDistrictAdmission(+b.dataset.dist"
+  },
+  {
+    "file": "98z-public-life.js",
+    "statement": "document.addEventListener('click',e=>{const b=e.target.closest('button');if(!b||!G)return;if(['square','warehouse'].includes(b.dataset.publicPlace))publicPlaceR"
+  },
+  {
+    "file": "98zzz-rural-services-art.js",
+    "declaration": "nightEmissionCanvas=document.createElement('canvas')"
+  },
+  {
+    "file": "98zzzzzzz-brownfield-ui.js",
+    "statement": "document.addEventListener('click',e=>{\n const b=e.target.closest('[data-brownfield-action]');if(!b||!G)return;\n const id=+b.dataset.brownfieldId,action=b.datase"
+  },
+  {
+    "file": "98zzzzzzzz-growth-planning.js",
+    "statement": "document.addEventListener('click',e=>{if(!e.target.closest('[data-urban-land-plan]')||!G)return;buildMode='urban_plan';pointer.hover=null;closePanel();$('placem"
+  },
+  {
+    "file": "98zzzzzzzzz-port-prospects.js",
+    "statement": "document.addEventListener('click',e=>{const b=e.target.closest('[data-port-freight]');if(!b)return;const f=G.firms[+b.dataset.portFreight],dock=+b.dataset.portD"
+  },
+  {
+    "file": "98zzzzzzzzz-port-prospects.js",
+    "statement": "document.addEventListener('click',e=>{const b=e.target.closest('[data-port-prospects]');if(!b)return;openPanel('economy');const office=$('portFreightOffice');if"
+  },
+  {
+    "file": "98zzzzzzzzz-region-locator.js",
+    "declaration": "regionLocatorButton=document.createElement('button')"
+  },
+  {
+    "file": "98zzzzzzzzz-region-locator.js",
+    "statement": "regionLocatorButton.id='regionLocatorToggle';"
+  },
+  {
+    "file": "98zzzzzzzzz-region-locator.js",
+    "statement": "regionLocatorButton.type='button';"
+  },
+  {
+    "file": "98zzzzzzzzz-region-locator.js",
+    "statement": "regionLocatorButton.title='Regional locator';"
+  },
+  {
+    "file": "98zzzzzzzzz-region-locator.js",
+    "statement": "regionLocatorButton.setAttribute('aria-label','Show regional locator');"
+  },
+  {
+    "file": "98zzzzzzzzz-region-locator.js",
+    "statement": "regionLocatorButton.setAttribute('aria-expanded','false');"
+  },
+  {
+    "file": "98zzzzzzzzz-region-locator.js",
+    "statement": "regionLocatorButton.innerHTML='<svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M3 5L9 3L15 5L21 3V19L15 21L9 19L3 21ZM9 3V19M15 5V21"
+  },
+  {
+    "file": "98zzzzzzzzz-region-locator.js",
+    "statement": "$('center').parentNode.appendChild(regionLocatorButton);"
+  },
+  {
+    "file": "98zzzzzzzzz-region-locator.js",
+    "declaration": "regionLocator=document.createElement('div')"
+  },
+  {
+    "file": "98zzzzzzzzz-region-locator.js",
+    "statement": "regionLocator.id='regionLocator';"
+  },
+  {
+    "file": "98zzzzzzzzz-region-locator.js",
+    "statement": "regionLocator.hidden=true;"
+  },
+  {
+    "file": "98zzzzzzzzz-region-locator.js",
+    "statement": "regionLocator.innerHTML='<canvas width=\"392\" height=\"208\" tabindex=\"0\" role=\"button\" aria-label=\"Regional map. Tap to move the camera; arrow keys pan the view.\""
+  },
+  {
+    "file": "98zzzzzzzzz-region-locator.js",
+    "statement": "$('center').parentNode.parentNode.appendChild(regionLocator);"
+  },
+  {
+    "file": "98zzzzzzzzz-region-locator.js",
+    "declaration": "regionLocatorStyle=document.createElement('style')"
+  },
+  {
+    "file": "98zzzzzzzzz-region-locator.js",
+    "statement": "regionLocatorStyle.textContent='#regionLocator{position:absolute;right:12px;top:66px;width:198px;z-index:4;border:1px solid #a1ad89;background:#1a302aeF;padding"
+  },
+  {
+    "file": "98zzzzzzzzz-region-locator.js",
+    "statement": "document.head.appendChild(regionLocatorStyle);"
+  },
+  {
+    "file": "98zzzzzzzzz-region-locator.js",
+    "declaration": "regionLocatorBase=document.createElement('canvas')"
+  },
+  {
+    "file": "98zzzzzzzzz-region-locator.js",
+    "statement": "regionLocatorBase.width=392;"
+  },
+  {
+    "file": "98zzzzzzzzz-region-locator.js",
+    "statement": "regionLocatorBase.height=208;"
+  },
+  {
+    "file": "98zzzzzzzzz-region-locator.js",
+    "statement": "regionLocatorButton.onclick=()=>{regionLocator.hidden=!regionLocator.hidden;regionLocatorButton.setAttribute('aria-expanded',String(!regionLocator.hidden));regi"
+  },
+  {
+    "file": "98zzzzzzzzz-region-locator.js",
+    "declaration": "regionLocatorCanvas=regionLocator.querySelector('canvas')"
+  },
+  {
+    "file": "98zzzzzzzzz-region-locator.js",
+    "statement": "regionLocatorCanvas.addEventListener('pointerdown',e=>{e.preventDefault();e.stopPropagation();const r=regionLocatorCanvas.getBoundingClientRect();cam.x=clamp((e"
+  },
+  {
+    "file": "98zzzzzzzzz-region-locator.js",
+    "statement": "regionLocatorCanvas.addEventListener('keydown',e=>{const moves={ArrowLeft:[-1,0],ArrowRight:[1,0],ArrowUp:[0,-1],ArrowDown:[0,1]},v=moves[e.key];if(e.key==='Esc"
+  },
+  {
+    "file": "98zzzzzzzzzz-civic-calendar.js",
+    "statement": "document.addEventListener('click',e=>{const b=e.target.closest('button');if(!b||!G)return;if(b.dataset.gatheringReview)openCivicGatheringReview(+b.dataset.gathe"
+  },
+  {
+    "file": "98zzzzzzzzzz-civic-calendar.js",
+    "statement": "document.addEventListener('toggle',e=>{if(e.target.id==='civicCalendar'&&e.target.isConnected)civicCalendarExpanded=e.target.open;},true);"
+  },
+  {
+    "file": "98zzzzzzzzzzz-decision-help.js",
+    "statement": "document.addEventListener('click',e=>{const b=e.target.closest('[data-decision-route]');if(!b||!G)return;switch(b.dataset.decisionRoute){\n case 'charter':case '"
+  },
+  {
+    "file": "98zzzzzzzzzzz-decision-help.js",
+    "statement": "document.addEventListener('toggle',e=>{const key=e.target.dataset?.decisionHint;if(key&&e.target.isConnected)decisionHelpOpen[key]=e.target.open;},true);"
+  },
+  {
+    "file": "98zzzzzzzzzzzzzz-parcel-growth-outlook.js",
+    "statement": "document.addEventListener('click',e=>{const b=e.target.closest('button');if(b?.dataset.parcelOutlook&&G)reviewParcelGrowthOutlook(b.dataset.parcelOutlook);});"
+  }
+]

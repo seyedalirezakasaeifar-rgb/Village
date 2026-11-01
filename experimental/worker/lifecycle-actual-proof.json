@@ -1,0 +1,96 @@
+{
+  "workerCommit": "worker-paid-current-candidate",
+  "workerSha256": "9651ae95c3fd5bf96f5044e371cb8346572ff8b33e9f46440c6d219408cd109c",
+  "hostSourceSha256": "7619b1fafdf5f05a8a3d8c79ea5669aaa13f5262957dd34a3e7c1b3479681461",
+  "stubEconomics": false,
+  "diagnosticSchedulingGateOnly": true,
+  "productionComposition": false,
+  "native": false,
+  "adaptedProtocol": [
+    "causal IDs on load/save metadata",
+    "explicit effect ACK",
+    "published test owner configured",
+    "new ID after failed save ACK"
+  ],
+  "cases": {
+    "duplicateStep": {
+      "firstDay": 2,
+      "duplicateAccepted": false,
+      "finalDay": 2,
+      "duplicatePreservesOneDayModelAndRng": true,
+      "expected": "Duplicate must reject or return prior receipt without a second day. A new command ID must still advance the next day."
+    },
+    "legitimateNewStep": {
+      "newIdAdvances": true,
+      "exactTwoDayModelAndRng": true
+    },
+    "staleLoad": {
+      "accepted": false,
+      "dayBefore": 3,
+      "dayAfter": 3,
+      "fullModelAndRngUnchanged": true,
+      "expected": "Old epoch adoption refuses without resetting town. Deliberate current-epoch restore remains permitted."
+    },
+    "councilRetry": {
+      "title": "A petition from the shopkeepers",
+      "invalidIndexNoModelOrRngChange": true,
+      "consumedIdCannotBeRetried": true,
+      "correctedNewIdSucceeds": true,
+      "duplicateAndStaleNoSecondPayment": true,
+      "exactUninterruptedChoiceModelAndRng": true,
+      "expected": "A validation failure consumes admitted request ID but preserves local review. Correcting input under a fresh ID succeeds once."
+    },
+    "exportDuringCommittedYield": {
+      "exportConsumedCouncilEffect": false,
+      "pendingWorkerReview": true,
+      "sameCommittedModelAndRng": true,
+      "expected": "Read/export must preserve eventual exactly-once council presentation while retaining a valid canonical export."
+    },
+    "effectAcknowledgement": {
+      "explicitAckRemovesDeliveredEffects": true,
+      "readExportDidNotConsumeEffects": true
+    },
+    "saveRetry": {
+      "abortedPrepareCanRetryFreshToken": true,
+      "canonicalArchiveUnchanged": true,
+      "duplicateAckRejected": true,
+      "currentEpochRestoreSucceeds": true,
+      "restoreInvalidatesPriorPreparedToken": true,
+      "actualPersistenceClaim": false,
+      "expected": "Failed owner write aborts token; retry prepares a new token. ACK is legal only after actual write, duplicate ACK does not write again."
+    },
+    "archiveAlias": {
+      "accepted": {
+        "accepted": true,
+        "id": 1,
+        "session": null
+      },
+      "reply": {
+        "session": null,
+        "id": 1,
+        "op": "export",
+        "ok": true,
+        "epoch": 2,
+        "admitted": false,
+        "committed": false,
+        "result": {
+          "archiveBytes": 308455,
+          "archiveSha256": "30c0a5edd4793b8179954311391e3e3cc879b831190f7c9c60779f173c090082"
+        }
+      },
+      "calls": [
+        "export"
+      ],
+      "status": {
+        "session": null,
+        "pending": 0,
+        "lastId": 1,
+        "epoch": 2
+      },
+      "advancedDay": 2,
+      "finalDay": 2,
+      "actualTownReset": false,
+      "expected": "Accepted export stays export/id1 despite caller mutation; legitimate restore is a separate current-epoch request with a new ID."
+    }
+  }
+}

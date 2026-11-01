@@ -1,0 +1,17 @@
+{
+  "prototype": "a675ce4e3b7ed421f0cc04f600d5543606bceb0d",
+  "sourceSha256": "218de17d31e130f8f683ab1287307380eb2ec0689b06d39a9003ef26883a1fc7",
+  "workerSha256": "4d25fdaaad07f79cd7d9e5cbff03268d7572bcbd04fa18617d54f716680e0b75",
+  "seed": "314159265",
+  "initialPopulation": 169,
+  "initialDay": 1,
+  "archiveBytes": 135396,
+  "archiveSha256": "1e02f6c47dbcd50d4854b583c11492ca56d2214bdeaa39a9a300603e89167723",
+  "day0Exact": true,
+  "day2ExactModelRng": true,
+  "initialRng": "2218605210",
+  "workerRng": "2786499683",
+  "hostRng": "2786499683",
+  "reportedNativeHostRng": "2786499683",
+  "host": "Chromium only; native failure remains open"
+}

@@ -1,0 +1,57 @@
+# Current public-source continuation
+
+Branch codex/8-worker-current uses production d2b7086187621ae8c3c147fc3c04764efaadf49d, source SHA2b2f14477099ee7a3c4a2f34bc590714c5163d4db358fee7f9bd7288e590b0d7. CURRENT-SOURCE-ROUTING.md and command-inventory.json supersede older routing limits below. Production source is unchanged. Current tests pass actual policy-package form/evidence and persistSnapshot save owner, concurrency coalescing and failed-write refusal. Historical receipts below retain their original source hashes.
+
+# Disabled worker model proof
+
+Base ca0c6d07. Run from repository root:
+
+```
+npm ci --prefix experimental/worker --cache /tmp/worker-npm-cache
+node experimental/worker/build.cjs
+python experimental/worker/prove.py
+```
+
+No production entrypoint imports this experiment. Acorn extracts declarations and function assignments from the actual model sources; excluded initialization statements are recorded in excluded.json for audit. This is a prototype bootstrap, not a release bundle pipeline. No fake document/canvas is installed. Browser Blob Worker runs the authoritative model. UI is used only to generate the starting archive and synchronous oracle.
+
+61 complete days, two monthly boundaries, actual minimum-wage policy change with journal/recompute, completed snapshot/export and stale council ID rejection pass exact model/RNG comparison. Only trafficState/visualState are excluded as the separately owned presentation envelope. Notifications, ambience refresh, panel/header invalidation and save requests go to a structured outbox. Save requests are intents delivered after commit, not storage writes. Mid-day version on an effect denotes the preceding committed version; snapshot version identifies the delivery boundary. Policy snapshot version currently counts days only, so a separate command revision is required before UI adoption.
+
+proof.json records one bounded 60-day timing sample after equality gates: sync 414.9ms versus worker409.7ms, main timer maximum gap499.8ms versus10.5ms. This measures event-loop availability, not trusted physical input latency. It is a small generated town, not the late-town performance acceptance fixture; no general speed gain is claimed.
+
+Remaining gates: valid council choice settlement extraction (currently explicitly rejects rather than discards it); UI readonly snapshot adoption and command routing; save-owner visual-envelope/archive validation contract; failures and cancellation; dense-town matched repetitions and trusted input; API30/WebView83 native Blob support. No security settings changed. Production remains synchronous.
+
+## Dense fixture and command boundaries
+
+`python experimental/worker/dense.py` uses retained generated archive SHA ad6256fd… (778 residents/day41681). It compares 62 complete days and a real petition settlement to the original DOM council handler, checks the monthly semantic effect types, exports an identical model, and rejects consumed events/repeated command sequences/old epochs after load. The whole model/RNG comparison still excludes only the presentation envelope.
+
+Step batches yield between complete days so commands can run at committed boundaries; they never yield inside a financial day. Concurrent step batches reject. A load increments the epoch, invalidates a running batch, clears pending council callbacks and effects, and rejects old-epoch requests. No promise or callback crosses postMessage. Commands have monotonic sequence admission; this is rejection protection, not a durable retry/result cache.
+
+The independent UI renders building positions from its last completed snapshot and updates that snapshot only on acknowledged replies. Five trusted Playwright clicks submit wage changes while a 60-day worker batch runs. The original renderer is explicitly stopped before this UI starts. `dense-detached-renderer-negative.json` retains the earlier contaminated trace with original drawing still active on a detached canvas, including its ~717ms frame gap.
+
+Outbox contract for parent/save-owner review: effects are ordered records with type/day/preceding committed-day version/payload; delivery is attached to a completed snapshot bearing epoch and command sequence. Save requests are intents only; this prototype never writes persistence. Export produces worker-model JSON at a committed boundary. Durable ownership, visual-envelope composition, deduplication across crash/retry, and root transaction admission remain external gates. Event settlement exceptions currently fail the request without rollback; this must be reconciled with root transaction ownership before production. Direct transaction dialogs deliberately reject.
+
+Latest retained dense result: first source-matched31-day interval1.430s synchronous versus3.877s worker including snapshot and task yields. Five trusted command acknowledgements60.2–88.7ms. The minimal readonly view still records a533.2ms maximum RAF gap across299 samples, including snapshot/export/protocol costs. This is a negative rollout result: model correctness and boundary command responsiveness passed, while throughput and frame continuity did not. Do not extrapolate the small-town timing to dense towns or claim smooth rendering from worker isolation alone.
+
+## Bounded render projection profiling
+
+`projection.py` runs the dense correctness gates before a readonly UI trace; `RENDER_PROJECTION=0` selects full replies and `=1` selects projected replies. `components.py` measures browser-local request time, worker tick/snapshot/stringify/parse/post CPU, transfer/dispatch, main reference adoption, and the minimal building renderer. Full canonical exports remain explicit and unchanged. Projection replies contain only fields used by this experimental screen (building identity/position/kind, wage, population/employment, treasury), epoch/command/day/RNG and the complete pending outbox. They never replace authoritative G and are not sufficient for production report panels. Cadence is request/batch completion, not every simulation day.
+
+Matched UI traces: full3,954,350 bytes versus projected38,003 bytes; trusted command acknowledgement59–89ms versus14–32ms; transfer/dispatch28–40ms versus0.7–12.9ms; worst RAF517ms versus117ms. Cumulative worker tick CPU remains similar (4.32s/full and4.50s/projection over their trace), confirming that projection changes transport/presentation, not economic work. The two traces include the same initial canonical correctness checks, which contribute full-snapshot CPU to both totals. Negative tails are retained in receipts.
+
+Correction to prior throughput interpretation: first31DayWallSeconds in dense receipts includes returning the full model through Playwright/Python, while its synchronous comparison returns no model. It is protocol-inclusive wall time, not a fair simulation throughput comparison. Use component-profile.json browserRoundTripMs/workerRequestMs/syncTickMs instead. These are single sequential cold/warm samples; their order/JIT effects prohibit claiming a throughput win. Main snapshot adoption is a reference assignment and minimal-map drawing is submillisecond in the component test; this does not measure the production renderer. Production remains disabled because sustained dense rendering, transaction recovery, durable save ownership, native execution and truthful speed/admission still require acceptance.
+
+## Task-yield overhead and isolated persistence handshake
+
+`yields.py` compares the same dense31-day interval with timer versus MessageChannel task yields; both export exact model/RNG afterward. Timer request CPU+wait1515ms minus tick1406ms leaves109ms outside ticks; channel1047ms minus tick1028ms leaves19ms. This isolates the expected nested-timer clamp cost. Total wall speed also depends on JIT/cache warmth, so the sequential1516→1048ms headline is not a valid independent throughput gain. Experimental day-boundary yielding now uses MessageChannel; the timer mode remains available for comparison. No stage or whole day is skipped, and no microtask-only loop starves queued commands.
+
+`save_handshake.py` proves an isolated prepared-save transaction. Worker prepares one canonical archive with opaque token/epoch/committed-day version/command/day/checksum, main writes exactly once to a test-only localStorage key and validates byte-for-byte readback/checksum, then acknowledges that token. Duplicate ACK and ACK after load reject. Worker never writes persistence. Failure can abort the prepared token; at most one archive is prepared. No automatic retry writes or second persistence owner are introduced. This is a contract prototype, not integration with the current production save envelope, transaction rollback, native lifecycle or crash durability. Parent/save owners must reconcile chronology and visual-envelope composition before adoption.
+
+Projection UI tracing now captures long tasks, maximum/P99 RAF, draw/application cost and trusted-event-to-next-frame, as well as acknowledgement/transfer latency. The earlier max-only traces remain retained; this trace must not be replaced with timer-only success criteria.
+
+Latest attribution result: the readonly view was initially bootstrapped with a full canonical archive even though later replies were projected. A dedicated committed `snapshot` request now supplies the projected initial view too. With that change, the same dense trusted-input trace records max/P99 RAF16.8ms, draw max0.7ms, application max0.1ms and no observed long tasks; trusted event-to-next-frame6.7–14ms. The old full-start trace (max117ms) is retained in projection-channel-canonical-start.json, and the original timer trace remains in projection-timer-proof.json. This is one short host-browser trace of a minimal scene, not production smoothness certification.
+
+Command acknowledgements still have a negative monthly-boundary tail: four12–18ms replies and one223ms reply at day41760, while frames remain continuous. Worker ownership isolates atomic-day simulation from UI rendering but cannot admit a command during an unfinished financial day. That semantic boundary remains a real action-latency limit. No speed label or backlog is hidden, and no partial model is presented. Native owner must test the actual updated bootstrap and MessageChannel path; Blob echo alone remains insufficient.
+
+See CONTRACT.md for the concrete graphics/admission/save ownership API and real-view completion limits. `audit_real_view.py` exercises frozen snapshots against the actual presentation; `real_view.py` verifies opt-in readonly real map, actual worker build/inspect, trusted day/wage/council buttons and acknowledged test-slot persistence. `monthly.py` provides source-bound monthly stage attribution for the economic owner. No production source or startup enables these hooks.
+
+Runtime arithmetic admission: runtime-guard.js is a cheap standalone native probe and is embedded in generated Worker bootstrap. Run runtime_guard_test.py for actual host/Worker arithmetic checks and injected-failure admission/fallback guards. The guard does not alter saved RNG or deterministic random(). Unsupported main arithmetic blocks prototype adoption; worker-only failure can return to unchanged synchronous production before admission. Native startup integration is an owner gate, and post-admission failure cannot silently resume a stale main model. See CONTRACT.md for details.

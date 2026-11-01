@@ -1,0 +1,56 @@
+{
+  "actualExportRestoreSave": true,
+  "invalidAndCancelledRestorePreserveTown": true,
+  "queuedOldSaveRejected": true,
+  "completions": [
+    {
+      "id": 1,
+      "ok": true,
+      "epoch": 1,
+      "admitted": false,
+      "committed": false,
+      "error": null
+    },
+    {
+      "id": 2,
+      "ok": false,
+      "epoch": 1,
+      "admitted": false,
+      "committed": false,
+      "error": "Error: Archive validation refused"
+    },
+    {
+      "id": 3,
+      "ok": false,
+      "epoch": 1,
+      "admitted": false,
+      "committed": false,
+      "error": "CANCELLED"
+    },
+    {
+      "id": 4,
+      "ok": true,
+      "epoch": 2,
+      "admitted": true,
+      "committed": true,
+      "error": null
+    },
+    {
+      "id": 5,
+      "ok": false,
+      "epoch": 2,
+      "admitted": false,
+      "committed": false,
+      "error": "STALE_EPOCH"
+    },
+    {
+      "id": 6,
+      "ok": true,
+      "epoch": 2,
+      "admitted": true,
+      "committed": true,
+      "error": null
+    }
+  ],
+  "nativeJavaCallbackIntegration": false
+}

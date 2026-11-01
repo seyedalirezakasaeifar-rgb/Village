@@ -1,0 +1,74 @@
+{
+  "sourceSha256": "7619b1fafdf5f05a8a3d8c79ea5669aaa13f5262957dd34a3e7c1b3479681461",
+  "workerSha256": "304b28f85b5b3011b929500fb3c95ac5fdd825241fa35958d876367f59390935",
+  "defaultPaidOwnerAbsent": true,
+  "panels": [
+    {
+      "panel": "overview",
+      "exactHtmlModelRng": true
+    },
+    {
+      "panel": "economy",
+      "exactHtmlModelRng": true
+    },
+    {
+      "panel": "agenda",
+      "exactHtmlModelRng": true
+    },
+    {
+      "panel": "community",
+      "exactHtmlModelRng": true
+    },
+    {
+      "panel": "policies",
+      "exactHtmlModelRng": true
+    },
+    {
+      "panel": "treasury",
+      "exactHtmlModelRng": true
+    },
+    {
+      "panel": "banking",
+      "exactHtmlModelRng": true
+    },
+    {
+      "panel": "citizens",
+      "exactHtmlModelRng": true
+    },
+    {
+      "panel": "businesses",
+      "exactHtmlModelRng": true
+    },
+    {
+      "panel": "construction",
+      "exactHtmlModelRng": true
+    },
+    {
+      "panel": "journal",
+      "exactHtmlModelRng": true
+    },
+    {
+      "panel": "inspect",
+      "exactHtmlModelRng": true
+    },
+    {
+      "panel": "construction",
+      "exactHtmlModelRng": true
+    },
+    {
+      "panel": "agenda",
+      "exactHtmlModelRng": true
+    }
+  ],
+  "invalidDraftNoModelRngChange": true,
+  "actualTabsUseWorkerHtml": true,
+  "actualDraftRerender": true,
+  "actualProviderButtonNoOwnerRefusesUnchanged": true,
+  "rawConstructionNoOwnerRefusesUnchanged": true,
+  "closeSynchronizesWorkerContext": true,
+  "localSettingsPreservesModelRng": true,
+  "hostFrozen": true,
+  "pageErrors": [],
+  "settingsAndTripRemainLocalViewOnly": true,
+  "productionEnabled": false
+}

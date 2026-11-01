@@ -1,0 +1,1276 @@
+{
+  "sourceCommit": "9584cbf11a9665b9a4d8f7b061797ca4bda0dba7",
+  "entryCount": 101,
+  "entries": [
+    {
+      "file": "70-interaction.js",
+      "line": 13,
+      "kind": "listener",
+      "event": "pointerdown",
+      "binding": "cv",
+      "sha256": "4ccbb630f4eb7a68985f3946e1822a521790d4f4725c6e7ce5ed8bf3e20085cc",
+      "ids": [],
+      "data": [],
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "70-interaction.js",
+      "line": 16,
+      "kind": "listener",
+      "event": "pointermove",
+      "binding": "cv",
+      "sha256": "25ab12b5e7de3746d393e505a71fa7882ba810571118bb031a54725ac7bbb587",
+      "ids": [],
+      "data": [],
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "70-interaction.js",
+      "line": 17,
+      "kind": "listener",
+      "event": "pointerup",
+      "binding": "cv",
+      "sha256": "dd07eed8fdf8dc24e53dfdd19a6dd968a6db2ca21c1296caf33f959cea56a030",
+      "ids": [
+        "gameRoot"
+      ],
+      "data": [],
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "70-interaction.js",
+      "line": 18,
+      "kind": "listener",
+      "event": "keydown",
+      "binding": "window",
+      "sha256": "6f728466eaaad04d57d8bd9862095eba7eef36d64c368d17a27fbc30f264f60d",
+      "ids": [
+        "helpDialog"
+      ],
+      "data": [],
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "70-interaction.js",
+      "line": 26,
+      "kind": "listener",
+      "event": "pointercancel",
+      "binding": "cv",
+      "sha256": "428e17bd4ee742d31996f6776c1bf6524c6da7a3ac11ebf729943916f4e85a1a",
+      "ids": [],
+      "data": [],
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "70-interaction.js",
+      "line": 26,
+      "kind": "listener",
+      "event": "pointerleave",
+      "binding": "cv",
+      "sha256": "8892ef89b08becc709000eb3ecc190e57b5057f8955d433d0a246357ae2e7a72",
+      "ids": [],
+      "data": [],
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "70-interaction.js",
+      "line": 27,
+      "kind": "listener",
+      "event": "wheel",
+      "binding": "cv",
+      "sha256": "e0d7c02a956135acf5d2d7c4a6321b3608a955563e74434a37ddf5a42facaf61",
+      "ids": [],
+      "data": [],
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "70-interaction.js",
+      "line": 28,
+      "kind": "listener",
+      "event": "touchstart",
+      "binding": "cv",
+      "sha256": "f2cdc4a2b5218069ccf45dbfe41666d96557efc70b92077e1f6484a490549704",
+      "ids": [],
+      "data": [],
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "70-interaction.js",
+      "line": 29,
+      "kind": "listener",
+      "event": "touchmove",
+      "binding": "cv",
+      "sha256": "f0095374b56ea5a3e09fc40597152834960095196f33c453eba74608ce6cdc34",
+      "ids": [],
+      "data": [],
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "70-interaction.js",
+      "line": 30,
+      "kind": "listener",
+      "event": "touchend",
+      "binding": "cv",
+      "sha256": "a61bdbdb2ad651ae8630482f5b3d00d7390370fd1d5fcbf6379f109f599441f0",
+      "ids": [],
+      "data": [],
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "70-interaction.js",
+      "line": 31,
+      "kind": "listener",
+      "event": "touchcancel",
+      "binding": "cv",
+      "sha256": "3341d8799caecf46de91282cad5791a38a41d85d5d7b6bd6a1fc4b55c3df26ca",
+      "ids": [],
+      "data": [],
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "70-interaction.js",
+      "line": 176,
+      "kind": "listener",
+      "event": "click",
+      "binding": "$('tabs')",
+      "sha256": "5d7069723ea59f785f485caadedfd9479ce6cb002808e875f5dcb7c3a927b1b4",
+      "ids": [
+        "tabs"
+      ],
+      "data": [
+        "panel"
+      ],
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "70-interaction.js",
+      "line": 177,
+      "kind": "property-handler",
+      "event": "onclick",
+      "binding": "$('panelClose')",
+      "sha256": "c00b78c98aea747a5efcba0f6f87e22a191310b890e76705825eb4f7dda090a1",
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "70-interaction.js",
+      "line": 177,
+      "kind": "property-handler",
+      "event": "onclick",
+      "binding": "$('topNotice')",
+      "sha256": "513c36e82b41a838af178908b89bf3c1822bd476af0711c9abab7c57cb5ca62f",
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "70-interaction.js",
+      "line": 177,
+      "kind": "property-handler",
+      "event": "onclick",
+      "binding": "$('liveEconomy')",
+      "sha256": "30c48bce44017b94ec03ed47cdbea0577cf0200797f48111fca2023512466913",
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "70-interaction.js",
+      "line": 178,
+      "kind": "listener",
+      "event": "input",
+      "binding": "$('panelBody')",
+      "sha256": "a69453bda29fe33fc36192dfb1cf51ba0a9eaf0b2e633fa1c39e831aa8639b59",
+      "ids": [
+        "panelBody",
+        "searchPeople",
+        "show-",
+        "enactPolicy",
+        "draftSummary"
+      ],
+      "data": [
+        "policy"
+      ],
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "70-interaction.js",
+      "line": 179,
+      "kind": "listener",
+      "event": "change",
+      "binding": "$('panelBody')",
+      "sha256": "0c33adcb57a52bb20c99c1c8fef8e040120c4d217ac89b5f7a173f2f95a512e0",
+      "ids": [
+        "panelBody",
+        "searchPeople",
+        "enactPolicy"
+      ],
+      "data": [
+        "policy"
+      ],
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "70-interaction.js",
+      "line": 228,
+      "kind": "listener",
+      "event": "click",
+      "binding": "$('panelBody')",
+      "sha256": "0accc34610d34317d659ed6c6153d449dc94f25a9624d7c54f71d6a9c6998706",
+      "ids": [
+        "panelBody"
+      ],
+      "data": [],
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "70-interaction.js",
+      "line": 229,
+      "kind": "property-handler",
+      "event": "onclick",
+      "binding": "$('zoomIn')",
+      "sha256": "5344ce2b3391b4c571a64f8386a4ef321c57ea8e61f2acaf9cd0fc31791f41ed",
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "70-interaction.js",
+      "line": 229,
+      "kind": "property-handler",
+      "event": "onclick",
+      "binding": "$('zoomOut')",
+      "sha256": "cae7344f8972ecc49044e4a54fbe851e9e4439c5d1c4fba914185dbfcddf508a",
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "70-interaction.js",
+      "line": 229,
+      "kind": "property-handler",
+      "event": "onclick",
+      "binding": "$('center')",
+      "sha256": "47461340e251ef79750b8f918c104728adc540158ecdcf037ad9871472e1fe33",
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "70-interaction.js",
+      "line": 229,
+      "kind": "property-handler",
+      "event": "onclick",
+      "binding": "$('overlayToggle')",
+      "sha256": "c98dc1882c371eec9260437b789e59032409f1ffba5580f1ece21be6cc53a8f2",
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "70-interaction.js",
+      "line": 230,
+      "kind": "property-handler",
+      "event": "onclick",
+      "binding": "$('pause')",
+      "sha256": "f5241796aab384621f4269d30a8c4bbd899a40dfa2024200d777b02e6106f602",
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "70-interaction.js",
+      "line": 231,
+      "kind": "property-handler",
+      "event": "onclick",
+      "binding": "$('speed')",
+      "sha256": "0cf2e0de2899dbc3362acb78934c27900b15433c491d4210ae158f61f4710b29",
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "70-interaction.js",
+      "line": 232,
+      "kind": "listener",
+      "event": "input",
+      "binding": "$('speedRange')",
+      "sha256": "4e333d385919cd40577514ede98980a3aa67c888697100385c1ffdd409d0ebd7",
+      "ids": [
+        "speedRange"
+      ],
+      "data": [],
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "70-interaction.js",
+      "line": 233,
+      "kind": "listener",
+      "event": "change",
+      "binding": "$('speedRange')",
+      "sha256": "5ba0796d847ab0760d293bc9b33369eda5cacaf84144a217d1a0cce0cc90c36d",
+      "ids": [
+        "speedRange"
+      ],
+      "data": [],
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "70-interaction.js",
+      "line": 235,
+      "kind": "property-handler",
+      "event": "onclick",
+      "binding": "$('newTown')",
+      "sha256": "e5edc614f27e3f638c56903430d1d867031cd3c645ce4d270ef0da4a57fab37b",
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "70-interaction.js",
+      "line": 235,
+      "kind": "property-handler",
+      "event": "onclick",
+      "binding": "$('continue')",
+      "sha256": "9de024928cd259e85c581a6bb0897d75c3fa0064d54fbb658396835af925b15f",
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "70-interaction.js",
+      "line": 237,
+      "kind": "listener",
+      "event": "resize",
+      "binding": "window",
+      "sha256": "e1a463c6a09abeea7b64e6da5775ea0bc38255352718d73d223eda276eee942e",
+      "ids": [],
+      "data": [],
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "70-interaction.js",
+      "line": 263,
+      "kind": "listener",
+      "event": "beforeunload",
+      "binding": "window",
+      "sha256": "fd968e9f6ecb198ba6e6c3b8229d8c0d9a04dcbf6dd79634d988b2c00d540077",
+      "ids": [],
+      "data": [],
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "70-interaction.js",
+      "line": 263,
+      "kind": "listener",
+      "event": "visibilitychange",
+      "binding": "document",
+      "sha256": "6b0ca29d3335140e22410b933879ab9eb0626c6c52f90c4831e74abfc4e69d1b",
+      "ids": [],
+      "data": [],
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "70-interaction.js",
+      "line": 264,
+      "kind": "listener",
+      "event": "error",
+      "binding": "window",
+      "sha256": "3e0deb2f66cce4045d6f22f7f078491f49acf2f1f3d591c4a92173cd3e6ddf98",
+      "ids": [],
+      "data": [],
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "71-transit-office.js",
+      "line": 26,
+      "kind": "listener",
+      "event": "change",
+      "binding": "$('panelBody')",
+      "sha256": "2bfdaf42a6d5b738a6b370551306c4e911ddb3132d2129af7f77f30935ee7af5",
+      "ids": [
+        "panelBody",
+        "transitDepot",
+        "transitLevel"
+      ],
+      "data": [],
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "71-transit-office.js",
+      "line": 27,
+      "kind": "listener",
+      "event": "click",
+      "binding": "$('panelBody')",
+      "sha256": "0590a73020fc4531a5041f5812784e8559c7ef5481c723a3dc69d0cf05d871a0",
+      "ids": [
+        "panelBody",
+        "pause",
+        "pause",
+        "pause"
+      ],
+      "data": [
+        "transitLevel",
+        "transitAction",
+        "route",
+        "site"
+      ],
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "71-trip-inspector.js",
+      "line": 19,
+      "kind": "listener",
+      "event": "click",
+      "binding": "document",
+      "sha256": "580ee6c52aec9c71eeffb24a55205d24c4f84f005e63d24767898bbe95f77cb0",
+      "ids": [],
+      "data": [],
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "80-civic.js",
+      "line": 277,
+      "kind": "listener",
+      "event": "click",
+      "binding": "$('eventChoices')",
+      "sha256": "00089e1218be0e40b1c5efdfa49793cb042d83c9fc4ffe94ff5a49070810a1e3",
+      "ids": [
+        "eventChoices"
+      ],
+      "data": [
+        "eventChoice"
+      ],
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "80-civic.js",
+      "line": 323,
+      "kind": "property-handler",
+      "event": "onclick",
+      "binding": "$('eventDefer')",
+      "sha256": "130250f19d848a378c811513882def13fe701cbd124dd99630a2f1b75aa31ab7",
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "80-civic.js",
+      "line": 324,
+      "kind": "listener",
+      "event": "keydown",
+      "binding": "$('eventDialog')",
+      "sha256": "8186e3105376971671da3d6e6ea1c3fee2ffec3306dae3d89f39aa9da9f2916b",
+      "ids": [
+        "eventDialog",
+        "helpDialog",
+        "eventDialog"
+      ],
+      "data": [],
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "90-archive-panels.js",
+      "line": 132,
+      "kind": "property-handler",
+      "event": "onclick",
+      "binding": "$('copySave')",
+      "sha256": "0ff2beda1f9f718c7aa46aebe753f36be7406f35e72586ecc9528776bc65afd6",
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "90-archive-panels.js",
+      "line": 132,
+      "kind": "property-handler",
+      "event": "onclick",
+      "binding": "$('archiveClose')",
+      "sha256": "273a2044108134bdbbfb4f290793ad9daad757f9acab6c7e58f4760cf08d075d",
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "90-archive-panels.js",
+      "line": 134,
+      "kind": "property-handler",
+      "event": "onclick",
+      "binding": "$('restoreGo')",
+      "sha256": "e2a2d061dc5179b9279040239e803cd0aebb421775fa85ecb8a0820e552853f5",
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "90-archive-panels.js",
+      "line": 134,
+      "kind": "property-handler",
+      "event": "onclick",
+      "binding": "$('restoreCancel')",
+      "sha256": "e7fb2899b648e194de5b699662dcd33391b427d0a90b60f507f91431846fcd66",
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "90-archive-panels.js",
+      "line": 136,
+      "kind": "property-handler",
+      "event": "onclick",
+      "binding": "$('helpClose')",
+      "sha256": "7e1ff57f6358e8cb7cae50a0c84a97a473d8656e0caa8455cb789e66aead68a2",
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "90-archive-panels.js",
+      "line": 137,
+      "kind": "property-handler",
+      "event": "onclick",
+      "binding": "$('helpClose')",
+      "sha256": "7e1ff57f6358e8cb7cae50a0c84a97a473d8656e0caa8455cb789e66aead68a2",
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "90-archive-panels.js",
+      "line": 137,
+      "kind": "property-handler",
+      "event": "onclick",
+      "binding": "$('howTo')",
+      "sha256": "e89859881613f46176d2082217011d7c1e217a3ead48b23657c22a4644183778",
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "90-archive-panels.js",
+      "line": 138,
+      "kind": "listener",
+      "event": "keydown",
+      "binding": "$('helpDialog')",
+      "sha256": "8c133112963d21472cc8d3f5c1a66f7d390bda0ebe3c38dbca33e644bebe30e2",
+      "ids": [
+        "helpDialog",
+        "helpDialog",
+        "helpDialog"
+      ],
+      "data": [],
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "90-archive-panels.js",
+      "line": 146,
+      "kind": "listener",
+      "event": "click",
+      "binding": "$('scenarioPicker')",
+      "sha256": "688669e91e31250e4d24e2600812feb6b2f5f1401b914bd38b1a629647fd05a0",
+      "ids": [
+        "scenarioPicker"
+      ],
+      "data": [
+        "scenario"
+      ],
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "90-archive-panels.js",
+      "line": 157,
+      "kind": "property-handler",
+      "event": "onclick",
+      "binding": "$('continue')",
+      "sha256": "11aa3dc047e04431f87725229fce810b0891461580b08277d2529f497c7489e4",
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "92-government.js",
+      "line": 68,
+      "kind": "listener",
+      "event": "click",
+      "binding": "document",
+      "sha256": "2523ab258de1682baefa3fceb392b72ba4469700c85aa15e970d1d2204d4fd26",
+      "ids": [
+        "recoverAutosave",
+        "nightView"
+      ],
+      "data": [
+        "district",
+        "view"
+      ],
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "93-preferences.js",
+      "line": 17,
+      "kind": "listener",
+      "event": "click",
+      "binding": "document",
+      "sha256": "1f0ac44fb394c98980d56bbe6b8ee84ad79823e69674213d011c399b88d5d4ca",
+      "ids": [],
+      "data": [
+        "option"
+      ],
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "93-preferences.js",
+      "line": 18,
+      "kind": "listener",
+      "event": "change",
+      "binding": "document",
+      "sha256": "e0b9180d69a13a4491433c0b775b0762ae2625230304a71463383a524fbae86f",
+      "ids": [],
+      "data": [
+        "preference"
+      ],
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "94-economic-reports.js",
+      "line": 25,
+      "kind": "listener",
+      "event": "click",
+      "binding": "document",
+      "sha256": "a8041fca2d0e56b9a2602085d2570a47a3e546668c91972339a252bb288184cd",
+      "ids": [],
+      "data": [],
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "95-audio.js",
+      "line": 6,
+      "kind": "listener",
+      "event": "click",
+      "binding": "document",
+      "sha256": "ea4cdf7a0488d6f709e132e50eef2583361c238d50db8545ff6b2fdacdf6e149",
+      "ids": [],
+      "data": [
+        "sound",
+        "build"
+      ],
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "95-music.js",
+      "line": 43,
+      "kind": "listener",
+      "event": "dynamic",
+      "binding": "audio",
+      "sha256": "27770a97e9fb637c4b5a0c1aba44207f87111a48b1ef24a55e9fc169ced26205",
+      "ids": [],
+      "data": [],
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "95-music.js",
+      "line": 62,
+      "kind": "listener",
+      "event": "click",
+      "binding": "document",
+      "sha256": "3b98c656a49fbff09b011ea11044390cca161d81428d06dba5aef7775f1acb2b",
+      "ids": [
+        "musicToggle",
+        "musicNext",
+        "musicRetry"
+      ],
+      "data": [],
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "95-music.js",
+      "line": 63,
+      "kind": "listener",
+      "event": "input",
+      "binding": "document",
+      "sha256": "f8731b8f33dfce7fbbc6b6d0f8fad087b78babf9eadb4f48b7ff74d5da94951d",
+      "ids": [],
+      "data": [],
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "95-music.js",
+      "line": 64,
+      "kind": "listener",
+      "event": "change",
+      "binding": "document",
+      "sha256": "1bdfaf5565b0e71fae618443c083d6fdd95aecb59abbba39e0a732161b6c2a11",
+      "ids": [],
+      "data": [],
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "96-council-programme.js",
+      "line": 66,
+      "kind": "listener",
+      "event": "click",
+      "binding": "document",
+      "sha256": "065f0de2315b105a412a94a7d5ec0c7135da982602ae8245b5b4f2097075700b",
+      "ids": [
+        "panelBody"
+      ],
+      "data": [
+        "programmePanel"
+      ],
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "98-alternative-suppliers.js",
+      "line": 13,
+      "kind": "listener",
+      "event": "change",
+      "binding": "document",
+      "sha256": "f89f4682e22b4cceaec9f4794ab11cff73e0e3c5bdb4ab56e1c126d9a8f9b75f",
+      "ids": [
+        "supplierMarket",
+        "supplierGood",
+        "supplierFirm",
+        "alternativeSuppliers"
+      ],
+      "data": [],
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "98-charter-ui.js",
+      "line": 53,
+      "kind": "listener",
+      "event": "change",
+      "binding": "$('surveyDistrict')",
+      "sha256": "3705f46ac10fa196ee50dc8eede2bb8ca8079b256636704827a98929a6e4d130",
+      "ids": [
+        "surveyDistrict"
+      ],
+      "data": [],
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "98-charter-ui.js",
+      "line": 53,
+      "kind": "property-handler",
+      "event": "onclick",
+      "binding": "$('surveyReview')",
+      "sha256": "74450d4c42d484bcc847c88ce13567d6b58b021016e3841343cfa929d41485cb",
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "98-charter-ui.js",
+      "line": 55,
+      "kind": "listener",
+      "event": "click",
+      "binding": "document",
+      "sha256": "8a465b5c64b2c4b922e799cdf9860b8c9c2f0d6590a8a26e6c9dc828df15d5fb",
+      "ids": [],
+      "data": [
+        "parcelPreview",
+        "parcelBuy"
+      ],
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "98-district-ui.js",
+      "line": 3,
+      "kind": "listener",
+      "event": "click",
+      "binding": "document",
+      "sha256": "0250cd90a83ddafb252c8c3e7940aa2f2f2d69412439430c6eaa86b28d56e791",
+      "ids": [],
+      "data": [
+        "districtReview",
+        "districtId",
+        "districtFocus"
+      ],
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "98-onboarding-trade.js",
+      "line": 4,
+      "kind": "listener",
+      "event": "click",
+      "binding": "document",
+      "sha256": "2063775827ee771c3ded758641f5d3f2c115cebd573518a1599c17f0010b124b",
+      "ids": [],
+      "data": [],
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "98-player-experience.js",
+      "line": 102,
+      "kind": "listener",
+      "event": "click",
+      "binding": "document",
+      "sha256": "70215f95de785fd0bd762947755821b8c54342930bbb0c5cce02ba8c0c6bdf1b",
+      "ids": [
+        "panelBody",
+        "panelBody"
+      ],
+      "data": [
+        "panel",
+        "mayorPanel",
+        "mayorGuide",
+        "mayorDirection"
+      ],
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "98-private-service-ui.js",
+      "line": 6,
+      "kind": "listener",
+      "event": "click",
+      "binding": "document",
+      "sha256": "baf4d06c03e4136e7f85308ab7370cfaa9a3e6ffb1f838650b6cd60e4bd4b654",
+      "ids": [
+        "privatePolicyGroup"
+      ],
+      "data": [
+        "privateInvite"
+      ],
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "98-procurement.js",
+      "line": 30,
+      "kind": "listener",
+      "event": "click",
+      "binding": "document",
+      "sha256": "6bbff3df3d313bb6a3e69235af04e947dab3b9d4b74b7bd1410fb04a60e0f0f2",
+      "ids": [],
+      "data": [
+        "firm",
+        "procurement",
+        "good"
+      ],
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "98-project-opportunities.js",
+      "line": 172,
+      "kind": "property-handler",
+      "event": "onchange",
+      "binding": "$('projectParcel')",
+      "sha256": "b9a44b63c30ad60126a9fa03945eb84c2ba29d0db0332fd1d1b0bb6729a83fc1",
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "98-project-opportunities.js",
+      "line": 172,
+      "kind": "property-handler",
+      "event": "onchange",
+      "binding": "$('projectFocus')",
+      "sha256": "8002ad9e529301c4b85e527f163424f0f65fb1fc40778607a508ca93b91e0f68",
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "98-project-opportunities.js",
+      "line": 173,
+      "kind": "property-handler",
+      "event": "onclick",
+      "binding": "$('projectDistrictAdopt')",
+      "sha256": "290dea0dc6fd38644f9435f718104ff095e1f8add0d20ec468ffa90526820572",
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "98-project-opportunities.js",
+      "line": 184,
+      "kind": "listener",
+      "event": "click",
+      "binding": "document",
+      "sha256": "754005e733549ccd68a59d0453d7eb8338ec8f7429740d9395b481731694419e",
+      "ids": [],
+      "data": [
+        "civicProjectReview",
+        "civicProjectReplan",
+        "civicProjectDecline",
+        "civicProjectWithdraw",
+        "civicProjectBuild",
+        "civicProjectKind",
+        "civicProjectVisit"
+      ],
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "98-road-bridge.js",
+      "line": 55,
+      "kind": "listener",
+      "event": "click",
+      "binding": "document",
+      "sha256": "e1132a3ee912797078304d794130d45c68bb4384c710f41dd64223a57e9bcd38",
+      "ids": [
+        "hint",
+        "placementHint",
+        "placementHint"
+      ],
+      "data": [
+        "bridgeRepair",
+        "bridgeRemove"
+      ],
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "98-road-removal.js",
+      "line": 28,
+      "kind": "listener",
+      "event": "click",
+      "binding": "document",
+      "sha256": "267242a0c8b3dbe3cd2899f036e131f4531d96195ba669d392b998609ba5ee91",
+      "ids": [
+        "hint",
+        "placementHint",
+        "placementHint"
+      ],
+      "data": [],
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "98-service-budget-ui.js",
+      "line": 24,
+      "kind": "listener",
+      "event": "input",
+      "binding": "document",
+      "sha256": "8e92b1426c21ef571c8fd50f5f97a95f48979b3cb89293a9c8dd116b685cad2a",
+      "ids": [],
+      "data": [
+        "serviceBudgetAmount",
+        "policy"
+      ],
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "98-service-budget-ui.js",
+      "line": 29,
+      "kind": "listener",
+      "event": "click",
+      "binding": "document",
+      "sha256": "a45e254b991e1ccbede4588726f609d08a0888ab2e85d2009a919e13c4e61200",
+      "ids": [],
+      "data": [
+        "serviceBudgetKey",
+        "serviceBudgetPreset"
+      ],
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "98-service-budget-ui.js",
+      "line": 35,
+      "kind": "listener",
+      "event": "change",
+      "binding": "document",
+      "sha256": "ba57c0a489515283164959632acbf5255343b76d449603db87259b36ab2480af",
+      "ids": [],
+      "data": [
+        "policy"
+      ],
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "98-status-deck.js",
+      "line": 15,
+      "kind": "property-handler",
+      "event": "onclick",
+      "binding": "mapStatusToggle",
+      "sha256": "8ba12e49caa0b341a303c3532a7c2b873089c147acd1ebc3fb51a8e71d80ced7",
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "98-stewardship.js",
+      "line": 43,
+      "kind": "listener",
+      "event": "click",
+      "binding": "document",
+      "sha256": "38cd1d84bbf8fc218e868140e76742571d9cb4e310375b3504ab1920d91d2846",
+      "ids": [
+        "urbanPlanningOffice"
+      ],
+      "data": [
+        "civicRecharter",
+        "civicWatchProject"
+      ],
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "98-sustained-projects.js",
+      "line": 44,
+      "kind": "listener",
+      "event": "click",
+      "binding": "document",
+      "sha256": "b1a65da2eeb31d70dd0c4eafb23de7093348747287c6c5670462acddd74c9a3d",
+      "ids": [
+        "logisticsRelief"
+      ],
+      "data": [
+        "campaignReview",
+        "eventChoice"
+      ],
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "98-sustained-projects.js",
+      "line": 89,
+      "kind": "listener",
+      "event": "click",
+      "binding": "document",
+      "sha256": "c9ffd2d0464b562667d648f35242e9f10047bf7545396001180115d56dfd9566",
+      "ids": [],
+      "data": [],
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "98-town-situations.js",
+      "line": 44,
+      "kind": "listener",
+      "event": "click",
+      "binding": "document",
+      "sha256": "5980875261f2a7bce4d80491cb0c6cacd3456bb92d381757c0e4416ab469cda6",
+      "ids": [],
+      "data": [
+        "situationVisit",
+        "situationChoice",
+        "situationKey",
+        "situationPass"
+      ],
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "98-trade-ui.js",
+      "line": 10,
+      "kind": "listener",
+      "event": "click",
+      "binding": "document",
+      "sha256": "84dd763f25f2567c93b2a74370c7ffedd42f8c16d116700708340c2889025e8d",
+      "ids": [],
+      "data": [
+        "tradeOffer",
+        "tradeFirm",
+        "tradeGood",
+        "tradeCancel",
+        "regionalCargo"
+      ],
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "98-urban-ui.js",
+      "line": 34,
+      "kind": "listener",
+      "event": "click",
+      "binding": "document",
+      "sha256": "71ea93fccf211c7db81f7aacdbcacca5cd357160b412203216319a8886ae3080",
+      "ids": [
+        "hint",
+        "placementHint",
+        "placementHint"
+      ],
+      "data": [
+        "urbanClear",
+        "urbanFarmRenew",
+        "urbanPlan",
+        "urbanBuilding"
+      ],
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "98-waterfront-art.js",
+      "line": 56,
+      "kind": "listener",
+      "event": "click",
+      "binding": "document",
+      "sha256": "b3251a283ccf3bbe2cf3aa18e9ce9acf119f133f46bfad39d011f9dd3e69dbaf",
+      "ids": [
+        "panelBody"
+      ],
+      "data": [],
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "98x-logistics-ui.js",
+      "line": 3,
+      "kind": "listener",
+      "event": "click",
+      "binding": "document",
+      "sha256": "a33b0273adabf75de261f885affc5cbc39214d735ff3013144d0219f117cb2dc",
+      "ids": [
+        "logisticsOffice",
+        "logisticsOffice"
+      ],
+      "data": [
+        "logisticsRouting",
+        "logisticsTransfer",
+        "logisticsPriority",
+        "logisticsCancel"
+      ],
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "98z-district-followthrough.js",
+      "line": 21,
+      "kind": "listener",
+      "event": "click",
+      "binding": "document",
+      "sha256": "3177b5db743ec2d17132b3c56b8dafe6f9aa9d0ecf2a19f32fc9da1a85098188",
+      "ids": [
+        "migrationOffice"
+      ],
+      "data": [
+        "districtAdmission",
+        "districtFinish",
+        "districtBudget"
+      ],
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "98z-public-life.js",
+      "line": 5,
+      "kind": "property-handler",
+      "event": "oninput",
+      "binding": "$('publicPlaceName')",
+      "sha256": "90a3aba8e841d9f88a5fcbee5e4aa3ddb898e67f99862e37a213a54549cd63c5",
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "98z-public-life.js",
+      "line": 8,
+      "kind": "listener",
+      "event": "click",
+      "binding": "document",
+      "sha256": "98c0232e092bfa3fd824cf79da662d5e1bfb8bade51ebf47a4add87a14c8236c",
+      "ids": [
+        "urbanPlanningOffice"
+      ],
+      "data": [
+        "publicPlace",
+        "publicVisit"
+      ],
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "98zzzzzzz-brownfield-ui.js",
+      "line": 5,
+      "kind": "listener",
+      "event": "click",
+      "binding": "document",
+      "sha256": "375ed6601a607e4ed1b7557942cf5895c0a285a2c7cb3c1f37ed10e12ffd953a",
+      "ids": [
+        "panelClose"
+      ],
+      "data": [
+        "brownfieldId",
+        "brownfieldAction"
+      ],
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "98zzzzzzzz-growth-planning.js",
+      "line": 18,
+      "kind": "listener",
+      "event": "click",
+      "binding": "document",
+      "sha256": "96c2fd73d6587f15ff8ea47f5fd2ccf47db1547b2daf1bea68fab6343ac4b515",
+      "ids": [
+        "placementHint",
+        "placementHint",
+        "hint"
+      ],
+      "data": [],
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "98zzzzzzzzz-port-prospects.js",
+      "line": 11,
+      "kind": "listener",
+      "event": "click",
+      "binding": "document",
+      "sha256": "163176ae1865730e934ed22665e099e1ccfb19047cdf86c68ed5112ee8bd941f",
+      "ids": [],
+      "data": [
+        "portFreight",
+        "portDock",
+        "portGood",
+        "portDirection"
+      ],
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "98zzzzzzzzz-port-prospects.js",
+      "line": 20,
+      "kind": "listener",
+      "event": "click",
+      "binding": "document",
+      "sha256": "51218b675a586855cf83841f8a79db14cb00828d4e41a9d3b0649a7af1ad97cb",
+      "ids": [
+        "portFreightOffice"
+      ],
+      "data": [],
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "98zzzzzzzzz-region-locator.js",
+      "line": 24,
+      "kind": "property-handler",
+      "event": "onclick",
+      "binding": "regionLocatorButton",
+      "sha256": "7264b1b68e0ad7ad44e4d19ba1170e0340be1dc169992beded8a5a0003899872",
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "98zzzzzzzzz-region-locator.js",
+      "line": 25,
+      "kind": "listener",
+      "event": "pointerdown",
+      "binding": "regionLocatorCanvas",
+      "sha256": "21831f9fc54d9288188fbd84380757d73942674749539abcdff2b2df0f36d7be",
+      "ids": [],
+      "data": [],
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "98zzzzzzzzz-region-locator.js",
+      "line": 26,
+      "kind": "listener",
+      "event": "keydown",
+      "binding": "regionLocatorCanvas",
+      "sha256": "3e80264a6533052c8524570e6a737d13be40976fa53912f95684d414b34d545d",
+      "ids": [],
+      "data": [],
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "98zzzzzzzzzz-civic-calendar.js",
+      "line": 35,
+      "kind": "property-handler",
+      "event": "oninput",
+      "binding": "$('gatheringStart')",
+      "sha256": "9d299471c5ab8db26a7dfba909725616ecfa5af2b981b37c3f28467e7ccdfbad",
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "98zzzzzzzzzz-civic-calendar.js",
+      "line": 38,
+      "kind": "listener",
+      "event": "click",
+      "binding": "document",
+      "sha256": "76e108ad1efbbf46d64f66473bcc99ba9cc9decc690f3b2c87ab49f6cd1175f4",
+      "ids": [
+        "pause"
+      ],
+      "data": [
+        "gatheringReview",
+        "gatheringCancel",
+        "gatheringVisit"
+      ],
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "98zzzzzzzzzz-civic-calendar.js",
+      "line": 45,
+      "kind": "listener",
+      "event": "toggle",
+      "binding": "document",
+      "sha256": "46a505e2d49934a93106d5e0d11b7d92955a05293f36d5408c546cd5a2021f8a",
+      "ids": [
+        "civicCalendar"
+      ],
+      "data": [],
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "98zzzzzzzzzzz-decision-help.js",
+      "line": 14,
+      "kind": "listener",
+      "event": "click",
+      "binding": "document",
+      "sha256": "1c05085cc1458089583f7ac209dcb4b7eeb4c77d506c22d3f6cc7dec590eba88",
+      "ids": [],
+      "data": [
+        "decisionRoute"
+      ],
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "98zzzzzzzzzzz-decision-help.js",
+      "line": 24,
+      "kind": "listener",
+      "event": "toggle",
+      "binding": "document",
+      "sha256": "27f042743fbb2849d2f56ee2d0841b0327bb76323a59eebb047cad3eed2956fc",
+      "ids": [],
+      "data": [],
+      "routing": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "98zzzzzzzzzzzzzz-parcel-growth-outlook.js",
+      "line": 43,
+      "kind": "listener",
+      "event": "click",
+      "binding": "document",
+      "sha256": "04e71ca07feb4f59dd860a13329836d449e930b9218b87e5e2ceb117c9997e75",
+      "ids": [],
+      "data": [
+        "parcelOutlook"
+      ],
+      "routing": "REVIEW_REQUIRED"
+    }
+  ]
+}

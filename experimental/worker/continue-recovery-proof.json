@@ -1,0 +1,10 @@
+{
+  "emptyWorkerStartup": true,
+  "originalContinueControl": true,
+  "modernChronologyAndTownIdentityPreserved": true,
+  "backupRecoveryDoesNotOverwritePrimary": true,
+  "legacyConflictChoiceRespectedOverHigherDay": true,
+  "acknowledgedLegacyMigrationSave": true,
+  "pageErrors": [],
+  "source": "d2b7086"
+}

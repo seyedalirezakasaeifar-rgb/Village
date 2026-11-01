@@ -1,0 +1,57 @@
+{
+  "retirementWaitsForPending": true,
+  "retiredClientCannotSubmit": true,
+  "staleSessionRejectedBeforeIdConsumption": true,
+  "delayedReply": true,
+  "duplicateRejected": true,
+  "cancelledSaveNoWrites": true,
+  "oldEpochSaveAfterRestoreRejected": true,
+  "replies": [
+    {
+      "session": null,
+      "id": 1,
+      "op": "export",
+      "ok": true,
+      "epoch": 1,
+      "admitted": false,
+      "committed": false,
+      "result": {
+        "archive": "canonical"
+      }
+    },
+    {
+      "session": null,
+      "id": 2,
+      "op": "save",
+      "ok": false,
+      "epoch": 1,
+      "admitted": false,
+      "committed": false,
+      "outcome": "NOT_ADMITTED",
+      "error": "CANCELLED"
+    },
+    {
+      "session": null,
+      "id": 3,
+      "op": "restore",
+      "ok": true,
+      "epoch": 2,
+      "admitted": true,
+      "committed": true,
+      "result": {
+        "restored": true
+      }
+    },
+    {
+      "session": null,
+      "id": 4,
+      "op": "save",
+      "ok": false,
+      "epoch": 2,
+      "admitted": false,
+      "committed": false,
+      "outcome": "NOT_ADMITTED",
+      "error": "STALE_EPOCH"
+    }
+  ]
+}

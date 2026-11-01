@@ -1,0 +1,17 @@
+{
+  "productionBase": "848bf1bfb8fdddc3155ba5a7773348d28073ade4",
+  "creatorPreflight": "c91475af7dd079a51a72eb89b413673adae886c1",
+  "paidBoundary": "7233d8d17178307a5ebea5eb7cc106f14e42df66 plus bb58ac3",
+  "workerBase": "f45846c1c44b1f2a0d0e715d66c50fe0ed89bff1",
+  "productionEnabled": false,
+  "productionOwnerInstalled": false,
+  "ordinarySafetyReadinessEnabled": false,
+  "defaultReferenceOwnerExcluded": true,
+  "sha256": {
+    "assets/game.js": "7619b1fafdf5f05a8a3d8c79ea5669aaa13f5262957dd34a3e7c1b3479681461",
+    "experimental/worker/model.generated.js": "304b28f85b5b3011b929500fb3c95ac5fdd825241fa35958d876367f59390935",
+    "experimental/worker/adapter.js": "38a324e8b182a9eaf179475c71320c29307a162c685caf549340fc9a305462af",
+    "experimental/worker/paid-worker.js": "d26d4aac0af85192abcb9941ea0dcc25182d633099e86b1f266223e74d08be36",
+    "experimental/worker/real-view-bridge.js": "8e4f6b40a2a6bfa6a0084422db77e5ee7b00dda4be34bde959d4410e9eceee77"
+  }
+}
