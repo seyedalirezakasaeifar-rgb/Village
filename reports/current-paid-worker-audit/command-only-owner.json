@@ -1,12 +1,12 @@
 {
   "workerCommit": "f77ceddbba004d120a1f40ea90a9ac5037b061f2",
-  "workerSha256": "9270a4e18b28206880275db413fac24f4ddef4e48533f50fe77d49f49499e971",
+  "workerSha256": "7ed01a30143beea1a4f0bb61e63ab66cc1428b3e6c7ba27dc2859f48761a35a7",
   "hostSourceSha256": "7619b1fafdf5f05a8a3d8c79ea5669aaa13f5262957dd34a3e7c1b3479681461",
   "stubEconomics": false,
   "commandOnlyPrototype": true,
   "workerScopeShimInHarnessOnly": false,
   "creatorCommit": "c91475af7dd079a51a72eb89b413673adae886c1",
-  "ownerSha256": "108376582841c5a6ace499f1b0e656ae00014db9fd697d1a46c7c0691760c947",
+  "ownerSha256": "b9705d2dc19d98a349a1ff454dc2ad94467696bf5233cdd5e5de379b2c5a24ea",
   "paidLayerSha256": "ffe237b9a7470c170b5a330ac5cd6beb8557fd2a6f0222e19ae40e8170e180f2",
   "inputWorkerSha256": "304b28f85b5b3011b929500fb3c95ac5fdd825241fa35958d876367f59390935",
   "diagnosticSchedulingGateOnly": true,
@@ -153,104 +153,7 @@
     "scope": "idle",
     "registeredRuntime": 2
   },
-  "measurements": [
-    {
-      "fixture": "early",
-      "day": 1,
-      "people": 169,
-      "firms": 26,
-      "archiveBytes": 135487,
-      "samples": [
-        {
-          "iteration": 0,
-          "refused": false,
-          "wallMs": 192.86251099401852,
-          "workerReplyMs": 21.69999999552965,
-          "intent": "council-choice",
-          "captureMs": 9.600000001490116,
-          "rows": 1135,
-          "restoreMs": 0,
-          "checkMs": 0.7000000029802322
-        },
-        {
-          "iteration": 0,
-          "refused": true,
-          "wallMs": 74.77902199752862,
-          "workerReplyMs": null,
-          "intent": "council-choice",
-          "captureMs": 14,
-          "rows": 2244,
-          "restoreMs": 47.5,
-          "checkMs": 0.19999999552965164
-        }
-      ],
-      "fundingSetup": "Dense/late paid-command fixture transfers cash from region to treasury to reach5000; no cash creation"
-    },
-    {
-      "fixture": "dense-mid",
-      "day": 15561,
-      "people": 2346,
-      "firms": 37,
-      "archiveBytes": 2870783,
-      "samples": [
-        {
-          "iteration": 0,
-          "refused": false,
-          "wallMs": 2196.0361300007207,
-          "workerReplyMs": 97.10000000149012,
-          "intent": "council-choice",
-          "captureMs": 49.69999999552965,
-          "rows": 13458,
-          "restoreMs": 0,
-          "checkMs": 2
-        },
-        {
-          "iteration": 0,
-          "refused": true,
-          "wallMs": 355.25857000175165,
-          "workerReplyMs": null,
-          "intent": "council-choice",
-          "captureMs": 89.30000000447035,
-          "rows": 26888,
-          "restoreMs": 236.79999999701977,
-          "checkMs": 0
-        }
-      ],
-      "fundingSetup": "Dense/late paid-command fixture transfers cash from region to treasury to reach5000; no cash creation"
-    },
-    {
-      "fixture": "late-terminal",
-      "day": 41681,
-      "people": 3108,
-      "firms": 81,
-      "archiveBytes": 3658658,
-      "samples": [
-        {
-          "iteration": 0,
-          "refused": false,
-          "wallMs": 3165.0888889998896,
-          "workerReplyMs": 108.39999999850988,
-          "intent": "council-choice",
-          "captureMs": 57.399999998509884,
-          "rows": 16736,
-          "restoreMs": 0,
-          "checkMs": 2.8000000044703484
-        },
-        {
-          "iteration": 0,
-          "refused": true,
-          "wallMs": 435.0549820010201,
-          "workerReplyMs": null,
-          "intent": "council-choice",
-          "captureMs": 108.10000000149012,
-          "rows": 33444,
-          "restoreMs": 285.3999999985099,
-          "checkMs": 0.6999999955296516
-        }
-      ],
-      "fundingSetup": "Dense/late paid-command fixture transfers cash from region to treasury to reach5000; no cash creation"
-    }
-  ],
+  "measurements": [],
   "measurementLimits": [
     "Actual worker model CPU and protocol; no native/physical-device claim",
     "Logical active panel empty; full UI preparation not benchmarked",

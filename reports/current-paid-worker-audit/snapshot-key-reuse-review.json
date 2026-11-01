@@ -1,0 +1,60 @@
+{
+  "decision": "NOT_PROMOTED",
+  "reason": "No demonstrated reliable end-to-end latency benefit; small heterogeneous sample sizes and mixed capture timing. Keep shared protocol unchanged.",
+  "candidateProtocolSha256": "bbb58e47af67afeb3577fe3f6c61d747ce32ad126071c921d0d81f94fc7d838f",
+  "patchSha256": "fbe80c12ef8b007cb4ad96533180977b2e58ac1551f420b5f2e911280769dc64",
+  "equivalenceCases": 128,
+  "allKeysValuesFlagsAliasesRetained": true,
+  "allocationObservation": "One extra row.keys array per captured object removed by construction; heap peak not measured.",
+  "runtimeProtocolChanged": false,
+  "measurements": [
+    {
+      "fixture": "early",
+      "temperature": "cold-realm",
+      "beforeSamples": 1,
+      "candidateSamples": 3,
+      "beforeBrowserMedianMs": 22.69999999552965,
+      "candidateBrowserMedianMs": 22.30000000447035
+    },
+    {
+      "fixture": "early",
+      "temperature": "warm-reloaded-realm",
+      "beforeSamples": 1,
+      "candidateSamples": 3,
+      "beforeBrowserMedianMs": 28.200000002980232,
+      "candidateBrowserMedianMs": 22.200000002980232
+    },
+    {
+      "fixture": "dense-mid",
+      "temperature": "cold-realm",
+      "beforeSamples": 1,
+      "candidateSamples": 3,
+      "beforeBrowserMedianMs": 125.60000000149012,
+      "candidateBrowserMedianMs": 120.69999999552965
+    },
+    {
+      "fixture": "dense-mid",
+      "temperature": "warm-reloaded-realm",
+      "beforeSamples": 1,
+      "candidateSamples": 3,
+      "beforeBrowserMedianMs": 146.20000000298023,
+      "candidateBrowserMedianMs": 151.79999999701977
+    },
+    {
+      "fixture": "late-terminal",
+      "temperature": "cold-realm",
+      "beforeSamples": 1,
+      "candidateSamples": 3,
+      "beforeBrowserMedianMs": 143.30000000447035,
+      "candidateBrowserMedianMs": 144.39999999850988
+    },
+    {
+      "fixture": "late-terminal",
+      "temperature": "warm-reloaded-realm",
+      "beforeSamples": 1,
+      "candidateSamples": 3,
+      "beforeBrowserMedianMs": 182.60000000149012,
+      "candidateBrowserMedianMs": 181
+    }
+  ]
+}

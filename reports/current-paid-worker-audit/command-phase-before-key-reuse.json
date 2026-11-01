@@ -1,0 +1,497 @@
+{
+  "workerCommit": "f77ceddbba004d120a1f40ea90a9ac5037b061f2",
+  "workerInputSha256": "304b28f85b5b3011b929500fb3c95ac5fdd825241fa35958d876367f59390935",
+  "ownerSha256": "108376582841c5a6ace499f1b0e656ae00014db9fd697d1a46c7c0691760c947",
+  "testOnlyPhaseInstrumentation": true,
+  "fullModelCopiedToPython": false,
+  "samples": [
+    {
+      "fixture": "early",
+      "temperature": "cold-realm",
+      "iteration": 0,
+      "exactUnprofiledHash": true,
+      "browserRequestMs": 22.69999999552965,
+      "workerRequestMs": 19.200000002980232,
+      "workerToBrowserDeliveryMs": 3.300048828125,
+      "modelSnapshotMs": 2,
+      "jsonStringifyMs": 1.2999999970197678,
+      "jsonParseMs": 0.7000000029802322,
+      "maxMainTimerGapMs": 4.200000002980232,
+      "maxNativeRafGapMs": 16.700000000000045,
+      "phases": {
+        "totalMoney": {
+          "calls": 5,
+          "ms": 0.30000000447034836
+        },
+        "stockTotals": {
+          "calls": 2,
+          "ms": 0.3999999985098839
+        },
+        "authoredCallback": {
+          "calls": 1,
+          "ms": 0.10000000149011612
+        },
+        "book": {
+          "calls": 1,
+          "ms": 0
+        },
+        "story": {
+          "calls": 1,
+          "ms": 0
+        },
+        "closeCouncilDialogState": {
+          "calls": 1,
+          "ms": 0
+        },
+        "save": {
+          "calls": 2,
+          "ms": 0.10000000149011612
+        },
+        "recompute": {
+          "calls": 1,
+          "ms": 4.899999998509884
+        },
+        "rootWork": {
+          "calls": 1,
+          "ms": 6.399999998509884
+        },
+        "validateArchiveRecords": {
+          "calls": 1,
+          "ms": 0.30000000447034836
+        },
+        "validateBridgeArchive": {
+          "calls": 1,
+          "ms": 0.29999999701976776
+        },
+        "saveDrain": {
+          "calls": 2,
+          "ms": 0
+        }
+      },
+      "owner": {
+        "intent": "council-choice",
+        "captureMs": 8.5,
+        "rows": 1135,
+        "restoreMs": 0,
+        "checkMs": 0.7000000029802322
+      },
+      "canonicalBytes": 136233,
+      "payloadCountingMs": 1.5,
+      "savePrepareBrowserMs": 1.8999999985098839,
+      "savePrepareWorkerMs": 1.4000000059604645,
+      "archiveBytes": 136233,
+      "hash": "3c759c8d5d0eca0bc927a9ffcf8be7b9ce0d762e1f3e6a21abba705661833828",
+      "committed": true,
+      "durable": false,
+      "oneSaveIntent": true
+    },
+    {
+      "fixture": "early",
+      "temperature": "warm-reloaded-realm",
+      "iteration": 0,
+      "exactUnprofiledHash": true,
+      "browserRequestMs": 28.200000002980232,
+      "workerRequestMs": 24.899999998509884,
+      "workerToBrowserDeliveryMs": 3.10009765625,
+      "modelSnapshotMs": 4.100000001490116,
+      "jsonStringifyMs": 2.600000001490116,
+      "jsonParseMs": 1.5,
+      "maxMainTimerGapMs": 4.199999995529652,
+      "maxNativeRafGapMs": 16.700000000000045,
+      "phases": {
+        "totalMoney": {
+          "calls": 5,
+          "ms": 0.10000000149011612
+        },
+        "stockTotals": {
+          "calls": 2,
+          "ms": 0.10000000149011612
+        },
+        "authoredCallback": {
+          "calls": 1,
+          "ms": 0
+        },
+        "book": {
+          "calls": 1,
+          "ms": 0
+        },
+        "story": {
+          "calls": 1,
+          "ms": 0
+        },
+        "closeCouncilDialogState": {
+          "calls": 1,
+          "ms": 0
+        },
+        "save": {
+          "calls": 2,
+          "ms": 0.09999999403953552
+        },
+        "recompute": {
+          "calls": 1,
+          "ms": 2.7000000029802322
+        },
+        "rootWork": {
+          "calls": 1,
+          "ms": 3.2999999970197678
+        },
+        "validateArchiveRecords": {
+          "calls": 1,
+          "ms": 0.8999999985098839
+        },
+        "validateBridgeArchive": {
+          "calls": 1,
+          "ms": 0.5
+        },
+        "saveDrain": {
+          "calls": 2,
+          "ms": 0
+        }
+      },
+      "owner": {
+        "intent": "council-choice",
+        "captureMs": 15.5,
+        "rows": 2244,
+        "restoreMs": 0,
+        "checkMs": 1.5
+      },
+      "canonicalBytes": 136233,
+      "payloadCountingMs": 1.9000000059604645,
+      "savePrepareBrowserMs": 1.5999999940395355,
+      "savePrepareWorkerMs": 1.2999999970197678,
+      "archiveBytes": 136233,
+      "hash": "3c759c8d5d0eca0bc927a9ffcf8be7b9ce0d762e1f3e6a21abba705661833828",
+      "committed": true,
+      "durable": false,
+      "oneSaveIntent": true
+    },
+    {
+      "fixture": "dense-mid",
+      "temperature": "cold-realm",
+      "iteration": 0,
+      "exactUnprofiledHash": true,
+      "browserRequestMs": 125.60000000149012,
+      "workerRequestMs": 104,
+      "workerToBrowserDeliveryMs": 21.5,
+      "modelSnapshotMs": 26.399999998509884,
+      "jsonStringifyMs": 18.5,
+      "jsonParseMs": 7.799999997019768,
+      "maxMainTimerGapMs": 7.100000001490116,
+      "maxNativeRafGapMs": 16.799999999999955,
+      "phases": {
+        "totalMoney": {
+          "calls": 5,
+          "ms": 0.20000000298023224
+        },
+        "stockTotals": {
+          "calls": 2,
+          "ms": 0.29999999701976776
+        },
+        "authoredCallback": {
+          "calls": 1,
+          "ms": 0.10000000149011612
+        },
+        "book": {
+          "calls": 1,
+          "ms": 0
+        },
+        "story": {
+          "calls": 1,
+          "ms": 0.09999999403953552
+        },
+        "closeCouncilDialogState": {
+          "calls": 1,
+          "ms": 0
+        },
+        "save": {
+          "calls": 2,
+          "ms": 0.10000000149011612
+        },
+        "recompute": {
+          "calls": 1,
+          "ms": 11.700000002980232
+        },
+        "rootWork": {
+          "calls": 1,
+          "ms": 13.099999994039536
+        },
+        "validateArchiveRecords": {
+          "calls": 1,
+          "ms": 1.5
+        },
+        "validateBridgeArchive": {
+          "calls": 1,
+          "ms": 0.30000000447034836
+        },
+        "saveDrain": {
+          "calls": 2,
+          "ms": 0.10000000149011612
+        }
+      },
+      "owner": {
+        "intent": "council-choice",
+        "captureMs": 60.70000000298023,
+        "rows": 13458,
+        "restoreMs": 0,
+        "checkMs": 1.8000000044703484
+      },
+      "canonicalBytes": 2871455,
+      "payloadCountingMs": 29.600000001490116,
+      "savePrepareBrowserMs": 24.80000000447035,
+      "savePrepareWorkerMs": 22.399999998509884,
+      "archiveBytes": 2871455,
+      "hash": "2b70845b846f8a932541b970989e5e936d8187fda88ee951b978afa8c5330ebf",
+      "committed": true,
+      "durable": false,
+      "oneSaveIntent": true
+    },
+    {
+      "fixture": "dense-mid",
+      "temperature": "warm-reloaded-realm",
+      "iteration": 0,
+      "exactUnprofiledHash": true,
+      "browserRequestMs": 146.20000000298023,
+      "workerRequestMs": 125,
+      "workerToBrowserDeliveryMs": 21.2001953125,
+      "modelSnapshotMs": 25.100000001490116,
+      "jsonStringifyMs": 16.600000001490116,
+      "jsonParseMs": 8.5,
+      "maxMainTimerGapMs": 6.300000004470348,
+      "maxNativeRafGapMs": 16.700000000000273,
+      "phases": {
+        "totalMoney": {
+          "calls": 5,
+          "ms": 0.4000000059604645
+        },
+        "stockTotals": {
+          "calls": 2,
+          "ms": 0.20000000298023224
+        },
+        "authoredCallback": {
+          "calls": 1,
+          "ms": 0
+        },
+        "book": {
+          "calls": 1,
+          "ms": 0
+        },
+        "story": {
+          "calls": 1,
+          "ms": 0
+        },
+        "closeCouncilDialogState": {
+          "calls": 1,
+          "ms": 0
+        },
+        "save": {
+          "calls": 2,
+          "ms": 0
+        },
+        "recompute": {
+          "calls": 1,
+          "ms": 15.199999995529652
+        },
+        "rootWork": {
+          "calls": 1,
+          "ms": 15.699999995529652
+        },
+        "validateArchiveRecords": {
+          "calls": 1,
+          "ms": 5.5
+        },
+        "validateBridgeArchive": {
+          "calls": 1,
+          "ms": 0.20000000298023224
+        },
+        "saveDrain": {
+          "calls": 2,
+          "ms": 0.10000000149011612
+        }
+      },
+      "owner": {
+        "intent": "council-choice",
+        "captureMs": 77.80000000447035,
+        "rows": 26888,
+        "restoreMs": 0,
+        "checkMs": 5.800000004470348
+      },
+      "canonicalBytes": 2871455,
+      "payloadCountingMs": 28,
+      "savePrepareBrowserMs": 26.700000002980232,
+      "savePrepareWorkerMs": 23.600000001490116,
+      "archiveBytes": 2871455,
+      "hash": "2b70845b846f8a932541b970989e5e936d8187fda88ee951b978afa8c5330ebf",
+      "committed": true,
+      "durable": false,
+      "oneSaveIntent": true
+    },
+    {
+      "fixture": "late-terminal",
+      "temperature": "cold-realm",
+      "iteration": 0,
+      "exactUnprofiledHash": true,
+      "browserRequestMs": 143.30000000447035,
+      "workerRequestMs": 115.60000000149012,
+      "workerToBrowserDeliveryMs": 27.60009765625,
+      "modelSnapshotMs": 33.29999999701977,
+      "jsonStringifyMs": 20.399999998509884,
+      "jsonParseMs": 12.899999998509884,
+      "maxMainTimerGapMs": 5,
+      "maxNativeRafGapMs": 16.700000000000273,
+      "phases": {
+        "totalMoney": {
+          "calls": 5,
+          "ms": 0.19999999552965164
+        },
+        "stockTotals": {
+          "calls": 2,
+          "ms": 0.5000000074505806
+        },
+        "authoredCallback": {
+          "calls": 1,
+          "ms": 0.20000000298023224
+        },
+        "book": {
+          "calls": 1,
+          "ms": 0
+        },
+        "story": {
+          "calls": 1,
+          "ms": 0
+        },
+        "closeCouncilDialogState": {
+          "calls": 1,
+          "ms": 0.09999999403953552
+        },
+        "save": {
+          "calls": 2,
+          "ms": 0
+        },
+        "recompute": {
+          "calls": 1,
+          "ms": 13
+        },
+        "rootWork": {
+          "calls": 1,
+          "ms": 14.600000001490116
+        },
+        "validateArchiveRecords": {
+          "calls": 1,
+          "ms": 1.6000000014901161
+        },
+        "validateBridgeArchive": {
+          "calls": 1,
+          "ms": 0.09999999403953552
+        },
+        "saveDrain": {
+          "calls": 2,
+          "ms": 0
+        }
+      },
+      "owner": {
+        "intent": "council-choice",
+        "captureMs": 64.5,
+        "rows": 16736,
+        "restoreMs": 0,
+        "checkMs": 1.7999999970197678
+      },
+      "canonicalBytes": 3659252,
+      "payloadCountingMs": 35.70000000298023,
+      "savePrepareBrowserMs": 30.100000001490116,
+      "savePrepareWorkerMs": 26.19999999552965,
+      "archiveBytes": 3659252,
+      "hash": "9c40c1eca7ba35af68d5195f390ef7ab437c86bdea544b0c52ccb95b4b0c71a0",
+      "committed": true,
+      "durable": false,
+      "oneSaveIntent": true
+    },
+    {
+      "fixture": "late-terminal",
+      "temperature": "warm-reloaded-realm",
+      "iteration": 0,
+      "exactUnprofiledHash": true,
+      "browserRequestMs": 182.60000000149012,
+      "workerRequestMs": 157.40000000596046,
+      "workerToBrowserDeliveryMs": 25,
+      "modelSnapshotMs": 31.600000001490116,
+      "jsonStringifyMs": 21.399999998509884,
+      "jsonParseMs": 10.200000002980232,
+      "maxMainTimerGapMs": 4.100000001490116,
+      "maxNativeRafGapMs": 16.700000000000728,
+      "phases": {
+        "totalMoney": {
+          "calls": 5,
+          "ms": 0.3999999985098839
+        },
+        "stockTotals": {
+          "calls": 2,
+          "ms": 0.20000000298023224
+        },
+        "authoredCallback": {
+          "calls": 1,
+          "ms": 0.10000000149011612
+        },
+        "book": {
+          "calls": 1,
+          "ms": 0
+        },
+        "story": {
+          "calls": 1,
+          "ms": 0
+        },
+        "closeCouncilDialogState": {
+          "calls": 1,
+          "ms": 0
+        },
+        "save": {
+          "calls": 2,
+          "ms": 0
+        },
+        "recompute": {
+          "calls": 1,
+          "ms": 14.900000005960464
+        },
+        "rootWork": {
+          "calls": 1,
+          "ms": 15.400000005960464
+        },
+        "validateArchiveRecords": {
+          "calls": 1,
+          "ms": 1.4000000059604645
+        },
+        "validateBridgeArchive": {
+          "calls": 1,
+          "ms": 0.19999999552965164
+        },
+        "saveDrain": {
+          "calls": 2,
+          "ms": 0
+        }
+      },
+      "owner": {
+        "intent": "council-choice",
+        "captureMs": 108.5,
+        "rows": 33444,
+        "restoreMs": 0,
+        "checkMs": 1.7999999970197678
+      },
+      "canonicalBytes": 3659252,
+      "payloadCountingMs": 37.099999994039536,
+      "savePrepareBrowserMs": 31.100000001490116,
+      "savePrepareWorkerMs": 27.099999994039536,
+      "archiveBytes": 3659252,
+      "hash": "9c40c1eca7ba35af68d5195f390ef7ab437c86bdea544b0c52ccb95b4b0c71a0",
+      "committed": true,
+      "durable": false,
+      "oneSaveIntent": true
+    }
+  ],
+  "limits": [
+    "Host Chromium; no native/physical or durable-write claim",
+    "Main thread timers/RAF are diagnostic progress probes, not final game renderer acceptance",
+    "Function phase timers overlap; do not sum inclusive entries",
+    "Warm means same realm reloaded from identical archive, not a different economic action",
+    "Save preparation aborts without persistence; normalized archivePayload calls are recorded separately",
+    "Full model canonical hashes computed in browser after timing; only compact metrics cross Playwright"
+  ]
+}

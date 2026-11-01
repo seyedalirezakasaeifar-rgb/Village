@@ -1,0 +1,30 @@
+diff --git a/experiments/root-capacity-api.js b/experiments/root-capacity-api.js
+index 7e7435e..c17e482 100644
+--- a/experiments/root-capacity-api.js
++++ b/experiments/root-capacity-api.js
+@@ -5,7 +5,7 @@
+   if(!Array.isArray(roots))throw Error('Snapshot roots must be an array');
+   const seen=new Set(),rows=[],stack=roots.slice();
+   while(stack.length){const object=stack.pop();if(!object||typeof object!=='object'||seen.has(object))continue;seen.add(object);
+-   const proto=Object.getPrototypeOf(object),row={object,proto,fixedKeys:Object.isFrozen(object),keys:[],values:[],flags:[]};
++   const proto=Object.getPrototypeOf(object),row={object,proto,fixedKeys:Object.isFrozen(object),keys:null,values:[],flags:[]};
+    if(object instanceof Map){row.kind='map';row.entries=Array.from(object.entries());for(const pair of row.entries)stack.push(pair[0],pair[1]);}
+    else if(object instanceof Set){row.kind='set';row.entries=Array.from(object.values());for(const value of row.entries)stack.push(value);}
+    else if(object instanceof Date){row.kind='date';row.time=Date.prototype.getTime.call(object);}
+@@ -15,12 +15,13 @@
+    else if(proto===Object.prototype||proto===null)row.kind='object';
+    else throw Error('Unsupported snapshot object');
+    if(!Object.isExtensible(object)&&!row.fixedKeys)throw Error('Non-extensible mutable snapshots are unsupported');
+-   for(const key of Reflect.ownKeys(object)){
++   row.keys=Reflect.ownKeys(object);const keyCount=row.keys.length;let keptKeys=0;
++   for(let keyIndex=0;keyIndex<keyCount;keyIndex++){const key=row.keys[keyIndex];
+     if(row.kind==='array'&&key==='length'||row.kind==='view'&&typeof key==='string'&&/^(0|[1-9]\d*)$/.test(key))continue;
+     const d=Object.getOwnPropertyDescriptor(object,key);if(!owns(d,'value'))throw Error('Snapshot accessors are unsupported');if(!d.configurable&&!row.fixedKeys)throw Error('Snapshot requires mutable data properties or frozen containers');
+-    row.keys.push(key);row.values.push(d.value);row.flags.push((d.writable?1:0)|(d.enumerable?2:0)|(d.configurable?4:0));if(d.value&&typeof d.value==='object')stack.push(d.value);
++    row.keys[keptKeys++]=key;row.values.push(d.value);row.flags.push((d.writable?1:0)|(d.enumerable?2:0)|(d.configurable?4:0));if(d.value&&typeof d.value==='object')stack.push(d.value);
+    }
+-   rows.push(row);
++   row.keys.length=keptKeys;rows.push(row);
+   }
+   return rows;
+  }

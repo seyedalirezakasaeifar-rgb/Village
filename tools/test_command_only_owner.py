@@ -8,8 +8,10 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT/'tests'))
 from test_mobile_rendering import html
 from playwright.sync_api import sync_playwright
-ap=argparse.ArgumentParser();ap.add_argument('--worker-code',required=True);ap.add_argument('--default-worker-code');ap.add_argument('--host-source');ap.add_argument('--fatal-only',action='store_true');ap.add_argument('--commit',default='f77ceddbba004d120a1f40ea90a9ac5037b061f2');args=ap.parse_args()
+ap=argparse.ArgumentParser();ap.add_argument('--worker-code',required=True);ap.add_argument('--default-worker-code');ap.add_argument('--host-source');ap.add_argument('--protocol-source');ap.add_argument('--fatal-only',action='store_true');ap.add_argument('--measure-count',type=int,default=1);ap.add_argument('--commit',default='f77ceddbba004d120a1f40ea90a9ac5037b061f2');args=ap.parse_args()
 code=Path(args.worker_code).read_text()
+if args.protocol_source:
+ originalProtocol=subprocess.check_output(['git','show',args.commit+':experiments/root-capacity-api.js'],text=True);assert code.count(originalProtocol)==1;code=code.replace(originalProtocol,Path(args.protocol_source).read_text())
 originalPaid=subprocess.check_output(['git','show',args.commit+':experiments/paid-command-root.js'],text=True)
 assert originalPaid in code,'Exact published paid source not found'
 code=code.replace(originalPaid,(ROOT/'experiments/paid-command-root.js').read_text())
@@ -83,12 +85,12 @@ with sync_playwright() as pw:
  fixtures=[('early',archive)]
  for label,name in [('dense-mid','mid-session'),('late-terminal','terminal')]:
   raw=gzip.decompress(subprocess.check_output(['git','show','833afee:tests/fixtures/generated-late-31987fc/'+name+'.json.gz'])).decode();g=json.loads(raw);liquidity=max(0,5000-g['treasury']);assert g['region']>=liquidity;g['treasury']+=liquidity;g['region']-=liquidity;g['councilInbox']=[{'title':'A petition from the shopkeepers','day':g['day']}];fixtures.append((label,json.dumps(g,separators=(',',':'))))
- for label,fixture in fixtures:
+ for label,fixture in fixtures if args.measure_count else []:
   g=json.loads(fixture);entry={'fixture':label,'day':g['day'],'people':len(g['people']),'firms':len(g['firms']),'archiveBytes':len(fixture.encode()),'samples':[],'fundingSetup':'Dense/late paid-command fixture transfers cash from region to treasury to reach5000; no cash creation'}
   p.evaluate('code=>auditCreate(code)',code+gate);good(type='load',epoch=0,archive=fixture)
   initialized=ask(type='paid-test-init')
   if not initialized['ok']:entry['blocked']=initialized['error'];measurements.append(entry);continue
-  for iteration in range(1):
+  for iteration in range(args.measure_count):
    for refused in [False,True]:
     good(type='load',archive=fixture);review=good(type='review',index=0);event=next(e['payload'] for e in review['outbox'] if e['type']=='council-event');good(type='effects-ack',through=max(e['serial'] for e in review['outbox']));before=good(type='export');good(type='audit-deny',value=refused);start=time.perf_counter();r=ask(type='choice',eventId=event['id'],index=0);wall=(time.perf_counter()-start)*1000;metrics=good(type='audit-owner-metrics')['metrics']['last'];assert r['ok']!=refused,(label,iteration,refused,r,metrics)
     if refused:assert good(type='export')['model']==before['model']

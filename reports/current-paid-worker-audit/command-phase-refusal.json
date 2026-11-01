@@ -1,0 +1,859 @@
+{
+  "workerCommit": "f77ceddbba004d120a1f40ea90a9ac5037b061f2",
+  "workerInputSha256": "304b28f85b5b3011b929500fb3c95ac5fdd825241fa35958d876367f59390935",
+  "ownerSha256": "b9705d2dc19d98a349a1ff454dc2ad94467696bf5233cdd5e5de379b2c5a24ea",
+  "testOnlyPhaseInstrumentation": true,
+  "fullModelCopiedToPython": false,
+  "protocolSource": null,
+  "protocolSha256": null,
+  "samples": [
+    {
+      "fixture": "early",
+      "temperature": "cold-realm",
+      "iteration": 0,
+      "exactUnprofiledHash": false,
+      "browserRequestMs": 49.600000001490116,
+      "workerRequestMs": null,
+      "phases": {
+        "totalMoney": {
+          "calls": 4,
+          "ms": 0
+        },
+        "stockTotals": {
+          "calls": 2,
+          "ms": 0.3999999985098839
+        },
+        "authoredCallback": {
+          "calls": 1,
+          "ms": 0
+        },
+        "book": {
+          "calls": 1,
+          "ms": 0.09999999403953552
+        },
+        "story": {
+          "calls": 1,
+          "ms": 0
+        },
+        "closeCouncilDialogState": {
+          "calls": 1,
+          "ms": 0
+        },
+        "save": {
+          "calls": 2,
+          "ms": 0
+        },
+        "recompute": {
+          "calls": 1,
+          "ms": 6.700000002980232
+        },
+        "rootWork": {
+          "calls": 1,
+          "ms": 8.100000001490116
+        },
+        "saveDrain": {
+          "calls": 1,
+          "ms": 0
+        },
+        "wholeWorkerHandler": {
+          "calls": 1,
+          "ms": 47.79999999701977
+        }
+      },
+      "owner": {
+        "intent": "council-choice",
+        "captureMs": 9.199999995529652,
+        "rows": 1135,
+        "restoreMs": 25.200000002980232,
+        "checkMs": 0.10000000149011612
+      },
+      "canonicalBytes": 135487,
+      "maxMainTimerGapMs": 5.399999998509884,
+      "maxNativeRafGapMs": 16.700000000000045,
+      "hash": "378b867ee0cc6aebb66e24fefd465189e814c0c51871257f40689875845072cf",
+      "beforeHash": "378b867ee0cc6aebb66e24fefd465189e814c0c51871257f40689875845072cf",
+      "exactRefusalHash": true,
+      "committed": false,
+      "durable": false,
+      "saveIntents": 0
+    },
+    {
+      "fixture": "early",
+      "temperature": "warm-reloaded-realm",
+      "iteration": 0,
+      "exactUnprofiledHash": false,
+      "browserRequestMs": 33.69999999552965,
+      "workerRequestMs": null,
+      "phases": {
+        "totalMoney": {
+          "calls": 4,
+          "ms": 0
+        },
+        "stockTotals": {
+          "calls": 2,
+          "ms": 0
+        },
+        "authoredCallback": {
+          "calls": 1,
+          "ms": 0
+        },
+        "book": {
+          "calls": 1,
+          "ms": 0
+        },
+        "story": {
+          "calls": 1,
+          "ms": 0
+        },
+        "closeCouncilDialogState": {
+          "calls": 1,
+          "ms": 0
+        },
+        "save": {
+          "calls": 2,
+          "ms": 0
+        },
+        "recompute": {
+          "calls": 1,
+          "ms": 2
+        },
+        "rootWork": {
+          "calls": 1,
+          "ms": 2.2999999970197678
+        },
+        "saveDrain": {
+          "calls": 1,
+          "ms": 0
+        },
+        "wholeWorkerHandler": {
+          "calls": 1,
+          "ms": 33.5
+        }
+      },
+      "owner": {
+        "intent": "council-choice",
+        "captureMs": 8.300000004470348,
+        "rows": 1135,
+        "restoreMs": 22.600000001490116,
+        "checkMs": 0
+      },
+      "canonicalBytes": 135487,
+      "maxMainTimerGapMs": 6.5,
+      "maxNativeRafGapMs": 16.700000000000045,
+      "hash": "378b867ee0cc6aebb66e24fefd465189e814c0c51871257f40689875845072cf",
+      "beforeHash": "378b867ee0cc6aebb66e24fefd465189e814c0c51871257f40689875845072cf",
+      "exactRefusalHash": true,
+      "committed": false,
+      "durable": false,
+      "saveIntents": 0
+    },
+    {
+      "fixture": "early",
+      "temperature": "cold-realm",
+      "iteration": 1,
+      "exactUnprofiledHash": false,
+      "browserRequestMs": 44.29999999701977,
+      "workerRequestMs": null,
+      "phases": {
+        "totalMoney": {
+          "calls": 4,
+          "ms": 0
+        },
+        "stockTotals": {
+          "calls": 2,
+          "ms": 0.19999999552965164
+        },
+        "authoredCallback": {
+          "calls": 1,
+          "ms": 0.10000000149011612
+        },
+        "book": {
+          "calls": 1,
+          "ms": 0.10000000149011612
+        },
+        "story": {
+          "calls": 1,
+          "ms": 0
+        },
+        "closeCouncilDialogState": {
+          "calls": 1,
+          "ms": 0
+        },
+        "save": {
+          "calls": 2,
+          "ms": 0
+        },
+        "recompute": {
+          "calls": 1,
+          "ms": 4.299999997019768
+        },
+        "rootWork": {
+          "calls": 1,
+          "ms": 5.700000002980232
+        },
+        "saveDrain": {
+          "calls": 1,
+          "ms": 0
+        },
+        "wholeWorkerHandler": {
+          "calls": 1,
+          "ms": 43.899999998509884
+        }
+      },
+      "owner": {
+        "intent": "council-choice",
+        "captureMs": 7.899999998509884,
+        "rows": 1135,
+        "restoreMs": 24.900000005960464,
+        "checkMs": 0
+      },
+      "canonicalBytes": 135487,
+      "maxMainTimerGapMs": 4.100000001490116,
+      "maxNativeRafGapMs": 16.700000000000045,
+      "hash": "378b867ee0cc6aebb66e24fefd465189e814c0c51871257f40689875845072cf",
+      "beforeHash": "378b867ee0cc6aebb66e24fefd465189e814c0c51871257f40689875845072cf",
+      "exactRefusalHash": true,
+      "committed": false,
+      "durable": false,
+      "saveIntents": 0
+    },
+    {
+      "fixture": "early",
+      "temperature": "warm-reloaded-realm",
+      "iteration": 1,
+      "exactUnprofiledHash": false,
+      "browserRequestMs": 45.900000005960464,
+      "workerRequestMs": null,
+      "phases": {
+        "totalMoney": {
+          "calls": 4,
+          "ms": 0
+        },
+        "stockTotals": {
+          "calls": 2,
+          "ms": 0.10000000149011612
+        },
+        "authoredCallback": {
+          "calls": 1,
+          "ms": 0
+        },
+        "book": {
+          "calls": 1,
+          "ms": 0.09999999403953552
+        },
+        "story": {
+          "calls": 1,
+          "ms": 0
+        },
+        "closeCouncilDialogState": {
+          "calls": 1,
+          "ms": 0
+        },
+        "save": {
+          "calls": 2,
+          "ms": 0
+        },
+        "recompute": {
+          "calls": 1,
+          "ms": 2.100000001490116
+        },
+        "rootWork": {
+          "calls": 1,
+          "ms": 2.2999999970197678
+        },
+        "saveDrain": {
+          "calls": 1,
+          "ms": 0
+        },
+        "wholeWorkerHandler": {
+          "calls": 1,
+          "ms": 45.70000000298023
+        }
+      },
+      "owner": {
+        "intent": "council-choice",
+        "captureMs": 8.700000002980232,
+        "rows": 1135,
+        "restoreMs": 34.5,
+        "checkMs": 0
+      },
+      "canonicalBytes": 135487,
+      "maxMainTimerGapMs": 4.100000001490116,
+      "maxNativeRafGapMs": 16.700000000000045,
+      "hash": "378b867ee0cc6aebb66e24fefd465189e814c0c51871257f40689875845072cf",
+      "beforeHash": "378b867ee0cc6aebb66e24fefd465189e814c0c51871257f40689875845072cf",
+      "exactRefusalHash": true,
+      "committed": false,
+      "durable": false,
+      "saveIntents": 0
+    },
+    {
+      "fixture": "dense-mid",
+      "temperature": "cold-realm",
+      "iteration": 0,
+      "exactUnprofiledHash": false,
+      "browserRequestMs": 193.10000000149012,
+      "workerRequestMs": null,
+      "phases": {
+        "totalMoney": {
+          "calls": 4,
+          "ms": 0.30000000447034836
+        },
+        "stockTotals": {
+          "calls": 2,
+          "ms": 0.4000000059604645
+        },
+        "authoredCallback": {
+          "calls": 1,
+          "ms": 0.09999999403953552
+        },
+        "book": {
+          "calls": 1,
+          "ms": 0
+        },
+        "story": {
+          "calls": 1,
+          "ms": 0
+        },
+        "closeCouncilDialogState": {
+          "calls": 1,
+          "ms": 0
+        },
+        "save": {
+          "calls": 2,
+          "ms": 0
+        },
+        "recompute": {
+          "calls": 1,
+          "ms": 12
+        },
+        "rootWork": {
+          "calls": 1,
+          "ms": 13.399999998509884
+        },
+        "saveDrain": {
+          "calls": 1,
+          "ms": 0
+        },
+        "wholeWorkerHandler": {
+          "calls": 1,
+          "ms": 192.89999999850988
+        }
+      },
+      "owner": {
+        "intent": "council-choice",
+        "captureMs": 58.19999999552965,
+        "rows": 13458,
+        "restoreMs": 116.89999999850988,
+        "checkMs": 0
+      },
+      "canonicalBytes": 2870840,
+      "maxMainTimerGapMs": 6.600000001490116,
+      "maxNativeRafGapMs": 16.800000000000182,
+      "hash": "8158127c4498a99b09202b2e9851ddfe8274ed0707774c6acd5f819442e908fd",
+      "beforeHash": "8158127c4498a99b09202b2e9851ddfe8274ed0707774c6acd5f819442e908fd",
+      "exactRefusalHash": true,
+      "committed": false,
+      "durable": false,
+      "saveIntents": 0
+    },
+    {
+      "fixture": "dense-mid",
+      "temperature": "warm-reloaded-realm",
+      "iteration": 0,
+      "exactUnprofiledHash": false,
+      "browserRequestMs": 200.39999999850988,
+      "workerRequestMs": null,
+      "phases": {
+        "totalMoney": {
+          "calls": 4,
+          "ms": 1.1000000014901161
+        },
+        "stockTotals": {
+          "calls": 2,
+          "ms": 0.20000000298023224
+        },
+        "authoredCallback": {
+          "calls": 1,
+          "ms": 0
+        },
+        "book": {
+          "calls": 1,
+          "ms": 0.09999999403953552
+        },
+        "story": {
+          "calls": 1,
+          "ms": 0
+        },
+        "closeCouncilDialogState": {
+          "calls": 1,
+          "ms": 0
+        },
+        "save": {
+          "calls": 2,
+          "ms": 0
+        },
+        "recompute": {
+          "calls": 1,
+          "ms": 16
+        },
+        "rootWork": {
+          "calls": 1,
+          "ms": 16.5
+        },
+        "saveDrain": {
+          "calls": 1,
+          "ms": 0
+        },
+        "wholeWorkerHandler": {
+          "calls": 1,
+          "ms": 200
+        }
+      },
+      "owner": {
+        "intent": "council-choice",
+        "captureMs": 55.599999994039536,
+        "rows": 13458,
+        "restoreMs": 127.5,
+        "checkMs": 0
+      },
+      "canonicalBytes": 2870840,
+      "maxMainTimerGapMs": 4.899999998509884,
+      "maxNativeRafGapMs": 16.700000000000273,
+      "hash": "8158127c4498a99b09202b2e9851ddfe8274ed0707774c6acd5f819442e908fd",
+      "beforeHash": "8158127c4498a99b09202b2e9851ddfe8274ed0707774c6acd5f819442e908fd",
+      "exactRefusalHash": true,
+      "committed": false,
+      "durable": false,
+      "saveIntents": 0
+    },
+    {
+      "fixture": "dense-mid",
+      "temperature": "cold-realm",
+      "iteration": 1,
+      "exactUnprofiledHash": false,
+      "browserRequestMs": 181,
+      "workerRequestMs": null,
+      "phases": {
+        "totalMoney": {
+          "calls": 4,
+          "ms": 0.30000000447034836
+        },
+        "stockTotals": {
+          "calls": 2,
+          "ms": 0.5999999940395355
+        },
+        "authoredCallback": {
+          "calls": 1,
+          "ms": 0
+        },
+        "book": {
+          "calls": 1,
+          "ms": 0
+        },
+        "story": {
+          "calls": 1,
+          "ms": 0.10000000149011612
+        },
+        "closeCouncilDialogState": {
+          "calls": 1,
+          "ms": 0.10000000149011612
+        },
+        "save": {
+          "calls": 2,
+          "ms": 0.20000000298023224
+        },
+        "recompute": {
+          "calls": 1,
+          "ms": 14.5
+        },
+        "rootWork": {
+          "calls": 1,
+          "ms": 16
+        },
+        "saveDrain": {
+          "calls": 1,
+          "ms": 0
+        },
+        "wholeWorkerHandler": {
+          "calls": 1,
+          "ms": 180.70000000298023
+        }
+      },
+      "owner": {
+        "intent": "council-choice",
+        "captureMs": 52.399999998509884,
+        "rows": 13458,
+        "restoreMs": 108.20000000298023,
+        "checkMs": 0.09999999403953552
+      },
+      "canonicalBytes": 2870840,
+      "maxMainTimerGapMs": 5.899999998509884,
+      "maxNativeRafGapMs": 16.799999999999727,
+      "hash": "8158127c4498a99b09202b2e9851ddfe8274ed0707774c6acd5f819442e908fd",
+      "beforeHash": "8158127c4498a99b09202b2e9851ddfe8274ed0707774c6acd5f819442e908fd",
+      "exactRefusalHash": true,
+      "committed": false,
+      "durable": false,
+      "saveIntents": 0
+    },
+    {
+      "fixture": "dense-mid",
+      "temperature": "warm-reloaded-realm",
+      "iteration": 1,
+      "exactUnprofiledHash": false,
+      "browserRequestMs": 169.10000000149012,
+      "workerRequestMs": null,
+      "phases": {
+        "totalMoney": {
+          "calls": 4,
+          "ms": 1.3000000044703484
+        },
+        "stockTotals": {
+          "calls": 2,
+          "ms": 0.20000000298023224
+        },
+        "authoredCallback": {
+          "calls": 1,
+          "ms": 0
+        },
+        "book": {
+          "calls": 1,
+          "ms": 0
+        },
+        "story": {
+          "calls": 1,
+          "ms": 0
+        },
+        "closeCouncilDialogState": {
+          "calls": 1,
+          "ms": 0
+        },
+        "save": {
+          "calls": 2,
+          "ms": 0
+        },
+        "recompute": {
+          "calls": 1,
+          "ms": 11.699999995529652
+        },
+        "rootWork": {
+          "calls": 1,
+          "ms": 12
+        },
+        "saveDrain": {
+          "calls": 1,
+          "ms": 0
+        },
+        "wholeWorkerHandler": {
+          "calls": 1,
+          "ms": 169
+        }
+      },
+      "owner": {
+        "intent": "council-choice",
+        "captureMs": 52.19999999552965,
+        "rows": 13458,
+        "restoreMs": 104.29999999701977,
+        "checkMs": 0.10000000149011612
+      },
+      "canonicalBytes": 2870840,
+      "maxMainTimerGapMs": 5.399999998509884,
+      "maxNativeRafGapMs": 16.700000000000273,
+      "hash": "8158127c4498a99b09202b2e9851ddfe8274ed0707774c6acd5f819442e908fd",
+      "beforeHash": "8158127c4498a99b09202b2e9851ddfe8274ed0707774c6acd5f819442e908fd",
+      "exactRefusalHash": true,
+      "committed": false,
+      "durable": false,
+      "saveIntents": 0
+    },
+    {
+      "fixture": "late-terminal",
+      "temperature": "cold-realm",
+      "iteration": 0,
+      "exactUnprofiledHash": false,
+      "browserRequestMs": 203.60000000149012,
+      "workerRequestMs": null,
+      "phases": {
+        "totalMoney": {
+          "calls": 4,
+          "ms": 0.3999999910593033
+        },
+        "stockTotals": {
+          "calls": 2,
+          "ms": 0.6999999955296516
+        },
+        "authoredCallback": {
+          "calls": 1,
+          "ms": 0
+        },
+        "book": {
+          "calls": 1,
+          "ms": 0
+        },
+        "story": {
+          "calls": 1,
+          "ms": 0.10000000149011612
+        },
+        "closeCouncilDialogState": {
+          "calls": 1,
+          "ms": 0
+        },
+        "save": {
+          "calls": 2,
+          "ms": 0.09999999403953552
+        },
+        "recompute": {
+          "calls": 1,
+          "ms": 11.700000002980232
+        },
+        "rootWork": {
+          "calls": 1,
+          "ms": 13.300000004470348
+        },
+        "saveDrain": {
+          "calls": 1,
+          "ms": 0
+        },
+        "wholeWorkerHandler": {
+          "calls": 1,
+          "ms": 203.39999999850988
+        }
+      },
+      "owner": {
+        "intent": "council-choice",
+        "captureMs": 56.5,
+        "rows": 16736,
+        "restoreMs": 129.5,
+        "checkMs": 0.19999999552965164
+      },
+      "canonicalBytes": 3658656,
+      "maxMainTimerGapMs": 4.199999995529652,
+      "maxNativeRafGapMs": 16.800000000000182,
+      "hash": "ea358ed075dd7b9fc0b9a7ada56f87be5f413b3b5d4f920af83d54ab37a1d256",
+      "beforeHash": "ea358ed075dd7b9fc0b9a7ada56f87be5f413b3b5d4f920af83d54ab37a1d256",
+      "exactRefusalHash": true,
+      "committed": false,
+      "durable": false,
+      "saveIntents": 0
+    },
+    {
+      "fixture": "late-terminal",
+      "temperature": "warm-reloaded-realm",
+      "iteration": 0,
+      "exactUnprofiledHash": false,
+      "browserRequestMs": 209.40000000596046,
+      "workerRequestMs": null,
+      "phases": {
+        "totalMoney": {
+          "calls": 4,
+          "ms": 1
+        },
+        "stockTotals": {
+          "calls": 2,
+          "ms": 0.3999999985098839
+        },
+        "authoredCallback": {
+          "calls": 1,
+          "ms": 0
+        },
+        "book": {
+          "calls": 1,
+          "ms": 0
+        },
+        "story": {
+          "calls": 1,
+          "ms": 0
+        },
+        "closeCouncilDialogState": {
+          "calls": 1,
+          "ms": 0
+        },
+        "save": {
+          "calls": 2,
+          "ms": 0
+        },
+        "recompute": {
+          "calls": 1,
+          "ms": 13.700000002980232
+        },
+        "rootWork": {
+          "calls": 1,
+          "ms": 14.200000002980232
+        },
+        "saveDrain": {
+          "calls": 1,
+          "ms": 0
+        },
+        "wholeWorkerHandler": {
+          "calls": 1,
+          "ms": 209.30000000447035
+        }
+      },
+      "owner": {
+        "intent": "council-choice",
+        "captureMs": 52.79999999701977,
+        "rows": 16736,
+        "restoreMs": 141.69999999552965,
+        "checkMs": 0.10000000149011612
+      },
+      "canonicalBytes": 3658656,
+      "maxMainTimerGapMs": 4.199999995529652,
+      "maxNativeRafGapMs": 16.700000000000728,
+      "hash": "ea358ed075dd7b9fc0b9a7ada56f87be5f413b3b5d4f920af83d54ab37a1d256",
+      "beforeHash": "ea358ed075dd7b9fc0b9a7ada56f87be5f413b3b5d4f920af83d54ab37a1d256",
+      "exactRefusalHash": true,
+      "committed": false,
+      "durable": false,
+      "saveIntents": 0
+    },
+    {
+      "fixture": "late-terminal",
+      "temperature": "cold-realm",
+      "iteration": 1,
+      "exactUnprofiledHash": false,
+      "browserRequestMs": 220.5,
+      "workerRequestMs": null,
+      "phases": {
+        "totalMoney": {
+          "calls": 4,
+          "ms": 0.20000000298023224
+        },
+        "stockTotals": {
+          "calls": 2,
+          "ms": 0.5999999940395355
+        },
+        "authoredCallback": {
+          "calls": 1,
+          "ms": 0
+        },
+        "book": {
+          "calls": 1,
+          "ms": 0
+        },
+        "story": {
+          "calls": 1,
+          "ms": 0
+        },
+        "closeCouncilDialogState": {
+          "calls": 1,
+          "ms": 0
+        },
+        "save": {
+          "calls": 2,
+          "ms": 0
+        },
+        "recompute": {
+          "calls": 1,
+          "ms": 13.800000004470348
+        },
+        "rootWork": {
+          "calls": 1,
+          "ms": 15.5
+        },
+        "saveDrain": {
+          "calls": 1,
+          "ms": 0
+        },
+        "wholeWorkerHandler": {
+          "calls": 1,
+          "ms": 220.30000000447035
+        }
+      },
+      "owner": {
+        "intent": "council-choice",
+        "captureMs": 69.80000000447035,
+        "rows": 16736,
+        "restoreMs": 131,
+        "checkMs": 0.10000000149011612
+      },
+      "canonicalBytes": 3658656,
+      "maxMainTimerGapMs": 8.400000005960464,
+      "maxNativeRafGapMs": 16.800000000000182,
+      "hash": "ea358ed075dd7b9fc0b9a7ada56f87be5f413b3b5d4f920af83d54ab37a1d256",
+      "beforeHash": "ea358ed075dd7b9fc0b9a7ada56f87be5f413b3b5d4f920af83d54ab37a1d256",
+      "exactRefusalHash": true,
+      "committed": false,
+      "durable": false,
+      "saveIntents": 0
+    },
+    {
+      "fixture": "late-terminal",
+      "temperature": "warm-reloaded-realm",
+      "iteration": 1,
+      "exactUnprofiledHash": false,
+      "browserRequestMs": 198.29999999701977,
+      "workerRequestMs": null,
+      "phases": {
+        "totalMoney": {
+          "calls": 4,
+          "ms": 1.1000000014901161
+        },
+        "stockTotals": {
+          "calls": 2,
+          "ms": 0.3999999985098839
+        },
+        "authoredCallback": {
+          "calls": 1,
+          "ms": 0
+        },
+        "book": {
+          "calls": 1,
+          "ms": 0
+        },
+        "story": {
+          "calls": 1,
+          "ms": 0
+        },
+        "closeCouncilDialogState": {
+          "calls": 1,
+          "ms": 0
+        },
+        "save": {
+          "calls": 2,
+          "ms": 0
+        },
+        "recompute": {
+          "calls": 1,
+          "ms": 11.300000004470348
+        },
+        "rootWork": {
+          "calls": 1,
+          "ms": 11.899999998509884
+        },
+        "saveDrain": {
+          "calls": 1,
+          "ms": 0.09999999403953552
+        },
+        "wholeWorkerHandler": {
+          "calls": 1,
+          "ms": 198
+        }
+      },
+      "owner": {
+        "intent": "council-choice",
+        "captureMs": 54.100000001490116,
+        "rows": 16736,
+        "restoreMs": 131.39999999850988,
+        "checkMs": 0.10000000149011612
+      },
+      "canonicalBytes": 3658656,
+      "maxMainTimerGapMs": 5.899999998509884,
+      "maxNativeRafGapMs": 16.800000000000182,
+      "hash": "ea358ed075dd7b9fc0b9a7ada56f87be5f413b3b5d4f920af83d54ab37a1d256",
+      "beforeHash": "ea358ed075dd7b9fc0b9a7ada56f87be5f413b3b5d4f920af83d54ab37a1d256",
+      "exactRefusalHash": true,
+      "committed": false,
+      "durable": false,
+      "saveIntents": 0
+    }
+  ],
+  "limits": [
+    "Host Chromium; no native/physical or durable-write claim",
+    "Main thread timers/RAF are diagnostic progress probes, not final game renderer acceptance",
+    "Function phase timers overlap; do not sum inclusive entries",
+    "Warm means same realm reloaded from identical archive, not a different economic action",
+    "Save preparation aborts without persistence; normalized archivePayload calls are recorded separately",
+    "Full model canonical hashes computed in browser after timing; only compact metrics cross Playwright"
+  ]
+}
