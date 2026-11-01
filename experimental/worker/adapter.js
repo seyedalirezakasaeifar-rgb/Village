@@ -1,5 +1,9 @@
 // Explicit presentation/persistence boundary. No dummy DOM exists in this realm.
 const workerOutbox=[];let workerVersion=0,workerEventSerial=0,workerEpoch=0,workerCommand=0,workerStepping=false;
+const workerYieldChannel=new MessageChannel(),workerYieldQueue=[];
+workerYieldChannel.port1.onmessage=()=>workerYieldQueue.shift()?.();
+function workerYield(mode){return new Promise(resolve=>{if(mode==='timer')setTimeout(resolve,0);else{workerYieldQueue.push(resolve);workerYieldChannel.port2.postMessage(0);}});}
+let workerSavePrepared=null,workerSaveSerial=0;
 function workerEffect(type,payload){workerOutbox.push({type,day:G?.day,version:workerVersion,payload});}
 refreshAmbience=()=>workerEffect("ambience-refresh",{});
 toast=(text)=>workerEffect('notification',{text});
@@ -14,7 +18,7 @@ function workerRequest(m){
  const reply=()=>workerSnapshot(m.projection===true);
  if(m.type!=='load'&&m.epoch!==workerEpoch)throw Error('Stale model epoch');
  if(['policy','choice','review'].includes(m.type)){if(!Number.isInteger(m.command)||m.command<=workerCommand)throw Error('Repeated command');workerCommand=m.command;}
- if(m.type==='load'){workerEpoch++;workerCommand=0;for(const key of Object.keys(workerProfile))workerProfile[key]=0;workerOutbox.length=0;G=JSON.parse(m.archive);rngState=G.rngState;visualState=G.visualState;workerVersion=0;pendingEvent=null;invalidateRoads();return reply();}
+ if(m.type==='load'){workerEpoch++;workerCommand=0;workerSavePrepared=null;for(const key of Object.keys(workerProfile))workerProfile[key]=0;workerOutbox.length=0;G=JSON.parse(m.archive);rngState=G.rngState;visualState=G.visualState;workerVersion=0;pendingEvent=null;invalidateRoads();return reply();}
  if(m.type==='policy'){const d=defs.find(d=>d[0]===m.key);if(!d||!Number.isFinite(m.value)||m.value<d[2]||m.value>d[3])throw Error('Invalid policy');const old=G.policy[m.key];G.policy[m.key]=m.value;journalPolicy(m.key,old,m.value);recompute();return reply();}
  if(m.type==='review'){reviewCouncilInbox(m.index);return reply();}
  if(m.type==='choice'){
@@ -29,7 +33,11 @@ function workerRequest(m){
  G.journal.push({day:G.day,name:evt.title,message:c.title+'. '+(c.desc||''),baseline:{...G.stats,treasury:G.treasury}});
  story('COUNCIL DECISION: '+c.title+' — '+evt.title,'neutral');G.councilInbox=(G.councilInbox||[]).filter(e=>e.title!==evt.title);pendingEvent=null;workerEffect('council-closed',{});recompute();updateHeader();save();dirty=true;return reply();}
 
- if(m.type==='step'){if(workerStepping)throw Error('Step already active');if(!Number.isInteger(m.days)||m.days<0||m.days>360)throw Error('Invalid day count');const epoch=workerEpoch;workerStepping=true;return (async()=>{try{for(let i=0;i<m.days;i++){if(epoch!==workerEpoch)throw Error('Step interrupted by load');if(pendingEvent)break;const tickStart=performance.now();tick();workerProfile.tickMs+=performance.now()-tickStart;workerVersion++;await new Promise(resolve=>setTimeout(resolve,0));}if(epoch!==workerEpoch)throw Error('Step interrupted by load');return reply();}finally{workerStepping=false;}})();}
+ if(m.type==='step'){if(workerStepping)throw Error('Step already active');if(!Number.isInteger(m.days)||m.days<0||m.days>360)throw Error('Invalid day count');const epoch=workerEpoch;workerStepping=true;return (async()=>{try{for(let i=0;i<m.days;i++){if(epoch!==workerEpoch)throw Error('Step interrupted by load');if(pendingEvent)break;const tickStart=performance.now();tick();workerProfile.tickMs+=performance.now()-tickStart;workerVersion++;await workerYield(m.yieldMode);}if(epoch!==workerEpoch)throw Error('Step interrupted by load');return reply();}finally{workerStepping=false;}})();}
+ if(m.type==='save-prepare'){if(workerSavePrepared)throw Error('Save already prepared');G.rngState=rngState;const archive=JSON.stringify(G),token=workerEpoch+':'+(++workerSaveSerial);workerSavePrepared={token,epoch:workerEpoch,version:workerVersion,command:workerCommand,day:G.day,checksum:checksum(archive)};return {...workerSavePrepared,archive};}
+ if(m.type==='save-ack'){if(!workerSavePrepared||m.token!==workerSavePrepared.token||m.checksum!==workerSavePrepared.checksum)throw Error('Stale or mismatched save acknowledgement');const receipt=workerSavePrepared;workerSavePrepared=null;return {...receipt,persisted:true};}
+ if(m.type==='save-abort'){if(!workerSavePrepared||m.token!==workerSavePrepared.token)throw Error('Stale save abort');workerSavePrepared=null;return {epoch:workerEpoch,aborted:true};}
+ if(m.type==='snapshot')return reply();
  if(m.type==='export'){const snapshot=workerSnapshot();return {...snapshot,archive:JSON.stringify(snapshot.model)};}
  throw Error('Unknown request');
 }

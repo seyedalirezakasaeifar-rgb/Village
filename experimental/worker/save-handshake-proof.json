@@ -1,0 +1,22 @@
+{
+  "exactCanonicalReadback": true,
+  "oneWrite": true,
+  "duplicateAckRejected": true,
+  "loadInvalidatesPreparedToken": true,
+  "receipt": {
+    "token": "1:1",
+    "epoch": 1,
+    "version": 0,
+    "command": 0,
+    "day": 41681,
+    "checksum": "7a83b13c",
+    "persisted": true,
+    "requestMs": 0,
+    "workerSentAt": 1793500225549.9
+  },
+  "limitations": [
+    "Isolated test storage key; not production save envelope",
+    "No crash durability or native validation claim",
+    "Root transaction and visual-envelope contracts still require owner integration"
+  ]
+}
