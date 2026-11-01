@@ -1,0 +1,13 @@
+{
+  "source_sha256": "0eb5adab795072940e9a5966aae295381daa490c6be2b8e97a32725dc45f9db4",
+  "javaCandidateByteIdentity": "5ad7a9413e1f102478a8b8db55e1deb1eff11c2f",
+  "java": {
+    "android/app/src/main/java/org/townledger/vale/MainActivity.java": "3daf76ca90217a10e1ef68264c0785bbab482464f1d1c401734db938815b7fe6",
+    "android/app/src/main/java/org/townledger/vale/WorkerArchiveReply.java": "d5e7844caf3df0aef8e8bae276611af7aa05bee09c1202e60afaf13fa1551f01",
+    "android/app/src/main/java/org/townledger/vale/WorkerArchiveRequests.java": "05ee33a709f07f24b754e40ce377417f3b3bc18f6bafe76c5b8e59978b6f0fda"
+  },
+  "freshHostChecksPassed": 7,
+  "actualDeviceCurrentSource": false,
+  "workerEndpointEnabled": false,
+  "parserRuntimeSourceFetch": "Denied by network proxy HTTP403; no bytes fetched; not retried"
+}

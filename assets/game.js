@@ -5602,8 +5602,8 @@ window.__townArchive={
  back:()=>{if($('helpDialog').style.display!=='none'){hideHelpDialog();return true;}if(pendingEvent){closeCouncilDialog(true);return true;}if(active){closePanel();return true;}if(buildMode){closeBuildTool();return true;}return false;}
 };
 const originalExport=exportSave,originalImport=importSave;
-exportSave=function(){if(simulationTickFailed){toast('Day update failed. Reload the last saved town or restore a valid backup.');return;}if(window.AndroidArchive)window.AndroidArchive.writeBackup(archivePayload());else originalExport();};
-importSave=function(){if(window.AndroidArchive)window.AndroidArchive.openBackup();else originalImport();};
+exportSave=function(){if(simulationTickFailed){toast('Day update failed. Reload the last saved town or restore a valid backup.');return;}if(window.AndroidArchive&&window.__workerArchiveAsync&&typeof AndroidArchive.requestWorkerExport==='function'){AndroidArchive.requestWorkerExport();return;}if(window.AndroidArchive)window.AndroidArchive.writeBackup(archivePayload());else originalExport();};
+importSave=function(){if(window.AndroidArchive&&window.__workerArchiveAsync&&typeof AndroidArchive.requestWorkerImport==='function'){AndroidArchive.requestWorkerImport();return;}if(window.AndroidArchive)window.AndroidArchive.openBackup();else originalImport();};
 
 if($('townSeed')){try{$('townSeed').value=String(crypto.getRandomValues(new Uint32Array(1))[0]||42);}catch(_){$('townSeed').value=String(Date.now()%4294967295||42);}}
 
