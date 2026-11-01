@@ -1,10 +1,11 @@
 {
-  "sourceSha256": "0fa74c84768f835616804be362e550ca1fec65cf1c1d20b94ff30564481492dc",
+  "sourceSha256": "691c7b6b0263776f7a8095ac863d5f070e7eb7e7e418c34dbd3cd4927fca713f",
   "transitFixture": "paid actual routes with existing12residents reassigned as driver candidates; real3day allocation",
   "transitKinds": [
     "boat",
     "bus",
-    "train"
+    "train",
+    "truck"
   ],
   "pausedProjectionInvariant": true,
   "resumeClockAdvanced": true,
@@ -12,19 +13,19 @@
   "reviewedPaidPortBoat": {
     "id": "vessel:900001",
     "kind": "boat",
-    "x": 2.8757740012500097,
-    "z": 14.367282582568192,
+    "x": 2.8757740012500106,
+    "z": 12.789949249234844,
     "dx": 0,
-    "dz": 1,
+    "dz": 0.35999999999999943,
     "color": "#b18b57",
     "opacity": 1
   },
   "portPausedProjectionInvariant": true,
   "normalClockCargoCycleCompleted": true,
-  "normalClockSeconds": 5.489,
+  "normalClockSeconds": 5.593,
   "cycle": [
     {
-      "elapsed": 0.266,
+      "elapsed": 0.277,
       "day": 5,
       "active": [
         {
@@ -324,13 +325,13 @@
       "actor": {
         "id": "vessel:900001",
         "kind": "boat",
-        "x": 2.8757740012500026,
-        "z": 17.25564621893185,
+        "x": 2.8757740012500035,
+        "z": 15.93988864317421,
         "base": -0.005
       }
     },
     {
-      "elapsed": 0.585,
+      "elapsed": 0.587,
       "day": 5,
       "active": [
         {
@@ -631,12 +632,318 @@
         "id": "vessel:900001",
         "kind": "boat",
         "x": 2.875774001250006,
-        "z": 21.982918946204578,
+        "z": 20.93031288559846,
         "base": -0.005
       }
     },
     {
-      "elapsed": 0.946,
+      "elapsed": 0.922,
+      "day": 5,
+      "active": [
+        {
+          "id": 4,
+          "stage": "delivering"
+        },
+        {
+          "id": 12,
+          "stage": "delivering"
+        },
+        {
+          "id": 18,
+          "stage": "delivering"
+        },
+        {
+          "id": 21,
+          "stage": "outside"
+        },
+        {
+          "id": 34,
+          "stage": "outside"
+        },
+        {
+          "id": 37,
+          "stage": "outside"
+        },
+        {
+          "id": 1,
+          "stage": "outside"
+        },
+        {
+          "id": 2,
+          "stage": "outside"
+        },
+        {
+          "id": 3,
+          "stage": "outside"
+        },
+        {
+          "id": 6,
+          "stage": "outside"
+        },
+        {
+          "id": 7,
+          "stage": "collecting"
+        },
+        {
+          "id": 11,
+          "stage": "outside"
+        },
+        {
+          "id": 15,
+          "stage": "collecting"
+        },
+        {
+          "id": 17,
+          "stage": "outside"
+        },
+        {
+          "id": 19,
+          "stage": "outside"
+        },
+        {
+          "id": 22,
+          "stage": "outside"
+        },
+        {
+          "id": 39,
+          "stage": "outside"
+        },
+        {
+          "id": 52,
+          "stage": "outside"
+        },
+        {
+          "id": 55,
+          "stage": "outside"
+        },
+        {
+          "id": 9,
+          "stage": "outside"
+        },
+        {
+          "id": 14,
+          "stage": "outside"
+        },
+        {
+          "id": 20,
+          "stage": "outside"
+        },
+        {
+          "id": 24,
+          "stage": "outside"
+        },
+        {
+          "id": 25,
+          "stage": "outside"
+        },
+        {
+          "id": 31,
+          "stage": "outside"
+        },
+        {
+          "id": 33,
+          "stage": "outside"
+        },
+        {
+          "id": 36,
+          "stage": "outside"
+        },
+        {
+          "id": 40,
+          "stage": "outside"
+        },
+        {
+          "id": 41,
+          "stage": "outside"
+        },
+        {
+          "id": 57,
+          "stage": "outside"
+        },
+        {
+          "id": 5,
+          "stage": "outside"
+        },
+        {
+          "id": 8,
+          "stage": "outside"
+        },
+        {
+          "id": 10,
+          "stage": "outside"
+        },
+        {
+          "id": 13,
+          "stage": "outside"
+        },
+        {
+          "id": 16,
+          "stage": "outside"
+        },
+        {
+          "id": 23,
+          "stage": "outside"
+        },
+        {
+          "id": 26,
+          "stage": "outside"
+        },
+        {
+          "id": 27,
+          "stage": "outside"
+        },
+        {
+          "id": 28,
+          "stage": "outside"
+        },
+        {
+          "id": 29,
+          "stage": "outside"
+        },
+        {
+          "id": 30,
+          "stage": "outside"
+        },
+        {
+          "id": 32,
+          "stage": "outside"
+        },
+        {
+          "id": 35,
+          "stage": "outside"
+        },
+        {
+          "id": 38,
+          "stage": "outside"
+        },
+        {
+          "id": 43,
+          "stage": "outside"
+        },
+        {
+          "id": 44,
+          "stage": "outside"
+        },
+        {
+          "id": 49,
+          "stage": "outside"
+        },
+        {
+          "id": 51,
+          "stage": "outside"
+        },
+        {
+          "id": 54,
+          "stage": "outside"
+        },
+        {
+          "id": 59,
+          "stage": "outside"
+        },
+        {
+          "id": 42,
+          "stage": "outside"
+        },
+        {
+          "id": 45,
+          "stage": "outside"
+        },
+        {
+          "id": 46,
+          "stage": "outside"
+        },
+        {
+          "id": 47,
+          "stage": "outside"
+        },
+        {
+          "id": 48,
+          "stage": "outside"
+        },
+        {
+          "id": 50,
+          "stage": "outside"
+        },
+        {
+          "id": 53,
+          "stage": "outside"
+        },
+        {
+          "id": 56,
+          "stage": "outside"
+        },
+        {
+          "id": 58,
+          "stage": "outside"
+        },
+        {
+          "id": 60,
+          "stage": "origin-loading"
+        },
+        {
+          "id": 61,
+          "stage": "origin-loading"
+        },
+        {
+          "id": 62,
+          "stage": "origin-loading"
+        },
+        {
+          "id": 63,
+          "stage": "collecting"
+        },
+        {
+          "id": 64,
+          "stage": "origin-loading"
+        },
+        {
+          "id": 65,
+          "stage": "origin-loading"
+        },
+        {
+          "id": 66,
+          "stage": "origin-loading"
+        },
+        {
+          "id": 67,
+          "stage": "origin-loading"
+        },
+        {
+          "id": 68,
+          "stage": "origin-loading"
+        },
+        {
+          "id": 69,
+          "stage": "origin-loading"
+        },
+        {
+          "id": 70,
+          "stage": "origin-loading"
+        },
+        {
+          "id": 71,
+          "stage": "origin-loading"
+        },
+        {
+          "id": 72,
+          "stage": "origin-loading"
+        },
+        {
+          "id": 73,
+          "stage": "origin-loading"
+        }
+      ],
+      "recent": [],
+      "actor": {
+        "id": "vessel:900001",
+        "kind": "boat",
+        "x": 2.8757740012500133,
+        "z": 25.657585612871188,
+        "base": -0.005
+      }
+    },
+    {
+      "elapsed": 1.573,
       "day": 6,
       "active": [
         {
@@ -969,7 +1276,7 @@
       "actor": null
     },
     {
-      "elapsed": 1.529,
+      "elapsed": 1.953,
       "day": 6,
       "active": [
         {
@@ -1302,7 +1609,7 @@
       "actor": null
     },
     {
-      "elapsed": 1.858,
+      "elapsed": 2.33,
       "day": 6,
       "active": [
         {
@@ -1635,7 +1942,7 @@
       "actor": null
     },
     {
-      "elapsed": 2.18,
+      "elapsed": 2.952,
       "day": 6,
       "active": [
         {
@@ -1968,340 +2275,7 @@
       "actor": null
     },
     {
-      "elapsed": 2.595,
-      "day": 6,
-      "active": [
-        {
-          "id": 4,
-          "stage": "delivering"
-        },
-        {
-          "id": 12,
-          "stage": "delivering"
-        },
-        {
-          "id": 18,
-          "stage": "delivering"
-        },
-        {
-          "id": 34,
-          "stage": "delivering"
-        },
-        {
-          "id": 37,
-          "stage": "delivering"
-        },
-        {
-          "id": 1,
-          "stage": "delivering"
-        },
-        {
-          "id": 2,
-          "stage": "delivering"
-        },
-        {
-          "id": 3,
-          "stage": "delivering"
-        },
-        {
-          "id": 6,
-          "stage": "outside"
-        },
-        {
-          "id": 7,
-          "stage": "collecting"
-        },
-        {
-          "id": 11,
-          "stage": "delivering"
-        },
-        {
-          "id": 15,
-          "stage": "collecting"
-        },
-        {
-          "id": 17,
-          "stage": "delivering"
-        },
-        {
-          "id": 19,
-          "stage": "unloading"
-        },
-        {
-          "id": 22,
-          "stage": "unloading"
-        },
-        {
-          "id": 39,
-          "stage": "outside"
-        },
-        {
-          "id": 52,
-          "stage": "outside"
-        },
-        {
-          "id": 55,
-          "stage": "outside"
-        },
-        {
-          "id": 9,
-          "stage": "collecting"
-        },
-        {
-          "id": 14,
-          "stage": "collecting"
-        },
-        {
-          "id": 20,
-          "stage": "collecting"
-        },
-        {
-          "id": 24,
-          "stage": "outside"
-        },
-        {
-          "id": 25,
-          "stage": "collecting"
-        },
-        {
-          "id": 31,
-          "stage": "collecting"
-        },
-        {
-          "id": 33,
-          "stage": "outside"
-        },
-        {
-          "id": 36,
-          "stage": "outside"
-        },
-        {
-          "id": 40,
-          "stage": "outside"
-        },
-        {
-          "id": 41,
-          "stage": "outside"
-        },
-        {
-          "id": 57,
-          "stage": "outside"
-        },
-        {
-          "id": 62,
-          "stage": "outside"
-        },
-        {
-          "id": 66,
-          "stage": "outside"
-        },
-        {
-          "id": 5,
-          "stage": "outside"
-        },
-        {
-          "id": 8,
-          "stage": "outside"
-        },
-        {
-          "id": 10,
-          "stage": "outside"
-        },
-        {
-          "id": 13,
-          "stage": "outside"
-        },
-        {
-          "id": 16,
-          "stage": "outside"
-        },
-        {
-          "id": 23,
-          "stage": "outside"
-        },
-        {
-          "id": 26,
-          "stage": "outside"
-        },
-        {
-          "id": 27,
-          "stage": "outside"
-        },
-        {
-          "id": 28,
-          "stage": "outside"
-        },
-        {
-          "id": 29,
-          "stage": "outside"
-        },
-        {
-          "id": 30,
-          "stage": "outside"
-        },
-        {
-          "id": 32,
-          "stage": "outside"
-        },
-        {
-          "id": 35,
-          "stage": "outside"
-        },
-        {
-          "id": 38,
-          "stage": "outside"
-        },
-        {
-          "id": 43,
-          "stage": "outside"
-        },
-        {
-          "id": 44,
-          "stage": "outside"
-        },
-        {
-          "id": 49,
-          "stage": "outside"
-        },
-        {
-          "id": 51,
-          "stage": "outside"
-        },
-        {
-          "id": 54,
-          "stage": "outside"
-        },
-        {
-          "id": 59,
-          "stage": "outside"
-        },
-        {
-          "id": 63,
-          "stage": "loading"
-        },
-        {
-          "id": 65,
-          "stage": "outside"
-        },
-        {
-          "id": 72,
-          "stage": "outside"
-        },
-        {
-          "id": 42,
-          "stage": "outside"
-        },
-        {
-          "id": 45,
-          "stage": "outside"
-        },
-        {
-          "id": 46,
-          "stage": "outside"
-        },
-        {
-          "id": 47,
-          "stage": "outside"
-        },
-        {
-          "id": 48,
-          "stage": "outside"
-        },
-        {
-          "id": 50,
-          "stage": "outside"
-        },
-        {
-          "id": 53,
-          "stage": "outside"
-        },
-        {
-          "id": 56,
-          "stage": "outside"
-        },
-        {
-          "id": 58,
-          "stage": "outside"
-        },
-        {
-          "id": 61,
-          "stage": "outside"
-        },
-        {
-          "id": 69,
-          "stage": "outside"
-        },
-        {
-          "id": 73,
-          "stage": "outside"
-        },
-        {
-          "id": 60,
-          "stage": "outside"
-        },
-        {
-          "id": 64,
-          "stage": "outside"
-        },
-        {
-          "id": 67,
-          "stage": "outside"
-        },
-        {
-          "id": 68,
-          "stage": "outside"
-        },
-        {
-          "id": 70,
-          "stage": "outside"
-        },
-        {
-          "id": 71,
-          "stage": "outside"
-        },
-        {
-          "id": 74,
-          "stage": "collecting"
-        },
-        {
-          "id": 75,
-          "stage": "origin-loading"
-        },
-        {
-          "id": 76,
-          "stage": "origin-loading"
-        },
-        {
-          "id": 77,
-          "stage": "origin-loading"
-        },
-        {
-          "id": 78,
-          "stage": "origin-loading"
-        },
-        {
-          "id": 79,
-          "stage": "origin-loading"
-        },
-        {
-          "id": 80,
-          "stage": "origin-loading"
-        },
-        {
-          "id": 81,
-          "stage": "origin-loading"
-        }
-      ],
-      "recent": [
-        {
-          "id": 21,
-          "status": "Delivered"
-        }
-      ],
-      "actor": null
-    },
-    {
-      "elapsed": 3.057,
+      "elapsed": 3.288,
       "day": 7,
       "active": [
         {
@@ -2638,7 +2612,7 @@
       "actor": null
     },
     {
-      "elapsed": 3.408,
+      "elapsed": 3.627,
       "day": 7,
       "active": [
         {
@@ -2975,7 +2949,7 @@
       "actor": null
     },
     {
-      "elapsed": 3.769,
+      "elapsed": 3.953,
       "day": 7,
       "active": [
         {
@@ -3312,7 +3286,7 @@
       "actor": null
     },
     {
-      "elapsed": 4.168,
+      "elapsed": 4.285,
       "day": 7,
       "active": [
         {
@@ -3649,7 +3623,7 @@
       "actor": null
     },
     {
-      "elapsed": 4.718,
+      "elapsed": 4.92,
       "day": 8,
       "active": [
         {

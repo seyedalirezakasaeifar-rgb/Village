@@ -1,0 +1,18 @@
+[
+  {
+    "mode": "shader-callback",
+    "failure": "WebGL shader compilation failed",
+    "noPartialCleanup": true,
+    "canvasVisible": true,
+    "save": true,
+    "errors": []
+  },
+  {
+    "mode": "late-build",
+    "failure": "Error: Injected build failure",
+    "noPartialCleanup": true,
+    "canvasVisible": true,
+    "save": true,
+    "errors": []
+  }
+]
