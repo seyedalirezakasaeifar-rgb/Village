@@ -11,9 +11,9 @@ function paidPortBoatPose(o){
  pose.x-=pose.dy/length*4;pose.y+=pose.dx/length*4;
  return {...pose,progress,opacity:o.inbound?clamp(progress/.035,0,1):clamp((1-progress)/.035,0,1)};
 }
-waterfrontActors=function(visible){
- const actors=portWaterActorsBase(visible);if(!visualDetailBudget().boats||gameOptions.reducedMotion)return actors;
- const cap=fastRenderEnabled()?2:gameOptions.quality==='high'?10:6;
+waterfrontActors=function(visible,presentation=null){
+ const actors=portWaterActorsBase(visible,presentation);if(!(presentation?.budget||visualDetailBudget()).boats||gameOptions.reducedMotion)return actors;
+ const cap=presentation?.cap??(fastRenderEnabled()?2:gameOptions.quality==='high'?10:6);
  for(const o of portCargoPoses()){
   if(actors.length>=cap)break;const f=G.firms[o.port];if(!f)continue;const pose=paidPortBoatPose(o);if(!pose||G.tiles[roadId(Math.floor(pose.gx),Math.floor(pose.gy))]===1||!visible(pose.x,pose.y,35))continue;
   // Same-day bulk orders can share an identical local itinerary. Render one

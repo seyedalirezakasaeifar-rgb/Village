@@ -20,11 +20,11 @@ function waterRoutePose(path,travel,returning=false){
  const p=iso(...position),sign=returning?-1:1;return {x:p[0],y:p[1],gx:position[0],gy:position[1],dx:(tangent[0]-tangent[1])*36*sign,dy:(tangent[0]+tangent[1])*18*sign};
 }
 let waterVesselTown=null,waterVesselClock=0,waterVessels=new Map();
-function waterfrontActors(visible){
- if(!visualDetailBudget().boats)return [];
+function waterfrontActors(visible,presentation=null){
+ if(!(presentation?.budget||visualDetailBudget()).boats)return [];
  if(waterVesselTown!==G||frameClock<waterVesselClock){waterVessels=new Map();waterVesselTown=G;waterVesselClock=frameClock;}
  const elapsed=Math.min(.25,Math.max(0,frameClock-waterVesselClock));waterVesselClock=frameClock;
- const cap=fastRenderEnabled()?2:gameOptions.quality==='high'?10:6,actors=[],orders=new Map();
+ const cap=presentation?.cap??(fastRenderEnabled()?2:gameOptions.quality==='high'?10:6),actors=[],orders=new Map();
  for(const m of (G.waterway?.manifests||[]).slice().reverse())if(!orders.has(m.port))orders.set(m.port,m);
  for(const f of G.firms){if(!['fishery','wharf'].includes(f.kind))continue;const b=readBuild(f.building);if(!b||b.firm!==f.id){waterVessels.delete(f.id);continue;}
   const m=orders.get(f.id),fishing=f.kind==='fishery',working=!f.closed&&workingStaff(f).length>0,hasOrder=working&&(fishing?f.production>0:!!m),token=fishing?G.day:m?.id;

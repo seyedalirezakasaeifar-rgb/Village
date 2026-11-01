@@ -61,10 +61,10 @@ function transitTerminalHeading(r,phase,dx,dy){
  const eased=progress*progress*(3-2*progress),angle=base+Math.PI*(reverse?1+eased:eased),length=Math.hypot(dx,dy)||1;
  return [Math.cos(angle)*length,Math.sin(angle)*length];
 }
-function transitArtActors(visible){
- if(gameOptions.reducedMotion||!gameOptions.traffic||cam.zoom<.38)return [];
- const poses=transitVehiclePoses(frameClock,cam.zoom),routes=new Map(transitTopology().routes.map(r=>[r.id,r])),ordinals=new Map(),result=[];
- for(const pose of poses){const r=routes.get(pose.route),index=ordinals.get(pose.route)||0;ordinals.set(pose.route,index+1);if(!r||!r.path||r.path.length<2)continue;const count=Math.min(4,r.stats.staff.length/TRANSIT_MODES[r.mode].staff),span=r.path.length-1,phase=(frameClock*(r.mode==='bus'?.48:.85)+index*span*2/count)%(span*2),forward=phase<span,at=forward?phase:span*2-phase,i=Math.min(span-1,Math.floor(at)),t=at-i,points=[Math.max(0,i-1),i,i+1,Math.min(span,i+2)].map(k=>roadCenter(r.path[k])),[previous,a,b,next]=points;
+function transitArtActors(visible,time=frameClock,zoom=cam.zoom){
+ if(gameOptions.reducedMotion||!gameOptions.traffic||zoom<.38)return [];
+ const poses=transitVehiclePoses(time,zoom),routes=new Map(transitTopology().routes.map(r=>[r.id,r])),ordinals=new Map(),result=[];
+ for(const pose of poses){const r=routes.get(pose.route),index=ordinals.get(pose.route)||0;ordinals.set(pose.route,index+1);if(!r||!r.path||r.path.length<2)continue;const count=Math.min(4,r.stats.staff.length/TRANSIT_MODES[r.mode].staff),span=r.path.length-1,phase=(time*(r.mode==='bus'?.48:.85)+index*span*2/count)%(span*2),forward=phase<span,at=forward?phase:span*2-phase,i=Math.min(span-1,Math.floor(at)),t=at-i,points=[Math.max(0,i-1),i,i+1,Math.min(span,i+2)].map(k=>roadCenter(r.path[k])),[previous,a,b,next]=points;
   let x=pose.x,y=pose.y,dx=pose.dx,dy=pose.dy,corner,u;const radius=.18;
   if(t<radius&&i>0){corner=[previous,a,b];u=(t+radius)/(2*radius);}else if(t>1-radius&&i+2<r.path.length){corner=[a,b,next];u=(t-1+radius)/(2*radius);}
   if(corner){const [start,c,end]=corner,s=c.map((v,k)=>v-(v-start[k])*radius),e=c.map((v,k)=>v+(end[k]-v)*radius),p=c.map((v,k)=>(1-u)*(1-u)*s[k]+2*(1-u)*u*v+u*u*e[k]),h=c.map((v,k)=>2*(1-u)*(v-s[k])+2*u*(e[k]-v));x=p[0];y=p[1]-pose.elevation;dx=h[0]*(forward?1:-1);dy=h[1]*(forward?1:-1);}
