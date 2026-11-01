@@ -1,0 +1,107 @@
+{
+  "cases": [
+    {
+      "camera": {
+        "zoom": 2.1,
+        "position": [
+          52,
+          30,
+          52
+        ]
+      },
+      "pick": {
+        "x": 26,
+        "y": 26,
+        "id": 3354,
+        "building": 1
+      },
+      "calls": 76,
+      "triangles": 93776,
+      "materials": 76,
+      "programs": 7,
+      "memory": {
+        "geometries": 12,
+        "textures": 2
+      },
+      "label": "near"
+    },
+    {
+      "camera": {
+        "zoom": 1,
+        "position": [
+          52,
+          30,
+          52
+        ]
+      },
+      "pick": {
+        "x": 26,
+        "y": 26,
+        "id": 3354,
+        "building": 1
+      },
+      "calls": 76,
+      "triangles": 93776,
+      "materials": 76,
+      "programs": 7,
+      "memory": {
+        "geometries": 12,
+        "textures": 2
+      },
+      "label": "mid"
+    },
+    {
+      "camera": {
+        "zoom": 0.6,
+        "position": [
+          52,
+          30,
+          52
+        ]
+      },
+      "pick": {
+        "x": 26,
+        "y": 26,
+        "id": 3354,
+        "building": 1
+      },
+      "calls": 76,
+      "triangles": 93776,
+      "materials": 76,
+      "programs": 7,
+      "memory": {
+        "geometries": 12,
+        "textures": 2
+      },
+      "label": "far"
+    },
+    {
+      "camera": {
+        "zoom": 1.3,
+        "position": [
+          52,
+          30,
+          52
+        ]
+      },
+      "pick": {
+        "x": 26,
+        "y": 26,
+        "id": 3354,
+        "building": 1
+      },
+      "calls": 76,
+      "triangles": 93776,
+      "materials": 76,
+      "programs": 7,
+      "memory": {
+        "geometries": 12,
+        "textures": 2
+      },
+      "label": "portrait"
+    }
+  ],
+  "archiveInvariant": true,
+  "save": true,
+  "errors": []
+}

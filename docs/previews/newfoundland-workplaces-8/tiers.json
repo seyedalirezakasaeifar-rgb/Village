@@ -1,0 +1,92 @@
+[
+  {
+    "quality": "reference",
+    "backingSize": [
+      1000,
+      577
+    ],
+    "shadowSize": 1024,
+    "shadowPasses": 0,
+    "cpu": {
+      "n": 28,
+      "medianMs": 0.8999999985098839,
+      "p95Ms": 1.5,
+      "maxMs": 1.6999999955296516
+    },
+    "raf": {
+      "n": 27,
+      "medianMs": 293.90000000596046,
+      "p95Ms": 307.5,
+      "maxMs": 360.70000000298023
+    },
+    "backend": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+    "calls": 66,
+    "triangles": 93464,
+    "memory": {
+      "geometries": 13,
+      "textures": 2
+    },
+    "batching": {
+      "removed": 379,
+      "groups": 12
+    },
+    "programs": 6,
+    "materials": 66,
+    "before": {
+      "day": 1,
+      "total": 15513879,
+      "rng": 489582166
+    },
+    "batchMode": "off",
+    "modelDigest": "2662d3ffa51f2664eede9e36696b070ee30cb4f2a1c84c4f15ee83e93d175f99",
+    "elapsedSeconds": 17.028674100998614,
+    "stateInvariant": true,
+    "saveOK": true,
+    "errors": []
+  },
+  {
+    "quality": "reference",
+    "backingSize": [
+      1000,
+      577
+    ],
+    "shadowSize": 1024,
+    "shadowPasses": 0,
+    "cpu": {
+      "n": 28,
+      "medianMs": 1.0,
+      "p95Ms": 1.1999999955296516,
+      "maxMs": 1.2999999970197678
+    },
+    "raf": {
+      "n": 27,
+      "medianMs": 293.29999999701977,
+      "p95Ms": 313.70000000298023,
+      "maxMs": 315.5
+    },
+    "backend": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+    "calls": 76,
+    "triangles": 92318,
+    "memory": {
+      "geometries": 12,
+      "textures": 2
+    },
+    "batching": {
+      "removed": 372,
+      "groups": 12
+    },
+    "programs": 7,
+    "materials": 76,
+    "before": {
+      "day": 1,
+      "total": 15513879,
+      "rng": 489582166
+    },
+    "batchMode": "on",
+    "modelDigest": "2662d3ffa51f2664eede9e36696b070ee30cb4f2a1c84c4f15ee83e93d175f99",
+    "elapsedSeconds": 16.286387743995874,
+    "stateInvariant": true,
+    "saveOK": true,
+    "errors": []
+  }
+]
