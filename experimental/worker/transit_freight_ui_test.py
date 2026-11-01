@@ -7,7 +7,7 @@ from playwright.sync_api import sync_playwright
 source=Path('assets/game.js').read_text();code=Path('experimental/worker/model.generated.js').read_text();bridge=''.join(Path('experimental/worker/'+n).read_text() for n in ['runtime-guard.js','archive-endpoint.js','real-view-bridge.js']);bindings=json.loads(Path('experimental/worker/route-bindings.generated.json').read_text())
 tree=ast.parse(Path('experimental/worker/transit_freight_parity_test.py').read_text());hook=next(ast.literal_eval(n.value) for n in tree.body if isinstance(n,ast.Assign) and any(isinstance(t,ast.Name) and t.id=='hook' for t in n.targets))
 hook=hook.replace('recompute();return archivePayload();','recompute();if(!hydrateSave(archivePayload()))throw Error("Fixture normalization failed");return archivePayload();')
-hook+='''let familyFailWrites=false;const familyPersist=persistSnapshot;persistSnapshot=function(...args){return familyFailWrites?Promise.resolve(false):familyPersist.apply(this,args);};window.familyStorage={fail:v=>familyFailWrites=v,stored:()=>readSaveEnvelope(localStorage.getItem('townledger-v6'))};window.uiFacts={overlay:()=>overlay,step:()=>tick(),point:(id)=>{const pos=iso(id%T,Math.floor(id/T));cam={x:pos[0],y:pos[1],zoom:.8};dirty=true;const r=cv.getBoundingClientRect();return {x:r.left+cw/2,y:r.top+ch/2};},stops:()=>{const depot=G.buildings.find(b=>b.kind==='transit_depot'),roads=G.tiles.map((v,i)=>v===1&&transitOwnedRoad(i)?i:-1).filter(i=>i>=0);for(const a of roads)for(const b of roads){if(a>=b||roadDistance(a,b)<8)continue;const q=transitQuote({mode:'bus',depot:depot.id,stops:[a,b],level:1});if(q.ok&&q.cost<=G.treasury)return [a,b];}throw Error('No normal funded route');}};\n'''
+hook+='''let familyFailWrites=false;const familyPersist=persistSnapshot;persistSnapshot=function(...args){return familyFailWrites?Promise.resolve(false):familyPersist.apply(this,args);};window.familyStorage={fail:v=>familyFailWrites=v,stored:()=>readSaveEnvelope(localStorage.getItem('townledger-v6'))};window.uiFacts={camera:()=>({...cam}),overlay:()=>overlay,step:()=>tick(),point:(id)=>{const pos=iso(id%T,Math.floor(id/T));cam={x:pos[0],y:pos[1],zoom:.8};dirty=true;const r=cv.getBoundingClientRect();return {x:r.left+cw/2,y:r.top+ch/2};},stops:()=>{const depot=G.buildings.find(b=>b.kind==='transit_depot'),roads=G.tiles.map((v,i)=>v===1&&transitOwnedRoad(i)?i:-1).filter(i=>i>=0);for(const a of roads)for(const b of roads){if(a>=b||roadDistance(a,b)<8)continue;const q=transitQuote({mode:'bus',depot:depot.id,stops:[a,b],level:1});if(q.ok&&q.cost<=G.treasury)return [a,b];}throw Error('No normal funded route');}};\n'''
 def clean(g):
  for k in ['visualState','trafficState']:g.pop(k,None)
  return g
@@ -72,6 +72,15 @@ with sync_playwright() as pw:
   check('transit overlay toggle '+str(ix))
   assert clean(q.evaluate('real.command({type:"export"})')['model'])==presentation_before
   assert oracle.evaluate('uiFacts.overlay()')==q.evaluate('uiFacts.overlay()')
+ camera_before=q.evaluate('uiFacts.camera()')
+ for p in pages:
+  target=p.locator('[data-transit-action="focus"][data-route="'+str(report_id)+'"]');target.evaluate('(e)=>e.closest("details").open=true');target.click()
+ check('show route preserves zoom actual UI')
+ assert oracle.evaluate('uiFacts.camera()')==q.evaluate('uiFacts.camera()')
+ assert q.evaluate('uiFacts.camera().zoom')==camera_before['zoom']
+ assert not q.locator('#panel').is_visible()
+ assert clean(q.evaluate('real.command({type:"export"})')['model'])==presentation_before
+ panel('construction')
  for p in pages:p.locator('[data-transit-action="new-bus"]').click()
  check('second draft start')
  for p in pages:p.locator('[data-transit-action="cancel"]').click()
@@ -109,6 +118,7 @@ with sync_playwright() as pw:
    if not p.locator('#logisticsOffice').evaluate('(e)=>e.open'):p.locator('#logisticsOffice summary').click()
    p.locator('[data-logistics-'+kind+'="'+value+'"]').click()
   check('freight '+kind)
+  assert q.locator('#logisticsOffice').evaluate('(e)=>e.open')
  for p in pages:
   if not p.locator('#logisticsOffice').evaluate('(e)=>e.open'):p.locator('#logisticsOffice summary').click()
   p.locator('[data-logistics-cancel="'+str(targets['cargo'])+'"]').click()
