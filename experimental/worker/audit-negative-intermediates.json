@@ -1,0 +1,24 @@
+{
+  "frozenReviewSource": "a649a55ccb752b6f1fd170e9f0689edb92dff34c",
+  "originalFailureEvidence": "58183c4d011141f625daa714dd9aa96ccc97f752",
+  "intermediates": [
+    {
+      "stage": "uncommitted initial growth-outlook adapter",
+      "completeModelDifferencesObserved": 489,
+      "outcome": "Choice refused and authoritative worker retained pre-choice state",
+      "error": "The operation failed. No changes were committed.",
+      "cause": "The extracted visit-site callback still invoked DOM-dependent closePanel in the headless realm",
+      "fix": "Typed panel-close effect before the exact parcel-home-site presentation",
+      "workerHashRecorded": false,
+      "finalCompleteStateParity": "pass, no excluded fields"
+    },
+    {
+      "stage": "concurrent functional full journey",
+      "outcome": "Park existed but exact construction-counter +1 assertion failed during live growth",
+      "beforeAfterCountersCaptured": false,
+      "causeStatus": "Exact incidental counter delta was not retained; no definitive attribution claimed",
+      "harnessFix": "Require committed construction acknowledgement, new target-building identity and counter increase; record days, total counter delta and other new sites",
+      "simulationWorkDisabled": false
+    }
+  ]
+}

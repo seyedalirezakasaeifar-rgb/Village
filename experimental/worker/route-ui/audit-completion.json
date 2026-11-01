@@ -1,0 +1,226 @@
+[
+  {
+    "event": "click",
+    "selector": "[data-programme-panel]",
+    "operation": "panel",
+    "fields": {
+      "panel": {
+        "source": "attribute",
+        "name": "data-programme-panel",
+        "as": "string"
+      }
+    },
+    "refresh": false
+  },
+  {
+    "event": "click",
+    "selector": "[data-decision-route]",
+    "operation": "decision",
+    "fields": {
+      "destination": {
+        "source": "attribute",
+        "name": "data-decision-route",
+        "as": "string"
+      }
+    },
+    "refresh": false
+  },
+  {
+    "event": "click",
+    "selector": "[data-open-monetary]",
+    "operation": "monetary",
+    "fields": {},
+    "refresh": false
+  },
+  {
+    "event": "click",
+    "selector": "[data-urban-land-plan]",
+    "operation": "map-tool",
+    "fields": {},
+    "refresh": false
+  },
+  {
+    "event": "click",
+    "selector": "[data-urban-overlay]",
+    "operation": "neighbourhoods",
+    "fields": {},
+    "refresh": false
+  },
+  {
+    "event": "click",
+    "selector": "[data-urban-retail]",
+    "operation": "retail-review",
+    "fields": {},
+    "refresh": false
+  },
+  {
+    "event": "click",
+    "selector": "[data-parcel-outlook]",
+    "operation": "outlook",
+    "fields": {
+      "parcel": {
+        "source": "attribute",
+        "name": "data-parcel-outlook",
+        "as": "string"
+      }
+    },
+    "refresh": false
+  },
+  {
+    "event": "click",
+    "selector": "[data-district]",
+    "operation": "district-camera",
+    "fields": {
+      "value": {
+        "source": "attribute",
+        "name": "data-district",
+        "as": "string"
+      }
+    },
+    "refresh": false
+  },
+  {
+    "event": "click",
+    "selector": "[data-view]",
+    "operation": "view",
+    "fields": {
+      "value": {
+        "source": "attribute",
+        "name": "data-view",
+        "as": "string"
+      }
+    },
+    "refresh": false
+  },
+  {
+    "event": "click",
+    "selector": "#firstFoodOrder",
+    "operation": "food-review",
+    "fields": {},
+    "refresh": false
+  },
+  {
+    "event": "click",
+    "selector": "#firstLocalFood",
+    "operation": "onboarding",
+    "fields": {
+      "action": {
+        "source": "constant",
+        "value": "local-food"
+      }
+    },
+    "refresh": false
+  },
+  {
+    "event": "click",
+    "selector": "#firstTradeAgreement",
+    "operation": "onboarding",
+    "fields": {
+      "action": {
+        "source": "constant",
+        "value": "trade"
+      }
+    },
+    "refresh": false
+  },
+  {
+    "event": "click",
+    "selector": "#firstDistrictPlan",
+    "operation": "onboarding",
+    "fields": {
+      "action": {
+        "source": "constant",
+        "value": "district"
+      }
+    },
+    "refresh": false
+  },
+  {
+    "event": "click",
+    "selector": "[data-waterfront-camera]",
+    "operation": "waterfront",
+    "fields": {
+      "action": {
+        "source": "constant",
+        "value": "camera"
+      }
+    },
+    "refresh": false
+  },
+  {
+    "event": "click",
+    "selector": "[data-waterfront-build]",
+    "operation": "waterfront",
+    "fields": {
+      "action": {
+        "source": "constant",
+        "value": "build"
+      }
+    },
+    "refresh": false
+  },
+  {
+    "event": "change",
+    "selector": "#supplierMarket",
+    "operation": "supplier",
+    "fields": {
+      "field": {
+        "source": "constant",
+        "value": "market"
+      },
+      "value": {
+        "source": "input",
+        "as": "string",
+        "selector": "#supplierMarket"
+      }
+    },
+    "refresh": false
+  },
+  {
+    "event": "change",
+    "selector": "#supplierGood",
+    "operation": "supplier",
+    "fields": {
+      "field": {
+        "source": "constant",
+        "value": "good"
+      },
+      "value": {
+        "source": "input",
+        "as": "string",
+        "selector": "#supplierGood"
+      }
+    },
+    "refresh": false
+  },
+  {
+    "event": "change",
+    "selector": "#supplierFirm",
+    "operation": "supplier",
+    "fields": {
+      "field": {
+        "source": "constant",
+        "value": "firm"
+      },
+      "value": {
+        "source": "input",
+        "as": "string",
+        "selector": "#supplierFirm"
+      }
+    },
+    "refresh": false
+  },
+  {
+    "event": "map",
+    "tool": "urban_plan",
+    "operation": "land-review",
+    "fields": {
+      "x": {
+        "source": "tile-x"
+      },
+      "y": {
+        "source": "tile-y"
+      }
+    }
+  }
+]

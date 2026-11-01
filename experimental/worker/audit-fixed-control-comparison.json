@@ -1,0 +1,679 @@
+{
+  "expectedPublicSource": "87811c52cdb9aecd13cd23beebd52f6475c6dd9c",
+  "sourceSha256": "f08cdd9cf77bed07c94722995f4e14f45ff6c9a2f85c77406badcdfc13eaa905",
+  "workerCandidate": true,
+  "workerSha256": "7a19e5e45960030f1d7c5637e7a6b1b5f1f9373f6c43f6ff65790fccb1ce7b53",
+  "bridgeSha256": "d56223f2d6c9a5e61b82c3130c8eb54da1ec5d5f8a22055d8f37416dd381c3f8",
+  "actualFoundImportNavigationAndClicks": true,
+  "cases": [
+    {
+      "selector": "[id=\"firstFoodOrder\"]",
+      "label": "Review an inbound food delivery",
+      "world": "founding",
+      "before": {
+        "day": 1,
+        "active": "overview",
+        "overlay": "none",
+        "tool": "",
+        "category": "all",
+        "camera": {
+          "x": 4678,
+          "y": 1032,
+          "zoom": 0.95
+        },
+        "dialog": "none",
+        "help": "none",
+        "toast": "Town restored and saved on this device.",
+        "eventTitle": "An urgent issue",
+        "helpTitle": "THE TOWN CHARTER",
+        "treasury": 90000
+      },
+      "after": {
+        "day": 1,
+        "active": "overview",
+        "overlay": "none",
+        "tool": "",
+        "category": "all",
+        "camera": {
+          "x": 4678,
+          "y": 1032,
+          "zoom": 0.95
+        },
+        "dialog": "flex",
+        "help": "none",
+        "toast": "Town restored and saved on this device.",
+        "eventTitle": "Working capital or local capacity?",
+        "helpTitle": "THE TOWN CHARTER",
+        "treasury": 90000
+      },
+      "matchesExpectedSourceBehavior": true,
+      "treasuryUnchangedByUnconfirmedReview": true
+    },
+    {
+      "selector": "[id=\"firstLocalFood\"]",
+      "label": "Plan local food production",
+      "world": "founding",
+      "before": {
+        "day": 1,
+        "active": "overview",
+        "overlay": "none",
+        "tool": "",
+        "category": "all",
+        "camera": {
+          "x": 4678,
+          "y": 1032,
+          "zoom": 0.95
+        },
+        "dialog": "none",
+        "help": "none",
+        "toast": "Town restored and saved on this device.",
+        "eventTitle": "Working capital or local capacity?",
+        "helpTitle": "THE TOWN CHARTER",
+        "treasury": 90000
+      },
+      "after": {
+        "day": 1,
+        "active": "construction",
+        "overlay": "none",
+        "tool": "",
+        "category": "production",
+        "camera": {
+          "x": 4678,
+          "y": 1032,
+          "zoom": 0.95
+        },
+        "dialog": "none",
+        "help": "none",
+        "toast": "Town restored and saved on this device.",
+        "eventTitle": "Working capital or local capacity?",
+        "helpTitle": "THE TOWN CHARTER",
+        "treasury": 90000
+      },
+      "matchesExpectedSourceBehavior": true,
+      "treasuryUnchangedByUnconfirmedReview": true
+    },
+    {
+      "selector": "[data-programme-panel=\"economy\"]",
+      "label": "Review",
+      "world": "founding",
+      "before": {
+        "day": 1,
+        "active": "overview",
+        "overlay": "none",
+        "tool": "",
+        "category": "production",
+        "camera": {
+          "x": 4678,
+          "y": 1032,
+          "zoom": 0.95
+        },
+        "dialog": "none",
+        "help": "none",
+        "toast": "Town restored and saved on this device.",
+        "eventTitle": "Working capital or local capacity?",
+        "helpTitle": "THE TOWN CHARTER",
+        "treasury": 90000
+      },
+      "after": {
+        "day": 1,
+        "active": "economy",
+        "overlay": "none",
+        "tool": "",
+        "category": "production",
+        "camera": {
+          "x": 4678,
+          "y": 1032,
+          "zoom": 0.95
+        },
+        "dialog": "none",
+        "help": "none",
+        "toast": "Town restored and saved on this device.",
+        "eventTitle": "Working capital or local capacity?",
+        "helpTitle": "THE TOWN CHARTER",
+        "treasury": 90000
+      },
+      "matchesExpectedSourceBehavior": true,
+      "treasuryUnchangedByUnconfirmedReview": true
+    },
+    {
+      "selector": "[data-decision-route=\"suppliers\"]",
+      "label": "Compare buyer, commodity and producer",
+      "world": "founding",
+      "before": {
+        "day": 1,
+        "active": "economy",
+        "overlay": "none",
+        "tool": "",
+        "category": "production",
+        "camera": {
+          "x": 4678,
+          "y": 1032,
+          "zoom": 0.95
+        },
+        "dialog": "none",
+        "help": "none",
+        "toast": "Town restored and saved on this device.",
+        "eventTitle": "Working capital or local capacity?",
+        "helpTitle": "THE TOWN CHARTER",
+        "treasury": 90000
+      },
+      "after": {
+        "day": 1,
+        "active": "economy",
+        "overlay": "none",
+        "tool": "",
+        "category": "production",
+        "camera": {
+          "x": 4678,
+          "y": 1032,
+          "zoom": 0.95
+        },
+        "dialog": "none",
+        "help": "none",
+        "toast": "Town restored and saved on this device.",
+        "eventTitle": "Working capital or local capacity?",
+        "helpTitle": "THE TOWN CHARTER",
+        "treasury": 90000
+      },
+      "matchesExpectedSourceBehavior": true,
+      "treasuryUnchangedByUnconfirmedReview": true
+    },
+    {
+      "selector": "[data-open-monetary=\"true\"]",
+      "label": "Adjust interest policy",
+      "world": "founding",
+      "before": {
+        "day": 1,
+        "active": "economy",
+        "overlay": "none",
+        "tool": "",
+        "category": "production",
+        "camera": {
+          "x": 4678,
+          "y": 1032,
+          "zoom": 0.95
+        },
+        "dialog": "none",
+        "help": "none",
+        "toast": "Town restored and saved on this device.",
+        "eventTitle": "Working capital or local capacity?",
+        "helpTitle": "THE TOWN CHARTER",
+        "treasury": 90000
+      },
+      "after": {
+        "day": 1,
+        "active": "policies",
+        "overlay": "none",
+        "tool": "",
+        "category": "production",
+        "camera": {
+          "x": 4678,
+          "y": 1032,
+          "zoom": 0.95
+        },
+        "dialog": "none",
+        "help": "none",
+        "toast": "Town restored and saved on this device.",
+        "eventTitle": "Working capital or local capacity?",
+        "helpTitle": "THE TOWN CHARTER",
+        "treasury": 90000
+      },
+      "matchesExpectedSourceBehavior": true,
+      "treasuryUnchangedByUnconfirmedReview": true
+    },
+    {
+      "selector": "[data-urban-land-plan=\"\"]",
+      "label": "Plan vacant or occupied land on the map",
+      "world": "founding",
+      "before": {
+        "day": 1,
+        "active": "construction",
+        "overlay": "none",
+        "tool": "",
+        "category": "production",
+        "camera": {
+          "x": 4678,
+          "y": 1032,
+          "zoom": 0.95
+        },
+        "dialog": "none",
+        "help": "none",
+        "toast": "Town restored and saved on this device.",
+        "eventTitle": "Working capital or local capacity?",
+        "helpTitle": "THE TOWN CHARTER",
+        "treasury": 90000
+      },
+      "after": {
+        "day": 1,
+        "active": "",
+        "overlay": "none",
+        "tool": "urban_plan",
+        "category": "production",
+        "camera": {
+          "x": 4678,
+          "y": 1032,
+          "zoom": 0.95
+        },
+        "dialog": "none",
+        "help": "none",
+        "toast": "Town restored and saved on this device.",
+        "eventTitle": "Working capital or local capacity?",
+        "helpTitle": "THE TOWN CHARTER",
+        "treasury": 90000
+      },
+      "matchesExpectedSourceBehavior": true,
+      "treasuryUnchangedByUnconfirmedReview": true
+    },
+    {
+      "selector": "[data-urban-overlay=\"\"]",
+      "label": "View neighbourhood map",
+      "world": "founding",
+      "before": {
+        "day": 1,
+        "active": "construction",
+        "overlay": "none",
+        "tool": "",
+        "category": "production",
+        "camera": {
+          "x": 4678,
+          "y": 1032,
+          "zoom": 0.95
+        },
+        "dialog": "none",
+        "help": "none",
+        "toast": "Town restored and saved on this device.",
+        "eventTitle": "Working capital or local capacity?",
+        "helpTitle": "THE TOWN CHARTER",
+        "treasury": 90000
+      },
+      "after": {
+        "day": 1,
+        "active": "",
+        "overlay": "neighbourhoods",
+        "tool": "",
+        "category": "production",
+        "camera": {
+          "x": 4678,
+          "y": 1032,
+          "zoom": 0.55
+        },
+        "dialog": "none",
+        "help": "none",
+        "toast": "Town restored and saved on this device.",
+        "eventTitle": "Working capital or local capacity?",
+        "helpTitle": "THE TOWN CHARTER",
+        "treasury": 90000
+      },
+      "matchesExpectedSourceBehavior": true,
+      "treasuryUnchangedByUnconfirmedReview": true
+    },
+    {
+      "selector": "[data-urban-retail=\"\"]",
+      "label": "Invite a shopping centre proposal",
+      "world": "founding",
+      "before": {
+        "day": 1,
+        "active": "construction",
+        "overlay": "neighbourhoods",
+        "tool": "",
+        "category": "production",
+        "camera": {
+          "x": 4678,
+          "y": 1032,
+          "zoom": 0.95
+        },
+        "dialog": "none",
+        "help": "none",
+        "toast": "Town restored and saved on this device.",
+        "eventTitle": "Working capital or local capacity?",
+        "helpTitle": "THE TOWN CHARTER",
+        "treasury": 90000
+      },
+      "after": {
+        "day": 1,
+        "active": "construction",
+        "overlay": "neighbourhoods",
+        "tool": "",
+        "category": "production",
+        "camera": {
+          "x": 4678,
+          "y": 1032,
+          "zoom": 0.95
+        },
+        "dialog": "none",
+        "help": "none",
+        "toast": "The town has 169 residents; a retail centre needs at least 320.",
+        "eventTitle": "Working capital or local capacity?",
+        "helpTitle": "THE TOWN CHARTER",
+        "treasury": 90000
+      },
+      "matchesExpectedSourceBehavior": true,
+      "treasuryUnchangedByUnconfirmedReview": true
+    },
+    {
+      "selector": "[data-waterfront-camera=\"1\"]",
+      "label": "Visit the river landing",
+      "world": "founding",
+      "before": {
+        "day": 1,
+        "active": "construction",
+        "overlay": "neighbourhoods",
+        "tool": "",
+        "category": "production",
+        "camera": {
+          "x": 4678,
+          "y": 1032,
+          "zoom": 0.95
+        },
+        "dialog": "none",
+        "help": "none",
+        "toast": "Town restored and saved on this device.",
+        "eventTitle": "Working capital or local capacity?",
+        "helpTitle": "THE TOWN CHARTER",
+        "treasury": 90000
+      },
+      "after": {
+        "day": 1,
+        "active": "",
+        "overlay": "neighbourhoods",
+        "tool": "",
+        "category": "production",
+        "camera": {
+          "x": 3926,
+          "y": 590,
+          "zoom": 1.15
+        },
+        "dialog": "none",
+        "help": "none",
+        "toast": "Town restored and saved on this device.",
+        "eventTitle": "Working capital or local capacity?",
+        "helpTitle": "THE TOWN CHARTER",
+        "treasury": 90000
+      },
+      "matchesExpectedSourceBehavior": true,
+      "treasuryUnchangedByUnconfirmedReview": true
+    },
+    {
+      "selector": "[data-waterfront-build=\"1\"]",
+      "label": "Choose a waterfront business",
+      "world": "founding",
+      "before": {
+        "day": 1,
+        "active": "construction",
+        "overlay": "neighbourhoods",
+        "tool": "",
+        "category": "production",
+        "camera": {
+          "x": 4678,
+          "y": 1032,
+          "zoom": 0.95
+        },
+        "dialog": "none",
+        "help": "none",
+        "toast": "Town restored and saved on this device.",
+        "eventTitle": "Working capital or local capacity?",
+        "helpTitle": "THE TOWN CHARTER",
+        "treasury": 90000
+      },
+      "after": {
+        "day": 1,
+        "active": "construction",
+        "overlay": "neighbourhoods",
+        "tool": "",
+        "category": "waterfront",
+        "camera": {
+          "x": 4678,
+          "y": 1032,
+          "zoom": 0.95
+        },
+        "dialog": "none",
+        "help": "none",
+        "toast": "Town restored and saved on this device.",
+        "eventTitle": "Working capital or local capacity?",
+        "helpTitle": "THE TOWN CHARTER",
+        "treasury": 90000
+      },
+      "matchesExpectedSourceBehavior": true,
+      "treasuryUnchangedByUnconfirmedReview": true
+    },
+    {
+      "selector": "[data-district=\"all\"]",
+      "label": "Whole borough",
+      "world": "founding",
+      "before": {
+        "day": 1,
+        "active": "settings",
+        "overlay": "neighbourhoods",
+        "tool": "",
+        "category": "waterfront",
+        "camera": {
+          "x": 4678,
+          "y": 1032,
+          "zoom": 0.95
+        },
+        "dialog": "none",
+        "help": "none",
+        "toast": "Town restored and saved on this device.",
+        "eventTitle": "Working capital or local capacity?",
+        "helpTitle": "THE TOWN CHARTER",
+        "treasury": 90000
+      },
+      "after": {
+        "day": 1,
+        "active": "",
+        "overlay": "neighbourhoods",
+        "tool": "",
+        "category": "waterfront",
+        "camera": {
+          "x": 4642,
+          "y": 1030.1176470588234,
+          "zoom": 0.59
+        },
+        "dialog": "none",
+        "help": "none",
+        "toast": "Town restored and saved on this device.",
+        "eventTitle": "Working capital or local capacity?",
+        "helpTitle": "THE TOWN CHARTER",
+        "treasury": 90000
+      },
+      "matchesExpectedSourceBehavior": true,
+      "treasuryUnchangedByUnconfirmedReview": true
+    },
+    {
+      "selector": "[data-view=\"land\"]",
+      "label": "Land values",
+      "world": "founding",
+      "before": {
+        "day": 1,
+        "active": "settings",
+        "overlay": "neighbourhoods",
+        "tool": "",
+        "category": "waterfront",
+        "camera": {
+          "x": 4678,
+          "y": 1032,
+          "zoom": 0.95
+        },
+        "dialog": "none",
+        "help": "none",
+        "toast": "Town restored and saved on this device.",
+        "eventTitle": "Working capital or local capacity?",
+        "helpTitle": "THE TOWN CHARTER",
+        "treasury": 90000
+      },
+      "after": {
+        "day": 1,
+        "active": "",
+        "overlay": "land",
+        "tool": "",
+        "category": "waterfront",
+        "camera": {
+          "x": 4678,
+          "y": 1032,
+          "zoom": 0.95
+        },
+        "dialog": "none",
+        "help": "none",
+        "toast": "Land values: green low \u00b7 gold middle \u00b7 copper high",
+        "eventTitle": "Working capital or local capacity?",
+        "helpTitle": "THE TOWN CHARTER",
+        "treasury": 90000
+      },
+      "matchesExpectedSourceBehavior": true,
+      "treasuryUnchangedByUnconfirmedReview": true
+    },
+    {
+      "selector": "[id=\"tutorial\"]",
+      "label": "GAME MANUAL",
+      "world": "founding",
+      "before": {
+        "day": 1,
+        "active": "settings",
+        "overlay": "land",
+        "tool": "",
+        "category": "waterfront",
+        "camera": {
+          "x": 4678,
+          "y": 1032,
+          "zoom": 0.95
+        },
+        "dialog": "none",
+        "help": "none",
+        "toast": "Town restored and saved on this device.",
+        "eventTitle": "Working capital or local capacity?",
+        "helpTitle": "THE TOWN CHARTER",
+        "treasury": 90000
+      },
+      "after": {
+        "day": 1,
+        "active": "settings",
+        "overlay": "land",
+        "tool": "",
+        "category": "waterfront",
+        "camera": {
+          "x": 4678,
+          "y": 1032,
+          "zoom": 0.95
+        },
+        "dialog": "none",
+        "help": "flex",
+        "toast": "Town restored and saved on this device.",
+        "eventTitle": "Working capital or local capacity?",
+        "helpTitle": "THE TOWN CHARTER",
+        "treasury": 90000
+      },
+      "matchesExpectedSourceBehavior": true,
+      "treasuryUnchangedByUnconfirmedReview": true
+    },
+    {
+      "selector": "[id=\"firstTradeAgreement\"]",
+      "label": "Compare a 30-day export agreement",
+      "world": "funded1081",
+      "before": {
+        "day": 1081,
+        "active": "overview",
+        "overlay": "land",
+        "tool": "",
+        "category": "waterfront",
+        "camera": {
+          "x": 4678,
+          "y": 1032,
+          "zoom": 0.95
+        },
+        "dialog": "none",
+        "help": "none",
+        "toast": "Town restored and saved on this device.",
+        "eventTitle": "Working capital or local capacity?",
+        "helpTitle": "THE TOWN CHARTER",
+        "treasury": 615843.0258730656
+      },
+      "after": {
+        "day": 1081,
+        "active": "economy",
+        "overlay": "land",
+        "tool": "",
+        "category": "waterfront",
+        "camera": {
+          "x": 4678,
+          "y": 1032,
+          "zoom": 0.95
+        },
+        "dialog": "none",
+        "help": "none",
+        "toast": "Town restored and saved on this device.",
+        "eventTitle": "Working capital or local capacity?",
+        "helpTitle": "THE TOWN CHARTER",
+        "treasury": 615843.0258730656
+      },
+      "matchesExpectedSourceBehavior": true,
+      "treasuryUnchangedByUnconfirmedReview": true
+    },
+    {
+      "selector": "[data-parcel-outlook=\"east-meadow\"]",
+      "label": "Inspect growth outlook",
+      "world": "funded1081",
+      "before": {
+        "day": 1081,
+        "active": "construction",
+        "overlay": "land",
+        "tool": "",
+        "category": "waterfront",
+        "camera": {
+          "x": 4678,
+          "y": 1032,
+          "zoom": 0.95
+        },
+        "dialog": "none",
+        "help": "none",
+        "toast": "Town restored and saved on this device.",
+        "eventTitle": "Working capital or local capacity?",
+        "helpTitle": "THE TOWN CHARTER",
+        "treasury": 615843.0258730656
+      },
+      "after": {
+        "day": 1081,
+        "active": "construction",
+        "overlay": "land",
+        "tool": "",
+        "category": "waterfront",
+        "camera": {
+          "x": 4678,
+          "y": 1032,
+          "zoom": 0.95
+        },
+        "dialog": "flex",
+        "help": "none",
+        "toast": "Town restored and saved on this device.",
+        "eventTitle": "East Meadow \u00b7 housing outlook",
+        "helpTitle": "THE TOWN CHARTER",
+        "treasury": 615843.0258730656
+      },
+      "matchesExpectedSourceBehavior": true,
+      "treasuryUnchangedByUnconfirmedReview": true
+    }
+  ],
+  "workingCandidateControls": 15,
+  "unexpectedSourceFailures": [],
+  "supplierSelectionComparison": [
+    {
+      "selector": "#supplierMarket",
+      "requested": "upland",
+      "displayedAfterChange": "upland",
+      "retained": true
+    },
+    {
+      "selector": "#supplierGood",
+      "requested": "manufactures",
+      "displayedAfterChange": "manufactures",
+      "retained": true
+    },
+    {
+      "selector": "#supplierFirm",
+      "requested": "24",
+      "displayedAfterChange": "24",
+      "retained": true
+    }
+  ],
+  "pageErrors": [],
+  "scope": "15 previously blocked worker buttons only; a legitimate source prerequisite refusal is distinguished from a generic worker unsupported response"
+}

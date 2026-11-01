@@ -1,8 +1,8 @@
 {
   "publicOracleCommit": "87811c52cdb9aecd13cd23beebd52f6475c6dd9c",
-  "compositeCommit": "d4413f535aada19772bc1ba61e7a47fe1d7aac8f",
-  "workerSha256": "70ba7c53ecef1aa5785ddb3fe0b50eb8e96a26db41bf7199eef9a1423fe15b5c",
-  "bridgeSha256": "5b1c64909d36bd5b2fb0ca115b836f8a6ae2583b42671622464948b829ae6341",
+  "compositeCommit": "a649a55ccb752b6f1fd170e9f0689edb92dff34c",
+  "workerSha256": "7a19e5e45960030f1d7c5637e7a6b1b5f1f9373f6c43f6ff65790fccb1ce7b53",
+  "bridgeSha256": "d56223f2d6c9a5e61b82c3130c8eb54da1ec5d5f8a22055d8f37416dd381c3f8",
   "sourceSha256": "f08cdd9cf77bed07c94722995f4e14f45ff6c9a2f85c77406badcdfc13eaa905",
   "fixturePath": "docs/previews/growth-journey/regional-42-planned.json.gz",
   "fixtureSha256": "928cd298306ecd884be0e7dac2e8d0a1fa2c5501cc090db285f47b158cc5db87",
@@ -29,51 +29,54 @@
     },
     {
       "name": "clock:8x",
-      "day": 1086,
-      "treasury": 625850.1111387941,
+      "day": 1085,
+      "treasury": 623797.9072354133,
       "construction": 506,
-      "total": 15493516.999995489,
+      "total": 15493516.999995468,
       "startDay": 1081,
-      "daysObserved": 5,
+      "daysObserved": 4,
       "handledOrdinaryLetters": 0
     },
     {
       "name": "council:actual-review",
-      "day": 1086,
-      "treasury": 624050.1111387941,
+      "day": 1085,
+      "treasury": 621997.9072354133,
       "construction": 506,
-      "total": 15493516.999995489,
+      "total": 15493516.999995468,
       "title": "An urgent issue"
     },
     {
       "name": "construct:park",
       "day": 1097,
-      "treasury": 650169.7882793213,
+      "treasury": 650176.7931795005,
       "construction": 507,
-      "total": 15493516.99999566,
+      "total": 15493516.999995662,
       "site": {
         "id": 309,
         "kind": "park",
         "x": 26,
         "y": 3
-      }
+      },
+      "constructionCounterDelta": 1,
+      "daysDuringInteraction": 3,
+      "otherNewBuildings": []
     },
     {
       "name": "clock:8x",
       "day": 1099,
-      "treasury": 655033.9550110159,
+      "treasury": 655036.9983863316,
       "construction": 513,
-      "total": 15493516.999995682,
-      "startDay": 1086,
-      "daysObserved": 13,
+      "total": 15493516.999995686,
+      "startDay": 1085,
+      "daysObserved": 14,
       "handledOrdinaryLetters": 0
     },
     {
       "name": "district:buy",
       "day": 1099,
-      "treasury": 614809.9550110159,
+      "treasury": 614812.9983863316,
       "construction": 513,
-      "total": 15493516.999995682,
+      "total": 15493516.999995686,
       "parcel": {
         "id": "belt-102-2",
         "price": 40224
@@ -82,173 +85,182 @@
     {
       "name": "district:charter",
       "day": 1099,
-      "treasury": 614809.9550110159,
+      "treasury": 614812.9983863316,
       "construction": 513,
-      "total": 15493516.999995682
+      "total": 15493516.999995686
     },
     {
       "name": "renewal:residential-plan",
       "day": 1099,
-      "treasury": 614209.9550110159,
+      "treasury": 614212.9983863316,
       "construction": 513,
-      "total": 15493516.999995682
+      "total": 15493516.999995686
     },
     {
       "name": "renewal:prerequisite-refusal",
       "day": 1099,
-      "treasury": 614209.9550110159,
+      "treasury": 614212.9983863316,
       "construction": 513,
-      "total": 15493516.999995682,
+      "total": 15493516.999995686,
       "reason": "Error: Paid farm cargo is still in transit. Let its contracts and shipments settle before moving the fields."
     },
     {
       "name": "construct:transit_depot",
       "day": 1099,
-      "treasury": 605209.9550110159,
+      "treasury": 605212.9983863316,
       "construction": 514,
-      "total": 15493516.999995682,
+      "total": 15493516.999995686,
       "site": {
         "id": 310,
         "kind": "transit_depot",
         "x": 28,
         "y": 3
-      }
+      },
+      "constructionCounterDelta": 1,
+      "daysDuringInteraction": 0,
+      "otherNewBuildings": []
     },
     {
       "name": "transit:cancel-quoted-bus",
       "day": 1099,
-      "treasury": 605209.9550110159,
+      "treasury": 605212.9983863316,
       "construction": 514,
-      "total": 15493516.999995682
+      "total": 15493516.999995686
     },
     {
       "name": "transit:authorize-bus",
       "day": 1099,
-      "treasury": 591909.9550110159,
+      "treasury": 591912.9983863316,
       "construction": 514,
-      "total": 15493516.999995682,
+      "total": 15493516.999995686,
       "route": 1,
       "depot": 310
     },
     {
       "name": "clock:16x",
-      "day": 1110,
-      "treasury": 551046.0237731428,
-      "construction": 522,
-      "total": 15493516.999995848,
+      "day": 1108,
+      "treasury": 614302.1573456329,
+      "construction": 514,
+      "total": 15493516.99999583,
       "startDay": 1099,
-      "daysObserved": 11,
-      "handledOrdinaryLetters": 0
-    },
-    {
-      "name": "transit:suspend",
-      "day": 1110,
-      "treasury": 551046.0237731428,
-      "construction": 522,
-      "total": 15493516.999995848
-    },
-    {
-      "name": "transit:resume",
-      "day": 1110,
-      "treasury": 553526.0237731428,
-      "construction": 522,
-      "total": 15493516.999995848
-    },
-    {
-      "name": "construct:elevated_station",
-      "day": 1110,
-      "treasury": 541026.0237731428,
-      "construction": 523,
-      "total": 15493516.999995848,
-      "site": {
-        "id": 313,
-        "kind": "elevated_station",
-        "x": 11,
-        "y": 4
-      }
-    },
-    {
-      "name": "construct:elevated_station",
-      "day": 1110,
-      "treasury": 528526.0237731428,
-      "construction": 524,
-      "total": 15493516.999995848,
-      "site": {
-        "id": 314,
-        "kind": "elevated_station",
-        "x": 21,
-        "y": 4
-      }
-    },
-    {
-      "name": "transit:authorize-elevated",
-      "day": 1110,
-      "treasury": 481176.02377314284,
-      "construction": 524,
-      "total": 15493516.999995848
-    },
-    {
-      "name": "freight:priority-and-paid-shift",
-      "day": 1110,
-      "treasury": 481176.02377314284,
-      "construction": 524,
-      "total": 15493516.999995848
-    },
-    {
-      "name": "freight:agreement",
-      "day": 1110,
-      "treasury": 481176.02377314284,
-      "construction": 524,
-      "total": 15493516.999995848,
-      "contract": 19712,
-      "review": "Sawmill of Eastmead \u2192 Upland Cooperative: up to 200 timber at $3.48/unit; due day 1140. Held 628.41, working reserve 132.84, already promised 0. Recent output 193.42/day \u00d7 22 usable dispatch days; estimated deliverable 2,640, suggested 200. Agreements take output above working stock BEFORE ordinary regional and local wholesale sales; shops may need more imports. Full-window inventory margin $433 excludes payroll/tax; freight $38 is paid at dispatch, receipts on delivery. Staffing, inputs, queues and cash can invalidate the forecast. Cancel stops future dispatch; travelling loads continue."
-    },
-    {
-      "name": "clock:16x",
-      "day": 1119,
-      "treasury": 503189.7227613987,
-      "construction": 525,
-      "total": 15493516.99999599,
-      "startDay": 1110,
       "daysObserved": 9,
       "handledOrdinaryLetters": 0
     },
     {
+      "name": "transit:suspend",
+      "day": 1108,
+      "treasury": 614302.1573456329,
+      "construction": 514,
+      "total": 15493516.99999583
+    },
+    {
+      "name": "transit:resume",
+      "day": 1108,
+      "treasury": 616782.1573456329,
+      "construction": 514,
+      "total": 15493516.99999583
+    },
+    {
+      "name": "construct:elevated_station",
+      "day": 1108,
+      "treasury": 604282.1573456329,
+      "construction": 515,
+      "total": 15493516.99999583,
+      "site": {
+        "id": 311,
+        "kind": "elevated_station",
+        "x": 11,
+        "y": 4
+      },
+      "constructionCounterDelta": 1,
+      "daysDuringInteraction": 0,
+      "otherNewBuildings": []
+    },
+    {
+      "name": "construct:elevated_station",
+      "day": 1108,
+      "treasury": 591782.1573456329,
+      "construction": 516,
+      "total": 15493516.99999583,
+      "site": {
+        "id": 312,
+        "kind": "elevated_station",
+        "x": 21,
+        "y": 4
+      },
+      "constructionCounterDelta": 1,
+      "daysDuringInteraction": 0,
+      "otherNewBuildings": []
+    },
+    {
+      "name": "transit:authorize-elevated",
+      "day": 1108,
+      "treasury": 544432.1573456329,
+      "construction": 516,
+      "total": 15493516.99999583
+    },
+    {
+      "name": "freight:priority-and-paid-shift",
+      "day": 1108,
+      "treasury": 544432.1573456329,
+      "construction": 516,
+      "total": 15493516.99999583
+    },
+    {
+      "name": "freight:agreement",
+      "day": 1108,
+      "treasury": 544432.1573456329,
+      "construction": 516,
+      "total": 15493516.99999583,
+      "contract": 19680,
+      "review": "Sawmill of Eastmead \u2192 Upland Cooperative: up to 200 timber at $3.52/unit; due day 1138. Held 434.42, working reserve 137.43, already promised 0. Recent output 191.39/day \u00d7 22 usable dispatch days; estimated deliverable 2,640, suggested 200. Agreements take output above working stock BEFORE ordinary regional and local wholesale sales; shops may need more imports. Full-window inventory margin $440 excludes payroll/tax; freight $38 is paid at dispatch, receipts on delivery. Staffing, inputs, queues and cash can invalidate the forecast. Cancel stops future dispatch; travelling loads continue."
+    },
+    {
+      "name": "clock:16x",
+      "day": 1127,
+      "treasury": 533349.4009605537,
+      "construction": 526,
+      "total": 15493516.999996066,
+      "startDay": 1108,
+      "daysObserved": 19,
+      "handledOrdinaryLetters": 0
+    },
+    {
       "name": "freight:inspect-live-cargo",
-      "day": 1119,
-      "treasury": 503189.7227613987,
-      "construction": 525,
-      "total": 15493516.99999599,
+      "day": 1127,
+      "treasury": 533349.4009605537,
+      "construction": 526,
+      "total": 15493516.999996066,
       "requiredManualRefresh": false
     },
     {
       "name": "transit:retire-bus-retain-sites",
-      "day": 1119,
-      "treasury": 505669.7227613987,
-      "construction": 525,
-      "total": 15493516.99999599
+      "day": 1127,
+      "treasury": 535829.4009605537,
+      "construction": 526,
+      "total": 15493516.999996066
     },
     {
       "name": "settings:presentation-controls",
-      "day": 1119,
-      "treasury": 505669.7227613987,
-      "construction": 525,
-      "total": 15493516.99999599,
+      "day": 1127,
+      "treasury": 535829.4009605537,
+      "construction": 526,
+      "total": 15493516.999996066,
       "audibleHardwareClaim": false
     },
     {
       "name": "save:full-ui-roundtrip",
-      "day": 1119,
-      "treasury": 505669.7227613987,
-      "construction": 525,
-      "total": 15493516.99999599
+      "day": 1127,
+      "treasury": 535829.4009605537,
+      "construction": 526,
+      "total": 15493516.999996066
     }
   ],
   "rawArchiveRoundtripEqual": true,
   "fullColdUiOracleEqual": true,
-  "finalDay": 1119,
-  "daysElapsed": 38,
-  "cashDrift": 5.662441253662109e-07,
+  "finalDay": 1127,
+  "daysElapsed": 46,
+  "cashDrift": 6.426125764846802e-07,
   "errors": [],
   "audioHardwareClaim": false,
   "strictFreshViewAccepted": true

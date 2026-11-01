@@ -1,9 +1,28 @@
 {
-  "sourceCommit": "d4413f535aada19772bc1ba61e7a47fe1d7aac8f",
+  "sourceCommit": "a649a55ccb752b6f1fd170e9f0689edb92dff34c",
   "economicSourceSha256": "f08cdd9cf77bed07c94722995f4e14f45ff6c9a2f85c77406badcdfc13eaa905",
   "productionEnabled": false,
-  "registeredOperations": 82,
+  "registeredOperations": 96,
   "modules": [
+    {
+      "id": "audit-completion",
+      "operations": [
+        "panel",
+        "onboarding",
+        "decision",
+        "monetary",
+        "map-tool",
+        "neighbourhoods",
+        "waterfront",
+        "district-camera",
+        "view",
+        "supplier",
+        "food-review",
+        "retail-review",
+        "land-review",
+        "outlook"
+      ]
+    },
     {
       "id": "civic",
       "operations": [
@@ -110,8 +129,251 @@
       ]
     }
   ],
-  "declarativeUiBindings": 93,
+  "declarativeUiBindings": 112,
   "bindings": [
+    {
+      "module": "audit-completion",
+      "event": "click",
+      "selector": "[data-programme-panel]",
+      "operation": "panel",
+      "fields": {
+        "panel": {
+          "source": "attribute",
+          "name": "data-programme-panel",
+          "as": "string"
+        }
+      },
+      "refresh": false
+    },
+    {
+      "module": "audit-completion",
+      "event": "click",
+      "selector": "[data-decision-route]",
+      "operation": "decision",
+      "fields": {
+        "destination": {
+          "source": "attribute",
+          "name": "data-decision-route",
+          "as": "string"
+        }
+      },
+      "refresh": false
+    },
+    {
+      "module": "audit-completion",
+      "event": "click",
+      "selector": "[data-open-monetary]",
+      "operation": "monetary",
+      "fields": {},
+      "refresh": false
+    },
+    {
+      "module": "audit-completion",
+      "event": "click",
+      "selector": "[data-urban-land-plan]",
+      "operation": "map-tool",
+      "fields": {},
+      "refresh": false
+    },
+    {
+      "module": "audit-completion",
+      "event": "click",
+      "selector": "[data-urban-overlay]",
+      "operation": "neighbourhoods",
+      "fields": {},
+      "refresh": false
+    },
+    {
+      "module": "audit-completion",
+      "event": "click",
+      "selector": "[data-urban-retail]",
+      "operation": "retail-review",
+      "fields": {},
+      "refresh": false
+    },
+    {
+      "module": "audit-completion",
+      "event": "click",
+      "selector": "[data-parcel-outlook]",
+      "operation": "outlook",
+      "fields": {
+        "parcel": {
+          "source": "attribute",
+          "name": "data-parcel-outlook",
+          "as": "string"
+        }
+      },
+      "refresh": false
+    },
+    {
+      "module": "audit-completion",
+      "event": "click",
+      "selector": "[data-district]",
+      "operation": "district-camera",
+      "fields": {
+        "value": {
+          "source": "attribute",
+          "name": "data-district",
+          "as": "string"
+        }
+      },
+      "refresh": false
+    },
+    {
+      "module": "audit-completion",
+      "event": "click",
+      "selector": "[data-view]",
+      "operation": "view",
+      "fields": {
+        "value": {
+          "source": "attribute",
+          "name": "data-view",
+          "as": "string"
+        }
+      },
+      "refresh": false
+    },
+    {
+      "module": "audit-completion",
+      "event": "click",
+      "selector": "#firstFoodOrder",
+      "operation": "food-review",
+      "fields": {},
+      "refresh": false
+    },
+    {
+      "module": "audit-completion",
+      "event": "click",
+      "selector": "#firstLocalFood",
+      "operation": "onboarding",
+      "fields": {
+        "action": {
+          "source": "constant",
+          "value": "local-food"
+        }
+      },
+      "refresh": false
+    },
+    {
+      "module": "audit-completion",
+      "event": "click",
+      "selector": "#firstTradeAgreement",
+      "operation": "onboarding",
+      "fields": {
+        "action": {
+          "source": "constant",
+          "value": "trade"
+        }
+      },
+      "refresh": false
+    },
+    {
+      "module": "audit-completion",
+      "event": "click",
+      "selector": "#firstDistrictPlan",
+      "operation": "onboarding",
+      "fields": {
+        "action": {
+          "source": "constant",
+          "value": "district"
+        }
+      },
+      "refresh": false
+    },
+    {
+      "module": "audit-completion",
+      "event": "click",
+      "selector": "[data-waterfront-camera]",
+      "operation": "waterfront",
+      "fields": {
+        "action": {
+          "source": "constant",
+          "value": "camera"
+        }
+      },
+      "refresh": false
+    },
+    {
+      "module": "audit-completion",
+      "event": "click",
+      "selector": "[data-waterfront-build]",
+      "operation": "waterfront",
+      "fields": {
+        "action": {
+          "source": "constant",
+          "value": "build"
+        }
+      },
+      "refresh": false
+    },
+    {
+      "module": "audit-completion",
+      "event": "change",
+      "selector": "#supplierMarket",
+      "operation": "supplier",
+      "fields": {
+        "field": {
+          "source": "constant",
+          "value": "market"
+        },
+        "value": {
+          "source": "input",
+          "as": "string",
+          "selector": "#supplierMarket"
+        }
+      },
+      "refresh": false
+    },
+    {
+      "module": "audit-completion",
+      "event": "change",
+      "selector": "#supplierGood",
+      "operation": "supplier",
+      "fields": {
+        "field": {
+          "source": "constant",
+          "value": "good"
+        },
+        "value": {
+          "source": "input",
+          "as": "string",
+          "selector": "#supplierGood"
+        }
+      },
+      "refresh": false
+    },
+    {
+      "module": "audit-completion",
+      "event": "change",
+      "selector": "#supplierFirm",
+      "operation": "supplier",
+      "fields": {
+        "field": {
+          "source": "constant",
+          "value": "firm"
+        },
+        "value": {
+          "source": "input",
+          "as": "string",
+          "selector": "#supplierFirm"
+        }
+      },
+      "refresh": false
+    },
+    {
+      "module": "audit-completion",
+      "event": "map",
+      "tool": "urban_plan",
+      "operation": "land-review",
+      "fields": {
+        "x": {
+          "source": "tile-x"
+        },
+        "y": {
+          "source": "tile-y"
+        }
+      }
+    },
     {
       "module": "civic",
       "event": "click",
