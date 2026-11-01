@@ -1,0 +1,13 @@
+{
+  "sourceSha256": "6ed9d208b0112e4e360f40ef21063b68c519aefd9df3e1b39071c02c78e22a02",
+  "workerSha256": "1fb3a357f81edf8cbec95a7a8e9c24c2f889ab98921401f786acc528bf71790b",
+  "actualAgendaTab": true,
+  "actualConveneButton": true,
+  "actualChoiceButton": true,
+  "eventTitle": "A theft at the market square",
+  "fullModelRngExact": true,
+  "hostSnapshotFrozen": true,
+  "originalStorageWriterUsed": true,
+  "referenceOwnerOnly": true,
+  "productionAdmission": false
+}
