@@ -1,0 +1,45 @@
+{
+  "candidateCommit": "a649a55ccb752b6f1fd170e9f0689edb92dff34c",
+  "oracleCommit": "87811c52cdb9aecd13cd23beebd52f6475c6dd9c",
+  "oracleSha256": "037c92b56d4b736f2c9c2bb96a950ae194bc815d1a393d36b3634f4272521d94",
+  "sourceSha256": "f08cdd9cf77bed07c94722995f4e14f45ff6c9a2f85c77406badcdfc13eaa905",
+  "workerSha256": "70ba7c53ecef1aa5785ddb3fe0b50eb8e96a26db41bf7199eef9a1423fe15b5c",
+  "bridgeSha256": "5b1c64909d36bd5b2fb0ca115b836f8a6ae2583b42671622464948b829ae6341",
+  "actualWorkerUiClockAndConstruction": true,
+  "oracleUsesExistingModelWithActualAdmittedCounts": true,
+  "excludedFields": [],
+  "notPerformanceBenchmark": true,
+  "rows": [
+    {
+      "label": "old-save-initial-complete-state",
+      "day": 3,
+      "rng": 3792376697,
+      "requested": 1
+    },
+    {
+      "label": "live-8x-admitted-3-days",
+      "day": 6,
+      "rng": 1832928490,
+      "requested": 8,
+      "admittedDays": 3,
+      "owedPreserved": 0.5306666666811168,
+      "pausedStable": true
+    },
+    {
+      "label": "paid-park-after-live-boundary",
+      "day": 6,
+      "rng": 1832928490,
+      "requested": 8
+    },
+    {
+      "label": "live-16x-admitted-3-days",
+      "day": 9,
+      "rng": 3600553106,
+      "requested": 16,
+      "admittedDays": 3,
+      "owedPreserved": 0.6443636364214371,
+      "pausedStable": true
+    }
+  ],
+  "pageErrors": []
+}

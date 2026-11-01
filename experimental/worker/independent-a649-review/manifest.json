@@ -1,0 +1,146 @@
+{
+  "candidateCommit": "a649a55ccb752b6f1fd170e9f0689edb92dff34c",
+  "publicOracle": "87811c52cdb9aecd13cd23beebd52f6475c6dd9c",
+  "wholeControlAcceptance": "FAIL",
+  "productionEnabled": false,
+  "boundedPlayerJourney": {
+    "completed": true,
+    "strictFreshViewAccepted": true,
+    "rawArchiveRoundtripEqual": true,
+    "fullColdUiOracleEqual": true,
+    "daysElapsed": 44,
+    "cashDrift": 6.537884473800659e-07,
+    "errors": []
+  },
+  "journeyCheckpoints": 26,
+  "blockedVisibleButtons": [
+    {
+      "selector": "[id=\"tutorial\"]",
+      "label": "GAME MANUAL",
+      "panel": "settings"
+    },
+    {
+      "selector": "[id=\"firstFoodOrder\"]",
+      "label": "Review an inbound food delivery",
+      "panel": "overview"
+    },
+    {
+      "selector": "[id=\"firstLocalFood\"]",
+      "label": "Plan local food production",
+      "panel": "overview"
+    },
+    {
+      "selector": "[data-programme-panel=\"economy\"]",
+      "label": "Review",
+      "panel": "overview"
+    },
+    {
+      "selector": "[data-decision-route=\"suppliers\"]",
+      "label": "Compare buyer, commodity and producer",
+      "panel": "economy"
+    },
+    {
+      "selector": "[data-open-monetary=\"true\"]",
+      "label": "Adjust interest policy",
+      "panel": "economy"
+    },
+    {
+      "selector": "[data-urban-land-plan=\"\"]",
+      "label": "Plan vacant or occupied land on the map",
+      "panel": "construction"
+    },
+    {
+      "selector": "[data-urban-overlay=\"\"]",
+      "label": "View neighbourhood map",
+      "panel": "construction"
+    },
+    {
+      "selector": "[data-urban-retail=\"\"]",
+      "label": "Invite a shopping centre proposal",
+      "panel": "construction"
+    },
+    {
+      "selector": "[data-waterfront-camera=\"1\"]",
+      "label": "Visit the river landing",
+      "panel": "construction"
+    },
+    {
+      "selector": "[data-waterfront-build=\"1\"]",
+      "label": "Choose a waterfront business",
+      "panel": "construction"
+    },
+    {
+      "selector": "[data-district=\"all\"]",
+      "label": "Whole borough",
+      "panel": "settings"
+    },
+    {
+      "selector": "[data-view=\"land\"]",
+      "label": "Land values",
+      "panel": "settings"
+    },
+    {
+      "selector": "[id=\"firstTradeAgreement\"]",
+      "label": "Compare a 30-day export agreement",
+      "panel": "overview"
+    },
+    {
+      "selector": "[data-parcel-outlook=\"east-meadow\"]",
+      "label": "Inspect growth outlook",
+      "panel": "construction"
+    }
+  ],
+  "brokenSupplierSelection": [
+    {
+      "selector": "#supplierMarket",
+      "requested": "upland",
+      "displayedAfterSettled": "port",
+      "retained": false,
+      "authoritativeArchiveUnchanged": true
+    },
+    {
+      "selector": "#supplierGood",
+      "requested": "grain",
+      "displayedAfterSettled": "food",
+      "retained": false,
+      "authoritativeArchiveUnchanged": true
+    },
+    {
+      "selector": "#supplierFirm",
+      "requested": "4",
+      "displayedAfterSettled": "3",
+      "retained": false,
+      "authoritativeArchiveUnchanged": true
+    }
+  ],
+  "controlCensus": {
+    "records": 2146,
+    "uniqueShapes": 112,
+    "unresolvedShapes": 25,
+    "classificationIsNotBehavioralAcceptance": true
+  },
+  "positiveIndependentChecks": [
+    "same rebuilt game/worker/generated-bridge hashes as published",
+    "actual 26-checkpoint live journey and current freshness/cold/archive equality",
+    "exact complete-state/RNG replay of actually admitted8x/16x days with intervening paid park",
+    "delayed-day queue/duplicate/FIFO/pause/backlog/council/synthetic visibility/JS suspend and original save",
+    "actual fatal fresh-realm recovery, retired epochs/replies, failed-write retry, coldContinue and IndexedDB-only continuation",
+    "actual 3D three-tile road gesture,450debit,conserved money,stable camera,committed save and stale-brush fencing"
+  ],
+  "performanceGate": "NOT_ACCEPTED; owner measurements retain64x throughput/backlog/max-frame failure; no independent speed claim from functional concurrent runs",
+  "nativeGate": "NOT_ACCEPTED; parent reports supported runtime guard rejected before Worker on API30/WebView83; guard unchanged, sync fallback only certified by native owner",
+  "remainingScope": [
+    "conditional controls outside the four census fixtures",
+    "other unresolved input/view shapes not behaviorally certified",
+    "full sustained combined3D performance and long-session tests",
+    "actual supported native worker lifecycle/durability"
+  ],
+  "files": {
+    "actual-3d-road-brush.json": "d76cf30eeaf5cc5c003d8589c6b0a431913b94f38caa4f93346834353f4fe0e1",
+    "actual-live-player-journey.json": "ff1fd8766092d23879f1d7120c904bdc1b69c9c97e21756944845bd4ee3fef26",
+    "fatal-cold-recovery.json": "8ce237e9d416d2034668d9638de11513f34bf2adbee1d66b0d28ac4a8ae491e7",
+    "control-census.json": "8ef7892feaaedf2f8c78f6668b24b31ba1c246b888940a6fb0a58b4953a9a925",
+    "delayed-day-lifecycle.json": "25c6a48be1bb0b556c9f3023d0c2c7f08f4db78622071ccdee36e4978adf1792",
+    "exact-live-replay.json": "9e7033796336f5b895bf5c68af0f75f7e566b8c48c04da9a578a87c7b6bf68e2"
+  }
+}

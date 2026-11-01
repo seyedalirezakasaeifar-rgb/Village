@@ -1,0 +1,22 @@
+{
+  "sourceSha256": "f08cdd9cf77bed07c94722995f4e14f45ff6c9a2f85c77406badcdfc13eaa905",
+  "workerSha256": "70ba7c53ecef1aa5785ddb3fe0b50eb8e96a26db41bf7199eef9a1423fe15b5c",
+  "instrumentedWorkerSha256": "6206a64d70ea70176235127bfb125a63b152b1442e75ac343cdc6facafede744",
+  "actualCommandOnlyOwner": true,
+  "synchronousDebugMutatorsRefuseUnchanged": true,
+  "referenceOwnerUsed": false,
+  "actualRecoveryConfirmationCancelSafe": true,
+  "freshRealmPreservesSavedPayloadWithoutWrite": true,
+  "ownerReinitializedBeforeAdoption": true,
+  "epochAndSessionAdvance": true,
+  "retiredAndStaleArchiveClientsReject": true,
+  "oldWorkerCannotResolveCurrentRequest": true,
+  "ordinaryFailureSameRealmRestore": true,
+  "paidCommitFailedWriteRemainsUnsaved": true,
+  "writeRetryDoesNotReplayPayment": true,
+  "coldContinueInitializesOwnerAfterFirstLoad": true,
+  "coldContinueDoesNotRewriteSavedPayload": true,
+  "indexedDbOnlySavePointDiscoveredAndContinued": true,
+  "nativeDurabilityClaim": false,
+  "pageErrors": []
+}

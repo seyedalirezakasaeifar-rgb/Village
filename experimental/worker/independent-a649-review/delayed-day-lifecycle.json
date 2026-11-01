@@ -1,0 +1,16 @@
+{
+  "productionEnabled": false,
+  "sourceSha256": "f08cdd9cf77bed07c94722995f4e14f45ff6c9a2f85c77406badcdfc13eaa905",
+  "workerSha256": "70ba7c53ecef1aa5785ddb3fe0b50eb8e96a26db41bf7199eef9a1423fe15b5c",
+  "bridgeSha256": "8e683c90e96dcdf1f2863f1ac7b335d038fecb18e0b3b3a7b182f39b9de32de0",
+  "delayedReplyMs": 120,
+  "paidQueuedImmediatePendingAndDuplicateRefusal": true,
+  "distinctQueuedCommandsRetainFifo": true,
+  "pausePreservesBacklogWithoutDraining": true,
+  "realCouncilReviewStopsClockAndDeferResumes": true,
+  "syntheticVisibilityStopsAdmission": true,
+  "originalSaveOwnerFullCommittedArchiveMatches": true,
+  "actualJavascriptNativeSuspendResumeStopsAdmission": true,
+  "nativeLifecycleAcceptance": false,
+  "pageErrors": []
+}
