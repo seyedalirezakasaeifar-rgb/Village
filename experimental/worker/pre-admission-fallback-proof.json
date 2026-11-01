@@ -1,0 +1,9 @@
+{
+  "sourceSha256": "ac119726075abebf96683eb332782a5d55be69e42fe4545a9def0fd8a9ad6d1c",
+  "workerSha256": "e1cb263609258dd0b085c8185a5de9e8c629e303f524e905f9d19f0b54670faf",
+  "controlledWorkerArithmeticRefusal": true,
+  "originalTrustedBorrowControlStillWorks": true,
+  "noPartialWorkerAdoptionOrFrozenHost": true,
+  "laterHealthyAdoptionNotInterceptedByRetiredBindings": true,
+  "pageErrors": []
+}

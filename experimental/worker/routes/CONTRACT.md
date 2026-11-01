@@ -137,3 +137,28 @@ Module initial runtime must be JSON transient state (normally null review/draft 
 
 
 Transit compatibility smoke: `test_transit_hook_smoke.py` loads published c84371d family code without changing it, uses actual New Bus and Cancel controls, confirms office draft markup, presentation town mapping and frozen host view. It constructs a real depot with labelled conserved regional fixture funding. This proves the shared missing hook is usable; it does not certify a funded route build/cargo journey. Land named-place forms/footprint effects and district-admission visits still need explicit schemas; unsupported effects continue to refuse.
+
+
+## Current-model civic/land completion hooks
+
+Current composition includes public01eeda3 and its exact native callback/parser sources; see CURRENT-01EEDA-COMPOSITION.md and current-native-source-parity.json. Production is still disabled.
+
+New typed effects:
+
+* `{kind:'named-place-survey',x,y,placeKind:'square'|'warehouse',name,footprint}`. Integers in-grid, name at most48, footprint must exactly match original `footprintFor`. Main renders the original SVG and `#publicPlaceName` input safely. Bind the owning operation's choice name through `choiceFields` plus `event:'choice'` static input mapping. Source callbacks must consume the validated worker-local review payload, not attempt DOM access.
+* `{kind:'footprint-survey',x,y,cells,caption?}` renders original `civicProjectPlanSvg` with bounded valid tile IDs. No arbitrary HTML is accepted by this DTO.
+* `{kind:'focus-office',office:'charter'|'logistics'|'urban'|'migration'|'transit'|'construction'}` and `{kind:'focus-project',projectKind:''|'food'|'skills'|'district'}` use static selectors only.
+* `{kind:'parcel-preview',parcel}` preserves the original viewport-dependent parcel camera, closes the panel and shows charter overlay.
+* `{kind:'camera-grid-preserve-zoom',x,y}` sets camera to **iso(x,y)**, with zero vertical offset and unchanged current zoom. This supports original route focus.
+* `{kind:'simulation-pause',paused:true}` retains owed days and updates main pause feedback; automatic resume is intentionally unsupported. Use this where original route quote/report/upgrade controls paused for review. Module runtime pause state participates in rollback. A source binding can be extended centrally for immediate pre-admission pause if required by realtime acceptance.
+
+Worker-only `civic-boundary.js` now makes original civicProjectVisit, openCivicProjects, openCivicOperations, revealCharterOffice and previewParcel headless. Known DOM-only survey/focus expressions in original civicProjectReviewBuild, civicProjectReviewRoad, civicProjectSchoolBudget and reviewDistrictFinish are explicitly replaced during extraction; their original financial, quote and creator bodies are retained. A changed source boundary fails the build rather than dropping its effect. Land authors can call `ctx.review(()=>reviewDistrictFinish(index))` and `ctx.review(()=>reviewDistrictAdmission(id))` with their domain settlers. They must still prove actual purchase/refusal/UI parity; this is not a generic callback grant.
+
+`ctx.delegate(module,operation,payload)` is available only inside an existing paid-command root. It validates a registered target and joins that same root; no extra snapshot/controller/save fence. A review already bound by a delegated operation retains its target module/settler instead of being retagged by an outer ctx.review. Unknown targets refuse. Central civic operation registration remains in progress; do not treat an absent target as success.
+
+Panel refresh preserves stable-ID disclosure state and open project cards when the same panel is regenerated. This fixes the logistics office collapsing after authoritative routing/priority refresh without retaining stale HTML or authority. Ordinary source writer ACK ordering remains unchanged.
+
+`test_civic_boundary_hooks.py` covers typed name/footprint, actual civic visit and parcel preview, preserved-zoom camera, and frozen host financial view. It is a protocol test, not named-place purchase acceptance. `test_transport_runtime_alias.py` compares full current-public model/RNG/traffic with two genuine original vehicles through load, road invalidation, save and exact reload: zero excluded fields. Runtime transport is linked on load and synchronized for canonical snapshot/export/save; isolated restore normalization uses original archivePayload. This corrects the same alias path used by brownfield reuse. Family owners should rerun their exact failing fixture; no traffic comparison is waived.
+
+
+Pre-admission fallback also has a per-instance listener gate: rejected worker startup leaves original synchronous controls intact, including a later healthy worker adoption. `test_pre_admission_fallback.py` covers both paths. Stable-ID disclosure retention and authoritative inspector metadata keep current model panels fresh without retaining an old financial HTML view. The current-only public source is not sufficient by itself for the worker bootstrap: use the composed branch, which retains panelContents and closeCouncilDialogState boundaries alongside the current public model.
