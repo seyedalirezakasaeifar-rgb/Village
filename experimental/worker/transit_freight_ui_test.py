@@ -7,7 +7,7 @@ from playwright.sync_api import sync_playwright
 source=Path('assets/game.js').read_text();code=Path('experimental/worker/model.generated.js').read_text();bridge=''.join(Path('experimental/worker/'+n).read_text() for n in ['runtime-guard.js','archive-endpoint.js','real-view-bridge.js']);bindings=json.loads(Path('experimental/worker/route-bindings.generated.json').read_text())
 tree=ast.parse(Path('experimental/worker/transit_freight_parity_test.py').read_text());hook=next(ast.literal_eval(n.value) for n in tree.body if isinstance(n,ast.Assign) and any(isinstance(t,ast.Name) and t.id=='hook' for t in n.targets))
 hook=hook.replace('recompute();return archivePayload();','recompute();if(!hydrateSave(archivePayload()))throw Error("Fixture normalization failed");return archivePayload();')
-hook+='''let familyFailWrites=false;const familyPersist=persistSnapshot;persistSnapshot=function(...args){return familyFailWrites?Promise.resolve(false):familyPersist.apply(this,args);};window.familyStorage={fail:v=>familyFailWrites=v,stored:()=>readSaveEnvelope(localStorage.getItem('townledger-v6'))};window.uiFacts={step:()=>tick(),point:(id)=>{const pos=iso(id%T,Math.floor(id/T));cam={x:pos[0],y:pos[1],zoom:.8};dirty=true;const r=cv.getBoundingClientRect();return {x:r.left+cw/2,y:r.top+ch/2};},stops:()=>{const depot=G.buildings.find(b=>b.kind==='transit_depot'),roads=G.tiles.map((v,i)=>v===1&&transitOwnedRoad(i)?i:-1).filter(i=>i>=0);for(const a of roads)for(const b of roads){if(a>=b||roadDistance(a,b)<8)continue;const q=transitQuote({mode:'bus',depot:depot.id,stops:[a,b],level:1});if(q.ok&&q.cost<=G.treasury)return [a,b];}throw Error('No normal funded route');}};\n'''
+hook+='''let familyFailWrites=false;const familyPersist=persistSnapshot;persistSnapshot=function(...args){return familyFailWrites?Promise.resolve(false):familyPersist.apply(this,args);};window.familyStorage={fail:v=>familyFailWrites=v,stored:()=>readSaveEnvelope(localStorage.getItem('townledger-v6'))};window.uiFacts={overlay:()=>overlay,step:()=>tick(),point:(id)=>{const pos=iso(id%T,Math.floor(id/T));cam={x:pos[0],y:pos[1],zoom:.8};dirty=true;const r=cv.getBoundingClientRect();return {x:r.left+cw/2,y:r.top+ch/2};},stops:()=>{const depot=G.buildings.find(b=>b.kind==='transit_depot'),roads=G.tiles.map((v,i)=>v===1&&transitOwnedRoad(i)?i:-1).filter(i=>i>=0);for(const a of roads)for(const b of roads){if(a>=b||roadDistance(a,b)<8)continue;const q=transitQuote({mode:'bus',depot:depot.id,stops:[a,b],level:1});if(q.ok&&q.cost<=G.treasury)return [a,b];}throw Error('No normal funded route');}};\n'''
 def clean(g):
  for k in ['visualState','trafficState']:g.pop(k,None)
  return g
@@ -56,6 +56,22 @@ with sync_playwright() as pw:
  check('refreshed transit quote')
  for p in pages:p.locator('[data-transit-action="build"]').click()
  check('paid route build')
+ presentation_before=clean(q.evaluate('real.command({type:"export"})')['model'])
+ report_id=q.evaluate('real.command({type:"export"})')['model']['transit']['routes'][-1]['id']
+ for p in pages:
+  button=p.locator('[data-transit-action="report"][data-route="'+str(report_id)+'"]');button.evaluate('(e)=>e.closest("details").open=true');button.click()
+ check('route demand report actual UI')
+ assert clean(q.evaluate('real.command({type:"export"})')['model'])==presentation_before
+ for p in pages:assert p.locator('[data-transit-report="'+str(report_id)+'"]').count()==1
+ for p in pages:p.locator('[data-transit-action="hide-report"]').click()
+ check('hide demand report actual UI')
+ assert clean(q.evaluate('real.command({type:"export"})')['model'])==presentation_before
+ for p in pages:assert p.locator('[data-transit-report]').count()==0
+ for ix in range(2):
+  for p in pages:p.locator('[data-transit-action="overlay"]').click()
+  check('transit overlay toggle '+str(ix))
+  assert clean(q.evaluate('real.command({type:"export"})')['model'])==presentation_before
+  assert oracle.evaluate('uiFacts.overlay()')==q.evaluate('uiFacts.overlay()')
  for p in pages:p.locator('[data-transit-action="new-bus"]').click()
  check('second draft start')
  for p in pages:p.locator('[data-transit-action="cancel"]').click()
@@ -101,4 +117,4 @@ with sync_playwright() as pw:
  check('paid import recall actual controls')
  accounting=oracle.evaluate('parity.check()');assert accounting['valid']['ok'];assert abs(accounting['money']-initialMoney)<.001;assert max(abs(x['error']) for x in accounting['goods'])<.001
  assert not errors,errors
- Path('experimental/worker/transit-freight-ui-proof.json').write_text(json.dumps({'sourceSha256':hashlib.sha256(source.encode()).hexdigest(),'workerSha256':hashlib.sha256(code.encode()).hexdigest(),'accounting':accounting,'normalResources':True,'actualUiFullModelRng':rows,'saveBarriers':True,'writerFailureThenRetryWithoutEconomicReplay':True,'nativeDurability':False,'pageErrors':errors},indent=2)+'\n');print('PASS',rows);b.close()
+ Path('experimental/worker/transit-freight-ui-proof.json').write_text(json.dumps({'sourceSha256':hashlib.sha256(source.encode()).hexdigest(),'workerSha256':hashlib.sha256(code.encode()).hexdigest(),'accounting':accounting,'normalResources':True,'actualUiFullModelRng':rows,'presentationNoAuthorityMutation':True,'saveBarriers':True,'writerFailureThenRetryWithoutEconomicReplay':True,'nativeDurability':False,'pageErrors':errors},indent=2)+'\n');print('PASS',rows);b.close()

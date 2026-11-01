@@ -306,5 +306,29 @@
         "as": "integer"
       }
     }
+  },
+  {
+    "event": "click",
+    "selector": "[data-transit-action=\"report\"]",
+    "operation": "report",
+    "fields": {
+      "id": {
+        "source": "attribute",
+        "name": "data-route",
+        "as": "integer"
+      }
+    }
+  },
+  {
+    "event": "click",
+    "selector": "[data-transit-action=\"hide-report\"]",
+    "operation": "hide-report",
+    "fields": {}
+  },
+  {
+    "event": "click",
+    "selector": "[data-transit-action=\"overlay\"]",
+    "operation": "overlay",
+    "fields": {}
   }
 ]
