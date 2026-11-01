@@ -1,0 +1,9 @@
+{
+  "source_sha256": "78f4c3b5dc1a34313ff8752b6a6a5e85410a832b597b04fba4a0f1005ec62174",
+  "fixture": "d2b7086 regional seed42 day721; two ordinary-resource years, no grants",
+  "day": 721,
+  "population": 765,
+  "visibleReason": "A retail centre is already under construction. Let its funded project finish before inviting another.",
+  "completeArchiveUnchanged": true,
+  "errors": []
+}

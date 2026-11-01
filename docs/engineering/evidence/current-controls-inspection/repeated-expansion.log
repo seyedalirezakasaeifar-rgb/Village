@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/tmp/repeated_expansion.py", line 14, in <module>
+    saved=p.evaluate('__repeatExpansion.save()');assert p.evaluate('s=>__townTest.load(s)',saved);assert p.evaluate('__repeatExpansion.save()')==saved;p.locator('[data-panel=construction]').click();p.locator('#charterOffice>summary').click();p.screenshot(path=str(out/f'owned-{width}.png'));assert not errors,errors;results.append({'viewport':[width,height],'purchases':rows,'exactReload':True,'errors':errors});p.close()
+                                                                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

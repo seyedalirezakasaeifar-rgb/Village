@@ -1,0 +1,72 @@
+/tmp/agent_edge_probe.py:12: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  diff=ImageChops.difference(Image.open(out/'actual.png').convert('RGB'),Image.open(out/'oracle.png').convert('RGB'));r['differentPixels']=sum(px!=(0,0,0)for px in diff.getdata());r['source_sha256']=hashlib.sha256(s.encode()).hexdigest();(out/'result.json').write_text(json.dumps(r,indent=2));print(json.dumps(r,indent=2));b.close()
+{
+  "item": {
+    "id": 101,
+    "x": 3850,
+    "y": 608
+  },
+  "actor": {
+    "id": 152,
+    "x": 3862.015,
+    "y": 620.7233
+  },
+  "camera": {
+    "x": 4058.8646428571424,
+    "y": 620.7233,
+    "zoom": 1.4
+  },
+  "worldLeft": 3856.0074999999997,
+  "centreOutside": true,
+  "actorInside": true,
+  "actualActors": [
+    {
+      "kind": "boat",
+      "id": null,
+      "building": null
+    },
+    {
+      "kind": "vehicle",
+      "id": 150,
+      "building": null
+    },
+    {
+      "kind": "workday",
+      "id": null,
+      "building": 102
+    },
+    {
+      "kind": "workday",
+      "id": null,
+      "building": 101
+    },
+    {
+      "kind": "vehicle",
+      "id": 152,
+      "building": null
+    },
+    {
+      "kind": "vehicle",
+      "id": 85,
+      "building": null
+    },
+    {
+      "kind": "workday",
+      "id": null,
+      "building": 19
+    },
+    {
+      "kind": "vehicle",
+      "id": 115,
+      "building": null
+    },
+    {
+      "kind": "vehicle",
+      "id": 30,
+      "building": null
+    }
+  ],
+  "modelUnchanged": true,
+  "differentPixels": 0,
+  "source_sha256": "78f4c3b5dc1a34313ff8752b6a6a5e85410a832b597b04fba4a0f1005ec62174"
+}

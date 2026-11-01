@@ -1,0 +1,45 @@
+{
+  "source_sha256": "dbbb77a80e54a8c02fa5d7da8af020ba6b8a24078270c39cd5d844bd236dd949",
+  "allChangedTopLevelFields": [
+    "stats",
+    "roadMetrics"
+  ],
+  "allChangedStats": {
+    "townBalance": {
+      "saved": 1097734.419157952,
+      "coldRestored": 997474.4191579521
+    }
+  },
+  "roadMetrics": {
+    "saved": null,
+    "coldRestored": {
+      "connectedFirms": 104,
+      "totalFirms": 104,
+      "connectedHomes": 343,
+      "totalHomes": 348,
+      "roadTiles": 560,
+      "roadClusters": 1,
+      "averageJourney": 13,
+      "quality": 85
+    }
+  },
+  "deeds": [
+    {
+      "id": "east-meadow",
+      "price": 30606,
+      "day": 721
+    },
+    {
+      "id": "county-ridge",
+      "price": 37368,
+      "day": 721
+    },
+    {
+      "id": "river-reach",
+      "price": 32286,
+      "day": 721
+    }
+  ],
+  "treasury": 997474.4191579521,
+  "note": "All other complete canonical fields equal; no financial/identity/road/cargo field excluded"
+}

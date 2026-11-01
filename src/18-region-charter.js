@@ -36,8 +36,9 @@ function parcelAdjacent(p){const owned=G.charter?.owned||[];return p.x===56&&p.y
 function purchaseParcel(id,quotedPrice){
  const p=ANNEX_PARCELS.find(p=>p.id===id);if(!p||!G.charter||G.charter.owned.includes(id)||!parcelAdjacent(p))return false;const quote=parcelSurvey(p);if(!Number.isFinite(quotedPrice)||quotedPrice!==quote.price||G.treasury<quote.price)return false;
  G.treasury-=quote.price;G.region+=quote.price;G.charter.owned.push(id);G.charter.deeds.push({id,price:quote.price,day:G.day});G.charter.revision++;G.cumulative.landPurchases=(G.cumulative.landPurchases||0)+quote.price;
+ invalidateRoads(false);recompute();
  book('Municipal land budget','Regional land authority',quote.price,'Annexation deed: '+p.name);G.journal.push({day:G.day,name:'District annexed',message:p.name+': '+quote.area+' new regional tiles, '+quote.land+' land tiles. Development rights purchased for '+money(quote.price)+'. Existing private titles are unchanged.',baseline:{...G.stats,treasury:G.treasury}});
- story('The mayor acquired '+p.name+'. Roads and service coverage must still be developed.','good');invalidateRoads(false);staticDirty=true;dirty=true;updateHeader();save();return true;
+ story('The mayor acquired '+p.name+'. Roads and service coverage must still be developed.','good');staticDirty=true;dirty=true;updateHeader();save();return true;
 }
 function validateCharter(data){
  const c=data.charter;if(!c||c.version!==1||!Array.isArray(c.owned)||new Set(c.owned).size!==c.owned.length||c.owned.some(id=>!ANNEX_PARCELS.some(p=>p.id===id))||!Array.isArray(c.deeds)||c.deeds.length!==c.owned.length||!Number.isInteger(c.revision)||c.revision!==c.owned.length)return false;

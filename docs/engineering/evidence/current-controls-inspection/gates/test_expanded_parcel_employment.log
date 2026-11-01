@@ -1,0 +1,284 @@
+{
+  "source_sha256": "dbbb77a80e54a8c02fa5d7da8af020ba6b8a24078270c39cd5d844bd236dd949",
+  "ordinaryOpening": {
+    "opening": 15493517,
+    "site": {
+      "x": 56,
+      "y": 26
+    },
+    "farmSite": {
+      "x": 57,
+      "y": 26
+    },
+    "employer": 0,
+    "route": 1,
+    "routeQuote": {
+      "cost": 13300,
+      "operating": 139.52,
+      "capacity": 101
+    },
+    "jobseekerCount": 66,
+    "prehire": [
+      0,
+      1,
+      2,
+      5,
+      8,
+      11,
+      14,
+      17,
+      18,
+      19,
+      20,
+      23,
+      26,
+      29,
+      32,
+      35,
+      36,
+      37,
+      38,
+      41,
+      44,
+      47,
+      50,
+      53,
+      54,
+      55,
+      56,
+      59,
+      62,
+      65,
+      68,
+      71,
+      72,
+      73,
+      74,
+      77,
+      80,
+      83,
+      86,
+      89,
+      90,
+      91,
+      92,
+      95,
+      98,
+      101,
+      104,
+      107,
+      108,
+      119,
+      120,
+      131,
+      132,
+      142,
+      143,
+      144,
+      149,
+      154,
+      155,
+      156,
+      165,
+      166,
+      167,
+      168,
+      169,
+      170
+    ],
+    "employedBeforeFarm": 88,
+    "municipalFarmCost": 3100,
+    "regionalOpeningCapital": 12000,
+    "farmAfterConstruction": {
+      "id": 26,
+      "jobs": 4,
+      "workers": [
+        170,
+        169,
+        142,
+        154
+      ],
+      "cash": 12000,
+      "fields": 0
+    },
+    "treasuryBefore": 17212.77794828853,
+    "treasuryAfter": 14362.77794828853,
+    "regionBefore": 14833883.022284323,
+    "regionAfter": 14824733.022284323,
+    "totalBefore": 15493517.000000007,
+    "totalAfter": 15493517.000000007,
+    "outlook": {
+      "vacancies": 0,
+      "fundedVacancies": 0,
+      "jobseekers": 7,
+      "offers": 0,
+      "businessDemand": 13,
+      "investorBlocks": [
+        "business-demand index is below the private-investment threshold of 17"
+      ],
+      "sites": [
+        {
+          "kind": "farm",
+          "x": 57,
+          "y": 26,
+          "slots": 4,
+          "cost": 3100
+        },
+        {
+          "kind": "grocer",
+          "x": 57,
+          "y": 27,
+          "slots": 2,
+          "cost": 4300
+        },
+        {
+          "kind": "bakery",
+          "x": 57,
+          "y": 27,
+          "slots": 3,
+          "cost": 3600
+        }
+      ]
+    }
+  },
+  "after120Days": {
+    "day": 122,
+    "treasury": 23472.616272541673,
+    "region": 14374370.500465687,
+    "total": 15493516.999999944,
+    "farm": {
+      "closed": false,
+      "jobs": 3,
+      "workers": [
+        170,
+        169,
+        142
+      ],
+      "cash": 12590.011509598635,
+      "fields": 0,
+      "production": 63,
+      "sales": 66.68319794904951,
+      "revenue": 128.58657818618988,
+      "expenses": 109.42360442723435,
+      "netProfit": 16.86341690786486,
+      "lossDays": 0,
+      "outputStock": 230.87952421271075
+    },
+    "route": {
+      "operating": true,
+      "capacity": 100,
+      "reserved": 2,
+      "boardings": 2,
+      "demand": 2,
+      "denied": 0,
+      "staff": [
+        10,
+        16,
+        40,
+        45
+      ],
+      "required": 4,
+      "status": "Operating",
+      "headway": 38.132124403992826,
+      "reliability": 0.9873564766839389,
+      "expenses": 139.52,
+      "lastDemand": 2,
+      "lastDenied": 0
+    },
+    "people": 173,
+    "employed": 105,
+    "goods": [
+      {
+        "good": "grain",
+        "opening": 960,
+        "produced": 55318,
+        "consumed": 18757.2,
+        "imports": 11504.942,
+        "exports": 44757.29575729275,
+        "stock": 4268.44624270725,
+        "error": -2.7284841053187847e-12,
+        "price": 1.8242265560355193
+      },
+      {
+        "good": "flour",
+        "opening": 960,
+        "produced": 31262,
+        "consumed": 21351.225,
+        "imports": 4132.663,
+        "exports": 12128.736401285292,
+        "stock": 2874.7015987147065,
+        "error": -1.3642420526593924e-12,
+        "price": 2.7468777061875747
+      },
+      {
+        "good": "food",
+        "opening": 1920,
+        "produced": 46713,
+        "consumed": 32933.19284799052,
+        "imports": 10612.539,
+        "exports": 21294.05434624118,
+        "stock": 5018.291805768305,
+        "error": 3.637978807091713e-12,
+        "price": 3.009973817458607
+      },
+      {
+        "good": "logs",
+        "opening": 720,
+        "produced": 35574,
+        "consumed": 15643.846153846154,
+        "imports": 506.876,
+        "exports": 18167.17435226541,
+        "stock": 2989.8554938884326,
+        "error": -4.092726157978177e-12,
+        "price": 1.8242265560355193
+      },
+      {
+        "good": "timber",
+        "opening": 720,
+        "produced": 20337,
+        "consumed": 7692.717647058824,
+        "imports": 480,
+        "exports": 11907.021020367965,
+        "stock": 1937.2613325732104,
+        "error": -2.2737367544323206e-13,
+        "price": 3.6484531120710386
+      },
+      {
+        "good": "stone",
+        "opening": 720,
+        "produced": 13201,
+        "consumed": 35.349999999999994,
+        "imports": 128.5,
+        "exports": 12781.093042493492,
+        "stock": 1233.0569575065072,
+        "error": -2.2737367544323206e-13,
+        "price": 2.7363398340532794
+      },
+      {
+        "good": "manufactures",
+        "opening": 0,
+        "produced": 11185,
+        "consumed": 2203.2447985640465,
+        "imports": 0,
+        "exports": 8658.219026341782,
+        "stock": 323.53617509417296,
+        "error": 1.1368683772161603e-12,
+        "price": 8.005142933677417
+      }
+    ],
+    "valid": {
+      "ok": true,
+      "issues": [],
+      "total": 15493516.999999944,
+      "population": 173,
+      "day": 122
+    }
+  },
+  "additionalPaidWorkersAtEnd": 3,
+  "allSurvivorsWerePreviouslyUnemployed": true,
+  "cashMovement": "municipal construction and regional working capital were paid; grain sales, wages, fares and exports follow normal account flows",
+  "goodsConserved": true,
+  "validatorPassed": true,
+  "exactThirtyDayReplay": true,
+  "errors": []
+}

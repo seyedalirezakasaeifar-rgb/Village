@@ -1,0 +1,40 @@
+{
+  "item": {
+    "id": 101,
+    "x": 3850,
+    "y": 608
+  },
+  "actor": {
+    "id": 152,
+    "x": 3862.015,
+    "y": 620.7233
+  },
+  "camera": {
+    "x": 4058.8646428571424,
+    "y": 620.7233,
+    "zoom": 1.4
+  },
+  "worldLeft": 3856.0074999999997,
+  "centreOutside": true,
+  "actorInside": true,
+  "actualActors": [
+    {
+      "kind": "boat",
+      "id": null,
+      "building": null
+    },
+    {
+      "kind": "vehicle",
+      "id": 150,
+      "building": null
+    },
+    {
+      "kind": "workday",
+      "id": null,
+      "building": 102
+    }
+  ],
+  "modelUnchanged": true,
+  "differentPixels": 183,
+  "source_sha256": "dbbb77a80e54a8c02fa5d7da8af020ba6b8a24078270c39cd5d844bd236dd949"
+}

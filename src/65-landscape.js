@@ -338,7 +338,8 @@ function draw(){
  }
  ctx.setTransform(1,0,0,1,0,0);ctx.drawImage(viewRaster,0,0);transform();
  drawWaterLife(ctx,visible);drawWaterfrontPiers(ctx,visible);if(typeof paintRoadBridgeLayers==='function')paintRoadBridgeLayers(ctx);drawRegionalGates(ctx,visible);drawTransitInfrastructure(ctx,visible);
- const visibleParcels=viewBuildings.filter(item=>visible(item.x,item.y,0)),actors=[...transitArtActors(visible),...neighbourhoodAmbient(visibleParcels),...buildingActivity(visibleParcels),...workdayScenes(visibleParcels),...waterfrontActors(visible),...regionalCargoActors().filter(a=>visible(a.x,a.y,15))];if(visualDetailBudget().traffic)for(const v of traffic){const p=vehiclePosition(v);if(visible(p.x,p.y,15))actors.push({kind:'vehicle',v,...p});}actors.sort((a,b)=>a.y-b.y);
+ // Keep frontage actors when their parent paint bounds intersect the viewport, even if its centre is outside.
+ const visibleParcels=viewBuildings,actors=[...transitArtActors(visible),...neighbourhoodAmbient(visibleParcels),...buildingActivity(visibleParcels),...workdayScenes(visibleParcels),...waterfrontActors(visible),...regionalCargoActors().filter(a=>visible(a.x,a.y,15))];if(visualDetailBudget().traffic)for(const v of traffic){const p=vehiclePosition(v);if(visible(p.x,p.y,15))actors.push({kind:'vehicle',v,...p});}actors.sort((a,b)=>a.y-b.y);
 
  if(actors.length)paintSceneActors(ctx,actors,visible);
  drawConstructionProgress(ctx,visible);drawInspectedRoute(ctx);drawSelectedWaterRoute(ctx);drawDistrictLife(ctx,visible);drawNamedPlaces(ctx,visible);

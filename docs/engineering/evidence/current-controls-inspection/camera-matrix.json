@@ -1,0 +1,1211 @@
+{
+  "source_sha256": "78f4c3b5dc1a34313ff8752b6a6a5e85410a832b597b04fba4a0f1005ec62174",
+  "cases": [
+    {
+      "index": 0,
+      "zoom": 1.6,
+      "night": false,
+      "quality": "low",
+      "reducedMotion": true,
+      "dpr": 1,
+      "camera": {
+        "x": 4447.7,
+        "y": 1004.3,
+        "zoom": 1.6
+      },
+      "pausedStable": true,
+      "coldStable": true,
+      "unchanged": true,
+      "oracle": {
+        "channels": 0,
+        "max": 0,
+        "actors": 0
+      },
+      "atlasBytes": 2468608,
+      "brownfieldBytes": 27648,
+      "repairBytes": 0,
+      "viewportBytes": 1100800,
+      "viewport": [
+        640,
+        360,
+        1
+      ],
+      "warmDrawMeanMs": 0.9
+    },
+    {
+      "index": 1,
+      "zoom": 0.4,
+      "night": true,
+      "quality": "high",
+      "reducedMotion": false,
+      "dpr": 1,
+      "camera": {
+        "x": 4596.7,
+        "y": 877.3,
+        "zoom": 0.4
+      },
+      "pausedStable": true,
+      "coldStable": true,
+      "unchanged": true,
+      "oracle": {
+        "channels": 0,
+        "max": 0,
+        "actors": 2,
+        "modes": [
+          "bus",
+          "bus"
+        ]
+      },
+      "atlasBytes": 8470784,
+      "brownfieldBytes": 27648,
+      "repairBytes": 1100800,
+      "viewportBytes": 1100800,
+      "viewport": [
+        640,
+        360,
+        1
+      ],
+      "warmDrawMeanMs": 2.25
+    },
+    {
+      "index": 2,
+      "zoom": 0.2,
+      "night": false,
+      "quality": "high",
+      "reducedMotion": false,
+      "dpr": 1,
+      "camera": {
+        "x": 5717.7,
+        "y": 804.3,
+        "zoom": 0.2
+      },
+      "pausedStable": true,
+      "coldStable": true,
+      "unchanged": true,
+      "oracle": {
+        "channels": 0,
+        "max": 0,
+        "actors": 0
+      },
+      "atlasBytes": 6771712,
+      "brownfieldBytes": 55296,
+      "repairBytes": 0,
+      "viewportBytes": 1100800,
+      "viewport": [
+        640,
+        360,
+        1
+      ],
+      "warmDrawMeanMs": 0.93
+    },
+    {
+      "index": 3,
+      "zoom": 0.65,
+      "night": true,
+      "quality": "high",
+      "reducedMotion": false,
+      "dpr": 1,
+      "camera": {
+        "x": 5835.7,
+        "y": 983.3,
+        "zoom": 0.65
+      },
+      "pausedStable": true,
+      "coldStable": true,
+      "unchanged": true,
+      "oracle": {
+        "channels": 0,
+        "max": 0,
+        "actors": 1,
+        "modes": [
+          "vehicle"
+        ]
+      },
+      "atlasBytes": 3617536,
+      "brownfieldBytes": 55296,
+      "repairBytes": 1100800,
+      "viewportBytes": 1100800,
+      "viewport": [
+        640,
+        360,
+        1
+      ],
+      "warmDrawMeanMs": 1.96
+    },
+    {
+      "index": 4,
+      "zoom": 1.15,
+      "night": false,
+      "quality": "low",
+      "reducedMotion": false,
+      "dpr": 1,
+      "camera": {
+        "x": 5696.7,
+        "y": 1702.3,
+        "zoom": 1.15
+      },
+      "pausedStable": true,
+      "coldStable": true,
+      "unchanged": true,
+      "oracle": {
+        "channels": 0,
+        "max": 0,
+        "actors": 2,
+        "modes": [
+          "elevated",
+          "vehicle"
+        ]
+      },
+      "atlasBytes": 689408,
+      "brownfieldBytes": 55296,
+      "repairBytes": 1100800,
+      "viewportBytes": 1100800,
+      "viewport": [
+        640,
+        360,
+        1
+      ],
+      "warmDrawMeanMs": 1.26
+    },
+    {
+      "index": 5,
+      "zoom": 0.32,
+      "night": true,
+      "quality": "high",
+      "reducedMotion": true,
+      "dpr": 1,
+      "camera": {
+        "x": 3937.7,
+        "y": 568.3,
+        "zoom": 0.32
+      },
+      "pausedStable": true,
+      "coldStable": true,
+      "unchanged": true,
+      "oracle": {
+        "channels": 0,
+        "max": 0,
+        "actors": 0
+      },
+      "atlasBytes": 6388480,
+      "brownfieldBytes": 55296,
+      "repairBytes": 0,
+      "viewportBytes": 1100800,
+      "viewport": [
+        640,
+        360,
+        1
+      ],
+      "warmDrawMeanMs": 0.99
+    },
+    {
+      "index": 6,
+      "zoom": 1.6,
+      "night": false,
+      "quality": "high",
+      "reducedMotion": false,
+      "dpr": 1,
+      "camera": {
+        "x": 4199.7,
+        "y": 567.3,
+        "zoom": 1.6
+      },
+      "pausedStable": true,
+      "coldStable": true,
+      "unchanged": true,
+      "oracle": {
+        "channels": 0,
+        "max": 0,
+        "actors": 1,
+        "modes": [
+          "vehicle"
+        ]
+      },
+      "atlasBytes": 1788928,
+      "brownfieldBytes": 55296,
+      "repairBytes": 1100800,
+      "viewportBytes": 1100800,
+      "viewport": [
+        640,
+        360,
+        1
+      ],
+      "warmDrawMeanMs": 2.75
+    },
+    {
+      "index": 7,
+      "zoom": 0.4,
+      "night": true,
+      "quality": "high",
+      "reducedMotion": false,
+      "dpr": 1,
+      "camera": {
+        "x": 5068.7,
+        "y": 782.3,
+        "zoom": 0.4
+      },
+      "pausedStable": true,
+      "coldStable": true,
+      "unchanged": true,
+      "oracle": {
+        "channels": 0,
+        "max": 0,
+        "actors": 2,
+        "modes": [
+          "bus",
+          "bus"
+        ]
+      },
+      "atlasBytes": 8291072,
+      "brownfieldBytes": 55296,
+      "repairBytes": 1100800,
+      "viewportBytes": 1100800,
+      "viewport": [
+        640,
+        360,
+        1
+      ],
+      "warmDrawMeanMs": 1.21
+    },
+    {
+      "index": 8,
+      "zoom": 0.2,
+      "night": false,
+      "quality": "low",
+      "reducedMotion": false,
+      "dpr": 1,
+      "camera": {
+        "x": 5906.7,
+        "y": 961.3,
+        "zoom": 0.2
+      },
+      "pausedStable": true,
+      "coldStable": true,
+      "unchanged": true,
+      "oracle": {
+        "channels": 0,
+        "max": 0,
+        "actors": 0
+      },
+      "atlasBytes": 6234368,
+      "brownfieldBytes": 55296,
+      "repairBytes": 0,
+      "viewportBytes": 1100800,
+      "viewport": [
+        640,
+        360,
+        1
+      ],
+      "warmDrawMeanMs": 1.26
+    },
+    {
+      "index": 9,
+      "zoom": 0.65,
+      "night": true,
+      "quality": "high",
+      "reducedMotion": false,
+      "dpr": 1,
+      "camera": {
+        "x": 5299.7,
+        "y": 1051.3,
+        "zoom": 0.65
+      },
+      "pausedStable": true,
+      "coldStable": true,
+      "unchanged": true,
+      "oracle": {
+        "channels": 0,
+        "max": 0,
+        "actors": 1,
+        "modes": [
+          "vehicle"
+        ]
+      },
+      "atlasBytes": 4710144,
+      "brownfieldBytes": 55296,
+      "repairBytes": 1100800,
+      "viewportBytes": 1100800,
+      "viewport": [
+        640,
+        360,
+        1
+      ],
+      "warmDrawMeanMs": 2.77
+    },
+    {
+      "index": 10,
+      "zoom": 1.15,
+      "night": false,
+      "quality": "high",
+      "reducedMotion": true,
+      "dpr": 1,
+      "camera": {
+        "x": 4584.7,
+        "y": 1338.3,
+        "zoom": 1.15
+      },
+      "pausedStable": true,
+      "coldStable": true,
+      "unchanged": true,
+      "oracle": {
+        "channels": 0,
+        "max": 0,
+        "actors": 0
+      },
+      "atlasBytes": 1143808,
+      "brownfieldBytes": 55296,
+      "repairBytes": 0,
+      "viewportBytes": 1100800,
+      "viewport": [
+        640,
+        360,
+        1
+      ],
+      "warmDrawMeanMs": 0.76
+    },
+    {
+      "index": 11,
+      "zoom": 0.32,
+      "night": true,
+      "quality": "high",
+      "reducedMotion": false,
+      "dpr": 1,
+      "camera": {
+        "x": 4630.7,
+        "y": 545.3,
+        "zoom": 0.32
+      },
+      "pausedStable": true,
+      "coldStable": true,
+      "unchanged": true,
+      "oracle": {
+        "channels": 0,
+        "max": 0,
+        "actors": 0
+      },
+      "atlasBytes": 7004928,
+      "brownfieldBytes": 55296,
+      "repairBytes": 1100800,
+      "viewportBytes": 1100800,
+      "viewport": [
+        640,
+        360,
+        1
+      ],
+      "warmDrawMeanMs": 1.39
+    },
+    {
+      "index": 0,
+      "zoom": 1.6,
+      "night": false,
+      "quality": "low",
+      "reducedMotion": true,
+      "dpr": 1,
+      "camera": {
+        "x": 4447.7,
+        "y": 1004.3,
+        "zoom": 1.6
+      },
+      "pausedStable": true,
+      "coldStable": true,
+      "unchanged": true,
+      "oracle": {
+        "channels": 0,
+        "max": 0,
+        "actors": 0
+      },
+      "atlasBytes": 3392256,
+      "brownfieldBytes": 27648,
+      "repairBytes": 0,
+      "viewportBytes": 1883808,
+      "viewport": [
+        844,
+        390,
+        2
+      ],
+      "warmDrawMeanMs": 0.85
+    },
+    {
+      "index": 1,
+      "zoom": 0.4,
+      "night": true,
+      "quality": "high",
+      "reducedMotion": false,
+      "dpr": 1.5,
+      "camera": {
+        "x": 4596.7,
+        "y": 877.3,
+        "zoom": 0.4
+      },
+      "pausedStable": true,
+      "coldStable": true,
+      "unchanged": true,
+      "oracle": {
+        "channels": 0,
+        "max": 0,
+        "actors": 2,
+        "modes": [
+          "bus",
+          "bus"
+        ]
+      },
+      "atlasBytes": 9701632,
+      "brownfieldBytes": 27648,
+      "repairBytes": 4243632,
+      "viewportBytes": 4243632,
+      "viewport": [
+        844,
+        390,
+        2
+      ],
+      "warmDrawMeanMs": 4.3
+    },
+    {
+      "index": 2,
+      "zoom": 0.2,
+      "night": false,
+      "quality": "high",
+      "reducedMotion": false,
+      "dpr": 1.5,
+      "camera": {
+        "x": 5717.7,
+        "y": 804.3,
+        "zoom": 0.2
+      },
+      "pausedStable": true,
+      "coldStable": true,
+      "unchanged": true,
+      "oracle": {
+        "channels": 0,
+        "max": 0,
+        "actors": 0
+      },
+      "atlasBytes": 7079936,
+      "brownfieldBytes": 55296,
+      "repairBytes": 0,
+      "viewportBytes": 4243632,
+      "viewport": [
+        844,
+        390,
+        2
+      ],
+      "warmDrawMeanMs": 0.91
+    },
+    {
+      "index": 3,
+      "zoom": 0.65,
+      "night": true,
+      "quality": "high",
+      "reducedMotion": false,
+      "dpr": 1.5,
+      "camera": {
+        "x": 5835.7,
+        "y": 983.3,
+        "zoom": 0.65
+      },
+      "pausedStable": true,
+      "coldStable": true,
+      "unchanged": true,
+      "oracle": {
+        "channels": 0,
+        "max": 0,
+        "actors": 1,
+        "modes": [
+          "vehicle"
+        ]
+      },
+      "atlasBytes": 4386048,
+      "brownfieldBytes": 55296,
+      "repairBytes": 4243632,
+      "viewportBytes": 4243632,
+      "viewport": [
+        844,
+        390,
+        2
+      ],
+      "warmDrawMeanMs": 2.43
+    },
+    {
+      "index": 4,
+      "zoom": 1.15,
+      "night": false,
+      "quality": "low",
+      "reducedMotion": false,
+      "dpr": 1,
+      "camera": {
+        "x": 5696.7,
+        "y": 1702.3,
+        "zoom": 1.15
+      },
+      "pausedStable": true,
+      "coldStable": true,
+      "unchanged": true,
+      "oracle": {
+        "channels": 0,
+        "max": 0,
+        "actors": 2,
+        "modes": [
+          "elevated",
+          "vehicle"
+        ]
+      },
+      "atlasBytes": 689408,
+      "brownfieldBytes": 55296,
+      "repairBytes": 1883808,
+      "viewportBytes": 1883808,
+      "viewport": [
+        844,
+        390,
+        2
+      ],
+      "warmDrawMeanMs": 2.15
+    },
+    {
+      "index": 5,
+      "zoom": 0.32,
+      "night": true,
+      "quality": "high",
+      "reducedMotion": true,
+      "dpr": 1.5,
+      "camera": {
+        "x": 3937.7,
+        "y": 568.3,
+        "zoom": 0.32
+      },
+      "pausedStable": true,
+      "coldStable": true,
+      "unchanged": true,
+      "oracle": {
+        "channels": 0,
+        "max": 0,
+        "actors": 0
+      },
+      "atlasBytes": 8388864,
+      "brownfieldBytes": 55296,
+      "repairBytes": 0,
+      "viewportBytes": 4243632,
+      "viewport": [
+        844,
+        390,
+        2
+      ],
+      "warmDrawMeanMs": 0.81
+    },
+    {
+      "index": 6,
+      "zoom": 1.6,
+      "night": false,
+      "quality": "high",
+      "reducedMotion": false,
+      "dpr": 1.5,
+      "camera": {
+        "x": 4199.7,
+        "y": 567.3,
+        "zoom": 1.6
+      },
+      "pausedStable": true,
+      "coldStable": true,
+      "unchanged": true,
+      "oracle": {
+        "channels": 0,
+        "max": 0,
+        "actors": 1,
+        "modes": [
+          "vehicle"
+        ]
+      },
+      "atlasBytes": 1893632,
+      "brownfieldBytes": 55296,
+      "repairBytes": 4243632,
+      "viewportBytes": 4243632,
+      "viewport": [
+        844,
+        390,
+        2
+      ],
+      "warmDrawMeanMs": 5.51
+    },
+    {
+      "index": 7,
+      "zoom": 0.4,
+      "night": true,
+      "quality": "high",
+      "reducedMotion": false,
+      "dpr": 1.5,
+      "camera": {
+        "x": 5068.7,
+        "y": 782.3,
+        "zoom": 0.4
+      },
+      "pausedStable": true,
+      "coldStable": true,
+      "unchanged": true,
+      "oracle": {
+        "channels": 0,
+        "max": 0,
+        "actors": 2,
+        "modes": [
+          "bus",
+          "bus"
+        ]
+      },
+      "atlasBytes": 9598976,
+      "brownfieldBytes": 55296,
+      "repairBytes": 4243632,
+      "viewportBytes": 4243632,
+      "viewport": [
+        844,
+        390,
+        2
+      ],
+      "warmDrawMeanMs": 2.88
+    },
+    {
+      "index": 8,
+      "zoom": 0.2,
+      "night": false,
+      "quality": "low",
+      "reducedMotion": false,
+      "dpr": 1,
+      "camera": {
+        "x": 5906.7,
+        "y": 961.3,
+        "zoom": 0.2
+      },
+      "pausedStable": true,
+      "coldStable": true,
+      "unchanged": true,
+      "oracle": {
+        "channels": 0,
+        "max": 0,
+        "actors": 0
+      },
+      "atlasBytes": 7311104,
+      "brownfieldBytes": 55296,
+      "repairBytes": 0,
+      "viewportBytes": 1883808,
+      "viewport": [
+        844,
+        390,
+        2
+      ],
+      "warmDrawMeanMs": 0.75
+    },
+    {
+      "index": 9,
+      "zoom": 0.65,
+      "night": true,
+      "quality": "high",
+      "reducedMotion": false,
+      "dpr": 1.5,
+      "camera": {
+        "x": 5299.7,
+        "y": 1051.3,
+        "zoom": 0.65
+      },
+      "pausedStable": true,
+      "coldStable": true,
+      "unchanged": true,
+      "oracle": {
+        "channels": 0,
+        "max": 0,
+        "actors": 1,
+        "modes": [
+          "vehicle"
+        ]
+      },
+      "atlasBytes": 6002176,
+      "brownfieldBytes": 55296,
+      "repairBytes": 4243632,
+      "viewportBytes": 4243632,
+      "viewport": [
+        844,
+        390,
+        2
+      ],
+      "warmDrawMeanMs": 3.59
+    },
+    {
+      "index": 10,
+      "zoom": 1.15,
+      "night": false,
+      "quality": "high",
+      "reducedMotion": true,
+      "dpr": 1.5,
+      "camera": {
+        "x": 4584.7,
+        "y": 1338.3,
+        "zoom": 1.15
+      },
+      "pausedStable": true,
+      "coldStable": true,
+      "unchanged": true,
+      "oracle": {
+        "channels": 0,
+        "max": 0,
+        "actors": 0
+      },
+      "atlasBytes": 1478656,
+      "brownfieldBytes": 55296,
+      "repairBytes": 0,
+      "viewportBytes": 4243632,
+      "viewport": [
+        844,
+        390,
+        2
+      ],
+      "warmDrawMeanMs": 0.56
+    },
+    {
+      "index": 11,
+      "zoom": 0.32,
+      "night": true,
+      "quality": "high",
+      "reducedMotion": false,
+      "dpr": 1.5,
+      "camera": {
+        "x": 4630.7,
+        "y": 545.3,
+        "zoom": 0.32
+      },
+      "pausedStable": true,
+      "coldStable": true,
+      "unchanged": true,
+      "oracle": {
+        "channels": 0,
+        "max": 0,
+        "actors": 0
+      },
+      "atlasBytes": 8698112,
+      "brownfieldBytes": 55296,
+      "repairBytes": 4243632,
+      "viewportBytes": 4243632,
+      "viewport": [
+        844,
+        390,
+        2
+      ],
+      "warmDrawMeanMs": 2.67
+    },
+    {
+      "index": 0,
+      "zoom": 1.6,
+      "night": false,
+      "quality": "low",
+      "reducedMotion": true,
+      "dpr": 1,
+      "camera": {
+        "x": 4447.7,
+        "y": 1004.3,
+        "zoom": 1.6
+      },
+      "pausedStable": true,
+      "coldStable": true,
+      "unchanged": true,
+      "oracle": {
+        "channels": 0,
+        "max": 0,
+        "actors": 0
+      },
+      "atlasBytes": 5295872,
+      "brownfieldBytes": 27648,
+      "repairBytes": 0,
+      "viewportBytes": 6113280,
+      "viewport": [
+        1280,
+        720,
+        3
+      ],
+      "warmDrawMeanMs": 1.25
+    },
+    {
+      "index": 1,
+      "zoom": 0.4,
+      "night": true,
+      "quality": "high",
+      "reducedMotion": false,
+      "dpr": 1.5,
+      "camera": {
+        "x": 4596.7,
+        "y": 877.3,
+        "zoom": 0.4
+      },
+      "pausedStable": true,
+      "coldStable": true,
+      "unchanged": true,
+      "oracle": {
+        "channels": 0,
+        "max": 0,
+        "actors": 3,
+        "modes": [
+          "bus",
+          "bus",
+          "bus"
+        ]
+      },
+      "atlasBytes": 10857472,
+      "brownfieldBytes": 27648,
+      "repairBytes": 13762560,
+      "viewportBytes": 13762560,
+      "viewport": [
+        1280,
+        720,
+        3
+      ],
+      "warmDrawMeanMs": 5.77
+    },
+    {
+      "index": 2,
+      "zoom": 0.2,
+      "night": false,
+      "quality": "high",
+      "reducedMotion": false,
+      "dpr": 1.5,
+      "camera": {
+        "x": 5717.7,
+        "y": 804.3,
+        "zoom": 0.2
+      },
+      "pausedStable": true,
+      "coldStable": true,
+      "unchanged": true,
+      "oracle": {
+        "channels": 0,
+        "max": 0,
+        "actors": 0
+      },
+      "atlasBytes": 8312832,
+      "brownfieldBytes": 55296,
+      "repairBytes": 0,
+      "viewportBytes": 13762560,
+      "viewport": [
+        1280,
+        720,
+        3
+      ],
+      "warmDrawMeanMs": 0.84
+    },
+    {
+      "index": 3,
+      "zoom": 0.65,
+      "night": true,
+      "quality": "high",
+      "reducedMotion": false,
+      "dpr": 1.5,
+      "camera": {
+        "x": 5835.7,
+        "y": 983.3,
+        "zoom": 0.65
+      },
+      "pausedStable": true,
+      "coldStable": true,
+      "unchanged": true,
+      "oracle": {
+        "channels": 0,
+        "max": 0,
+        "actors": 2,
+        "modes": [
+          "bus",
+          "vehicle"
+        ]
+      },
+      "atlasBytes": 6163200,
+      "brownfieldBytes": 55296,
+      "repairBytes": 13762560,
+      "viewportBytes": 13762560,
+      "viewport": [
+        1280,
+        720,
+        3
+      ],
+      "warmDrawMeanMs": 6.5
+    },
+    {
+      "index": 4,
+      "zoom": 1.15,
+      "night": false,
+      "quality": "low",
+      "reducedMotion": false,
+      "dpr": 1,
+      "camera": {
+        "x": 5696.7,
+        "y": 1702.3,
+        "zoom": 1.15
+      },
+      "pausedStable": true,
+      "coldStable": true,
+      "unchanged": true,
+      "oracle": {
+        "channels": 0,
+        "max": 0,
+        "actors": 2,
+        "modes": [
+          "elevated",
+          "vehicle"
+        ]
+      },
+      "atlasBytes": 996608,
+      "brownfieldBytes": 55296,
+      "repairBytes": 6113280,
+      "viewportBytes": 6113280,
+      "viewport": [
+        1280,
+        720,
+        3
+      ],
+      "warmDrawMeanMs": 2
+    },
+    {
+      "index": 5,
+      "zoom": 0.32,
+      "night": true,
+      "quality": "high",
+      "reducedMotion": true,
+      "dpr": 1.5,
+      "camera": {
+        "x": 3937.7,
+        "y": 568.3,
+        "zoom": 0.32
+      },
+      "pausedStable": true,
+      "coldStable": true,
+      "unchanged": true,
+      "oracle": {
+        "channels": 0,
+        "max": 0,
+        "actors": 0
+      },
+      "atlasBytes": 10466304,
+      "brownfieldBytes": 55296,
+      "repairBytes": 0,
+      "viewportBytes": 13762560,
+      "viewport": [
+        1280,
+        720,
+        3
+      ],
+      "warmDrawMeanMs": 1.21
+    },
+    {
+      "index": 6,
+      "zoom": 1.6,
+      "night": false,
+      "quality": "high",
+      "reducedMotion": false,
+      "dpr": 1.5,
+      "camera": {
+        "x": 4199.7,
+        "y": 567.3,
+        "zoom": 1.6
+      },
+      "pausedStable": true,
+      "coldStable": true,
+      "unchanged": true,
+      "oracle": {
+        "channels": 0,
+        "max": 0,
+        "actors": 1,
+        "modes": [
+          "vehicle"
+        ]
+      },
+      "atlasBytes": 2228480,
+      "brownfieldBytes": 55296,
+      "repairBytes": 13762560,
+      "viewportBytes": 13762560,
+      "viewport": [
+        1280,
+        720,
+        3
+      ],
+      "warmDrawMeanMs": 11.79
+    },
+    {
+      "index": 7,
+      "zoom": 0.4,
+      "night": true,
+      "quality": "high",
+      "reducedMotion": false,
+      "dpr": 1.5,
+      "camera": {
+        "x": 5068.7,
+        "y": 782.3,
+        "zoom": 0.4
+      },
+      "pausedStable": true,
+      "coldStable": true,
+      "unchanged": true,
+      "oracle": {
+        "channels": 0,
+        "max": 0,
+        "actors": 3,
+        "modes": [
+          "bus",
+          "bus",
+          "bus"
+        ]
+      },
+      "atlasBytes": 10934528,
+      "brownfieldBytes": 55296,
+      "repairBytes": 13762560,
+      "viewportBytes": 13762560,
+      "viewport": [
+        1280,
+        720,
+        3
+      ],
+      "warmDrawMeanMs": 3.49
+    },
+    {
+      "index": 8,
+      "zoom": 0.2,
+      "night": false,
+      "quality": "low",
+      "reducedMotion": false,
+      "dpr": 1,
+      "camera": {
+        "x": 5906.7,
+        "y": 961.3,
+        "zoom": 0.2
+      },
+      "pausedStable": true,
+      "coldStable": true,
+      "unchanged": true,
+      "oracle": {
+        "channels": 0,
+        "max": 0,
+        "actors": 0
+      },
+      "atlasBytes": 8621056,
+      "brownfieldBytes": 55296,
+      "repairBytes": 0,
+      "viewportBytes": 6113280,
+      "viewport": [
+        1280,
+        720,
+        3
+      ],
+      "warmDrawMeanMs": 1.33
+    },
+    {
+      "index": 9,
+      "zoom": 0.65,
+      "night": true,
+      "quality": "high",
+      "reducedMotion": false,
+      "dpr": 1.5,
+      "camera": {
+        "x": 5299.7,
+        "y": 1051.3,
+        "zoom": 0.65
+      },
+      "pausedStable": true,
+      "coldStable": true,
+      "unchanged": true,
+      "oracle": {
+        "channels": 0,
+        "max": 0,
+        "actors": 2,
+        "modes": [
+          "bus",
+          "vehicle"
+        ]
+      },
+      "atlasBytes": 9395456,
+      "brownfieldBytes": 55296,
+      "repairBytes": 13762560,
+      "viewportBytes": 13762560,
+      "viewport": [
+        1280,
+        720,
+        3
+      ],
+      "warmDrawMeanMs": 6.49
+    },
+    {
+      "index": 10,
+      "zoom": 1.15,
+      "night": false,
+      "quality": "high",
+      "reducedMotion": true,
+      "dpr": 1.5,
+      "camera": {
+        "x": 4584.7,
+        "y": 1338.3,
+        "zoom": 1.15
+      },
+      "pausedStable": true,
+      "coldStable": true,
+      "unchanged": true,
+      "oracle": {
+        "channels": 0,
+        "max": 0,
+        "actors": 0
+      },
+      "atlasBytes": 4080640,
+      "brownfieldBytes": 55296,
+      "repairBytes": 0,
+      "viewportBytes": 13762560,
+      "viewport": [
+        1280,
+        720,
+        3
+      ],
+      "warmDrawMeanMs": 0.6
+    },
+    {
+      "index": 11,
+      "zoom": 0.32,
+      "night": true,
+      "quality": "high",
+      "reducedMotion": false,
+      "dpr": 1.5,
+      "camera": {
+        "x": 4630.7,
+        "y": 545.3,
+        "zoom": 0.32
+      },
+      "pausedStable": true,
+      "coldStable": true,
+      "unchanged": true,
+      "oracle": {
+        "channels": 0,
+        "max": 0,
+        "actors": 0
+      },
+      "atlasBytes": 10697472,
+      "brownfieldBytes": 55296,
+      "repairBytes": 13762560,
+      "viewportBytes": 13762560,
+      "viewport": [
+        1280,
+        720,
+        3
+      ],
+      "warmDrawMeanMs": 1.91
+    }
+  ],
+  "network": {
+    "grid": 128,
+    "deeds": 21,
+    "relocatedHouseholds": 29,
+    "routes": [
+      1,
+      2,
+      3
+    ],
+    "capital": 191450,
+    "total": 15493517
+  },
+  "visualStates": {
+    "closed": 32,
+    "site": {
+      "assessed": true,
+      "acquired": true,
+      "funded": true
+    },
+    "redevelopment": true
+  },
+  "errors": [],
+  "fixture": "Authored 2000 residents, paid 21 deeds and three transit routes. Redevelopment demand is authored to reach the real paid project path. Oracle truck is a controlled render-only silhouette."
+}

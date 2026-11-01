@@ -1,0 +1,42 @@
+{
+  "source_sha256": "dbbb77a80e54a8c02fa5d7da8af020ba6b8a24078270c39cd5d844bd236dd949",
+  "base": "13633d49fa5815ce56ee9f7bbdf2af0c92ace4fe",
+  "gates": [
+    {
+      "test": "test_modal_readability",
+      "exit_code": 0,
+      "seconds": 4.69,
+      "log_sha256": "48b0b837e2c600eb55c7b37848327cafb11c27e7660be9414f1c50b8496be828"
+    },
+    {
+      "test": "test_overlay_legibility",
+      "exit_code": 0,
+      "seconds": 3.93,
+      "log_sha256": "ef0605ad76608debc68526a3ac8a41b85c0917121e1153d65afeb3c3fa7debd0"
+    },
+    {
+      "test": "test_annexation",
+      "exit_code": 0,
+      "seconds": 4.64,
+      "log_sha256": "9cf45f70dadb7f5b629e1f5c50c98ce86a808d922abecaf9fb2672ae96bc5f1d"
+    },
+    {
+      "test": "test_annexation_networks",
+      "exit_code": 0,
+      "seconds": 2.57,
+      "log_sha256": "4827aa250b5585020277143d61aac246a31886889442fda253fecd94d6f88fe6"
+    },
+    {
+      "test": "test_expanded_parcel_employment",
+      "exit_code": 0,
+      "seconds": 3.94,
+      "log_sha256": "341f6fa9c0215aedd3727371becceb61a6d523daa6a443ac042fec76256aaba9"
+    },
+    {
+      "test": "test_bridge_camera_edges",
+      "exit_code": 0,
+      "seconds": 3.53,
+      "log_sha256": "e93320ec38b5e6334c9c801bad345dd1fb696f433cf1cc4c18735ff7f8b1c6bb"
+    }
+  ]
+}
