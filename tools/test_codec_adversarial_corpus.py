@@ -1,12 +1,12 @@
 """Seeded, bounded codec corpus with deterministic reproduction and work counters."""
 from pathlib import Path
-import sys,json,hashlib
+import sys,json,hashlib,os
 ROOT=Path(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT/'tests'))
 from test_mobile_rendering import html
 from playwright.sync_api import sync_playwright
 source=(ROOT/'assets/game.js').read_text()
 probe=r'''
-window.__codecCorpus=()=>{
+window.__codecCorpus=(keysOnly=false)=>{
  const seed=0x53a91c2d;let state=seed;const random=()=>{state=(Math.imul(state,1664525)+1013904223)>>>0;return state;};
  __townTest.reset('settlement',42);__inactivePersonCodec.enable(true);
  const initial=JSON.parse(archivePayload()),copy=v=>JSON.parse(JSON.stringify(v));
@@ -22,6 +22,7 @@ window.__codecCorpus=()=>{
  const reject=(name,text,early=false,syntax=false)=>{const r=measured(text);if(!r.error)throw Error('Accepted malformed '+name);if(early&&(r.count.budgetCalls||r.count.historicalDirectoryCalls||r.count.propertyDefinitions))throw Error('Not early '+name);if(hydrateSave(text)||archiveLogicalPayload()!==stable||rngState!==rng||JSON.stringify([saveEpoch,saveOrder,saveRevision,saveTown])!==clock)throw Error('Atomicity '+name);stats.invalidCases++;if(early)stats.earlyRejectCases++;if(syntax)stats.syntaxCases++;stats.lateWork[name]={...r.count,error:r.error};return r;};
  const valid=(name,text,expected)=>{const r=measured(text);if(r.error||!equal(r.data,expected))throw Error('Field fidelity '+name+': '+r.error);stats.validWireCases++;};
  const checkValue=(name,token)=>{const w=copy(base);w.payload.reviewValue='__CORPUS_RAW__';const text=JSON.stringify(w).replace('"__CORPUS_RAW__"',token),expected=copy(logical);expected.reviewValue=JSON.parse(token);valid(name,text,expected);};
+ if(!keysOnly){
  const nums=['0','-0','0.0','-0.000e+10','1e20','1E+020','100000000000000000000','1e21','1e-7','1e-6','5e-324','1e-324','-1e-999','1.7976931348623157e308','9007199254740993','1.2300e+2'];for(const n of nums)checkValue('number-'+n,n);
  const texts=['','plain','éࠀ😀','\ud800','\udfff','\ud800x\udfff','"\\\b\t\n\f\r\u0000\u001f','\u2028\u2029'];for(const s of texts)checkValue('string-'+JSON.stringify(s),JSON.stringify(s));checkValue('escaped-ascii','"\\u0061\\u0062"');checkValue('escaped-pair','"\\ud83d\\ude00"');
  const tree=depth=>{const at=random()%6;if(depth===0||at<3){if(at===0)return (random()%2?-1:1)*Number('1e'+(random()%600-300));if(at===1){let s='';for(let i=0,n=random()%20;i<n;i++)s+=String.fromCharCode(random()&65535);return s;}return [null,true,false][random()%3];}if(at===3)return Array.from({length:random()%5},()=>tree(depth-1));const o={};for(let i=0,n=random()%5;i<n;i++){const k=['__proto__','constructor','é😀','\u0000','a'][random()%5]+i;Object.defineProperty(o,k,{value:tree(depth-1),enumerable:true});}return o;};
@@ -47,24 +48,34 @@ window.__codecCorpus=()=>{
  // Seeded combinations retain a known invalid header; this verifies no mutation
  // combination sneaks past the early barrier or changes live state.
  const entries=Object.entries(mutations);for(let i=0;i<128;i++){const w=copy(base),[name,mutate]=entries[random()%entries.length];mutate(w);w.inactive.total=-1;reject('seeded-header-'+i+'-'+name,JSON.stringify(w),true);}
+ }
+ if(!keysOnly){
  // Each estate directory alone fits the shared node budget. Together they do
  // not, and must reject before constructing either directory.
  const large=copy(initial);for(const kind of ['households','firms']){const fields=[...(kind==='households'?['people']:['closed','demolished']),...Array.from({length:43},(_,i)=>'x'+i)].sort(),active=large.payload[kind];large.entities[kind]={total:active.length+6000,fields,rows:Array.from({length:6000},(_,i)=>[active.length+i,fields.map((_,j)=>j),fields.map(k=>k==='people'?[]:k==='closed'||k==='demolished'?true:null)])};}
  for(const kind of ['households','firms']){const single=copy(large),other=kind==='firms'?'households':'firms';single.entities[other]=copy(initial.entities[other]);const r=measured(JSON.stringify(single));if(r.error)throw Error('Individual node budget unexpectedly fails '+kind+': '+r.error);stats.budgetCases.push({name:kind+'-alone',accepted:true,...r.count});}
  const shared=reject('shared-node-combination',JSON.stringify(large));if(shared.count.budgetCalls!==1||shared.count.historicalDirectoryCalls||shared.count.propertyDefinitions)throw Error('Shared node budget reconstructed state');stats.budgetCases.push({name:'combined-node-limit',...shared.count,error:shared.error});
+ }
  const expanded=copy(initial);for(const kind of ['households','firms']){const fields=[...(kind==='households'?['people']:['closed','demolished']),...Array.from({length:10},(_,i)=>'ࠀ'.repeat(120)+String(i).padStart(3,'0'))].sort(),active=expanded.payload[kind];expanded.entities[kind]={total:active.length+3000,fields,rows:Array.from({length:3000},(_,i)=>[active.length+i,fields.map((_,j)=>j),fields.map(k=>k==='people'?[]:k==='closed'||k==='demolished'?true:null)])};}
- for(const kind of ['households','firms']){const single=copy(expanded),other=kind==='firms'?'households':'firms';single.entities[other]=copy(initial.entities[other]);const r=measured(JSON.stringify(single));if(r.error)throw Error('Individual expansion budget unexpectedly fails '+kind+': '+r.error);stats.budgetCases.push({name:kind+'-key-expansion-alone',accepted:true,...r.count});}
- const expandedReject=reject('shared-key-expansion-combination',JSON.stringify(expanded));if(!expandedReject.error.includes('expansion budget'))throw Error('Wrong shared decoded-byte rejection');stats.budgetCases.push({name:'combined-key-expansion-limit',...expandedReject.count,error:expandedReject.error});
- let deep={};for(let i=0;i<30;i++)deep={next:deep};const deepWire=copy(base);deepWire.payload.reviewDeep=deep;const d=reject('depth-combination',JSON.stringify(deepWire));if(d.count.historicalDirectoryCalls)throw Error('Depth failure reconstructed state');
+ if(keysOnly!=='reject')for(const kind of ['households','firms']){const single=copy(expanded),other=kind==='firms'?'households':'firms';single.entities[other]=copy(initial.entities[other]);const r=measured(JSON.stringify(single));if(r.error)throw Error('Individual expansion budget unexpectedly fails '+kind+': '+r.error);stats.budgetCases.push({name:kind+'-key-expansion-alone',accepted:true,...r.count});}
+ const expandedReject=reject('shared-key-expansion-combination',JSON.stringify(expanded));if(!expandedReject.error.includes('expansion budget')||expandedReject.count.historicalDirectoryCalls||expandedReject.count.propertyDefinitions)throw Error('Shared decoded-byte rejection reconstructed fields');stats.budgetCases.push({name:'combined-key-expansion-limit',...expandedReject.count,error:expandedReject.error});
+ if(keysOnly!=='reject'){
+ const near=copy(expanded);for(const kind of ['households','firms']){near.entities[kind].rows=near.entities[kind].rows.slice(0,2000);near.entities[kind].total=near.payload[kind].length+2000;}near.payload.reviewPadding='';
+ const expectedCharge=w=>{let n=new Blob([JSON.stringify(w)]).size+w.inactive.total*16;for(const kind of ['households','firms'])n+=w.entities[kind].total*16;for(const d of [w.entities.households,w.entities.firms,w.inactive]){const costs=d.fields.map(k=>new Blob([JSON.stringify(k)]).size+3);for(const row of d.rows)for(const at of row[1])n+=costs[at];}return n;};
+ const beforePadding=expectedCharge(near),padding=INACTIVE_CODEC_LIMITS.logicalBytes-beforePadding;if(padding<0||padding>4*1024*1024)throw Error('Near-limit fixture no longer bounded');near.payload.reviewPadding='a'.repeat(padding);if(expectedCharge(near)!==INACTIVE_CODEC_LIMITS.logicalBytes)throw Error('Near-limit charge oracle mismatch');
+ const nearText=JSON.stringify(near);if(new Blob([nearText]).size>INACTIVE_CODEC_LIMITS.bytes)throw Error('Near-limit fixture exceeds wire cap');const acceptedNear=measured(nearText);if(acceptedNear.error||acceptedNear.data.reviewPadding!==near.payload.reviewPadding||acceptedNear.data.households.length!==near.entities.households.total||acceptedNear.data.firms.length!==near.entities.firms.total)throw Error('Valid exact expansion charge rejected or changed');stats.budgetCases.push({name:'exact-shared-key-expansion-limit',accepted:true,conservativeBytes:expectedCharge(near),...acceptedNear.count});
+ near.payload.reviewPadding+='a';const oneOver=reject('shared-key-expansion-one-byte-over',JSON.stringify(near));if(oneOver.count.historicalDirectoryCalls||oneOver.count.propertyDefinitions)throw Error('One-byte-over shared expansion reconstructed fields');stats.budgetCases.push({name:'shared-key-expansion-one-byte-over',...oneOver.count,error:oneOver.error});
+ }
+ if(!keysOnly){let deep={};for(let i=0;i<30;i++)deep={next:deep};const deepWire=copy(base);deepWire.payload.reviewDeep=deep;const d=reject('depth-combination',JSON.stringify(deepWire));if(d.count.historicalDirectoryCalls)throw Error('Depth failure reconstructed state');}
  if(Object.prototype.notPollution)throw Error('Prototype pollution');
  // Keep the work table bounded and preserve exact case names/seed for replay.
- stats.failureCount=failures.length;stats.negativeZeroPreservedBeforeSerialization=true;stats.duplicateKeySemantics='JSON.parse last value wins';stats.identityArraysRequireUniqueIds=true;return stats;
+ stats.mode=keysOnly||'full';stats.failureCount=failures.length;stats.negativeZeroPreservedBeforeSerialization=keysOnly?null:true;stats.duplicateKeySemantics=keysOnly?'not tested in focused mode':'JSON.parse last value wins';stats.identityArraysRequireUniqueIds=keysOnly?null:true;return stats;
 };
 '''
 try:
  with sync_playwright() as pw:
-  b=pw.chromium.launch(executable_path='/usr/bin/chromium',args=['--no-sandbox','--js-flags=--max-old-space-size=384']);p=b.new_page();p.set_content(html);p.add_script_tag(content=source.replace('// SOURCE: 99-instrumentation.js',probe+'\n// SOURCE: 99-instrumentation.js'));p.locator('#newTown').click();p.locator('#pause').click();result=p.evaluate('__codecCorpus()');b.close()
+  b=pw.chromium.launch(executable_path='/usr/bin/chromium',args=['--no-sandbox','--js-flags=--max-old-space-size=384']);p=b.new_page();p.set_content(html);p.add_script_tag(content=source.replace('// SOURCE: 99-instrumentation.js',probe+'\n// SOURCE: 99-instrumentation.js'));p.locator('#newTown').click();p.locator('#pause').click();result=p.evaluate('mode=>__codecCorpus(mode)',os.environ.get('CODEC_CORPUS_KEYS_ONLY') or False);b.close()
 except Exception as error:
  failure={'seed':0x53a91c2d,'source_sha256':hashlib.sha256(source.encode()).hexdigest(),'error':str(error),'reproduction':'python tools/assemble.py && python tools/test_codec_adversarial_corpus.py'}
  (ROOT/'reports/codec-adversarial-corpus-failure.json').write_text(json.dumps(failure,indent=2));raise
-out={'source_sha256':hashlib.sha256(source.encode()).hexdigest(),'hostChromium':True,'physicalAndroid':False,'productionDefaultEnabled':False,'browserOldSpaceCapMiB':384,'result':result};(ROOT/'reports/codec-adversarial-corpus.json').write_text(json.dumps(out,indent=2));print(json.dumps(out,indent=2))
+out={'source_sha256':hashlib.sha256(source.encode()).hexdigest(),'hostChromium':True,'physicalAndroid':False,'productionDefaultEnabled':False,'browserOldSpaceCapMiB':384,'result':result};(ROOT/('reports/codec-shared-key-focused.json' if os.environ.get('CODEC_CORPUS_KEYS_ONLY') else 'reports/codec-adversarial-corpus.json')).write_text(json.dumps(out,indent=2));print(json.dumps(out,indent=2))
