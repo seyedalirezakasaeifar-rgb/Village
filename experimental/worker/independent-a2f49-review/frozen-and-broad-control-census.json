@@ -1,0 +1,2380 @@
+{
+  "candidateCommit": "a649a55ccb752b6f1fd170e9f0689edb92dff34c",
+  "sourceSha256": "f08cdd9cf77bed07c94722995f4e14f45ff6c9a2f85c77406badcdfc13eaa905",
+  "workerSha256": "7a19e5e45960030f1d7c5637e7a6b1b5f1f9373f6c43f6ff65790fccb1ce7b53",
+  "bridgeSha256": "d56223f2d6c9a5e61b82c3130c8eb54da1ec5d5f8a22055d8f37416dd381c3f8",
+  "actualFoundImportAndPanelNavigation": true,
+  "expandedDisclosureStateOnly": true,
+  "records": 2146,
+  "uniqueControlShapes": [
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "data": {
+        "mayorAgenda": ""
+      },
+      "text": "Town direction \u2192",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": true,
+      "registered": [],
+      "world": "founding",
+      "panel": "overview",
+      "classification": "UNRESOLVED"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "data": {
+        "mayorPanel": "economy"
+      },
+      "text": "Trace the supply chain",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": true,
+      "registered": [],
+      "world": "founding",
+      "panel": "overview",
+      "classification": "explicit-bridge-or-local-view"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "data": {
+        "mayorGuide": "hide"
+      },
+      "text": "Hide guide",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": true,
+      "registered": [],
+      "world": "founding",
+      "panel": "overview",
+      "classification": "explicit-bridge-or-local-view"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "data": {
+        "civicProjects": ""
+      },
+      "text": "Concrete civic projects",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": true,
+      "registered": [
+        {
+          "event": "click",
+          "module": "civic",
+          "operation": "project-open"
+        }
+      ],
+      "world": "founding",
+      "panel": "overview",
+      "classification": "registered-family"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "firstFoodOrder",
+      "data": {},
+      "text": "Review an inbound food delivery",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [
+        {
+          "event": "click",
+          "module": "audit-completion",
+          "operation": "food-review"
+        }
+      ],
+      "world": "founding",
+      "panel": "overview",
+      "classification": "registered-family"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "firstLocalFood",
+      "data": {},
+      "text": "Plan local food production",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [
+        {
+          "event": "click",
+          "module": "audit-completion",
+          "operation": "onboarding"
+        }
+      ],
+      "world": "founding",
+      "panel": "overview",
+      "classification": "registered-family"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "data": {
+        "programmePanel": "economy"
+      },
+      "text": "Review",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [
+        {
+          "event": "click",
+          "module": "audit-completion",
+          "operation": "panel"
+        }
+      ],
+      "world": "founding",
+      "panel": "overview",
+      "classification": "registered-family"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "data": {
+        "openPanel": "community"
+      },
+      "text": "Review local services",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [],
+      "world": "founding",
+      "panel": "overview",
+      "classification": "source-local-view-allowlist"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "jumpAgenda",
+      "data": {},
+      "text": "View council ambitions",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [],
+      "world": "founding",
+      "panel": "overview",
+      "classification": "explicit-bridge-or-local-view"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "focusBad",
+      "data": {},
+      "text": "Visit struggling household",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [],
+      "world": "founding",
+      "panel": "overview",
+      "classification": "explicit-bridge-or-local-view"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "data": {
+        "house": "23"
+      },
+      "text": "Inspect this family",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [],
+      "world": "founding",
+      "panel": "overview",
+      "classification": "explicit-bridge-or-local-view"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "data": {
+        "decisionRoute": "suppliers"
+      },
+      "text": "Compare buyer, commodity and producer",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": true,
+      "registered": [
+        {
+          "event": "click",
+          "module": "audit-completion",
+          "operation": "decision"
+        }
+      ],
+      "world": "founding",
+      "panel": "economy",
+      "classification": "registered-family"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "data": {
+        "logisticsPriority": "balanced"
+      },
+      "text": "Balanced",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [
+        {
+          "event": "click",
+          "module": "transit-freight",
+          "operation": "priority"
+        }
+      ],
+      "world": "founding",
+      "panel": "economy",
+      "classification": "registered-family"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "data": {
+        "logisticsRouting": "automatic"
+      },
+      "text": "Automatic routing",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [
+        {
+          "event": "click",
+          "module": "transit-freight",
+          "operation": "routing"
+        }
+      ],
+      "world": "founding",
+      "panel": "economy",
+      "classification": "registered-family"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "logisticsRelief",
+      "data": {},
+      "text": "Review a 30-day extra shift",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [
+        {
+          "event": "click",
+          "module": "transit-freight",
+          "operation": "relief-review"
+        }
+      ],
+      "world": "founding",
+      "panel": "economy",
+      "classification": "registered-family"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "data": {
+        "logisticsBuild": ""
+      },
+      "text": "Plan a staffed warehouse",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [
+        {
+          "event": "click",
+          "module": "civic",
+          "operation": "warehouse-plan"
+        }
+      ],
+      "world": "founding",
+      "panel": "economy",
+      "classification": "registered-family"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "regionalApproaches",
+      "data": {},
+      "text": "Review regional highway approaches",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [
+        {
+          "event": "click",
+          "module": "land-district",
+          "operation": "regional-approaches"
+        }
+      ],
+      "world": "founding",
+      "panel": "economy",
+      "classification": "registered-family"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "data": {
+        "tradeOffer": "upland",
+        "tradeFirm": "13",
+        "tradeGood": "timber"
+      },
+      "text": "Review 30-day agreement",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [
+        {
+          "event": "click",
+          "module": "transit-freight",
+          "operation": "offer-review"
+        }
+      ],
+      "world": "founding",
+      "panel": "economy",
+      "classification": "registered-family"
+    },
+    {
+      "tag": "SELECT",
+      "id": "supplierMarket",
+      "data": {},
+      "text": "Upland CooperativeGreyhaven PortIronridge Works",
+      "type": "select-one",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [
+        {
+          "event": "change",
+          "module": "audit-completion",
+          "operation": "supplier"
+        }
+      ],
+      "world": "founding",
+      "panel": "economy",
+      "classification": "registered-family"
+    },
+    {
+      "tag": "SELECT",
+      "id": "supplierGood",
+      "data": {},
+      "text": "grainflourfood",
+      "type": "select-one",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [
+        {
+          "event": "change",
+          "module": "audit-completion",
+          "operation": "supplier"
+        }
+      ],
+      "world": "founding",
+      "panel": "economy",
+      "classification": "registered-family"
+    },
+    {
+      "tag": "SELECT",
+      "id": "supplierFirm",
+      "data": {},
+      "text": "Baker & Sons Ltd.Baker & Sons TradingBaker & Sons WorksVale Net & Line",
+      "type": "select-one",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [
+        {
+          "event": "change",
+          "module": "audit-completion",
+          "operation": "supplier"
+        }
+      ],
+      "world": "founding",
+      "panel": "economy",
+      "classification": "registered-family"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "data": {
+        "procurement": "upland",
+        "firm": "13",
+        "good": "timber"
+      },
+      "text": "Review Upland Cooperative staged timber order",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [
+        {
+          "event": "click",
+          "module": "transit-freight",
+          "operation": "procurement-review"
+        }
+      ],
+      "world": "founding",
+      "panel": "economy",
+      "classification": "registered-family"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "data": {
+        "portFreight": "0",
+        "portDock": "25",
+        "portGood": "food",
+        "portDirection": "import"
+      },
+      "text": "Review this river load",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [
+        {
+          "event": "click",
+          "module": "transit-freight",
+          "operation": "port-review"
+        }
+      ],
+      "world": "founding",
+      "panel": "economy",
+      "classification": "registered-family"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "data": {
+        "openMonetary": "true"
+      },
+      "text": "Adjust interest policy",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [
+        {
+          "event": "click",
+          "module": "audit-completion",
+          "operation": "monetary"
+        }
+      ],
+      "world": "founding",
+      "panel": "economy",
+      "classification": "registered-family"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "marketPolicy",
+      "data": {},
+      "text": "Review policy rates",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [],
+      "world": "founding",
+      "panel": "economy",
+      "classification": "explicit-bridge-or-local-view"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "marketFamilies",
+      "data": {},
+      "text": "Inspect households",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [],
+      "world": "founding",
+      "panel": "economy",
+      "classification": "explicit-bridge-or-local-view"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "marketCompanies",
+      "data": {},
+      "text": "Inspect firms",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [],
+      "world": "founding",
+      "panel": "economy",
+      "classification": "explicit-bridge-or-local-view"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "data": {
+        "publicPlace": "square"
+      },
+      "text": "Review a public market square \u00b7 $2,500",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": true,
+      "registered": [
+        {
+          "event": "click",
+          "module": "land-district",
+          "operation": "public-place"
+        }
+      ],
+      "world": "founding",
+      "panel": "agenda",
+      "classification": "registered-family"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "data": {
+        "publicAssembly": ""
+      },
+      "text": "Review land assembly and replacement housing",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": true,
+      "registered": [
+        {
+          "event": "click",
+          "module": "civic",
+          "operation": "office"
+        }
+      ],
+      "world": "founding",
+      "panel": "agenda",
+      "classification": "registered-family"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "data": {
+        "gatheringReview": "6"
+      },
+      "text": "Prepare Square at 28, 26 \u00b7 $228",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": true,
+      "registered": [
+        {
+          "event": "click",
+          "module": "civic",
+          "operation": "gathering-review"
+        }
+      ],
+      "world": "founding",
+      "panel": "agenda",
+      "classification": "registered-family"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "data": {
+        "civicProjectReview": "food"
+      },
+      "text": "Compare the project routes",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [
+        {
+          "event": "click",
+          "module": "civic",
+          "operation": "project-review"
+        }
+      ],
+      "world": "founding",
+      "panel": "agenda",
+      "classification": "registered-family"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "data": {
+        "civicProjectDecline": "food"
+      },
+      "text": "Pass for now",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [
+        {
+          "event": "click",
+          "module": "civic",
+          "operation": "project-decline"
+        }
+      ],
+      "world": "founding",
+      "panel": "agenda",
+      "classification": "registered-family"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "data": {
+        "mayorDirection": "exchange"
+      },
+      "text": "Review this direction",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [
+        {
+          "event": "click",
+          "module": "civic",
+          "operation": "direction-review"
+        }
+      ],
+      "world": "founding",
+      "panel": "agenda",
+      "classification": "registered-family"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "data": {
+        "mayorBaseline": ""
+      },
+      "text": "Record a comparison",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [
+        {
+          "event": "click",
+          "module": "civic",
+          "operation": "baseline"
+        }
+      ],
+      "world": "founding",
+      "panel": "agenda",
+      "classification": "registered-family"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "convene",
+      "data": {},
+      "text": "Request council meeting",
+      "type": "submit",
+      "disabled": true,
+      "visibleInViewport": false,
+      "registered": [],
+      "world": "founding",
+      "panel": "agenda",
+      "classification": "explicit-bridge-or-local-view"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "jumpJournal",
+      "data": {},
+      "text": "Open policy journal",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [],
+      "world": "founding",
+      "panel": "agenda",
+      "classification": "explicit-bridge-or-local-view"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "data": {
+        "privateInvite": "school"
+      },
+      "text": "Invite school proposals",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [],
+      "world": "founding",
+      "panel": "community",
+      "classification": "explicit-bridge-or-local-view"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "privateServicePolicies",
+      "data": {},
+      "text": "Licensing, fees & targeted vouchers",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [
+        {
+          "event": "click",
+          "module": "civic",
+          "operation": "office"
+        }
+      ],
+      "world": "founding",
+      "panel": "community",
+      "classification": "registered-family"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "overlayR",
+      "data": {},
+      "text": "Road-access map",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [],
+      "world": "founding",
+      "panel": "community",
+      "classification": "explicit-bridge-or-local-view"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "overlayC",
+      "data": {},
+      "text": "Crime map",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [],
+      "world": "founding",
+      "panel": "community",
+      "classification": "explicit-bridge-or-local-view"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "overlayH",
+      "data": {},
+      "text": "Hardship map",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [],
+      "world": "founding",
+      "panel": "community",
+      "classification": "explicit-bridge-or-local-view"
+    },
+    {
+      "tag": "INPUT",
+      "id": "",
+      "data": {
+        "policy": "privateServices"
+      },
+      "text": "License new private schools and brigades",
+      "type": "range",
+      "disabled": false,
+      "visibleInViewport": true,
+      "registered": [],
+      "world": "founding",
+      "panel": "policies",
+      "classification": "source-input-view-or-draft"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "data": {
+        "cabinet": "enterprise"
+      },
+      "text": "Make room for enterpriseLower taxes, permits and barriers to development.",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [],
+      "world": "founding",
+      "panel": "policies",
+      "classification": "source-local-view-allowlist"
+    },
+    {
+      "tag": "INPUT",
+      "id": "serviceBudgetAmount-healthBudget",
+      "data": {
+        "serviceBudgetAmount": "healthBudget"
+      },
+      "text": "Clinic & public health / day daily dollar amount",
+      "type": "number",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [],
+      "world": "founding",
+      "panel": "policies",
+      "classification": "UNRESOLVED"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "data": {
+        "serviceBudgetKey": "healthBudget",
+        "serviceBudgetPreset": "full"
+      },
+      "text": "Draft $104/day public standard",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [],
+      "world": "founding",
+      "panel": "policies",
+      "classification": "source-local-view-allowlist"
+    },
+    {
+      "tag": "INPUT",
+      "id": "serviceBudgetAmount-educationBudget",
+      "data": {
+        "serviceBudgetAmount": "educationBudget"
+      },
+      "text": "School & training / day daily dollar amount",
+      "type": "number",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [],
+      "world": "founding",
+      "panel": "policies",
+      "classification": "UNRESOLVED"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "tradeToggle",
+      "data": {},
+      "text": "ALLOWED",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [],
+      "world": "founding",
+      "panel": "policies",
+      "classification": "explicit-bridge-or-local-view"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "enactPolicy",
+      "data": {},
+      "text": "ENACT POLICY CHANGES",
+      "type": "submit",
+      "disabled": true,
+      "visibleInViewport": false,
+      "registered": [],
+      "world": "founding",
+      "panel": "policies",
+      "classification": "explicit-bridge-or-local-view"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "resetPolicy",
+      "data": {},
+      "text": "Discard changes",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [],
+      "world": "founding",
+      "panel": "policies",
+      "classification": "explicit-bridge-or-local-view"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "borrow",
+      "data": {},
+      "text": "Draw $5,000 credit",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [],
+      "world": "founding",
+      "panel": "treasury",
+      "classification": "explicit-bridge-or-local-view"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "repay",
+      "data": {},
+      "text": "Repay up to $5,000",
+      "type": "submit",
+      "disabled": true,
+      "visibleInViewport": false,
+      "registered": [],
+      "world": "founding",
+      "panel": "treasury",
+      "classification": "explicit-bridge-or-local-view"
+    },
+    {
+      "tag": "INPUT",
+      "id": "searchPeople",
+      "data": {},
+      "text": "",
+      "type": "text",
+      "disabled": false,
+      "visibleInViewport": true,
+      "registered": [],
+      "world": "founding",
+      "panel": "citizens",
+      "classification": "source-input-view-or-draft"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "data": {
+        "filterPeople": "all"
+      },
+      "text": "All",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": true,
+      "registered": [],
+      "world": "founding",
+      "panel": "citizens",
+      "classification": "source-local-view-allowlist"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "data": {
+        "filterFirms": "all"
+      },
+      "text": "All",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": true,
+      "registered": [],
+      "world": "founding",
+      "panel": "businesses",
+      "classification": "source-local-view-allowlist"
+    },
+    {
+      "tag": "DIV",
+      "id": "",
+      "data": {
+        "firm": "0"
+      },
+      "text": "Village Stores Ltd.TRADINGGrocer \u00b7 2 / 2 jobs \u00b7 Capital $12,793Revenue $0 \u00b7 Profit $0 \u00b7 Tax $0",
+      "type": null,
+      "disabled": false,
+      "visibleInViewport": true,
+      "registered": [],
+      "world": "founding",
+      "panel": "businesses",
+      "classification": "explicit-bridge-or-local-view"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "data": {
+        "build": "transit_depot"
+      },
+      "text": "DEPOT \u00b7 $9,000",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": true,
+      "registered": [],
+      "world": "founding",
+      "panel": "construction",
+      "classification": "source-local-view-allowlist"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "data": {
+        "transitAction": "new-bus"
+      },
+      "text": "NEW BUS ROUTE",
+      "type": "submit",
+      "disabled": true,
+      "visibleInViewport": true,
+      "registered": [
+        {
+          "event": "click",
+          "module": "transit-freight",
+          "operation": "draft-start"
+        }
+      ],
+      "world": "founding",
+      "panel": "construction",
+      "classification": "registered-family"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "data": {
+        "inspect": "23"
+      },
+      "text": "Inspect property, jobs and planning",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [],
+      "world": "founding",
+      "panel": "construction",
+      "classification": "explicit-bridge-or-local-view"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "data": {
+        "brownfieldAction": "assess",
+        "brownfieldId": "23"
+      },
+      "text": "Assess this industrial site \u00b7 $300",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [
+        {
+          "event": "click",
+          "module": "land-district",
+          "operation": "brownfield-action"
+        }
+      ],
+      "world": "founding",
+      "panel": "construction",
+      "classification": "registered-family"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "data": {
+        "urbanLandPlan": ""
+      },
+      "text": "Plan vacant or occupied land on the map",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [
+        {
+          "event": "click",
+          "module": "audit-completion",
+          "operation": "map-tool"
+        }
+      ],
+      "world": "founding",
+      "panel": "construction",
+      "classification": "registered-family"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "data": {
+        "urbanOverlay": ""
+      },
+      "text": "View neighbourhood map",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [
+        {
+          "event": "click",
+          "module": "audit-completion",
+          "operation": "neighbourhoods"
+        }
+      ],
+      "world": "founding",
+      "panel": "construction",
+      "classification": "registered-family"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "data": {
+        "urbanRehousing": ""
+      },
+      "text": "Commission replacement housing",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [
+        {
+          "event": "click",
+          "module": "land-district",
+          "operation": "urban-rehousing"
+        }
+      ],
+      "world": "founding",
+      "panel": "construction",
+      "classification": "registered-family"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "data": {
+        "urbanClearTool": ""
+      },
+      "text": "Assemble land on the map",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [
+        {
+          "event": "click",
+          "module": "land-district",
+          "operation": "urban-clear-tool"
+        }
+      ],
+      "world": "founding",
+      "panel": "construction",
+      "classification": "registered-family"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "data": {
+        "urbanRetail": ""
+      },
+      "text": "Invite a shopping centre proposal",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [
+        {
+          "event": "click",
+          "module": "audit-completion",
+          "operation": "retail-review"
+        }
+      ],
+      "world": "founding",
+      "panel": "construction",
+      "classification": "registered-family"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "data": {
+        "districtReview": "east-meadow"
+      },
+      "text": "Review land deed",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [],
+      "world": "founding",
+      "panel": "construction",
+      "classification": "explicit-bridge-or-local-view"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "data": {
+        "charterOverview": ""
+      },
+      "text": "View regional boundaries",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [
+        {
+          "event": "click",
+          "module": "civic",
+          "operation": "charter-overview"
+        }
+      ],
+      "world": "founding",
+      "panel": "construction",
+      "classification": "registered-family"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "data": {
+        "charterHome": ""
+      },
+      "text": "Return to town",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [
+        {
+          "event": "click",
+          "module": "civic",
+          "operation": "charter-home"
+        }
+      ],
+      "world": "founding",
+      "panel": "construction",
+      "classification": "registered-family"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "data": {
+        "parcelPreview": "east-meadow"
+      },
+      "text": "Preview district",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [],
+      "world": "founding",
+      "panel": "construction",
+      "classification": "explicit-bridge-or-local-view"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "data": {
+        "parcelBuy": "east-meadow"
+      },
+      "text": "Review purchase \u00b7 $30,606",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [
+        {
+          "event": "click",
+          "module": "land-district",
+          "operation": "parcel-buy"
+        }
+      ],
+      "world": "founding",
+      "panel": "construction",
+      "classification": "registered-family"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "data": {
+        "buildCategory": "all"
+      },
+      "text": "All",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [],
+      "world": "founding",
+      "panel": "construction",
+      "classification": "source-local-view-allowlist"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "toggleDevelopment",
+      "data": {},
+      "text": "PAUSE PRIVATE DEVELOPMENT",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [],
+      "world": "founding",
+      "panel": "construction",
+      "classification": "explicit-bridge-or-local-view"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "overlayMetro",
+      "data": {},
+      "text": "SHOW UNDERGROUND NETWORK",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [],
+      "world": "founding",
+      "panel": "construction",
+      "classification": "explicit-bridge-or-local-view"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "data": {
+        "bridgeBuild": ""
+      },
+      "text": "Survey a short water crossing",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [
+        {
+          "event": "click",
+          "module": "land-district",
+          "operation": "bridge-build-tool"
+        }
+      ],
+      "world": "founding",
+      "panel": "construction",
+      "classification": "registered-family"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "data": {
+        "roadRemoveTool": ""
+      },
+      "text": "Review road removal on the map",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [
+        {
+          "event": "click",
+          "module": "land-district",
+          "operation": "road-remove-tool"
+        }
+      ],
+      "world": "founding",
+      "panel": "construction",
+      "classification": "registered-family"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "data": {
+        "waterfrontCamera": "1"
+      },
+      "text": "Visit the river landing",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [
+        {
+          "event": "click",
+          "module": "audit-completion",
+          "operation": "waterfront"
+        }
+      ],
+      "world": "founding",
+      "panel": "construction",
+      "classification": "registered-family"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "data": {
+        "waterfrontBuild": "1"
+      },
+      "text": "Choose a waterfront business",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [
+        {
+          "event": "click",
+          "module": "audit-completion",
+          "operation": "waterfront"
+        }
+      ],
+      "world": "founding",
+      "panel": "construction",
+      "classification": "registered-family"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "musicToggle",
+      "data": {},
+      "text": "MUSIC ON",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": true,
+      "registered": [],
+      "world": "founding",
+      "panel": "settings",
+      "classification": "explicit-bridge-or-local-view"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "musicNext",
+      "data": {},
+      "text": "NEXT PIECE",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": true,
+      "registered": [],
+      "world": "founding",
+      "panel": "settings",
+      "classification": "explicit-bridge-or-local-view"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "musicRetry",
+      "data": {},
+      "text": "Retry music",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": true,
+      "registered": [],
+      "world": "founding",
+      "panel": "settings",
+      "classification": "explicit-bridge-or-local-view"
+    },
+    {
+      "tag": "INPUT",
+      "id": "musicVolume",
+      "data": {},
+      "text": "Music volume",
+      "type": "range",
+      "disabled": false,
+      "visibleInViewport": true,
+      "registered": [],
+      "world": "founding",
+      "panel": "settings",
+      "classification": "UNRESOLVED"
+    },
+    {
+      "tag": "SELECT",
+      "id": "musicMood",
+      "data": {},
+      "text": "Follow the townQuieter selectionsLivelier selections",
+      "type": "select-one",
+      "disabled": false,
+      "visibleInViewport": true,
+      "registered": [],
+      "world": "founding",
+      "panel": "settings",
+      "classification": "UNRESOLVED"
+    },
+    {
+      "tag": "SELECT",
+      "id": "",
+      "data": {
+        "renderer": "city"
+      },
+      "text": "Classic \u00b7 reliableNewfoundland \u00b7 3D",
+      "type": "select-one",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [],
+      "world": "founding",
+      "panel": "settings",
+      "classification": "UNRESOLVED"
+    },
+    {
+      "tag": "SELECT",
+      "id": "",
+      "data": {
+        "preference": "quality"
+      },
+      "text": "PerformanceBalanced (adaptive)Rich detail",
+      "type": "select-one",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [],
+      "world": "founding",
+      "panel": "settings",
+      "classification": "UNRESOLVED"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "data": {
+        "option": "streetNames"
+      },
+      "text": "ON",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [],
+      "world": "founding",
+      "panel": "settings",
+      "classification": "explicit-bridge-or-local-view"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "recoverAutosave",
+      "data": {},
+      "text": "Recover previous autosave",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [],
+      "world": "founding",
+      "panel": "settings",
+      "classification": "explicit-bridge-or-local-view"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "nightView",
+      "data": {},
+      "text": "Evening light",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [],
+      "world": "founding",
+      "panel": "settings",
+      "classification": "explicit-bridge-or-local-view"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "data": {
+        "district": "all"
+      },
+      "text": "Whole borough",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [
+        {
+          "event": "click",
+          "module": "audit-completion",
+          "operation": "district-camera"
+        }
+      ],
+      "world": "founding",
+      "panel": "settings",
+      "classification": "registered-family"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "data": {
+        "view": "land"
+      },
+      "text": "Land values",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [
+        {
+          "event": "click",
+          "module": "audit-completion",
+          "operation": "view"
+        }
+      ],
+      "world": "founding",
+      "panel": "settings",
+      "classification": "registered-family"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "soundToggle",
+      "data": {},
+      "text": "TURN OFF AMBIENCE & SOUND",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [],
+      "world": "founding",
+      "panel": "settings",
+      "classification": "explicit-bridge-or-local-view"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "saveNow",
+      "data": {},
+      "text": "SAVE NOW",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [],
+      "world": "founding",
+      "panel": "settings",
+      "classification": "explicit-bridge-or-local-view"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "backupSave",
+      "data": {},
+      "text": "EXPORT BACKUP",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [],
+      "world": "founding",
+      "panel": "settings",
+      "classification": "explicit-bridge-or-local-view"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "importSave",
+      "data": {},
+      "text": "RESTORE BACKUP",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [],
+      "world": "founding",
+      "panel": "settings",
+      "classification": "explicit-bridge-or-local-view"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "tutorial",
+      "data": {},
+      "text": "GAME MANUAL",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [],
+      "world": "founding",
+      "panel": "settings",
+      "classification": "explicit-bridge-or-local-view"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "restart",
+      "data": {},
+      "text": "START NEW TOWN",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [],
+      "world": "founding",
+      "panel": "settings",
+      "classification": "explicit-bridge-or-local-view"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "firstTradeAgreement",
+      "data": {},
+      "text": "Compare a 30-day export agreement",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [
+        {
+          "event": "click",
+          "module": "audit-completion",
+          "operation": "onboarding"
+        }
+      ],
+      "world": "funded1081",
+      "panel": "overview",
+      "classification": "registered-family"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "data": {
+        "regionalCargo": "19064"
+      },
+      "text": "Follow consignment",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [],
+      "world": "funded1081",
+      "panel": "economy",
+      "classification": "explicit-bridge-or-local-view"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "data": {
+        "logisticsCancel": "19064"
+      },
+      "text": "Review cancellation/return",
+      "type": "submit",
+      "disabled": true,
+      "visibleInViewport": false,
+      "registered": [
+        {
+          "event": "click",
+          "module": "transit-freight",
+          "operation": "cargo-cancel-review"
+        }
+      ],
+      "world": "funded1081",
+      "panel": "economy",
+      "classification": "registered-family"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "data": {
+        "situationKey": "market:2:4",
+        "situationChoice": "retain"
+      },
+      "text": "Keep the market and improve access",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [
+        {
+          "event": "click",
+          "module": "civic",
+          "operation": "situation-choice"
+        }
+      ],
+      "world": "funded1081",
+      "panel": "agenda",
+      "classification": "registered-family"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "data": {
+        "situationPass": "market:2:4"
+      },
+      "text": "Leave this place for now",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [
+        {
+          "event": "click",
+          "module": "civic",
+          "operation": "situation-pass"
+        }
+      ],
+      "world": "funded1081",
+      "panel": "agenda",
+      "classification": "registered-family"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "data": {
+        "inbox": "0"
+      },
+      "text": "Review and decide",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [],
+      "world": "funded1081",
+      "panel": "agenda",
+      "classification": "explicit-bridge-or-local-view"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "data": {
+        "serviceAccess": "health"
+      },
+      "text": "Show access map",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [],
+      "world": "funded1081",
+      "panel": "community",
+      "classification": "source-local-view-allowlist"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "data": {
+        "servicePolicy": "health"
+      },
+      "text": "Review operating budget",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [],
+      "world": "funded1081",
+      "panel": "community",
+      "classification": "source-local-view-allowlist"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "data": {
+        "districtFocus": "industry",
+        "districtId": "east-meadow"
+      },
+      "text": "Review rezoning \u00b7 $1,200",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [
+        {
+          "event": "click",
+          "module": "land-district",
+          "operation": "district-focus"
+        }
+      ],
+      "world": "funded1081",
+      "panel": "construction",
+      "classification": "registered-family"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "data": {
+        "parcelOutlook": "east-meadow"
+      },
+      "text": "Inspect growth outlook",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [
+        {
+          "event": "click",
+          "module": "audit-completion",
+          "operation": "outlook"
+        }
+      ],
+      "world": "funded1081",
+      "panel": "construction",
+      "classification": "registered-family"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "data": {
+        "districtMigrationOffice": ""
+      },
+      "text": "Review actual moving decisions",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [
+        {
+          "event": "click",
+          "module": "civic",
+          "operation": "office"
+        }
+      ],
+      "world": "district32",
+      "panel": "agenda",
+      "classification": "registered-family"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "data": {
+        "districtFinish": "0"
+      },
+      "text": "Review Grocer \u00b7 (43, 67) \u00b7 $4,300",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [
+        {
+          "event": "click",
+          "module": "land-district",
+          "operation": "district-finish"
+        }
+      ],
+      "world": "district32",
+      "panel": "agenda",
+      "classification": "registered-family"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "data": {
+        "districtServiceReview": ""
+      },
+      "text": "Inspect actual staffing and provision",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [
+        {
+          "event": "click",
+          "module": "civic",
+          "operation": "office"
+        }
+      ],
+      "world": "district32",
+      "panel": "agenda",
+      "classification": "registered-family"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "data": {
+        "districtBudget": "educationBudget"
+      },
+      "text": "Review teaching authorization",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [
+        {
+          "event": "click",
+          "module": "land-district",
+          "operation": "district-budget"
+        }
+      ],
+      "world": "district32",
+      "panel": "agenda",
+      "classification": "registered-family"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "data": {
+        "civicProjectRoad": ""
+      },
+      "text": "Review the two-site blueprint",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [
+        {
+          "event": "click",
+          "module": "civic",
+          "operation": "project-road"
+        }
+      ],
+      "world": "district32",
+      "panel": "agenda",
+      "classification": "registered-family"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "data": {
+        "civicProjectBuild": "grocer",
+        "civicProjectKind": "district"
+      },
+      "text": "Survey grocer \u00b7 $4,300",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [
+        {
+          "event": "click",
+          "module": "civic",
+          "operation": "project-build"
+        }
+      ],
+      "world": "district32",
+      "panel": "agenda",
+      "classification": "registered-family"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "data": {
+        "civicProjectPlan": ""
+      },
+      "text": "Plan housing, streets & services",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [
+        {
+          "event": "click",
+          "module": "civic",
+          "operation": "project-plan"
+        }
+      ],
+      "world": "district32",
+      "panel": "agenda",
+      "classification": "registered-family"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "data": {
+        "civicProjectWithdraw": "district"
+      },
+      "text": "Review withdrawal",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [
+        {
+          "event": "click",
+          "module": "civic",
+          "operation": "project-withdraw"
+        }
+      ],
+      "world": "district32",
+      "panel": "agenda",
+      "classification": "registered-family"
+    }
+  ],
+  "unresolved": [
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "data": {
+        "mayorAgenda": ""
+      },
+      "text": "Town direction \u2192",
+      "type": "submit",
+      "disabled": false,
+      "visibleInViewport": true,
+      "registered": [],
+      "world": "founding",
+      "panel": "overview",
+      "classification": "UNRESOLVED"
+    },
+    {
+      "tag": "INPUT",
+      "id": "serviceBudgetAmount-healthBudget",
+      "data": {
+        "serviceBudgetAmount": "healthBudget"
+      },
+      "text": "Clinic & public health / day daily dollar amount",
+      "type": "number",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [],
+      "world": "founding",
+      "panel": "policies",
+      "classification": "UNRESOLVED"
+    },
+    {
+      "tag": "INPUT",
+      "id": "serviceBudgetAmount-educationBudget",
+      "data": {
+        "serviceBudgetAmount": "educationBudget"
+      },
+      "text": "School & training / day daily dollar amount",
+      "type": "number",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [],
+      "world": "founding",
+      "panel": "policies",
+      "classification": "UNRESOLVED"
+    },
+    {
+      "tag": "INPUT",
+      "id": "musicVolume",
+      "data": {},
+      "text": "Music volume",
+      "type": "range",
+      "disabled": false,
+      "visibleInViewport": true,
+      "registered": [],
+      "world": "founding",
+      "panel": "settings",
+      "classification": "UNRESOLVED"
+    },
+    {
+      "tag": "SELECT",
+      "id": "musicMood",
+      "data": {},
+      "text": "Follow the townQuieter selectionsLivelier selections",
+      "type": "select-one",
+      "disabled": false,
+      "visibleInViewport": true,
+      "registered": [],
+      "world": "founding",
+      "panel": "settings",
+      "classification": "UNRESOLVED"
+    },
+    {
+      "tag": "SELECT",
+      "id": "",
+      "data": {
+        "renderer": "city"
+      },
+      "text": "Classic \u00b7 reliableNewfoundland \u00b7 3D",
+      "type": "select-one",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [],
+      "world": "founding",
+      "panel": "settings",
+      "classification": "UNRESOLVED"
+    },
+    {
+      "tag": "SELECT",
+      "id": "",
+      "data": {
+        "preference": "quality"
+      },
+      "text": "PerformanceBalanced (adaptive)Rich detail",
+      "type": "select-one",
+      "disabled": false,
+      "visibleInViewport": false,
+      "registered": [],
+      "world": "founding",
+      "panel": "settings",
+      "classification": "UNRESOLVED"
+    }
+  ],
+  "actualManualProbe": {
+    "day": 209,
+    "rng": 2746311145,
+    "frozen": true,
+    "paused": true,
+    "toast": "Town restored and saved on this device.",
+    "dialog": "flex",
+    "authoritativeArchiveUnchanged": true,
+    "helpVisible": true,
+    "helpTitle": "THE TOWN CHARTER"
+  },
+  "actualUnresolvedButtonProbes": [
+    {
+      "selector": "[data-mayor-agenda=\"\"]",
+      "label": "Town direction \u2192",
+      "world": "founding",
+      "panel": "overview",
+      "presentOnReplay": true,
+      "after": {
+        "day": 1,
+        "rng": 3224482224,
+        "frozen": true,
+        "paused": true,
+        "toast": "Town restored and saved on this device.",
+        "dialog": "none"
+      },
+      "genericUnsupported": false,
+      "authoritativeArchiveUnchanged": false,
+      "legacyChoices": 0,
+      "workerChoices": 0
+    },
+    {
+      "selector": "[id=\"firstFoodOrder\"]",
+      "label": "Review an inbound food delivery",
+      "world": "founding",
+      "panel": "overview",
+      "presentOnReplay": true,
+      "after": {
+        "day": 1,
+        "rng": 3224482224,
+        "frozen": true,
+        "paused": true,
+        "toast": "Town restored and saved on this device.",
+        "dialog": "none"
+      },
+      "genericUnsupported": false,
+      "authoritativeArchiveUnchanged": true,
+      "legacyChoices": 0,
+      "workerChoices": 1
+    },
+    {
+      "selector": "[id=\"firstLocalFood\"]",
+      "label": "Plan local food production",
+      "world": "founding",
+      "panel": "overview",
+      "presentOnReplay": true,
+      "after": {
+        "day": 1,
+        "rng": 3224482224,
+        "frozen": true,
+        "paused": true,
+        "toast": "Town restored and saved on this device.",
+        "dialog": "none"
+      },
+      "genericUnsupported": false,
+      "authoritativeArchiveUnchanged": true,
+      "legacyChoices": 0,
+      "workerChoices": 1
+    },
+    {
+      "selector": "[data-programme-panel=\"economy\"]",
+      "label": "Review",
+      "world": "founding",
+      "panel": "overview",
+      "presentOnReplay": true,
+      "after": {
+        "day": 1,
+        "rng": 3224482224,
+        "frozen": true,
+        "paused": true,
+        "toast": "Town restored and saved on this device.",
+        "dialog": "none"
+      },
+      "genericUnsupported": false,
+      "authoritativeArchiveUnchanged": true,
+      "legacyChoices": 0,
+      "workerChoices": 1
+    },
+    {
+      "selector": "[data-decision-route=\"suppliers\"]",
+      "label": "Compare buyer, commodity and producer",
+      "world": "founding",
+      "panel": "economy",
+      "presentOnReplay": true,
+      "after": {
+        "day": 1,
+        "rng": 3224482224,
+        "frozen": true,
+        "paused": true,
+        "toast": "Town restored and saved on this device.",
+        "dialog": "none"
+      },
+      "genericUnsupported": false,
+      "authoritativeArchiveUnchanged": true,
+      "legacyChoices": 0,
+      "workerChoices": 1
+    },
+    {
+      "selector": "[data-open-monetary=\"true\"]",
+      "label": "Adjust interest policy",
+      "world": "founding",
+      "panel": "economy",
+      "presentOnReplay": true,
+      "after": {
+        "day": 1,
+        "rng": 3224482224,
+        "frozen": true,
+        "paused": true,
+        "toast": "Town restored and saved on this device.",
+        "dialog": "none"
+      },
+      "genericUnsupported": false,
+      "authoritativeArchiveUnchanged": true,
+      "legacyChoices": 0,
+      "workerChoices": 1
+    },
+    {
+      "selector": "[data-urban-land-plan=\"\"]",
+      "label": "Plan vacant or occupied land on the map",
+      "world": "founding",
+      "panel": "construction",
+      "presentOnReplay": true,
+      "after": {
+        "day": 1,
+        "rng": 3224482224,
+        "frozen": true,
+        "paused": true,
+        "toast": "Town restored and saved on this device.",
+        "dialog": "none"
+      },
+      "genericUnsupported": false,
+      "authoritativeArchiveUnchanged": true,
+      "legacyChoices": 0,
+      "workerChoices": 1
+    },
+    {
+      "selector": "[data-urban-overlay=\"\"]",
+      "label": "View neighbourhood map",
+      "world": "founding",
+      "panel": "construction",
+      "presentOnReplay": true,
+      "after": {
+        "day": 1,
+        "rng": 3224482224,
+        "frozen": true,
+        "paused": true,
+        "toast": "Town restored and saved on this device.",
+        "dialog": "none"
+      },
+      "genericUnsupported": false,
+      "authoritativeArchiveUnchanged": true,
+      "legacyChoices": 0,
+      "workerChoices": 1
+    },
+    {
+      "selector": "[data-urban-retail=\"\"]",
+      "label": "Invite a shopping centre proposal",
+      "world": "founding",
+      "panel": "construction",
+      "presentOnReplay": true,
+      "after": {
+        "day": 1,
+        "rng": 3224482224,
+        "frozen": true,
+        "paused": true,
+        "toast": "The town has 169 residents; a retail centre needs at least 320.",
+        "dialog": "none"
+      },
+      "genericUnsupported": false,
+      "authoritativeArchiveUnchanged": true,
+      "legacyChoices": 0,
+      "workerChoices": 1
+    },
+    {
+      "selector": "[data-waterfront-camera=\"1\"]",
+      "label": "Visit the river landing",
+      "world": "founding",
+      "panel": "construction",
+      "presentOnReplay": true,
+      "after": {
+        "day": 1,
+        "rng": 3224482224,
+        "frozen": true,
+        "paused": true,
+        "toast": "Town restored and saved on this device.",
+        "dialog": "none"
+      },
+      "genericUnsupported": false,
+      "authoritativeArchiveUnchanged": true,
+      "legacyChoices": 0,
+      "workerChoices": 1
+    },
+    {
+      "selector": "[data-waterfront-build=\"1\"]",
+      "label": "Choose a waterfront business",
+      "world": "founding",
+      "panel": "construction",
+      "presentOnReplay": true,
+      "after": {
+        "day": 1,
+        "rng": 3224482224,
+        "frozen": true,
+        "paused": true,
+        "toast": "Town restored and saved on this device.",
+        "dialog": "none"
+      },
+      "genericUnsupported": false,
+      "authoritativeArchiveUnchanged": true,
+      "legacyChoices": 0,
+      "workerChoices": 1
+    },
+    {
+      "selector": "[data-district=\"all\"]",
+      "label": "Whole borough",
+      "world": "founding",
+      "panel": "settings",
+      "presentOnReplay": true,
+      "after": {
+        "day": 1,
+        "rng": 3224482224,
+        "frozen": true,
+        "paused": true,
+        "toast": "Town restored and saved on this device.",
+        "dialog": "none"
+      },
+      "genericUnsupported": false,
+      "authoritativeArchiveUnchanged": true,
+      "legacyChoices": 0,
+      "workerChoices": 1
+    },
+    {
+      "selector": "[data-view=\"land\"]",
+      "label": "Land values",
+      "world": "founding",
+      "panel": "settings",
+      "presentOnReplay": true,
+      "after": {
+        "day": 1,
+        "rng": 3224482224,
+        "frozen": true,
+        "paused": true,
+        "toast": "Land values: green low \u00b7 gold middle \u00b7 copper high",
+        "dialog": "none"
+      },
+      "genericUnsupported": false,
+      "authoritativeArchiveUnchanged": true,
+      "legacyChoices": 0,
+      "workerChoices": 1
+    },
+    {
+      "selector": "[id=\"firstTradeAgreement\"]",
+      "label": "Compare a 30-day export agreement",
+      "world": "funded1081",
+      "panel": "overview",
+      "presentOnReplay": true,
+      "after": {
+        "day": 1081,
+        "rng": 1844851347,
+        "frozen": true,
+        "paused": true,
+        "toast": "Town restored and saved on this device.",
+        "dialog": "none"
+      },
+      "genericUnsupported": false,
+      "authoritativeArchiveUnchanged": true,
+      "legacyChoices": 0,
+      "workerChoices": 1
+    },
+    {
+      "selector": "[data-parcel-outlook=\"east-meadow\"]",
+      "label": "Inspect growth outlook",
+      "world": "funded1081",
+      "panel": "construction",
+      "presentOnReplay": true,
+      "after": {
+        "day": 1081,
+        "rng": 1844851347,
+        "frozen": true,
+        "paused": true,
+        "toast": "Town restored and saved on this device.",
+        "dialog": "none"
+      },
+      "genericUnsupported": false,
+      "authoritativeArchiveUnchanged": true,
+      "legacyChoices": 0,
+      "workerChoices": 2
+    }
+  ],
+  "actualAlternativeSelectionProbes": [
+    {
+      "selector": "#supplierMarket",
+      "requested": "upland",
+      "displayedAfterSettled": "upland",
+      "retained": true,
+      "authoritativeArchiveUnchanged": true
+    },
+    {
+      "selector": "#supplierGood",
+      "requested": "manufactures",
+      "displayedAfterSettled": "manufactures",
+      "retained": true,
+      "authoritativeArchiveUnchanged": true
+    },
+    {
+      "selector": "#supplierFirm",
+      "requested": "24",
+      "displayedAfterSettled": "24",
+      "retained": true,
+      "authoritativeArchiveUnchanged": true
+    }
+  ],
+  "pageErrors": [],
+  "classificationIsNotBehavioralAcceptance": true,
+  "frozenOriginalRegressionTargets": true
+}

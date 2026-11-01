@@ -1,0 +1,34 @@
+{
+  "productionEnabled": false,
+  "oracleCommit": "87811c52cdb9aecd13cd23beebd52f6475c6dd9c",
+  "sourceSha256": "f08cdd9cf77bed07c94722995f4e14f45ff6c9a2f85c77406badcdfc13eaa905",
+  "workerSha256": "7a19e5e45960030f1d7c5637e7a6b1b5f1f9373f6c43f6ff65790fccb1ce7b53",
+  "generatedBridgeSha256": "d56223f2d6c9a5e61b82c3130c8eb54da1ec5d5f8a22055d8f37416dd381c3f8",
+  "checkpoints": [
+    "food preview",
+    "food paid enterprise delivery",
+    "vacant land tool",
+    "vacant land quote",
+    "vacant land planning payment",
+    "synthetic funded retail proposal",
+    "synthetic privately funded retail settlement",
+    "growth outlook exact quote",
+    "growth outlook site selection",
+    "growth outlook real cottage purchase",
+    "supplier retained #supplierMarket",
+    "supplier retained #supplierGood",
+    "supplier retained #supplierFirm",
+    "selected supplier actual contract quote",
+    "selected supplier funded agreement",
+    "invalid supplier DTOs preserve complete model"
+  ],
+  "fullModelRngEquality": true,
+  "excludedFields": [],
+  "fixtures": [
+    "generated seed42 founding",
+    "existing controlled retail source-unit fixture adds household members; not ordinary play",
+    "unchanged generated day1081 regional QA archive"
+  ],
+  "syntheticRetailCase": true,
+  "pageErrors": []
+}

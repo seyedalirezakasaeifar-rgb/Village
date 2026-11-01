@@ -1,0 +1,54 @@
+{
+  "candidateCommit": "a2f49fbd3994f27042a2c56c34500af80ef7a9c8",
+  "sourceSha256": "f08cdd9cf77bed07c94722995f4e14f45ff6c9a2f85c77406badcdfc13eaa905",
+  "workerSha256": "7a19e5e45960030f1d7c5637e7a6b1b5f1f9373f6c43f6ff65790fccb1ce7b53",
+  "bridgeSha256": "d56223f2d6c9a5e61b82c3130c8eb54da1ec5d5f8a22055d8f37416dd381c3f8",
+  "actualInputsNoFinancialEnactment": true,
+  "cases": [
+    {
+      "control": "[data-service-budget-amount=\"healthBudget\"]",
+      "expected": 1234.5,
+      "draftValue": 1234.5,
+      "visibleValue": "1234.5",
+      "authorityUnchanged": true
+    },
+    {
+      "control": "[data-service-budget-amount=\"educationBudget\"]",
+      "expected": 2345.5,
+      "draftValue": 2345.5,
+      "visibleValue": "2345.5",
+      "authorityUnchanged": true
+    },
+    {
+      "control": "#musicVolume",
+      "requested": "31",
+      "displayed": "31",
+      "authorityUnchanged": true
+    },
+    {
+      "control": "#musicMood",
+      "requested": "quiet",
+      "displayed": "quiet",
+      "authorityUnchanged": true
+    },
+    {
+      "control": "[data-preference=\"quality\"]",
+      "requested": "low",
+      "displayed": "low",
+      "authorityUnchanged": true
+    },
+    {
+      "control": "[data-renderer=\"city\"]",
+      "requested": "webgl",
+      "displayed": "webgl",
+      "authorityUnchanged": true
+    },
+    {
+      "control": "[data-mayor-agenda]",
+      "expectedPanel": "agenda",
+      "actualPanel": "agenda"
+    }
+  ],
+  "pageErrors": [],
+  "notPerformanceOrAudibilityClaim": true
+}
