@@ -10,6 +10,12 @@ def refs():
  match=re.search(r'const MUSIC_TRACKS=(\[.*?\]);',music)
  if not match:raise ValueError('MUSIC_TRACKS literal not found')
  for t in json.loads(match.group(1)):rows.append(('assets/music/'+t['file']+'.ogg','music manifest'))
+ webgl=ROOT/'assets/webgl-taste.js'
+ if webgl.exists():
+  rows.append(('assets/webgl-taste.js','module script in assets/index.html'))
+  text=webgl.read_text()
+  for rel in re.findall(r"from\s+['\"]([^'\"]+)['\"]",text):
+   if rel.startswith(('.', '/')):rows.append(((webgl.parent/rel).resolve().relative_to(ROOT.resolve()).as_posix(),'ES module import in assets/webgl-taste.js'))
  audio=(ROOT/'src/95-audio.js').read_text()
  for name in sorted(set(re.findall(r"playSfx\('([^']+)'\)",audio))|{'rain','village'}):rows.append(('assets/sound/'+name+'.wav','effects controller'))
  for p in [*ROOT.glob('assets/*.css'),ROOT/'assets/index.html']:
@@ -33,6 +39,13 @@ def main():
   n=p.stat().st_size
   if n<=0:errors.append({'empty':rel,'origin':origin});continue
   manifest.append({'path':rel,'origin':origin,'bytes':n,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()})
+ # Three.js is bundled locally; its notice is package-adjacent documentation, not a runtime import.
+ vendor=ASSETS/'vendor'/'three-0.160.1.module.js'
+ if vendor.exists():
+  rel='assets/vendor/three-0.160.1.module.js';p=ROOT/rel;manifest.append({'path':rel,'origin':'local Three.js WebGL ES module','bytes':p.stat().st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()})
+  notice=ASSETS/'vendor'/'THREE-LICENSE.txt'
+  if not notice.is_file() or notice.stat().st_size==0:errors.append({'missing':'assets/vendor/THREE-LICENSE.txt','origin':'license notice for bundled Three.js'})
+  else:manifest.append({'path':'assets/vendor/THREE-LICENSE.txt','origin':'license notice for bundled Three.js','bytes':notice.stat().st_size,'sha256':hashlib.sha256(notice.read_bytes()).hexdigest()})
  report={'schema':1,'offlineAndroidAssetRoot':'assets/','references':manifest,'externalOrAbsoluteMediaReferences':external,'errors':errors,'status':'passed' if not errors and not external else 'failed'}
  out=ROOT/'reports/asset-manifest-8.json';out.parent.mkdir(exist_ok=True);out.write_text(json.dumps(report,indent=2)+'\n')
  print(json.dumps({'status':report['status'],'references':len(manifest),'errors':errors,'external':external,'report':out.relative_to(ROOT).as_posix()}))

@@ -97,6 +97,30 @@
       "origin": "effects controller",
       "bytes": 6284,
       "sha256": "9d2e5ce6837c95bed60894c43c91f410a675d720369e8245d151653ca1a3541a"
+    },
+    {
+      "path": "assets/vendor/three-0.160.1.module.js",
+      "origin": "ES module import in assets/webgl-taste.js",
+      "bytes": 1272972,
+      "sha256": "76dea8151bc9352aef3528b4262e249b2604f62543828328db978d060d61a495"
+    },
+    {
+      "path": "assets/webgl-taste.js",
+      "origin": "module script in assets/index.html",
+      "bytes": 9676,
+      "sha256": "07134047d39011489187c8d3c13a60a50c1925d3af97e441e0fb7afd91862443"
+    },
+    {
+      "path": "assets/vendor/three-0.160.1.module.js",
+      "origin": "local Three.js WebGL ES module",
+      "bytes": 1272972,
+      "sha256": "76dea8151bc9352aef3528b4262e249b2604f62543828328db978d060d61a495"
+    },
+    {
+      "path": "assets/vendor/THREE-LICENSE.txt",
+      "origin": "license notice for bundled Three.js",
+      "bytes": 1081,
+      "sha256": "852e0e8699169bf9f6fdc6bda3e682d078dcbc738b5d33e74df594721bff271d"
     }
   ],
   "externalOrAbsoluteMediaReferences": [],
