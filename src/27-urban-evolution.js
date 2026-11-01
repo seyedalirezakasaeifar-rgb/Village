@@ -167,7 +167,14 @@ function urbanFarmRenewal(demand){
 }
 function urbanRetailProposal(explicit=false,reviewedKey=null){
  const preview=explicit==='preview';
- const demand=cityDemand();if((!explicit&&G.autoBuild===false)||demand.residents<320||demand.confidence<42||G.projects.some(p=>p.retailCentre)||G.firms.some(f=>!f.closed&&f.retailCentre&&G.day-(f.openedDay||0)<360))return {ok:false,reason:'A retail centre needs at least 320 residents, investment confidence, and no recent competing centre.'};
+ const demand=cityDemand(),blockers=[];
+ if(!explicit&&G.autoBuild===false)blockers.push('Automatic private development is paused.');
+ if(demand.residents<320)blockers.push('The town has '+demand.residents+' residents; a retail centre needs at least 320.');
+ if(demand.confidence<42)blockers.push('Investor confidence is '+Math.floor(demand.confidence)+'; at least 42 is required.');
+ if(G.projects.some(p=>p.retailCentre))blockers.push('A retail centre is already under construction. Let its funded project finish before inviting another.');
+ const recent=G.firms.filter(f=>!f.closed&&f.retailCentre&&G.day-(f.openedDay||0)<360);
+ if(recent.length){const wait=Math.max(...recent.map(f=>360-(G.day-(f.openedDay||0))));blockers.push('An open retail centre is within its 360-day competition window. Review again in at least '+wait+' simulated '+(wait===1?'day':'days')+'; other requirements still apply.');}
+ if(blockers.length)return {ok:false,reason:blockers.join(' '),blockers};
  const reviewRng=preview||!!reviewedKey?rngState:null,places=buildableCandidates('business'),net=graph(),popByBuilding=new Map(),search={vacant:0,permitted:0,connected:0,market:0,staffed:0,viable:0};for(const h of G.households)if(h.people.length)popByBuilding.set(h.home,(popByBuilding.get(h.home)||0)+h.people.length);
  let best=null;
  for(const c of places){const footprint=[];for(let dy=0;dy<2;dy++)for(let dx=0;dx<3;dx++)footprint.push(roadId(c.x+dx,c.y+dy));if(c.x+3>=T-2||c.y+2>=T-2||!footprint.every(id=>charterOwns(id%T,id/T|0)&&[0,3].includes(G.tiles[id])&&!G.landUse?.[id]&&!buildingAt(id%T,id/T|0)))continue;search.vacant++;

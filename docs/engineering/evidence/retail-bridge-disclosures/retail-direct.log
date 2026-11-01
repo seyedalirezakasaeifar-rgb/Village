@@ -1,0 +1,72 @@
+{
+  "base": "60ab7fe6cfc958f69a084a538c946672ff51eb8a",
+  "source_sha256": "09193cfe1fa91b0184e95f45fdbbb2bbb76d83fb69195c18087fba8b374cc918",
+  "cases": [
+    {
+      "name": "residents",
+      "ok": false,
+      "reason": "The town has 319 residents; a retail centre needs at least 320.",
+      "blockers": [
+        "The town has 319 residents; a retail centre needs at least 320."
+      ]
+    },
+    {
+      "name": "confidence",
+      "ok": false,
+      "reason": "Investor confidence is 41; at least 42 is required.",
+      "blockers": [
+        "Investor confidence is 41; at least 42 is required."
+      ]
+    },
+    {
+      "name": "project",
+      "ok": false,
+      "reason": "A retail centre is already under construction. Let its funded project finish before inviting another.",
+      "blockers": [
+        "A retail centre is already under construction. Let its funded project finish before inviting another."
+      ]
+    },
+    {
+      "name": "competition",
+      "ok": false,
+      "reason": "An open retail centre is within its 360-day competition window. Review again in at least 1 simulated days; other requirements still apply.",
+      "blockers": [
+        "An open retail centre is within its 360-day competition window. Review again in at least 1 simulated days; other requirements still apply."
+      ]
+    },
+    {
+      "name": "combined",
+      "ok": false,
+      "reason": "The town has 200 residents; a retail centre needs at least 320. Investor confidence is 20; at least 42 is required. A retail centre is already under construction. Let its funded project finish before inviting another. An open retail centre is within its 360-day competition window. Review again in at least 261 simulated days; other requirements still apply.",
+      "blockers": [
+        "The town has 200 residents; a retail centre needs at least 320.",
+        "Investor confidence is 20; at least 42 is required.",
+        "A retail centre is already under construction. Let its funded project finish before inviting another.",
+        "An open retail centre is within its 360-day competition window. Review again in at least 261 simulated days; other requirements still apply."
+      ]
+    },
+    {
+      "name": "automaticPaused",
+      "ok": false,
+      "reason": "Automatic private development is paused.",
+      "blockers": [
+        "Automatic private development is paused."
+      ]
+    },
+    {
+      "name": "exactThresholds",
+      "screenPassed": true
+    },
+    {
+      "name": "closedCompetitor",
+      "screenPassed": true
+    },
+    {
+      "name": "expiredWindow",
+      "screenPassed": true
+    }
+  ],
+  "baselineAdmissionIdentical": true,
+  "readOnlyModelAndRNG": true,
+  "scope": "Isolated eligibility guard; reaching site screen is not a viable site or available-worker claim"
+}

@@ -1,0 +1,46 @@
+{
+  "source_sha256": "dbbb77a80e54a8c02fa5d7da8af020ba6b8a24078270c39cd5d844bd236dd949",
+  "cases": [
+    {
+      "kind": "build",
+      "accepted": false,
+      "unchanged": true,
+      "timelineUnchanged": true,
+      "treasuryDelta": 0,
+      "saveResult": false,
+      "publicExport": true,
+      "reason": "Recover the last committed town before authorizing road works."
+    },
+    {
+      "kind": "repair",
+      "accepted": false,
+      "unchanged": true,
+      "timelineUnchanged": true,
+      "treasuryDelta": 0,
+      "saveResult": false,
+      "publicExport": true,
+      "reason": "Recover the last committed town before authorizing road works."
+    },
+    {
+      "kind": "decommission",
+      "accepted": false,
+      "unchanged": true,
+      "timelineUnchanged": true,
+      "treasuryDelta": 0,
+      "saveResult": false,
+      "publicExport": true,
+      "reason": "Recover the last committed town before authorizing road works."
+    },
+    {
+      "kind": "road-retirement",
+      "accepted": false,
+      "unchanged": true,
+      "timelineUnchanged": true,
+      "treasuryDelta": 0,
+      "saveResult": false,
+      "publicExport": true,
+      "reason": "Recover the last committed town before authorizing road works."
+    }
+  ]
+}
+PASS paid road/bridge commands reject interrupted-day state without cash, topology or chronology mutation

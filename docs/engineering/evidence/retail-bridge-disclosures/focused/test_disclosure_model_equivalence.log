@@ -1,0 +1,55 @@
+{
+  "base": "60ab7fe6cfc958f69a084a538c946672ff51eb8a",
+  "source_sha256": "dbbb77a80e54a8c02fa5d7da8af020ba6b8a24078270c39cd5d844bd236dd949",
+  "cases": [
+    {
+      "scenario": "settlement",
+      "seed": 42,
+      "day": 46,
+      "all_existing_fields_equal": true
+    },
+    {
+      "scenario": "settlement",
+      "seed": 909,
+      "day": 46,
+      "all_existing_fields_equal": true
+    },
+    {
+      "scenario": "regional",
+      "seed": 42,
+      "day": 46,
+      "all_existing_fields_equal": true
+    },
+    {
+      "scenario": "regional",
+      "seed": 909,
+      "day": 46,
+      "all_existing_fields_equal": true
+    },
+    {
+      "scenario": "hardtimes",
+      "seed": 42,
+      "day": 46,
+      "all_existing_fields_equal": true
+    },
+    {
+      "scenario": "hardtimes",
+      "seed": 909,
+      "day": 46,
+      "all_existing_fields_equal": true
+    },
+    {
+      "scenario": "industrial",
+      "seed": 42,
+      "day": 46,
+      "all_existing_fields_equal": true
+    },
+    {
+      "scenario": "industrial",
+      "seed": 909,
+      "day": 46,
+      "all_existing_fields_equal": true
+    }
+  ],
+  "comparison": "Complete serialized model compared exactly; zero exclusions"
+}

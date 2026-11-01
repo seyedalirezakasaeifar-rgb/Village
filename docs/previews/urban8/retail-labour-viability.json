@@ -1,5 +1,5 @@
 {
-  "source_sha256": "b65bbecf30a8c75596ee39f3ceb1c799705367154bf9ebab6f746f4f4516cbb4",
+  "source_sha256": "dbbb77a80e54a8c02fa5d7da8af020ba6b8a24078270c39cd5d844bd236dd949",
   "fixture": "Natural regional seed42 day1081 from 525e47d, no injected agents/cash/stocks.",
   "results": {
     "before": {
@@ -74,8 +74,8 @@
         ],
         "jobs": 2,
         "wage": 32.29510219300855,
-        "cash": 19110.31695189063,
-        "net": 25.13325032532148,
+        "cash": 19110.31695189062,
+        "net": 25.133250325321384,
         "payroll": 32.29510219300855,
         "price": 3.3612459021358414
       }

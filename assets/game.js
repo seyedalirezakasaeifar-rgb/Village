@@ -1979,7 +1979,14 @@ function urbanFarmRenewal(demand){
 }
 function urbanRetailProposal(explicit=false,reviewedKey=null){
  const preview=explicit==='preview';
- const demand=cityDemand();if((!explicit&&G.autoBuild===false)||demand.residents<320||demand.confidence<42||G.projects.some(p=>p.retailCentre)||G.firms.some(f=>!f.closed&&f.retailCentre&&G.day-(f.openedDay||0)<360))return {ok:false,reason:'A retail centre needs at least 320 residents, investment confidence, and no recent competing centre.'};
+ const demand=cityDemand(),blockers=[];
+ if(!explicit&&G.autoBuild===false)blockers.push('Automatic private development is paused.');
+ if(demand.residents<320)blockers.push('The town has '+demand.residents+' residents; a retail centre needs at least 320.');
+ if(demand.confidence<42)blockers.push('Investor confidence is '+Math.floor(demand.confidence)+'; at least 42 is required.');
+ if(G.projects.some(p=>p.retailCentre))blockers.push('A retail centre is already under construction. Let its funded project finish before inviting another.');
+ const recent=G.firms.filter(f=>!f.closed&&f.retailCentre&&G.day-(f.openedDay||0)<360);
+ if(recent.length){const wait=Math.max(...recent.map(f=>360-(G.day-(f.openedDay||0))));blockers.push('An open retail centre is within its 360-day competition window. Review again in at least '+wait+' simulated '+(wait===1?'day':'days')+'; other requirements still apply.');}
+ if(blockers.length)return {ok:false,reason:blockers.join(' '),blockers};
  const reviewRng=preview||!!reviewedKey?rngState:null,places=buildableCandidates('business'),net=graph(),popByBuilding=new Map(),search={vacant:0,permitted:0,connected:0,market:0,staffed:0,viable:0};for(const h of G.households)if(h.people.length)popByBuilding.set(h.home,(popByBuilding.get(h.home)||0)+h.people.length);
  let best=null;
  for(const c of places){const footprint=[];for(let dy=0;dy<2;dy++)for(let dx=0;dx<3;dx++)footprint.push(roadId(c.x+dx,c.y+dy));if(c.x+3>=T-2||c.y+2>=T-2||!footprint.every(id=>charterOwns(id%T,id/T|0)&&[0,3].includes(G.tiles[id])&&!G.landUse?.[id]&&!buildingAt(id%T,id/T|0)))continue;search.vacant++;
@@ -6208,8 +6215,9 @@ function bridgeCandidateFromBank(bank){
    const net=graph(),firstPart=net.parts[bank],lastPart=net.parts[end],main=net.mainPart;if(firstPart!==main&&lastPart!==main)continue;
    const waterIds=new Set(cells);if((G.waterway?.manifests||[]).some(m=>m.path?.some(id=>waterIds.has(id))))continue;
    let protectedCraft=false;for(const f of G.firms)if(!f.closed&&f.kind==='fishery'){const b=readBuild(f.building),site=b&&waterfrontSite(b.x,b.y);if(site&&fishingRoute(site).some(id=>waterIds.has(id))){protectedCraft=true;break;}}if(protectedCraft)continue;
-   const old=firstPart===lastPart?routeBetween(bank,end):[],gain=old.length?old.length-cells.length-1:Infinity;if(old.length&&gain<3)continue;
-   const forward=dx>0||dy>0,orderedCells=forward?cells.slice():cells.slice().reverse(),orderedBanks=forward?[bank,end]:[end,bank];candidates.push({ok:true,axis,cells:orderedCells,banks:orderedBanks,gain,connectsComponents:firstPart!==lastPart,bankParts:[firstPart,lastPart],mainPart:main,cost:ROAD_BRIDGE_COST+cells.length*ROAD_BRIDGE_CELL_COST,maintenance:cells.length*ROAD_BRIDGE_DAILY_PER_CELL});
+   // routeBetween includes both bank nodes: edge savings are one less than the former node score. Preserve the same feasible spans.
+   const old=firstPart===lastPart?routeBetween(bank,end):[],existingSteps=old.length?old.length-1:null,crossingSteps=cells.length+1,gain=old.length?existingSteps-crossingSteps:Infinity;if(old.length&&gain<2)continue;
+   const forward=dx>0||dy>0,orderedCells=forward?cells.slice():cells.slice().reverse(),orderedBanks=forward?[bank,end]:[end,bank];candidates.push({ok:true,axis,cells:orderedCells,banks:orderedBanks,gain,existingSteps,crossingSteps,connectsComponents:firstPart!==lastPart,bankParts:[firstPart,lastPart],mainPart:main,cost:ROAD_BRIDGE_COST+cells.length*ROAD_BRIDGE_CELL_COST,maintenance:cells.length*ROAD_BRIDGE_DAILY_PER_CELL});
   }
  }
  candidates.sort((a,b)=>Number(b.connectsComponents)-Number(a.connectsComponents)||b.gain-a.gain||a.cells.length-b.cells.length||a.cells[0]-b.cells[0]);
@@ -6221,7 +6229,7 @@ function commitRoadBridge(bank,key){if(simulationTickFailed||simulationTickActiv
  G.treasury-=q.cost;G.region+=q.cost;G.cumulative.spending+=q.cost;G.cumulative.bridgeCapital=(G.cumulative.bridgeCapital||0)+q.cost;for(const id of q.cells){G.tiles[id]=4;G.roadClasses[id]='bridge';G.streetNames[id]=bridge.name;ensureRoadWear();G.roadWear[id]=100;}
  G.construction++;invalidateRoads();staticDirty=true;recompute();updateHeader();save();return {ok:true,bridge};
 }
-function reviewRoadBridge(bank){const q=bridgeCandidateFromBank(bank);if(!q.ok){toast(q.reason);return;}const from=q.banks[0]%T+','+(q.banks[0]/T|0),to=q.banks[1]%T+','+(q.banks[1]/T|0),pathInfo=q.connectsComponents?'This joins a disconnected bank-road component to the town network.':`It shortens the current road route by ${q.gain} tiles.`;
+function reviewRoadBridge(bank){const q=bridgeCandidateFromBank(bank);if(!q.ok){toast(q.reason);return;}const from=q.banks[0]%T+','+(q.banks[0]/T|0),to=q.banks[1]%T+','+(q.banks[1]/T|0),pathInfo=q.connectsComponents?'This joins a disconnected bank-road component to the town network.':`The current route takes ${q.existingSteps} road steps; this crossing takes ${q.crossingSteps}. It saves ${q.gain} road steps.`;
  showCustomEvent('PUBLIC WORKS','Review '+q.cells.length+'-cell water crossing',`Proposed ${q.axis} deck from bank (${from}) to (${to}) across ${q.cells.length} water tile${q.cells.length===1?'':'s'}. ${pathInfo} Both banks and the full span are chartered; at least one approach already reaches the town network. Capital ${money(q.cost)}; upkeep $${q.maintenance.toFixed(2)}/day, transferred to the bridge contractor from municipal cash. Water remains water beneath the raised deck. Navigation, docks, active fishing paths, private titles and buildings are protected.`,[{title:'Authorize bridge capital',apply:()=>{const r=commitRoadBridge(bank,q.key);toast(r.ok?'Paid bridge opened; recurring upkeep begins today.':r.reason);if(active)renderPanel(active);}},{title:'Keep surveying',apply:()=>{}}]);
 }
 function bridgeMaintenanceDue(){return (G?.bridges||[]).reduce((n,b)=>n+b.cells.length*ROAD_BRIDGE_DAILY_PER_CELL,0);}

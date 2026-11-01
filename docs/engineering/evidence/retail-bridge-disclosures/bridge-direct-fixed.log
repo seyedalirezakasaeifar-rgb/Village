@@ -1,0 +1,107 @@
+{
+  "source_sha256": "0659eb410e0b65bcbfe53878b72050d2652ec7f15bd8fa6590e8eb376b7825fb",
+  "base": "60ab7fe6cfc958f69a084a538c946672ff51eb8a",
+  "cases": [
+    {
+      "label": "base",
+      "q": {
+        "ok": true,
+        "axis": "east-west",
+        "cells": [
+          1984,
+          1985,
+          1986,
+          1987,
+          1988
+        ],
+        "banks": [
+          1983,
+          1989
+        ],
+        "gain": 3,
+        "connectsComponents": false,
+        "bankParts": [
+          0,
+          0
+        ],
+        "mainPart": 0,
+        "cost": 13450,
+        "maintenance": 12.5,
+        "bank": 1983,
+        "day": 1,
+        "cash": 54144,
+        "roads": 31,
+        "key": "[1,54144,31,{\"ok\":true,\"axis\":\"east-west\",\"cells\":[1984,1985,1986,1987,1988],\"banks\":[1983,1989],\"gain\":3,\"connectsComponents\":false,\"bankParts\":[0,0],\"mainPart\":0,\"cost\":13450,\"maintenance\":12.5}]"
+      },
+      "path": [
+        1983,
+        1855,
+        1856,
+        1857,
+        1858,
+        1859,
+        1860,
+        1861,
+        1989
+      ],
+      "oldSteps": 8,
+      "newSteps": 6,
+      "totalBefore": 15493517,
+      "totalAfter": 15493517,
+      "paidDetour": 1050
+    },
+    {
+      "label": "candidate",
+      "q": {
+        "ok": true,
+        "axis": "east-west",
+        "cells": [
+          1984,
+          1985,
+          1986,
+          1987,
+          1988
+        ],
+        "banks": [
+          1983,
+          1989
+        ],
+        "gain": 2,
+        "existingSteps": 8,
+        "crossingSteps": 6,
+        "connectsComponents": false,
+        "bankParts": [
+          0,
+          0
+        ],
+        "mainPart": 0,
+        "cost": 13450,
+        "maintenance": 12.5,
+        "bank": 1983,
+        "day": 1,
+        "cash": 54144,
+        "roads": 31,
+        "key": "[1,54144,31,{\"ok\":true,\"axis\":\"east-west\",\"cells\":[1984,1985,1986,1987,1988],\"banks\":[1983,1989],\"gain\":2,\"existingSteps\":8,\"crossingSteps\":6,\"connectsComponents\":false,\"bankParts\":[0,0],\"mainPart\":0,\"cost\":13450,\"maintenance\":12.5}]"
+      },
+      "path": [
+        1983,
+        1855,
+        1856,
+        1857,
+        1858,
+        1859,
+        1860,
+        1861,
+        1989
+      ],
+      "oldSteps": 8,
+      "newSteps": 6,
+      "totalBefore": 15493517,
+      "totalAfter": 15493517,
+      "paidDetour": 1050,
+      "visibleReview": "Proposed east-west deck from bank (63,15) to (69,15) across 5 water tiles. The current route takes 8 road steps; this crossing takes 6. It saves 2 road steps. Both banks and the full span are chartered; at least one approach already reaches the town network. Capital $13,450; upkeep $12.50/day, transferred to the bridge contractor from municipal cash. Water remains water beneath the raised deck. Navigation, docks, active fishing paths, private titles and buildings are protected."
+    }
+  ],
+  "completePaidBridgeOutcomeIdentical": true,
+  "equalLengthTopologyManufactured": false
+}
