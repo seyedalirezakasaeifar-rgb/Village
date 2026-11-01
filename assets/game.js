@@ -6010,7 +6010,7 @@ function bridgeConditionAt(id){return bridgeRecordAt(id)?.condition||0;}
 function bridgeRenderSnapshot(){return (G?.bridges||[]).map(b=>({id:b.id,axis:b.axis,cells:b.cells.slice(),banks:b.banks.slice(),condition:b.condition,closed:b.condition<ROAD_BRIDGE_SAFE,displayName:b.name,maintenancePerDay:b.cells.length*ROAD_BRIDGE_DAILY_PER_CELL}));}
 function bridgeCandidateFromBank(bank){
  if(!Number.isInteger(bank)||bank<0||bank>=T*T||G.tiles[bank]!==1||!charterOwns(bank%T,bank/T|0))return {ok:false,reason:'Start from a town-owned road on a bank.'};
- const bx=bank%T,by=bank/T|0,candidates=[];
+ const bx=bank%T,by=bank/T|0,candidates=[];let bestExistingSaving=null;
  for(const [dx,dy,axis] of [[1,0,'east-west'],[-1,0,'east-west'],[0,1,'north-south'],[0,-1,'north-south']]){
   const cells=[];for(let step=1;step<=ROAD_BRIDGE_SPAN_MAX;step++){
    const x=bx+dx*step,y=by+dy*step;if(x<0||y<0||x>=T||y>=T)break;const id=roadId(x,y);if(G.tiles[id]!==2)break;if(!charterOwns(x,y)||G.landUse?.[id]||buildingAt(x,y)||typeof transitRightOfWay==='function'&&transitRightOfWay(id))break;cells.push(id);
@@ -6018,12 +6018,12 @@ function bridgeCandidateFromBank(bank){
    const net=graph(),firstPart=net.parts[bank],lastPart=net.parts[end],main=net.mainPart;if(firstPart!==main&&lastPart!==main)continue;
    const waterIds=new Set(cells);if((G.waterway?.manifests||[]).some(m=>m.path?.some(id=>waterIds.has(id))))continue;
    let protectedCraft=false;for(const f of G.firms)if(!f.closed&&f.kind==='fishery'){const b=readBuild(f.building),site=b&&waterfrontSite(b.x,b.y);if(site&&fishingRoute(site).some(id=>waterIds.has(id))){protectedCraft=true;break;}}if(protectedCraft)continue;
-   const old=firstPart===lastPart?routeBetween(bank,end):[],gain=old.length?old.length-cells.length-1:Infinity;if(old.length&&gain<3)continue;
+   const old=firstPart===lastPart?routeBetween(bank,end):[],gain=old.length?old.length-cells.length-2:Infinity;if(old.length&&gain<3){bestExistingSaving=bestExistingSaving==null?gain:Math.max(bestExistingSaving,gain);continue;}
    const forward=dx>0||dy>0,orderedCells=forward?cells.slice():cells.slice().reverse(),orderedBanks=forward?[bank,end]:[end,bank];candidates.push({ok:true,axis,cells:orderedCells,banks:orderedBanks,gain,connectsComponents:firstPart!==lastPart,bankParts:[firstPart,lastPart],mainPart:main,cost:ROAD_BRIDGE_COST+cells.length*ROAD_BRIDGE_CELL_COST,maintenance:cells.length*ROAD_BRIDGE_DAILY_PER_CELL});
   }
  }
  candidates.sort((a,b)=>Number(b.connectsComponents)-Number(a.connectsComponents)||b.gain-a.gain||a.cells.length-b.cells.length||a.cells[0]-b.cells[0]);
- if(!candidates.length)return {ok:false,reason:'No safe short span is ready from this bank. Need 1–5 water cells, owned water and roads on both banks, at least one bank already on the town network, no dock, transit, active navigation or fishing path through the work zone, and a useful new connection or shortcut.'};
+ if(!candidates.length)return {ok:false,reason:bestExistingSaving!=null?`Existing streets already connect these banks; a bridge would save only ${Math.max(0,bestExistingSaving)} road steps. The minimum useful shortcut is 3 steps.`:'No safe short span is ready from this bank. Need 1–5 water cells, owned water and roads on both banks, at least one bank already on the town network, no dock, transit, active navigation or fishing path through the work zone, and a useful new connection or shortcut.'};
  const chosen=candidates[0];if((G.bridges||[]).length>=ROAD_BRIDGE_MAX)return {ok:false,reason:'The engineering department is at its '+ROAD_BRIDGE_MAX+'-bridge planning limit. Retire or maintain existing crossings before adding another.'};if(G.treasury<chosen.cost)return {ok:false,reason:'This span needs '+money(chosen.cost)+' in municipal capital.'};return {...chosen,bank,day:G.day,cash:G.treasury,roads:roadsVersion,key:JSON.stringify([G.day,G.treasury,roadsVersion,chosen])};
 }
 function commitRoadBridge(bank,key){const q=bridgeCandidateFromBank(bank);if(!q.ok)return q;if(q.key!==key)return {ok:false,reason:'Water access, road access or city finances changed. Survey this span again.'};if(G.treasury<q.cost)return {ok:false,reason:'The bridge capital is no longer available.'};
