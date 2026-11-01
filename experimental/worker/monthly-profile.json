@@ -1,0 +1,3902 @@
+{
+  "epoch": 1,
+  "rows": [
+    {
+      "day": 41699,
+      "name": "ensureSystems",
+      "ms": 0
+    },
+    {
+      "day": 41699,
+      "name": "ensureMarketModel",
+      "ms": 0.09999999776482582
+    },
+    {
+      "day": 41700,
+      "name": "regionalFreightDay",
+      "ms": 0.30000000074505806
+    },
+    {
+      "day": 41700,
+      "name": "freightDay",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "completeEquipmentOrders",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "completeDevelopmentProjects",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "ensureMarketModel",
+      "ms": 0.10000000149011612
+    },
+    {
+      "day": 41700,
+      "name": "dailyEconomy",
+      "ms": 29.600000001490116
+    },
+    {
+      "day": 41700,
+      "name": "urbanMunicipalHousingDay",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0.10000000149011612
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0.09999999776482582
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0.10000000149011612
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0.09999999776482582
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0.10000000149011612
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0.09999999776482582
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0.09999999776482582
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0.10000000149011612
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0.10000000149011612
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0.10000000149011612
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0.09999999776482582
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0.10000000149011612
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0.10000000149011612
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0.09999999776482582
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0.10000000149011612
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0.09999999776482582
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0.10000000149011612
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0.10000000149011612
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0.09999999776482582
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 1.199999999254942
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0.10000000149011612
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0.10000000149011612
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDaily",
+      "ms": 5.200000002980232
+    },
+    {
+      "day": 41700,
+      "name": "metroOperatingDay",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "airfieldOperatingDay",
+      "ms": 0.09999999776482582
+    },
+    {
+      "day": 41700,
+      "name": "incidents",
+      "ms": 0.4000000022351742
+    },
+    {
+      "day": 41700,
+      "name": "investigateCases",
+      "ms": 0.09999999776482582
+    },
+    {
+      "day": 41700,
+      "name": "extendedCivicDay",
+      "ms": 0.9000000022351742
+    },
+    {
+      "day": 41700,
+      "name": "maintainRoads",
+      "ms": 1.5999999977648258
+    },
+    {
+      "day": 41700,
+      "name": "finalizeMarketBooks",
+      "ms": 0.6000000014901161
+    },
+    {
+      "day": 41700,
+      "name": "assignJobs",
+      "ms": 0.5
+    },
+    {
+      "day": 41700,
+      "name": "assignJobs",
+      "ms": 0.30000000074505806
+    },
+    {
+      "day": 41700,
+      "name": "privateInvestmentAndHousing",
+      "ms": 0.4000000022351742
+    },
+    {
+      "day": 41700,
+      "name": "recompute",
+      "ms": 0.4000000022351742
+    },
+    {
+      "day": 41700,
+      "name": "outwardMigration",
+      "ms": 19.800000000745058
+    },
+    {
+      "day": 41700,
+      "name": "autonomousDevelopment",
+      "ms": 7.299999997019768
+    },
+    {
+      "day": 41700,
+      "name": "migrationFamilyArrivalDay",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "recompute",
+      "ms": 0.7000000029802322
+    },
+    {
+      "day": 41700,
+      "name": "updateCouncilAndMissions",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "ensureSystems",
+      "ms": 0.10000000149011612
+    },
+    {
+      "day": 41700,
+      "name": "assignJobs",
+      "ms": 0.10000000149011612
+    },
+    {
+      "day": 41700,
+      "name": "recompute",
+      "ms": 0.3999999985098839
+    },
+    {
+      "day": 41700,
+      "name": "systemsDay",
+      "ms": 20.5
+    },
+    {
+      "day": 41700,
+      "name": "monthlyReview",
+      "ms": 0.30000000074505806
+    },
+    {
+      "day": 41700,
+      "name": "recompute",
+      "ms": 0.29999999701976776
+    },
+    {
+      "day": 41700,
+      "name": "brownfieldDay",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "privateServiceInvestmentDay",
+      "ms": 189.5
+    },
+    {
+      "day": 41700,
+      "name": "districtProgrammeDay",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "urbanEvolutionDay",
+      "ms": 23
+    },
+    {
+      "day": 41700,
+      "name": "migrationTenancyDay",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0.09999999776482582
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "updateScenarioProgramme",
+      "ms": 0.6000000014901161
+    },
+    {
+      "day": 41700,
+      "name": "mayorJourneyDay",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "civicProjectsDay",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "civicCampaignDay",
+      "ms": 0.10000000149011612
+    },
+    {
+      "day": 41700,
+      "name": "recordObservation",
+      "ms": 0.09999999776482582
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0.10000000149011612
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0.09999999776482582
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0.10000000149011612
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0.09999999776482582
+    },
+    {
+      "day": 41700,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41700,
+      "name": "marketSignal",
+      "ms": 6.5
+    },
+    {
+      "day": 41729,
+      "name": "ensureSystems",
+      "ms": 0
+    },
+    {
+      "day": 41729,
+      "name": "ensureMarketModel",
+      "ms": 0.19999999925494194
+    },
+    {
+      "day": 41730,
+      "name": "regionalFreightDay",
+      "ms": 0.19999999925494194
+    },
+    {
+      "day": 41730,
+      "name": "freightDay",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "completeEquipmentOrders",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "completeDevelopmentProjects",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "ensureMarketModel",
+      "ms": 0.09999999776482582
+    },
+    {
+      "day": 41730,
+      "name": "dailyEconomy",
+      "ms": 18.300000000745058
+    },
+    {
+      "day": 41730,
+      "name": "urbanMunicipalHousingDay",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0.10000000149011612
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0.10000000149011612
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0.10000000149011612
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0.09999999776482582
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0.10000000149011612
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0.09999999776482582
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0.10000000149011612
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0.09999999776482582
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0.10000000149011612
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0.10000000149011612
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0.09999999776482582
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0.10000000149011612
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0.09999999776482582
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0.10000000149011612
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0.10000000149011612
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0.09999999776482582
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDaily",
+      "ms": 2.5
+    },
+    {
+      "day": 41730,
+      "name": "metroOperatingDay",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "airfieldOperatingDay",
+      "ms": 0.19999999925494194
+    },
+    {
+      "day": 41730,
+      "name": "incidents",
+      "ms": 0.4000000022351742
+    },
+    {
+      "day": 41730,
+      "name": "investigateCases",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "extendedCivicDay",
+      "ms": 0.7999999970197678
+    },
+    {
+      "day": 41730,
+      "name": "maintainRoads",
+      "ms": 1.300000000745058
+    },
+    {
+      "day": 41730,
+      "name": "finalizeMarketBooks",
+      "ms": 0.6000000014901161
+    },
+    {
+      "day": 41730,
+      "name": "assignJobs",
+      "ms": 1.0999999977648258
+    },
+    {
+      "day": 41730,
+      "name": "assignJobs",
+      "ms": 0.20000000298023224
+    },
+    {
+      "day": 41730,
+      "name": "privateInvestmentAndHousing",
+      "ms": 0.20000000298023224
+    },
+    {
+      "day": 41730,
+      "name": "recompute",
+      "ms": 0.3999999985098839
+    },
+    {
+      "day": 41730,
+      "name": "outwardMigration",
+      "ms": 13.899999998509884
+    },
+    {
+      "day": 41730,
+      "name": "autonomousDevelopment",
+      "ms": 0.6999999992549419
+    },
+    {
+      "day": 41730,
+      "name": "migrationFamilyArrivalDay",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "recompute",
+      "ms": 0.30000000074505806
+    },
+    {
+      "day": 41730,
+      "name": "updateCouncilAndMissions",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "ensureSystems",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "assignJobs",
+      "ms": 0.10000000149011612
+    },
+    {
+      "day": 41730,
+      "name": "recompute",
+      "ms": 0.3999999985098839
+    },
+    {
+      "day": 41730,
+      "name": "systemsDay",
+      "ms": 13.100000001490116
+    },
+    {
+      "day": 41730,
+      "name": "monthlyReview",
+      "ms": 0.09999999776482582
+    },
+    {
+      "day": 41730,
+      "name": "recompute",
+      "ms": 0.19999999925494194
+    },
+    {
+      "day": 41730,
+      "name": "brownfieldDay",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "privateServiceInvestmentDay",
+      "ms": 129.70000000298023
+    },
+    {
+      "day": 41730,
+      "name": "districtProgrammeDay",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "urbanEvolutionDay",
+      "ms": 6.899999998509884
+    },
+    {
+      "day": 41730,
+      "name": "migrationTenancyDay",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0.10000000149011612
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "updateScenarioProgramme",
+      "ms": 0.6999999992549419
+    },
+    {
+      "day": 41730,
+      "name": "mayorJourneyDay",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "civicProjectsDay",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "civicCampaignDay",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "recordObservation",
+      "ms": 0.30000000074505806
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0.10000000149011612
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0.09999999776482582
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41730,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41759,
+      "name": "ensureSystems",
+      "ms": 0
+    },
+    {
+      "day": 41759,
+      "name": "ensureMarketModel",
+      "ms": 0.19999999925494194
+    },
+    {
+      "day": 41760,
+      "name": "regionalFreightDay",
+      "ms": 0.10000000149011612
+    },
+    {
+      "day": 41760,
+      "name": "freightDay",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "completeEquipmentOrders",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "completeDevelopmentProjects",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "ensureMarketModel",
+      "ms": 0.09999999776482582
+    },
+    {
+      "day": 41760,
+      "name": "dailyEconomy",
+      "ms": 18.300000000745058
+    },
+    {
+      "day": 41760,
+      "name": "urbanMunicipalHousingDay",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0.09999999776482582
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0.10000000149011612
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0.10000000149011612
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0.09999999776482582
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0.10000000149011612
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0.10000000149011612
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0.10000000149011612
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0.10000000149011612
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0.10000000149011612
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0.09999999776482582
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0.10000000149011612
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0.09999999776482582
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0.10000000149011612
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0.10000000149011612
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0.09999999776482582
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0.10000000149011612
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0.09999999776482582
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0.09999999776482582
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0.10000000149011612
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDaily",
+      "ms": 2.7999999970197678
+    },
+    {
+      "day": 41760,
+      "name": "metroOperatingDay",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "airfieldOperatingDay",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "incidents",
+      "ms": 0.30000000074505806
+    },
+    {
+      "day": 41760,
+      "name": "investigateCases",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "extendedCivicDay",
+      "ms": 2.5
+    },
+    {
+      "day": 41760,
+      "name": "maintainRoads",
+      "ms": 0.5999999977648258
+    },
+    {
+      "day": 41760,
+      "name": "finalizeMarketBooks",
+      "ms": 0.4000000022351742
+    },
+    {
+      "day": 41760,
+      "name": "assignJobs",
+      "ms": 0.19999999925494194
+    },
+    {
+      "day": 41760,
+      "name": "assignJobs",
+      "ms": 0.10000000149011612
+    },
+    {
+      "day": 41760,
+      "name": "privateInvestmentAndHousing",
+      "ms": 0.19999999925494194
+    },
+    {
+      "day": 41760,
+      "name": "recompute",
+      "ms": 0.4000000022351742
+    },
+    {
+      "day": 41760,
+      "name": "outwardMigration",
+      "ms": 10.100000001490116
+    },
+    {
+      "day": 41760,
+      "name": "autonomousDevelopment",
+      "ms": 1.699999999254942
+    },
+    {
+      "day": 41760,
+      "name": "migrationFamilyArrivalDay",
+      "ms": 0.19999999925494194
+    },
+    {
+      "day": 41760,
+      "name": "recompute",
+      "ms": 0.5
+    },
+    {
+      "day": 41760,
+      "name": "updateCouncilAndMissions",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "ensureSystems",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "assignJobs",
+      "ms": 0.09999999776482582
+    },
+    {
+      "day": 41760,
+      "name": "recompute",
+      "ms": 0.30000000074505806
+    },
+    {
+      "day": 41760,
+      "name": "systemsDay",
+      "ms": 31.800000000745058
+    },
+    {
+      "day": 41760,
+      "name": "monthlyReview",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "assignJobs",
+      "ms": 0.4000000022351742
+    },
+    {
+      "day": 41760,
+      "name": "yearlyDemographics",
+      "ms": 7.100000001490116
+    },
+    {
+      "day": 41760,
+      "name": "electionReview",
+      "ms": 1.5
+    },
+    {
+      "day": 41760,
+      "name": "offerCouncilEvent",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "recompute",
+      "ms": 0.6999999992549419
+    },
+    {
+      "day": 41760,
+      "name": "brownfieldDay",
+      "ms": 0.09999999776482582
+    },
+    {
+      "day": 41760,
+      "name": "privateServiceInvestmentDay",
+      "ms": 103.90000000223517
+    },
+    {
+      "day": 41760,
+      "name": "districtProgrammeDay",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "urbanEvolutionDay",
+      "ms": 104.39999999850988
+    },
+    {
+      "day": 41760,
+      "name": "migrationTenancyDay",
+      "ms": 0.19999999925494194
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0.09999999776482582
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "updateScenarioProgramme",
+      "ms": 0.5
+    },
+    {
+      "day": 41760,
+      "name": "mayorJourneyDay",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "civicProjectsDay",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "civicCampaignDay",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "recordObservation",
+      "ms": 0.20000000298023224
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0.09999999776482582
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0.09999999776482582
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0.10000000149011612
+    },
+    {
+      "day": 41760,
+      "name": "bankDeposits",
+      "ms": 0
+    },
+    {
+      "day": 41760,
+      "name": "marketSignal",
+      "ms": 2.099999997764826
+    }
+  ],
+  "requestMs": 0,
+  "workerSentAt": 1793500761570.9
+}

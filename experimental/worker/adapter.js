@@ -17,8 +17,10 @@ function workerSnapshot(projection=false){const started=performance.now();G.rngS
 function workerRequest(m){
  const reply=()=>workerSnapshot(m.projection===true);
  if(m.type!=='load'&&m.epoch!==workerEpoch)throw Error('Stale model epoch');
- if(['policy','choice','review'].includes(m.type)){if(!Number.isInteger(m.command)||m.command<=workerCommand)throw Error('Repeated command');workerCommand=m.command;}
+ if(['policy','choice','review','build'].includes(m.type)){if(!Number.isInteger(m.command)||m.command<=workerCommand)throw Error('Repeated command');workerCommand=m.command;}
  if(m.type==='load'){workerEpoch++;workerCommand=0;workerSavePrepared=null;for(const key of Object.keys(workerProfile))workerProfile[key]=0;workerOutbox.length=0;G=JSON.parse(m.archive);rngState=G.rngState;visualState=G.visualState;workerVersion=0;pendingEvent=null;invalidateRoads();return reply();}
+ if(m.type==='inspect'){const b=readBuild(m.building);if(!b)throw Error('Unknown building');return {...reply(),inspection:JSON.parse(JSON.stringify(b))};}
+ if(m.type==='build'){if(!Number.isInteger(m.x)||!Number.isInteger(m.y)||!types[m.kind]||m.kind==='inspect')throw Error('Invalid building command');const before=G.construction;construct(m.kind,m.x,m.y);return {...reply(),built:G.construction>before};}
  if(m.type==='policy'){const d=defs.find(d=>d[0]===m.key);if(!d||!Number.isFinite(m.value)||m.value<d[2]||m.value>d[3])throw Error('Invalid policy');const old=G.policy[m.key];G.policy[m.key]=m.value;journalPolicy(m.key,old,m.value);recompute();return reply();}
  if(m.type==='review'){reviewCouncilInbox(m.index);return reply();}
  if(m.type==='choice'){
