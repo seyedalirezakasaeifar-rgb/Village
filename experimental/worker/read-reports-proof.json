@@ -1,0 +1,35 @@
+{
+  "source": "d2b7086",
+  "rows": [
+    {
+      "command": "district-report",
+      "parcel": "east-meadow",
+      "exactModelRng": true,
+      "exactReport": true
+    },
+    {
+      "command": "district-report",
+      "parcel": "river-reach",
+      "exactModelRng": true,
+      "exactReport": true
+    },
+    {
+      "command": "calendar-report",
+      "parcel": null,
+      "exactModelRng": true,
+      "exactReport": true
+    },
+    {
+      "command": "transit-report",
+      "parcel": 1,
+      "exactModelRng": true,
+      "exactReport": true
+    },
+    {
+      "command": "cargo-report",
+      "parcel": 262102,
+      "exactModelRng": true,
+      "exactReport": true
+    }
+  ]
+}

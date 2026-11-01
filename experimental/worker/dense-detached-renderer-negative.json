@@ -1,0 +1,72 @@
+{
+  "fixtureSha256": "ad6256fd85d4146fda9eeac0b16d5b182ed352c23bbd96af3b320553c29ce786",
+  "sourceSha256": "218de17d31e130f8f683ab1287307380eb2ec0689b06d39a9003ef26883a1fc7",
+  "exactModelRng62Days": true,
+  "validCouncilChoice": true,
+  "staleAndRepeatedRejected": true,
+  "oldEpochRejected": true,
+  "exportExact": true,
+  "dayEffectsEqual": true,
+  "trustedInputs": [
+    {
+      "trusted": true,
+      "time": 34563.900000002235
+    },
+    {
+      "trusted": true,
+      "time": 34663.400000002235
+    },
+    {
+      "trusted": true,
+      "time": 34743.60000000149
+    },
+    {
+      "trusted": true,
+      "time": 34834
+    },
+    {
+      "trusted": true,
+      "time": 34960.300000000745
+    }
+  ],
+  "acks": [
+    {
+      "ms": 94.5,
+      "ok": true,
+      "epoch": 1,
+      "day": 41745
+    },
+    {
+      "ms": 74.29999999701977,
+      "ok": true,
+      "epoch": 1,
+      "day": 41746
+    },
+    {
+      "ms": 79.69999999925494,
+      "ok": true,
+      "epoch": 1,
+      "day": 41747
+    },
+    {
+      "ms": 78.60000000149012,
+      "ok": true,
+      "epoch": 1,
+      "day": 41748
+    },
+    {
+      "ms": 84.89999999850988,
+      "ok": true,
+      "epoch": 1,
+      "day": 41751
+    }
+  ],
+  "rafMaxMs": 716.6999999999971,
+  "rafSamples": 299,
+  "limitations": [
+    "Minimal separate readonly UI; not production renderer",
+    "No durable storage writes",
+    "Host Chromium only",
+    "Single matched fixture; not throughput certification"
+  ]
+}

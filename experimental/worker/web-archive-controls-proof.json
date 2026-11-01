@@ -1,0 +1,9 @@
+{
+  "actualBackupCopyCloseControls": true,
+  "actualImportForm": true,
+  "invalidImportHostUnchanged": true,
+  "validImportEpochAdvanced": true,
+  "successOnlyAfterAcknowledgedPersistence": true,
+  "pageErrors": [],
+  "nativeFilePickerClaimed": false
+}

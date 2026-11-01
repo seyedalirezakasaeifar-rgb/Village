@@ -1,0 +1,90 @@
+{
+  "speedInputHostUnchanged": true,
+  "panels": [
+    {
+      "panel": "overview",
+      "panelError": false,
+      "paidRejections": []
+    },
+    {
+      "panel": "economy",
+      "panelError": true,
+      "paidRejections": []
+    },
+    {
+      "panel": "construction",
+      "panelError": false,
+      "paidRejections": [
+        {
+          "selector": "#toggleDevelopment",
+          "hostUnchanged": true,
+          "workerUnchanged": true
+        }
+      ]
+    },
+    {
+      "panel": "agenda",
+      "panelError": false,
+      "paidRejections": []
+    },
+    {
+      "panel": "treasury",
+      "panelError": false,
+      "paidRejections": [
+        {
+          "selector": "#borrow",
+          "hostUnchanged": true,
+          "workerUnchanged": true
+        }
+      ]
+    },
+    {
+      "panel": "banking",
+      "panelError": false,
+      "paidRejections": []
+    },
+    {
+      "panel": "businesses",
+      "panelError": false,
+      "paidRejections": []
+    },
+    {
+      "panel": "citizens",
+      "panelError": false,
+      "paidRejections": []
+    },
+    {
+      "panel": "journal",
+      "panelError": false,
+      "paidRejections": []
+    },
+    {
+      "panel": "settings",
+      "panelError": false,
+      "paidRejections": []
+    },
+    {
+      "panel": "community",
+      "panelError": false,
+      "paidRejections": [
+        {
+          "selector": "[data-private-invite]",
+          "hostUnchanged": true,
+          "workerUnchanged": true
+        }
+      ]
+    },
+    {
+      "panel": "policies",
+      "panelError": false,
+      "paidRejections": []
+    }
+  ],
+  "pageErrors": [],
+  "testedPaidRejections": 3,
+  "source": "d2b7086",
+  "limits": [
+    "Only actually rendered/enabled controls count",
+    "Not complete paid routing or native acceptance"
+  ]
+}

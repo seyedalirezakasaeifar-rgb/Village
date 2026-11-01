@@ -1,0 +1,23 @@
+{
+  "base": "7233d8d",
+  "sourceSha256": "6ed9d208b0112e4e360f40ef21063b68c519aefd9df3e1b39071c02c78e22a02",
+  "singlePublishedSharedRoot": true,
+  "testOwnerOnly": true,
+  "actualCouncilChoiceParity": true,
+  "fullModelRngExact": true,
+  "committedSaveIntentBeforeSnapshot": true,
+  "forcedReservationRefusalExactRollback": true,
+  "sameReviewRecoveryExact": true,
+  "actualFundedProviderParity": true,
+  "creatorNullAfterPaymentRollsBack": true,
+  "providerRecoveryExact": true,
+  "fixtureLiquidityTransferredFromRegion": true,
+  "outboxTypes": [
+    "panel-render",
+    "council-closed",
+    "panel-render",
+    "header-invalidated",
+    "sound",
+    "save-request"
+  ]
+}

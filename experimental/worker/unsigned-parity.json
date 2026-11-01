@@ -1,0 +1,57 @@
+{
+  "sourceSha256": "218de17d31e130f8f683ab1287307380eb2ec0689b06d39a9003ef26883a1fc7",
+  "generatedWorkerSha256": "a5cb31c85a6537ff7d1e2fe19f343725fbe5140feadf3efabbce5daf22fff064",
+  "archiveSha256": "210f8e3b41b25d00ff4fb37dcd2980b537337f0fe73da616ade1aa1b7f7151a5",
+  "host": "Chromium only; native Java/bridge path not exercised",
+  "rows": [
+    {
+      "seedDecimal": "0",
+      "loadExact": true,
+      "twoDayExactModel": true,
+      "workerRngDecimal": "3599190429",
+      "hostRngDecimal": "3599190429"
+    },
+    {
+      "seedDecimal": "1",
+      "loadExact": true,
+      "twoDayExactModel": true,
+      "workerRngDecimal": "3599190430",
+      "hostRngDecimal": "3599190430"
+    },
+    {
+      "seedDecimal": "2147483646",
+      "loadExact": true,
+      "twoDayExactModel": true,
+      "workerRngDecimal": "2083542449",
+      "hostRngDecimal": "2083542449"
+    },
+    {
+      "seedDecimal": "2147483647",
+      "loadExact": true,
+      "twoDayExactModel": true,
+      "workerRngDecimal": "2083542450",
+      "hostRngDecimal": "2083542450"
+    },
+    {
+      "seedDecimal": "2147483648",
+      "loadExact": true,
+      "twoDayExactModel": true,
+      "workerRngDecimal": "2083542451",
+      "hostRngDecimal": "2083542451"
+    },
+    {
+      "seedDecimal": "4294967294",
+      "loadExact": true,
+      "twoDayExactModel": true,
+      "workerRngDecimal": "3599190427",
+      "hostRngDecimal": "3599190427"
+    },
+    {
+      "seedDecimal": "4294967295",
+      "loadExact": true,
+      "twoDayExactModel": true,
+      "workerRngDecimal": "4231026098",
+      "hostRngDecimal": "4231026098"
+    }
+  ]
+}
