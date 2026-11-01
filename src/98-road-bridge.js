@@ -23,7 +23,7 @@ function bridgeCandidateFromBank(bank){
   }
  }
  candidates.sort((a,b)=>Number(b.connectsComponents)-Number(a.connectsComponents)||b.gain-a.gain||a.cells.length-b.cells.length||a.cells[0]-b.cells[0]);
- if(!candidates.length)return {ok:false,reason:'No safe short span is ready from this bank. Need 1–3 water cells, owned water and roads on both banks, at least one bank already on the town network, no dock/fishing path through the work zone, and a useful new connection or shortcut.'};
+ if(!candidates.length)return {ok:false,reason:'No safe short span is ready from this bank. Need 1–5 water cells, owned water and roads on both banks, at least one bank already on the town network, no dock, transit, active navigation or fishing path through the work zone, and a useful new connection or shortcut.'};
  const chosen=candidates[0];if((G.bridges||[]).length>=ROAD_BRIDGE_MAX)return {ok:false,reason:'The engineering department is at its '+ROAD_BRIDGE_MAX+'-bridge planning limit. Retire or maintain existing crossings before adding another.'};if(G.treasury<chosen.cost)return {ok:false,reason:'This span needs '+money(chosen.cost)+' in municipal capital.'};return {...chosen,bank,day:G.day,cash:G.treasury,roads:roadsVersion,key:JSON.stringify([G.day,G.treasury,roadsVersion,chosen])};
 }
 function commitRoadBridge(bank,key){const q=bridgeCandidateFromBank(bank);if(!q.ok)return q;if(q.key!==key)return {ok:false,reason:'Water access, road access or city finances changed. Survey this span again.'};if(G.treasury<q.cost)return {ok:false,reason:'The bridge capital is no longer available.'};
