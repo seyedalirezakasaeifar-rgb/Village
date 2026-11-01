@@ -49,6 +49,17 @@ function serviceBudgetOutlook(policy={...(G?.policy||defaults),...draftPolicy}){
  const receipts=taxes.reduce((n,k)=>n+(Number.isFinite(G?.cumulative?.[k])?G.cumulative[k]:0),0)+(G?.transit?.fares||0),dailyReceipts=receipts/Math.max(1,(G?.day||1)-1),cash=Math.max(0,G?.treasury||0),deficit=currentNeed-dailyReceipts;
  return {ceiling,currentNeed,dailyReceipts,cash,deficit,runway:deficit>0?cash/deficit:null,estimates};
 }
+// Report the last completed day's real service shortfall alongside the cash
+// commitments that ran before civic purchases. This is diagnostic only: a
+// prior day is evidence, not a forecast or a promise about today's treasury.
+function serviceBudgetCashPressure(){
+ if(!G?.serviceProvision||!G.actualServiceFunding||!G.market)return null;
+ const services=['health','school'].map(kind=>({kind,...G.serviceProvision[kind]})).filter(s=>Number.isFinite(s.requested)&&Number.isFinite(s.paid)&&s.requested>s.paid+.005);
+ if(!services.length)return null;
+ const p=G.policy||defaults, funding=G.actualServiceFunding, publicPaid=['police','fire','outreach'].reduce((sum,key)=>sum+(Number(p[key==='fire'?'defenseBudget':key+'Budget'])||0)*clamp(Number(funding[key])||0,0,1),0);
+ const pensionDue=G.people.filter(person=>!person.deceased&&!person.movedAway&&person.age>70).length*(Number(p.pensionDaily)||0),pensionPaid=pensionDue*clamp(Number(G.market.pensionFunding)||0,0,1);
+ return {day:G.day,publicPaid,pensionPaid,priorPaid:publicPaid+pensionPaid,services,endingCash:Number(G.treasury)||0};
+}
 function serviceBudgetRecommendation(key,policy={...(G?.policy||defaults),...draftPolicy}){
  const outlook=serviceBudgetOutlook(policy),estimate=outlook.estimates[SERVICE_BUDGET_KEYS[key]],other=outlook.currentNeed-Math.min(Number(policy[key])||0,estimate.reachable),cashEnvelope=Math.max(0,outlook.dailyReceipts+outlook.cash/30-other);
  return {amount:Math.max(0,Math.min(PUBLIC_SERVICE_BUDGET_LIMIT,Math.floor(Math.min(estimate.reachable,cashEnvelope)))),cashEnvelope,estimate,outlook};
