@@ -1,0 +1,159 @@
+{
+  "page": {
+    "ok": true,
+    "checks": [
+      {
+        "op": "unsigned-shift",
+        "input": "2147483648",
+        "actual": "2147483648",
+        "expected": "2147483648"
+      },
+      {
+        "op": "signed-or",
+        "input": "2147483648",
+        "actual": "-2147483648",
+        "expected": "-2147483648"
+      },
+      {
+        "op": "unsigned-shift",
+        "input": "2218605210",
+        "actual": "2218605210",
+        "expected": "2218605210"
+      },
+      {
+        "op": "signed-or",
+        "input": "2218605210",
+        "actual": "-2076362086",
+        "expected": "-2076362086"
+      },
+      {
+        "op": "unsigned-shift",
+        "input": "4050171023",
+        "actual": "4050171023",
+        "expected": "4050171023"
+      },
+      {
+        "op": "signed-or",
+        "input": "4050171023",
+        "actual": "-244796273",
+        "expected": "-244796273"
+      },
+      {
+        "op": "unsigned-shift",
+        "input": "4294967295",
+        "actual": "4294967295",
+        "expected": "4294967295"
+      },
+      {
+        "op": "signed-or",
+        "input": "4294967295",
+        "actual": "-1",
+        "expected": "-1"
+      },
+      {
+        "op": "imul",
+        "input": "4294967295,5",
+        "actual": "-5",
+        "expected": "-5"
+      },
+      {
+        "op": "imul",
+        "input": "2147483648,1",
+        "actual": "-2147483648",
+        "expected": "-2147483648"
+      },
+      {
+        "op": "imul",
+        "input": "2147483647,2",
+        "actual": "-2",
+        "expected": "-2"
+      }
+    ]
+  },
+  "worker": {
+    "epoch": 0,
+    "ok": true,
+    "checks": [
+      {
+        "op": "unsigned-shift",
+        "input": "2147483648",
+        "actual": "2147483648",
+        "expected": "2147483648"
+      },
+      {
+        "op": "signed-or",
+        "input": "2147483648",
+        "actual": "-2147483648",
+        "expected": "-2147483648"
+      },
+      {
+        "op": "unsigned-shift",
+        "input": "2218605210",
+        "actual": "2218605210",
+        "expected": "2218605210"
+      },
+      {
+        "op": "signed-or",
+        "input": "2218605210",
+        "actual": "-2076362086",
+        "expected": "-2076362086"
+      },
+      {
+        "op": "unsigned-shift",
+        "input": "4050171023",
+        "actual": "4050171023",
+        "expected": "4050171023"
+      },
+      {
+        "op": "signed-or",
+        "input": "4050171023",
+        "actual": "-244796273",
+        "expected": "-244796273"
+      },
+      {
+        "op": "unsigned-shift",
+        "input": "4294967295",
+        "actual": "4294967295",
+        "expected": "4294967295"
+      },
+      {
+        "op": "signed-or",
+        "input": "4294967295",
+        "actual": "-1",
+        "expected": "-1"
+      },
+      {
+        "op": "imul",
+        "input": "4294967295,5",
+        "actual": "-5",
+        "expected": "-5"
+      },
+      {
+        "op": "imul",
+        "input": "2147483648,1",
+        "actual": "-2147483648",
+        "expected": "-2147483648"
+      },
+      {
+        "op": "imul",
+        "input": "2147483647,2",
+        "actual": "-2",
+        "expected": "-2"
+      }
+    ],
+    "requestMs": 0.3999999985098839,
+    "workerSentAt": 1793502719751.1
+  },
+  "faultInjectedLoadRejectedBeforeParse": true,
+  "rejectedEpochUnchanged": true,
+  "fallbackModes": [
+    "synchronous",
+    "unsupported-runtime",
+    "worker"
+  ],
+  "limitations": [
+    "Host Chromium only",
+    "Injected failure tests rejection, not emulator acceptance",
+    "No saved RNG algorithm changed"
+  ]
+}

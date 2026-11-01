@@ -1,0 +1,27 @@
+[
+  {
+    "name": "header",
+    "ok": true,
+    "ms": 41.900000002235174
+  },
+  {
+    "name": "real map",
+    "ok": true,
+    "ms": 323.3999999985099
+  },
+  {
+    "name": "construction panel",
+    "ok": true,
+    "ms": 120.19999999925494
+  },
+  {
+    "name": "policy panel",
+    "ok": true,
+    "ms": 21.199999999254942
+  },
+  {
+    "name": "agenda panel",
+    "ok": true,
+    "ms": 359.1000000014901
+  }
+]
