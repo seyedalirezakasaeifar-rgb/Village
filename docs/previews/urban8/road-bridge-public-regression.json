@@ -1,0 +1,60 @@
+{
+  "source_sha256": "2b2f14477099ee7a3c4a2f34bc590714c5163d4db358fee7f9bd7288e590b0d7",
+  "fixture": {
+    "span": [
+      1984,
+      1985,
+      1986,
+      1987,
+      1988
+    ],
+    "capital": 13450,
+    "upkeep": 12.5
+  },
+  "protectedCases": {
+    "unowned": {
+      "ok": false,
+      "reason": "Start from a town-owned road on a bank."
+    },
+    "navigation": {
+      "ok": false,
+      "reason": "No safe short span is ready from this bank. Need 1\u20135 water cells, owned water and roads on both banks, at least one bank already on the town network, no dock/fishing path through the work zone, and a useful new connection or shortcut."
+    },
+    "dock": {
+      "ok": false,
+      "reason": "No safe short span is ready from this bank. Need 1\u20135 water cells, owned water and roads on both banks, at least one bank already on the town network, no dock/fishing path through the work zone, and a useful new connection or shortcut."
+    }
+  },
+  "failedTickGuards": {
+    "buildRepairDecommissionRoadRetirement": true,
+    "saveByteEqual": true
+  },
+  "uiBridgeCancel": {
+    "economicModelAndRngUnchanged": true,
+    "expectedAuditOnlyChanges": [
+      "council decision event",
+      "decision journal entry",
+      "council inbox entry",
+      "lazy road metrics cache"
+    ]
+  },
+  "roadRetirementCancel": {
+    "economicModelAndRngUnchanged": true
+  },
+  "closureAndRepair": {
+    "conditionAfterUnderfundedMaintenance": 24.75000000000042,
+    "closedRoadSurface": true,
+    "waterRemainedOpen": true,
+    "unaffordableRepairBlocked": true,
+    "repairedCondition": 100,
+    "totalMoneyPreserved": true
+  },
+  "freightMidDeliverySaveLoad": {
+    "day": 4,
+    "stage": "delivering",
+    "pathContainsAllBridgeCells": true,
+    "removalBlocked": true,
+    "moneyPreserved": true
+  },
+  "errors": []
+}

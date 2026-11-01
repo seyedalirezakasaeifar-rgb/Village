@@ -1143,6 +1143,17 @@ function serviceBudgetOutlook(policy={...(G?.policy||defaults),...draftPolicy}){
  const receipts=taxes.reduce((n,k)=>n+(Number.isFinite(G?.cumulative?.[k])?G.cumulative[k]:0),0)+(G?.transit?.fares||0),dailyReceipts=receipts/Math.max(1,(G?.day||1)-1),cash=Math.max(0,G?.treasury||0),deficit=currentNeed-dailyReceipts;
  return {ceiling,currentNeed,dailyReceipts,cash,deficit,runway:deficit>0?cash/deficit:null,estimates};
 }
+// Report the last completed day's real service shortfall alongside the cash
+// commitments that ran before civic purchases. This is diagnostic only: a
+// prior day is evidence, not a forecast or a promise about today's treasury.
+function serviceBudgetCashPressure(){
+ const evidence=G?.serviceCashEvidence,nonnegative=v=>Number.isFinite(v)&&v>=0;
+ if(!evidence||evidence.version!==1||evidence.day!==G.day||!Number.isSafeInteger(evidence.day)||!evidence.services||!evidence.payroll||!['pensionPaid','cashBeforeServices','closingCash'].every(k=>nonnegative(evidence[k])))return null;
+ const payroll=['police','fire','outreach'];if(!payroll.every(key=>nonnegative(evidence.payroll[key])))return null;
+ const services=[];for(const kind of ['health','school']){const row=evidence.services[kind];if(!row||!nonnegative(row.requested)||!nonnegative(row.paid)||row.paid>row.requested+.005)return null;if(row.requested>row.paid+.005)services.push({kind,requested:row.requested,paid:row.paid});}
+ if(!services.length)return null;
+ return {day:evidence.day,publicPaid:payroll.reduce((sum,key)=>sum+evidence.payroll[key],0),pensionPaid:evidence.pensionPaid,services,cashBeforeServices:evidence.cashBeforeServices,endingCash:evidence.closingCash};
+}
 function serviceBudgetRecommendation(key,policy={...(G?.policy||defaults),...draftPolicy}){
  const outlook=serviceBudgetOutlook(policy),estimate=outlook.estimates[SERVICE_BUDGET_KEYS[key]],other=outlook.currentNeed-Math.min(Number(policy[key])||0,estimate.reachable),cashEnvelope=Math.max(0,outlook.dailyReceipts+outlook.cash/30-other);
  return {amount:Math.max(0,Math.min(PUBLIC_SERVICE_BUDGET_LIMIT,Math.floor(Math.min(estimate.reachable,cashEnvelope)))),cashEnvelope,estimate,outlook};
@@ -2179,7 +2190,7 @@ function brownfieldReopened(s){return s.status==='assessed'&&s.wasClosed!==false
 
 // SOURCE: 30-economy.js
 function dailyEconomy(){
- ensureMarketModel();recruitPrivateServiceStaff();recruitUrbanRetailStaff();marketOpen=true;const P=G.policy,live=G.firms.filter(f=>!f.closed),counts={};
+ ensureMarketModel();G.serviceCashEvidence={version:1,day:G.day,payroll:{police:0,fire:0,outreach:0},pensionPaid:0,cashBeforeServices:0,services:null,closingCash:null};recruitPrivateServiceStaff();recruitUrbanRetailStaff();marketOpen=true;const P=G.policy,live=G.firms.filter(f=>!f.closed),counts={};
  for(const f of live)counts[f.kind]=(counts[f.kind]||0)+1;
  for(const f of G.firms){f.revenue=f.pendingRevenue||0;f.pendingRevenue=0;f.expenses=(f.pendingFreightExpense||0)+(f.pendingReturnAdjustment||0);f.pendingFreightExpense=0;f.pendingReturnAdjustment=0;f.debtDue=0;f.cogs=f.pendingCogs||0;f.pendingCogs=0;f.purchases=0;f.payroll=0;f.nonSalesIncome=0;f.recoveries=0;f.salesQty=f.pendingSalesQty||0;f.pendingSalesQty=0;f.production=0;f.profit=0;f.tax=0;f.age++;}
  for(const p of G.people){p.previousPublicRole=p.publicWork?(p.publicRole||''):'';p.publicRole='';p.publicWork=false;p.publicIncome=0;p.commuteBlocked=false;}
@@ -2235,9 +2246,12 @@ function dailyEconomy(){
   if((f.stock.food||0)+pendingGoods(f,'food')<daily*reorderDays)trade(f,'food',Math.max(0,target-(f.stock.food||0)));
   f.retailCapacity=workingStaff(f).length*80;}
  // A public employee cannot be counted six times across six service budgets.
- G.actualServiceFunding={police:fundedPublicPayroll(P.policeBudget),fire:fundedPublicPayroll(P.defenseBudget),outreach:fundedPublicPayroll(P.outreachBudget),transit:G.transit?.routes.length?0:fundedPublicPayroll(P.transitBudget||0)};
+ const recordPublicPayroll=(kind,amount)=>{const before=G.treasury,ratio=fundedPublicPayroll(amount);G.serviceCashEvidence.payroll[kind]=before-G.treasury;return ratio};
+ G.actualServiceFunding={police:recordPublicPayroll('police',P.policeBudget),fire:recordPublicPayroll('fire',P.defenseBudget),outreach:recordPublicPayroll('outreach',P.outreachBudget),transit:G.transit?.routes.length?0:fundedPublicPayroll(P.transitBudget||0)};
  const retirees=G.people.filter(p=>!p.deceased&&!p.movedAway&&p.age>70),pensionDue=retirees.length*(P.pensionDaily||0),pensionPaid=Math.min(G.treasury,pensionDue);G.treasury-=pensionPaid;G.cumulative.spending+=pensionPaid;G.cumulative.pensions=(G.cumulative.pensions||0)+pensionPaid;for(const p of retirees){const h=G.households[p.hh],amount=pensionPaid/Math.max(1,retirees.length);h.cash+=amount;h.income+=amount;h.pension+=amount;}G.market.pensionFunding=pensionDue>0?pensionPaid/pensionDue:1;
+ G.serviceCashEvidence.pensionPaid=pensionPaid;G.serviceCashEvidence.cashBeforeServices=G.treasury;
  fundCivicServices();
+ G.serviceCashEvidence.services=Object.fromEntries(['health','school'].map(kind=>{const s=G.serviceProvision?.[kind];return [kind,{requested:s?.requested??0,paid:s?.paid??0}]}));
  const householdLoans=new Map();for(const l of G.loans)if(l.status==='active'&&l.ownerType==='household'){if(!householdLoans.has(l.ownerId))householdLoans.set(l.ownerId,[]);householdLoans.get(l.ownerId).push(l);}
  const propertyDue=new Map();for(const b of G.buildings)if(['home','apartment','tower'].includes(b.kind)&&b.owner>=0)propertyDue.set(b.owner,(propertyDue.get(b.owner)||0)+b.value*P.propertyTax/100/360);
  const living=G.households.filter(h=>h.people.length),consumerSuppliers=live.filter(f=>['tavern','office','contractor','factory','college'].includes(f.kind)&&workingStaff(f).length>0);
@@ -3535,6 +3549,7 @@ function tick(){if(!G||pendingEvent||simulationTickFailed)return;simulationTickA
  // Publish and save one canonical end-of-day snapshot after demographic and civic changes.
  recompute();G.stats.approval=Math.round(G.council.approval);G.rngState=rngState;
  brownfieldDay();privateServiceInvestmentDay();districtProgrammeDay();urbanEvolutionDay();migrationTenancyDay();updateScenarioProgramme();mayorJourneyDay();civicProjectsDay();civicCampaignDay();G.rngState=rngState;if(G.day%10===0)recordObservation();
+ if(G.serviceCashEvidence?.day===G.day)G.serviceCashEvidence.closingCash=G.treasury;
  G.history.push({day:G.day,employment:G.stats.employment,hardship:G.stats.hardship,safety:G.stats.safety,treasury:Math.round(G.treasury),businesses:G.stats.businesses,deposits:(G.banks||[]).reduce((n,b)=>n+bankDeposits(b.id),0),crime:G.stats.dailyCrime,approval:G.council.approval,education:G.education,health:G.health});if(G.history.length>240)G.history.shift();
  if(G.day%60===0){const signal=marketSignal();if(signal.kind!=='normal'&&signal.title!==G.lastEconomicSignal){story(signal.title+'. '+signal.description,signal.kind==='good'?'good':'bad');G.lastEconomicSignal=signal.title;}}
  // Autosaves are scheduled in wall time by the frame controller.
@@ -6268,7 +6283,7 @@ function serviceBudgetControlHtml(key){
  return `<div class="range service-budget-control" data-service-budget-control="${key}"><label for="serviceBudgetAmount-${key}"><b>${esc(d[1])}</b><span id="show-${key}">${serviceBudgetMoney(value)}</span></label><div class="service-budget-amount"><span aria-hidden="true">$</span><input id="serviceBudgetAmount-${key}" type="number" inputmode="decimal" min="0" max="${range.hardMax}" step="any" value="${esc(value)}" data-service-budget-amount="${key}" aria-label="${esc(d[1])} daily dollar amount" aria-describedby="serviceBudgetHint-${key}"><span>/ day</span></div><input type="range" data-policy="${key}" aria-label="${esc(d[1])}" min="0" max="${range.max}" step="${range.step}" value="${esc(value)}"><p class="desc" id="serviceBudgetHint-${key}">Enter exact daily dollars, up to ${serviceBudgetMoney(range.hardMax)}. Changes remain a proposal until enacted; unused authorization stays in the treasury.</p><p class="service-budget-error" data-service-budget-error="${key}" role="status"></p><div id="serviceBudgetEstimate-${key}">${serviceBudgetEstimateHtml(key)}</div></div>`;
 }
 function serviceBudgetOutlookHtml(){
- const o=serviceBudgetOutlook();return `<section class="council-card service-budget-outlook"><h3>Review the proposed daily commitments</h3>${strip('Full authorization ceiling',serviceBudgetMoney(o.ceiling)+'/day')}${strip('Bounded by current reachable service need',serviceBudgetMoney(o.currentNeed)+'/day')}${strip('Historical daily receipts',serviceBudgetMoney(o.dailyReceipts)+'/day')}${strip('Cash at that current-need bound',o.runway==null?'Historical receipts cover this bound':fmt(Math.max(0,o.runway))+' days')}<p class="desc">The ceiling is not an immediate charge. The current-need bound assumes reachable service capacity can recruit; actual purchases may be lower. This cash plan uses receipts since founding and today’s cash, not a promise of future income. Growth, prices, staffing and new policy effects can change it.</p></section>`;
+ const o=serviceBudgetOutlook(),pressure=serviceBudgetCashPressure(),pressureHtml=pressure?`<p class="service-budget-warning" role="status"><b>Recent cash shortfall · day ${pressure.day}.</b> Recorded safety/outreach payroll paid ${pressure.publicPaid==null?'unknown':serviceBudgetMoney(pressure.publicPaid)} and pensions paid ${serviceBudgetMoney(pressure.pensionPaid)} before civic services. Treasury at the service purchase was ${serviceBudgetMoney(pressure.cashBeforeServices)}. ${pressure.services.map(s=>`${s.kind==='health'?'Health':'School'} paid ${serviceBudgetMoney(s.paid)} of ${serviceBudgetMoney(s.requested)} requested`).join('; ')}. Closing treasury was ${serviceBudgetMoney(pressure.endingCash)}. Higher authorizations alone may not increase service purchases if earlier cash commitments persist.</p>`:'';return `<section class="council-card service-budget-outlook"><h3>Review the proposed daily commitments</h3>${strip('Full authorization ceiling',serviceBudgetMoney(o.ceiling)+'/day')}${strip('Bounded by current reachable service need',serviceBudgetMoney(o.currentNeed)+'/day')}${strip('Historical daily receipts',serviceBudgetMoney(o.dailyReceipts)+'/day')}${strip('Cash at that current-need bound',o.runway==null?'Historical receipts cover this bound':fmt(Math.max(0,o.runway))+' days')}${pressureHtml}<p class="desc">The ceiling is not an immediate charge. The current-need bound assumes reachable service capacity can recruit; actual purchases may be lower. This cash plan uses receipts since founding and today’s cash, not a promise of future income. Growth, prices, staffing and new policy effects can change it.</p></section>`;
 }
 function updateServiceBudgetControls(changedKey=null,preset=false){
  if(active!=='policies')return;const errors=serviceBudgetErrors();

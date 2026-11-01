@@ -1,0 +1,39 @@
+{
+  "source_sha256": "d48e5ce2608c2d77db94ec271e1a0f0377657678308de73f5abc750f0a331eb6",
+  "testMode": "CODEC_CORPUS_KEYS_ONLY=reject",
+  "fixtureCompatibility": "Object.hasOwn replaced by identical own-property helper for WebView83; runtime unchanged",
+  "result": {
+    "seed": 1403591725,
+    "randomCanonicalCases": 0,
+    "validWireCases": 0,
+    "invalidCases": 1,
+    "maxWireBytes": 692953,
+    "earlyRejectCases": 0,
+    "syntaxCases": 0,
+    "lateWork": {
+      "shared-key-expansion-combination": {
+        "budgetCalls": 1,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "parseMs": 1391.299999999319,
+        "error": "Decoded archive expansion budget exceeded"
+      }
+    },
+    "budgetCases": [
+      {
+        "name": "combined-key-expansion-limit",
+        "budgetCalls": 1,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "parseMs": 1391.299999999319,
+        "error": "Decoded archive expansion budget exceeded"
+      }
+    ],
+    "mode": "reject",
+    "failureCount": 0,
+    "negativeZeroPreservedBeforeSerialization": null,
+    "duplicateKeySemantics": "not tested in focused mode",
+    "identityArraysRequireUniqueIds": null
+  },
+  "outcome": "PASS"
+}

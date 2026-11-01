@@ -1,5 +1,5 @@
 function dailyEconomy(){
- ensureMarketModel();recruitPrivateServiceStaff();recruitUrbanRetailStaff();marketOpen=true;const P=G.policy,live=G.firms.filter(f=>!f.closed),counts={};
+ ensureMarketModel();G.serviceCashEvidence={version:1,day:G.day,payroll:{police:0,fire:0,outreach:0},pensionPaid:0,cashBeforeServices:0,services:null,closingCash:null};recruitPrivateServiceStaff();recruitUrbanRetailStaff();marketOpen=true;const P=G.policy,live=G.firms.filter(f=>!f.closed),counts={};
  for(const f of live)counts[f.kind]=(counts[f.kind]||0)+1;
  for(const f of G.firms){f.revenue=f.pendingRevenue||0;f.pendingRevenue=0;f.expenses=(f.pendingFreightExpense||0)+(f.pendingReturnAdjustment||0);f.pendingFreightExpense=0;f.pendingReturnAdjustment=0;f.debtDue=0;f.cogs=f.pendingCogs||0;f.pendingCogs=0;f.purchases=0;f.payroll=0;f.nonSalesIncome=0;f.recoveries=0;f.salesQty=f.pendingSalesQty||0;f.pendingSalesQty=0;f.production=0;f.profit=0;f.tax=0;f.age++;}
  for(const p of G.people){p.previousPublicRole=p.publicWork?(p.publicRole||''):'';p.publicRole='';p.publicWork=false;p.publicIncome=0;p.commuteBlocked=false;}
@@ -55,9 +55,12 @@ function dailyEconomy(){
   if((f.stock.food||0)+pendingGoods(f,'food')<daily*reorderDays)trade(f,'food',Math.max(0,target-(f.stock.food||0)));
   f.retailCapacity=workingStaff(f).length*80;}
  // A public employee cannot be counted six times across six service budgets.
- G.actualServiceFunding={police:fundedPublicPayroll(P.policeBudget),fire:fundedPublicPayroll(P.defenseBudget),outreach:fundedPublicPayroll(P.outreachBudget),transit:G.transit?.routes.length?0:fundedPublicPayroll(P.transitBudget||0)};
+ const recordPublicPayroll=(kind,amount)=>{const before=G.treasury,ratio=fundedPublicPayroll(amount);G.serviceCashEvidence.payroll[kind]=before-G.treasury;return ratio};
+ G.actualServiceFunding={police:recordPublicPayroll('police',P.policeBudget),fire:recordPublicPayroll('fire',P.defenseBudget),outreach:recordPublicPayroll('outreach',P.outreachBudget),transit:G.transit?.routes.length?0:fundedPublicPayroll(P.transitBudget||0)};
  const retirees=G.people.filter(p=>!p.deceased&&!p.movedAway&&p.age>70),pensionDue=retirees.length*(P.pensionDaily||0),pensionPaid=Math.min(G.treasury,pensionDue);G.treasury-=pensionPaid;G.cumulative.spending+=pensionPaid;G.cumulative.pensions=(G.cumulative.pensions||0)+pensionPaid;for(const p of retirees){const h=G.households[p.hh],amount=pensionPaid/Math.max(1,retirees.length);h.cash+=amount;h.income+=amount;h.pension+=amount;}G.market.pensionFunding=pensionDue>0?pensionPaid/pensionDue:1;
+ G.serviceCashEvidence.pensionPaid=pensionPaid;G.serviceCashEvidence.cashBeforeServices=G.treasury;
  fundCivicServices();
+ G.serviceCashEvidence.services=Object.fromEntries(['health','school'].map(kind=>{const s=G.serviceProvision?.[kind];return [kind,{requested:s?.requested??0,paid:s?.paid??0}]}));
  const householdLoans=new Map();for(const l of G.loans)if(l.status==='active'&&l.ownerType==='household'){if(!householdLoans.has(l.ownerId))householdLoans.set(l.ownerId,[]);householdLoans.get(l.ownerId).push(l);}
  const propertyDue=new Map();for(const b of G.buildings)if(['home','apartment','tower'].includes(b.kind)&&b.owner>=0)propertyDue.set(b.owner,(propertyDue.get(b.owner)||0)+b.value*P.propertyTax/100/360);
  const living=G.households.filter(h=>h.people.length),consumerSuppliers=live.filter(f=>['tavern','office','contractor','factory','college'].includes(f.kind)&&workingStaff(f).length>0);

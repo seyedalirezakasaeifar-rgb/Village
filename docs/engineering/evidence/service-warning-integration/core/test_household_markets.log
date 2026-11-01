@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/workspace/core-recovery/tests/test_household_markets.py", line 17, in <module>
+    assert r['blocked']['job']==r['repaired']['job']==r['firm'] and not r['repaired']['work'] and r['repaired']['food']>0,r
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'base': {'food': 24.03272270769231, 'wages': 62, 'drift': -1.1175870895385742e-08}, 'blocked': {'food': 0, 'privateWages': 0, 'work': True, 'job': 22, 'travel': 0, 'disconnected': 3, 'drift': -1.1175870895385742e-08}, 'repaired': {'food': 0, 'work': False, 'job': 22}, 'firm': 22, 'price': True}

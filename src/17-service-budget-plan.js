@@ -49,6 +49,17 @@ function serviceBudgetOutlook(policy={...(G?.policy||defaults),...draftPolicy}){
  const receipts=taxes.reduce((n,k)=>n+(Number.isFinite(G?.cumulative?.[k])?G.cumulative[k]:0),0)+(G?.transit?.fares||0),dailyReceipts=receipts/Math.max(1,(G?.day||1)-1),cash=Math.max(0,G?.treasury||0),deficit=currentNeed-dailyReceipts;
  return {ceiling,currentNeed,dailyReceipts,cash,deficit,runway:deficit>0?cash/deficit:null,estimates};
 }
+// Report the last completed day's real service shortfall alongside the cash
+// commitments that ran before civic purchases. This is diagnostic only: a
+// prior day is evidence, not a forecast or a promise about today's treasury.
+function serviceBudgetCashPressure(){
+ const evidence=G?.serviceCashEvidence,nonnegative=v=>Number.isFinite(v)&&v>=0;
+ if(!evidence||evidence.version!==1||evidence.day!==G.day||!Number.isSafeInteger(evidence.day)||!evidence.services||!evidence.payroll||!['pensionPaid','cashBeforeServices','closingCash'].every(k=>nonnegative(evidence[k])))return null;
+ const payroll=['police','fire','outreach'];if(!payroll.every(key=>nonnegative(evidence.payroll[key])))return null;
+ const services=[];for(const kind of ['health','school']){const row=evidence.services[kind];if(!row||!nonnegative(row.requested)||!nonnegative(row.paid)||row.paid>row.requested+.005)return null;if(row.requested>row.paid+.005)services.push({kind,requested:row.requested,paid:row.paid});}
+ if(!services.length)return null;
+ return {day:evidence.day,publicPaid:payroll.reduce((sum,key)=>sum+evidence.payroll[key],0),pensionPaid:evidence.pensionPaid,services,cashBeforeServices:evidence.cashBeforeServices,endingCash:evidence.closingCash};
+}
 function serviceBudgetRecommendation(key,policy={...(G?.policy||defaults),...draftPolicy}){
  const outlook=serviceBudgetOutlook(policy),estimate=outlook.estimates[SERVICE_BUDGET_KEYS[key]],other=outlook.currentNeed-Math.min(Number(policy[key])||0,estimate.reachable),cashEnvelope=Math.max(0,outlook.dailyReceipts+outlook.cash/30-other);
  return {amount:Math.max(0,Math.min(PUBLIC_SERVICE_BUDGET_LIMIT,Math.floor(Math.min(estimate.reachable,cashEnvelope)))),cashEnvelope,estimate,outlook};

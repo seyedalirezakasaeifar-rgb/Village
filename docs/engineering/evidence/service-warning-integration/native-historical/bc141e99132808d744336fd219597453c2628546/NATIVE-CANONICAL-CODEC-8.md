@@ -1,0 +1,9 @@
+# Strict native recovery after complete canonical fix
+
+API30/WebView83 healthy emulator reused. Exact scratch chain:3bf70b8 (9932d34 shared-key runtime plus77a799d/a964174 and v2 codec), then b7df5d1 and full published46eda8b (tree-equivalent a41eaff). Local combined commit c84b8a8; installed JS SHA2569a0e70d0074b0ce363c6f0bf79b7a4907dc95b6b441f9e14e8018a2b2f62efc5 verified against source/APK. Native import-busy wrapper60f9e3 preserved. Codec remains disabled in production; experimental enable is runtime-only.
+
+Ordinary small169-person control: strict complete canonical before/after hashes match e43b77fe57d263ab0f5c283e7fcadb2fe1a8b4e48079cd9e4f28a9e1dae9bdd1 after real background am kill and new-process Continue. Day1 and169 identities retained, model validates. Codec disabled for this schema8 control.
+
+Generated8001-person codec town: strict full wire before/after hashes match54d02ef81d4d15ea31818255888e07d55d30fc682643ee9b0949da8dd1317fe1 after PID9999 disappeared and new PID10167 completed Continue. Codec explicitly enabled in the new test runtime before Continue, following its deliberately non-persistent test flag contract. Full wire equality includes every active/inactive identity and all ordinary model fields. No roadMetrics/regionalTrade differences remain; no field exclusions or null normalization was added to the comparator. Report day fields are null because the generic controller reads the wire's top level, while logical metadata resides in payload; full payload remains covered by canonical hash.
+
+Same-source generated8001 in-process export/import also passed strict full logical equality,808788 bytes, encode3797.2ms/decode8578.0ms on the software emulator. Heap snapshot27.6MB is not peak certification. Old failed evidence remains published separately. Public receipts contain hashes/counts only; no raw saves, APK or keys. Production activation, modern-device acceptance and natural long-session play remain separate decisions.

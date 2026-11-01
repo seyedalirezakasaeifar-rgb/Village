@@ -1,0 +1,114 @@
+{
+  "source_sha256": "2b2f14477099ee7a3c4a2f34bc590714c5163d4db358fee7f9bd7288e590b0d7",
+  "base": "5dbc04186a1ee930b0a2f92b2df82d4556417d22",
+  "gates": [
+    {
+      "test": "test_service_budget_cash_warning",
+      "exit_code": 0,
+      "seconds": 11.54,
+      "log_sha256": "5ab4e2ab171fdb883a6bb62889a88fd52d05e1976d3083ea5969a5f5ba6a75e5"
+    },
+    {
+      "test": "test_road_bridge_public_regression",
+      "exit_code": 0,
+      "seconds": 4.37,
+      "log_sha256": "946ac4623fc36e4f5617f525e7711b0f1fa78281ca9ae74706132ae8844ddcca"
+    },
+    {
+      "test": "test_waterfront_player_journey",
+      "exit_code": 0,
+      "seconds": 14.92,
+      "log_sha256": "32d5a1e3880a423c78c48e3b2d2ffbcafff4096f62027362470ec49f42b9c98b"
+    },
+    {
+      "test": "test_construction_continuation",
+      "exit_code": 0,
+      "seconds": 14.4,
+      "log_sha256": "653dfddc77c14bbaa92e2dab7e53e2757fd5e05de59bd51cb92acbeac92f6823"
+    },
+    {
+      "test": "test_service_receipt_continuation",
+      "exit_code": 0,
+      "seconds": 4.98,
+      "log_sha256": "1d2d8193754e2a3baacc671aedd03fa825142a8771f9d6f86f92ce3ee9d098d2"
+    },
+    {
+      "test": "test_bridge_cold_continue",
+      "exit_code": 0,
+      "seconds": 6.56,
+      "log_sha256": "cd3790b92961bff0942d167593f2f1e8ac8b3e8bc68f519e46f05b028f8377d1"
+    },
+    {
+      "test": "test_fresh_save",
+      "exit_code": 0,
+      "seconds": 5.37,
+      "log_sha256": "d8d54f1304da56088446eb906ff2b095604f67c9e2100f49b1c1a82d75944615"
+    },
+    {
+      "test": "test_private_services",
+      "exit_code": 0,
+      "seconds": 7.65,
+      "log_sha256": "1802dc0970129d9dfcb8828be16eaeeb482954cbf76bbd2a2d95c85cedec1c57"
+    },
+    {
+      "test": "test_service_provision",
+      "exit_code": 0,
+      "seconds": 11.73,
+      "log_sha256": "5d9030b8106091c2116c83d519b8d83ebd5bad7b039b929d3d3b680592c2d911"
+    },
+    {
+      "test": "test_service_budget_authorization",
+      "exit_code": 0,
+      "seconds": 24.28,
+      "log_sha256": "c1eac94ae7a0193b7e2a07aa8d66e6bb0e273de91d4b174ab59dfc76e9c72c79"
+    },
+    {
+      "test": "test_local_civic_services",
+      "exit_code": 0,
+      "seconds": 5.44,
+      "log_sha256": "13be8b00b5793cf4a148aafd612a3fe78d6a3231684fe05fbb4245a7438e0ab1"
+    },
+    {
+      "test": "test_save_composite",
+      "exit_code": 0,
+      "seconds": 4.11,
+      "log_sha256": "5625b3e0be1af3bf7b594b993b982f0c07e82717aed5085058b598e7d29d57b7"
+    },
+    {
+      "test": "test_upgrade_matrix",
+      "exit_code": 0,
+      "seconds": 10.8,
+      "log_sha256": "b140e30a10c35a51360252465fe7703cb8282182aa5c79b9e3c20fb2d336d665"
+    },
+    {
+      "test": "test_controls",
+      "exit_code": 0,
+      "seconds": 9.09,
+      "log_sha256": "d58dc54e98f391d72db1585e872f0f6130de2ed4340fbf4ac3cf4ee577fab49c"
+    },
+    {
+      "test": "test_pending_review_flows",
+      "exit_code": 0,
+      "seconds": 7.86,
+      "log_sha256": "d6b044d637e9b97fbf48dcade911e1722492ab9899dbb0f4fa9e5362059d9ec0"
+    },
+    {
+      "test": "test_committed_day_save",
+      "exit_code": 0,
+      "seconds": 9.23,
+      "log_sha256": "0bdb1b943f362163e2c640680bcab9042abf7d0e62d60026131a8605eeacfcd6"
+    },
+    {
+      "test": "test_older_webview_api",
+      "exit_code": 0,
+      "seconds": 11.64,
+      "log_sha256": "8cc4a21101c974c8a6f80bf0db7433ed546a3dc6bc335d43b1a7797a471e6b13"
+    },
+    {
+      "test": "test_native_import_busy_bridge",
+      "exit_code": 0,
+      "seconds": 1.48,
+      "log_sha256": "596984d36b677db4d4b7fc9da915d68435d7e6fc60c3a5a24b0b739ce372b2ed"
+    }
+  ]
+}

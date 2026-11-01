@@ -1,0 +1,128 @@
+[
+  {
+    "service": "health",
+    "facilities": true,
+    "cash": 100000,
+    "amount": 0,
+    "health": 73.9616,
+    "education": 45.991,
+    "treasury": 100000
+  },
+  {
+    "service": "health",
+    "facilities": true,
+    "cash": 100000,
+    "amount": 1,
+    "health": 73.96220576923076,
+    "education": 45.991,
+    "treasury": 99999.078
+  },
+  {
+    "service": "health",
+    "facilities": true,
+    "cash": 100000,
+    "amount": 25,
+    "health": 73.97674423076923,
+    "education": 45.991,
+    "treasury": 99976.95
+  },
+  {
+    "service": "health",
+    "facilities": true,
+    "cash": 100000,
+    "amount": 100,
+    "health": 74.02217692307693,
+    "education": 45.991,
+    "treasury": 99907.8
+  },
+  {
+    "service": "health",
+    "facilities": true,
+    "cash": 100000,
+    "amount": 250,
+    "health": 74.0246,
+    "education": 45.991,
+    "treasury": 99904.11200000001
+  },
+  {
+    "service": "health",
+    "facilities": true,
+    "cash": 100000,
+    "amount": 1000,
+    "health": 74.0246,
+    "education": 45.991,
+    "treasury": 99904.11200000001
+  },
+  {
+    "service": "health",
+    "facilities": true,
+    "cash": 100000,
+    "amount": 4000,
+    "health": 74.0246,
+    "education": 45.991,
+    "treasury": 99904.11200000001
+  },
+  {
+    "service": "school",
+    "facilities": true,
+    "cash": 100000,
+    "amount": 0,
+    "health": 73.9616,
+    "education": 45.991,
+    "treasury": 100000
+  },
+  {
+    "service": "school",
+    "facilities": true,
+    "cash": 100000,
+    "amount": 1,
+    "health": 73.9616,
+    "education": 45.99117142857143,
+    "treasury": 99999.078
+  },
+  {
+    "service": "school",
+    "facilities": true,
+    "cash": 100000,
+    "amount": 25,
+    "health": 73.9616,
+    "education": 45.995285714285714,
+    "treasury": 99976.95
+  },
+  {
+    "service": "school",
+    "facilities": true,
+    "cash": 100000,
+    "amount": 100,
+    "health": 73.9616,
+    "education": 46.00814285714286,
+    "treasury": 99907.8
+  },
+  {
+    "service": "school",
+    "facilities": true,
+    "cash": 100000,
+    "amount": 250,
+    "health": 73.9616,
+    "education": 46.033857142857144,
+    "treasury": 99769.5
+  },
+  {
+    "service": "school",
+    "facilities": true,
+    "cash": 100000,
+    "amount": 1000,
+    "health": 73.9616,
+    "education": 46.039,
+    "treasury": 99741.84
+  },
+  {
+    "service": "school",
+    "facilities": true,
+    "cash": 100000,
+    "amount": 4000,
+    "health": 73.9616,
+    "education": 46.039,
+    "treasury": 99741.84
+  }
+]
