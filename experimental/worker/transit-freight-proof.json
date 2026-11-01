@@ -1,0 +1,30 @@
+{
+  "productionEnabled": false,
+  "sourceSha256": "5df42ea1348872ad692a53bfa6ea1081472d1c8783ec9ace2b5cf011bcfb6e20",
+  "workerSha256": "daf12da0940f0c597bb59a72cc05ebdf766a1c6b53db58dbf2fda5fe7c6b7f45",
+  "operations": [
+    {
+      "operation": "routing",
+      "value": "river",
+      "duplicateAndSchemaRollback": true
+    },
+    {
+      "operation": "priority",
+      "value": "essentials",
+      "duplicateAndSchemaRollback": true
+    },
+    {
+      "operation": "routing",
+      "value": "automatic",
+      "duplicateAndSchemaRollback": true
+    },
+    {
+      "operation": "priority",
+      "value": "balanced",
+      "duplicateAndSchemaRollback": true
+    }
+  ],
+  "absentTargetsRollback": 4,
+  "actualUiTested": false,
+  "pageErrors": []
+}

@@ -1,0 +1,62 @@
+[
+  {
+    "event": "click",
+    "selector": "[data-logistics-routing]",
+    "operation": "routing",
+    "fields": {
+      "value": {
+        "source": "attribute",
+        "name": "data-logistics-routing",
+        "as": "string"
+      }
+    }
+  },
+  {
+    "event": "click",
+    "selector": "[data-logistics-priority]",
+    "operation": "priority",
+    "fields": {
+      "value": {
+        "source": "attribute",
+        "name": "data-logistics-priority",
+        "as": "string"
+      }
+    }
+  },
+  {
+    "event": "click",
+    "selector": "#logisticsReliefStop",
+    "operation": "stop-relief",
+    "fields": {}
+  },
+  {
+    "event": "click",
+    "selector": "[data-transit-action=\"remove-guideway\"]",
+    "operation": "remove-guideway",
+    "fields": {}
+  },
+  {
+    "event": "click",
+    "selector": "[data-transit-action=\"retire\"]",
+    "operation": "retire",
+    "fields": {
+      "id": {
+        "source": "attribute",
+        "name": "data-route",
+        "as": "integer"
+      }
+    }
+  },
+  {
+    "event": "click",
+    "selector": "[data-transit-action=\"remove-site\"]",
+    "operation": "remove-site",
+    "fields": {
+      "id": {
+        "source": "attribute",
+        "name": "data-site",
+        "as": "integer"
+      }
+    }
+  }
+]
