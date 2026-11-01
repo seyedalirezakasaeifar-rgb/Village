@@ -1,0 +1,201 @@
+{
+  "candidate_commit": "664b44c0549a65784381191fd505e80bc4a8d84e",
+  "canonical_game_js_sha256": "451bfa6f9686c9ad6c29e2ce19b8614908339596ddd02aa94f8a5e2b70374b03",
+  "qa_apk_sha256": "6f3421260b663d87f51b9472f747cf170af21eb9dc322acec68af2f7632d1e93",
+  "installed_apk_pullback_sha256": "6f3421260b663d87f51b9472f747cf170af21eb9dc322acec68af2f7632d1e93",
+  "qa_package": "org.townledger.vale.qagfx664",
+  "qa_version": "8.0.0-webgl-664-low",
+  "qa_version_code": 900020,
+  "qa_launch_url": "file:///android_asset/index.html?cityArt=webgl&cityQuality=low",
+  "runtime": {
+    "android_api": 30,
+    "android_version": "11",
+    "webview": "83.0.4103.120",
+    "renderer": "Android Emulator OpenGL ES Translator (Google SwiftShader)",
+    "abi": "x86_64",
+    "virtual_device": true
+  },
+  "scene": {
+    "world_size": [
+      128,
+      128
+    ],
+    "quality": "low",
+    "lod": "mid",
+    "landscape_viewport": [
+      640,
+      360
+    ],
+    "landscape_map_rect": [
+      0,
+      53,
+      640,
+      215
+    ],
+    "landscape_backing_buffer": [
+      480,
+      161
+    ],
+    "draw_calls": 19,
+    "triangles": 93640
+  },
+  "hall_pick_landscape": {
+    "projected_screen": [
+      320,
+      160.5
+    ],
+    "tile": [
+      26,
+      26
+    ],
+    "building_id": 3354,
+    "building_number": 1,
+    "inspector_opened_by_real_android_tap": true,
+    "input_command_ms": 5697,
+    "inspector_visible_ms": 8426,
+    "save_unchanged": true,
+    "day": 3,
+    "paused": true
+  },
+  "real_pan": {
+    "adb_swipe_ms": 7298,
+    "camera_target_before": [
+      26,
+      26
+    ],
+    "camera_target_after": [
+      18.24236116444507,
+      25.749754103979797
+    ],
+    "camera_moved": true,
+    "save_sha256": "a9a6cf046d7d818ac6e00e513d8c143aded9efb11ffb6359ab47ac6ea741d6f2",
+    "save_unchanged": true,
+    "day": 3,
+    "paused": true
+  },
+  "paused_redraw_window": {
+    "duration_seconds": 10,
+    "frame_id": 18,
+    "extra_draws": 0,
+    "samples": 3,
+    "save_sha256": "a9a6cf046d7d818ac6e00e513d8c143aded9efb11ffb6359ab47ac6ea741d6f2",
+    "save_unchanged": true,
+    "day": 3,
+    "paused": true
+  },
+  "one_x_resume_pause": {
+    "speed": "1×",
+    "real_resume_tap": true,
+    "resume_adb_ms": 8233,
+    "unpaused_observed_ms": 10506,
+    "one_day_advanced": true,
+    "real_pause_tap": true,
+    "pause_adb_ms": 10631,
+    "reconnected_state_day": 4,
+    "reconnected_state_paused": true,
+    "webgl_after_reconnect": true,
+    "android_anr": false
+  },
+  "portrait_resize": {
+    "viewport": [
+      360,
+      640
+    ],
+    "map_rect": [
+      0,
+      106,
+      360,
+      422
+    ],
+    "backing_buffer": [
+      270,
+      316
+    ],
+    "projected_hall": [
+      292.0099504337745,
+      392.5304952261104
+    ],
+    "hall_pick": {
+      "x": 26,
+      "y": 26,
+      "id": 3354,
+      "building": 1
+    },
+    "real_android_hall_tap_opened_inspector": true,
+    "inspector_visible_ms": 8228,
+    "save_unchanged": true,
+    "portrait_inspector_screenshot": "portrait-property-inspector.png"
+  },
+  "landscape_restore": {
+    "viewport": [
+      640,
+      360
+    ],
+    "map_rect": [
+      0,
+      53,
+      640,
+      215
+    ],
+    "backing_buffer": [
+      480,
+      161
+    ],
+    "webgl_active": true,
+    "settings_restored": {
+      "accelerometer_rotation": 1,
+      "user_rotation": 0
+    }
+  },
+  "real_zoom": {
+    "tap": true,
+    "input_ms": 6375,
+    "response_ms": 7230,
+    "zoom_before": 1.0,
+    "zoom_after": 1.22,
+    "frame_before": 34,
+    "frame_after": 35,
+    "save_sha256": "7ed4f98c6cacaaf8d53280a1c443c5e077ab6ca6ffb3e8a49c1b808834348ac0",
+    "save_unchanged": true,
+    "day": 4,
+    "paused": true
+  },
+  "controlled_context_loss": {
+    "method": "WEBGL_lose_context extension",
+    "webgl_removed": true,
+    "normal_canvas_id": "view",
+    "normal_canvas_visible": true,
+    "failure": null,
+    "day": 4,
+    "paused": true,
+    "save_sha256": "7ed4f98c6cacaaf8d53280a1c443c5e077ab6ca6ffb3e8a49c1b808834348ac0",
+    "save_unchanged": true
+  },
+  "screenshots": {
+    "paused-full-scene-landscape.png": {
+      "bytes": 139245,
+      "sha256": "bdf782a823913f69502bc62c3f81de1595f9010cb80f4d7ab808e42ac5111411"
+    },
+    "panned-full-scene.png": {
+      "bytes": 130519,
+      "sha256": "4159fd30c77c347415704925b921dfbbd18282ce27dc8aad544d958270c27dba"
+    },
+    "portrait-property-inspector.png": {
+      "bytes": 76694,
+      "sha256": "c8c6d084336287815198bc281f9d53e7d16a40695182cb8f19bb414df3a44f8c"
+    },
+    "paused-day4-after-1x.png": {
+      "bytes": 130987,
+      "sha256": "cf84b2517baf74b6b1e974374c8edab7dc01a4aa7c8baa2dbf55ad9f99c0415e"
+    },
+    "canvas-fallback-after-context-loss.png": {
+      "bytes": 222130,
+      "sha256": "191ddf83b8d9616a203157c67c454d6fee083882623b9a8e3c414ec56498aed4"
+    }
+  },
+  "limitations": [
+    "This is an API30 x86_64 software emulator, not a physical-device performance result.",
+    "Full-scene start and interactions were slow under WebView83/SwiftShader; input-to-postcondition was roughly 7–11 seconds in observed cases.",
+    "The scene was tested at low quality and mid LOD; reference/material quality and larger-than-128-town worlds were not tested."
+  ]
+}
