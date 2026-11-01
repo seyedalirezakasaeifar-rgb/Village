@@ -1,0 +1,16 @@
+{
+  "graphicsBase": "3ba6c708e9c6bd3453e3125d3885e05ac8c66b2c",
+  "publicBase": "01eeda3d2ff09822b9422721f75e97fabbc9958a",
+  "freshnessPatchProvenance": "239bbbd3247fa6418a0b417211cad5fbe3da5c80",
+  "sourceSHA256": "037c92b56d4b736f2c9c2bb96a950ae194bc815d1a393d36b3634f4272521d94",
+  "testTimeCompositionWasUncommitted": true,
+  "publicIntegrationRefUntouched": true,
+  "reviewBranch": "codex/8-graphics-freshness-reviewed",
+  "dataPolicy": "Original source/assets, synthetic test aggregates and screenshots only; no whole saves, private keys or personal data",
+  "historicalOracleUnavailable": "29dd12a:assets/webgl-taste.js required by extra test_webgl_actor_options.mjs negative comparison",
+  "currentEquivalentCoverage": [
+    "test_webgl_paused_actor_options.py passes actual paused traffic OFF/ON and full archive/RNG/save invariance",
+    "test_webgl_paused_boat_lod.py passes actual far-to-near boat poses",
+    "test_webgl_actor_layer.mjs passes elevations/fade/ray IDs/resources/input invariance"
+  ]
+}

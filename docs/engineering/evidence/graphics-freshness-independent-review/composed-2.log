@@ -1,0 +1,2 @@
+PASS Unicode/BOM round trip, exact 8 MB boundary, byte-based limits, malformed Unicode, bounded/provider errors and private pending filenames
+Host-JVM transport tests; Android Activity/provider/lifecycle behavior requires device or emulator tests

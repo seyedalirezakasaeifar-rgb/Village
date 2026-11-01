@@ -1,0 +1,239 @@
+{
+  "gameSha256": "9a0f9837671de4f2b4e0177a43a60c852bb5baa2cd09643d360cfc3f2d123c58",
+  "cases": [
+    {
+      "viewport": [
+        1280,
+        720
+      ],
+      "deviceDPR": 1,
+      "frames": [
+        {
+          "lod": "far",
+          "pick": {
+            "x": 26,
+            "y": 26,
+            "id": 3354,
+            "building": 1
+          },
+          "backing": [
+            384,
+            179
+          ],
+          "memory": {
+            "geometries": 18,
+            "textures": 9
+          },
+          "overlayCount": 1,
+          "actorWork": {
+            "sources": 0,
+            "positions": 0
+          }
+        },
+        {
+          "lod": "far",
+          "pick": {
+            "x": 26,
+            "y": 26,
+            "id": 3354,
+            "building": 1
+          },
+          "backing": [
+            384,
+            179
+          ],
+          "memory": {
+            "geometries": 18,
+            "textures": 9
+          },
+          "overlayCount": 1,
+          "actorWork": {
+            "sources": 0,
+            "positions": 0
+          }
+        },
+        {
+          "lod": "far",
+          "pick": {
+            "x": 26,
+            "y": 26,
+            "id": 3354,
+            "building": 1
+          },
+          "backing": [
+            384,
+            179
+          ],
+          "memory": {
+            "geometries": 18,
+            "textures": 9
+          },
+          "overlayCount": 1,
+          "actorWork": {
+            "sources": 0,
+            "positions": 0
+          }
+        }
+      ],
+      "archiveInvariant": true,
+      "save": true,
+      "errors": []
+    },
+    {
+      "viewport": [
+        390,
+        844
+      ],
+      "deviceDPR": 2,
+      "frames": [
+        {
+          "lod": "mid",
+          "pick": {
+            "x": 26,
+            "y": 26,
+            "id": 3354,
+            "building": 1
+          },
+          "backing": [
+            195,
+            313
+          ],
+          "memory": {
+            "geometries": 15,
+            "textures": 11
+          },
+          "overlayCount": 1,
+          "actorWork": {
+            "sources": 0,
+            "positions": 0
+          }
+        },
+        {
+          "lod": "far",
+          "pick": {
+            "x": 26,
+            "y": 26,
+            "id": 3354,
+            "building": 1
+          },
+          "backing": [
+            195,
+            313
+          ],
+          "memory": {
+            "geometries": 18,
+            "textures": 11
+          },
+          "overlayCount": 1,
+          "actorWork": {
+            "sources": 0,
+            "positions": 0
+          }
+        },
+        {
+          "lod": "far",
+          "pick": {
+            "x": 26,
+            "y": 26,
+            "id": 3354,
+            "building": 1
+          },
+          "backing": [
+            195,
+            313
+          ],
+          "memory": {
+            "geometries": 18,
+            "textures": 11
+          },
+          "overlayCount": 1,
+          "actorWork": {
+            "sources": 0,
+            "positions": 0
+          }
+        }
+      ],
+      "archiveInvariant": true,
+      "save": true,
+      "errors": []
+    },
+    {
+      "viewport": [
+        844,
+        390
+      ],
+      "deviceDPR": 3,
+      "frames": [
+        {
+          "lod": "far",
+          "pick": {
+            "x": 26,
+            "y": 26,
+            "id": 3354,
+            "building": 1
+          },
+          "backing": [
+            384,
+            126
+          ],
+          "memory": {
+            "geometries": 18,
+            "textures": 9
+          },
+          "overlayCount": 1,
+          "actorWork": {
+            "sources": 0,
+            "positions": 0
+          }
+        },
+        {
+          "lod": "far",
+          "pick": {
+            "x": 26,
+            "y": 26,
+            "id": 3354,
+            "building": 1
+          },
+          "backing": [
+            384,
+            126
+          ],
+          "memory": {
+            "geometries": 18,
+            "textures": 9
+          },
+          "overlayCount": 1,
+          "actorWork": {
+            "sources": 0,
+            "positions": 0
+          }
+        },
+        {
+          "lod": "far",
+          "pick": {
+            "x": 26,
+            "y": 26,
+            "id": 3354,
+            "building": 1
+          },
+          "backing": [
+            384,
+            126
+          ],
+          "memory": {
+            "geometries": 18,
+            "textures": 9
+          },
+          "overlayCount": 1,
+          "actorWork": {
+            "sources": 0,
+            "positions": 0
+          }
+        }
+      ],
+      "archiveInvariant": true,
+      "save": true,
+      "errors": []
+    }
+  ]
+}
