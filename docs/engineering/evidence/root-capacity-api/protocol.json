@@ -1,0 +1,25 @@
+{
+  "base_source_sha256": "8be2585815ad9585f3fde86d2fb00909589b44f39956c4faa0e146fe47bb970a",
+  "protocol_sha256": "cfc65e914a4e5a3d54914f39b0f20ccda3be4734d17db079a8f18847aaaa4e65",
+  "result": {
+    "sharedDefaultDisabled": true,
+    "graphIdentityMapSetDateTypedBufferRollback": true,
+    "exactPropertyOrderRestored": true,
+    "propertyDescriptorsAndFrozenContainerPreserved": true,
+    "ordinarySaveCaptureCalls": 0,
+    "ordinarySaveCertificateCalls": 0,
+    "nestedRootOneCaptureAndCertificate": true,
+    "coalescedCommittedSave": true,
+    "swallowedRefusalAtomic": true,
+    "exceptionAtomic": true,
+    "caughtNestedCallbackFaultAtomic": true,
+    "certificateRefusalAtomic": true,
+    "asyncWorkRejectedBeforeCapture": true,
+    "presentationFaultDoesNotRollbackCommit": true,
+    "staleGenerationCancelled": true,
+    "rollbackFailureHalts": true,
+    "partialExportAndAdoptionRefused": true,
+    "realEntryPointSaveComplete": true,
+    "productionAssembled": false
+  }
+}

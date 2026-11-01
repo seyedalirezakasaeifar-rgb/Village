@@ -1,0 +1,12 @@
+"""Negative budget-policy witness: traffic can grow between complete days."""
+from pathlib import Path
+import sys,json,hashlib
+ROOT=Path(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT/'tests'))
+from test_mobile_rendering import html
+from playwright.sync_api import sync_playwright
+source=(ROOT/'assets/game.js').read_text();probe=r'''
+window.__visualHeadroom=()=>{__townTest.reset('settlement',42);__townTest.step(30);__inactivePersonCodec.enable(true);for(let i=0;i<2;i++)hydrateSave(archivePayload());traffic=[];intersectionGates=new Map();G.padding='';const cap=INACTIVE_CODEC_LIMITS.bytes,base=new Blob([archivePayload()]).size;G.padding='x'.repeat(cap-base-16);let lastGood=archivePayload();if(!hydrateSave(lastGood))throw Error('Near-limit initial archive rejected');const before={day:G.day,money:totalMoney(),rng:rngState,nextId:G.nextId,people:G.people.length,households:G.households.length,firms:G.firms.length,transportNext:G.transport.next},startTraffic=traffic.length;let error='',attempts=0;for(;attempts<30&&!error;attempts++){beginVehicle();try{lastGood=archivePayload()}catch(e){error=String(e.message||e)}}const after={day:G.day,money:totalMoney(),rng:rngState,nextId:G.nextId,people:G.people.length,households:G.households.length,firms:G.firms.length,transportNext:G.transport.next};if(!error||traffic.length<=startTraffic||before.day!==after.day||before.money!==after.money||before.rng!==after.rng)throw Error('Visual headroom witness not reproduced');const count=traffic.length;if(!hydrateSave(lastGood))throw Error('Prior complete recovery rejected');return {before,after,vehicleAttempts:attempts,trafficAtFailure:count,exportError:error,lastGoodBytes:new Blob([lastGood]).size,priorArchiveRecoverable:true,syntheticNearBudgetPadding:true};};
+'''
+with sync_playwright()as pw:
+ b=pw.chromium.launch(executable_path='/usr/bin/chromium',args=['--no-sandbox']);p=b.new_page();p.set_content(html);p.add_script_tag(content=source.replace('// SOURCE: 99-instrumentation.js',probe+'\n// SOURCE: 99-instrumentation.js'));p.locator('#newTown').click();p.locator('#pause').click();r=p.evaluate('__visualHeadroom()');b.close()
+out={'source_sha256':hashlib.sha256(source.encode()).hexdigest(),'negativeBudgetPolicyWitness':r};target=ROOT/'reports/root-capacity-api';target.mkdir(exist_ok=True);(target/'visual-headroom.json').write_text(json.dumps(out,indent=2)+'\n');print('PASS negative witness',r)

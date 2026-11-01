@@ -1,0 +1,31 @@
+{
+  "source_sha256": "8be2585815ad9585f3fde86d2fb00909589b44f39956c4faa0e146fe47bb970a",
+  "negativeBudgetPolicyWitness": {
+    "before": {
+      "day": 31,
+      "money": 15493516.999999406,
+      "rng": 3231143818,
+      "nextId": 105,
+      "people": 169,
+      "households": 67,
+      "firms": 26,
+      "transportNext": 1
+    },
+    "after": {
+      "day": 31,
+      "money": 15493516.999999406,
+      "rng": 3231143818,
+      "nextId": 105,
+      "people": 169,
+      "households": 67,
+      "firms": 26,
+      "transportNext": 1
+    },
+    "vehicleAttempts": 1,
+    "trafficAtFailure": 1,
+    "exportError": "Archive exceeds encoded byte budget",
+    "lastGoodBytes": 8388592,
+    "priorArchiveRecoverable": true,
+    "syntheticNearBudgetPadding": true
+  }
+}
