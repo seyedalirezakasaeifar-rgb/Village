@@ -1,0 +1,16 @@
+{
+  "source_sha256": "84ecbaef6b0ae999a9c5adcd49b9ba1678840cabfc36cf02b617c74a93d208a4",
+  "olderAppRoundTrip": {
+    "before": 271,
+    "oldObservationDays": [
+      90,
+      180
+    ],
+    "after": 361,
+    "newObservationDays": [
+      360
+    ],
+    "selfArchiveValid": true
+  }
+}
+PASS older-app stale optional history resets its comparison without damaging saves

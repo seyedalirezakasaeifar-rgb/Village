@@ -1,10 +1,11 @@
+import os
 """Actual original669 construction and road algorithms through one paid worker root."""
 from pathlib import Path
 import sys,json,subprocess,hashlib
 sys.path.insert(0,'tests')
 from test_mobile_rendering import html
 from playwright.sync_api import sync_playwright
-original=subprocess.check_output(['git','show','669c908:assets/game.js']).decode();source=Path('assets/game.js').read_text();code=Path('experimental/worker/model.generated.js').read_text();bridge=''.join(Path('experimental/worker/'+n).read_text() for n in ['runtime-guard.js','archive-endpoint.js','real-view-bridge.js'])
+oracleCommit=os.environ.get('WORKER_ORACLE_COMMIT','669c908706af997375680674390e46fd132a970a');original=subprocess.check_output(['git','show',oracleCommit+':assets/game.js']).decode();source=Path('assets/game.js').read_text();code=Path('experimental/worker/model.generated.js').read_text();bridge=''.join(Path('experimental/worker/'+n).read_text() for n in ['runtime-guard.js','archive-endpoint.js','real-view-bridge.js'])
 hook='''paused=true;window.buildProbe={fixture:()=>{seed(42);G.treasury+=100000;G.region-=100000;pendingEvent=null;active='';ensureRoadWear();const id=G.tiles.findIndex(v=>v===1);G.roadWear[id]=25;return archivePayload();},load:a=>{G=JSON.parse(a);rngState=G.rngState;const metrics=G.roadMetrics;invalidateRoads();G.roadMetrics=metrics;pendingEvent=null;active='';},lot:k=>{const before=rngState;try{return buildableCandidates(k).find(p=>canPlace(p.x,p.y,true,k));}finally{rngState=before;}},road:()=>{for(let y=1;y<T-1;y++)for(let x=1;x<T-2;x++)if([x,x+1].every(a=>charterOwns(a,y)&&[0,3].includes(cityCell(a,y))&&!G.landUse?.[roadId(a,y)]&&!buildingAt(a,y)))return [[x,y],[x+1,y]];},repair:()=>{const id=G.roadWear.findIndex((v,i)=>v<96&&G.tiles[i]===1);return {x:id%T,y:Math.floor(id/T)};},apply:m=>{if(m.type==='construction')construct(m.kind,m.x,m.y);else{roadPainted.clear();for(let i=1;i<m.points.length;i++){const prev=m.points[i-1],pt=m.points[i],dx=pt[0]-prev[0],dy=pt[1]-prev[1],steps=Math.max(Math.abs(dx),Math.abs(dy),1);for(let k=0;k<=steps;k++){const x=Math.round(prev[0]+dx*k/steps),y=Math.round(prev[1]+dy*k/steps),key=x+'/'+y;if(!roadPainted.has(key)){roadPainted.add(key);construct('road',x,y,true);}}}flushRoadBatch();roadPainted.clear();}return JSON.parse(archivePayload());}};\n'''
 with sync_playwright() as pw:
  b=pw.chromium.launch(executable_path='/usr/bin/chromium',args=['--no-sandbox']);pages=[];errors=[]
@@ -27,4 +28,4 @@ with sync_playwright() as pw:
   assert result,m
   assert p.evaluate('real.command({type:"export"})')['archive']==before,m
  assert not errors,errors
- Path('experimental/worker/construction-family-proof.json').write_text(json.dumps({'productionEnabled':False,'oracleCommit':'669c908706af997375680674390e46fd132a970a','sourceSha256':hashlib.sha256(source.encode()).hexdigest(),'workerSha256':hashlib.sha256(code.encode()).hexdigest(),'operationsExactFullModelRng':rows,'invalidOrOccupiedRefuseUnchanged':4,'pageErrors':errors},indent=2)+'\n');print('PASS park/home/firm/repair/road-stroke exact original669 model/RNG; four refusals unchanged');b.close()
+ Path('experimental/worker/construction-family-proof.json').write_text(json.dumps({'productionEnabled':False,'oracleCommit':oracleCommit,'sourceSha256':hashlib.sha256(source.encode()).hexdigest(),'workerSha256':hashlib.sha256(code.encode()).hexdigest(),'operationsExactFullModelRng':rows,'invalidOrOccupiedRefuseUnchanged':4,'pageErrors':errors},indent=2)+'\n');print('PASS park/home/firm/repair/road-stroke exact original669 model/RNG; four refusals unchanged');b.close()

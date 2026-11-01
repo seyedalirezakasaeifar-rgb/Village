@@ -1,0 +1,11 @@
+{
+  "source_sha256": "84ecbaef6b0ae999a9c5adcd49b9ba1678840cabfc36cf02b617c74a93d208a4",
+  "startedUTC": "2026-11-01T06:04:54.065293+00:00",
+  "coreOnly": false,
+  "test": "tests/test_release.py",
+  "timingScope": "Standalone host full release/endurance; no device performance claim",
+  "exit_code": 0,
+  "seconds": 885.52,
+  "log_sha256": "b21c7bb7191aeeb8870121b3840bd14bc46065e2070c5f61f56830a9d21e831c",
+  "finishedUTC": "2026-11-01T06:19:39.582711+00:00"
+}

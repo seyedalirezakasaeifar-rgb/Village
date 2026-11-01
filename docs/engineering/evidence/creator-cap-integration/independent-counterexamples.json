@@ -1,0 +1,52 @@
+{
+  "source_sha256": "8151f2de2616d343715ae802f7052dc2943b96da5481bb139ec7303413717954",
+  "controlledHistoricalAndRetailFixtures": true,
+  "cases": {
+    "guarded": {
+      "retail": {
+        "result": {
+          "ok": false,
+          "reason": "Enterprise history capacity reached (3,000 records, including committed sites). Existing businesses and claims are preserved; new enterprises are deferred."
+        },
+        "modelUnchanged": true,
+        "rngUnchanged": true
+      },
+      "reserved": {
+        "differentVacantLot": true,
+        "modelUnchanged": true,
+        "rngUnchanged": true,
+        "firmCount": 2999,
+        "treasuryDelta": 0
+      },
+      "overbooked": {
+        "validLegacyFixture": true,
+        "expectedReasonOnly": true,
+        "remaining": 1,
+        "escrowBefore": 28000,
+        "escrowAfter": 28000,
+        "moneyUnchanged": true,
+        "rngUnchanged": true,
+        "reason": "Enterprise history capacity reached (3,000 records, including committed sites). Existing businesses and claims are preserved; new enterprises are deferred."
+      }
+    },
+    "missingRetailGuard": {
+      "retail": {
+        "result": {
+          "ok": false,
+          "reason": "The retail site is no longer available."
+        },
+        "modelUnchanged": false,
+        "rngUnchanged": false
+      }
+    },
+    "missingPaidReservationGuard": {
+      "reserved": {
+        "differentVacantLot": true,
+        "modelUnchanged": false,
+        "rngUnchanged": false,
+        "firmCount": 3000,
+        "treasuryDelta": -4050
+      }
+    }
+  }
+}

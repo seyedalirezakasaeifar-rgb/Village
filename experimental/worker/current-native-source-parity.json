@@ -1,0 +1,11 @@
+{
+  "nativeSourceCommit": "01eeda3d2ff09822b9422721f75e97fabbc9958a",
+  "allFourFilesByteEqual": true,
+  "files": {
+    "android/app/src/main/java/org/townledger/vale/MainActivity.java": "7283d9365de4efdf0633205c520c6c7b660f369420b3d4cb9e1612f9bcd2345d",
+    "android/app/src/main/java/org/townledger/vale/WorkerArchiveReply.java": "8312df2dc8d5bb8d5323ff7b543bee87c901c362158a8bfd788d460d94e231ae",
+    "android/app/src/main/java/org/townledger/vale/WorkerArchiveReplyFields.java": "557e230bc59c9783ef2a7126c7ac4b4512bd670bde79ecd0e40193b4a1d16509",
+    "android/app/src/main/java/org/townledger/vale/WorkerArchiveRequests.java": "05ee33a709f07f24b754e40ce377417f3b3bc18f6bafe76c5b8e59978b6f0fda"
+  },
+  "physicalNativeAcceptance": false
+}

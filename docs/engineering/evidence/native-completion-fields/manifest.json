@@ -1,0 +1,28 @@
+{
+  "base": "3bea58b0b8d21cced9611049ee5e5038e57383c7",
+  "game_sha256": "84ecbaef6b0ae999a9c5adcd49b9ba1678840cabfc36cf02b617c74a93d208a4",
+  "MainActivity_sha256": "7283d9365de4efdf0633205c520c6c7b660f369420b3d4cb9e1612f9bcd2345d",
+  "nativeChanges": {
+    "android/app/src/main/java/org/townledger/vale/WorkerArchiveReply.java": "8312df2dc8d5bb8d5323ff7b543bee87c901c362158a8bfd788d460d94e231ae",
+    "android/app/src/main/java/org/townledger/vale/WorkerArchiveReplyFields.java": "557e230bc59c9783ef2a7126c7ac4b4512bd670bde79ecd0e40193b4a1d16509"
+  },
+  "jsonFixtureCasesPassed": 18,
+  "fieldBudgetCasesPassed": 2,
+  "actualAndroidParserExecution": false,
+  "workerEndpointEnabled": false,
+  "otherPassingHostChecks": [
+    "test_native_worker_archive_callbacks",
+    "test_native_restore_back_dispatch",
+    "test_native_archive_io",
+    "test_native_async_selection",
+    "test_native_back_recovery",
+    "test_committed_day_save"
+  ],
+  "files": {
+    "native-back.log": "c18b38ab0c6b06424ad218d3fbe26598cedfbccd8fb2327c074ff68535b3f5f9",
+    "fixed-callback-suite.log": "c176ae440972b37b3e9b0031b56a7cd9a012dda726340ad535b490eebbecc1a4",
+    "native-selection.log": "bd6780ed2326cd9274e212aeda9a4e5f6519f0958734b6ecce25815d293cc7da",
+    "committed-save-fence.log": "0bdb1b943f362163e2c640680bcab9042abf7d0e62d60026131a8605eeacfcd6",
+    "original-policy-negative.log": "15b9f1db8331a9e547ba4ac88341aad4fa51a927f38b788780f94aa169124f10"
+  }
+}

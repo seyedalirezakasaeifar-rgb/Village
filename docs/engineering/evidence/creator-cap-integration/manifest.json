@@ -1,0 +1,12 @@
+{
+  "base": "669c908706af997375680674390e46fd132a970a",
+  "source_sha256": "8151f2de2616d343715ae802f7052dc2943b96da5481bb139ec7303413717954",
+  "functionalChecksPassed": 7,
+  "files": {
+    "focused-gates.json.gz": "deeeb4e2828e633297250d59ce1ad9731197743a0d304f50dc19f182c4606900",
+    "incomplete-retail-port-owner-test-pass.log": "78f684f8676864d9e7e2f968fde02ef99aa287513e3a059aa0d1171c46ed68d6",
+    "independent-counterexamples.json": "016c3fa74710553119adc0eb7cbff30ec1688c33b146e61b92f427d42bb94504",
+    "owner-complete-port.json": "6b3dcbaeff97c7bbd2fda3810d6fdf0ca9a6c20d9560c9e47e00b7c43cce191f",
+    "retail-context-conflict.patch": "ed5b1ca2a7da8a1bbd72c29890e40840fb435f9212c6555343c2bd6b59c4c329"
+  }
+}
