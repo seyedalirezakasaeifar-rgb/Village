@@ -1,0 +1,28 @@
+{
+  "result": "PASS",
+  "task": "actual DocumentsUI cancellation, Activity recreation, synthetic export/import",
+  "source_commit": "c84b8a8d69e78b12012ec19f2ac1ebafcd59a440",
+  "device": {
+    "serial": "emulator-5556",
+    "api": 30,
+    "webview": "83.0.4103.120"
+  },
+  "fixture": {
+    "sha256": "040ea0d3be3414ea8273b3877a3214d5d133b8dcfc4a1598d20f57baa033fe0d",
+    "embedded_index_html_sha256": "e796abd935d70a1c1179e5a48f3ea5af0a4af6b6bca1b02bd1d372a7db0c2a0f",
+    "source_index_html_sha256": "e796abd935d70a1c1179e5a48f3ea5af0a4af6b6bca1b02bd1d372a7db0c2a0f",
+    "game_assets": false
+  },
+  "tested_wrapper": {
+    "MainActivity.java_sha256": "7e8ddccb1e20c95900e7449dd79320aeb5569e6b608f123cfacea3bf488ca341",
+    "archive_busy_guard": true
+  },
+  "harness": {
+    "DocumentsHarness.java_sha256": "6c75de63e200873c77413b213d308b20a4c3dd012cc2ee954190451b0bc8045d",
+    "test_apk_sha256": "167fc81bf34aba14c19d072019992a3f9fc64c2c07e0033dea65e8e2dd1b103a",
+    "checks": "[Foreground target loaded the matching lightweight DocumentsUI fixture asset, Import chooser is the foreground system activity, Back cancels real import picker and releases request, Export picker holds only its synthetic private prepared file, Back cancels real export picker and deletes its prepared file, Back after Activity recreation cancels picker, restores host, and removes prepared export, Production bridge launched actual DocumentsUI create-document activity, Actual DocumentsUI Save selection completed production export and resumed host, Actual DocumentsUI Open selection imported exact Unicode bytes from the exported synthetic document, Successful system document roundtrip leaves host resumed and archive request idle]"
+  },
+  "production_signer_used": false,
+  "fixture_guard": "Wait for a complete page and resumed foreground target, then assert package, URL, qaMode and archive bridge methods; mismatches include the actual identity in the failure before picker launch.",
+  "limitation": "API30 emulator and synthetic data only."
+}

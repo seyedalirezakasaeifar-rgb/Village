@@ -1,0 +1,31 @@
+{
+  "lifecycle_tour": {
+    "source_commit": "c84b8a8d69e78b12012ec19f2ac1ebafcd59a440",
+    "source_game_js_sha256": "9a0e70d0074b0ce363c6f0bf79b7a4907dc95b6b441f9e14e8018a2b2f62efc5",
+    "source_main_activity_sha256": "7e8ddccb1e20c95900e7449dd79320aeb5569e6b608f123cfacea3bf488ca341",
+    "test_apk_sha256": "f2e85f3b20e400a05df2cd791b4e81668e3116895c83a45146d0e232900255e1",
+    "result": "INCOMPLETE",
+    "observed": "Real Android input reached a populated Day 1 town, pause control, and Options panel showing Music off.",
+    "attempts": [
+      {
+        "result": "FAIL",
+        "first_blocker": "Timeout: music temporarily enabled by trusted tap; screen remained at Music off."
+      },
+      {
+        "result": "FAIL",
+        "first_blocker": "Timeout waiting for __townTest.get().population>0 after Continue; screen was at welcome screen."
+      }
+    ],
+    "verified": "Restored the original test-only game APK after the tour; installed package was pulled from emulator and SHA-256 matched baseline exactly.",
+    "baseline_apk_sha256": "038ae49937d34319e5b48c72306d395144b76b02f5c67bb70c2bfefaf765ba7e",
+    "restored_installed_apk_sha256": "038ae49937d34319e5b48c72306d395144b76b02f5c67bb70c2bfefaf765ba7e",
+    "limits": "No completed Home/background/foreground, Activity recreation, or picker-cancel lifecycle assertions; no physical-device or FPS claim."
+  },
+  "webview_blob_worker_capability": {
+    "device": "emulator-5556, Android 11 API 30",
+    "webview": "Chrome 83.0.4103.120",
+    "result": "PASS",
+    "test": "Created local Blob URL Worker, posted a synthetic string, received exact echo, terminated worker, revoked object URL.",
+    "limits": "Prototype branch 0110b49 was unavailable on the configured Git remote, so this verifies runtime capability only, not its bootstrap or app integration."
+  }
+}
