@@ -1,0 +1,9 @@
+# Vacancy ranking matrix (TownLedger 8)
+
+This deterministic browser fixture checks the live `assignJobs()` vacancy allocator on four founding seeds (`7`, `42`, `91`, `909`), across grocery/office, farm/factory, contractor/warehouse and bakery/tavern pairs. Each case leaves one eligible applicant, offers two road-reachable vacancies and confirms the assigned job’s payable wage, town validity and identical assignment after save/load.
+
+The 104 executed cases cover a higher offer at either firm, equal nominal wages, equal minimum-wage-adjusted wages, a 37% income-tax policy, and a high nominal offer at a firm with only $1 in cash. The underfunded firm must rank by cash available after reserving existing workers’ payroll, spread over open positions. That reproduced defect is now fixed in `src/20-world.js`: a firm with an unfunded promise no longer outranks a lower but currently funded offer. The other wage, tie and tax cases retain deterministic effective-wage ordering. All assigned workers in executed cases can commute to their employer, and every fixture validates before and after its archive round-trip.
+
+Eight attempted workplace-isolation cases were skipped: road cuts could not isolate only one target without severing the competing workplace’s route in that founding layout. The normal matrix verifies that assigned workers have valid commute access; it does not claim to cover every disconnected-network topology. Part-time roles and employee commute fares are not modeled in this vacancy-ranking path. Taxes are modeled and do not change gross wage ranking because the same statutory rate applies to both offers; fare access for transit work is a separate commute eligibility check, not a wage-price ranking.
+
+Detailed per-case outcomes and skipped fixtures are in [`effective-wage-allocator-matrix.json`](effective-wage-allocator-matrix.json). Run with `python tests/test_effective_wage_allocator_matrix.py`.

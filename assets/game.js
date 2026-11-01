@@ -1233,7 +1233,7 @@ function assignJobs(){
  // Rank by the wage the worker will actually receive. A higher statutory
  // minimum can make nominal offers equal; sorting raw firm wages would still
  // send applicants to an employer whose paid wage is no better.
- const vacancies=G.firms.filter(f=>!f.closed&&f.workers.length<f.jobs).sort((a,b)=>workerIncome(b)-workerIncome(a)||a.id-b.id);
+ const vacancies=G.firms.filter(f=>!f.closed&&f.workers.length<f.jobs).sort((a,b)=>fundedVacancyIncome(b)-fundedVacancyIncome(a)||a.id-b.id);
  for(const f of vacancies){let workplace=readBuild(f.building),port=net.portals.get(f.building);
   if(!workplace||port==null)continue;
   while(f.workers.length<f.jobs&&free.length){let best=-1,score=Infinity;
@@ -1250,6 +1250,7 @@ function assignJobs(){
 }
 function readBuild(id){refreshBuildingIndex();return buildingsById.get(id)}
 function workerIncome(f){return Math.max(G.policy.minWage,f.wage)}
+function fundedVacancyIncome(f){const wage=workerIncome(f),open=Math.max(1,f.jobs-f.workers.length),available=Math.max(0,f.cash-wage*f.workers.length);return Math.min(wage,available/open)}
 function credit(h,amount){h.cash+=amount}
 function transferBudget(to,amount,cat){let paid=Math.max(0,Math.min(G.treasury,amount));G.treasury-=paid;to.cash+=paid;G.cumulative.spending+=paid;return paid}
 function story(text,type='neutral',bid=-1,hid=-1){G.events.unshift({day:G.day,text,type,bid,hid});if(G.events.length>160)G.events.length=160}
