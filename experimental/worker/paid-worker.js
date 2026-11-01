@@ -32,7 +32,7 @@ function workerInstallPaidOwner(owner){
  openPanel=tab=>{active=tab;workerEffect('panel-open',{panel:tab,selected:selected?.id??null});workerPreparePanel(tab);};
  closeCouncilDialog=defer=>{closeCouncilDialogState(defer);if(active==='agenda')workerPreparePanel(active);save();workerEffect('council-closed',{});};
  playSfx=name=>workerEffect('sound',{name});
- return __installPaidCommandLayer(owner);
+ const layer=__installPaidCommandLayer(owner);if(typeof workerBindRouteModules==='function')workerBindRouteModules(owner);return layer;
 }
 async function workerDrainPaidSaves(){for(let i=0;i<16;i++){await Promise.resolve();if(!__rootAdmission.shared.status().pendingSaveGenerations)return;}throw Error('Committed saver did not drain');}
 async function workerPaidDispatch(dto,context){
@@ -46,7 +46,7 @@ async function workerPaidDispatch(dto,context){
  // Construct only after committed saver microtasks have appended save intents.
  return {__workerReply:true,paid:{...result,committed:true}};
 }
-function workerExecutePaidChoice(m){const reviewToken=pendingEvent?.workerId;if(!Number.isSafeInteger(reviewToken)||m.eventId!==reviewToken)throw Error('Stale council event');return workerPaidDispatch({version:1,kind:'council-choice',requestId:m.command,epoch:m.epoch,reviewToken:m.eventId,index:m.index},{requestId:workerCommand,epoch:workerEpoch,reviewToken});}
+function workerExecutePaidChoice(m){if(pendingEvent?.workerRoute){const tag=pendingEvent.workerRoute;return workerPaidDispatch({version:1,kind:'route-command',module:tag.module,operation:'$choice',requestId:m.command,epoch:m.epoch,reviewToken:m.eventId,index:m.index,payload:m.choicePayload??{}},{requestId:workerCommand,epoch:workerEpoch});}const reviewToken=pendingEvent?.workerId;if(!Number.isSafeInteger(reviewToken)||m.eventId!==reviewToken)throw Error('Stale council event');return workerPaidDispatch({version:1,kind:'council-choice',requestId:m.command,epoch:m.epoch,reviewToken:m.eventId,index:m.index},{requestId:workerCommand,epoch:workerEpoch,reviewToken});}
 function workerExecutePaidProvider(m){return workerPaidDispatch({version:1,kind:'private-provider',requestId:m.command,epoch:m.epoch,providerKind:m.providerKind},{requestId:workerCommand,epoch:workerEpoch});}
 
 function workerTickCommittedDay(){

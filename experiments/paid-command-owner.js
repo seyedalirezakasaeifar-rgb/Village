@@ -4,7 +4,7 @@
   const p=__capacityAdmissionProtocol,s=p.shared;
   if(s.status().enabled||s.isActive()||s.status().pendingSaveGenerations)throw Error('Install command owner disabled, idle and drained');
   if(window.__paidCommandOwner)throw Error('Command owner already installed');
-  const registry=[],samples=[],allowed=new Set(['council-choice','private-provider','panel-control','construction','road-stroke']);let scope='idle',refusal=null,activeSnapshot=null,readContext=null,completionScopeReady=false;
+  const registry=[],samples=[],allowed=new Set(['council-choice','private-provider','panel-control','construction','road-stroke','route-command']);let scope='idle',refusal=null,activeSnapshot=null,readContext=null,completionScopeReady=false;
   const creator=options.automaticCreators,creatorReady=!!(creator&&creator.version===1&&creator.sourceCommit==='c91475af7dd079a51a72eb89b413673adae886c1'&&typeof creatorCapacityReason==='function'&&creator.preflight===creatorCapacityReason);
   const context=()=>readContext?readContext():{version:1,mode:scope};
   const mode=()=>context().mode;
@@ -20,6 +20,7 @@
   s.configure({
    capture:meta=>{
     if(meta.kind!=='command'||mode()!=='paid-command'||!allowed.has(meta.intent?.kind))throw Error('Unsupported command-only execution scope');
+    if(meta.intent.kind==='route-command'&&!window.__workerRouteAuthority?.authorize(meta.intent))throw Error('Unregistered route scope');
     if(meta.intent.kind==='council-choice'){const choice=pendingEvent?.choices.find(c=>c.title===meta.intent.choiceTitle);if(!choice||!COUNCIL_EVENTS.some(e=>e.title===pendingEvent.title&&e.choices.includes(choice)))throw Error('Only authored council callbacks are admitted');}
     const start=now(),runtime=registry.map(r=>r.capture()),town=G,busy=simulationBusy,money=totalMoney();
     const graph=p.graphSnapshot([town,...runtime]);

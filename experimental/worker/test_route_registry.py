@@ -1,0 +1,14 @@
+"""Actual-model registration example and fail-closed unknown/schema command gates."""
+from pathlib import Path
+import sys,json,hashlib
+sys.path.insert(0,'tests')
+from test_mobile_rendering import html
+from playwright.sync_api import sync_playwright
+source=Path('assets/game.js').read_text();code=Path('experimental/worker/model.generated.js').read_text();bridge=''.join(Path('experimental/worker/'+n).read_text() for n in ['runtime-guard.js','archive-endpoint.js','real-view-bridge.js']);hook='''paused=true;window.moduleFixture=()=>{seed(42);pendingEvent=null;return archivePayload();};\n'''
+with sync_playwright() as pw:
+ b=pw.chromium.launch(executable_path='/usr/bin/chromium',args=['--no-sandbox']);p=b.new_page();errors=[];p.on('pageerror',lambda e:errors.append(str(e)));p.route('http://route.test/',lambda r:r.fulfill(body=html,content_type='text/html'));p.goto('http://route.test/');p.add_script_tag(content=source.replace('// SOURCE: 99-instrumentation.js',bridge+hook+'// SOURCE: 99-instrumentation.js'));archive=p.evaluate('moduleFixture()');p.evaluate('''async a=>window.real=await __workerRealView.enable(a.code,a.archive,{initializeAuthority:async ask=>{const r=await ask({type:'initialize-command-owner'});if(!r.ordinaryDayReady)throw Error('Owner unavailable');}})''',{'code':code,'archive':archive})
+ before=p.evaluate('real.command({type:"export"})');expected=p.evaluate('real.command({type:"calendar-report"})');reply=p.evaluate('real.command({type:"route",module:"example-calendar",operation:"summary",payload:{}})');assert reply['paid']['committed'];assert reply['paid']['value']['calendar']==expected['report']['calendar'];assert reply['model']==expected['model'];assert reply['rng']==expected['rng'];assert any(x['type']=='notification' and 'Calendar review prepared' in x['payload']['text'] for x in reply['outbox']);frozen=p.evaluate('real.command({type:"export"})')['archive'];negatives=[]
+ for module,op,payload in [('missing','summary',{}),('example-calendar','missing',{}),('example-calendar','summary',{'source':'throw Error()'}),('example-calendar','summary',None),('example-calendar','$choice',{})]:
+  result=p.evaluate('m=>real.command({type:"route",...m}).then(()=>false,e=>e.message)',{'module':module,'operation':op,'payload':payload});assert result;assert p.evaluate('real.command({type:"export"})')['archive']==frozen;negatives.append({'module':module,'operation':op,'refusal':result})
+ assert not errors,errors
+ Path('experimental/worker/route-registry-proof.json').write_text(json.dumps({'productionEnabled':False,'sourceSha256':hashlib.sha256(source.encode()).hexdigest(),'workerSha256':hashlib.sha256(code.encode()).hexdigest(),'workingExampleActualModelRngCalendarEqual':True,'notificationPreserved':True,'unknownAndSchemaRefusalsUnchanged':negatives,'pageErrors':errors},indent=2)+'\n');print('PASS registered actual calendar summary and five fail-closed unchanged DTO cases');b.close()

@@ -1,6 +1,6 @@
 # Worker route modules — version 1 team contract
 
-Common base: `0a14b9e88bb5b133fec78336b7742ce9879e3bd3`. This freezes the API for parallel module authors. Central owner implements registration, validation, dispatch, UI bindings and composition; those hooks are not yet present in0a14b9e. No module or partial composition enables production. Keep the complete synchronous game available.
+Common base: `0a14b9e88bb5b133fec78336b7742ce9879e3bd3`. This freezes the API for parallel module authors. Central owner implements registration, validation, dispatch, UI bindings and composition. Registration/validation/shared-root dispatch and the working example are included with this contract checkpoint; declarative UI bindings/presentation effects are the next central increment and currently fail closed. They are not present in0a14b9e. No module or partial composition enables production. Keep the complete synchronous game available.
 
 ## File ownership
 
@@ -114,3 +114,10 @@ If another effect is needed, report its exact schema and source use to central. 
 ## Required family evidence
 
 Use the exact current-source synchronous UI as oracle; old669 evidence is not current-model acceptance. Provide operation inventory mapping all owned controls, schema negatives, stale/repeated IDs, pending review/command interleaving, refusal after payment/creator refusal with exact rollback, full model/RNG and outbox equivalence, reload, original writer failure/retry and at least one trusted actual UI journey per family. Test absent/unfunded/expired targets honestly. No synthetic wallet injection in ordinary play; controlled conserved test-fixture funding must be labelled. Return exact source/fixture/module hashes and remaining unsupported operations. Native durability and overall realtime acceptance remain separate central/native gates.
+
+
+## Working example and immediate test entrypoints
+
+`routes/example-calendar.js` registers `example-calendar/summary`, performs the actual `civicCalendarView()` and preserves a real notification. Build with `WORKER_PAID_COMMAND_OWNER=1 NODE_PATH=/path/to/node_modules node experimental/worker/build.cjs` (or install experimental/worker dependencies locally). All `routes/*.js` files are appended in filename order; no central builder edit is required for a new family file. Call `real.command({type:'route',module:'example-calendar',operation:'summary',payload:{}})` after the normal trusted owner initializer. The result is `reply.paid.value`; the reply also contains the complete committed snapshot/effects. `python experimental/worker/test_route_registry.py` proves actual calendar/full-model/RNG equivalence and unknown module/operation/extra-field/null/choice refusals unchanged. Registry source: `experimental/worker/route-registry.js`.
+
+Optional operation `choiceFields` uses the same exact field schema. A bound choice may carry `choicePayload` on the existing `type:'choice'` request; the registry validates/freezes it and supplies `review.payload` to `settle`. Never read DOM from a worker choice. If a custom source choice needs a typed name or form value, provide a static `event:'choice'` binding scoped to that module/operation; central forwards its validated form fields. No choice binding may intercept another module's review. This finite form-binding path is part of the next central UI increment, not working UI acceptance in this checkpoint.
