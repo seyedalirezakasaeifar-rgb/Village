@@ -1,6 +1,6 @@
 {
   "sourceModules": {
-    "assets/game.js": "b482a418c2eba8bb010af1204d000b640083470c3269c3ba72d743bb6bde79a4",
+    "assets/game.js": "e9af06490f8e9106babce32c17663df6d4663349ca8b9d5843b638066d7ff25b",
     "assets/webgl-actors.js": "e7f761691a2edcc9ddb7937dad3d50464fb3ff73129ac8b22e418cbe1fb094cb",
     "assets/webgl-bridges.js": "e4f3ea3b53e0d27f7431bc232ff29981c87f91363d3da0b6084e7e8a48d0da01",
     "assets/webgl-entry.js": "980175962efeb1cff600fda381246b3db42bc7e5b6afc3e2f6825472da25047e",
@@ -18,7 +18,7 @@
     {
       "overlay": "roads",
       "stats": {
-        "marks": 72,
+        "marks": 73,
         "areas": 0,
         "routes": 0
       },
@@ -48,7 +48,7 @@
     {
       "overlay": "hardship",
       "stats": {
-        "marks": 44,
+        "marks": 45,
         "areas": 0,
         "routes": 0
       },
@@ -78,7 +78,7 @@
     {
       "overlay": "land",
       "stats": {
-        "marks": 72,
+        "marks": 73,
         "areas": 0,
         "routes": 0
       },
@@ -93,7 +93,7 @@
     {
       "overlay": "healthAccess",
       "stats": {
-        "marks": 44,
+        "marks": 45,
         "areas": 0,
         "routes": 0
       },
@@ -108,7 +108,7 @@
     {
       "overlay": "schoolAccess",
       "stats": {
-        "marks": 44,
+        "marks": 45,
         "areas": 0,
         "routes": 0
       },
