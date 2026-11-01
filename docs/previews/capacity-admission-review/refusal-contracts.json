@@ -1,0 +1,249 @@
+{
+  "base": "6c02aadf293513d022f7a3868b52abe050202880",
+  "source_sha256": "a450e2ab4fce7f373e511d52603b07c12b693620ac6ee66be5893e3fd44a8e74",
+  "hostChromium": true,
+  "physicalAndroid": false,
+  "faultInjectionOnly": true,
+  "guardsImplemented": false,
+  "result": {
+    "constructRefusal": {
+      "before": {
+        "day": 1,
+        "treasury": 90000,
+        "region": 14760000,
+        "total": 15493517,
+        "rng": 3224482224,
+        "people": 169,
+        "households": 67,
+        "firms": 26,
+        "buildings": 102,
+        "projects": 0,
+        "nextId": 103
+      },
+      "after": {
+        "day": 1,
+        "treasury": 85700,
+        "region": 14752050,
+        "total": 15481267,
+        "rng": 3224482224,
+        "people": 169,
+        "households": 67,
+        "firms": 26,
+        "buildings": 102,
+        "projects": 0,
+        "nextId": 103
+      },
+      "calls": 1,
+      "error": "Cannot set properties of null (setting 'cash')",
+      "kind": "Hypothetical inner creator null refusal, public construct command"
+    },
+    "completionRefusal": {
+      "before": {
+        "day": 1,
+        "treasury": 90000,
+        "region": 14760000,
+        "total": 15493517,
+        "rng": 3224482224,
+        "people": 169,
+        "households": 67,
+        "firms": 26,
+        "buildings": 103,
+        "projects": 1,
+        "nextId": 104
+      },
+      "after": {
+        "day": 1,
+        "treasury": 90000,
+        "region": 14747750,
+        "total": 15481267,
+        "rng": 3224482224,
+        "people": 169,
+        "households": 67,
+        "firms": 26,
+        "buildings": 103,
+        "projects": 0,
+        "nextId": 104
+      },
+      "calls": 1,
+      "error": "Cannot set properties of null (setting 'cash')",
+      "buildingKind": "grocer",
+      "kind": "Hypothetical creator null at completion; construction work isolated"
+    },
+    "arrivalDeferral": {
+      "before": {
+        "day": 2,
+        "treasury": 90000,
+        "region": 14760000,
+        "total": 15493517,
+        "rng": 3224482224,
+        "people": 169,
+        "households": 67,
+        "firms": 26,
+        "buildings": 103,
+        "projects": 0,
+        "nextId": 104
+      },
+      "after": {
+        "day": 2,
+        "treasury": 90000,
+        "region": 14760000,
+        "total": 15493517,
+        "rng": 697139544,
+        "people": 169,
+        "households": 67,
+        "firms": 26,
+        "buildings": 103,
+        "projects": 0,
+        "nextId": 104
+      },
+      "returnedNull": true,
+      "migrationRecordBefore": 0,
+      "derivedMigrationRecords": [
+        {
+          "day": 2,
+          "kind": "arrival-deferred",
+          "home": 103,
+          "assessment": {
+            "eligible": false,
+            "reasons": [
+              "Controlled downstream refusal"
+            ]
+          }
+        }
+      ],
+      "migrationReportIsPersistent": false,
+      "kind": "Actual addHouseholdAt deferred assessment; RNG already generated profiles"
+    },
+    "creditDecline": {
+      "before": {
+        "day": 1,
+        "treasury": 90000,
+        "region": 14760000,
+        "total": 15493517,
+        "rng": 3224482224,
+        "people": 169,
+        "households": 67,
+        "firms": 26,
+        "buildings": 102,
+        "projects": 0,
+        "nextId": 103
+      },
+      "after": {
+        "day": 1,
+        "treasury": 90000,
+        "region": 14760000,
+        "total": 15493517,
+        "rng": 3224482224,
+        "people": 169,
+        "households": 67,
+        "firms": 26,
+        "buildings": 102,
+        "projects": 0,
+        "nextId": 103
+      },
+      "returnedNull": true,
+      "hadDecision": false,
+      "decision": {
+        "day": 1,
+        "requested": 1000,
+        "approved": false,
+        "reason": "The retained debt ledger is full of protected obligations. No advance was issued; existing debts and claims remain intact."
+      },
+      "nextLoanId": 10000,
+      "kind": "Actual retained debt ledger cap decline; synthetic protected obligations"
+    },
+    "tickRefusal": {
+      "before": {
+        "day": 1,
+        "treasury": 90000,
+        "region": 14760000,
+        "total": 15493517,
+        "rng": 3224482224,
+        "people": 169,
+        "households": 67,
+        "firms": 26,
+        "buildings": 102,
+        "projects": 0,
+        "nextId": 103
+      },
+      "after": {
+        "day": 2,
+        "treasury": 90000,
+        "region": 14760000,
+        "total": 15493517,
+        "rng": 3224482224,
+        "people": 169,
+        "households": 67,
+        "firms": 26,
+        "buildings": 102,
+        "projects": 0,
+        "nextId": 103
+      },
+      "error": "Controlled capacity refusal after mid-day save",
+      "writes": [
+        {
+          "day": 2,
+          "bytes": 136003
+        }
+      ],
+      "kind": "Fault-injected downstream refusal; frame-equivalent simulationBusy=false and persistence spy"
+    },
+    "eventRefusal": {
+      "before": {
+        "day": 1,
+        "treasury": 90000,
+        "region": 14760000,
+        "total": 15493517,
+        "rng": 3224482224,
+        "people": 169,
+        "households": 67,
+        "firms": 26,
+        "buildings": 102,
+        "projects": 0,
+        "nextId": 103
+      },
+      "after": {
+        "day": 1,
+        "treasury": 89000,
+        "region": 14761000,
+        "total": 15493517,
+        "rng": 3224482224,
+        "people": 169,
+        "households": 67,
+        "firms": 26,
+        "buildings": 102,
+        "projects": 0,
+        "nextId": 103
+      },
+      "journal": {
+        "day": 1,
+        "name": "Controlled refusal",
+        "message": "Attempt refused purchase. ",
+        "baseline": {
+          "population": 169,
+          "employed": 88,
+          "workforce": 110,
+          "employment": 80,
+          "unemployment": 20,
+          "hardship": 7,
+          "safety": 88,
+          "preparedness": 76,
+          "businesses": 26,
+          "cash": 99447,
+          "businessCash": 431212,
+          "dailyCrime": 0,
+          "income": 0,
+          "townBalance": 90000,
+          "health": 74,
+          "education": 46,
+          "wellbeing": 72,
+          "marketConfidence": 60,
+          "roadAccess": 100,
+          "approval": 65,
+          "treasury": 89000
+        }
+      },
+      "pendingEvent": false
+    }
+  }
+}
