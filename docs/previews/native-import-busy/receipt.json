@@ -1,0 +1,16 @@
+{
+  "game_sha256": "47c2659adccbfbd32c857d1911f0d7cfcaa7f436c4fdcce2a0425a7844b92e02",
+  "java_sha256": "7e8ddccb1e20c95900e7449dd79320aeb5569e6b608f123cfacea3bf488ca341",
+  "test_sha256": "e1b59ce6e5c2b6a986d215c2fd36cdbf3a76f2246872503bc2325b621834ddee",
+  "apk_sha256": "ed90dfc8fc9d5aa00e4e4b463882bbe4bf7246bb46a5641f687e2800af67e5bd",
+  "source_base": "ae654b0550e0eba9a353105adc3ab6b14e27891f",
+  "native_api": 30,
+  "webview": "83.0.4103.120",
+  "outcome": "PASS",
+  "synthetic_padding_bytes": 6291456,
+  "provider": "test-only external ContentProvider; controlled Activity result, not real DocumentsUI selection",
+  "native_results": "INSTRUMENTATION_RESULT: busyDialogShown=true\nINSTRUMENTATION_RESULT: failureExactStatePreserved=true\nINSTRUMENTATION_RESULT: focusReturned=true\nINSTRUMENTATION_RESULT: oneRestoreDespiteRepeatedInputAndBack=true\nINSTRUMENTATION_RESULT: outcome=PASS\nINSTRUMENTATION_CODE: -1\n",
+  "paint_assertion": "Screenshot polling confirmed dimmed native modal while restoringArchive still true; screenshot visually inspected",
+  "test_delay": "External test provider delays2s to ensure prevalidation progress is observable; production has no such delay",
+  "keys_or_save_payloads_included": false
+}

@@ -14,9 +14,12 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--sdk', type=Path, default=Path(os.environ.get('ANDROID_HOME', '/opt/android-sdk')))
     parser.add_argument('--out', type=Path, required=True, help='Private scratch directory outside repository')
+    parser.add_argument('--import-ui', action='store_true', help='Run native import busy-state safety harness with full game')
     parser.add_argument('--game', action='store_true', help='Use unmodified full game assets and FullGameHarness')
     parser.add_argument('--documents', action='store_true', help='Use synthetic fixture and actual DocumentsUI save/open harness')
     args = parser.parse_args()
+    if args.import_ui:
+        args.game = True
     if args.documents and args.game:
         parser.error('--documents uses the lightweight synthetic fixture; run --game separately')
     out = args.out.resolve()
@@ -84,7 +87,7 @@ def main():
         assets = ROOT / 'assets'
     java = list((ROOT / 'android/app/src/main/java').rglob('*.java'))
     classes, target = package('native-host-fixture', ET.tostring(manifest, encoding='unicode'), java, assets)
-    harness = 'DocumentsHarness' if args.documents else 'FullGameHarness' if args.game else 'RecoveryHarness'
+    harness = 'ImportBusyHarness' if args.import_ui else 'DocumentsHarness' if args.documents else 'FullGameHarness' if args.game else 'RecoveryHarness'
     test_manifest = '''<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="org.townledger.vale.tests"><uses-sdk android:minSdkVersion="29" android:targetSdkVersion="36"/><queries><package android:name="org.townledger.vale"/></queries><application android:label="Private native checks" android:debuggable="true" android:testOnly="true"><provider android:name="org.townledger.vale.ArchiveProvider" android:authorities="org.townledger.vale.tests.archive" android:exported="true"/></application><instrumentation android:name="org.townledger.vale.RecoveryHarness" android:targetPackage="org.townledger.vale"/></manifest>'''
     test_manifest = test_manifest.replace('org.townledger.vale.RecoveryHarness', 'org.townledger.vale.' + harness)
     _, test = package('native-host-tests', test_manifest, [ROOT / ('tests/android/' + harness + '.java'), ROOT / 'tests/android/ArchiveProvider.java'], classpath=classes)

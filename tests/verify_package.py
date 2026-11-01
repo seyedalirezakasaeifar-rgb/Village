@@ -15,7 +15,7 @@ with zipfile.ZipFile(apk) as z:
  assert b'Lorg/townledger/vale/MainActivity;' in dex
  assert b'Lorg/townledger/vale/BackNavigation;' in dex
  assert b'backResult' in dex and b'onRenderProcessGone' in dex
- assert all(name not in dex for name in [b'RecoveryHarness',b'FullGameHarness',b'DocumentsHarness',b'ArchiveProvider']),'Private instrumentation leaked into game APK'
+ assert all(name not in dex for name in [b'RecoveryHarness',b'FullGameHarness',b'DocumentsHarness',b'ImportBusyHarness',b'ArchiveProvider']),'Private instrumentation leaked into game APK'
  assert b'writeBackup' in dex and b'openBackup' in dex
  assets={}
  for p in (ROOT/'assets').rglob('*'):

@@ -18,6 +18,7 @@ public final class ArchiveProvider extends ContentProvider {
     public int update(Uri uri,ContentValues values,String where,String[] args){throw new UnsupportedOperationException();}
     public ParcelFileDescriptor openFile(Uri uri,String mode)throws FileNotFoundException{
         if(!"archive".equals(uri.getLastPathSegment()))throw new FileNotFoundException("Unknown private test document");
+        if("paint".equals(uri.getQueryParameter("delay")))android.os.SystemClock.sleep(2000);
         return ParcelFileDescriptor.open(new File(getContext().getCacheDir(),"qa-document.json"),ParcelFileDescriptor.parseMode(mode));
     }
 }
