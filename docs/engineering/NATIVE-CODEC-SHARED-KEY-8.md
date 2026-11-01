@@ -1,0 +1,9 @@
+# Focused shared-key native rejection
+
+Actual API30/WebView83 scratch chain3bf70b840b8427ec029dd15cb6f203e8598e6ea3 includes runtime9932d34 and tests3bf70b8, with dependencies a964174/77a799d and combined estate codec. Installed JS SHA256d48e5ce2608c2d77db94ec271e1a0f0377657678308de73f5abc750f0a331eb6 verified against assembled source and APK. The native import busy guard from60f9e3 was copied intact into the scratch wrapper. Codec remains test-enabled only.
+
+Ran owner CODEC_CORPUS_KEYS_ONLY=reject probe in actual renderer scope. Test-only Object.hasOwn helper was replaced by identical existing owns helper for WebView83 compatibility; production runtime unchanged. One692953-byte combined shared-key expansion attack rejected with Decoded archive expansion budget exceeded. Instrumented parser time1391.3ms, one budget call, zero historical-directory reconstruction calls, zero property definitions. Original probe's complete serialized model/RNG/save-order atomicity assertions passed. This is direct parser timing; fixture construction and independent atomic comparison occur outside that measurement. No comparison to the earlier near-budget directory-total case is implied because it is a different input.
+
+A separate real external test-ContentProvider callback delivered the same attack shape through the Android restore boundary. The native busy operation cleared on error, complete old serialized state was identical and focus returned. See busy-error.txt. This exercised error cleanup without repeating the unchanged large valid fixture. Actual picker selection was not part of this controlled-result harness. No raw archive or key is published.
+
+Older native failures remain retained. Strict process-death reruns are deferred until the separately published full native-defaults fix is combined and its new source hash is bound.
