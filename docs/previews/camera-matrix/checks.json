@@ -1,5 +1,5 @@
 {
-  "source_sha256": "598dec8271e777e55e69c1462b61fa39a24071b2609d5a2390fc6e334e16e7a7",
+  "source_sha256": "2bc6ed1cdec4259c1a5f51dcaf40f3aa4562349592a4353ccf50c3c2c6243c81",
   "cases": [
     {
       "index": 0,
@@ -21,7 +21,7 @@
         "max": 0,
         "actors": 0
       },
-      "atlasBytes": 3162112,
+      "atlasBytes": 2468608,
       "brownfieldBytes": 27648,
       "repairBytes": 0,
       "viewportBytes": 1100800,
@@ -30,7 +30,7 @@
         360,
         1
       ],
-      "warmDrawMeanMs": 0.81
+      "warmDrawMeanMs": 1.7
     },
     {
       "index": 1,
@@ -56,7 +56,7 @@
           "bus"
         ]
       },
-      "atlasBytes": 8624896,
+      "atlasBytes": 8470784,
       "brownfieldBytes": 27648,
       "repairBytes": 1100800,
       "viewportBytes": 1100800,
@@ -65,7 +65,7 @@
         360,
         1
       ],
-      "warmDrawMeanMs": 3.56
+      "warmDrawMeanMs": 1.71
     },
     {
       "index": 2,
@@ -87,7 +87,7 @@
         "max": 0,
         "actors": 0
       },
-      "atlasBytes": 6848768,
+      "atlasBytes": 6771712,
       "brownfieldBytes": 55296,
       "repairBytes": 0,
       "viewportBytes": 1100800,
@@ -96,7 +96,7 @@
         360,
         1
       ],
-      "warmDrawMeanMs": 1.11
+      "warmDrawMeanMs": 1.36
     },
     {
       "index": 3,
@@ -121,7 +121,7 @@
           "vehicle"
         ]
       },
-      "atlasBytes": 3848704,
+      "atlasBytes": 3617536,
       "brownfieldBytes": 55296,
       "repairBytes": 1100800,
       "viewportBytes": 1100800,
@@ -130,7 +130,7 @@
         360,
         1
       ],
-      "warmDrawMeanMs": 2.7
+      "warmDrawMeanMs": 4.07
     },
     {
       "index": 4,
@@ -165,7 +165,7 @@
         360,
         1
       ],
-      "warmDrawMeanMs": 1.18
+      "warmDrawMeanMs": 1.23
     },
     {
       "index": 5,
@@ -187,7 +187,7 @@
         "max": 0,
         "actors": 0
       },
-      "atlasBytes": 6465536,
+      "atlasBytes": 6388480,
       "brownfieldBytes": 55296,
       "repairBytes": 0,
       "viewportBytes": 1100800,
@@ -196,7 +196,7 @@
         360,
         1
       ],
-      "warmDrawMeanMs": 1.99
+      "warmDrawMeanMs": 0.85
     },
     {
       "index": 6,
@@ -230,7 +230,7 @@
         360,
         1
       ],
-      "warmDrawMeanMs": 2.79
+      "warmDrawMeanMs": 2.99
     },
     {
       "index": 7,
@@ -256,7 +256,7 @@
           "bus"
         ]
       },
-      "atlasBytes": 8522240,
+      "atlasBytes": 8291072,
       "brownfieldBytes": 55296,
       "repairBytes": 1100800,
       "viewportBytes": 1100800,
@@ -265,7 +265,7 @@
         360,
         1
       ],
-      "warmDrawMeanMs": 1.24
+      "warmDrawMeanMs": 1.5
     },
     {
       "index": 8,
@@ -287,7 +287,7 @@
         "max": 0,
         "actors": 0
       },
-      "atlasBytes": 6465536,
+      "atlasBytes": 6234368,
       "brownfieldBytes": 55296,
       "repairBytes": 0,
       "viewportBytes": 1100800,
@@ -296,7 +296,7 @@
         360,
         1
       ],
-      "warmDrawMeanMs": 0.76
+      "warmDrawMeanMs": 0.66
     },
     {
       "index": 9,
@@ -321,7 +321,7 @@
           "vehicle"
         ]
       },
-      "atlasBytes": 5199104,
+      "atlasBytes": 4710144,
       "brownfieldBytes": 55296,
       "repairBytes": 1100800,
       "viewportBytes": 1100800,
@@ -330,7 +330,7 @@
         360,
         1
       ],
-      "warmDrawMeanMs": 4.3
+      "warmDrawMeanMs": 2.74
     },
     {
       "index": 10,
@@ -361,7 +361,7 @@
         360,
         1
       ],
-      "warmDrawMeanMs": 0.61
+      "warmDrawMeanMs": 0.55
     },
     {
       "index": 11,
@@ -392,7 +392,7 @@
         360,
         1
       ],
-      "warmDrawMeanMs": 1.44
+      "warmDrawMeanMs": 1.2
     },
     {
       "index": 0,
@@ -414,7 +414,7 @@
         "max": 0,
         "actors": 0
       },
-      "atlasBytes": 4009728,
+      "atlasBytes": 3392256,
       "brownfieldBytes": 27648,
       "repairBytes": 0,
       "viewportBytes": 1883808,
@@ -423,7 +423,7 @@
         390,
         2
       ],
-      "warmDrawMeanMs": 0.91
+      "warmDrawMeanMs": 0.81
     },
     {
       "index": 1,
@@ -449,7 +449,7 @@
           "bus"
         ]
       },
-      "atlasBytes": 9855744,
+      "atlasBytes": 9701632,
       "brownfieldBytes": 27648,
       "repairBytes": 4243632,
       "viewportBytes": 4243632,
@@ -458,7 +458,7 @@
         390,
         2
       ],
-      "warmDrawMeanMs": 2.27
+      "warmDrawMeanMs": 2.32
     },
     {
       "index": 2,
@@ -489,7 +489,7 @@
         390,
         2
       ],
-      "warmDrawMeanMs": 0.99
+      "warmDrawMeanMs": 1.16
     },
     {
       "index": 3,
@@ -514,7 +514,7 @@
           "vehicle"
         ]
       },
-      "atlasBytes": 4540160,
+      "atlasBytes": 4386048,
       "brownfieldBytes": 55296,
       "repairBytes": 4243632,
       "viewportBytes": 4243632,
@@ -523,7 +523,7 @@
         390,
         2
       ],
-      "warmDrawMeanMs": 2.75
+      "warmDrawMeanMs": 3.15
     },
     {
       "index": 4,
@@ -558,7 +558,7 @@
         390,
         2
       ],
-      "warmDrawMeanMs": 1.65
+      "warmDrawMeanMs": 1.21
     },
     {
       "index": 5,
@@ -589,7 +589,7 @@
         390,
         2
       ],
-      "warmDrawMeanMs": 0.7
+      "warmDrawMeanMs": 0.72
     },
     {
       "index": 6,
@@ -649,7 +649,7 @@
           "bus"
         ]
       },
-      "atlasBytes": 9676032,
+      "atlasBytes": 9598976,
       "brownfieldBytes": 55296,
       "repairBytes": 4243632,
       "viewportBytes": 4243632,
@@ -658,7 +658,7 @@
         390,
         2
       ],
-      "warmDrawMeanMs": 2.17
+      "warmDrawMeanMs": 2.01
     },
     {
       "index": 8,
@@ -689,7 +689,7 @@
         390,
         2
       ],
-      "warmDrawMeanMs": 0.72
+      "warmDrawMeanMs": 0.85
     },
     {
       "index": 9,
@@ -714,7 +714,7 @@
           "vehicle"
         ]
       },
-      "atlasBytes": 7080960,
+      "atlasBytes": 6002176,
       "brownfieldBytes": 55296,
       "repairBytes": 4243632,
       "viewportBytes": 4243632,
@@ -723,7 +723,7 @@
         390,
         2
       ],
-      "warmDrawMeanMs": 7.69
+      "warmDrawMeanMs": 4.76
     },
     {
       "index": 10,
@@ -745,7 +745,7 @@
         "max": 0,
         "actors": 0
       },
-      "atlasBytes": 1325568,
+      "atlasBytes": 1478656,
       "brownfieldBytes": 55296,
       "repairBytes": 0,
       "viewportBytes": 4243632,
@@ -754,7 +754,7 @@
         390,
         2
       ],
-      "warmDrawMeanMs": 0.6
+      "warmDrawMeanMs": 0.95
     },
     {
       "index": 11,
@@ -776,7 +776,7 @@
         "max": 0,
         "actors": 0
       },
-      "atlasBytes": 8775168,
+      "atlasBytes": 8698112,
       "brownfieldBytes": 55296,
       "repairBytes": 4243632,
       "viewportBytes": 4243632,
@@ -785,7 +785,7 @@
         390,
         2
       ],
-      "warmDrawMeanMs": 1.69
+      "warmDrawMeanMs": 1.49
     },
     {
       "index": 0,
@@ -816,7 +816,7 @@
         720,
         3
       ],
-      "warmDrawMeanMs": 1.13
+      "warmDrawMeanMs": 1.36
     },
     {
       "index": 1,
@@ -843,7 +843,7 @@
           "bus"
         ]
       },
-      "atlasBytes": 10934528,
+      "atlasBytes": 10857472,
       "brownfieldBytes": 27648,
       "repairBytes": 13762560,
       "viewportBytes": 13762560,
@@ -852,7 +852,7 @@
         720,
         3
       ],
-      "warmDrawMeanMs": 4.06
+      "warmDrawMeanMs": 3.97
     },
     {
       "index": 2,
@@ -883,7 +883,7 @@
         720,
         3
       ],
-      "warmDrawMeanMs": 1.01
+      "warmDrawMeanMs": 0.91
     },
     {
       "index": 3,
@@ -909,7 +909,7 @@
           "vehicle"
         ]
       },
-      "atlasBytes": 6674944,
+      "atlasBytes": 6163200,
       "brownfieldBytes": 55296,
       "repairBytes": 13762560,
       "viewportBytes": 13762560,
@@ -918,7 +918,7 @@
         720,
         3
       ],
-      "warmDrawMeanMs": 4.52
+      "warmDrawMeanMs": 5.75
     },
     {
       "index": 4,
@@ -944,7 +944,7 @@
           "vehicle"
         ]
       },
-      "atlasBytes": 1304832,
+      "atlasBytes": 996608,
       "brownfieldBytes": 55296,
       "repairBytes": 6113280,
       "viewportBytes": 6113280,
@@ -953,7 +953,7 @@
         720,
         3
       ],
-      "warmDrawMeanMs": 1.7
+      "warmDrawMeanMs": 1.79
     },
     {
       "index": 5,
@@ -975,7 +975,7 @@
         "max": 0,
         "actors": 0
       },
-      "atlasBytes": 10543360,
+      "atlasBytes": 10466304,
       "brownfieldBytes": 55296,
       "repairBytes": 0,
       "viewportBytes": 13762560,
@@ -984,7 +984,7 @@
         720,
         3
       ],
-      "warmDrawMeanMs": 4.31
+      "warmDrawMeanMs": 0.85
     },
     {
       "index": 6,
@@ -1018,7 +1018,7 @@
         720,
         3
       ],
-      "warmDrawMeanMs": 9.23
+      "warmDrawMeanMs": 10.18
     },
     {
       "index": 7,
@@ -1054,7 +1054,7 @@
         720,
         3
       ],
-      "warmDrawMeanMs": 4.36
+      "warmDrawMeanMs": 3.02
     },
     {
       "index": 8,
@@ -1085,7 +1085,7 @@
         720,
         3
       ],
-      "warmDrawMeanMs": 0.89
+      "warmDrawMeanMs": 0.95
     },
     {
       "index": 9,
@@ -1111,7 +1111,7 @@
           "vehicle"
         ]
       },
-      "atlasBytes": 9703680,
+      "atlasBytes": 9395456,
       "brownfieldBytes": 55296,
       "repairBytes": 13762560,
       "viewportBytes": 13762560,
@@ -1120,7 +1120,7 @@
         720,
         3
       ],
-      "warmDrawMeanMs": 7.44
+      "warmDrawMeanMs": 7.2
     },
     {
       "index": 10,
@@ -1142,7 +1142,7 @@
         "max": 0,
         "actors": 0
       },
-      "atlasBytes": 4541952,
+      "atlasBytes": 4080640,
       "brownfieldBytes": 55296,
       "repairBytes": 0,
       "viewportBytes": 13762560,
@@ -1151,7 +1151,7 @@
         720,
         3
       ],
-      "warmDrawMeanMs": 2.91
+      "warmDrawMeanMs": 0.67
     },
     {
       "index": 11,
@@ -1182,7 +1182,7 @@
         720,
         3
       ],
-      "warmDrawMeanMs": 2.19
+      "warmDrawMeanMs": 2.47
     }
   ],
   "network": {
