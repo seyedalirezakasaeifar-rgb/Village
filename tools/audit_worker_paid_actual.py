@@ -1,0 +1,46 @@
+"""Actual economic fixtures against public worker code; no worker files edited.
+Build immutable worker source with its build.cjs, then pass --worker-code.
+Known defects recorded, not converted into production/native acceptance.
+"""
+import argparse,hashlib,json,sys,subprocess
+from pathlib import Path
+ROOT=Path(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT/'tests'))
+from test_mobile_rendering import html
+from playwright.sync_api import sync_playwright
+ap=argparse.ArgumentParser();ap.add_argument('--worker-code',required=True);ap.add_argument('--commit',default='ab1fc8141b8767b490c8d1f6f789991003251dbd');args=ap.parse_args()
+code=Path(args.worker_code).read_text();source=(ROOT/'assets/game.js').read_text()
+hook='''save=()=>true;window.__paidActualFixture=()=>{paused=true;chosenScenario='settlement';seed(42);active='';pendingEvent=null;G.councilInbox=[{title:COUNCIL_EVENTS[0].title,day:G.day}];G.rngState=rngState;return JSON.stringify(G);};\n'''
+# Test-only scheduling gate. Original tick, original council review and all economics
+# remain unchanged. Yield is held after a completed day, never within model work.
+gate='''
+const auditRealTick=tick,auditRealYield=workerYield,auditRealHandler=self.onmessage;
+let auditRelease=null;
+self.onmessage=e=>{if(e.data.type==='audit-hold-review'){tick=()=>{auditRealTick();reviewCouncilInbox(0);};workerYield=()=>new Promise(r=>auditRelease=r);self.postMessage({id:e.data.id,ok:true,result:{epoch:workerEpoch,armed:true}});return;}
+if(e.data.type==='audit-release'){tick=auditRealTick;workerYield=auditRealYield;const release=auditRelease;auditRelease=null;release?.();self.postMessage({id:e.data.id,ok:true,result:{epoch:workerEpoch,released:!!release,pending:!!pendingEvent}});return;}return auditRealHandler(e);};
+'''
+out={'workerCommit':args.commit,'workerSha256':hashlib.sha256(code.encode()).hexdigest(),'hostSourceSha256':hashlib.sha256(source.encode()).hexdigest(),'stubEconomics':False,'diagnosticSchedulingGateOnly':True,'productionComposition':False,'native':False,'cases':{}}
+with sync_playwright() as pw:
+ b=pw.chromium.launch(executable_path='/usr/bin/chromium',args=['--no-sandbox']);p=b.new_page();p.set_content(html);p.evaluate('window.requestAnimationFrame=()=>0');p.add_script_tag(content=source.replace('// SOURCE: 99-instrumentation.js',hook+'// SOURCE: 99-instrumentation.js'));archive=p.evaluate('__paidActualFixture()')
+ p.evaluate('''()=>{let serial=0;window.auditCreate=code=>{window.aw?.terminate();window.aepoch=0;window.aw=new Worker(URL.createObjectURL(new Blob([code],{type:'application/javascript'})));};window.auditAsk=m=>new Promise((resolve,reject)=>{const id=++serial,w=aw,t=setTimeout(()=>{w.removeEventListener('message',h);reject(Error('Actual worker request timed out: '+m.type));},30000),h=e=>{if(e.data.id!==id)return;clearTimeout(t);w.removeEventListener('message',h);if(e.data.ok&&e.data.result.epoch!==undefined)aepoch=e.data.result.epoch;resolve(e.data);};w.addEventListener('message',h);w.postMessage({epoch:aepoch,...m,id});});}''')
+ def ask(**m):return p.evaluate('m=>auditAsk(m)',m)
+ def good(**m):
+  r=ask(**m);assert r['ok'],r;return r['result']
+ def load():
+  p.evaluate('code=>auditCreate(code)',code+gate);return good(type='load',epoch=0,archive=archive)
+ load();first=good(type='step',command=1,days=1);duplicate=ask(type='step',command=1,days=1);after=good(type='export');load();two=good(type='step',command=1,days=2)
+ out['cases']['duplicateStep']={'firstDay':first['day'],'duplicateAccepted':duplicate['ok'],'finalDay':after['day'],'actualTwoDayModelAndRng':after['model']==two['model'],'expected':'Duplicate must reject or return prior receipt without a second day. A new command ID must still advance the next day.'}
+ assert after['model']==two['model'] if duplicate['ok'] else after['model']==first['model']
+ load();one=good(type='step',command=1,days=1);valid=good(type='step',command=2,days=1);assert valid['model']==two['model'];out['cases']['legitimateNewStep']={'newIdAdvances':True,'exactTwoDayModelAndRng':True}
+ stale=ask(type='load',epoch=0,archive=archive);out['cases']['staleLoad']={'accepted':stale['ok'],'dayBefore':valid['day'],'dayAfter':good(type='export')['day'],'expected':'Old epoch adoption refuses without resetting town. Deliberate current-epoch restore remains permitted.'}
+ load();review=good(type='review',command=1,index=0);event=next(e['payload'] for e in review['outbox'] if e['type']=='council-event');before=good(type='export');invalid=ask(type='choice',command=2,eventId=event['id'],index=999);unchanged=good(type='export');assert not invalid['ok'] and before['model']==unchanged['model'];retry=ask(type='choice',command=2,eventId=event['id'],index=0);assert not retry['ok'];validChoice=good(type='choice',command=3,eventId=event['id'],index=0);dupChoice=ask(type='choice',command=3,eventId=event['id'],index=0);staleChoice=ask(type='choice',command=4,eventId=event['id'],index=0);unchanged=good(type='export');assert not dupChoice['ok'] and not staleChoice['ok'] and unchanged['model']==validChoice['model']
+ # Same real council callback with no failed attempt: byte-for-byte canonical result.
+ load();review2=good(type='review',command=1,index=0);event2=next(e['payload'] for e in review2['outbox'] if e['type']=='council-event');direct=good(type='choice',command=2,eventId=event2['id'],index=0);assert direct['model']==validChoice['model']
+ out['cases']['councilRetry']={'title':event['title'],'invalidIndexNoModelOrRngChange':True,'consumedIdCannotBeRetried':True,'correctedNewIdSucceeds':True,'duplicateAndStaleNoSecondPayment':True,'exactUninterruptedChoiceModelAndRng':True,'expected':'A validation failure consumes admitted request ID but preserves local review. Correcting input under a fresh ID succeeds once.'}
+ load();good(type='audit-hold-review');p.evaluate("()=>{window.heldStep=auditAsk({type:'step',command:1,days:1});}");exported=good(type='export');released=good(type='audit-release');finished=p.evaluate('heldStep');assert finished['ok'];stolen=any(e['type']=='council-event' for e in exported['outbox']) and not any(e['type']=='council-event' for e in finished['result']['outbox']);out['cases']['exportDuringCommittedYield']={'exportConsumedCouncilEffect':stolen,'pendingWorkerReview':released['pending'],'sameCommittedModelAndRng':exported['model']==finished['result']['model'],'expected':'Read/export must preserve eventual exactly-once council presentation while retaining a valid canonical export.'};assert exported['model']==finished['result']['model']
+ load();prepared=good(type='save-prepare');good(type='save-abort',token=prepared['token']);fresh=good(type='save-prepare');assert fresh['archive']==prepared['archive'] and fresh['token']!=prepared['token'];ack=good(type='save-ack',token=fresh['token'],checksum=fresh['checksum']);repeat=ask(type='save-ack',token=fresh['token'],checksum=fresh['checksum']);assert ack['persisted'] and not repeat['ok'];pinned=good(type='save-prepare');adopted=good(type='load',archive=archive);oldAck=ask(type='save-ack',token=pinned['token'],checksum=pinned['checksum']);assert not oldAck['ok'];out['cases']['saveRetry']={'abortedPrepareCanRetryFreshToken':True,'canonicalArchiveUnchanged':True,'duplicateAckRejected':True,'currentEpochRestoreSucceeds':True,'restoreInvalidatesPriorPreparedToken':True,'actualPersistenceClaim':False,'expected':'Failed owner write aborts token; retry prepares a new token. ACK is legal only after actual write, duplicate ACK does not write again.'}
+ # Archive request alias probe uses a real advanced town and the original valid archive.
+ good(type='step',command=1,days=1);advanced=good(type='export');endpoint=subprocess.check_output(['git','show',args.commit+':experimental/worker/archive-endpoint.js'],text=True);p.add_script_tag(content=endpoint)
+ alias=p.evaluate("""async archive=>{let done;const completed=new Promise(r=>done=r),calls=[],api=createWorkerArchiveEndpoint({epoch:()=>aepoch,export:async()=>{calls.push('export');const r=await auditAsk({type:'export'});if(!r.ok)throw Error(r.error);return {archive:r.result.archive};},save:async()=>{throw Error('Unexpected persistence');},restore:async(text,commit)=>{calls.push('restore');commit();const r=await auditAsk({type:'load',archive:text});if(!r.ok)throw Error(r.error);return {restored:true,day:r.result.day};},complete:r=>done(r)}),request={id:1,epoch:aepoch,op:'export'},accepted=api.submit(request);request.id=2;request.op='restore';request.archive=archive;const reply=await completed;return {accepted,reply,calls,status:api.status()};}""",archive)
+ final=good(type='export');out['cases']['archiveAlias']={**alias,'advancedDay':advanced['day'],'finalDay':final['day'],'actualTownReset':final['day']<advanced['day'],'expected':'Accepted export stays export/id1 despite caller mutation; legitimate restore is a separate current-epoch request with a new ID.'}
+ b.close()
+path=ROOT/'reports/current-paid-worker-audit/actual-model.json';path.write_text(json.dumps(out,indent=2)+'\n');print(json.dumps(out['cases'],indent=2))
