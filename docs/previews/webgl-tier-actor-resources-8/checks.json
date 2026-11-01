@@ -1,0 +1,192 @@
+{
+  "sourceCommit": "f26d6969001704919755d48f1ea4e4fda71ea2fa",
+  "sourceModules": {
+    "assets/game.js": "ba03c5017a9353521600f55014af46fcd1512051c817dcb56a385801f61f2c0d",
+    "assets/webgl-actors.js": "e7f761691a2edcc9ddb7937dad3d50464fb3ff73129ac8b22e418cbe1fb094cb",
+    "assets/webgl-bridges.js": "74942b383da346235286d096f7e376a9c5b378993b135586c5df780c46a60ace",
+    "assets/webgl-economy-facades.js": "a9eb09d198d19d3b6f268ee233949d7e63521eabb36c7e41d7c636a1805acacd",
+    "assets/webgl-entry.js": "8a60d7d3d24a8c903afb025ba8c493c0b196aeebfca5be7b17500f71bcb2cb35",
+    "assets/webgl-map-overlay.js": "d4df7a9a75c7da788f87c9f22ad4e97e8f192a359b8103ef576045335f318cb2",
+    "assets/webgl-materials.js": "1ec2ded334a92ec0397d9e2ebc4444d19eee5472df11abcc35dd7205504f1b04",
+    "assets/webgl-quality-policy.js": "51a341506b5a5b9b942084027b77d5dcde46f6c2f3823a9a7d43724edeefb041",
+    "assets/webgl-static-batch.js": "ef5927cf016acc06ec768f71e1beac5c12f21e6bf9ca9c034c155a68587fc292",
+    "assets/webgl-taste.js": "1758108efbfedf454659afb4b9b20745888aff7746bd934a8294a63455555b3f",
+    "assets/webgl-transit-geometry.js": "46a6e7308dcefbf8f9925b7c55d11b7cbff6d813fe38c1a5247cbdf7428433ee",
+    "assets/webgl-view.js": "55164f63aed7f4e7809e07af32ca2d6db776be7ebaa0ebcdbdb036fc7eb22f79",
+    "assets/newfoundland-families.js": "207d24e6078e19b0fe56a4a30d16f0e6f5552bf7baf00b14f3b2f88bf1d0d757",
+    "assets/newfoundland-kit.js": "79be3c5956bbcb3b9db5a9c84ce10be46892cee568e44e864b92d3ba926fae2c",
+    "assets/newfoundland-specialized.js": "6941345479806d6bf28d444b1248e23d4194929cbaa2dc19282da6acaafaba78",
+    "assets/newfoundland-workplaces.js": "9bb59f5ab1347328c2afb1818e29701e00b1da1bef649569f3b55dbc20bd619a"
+  },
+  "sequential": true,
+  "rows": [
+    {
+      "tier": "economy",
+      "options": [
+        {
+          "option": "traffic",
+          "realActorsBefore": 2,
+          "off": 0,
+          "restored": 2
+        },
+        {
+          "option": "effects",
+          "realActorsBefore": 2,
+          "off": 2,
+          "restored": 2
+        }
+      ],
+      "cache": [
+        {
+          "lod": "far",
+          "memory": {
+            "geometries": 18,
+            "textures": 11
+          }
+        },
+        {
+          "lod": "far",
+          "memory": {
+            "geometries": 18,
+            "textures": 11
+          }
+        },
+        {
+          "lod": "far",
+          "memory": {
+            "geometries": 17,
+            "textures": 11
+          }
+        },
+        {
+          "lod": "far",
+          "memory": {
+            "geometries": 18,
+            "textures": 11
+          }
+        },
+        {
+          "lod": "far",
+          "memory": {
+            "geometries": 18,
+            "textures": 11
+          }
+        },
+        {
+          "lod": "far",
+          "memory": {
+            "geometries": 18,
+            "textures": 11
+          }
+        },
+        {
+          "lod": "far",
+          "memory": {
+            "geometries": 17,
+            "textures": 11
+          }
+        },
+        {
+          "lod": "far",
+          "memory": {
+            "geometries": 18,
+            "textures": 11
+          }
+        }
+      ],
+      "backend": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "disposed": {
+        "geometries": 0,
+        "textures": 0
+      },
+      "errors": [],
+      "fullArchiveRNGInvariant": true,
+      "pausedNoExtraDraws": true,
+      "save": true
+    },
+    {
+      "tier": "reference",
+      "options": [
+        {
+          "option": "traffic",
+          "realActorsBefore": 3,
+          "off": 0,
+          "restored": 3
+        },
+        {
+          "option": "effects",
+          "realActorsBefore": 3,
+          "off": 3,
+          "restored": 3
+        }
+      ],
+      "cache": [
+        {
+          "lod": "near",
+          "memory": {
+            "geometries": 17,
+            "textures": 8
+          }
+        },
+        {
+          "lod": "mid",
+          "memory": {
+            "geometries": 17,
+            "textures": 8
+          }
+        },
+        {
+          "lod": "far",
+          "memory": {
+            "geometries": 16,
+            "textures": 9
+          }
+        },
+        {
+          "lod": "near",
+          "memory": {
+            "geometries": 17,
+            "textures": 10
+          }
+        },
+        {
+          "lod": "near",
+          "memory": {
+            "geometries": 17,
+            "textures": 10
+          }
+        },
+        {
+          "lod": "mid",
+          "memory": {
+            "geometries": 17,
+            "textures": 10
+          }
+        },
+        {
+          "lod": "far",
+          "memory": {
+            "geometries": 16,
+            "textures": 9
+          }
+        },
+        {
+          "lod": "near",
+          "memory": {
+            "geometries": 17,
+            "textures": 10
+          }
+        }
+      ],
+      "backend": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "disposed": {
+        "geometries": 0,
+        "textures": 0
+      },
+      "errors": [],
+      "fullArchiveRNGInvariant": true,
+      "pausedNoExtraDraws": true,
+      "save": true
+    }
+  ]
+}
