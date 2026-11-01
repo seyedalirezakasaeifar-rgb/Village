@@ -1,0 +1,65 @@
+{
+  "sourceSha256": "3e262a51d4a95992c2b9df3f8205025ffdb1f05d6a5376a528ff75ddceedae8b",
+  "excludedFields": [],
+  "rows": [
+    {
+      "label": "seed42-day60",
+      "day": 60,
+      "roadBefore": null,
+      "roadWarm": {
+        "connectedFirms": 26,
+        "totalFirms": 26,
+        "connectedHomes": 65,
+        "totalHomes": 67,
+        "roadTiles": 385,
+        "roadClusters": 1,
+        "averageJourney": 13,
+        "quality": 98
+      },
+      "roadEntered": {
+        "connectedFirms": 26,
+        "totalFirms": 26,
+        "connectedHomes": 65,
+        "totalHomes": 67,
+        "roadTiles": 385,
+        "roadClusters": 1,
+        "averageJourney": 13,
+        "quality": 98
+      },
+      "warmDiff": [
+        {
+          "path": ".stats.cash",
+          "before": 117994.31645080252,
+          "after": 117494.31645080252
+        },
+        {
+          "path": ".roadMetrics",
+          "before": null,
+          "after": {
+            "connectedFirms": 26,
+            "totalFirms": 26,
+            "connectedHomes": 65,
+            "totalHomes": 67,
+            "roadTiles": 385,
+            "roadClusters": 1,
+            "averageJourney": 13,
+            "quality": 98
+          }
+        }
+      ],
+      "enterDiff": [],
+      "replayDiff": [],
+      "rngEqual": true,
+      "moneyDrift": -4.6193599700927734e-07,
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15493516.99999845,
+        "population": 164,
+        "day": 90
+      },
+      "beforeHash": "838aff9216e9b3a3e0c484b9bf97b23c31ff9772ca7bc731b504ec41f5418e29",
+      "enteredHash": "b3c4ef2431bb8ce3e5b37231e780c78c42ea9e5980f2639c71159a22cf15cdb1"
+    }
+  ]
+}

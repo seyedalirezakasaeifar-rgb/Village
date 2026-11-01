@@ -1,0 +1,1088 @@
+{
+  "sourceSha256": "3e262a51d4a95992c2b9df3f8205025ffdb1f05d6a5376a528ff75ddceedae8b",
+  "excludedFields": [],
+  "rows": [
+    {
+      "label": "seed42-day1",
+      "day": 1,
+      "roadBefore": null,
+      "roadWarm": {
+        "connectedFirms": 26,
+        "totalFirms": 26,
+        "connectedHomes": 67,
+        "totalHomes": 67,
+        "roadTiles": 385,
+        "roadClusters": 1,
+        "averageJourney": 13,
+        "quality": 75
+      },
+      "roadEntered": {
+        "connectedFirms": 26,
+        "totalFirms": 26,
+        "connectedHomes": 67,
+        "totalHomes": 67,
+        "roadTiles": 385,
+        "roadClusters": 1,
+        "averageJourney": 13,
+        "quality": 75
+      },
+      "warmDiff": [
+        {
+          "path": ".roadMetrics",
+          "before": null,
+          "after": {
+            "connectedFirms": 26,
+            "totalFirms": 26,
+            "connectedHomes": 67,
+            "totalHomes": 67,
+            "roadTiles": 385,
+            "roadClusters": 1,
+            "averageJourney": 13,
+            "quality": 75
+          }
+        }
+      ],
+      "enterDiff": [],
+      "replayDiff": [],
+      "rngEqual": true,
+      "moneyDrift": -1.4901161193847656e-08,
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15493516.999999985,
+        "population": 169,
+        "day": 2
+      },
+      "beforeHash": "94222d8bf281397131db70358c10472df6c70bd3bc793cf4820ca3a9750987ff",
+      "enteredHash": "c01a8c4b1bd81a625370c5d1373cd969ff178722c5843442647a65e117a1360c"
+    },
+    {
+      "label": "seed42-day2",
+      "day": 2,
+      "roadBefore": {
+        "connectedFirms": 26,
+        "totalFirms": 26,
+        "connectedHomes": 67,
+        "totalHomes": 67,
+        "roadTiles": 385,
+        "roadClusters": 1,
+        "averageJourney": 13,
+        "quality": 100
+      },
+      "roadWarm": {
+        "connectedFirms": 26,
+        "totalFirms": 26,
+        "connectedHomes": 67,
+        "totalHomes": 67,
+        "roadTiles": 385,
+        "roadClusters": 1,
+        "averageJourney": 13,
+        "quality": 100
+      },
+      "roadEntered": {
+        "connectedFirms": 26,
+        "totalFirms": 26,
+        "connectedHomes": 67,
+        "totalHomes": 67,
+        "roadTiles": 385,
+        "roadClusters": 1,
+        "averageJourney": 13,
+        "quality": 100
+      },
+      "warmDiff": [],
+      "enterDiff": [],
+      "replayDiff": [],
+      "rngEqual": true,
+      "moneyDrift": -2.0489096641540527e-08,
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15493516.999999965,
+        "population": 169,
+        "day": 3
+      },
+      "beforeHash": "55f55ff94ed1a5cf5aaf8bf10cb1f01d3a9a19985cf3382f7d2b6d4d96cc10f0",
+      "enteredHash": "55f55ff94ed1a5cf5aaf8bf10cb1f01d3a9a19985cf3382f7d2b6d4d96cc10f0"
+    },
+    {
+      "label": "seed42-day7",
+      "day": 7,
+      "roadBefore": {
+        "connectedFirms": 26,
+        "totalFirms": 26,
+        "connectedHomes": 67,
+        "totalHomes": 67,
+        "roadTiles": 385,
+        "roadClusters": 1,
+        "averageJourney": 13,
+        "quality": 100
+      },
+      "roadWarm": {
+        "connectedFirms": 26,
+        "totalFirms": 26,
+        "connectedHomes": 67,
+        "totalHomes": 67,
+        "roadTiles": 385,
+        "roadClusters": 1,
+        "averageJourney": 13,
+        "quality": 100
+      },
+      "roadEntered": {
+        "connectedFirms": 26,
+        "totalFirms": 26,
+        "connectedHomes": 67,
+        "totalHomes": 67,
+        "roadTiles": 385,
+        "roadClusters": 1,
+        "averageJourney": 13,
+        "quality": 100
+      },
+      "warmDiff": [],
+      "enterDiff": [],
+      "replayDiff": [],
+      "rngEqual": true,
+      "moneyDrift": -2.7939677238464355e-08,
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15493516.999999862,
+        "population": 169,
+        "day": 8
+      },
+      "beforeHash": "cd03011e019ed4a19ad6f5ee2d0d5136f33fd24a0c05c7a840d4725ca9869ef5",
+      "enteredHash": "cd03011e019ed4a19ad6f5ee2d0d5136f33fd24a0c05c7a840d4725ca9869ef5"
+    },
+    {
+      "label": "seed42-day10",
+      "day": 10,
+      "roadBefore": {
+        "connectedFirms": 26,
+        "totalFirms": 26,
+        "connectedHomes": 67,
+        "totalHomes": 67,
+        "roadTiles": 385,
+        "roadClusters": 1,
+        "averageJourney": 13,
+        "quality": 100
+      },
+      "roadWarm": {
+        "connectedFirms": 26,
+        "totalFirms": 26,
+        "connectedHomes": 67,
+        "totalHomes": 67,
+        "roadTiles": 385,
+        "roadClusters": 1,
+        "averageJourney": 13,
+        "quality": 100
+      },
+      "roadEntered": {
+        "connectedFirms": 26,
+        "totalFirms": 26,
+        "connectedHomes": 67,
+        "totalHomes": 67,
+        "roadTiles": 385,
+        "roadClusters": 1,
+        "averageJourney": 13,
+        "quality": 100
+      },
+      "warmDiff": [],
+      "enterDiff": [],
+      "replayDiff": [],
+      "rngEqual": true,
+      "moneyDrift": -2.0489096641540527e-08,
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15493516.999999793,
+        "population": 169,
+        "day": 11
+      },
+      "beforeHash": "58be8317cf1a58e411355f3dc1fdf739662842bfe1b81ddf1c91ea7d71b83f74",
+      "enteredHash": "58be8317cf1a58e411355f3dc1fdf739662842bfe1b81ddf1c91ea7d71b83f74"
+    },
+    {
+      "label": "seed42-day11",
+      "day": 11,
+      "roadBefore": {
+        "connectedFirms": 26,
+        "totalFirms": 26,
+        "connectedHomes": 67,
+        "totalHomes": 67,
+        "roadTiles": 385,
+        "roadClusters": 1,
+        "averageJourney": 13,
+        "quality": 100
+      },
+      "roadWarm": {
+        "connectedFirms": 26,
+        "totalFirms": 26,
+        "connectedHomes": 67,
+        "totalHomes": 67,
+        "roadTiles": 385,
+        "roadClusters": 1,
+        "averageJourney": 13,
+        "quality": 100
+      },
+      "roadEntered": {
+        "connectedFirms": 26,
+        "totalFirms": 26,
+        "connectedHomes": 67,
+        "totalHomes": 67,
+        "roadTiles": 385,
+        "roadClusters": 1,
+        "averageJourney": 13,
+        "quality": 100
+      },
+      "warmDiff": [],
+      "enterDiff": [],
+      "replayDiff": [],
+      "rngEqual": true,
+      "moneyDrift": -2.421438694000244e-08,
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15493516.999999769,
+        "population": 169,
+        "day": 12
+      },
+      "beforeHash": "27dacb7be57417c0b95ea6f11dc7b15241895a9dc5992d40cf9314c322fb1ff3",
+      "enteredHash": "27dacb7be57417c0b95ea6f11dc7b15241895a9dc5992d40cf9314c322fb1ff3"
+    },
+    {
+      "label": "seed42-day30",
+      "day": 30,
+      "roadBefore": {
+        "connectedFirms": 26,
+        "totalFirms": 26,
+        "connectedHomes": 67,
+        "totalHomes": 67,
+        "roadTiles": 385,
+        "roadClusters": 1,
+        "averageJourney": 13,
+        "quality": 99
+      },
+      "roadWarm": {
+        "connectedFirms": 26,
+        "totalFirms": 26,
+        "connectedHomes": 66,
+        "totalHomes": 67,
+        "roadTiles": 385,
+        "roadClusters": 1,
+        "averageJourney": 13,
+        "quality": 99
+      },
+      "roadEntered": {
+        "connectedFirms": 26,
+        "totalFirms": 26,
+        "connectedHomes": 66,
+        "totalHomes": 67,
+        "roadTiles": 385,
+        "roadClusters": 1,
+        "averageJourney": 13,
+        "quality": 99
+      },
+      "warmDiff": [
+        {
+          "path": ".buildings[103].baseValue",
+          "before": null,
+          "after": 69000
+        },
+        {
+          "path": ".stats.businessCash",
+          "before": 495179.664460058,
+          "after": 498215.664460058
+        },
+        {
+          "path": ".roadMetrics.connectedHomes",
+          "before": 67,
+          "after": 66
+        }
+      ],
+      "enterDiff": [],
+      "replayDiff": [],
+      "rngEqual": true,
+      "moneyDrift": -1.30385160446167e-08,
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15493516.999999406,
+        "population": 166,
+        "day": 31
+      },
+      "beforeHash": "f81d2ec5b2a9b9792353f514d7eafc8921ec96fe45b324f21832f42fa8e2533c",
+      "enteredHash": "51c4552593833ae3aa9c8eea37f22fa329f6841976cabd082cd44c58ab76deea"
+    },
+    {
+      "label": "seed42-day31",
+      "day": 31,
+      "roadBefore": {
+        "connectedFirms": 26,
+        "totalFirms": 26,
+        "connectedHomes": 66,
+        "totalHomes": 67,
+        "roadTiles": 385,
+        "roadClusters": 1,
+        "averageJourney": 13,
+        "quality": 99
+      },
+      "roadWarm": {
+        "connectedFirms": 26,
+        "totalFirms": 26,
+        "connectedHomes": 66,
+        "totalHomes": 67,
+        "roadTiles": 385,
+        "roadClusters": 1,
+        "averageJourney": 13,
+        "quality": 99
+      },
+      "roadEntered": {
+        "connectedFirms": 26,
+        "totalFirms": 26,
+        "connectedHomes": 66,
+        "totalHomes": 67,
+        "roadTiles": 385,
+        "roadClusters": 1,
+        "averageJourney": 13,
+        "quality": 99
+      },
+      "warmDiff": [],
+      "enterDiff": [],
+      "replayDiff": [],
+      "rngEqual": true,
+      "moneyDrift": -9.313225746154785e-09,
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15493516.999999397,
+        "population": 166,
+        "day": 32
+      },
+      "beforeHash": "a6a5f92f0319067bcd8c61b0c1aaf621174de9afd46acd051c075992e7819ba4",
+      "enteredHash": "a6a5f92f0319067bcd8c61b0c1aaf621174de9afd46acd051c075992e7819ba4"
+    },
+    {
+      "label": "seed42-day32",
+      "day": 32,
+      "roadBefore": {
+        "connectedFirms": 26,
+        "totalFirms": 26,
+        "connectedHomes": 66,
+        "totalHomes": 67,
+        "roadTiles": 385,
+        "roadClusters": 1,
+        "averageJourney": 13,
+        "quality": 99
+      },
+      "roadWarm": {
+        "connectedFirms": 26,
+        "totalFirms": 26,
+        "connectedHomes": 66,
+        "totalHomes": 67,
+        "roadTiles": 385,
+        "roadClusters": 1,
+        "averageJourney": 13,
+        "quality": 99
+      },
+      "roadEntered": {
+        "connectedFirms": 26,
+        "totalFirms": 26,
+        "connectedHomes": 66,
+        "totalHomes": 67,
+        "roadTiles": 385,
+        "roadClusters": 1,
+        "averageJourney": 13,
+        "quality": 99
+      },
+      "warmDiff": [],
+      "enterDiff": [],
+      "replayDiff": [],
+      "rngEqual": true,
+      "moneyDrift": -1.862645149230957e-08,
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15493516.999999378,
+        "population": 166,
+        "day": 33
+      },
+      "beforeHash": "4e90c29e001d33997f5dd6e92107a790b532ef9db3324c8f62bcdd065e94e5c2",
+      "enteredHash": "4e90c29e001d33997f5dd6e92107a790b532ef9db3324c8f62bcdd065e94e5c2"
+    },
+    {
+      "label": "seed42-day60",
+      "day": 60,
+      "roadBefore": null,
+      "roadWarm": {
+        "connectedFirms": 26,
+        "totalFirms": 26,
+        "connectedHomes": 65,
+        "totalHomes": 67,
+        "roadTiles": 385,
+        "roadClusters": 1,
+        "averageJourney": 13,
+        "quality": 98
+      },
+      "roadEntered": {
+        "connectedFirms": 26,
+        "totalFirms": 26,
+        "connectedHomes": 65,
+        "totalHomes": 67,
+        "roadTiles": 385,
+        "roadClusters": 1,
+        "averageJourney": 13,
+        "quality": 98
+      },
+      "warmDiff": [
+        {
+          "path": ".stats.cash",
+          "before": 117994.31645080252,
+          "after": 117494.31645080252
+        },
+        {
+          "path": ".roadMetrics",
+          "before": null,
+          "after": {
+            "connectedFirms": 26,
+            "totalFirms": 26,
+            "connectedHomes": 65,
+            "totalHomes": 67,
+            "roadTiles": 385,
+            "roadClusters": 1,
+            "averageJourney": 13,
+            "quality": 98
+          }
+        }
+      ],
+      "enterDiff": [],
+      "replayDiff": [
+        {
+          "path": ".stats.avgCash",
+          "before": 1761.1092007582465,
+          "after": 1753.6465141910824
+        }
+      ],
+      "rngEqual": true,
+      "moneyDrift": -5.587935447692871e-09,
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15493516.999998907,
+        "population": 163,
+        "day": 61
+      },
+      "beforeHash": "838aff9216e9b3a3e0c484b9bf97b23c31ff9772ca7bc731b504ec41f5418e29",
+      "enteredHash": "b3c4ef2431bb8ce3e5b37231e780c78c42ea9e5980f2639c71159a22cf15cdb1"
+    },
+    {
+      "label": "seed42-day61",
+      "day": 61,
+      "roadBefore": {
+        "connectedFirms": 26,
+        "totalFirms": 26,
+        "connectedHomes": 65,
+        "totalHomes": 67,
+        "roadTiles": 385,
+        "roadClusters": 1,
+        "averageJourney": 13,
+        "quality": 98
+      },
+      "roadWarm": {
+        "connectedFirms": 26,
+        "totalFirms": 26,
+        "connectedHomes": 65,
+        "totalHomes": 67,
+        "roadTiles": 385,
+        "roadClusters": 1,
+        "averageJourney": 13,
+        "quality": 98
+      },
+      "roadEntered": {
+        "connectedFirms": 26,
+        "totalFirms": 26,
+        "connectedHomes": 65,
+        "totalHomes": 67,
+        "roadTiles": 385,
+        "roadClusters": 1,
+        "averageJourney": 13,
+        "quality": 98
+      },
+      "warmDiff": [],
+      "enterDiff": [],
+      "replayDiff": [],
+      "rngEqual": true,
+      "moneyDrift": -9.313225746154785e-09,
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15493516.999998897,
+        "population": 163,
+        "day": 62
+      },
+      "beforeHash": "225683bb46432b5bd5aa3394e3f4fda9291eb440b188f835d4a8210a9092dea4",
+      "enteredHash": "225683bb46432b5bd5aa3394e3f4fda9291eb440b188f835d4a8210a9092dea4"
+    },
+    {
+      "label": "seed42-day62",
+      "day": 62,
+      "roadBefore": {
+        "connectedFirms": 26,
+        "totalFirms": 26,
+        "connectedHomes": 65,
+        "totalHomes": 67,
+        "roadTiles": 385,
+        "roadClusters": 1,
+        "averageJourney": 13,
+        "quality": 98
+      },
+      "roadWarm": {
+        "connectedFirms": 26,
+        "totalFirms": 26,
+        "connectedHomes": 65,
+        "totalHomes": 67,
+        "roadTiles": 385,
+        "roadClusters": 1,
+        "averageJourney": 13,
+        "quality": 98
+      },
+      "roadEntered": {
+        "connectedFirms": 26,
+        "totalFirms": 26,
+        "connectedHomes": 65,
+        "totalHomes": 67,
+        "roadTiles": 385,
+        "roadClusters": 1,
+        "averageJourney": 13,
+        "quality": 98
+      },
+      "warmDiff": [],
+      "enterDiff": [],
+      "replayDiff": [],
+      "rngEqual": true,
+      "moneyDrift": -7.450580596923828e-09,
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15493516.99999889,
+        "population": 163,
+        "day": 63
+      },
+      "beforeHash": "c5dcaceaeda9cfe70f9aa40205b898ed0a37993beed9395c57e139990c8842c7",
+      "enteredHash": "c5dcaceaeda9cfe70f9aa40205b898ed0a37993beed9395c57e139990c8842c7"
+    },
+    {
+      "label": "seed42-day90",
+      "day": 90,
+      "roadBefore": {
+        "connectedFirms": 27,
+        "totalFirms": 27,
+        "connectedHomes": 65,
+        "totalHomes": 67,
+        "roadTiles": 385,
+        "roadClusters": 1,
+        "averageJourney": 13,
+        "quality": 97
+      },
+      "roadWarm": {
+        "connectedFirms": 27,
+        "totalFirms": 27,
+        "connectedHomes": 65,
+        "totalHomes": 67,
+        "roadTiles": 385,
+        "roadClusters": 1,
+        "averageJourney": 13,
+        "quality": 97
+      },
+      "roadEntered": {
+        "connectedFirms": 27,
+        "totalFirms": 27,
+        "connectedHomes": 65,
+        "totalHomes": 67,
+        "roadTiles": 385,
+        "roadClusters": 1,
+        "averageJourney": 13,
+        "quality": 97
+      },
+      "warmDiff": [],
+      "enterDiff": [],
+      "replayDiff": [],
+      "rngEqual": true,
+      "moneyDrift": -2.7939677238464355e-08,
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15493516.999998422,
+        "population": 164,
+        "day": 91
+      },
+      "beforeHash": "e238d03a537ebb5a8c8c698419b79a83a56f7e4a50b6a2517c64212282c745d7",
+      "enteredHash": "e238d03a537ebb5a8c8c698419b79a83a56f7e4a50b6a2517c64212282c745d7"
+    },
+    {
+      "label": "seed42-day91",
+      "day": 91,
+      "roadBefore": {
+        "connectedFirms": 27,
+        "totalFirms": 27,
+        "connectedHomes": 65,
+        "totalHomes": 67,
+        "roadTiles": 385,
+        "roadClusters": 1,
+        "averageJourney": 13,
+        "quality": 97
+      },
+      "roadWarm": {
+        "connectedFirms": 27,
+        "totalFirms": 27,
+        "connectedHomes": 65,
+        "totalHomes": 67,
+        "roadTiles": 385,
+        "roadClusters": 1,
+        "averageJourney": 13,
+        "quality": 97
+      },
+      "roadEntered": {
+        "connectedFirms": 27,
+        "totalFirms": 27,
+        "connectedHomes": 65,
+        "totalHomes": 67,
+        "roadTiles": 385,
+        "roadClusters": 1,
+        "averageJourney": 13,
+        "quality": 97
+      },
+      "warmDiff": [],
+      "enterDiff": [],
+      "replayDiff": [],
+      "rngEqual": true,
+      "moneyDrift": -2.421438694000244e-08,
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15493516.999998398,
+        "population": 164,
+        "day": 92
+      },
+      "beforeHash": "ba2905bb00f67dcf01513ac500301744b4ab0d132473edfd11f1676916048a5f",
+      "enteredHash": "ba2905bb00f67dcf01513ac500301744b4ab0d132473edfd11f1676916048a5f"
+    },
+    {
+      "label": "regional91-day1",
+      "day": 1,
+      "roadBefore": null,
+      "roadWarm": {
+        "connectedFirms": 84,
+        "totalFirms": 84,
+        "connectedHomes": 311,
+        "totalHomes": 311,
+        "roadTiles": 385,
+        "roadClusters": 1,
+        "averageJourney": 13,
+        "quality": 75
+      },
+      "roadEntered": {
+        "connectedFirms": 84,
+        "totalFirms": 84,
+        "connectedHomes": 311,
+        "totalHomes": 311,
+        "roadTiles": 385,
+        "roadClusters": 1,
+        "averageJourney": 13,
+        "quality": 75
+      },
+      "warmDiff": [
+        {
+          "path": ".roadMetrics",
+          "before": null,
+          "after": {
+            "connectedFirms": 84,
+            "totalFirms": 84,
+            "connectedHomes": 311,
+            "totalHomes": 311,
+            "roadTiles": 385,
+            "roadClusters": 1,
+            "averageJourney": 13,
+            "quality": 75
+          }
+        }
+      ],
+      "enterDiff": [],
+      "replayDiff": [],
+      "rngEqual": true,
+      "moneyDrift": -3.91155481338501e-08,
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15529975.99999996,
+        "population": 657,
+        "day": 2
+      },
+      "beforeHash": "3006fce4ff96c74688624e7f9bbf52de1d5f136f79a438bba911213fcc415f29",
+      "enteredHash": "2929a5bcce8e66c2e39168586f1004a0b75b1620ebec7d023b28c987fea1f614"
+    },
+    {
+      "label": "regional91-day2",
+      "day": 2,
+      "roadBefore": {
+        "connectedFirms": 84,
+        "totalFirms": 84,
+        "connectedHomes": 311,
+        "totalHomes": 311,
+        "roadTiles": 385,
+        "roadClusters": 1,
+        "averageJourney": 13,
+        "quality": 100
+      },
+      "roadWarm": {
+        "connectedFirms": 84,
+        "totalFirms": 84,
+        "connectedHomes": 311,
+        "totalHomes": 311,
+        "roadTiles": 385,
+        "roadClusters": 1,
+        "averageJourney": 13,
+        "quality": 100
+      },
+      "roadEntered": {
+        "connectedFirms": 84,
+        "totalFirms": 84,
+        "connectedHomes": 311,
+        "totalHomes": 311,
+        "roadTiles": 385,
+        "roadClusters": 1,
+        "averageJourney": 13,
+        "quality": 100
+      },
+      "warmDiff": [],
+      "enterDiff": [],
+      "replayDiff": [],
+      "rngEqual": true,
+      "moneyDrift": -1.6763806343078613e-08,
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15529975.999999944,
+        "population": 657,
+        "day": 3
+      },
+      "beforeHash": "c0850bbe2ec9d96e9e8d0a2a83e9c8e536ee128108c8dbb94d32d8c440106e18",
+      "enteredHash": "c0850bbe2ec9d96e9e8d0a2a83e9c8e536ee128108c8dbb94d32d8c440106e18"
+    },
+    {
+      "label": "regional91-day30",
+      "day": 30,
+      "roadBefore": {
+        "connectedFirms": 84,
+        "totalFirms": 84,
+        "connectedHomes": 310,
+        "totalHomes": 311,
+        "roadTiles": 392,
+        "roadClusters": 1,
+        "averageJourney": 13,
+        "quality": 99
+      },
+      "roadWarm": {
+        "connectedFirms": 84,
+        "totalFirms": 84,
+        "connectedHomes": 310,
+        "totalHomes": 311,
+        "roadTiles": 392,
+        "roadClusters": 1,
+        "averageJourney": 13,
+        "quality": 99
+      },
+      "roadEntered": {
+        "connectedFirms": 84,
+        "totalFirms": 84,
+        "connectedHomes": 310,
+        "totalHomes": 311,
+        "roadTiles": 392,
+        "roadClusters": 1,
+        "averageJourney": 13,
+        "quality": 99
+      },
+      "warmDiff": [
+        {
+          "path": ".buildings[223].baseValue",
+          "before": null,
+          "after": 69000
+        },
+        {
+          "path": ".buildings[224].baseValue",
+          "before": null,
+          "after": 69000
+        },
+        {
+          "path": ".stats.businessCash",
+          "before": 2869510.9313414176,
+          "after": 2872546.9313414176
+        }
+      ],
+      "enterDiff": [],
+      "replayDiff": [],
+      "rngEqual": true,
+      "moneyDrift": 6.146728992462158e-08,
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15529975.999999765,
+        "population": 655,
+        "day": 31
+      },
+      "beforeHash": "478be95746406633faa7e30d3e3eee897fc4b3846198bcbcf59b9e8c6da1d8f6",
+      "enteredHash": "3aefe0d848108fd860d2b9e28ced2981d6c0601575e2011dd61b976322c5c878"
+    },
+    {
+      "label": "regional91-day31",
+      "day": 31,
+      "roadBefore": {
+        "connectedFirms": 84,
+        "totalFirms": 84,
+        "connectedHomes": 310,
+        "totalHomes": 311,
+        "roadTiles": 392,
+        "roadClusters": 1,
+        "averageJourney": 13,
+        "quality": 99
+      },
+      "roadWarm": {
+        "connectedFirms": 84,
+        "totalFirms": 84,
+        "connectedHomes": 310,
+        "totalHomes": 311,
+        "roadTiles": 392,
+        "roadClusters": 1,
+        "averageJourney": 13,
+        "quality": 99
+      },
+      "roadEntered": {
+        "connectedFirms": 84,
+        "totalFirms": 84,
+        "connectedHomes": 310,
+        "totalHomes": 311,
+        "roadTiles": 392,
+        "roadClusters": 1,
+        "averageJourney": 13,
+        "quality": 99
+      },
+      "warmDiff": [],
+      "enterDiff": [],
+      "replayDiff": [],
+      "rngEqual": true,
+      "moneyDrift": 7.264316082000732e-08,
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15529975.999999838,
+        "population": 655,
+        "day": 32
+      },
+      "beforeHash": "f61fbc81f36c4f4cc04965905b7e25e5057cb533692a3ede2cf77749d1d8632e",
+      "enteredHash": "f61fbc81f36c4f4cc04965905b7e25e5057cb533692a3ede2cf77749d1d8632e"
+    },
+    {
+      "label": "regional91-day32",
+      "day": 32,
+      "roadBefore": {
+        "connectedFirms": 84,
+        "totalFirms": 84,
+        "connectedHomes": 310,
+        "totalHomes": 311,
+        "roadTiles": 392,
+        "roadClusters": 1,
+        "averageJourney": 13,
+        "quality": 99
+      },
+      "roadWarm": {
+        "connectedFirms": 84,
+        "totalFirms": 84,
+        "connectedHomes": 310,
+        "totalHomes": 311,
+        "roadTiles": 392,
+        "roadClusters": 1,
+        "averageJourney": 13,
+        "quality": 99
+      },
+      "roadEntered": {
+        "connectedFirms": 84,
+        "totalFirms": 84,
+        "connectedHomes": 310,
+        "totalHomes": 311,
+        "roadTiles": 392,
+        "roadClusters": 1,
+        "averageJourney": 13,
+        "quality": 99
+      },
+      "warmDiff": [],
+      "enterDiff": [],
+      "replayDiff": [],
+      "rngEqual": true,
+      "moneyDrift": 6.146728992462158e-08,
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15529975.9999999,
+        "population": 655,
+        "day": 33
+      },
+      "beforeHash": "fefb6da45a960f5b4fd285e48ebb642f7b4bd5e77075d4ac32ec051e9efc9eba",
+      "enteredHash": "fefb6da45a960f5b4fd285e48ebb642f7b4bd5e77075d4ac32ec051e9efc9eba"
+    },
+    {
+      "label": "v60",
+      "day": 18001,
+      "roadBefore": {
+        "connectedFirms": 2,
+        "totalFirms": 2,
+        "connectedHomes": 251,
+        "totalHomes": 365,
+        "roadTiles": 1144,
+        "roadClusters": 1,
+        "averageJourney": 14,
+        "quality": 25
+      },
+      "roadWarm": {
+        "connectedFirms": 2,
+        "totalFirms": 2,
+        "connectedHomes": 251,
+        "totalHomes": 365,
+        "roadTiles": 1144,
+        "roadClusters": 1,
+        "averageJourney": 14,
+        "quality": 25
+      },
+      "roadEntered": {
+        "connectedFirms": 2,
+        "totalFirms": 2,
+        "connectedHomes": 251,
+        "totalHomes": 365,
+        "roadTiles": 1144,
+        "roadClusters": 1,
+        "averageJourney": 14,
+        "quality": 25
+      },
+      "warmDiff": [],
+      "enterDiff": [
+        {
+          "path": ".urban",
+          "before": null,
+          "after": {
+            "version": 1,
+            "revision": 0,
+            "zones": {},
+            "districts": {},
+            "renewals": [],
+            "lastReview": 0
+          }
+        }
+      ],
+      "replayDiff": [],
+      "rngEqual": true,
+      "moneyDrift": -1.30385160446167e-08,
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15448387.000009997,
+        "population": 619,
+        "day": 18002
+      },
+      "beforeHash": "8391cb4412695bb9f8af734b7199d36c3c7a1d1af5ffabd90c962b8b96d51676",
+      "enteredHash": "4fb633246981e9eed294610f65c9fc442732f3d9816ba45afd68d7530ebc437e"
+    },
+    {
+      "label": "planned894",
+      "day": 1081,
+      "roadBefore": {
+        "connectedFirms": 115,
+        "totalFirms": 115,
+        "connectedHomes": 380,
+        "totalHomes": 384,
+        "roadTiles": 757,
+        "roadClusters": 1,
+        "averageJourney": 16,
+        "quality": 80
+      },
+      "roadWarm": {
+        "connectedFirms": 115,
+        "totalFirms": 115,
+        "connectedHomes": 380,
+        "totalHomes": 384,
+        "roadTiles": 757,
+        "roadClusters": 1,
+        "averageJourney": 16,
+        "quality": 80
+      },
+      "roadEntered": {
+        "connectedFirms": 115,
+        "totalFirms": 115,
+        "connectedHomes": 380,
+        "totalHomes": 384,
+        "roadTiles": 757,
+        "roadClusters": 1,
+        "averageJourney": 16,
+        "quality": 80
+      },
+      "warmDiff": [],
+      "enterDiff": [],
+      "replayDiff": [],
+      "rngEqual": true,
+      "moneyDrift": 1.862645149230957e-09,
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15493516.999995425,
+        "population": 886,
+        "day": 1082
+      },
+      "beforeHash": "dcf0c14bd3fbcea29901f277dc8bb98c402efb9618f53f5ff349fbbf407efe14",
+      "enteredHash": "dcf0c14bd3fbcea29901f277dc8bb98c402efb9618f53f5ff349fbbf407efe14"
+    },
+    {
+      "label": "retained778",
+      "day": 41681,
+      "roadBefore": {
+        "connectedFirms": 75,
+        "totalFirms": 75,
+        "connectedHomes": 317,
+        "totalHomes": 876,
+        "roadTiles": 5666,
+        "roadClusters": 1,
+        "averageJourney": 13,
+        "quality": 25
+      },
+      "roadWarm": {
+        "connectedFirms": 75,
+        "totalFirms": 75,
+        "connectedHomes": 317,
+        "totalHomes": 876,
+        "roadTiles": 5666,
+        "roadClusters": 1,
+        "averageJourney": 13,
+        "quality": 25
+      },
+      "roadEntered": {
+        "connectedFirms": 75,
+        "totalFirms": 75,
+        "connectedHomes": 317,
+        "totalHomes": 876,
+        "roadTiles": 5666,
+        "roadClusters": 1,
+        "averageJourney": 13,
+        "quality": 25
+      },
+      "warmDiff": [],
+      "enterDiff": [],
+      "replayDiff": [],
+      "rngEqual": true,
+      "moneyDrift": -1.862645149230957e-09,
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15493517.000209821,
+        "population": 778,
+        "day": 41682
+      },
+      "beforeHash": "7d7276bdabf989f4f332a52c560daab98b3277660d1b34f36af5877d150dfb7d",
+      "enteredHash": "7d7276bdabf989f4f332a52c560daab98b3277660d1b34f36af5877d150dfb7d"
+    }
+  ]
+}
