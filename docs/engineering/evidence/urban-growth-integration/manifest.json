@@ -1,0 +1,20 @@
+{
+  "base": "ae0a7f5",
+  "source_sha256": "00d5c943359757a561460b974bce86b12016629eebf9456678c699048d384c1b",
+  "freshFocusedGates": 9,
+  "ordinaryStressJourney": true,
+  "automaticPairedCheckpoints": 28,
+  "completeColdAndReplayExcludedFields": [],
+  "files": {
+    "automatic-equivalence.json": "40798112967f8e5cb819c09c4e95812237759b1c7a33ce3ae58fcc6e19fc4d40",
+    "final-focused-gates.json.gz": "e5c4fc55a4943c8c3d303da5e9b871e51cb59b1c80c6018be6ff1f8f0c73d14c",
+    "initial-fence-harness-error.log": "91c4708d644e1114b9e4bf286277cfe888ac08cb9e29725a4b1a1f0748025c58",
+    "manual-cold-after-fix.json": "50c370bec55dc1e378308066a8e7b3a1c96b45139607f50713fb79abd129b1a7",
+    "manual-cold-before-fix.log": "bb4132f1d2b41bc222b00d76f39fe8c393c4f84e69388e7cc5c22fbc1c3b1bbd",
+    "manual-fence-before-fix.log": "78acd38888371f6cd650245256faf9b484b4bf5d05b26aa814c25f402f0ed6ec",
+    "manual-fence-guard-only-source.json": "6729249d255ab4c85c5cab0b8010aac6cf203a3288faf69b433b3d40a3a4b8a9",
+    "ordinary-journey-complete-cold-negative.log": "6303d6b8065cac1246bb3f741529232286013588aab1f87c9e9d2432138f1ee7",
+    "ordinary-journey.log": "f426c4b2f04916de484d52777e071a594b1e3a6c9c641c4e01e9d93a314dfff3",
+    "rejected-cold-source-core-gates.json.gz": "d0a0787977586f02bd6c763259500181e6aef4a7cdf7d967729c0bd0d53c48b3"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "source_sha256": "282c7d2953d3d7b84fa2e92bf67b17e4cd37db03a94cfea623892f4b09e0f8ee",
+  "differences": [
+    [
+      ".buildings.187.title",
+      null,
+      {
+        "kind": "regional",
+        "id": -1
+      }
+    ],
+    [
+      ".buildings.187.baseValue",
+      null,
+      175000
+    ]
+  ]
+}
+Traceback (most recent call last):
+  File "/tmp/check_growth_cold.py", line 13, in <module>
+    r=dif(data['before'],data['after']);print(json.dumps({'source_sha256':ns['result']['source_sha256'],'differences':r},indent=2));assert not r,r
+                                                                                                                                           ^^^^^
+AssertionError: [('.buildings.187.title', None, {'kind': 'regional', 'id': -1}), ('.buildings.187.baseValue', None, 175000)]

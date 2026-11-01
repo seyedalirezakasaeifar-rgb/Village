@@ -1,0 +1,148 @@
+{
+  "reference": "2e4ce5c8869a0483657ba3321d3e66e8954d780d",
+  "reference_source_sha256": "3af2f8355807bfa3c23482b25816f657ae618970dfeb4e38dc6c34aa3140115c",
+  "source_sha256": "00d5c943359757a561460b974bce86b12016629eebf9456678c699048d384c1b",
+  "excludedFields": [],
+  "checkpoints": [
+    {
+      "scenario": "settlement",
+      "elapsedDays": 0,
+      "completeArchiveIdentical": true
+    },
+    {
+      "scenario": "settlement",
+      "elapsedDays": 30,
+      "completeArchiveIdentical": true
+    },
+    {
+      "scenario": "settlement",
+      "elapsedDays": 60,
+      "completeArchiveIdentical": true
+    },
+    {
+      "scenario": "settlement",
+      "elapsedDays": 90,
+      "completeArchiveIdentical": true
+    },
+    {
+      "scenario": "settlement",
+      "elapsedDays": 120,
+      "completeArchiveIdentical": true
+    },
+    {
+      "scenario": "settlement",
+      "elapsedDays": 150,
+      "completeArchiveIdentical": true
+    },
+    {
+      "scenario": "settlement",
+      "elapsedDays": 180,
+      "completeArchiveIdentical": true
+    },
+    {
+      "scenario": "regional",
+      "elapsedDays": 0,
+      "completeArchiveIdentical": true
+    },
+    {
+      "scenario": "regional",
+      "elapsedDays": 30,
+      "completeArchiveIdentical": true
+    },
+    {
+      "scenario": "regional",
+      "elapsedDays": 60,
+      "completeArchiveIdentical": true
+    },
+    {
+      "scenario": "regional",
+      "elapsedDays": 90,
+      "completeArchiveIdentical": true
+    },
+    {
+      "scenario": "regional",
+      "elapsedDays": 120,
+      "completeArchiveIdentical": true
+    },
+    {
+      "scenario": "regional",
+      "elapsedDays": 150,
+      "completeArchiveIdentical": true
+    },
+    {
+      "scenario": "regional",
+      "elapsedDays": 180,
+      "completeArchiveIdentical": true
+    },
+    {
+      "scenario": "industrial",
+      "elapsedDays": 0,
+      "completeArchiveIdentical": true
+    },
+    {
+      "scenario": "industrial",
+      "elapsedDays": 30,
+      "completeArchiveIdentical": true
+    },
+    {
+      "scenario": "industrial",
+      "elapsedDays": 60,
+      "completeArchiveIdentical": true
+    },
+    {
+      "scenario": "industrial",
+      "elapsedDays": 90,
+      "completeArchiveIdentical": true
+    },
+    {
+      "scenario": "industrial",
+      "elapsedDays": 120,
+      "completeArchiveIdentical": true
+    },
+    {
+      "scenario": "industrial",
+      "elapsedDays": 150,
+      "completeArchiveIdentical": true
+    },
+    {
+      "scenario": "industrial",
+      "elapsedDays": 180,
+      "completeArchiveIdentical": true
+    },
+    {
+      "scenario": "hardtimes",
+      "elapsedDays": 0,
+      "completeArchiveIdentical": true
+    },
+    {
+      "scenario": "hardtimes",
+      "elapsedDays": 30,
+      "completeArchiveIdentical": true
+    },
+    {
+      "scenario": "hardtimes",
+      "elapsedDays": 60,
+      "completeArchiveIdentical": true
+    },
+    {
+      "scenario": "hardtimes",
+      "elapsedDays": 90,
+      "completeArchiveIdentical": true
+    },
+    {
+      "scenario": "hardtimes",
+      "elapsedDays": 120,
+      "completeArchiveIdentical": true
+    },
+    {
+      "scenario": "hardtimes",
+      "elapsedDays": 150,
+      "completeArchiveIdentical": true
+    },
+    {
+      "scenario": "hardtimes",
+      "elapsedDays": 180,
+      "completeArchiveIdentical": true
+    }
+  ]
+}

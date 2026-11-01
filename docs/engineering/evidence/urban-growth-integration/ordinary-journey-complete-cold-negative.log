@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/workspace/core-recovery/tests/test_urban_growth_journey.py", line 195, in <module>
+    assert canonical(page.evaluate('__townTest.save()')) == canonical(manual_committed), 'Immediate farm-relocation cold state changed'
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Immediate farm-relocation cold state changed

@@ -1,0 +1,116 @@
+{
+  "source_sha256": "3af2f8355807bfa3c23482b25816f657ae618970dfeb4e38dc6c34aa3140115c",
+  "instrumentation": "external phase timers only; timers add overhead; identical archived town and test-step clock; population timer nested in services",
+  "samples": [
+    {
+      "days": 20,
+      "wallMs": 791.9000000003725,
+      "populationMs": 0,
+      "populationCalls": 4,
+      "geometry": 24.400000002235174,
+      "retail": 13.99999999627471,
+      "services": 6.300000000745058,
+      "profiles": 1.0999999977648258,
+      "valid": true
+    },
+    {
+      "days": 20,
+      "wallMs": 605.6000000014901,
+      "populationMs": 0,
+      "populationCalls": 4,
+      "geometry": 24.800000000745058,
+      "retail": 16.80000000447035,
+      "services": 5.399999996647239,
+      "profiles": 1.4000000022351742,
+      "valid": true
+    },
+    {
+      "days": 20,
+      "wallMs": 645,
+      "populationMs": 0.2000000011175871,
+      "populationCalls": 4,
+      "geometry": 31.900000002235174,
+      "retail": 8.899999996647239,
+      "services": 5.800000004470348,
+      "profiles": 1.099999999627471,
+      "valid": true
+    },
+    {
+      "days": 20,
+      "wallMs": 600.1000000014901,
+      "populationMs": 0,
+      "populationCalls": 4,
+      "geometry": 23.500000005587935,
+      "retail": 6.299999998882413,
+      "services": 5.599999997764826,
+      "profiles": 1.2999999951571226,
+      "valid": true
+    },
+    {
+      "days": 20,
+      "wallMs": 578.2999999988824,
+      "populationMs": 0.09999999962747097,
+      "populationCalls": 4,
+      "geometry": 21.90000000037253,
+      "retail": 6.099999999627471,
+      "services": 4.600000003352761,
+      "profiles": 1.0999999977648258,
+      "valid": true
+    },
+    {
+      "days": 30,
+      "wallMs": 1052.5999999996275,
+      "populationMs": 0,
+      "populationCalls": 12,
+      "geometry": 47.50000000372529,
+      "retail": 16.200000001117587,
+      "services": 11.599999999627471,
+      "profiles": 1.1000000014901161,
+      "valid": true
+    },
+    {
+      "days": 30,
+      "wallMs": 1200.6000000014901,
+      "populationMs": 0.2000000011175871,
+      "populationCalls": 12,
+      "geometry": 46.100000001490116,
+      "retail": 19.799999995157123,
+      "services": 15.700000006705523,
+      "profiles": 2.2999999970197678,
+      "valid": true
+    },
+    {
+      "days": 30,
+      "wallMs": 920.1000000014901,
+      "populationMs": 0,
+      "populationCalls": 12,
+      "geometry": 35.3000000026077,
+      "retail": 12.699999989941716,
+      "services": 11.500000013038516,
+      "profiles": 1.3999999985098839,
+      "valid": true
+    },
+    {
+      "days": 30,
+      "wallMs": 903.2999999988824,
+      "populationMs": 0,
+      "populationCalls": 12,
+      "geometry": 38.40000000037253,
+      "retail": 13.49999999627471,
+      "services": 11.099999997764826,
+      "profiles": 1.5999999977648258,
+      "valid": true
+    },
+    {
+      "days": 30,
+      "wallMs": 898.6000000014901,
+      "populationMs": 0,
+      "populationCalls": 12,
+      "geometry": 36.80000000819564,
+      "retail": 13.199999986216426,
+      "services": 12.800000011920929,
+      "profiles": 1.199999999254942,
+      "valid": true
+    }
+  ]
+}
