@@ -1,0 +1,80 @@
+{
+  "cases": [
+    {
+      "lod": "far",
+      "backing": [
+        384,
+        179
+      ],
+      "loaded": 102,
+      "actorWork": {
+        "sources": 0,
+        "positions": 0
+      },
+      "viewport": [
+        1280,
+        720
+      ]
+    },
+    {
+      "lod": "mid",
+      "backing": [
+        384,
+        179
+      ],
+      "loaded": 96,
+      "actorWork": {
+        "sources": 0,
+        "positions": 0
+      },
+      "viewport": [
+        1280,
+        720
+      ]
+    },
+    {
+      "lod": "mid",
+      "backing": [
+        195,
+        313
+      ],
+      "loaded": 90,
+      "actorWork": {
+        "sources": 0,
+        "positions": 0
+      },
+      "viewport": [
+        390,
+        844
+      ]
+    },
+    {
+      "lod": "far",
+      "backing": [
+        384,
+        126
+      ],
+      "loaded": 102,
+      "actorWork": {
+        "sources": 0,
+        "positions": 0
+      },
+      "viewport": [
+        844,
+        390
+      ]
+    }
+  ],
+  "preferencePerformance": true,
+  "full128AtlasAllBuildings": true,
+  "initialWarmupObservation": {
+    "frame": 41,
+    "samples": 5
+  },
+  "pausedNoExtraDraws": true,
+  "normalSimulationAdvances": true,
+  "CSSPickHall": true,
+  "readInvariant": true,
+  "save": true,
+  "errors": []
+}

@@ -3,7 +3,7 @@
 import * as THREE from './vendor/three-0.160.1.module.js';
 import {newfoundlandFamily,newfoundlandCondition} from './newfoundland-families.js';
 const PAINT=['#a84136','#d5a63d','#367a91','#437e67','#805b87','#bd7646','#548fa0'];
-export function newfoundlandBuilding(b,{state,scene,box,lod="near",lotDetails=true}){
+export function newfoundlandBuilding(b,{state,scene,box,lod="near",lotDetails=true,farFacade}){
  const family=newfoundlandFamily(b,state);if(family==='construction')return false;
  if(!['home','apartment','grocer','bakery','tavern'].includes(b.kind))return false;
  const xs=b.footprint.map(i=>i%state.size),zs=b.footprint.map(i=>Math.floor(i/state.size)),minX=Math.min(...xs),minZ=Math.min(...zs),worldW=Math.max(...xs)-minX+1,worldD=Math.max(...zs)-minZ+1,x=minX+(worldW-1)/2,z=minZ+(worldD-1)/2;
@@ -44,6 +44,7 @@ export function newfoundlandBuilding(b,{state,scene,box,lod="near",lotDetails=tr
  for(const u of [-W/2+.018,W/2-.018]){local(u,H/2+.17,D/2+.02,.035,H,.03,trim);local(u,H/2+.17,-D/2-.015,.035,H,.03,trim);}
  for(const [side,attached] of [[-1,left],[1,right]])if(attached){const reach=(localW-W)/2;local(side*(localW/2-reach/2),H/2+.17,0,reach,H,D,'clap:'+color);local(side*(localW/2-.025),H+.23,0,.05,.10,D+.08,trim);}
  local(0,H+.19,0,Math.min(W+.08,localW*.99),.075,D+.10,trim);local(0,H+.25,0,Math.min(W+.10,localW*.99),.055,D+.12,'#66716a');meshRoof(0,H+.27,0,Math.min(W+.08,localW*.99),D+.11,.34,family==='coastal-saltbox'?'saltbox':['suburban-cape','compact-timber'].includes(family)?'gable':family==='rural-biscuitbox'?'flat':b.id%3?'mansard':'hip');
+ if(lod==='far'){farFacade?.({b,x,z,H,W,D,theta,floors,left,right});local(W*.24,.35,D/2+.035,.18,.37,.035,'#394d4b');return true;}
  function window(u,y,v,width=.20,height=.29,side=1){local(u,y,v,width+.045,height+.05,.035,trim);local(u,y+.005,v+side*.025,width,height,.025,'#37596c',.26);local(u,y,v+side*.044,.014,height,.012,trim);local(u,y,v+side*.047,width,.014,.012,trim);local(u,y-height/2-.035,v+side*.04,width+.07,.035,.075,trim);local(u,y+height/2+.035,v+side*.025,width+.065,.035,.045,trim);}
  for(let f=0;f<floors;f++)for(const u of [-W*.24,W*.24])if(f||u<0)window(u,.48+f*floorHeight,D/2+.035);
  for(const [side,attached] of [[-1,left],[1,right]])if(!attached)for(let f=0;f<floors;f++)for(const v of [-D*.22,D*.22]){const y=.48+f*floorHeight;local(side*(W/2+.018),y,v,.03,.28,.19,trim);local(side*(W/2+.038),y,v,.02,.22,.13,'#37596c',.26);local(side*(W/2+.054),y,v,.012,.012,.13,trim);}

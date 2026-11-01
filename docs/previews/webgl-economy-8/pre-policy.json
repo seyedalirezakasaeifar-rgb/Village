@@ -1,0 +1,116 @@
+[
+  {
+    "calls": 23,
+    "triangles": 137826,
+    "materials": 33,
+    "programs": 7,
+    "memory": {
+      "geometries": 15,
+      "textures": 7
+    },
+    "buildMs": 47.399999998509884,
+    "cpu": {
+      "n": 21,
+      "medianMs": 0.7000000029802322,
+      "p95Ms": 3.1999999955296516,
+      "maxMs": 3.7000000029802322
+    },
+    "raf": {
+      "n": 20,
+      "medianMs": 273.19999999925494,
+      "p95Ms": 342.8999999985099,
+      "maxMs": 349.8999999985099
+    },
+    "backend": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+    "mode": "legacy-low",
+    "budget": {
+      "quality": "low",
+      "lod": "near",
+      "loaded": 100,
+      "backing": [
+        960,
+        447
+      ],
+      "actorWork": {
+        "sources": 3,
+        "positions": 3
+      }
+    },
+    "sourceModuleHashes": {
+      "assets/game.js": "451bfa6f9686c9ad6c29e2ce19b8614908339596ddd02aa94f8a5e2b70374b03",
+      "assets/webgl-actors.js": "e7f761691a2edcc9ddb7937dad3d50464fb3ff73129ac8b22e418cbe1fb094cb",
+      "assets/webgl-bridges.js": "e4f3ea3b53e0d27f7431bc232ff29981c87f91363d3da0b6084e7e8a48d0da01",
+      "assets/webgl-economy-facades.js": "a9eb09d198d19d3b6f268ee233949d7e63521eabb36c7e41d7c636a1805acacd",
+      "assets/webgl-entry.js": "9a2cd6808a1b8ec90884bfd78e1afb5546d75a49ae650530a46e4087562b415d",
+      "assets/webgl-map-overlay.js": "d4df7a9a75c7da788f87c9f22ad4e97e8f192a359b8103ef576045335f318cb2",
+      "assets/webgl-materials.js": "1ec2ded334a92ec0397d9e2ebc4444d19eee5472df11abcc35dd7205504f1b04",
+      "assets/webgl-static-batch.js": "ef5927cf016acc06ec768f71e1beac5c12f21e6bf9ca9c034c155a68587fc292",
+      "assets/webgl-taste.js": "bd7b8492308b0b8f11853ff0d27366ee4f927204fd4f9c6fefc94fbdab023af5",
+      "assets/webgl-transit-geometry.js": "46a6e7308dcefbf8f9925b7c55d11b7cbff6d813fe38c1a5247cbdf7428433ee",
+      "assets/webgl-view.js": "55164f63aed7f4e7809e07af32ca2d6db776be7ebaa0ebcdbdb036fc7eb22f79",
+      "assets/newfoundland-families.js": "207d24e6078e19b0fe56a4a30d16f0e6f5552bf7baf00b14f3b2f88bf1d0d757",
+      "assets/newfoundland-kit.js": "79be3c5956bbcb3b9db5a9c84ce10be46892cee568e44e864b92d3ba926fae2c",
+      "assets/newfoundland-specialized.js": "6941345479806d6bf28d444b1248e23d4194929cbaa2dc19282da6acaafaba78",
+      "assets/newfoundland-workplaces.js": "9bb59f5ab1347328c2afb1818e29701e00b1da1bef649569f3b55dbc20bd619a"
+    },
+    "archiveDigest": "926fa8cd2b8e81dab28ed31626a47e16a06e51aa9c4e115b5768415ca5bd5cdc",
+    "errors": []
+  },
+  {
+    "calls": 20,
+    "triangles": 15450,
+    "materials": 32,
+    "programs": 7,
+    "memory": {
+      "geometries": 17,
+      "textures": 9
+    },
+    "buildMs": 16.30000000447035,
+    "cpu": {
+      "n": 21,
+      "medianMs": 0.6000000014901161,
+      "p95Ms": 0.8999999985098839,
+      "maxMs": 0.8999999985098839
+    },
+    "raf": {
+      "n": 20,
+      "medianMs": 33.150000002235174,
+      "p95Ms": 47.5,
+      "maxMs": 49.80000000447035
+    },
+    "backend": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+    "mode": "economy",
+    "budget": {
+      "quality": "economy",
+      "lod": "far",
+      "loaded": 100,
+      "backing": [
+        384,
+        179
+      ],
+      "actorWork": {
+        "sources": 0,
+        "positions": 0
+      }
+    },
+    "sourceModuleHashes": {
+      "assets/game.js": "451bfa6f9686c9ad6c29e2ce19b8614908339596ddd02aa94f8a5e2b70374b03",
+      "assets/webgl-actors.js": "e7f761691a2edcc9ddb7937dad3d50464fb3ff73129ac8b22e418cbe1fb094cb",
+      "assets/webgl-bridges.js": "e4f3ea3b53e0d27f7431bc232ff29981c87f91363d3da0b6084e7e8a48d0da01",
+      "assets/webgl-economy-facades.js": "a9eb09d198d19d3b6f268ee233949d7e63521eabb36c7e41d7c636a1805acacd",
+      "assets/webgl-entry.js": "9a2cd6808a1b8ec90884bfd78e1afb5546d75a49ae650530a46e4087562b415d",
+      "assets/webgl-map-overlay.js": "d4df7a9a75c7da788f87c9f22ad4e97e8f192a359b8103ef576045335f318cb2",
+      "assets/webgl-materials.js": "1ec2ded334a92ec0397d9e2ebc4444d19eee5472df11abcc35dd7205504f1b04",
+      "assets/webgl-static-batch.js": "ef5927cf016acc06ec768f71e1beac5c12f21e6bf9ca9c034c155a68587fc292",
+      "assets/webgl-taste.js": "bd7b8492308b0b8f11853ff0d27366ee4f927204fd4f9c6fefc94fbdab023af5",
+      "assets/webgl-transit-geometry.js": "46a6e7308dcefbf8f9925b7c55d11b7cbff6d813fe38c1a5247cbdf7428433ee",
+      "assets/webgl-view.js": "55164f63aed7f4e7809e07af32ca2d6db776be7ebaa0ebcdbdb036fc7eb22f79",
+      "assets/newfoundland-families.js": "207d24e6078e19b0fe56a4a30d16f0e6f5552bf7baf00b14f3b2f88bf1d0d757",
+      "assets/newfoundland-kit.js": "79be3c5956bbcb3b9db5a9c84ce10be46892cee568e44e864b92d3ba926fae2c",
+      "assets/newfoundland-specialized.js": "6941345479806d6bf28d444b1248e23d4194929cbaa2dc19282da6acaafaba78",
+      "assets/newfoundland-workplaces.js": "9bb59f5ab1347328c2afb1818e29701e00b1da1bef649569f3b55dbc20bd619a"
+    },
+    "archiveDigest": "926fa8cd2b8e81dab28ed31626a47e16a06e51aa9c4e115b5768415ca5bd5cdc",
+    "errors": []
+  }
+]

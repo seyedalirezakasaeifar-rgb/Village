@@ -1,0 +1,10 @@
+{
+  "syntheticDecisionFixture": true,
+  "notPerformanceMeasurement": true,
+  "balancedToEconomyToCanvas": true,
+  "savedPreferenceUnchanged": true,
+  "noOrphanCanvasOrOverlay": true,
+  "archiveInvariantAfterFallback": true,
+  "save": true,
+  "errors": []
+}

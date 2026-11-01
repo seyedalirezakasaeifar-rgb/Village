@@ -81,3 +81,5 @@ window.__cityVisualClearCharter=()=>{if(overlay==='charter'){overlay='none';parc
 document.addEventListener('click',e=>{const b=e.target.closest('[data-charter-home],[data-charter-overview]');if(!b||!window.__webglTaste)return;if(b.hasAttribute('data-charter-overview'))window.__webglTaste.overview();else{const h=G.buildings.find(b=>b.kind==='townhall');if(h)window.__webglTaste.focus(h.x,h.y,1);}});
 
 const cityVisualNavigateDistrict=navigateDistrict;navigateDistrict=function(which){cityVisualNavigateDistrict(which);if(!window.__webglTaste||!G)return;const list=which==='farms'?G.buildings.filter(b=>b.kind==='farm'):which==='main'?G.buildings.filter(b=>b.firm>=0&&!['farm','forestry','quarry'].includes(b.kind)):G.buildings;if(list.length)window.__webglTaste.focus(list.reduce((n,b)=>n+b.x,0)/list.length,list.reduce((n,b)=>n+b.y,0)/list.length,which==='all'?.65:1.5);};
+
+window.__cityVisualQualityNotice=text=>toast(text);

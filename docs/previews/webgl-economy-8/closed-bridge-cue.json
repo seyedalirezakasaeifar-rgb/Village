@@ -1,0 +1,20 @@
+[
+  {
+    "mode": "before",
+    "archiveSHA256": "4306675d8c3dda366d34ad7e572604aa3cfb1a1e31e85a01ac31872475be3c82",
+    "controlledFixture": true,
+    "closedState": true,
+    "farLOD": true,
+    "renderInvariant": true,
+    "errors": []
+  },
+  {
+    "mode": "after",
+    "archiveSHA256": "4306675d8c3dda366d34ad7e572604aa3cfb1a1e31e85a01ac31872475be3c82",
+    "controlledFixture": true,
+    "closedState": true,
+    "farLOD": true,
+    "renderInvariant": true,
+    "errors": []
+  }
+]

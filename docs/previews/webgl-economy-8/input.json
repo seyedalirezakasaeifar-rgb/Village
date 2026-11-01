@@ -1,0 +1,17 @@
+{
+  "hostOnly": true,
+  "source": "actual wheel to next rendered frame; includes automation overhead",
+  "samplesMs": [
+    71.79999999701977,
+    76.79999999701977,
+    65.0,
+    63.5,
+    56.70000000298023,
+    74.30000000447035,
+    59.79999999701977,
+    63.399999998509884
+  ],
+  "medianMs": 64.25,
+  "p95Ms": 74.30000000447035,
+  "archiveInvariant": true
+}

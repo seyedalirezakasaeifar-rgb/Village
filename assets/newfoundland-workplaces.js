@@ -1,6 +1,6 @@
 // Original generalized Newfoundland working/civic architecture, not replicas.
 import * as THREE from './vendor/three-0.160.1.module.js';
-export function newfoundlandWorkplace(b,{state,scene,box,richMaterials=true}){
+export function newfoundlandWorkplace(b,{state,scene,box,richMaterials=true,lod="near"}){
  const civic=['townhall','school','college','courthouse','police','clinic','fire'],commercial=['bank','office'],working=['warehouse','factory','mill','sawmill','contractor','fishery','wharf'],farm=b.kind==='farm';
  if(!civic.includes(b.kind)&&!commercial.includes(b.kind)&&!working.includes(b.kind)&&!farm)return false;
  const xs=b.footprint.map(i=>i%state.size),zs=b.footprint.map(i=>Math.floor(i/state.size)),minX=Math.min(...xs),minZ=Math.min(...zs),w=Math.max(...xs)-minX+1,d=Math.max(...zs)-minZ+1;
@@ -12,6 +12,11 @@ export function newfoundlandWorkplace(b,{state,scene,box,richMaterials=true}){
  // Roof ridge, eaves and full end gables share one lawful footprint.
  const a=W/2+.035,q=D/2+.035,rise=industry?.23:.31,V=[-a,0,-q,a,0,-q,a,rise,0,-a,0,-q,a,rise,0,-a,rise,0,-a,rise,0,a,rise,0,a,0,q,-a,rise,0,a,0,q,-a,0,q,-a,0,-q,-a,rise,0,-a,0,q,a,0,-q,a,0,q,a,rise,0];
  const g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.Float32BufferAttribute(V,3));g.computeVertexNormals();const m=new THREE.Mesh(g,new THREE.MeshStandardMaterial({color:roof,roughness:.7,metalness:.12,side:THREE.DoubleSide}));m.position.set(x,H+.13,z);m.rotation.y=theta;m.castShadow=true;m.receiveShadow=true;m.userData.buildingId=b.id;scene.add(m);part(0,H+.12,0,W+.07,.065,D+.07,trim);
+ if(lod==='far'){
+  part(0,.36,D/2+.03,industry||fire?W*.42:.22,.44,.035,fire?'#8e4239':'#3c5555');
+  if(b.kind==='townhall')part(0,H+.35,0,.28,.45,.28,stone);
+  return true;
+ }
  const columns=Math.max(2,Math.floor(W/.31));
  for(let f=0;f<levels;f++)for(let j=0;j<columns;j++){
   const u=-W*.35+j*W*.70/(columns-1),y=.48+f*.58;

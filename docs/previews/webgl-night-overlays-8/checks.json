@@ -1,32 +1,35 @@
 {
   "sourceModules": {
-    "assets/game.js": "451bfa6f9686c9ad6c29e2ce19b8614908339596ddd02aa94f8a5e2b70374b03",
+    "assets/game.js": "b277816a34f6de3ce3448a459a47630a61ed5e980e5e02f6bae2dcd135c8bd58",
     "assets/webgl-actors.js": "e7f761691a2edcc9ddb7937dad3d50464fb3ff73129ac8b22e418cbe1fb094cb",
-    "assets/webgl-bridges.js": "e4f3ea3b53e0d27f7431bc232ff29981c87f91363d3da0b6084e7e8a48d0da01",
-    "assets/webgl-entry.js": "980175962efeb1cff600fda381246b3db42bc7e5b6afc3e2f6825472da25047e",
+    "assets/webgl-bridges.js": "74942b383da346235286d096f7e376a9c5b378993b135586c5df780c46a60ace",
+    "assets/webgl-economy-facades.js": "a9eb09d198d19d3b6f268ee233949d7e63521eabb36c7e41d7c636a1805acacd",
+    "assets/webgl-entry.js": "8a60d7d3d24a8c903afb025ba8c493c0b196aeebfca5be7b17500f71bcb2cb35",
     "assets/webgl-map-overlay.js": "d4df7a9a75c7da788f87c9f22ad4e97e8f192a359b8103ef576045335f318cb2",
+    "assets/webgl-materials.js": "1ec2ded334a92ec0397d9e2ebc4444d19eee5472df11abcc35dd7205504f1b04",
+    "assets/webgl-quality-policy.js": "51a341506b5a5b9b942084027b77d5dcde46f6c2f3823a9a7d43724edeefb041",
     "assets/webgl-static-batch.js": "ef5927cf016acc06ec768f71e1beac5c12f21e6bf9ca9c034c155a68587fc292",
-    "assets/webgl-taste.js": "5346eec63ed52693fff7c442356863d373dfc18bf46e72e667b3d31d8e0a3d8d",
+    "assets/webgl-taste.js": "16735b5d0dae37ace0c183bf893321f4256e73c8803e547a725ffcbcea430eab",
     "assets/webgl-transit-geometry.js": "46a6e7308dcefbf8f9925b7c55d11b7cbff6d813fe38c1a5247cbdf7428433ee",
     "assets/webgl-view.js": "55164f63aed7f4e7809e07af32ca2d6db776be7ebaa0ebcdbdb036fc7eb22f79",
     "assets/newfoundland-families.js": "207d24e6078e19b0fe56a4a30d16f0e6f5552bf7baf00b14f3b2f88bf1d0d757",
-    "assets/newfoundland-kit.js": "a217b26fed43725c23f5e3b11bad6b37b2ef7776648a84954eea597500bd983d",
-    "assets/newfoundland-specialized.js": "621d61fd65319f39bba59fcfe07b5803a505f3152c3b7ee50f91bf82e4833123",
-    "assets/newfoundland-workplaces.js": "411521c2e02d33192adff545fd081905995ebd2411e04cfa30cbee4c4760d4e5"
+    "assets/newfoundland-kit.js": "79be3c5956bbcb3b9db5a9c84ce10be46892cee568e44e864b92d3ba926fae2c",
+    "assets/newfoundland-specialized.js": "6941345479806d6bf28d444b1248e23d4194929cbaa2dc19282da6acaafaba78",
+    "assets/newfoundland-workplaces.js": "9bb59f5ab1347328c2afb1818e29701e00b1da1bef649569f3b55dbc20bd619a"
   },
   "cases": [
     {
       "overlay": "roads",
       "stats": {
-        "marks": 71,
+        "marks": 73,
         "areas": 0,
         "routes": 0
       },
       "memory": {
-        "geometries": 15,
-        "textures": 3
+        "geometries": 18,
+        "textures": 13
       },
-      "quality": "balanced",
+      "quality": "reference",
       "canvases": 1,
       "accepted": true
     },
@@ -38,25 +41,25 @@
         "routes": 0
       },
       "memory": {
-        "geometries": 15,
-        "textures": 3
+        "geometries": 18,
+        "textures": 13
       },
-      "quality": "balanced",
+      "quality": "reference",
       "canvases": 1,
       "accepted": true
     },
     {
       "overlay": "hardship",
       "stats": {
-        "marks": 43,
+        "marks": 45,
         "areas": 0,
         "routes": 0
       },
       "memory": {
-        "geometries": 15,
-        "textures": 3
+        "geometries": 18,
+        "textures": 13
       },
-      "quality": "balanced",
+      "quality": "reference",
       "canvases": 1,
       "accepted": true
     },
@@ -68,55 +71,55 @@
         "routes": 0
       },
       "memory": {
-        "geometries": 15,
-        "textures": 3
+        "geometries": 18,
+        "textures": 13
       },
-      "quality": "balanced",
+      "quality": "reference",
       "canvases": 1,
       "accepted": true
     },
     {
       "overlay": "land",
       "stats": {
-        "marks": 71,
+        "marks": 73,
         "areas": 0,
         "routes": 0
       },
       "memory": {
-        "geometries": 15,
-        "textures": 3
+        "geometries": 18,
+        "textures": 13
       },
-      "quality": "balanced",
+      "quality": "reference",
       "canvases": 1,
       "accepted": true
     },
     {
       "overlay": "healthAccess",
       "stats": {
-        "marks": 43,
+        "marks": 45,
         "areas": 0,
         "routes": 0
       },
       "memory": {
-        "geometries": 15,
-        "textures": 3
+        "geometries": 18,
+        "textures": 13
       },
-      "quality": "balanced",
+      "quality": "reference",
       "canvases": 1,
       "accepted": true
     },
     {
       "overlay": "schoolAccess",
       "stats": {
-        "marks": 43,
+        "marks": 45,
         "areas": 0,
         "routes": 0
       },
       "memory": {
-        "geometries": 15,
-        "textures": 3
+        "geometries": 18,
+        "textures": 13
       },
-      "quality": "balanced",
+      "quality": "reference",
       "canvases": 1,
       "accepted": true
     },
@@ -128,10 +131,10 @@
         "routes": 0
       },
       "memory": {
-        "geometries": 15,
-        "textures": 3
+        "geometries": 18,
+        "textures": 13
       },
-      "quality": "balanced",
+      "quality": "reference",
       "canvases": 1,
       "accepted": true
     },
@@ -143,10 +146,10 @@
         "routes": 0
       },
       "memory": {
-        "geometries": 15,
-        "textures": 3
+        "geometries": 18,
+        "textures": 13
       },
-      "quality": "balanced",
+      "quality": "reference",
       "canvases": 1,
       "accepted": true
     },
@@ -158,10 +161,10 @@
         "routes": 0
       },
       "memory": {
-        "geometries": 15,
-        "textures": 3
+        "geometries": 18,
+        "textures": 13
       },
-      "quality": "balanced",
+      "quality": "reference",
       "canvases": 1,
       "accepted": true
     },
@@ -173,10 +176,10 @@
         "routes": 0
       },
       "memory": {
-        "geometries": 15,
-        "textures": 3
+        "geometries": 18,
+        "textures": 13
       },
-      "quality": "balanced",
+      "quality": "reference",
       "canvases": 1,
       "accepted": true
     },
@@ -188,10 +191,10 @@
         "routes": 0
       },
       "memory": {
-        "geometries": 15,
-        "textures": 3
+        "geometries": 18,
+        "textures": 13
       },
-      "quality": "balanced",
+      "quality": "reference",
       "canvases": 1,
       "accepted": true
     }

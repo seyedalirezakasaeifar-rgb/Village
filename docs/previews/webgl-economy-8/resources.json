@@ -1,0 +1,70 @@
+{
+  "samples": [
+    {
+      "lod": "far",
+      "memory": {
+        "geometries": 18,
+        "textures": 9
+      }
+    },
+    {
+      "lod": "far",
+      "memory": {
+        "geometries": 18,
+        "textures": 9
+      }
+    },
+    {
+      "lod": "far",
+      "memory": {
+        "geometries": 18,
+        "textures": 9
+      }
+    },
+    {
+      "lod": "far",
+      "memory": {
+        "geometries": 18,
+        "textures": 9
+      }
+    },
+    {
+      "lod": "far",
+      "memory": {
+        "geometries": 18,
+        "textures": 9
+      }
+    },
+    {
+      "lod": "far",
+      "memory": {
+        "geometries": 18,
+        "textures": 9
+      }
+    },
+    {
+      "lod": "far",
+      "memory": {
+        "geometries": 18,
+        "textures": 9
+      }
+    },
+    {
+      "lod": "far",
+      "memory": {
+        "geometries": 18,
+        "textures": 9
+      }
+    }
+  ],
+  "pausedReturnPixelsExact": true,
+  "disposed": {
+    "geometries": 0,
+    "textures": 0
+  },
+  "pickHall": true,
+  "pausedNoExtraDraws": true,
+  "archiveInvariant": true,
+  "save": true,
+  "errors": []
+}

@@ -1,6 +1,6 @@
 // Original regional adaptation of actual specialized uses. No people, parked
 // fleets, sales or inventories are invented by these static architectural forms.
-export function newfoundlandSpecialized(b,{state,box,tree}){
+export function newfoundlandSpecialized(b,{state,box,tree,lod="near",farFacade}){
  const supported=['park','square','tower','quarry','forestry','transit_depot','elevated_station','metro_station','airport','watchtower'];if(!supported.includes(b.kind)&&!b.retailCentre)return false;
  const xs=b.footprint.map(i=>i%state.size),zs=b.footprint.map(i=>Math.floor(i/state.size)),minX=Math.min(...xs),minZ=Math.min(...zs),w=Math.max(...xs)-minX+1,d=Math.max(...zs)-minZ+1,x=minX+(w-1)/2,z=minZ+(d-1)/2;
  const part=(u,y,v,a,h,c,color)=>box(x+u,y,z+v,a,h,c,color);
@@ -10,7 +10,7 @@ export function newfoundlandSpecialized(b,{state,box,tree}){
  }
  if(w*d!==b.footprint.length)return false;
  if(b.kind==='tower'){
-  const H=4.65;part(0,H/2+.1,0,w*.78,H,d*.74,'#a49e8b');part(0,.24,0,w*.94,.4,d*.91,'#a29a83');for(let f=0;f<9;f++){const y=.42+f*.5;part(0,y+.18,d*.38,w*.83,.045,.05,'#d6d3bd');for(const u of [-w*.25,0,w*.25]){part(u,y,d*.38,.18,.28,.04,'#e2d9c1');part(u,y,d*.405,.135,.23,.02,'#547888');}for(const side of [-1,1])for(const v of [-d*.22,d*.22])part(side*w*.40,y,v,.04,.27,.17,'#587884');}part(0,H+.13,0,w*.85,.14,d*.82,'#49666c');part(0,.33,d*.47,.27,.5,.04,'#3f5a5c');return true;
+  const H=4.65;part(0,H/2+.1,0,w*.78,H,d*.74,'#a49e8b');part(0,.24,0,w*.94,.4,d*.91,'#a29a83');if(lod==='far'){part(0,H+.13,0,w*.85,.14,d*.82,'#49666c');farFacade?.({b,x,z,H,W:w*.78,D:d*.74,theta:0,floors:9,base:.1});return true;}for(let f=0;f<9;f++){const y=.42+f*.5;part(0,y+.18,d*.38,w*.83,.045,.05,'#d6d3bd');for(const u of [-w*.25,0,w*.25]){part(u,y,d*.38,.18,.28,.04,'#e2d9c1');part(u,y,d*.405,.135,.23,.02,'#547888');}for(const side of [-1,1])for(const v of [-d*.22,d*.22])part(side*w*.40,y,v,.04,.27,.17,'#587884');}part(0,H+.13,0,w*.85,.14,d*.82,'#49666c');part(0,.33,d*.47,.27,.5,.04,'#3f5a5c');return true;
  }
  if(b.retailCentre){
   part(0,.45,0,w*.9,.85,d*.76,'#aa7a64');part(0,.91,0,w*.96,.10,d*.82,'#4e666b');part(0,.58,d*.40,w*.94,.06,.20,'#d4d0b8');for(let j=0;j<Math.max(2,Math.floor(w/.45));j++){const u=-w*.36+j*w*.72/(Math.max(2,Math.floor(w/.45))-1);part(u,.34,d*.395,.29,.43,.035,'#d9d4bd');part(u,.36,d*.42,.23,.32,.02,'#527986');part(u,.29,d*.47,.035,.58,.04,'#d4d0b8');}return true;
