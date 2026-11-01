@@ -6,7 +6,7 @@ function waterNetwork(){
  const nodes=new Set(),parts=new Int32Array(T*T).fill(-1),components=[],toGateway=new Int32Array(T*T).fill(-1);
  for(let id=0;id<T*T;id++){const x=id%T,y=id/T|0;
   // A road across the natural river is a bridge, not an artificial dam.
-  if(G.tiles[id]===2||G.tiles[id]===1&&(x<5+Math.sin(y*.2)*1.7||x===5&&y%4===0))nodes.add(id);
+  if(G.tiles[id]===2||G.tiles[id]===4||G.tiles[id]===1&&(x<5+Math.sin(y*.2)*1.7||x===5&&y%4===0))nodes.add(id);
  }
  const adjacent=id=>{const x=id%T,y=id/T|0;return roadOffsets.map(([dx,dy])=>[x+dx,y+dy]).filter(([x,y])=>x>=0&&y>=0&&x<T&&y<T).map(([x,y])=>y*T+x).filter(n=>nodes.has(n));};
  for(const start of nodes){if(parts[start]>=0)continue;const index=components.length,cells=[start],gates=[];parts[start]=index;
@@ -81,7 +81,7 @@ function initializeWaterfrontStart(){
 function validateWaterfrontArchive(data){
  const w=data.waterway;if(w==null)return true;if(w.version!==1||['todayCargo','todayFees'].some(k=>w[k]!=null&&(!Number.isFinite(w[k])||w[k]<0))||!Number.isSafeInteger(w.serial)||w.serial<0||!Array.isArray(w.manifests)||w.manifests.length>48||!Number.isFinite(w.exports)||w.exports<0||!Number.isFinite(w.fees)||w.fees<0)return false;
  const ids=new Set();return w.manifests.every(m=>{if(!m||!Number.isInteger(m.id)||m.id<1||m.id>w.serial||ids.has(m.id)||!Number.isInteger(m.port)||data.firms[m.port]?.kind!=='wharf'||!owns(goods,m.good)||!Number.isFinite(m.qty)||m.qty<=0||m.ownership!=='regional'||!Number.isInteger(m.started)||m.started<1||m.started>data.day||!Number.isInteger(m.duration)||m.duration<1||m.duration>T*T||!Array.isArray(m.path)||m.path.length<1||m.path.length>T*T)return false;ids.add(m.id);const b=data.buildings.find(b=>b.id===data.firms[m.port].building),start=m.path[0],end=m.path[m.path.length-1];if(!b||Math.abs(start%T-b.x)>1||Math.abs((start/T|0)-b.y)>1||![0,T-1,...([56,80].includes(m.legacyOutlet)?[m.legacyOutlet-1]:[])].includes(end/T|0))return false;
-  return m.path.every((id,i)=>Number.isInteger(id)&&id>=0&&id<T*T&&(data.tiles[id]===2||data.tiles[id]===1&&(id%T<5+Math.sin((id/T|0)*.2)*1.7||id%T===5&&(id/T|0)%4===0))&&(!i||Math.abs(id%T-m.path[i-1]%T)+Math.abs((id/T|0)-(m.path[i-1]/T|0))===1));});
+  return m.path.every((id,i)=>Number.isInteger(id)&&id>=0&&id<T*T&&(data.tiles[id]===2||data.tiles[id]===4||data.tiles[id]===1&&(id%T<5+Math.sin((id/T|0)*.2)*1.7||id%T===5&&(id/T|0)%4===0))&&(!i||Math.abs(id%T-m.path[i-1]%T)+Math.abs((id/T|0)-(m.path[i-1]/T|0))===1));});
 }
 function waterfrontFirmReport(f){
  if(f.kind==='fishery'){const b=readBuild(f.building),site=waterfrontSite(b.x,b.y),area=site&&waterNetwork().components[site.part];return head('Working water')+strip('Fishing water',area?(area.gates.length?'Connected river':'Inland lake')+' · '+area.cells.length+' water tiles':'No usable fishing water')+strip('Catch today',policyNumber(f.production||0)+' food units')+strip('Shared daily catch limit',area?policyNumber(area.catchCapacity):'0')+tip('Crews land food for the existing grocery and regional markets. Fisheries sharing water share its finite catch capacity; extra equipment cannot create fish.');}

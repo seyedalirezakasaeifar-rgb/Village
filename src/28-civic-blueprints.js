@@ -37,8 +37,8 @@ function civicDistrictBlueprint(project,fresh=false){
  const preferred=kind=>(project.sitePlans||[]).find(s=>s.kind===kind),firsts=existing[0]?[fixed.find(s=>s.kind===kinds[0])]:civicBlueprintCandidates(parcel,kinds[0],roads,fixedCells,preferred(kinds[0]));let best=null;
  for(const first of firsts){
   const blocked=new Set([...fixedCells,...first.footprint]),path=civicBlueprintPathToLot(first,roads,blocked);if(!path)continue;
-  const connected=new Set([...roads,...path]),roadCells=path.filter(id=>G.tiles[id]!==1),seconds=existing[1]?[fixed.find(s=>s.kind===kinds[1])]:civicBlueprintCandidates(parcel,kinds[1],connected,blocked,preferred(kinds[1]));
-  for(const second of seconds){const both=new Set([...blocked,...second.footprint]),path2=civicBlueprintPathToLot(second,connected,both);if(!path2)continue;const cells=[...new Set([...roadCells,...path2.filter(id=>G.tiles[id]!==1)])],candidate={ok:true,parcel:parcel.id,focus:project.branch,roads:cells,sites:[first,second],cost:cells.length*buildCost.road};if(!best||cells.length<best.roads.length)best=candidate;break;}
+  const connected=new Set([...roads,...path]),roadCells=path.filter(id=>!roadSurface(id)),seconds=existing[1]?[fixed.find(s=>s.kind===kinds[1])]:civicBlueprintCandidates(parcel,kinds[1],connected,blocked,preferred(kinds[1]));
+  for(const second of seconds){const both=new Set([...blocked,...second.footprint]),path2=civicBlueprintPathToLot(second,connected,both);if(!path2)continue;const cells=[...new Set([...roadCells,...path2.filter(id=>!roadSurface(id))])],candidate={ok:true,parcel:parcel.id,focus:project.branch,roads:cells,sites:[first,second],cost:cells.length*buildCost.road};if(!best||cells.length<best.roads.length)best=candidate;break;}
   if(best?.cost===0)break;
  }
  const plan=best||{ok:false,parcel:parcel.id,focus:project.branch,reason:'No pair of legally vacant, connected sites fits this purpose without crossing existing buildings, reservations or water. Review another tract or draw an alternative street connection.'};civicBlueprintCache.set(key,{net,revision,plan});return plan;

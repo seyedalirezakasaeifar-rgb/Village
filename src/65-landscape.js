@@ -200,7 +200,7 @@ function prepareScene(){
  for(const b of G.buildings){const fp=footprintOf(b),xs=fp.map(id=>id%T),ys=fp.map(id=>id/T|0),w=Math.max(...xs)-Math.min(...xs)+1,d=Math.max(...ys)-Math.min(...ys)+1;const [x,y]=iso(b.x+(w-1)/2,b.y+(d-1)/2);displayItems.push({kind:'building',id:b.id,b,x,y:y+18,w,d});}
  if(gameOptions.decor&&gameOptions.quality!=='low')for(let y=2;y<T-2;y++)for(let x=2;x<T-2;x++){
   const id=roadId(x,y);if(G.tiles[id]!==0||occupied.has(id)||G.landUse?.[id]||hash(id+G.worldSeed)%13!==0)continue;
-  if(![roadId(x-1,y),roadId(x+1,y),roadId(x,y-1),roadId(x,y+1)].some(n=>G.tiles[n]===1))continue;
+  if(![roadId(x-1,y),roadId(x+1,y),roadId(x,y-1),roadId(x,y+1)].some(n=>roadSurface(n)))continue;
   const [px,py]=iso(x,y);displayItems.push({kind:'streetprop',id,x:px,y:py+18,w:1,d:1});
  }
  displayItems.sort((a,b)=>a.y-b.y||a.id-b.id);buildingItemsById=new Map(displayItems.filter(item=>item.b).map(item=>[item.id,item]));sceneSignature=G.buildings.length+':'+G.month+':'+G.construction;
@@ -234,17 +234,17 @@ function drawGround(){
   const id=roadId(x,y),type=G.tiles[id],h=hash(id+G.worldSeed),p=iso(x,y),lu=G.landUse?.[id];if(!fullTerrain&&!intersects(p[0],p[1]))continue;
   // Unowned outer belts need survey detail, not full urban ground decoration.
   if(!charterOwns(x,y)&&type!==2){diamondFast(bg,x,y,type===3?fastGrass[1]:fastGrass[2]);continue;}
-  const tileColor=type===2?s.water:type===1?'#b3b09a':lu===1?(visualMonth()>=10?'#c8cbb5':visualMonth()>=7?'#b4a36d':'#99a06a'):lu===2?'#aa9b7b':lu===3?'#7b827a':s.grass[(Math.floor(Math.sin(x*.18+y*.11)*1.4+Math.cos(y*.22)*.8)+7)%5];
+  const tileColor=(type===2||type===4)?s.water:type===1?'#b3b09a':lu===1?(visualMonth()>=10?'#c8cbb5':visualMonth()>=7?'#b4a36d':'#99a06a'):lu===2?'#aa9b7b':lu===3?'#7b827a':s.grass[(Math.floor(Math.sin(x*.18+y*.11)*1.4+Math.cos(y*.22)*.8)+7)%5];
   if(fastRender)diamondFast(bg,x,y,!charterOwns(x,y)&&type!==2?(type===3?fastGrass[1]:fastGrass[2]):tileColor);else diamond(bg,x,y,tileColor);
   if(!fastRender&&!charterOwns(x,y)&&type!==2){polygon(bg,[[p[0],p[1]],[p[0]+36,p[1]+18],[p[0],p[1]+36],[p[0]-36,p[1]+18]],'#a5ac8430');}
-  if(!fastRender&&type===2){bg.fillStyle='#b5cdc0';if(h%3===0)bg.fillRect(p[0]-12+(h%17),p[1]+16,9,1);if(x<T-1&&G.tiles[id+1]!==2){segment(bg,[p[0]+35,p[1]+18],[p[0],p[1]+35],'#bdbaa0',3);}}
+  if(!fastRender&&(type===2||type===4)){bg.fillStyle='#b5cdc0';if(h%3===0)bg.fillRect(p[0]-12+(h%17),p[1]+16,9,1);if(x<T-1&&G.tiles[id+1]!==2){segment(bg,[p[0]+35,p[1]+18],[p[0],p[1]+35],'#bdbaa0',3);}}
   else if(!fastRender&&type!==1&&!occupied.has(id)&&!lu){for(let j=0;j<3;j++){let k=hash(h+j*37);bg.fillStyle=j===0?s.dark:tone(s.grass[2],1.04);bg.fillRect(p[0]-15+(k%30),p[1]+9+((k>>>8)%16),2+(k%3),1);}if(h%37===0&&visualMonth()<10){bg.fillStyle=visualMonth()<4?'#e2d5ad':'#c9b486';bg.fillRect(p[0]+5,p[1]+21,2,2);}}
   if(!fastRender&&gameOptions.decor&&gameOptions.quality!=='low'&&type===0&&!occupied.has(id)&&!lu){
    // Sparse wildflowers and small blade clusters, arranged by the town seed.
    if(h%9===0){for(let j=0;j<5;j++){const k=hash(h+j*37),xx=p[0]-12+(k%23),yy=p[1]+12+((k>>>7)%11);bg.fillStyle='#597c40';bg.fillRect(xx,yy,1,4);bg.fillStyle=['#e8d38d','#d2b1be','#bdc8df'][h%3];bg.fillRect(xx-1,yy-1,3,2);}}
    if(h%13===0){for(let j=0;j<4;j++){const xx=p[0]-9+j*5,yy=p[1]+19+j%2;bg.fillStyle='#658344';bg.fillRect(xx,yy,1,3);bg.fillRect(xx+1,yy-1,1,2);}}
   }
-  if(!fastRender&&type===2&&gameOptions.decor){if(h%4===0){bg.fillStyle='#87b7ad';bg.fillRect(p[0]-10,p[1]+20,13,1);bg.fillStyle='#477f88';bg.fillRect(p[0]+4,p[1]+15,8,1);}}
+  if(!fastRender&&(type===2||type===4)&&gameOptions.decor){if(h%4===0){bg.fillStyle='#87b7ad';bg.fillRect(p[0]-10,p[1]+20,13,1);bg.fillStyle='#477f88';bg.fillRect(p[0]+4,p[1]+15,8,1);}}
   livingTerrain(bg,x,y,type,h);
   if(lu===1){for(let j=-2;j<=2;j++){segment(bg,[p[0]-19+j*4,p[1]+17+j*2],[p[0]+9+j*4,p[1]+31+j*2],visualMonth()>=10?'#acb59b':visualMonth()>=7?'#dbc48a':'#677e4e',2);}}
   if(lu===3){segment(bg,[p[0]-25,p[1]+6],[p[0]+25,p[1]+31],'#aeb6a7',1);segment(bg,[p[0]-20,p[1]+12],[p[0]+20,p[1]+32],'#d7d6bc',1);}
@@ -350,10 +350,6 @@ function draw(){
  if(overlay==='roads'||overlay==='business'||overlay==='hardship'||overlay==='land')for(const item of displayItems){if(item.kind!=='building'||!visible(item.x,item.y))continue;const b=item.b,f=G.firms[b.firm],h=G.households[b.hh],net=graph();let color=overlay==='roads'?(net.portals.has(b.id)?'#9ecb95':'#bb7760'):overlay==='business'?(f?(f.closed?'#b66856':f.profit>0?'#a1c67d':'#d6b46c'):null):overlay==='hardship'?(h?(h.stress>50?'#b96c56':'#a9ca87'):null):overlay==='land'?(b.value>90000?'#c38864':b.value>45000?'#d0b776':'#9fc087'):null;if(!color)continue;ctx.globalAlpha=.7;diamond(ctx,b.x,b.y,color);ctx.globalAlpha=1;}
  drawServiceAccess(ctx);
  if(selected?.id){const b=readBuild(selected.id);if(b){const p=iso(b.x,b.y);ctx.strokeStyle='#f4e2a5';ctx.lineWidth=2;ctx.beginPath();ctx.ellipse(p[0],p[1]+18,32,16,0,0,Math.PI*2);ctx.stroke();}}
-<<<<<<< HEAD
  if(buildMode&&buildMode!=='transit_route'&&pointer.hover){const {x,y}=pointer.hover;if(['fishery','wharf'].includes(buildMode))headerText('placementHint',types[buildMode].n+' · '+money(buildCost[buildMode])+' · '+waterfrontPlacementMessage(x,y,buildMode));if(buildMode==='school'&&x>=0&&x<T&&y>=0&&y<T){$('placementHint').classList.add('school-placement');headerText('placementHint',schoolPlacementHint(x,y));}else $('placementHint').classList.remove('school-placement');if(x>=0&&x<T&&y>=0&&y<T){const valid=buildMode==='road_remove'?cityCell(x,y)===1&&charterOwns(x,y):buildMode==='road'?[0,3].includes(cityCell(x,y))&&charterOwns(x,y)&&!buildingAt(x,y)&&!G.landUse?.[roadId(x,y)]&&G.treasury>=buildCost.road:buildMode==='repair'?cityCell(x,y)===1:canPlace(x,y,true,buildMode);ctx.globalAlpha=.60;for(const id of footprintFor(x,y,buildMode))diamond(ctx,id%T,id/T|0,buildMode==='road_remove'?(valid?'#d07757':'#775750'):(valid?'#c8dea4':'#c48069'));ctx.globalAlpha=1;}}
-=======
- if(buildMode&&buildMode!=='transit_route'&&pointer.hover){const {x,y}=pointer.hover;if(['fishery','wharf'].includes(buildMode))headerText('placementHint',types[buildMode].n+' · '+money(buildCost[buildMode])+' · '+waterfrontPlacementMessage(x,y,buildMode));if(x>=0&&x<T&&y>=0&&y<T){const valid=buildMode==='road_remove'?cityCell(x,y)===1&&charterOwns(x,y):buildMode==='road'?[0,3].includes(cityCell(x,y))&&charterOwns(x,y)&&!buildingAt(x,y)&&!G.landUse?.[roadId(x,y)]&&G.treasury>=buildCost.road:buildMode==='repair'?cityCell(x,y)===1:canPlace(x,y,true,buildMode);ctx.globalAlpha=.60;for(const id of footprintFor(x,y,buildMode))diamond(ctx,id%T,id/T|0,buildMode==='road_remove'?(valid?'#d07757':'#775750'):(valid?'#c8dea4':'#c48069'));ctx.globalAlpha=1;}}
->>>>>>> dab6dd5 (Add reviewed urban road retirement and recovery)
  if(nightMode)paintNightScene(ctx,viewBuildings);
 }

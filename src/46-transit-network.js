@@ -6,7 +6,7 @@ let transitTopologyCache=null,transitDailyCache=null,transitReservationVersion=0
 function ensureTransit(){if(!G.transit)G.transit={version:1,revision:0,next:1,routes:[],tracks:[],capital:0,fares:0,expenses:0,lastDay:0,daily:{rides:0,denied:0,revenue:0,expenses:0,staff:0}};return G.transit;}
 function transitChanged(){ensureTransit().revision++;transitReservationVersion++;for(const p of G.people)p.transitTrip=null;transitTopologyCache=null;transitDailyCache=null;householdMarketCache=null;dirty=true;staticDirty=true;}
 function transitStopRoad(mode,id,net=graph()){return mode==='bus'?id:net.portals.get(id);}
-function transitOwnedRoad(id){return Number.isInteger(id)&&id>=0&&id<G.tiles.length&&G.tiles[id]===1&&charterOwns(id%T,id/T|0);}
+function transitOwnedRoad(id){return Number.isInteger(id)&&id>=0&&id<G.tiles.length&&roadSurface(id)&&charterOwns(id%T,id/T|0);}
 function transitWalkTree(start,limit=5,net=graph()){
  const distances=new Map();if(start==null||!net.neighbors.has(start))return distances;distances.set(start,0);const queue=[start];
  for(let i=0;i<queue.length;i++){const at=queue[i],d=distances.get(at);if(d>=limit)continue;for(const n of net.neighbors.get(at)||[])if(!distances.has(n)){distances.set(n,d+1);queue.push(n);}}

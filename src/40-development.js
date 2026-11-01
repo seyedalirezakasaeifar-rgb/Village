@@ -70,7 +70,7 @@ function privatelyBuiltRoads(demand){
    const cells=[];let connects=false,valid=true;
    for(let k=1;k<=8;k++){const xx=x+dx*k,yy=y+dy*k,n=roadId(xx,yy);
     if(xx<5||xx>T-6||yy<5||yy>T-6){valid=false;break;}
-    if(G.tiles[n]===1){connects=k>=5;break;}
+    if(roadSurface(n)){connects=k>=5;break;}
     if(!charterOwns(xx,yy)||![0,3].includes(G.tiles[n])||G.landUse?.[n]||buildingAt(xx,yy)){valid=false;break;}
     // No one-lot parallel strips; leave space for real blocks and legal plots.
     if(k>2&&roadOffsets.some(([ax,ay])=>(ax*dx+ay*dy===0)&&cityCell(xx+ax,yy+ay)===1)){valid=false;break;}

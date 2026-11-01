@@ -37,7 +37,7 @@ function privateProposalResponse(base,h,home){if(!base.responses.has(h))base.res
 function privateProposalClients(context,h){if(!context.clients.has(h))context.clients.set(h,privateServiceOtherClients(context.kind,h,context.exclude));return context.clients.get(h);}
 function privateServiceDemand(kind, site = null, exclude = null, proposal = null) {
  const net = graph();
- const sitePort = site ? net.portals.get(site.id) ?? roadOffsets.map(([dx, dy]) => roadId(site.x + dx, site.y + dy)).find(id => G.tiles[id] === 1) : null;
+ const sitePort = site ? net.portals.get(site.id) ?? roadOffsets.map(([dx, dy]) => roadId(site.x + dx, site.y + dy)).find(roadSurface) : null;
  const distances=site?privateServiceDistances(sitePort):null;
  return (proposal?proposal.base.homes:G.households.filter(h => h.people.length)).reduce((total, h) => {
   const home = readBuild(h.home), port = net.portals.get(h.home);
@@ -68,7 +68,7 @@ function privateServicePurchase(h,count,fee,vouchers,restore=null){
 function privateServiceForecast(kind,site,fee,staff=kind==='school'?1:2,exclude=null,wageOffer=null,proposal=null){
  const capacity=staff*(kind==='school'?16:90),wage=wageOffer??(exclude!=null?workerIncome(G.firms[exclude]):Math.max(G.policy.minWage,36)),own=G.privateServiceProvision?.allocations?.[exclude]||{};
  let remaining=capacity,clients=0,revenue=0,vouchers=Math.max(0,Math.min(G.treasury,G.policy.serviceVoucherBudget||0)-(G.privateServiceProvision?.vouchers||0)+Object.values(own).reduce((n,a)=>n+a.subsidy,0));
- const net=graph(),port=site?(net.portals.get(site.id)??roadOffsets.map(([dx,dy])=>roadId(site.x+dx,site.y+dy)).find(id=>G.tiles[id]===1)):null;
+ const net=graph(),port=site?(net.portals.get(site.id)??roadOffsets.map(([dx,dy])=>roadId(site.x+dx,site.y+dy)).find(roadSurface)):null;
  const distances=site?privateServiceDistances(port):null;
  const homes=proposal?privateProposalHomes(proposal.base):G.households.filter(h=>h.people.length).sort((a,b)=>householdLiquidity(a)/a.people.length-householdLiquidity(b)/b.people.length||a.id-b.id);
  const training=proposal?privateProposalTraining(proposal.base):new Set((G.civicTraining||[]).filter(c=>G.households[G.people[c.person]?.hh]&&privateSchoolPublicGap(G.households[G.people[c.person].hh])<1).map(c=>c.person));
@@ -119,7 +119,7 @@ function seekPrivateServiceInvestment(requested=null){
    if(!proposalBase)proposalBase=privateProposalBase();const net=proposalBase.net;
    if(!staffPorts)staffPorts=available.map(person=>({person,port:net.portals.get(G.households[person.hh]?.home)}));
    if(!contexts.has(exclude))contexts.set(exclude,{base:proposalBase,kind,exclude,clients:new Map()});const context=contexts.get(exclude);
-   const port=net.portals.get(site.id)??roadOffsets.map(([dx,dy])=>roadId(site.x+dx,site.y+dy)).find(id=>G.tiles[id]===1),distances=privateServiceDistances(port),bids=[];
+   const port=net.portals.get(site.id)??roadOffsets.map(([dx,dy])=>roadId(site.x+dx,site.y+dy)).find(roadSurface),distances=privateServiceDistances(port),bids=[];
    for(const item of staffPorts)if((distances.get(item.port)??Infinity)<=40){const p=item.person;if(!staffBids.has(p))staffBids.set(p,p.job<0?wage:Math.max(wage,workerIncome(G.firms[p.job])*1.121));bids.push(staffBids.get(p));}bids.sort((a,b)=>a-b);
    const demand=privateServiceDemand(kind,site,exclude,context),plans=[];
    for(let staff=minimum;staff<=2;staff++){if(staff>bids.length)continue;const offered=bids[staff-1],fee=privateServiceFee(kind,demand,staff,offered),forecast=privateServiceForecast(kind,site,fee,staff,exclude,offered,context);if(forecast.net>requiredReturn)plans.push(forecast);}return plans.sort((a,b)=>b.net-a.net)[0]||null;};

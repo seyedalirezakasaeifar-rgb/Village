@@ -58,7 +58,7 @@ function drawStreetNames(g,sx,sy,ww,hh){
  const zoom=cam.zoom,compact=zoom<.82,minLength=zoom<.64?22:compact?17:12;
  const rank={local:1,collector:2,arterial:3,through:4},streets=new Map();
  for(const [key,name] of Object.entries(G.streetNames)){
-  const id=+key;if(G.tiles[id]!==1)continue;
+  const id=+key;if(!roadSurface(id))continue;
   if(!streets.has(name))streets.set(name,[]);streets.get(name).push(id);
  }
  const candidates=[];

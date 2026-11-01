@@ -77,14 +77,14 @@ function recordObservation(){
 }
 function validateTown(){
  const issues=[],claimed=new Set(),members=new Set(),workers=new Set();
- for(const b of G.buildings)for(const id of footprintOf(b)){if(claimed.has(id)||G.tiles[id]===1||G.tiles[id]===2||G.landUse?.[id])issues.push('Occupied footprint collision '+b.id+':'+id);claimed.add(id);}
+ for(const b of G.buildings)for(const id of footprintOf(b)){if(claimed.has(id)||G.tiles[id]===1||G.tiles[id]===2||G.tiles[id]===4||G.landUse?.[id])issues.push('Occupied footprint collision '+b.id+':'+id);claimed.add(id);}
  const cropCounts={};for(const [key,code] of Object.entries(G.landUse||{})){const id=Number(key);if(!Number.isInteger(id)||id<0||id>=T*T||![1,2,3].includes(code)||G.tiles[id]!==0||claimed.has(id))issues.push('Reserved land collision '+key);if(code===1){const owner=G.fieldOwner?.[key];if(!Number.isInteger(owner)||G.firms[owner]?.kind!=='farm')issues.push('Invalid crop title '+key);else cropCounts[owner]=(cropCounts[owner]||0)+1;}}
  for(const f of G.firms)if(f.kind==='farm'&&(G.fieldCount?.[f.id]||0)!==(cropCounts[f.id]||0))issues.push('Crop count mismatch '+f.id);
  for(const h of G.households){if(!Number.isFinite(h.cash)||h.cash<-.01)issues.push('Invalid household cash '+h.id);for(const id of h.people){if(members.has(id)||G.people[id]?.hh!==h.id||G.people[id]?.deceased||G.people[id]?.movedAway)issues.push('Household membership '+id);members.add(id);}}
  for(const p of G.people)if(!p.deceased&&!p.movedAway&&!members.has(p.id))issues.push('Unhoused identity '+p.id);
  for(const f of G.firms){if(!Number.isFinite(f.cash)||f.cash<-.01)issues.push('Invalid business cash '+f.id);for(const id of f.workers){if(workers.has(id)||G.people[id]?.job!==f.id)issues.push('Employment ownership '+id);workers.add(id);}}
  for(const b of G.banks)if(!Number.isFinite(b.cash)||b.cash<-.01)issues.push('Bank balance '+b.id);
- for(const v of traffic)for(let i=0;i<v.path.length;i++){if(G.tiles[v.path[i]]!==1)issues.push('Vehicle off road '+v.id);if(i&&Math.abs(v.path[i]%T-v.path[i-1]%T)+Math.abs((v.path[i]/T|0)-(v.path[i-1]/T|0))!==1)issues.push('Invalid route '+v.id);}
+ for(const v of traffic)for(let i=0;i<v.path.length;i++){if(!roadSurface(v.path[i]))issues.push('Vehicle off road '+v.id);if(i&&Math.abs(v.path[i]%T-v.path[i-1]%T)+Math.abs((v.path[i]/T|0)-(v.path[i-1]/T|0))!==1)issues.push('Invalid route '+v.id);}
  for(const f of G.firms)for(const [k,n] of Object.entries(f.stock))if(!Number.isFinite(n)||n<-.0001)issues.push('Invalid commodity stock '+f.id+':'+k);
  for(const row of goodsBalance())if(!Number.isFinite(row.error)||Math.abs(row.error)>.02)issues.push('Commodity accounting '+row.good+':'+row.error);
  return {ok:issues.length===0,issues,total:totalMoney(),population:G.stats.population,day:G.day};
