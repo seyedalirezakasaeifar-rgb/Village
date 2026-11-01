@@ -1,0 +1,31 @@
+{
+  "workerStarts": 0,
+  "bridgeAbsent": true,
+  "endpointAbsent": true,
+  "nativeCalls": {
+    "write": 1,
+    "open": 1,
+    "workerExport": 0,
+    "workerImport": 0
+  },
+  "local": {
+    "format": 1,
+    "order": 4,
+    "revision": 4
+  },
+  "idb": {
+    "format": 1,
+    "order": 4,
+    "revision": 4
+  },
+  "valid": true,
+  "publicCommit": "87811c52cdb9aecd13cd23beebd52f6475c6dd9c",
+  "gameSha256": "037c92b56d4b736f2c9c2bb96a950ae194bc815d1a393d36b3634f4272521d94",
+  "unmodifiedGameAndIndex": true,
+  "normalAssemblerSourceOnly": true,
+  "androidPackagesAssetsOnly": true,
+  "experimentalRequests": [],
+  "browserNativeMethodsAreStubs": true,
+  "actualNativeDurabilityClaim": false,
+  "errors": []
+}

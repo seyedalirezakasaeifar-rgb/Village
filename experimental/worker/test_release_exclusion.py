@@ -1,0 +1,20 @@
+"""Unmodified public release startup/save ownership; no experimental bridge injection."""
+from pathlib import Path
+import sys,json,hashlib,subprocess,mimetypes,argparse
+from urllib.parse import urlparse,unquote
+from playwright.sync_api import sync_playwright
+ap=argparse.ArgumentParser();ap.add_argument('--commit',default='87811c52cdb9aecd13cd23beebd52f6475c6dd9c');ap.add_argument('--output',default='experimental/worker/release-exclusion-proof.json');args=ap.parse_args();commit=args.commit
+def read(path):return subprocess.check_output(['git','show',commit+':'+path])
+source=read('assets/game.js');index=read('assets/index.html');assembly=read('tools/assemble.py').decode();packager=read('tools/build_android.py').decode();assert "'-A',ROOT/'assets'"in packager;assert "(ROOT/'src').glob('*.js')"in assembly;assert b'experimental/worker'not in source;assert b'__workerRealView'not in source;assert b'experimental/worker'not in index
+with sync_playwright()as pw:
+ b=pw.chromium.launch(executable_path='/usr/bin/chromium',args=['--no-sandbox']);p=b.new_page(viewport={'width':1100,'height':800});errors=[];requests=[];cache={};p.on('pageerror',lambda e:errors.append(str(e)));p.on('request',lambda r:requests.append(r.url))
+ def route(r):
+  name=unquote(urlparse(r.request.url).path).lstrip('/')or'index.html'
+  if '..'in name.split('/'):return r.abort()
+  if name not in cache:
+   try:cache[name]=read('assets/'+name)
+   except subprocess.CalledProcessError:return r.fulfill(status=404,body='Not found')
+  r.fulfill(body=cache[name],content_type=mimetypes.guess_type(name)[0]or'application/octet-stream')
+ p.route('http://release-exclusion.test/**',route);p.add_init_script('''window.workerStarts=0;const NativeWorker=window.Worker;window.Worker=class extends NativeWorker{constructor(...args){window.workerStarts++;super(...args);}};window.nativeArchiveCalls={write:0,open:0,workerExport:0,workerImport:0};window.AndroidArchive={writeBackup:archive=>{nativeArchiveCalls.write++;window.nativeBackup=archive;},openBackup:()=>nativeArchiveCalls.open++,requestWorkerExport:()=>nativeArchiveCalls.workerExport++,requestWorkerImport:()=>nativeArchiveCalls.workerImport++};''');p.goto('http://release-exclusion.test/index.html');p.locator('#townSeed').fill('42');p.locator('#newTown').click();p.locator('#pause').click();p.locator('[data-panel="settings"]').first.click();p.locator('#saveNow').click();p.wait_for_function('!!localStorage.getItem("townledger-v6")');p.locator('#backupSave').click();p.locator('#importSave').click();state=p.evaluate('''async()=>{const local=JSON.parse(localStorage.getItem('townledger-v6'));const idb=await new Promise((resolve,reject)=>{const req=indexedDB.open('townledger-save',1);req.onerror=()=>reject(req.error);req.onsuccess=()=>{const db=req.result;try{const tx=db.transaction('saves'),read=tx.objectStore('saves').get('latest');read.onsuccess=()=>{resolve(read.result);db.close();};read.onerror=()=>reject(read.error);}catch(e){db.close();reject(e);}};});return {workerStarts,bridgeAbsent:typeof __workerRealView==='undefined',endpointAbsent:typeof __workerArchiveAsync==='undefined',nativeCalls:nativeArchiveCalls,local,idb,valid:__townTest.validate().ok};}''');assert state['workerStarts']==0 and state['bridgeAbsent']and state['endpointAbsent'];assert state['nativeCalls']=={'write':1,'open':1,'workerExport':0,'workerImport':0};assert state['valid'];assert state['local']==state['idb'];assert state['local']['format']==1 and state['local']['revision']>0;assert not errors,errors;assert not any('/experimental/'in r or 'model.generated'in r or 'real-view'in r for r in requests)
+ for key in ['local','idb']:state[key]={k:state[key][k]for k in ['format','order','revision']}
+ state.update({'publicCommit':commit,'gameSha256':hashlib.sha256(source).hexdigest(),'unmodifiedGameAndIndex':True,'normalAssemblerSourceOnly':True,'androidPackagesAssetsOnly':True,'experimentalRequests':[],'browserNativeMethodsAreStubs':True,'actualNativeDurabilityClaim':False,'errors':errors});Path(args.output).write_text(json.dumps(state,indent=2)+'\n');print(json.dumps(state,indent=2));b.close()
