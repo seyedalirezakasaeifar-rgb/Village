@@ -1,5 +1,5 @@
 {
-  "source_sha256": "0d1a4b7e810fd3dde8dc8c09e15f6f6960328460f78b8a0c08e28bb1d6d72b95",
+  "source_sha256": "46cc29f47a323bd222d36617a0cc0f70ab56dcd9483217811e6be279936699d7",
   "naturalSixYear": [
     {
       "seed": 42,
@@ -50,7 +50,7 @@
         {
           "id": 2,
           "createdDay": 0,
-          "deposit": 1365553.5141200875,
+          "deposit": 1365229.8622322457,
           "loans": 0
         }
       ],
@@ -117,7 +117,7 @@
   ],
   "natural20Year": {
     "day": 7201,
-    "population": 365,
+    "population": 360,
     "marketBlocks": [
       "3:3",
       "2:2"
@@ -126,19 +126,19 @@
       {
         "id": 0,
         "createdDay": 0,
-        "deposit": 5835.537993331284,
-        "loans": 2845.9333333333334
+        "deposit": 4635.398535974414,
+        "loans": 814.5333333333333
       },
       {
         "id": 1,
         "createdDay": 0,
-        "deposit": 2679.5572084460277,
+        "deposit": 4587.872074406612,
         "loans": 0
       },
       {
         "id": 2,
         "createdDay": 0,
-        "deposit": 2684466.7052461673,
+        "deposit": 2470305.659821327,
         "loans": 0
       }
     ],
@@ -147,8 +147,8 @@
     "valid": {
       "ok": true,
       "issues": [],
-      "total": 15493516.999865163,
-      "population": 365,
+      "total": 15493516.999884073,
+      "population": 360,
       "day": 7201
     }
   },

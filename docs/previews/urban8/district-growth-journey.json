@@ -1,5 +1,5 @@
 {
-  "source_sha256": "0d1a4b7e810fd3dde8dc8c09e15f6f6960328460f78b8a0c08e28bb1d6d72b95",
+  "source_sha256": "46cc29f47a323bd222d36617a0cc0f70ab56dcd9483217811e6be279936699d7",
   "ordinaryFundingOnly": true,
   "initial": {
     "day": 1,
@@ -44,9 +44,9 @@
   },
   "sixYearRecovery": {
     "day": 2161,
-    "treasury": 776301.9503089811,
-    "region": 11201851.765505258,
-    "total": 15493516.999960568,
+    "treasury": 776301.931195266,
+    "region": 11201851.726309916,
+    "total": 15493516.999960575,
     "population": 269,
     "owned": [
       "east-meadow",
@@ -55,7 +55,7 @@
     "valid": {
       "ok": true,
       "issues": [],
-      "total": 15493516.999960568,
+      "total": 15493516.999960575,
       "population": 269,
       "day": 2161
     }
@@ -66,9 +66,9 @@
     "price": 40224,
     "state": {
       "day": 2161,
-      "treasury": 736077.9503089811,
-      "region": 11242075.765505258,
-      "total": 15493516.999960568,
+      "treasury": 736077.931195266,
+      "region": 11242075.726309916,
+      "total": 15493516.999960575,
       "population": 269,
       "owned": [
         "east-meadow",
@@ -78,7 +78,7 @@
       "valid": {
         "ok": true,
         "issues": [],
-        "total": 15493516.999960568,
+        "total": 15493516.999960575,
         "population": 269,
         "day": 2161
       }
@@ -215,7 +215,7 @@
       ],
       "fields": 17,
       "stock": {
-        "grain": 80.31659727169708,
+        "grain": 80.31659727169699,
         "flour": 40,
         "food": 80,
         "logs": 30,
@@ -269,7 +269,7 @@
       },
       "ruralLots": 132,
       "suitableReplacement": true,
-      "region": 10470001.413043333,
+      "region": 10470000.687433988,
       "requiredRegionalCapital": 164850,
       "oldSiteApartment": true
     },
@@ -309,7 +309,7 @@
           162
         ],
         "stock": {
-          "grain": 80.31659727169708,
+          "grain": 80.31659727169699,
           "flour": 40,
           "food": 80,
           "logs": 30,
@@ -412,7 +412,7 @@
         "requiredRegionalCapital": 164850,
         "apartmentCost": 175000,
         "constructionDays": 40,
-        "reviewKey": "[2701,3,290,10470001.413043333,8,18,36,36,\"residential\",2161,5.857142925262451,10,74,[4392,4646,4647,4648,4649,4650,4774,4775,4900,4901,4902,4904,5029,5030,5031,5158,5284],[125,162],42155.935649250634,{\"grain\":80.31659727169708,\"flour\":40,\"food\":80,\"logs\":30,\"timber\":30,\"stone\":30},12,6,[{\"id\":524,\"x\":12,\"y\":4},{\"id\":778,\"x\":10,\"y\":6},{\"id\":782,\"x\":14,\"y\":6},{\"id\":1036,\"x\":12,\"y\":8},{\"id\":396,\"x\":12,\"y\":3},{\"id\":525,\"x\":13,\"y\":4},{\"id\":650,\"x\":10,\"y\":5},{\"id\":783,\"x\":15,\"y\":6},{\"id\":906,\"x\":10,\"y\":7},{\"id\":1037,\"x\":13,\"y\":8},{\"id\":1164,\"x\":12,\"y\":9},{\"id\":395,\"x\":11,\"y\":3},{\"id\":522,\"x\":10,\"y\":4},{\"id\":649,\"x\":9,\"y\":5},{\"id\":776,\"x\":8,\"y\":6},{\"id\":784,\"x\":16,\"y\":6},{\"id\":905,\"x\":9,\"y\":7}],2]"
+        "reviewKey": "[2701,3,290,10470000.687433988,8,18,36,36,\"residential\",2161,5.857142925262451,10,74,[4392,4646,4647,4648,4649,4650,4774,4775,4900,4901,4902,4904,5029,5030,5031,5158,5284],[125,162],42155.93564933527,{\"grain\":80.31659727169699,\"flour\":40,\"food\":80,\"logs\":30,\"timber\":30,\"stone\":30},12,6,[{\"id\":524,\"x\":12,\"y\":4},{\"id\":778,\"x\":10,\"y\":6},{\"id\":782,\"x\":14,\"y\":6},{\"id\":1036,\"x\":12,\"y\":8},{\"id\":396,\"x\":12,\"y\":3},{\"id\":525,\"x\":13,\"y\":4},{\"id\":650,\"x\":10,\"y\":5},{\"id\":783,\"x\":15,\"y\":6},{\"id\":906,\"x\":10,\"y\":7},{\"id\":1037,\"x\":13,\"y\":8},{\"id\":1164,\"x\":12,\"y\":9},{\"id\":395,\"x\":11,\"y\":3},{\"id\":522,\"x\":10,\"y\":4},{\"id\":649,\"x\":9,\"y\":5},{\"id\":776,\"x\":8,\"y\":6},{\"id\":784,\"x\":16,\"y\":6},{\"id\":905,\"x\":9,\"y\":7}],2]"
       },
       "cancelWasReadOnly": true,
       "afterApproval": {
@@ -428,7 +428,7 @@
         ],
         "fields": 17,
         "stock": {
-          "grain": 80.31659727169708,
+          "grain": 80.31659727169699,
           "flour": 40,
           "food": 80,
           "logs": 30,
@@ -552,7 +552,7 @@
       ],
       "income": 90.52788471866899,
       "tax": 8.021091267313816,
-      "cash": 11883.505818194799,
+      "cash": 11883.528228436113,
       "workers": [
         {
           "id": 172,
@@ -581,7 +581,7 @@
       ],
       "income": 90.52788471866899,
       "tax": 8.021091267313816,
-      "cash": 13883.505818194799,
+      "cash": 13883.528228436113,
       "workers": [
         {
           "id": 172,
@@ -602,7 +602,7 @@
     },
     "clinic": 204,
     "clinicCost": 8000,
-    "treasuryAfter": 1248809.3395771
+    "treasuryAfter": 1248734.4138669185
   },
   "incomeProfilesBefore": [
     {
@@ -619,8 +619,8 @@
       "character": "Downtown mixed-use",
       "incomeBand": "Middle income",
       "people": 46,
-      "perPersonIncome": 27.670888162958466,
-      "rentBurden": 0.1560489012959043,
+      "perPersonIncome": 27.670890446335207,
+      "rentBurden": 0.15604888841889072,
       "condition": 99.75895885615093
     },
     {
@@ -664,8 +664,8 @@
       "character": "Market centre",
       "incomeBand": "Middle income",
       "people": 37,
-      "perPersonIncome": 26.652580479966154,
-      "rentBurden": 0.12510664946640593,
+      "perPersonIncome": 26.65256542361943,
+      "rentBurden": 0.1251067201406192,
       "condition": 99.22534072713337
     },
     {
@@ -709,8 +709,8 @@
       "character": "Residential neighbourhood",
       "incomeBand": "Middle income",
       "people": 39,
-      "perPersonIncome": 23.006972579073736,
-      "rentBurden": 0.132292921408993,
+      "perPersonIncome": 23.006975298874966,
+      "rentBurden": 0.13229290576980332,
       "condition": 99.48682940072699
     },
     {
@@ -718,8 +718,8 @@
       "character": "Suburban neighbourhood",
       "incomeBand": "Middle income",
       "people": 40,
-      "perPersonIncome": 23.497680673016053,
-      "rentBurden": 0.11888709238676376,
+      "perPersonIncome": 23.497682916902082,
+      "rentBurden": 0.11888708103376837,
       "condition": 100
     },
     {
@@ -765,8 +765,8 @@
       "character": "Downtown mixed-use",
       "incomeBand": "Middle income",
       "people": 50,
-      "perPersonIncome": 25.649967959267318,
-      "rentBurden": 0.16249053386300025,
+      "perPersonIncome": 25.650011542900792,
+      "rentBurden": 0.16249025776457202,
       "condition": 99.75895885615093
     },
     {
@@ -810,8 +810,8 @@
       "character": "Market centre",
       "incomeBand": "Middle income",
       "people": 40,
-      "perPersonIncome": 26.684968196830322,
-      "rentBurden": 0.13035947826136454,
+      "perPersonIncome": 26.68497270230207,
+      "rentBurden": 0.13035945625156328,
       "condition": 99.22534072713337
     },
     {
@@ -855,8 +855,8 @@
       "character": "Residential neighbourhood",
       "incomeBand": "Middle income",
       "people": 39,
-      "perPersonIncome": 24.23138500667563,
-      "rentBurden": 0.14265063587768015,
+      "perPersonIncome": 24.23149826978328,
+      "rentBurden": 0.14264996909867425,
       "condition": 99.48682940072699
     },
     {
@@ -864,8 +864,8 @@
       "character": "Residential neighbourhood",
       "incomeBand": "Middle income",
       "people": 42,
-      "perPersonIncome": 21.770534240751847,
-      "rentBurden": 0.1353409545471152,
+      "perPersonIncome": 21.770588057933743,
+      "rentBurden": 0.1353406199824838,
       "condition": 99.95381198824656
     },
     {
@@ -908,9 +908,9 @@
   "exact360DaySaveReplay": true,
   "final": {
     "day": 3061,
-    "treasury": 1248809.3395771,
-    "region": 9792291.366733158,
-    "total": 15493516.9999598,
+    "treasury": 1248734.4138669185,
+    "region": 9792277.395718642,
+    "total": 15493516.999959879,
     "population": 307,
     "owned": [
       "east-meadow",
@@ -920,7 +920,7 @@
     "valid": {
       "ok": true,
       "issues": [],
-      "total": 15493516.9999598,
+      "total": 15493516.999959879,
       "population": 307,
       "day": 3061
     }

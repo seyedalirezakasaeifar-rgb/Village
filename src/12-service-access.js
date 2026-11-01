@@ -36,7 +36,13 @@ function serviceAccess(kind,extraSite=null){
   for(let at=sink;at!==0;){const [from,index]=parents[at];amount=Math.min(amount,edges[from][index].capacity);at=from;}
   for(let at=sink;at!==0;){const [from,index]=parents[at],edge=edges[from][index];edge.capacity-=amount;edges[at][edge.reverse].capacity+=amount;at=from;}served+=amount;
  }
- const result={kind,limit,served:Math.min(served,G.stats.population),population:G.stats.population,coverage:G.stats.population?Math.min(1,served/G.stats.population):0,households:homes.map((h,j)=>{const port=net.portals.get(h.home),reachable=distances.map(d=>d.get(port)).filter(d=>d!=null),row={...h,served:clamp(h.residents-homeEdges[j].capacity,0,h.residents),distance:reachable.length?Math.min(...reachable):null};if(extraSite)row.siteDistance=port==null?null:distances[facilities.length-1].get(port)??null;return row;})};
+ // Household membership is authoritative at this point in the daily tick.
+ // G.stats.population is a published aggregate that can still describe the
+ // prior tick while births, arrivals, or archive restoration have changed the
+ // household rows. Clamping to that stale aggregate poisons this cache entry
+ // and makes same-day civic training differ after save/load.
+ const population=homes.reduce((n,h)=>n+h.residents,0);
+ const result={kind,limit,served:Math.min(served,population),population,coverage:population?Math.min(1,served/population):0,households:homes.map((h,j)=>{const port=net.portals.get(h.home),reachable=distances.map(d=>d.get(port)).filter(d=>d!=null),row={...h,served:clamp(h.residents-homeEdges[j].capacity,0,h.residents),distance:reachable.length?Math.min(...reachable):null};if(extraSite)row.siteDistance=port==null?null:distances[facilities.length-1].get(port)??null;return row;})};
  if(!extraSite)serviceAccessCaches.set(kind,{town:G,net,key,result});return result;
 }
 // Prospective civic-site routing reuses the live catchment allocator without
