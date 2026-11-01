@@ -53,13 +53,14 @@ function maintainRoads(){
 }
 const roadId=(x,y)=>y*T+x;
 function invalidateRoads(resetTraffic=true){roadsVersion++;roadNetwork=null;if(resetTraffic){traffic.length=0;trafficClock=0;intersectionGates.clear()}if(G)G.roadMetrics=null;dirty=true;}
+function roadSurface(id){return Number.isInteger(id)&&id>=0&&id<G.tiles.length&&(G.tiles[id]===1||G.tiles[id]===4&&typeof bridgeConditionAt==='function'&&bridgeConditionAt(id)>=25);}
 function flushRoadBatch(){if(!roadBatchDirty)return;roadBatchDirty=false;invalidateRoads();staticDirty=true;if(G){recompute();updateHeader();save()}}
 function graph(){
  if(roadNetwork&&roadVersionBuilt===roadsVersion&&roadGraphOwner===G&&roadBuildingVersion===G.buildings.length)return roadNetwork;
  const neighbors=new Map(),parts=new Int32Array(T*T).fill(-1),portals=new Map(),connected=[];
- for(let i=0;i<G.tiles.length;i++)if(G.tiles[i]===1){
+ for(let i=0;i<G.tiles.length;i++)if(roadSurface(i)){
   const x=i%T,y=i/T|0,ns=[];
-  for(const [dx,dy] of roadOffsets){const xx=x+dx,yy=y+dy;if(xx>=0&&xx<T&&yy>=0&&yy<T&&G.tiles[roadId(xx,yy)]===1)ns.push(roadId(xx,yy))}
+  for(const [dx,dy] of roadOffsets){const xx=x+dx,yy=y+dy;if(xx>=0&&xx<T&&yy>=0&&yy<T&&roadSurface(roadId(xx,yy)))ns.push(roadId(xx,yy))}
   neighbors.set(i,ns);
  }
  let part=0,maxSize=0,mainPart=-1;
@@ -70,7 +71,7 @@ function graph(){
  const anchor=G.buildings.find(b=>b.kind==='townhall');
  if(anchor){for(const [dx,dy] of roadOffsets){let x=anchor.x+dx,y=anchor.y+dy;if(x>=0&&x<T&&y>=0&&y<T&&parts[roadId(x,y)]>=0){mainPart=parts[roadId(x,y)];break}}}
  for(const b of G.buildings){
-  const choices=[];for(const id of footprintOf(b)){const xx=id%T,yy=id/T|0;for(const [dx,dy] of roadOffsets){const ax=xx+dx,ay=yy+dy;if(ax>=0&&ax<T&&ay>=0&&ay<T&&G.tiles[roadId(ax,ay)]===1)choices.push(roadId(ax,ay))}}
+  const choices=[];for(const id of footprintOf(b)){const xx=id%T,yy=id/T|0;for(const [dx,dy] of roadOffsets){const ax=xx+dx,ay=yy+dy;if(ax>=0&&ax<T&&ay>=0&&ay<T&&roadSurface(roadId(ax,ay)))choices.push(roadId(ax,ay))}}
   if(choices.length){let entry=choices.find(id=>parts[id]===mainPart)??choices[0];portals.set(b.id,entry);if(parts[entry]===mainPart)connected.push(b)}
  }
  roadNetwork={neighbors,parts,portals,connected,mainPart,partsCount:part,maxSize};roadVersionBuilt=roadsVersion;roadGraphOwner=G;roadBuildingVersion=G.buildings.length;return roadNetwork;

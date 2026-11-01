@@ -31,7 +31,7 @@ function charterOwnership(){
 function charterOwns(x,y){return x>=0&&y>=0&&x<T&&y<T&&charterOwnership()[y*T+x]===1;}
 function charterFootprint(x,y,kind){return footprintFor(x,y,kind).every(id=>charterOwns(id%T,id/T|0));}
 function charterRoadCount(){const privateSet=new Set(G.privateRoads||[]);return [...graph().neighbors.keys()].filter(id=>!privateSet.has(id)&&charterOwns(id%T,id/T|0)).length;}
-function parcelSurvey(p){let land=0,water=0,forest=0,roads=0;for(let y=p.y;y<p.y+p.h;y++)for(let x=p.x;x<p.x+p.w;x++){const cell=G.tiles[roadId(x,y)];if(cell===2)water++;else{land++;if(cell===3)forest++;if(cell===1)roads++;}}return {land,water,forest,roads,area:p.w*p.h,price:12000+land*42+roads*75};}
+function parcelSurvey(p){let land=0,water=0,forest=0,roads=0;for(let y=p.y;y<p.y+p.h;y++)for(let x=p.x;x<p.x+p.w;x++){const cell=G.tiles[roadId(x,y)];if(cell===2||cell===4){water++;if(cell===4)roads++;}else{land++;if(cell===3)forest++;if(cell===1)roads++;}}return {land,water,forest,roads,area:p.w*p.h,price:12000+land*42+roads*75};}
 function parcelAdjacent(p){const owned=G.charter?.owned||[];return p.x===56&&p.y<56||p.y===56&&p.x<56||ANNEX_PARCELS.some(q=>owned.includes(q.id)&&((q.x+q.w===p.x||p.x+p.w===q.x)&&Math.max(q.y,p.y)<Math.min(q.y+q.h,p.y+p.h)||(q.y+q.h===p.y||p.y+p.h===q.y)&&Math.max(q.x,p.x)<Math.min(q.x+q.w,p.x+p.w)));}
 function purchaseParcel(id,quotedPrice){
  const p=ANNEX_PARCELS.find(p=>p.id===id);if(!p||!G.charter||G.charter.owned.includes(id)||!parcelAdjacent(p))return false;const quote=parcelSurvey(p);if(!Number.isFinite(quotedPrice)||quotedPrice!==quote.price||G.treasury<quote.price)return false;
@@ -43,7 +43,7 @@ function validateCharter(data){
  const c=data.charter;if(!c||c.version!==1||!Array.isArray(c.owned)||new Set(c.owned).size!==c.owned.length||c.owned.some(id=>!ANNEX_PARCELS.some(p=>p.id===id))||!Array.isArray(c.deeds)||c.deeds.length!==c.owned.length||!Number.isInteger(c.revision)||c.revision!==c.owned.length)return false;
  const seen=new Set();for(const d of c.deeds){if(!d||seen.has(d.id)||!c.owned.includes(d.id)||!Number.isInteger(d.day)||d.day<1||d.day>data.day||!Number.isFinite(d.price)||d.price<12000||d.price>100000)return false;seen.add(d.id);}
  const ownsTile=(id)=>{const x=id%T,y=id/T|0;if(x<CHARTER_BASE&&y<CHARTER_BASE)return true;const p=parcelForTile(x,y);return !!p&&c.owned.includes(p.id);};
- if(data.tiles.some((type,id)=>type===1&&!ownsTile(id)))return false;
+ if(data.tiles.some((type,id)=>(type===1||type===4)&&!ownsTile(id)))return false;
  if(data.buildings.some(b=>(b.footprint||[b.y*T+b.x]).some(id=>!ownsTile(id))))return false;
  if(Object.keys(data.landUse||{}).some(id=>!ownsTile(+id))||(data.privateRoads||[]).some(id=>!ownsTile(id)))return false;
  if(c.owned.includes('high-common')&&!c.owned.some(id=>id==='county-ridge'||id==='orchard-downs'))return false;
@@ -60,6 +60,7 @@ function normalizeRegionArchive(input){
  const tiles=Array.from({length:T*T},(_,id)=>regionalTerrain(id%T,id/T|0,data.worldSeed||data.scenarioSeed));
  for(let y=0;y<oldSize;y++)for(let x=0;x<oldSize;x++)tiles[y*T+x]=data.tiles[y*oldSize+x];data.tiles=tiles;
  for(const b of data.buildings||[])if(Array.isArray(b.footprint))b.footprint=list(b.footprint);
+ for(const b of data.bridges||[])for(const key of ['cells','banks'])if(Array.isArray(b[key]))b[key]=list(b[key]);
  for(const key of ['roadClasses','streetNames','landUse','fieldOwner'])if(data[key])data[key]=map(data[key]);
  if(Array.isArray(data.roadWear)){const wear=new Array(T*T).fill(100);for(let id=0;id<Math.min(count,data.roadWear.length);id++)wear[tile(id)]=data.roadWear[id];data.roadWear=wear;}
  if(Array.isArray(data.privateRoads))data.privateRoads=list(data.privateRoads);
