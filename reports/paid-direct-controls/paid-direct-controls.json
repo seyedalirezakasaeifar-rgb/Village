@@ -1,0 +1,2027 @@
+{
+  "source_sha256": "a5702549caf5ea1b1c01d3968184fa666d3bce4d86f5953bffefad68e15c424b",
+  "hostChromium": true,
+  "physicalAndroid": false,
+  "productionEnabled": false,
+  "reservationFaultInjection": true,
+  "minimalRegistryOwner": false,
+  "optionalMetricsFault": false,
+  "commonRoot": "__capacityAdmissionProtocol.shared",
+  "experiment_sha256": {
+    "root-capacity-api.js": "cfc65e914a4e5a3d54914f39b0f20ccda3be4734d17db079a8f18847aaaa4e65",
+    "game-capacity-root-adapter.js": "2f9b8b28b7758aa2a77a3d13146ac9d5dbce7fa3c0efbeafafd7d3f6ec3e495a",
+    "paid-command-root.js": "32b5510e3e5daac01dc701f9b5f9e9cd4f3e15d3a34508e67be309e9938f17af"
+  },
+  "cases": [
+    {
+      "action": "policy",
+      "exactNormalModelRng": true,
+      "normal": [
+        {
+          "rng": 3224482224,
+          "projects": 0,
+          "projectsBefore": 0,
+          "status": {
+            "enabled": false,
+            "active": false,
+            "halted": false,
+            "last": null,
+            "protocol": {
+              "enabled": false,
+              "halted": false,
+              "active": false,
+              "kind": null,
+              "phase": "idle",
+              "last": null,
+              "pendingSaveGenerations": 0
+            },
+            "metrics": {
+              "captures": 0,
+              "certificates": 0,
+              "restores": 0,
+              "last": null
+            }
+          },
+          "unchanged": false,
+          "referenceIdentity": null,
+          "cashConserved": true,
+          "committedWrites": [
+            {
+              "active": false,
+              "treasury": 90000,
+              "debt": 0,
+              "projects": 0
+            }
+          ]
+        },
+        {
+          "rng": 3224482224,
+          "projects": 0,
+          "projectsBefore": 0,
+          "status": {
+            "enabled": true,
+            "active": false,
+            "halted": false,
+            "last": {
+              "ok": true,
+              "joined": false,
+              "value": null,
+              "kind": "command",
+              "intent": "panel-control",
+              "checkpointMs": 77.10000000149012,
+              "objects": 3319,
+              "properties": 52593,
+              "typedViews": 21,
+              "typedIndicesEnumerated": 344064,
+              "bufferBytes": 1327104,
+              "modelMs": 3.600000001490116,
+              "certifyMs": 7,
+              "encodedBytes": 136741,
+              "oracleOnly": true,
+              "committed": true,
+              "command": "panel-control",
+              "ms": 96.60000000149012,
+              "code": null,
+              "publicationErrors": []
+            },
+            "protocol": {
+              "enabled": true,
+              "halted": false,
+              "active": false,
+              "kind": null,
+              "phase": "idle",
+              "last": {
+                "kind": "command",
+                "ok": true,
+                "effectErrors": []
+              },
+              "pendingSaveGenerations": 0
+            },
+            "metrics": {
+              "captures": 1,
+              "certificates": 2,
+              "restores": 0,
+              "last": {
+                "kind": "command",
+                "intent": "panel-control",
+                "checkpointMs": 77.10000000149012,
+                "objects": 3319,
+                "properties": 52593,
+                "typedViews": 21,
+                "typedIndicesEnumerated": 344064,
+                "bufferBytes": 1327104,
+                "modelMs": 3.600000001490116,
+                "certifyMs": 7,
+                "encodedBytes": 136741,
+                "oracleOnly": true,
+                "committed": true
+              }
+            }
+          },
+          "unchanged": false,
+          "referenceIdentity": null,
+          "cashConserved": true,
+          "committedWrites": [
+            {
+              "active": false,
+              "treasury": 90000,
+              "debt": 0,
+              "projects": 0
+            }
+          ]
+        }
+      ],
+      "forcedReservationRefusal": {
+        "rng": 3224482224,
+        "projects": 0,
+        "projectsBefore": 0,
+        "status": {
+          "enabled": true,
+          "active": false,
+          "halted": false,
+          "last": {
+            "ok": false,
+            "reason": "Test capacity reservation refusal",
+            "kind": "command",
+            "intent": "panel-control",
+            "checkpointMs": 72.60000000149012,
+            "objects": 3319,
+            "properties": 52593,
+            "typedViews": 21,
+            "typedIndicesEnumerated": 344064,
+            "bufferBytes": 1327104,
+            "modelMs": 3.5,
+            "certifyMs": 7.5,
+            "encodedBytes": 136741,
+            "oracleOnly": true,
+            "restoreMs": 91.79999999701977,
+            "committed": false,
+            "command": "panel-control",
+            "ms": 177.20000000298023,
+            "code": "capacity",
+            "publicationErrors": []
+          },
+          "protocol": {
+            "enabled": true,
+            "halted": false,
+            "active": false,
+            "kind": null,
+            "phase": "idle",
+            "last": {
+              "kind": "command",
+              "ok": false,
+              "reason": "Test capacity reservation refusal",
+              "effectErrors": []
+            },
+            "pendingSaveGenerations": 0
+          },
+          "metrics": {
+            "captures": 1,
+            "certificates": 2,
+            "restores": 1,
+            "last": {
+              "kind": "command",
+              "intent": "panel-control",
+              "checkpointMs": 72.60000000149012,
+              "objects": 3319,
+              "properties": 52593,
+              "typedViews": 21,
+              "typedIndicesEnumerated": 344064,
+              "bufferBytes": 1327104,
+              "modelMs": 3.5,
+              "certifyMs": 7.5,
+              "encodedBytes": 136741,
+              "oracleOnly": true,
+              "restoreMs": 91.79999999701977,
+              "committed": false,
+              "reason": "Test capacity reservation refusal"
+            }
+          }
+        },
+        "unchanged": true,
+        "referenceIdentity": true,
+        "cashConserved": true,
+        "committedWrites": []
+      }
+    },
+    {
+      "action": "borrow",
+      "exactNormalModelRng": true,
+      "normal": [
+        {
+          "rng": 3224482224,
+          "projects": 0,
+          "projectsBefore": 0,
+          "status": {
+            "enabled": false,
+            "active": false,
+            "halted": false,
+            "last": null,
+            "protocol": {
+              "enabled": false,
+              "halted": false,
+              "active": false,
+              "kind": null,
+              "phase": "idle",
+              "last": null,
+              "pendingSaveGenerations": 0
+            },
+            "metrics": {
+              "captures": 0,
+              "certificates": 0,
+              "restores": 0,
+              "last": null
+            }
+          },
+          "unchanged": false,
+          "referenceIdentity": null,
+          "cashConserved": true,
+          "committedWrites": [
+            {
+              "active": false,
+              "treasury": 95000,
+              "debt": 5000,
+              "projects": 0
+            }
+          ]
+        },
+        {
+          "rng": 3224482224,
+          "projects": 0,
+          "projectsBefore": 0,
+          "status": {
+            "enabled": true,
+            "active": false,
+            "halted": false,
+            "last": {
+              "ok": true,
+              "joined": false,
+              "value": null,
+              "kind": "command",
+              "intent": "panel-control",
+              "checkpointMs": 73.89999999850988,
+              "objects": 3179,
+              "properties": 51767,
+              "typedViews": 21,
+              "typedIndicesEnumerated": 344064,
+              "bufferBytes": 1327104,
+              "modelMs": 1.7999999970197678,
+              "certifyMs": 5.5,
+              "encodedBytes": 135817,
+              "oracleOnly": true,
+              "committed": true,
+              "command": "panel-control",
+              "ms": 86.5,
+              "code": null,
+              "publicationErrors": []
+            },
+            "protocol": {
+              "enabled": true,
+              "halted": false,
+              "active": false,
+              "kind": null,
+              "phase": "idle",
+              "last": {
+                "kind": "command",
+                "ok": true,
+                "effectErrors": []
+              },
+              "pendingSaveGenerations": 0
+            },
+            "metrics": {
+              "captures": 1,
+              "certificates": 2,
+              "restores": 0,
+              "last": {
+                "kind": "command",
+                "intent": "panel-control",
+                "checkpointMs": 73.89999999850988,
+                "objects": 3179,
+                "properties": 51767,
+                "typedViews": 21,
+                "typedIndicesEnumerated": 344064,
+                "bufferBytes": 1327104,
+                "modelMs": 1.7999999970197678,
+                "certifyMs": 5.5,
+                "encodedBytes": 135817,
+                "oracleOnly": true,
+                "committed": true
+              }
+            }
+          },
+          "unchanged": false,
+          "referenceIdentity": null,
+          "cashConserved": true,
+          "committedWrites": [
+            {
+              "active": false,
+              "treasury": 95000,
+              "debt": 5000,
+              "projects": 0
+            }
+          ]
+        }
+      ],
+      "forcedReservationRefusal": {
+        "rng": 3224482224,
+        "projects": 0,
+        "projectsBefore": 0,
+        "status": {
+          "enabled": true,
+          "active": false,
+          "halted": false,
+          "last": {
+            "ok": false,
+            "reason": "Test capacity reservation refusal",
+            "kind": "command",
+            "intent": "panel-control",
+            "checkpointMs": 76.90000000596046,
+            "objects": 3179,
+            "properties": 51767,
+            "typedViews": 21,
+            "typedIndicesEnumerated": 344064,
+            "bufferBytes": 1327104,
+            "modelMs": 2,
+            "certifyMs": 5.5,
+            "encodedBytes": 135817,
+            "oracleOnly": true,
+            "restoreMs": 95.20000000298023,
+            "committed": false,
+            "command": "panel-control",
+            "ms": 182.79999999701977,
+            "code": "capacity",
+            "publicationErrors": []
+          },
+          "protocol": {
+            "enabled": true,
+            "halted": false,
+            "active": false,
+            "kind": null,
+            "phase": "idle",
+            "last": {
+              "kind": "command",
+              "ok": false,
+              "reason": "Test capacity reservation refusal",
+              "effectErrors": []
+            },
+            "pendingSaveGenerations": 0
+          },
+          "metrics": {
+            "captures": 1,
+            "certificates": 2,
+            "restores": 1,
+            "last": {
+              "kind": "command",
+              "intent": "panel-control",
+              "checkpointMs": 76.90000000596046,
+              "objects": 3179,
+              "properties": 51767,
+              "typedViews": 21,
+              "typedIndicesEnumerated": 344064,
+              "bufferBytes": 1327104,
+              "modelMs": 2,
+              "certifyMs": 5.5,
+              "encodedBytes": 135817,
+              "oracleOnly": true,
+              "restoreMs": 95.20000000298023,
+              "committed": false,
+              "reason": "Test capacity reservation refusal"
+            }
+          }
+        },
+        "unchanged": true,
+        "referenceIdentity": true,
+        "cashConserved": true,
+        "committedWrites": []
+      }
+    },
+    {
+      "action": "repay",
+      "exactNormalModelRng": true,
+      "normal": [
+        {
+          "rng": 3224482224,
+          "projects": 0,
+          "projectsBefore": 0,
+          "status": {
+            "enabled": false,
+            "active": false,
+            "halted": false,
+            "last": null,
+            "protocol": {
+              "enabled": false,
+              "halted": false,
+              "active": false,
+              "kind": null,
+              "phase": "idle",
+              "last": null,
+              "pendingSaveGenerations": 0
+            },
+            "metrics": {
+              "captures": 0,
+              "certificates": 0,
+              "restores": 0,
+              "last": null
+            }
+          },
+          "unchanged": false,
+          "referenceIdentity": null,
+          "cashConserved": true,
+          "committedWrites": [
+            {
+              "active": false,
+              "treasury": 90000,
+              "debt": 0,
+              "projects": 0
+            }
+          ]
+        },
+        {
+          "rng": 3224482224,
+          "projects": 0,
+          "projectsBefore": 0,
+          "status": {
+            "enabled": true,
+            "active": false,
+            "halted": false,
+            "last": {
+              "ok": true,
+              "joined": false,
+              "value": null,
+              "kind": "command",
+              "intent": "panel-control",
+              "checkpointMs": 77.29999999701977,
+              "objects": 3179,
+              "properties": 51767,
+              "typedViews": 21,
+              "typedIndicesEnumerated": 344064,
+              "bufferBytes": 1327104,
+              "modelMs": 1.6999999955296516,
+              "certifyMs": 5.300000004470348,
+              "encodedBytes": 135710,
+              "oracleOnly": true,
+              "committed": true,
+              "command": "panel-control",
+              "ms": 90.10000000149012,
+              "code": null,
+              "publicationErrors": []
+            },
+            "protocol": {
+              "enabled": true,
+              "halted": false,
+              "active": false,
+              "kind": null,
+              "phase": "idle",
+              "last": {
+                "kind": "command",
+                "ok": true,
+                "effectErrors": []
+              },
+              "pendingSaveGenerations": 0
+            },
+            "metrics": {
+              "captures": 1,
+              "certificates": 2,
+              "restores": 0,
+              "last": {
+                "kind": "command",
+                "intent": "panel-control",
+                "checkpointMs": 77.29999999701977,
+                "objects": 3179,
+                "properties": 51767,
+                "typedViews": 21,
+                "typedIndicesEnumerated": 344064,
+                "bufferBytes": 1327104,
+                "modelMs": 1.6999999955296516,
+                "certifyMs": 5.300000004470348,
+                "encodedBytes": 135710,
+                "oracleOnly": true,
+                "committed": true
+              }
+            }
+          },
+          "unchanged": false,
+          "referenceIdentity": null,
+          "cashConserved": true,
+          "committedWrites": [
+            {
+              "active": false,
+              "treasury": 90000,
+              "debt": 0,
+              "projects": 0
+            }
+          ]
+        }
+      ],
+      "forcedReservationRefusal": {
+        "rng": 3224482224,
+        "projects": 0,
+        "projectsBefore": 0,
+        "status": {
+          "enabled": true,
+          "active": false,
+          "halted": false,
+          "last": {
+            "ok": false,
+            "reason": "Test capacity reservation refusal",
+            "kind": "command",
+            "intent": "panel-control",
+            "checkpointMs": 80,
+            "objects": 3179,
+            "properties": 51767,
+            "typedViews": 21,
+            "typedIndicesEnumerated": 344064,
+            "bufferBytes": 1327104,
+            "modelMs": 1.6999999955296516,
+            "certifyMs": 5.5,
+            "encodedBytes": 135710,
+            "oracleOnly": true,
+            "restoreMs": 95.70000000298023,
+            "committed": false,
+            "command": "panel-control",
+            "ms": 185.09999999403954,
+            "code": "capacity",
+            "publicationErrors": []
+          },
+          "protocol": {
+            "enabled": true,
+            "halted": false,
+            "active": false,
+            "kind": null,
+            "phase": "idle",
+            "last": {
+              "kind": "command",
+              "ok": false,
+              "reason": "Test capacity reservation refusal",
+              "effectErrors": []
+            },
+            "pendingSaveGenerations": 0
+          },
+          "metrics": {
+            "captures": 1,
+            "certificates": 2,
+            "restores": 1,
+            "last": {
+              "kind": "command",
+              "intent": "panel-control",
+              "checkpointMs": 80,
+              "objects": 3179,
+              "properties": 51767,
+              "typedViews": 21,
+              "typedIndicesEnumerated": 344064,
+              "bufferBytes": 1327104,
+              "modelMs": 1.6999999955296516,
+              "certifyMs": 5.5,
+              "encodedBytes": 135710,
+              "oracleOnly": true,
+              "restoreMs": 95.70000000298023,
+              "committed": false,
+              "reason": "Test capacity reservation refusal"
+            }
+          }
+        },
+        "unchanged": true,
+        "referenceIdentity": true,
+        "cashConserved": true,
+        "committedWrites": []
+      }
+    },
+    {
+      "action": "toggleDevelopment",
+      "exactNormalModelRng": true,
+      "normal": [
+        {
+          "rng": 3224482224,
+          "projects": 0,
+          "projectsBefore": 0,
+          "status": {
+            "enabled": false,
+            "active": false,
+            "halted": false,
+            "last": null,
+            "protocol": {
+              "enabled": false,
+              "halted": false,
+              "active": false,
+              "kind": null,
+              "phase": "idle",
+              "last": null,
+              "pendingSaveGenerations": 0
+            },
+            "metrics": {
+              "captures": 0,
+              "certificates": 0,
+              "restores": 0,
+              "last": null
+            }
+          },
+          "unchanged": false,
+          "referenceIdentity": null,
+          "cashConserved": true,
+          "committedWrites": [
+            {
+              "active": false,
+              "treasury": 90000,
+              "debt": 0,
+              "projects": 0
+            }
+          ]
+        },
+        {
+          "rng": 3224482224,
+          "projects": 0,
+          "projectsBefore": 0,
+          "status": {
+            "enabled": true,
+            "active": false,
+            "halted": false,
+            "last": {
+              "ok": true,
+              "joined": false,
+              "value": null,
+              "kind": "command",
+              "intent": "panel-control",
+              "checkpointMs": 77.70000000298023,
+              "objects": 3179,
+              "properties": 51767,
+              "typedViews": 21,
+              "typedIndicesEnumerated": 344064,
+              "bufferBytes": 1327104,
+              "modelMs": 6.100000001490116,
+              "certifyMs": 6.899999998509884,
+              "encodedBytes": 135725,
+              "oracleOnly": true,
+              "committed": true,
+              "command": "panel-control",
+              "ms": 101.29999999701977,
+              "code": null,
+              "publicationErrors": []
+            },
+            "protocol": {
+              "enabled": true,
+              "halted": false,
+              "active": false,
+              "kind": null,
+              "phase": "idle",
+              "last": {
+                "kind": "command",
+                "ok": true,
+                "effectErrors": []
+              },
+              "pendingSaveGenerations": 0
+            },
+            "metrics": {
+              "captures": 1,
+              "certificates": 2,
+              "restores": 0,
+              "last": {
+                "kind": "command",
+                "intent": "panel-control",
+                "checkpointMs": 77.70000000298023,
+                "objects": 3179,
+                "properties": 51767,
+                "typedViews": 21,
+                "typedIndicesEnumerated": 344064,
+                "bufferBytes": 1327104,
+                "modelMs": 6.100000001490116,
+                "certifyMs": 6.899999998509884,
+                "encodedBytes": 135725,
+                "oracleOnly": true,
+                "committed": true
+              }
+            }
+          },
+          "unchanged": false,
+          "referenceIdentity": null,
+          "cashConserved": true,
+          "committedWrites": [
+            {
+              "active": false,
+              "treasury": 90000,
+              "debt": 0,
+              "projects": 0
+            }
+          ]
+        }
+      ],
+      "forcedReservationRefusal": {
+        "rng": 3224482224,
+        "projects": 0,
+        "projectsBefore": 0,
+        "status": {
+          "enabled": true,
+          "active": false,
+          "halted": false,
+          "last": {
+            "ok": false,
+            "reason": "Test capacity reservation refusal",
+            "kind": "command",
+            "intent": "panel-control",
+            "checkpointMs": 66.60000000149012,
+            "objects": 3179,
+            "properties": 51767,
+            "typedViews": 21,
+            "typedIndicesEnumerated": 344064,
+            "bufferBytes": 1327104,
+            "modelMs": 5.300000004470348,
+            "certifyMs": 8.299999997019768,
+            "encodedBytes": 135725,
+            "oracleOnly": true,
+            "restoreMs": 90.39999999850988,
+            "committed": false,
+            "command": "panel-control",
+            "ms": 172.39999999850988,
+            "code": "capacity",
+            "publicationErrors": []
+          },
+          "protocol": {
+            "enabled": true,
+            "halted": false,
+            "active": false,
+            "kind": null,
+            "phase": "idle",
+            "last": {
+              "kind": "command",
+              "ok": false,
+              "reason": "Test capacity reservation refusal",
+              "effectErrors": []
+            },
+            "pendingSaveGenerations": 0
+          },
+          "metrics": {
+            "captures": 1,
+            "certificates": 2,
+            "restores": 1,
+            "last": {
+              "kind": "command",
+              "intent": "panel-control",
+              "checkpointMs": 66.60000000149012,
+              "objects": 3179,
+              "properties": 51767,
+              "typedViews": 21,
+              "typedIndicesEnumerated": 344064,
+              "bufferBytes": 1327104,
+              "modelMs": 5.300000004470348,
+              "certifyMs": 8.299999997019768,
+              "encodedBytes": 135725,
+              "oracleOnly": true,
+              "restoreMs": 90.39999999850988,
+              "committed": false,
+              "reason": "Test capacity reservation refusal"
+            }
+          }
+        },
+        "unchanged": true,
+        "referenceIdentity": true,
+        "cashConserved": true,
+        "committedWrites": []
+      }
+    },
+    {
+      "action": "ambition",
+      "exactNormalModelRng": true,
+      "normal": [
+        {
+          "rng": 3224482224,
+          "projects": 0,
+          "projectsBefore": 0,
+          "status": {
+            "enabled": false,
+            "active": false,
+            "halted": false,
+            "last": null,
+            "protocol": {
+              "enabled": false,
+              "halted": false,
+              "active": false,
+              "kind": null,
+              "phase": "idle",
+              "last": null,
+              "pendingSaveGenerations": 0
+            },
+            "metrics": {
+              "captures": 0,
+              "certificates": 0,
+              "restores": 0,
+              "last": null
+            }
+          },
+          "unchanged": false,
+          "referenceIdentity": null,
+          "cashConserved": true,
+          "committedWrites": [
+            {
+              "active": false,
+              "treasury": 90000,
+              "debt": 0,
+              "projects": 0
+            }
+          ]
+        },
+        {
+          "rng": 3224482224,
+          "projects": 0,
+          "projectsBefore": 0,
+          "status": {
+            "enabled": true,
+            "active": false,
+            "halted": false,
+            "last": {
+              "ok": true,
+              "joined": false,
+              "value": null,
+              "kind": "command",
+              "intent": "panel-control",
+              "checkpointMs": 52.600000001490116,
+              "objects": 1645,
+              "properties": 26358,
+              "typedViews": 15,
+              "typedIndicesEnumerated": 245760,
+              "bufferBytes": 933888,
+              "modelMs": 2.100000001490116,
+              "certifyMs": 7.699999995529652,
+              "encodedBytes": 135731,
+              "oracleOnly": true,
+              "committed": true,
+              "command": "panel-control",
+              "ms": 70.19999999552965,
+              "code": null,
+              "publicationErrors": []
+            },
+            "protocol": {
+              "enabled": true,
+              "halted": false,
+              "active": false,
+              "kind": null,
+              "phase": "idle",
+              "last": {
+                "kind": "command",
+                "ok": true,
+                "effectErrors": []
+              },
+              "pendingSaveGenerations": 0
+            },
+            "metrics": {
+              "captures": 1,
+              "certificates": 2,
+              "restores": 0,
+              "last": {
+                "kind": "command",
+                "intent": "panel-control",
+                "checkpointMs": 52.600000001490116,
+                "objects": 1645,
+                "properties": 26358,
+                "typedViews": 15,
+                "typedIndicesEnumerated": 245760,
+                "bufferBytes": 933888,
+                "modelMs": 2.100000001490116,
+                "certifyMs": 7.699999995529652,
+                "encodedBytes": 135731,
+                "oracleOnly": true,
+                "committed": true
+              }
+            }
+          },
+          "unchanged": false,
+          "referenceIdentity": null,
+          "cashConserved": true,
+          "committedWrites": [
+            {
+              "active": false,
+              "treasury": 90000,
+              "debt": 0,
+              "projects": 0
+            }
+          ]
+        }
+      ],
+      "forcedReservationRefusal": {
+        "rng": 3224482224,
+        "projects": 0,
+        "projectsBefore": 0,
+        "status": {
+          "enabled": true,
+          "active": false,
+          "halted": false,
+          "last": {
+            "ok": false,
+            "reason": "Test capacity reservation refusal",
+            "kind": "command",
+            "intent": "panel-control",
+            "checkpointMs": 57.79999999701977,
+            "objects": 1645,
+            "properties": 26358,
+            "typedViews": 15,
+            "typedIndicesEnumerated": 245760,
+            "bufferBytes": 933888,
+            "modelMs": 2.7000000029802322,
+            "certifyMs": 7.0999999940395355,
+            "encodedBytes": 135731,
+            "oracleOnly": true,
+            "restoreMs": 65.30000000447035,
+            "committed": false,
+            "command": "panel-control",
+            "ms": 134.39999999850988,
+            "code": "capacity",
+            "publicationErrors": []
+          },
+          "protocol": {
+            "enabled": true,
+            "halted": false,
+            "active": false,
+            "kind": null,
+            "phase": "idle",
+            "last": {
+              "kind": "command",
+              "ok": false,
+              "reason": "Test capacity reservation refusal",
+              "effectErrors": []
+            },
+            "pendingSaveGenerations": 0
+          },
+          "metrics": {
+            "captures": 1,
+            "certificates": 2,
+            "restores": 1,
+            "last": {
+              "kind": "command",
+              "intent": "panel-control",
+              "checkpointMs": 57.79999999701977,
+              "objects": 1645,
+              "properties": 26358,
+              "typedViews": 15,
+              "typedIndicesEnumerated": 245760,
+              "bufferBytes": 933888,
+              "modelMs": 2.7000000029802322,
+              "certifyMs": 7.0999999940395355,
+              "encodedBytes": 135731,
+              "oracleOnly": true,
+              "restoreMs": 65.30000000447035,
+              "committed": false,
+              "reason": "Test capacity reservation refusal"
+            }
+          }
+        },
+        "unchanged": true,
+        "referenceIdentity": true,
+        "cashConserved": true,
+        "committedWrites": []
+      }
+    },
+    {
+      "action": "private-provider",
+      "exactNormalModelRng": true,
+      "normal": [
+        {
+          "rng": 12269774,
+          "projects": 1,
+          "projectsBefore": 0,
+          "status": {
+            "enabled": false,
+            "active": false,
+            "halted": false,
+            "last": null,
+            "protocol": {
+              "enabled": false,
+              "halted": false,
+              "active": false,
+              "kind": null,
+              "phase": "idle",
+              "last": null,
+              "pendingSaveGenerations": 0
+            },
+            "metrics": {
+              "captures": 0,
+              "certificates": 0,
+              "restores": 0,
+              "last": null
+            }
+          },
+          "unchanged": false,
+          "referenceIdentity": null,
+          "cashConserved": true,
+          "committedWrites": [
+            {
+              "active": false,
+              "treasury": 90000,
+              "debt": 0,
+              "projects": 1
+            }
+          ]
+        },
+        {
+          "rng": 12269774,
+          "projects": 1,
+          "projectsBefore": 0,
+          "status": {
+            "enabled": true,
+            "active": false,
+            "halted": false,
+            "last": {
+              "ok": true,
+              "joined": false,
+              "value": "An entrepreneur has financed a new service site.",
+              "kind": "command",
+              "intent": "panel-control",
+              "checkpointMs": 65,
+              "objects": 3179,
+              "properties": 51770,
+              "typedViews": 21,
+              "typedIndicesEnumerated": 344064,
+              "bufferBytes": 1327104,
+              "modelMs": 34.29999999701977,
+              "certifyMs": 11.700000002980232,
+              "encodedBytes": 135225,
+              "oracleOnly": true,
+              "committed": true,
+              "command": "panel-control",
+              "ms": 119.5,
+              "code": null,
+              "publicationErrors": []
+            },
+            "protocol": {
+              "enabled": true,
+              "halted": false,
+              "active": false,
+              "kind": null,
+              "phase": "idle",
+              "last": {
+                "kind": "command",
+                "ok": true,
+                "effectErrors": []
+              },
+              "pendingSaveGenerations": 0
+            },
+            "metrics": {
+              "captures": 1,
+              "certificates": 2,
+              "restores": 0,
+              "last": {
+                "kind": "command",
+                "intent": "panel-control",
+                "checkpointMs": 65,
+                "objects": 3179,
+                "properties": 51770,
+                "typedViews": 21,
+                "typedIndicesEnumerated": 344064,
+                "bufferBytes": 1327104,
+                "modelMs": 34.29999999701977,
+                "certifyMs": 11.700000002980232,
+                "encodedBytes": 135225,
+                "oracleOnly": true,
+                "committed": true
+              }
+            }
+          },
+          "unchanged": false,
+          "referenceIdentity": null,
+          "cashConserved": true,
+          "committedWrites": [
+            {
+              "active": false,
+              "treasury": 90000,
+              "debt": 0,
+              "projects": 1
+            }
+          ]
+        }
+      ],
+      "forcedReservationRefusal": {
+        "rng": 3224482224,
+        "projects": 0,
+        "projectsBefore": 0,
+        "status": {
+          "enabled": true,
+          "active": false,
+          "halted": false,
+          "last": {
+            "ok": false,
+            "reason": "Test capacity reservation refusal",
+            "kind": "command",
+            "intent": "panel-control",
+            "checkpointMs": 68.69999999552965,
+            "objects": 3179,
+            "properties": 51770,
+            "typedViews": 21,
+            "typedIndicesEnumerated": 344064,
+            "bufferBytes": 1327104,
+            "modelMs": 32.79999999701977,
+            "certifyMs": 6.700000002980232,
+            "encodedBytes": 135225,
+            "oracleOnly": true,
+            "restoreMs": 101.10000000149012,
+            "committed": false,
+            "command": "panel-control",
+            "ms": 211.80000000447035,
+            "code": "capacity",
+            "publicationErrors": []
+          },
+          "protocol": {
+            "enabled": true,
+            "halted": false,
+            "active": false,
+            "kind": null,
+            "phase": "idle",
+            "last": {
+              "kind": "command",
+              "ok": false,
+              "reason": "Test capacity reservation refusal",
+              "effectErrors": []
+            },
+            "pendingSaveGenerations": 0
+          },
+          "metrics": {
+            "captures": 1,
+            "certificates": 2,
+            "restores": 1,
+            "last": {
+              "kind": "command",
+              "intent": "panel-control",
+              "checkpointMs": 68.69999999552965,
+              "objects": 3179,
+              "properties": 51770,
+              "typedViews": 21,
+              "typedIndicesEnumerated": 344064,
+              "bufferBytes": 1327104,
+              "modelMs": 32.79999999701977,
+              "certifyMs": 6.700000002980232,
+              "encodedBytes": 135225,
+              "oracleOnly": true,
+              "restoreMs": 101.10000000149012,
+              "committed": false,
+              "reason": "Test capacity reservation refusal"
+            }
+          }
+        },
+        "unchanged": true,
+        "referenceIdentity": true,
+        "cashConserved": true,
+        "committedWrites": []
+      }
+    },
+    {
+      "action": "private-fire",
+      "exactNormalModelRng": true,
+      "normal": [
+        {
+          "rng": 12269774,
+          "projects": 1,
+          "projectsBefore": 0,
+          "status": {
+            "enabled": false,
+            "active": false,
+            "halted": false,
+            "last": null,
+            "protocol": {
+              "enabled": false,
+              "halted": false,
+              "active": false,
+              "kind": null,
+              "phase": "idle",
+              "last": null,
+              "pendingSaveGenerations": 0
+            },
+            "metrics": {
+              "captures": 0,
+              "certificates": 0,
+              "restores": 0,
+              "last": null
+            }
+          },
+          "unchanged": false,
+          "referenceIdentity": null,
+          "cashConserved": true,
+          "committedWrites": [
+            {
+              "active": false,
+              "treasury": 90000,
+              "debt": 0,
+              "projects": 1
+            }
+          ]
+        },
+        {
+          "rng": 12269774,
+          "projects": 1,
+          "projectsBefore": 0,
+          "status": {
+            "enabled": true,
+            "active": false,
+            "halted": false,
+            "last": {
+              "ok": true,
+              "joined": false,
+              "value": "An entrepreneur has financed a new service site.",
+              "kind": "command",
+              "intent": "panel-control",
+              "checkpointMs": 67.5,
+              "objects": 3179,
+              "properties": 51770,
+              "typedViews": 21,
+              "typedIndicesEnumerated": 344064,
+              "bufferBytes": 1327104,
+              "modelMs": 35.399999998509884,
+              "certifyMs": 10.700000002980232,
+              "encodedBytes": 135227,
+              "oracleOnly": true,
+              "committed": true,
+              "command": "panel-control",
+              "ms": 122.40000000596046,
+              "code": null,
+              "publicationErrors": []
+            },
+            "protocol": {
+              "enabled": true,
+              "halted": false,
+              "active": false,
+              "kind": null,
+              "phase": "idle",
+              "last": {
+                "kind": "command",
+                "ok": true,
+                "effectErrors": []
+              },
+              "pendingSaveGenerations": 0
+            },
+            "metrics": {
+              "captures": 1,
+              "certificates": 2,
+              "restores": 0,
+              "last": {
+                "kind": "command",
+                "intent": "panel-control",
+                "checkpointMs": 67.5,
+                "objects": 3179,
+                "properties": 51770,
+                "typedViews": 21,
+                "typedIndicesEnumerated": 344064,
+                "bufferBytes": 1327104,
+                "modelMs": 35.399999998509884,
+                "certifyMs": 10.700000002980232,
+                "encodedBytes": 135227,
+                "oracleOnly": true,
+                "committed": true
+              }
+            }
+          },
+          "unchanged": false,
+          "referenceIdentity": null,
+          "cashConserved": true,
+          "committedWrites": [
+            {
+              "active": false,
+              "treasury": 90000,
+              "debt": 0,
+              "projects": 1
+            }
+          ]
+        }
+      ],
+      "forcedReservationRefusal": {
+        "rng": 3224482224,
+        "projects": 0,
+        "projectsBefore": 0,
+        "status": {
+          "enabled": true,
+          "active": false,
+          "halted": false,
+          "last": {
+            "ok": false,
+            "reason": "Test capacity reservation refusal",
+            "kind": "command",
+            "intent": "panel-control",
+            "checkpointMs": 74.5,
+            "objects": 3179,
+            "properties": 51770,
+            "typedViews": 21,
+            "typedIndicesEnumerated": 344064,
+            "bufferBytes": 1327104,
+            "modelMs": 45,
+            "certifyMs": 14.299999997019768,
+            "encodedBytes": 135227,
+            "oracleOnly": true,
+            "restoreMs": 91.5,
+            "committed": false,
+            "command": "panel-control",
+            "ms": 227.5,
+            "code": "capacity",
+            "publicationErrors": []
+          },
+          "protocol": {
+            "enabled": true,
+            "halted": false,
+            "active": false,
+            "kind": null,
+            "phase": "idle",
+            "last": {
+              "kind": "command",
+              "ok": false,
+              "reason": "Test capacity reservation refusal",
+              "effectErrors": []
+            },
+            "pendingSaveGenerations": 0
+          },
+          "metrics": {
+            "captures": 1,
+            "certificates": 2,
+            "restores": 1,
+            "last": {
+              "kind": "command",
+              "intent": "panel-control",
+              "checkpointMs": 74.5,
+              "objects": 3179,
+              "properties": 51770,
+              "typedViews": 21,
+              "typedIndicesEnumerated": 344064,
+              "bufferBytes": 1327104,
+              "modelMs": 45,
+              "certifyMs": 14.299999997019768,
+              "encodedBytes": 135227,
+              "oracleOnly": true,
+              "restoreMs": 91.5,
+              "committed": false,
+              "reason": "Test capacity reservation refusal"
+            }
+          }
+        },
+        "unchanged": true,
+        "referenceIdentity": true,
+        "cashConserved": true,
+        "committedWrites": []
+      }
+    },
+    {
+      "action": "land",
+      "exactNormalModelRng": true,
+      "normal": [
+        {
+          "rng": 3224482224,
+          "projects": 0,
+          "projectsBefore": 0,
+          "status": {
+            "enabled": false,
+            "active": false,
+            "halted": false,
+            "last": null,
+            "protocol": {
+              "enabled": false,
+              "halted": false,
+              "active": false,
+              "kind": null,
+              "phase": "idle",
+              "last": null,
+              "pendingSaveGenerations": 0
+            },
+            "metrics": {
+              "captures": 0,
+              "certificates": 0,
+              "restores": 0,
+              "last": null
+            }
+          },
+          "unchanged": false,
+          "referenceIdentity": null,
+          "cashConserved": true,
+          "committedWrites": [
+            {
+              "active": false,
+              "treasury": 90000,
+              "debt": 0,
+              "projects": 0
+            },
+            {
+              "active": false,
+              "treasury": 59394,
+              "debt": 0,
+              "projects": 0
+            }
+          ]
+        },
+        {
+          "rng": 3224482224,
+          "projects": 0,
+          "projectsBefore": 0,
+          "status": {
+            "enabled": true,
+            "active": false,
+            "halted": false,
+            "last": {
+              "ok": true,
+              "joined": false,
+              "value": {
+                "committed": true
+              },
+              "kind": "command",
+              "intent": "council-choice",
+              "checkpointMs": 58.29999999701977,
+              "objects": 3184,
+              "properties": 51785,
+              "typedViews": 21,
+              "typedIndicesEnumerated": 344064,
+              "bufferBytes": 1327104,
+              "modelMs": 7.100000001490116,
+              "certifyMs": 5.799999997019768,
+              "encodedBytes": 136468,
+              "oracleOnly": true,
+              "committed": true,
+              "command": "council-choice",
+              "ms": 89.29999999701977,
+              "code": null,
+              "publicationErrors": []
+            },
+            "protocol": {
+              "enabled": true,
+              "halted": false,
+              "active": false,
+              "kind": null,
+              "phase": "idle",
+              "last": {
+                "kind": "command",
+                "ok": true,
+                "effectErrors": []
+              },
+              "pendingSaveGenerations": 0
+            },
+            "metrics": {
+              "captures": 2,
+              "certificates": 3,
+              "restores": 0,
+              "last": {
+                "kind": "command",
+                "intent": "council-choice",
+                "checkpointMs": 58.29999999701977,
+                "objects": 3184,
+                "properties": 51785,
+                "typedViews": 21,
+                "typedIndicesEnumerated": 344064,
+                "bufferBytes": 1327104,
+                "modelMs": 7.100000001490116,
+                "certifyMs": 5.799999997019768,
+                "encodedBytes": 136468,
+                "oracleOnly": true,
+                "committed": true
+              }
+            }
+          },
+          "unchanged": false,
+          "referenceIdentity": null,
+          "cashConserved": true,
+          "committedWrites": [
+            {
+              "active": false,
+              "treasury": 59394,
+              "debt": 0,
+              "projects": 0
+            }
+          ]
+        }
+      ],
+      "forcedReservationRefusal": {
+        "rng": 3224482224,
+        "projects": 0,
+        "projectsBefore": 0,
+        "status": {
+          "enabled": true,
+          "active": false,
+          "halted": false,
+          "last": {
+            "ok": false,
+            "reason": "Test capacity reservation refusal",
+            "kind": "command",
+            "intent": "council-choice",
+            "checkpointMs": 60.400000005960464,
+            "objects": 3184,
+            "properties": 51785,
+            "typedViews": 21,
+            "typedIndicesEnumerated": 344064,
+            "bufferBytes": 1327104,
+            "modelMs": 7.5,
+            "certifyMs": 6.700000002980232,
+            "encodedBytes": 136468,
+            "oracleOnly": true,
+            "restoreMs": 99.39999999850988,
+            "committed": false,
+            "command": "council-choice",
+            "ms": 175.40000000596046,
+            "code": "capacity",
+            "publicationErrors": []
+          },
+          "protocol": {
+            "enabled": true,
+            "halted": false,
+            "active": false,
+            "kind": null,
+            "phase": "idle",
+            "last": {
+              "kind": "command",
+              "ok": false,
+              "reason": "Test capacity reservation refusal",
+              "effectErrors": []
+            },
+            "pendingSaveGenerations": 0
+          },
+          "metrics": {
+            "captures": 2,
+            "certificates": 3,
+            "restores": 1,
+            "last": {
+              "kind": "command",
+              "intent": "council-choice",
+              "checkpointMs": 60.400000005960464,
+              "objects": 3184,
+              "properties": 51785,
+              "typedViews": 21,
+              "typedIndicesEnumerated": 344064,
+              "bufferBytes": 1327104,
+              "modelMs": 7.5,
+              "certifyMs": 6.700000002980232,
+              "encodedBytes": 136468,
+              "oracleOnly": true,
+              "restoreMs": 99.39999999850988,
+              "committed": false,
+              "reason": "Test capacity reservation refusal"
+            }
+          }
+        },
+        "unchanged": true,
+        "referenceIdentity": true,
+        "cashConserved": true,
+        "committedWrites": []
+      }
+    },
+    {
+      "action": "named-place",
+      "exactNormalModelRng": true,
+      "normal": [
+        {
+          "rng": 3224482224,
+          "projects": 0,
+          "projectsBefore": 0,
+          "status": {
+            "enabled": false,
+            "active": false,
+            "halted": false,
+            "last": null,
+            "protocol": {
+              "enabled": false,
+              "halted": false,
+              "active": false,
+              "kind": null,
+              "phase": "idle",
+              "last": null,
+              "pendingSaveGenerations": 0
+            },
+            "metrics": {
+              "captures": 0,
+              "certificates": 0,
+              "restores": 0,
+              "last": null
+            }
+          },
+          "unchanged": false,
+          "referenceIdentity": null,
+          "cashConserved": true,
+          "committedWrites": [
+            {
+              "active": false,
+              "treasury": 90000,
+              "debt": 0,
+              "projects": 0
+            },
+            {
+              "active": false,
+              "treasury": 87500,
+              "debt": 0,
+              "projects": 0
+            }
+          ]
+        },
+        {
+          "rng": 3224482224,
+          "projects": 0,
+          "projectsBefore": 0,
+          "status": {
+            "enabled": true,
+            "active": false,
+            "halted": false,
+            "last": {
+              "ok": true,
+              "joined": false,
+              "value": {
+                "committed": true
+              },
+              "kind": "command",
+              "intent": "council-choice",
+              "checkpointMs": 42.79999999701977,
+              "objects": 1720,
+              "properties": 26790,
+              "typedViews": 15,
+              "typedIndicesEnumerated": 245760,
+              "bufferBytes": 933888,
+              "modelMs": 10.199999995529652,
+              "certifyMs": 6.800000004470348,
+              "encodedBytes": 136082,
+              "oracleOnly": true,
+              "committed": true,
+              "command": "council-choice",
+              "ms": 80.39999999850988,
+              "code": null,
+              "publicationErrors": [
+                "Outbox presentation effects must be synchronous"
+              ]
+            },
+            "protocol": {
+              "enabled": true,
+              "halted": false,
+              "active": false,
+              "kind": null,
+              "phase": "idle",
+              "last": {
+                "kind": "command",
+                "ok": true,
+                "effectErrors": [
+                  "Outbox presentation effects must be synchronous"
+                ]
+              },
+              "pendingSaveGenerations": 0
+            },
+            "metrics": {
+              "captures": 2,
+              "certificates": 3,
+              "restores": 0,
+              "last": {
+                "kind": "command",
+                "intent": "council-choice",
+                "checkpointMs": 42.79999999701977,
+                "objects": 1720,
+                "properties": 26790,
+                "typedViews": 15,
+                "typedIndicesEnumerated": 245760,
+                "bufferBytes": 933888,
+                "modelMs": 10.199999995529652,
+                "certifyMs": 6.800000004470348,
+                "encodedBytes": 136082,
+                "oracleOnly": true,
+                "committed": true
+              }
+            }
+          },
+          "unchanged": false,
+          "referenceIdentity": null,
+          "cashConserved": true,
+          "committedWrites": [
+            {
+              "active": false,
+              "treasury": 87500,
+              "debt": 0,
+              "projects": 0
+            }
+          ]
+        }
+      ],
+      "forcedReservationRefusal": {
+        "rng": 3224482224,
+        "projects": 0,
+        "projectsBefore": 0,
+        "status": {
+          "enabled": true,
+          "active": false,
+          "halted": false,
+          "last": {
+            "ok": false,
+            "reason": "Test capacity reservation refusal",
+            "kind": "command",
+            "intent": "council-choice",
+            "checkpointMs": 43.80000000447035,
+            "objects": 1720,
+            "properties": 26790,
+            "typedViews": 15,
+            "typedIndicesEnumerated": 245760,
+            "bufferBytes": 933888,
+            "modelMs": 13,
+            "certifyMs": 6.800000004470348,
+            "encodedBytes": 136082,
+            "oracleOnly": true,
+            "restoreMs": 54.5,
+            "committed": false,
+            "command": "council-choice",
+            "ms": 119.30000000447035,
+            "code": "capacity",
+            "publicationErrors": []
+          },
+          "protocol": {
+            "enabled": true,
+            "halted": false,
+            "active": false,
+            "kind": null,
+            "phase": "idle",
+            "last": {
+              "kind": "command",
+              "ok": false,
+              "reason": "Test capacity reservation refusal",
+              "effectErrors": []
+            },
+            "pendingSaveGenerations": 0
+          },
+          "metrics": {
+            "captures": 2,
+            "certificates": 3,
+            "restores": 1,
+            "last": {
+              "kind": "command",
+              "intent": "council-choice",
+              "checkpointMs": 43.80000000447035,
+              "objects": 1720,
+              "properties": 26790,
+              "typedViews": 15,
+              "typedIndicesEnumerated": 245760,
+              "bufferBytes": 933888,
+              "modelMs": 13,
+              "certifyMs": 6.800000004470348,
+              "encodedBytes": 136082,
+              "oracleOnly": true,
+              "restoreMs": 54.5,
+              "committed": false,
+              "reason": "Test capacity reservation refusal"
+            }
+          }
+        },
+        "unchanged": true,
+        "referenceIdentity": true,
+        "cashConserved": true,
+        "committedWrites": []
+      }
+    },
+    {
+      "action": "named-warehouse",
+      "exactNormalModelRng": true,
+      "normal": [
+        {
+          "rng": 1328975214,
+          "projects": 0,
+          "projectsBefore": 0,
+          "status": {
+            "enabled": false,
+            "active": false,
+            "halted": false,
+            "last": null,
+            "protocol": {
+              "enabled": false,
+              "halted": false,
+              "active": false,
+              "kind": null,
+              "phase": "idle",
+              "last": null,
+              "pendingSaveGenerations": 0
+            },
+            "metrics": {
+              "captures": 0,
+              "certificates": 0,
+              "restores": 0,
+              "last": null
+            }
+          },
+          "unchanged": false,
+          "referenceIdentity": null,
+          "cashConserved": true,
+          "committedWrites": [
+            {
+              "active": false,
+              "treasury": 90000,
+              "debt": 0,
+              "projects": 0
+            },
+            {
+              "active": false,
+              "treasury": 78250,
+              "debt": 0,
+              "projects": 0
+            }
+          ]
+        },
+        {
+          "rng": 1328975214,
+          "projects": 0,
+          "projectsBefore": 0,
+          "status": {
+            "enabled": true,
+            "active": false,
+            "halted": false,
+            "last": {
+              "ok": true,
+              "joined": false,
+              "value": {
+                "committed": true
+              },
+              "kind": "command",
+              "intent": "council-choice",
+              "checkpointMs": 49.19999999552965,
+              "objects": 1720,
+              "properties": 26790,
+              "typedViews": 15,
+              "typedIndicesEnumerated": 245760,
+              "bufferBytes": 933888,
+              "modelMs": 15.200000002980232,
+              "certifyMs": 7.899999998509884,
+              "encodedBytes": 136743,
+              "oracleOnly": true,
+              "committed": true,
+              "command": "council-choice",
+              "ms": 103.5,
+              "code": null,
+              "publicationErrors": [
+                "Outbox presentation effects must be synchronous"
+              ]
+            },
+            "protocol": {
+              "enabled": true,
+              "halted": false,
+              "active": false,
+              "kind": null,
+              "phase": "idle",
+              "last": {
+                "kind": "command",
+                "ok": true,
+                "effectErrors": [
+                  "Outbox presentation effects must be synchronous"
+                ]
+              },
+              "pendingSaveGenerations": 0
+            },
+            "metrics": {
+              "captures": 2,
+              "certificates": 3,
+              "restores": 0,
+              "last": {
+                "kind": "command",
+                "intent": "council-choice",
+                "checkpointMs": 49.19999999552965,
+                "objects": 1720,
+                "properties": 26790,
+                "typedViews": 15,
+                "typedIndicesEnumerated": 245760,
+                "bufferBytes": 933888,
+                "modelMs": 15.200000002980232,
+                "certifyMs": 7.899999998509884,
+                "encodedBytes": 136743,
+                "oracleOnly": true,
+                "committed": true
+              }
+            }
+          },
+          "unchanged": false,
+          "referenceIdentity": null,
+          "cashConserved": true,
+          "committedWrites": [
+            {
+              "active": false,
+              "treasury": 78250,
+              "debt": 0,
+              "projects": 0
+            }
+          ]
+        }
+      ],
+      "forcedReservationRefusal": {
+        "rng": 3224482224,
+        "projects": 0,
+        "projectsBefore": 0,
+        "status": {
+          "enabled": true,
+          "active": false,
+          "halted": false,
+          "last": {
+            "ok": false,
+            "reason": "Test capacity reservation refusal",
+            "kind": "command",
+            "intent": "council-choice",
+            "checkpointMs": 42.79999999701977,
+            "objects": 1720,
+            "properties": 26790,
+            "typedViews": 15,
+            "typedIndicesEnumerated": 245760,
+            "bufferBytes": 933888,
+            "modelMs": 14.600000001490116,
+            "certifyMs": 6.600000001490116,
+            "encodedBytes": 136743,
+            "oracleOnly": true,
+            "restoreMs": 52.5,
+            "committed": false,
+            "command": "council-choice",
+            "ms": 118,
+            "code": "capacity",
+            "publicationErrors": []
+          },
+          "protocol": {
+            "enabled": true,
+            "halted": false,
+            "active": false,
+            "kind": null,
+            "phase": "idle",
+            "last": {
+              "kind": "command",
+              "ok": false,
+              "reason": "Test capacity reservation refusal",
+              "effectErrors": []
+            },
+            "pendingSaveGenerations": 0
+          },
+          "metrics": {
+            "captures": 2,
+            "certificates": 3,
+            "restores": 1,
+            "last": {
+              "kind": "command",
+              "intent": "council-choice",
+              "checkpointMs": 42.79999999701977,
+              "objects": 1720,
+              "properties": 26790,
+              "typedViews": 15,
+              "typedIndicesEnumerated": 245760,
+              "bufferBytes": 933888,
+              "modelMs": 14.600000001490116,
+              "certifyMs": 6.600000001490116,
+              "encodedBytes": 136743,
+              "oracleOnly": true,
+              "restoreMs": 52.5,
+              "committed": false,
+              "reason": "Test capacity reservation refusal"
+            }
+          }
+        },
+        "unchanged": true,
+        "referenceIdentity": true,
+        "cashConserved": true,
+        "committedWrites": []
+      }
+    }
+  ],
+  "creatorRefusal": {
+    "actualControl": true,
+    "leafReturnsNullAfterPaidContract": true,
+    "fullOuterRollback": {
+      "rng": 3224482224,
+      "projects": 0,
+      "projectsBefore": 0,
+      "status": {
+        "enabled": true,
+        "active": false,
+        "halted": false,
+        "last": {
+          "ok": false,
+          "reason": "The private construction was declined. No investment was committed.",
+          "kind": "command",
+          "intent": "panel-control",
+          "checkpointMs": 68.60000000149012,
+          "objects": 3179,
+          "properties": 51770,
+          "typedViews": 21,
+          "typedIndicesEnumerated": 344064,
+          "bufferBytes": 1327104,
+          "restoreMs": 96.70000000298023,
+          "committed": false,
+          "command": "panel-control",
+          "ms": 196.5,
+          "code": "refused",
+          "publicationErrors": []
+        },
+        "protocol": {
+          "enabled": true,
+          "halted": false,
+          "active": false,
+          "kind": null,
+          "phase": "idle",
+          "last": {
+            "kind": "command",
+            "ok": false,
+            "reason": "The private construction was declined. No investment was committed.",
+            "effectErrors": []
+          },
+          "pendingSaveGenerations": 0
+        },
+        "metrics": {
+          "captures": 1,
+          "certificates": 1,
+          "restores": 1,
+          "last": {
+            "kind": "command",
+            "intent": "panel-control",
+            "checkpointMs": 68.60000000149012,
+            "objects": 3179,
+            "properties": 51770,
+            "typedViews": 21,
+            "typedIndicesEnumerated": 344064,
+            "bufferBytes": 1327104,
+            "restoreMs": 96.70000000298023,
+            "committed": false,
+            "reason": "The private construction was declined. No investment was committed."
+          }
+        }
+      },
+      "unchanged": true,
+      "referenceIdentity": true,
+      "cashConserved": true,
+      "committedWrites": []
+    }
+  }
+}

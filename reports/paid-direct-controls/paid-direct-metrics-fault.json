@@ -1,0 +1,189 @@
+{
+  "source_sha256": "a5702549caf5ea1b1c01d3968184fa666d3bce4d86f5953bffefad68e15c424b",
+  "hostChromium": true,
+  "physicalAndroid": false,
+  "productionEnabled": false,
+  "reservationFaultInjection": true,
+  "minimalRegistryOwner": false,
+  "optionalMetricsFault": true,
+  "commonRoot": "__capacityAdmissionProtocol.shared",
+  "experiment_sha256": {
+    "root-capacity-api.js": "cfc65e914a4e5a3d54914f39b0f20ccda3be4734d17db079a8f18847aaaa4e65",
+    "game-capacity-root-adapter.js": "2f9b8b28b7758aa2a77a3d13146ac9d5dbce7fa3c0efbeafafd7d3f6ec3e495a",
+    "paid-command-root.js": "32b5510e3e5daac01dc701f9b5f9e9cd4f3e15d3a34508e67be309e9938f17af"
+  },
+  "cases": [
+    {
+      "action": "borrow",
+      "exactNormalModelRng": true,
+      "normal": [
+        {
+          "rng": 3224482224,
+          "projects": 0,
+          "projectsBefore": 0,
+          "status": {
+            "enabled": false,
+            "active": false,
+            "halted": false,
+            "last": null,
+            "protocol": {
+              "enabled": false,
+              "halted": false,
+              "active": false,
+              "kind": null,
+              "phase": "idle",
+              "last": null,
+              "pendingSaveGenerations": 0
+            },
+            "metrics": {
+              "last": null,
+              "diagnosticError": "Controlled optional diagnostics failure"
+            }
+          },
+          "unchanged": false,
+          "referenceIdentity": null,
+          "cashConserved": true,
+          "committedWrites": [
+            {
+              "active": false,
+              "treasury": 95000,
+              "debt": 5000,
+              "projects": 0
+            }
+          ]
+        },
+        {
+          "rng": 3224482224,
+          "projects": 0,
+          "projectsBefore": 0,
+          "status": {
+            "enabled": true,
+            "active": false,
+            "halted": false,
+            "last": {
+              "ok": true,
+              "joined": false,
+              "value": null,
+              "command": "panel-control",
+              "ms": 79.70000000298023,
+              "code": null,
+              "publicationErrors": []
+            },
+            "protocol": {
+              "enabled": true,
+              "halted": false,
+              "active": false,
+              "kind": null,
+              "phase": "idle",
+              "last": {
+                "kind": "command",
+                "ok": true,
+                "effectErrors": []
+              },
+              "pendingSaveGenerations": 0
+            },
+            "metrics": {
+              "last": null,
+              "diagnosticError": "Controlled optional diagnostics failure"
+            }
+          },
+          "unchanged": false,
+          "referenceIdentity": null,
+          "cashConserved": true,
+          "committedWrites": [
+            {
+              "active": false,
+              "treasury": 95000,
+              "debt": 5000,
+              "projects": 0
+            }
+          ]
+        }
+      ],
+      "forcedReservationRefusal": {
+        "rng": 3224482224,
+        "projects": 0,
+        "projectsBefore": 0,
+        "status": {
+          "enabled": true,
+          "active": false,
+          "halted": false,
+          "last": {
+            "ok": false,
+            "reason": "Test capacity reservation refusal",
+            "command": "panel-control",
+            "ms": 178.60000000149012,
+            "code": "capacity",
+            "publicationErrors": []
+          },
+          "protocol": {
+            "enabled": true,
+            "halted": false,
+            "active": false,
+            "kind": null,
+            "phase": "idle",
+            "last": {
+              "kind": "command",
+              "ok": false,
+              "reason": "Test capacity reservation refusal",
+              "effectErrors": []
+            },
+            "pendingSaveGenerations": 0
+          },
+          "metrics": {
+            "last": null,
+            "diagnosticError": "Controlled optional diagnostics failure"
+          }
+        },
+        "unchanged": true,
+        "referenceIdentity": true,
+        "cashConserved": true,
+        "committedWrites": []
+      }
+    }
+  ],
+  "creatorRefusal": {
+    "actualControl": true,
+    "leafReturnsNullAfterPaidContract": true,
+    "fullOuterRollback": {
+      "rng": 3224482224,
+      "projects": 0,
+      "projectsBefore": 0,
+      "status": {
+        "enabled": true,
+        "active": false,
+        "halted": false,
+        "last": {
+          "ok": false,
+          "reason": "The private construction was declined. No investment was committed.",
+          "command": "panel-control",
+          "ms": 194.70000000298023,
+          "code": "refused",
+          "publicationErrors": []
+        },
+        "protocol": {
+          "enabled": true,
+          "halted": false,
+          "active": false,
+          "kind": null,
+          "phase": "idle",
+          "last": {
+            "kind": "command",
+            "ok": false,
+            "reason": "The private construction was declined. No investment was committed.",
+            "effectErrors": []
+          },
+          "pendingSaveGenerations": 0
+        },
+        "metrics": {
+          "last": null,
+          "diagnosticError": "Controlled optional diagnostics failure"
+        }
+      },
+      "unchanged": true,
+      "referenceIdentity": true,
+      "cashConserved": true,
+      "committedWrites": []
+    }
+  }
+}

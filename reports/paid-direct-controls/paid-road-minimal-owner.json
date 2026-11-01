@@ -1,0 +1,1089 @@
+{
+  "source_sha256": "a5702549caf5ea1b1c01d3968184fa666d3bce4d86f5953bffefad68e15c424b",
+  "experiment_sha256": {
+    "root-capacity-api.js": "cfc65e914a4e5a3d54914f39b0f20ccda3be4734d17db079a8f18847aaaa4e65",
+    "game-capacity-root-adapter.js": "2f9b8b28b7758aa2a77a3d13146ac9d5dbce7fa3c0efbeafafd7d3f6ec3e495a",
+    "paid-command-root.js": "32b5510e3e5daac01dc701f9b5f9e9cd4f3e15d3a34508e67be309e9938f17af"
+  },
+  "minimalRegistryOwner": true,
+  "hostTrustedPointer": true,
+  "physicalAndroid": false,
+  "productionEnabled": false,
+  "reservationFaultInjection": true,
+  "cases": [
+    {
+      "kind": "tap",
+      "exactNormalModelRng": true,
+      "normal": [
+        {
+          "rng": 3224482224,
+          "built": 1,
+          "status": {
+            "enabled": false,
+            "active": false,
+            "halted": false,
+            "last": null,
+            "protocol": {
+              "enabled": false,
+              "halted": false,
+              "active": false,
+              "kind": null,
+              "phase": "idle",
+              "last": null,
+              "pendingSaveGenerations": 0
+            },
+            "metrics": {
+              "captures": 0,
+              "certificates": 0,
+              "restores": 0,
+              "last": null
+            }
+          },
+          "exactRefusal": null,
+          "batchFlushed": true,
+          "cashConserved": true,
+          "committedWrites": [
+            {
+              "active": false,
+              "construction": 1,
+              "treasury": 89850
+            }
+          ],
+          "pointerReleased": true
+        },
+        {
+          "rng": 3224482224,
+          "built": 1,
+          "status": {
+            "enabled": true,
+            "active": false,
+            "halted": false,
+            "last": {
+              "ok": true,
+              "joined": false,
+              "value": null,
+              "command": "construction",
+              "ms": 101.10000000149012,
+              "code": null,
+              "publicationErrors": []
+            },
+            "protocol": {
+              "enabled": true,
+              "halted": false,
+              "active": false,
+              "kind": null,
+              "phase": "idle",
+              "last": {
+                "kind": "command",
+                "ok": true,
+                "effectErrors": []
+              },
+              "pendingSaveGenerations": 0
+            },
+            "metrics": {
+              "captures": 1,
+              "certificates": 2,
+              "restores": 0,
+              "last": null
+            }
+          },
+          "exactRefusal": null,
+          "batchFlushed": true,
+          "cashConserved": true,
+          "committedWrites": [
+            {
+              "active": false,
+              "construction": 1,
+              "treasury": 89850
+            }
+          ],
+          "pointerReleased": true
+        }
+      ],
+      "forcedRefusal": {
+        "rng": 3224482224,
+        "built": 0,
+        "status": {
+          "enabled": true,
+          "active": false,
+          "halted": false,
+          "last": {
+            "ok": false,
+            "reason": "Test capacity reservation refusal",
+            "command": "construction",
+            "ms": 185.60000000149012,
+            "code": "capacity",
+            "publicationErrors": []
+          },
+          "protocol": {
+            "enabled": true,
+            "halted": false,
+            "active": false,
+            "kind": null,
+            "phase": "idle",
+            "last": {
+              "kind": "command",
+              "ok": false,
+              "reason": "Test capacity reservation refusal",
+              "effectErrors": []
+            },
+            "pendingSaveGenerations": 0
+          },
+          "metrics": {
+            "captures": 1,
+            "certificates": 2,
+            "restores": 1,
+            "last": null
+          }
+        },
+        "exactRefusal": true,
+        "batchFlushed": true,
+        "cashConserved": true,
+        "committedWrites": [],
+        "pointerReleased": true
+      }
+    },
+    {
+      "kind": "repair",
+      "exactNormalModelRng": true,
+      "normal": [
+        {
+          "rng": 3224482224,
+          "built": 1,
+          "status": {
+            "enabled": false,
+            "active": false,
+            "halted": false,
+            "last": null,
+            "protocol": {
+              "enabled": false,
+              "halted": false,
+              "active": false,
+              "kind": null,
+              "phase": "idle",
+              "last": null,
+              "pendingSaveGenerations": 0
+            },
+            "metrics": {
+              "captures": 0,
+              "certificates": 0,
+              "restores": 0,
+              "last": null
+            }
+          },
+          "exactRefusal": null,
+          "batchFlushed": true,
+          "cashConserved": true,
+          "committedWrites": [],
+          "pointerReleased": true
+        },
+        {
+          "rng": 3224482224,
+          "built": 1,
+          "status": {
+            "enabled": true,
+            "active": false,
+            "halted": false,
+            "last": {
+              "ok": true,
+              "joined": false,
+              "value": null,
+              "command": "construction",
+              "ms": 80.70000000298023,
+              "code": null,
+              "publicationErrors": []
+            },
+            "protocol": {
+              "enabled": true,
+              "halted": false,
+              "active": false,
+              "kind": null,
+              "phase": "idle",
+              "last": {
+                "kind": "command",
+                "ok": true,
+                "effectErrors": []
+              },
+              "pendingSaveGenerations": 0
+            },
+            "metrics": {
+              "captures": 1,
+              "certificates": 2,
+              "restores": 0,
+              "last": null
+            }
+          },
+          "exactRefusal": null,
+          "batchFlushed": true,
+          "cashConserved": true,
+          "committedWrites": [
+            {
+              "active": false,
+              "construction": 1,
+              "treasury": 89865
+            }
+          ],
+          "pointerReleased": true
+        }
+      ],
+      "forcedRefusal": {
+        "rng": 3224482224,
+        "built": 0,
+        "status": {
+          "enabled": true,
+          "active": false,
+          "halted": false,
+          "last": {
+            "ok": false,
+            "reason": "Test capacity reservation refusal",
+            "command": "construction",
+            "ms": 192.70000000298023,
+            "code": "capacity",
+            "publicationErrors": []
+          },
+          "protocol": {
+            "enabled": true,
+            "halted": false,
+            "active": false,
+            "kind": null,
+            "phase": "idle",
+            "last": {
+              "kind": "command",
+              "ok": false,
+              "reason": "Test capacity reservation refusal",
+              "effectErrors": []
+            },
+            "pendingSaveGenerations": 0
+          },
+          "metrics": {
+            "captures": 1,
+            "certificates": 2,
+            "restores": 1,
+            "last": null
+          }
+        },
+        "exactRefusal": true,
+        "batchFlushed": true,
+        "cashConserved": true,
+        "committedWrites": [],
+        "pointerReleased": true
+      }
+    },
+    {
+      "kind": "bridge-repair",
+      "available": false,
+      "reason": "No pre-existing owned bridge (road tile in the actual water-network nodes) exists in this seed42 fixture.",
+      "coverageClaimed": false
+    },
+    {
+      "kind": "stroke",
+      "exactNormalModelRng": true,
+      "normal": [
+        {
+          "rng": 3224482224,
+          "built": 5,
+          "status": {
+            "enabled": false,
+            "active": false,
+            "halted": false,
+            "last": null,
+            "protocol": {
+              "enabled": false,
+              "halted": false,
+              "active": false,
+              "kind": null,
+              "phase": "idle",
+              "last": null,
+              "pendingSaveGenerations": 0
+            },
+            "metrics": {
+              "captures": 0,
+              "certificates": 0,
+              "restores": 0,
+              "last": null
+            }
+          },
+          "exactRefusal": null,
+          "batchFlushed": true,
+          "cashConserved": true,
+          "committedWrites": [
+            {
+              "active": false,
+              "construction": 5,
+              "treasury": 89250
+            }
+          ],
+          "pointerReleased": true
+        },
+        {
+          "rng": 3224482224,
+          "built": 5,
+          "status": {
+            "enabled": true,
+            "active": false,
+            "halted": false,
+            "last": {
+              "ok": true,
+              "joined": false,
+              "value": {
+                "built": 5
+              },
+              "command": "road-stroke",
+              "ms": 90.20000000298023,
+              "code": null,
+              "publicationErrors": []
+            },
+            "protocol": {
+              "enabled": true,
+              "halted": false,
+              "active": false,
+              "kind": null,
+              "phase": "idle",
+              "last": {
+                "kind": "command",
+                "ok": true,
+                "effectErrors": []
+              },
+              "pendingSaveGenerations": 0
+            },
+            "metrics": {
+              "captures": 1,
+              "certificates": 2,
+              "restores": 0,
+              "last": null
+            }
+          },
+          "exactRefusal": null,
+          "batchFlushed": true,
+          "cashConserved": true,
+          "committedWrites": [
+            {
+              "active": false,
+              "construction": 5,
+              "treasury": 89250
+            }
+          ],
+          "pointerReleased": true
+        }
+      ],
+      "forcedRefusal": {
+        "rng": 3224482224,
+        "built": 0,
+        "status": {
+          "enabled": true,
+          "active": false,
+          "halted": false,
+          "last": {
+            "ok": false,
+            "reason": "Test capacity reservation refusal",
+            "command": "road-stroke",
+            "ms": 176.40000000596046,
+            "code": "capacity",
+            "publicationErrors": []
+          },
+          "protocol": {
+            "enabled": true,
+            "halted": false,
+            "active": false,
+            "kind": null,
+            "phase": "idle",
+            "last": {
+              "kind": "command",
+              "ok": false,
+              "reason": "Test capacity reservation refusal",
+              "effectErrors": []
+            },
+            "pendingSaveGenerations": 0
+          },
+          "metrics": {
+            "captures": 1,
+            "certificates": 2,
+            "restores": 1,
+            "last": null
+          }
+        },
+        "exactRefusal": true,
+        "batchFlushed": true,
+        "cashConserved": true,
+        "committedWrites": [],
+        "pointerReleased": true
+      }
+    },
+    {
+      "kind": "mixed",
+      "exactNormalModelRng": true,
+      "normal": [
+        {
+          "rng": 3224482224,
+          "built": 4,
+          "status": {
+            "enabled": false,
+            "active": false,
+            "halted": false,
+            "last": null,
+            "protocol": {
+              "enabled": false,
+              "halted": false,
+              "active": false,
+              "kind": null,
+              "phase": "idle",
+              "last": null,
+              "pendingSaveGenerations": 0
+            },
+            "metrics": {
+              "captures": 0,
+              "certificates": 0,
+              "restores": 0,
+              "last": null
+            }
+          },
+          "exactRefusal": null,
+          "batchFlushed": true,
+          "cashConserved": true,
+          "committedWrites": [
+            {
+              "active": false,
+              "construction": 5,
+              "treasury": 89250
+            }
+          ],
+          "pointerReleased": true
+        },
+        {
+          "rng": 3224482224,
+          "built": 4,
+          "status": {
+            "enabled": true,
+            "active": false,
+            "halted": false,
+            "last": {
+              "ok": true,
+              "joined": false,
+              "value": {
+                "built": 4
+              },
+              "command": "road-stroke",
+              "ms": 99.10000000149012,
+              "code": null,
+              "publicationErrors": []
+            },
+            "protocol": {
+              "enabled": true,
+              "halted": false,
+              "active": false,
+              "kind": null,
+              "phase": "idle",
+              "last": {
+                "kind": "command",
+                "ok": true,
+                "effectErrors": []
+              },
+              "pendingSaveGenerations": 0
+            },
+            "metrics": {
+              "captures": 1,
+              "certificates": 2,
+              "restores": 0,
+              "last": null
+            }
+          },
+          "exactRefusal": null,
+          "batchFlushed": true,
+          "cashConserved": true,
+          "committedWrites": [
+            {
+              "active": false,
+              "construction": 5,
+              "treasury": 89250
+            }
+          ],
+          "pointerReleased": true
+        }
+      ],
+      "forcedRefusal": {
+        "rng": 3224482224,
+        "built": 0,
+        "status": {
+          "enabled": true,
+          "active": false,
+          "halted": false,
+          "last": {
+            "ok": false,
+            "reason": "Test capacity reservation refusal",
+            "command": "road-stroke",
+            "ms": 216.29999999701977,
+            "code": "capacity",
+            "publicationErrors": []
+          },
+          "protocol": {
+            "enabled": true,
+            "halted": false,
+            "active": false,
+            "kind": null,
+            "phase": "idle",
+            "last": {
+              "kind": "command",
+              "ok": false,
+              "reason": "Test capacity reservation refusal",
+              "effectErrors": []
+            },
+            "pendingSaveGenerations": 0
+          },
+          "metrics": {
+            "captures": 1,
+            "certificates": 2,
+            "restores": 1,
+            "last": null
+          }
+        },
+        "exactRefusal": true,
+        "batchFlushed": true,
+        "cashConserved": true,
+        "committedWrites": [],
+        "pointerReleased": true
+      }
+    },
+    {
+      "kind": "backtrack",
+      "exactNormalModelRng": true,
+      "normal": [
+        {
+          "rng": 3224482224,
+          "built": 5,
+          "status": {
+            "enabled": false,
+            "active": false,
+            "halted": false,
+            "last": null,
+            "protocol": {
+              "enabled": false,
+              "halted": false,
+              "active": false,
+              "kind": null,
+              "phase": "idle",
+              "last": null,
+              "pendingSaveGenerations": 0
+            },
+            "metrics": {
+              "captures": 0,
+              "certificates": 0,
+              "restores": 0,
+              "last": null
+            }
+          },
+          "exactRefusal": null,
+          "batchFlushed": true,
+          "cashConserved": true,
+          "committedWrites": [
+            {
+              "active": false,
+              "construction": 5,
+              "treasury": 89250
+            }
+          ],
+          "pointerReleased": true
+        },
+        {
+          "rng": 3224482224,
+          "built": 5,
+          "status": {
+            "enabled": true,
+            "active": false,
+            "halted": false,
+            "last": {
+              "ok": true,
+              "joined": false,
+              "value": {
+                "built": 5
+              },
+              "command": "road-stroke",
+              "ms": 90.39999999850988,
+              "code": null,
+              "publicationErrors": []
+            },
+            "protocol": {
+              "enabled": true,
+              "halted": false,
+              "active": false,
+              "kind": null,
+              "phase": "idle",
+              "last": {
+                "kind": "command",
+                "ok": true,
+                "effectErrors": []
+              },
+              "pendingSaveGenerations": 0
+            },
+            "metrics": {
+              "captures": 1,
+              "certificates": 2,
+              "restores": 0,
+              "last": null
+            }
+          },
+          "exactRefusal": null,
+          "batchFlushed": true,
+          "cashConserved": true,
+          "committedWrites": [
+            {
+              "active": false,
+              "construction": 5,
+              "treasury": 89250
+            }
+          ],
+          "pointerReleased": true
+        }
+      ],
+      "forcedRefusal": {
+        "rng": 3224482224,
+        "built": 0,
+        "status": {
+          "enabled": true,
+          "active": false,
+          "halted": false,
+          "last": {
+            "ok": false,
+            "reason": "Test capacity reservation refusal",
+            "command": "road-stroke",
+            "ms": 182.69999999552965,
+            "code": "capacity",
+            "publicationErrors": []
+          },
+          "protocol": {
+            "enabled": true,
+            "halted": false,
+            "active": false,
+            "kind": null,
+            "phase": "idle",
+            "last": {
+              "kind": "command",
+              "ok": false,
+              "reason": "Test capacity reservation refusal",
+              "effectErrors": []
+            },
+            "pendingSaveGenerations": 0
+          },
+          "metrics": {
+            "captures": 1,
+            "certificates": 2,
+            "restores": 1,
+            "last": null
+          }
+        },
+        "exactRefusal": true,
+        "batchFlushed": true,
+        "cashConserved": true,
+        "committedWrites": [],
+        "pointerReleased": true
+      }
+    },
+    {
+      "kind": "subtile",
+      "exactNormalModelRng": true,
+      "normal": [
+        {
+          "rng": 3224482224,
+          "built": 1,
+          "status": {
+            "enabled": false,
+            "active": false,
+            "halted": false,
+            "last": null,
+            "protocol": {
+              "enabled": false,
+              "halted": false,
+              "active": false,
+              "kind": null,
+              "phase": "idle",
+              "last": null,
+              "pendingSaveGenerations": 0
+            },
+            "metrics": {
+              "captures": 0,
+              "certificates": 0,
+              "restores": 0,
+              "last": null
+            }
+          },
+          "exactRefusal": null,
+          "batchFlushed": true,
+          "cashConserved": true,
+          "committedWrites": [
+            {
+              "active": false,
+              "construction": 1,
+              "treasury": 89850
+            }
+          ],
+          "pointerReleased": true
+        },
+        {
+          "rng": 3224482224,
+          "built": 1,
+          "status": {
+            "enabled": true,
+            "active": false,
+            "halted": false,
+            "last": {
+              "ok": true,
+              "joined": false,
+              "value": {
+                "built": 1
+              },
+              "command": "road-stroke",
+              "ms": 105.19999999552965,
+              "code": null,
+              "publicationErrors": []
+            },
+            "protocol": {
+              "enabled": true,
+              "halted": false,
+              "active": false,
+              "kind": null,
+              "phase": "idle",
+              "last": {
+                "kind": "command",
+                "ok": true,
+                "effectErrors": []
+              },
+              "pendingSaveGenerations": 0
+            },
+            "metrics": {
+              "captures": 1,
+              "certificates": 2,
+              "restores": 0,
+              "last": null
+            }
+          },
+          "exactRefusal": null,
+          "batchFlushed": true,
+          "cashConserved": true,
+          "committedWrites": [
+            {
+              "active": false,
+              "construction": 1,
+              "treasury": 89850
+            }
+          ],
+          "pointerReleased": true
+        }
+      ],
+      "forcedRefusal": {
+        "rng": 3224482224,
+        "built": 0,
+        "status": {
+          "enabled": true,
+          "active": false,
+          "halted": false,
+          "last": {
+            "ok": false,
+            "reason": "Test capacity reservation refusal",
+            "command": "road-stroke",
+            "ms": 187.20000000298023,
+            "code": "capacity",
+            "publicationErrors": []
+          },
+          "protocol": {
+            "enabled": true,
+            "halted": false,
+            "active": false,
+            "kind": null,
+            "phase": "idle",
+            "last": {
+              "kind": "command",
+              "ok": false,
+              "reason": "Test capacity reservation refusal",
+              "effectErrors": []
+            },
+            "pendingSaveGenerations": 0
+          },
+          "metrics": {
+            "captures": 1,
+            "certificates": 2,
+            "restores": 1,
+            "last": null
+          }
+        },
+        "exactRefusal": true,
+        "batchFlushed": true,
+        "cashConserved": true,
+        "committedWrites": [],
+        "pointerReleased": true
+      }
+    },
+    {
+      "kind": "cancel",
+      "exactNormalModelRng": true,
+      "normal": [
+        {
+          "rng": 3224482224,
+          "built": 5,
+          "status": {
+            "enabled": false,
+            "active": false,
+            "halted": false,
+            "last": null,
+            "protocol": {
+              "enabled": false,
+              "halted": false,
+              "active": false,
+              "kind": null,
+              "phase": "idle",
+              "last": null,
+              "pendingSaveGenerations": 0
+            },
+            "metrics": {
+              "captures": 0,
+              "certificates": 0,
+              "restores": 0,
+              "last": null
+            }
+          },
+          "exactRefusal": null,
+          "batchFlushed": true,
+          "cashConserved": true,
+          "committedWrites": [
+            {
+              "active": false,
+              "construction": 5,
+              "treasury": 89250
+            }
+          ],
+          "pointerReleased": true
+        },
+        {
+          "rng": 3224482224,
+          "built": 5,
+          "status": {
+            "enabled": true,
+            "active": false,
+            "halted": false,
+            "last": {
+              "ok": true,
+              "joined": false,
+              "value": {
+                "built": 5
+              },
+              "command": "road-stroke",
+              "ms": 90,
+              "code": null,
+              "publicationErrors": []
+            },
+            "protocol": {
+              "enabled": true,
+              "halted": false,
+              "active": false,
+              "kind": null,
+              "phase": "idle",
+              "last": {
+                "kind": "command",
+                "ok": true,
+                "effectErrors": []
+              },
+              "pendingSaveGenerations": 0
+            },
+            "metrics": {
+              "captures": 1,
+              "certificates": 2,
+              "restores": 0,
+              "last": null
+            }
+          },
+          "exactRefusal": null,
+          "batchFlushed": true,
+          "cashConserved": true,
+          "committedWrites": [
+            {
+              "active": false,
+              "construction": 5,
+              "treasury": 89250
+            }
+          ],
+          "pointerReleased": true
+        }
+      ],
+      "forcedRefusal": {
+        "rng": 3224482224,
+        "built": 0,
+        "status": {
+          "enabled": true,
+          "active": false,
+          "halted": false,
+          "last": {
+            "ok": false,
+            "reason": "Test capacity reservation refusal",
+            "command": "road-stroke",
+            "ms": 197.59999999403954,
+            "code": "capacity",
+            "publicationErrors": []
+          },
+          "protocol": {
+            "enabled": true,
+            "halted": false,
+            "active": false,
+            "kind": null,
+            "phase": "idle",
+            "last": {
+              "kind": "command",
+              "ok": false,
+              "reason": "Test capacity reservation refusal",
+              "effectErrors": []
+            },
+            "pendingSaveGenerations": 0
+          },
+          "metrics": {
+            "captures": 1,
+            "certificates": 2,
+            "restores": 1,
+            "last": null
+          }
+        },
+        "exactRefusal": true,
+        "batchFlushed": true,
+        "cashConserved": true,
+        "committedWrites": [],
+        "pointerReleased": true
+      }
+    },
+    {
+      "kind": "recovery",
+      "exactNormalModelRng": true,
+      "normal": [
+        {
+          "rng": 3224482224,
+          "built": 5,
+          "status": {
+            "enabled": false,
+            "active": false,
+            "halted": false,
+            "last": null,
+            "protocol": {
+              "enabled": false,
+              "halted": false,
+              "active": false,
+              "kind": null,
+              "phase": "idle",
+              "last": null,
+              "pendingSaveGenerations": 0
+            },
+            "metrics": {
+              "captures": 0,
+              "certificates": 0,
+              "restores": 0,
+              "last": null
+            }
+          },
+          "exactRefusal": null,
+          "batchFlushed": true,
+          "cashConserved": true,
+          "committedWrites": [
+            {
+              "active": false,
+              "construction": 5,
+              "treasury": 89250
+            }
+          ],
+          "pointerReleased": true
+        },
+        {
+          "rng": 3224482224,
+          "built": 5,
+          "status": {
+            "enabled": true,
+            "active": false,
+            "halted": false,
+            "last": {
+              "ok": true,
+              "joined": false,
+              "value": {
+                "built": 5
+              },
+              "command": "road-stroke",
+              "ms": 88.5,
+              "code": null,
+              "publicationErrors": []
+            },
+            "protocol": {
+              "enabled": true,
+              "halted": false,
+              "active": false,
+              "kind": null,
+              "phase": "idle",
+              "last": {
+                "kind": "command",
+                "ok": true,
+                "effectErrors": []
+              },
+              "pendingSaveGenerations": 0
+            },
+            "metrics": {
+              "captures": 2,
+              "certificates": 3,
+              "restores": 1,
+              "last": null
+            }
+          },
+          "exactRefusal": null,
+          "batchFlushed": true,
+          "cashConserved": true,
+          "committedWrites": [
+            {
+              "active": false,
+              "construction": 5,
+              "treasury": 89250
+            }
+          ],
+          "pointerReleased": true
+        }
+      ],
+      "forcedRefusal": {
+        "rng": 3224482224,
+        "built": 0,
+        "status": {
+          "enabled": true,
+          "active": false,
+          "halted": false,
+          "last": {
+            "ok": false,
+            "reason": "Test capacity reservation refusal",
+            "command": "road-stroke",
+            "ms": 194.79999999701977,
+            "code": "capacity",
+            "publicationErrors": []
+          },
+          "protocol": {
+            "enabled": true,
+            "halted": false,
+            "active": false,
+            "kind": null,
+            "phase": "idle",
+            "last": {
+              "kind": "command",
+              "ok": false,
+              "reason": "Test capacity reservation refusal",
+              "effectErrors": []
+            },
+            "pendingSaveGenerations": 0
+          },
+          "metrics": {
+            "captures": 1,
+            "certificates": 2,
+            "restores": 1,
+            "last": null
+          }
+        },
+        "exactRefusal": true,
+        "batchFlushed": true,
+        "cashConserved": true,
+        "committedWrites": [],
+        "pointerReleased": true
+      }
+    }
+  ],
+  "oversized": {
+    "syntheticApiProbe": true,
+    "rejectedBeforeCapture": true,
+    "zeroModelCalls": true,
+    "unchanged": true
+  }
+}

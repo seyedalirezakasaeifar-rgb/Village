@@ -1,0 +1,65 @@
+{
+  "base": "455a12f",
+  "sharedApiDependency": "4ee829c731da5f517ebb7a11277fa0691bed2bec",
+  "codeCommits": [
+    "af2d134",
+    "15bf471"
+  ],
+  "source_sha256": "a5702549caf5ea1b1c01d3968184fa666d3bce4d86f5953bffefad68e15c424b",
+  "experiment_sha256": {
+    "root-capacity-api.js": "cfc65e914a4e5a3d54914f39b0f20ccda3be4734d17db079a8f18847aaaa4e65",
+    "game-capacity-root-adapter.js": "2f9b8b28b7758aa2a77a3d13146ac9d5dbce7fa3c0efbeafafd7d3f6ec3e495a",
+    "paid-command-root.js": "32b5510e3e5daac01dc701f9b5f9e9cd4f3e15d3a34508e67be309e9938f17af"
+  },
+  "sharedProtocolUnmodified": true,
+  "productionEnabled": false,
+  "fullAdmissionComplete": false,
+  "codecDefaultsOrRecoveryFencesChanged": false,
+  "hostOnly": true,
+  "nativeCertified": false,
+  "directControlsExactNormalAndSelfImport": 10,
+  "roadGestureCasesExactNormalAndSelfImport": 8,
+  "bridgeRepair": {
+    "available": false,
+    "coverageClaimed": false,
+    "reason": "No existing owned road/water-node bridge in complete seed42 atlas"
+  },
+  "oversizedSyntheticProbeRejectsBeforeCapture": true,
+  "forcedReservationRefusal": true,
+  "minimalRegistryOwnerDirectCases": 6,
+  "minimalRegistryOwnerRoadCases": 8,
+  "optionalMetricsFaultDoesNotMisreportCommit": true,
+  "postFinanceCreatorRefusalPreservesOriginalCapitalWorldRngAndWritesZero": true,
+  "originalRootCorpusCurrentRuntimePasses": true,
+  "currentRuntimeAuthoredCouncilControlsExactAndSelfImport": 60,
+  "currentDefaultOffRegressions": [
+    "public_life",
+    "civic_projects"
+  ],
+  "earlierFollowupDefaultOffRegressions": [
+    "public_life",
+    "civic_projects",
+    "council_accounting",
+    "private_services"
+  ],
+  "ownerContract": {
+    "controller": "__capacityAdmissionProtocol.shared",
+    "requiredAdapterMethod": "registerRuntime",
+    "graphRoots": "every registered capture() result",
+    "restoreOrder": "owner graph restore, then registered restore(), then owner leave",
+    "metrics": "optional; diagnostic errors cannot negate a commit"
+  },
+  "remainingBlockers": [
+    "Unregistered direct controls and developer APIs listed in coverage table; do not globally activate yet",
+    "Automatic private-investment creator refusals must poison the owner whole-day root, including post-finance failure",
+    "Owner reservation/initialization integration including305-byte normalization growth and future visual growth",
+    "Native exact-source validation and checkpoint/serialization overhead acceptance",
+    "No standalone new-bridge or road-removal public control in audited base"
+  ],
+  "test_sha256": {
+    "tools/test_paid_direct_controls.py": "ab3e212aa51711c6d7cf085f7e10bfd4423f05a4cf2c10f582a4338b9d3b35b2",
+    "tools/test_paid_road_controls.py": "46d36e06b643674b1a0659a57d9d09769e8f12bb71889b5222540f19dae791f3",
+    "tools/test_root_transactions.py": "b15c5f4edbd39ecd4ab2a2feb43ded3d9e5fe181d2dc41c516c86587f4782504",
+    "tools/fixtures/paid-minimal-owner.js": "2909f7b0179bda40c6e3f6c7b9172036fa3c7baa9dc20a09ac51d730b7d743df"
+  }
+}

@@ -1,0 +1,376 @@
+{
+  "source_sha256": "a5702549caf5ea1b1c01d3968184fa666d3bce4d86f5953bffefad68e15c424b",
+  "hostChromium": true,
+  "physicalAndroid": false,
+  "productionDefaultEnabled": false,
+  "ordinary": {},
+  "refusals": [],
+  "oracleOnly": true,
+  "experiment_sha256": {
+    "root-capacity-api.js": "cfc65e914a4e5a3d54914f39b0f20ccda3be4734d17db079a8f18847aaaa4e65",
+    "game-capacity-root-adapter.js": "2f9b8b28b7758aa2a77a3d13146ac9d5dbce7fa3c0efbeafafd7d3f6ec3e495a",
+    "paid-command-root.js": "32b5510e3e5daac01dc701f9b5f9e9cd4f3e15d3a34508e67be309e9938f17af"
+  },
+  "councilMatrix": [
+    {
+      "event": "A petition from the shopkeepers",
+      "choice": 0,
+      "exactModelRng": true,
+      "selfImport": true
+    },
+    {
+      "event": "A petition from the shopkeepers",
+      "choice": 1,
+      "exactModelRng": true,
+      "selfImport": true
+    },
+    {
+      "event": "A petition from the shopkeepers",
+      "choice": 2,
+      "exactModelRng": true,
+      "selfImport": true
+    },
+    {
+      "event": "The bridge needs repairs",
+      "choice": 0,
+      "exactModelRng": true,
+      "selfImport": true
+    },
+    {
+      "event": "The bridge needs repairs",
+      "choice": 1,
+      "exactModelRng": true,
+      "selfImport": true
+    },
+    {
+      "event": "The bridge needs repairs",
+      "choice": 2,
+      "exactModelRng": true,
+      "selfImport": true
+    },
+    {
+      "event": "Families facing eviction",
+      "choice": 0,
+      "exactModelRng": true,
+      "selfImport": true
+    },
+    {
+      "event": "Families facing eviction",
+      "choice": 1,
+      "exactModelRng": true,
+      "selfImport": true
+    },
+    {
+      "event": "Families facing eviction",
+      "choice": 2,
+      "exactModelRng": true,
+      "selfImport": true
+    },
+    {
+      "event": "A merchant wants to expand",
+      "choice": 0,
+      "exactModelRng": true,
+      "selfImport": true
+    },
+    {
+      "event": "A merchant wants to expand",
+      "choice": 1,
+      "exactModelRng": true,
+      "selfImport": true
+    },
+    {
+      "event": "A merchant wants to expand",
+      "choice": 2,
+      "exactModelRng": true,
+      "selfImport": true
+    },
+    {
+      "event": "Illness spreads at the school",
+      "choice": 0,
+      "exactModelRng": true,
+      "selfImport": true
+    },
+    {
+      "event": "Illness spreads at the school",
+      "choice": 1,
+      "exactModelRng": true,
+      "selfImport": true
+    },
+    {
+      "event": "Illness spreads at the school",
+      "choice": 2,
+      "exactModelRng": true,
+      "selfImport": true
+    },
+    {
+      "event": "The industrial safety dispute",
+      "choice": 0,
+      "exactModelRng": true,
+      "selfImport": true
+    },
+    {
+      "event": "The industrial safety dispute",
+      "choice": 1,
+      "exactModelRng": true,
+      "selfImport": true
+    },
+    {
+      "event": "The industrial safety dispute",
+      "choice": 2,
+      "exactModelRng": true,
+      "selfImport": true
+    },
+    {
+      "event": "A dry summer threatens the farms",
+      "choice": 0,
+      "exactModelRng": true,
+      "selfImport": true
+    },
+    {
+      "event": "A dry summer threatens the farms",
+      "choice": 1,
+      "exactModelRng": true,
+      "selfImport": true
+    },
+    {
+      "event": "A dry summer threatens the farms",
+      "choice": 2,
+      "exactModelRng": true,
+      "selfImport": true
+    },
+    {
+      "event": "The night watch requests support",
+      "choice": 0,
+      "exactModelRng": true,
+      "selfImport": true
+    },
+    {
+      "event": "The night watch requests support",
+      "choice": 1,
+      "exactModelRng": true,
+      "selfImport": true
+    },
+    {
+      "event": "The night watch requests support",
+      "choice": 2,
+      "exactModelRng": true,
+      "selfImport": true
+    },
+    {
+      "event": "A new regional trade agreement",
+      "choice": 0,
+      "exactModelRng": true,
+      "selfImport": true
+    },
+    {
+      "event": "A new regional trade agreement",
+      "choice": 1,
+      "exactModelRng": true,
+      "selfImport": true
+    },
+    {
+      "event": "A new regional trade agreement",
+      "choice": 2,
+      "exactModelRng": true,
+      "selfImport": true
+    },
+    {
+      "event": "Flooding on the low road",
+      "choice": 0,
+      "exactModelRng": true,
+      "selfImport": true
+    },
+    {
+      "event": "Flooding on the low road",
+      "choice": 1,
+      "exactModelRng": true,
+      "selfImport": true
+    },
+    {
+      "event": "Flooding on the low road",
+      "choice": 2,
+      "exactModelRng": true,
+      "selfImport": true
+    },
+    {
+      "event": "The apprentices ask for a school",
+      "choice": 0,
+      "exactModelRng": true,
+      "selfImport": true
+    },
+    {
+      "event": "The apprentices ask for a school",
+      "choice": 1,
+      "exactModelRng": true,
+      "selfImport": true
+    },
+    {
+      "event": "The apprentices ask for a school",
+      "choice": 2,
+      "exactModelRng": true,
+      "selfImport": true
+    },
+    {
+      "event": "Council must address the deficit",
+      "choice": 0,
+      "exactModelRng": true,
+      "selfImport": true
+    },
+    {
+      "event": "Council must address the deficit",
+      "choice": 1,
+      "exactModelRng": true,
+      "selfImport": true
+    },
+    {
+      "event": "Council must address the deficit",
+      "choice": 2,
+      "exactModelRng": true,
+      "selfImport": true
+    },
+    {
+      "event": "The bakers face a flour shortage",
+      "choice": 0,
+      "exactModelRng": true,
+      "selfImport": true
+    },
+    {
+      "event": "The bakers face a flour shortage",
+      "choice": 1,
+      "exactModelRng": true,
+      "selfImport": true
+    },
+    {
+      "event": "The bakers face a flour shortage",
+      "choice": 2,
+      "exactModelRng": true,
+      "selfImport": true
+    },
+    {
+      "event": "Petition for fair wages",
+      "choice": 0,
+      "exactModelRng": true,
+      "selfImport": true
+    },
+    {
+      "event": "Petition for fair wages",
+      "choice": 1,
+      "exactModelRng": true,
+      "selfImport": true
+    },
+    {
+      "event": "Petition for fair wages",
+      "choice": 2,
+      "exactModelRng": true,
+      "selfImport": true
+    },
+    {
+      "event": "The housing shortage petition",
+      "choice": 0,
+      "exactModelRng": true,
+      "selfImport": true
+    },
+    {
+      "event": "The housing shortage petition",
+      "choice": 1,
+      "exactModelRng": true,
+      "selfImport": true
+    },
+    {
+      "event": "The housing shortage petition",
+      "choice": 2,
+      "exactModelRng": true,
+      "selfImport": true
+    },
+    {
+      "event": "A theft at the market square",
+      "choice": 0,
+      "exactModelRng": true,
+      "selfImport": true
+    },
+    {
+      "event": "A theft at the market square",
+      "choice": 1,
+      "exactModelRng": true,
+      "selfImport": true
+    },
+    {
+      "event": "A theft at the market square",
+      "choice": 2,
+      "exactModelRng": true,
+      "selfImport": true
+    },
+    {
+      "event": "Refugees from the flooded valley",
+      "choice": 0,
+      "exactModelRng": true,
+      "selfImport": true
+    },
+    {
+      "event": "Refugees from the flooded valley",
+      "choice": 1,
+      "exactModelRng": true,
+      "selfImport": true
+    },
+    {
+      "event": "Refugees from the flooded valley",
+      "choice": 2,
+      "exactModelRng": true,
+      "selfImport": true
+    },
+    {
+      "event": "An old mine could reopen",
+      "choice": 0,
+      "exactModelRng": true,
+      "selfImport": true
+    },
+    {
+      "event": "An old mine could reopen",
+      "choice": 1,
+      "exactModelRng": true,
+      "selfImport": true
+    },
+    {
+      "event": "An old mine could reopen",
+      "choice": 2,
+      "exactModelRng": true,
+      "selfImport": true
+    },
+    {
+      "event": "The volunteer brigade wants equipment",
+      "choice": 0,
+      "exactModelRng": true,
+      "selfImport": true
+    },
+    {
+      "event": "The volunteer brigade wants equipment",
+      "choice": 1,
+      "exactModelRng": true,
+      "selfImport": true
+    },
+    {
+      "event": "The volunteer brigade wants equipment",
+      "choice": 2,
+      "exactModelRng": true,
+      "selfImport": true
+    },
+    {
+      "event": "The grocers dispute inspection fees",
+      "choice": 0,
+      "exactModelRng": true,
+      "selfImport": true
+    },
+    {
+      "event": "The grocers dispute inspection fees",
+      "choice": 1,
+      "exactModelRng": true,
+      "selfImport": true
+    },
+    {
+      "event": "The grocers dispute inspection fees",
+      "choice": 2,
+      "exactModelRng": true,
+      "selfImport": true
+    }
+  ]
+}

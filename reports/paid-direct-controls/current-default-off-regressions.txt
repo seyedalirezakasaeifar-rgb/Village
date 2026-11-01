@@ -1,0 +1,5 @@
+source_sha256 a5702549caf5ea1b1c01d3968184fa666d3bce4d86f5953bffefad68e15c424b
+RUN test_public_life.py
+PASS same real site square/warehouse alternatives, exact costs, named actual property, cancel, continued settlement, visits, save/load and invalid coordinates
+RUN test_civic_projects.py
+PASS commissioned food delivery/certificate, repeat guard, district adoption/deed/charter, surveyed paid roads, named factory, recurring teaching draft/enact, exact replay, withdrawal/cancel, modal keyboard containment and legacy/corrupt archives
