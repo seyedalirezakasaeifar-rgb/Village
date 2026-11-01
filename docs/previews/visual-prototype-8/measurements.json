@@ -1,0 +1,26 @@
+[
+  {
+    "prototype": false,
+    "drawMs": 1.16,
+    "errors": [],
+    "valid": {
+      "ok": true,
+      "issues": [],
+      "total": 15493517,
+      "population": 169,
+      "day": 1
+    }
+  },
+  {
+    "prototype": true,
+    "drawMs": 0.96,
+    "errors": [],
+    "valid": {
+      "ok": true,
+      "issues": [],
+      "total": 15493517,
+      "population": 169,
+      "day": 1
+    }
+  }
+]
