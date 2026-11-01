@@ -1,0 +1,148 @@
+{
+  "base": "4ee829c731da5f517ebb7a11277fa0691bed2bec",
+  "codeCommits": [
+    "a0a1102",
+    "bb20e56",
+    "e92791f"
+  ],
+  "commonController": "__capacityAdmissionProtocol.shared",
+  "sharedProtocolUnmodified": true,
+  "productionDefaultEnabled": false,
+  "experimentsAssembled": false,
+  "oracleOnlyTests": true,
+  "hostChromium": true,
+  "physicalAndroid": false,
+  "source_sha256": "10addf0014c6b17027aaedc417914dc12c419ee31d43d5692c9268d42d0defcd",
+  "experiment_sha256": {
+    "root-capacity-api.js": "cfc65e914a4e5a3d54914f39b0f20ccda3be4734d17db079a8f18847aaaa4e65",
+    "game-capacity-root-adapter.js": "5dbadfd6b141aa39d43aac6d05d51ae5bf3e845a4ca7d96d4ea35f07680175e0",
+    "paid-command-root.js": "de152a038ba7274a7b90f1969879b00f7fa1b151b6ef73fed2a6b90684eb8f82"
+  },
+  "regressionTests": [
+    "council_accounting",
+    "civic_projects",
+    "council_programme",
+    "save_composite",
+    "private_services",
+    "transit_network",
+    "urban_evolution",
+    "codec_initialization_capacity",
+    "capacity_status_transition",
+    "save_queue",
+    "save_chronology",
+    "root_capacity_api"
+  ],
+  "councilActualChoicesExactAndSelfImport": 60,
+  "scopePassed": true,
+  "externalSideEffectCorpusPassed": true,
+  "normalizationBlocker": {
+    "wireBytes": 8388480,
+    "unusedBytes": 128,
+    "normalizationGrowthBytes": 305,
+    "validationPasses": true,
+    "selfImportRefusesAtomically": true
+  },
+  "otherBlockers": [
+    "Owner financial/visual/initialization reservation policy required; default activation refuses without it",
+    "Owner whole-day integration and unregistered public-command coverage pending",
+    "Continuous quiet road gestures explicitly refused",
+    "Checkpoint/serialization overhead and native acceptance unresolved"
+  ],
+  "costs": [
+    {
+      "fixture": "founding",
+      "actor": "construct",
+      "enabled": false,
+      "medianSyncMs": 11.099999997764826,
+      "medianThroughSaverMs": 11.300000000745058
+    },
+    {
+      "fixture": "founding",
+      "actor": "construct",
+      "enabled": true,
+      "medianSyncMs": 45.69999999925494,
+      "medianThroughSaverMs": 52.099999997764826,
+      "checkpointMs": 34.69999999925494,
+      "modelMs": 3,
+      "certificateMs": 5.199999999254942
+    },
+    {
+      "fixture": "founding",
+      "actor": "completion",
+      "enabled": false,
+      "medianSyncMs": 1.800000000745058,
+      "medianThroughSaverMs": 2
+    },
+    {
+      "fixture": "founding",
+      "actor": "completion",
+      "enabled": true,
+      "medianSyncMs": 67.20000000298023,
+      "medianThroughSaverMs": 67.30000000074506,
+      "checkpointMs": 53,
+      "modelMs": 2.400000002235174,
+      "certificateMs": 10.199999999254942
+    },
+    {
+      "fixture": "founding",
+      "actor": "near-budget-refusal",
+      "enabled": true,
+      "medianSyncMs": 147.80000000074506,
+      "medianThroughSaverMs": 147.80000000074506,
+      "checkpointMs": 38.29999999701977,
+      "modelMs": 4.299999997019768,
+      "certificateMs": 50.400000002235174
+    },
+    {
+      "fixture": "terminal",
+      "actor": "construct",
+      "enabled": false,
+      "medianSyncMs": 183.60000000149012,
+      "medianThroughSaverMs": 183.70000000298023
+    },
+    {
+      "fixture": "terminal",
+      "actor": "construct",
+      "enabled": true,
+      "medianSyncMs": 299.8999999985099,
+      "medianThroughSaverMs": 452.70000000298023,
+      "checkpointMs": 118.60000000149012,
+      "modelMs": 32.600000001490116,
+      "certificateMs": 139.80000000074506
+    },
+    {
+      "fixture": "terminal",
+      "actor": "completion",
+      "enabled": false,
+      "medianSyncMs": 22.5,
+      "medianThroughSaverMs": 22.5
+    },
+    {
+      "fixture": "terminal",
+      "actor": "completion",
+      "enabled": true,
+      "medianSyncMs": 299.6000000014901,
+      "medianThroughSaverMs": 299.69999999925494,
+      "checkpointMs": 121.30000000074506,
+      "modelMs": 21,
+      "certificateMs": 145.60000000149012
+    },
+    {
+      "fixture": "terminal",
+      "actor": "near-budget-accepted-after-shrink",
+      "enabled": true,
+      "medianSyncMs": 373.5,
+      "medianThroughSaverMs": 577.8000000007451,
+      "checkpointMs": 127.69999999925494,
+      "modelMs": 33.20000000298023,
+      "certificateMs": 193.59999999776483
+    }
+  ],
+  "evidence_sha256": {
+    "root-transaction-side-effects.json": "e05f01efe1fa4fdf706381b71695c3d69826c8dd0f64d9268967058b07fbc427",
+    "root-transactions.json": "1aaa63959b88f6be9cd594b4a1c3e79617cc5b99868b08c36c2dd6c7d4be4599",
+    "paid-council-matrix.json": "1bcbcfe249deff6129df1f845a81034d10e7ff2731c0b5ddd6ef1e0591d9554f",
+    "default-off-regressions.txt": "6e2db94986c09004dcb9645215eaf25392bf80cc0eda873831521ecc50538f0d",
+    "root-transaction-costs.json": "05de358f7633957add1e15db8835cb4789d71fb7de6c88ac7f4e920042d86fc7"
+  }
+}

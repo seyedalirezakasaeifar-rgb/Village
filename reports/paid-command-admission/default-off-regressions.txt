@@ -1,0 +1,236 @@
+RUN test_council_accounting.py
+PASS 60 Council choices: cash, goods, structure, save/restore and no exceptions
+RUN test_civic_projects.py
+PASS commissioned food delivery/certificate, repeat guard, district adoption/deed/charter, surveyed paid roads, named factory, recurring teaching draft/enact, exact replay, withdrawal/cancel, modal keyboard containment and legacy/corrupt archives
+RUN test_council_programme.py
+PASS five scenario programmes, consecutive-day resets, no duplicate day/grant, passive constraint, actual policy enactment/progression, continuation, legacy migration and atomic rejection
+RUN test_save_composite.py
+PASS composite records and atomic faults {'grid': 128, 'people': 1375, 'routes': 2, 'settledTickets': 1, 'fares': 3.25, 'cargo': 18, 'providerEscrow': 6000, 'mallEscrow': 28000, 'cashConserved': True, 'receiptsPreserved': True, 'faults': {'grid': 128, 'schema': 8, 'recordsRejected': ['missingMember', 'duplicateMember', 'householdMismatch', 'missingHome', 'tileUsedAsHomeId', 'missingFirmBuilding', 'negativeStock', 'invalidStock', 'unknownStock', 'negativeDeposit', 'missingDepositBank', 'malformedBank', 'malformedLoan', 'negativeLoanBank', 'duplicateBuildingId', 'exhaustedIdCounter', 'duplicateHomeId', 'orphanWorker', 'duplicateWorker', 'missingOwner', 'missingTitleHolder', 'truncatedTiles', 'malformedProject', 'futureSchema', 'invalidDay'], 'truncatedRejected': 4, 'callerIndependent': True, 'atomicRNGAndTimeline': True}}
+RUN test_private_services.py
+PASS private fees/staffed capacity/poor affordability/targeted vouchers/190day learning/closure/fire spillover/exact-once/conservation/archive checks [{'matchedPublicControl': True, 'budget': 0, 'publicCoverage': 0, 'privatePupils': 0, 'cashDrift': -3.5390257835388184e-08, 'valid': {'ok': True, 'issues': [], 'total': 15493516.999999965, 'population': 169, 'day': 3}}, {'matchedPublicControl': True, 'budget': 180, 'publicCoverage': 0.6428571428571429, 'privatePupils': 0, 'cashDrift': -3.725290298461914e-08, 'valid': {'ok': True, 'issues': [], 'total': 15493516.999999963, 'population': 169, 'day': 3}}, {'voucherBudget': 0, 'day': 2, 'staff': 2, 'clients': 32, 'capacity': 32, 'tuition': 96, 'vouchers': 0, 'total': 15493516.999999981, 'schoolPublicFacilities': 0, 'publicSchoolCoverage': 0, 'poorCoverage': 0, 'poorPrivate': 0, 'pupils': 32, 'learning': 0, 'response': 0, 'valid': {'ok': True, 'issues': [], 'total': 15493516.999999981, 'population': 169, 'day': 2}}, {'voucherBudget': 100, 'day': 2, 'staff': 2, 'clients': 32, 'capacity': 32, 'tuition': 58.875080766074994, 'vouchers': 37.124919233925006, 'total': 15493516.999999981, 'schoolPublicFacilities': 0, 'publicSchoolCoverage': 0, 'poorCoverage': 0.5333333333333332, 'poorPrivate': 0.5333333333333332, 'pupils': 32, 'learning': 0, 'response': 0, 'valid': {'ok': True, 'issues': [], 'total': 15493516.999999981, 'population': 169, 'day': 2}}, {'longTerm': True, 'day': 191, 'staff': 2, 'clients': 32, 'capacity': 32, 'tuition': 92.39956968, 'vouchers': 2.98063128, 'total': 15493516.999995999, 'schoolPublicFacilities': 0, 'publicSchoolCoverage': 0, 'poorCoverage': 0.29325724444444434, 'poorPrivate': 0.29325724444444434, 'pupils': 32, 'learning': 31, 'response': 0, 'valid': {'ok': True, 'issues': [], 'total': 15493516.999995999, 'population': 165, 'day': 191}}, {'recapitalization': 'A provider has been recapitalized after sustained demand reviews.', 'snapshot': {'day': 350, 'staff': 2, 'clients': 32, 'capacity': 32, 'tuition': 95.16, 'vouchers': 0, 'total': 15493516.999992685, 'schoolPublicFacilities': 0, 'publicSchoolCoverage': 0, 'poorCoverage': 0.3143111111111111, 'poorPrivate': 0.3143111111111111, 'pupils': 32, 'learning': 31, 'response': 0, 'valid': {'ok': True, 'issues': [], 'total': 15493516.999992685, 'population': 169, 'day': 350}}}, {'zeroFeeExit': True, 'day': 601, 'closed': True}, {'fire': True, 'day': 2, 'staff': 2, 'clients': 166.31528388431252, 'capacity': 180, 'tuition': 124.48730787352491, 'vouchers': 8.564919233925002, 'total': 15493516.999999981, 'schoolPublicFacilities': 1, 'publicSchoolCoverage': 0, 'poorCoverage': 0, 'poorPrivate': 0, 'pupils': 0, 'learning': 0, 'response': 0.5974137931034483, 'valid': {'ok': True, 'issues': [], 'total': 15493516.999999981, 'population': 169, 'day': 2}}]
+RUN test_transit_network.py
+day one {"version": 1, "revision": 2, "next": 2, "routes": [{"id": 1, "name": "Bus 1", "mode": "bus", "depot": 103, "stops": [3471, 3477, 3483, 3491, 3499], "level": 2, "vehicles": 2, "path": [3471, 3472, 3473, 3474, 3475, 3476, 3477, 3478, 3479, 3480, 3481, 3482, 3483, 3484, 3485, 3486, 3487, 3488, 3489, 3490, 3491, 3492, 3493, 3494, 3495, 3496, 3497, 3498, 3499], "offsets": [0, 6, 12, 20, 28], "color": "#f0ad56", "built": 1, "capital": 13300, "stats": {"operating": true, "capacity": 103, "reserved": 8, "boardings": 8, "demand": 8, "denied": 0, "staff": [3, 4, 6, 7], "required": 4, "status": "Operating", "headway": 37.199999999999996, "reliability": 1, "expenses": 139.19, "lastDemand": 0, "lastDenied": 0}}], "tracks": [], "capital": 22300, "fares": 5.2, "expenses": 139.19, "lastDay": 2, "daily": {"rides": 8, "denied": 0, "revenue": 5.2, "expenses": 139.19, "staff": 4}}
+validators {'validateTransit': True, 'validateCivicState': True, 'validateCreditState': True, 'validateScenarioProgramme': True, 'validateCharter': True, 'validateMayorJourney': True, 'validatePrivateServices': True, 'validateDistrictProgrammes': True, 'validateRegionalTrade': True, 'validateWaterfrontArchive': True, 'validateGoodsAccounting': True}
+PASS public depot/routes, quoted capital, repeat action protection, daily staffing/capacity, real journey routing, far LOD, conservation, exact replay, archive rejection, cancel/Back, suspension, elevated infrastructure and fleet resale
+RUN test_urban_evolution.py
+{
+  "source_sha256": "10addf0014c6b17027aaedc417914dc12c419ee31d43d5692c9268d42d0defcd",
+  "annexation": {
+    "parcels": 21,
+    "grid": 128,
+    "totalArea": 15596,
+    "conserved": true,
+    "valid": {
+      "ok": true,
+      "issues": [],
+      "total": 15493517,
+      "population": 169,
+      "day": 1
+    }
+  },
+  "migration": {
+    "from": 80,
+    "to": 128,
+    "buildings": 102,
+    "cargo": 17,
+    "activePathRemapped": true,
+    "identityPreserved": true,
+    "valid": {
+      "ok": true,
+      "issues": [],
+      "total": 15489471.999999722,
+      "population": 167,
+      "day": 45
+    }
+  },
+  "clearance": {
+    "blockedWithoutVacancy": true,
+    "ownerCompensation": 44236,
+    "relocatedHouseholds": 1,
+    "totalCost": 48086,
+    "conserved": true,
+    "valid": {
+      "ok": true,
+      "issues": [],
+      "total": 15493517,
+      "population": 169,
+      "day": 1
+    },
+    "vacant": 103
+  },
+  "farmClearance": {
+    "fieldsReleased": 5,
+    "workersCompensated": 4,
+    "conserved": true,
+    "goods": [
+      {
+        "good": "grain",
+        "opening": 960,
+        "produced": 0,
+        "consumed": 0,
+        "imports": 80,
+        "exports": 40,
+        "stock": 1000,
+        "error": 0,
+        "price": 2
+      },
+      {
+        "good": "flour",
+        "opening": 960,
+        "produced": 0,
+        "consumed": 0,
+        "imports": 80,
+        "exports": 40,
+        "stock": 1000,
+        "error": 0,
+        "price": 3
+      },
+      {
+        "good": "food",
+        "opening": 1920,
+        "produced": 0,
+        "consumed": 0,
+        "imports": 160,
+        "exports": 80,
+        "stock": 2000,
+        "error": 0,
+        "price": 3.3
+      },
+      {
+        "good": "logs",
+        "opening": 720,
+        "produced": 0,
+        "consumed": 0,
+        "imports": 60,
+        "exports": 30,
+        "stock": 750,
+        "error": 0,
+        "price": 2
+      },
+      {
+        "good": "timber",
+        "opening": 720,
+        "produced": 0,
+        "consumed": 0,
+        "imports": 60,
+        "exports": 30,
+        "stock": 750,
+        "error": 0,
+        "price": 4
+      },
+      {
+        "good": "stone",
+        "opening": 720,
+        "produced": 0,
+        "consumed": 0,
+        "imports": 60,
+        "exports": 30,
+        "stock": 750,
+        "error": 0,
+        "price": 3
+      },
+      {
+        "good": "manufactures",
+        "opening": 0,
+        "produced": 0,
+        "consumed": 0,
+        "imports": 0,
+        "exports": 0,
+        "stock": 0,
+        "error": 0,
+        "price": 8.5
+      }
+    ],
+    "valid": {
+      "ok": true,
+      "issues": [],
+      "total": 15493517,
+      "population": 169,
+      "day": 1
+    }
+  },
+  "planning": {
+    "districts": 11,
+    "revisionCooldown": true,
+    "conserved": true
+  },
+  "mall": {
+    "catchment": 534,
+    "capital": 28000,
+    "jobs": 8,
+    "footprint": 6,
+    "conserved": true,
+    "valid": {
+      "ok": true,
+      "issues": [],
+      "total": 15493517,
+      "population": 1375,
+      "day": 1
+    }
+  },
+  "farmRenewal": {
+    "farmId": 8,
+    "buildingId": 18,
+    "relocated": true,
+    "stocksPreserved": true,
+    "workersPreserved": true,
+    "replacementUnits": 4,
+    "conserved": true,
+    "valid": {
+      "ok": true,
+      "issues": [],
+      "total": 15493517,
+      "population": 177,
+      "day": 1
+    }
+  },
+  "districtLifecycle": {
+    "controlledLifecycleFixture": true,
+    "characterHoldDays": 90,
+    "dissolutionHoldDays": 180
+  },
+  "controls": {
+    "actualAnnexationConfirmed": true,
+    "neighbourhoodPlanConfirmed": true,
+    "overlayScreenshot": "neighbourhood-map.png",
+    "clearanceToolAndEscape": true
+  },
+  "endurance": [
+    {
+      "seed": 42,
+      "day": 1081,
+      "population": 218,
+      "ms": 5387.699999999255,
+      "moneyError": -2.5218352675437927e-05,
+      "districts": 11
+    },
+    {
+      "seed": 101,
+      "day": 1081,
+      "population": 212,
+      "ms": 4195.699999999255,
+      "moneyError": -2.753734588623047e-05,
+      "districts": 11
+    }
+  ],
+  "errors": []
+}
+RUN test_codec_initialization_capacity.py
+PASS {'tests': [{'name': 'byte-growth-from-unitCost-defaults', 'bytes': 8388544, 'rejected': True, 'modelRngEpochRuntimeAndUiUnchanged': True, 'persistenceWrites': 0, 'nestedSaveAttempts': 1, 'ms': 262.30000000074506}, {'name': 'node-growth-from-unitCost-defaults', 'bytes': 5114576, 'rejected': True, 'modelRngEpochRuntimeAndUiUnchanged': True, 'persistenceWrites': 0, 'nestedSaveAttempts': 1, 'ms': 249.80000000074506}, {'name': 'missing-trade-default-near-byte-limit', 'bytes': 8388600, 'rejected': True, 'modelRngEpochRuntimeAndUiUnchanged': True, 'persistenceWrites': 0, 'nestedSaveAttempts': 1, 'ms': 174.69999999925494}, {'name': 'transport-normalization-near-byte-limit', 'bytes': 8388600, 'rejected': True, 'modelRngEpochRuntimeAndUiUnchanged': True, 'persistenceWrites': 0, 'nestedSaveAttempts': 1, 'ms': 199.69999999925494}, {'name': 'canonical-wire-numeric-growth', 'bytes': 4068312, 'rejected': True, 'modelRngEpochRuntimeAndUiUnchanged': True, 'persistenceWrites': 0, 'nestedSaveAttempts': 0, 'ms': 71}], 'canonicalWireRejectInitializationCalls': 0, 'supportedNormalizationAccepted': True, 'selfExportable': True, 'exactReplayDays': 30, 'productionEnabled': False}
+RUN test_capacity_status_transition.py
+PASS {'people': {'legacyRefused': True, 'admittedBytes': 1349578, 'totalBefore': 16166, 'totalAfter': 16166, 'moneyPreserved': True, 'historicalAfter': 16001, 'error': ''}, 'households': {'legacyRefused': True, 'admittedBytes': 667396, 'totalBefore': 6066, 'totalAfter': 6066, 'moneyPreserved': True, 'historicalAfter': 6001, 'error': ''}}
+PASS 41 Save click attempts (one accepted while busy),40 direct requests, bounded snapshot queue; 2 indexed writes
+quota: newer indexed day61 beats local day41
+same-day policy revision survives clock rollback
+new founding day1 wins over prior day61 by timeline/order
+corrupted payload/chronology rejected in favor of valid indexed copy
+aborted indexed transaction recovers newer local copy
+backup quota failure does not block primary replacement
+both store failures report failure without replacing active town
+delayed old-town callback cannot overwrite imported day1
+late newer store head promotes active save atomically
+legacy raw indexed archive migrates to integrity-bound chronology
+ambiguous legacy copies offer cancel/recovery instead of guessing from day
+invalid import preserves game and persistence head
+PASS ["quota: newer indexed day61 beats local day41", "same-day policy revision survives clock rollback", "new founding day1 wins over prior day61 by timeline/order", "corrupted payload/chronology rejected in favor of valid indexed copy", "aborted indexed transaction recovers newer local copy", "backup quota failure does not block primary replacement", "both store failures report failure without replacing active town", "delayed old-town callback cannot overwrite imported day1", "late newer store head promotes active save atomically", "legacy raw indexed archive migrates to integrity-bound chronology", "ambiguous legacy copies offer cancel/recovery instead of guessing from day", "invalid import preserves game and persistence head"]
+PASS {'sharedDefaultDisabled': True, 'graphIdentityMapSetDateTypedBufferRollback': True, 'exactPropertyOrderRestored': True, 'propertyDescriptorsAndFrozenContainerPreserved': True, 'ordinarySaveCaptureCalls': 0, 'ordinarySaveCertificateCalls': 0, 'nestedRootOneCaptureAndCertificate': True, 'coalescedCommittedSave': True, 'swallowedRefusalAtomic': True, 'exceptionAtomic': True, 'caughtNestedCallbackFaultAtomic': True, 'certificateRefusalAtomic': True, 'asyncWorkRejectedBeforeCapture': True, 'presentationFaultDoesNotRollbackCommit': True, 'staleGenerationCancelled': True, 'rollbackFailureHalts': True, 'partialExportAndAdoptionRefused': True, 'realEntryPointSaveComplete': True, 'productionAssembled': False}

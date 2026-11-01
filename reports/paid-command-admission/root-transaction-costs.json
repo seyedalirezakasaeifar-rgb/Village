@@ -1,0 +1,980 @@
+{
+  "source_sha256": "10addf0014c6b17027aaedc417914dc12c419ee31d43d5692c9268d42d0defcd",
+  "late_fixture_sha256": "ad6256fd85d4146fda9eeac0b16d5b182ed352c23bbd96af3b320553c29ce786",
+  "late_fixture_commit": "833afee",
+  "hostChromium": true,
+  "physicalAndroid": false,
+  "oracleOnly": true,
+  "productionDefaultEnabled": false,
+  "experiment_sha256": {
+    "root-capacity-api.js": "cfc65e914a4e5a3d54914f39b0f20ccda3be4734d17db079a8f18847aaaa4e65",
+    "game-capacity-root-adapter.js": "5dbadfd6b141aa39d43aac6d05d51ae5bf3e845a4ca7d96d4ea35f07680175e0",
+    "paid-command-root.js": "de152a038ba7274a7b90f1969879b00f7fa1b151b6ef73fed2a6b90684eb8f82"
+  },
+  "samples": [
+    {
+      "fixture": "founding",
+      "kind": "construct",
+      "enabled": false,
+      "state": {
+        "day": 1,
+        "people": 169,
+        "population": 169,
+        "households": 67,
+        "firms": 26,
+        "routes": 0,
+        "wireBytes": 135338
+      },
+      "medianMs": 11.099999997764826,
+      "runs": [
+        {
+          "elapsedMs": 11.300000000745058,
+          "throughSaverMs": 11.300000000745058,
+          "nextFrameMs": 29.5,
+          "status": null,
+          "heapBefore": 16548908,
+          "heapAfter": 20612894
+        },
+        {
+          "elapsedMs": 11.099999997764826,
+          "throughSaverMs": 11.300000000745058,
+          "nextFrameMs": 27.300000000745058,
+          "status": null,
+          "heapBefore": 15699892,
+          "heapAfter": 18843569
+        },
+        {
+          "elapsedMs": 10.5,
+          "throughSaverMs": 10.5,
+          "nextFrameMs": 29,
+          "status": null,
+          "heapBefore": 15697552,
+          "heapAfter": 18414886
+        },
+        {
+          "elapsedMs": 10.100000001490116,
+          "throughSaverMs": 10.199999999254942,
+          "nextFrameMs": 31.5,
+          "status": null,
+          "heapBefore": 17237932,
+          "heapAfter": 17278450
+        },
+        {
+          "elapsedMs": 11.800000000745058,
+          "throughSaverMs": 11.800000000745058,
+          "nextFrameMs": 33.399999998509884,
+          "status": null,
+          "heapBefore": 15884310,
+          "heapAfter": 20366028
+        }
+      ]
+    },
+    {
+      "fixture": "founding",
+      "kind": "construct",
+      "enabled": true,
+      "state": {
+        "day": 1,
+        "people": 169,
+        "population": 169,
+        "households": 67,
+        "firms": 26,
+        "routes": 0,
+        "wireBytes": 135338
+      },
+      "medianMs": 45.69999999925494,
+      "runs": [
+        {
+          "elapsedMs": 44.80000000074506,
+          "throughSaverMs": 51.399999998509884,
+          "nextFrameMs": 70.5,
+          "status": {
+            "ok": true,
+            "joined": false,
+            "value": null,
+            "kind": "command",
+            "intent": "construction",
+            "checkpointMs": 32.69999999925494,
+            "objects": 1974,
+            "properties": 27001,
+            "typedViews": 9,
+            "typedIndicesEnumerated": 147456,
+            "bufferBytes": 540672,
+            "modelMs": 3.300000000745058,
+            "certifyMs": 5.199999999254942,
+            "encodedBytes": 136090,
+            "oracleOnly": true,
+            "committed": true,
+            "command": "construction",
+            "ms": 44.5,
+            "code": null,
+            "publicationErrors": []
+          },
+          "heapBefore": 18007206,
+          "heapAfter": 23144922
+        },
+        {
+          "elapsedMs": 53.80000000074506,
+          "throughSaverMs": 61.19999999925494,
+          "nextFrameMs": 77.69999999925494,
+          "status": {
+            "ok": true,
+            "joined": false,
+            "value": null,
+            "kind": "command",
+            "intent": "construction",
+            "checkpointMs": 40.30000000074506,
+            "objects": 1974,
+            "properties": 27001,
+            "typedViews": 9,
+            "typedIndicesEnumerated": 147456,
+            "bufferBytes": 540672,
+            "modelMs": 2.399999998509884,
+            "certifyMs": 7.300000000745058,
+            "encodedBytes": 136090,
+            "oracleOnly": true,
+            "committed": true,
+            "command": "construction",
+            "ms": 53.5,
+            "code": null,
+            "publicationErrors": []
+          },
+          "heapBefore": 15361300,
+          "heapAfter": 31026492
+        },
+        {
+          "elapsedMs": 45.69999999925494,
+          "throughSaverMs": 52.099999997764826,
+          "nextFrameMs": 67.39999999850988,
+          "status": {
+            "ok": true,
+            "joined": false,
+            "value": null,
+            "kind": "command",
+            "intent": "construction",
+            "checkpointMs": 34.69999999925494,
+            "objects": 1974,
+            "properties": 27001,
+            "typedViews": 9,
+            "typedIndicesEnumerated": 147456,
+            "bufferBytes": 540672,
+            "modelMs": 2.2000000029802322,
+            "certifyMs": 5.199999999254942,
+            "encodedBytes": 136090,
+            "oracleOnly": true,
+            "committed": true,
+            "command": "construction",
+            "ms": 45.30000000074506,
+            "code": null,
+            "publicationErrors": []
+          },
+          "heapBefore": 14387498,
+          "heapAfter": 28643274
+        },
+        {
+          "elapsedMs": 54.69999999925494,
+          "throughSaverMs": 61,
+          "nextFrameMs": 77.69999999925494,
+          "status": {
+            "ok": true,
+            "joined": false,
+            "value": null,
+            "kind": "command",
+            "intent": "construction",
+            "checkpointMs": 42.400000002235174,
+            "objects": 1974,
+            "properties": 27001,
+            "typedViews": 9,
+            "typedIndicesEnumerated": 147456,
+            "bufferBytes": 540672,
+            "modelMs": 3,
+            "certifyMs": 5.600000001490116,
+            "encodedBytes": 136090,
+            "oracleOnly": true,
+            "committed": true,
+            "command": "construction",
+            "ms": 54.19999999925494,
+            "code": null,
+            "publicationErrors": []
+          },
+          "heapBefore": 16647640,
+          "heapAfter": 22008708
+        },
+        {
+          "elapsedMs": 43.5,
+          "throughSaverMs": 50.30000000074506,
+          "nextFrameMs": 65.90000000223517,
+          "status": {
+            "ok": true,
+            "joined": false,
+            "value": null,
+            "kind": "command",
+            "intent": "construction",
+            "checkpointMs": 31.900000002235174,
+            "objects": 1974,
+            "properties": 27001,
+            "typedViews": 9,
+            "typedIndicesEnumerated": 147456,
+            "bufferBytes": 540672,
+            "modelMs": 3,
+            "certifyMs": 4.900000002235174,
+            "encodedBytes": 136090,
+            "oracleOnly": true,
+            "committed": true,
+            "command": "construction",
+            "ms": 43.30000000074506,
+            "code": null,
+            "publicationErrors": []
+          },
+          "heapBefore": 18678696,
+          "heapAfter": 29671229
+        }
+      ]
+    },
+    {
+      "fixture": "founding",
+      "kind": "completion",
+      "enabled": false,
+      "state": {
+        "day": 1,
+        "people": 169,
+        "population": 169,
+        "households": 67,
+        "firms": 26,
+        "routes": 0,
+        "wireBytes": 136126
+      },
+      "medianMs": 1.800000000745058,
+      "runs": [
+        {
+          "elapsedMs": 1.699999999254942,
+          "throughSaverMs": 2.099999997764826,
+          "nextFrameMs": 37.399999998509884,
+          "status": null,
+          "heapBefore": 15086982,
+          "heapAfter": 16520796
+        },
+        {
+          "elapsedMs": 1.699999999254942,
+          "throughSaverMs": 1.800000000745058,
+          "nextFrameMs": 27.600000001490116,
+          "status": null,
+          "heapBefore": 19165410,
+          "heapAfter": 21276124
+        },
+        {
+          "elapsedMs": 2,
+          "throughSaverMs": 2,
+          "nextFrameMs": 39.900000002235174,
+          "status": null,
+          "heapBefore": 17105836,
+          "heapAfter": 18371514
+        },
+        {
+          "elapsedMs": 2.099999997764826,
+          "throughSaverMs": 2.099999997764826,
+          "nextFrameMs": 20.899999998509884,
+          "status": null,
+          "heapBefore": 16800958,
+          "heapAfter": 18130164
+        },
+        {
+          "elapsedMs": 1.800000000745058,
+          "throughSaverMs": 1.800000000745058,
+          "nextFrameMs": 33.69999999925494,
+          "status": null,
+          "heapBefore": 18099712,
+          "heapAfter": 19263310
+        }
+      ]
+    },
+    {
+      "fixture": "founding",
+      "kind": "completion",
+      "enabled": true,
+      "state": {
+        "day": 1,
+        "people": 169,
+        "population": 169,
+        "households": 67,
+        "firms": 26,
+        "routes": 0,
+        "wireBytes": 136126
+      },
+      "medianMs": 67.20000000298023,
+      "runs": [
+        {
+          "elapsedMs": 67.20000000298023,
+          "throughSaverMs": 67.30000000074506,
+          "nextFrameMs": 85.60000000149012,
+          "status": {
+            "ok": true,
+            "joined": false,
+            "value": null,
+            "kind": "command",
+            "intent": "project-completion",
+            "checkpointMs": 50.100000001490116,
+            "objects": 1999,
+            "properties": 27072,
+            "typedViews": 16,
+            "typedIndicesEnumerated": 262144,
+            "bufferBytes": 999424,
+            "modelMs": 2.100000001490116,
+            "certifyMs": 13.599999997764826,
+            "encodedBytes": 136649,
+            "oracleOnly": true,
+            "committed": true,
+            "command": "project-completion",
+            "ms": 66.90000000223517,
+            "code": null,
+            "publicationErrors": []
+          },
+          "heapBefore": 17405696,
+          "heapAfter": 28817131
+        },
+        {
+          "elapsedMs": 67,
+          "throughSaverMs": 67.09999999776483,
+          "nextFrameMs": 87.89999999850988,
+          "status": {
+            "ok": true,
+            "joined": false,
+            "value": null,
+            "kind": "command",
+            "intent": "project-completion",
+            "checkpointMs": 55.69999999925494,
+            "objects": 1999,
+            "properties": 27072,
+            "typedViews": 16,
+            "typedIndicesEnumerated": 262144,
+            "bufferBytes": 999424,
+            "modelMs": 3.699999999254942,
+            "certifyMs": 5.699999999254942,
+            "encodedBytes": 136649,
+            "oracleOnly": true,
+            "committed": true,
+            "command": "project-completion",
+            "ms": 66.80000000074506,
+            "code": null,
+            "publicationErrors": []
+          },
+          "heapBefore": 17809548,
+          "heapAfter": 25413426
+        },
+        {
+          "elapsedMs": 72.5,
+          "throughSaverMs": 72.5,
+          "nextFrameMs": 101.29999999701977,
+          "status": {
+            "ok": true,
+            "joined": false,
+            "value": null,
+            "kind": "command",
+            "intent": "project-completion",
+            "checkpointMs": 55.29999999701977,
+            "objects": 1999,
+            "properties": 27072,
+            "typedViews": 16,
+            "typedIndicesEnumerated": 262144,
+            "bufferBytes": 999424,
+            "modelMs": 2.400000002235174,
+            "certifyMs": 12.399999998509884,
+            "encodedBytes": 136649,
+            "oracleOnly": true,
+            "committed": true,
+            "command": "project-completion",
+            "ms": 72,
+            "code": null,
+            "publicationErrors": []
+          },
+          "heapBefore": 19223522,
+          "heapAfter": 27261772
+        },
+        {
+          "elapsedMs": 68.5,
+          "throughSaverMs": 68.59999999776483,
+          "nextFrameMs": 99.79999999701977,
+          "status": {
+            "ok": true,
+            "joined": false,
+            "value": null,
+            "kind": "command",
+            "intent": "project-completion",
+            "checkpointMs": 53,
+            "objects": 1999,
+            "properties": 27072,
+            "typedViews": 16,
+            "typedIndicesEnumerated": 262144,
+            "bufferBytes": 999424,
+            "modelMs": 2.800000000745058,
+            "certifyMs": 10.199999999254942,
+            "encodedBytes": 136649,
+            "oracleOnly": true,
+            "committed": true,
+            "command": "project-completion",
+            "ms": 68.30000000074506,
+            "code": null,
+            "publicationErrors": []
+          },
+          "heapBefore": 17379040,
+          "heapAfter": 27969546
+        },
+        {
+          "elapsedMs": 57.5,
+          "throughSaverMs": 57.5,
+          "nextFrameMs": 80.19999999925494,
+          "status": {
+            "ok": true,
+            "joined": false,
+            "value": null,
+            "kind": "command",
+            "intent": "project-completion",
+            "checkpointMs": 47.099999997764826,
+            "objects": 1999,
+            "properties": 27072,
+            "typedViews": 16,
+            "typedIndicesEnumerated": 262144,
+            "bufferBytes": 999424,
+            "modelMs": 1.8999999985098839,
+            "certifyMs": 7,
+            "encodedBytes": 136649,
+            "oracleOnly": true,
+            "committed": true,
+            "command": "project-completion",
+            "ms": 57.30000000074506,
+            "code": null,
+            "publicationErrors": []
+          },
+          "heapBefore": 18131680,
+          "heapAfter": 25897754
+        }
+      ]
+    },
+    {
+      "fixture": "founding",
+      "kind": "near-budget-refusal",
+      "enabled": true,
+      "state": {
+        "day": 1,
+        "people": 169,
+        "population": 169,
+        "households": 67,
+        "firms": 26,
+        "routes": 0,
+        "wireBytes": 8388608
+      },
+      "runs": [
+        {
+          "elapsedMs": 147.80000000074506,
+          "throughSaverMs": 147.80000000074506,
+          "nextFrameMs": 148.10000000149012,
+          "status": {
+            "ok": false,
+            "reason": "Archive capacity reached. No changes were committed.",
+            "kind": "command",
+            "intent": "construction",
+            "checkpointMs": 38.29999999701977,
+            "objects": 1974,
+            "properties": 27002,
+            "typedViews": 9,
+            "typedIndicesEnumerated": 147456,
+            "bufferBytes": 540672,
+            "modelMs": 4.299999997019768,
+            "certifyMs": 50.400000002235174,
+            "restoreMs": 51.400000002235174,
+            "committed": false,
+            "command": "construction",
+            "ms": 147.30000000074506,
+            "code": "capacity",
+            "publicationErrors": []
+          },
+          "heapBefore": 52904446,
+          "heapAfter": 72034658
+        }
+      ]
+    },
+    {
+      "fixture": "terminal",
+      "kind": "construct",
+      "enabled": false,
+      "state": {
+        "day": 41681,
+        "people": 3108,
+        "population": 778,
+        "households": 876,
+        "firms": 81,
+        "routes": 48,
+        "wireBytes": 3011563
+      },
+      "medianMs": 183.60000000149012,
+      "runs": [
+        {
+          "elapsedMs": 183.60000000149012,
+          "throughSaverMs": 183.70000000298023,
+          "nextFrameMs": 229.10000000149012,
+          "status": null,
+          "heapBefore": 43292864,
+          "heapAfter": 69885719
+        },
+        {
+          "elapsedMs": 218.19999999925494,
+          "throughSaverMs": 218.29999999701977,
+          "nextFrameMs": 259.29999999701977,
+          "status": null,
+          "heapBefore": 43652620,
+          "heapAfter": 70821863
+        },
+        {
+          "elapsedMs": 190.60000000149012,
+          "throughSaverMs": 190.80000000074506,
+          "nextFrameMs": 238.30000000074506,
+          "status": null,
+          "heapBefore": 43384504,
+          "heapAfter": 29034491
+        },
+        {
+          "elapsedMs": 176.19999999925494,
+          "throughSaverMs": 176.40000000223517,
+          "nextFrameMs": 223,
+          "status": null,
+          "heapBefore": 30222173,
+          "heapAfter": 62389236
+        },
+        {
+          "elapsedMs": 180.90000000223517,
+          "throughSaverMs": 181,
+          "nextFrameMs": 225.69999999925494,
+          "status": null,
+          "heapBefore": 43524992,
+          "heapAfter": 29858059
+        }
+      ]
+    },
+    {
+      "fixture": "terminal",
+      "kind": "construct",
+      "enabled": true,
+      "state": {
+        "day": 41681,
+        "people": 3108,
+        "population": 778,
+        "households": 876,
+        "firms": 81,
+        "routes": 48,
+        "wireBytes": 3011563
+      },
+      "medianMs": 299.8999999985099,
+      "runs": [
+        {
+          "elapsedMs": 328.19999999925494,
+          "throughSaverMs": 484.4000000022352,
+          "nextFrameMs": 529.8000000007451,
+          "status": {
+            "ok": true,
+            "joined": false,
+            "value": null,
+            "kind": "command",
+            "intent": "construction",
+            "checkpointMs": 126.5,
+            "objects": 22864,
+            "properties": 280264,
+            "typedViews": 15,
+            "typedIndicesEnumerated": 245760,
+            "bufferBytes": 933888,
+            "modelMs": 32.600000001490116,
+            "certifyMs": 154.09999999776483,
+            "encodedBytes": 2996386,
+            "oracleOnly": true,
+            "committed": true,
+            "command": "construction",
+            "ms": 327.79999999701977,
+            "code": null,
+            "publicationErrors": []
+          },
+          "heapBefore": 29497525,
+          "heapAfter": 97975078
+        },
+        {
+          "elapsedMs": 290.5,
+          "throughSaverMs": 421.8999999985099,
+          "nextFrameMs": 481.19999999925494,
+          "status": {
+            "ok": true,
+            "joined": false,
+            "value": null,
+            "kind": "command",
+            "intent": "construction",
+            "checkpointMs": 117.80000000074506,
+            "objects": 22864,
+            "properties": 280264,
+            "typedViews": 15,
+            "typedIndicesEnumerated": 245760,
+            "bufferBytes": 933888,
+            "modelMs": 33.80000000074506,
+            "certifyMs": 125.19999999925494,
+            "encodedBytes": 2996386,
+            "oracleOnly": true,
+            "committed": true,
+            "command": "construction",
+            "ms": 290.19999999925494,
+            "code": null,
+            "publicationErrors": []
+          },
+          "heapBefore": 43388488,
+          "heapAfter": 58343275
+        },
+        {
+          "elapsedMs": 299.8999999985099,
+          "throughSaverMs": 453,
+          "nextFrameMs": 503.3999999985099,
+          "status": {
+            "ok": true,
+            "joined": false,
+            "value": null,
+            "kind": "command",
+            "intent": "construction",
+            "checkpointMs": 118.60000000149012,
+            "objects": 22864,
+            "properties": 280264,
+            "typedViews": 15,
+            "typedIndicesEnumerated": 245760,
+            "bufferBytes": 933888,
+            "modelMs": 22.799999997019768,
+            "certifyMs": 139.80000000074506,
+            "encodedBytes": 2996386,
+            "oracleOnly": true,
+            "committed": true,
+            "command": "construction",
+            "ms": 299.4000000022352,
+            "code": null,
+            "publicationErrors": []
+          },
+          "heapBefore": 29424713,
+          "heapAfter": 98566358
+        },
+        {
+          "elapsedMs": 291.9000000022352,
+          "throughSaverMs": 425.30000000074506,
+          "nextFrameMs": 466.80000000074506,
+          "status": {
+            "ok": true,
+            "joined": false,
+            "value": null,
+            "kind": "command",
+            "intent": "construction",
+            "checkpointMs": 116.5,
+            "objects": 22864,
+            "properties": 280264,
+            "typedViews": 15,
+            "typedIndicesEnumerated": 245760,
+            "bufferBytes": 933888,
+            "modelMs": 23.400000002235174,
+            "certifyMs": 142.69999999925494,
+            "encodedBytes": 2996386,
+            "oracleOnly": true,
+            "committed": true,
+            "command": "construction",
+            "ms": 291.6000000014901,
+            "code": null,
+            "publicationErrors": []
+          },
+          "heapBefore": 29667541,
+          "heapAfter": 98792750
+        },
+        {
+          "elapsedMs": 320.30000000074506,
+          "throughSaverMs": 452.70000000298023,
+          "nextFrameMs": 497.9000000022352,
+          "status": {
+            "ok": true,
+            "joined": false,
+            "value": null,
+            "kind": "command",
+            "intent": "construction",
+            "checkpointMs": 127.69999999925494,
+            "objects": 22864,
+            "properties": 280264,
+            "typedViews": 15,
+            "typedIndicesEnumerated": 245760,
+            "bufferBytes": 933888,
+            "modelMs": 40.79999999701977,
+            "certifyMs": 136.80000000074506,
+            "encodedBytes": 2996386,
+            "oracleOnly": true,
+            "committed": true,
+            "command": "construction",
+            "ms": 319.69999999925494,
+            "code": null,
+            "publicationErrors": []
+          },
+          "heapBefore": 43425416,
+          "heapAfter": 57970011
+        }
+      ]
+    },
+    {
+      "fixture": "terminal",
+      "kind": "completion",
+      "enabled": false,
+      "state": {
+        "day": 41681,
+        "people": 3108,
+        "population": 778,
+        "households": 876,
+        "firms": 81,
+        "routes": 48,
+        "wireBytes": 3011667
+      },
+      "medianMs": 22.5,
+      "runs": [
+        {
+          "elapsedMs": 24.700000002980232,
+          "throughSaverMs": 24.800000000745058,
+          "nextFrameMs": 78.90000000223517,
+          "status": null,
+          "heapBefore": 43495852,
+          "heapAfter": 34337039
+        },
+        {
+          "elapsedMs": 22,
+          "throughSaverMs": 22.100000001490116,
+          "nextFrameMs": 81,
+          "status": null,
+          "heapBefore": 43745920,
+          "heapAfter": 37456699
+        },
+        {
+          "elapsedMs": 23.5,
+          "throughSaverMs": 23.600000001490116,
+          "nextFrameMs": 79.5,
+          "status": null,
+          "heapBefore": 43762344,
+          "heapAfter": 33596219
+        },
+        {
+          "elapsedMs": 22.5,
+          "throughSaverMs": 22.5,
+          "nextFrameMs": 71.80000000074506,
+          "status": null,
+          "heapBefore": 43848904,
+          "heapAfter": 39539979
+        },
+        {
+          "elapsedMs": 18.699999999254942,
+          "throughSaverMs": 18.699999999254942,
+          "nextFrameMs": 68.19999999925494,
+          "status": null,
+          "heapBefore": 43670388,
+          "heapAfter": 34552279
+        }
+      ]
+    },
+    {
+      "fixture": "terminal",
+      "kind": "completion",
+      "enabled": true,
+      "state": {
+        "day": 41681,
+        "people": 3108,
+        "population": 778,
+        "households": 876,
+        "firms": 81,
+        "routes": 48,
+        "wireBytes": 3011667
+      },
+      "medianMs": 299.6000000014901,
+      "runs": [
+        {
+          "elapsedMs": 286.80000000074506,
+          "throughSaverMs": 286.80000000074506,
+          "nextFrameMs": 341.30000000074506,
+          "status": {
+            "ok": true,
+            "joined": false,
+            "value": null,
+            "kind": "command",
+            "intent": "project-completion",
+            "checkpointMs": 119.80000000074506,
+            "objects": 22870,
+            "properties": 280307,
+            "typedViews": 15,
+            "typedIndicesEnumerated": 245760,
+            "bufferBytes": 933888,
+            "modelMs": 21,
+            "certifyMs": 142.59999999776483,
+            "encodedBytes": 3011612,
+            "oracleOnly": true,
+            "committed": true,
+            "command": "project-completion",
+            "ms": 286.6000000014901,
+            "code": null,
+            "publicationErrors": []
+          },
+          "heapBefore": 50680865,
+          "heapAfter": 46746036
+        },
+        {
+          "elapsedMs": 294.30000000074506,
+          "throughSaverMs": 294.30000000074506,
+          "nextFrameMs": 345.0999999977648,
+          "status": {
+            "ok": true,
+            "joined": false,
+            "value": null,
+            "kind": "command",
+            "intent": "project-completion",
+            "checkpointMs": 121.30000000074506,
+            "objects": 22870,
+            "properties": 280307,
+            "typedViews": 15,
+            "typedIndicesEnumerated": 245760,
+            "bufferBytes": 933888,
+            "modelMs": 22.599999997764826,
+            "certifyMs": 144.30000000074506,
+            "encodedBytes": 3011612,
+            "oracleOnly": true,
+            "committed": true,
+            "command": "project-completion",
+            "ms": 294,
+            "code": null,
+            "publicationErrors": []
+          },
+          "heapBefore": 50845157,
+          "heapAfter": 47311328
+        },
+        {
+          "elapsedMs": 317.80000000074506,
+          "throughSaverMs": 317.9000000022352,
+          "nextFrameMs": 374.30000000074506,
+          "status": {
+            "ok": true,
+            "joined": false,
+            "value": null,
+            "kind": "command",
+            "intent": "project-completion",
+            "checkpointMs": 128.10000000149012,
+            "objects": 22870,
+            "properties": 280307,
+            "typedViews": 15,
+            "typedIndicesEnumerated": 245760,
+            "bufferBytes": 933888,
+            "modelMs": 26.600000001490116,
+            "certifyMs": 157.69999999925494,
+            "encodedBytes": 3011612,
+            "oracleOnly": true,
+            "committed": true,
+            "command": "project-completion",
+            "ms": 317.3999999985099,
+            "code": null,
+            "publicationErrors": []
+          },
+          "heapBefore": 51799685,
+          "heapAfter": 48204784
+        },
+        {
+          "elapsedMs": 299.6000000014901,
+          "throughSaverMs": 299.69999999925494,
+          "nextFrameMs": 359.5,
+          "status": {
+            "ok": true,
+            "joined": false,
+            "value": null,
+            "kind": "command",
+            "intent": "project-completion",
+            "checkpointMs": 120.30000000074506,
+            "objects": 22870,
+            "properties": 280307,
+            "typedViews": 15,
+            "typedIndicesEnumerated": 245760,
+            "bufferBytes": 933888,
+            "modelMs": 16.100000001490116,
+            "certifyMs": 160.30000000074506,
+            "encodedBytes": 3011612,
+            "oracleOnly": true,
+            "committed": true,
+            "command": "project-completion",
+            "ms": 299.30000000074506,
+            "code": null,
+            "publicationErrors": []
+          },
+          "heapBefore": 29586417,
+          "heapAfter": 55250412
+        },
+        {
+          "elapsedMs": 301.19999999925494,
+          "throughSaverMs": 301.19999999925494,
+          "nextFrameMs": 352.69999999925494,
+          "status": {
+            "ok": true,
+            "joined": false,
+            "value": null,
+            "kind": "command",
+            "intent": "project-completion",
+            "checkpointMs": 135.89999999850988,
+            "objects": 22870,
+            "properties": 280307,
+            "typedViews": 15,
+            "typedIndicesEnumerated": 245760,
+            "bufferBytes": 933888,
+            "modelMs": 16.100000001490116,
+            "certifyMs": 145.60000000149012,
+            "encodedBytes": 3011612,
+            "oracleOnly": true,
+            "committed": true,
+            "command": "project-completion",
+            "ms": 300.69999999925494,
+            "code": null,
+            "publicationErrors": []
+          },
+          "heapBefore": 29719241,
+          "heapAfter": 52787348
+        }
+      ]
+    },
+    {
+      "fixture": "terminal",
+      "kind": "near-budget-accepted-after-shrink",
+      "enabled": true,
+      "state": {
+        "day": 41681,
+        "people": 3108,
+        "population": 778,
+        "households": 876,
+        "firms": 81,
+        "routes": 48,
+        "wireBytes": 8388608
+      },
+      "runs": [
+        {
+          "elapsedMs": 373.5,
+          "throughSaverMs": 577.8000000007451,
+          "nextFrameMs": 627.4000000022352,
+          "status": {
+            "ok": true,
+            "joined": false,
+            "value": null,
+            "kind": "command",
+            "intent": "construction",
+            "checkpointMs": 127.69999999925494,
+            "objects": 22864,
+            "properties": 280265,
+            "typedViews": 15,
+            "typedIndicesEnumerated": 245760,
+            "bufferBytes": 933888,
+            "modelMs": 33.20000000298023,
+            "certifyMs": 193.59999999776483,
+            "encodedBytes": 8373431,
+            "oracleOnly": true,
+            "committed": true,
+            "command": "construction",
+            "ms": 373.0999999977648,
+            "code": null,
+            "publicationErrors": []
+          },
+          "heapBefore": 167086181,
+          "heapAfter": 113024751
+        }
+      ]
+    }
+  ]
+}

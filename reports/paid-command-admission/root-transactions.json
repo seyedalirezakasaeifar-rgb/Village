@@ -1,0 +1,657 @@
+{
+  "source_sha256": "10addf0014c6b17027aaedc417914dc12c419ee31d43d5692c9268d42d0defcd",
+  "hostChromium": true,
+  "physicalAndroid": false,
+  "productionDefaultEnabled": false,
+  "ordinary": {
+    "construct": {
+      "exactModelRng": true,
+      "baselineMs": 10.800000000745058,
+      "enabledMs": 83.30000000074506
+    },
+    "completion": {
+      "exactModelRng": true,
+      "baselineMs": 3.099999997764826,
+      "enabledMs": 81.39999999850988
+    },
+    "grant": {
+      "exactModelRng": true,
+      "baselineMs": 10.699999999254942,
+      "enabledMs": 84.60000000149012
+    }
+  },
+  "refusals": [
+    {
+      "kind": "construct",
+      "unchanged": true,
+      "writes": 0,
+      "notifications": [
+        {
+          "text": "Archive capacity reached. No changes were committed.",
+          "duringModel": false
+        }
+      ],
+      "ms": 233.90000000223517,
+      "status": {
+        "enabled": true,
+        "active": false,
+        "halted": false,
+        "last": {
+          "ok": false,
+          "reason": "Archive capacity reached. No changes were committed.",
+          "kind": "command",
+          "intent": "construction",
+          "checkpointMs": 72.59999999776483,
+          "objects": 3164,
+          "properties": 51654,
+          "typedViews": 21,
+          "typedIndicesEnumerated": 344064,
+          "bufferBytes": 1327104,
+          "modelMs": 3.599999997764826,
+          "certifyMs": 50,
+          "restoreMs": 91.29999999701977,
+          "committed": false,
+          "command": "construction",
+          "ms": 219.60000000149012,
+          "code": "capacity",
+          "publicationErrors": []
+        },
+        "protocol": {
+          "enabled": true,
+          "halted": false,
+          "active": false,
+          "kind": null,
+          "phase": "idle",
+          "last": {
+            "kind": "command",
+            "ok": false,
+            "reason": "Archive capacity reached. No changes were committed.",
+            "effectErrors": []
+          },
+          "pendingSaveGenerations": 0
+        },
+        "metrics": {
+          "captures": 1,
+          "certificates": 2,
+          "restores": 1,
+          "last": {
+            "kind": "command",
+            "intent": "construction",
+            "checkpointMs": 72.59999999776483,
+            "objects": 3164,
+            "properties": 51654,
+            "typedViews": 21,
+            "typedIndicesEnumerated": 344064,
+            "bufferBytes": 1327104,
+            "modelMs": 3.599999997764826,
+            "certifyMs": 50,
+            "restoreMs": 91.29999999701977,
+            "committed": false,
+            "reason": "Archive capacity reached. No changes were committed."
+          }
+        }
+      }
+    },
+    {
+      "kind": "completion",
+      "unchanged": true,
+      "writes": 0,
+      "notifications": [
+        {
+          "text": "Archive capacity reached. No changes were committed.",
+          "duringModel": false
+        }
+      ],
+      "ms": 266.6000000014901,
+      "status": {
+        "enabled": true,
+        "active": false,
+        "halted": false,
+        "last": {
+          "ok": false,
+          "reason": "Archive capacity reached. No changes were committed.",
+          "kind": "command",
+          "intent": "project-completion",
+          "checkpointMs": 71.80000000074506,
+          "objects": 3180,
+          "properties": 51764,
+          "typedViews": 21,
+          "typedIndicesEnumerated": 344064,
+          "bufferBytes": 1327104,
+          "modelMs": 2.600000001490116,
+          "certifyMs": 61.399999998509884,
+          "restoreMs": 114.5,
+          "committed": false,
+          "command": "project-completion",
+          "ms": 252.10000000149012,
+          "code": "capacity",
+          "publicationErrors": []
+        },
+        "protocol": {
+          "enabled": true,
+          "halted": false,
+          "active": false,
+          "kind": null,
+          "phase": "idle",
+          "last": {
+            "kind": "command",
+            "ok": false,
+            "reason": "Archive capacity reached. No changes were committed.",
+            "effectErrors": []
+          },
+          "pendingSaveGenerations": 0
+        },
+        "metrics": {
+          "captures": 1,
+          "certificates": 2,
+          "restores": 1,
+          "last": {
+            "kind": "command",
+            "intent": "project-completion",
+            "checkpointMs": 71.80000000074506,
+            "objects": 3180,
+            "properties": 51764,
+            "typedViews": 21,
+            "typedIndicesEnumerated": 344064,
+            "bufferBytes": 1327104,
+            "modelMs": 2.600000001490116,
+            "certifyMs": 61.399999998509884,
+            "restoreMs": 114.5,
+            "committed": false,
+            "reason": "Archive capacity reached. No changes were committed."
+          }
+        }
+      }
+    },
+    {
+      "kind": "grant",
+      "unchanged": true,
+      "writes": 0,
+      "notifications": [],
+      "ms": 250.89999999850988,
+      "status": {
+        "enabled": true,
+        "active": false,
+        "halted": false,
+        "last": {
+          "ok": false,
+          "reason": "Archive capacity reached. No changes were committed.",
+          "kind": "command",
+          "intent": "grant",
+          "checkpointMs": 78.30000000074506,
+          "objects": 3164,
+          "properties": 51655,
+          "typedViews": 21,
+          "typedIndicesEnumerated": 344064,
+          "bufferBytes": 1327104,
+          "modelMs": 0.5,
+          "certifyMs": 47.599999997764826,
+          "restoreMs": 108.80000000074506,
+          "committed": false,
+          "command": "grant",
+          "ms": 237.30000000074506,
+          "code": "capacity",
+          "publicationErrors": []
+        },
+        "protocol": {
+          "enabled": true,
+          "halted": false,
+          "active": false,
+          "kind": null,
+          "phase": "idle",
+          "last": {
+            "kind": "command",
+            "ok": false,
+            "reason": "Archive capacity reached. No changes were committed.",
+            "effectErrors": []
+          },
+          "pendingSaveGenerations": 0
+        },
+        "metrics": {
+          "captures": 1,
+          "certificates": 2,
+          "restores": 1,
+          "last": {
+            "kind": "command",
+            "intent": "grant",
+            "checkpointMs": 78.30000000074506,
+            "objects": 3164,
+            "properties": 51655,
+            "typedViews": 21,
+            "typedIndicesEnumerated": 344064,
+            "bufferBytes": 1327104,
+            "modelMs": 0.5,
+            "certifyMs": 47.599999997764826,
+            "restoreMs": 108.80000000074506,
+            "committed": false,
+            "reason": "Archive capacity reached. No changes were committed."
+          }
+        }
+      }
+    },
+    {
+      "kind": "paid-council",
+      "unchanged": true,
+      "dialogOpen": true,
+      "status": {
+        "enabled": true,
+        "active": false,
+        "halted": false,
+        "last": {
+          "ok": false,
+          "reason": "Archive capacity reached. No changes were committed.",
+          "kind": "command",
+          "intent": "council-choice",
+          "checkpointMs": 58.900000002235174,
+          "objects": 3176,
+          "properties": 51682,
+          "typedViews": 21,
+          "typedIndicesEnumerated": 344064,
+          "bufferBytes": 1327104,
+          "modelMs": 1.0999999977648258,
+          "certifyMs": 77.40000000223517,
+          "restoreMs": 107.20000000298023,
+          "committed": false,
+          "command": "council-choice",
+          "ms": 245.5,
+          "code": "capacity",
+          "publicationErrors": []
+        },
+        "protocol": {
+          "enabled": true,
+          "halted": false,
+          "active": false,
+          "kind": null,
+          "phase": "idle",
+          "last": {
+            "kind": "command",
+            "ok": false,
+            "reason": "Archive capacity reached. No changes were committed.",
+            "effectErrors": []
+          },
+          "pendingSaveGenerations": 0
+        },
+        "metrics": {
+          "captures": 2,
+          "certificates": 3,
+          "restores": 1,
+          "last": {
+            "kind": "command",
+            "intent": "council-choice",
+            "checkpointMs": 58.900000002235174,
+            "objects": 3176,
+            "properties": 51682,
+            "typedViews": 21,
+            "typedIndicesEnumerated": 344064,
+            "bufferBytes": 1327104,
+            "modelMs": 1.0999999977648258,
+            "certifyMs": 77.40000000223517,
+            "restoreMs": 107.20000000298023,
+            "committed": false,
+            "reason": "Archive capacity reached. No changes were committed."
+          }
+        }
+      }
+    },
+    {
+      "kind": "paid-grant-choice",
+      "unchanged": true,
+      "dialogOpen": true,
+      "status": {
+        "enabled": true,
+        "active": false,
+        "halted": false,
+        "last": {
+          "ok": false,
+          "reason": "Archive capacity reached. No changes were committed.",
+          "kind": "command",
+          "intent": "council-choice",
+          "checkpointMs": 59.899999998509884,
+          "objects": 3176,
+          "properties": 51682,
+          "typedViews": 21,
+          "typedIndicesEnumerated": 344064,
+          "bufferBytes": 1327104,
+          "modelMs": 0.8999999985098839,
+          "certifyMs": 75.5,
+          "restoreMs": 102.69999999925494,
+          "committed": false,
+          "command": "council-choice",
+          "ms": 240.29999999701977,
+          "code": "capacity",
+          "publicationErrors": []
+        },
+        "protocol": {
+          "enabled": true,
+          "halted": false,
+          "active": false,
+          "kind": null,
+          "phase": "idle",
+          "last": {
+            "kind": "command",
+            "ok": false,
+            "reason": "Archive capacity reached. No changes were committed.",
+            "effectErrors": []
+          },
+          "pendingSaveGenerations": 0
+        },
+        "metrics": {
+          "captures": 2,
+          "certificates": 3,
+          "restores": 1,
+          "last": {
+            "kind": "command",
+            "intent": "council-choice",
+            "checkpointMs": 59.899999998509884,
+            "objects": 3176,
+            "properties": 51682,
+            "typedViews": 21,
+            "typedIndicesEnumerated": 344064,
+            "bufferBytes": 1327104,
+            "modelMs": 0.8999999985098839,
+            "certifyMs": 75.5,
+            "restoreMs": 102.69999999925494,
+            "committed": false,
+            "reason": "Archive capacity reached. No changes were committed."
+          }
+        }
+      }
+    },
+    {
+      "kind": "reviewed-construction",
+      "unchanged": true,
+      "dialogOpen": true,
+      "status": {
+        "enabled": true,
+        "active": false,
+        "halted": false,
+        "last": {
+          "ok": false,
+          "reason": "Archive capacity reached. No changes were committed.",
+          "kind": "command",
+          "intent": "reviewed-construction",
+          "checkpointMs": 57.399999998509884,
+          "objects": 3180,
+          "properties": 51710,
+          "typedViews": 21,
+          "typedIndicesEnumerated": 344064,
+          "bufferBytes": 1327104,
+          "modelMs": 18,
+          "certifyMs": 51.69999999925494,
+          "restoreMs": 91.89999999850988,
+          "committed": false,
+          "command": "reviewed-construction",
+          "ms": 220.09999999776483,
+          "code": "capacity",
+          "publicationErrors": []
+        },
+        "protocol": {
+          "enabled": true,
+          "halted": false,
+          "active": false,
+          "kind": null,
+          "phase": "idle",
+          "last": {
+            "kind": "command",
+            "ok": false,
+            "reason": "Archive capacity reached. No changes were committed.",
+            "effectErrors": []
+          },
+          "pendingSaveGenerations": 0
+        },
+        "metrics": {
+          "captures": 2,
+          "certificates": 3,
+          "restores": 1,
+          "last": {
+            "kind": "command",
+            "intent": "reviewed-construction",
+            "checkpointMs": 57.399999998509884,
+            "objects": 3180,
+            "properties": 51710,
+            "typedViews": 21,
+            "typedIndicesEnumerated": 344064,
+            "bufferBytes": 1327104,
+            "modelMs": 18,
+            "certifyMs": 51.69999999925494,
+            "restoreMs": 91.89999999850988,
+            "committed": false,
+            "reason": "Archive capacity reached. No changes were committed."
+          }
+        }
+      }
+    }
+  ],
+  "oracleOnly": true,
+  "experiment_sha256": {
+    "root-capacity-api.js": "cfc65e914a4e5a3d54914f39b0f20ccda3be4734d17db079a8f18847aaaa4e65",
+    "game-capacity-root-adapter.js": "5dbadfd6b141aa39d43aac6d05d51ae5bf3e845a4ca7d96d4ea35f07680175e0",
+    "paid-command-root.js": "de152a038ba7274a7b90f1969879b00f7fa1b151b6ef73fed2a6b90684eb8f82"
+  },
+  "mapSurveyRefusal": {
+    "exactRefusal": true,
+    "surveyTargetIdentity": true,
+    "status": {
+      "ok": false,
+      "reason": "Archive capacity reached. No changes were committed.",
+      "kind": "command",
+      "intent": "construction",
+      "checkpointMs": 74.60000000149012,
+      "objects": 3176,
+      "properties": 51714,
+      "typedViews": 21,
+      "typedIndicesEnumerated": 344064,
+      "bufferBytes": 1327104,
+      "modelMs": 4.100000001490116,
+      "certifyMs": 49.600000001490116,
+      "restoreMs": 94.59999999776483,
+      "committed": false,
+      "command": "construction",
+      "ms": 225.5,
+      "code": "capacity",
+      "publicationErrors": []
+    }
+  },
+  "graphFault": {
+    "exact": true,
+    "status": {
+      "ok": false,
+      "reason": "Controlled root fault",
+      "thrown": true
+    }
+  },
+  "recordLimits": [
+    {
+      "kind": "people",
+      "total": 24000,
+      "exactRefusal": true,
+      "status": {
+        "ok": false,
+        "reason": "Archive capacity reached. No changes were committed.",
+        "kind": "command",
+        "intent": "construction",
+        "checkpointMs": 141.20000000298023,
+        "objects": 50830,
+        "properties": 242322,
+        "typedViews": 21,
+        "typedIndicesEnumerated": 344064,
+        "bufferBytes": 1327104,
+        "modelMs": 3.7999999970197678,
+        "certifyMs": 20.400000002235174,
+        "restoreMs": 192.69999999925494,
+        "committed": false,
+        "command": "construction",
+        "ms": 364.1000000014901,
+        "code": "capacity",
+        "publicationErrors": []
+      }
+    },
+    {
+      "kind": "households",
+      "total": 9000,
+      "exactRefusal": true,
+      "status": {
+        "ok": false,
+        "reason": "Archive capacity reached. No changes were committed.",
+        "kind": "command",
+        "intent": "construction",
+        "checkpointMs": 105,
+        "objects": 38900,
+        "properties": 132071,
+        "typedViews": 21,
+        "typedIndicesEnumerated": 344064,
+        "bufferBytes": 1327104,
+        "modelMs": 4.599999997764826,
+        "certifyMs": 12.900000002235174,
+        "restoreMs": 147.60000000149012,
+        "committed": false,
+        "command": "construction",
+        "ms": 273.4000000022352,
+        "code": "capacity",
+        "publicationErrors": []
+      }
+    },
+    {
+      "kind": "firms",
+      "total": 9000,
+      "exactRefusal": true,
+      "status": {
+        "ok": false,
+        "reason": "Archive capacity reached. No changes were committed.",
+        "kind": "command",
+        "intent": "construction",
+        "checkpointMs": 145.60000000149012,
+        "objects": 65986,
+        "properties": 338842,
+        "typedViews": 21,
+        "typedIndicesEnumerated": 344064,
+        "bufferBytes": 1327104,
+        "modelMs": 2.7999999970197678,
+        "certifyMs": 35,
+        "restoreMs": 237.79999999701977,
+        "committed": false,
+        "command": "construction",
+        "ms": 426.6000000014901,
+        "code": "capacity",
+        "publicationErrors": []
+      }
+    }
+  ],
+  "normalizationFrontierBlocker": {
+    "knownBlocker": true,
+    "headroom": 128,
+    "wireBytes": 8388480,
+    "importRejectedAtomically": true,
+    "normalizationByteGrowth": 305,
+    "validationPassedBeforeImport": true
+  },
+  "nearAccepted": {
+    "accepted": true,
+    "wireBytes": 8384512,
+    "limit": 8388608,
+    "moneyPreserved": true,
+    "selfImport": true,
+    "status": {
+      "ok": true,
+      "joined": false,
+      "value": null,
+      "kind": "command",
+      "intent": "construction",
+      "checkpointMs": 72.69999999925494,
+      "objects": 3173,
+      "properties": 51682,
+      "typedViews": 21,
+      "typedIndicesEnumerated": 344064,
+      "bufferBytes": 1327104,
+      "modelMs": 3.199999999254942,
+      "certifyMs": 117.69999999925494,
+      "encodedBytes": 8384512,
+      "oracleOnly": true,
+      "committed": true,
+      "command": "construction",
+      "ms": 199.89999999850988,
+      "code": null,
+      "publicationErrors": []
+    }
+  },
+  "nested": [
+    {
+      "near": false,
+      "ok": true,
+      "captures": 1,
+      "certificates": 1,
+      "writes": [
+        {
+          "active": false,
+          "marker": "done"
+        }
+      ],
+      "exactRefusal": null
+    },
+    {
+      "near": true,
+      "ok": false,
+      "captures": 1,
+      "certificates": 1,
+      "writes": [],
+      "exactRefusal": true
+    }
+  ],
+  "ordinarySave": {
+    "zeroCaptures": true,
+    "zeroCertificates": true
+  },
+  "oneController": true,
+  "reservationGate": {
+    "enabled": false,
+    "unchanged": true,
+    "status": {
+      "enabled": false,
+      "active": false,
+      "halted": false,
+      "last": null,
+      "protocol": {
+        "enabled": false,
+        "halted": false,
+        "active": false,
+        "kind": null,
+        "phase": "idle",
+        "last": {
+          "kind": "initial",
+          "ok": false,
+          "reason": "Future financial and visual reservations are not configured."
+        },
+        "pendingSaveGenerations": 0
+      },
+      "metrics": {
+        "captures": 0,
+        "certificates": 1,
+        "restores": 0,
+        "last": null
+      }
+    }
+  },
+  "ghostGrant": {
+    "refused": true,
+    "exact": true,
+    "status": {
+      "ok": false,
+      "reason": "This operation would create invalid property or identity records. No changes were committed.",
+      "kind": "command",
+      "intent": "grant-reference-test",
+      "checkpointMs": 113.60000000149012,
+      "objects": 3172,
+      "properties": 51689,
+      "typedViews": 21,
+      "typedIndicesEnumerated": 344064,
+      "bufferBytes": 1327104,
+      "modelMs": 0.09999999776482582,
+      "restoreMs": 106.69999999925494,
+      "committed": false,
+      "command": "grant-reference-test",
+      "ms": 222.40000000223517,
+      "code": "refused",
+      "publicationErrors": []
+    }
+  }
+}
