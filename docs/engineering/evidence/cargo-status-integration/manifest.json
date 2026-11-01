@@ -1,0 +1,15 @@
+{
+  "base": "8ddf763316d446807553254ce86d78a7435a1e7f",
+  "source_sha256": "54e223010e0468b43ec8485fa889b288ee0a7aac404b2d98a892e03443f63903",
+  "functionalScriptsPassed": 33,
+  "growthColdReplayExcludedFields": [],
+  "files": {
+    "final-composite-gates.json.gz": "6173c4e4bc8e9ad9244a72434f5b563f54a3003591a07568d55392aeaff9f7c2",
+    "final-composite-host-cost.json": "1ad2a7dea69b66fc22bc332e92d939b567081b3b4f3610f974cacf4edf73b675",
+    "final-source-growth-journey.json": "4ca461b4e352b208fe962122e50d29760c185bcd8b442f78c833f2f21e7a6afe",
+    "focused-current-source.log": "39d3a32acc95fa97ad38befc6d9641719e6f177e8d18643b95b6ed160bc4fc25",
+    "gates.json": "261f4dc1377aa01dd7d81c480141ca42bcfd7d98eac8fbab4adeea748540d859",
+    "historical-defect-reproduction.log": "1111a7fe84f3a81aa39ac2acc45755a050fbe5a85108a601f3b8d01d8e0c53fe",
+    "original-candidate-completed-ledger-negative.log": "3c1bef95dafde5c3223360a480bb15e9c979c7b5af28676e35689a5d5586157a"
+  }
+}

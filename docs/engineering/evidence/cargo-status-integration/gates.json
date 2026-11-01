@@ -1,0 +1,200 @@
+{
+  "source_sha256": "54e223010e0468b43ec8485fa889b288ee0a7aac404b2d98a892e03443f63903",
+  "base": "8ddf763316d446807553254ce86d78a7435a1e7f",
+  "parallelism": 3,
+  "timingScope": "Functional gates under shared host load; durations are not performance acceptance",
+  "gates": [
+    {
+      "test": "test_native_archive_io",
+      "exit_code": 0,
+      "seconds": 1.43,
+      "log_sha256": "3a43b4e0a46c20721eb603470a2a99074cc40cf119ba441a656a5f1a9960f155"
+    },
+    {
+      "test": "test_native_back_recovery",
+      "exit_code": 0,
+      "seconds": 4.58,
+      "log_sha256": "c18b38ab0c6b06424ad218d3fbe26598cedfbccd8fb2327c074ff68535b3f5f9"
+    },
+    {
+      "test": "test_cold_continue_canonical",
+      "exit_code": 0,
+      "seconds": 5.27,
+      "log_sha256": "732a2e0f68f43d6297b75e4f81993fb23326faa7f19254f642f64f3b15e603e8"
+    },
+    {
+      "test": "test_archive_schema",
+      "exit_code": 0,
+      "seconds": 2.86,
+      "log_sha256": "3744e3b5b1bb18cc0bbeaa5bb47324c265021b56c98cd0405b6ba7472102d160"
+    },
+    {
+      "test": "test_goods_precision",
+      "exit_code": 0,
+      "seconds": 5.39,
+      "log_sha256": "02d6e27dd3920dec79bcfa07771351aa1e524d76c34d30ca458d35b997ece6e7"
+    },
+    {
+      "test": "test_v7_model",
+      "exit_code": 0,
+      "seconds": 9.5,
+      "log_sha256": "12095f4cbe091df2e520462819a79f05cde1bf901d62029c0939b7b566ab98b2"
+    },
+    {
+      "test": "test_effective_wage_allocator_matrix",
+      "exit_code": 0,
+      "seconds": 38.06,
+      "log_sha256": "ca21994cd1f023fd313f009aaf5944e1fd38de40abc9f0b8c853596b1f7583d6"
+    },
+    {
+      "test": "test_save_adversarial",
+      "exit_code": 0,
+      "seconds": 37.24,
+      "log_sha256": "b7b7e49fe220dd629b4b35601f0c3b34e082628c80735c022ba036485c47eecd"
+    },
+    {
+      "test": "test_save_queue",
+      "exit_code": 0,
+      "seconds": 5.05,
+      "log_sha256": "bb0ae1e7bd1574daa2e0ebcd066b3bdfabc4bf7714639f2979a3d76b449cb0d6"
+    },
+    {
+      "test": "test_save_storage",
+      "exit_code": 0,
+      "seconds": 5.51,
+      "log_sha256": "03a6154ea2adbd95c7df92ece81e53d1e14dadfe56b70709623b39b0a0d3c505"
+    },
+    {
+      "test": "test_host_lifecycle",
+      "exit_code": 0,
+      "seconds": 5.78,
+      "log_sha256": "ab50c51923b56e7119afe6139bc4b79b8456971b99f81cc8ee0d03a461251004"
+    },
+    {
+      "test": "test_credit_cashflow",
+      "exit_code": 0,
+      "seconds": 3.76,
+      "log_sha256": "7e9bdb572827e4aafb6b7dd3f69fd443a447c8fe5533606ea544b38870d8c755"
+    },
+    {
+      "test": "test_release",
+      "exit_code": 0,
+      "seconds": 38.55,
+      "log_sha256": "ef77141f8d057eda59a5d6a95d56aa3f3d7d6ad7b297dd1454c8f1bf1a31b4b8"
+    },
+    {
+      "test": "test_household_markets",
+      "exit_code": 0,
+      "seconds": 6.83,
+      "log_sha256": "baff4683919c9d92c4d9915de75eb0bd3c0a53718a444d3f5d9f40edddde1402"
+    },
+    {
+      "test": "test_regional_trade",
+      "exit_code": 0,
+      "seconds": 5.44,
+      "log_sha256": "ee8a12433e68539901eb4baa78b893342939ec19d667c68b72e8d6a9460e2060"
+    },
+    {
+      "test": "test_save_chronology",
+      "exit_code": 0,
+      "seconds": 39.77,
+      "log_sha256": "030cbfcdee7aaf575dce6815a0b48d49897cca4a91b340b5d83d0884369843c9"
+    },
+    {
+      "test": "test_seed_sort_stability",
+      "exit_code": 0,
+      "seconds": 19.31,
+      "log_sha256": "757032bf08ad35c44aa4de0d46f0f7924a90e653cbccc516ea606647e8744a7b"
+    },
+    {
+      "test": "test_v7_default_starts",
+      "exit_code": 0,
+      "seconds": 41.39,
+      "log_sha256": "f6d7de28807729df951c3ab8180173dbbcc04b77a5d1d72104f81f1815adf450"
+    },
+    {
+      "test": "test_v7_liquidity",
+      "exit_code": 0,
+      "seconds": 51.9,
+      "log_sha256": "fdd1bec88befe5dd3eae28ecde64982df59e28261f059237264e549dc7f86700"
+    },
+    {
+      "test": "test_urban_kernel",
+      "exit_code": 0,
+      "seconds": 41.63,
+      "log_sha256": "3f6fa537c0ccf544788e6e8bcad9602457925c635d2429814fba71b3e97a5e51"
+    },
+    {
+      "test": "test_district_independent_acceptance",
+      "exit_code": 0,
+      "seconds": 31.06,
+      "log_sha256": "3ff4995c764dba5be3ac90317b2aa7c5f76d01de3f2268bf3c1bccc3532447ce"
+    },
+    {
+      "test": "test_service_access_population_invariance",
+      "exit_code": 0,
+      "seconds": 18.44,
+      "log_sha256": "d787e2ca2ded7b55598c460e8acef68c6d46b08da7e4718e2430cbedcc9031af"
+    },
+    {
+      "test": "test_retail_proposal_review",
+      "exit_code": 0,
+      "seconds": 9.09,
+      "log_sha256": "188d175a0a8f02e1eb38075a3f493490be72b9a8eac0c7460faebfe562923ea8"
+    },
+    {
+      "test": "test_bridge_cold_continue",
+      "exit_code": 0,
+      "seconds": 8.63,
+      "log_sha256": "265ffaf6e859e34c59fed530eff153e63acf29e713aa685654dba70193a36178"
+    },
+    {
+      "test": "test_repeated_expansion_controls",
+      "exit_code": 0,
+      "seconds": 21.44,
+      "log_sha256": "11228c42eaff10d394b240276c79265192cc8b5a20c3add6805cd90aa1a4e599"
+    },
+    {
+      "test": "test_committed_day_save",
+      "exit_code": 0,
+      "seconds": 9.8,
+      "log_sha256": "0bdb1b943f362163e2c640680bcab9042abf7d0e62d60026131a8605eeacfcd6"
+    },
+    {
+      "test": "test_pending_review_flows",
+      "exit_code": 0,
+      "seconds": 7.46,
+      "log_sha256": "8f6c62976f8f2cb7129149740fba4c233cccf8bddb17cb5adecee5894351e133"
+    },
+    {
+      "test": "test_modal_readability",
+      "exit_code": 0,
+      "seconds": 6.82,
+      "log_sha256": "8f4ce1b5b39ea0248277151bf9d1cd4ce3395aba076ca487093acf4a607015cd"
+    },
+    {
+      "test": "test_urban_profile_observation_contract",
+      "exit_code": 0,
+      "seconds": 14.68,
+      "log_sha256": "da69a75c86bc4d075e33d2a03ac1fdca93d85451552241d696dfd44d91179c80"
+    },
+    {
+      "test": "test_growth_automatic_equivalence",
+      "exit_code": 0,
+      "seconds": 37.16,
+      "log_sha256": "32e873ca21a4128513b9038cc122a9d17540b745d2803839c4bd2aa742754334"
+    },
+    {
+      "test": "test_urban_growth_journey",
+      "exit_code": 0,
+      "seconds": 41.07,
+      "log_sha256": "f426c4b2f04916de484d52777e071a594b1e3a6c9c641c4e01e9d93a314dfff3"
+    },
+    {
+      "test": "test_v7_scenarios",
+      "exit_code": 0,
+      "seconds": 176.4,
+      "log_sha256": "d511cd53ddb511fa7360ea9cbe666fa5a802c895d4fef97f7dbe2f258c573d0e"
+    }
+  ]
+}
