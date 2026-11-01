@@ -1,0 +1,19 @@
+# Asynchronous archive subsystem — disabled integration
+
+Source d2b7086, same production validator/writer as current worker checkpoint. No native Java method or production startup is changed.
+
+`window.__workerArchiveAsync.submit({id,epoch,op,archive?})` returns ONLY `{accepted:true,id}` or synchronous admission refusal. IDs are monotonically increasing safe integers; duplicate/old IDs never execute again. At most4 requests are pending, with FIFO archive operations. Epoch comes from `.status()`. Operations: export, save, restore. No Promise is interpreted as a synchronous native success.
+
+Completion is a `worker-archive-result` CustomEvent with detail `{id,ok,epoch,admitted,committed,result?,error?,outcome?}`. If native provides `AndroidArchive.workerArchiveResult(String json)`, the exact same completion is delivered there. Native owner must add/validate that interface and correlate IDs; it is not present in current MainActivity. Legacy synchronous __townArchive.export/restore remain explicitly blocked in worker mode until native owner changes the callers. No native acceptance is claimed.
+
+- export requests canonical completed Worker state; the UI snapshot is never used as the export authority.
+- save pins canonical state, invokes existing persistSnapshot/saveEnvelope/IndexedDB owner and acknowledges only its actual result. No second writer is introduced.
+- restore validates/normalizes using actual hydrateSave in a separate guarded Worker realm. Only worker-specific presentation reset/centering hooks are replaced with explicit staged effects; model validator, normalizer and recomputation are original source. The active realm is not mutated by validation failure. Once validated and not cancelled/stale, one load command advances epoch and main save timeline. Staged UI effects publish only afterward; pending old modal/selection/build draft state clears at that boundary. Restore reports `{restored:true,persisted:false}`; caller must request/observe save separately. Old saved data is not falsely reported replaced before persistence.
+
+`.cancel(id)` cancels queued/read/validation work before owner admission. An already admitted write/restore cannot truthfully be cancelled; it returns ALREADY_ADMITTED and eventually produces its real completion. No rollback is invented after I/O. An error after owner admission carries UNKNOWN_OR_FAILED_OWNER_OPERATION and does not claim that no changes occurred. Queued work whose epoch becomes stale after a restore refuses. Model mutations/new saves are blocked while candidate validation owns the restore barrier. An already-running save is awaited before restore validation; late reply publication cannot adopt a stale model.
+
+Evidence: archive_endpoint_test.py tests delayed reply, duplicate, cancellation and save/load race coordination; real_view.py verifies actual canonical export, original-validator restore, invalid/cancelled active-town preservation, epoch-stale save refusal, and subsequent original-owner persistence. real-archive-proof.json records completions. Isolated validation also passes restore_probe.py. Current 61-day model/RNG and policy evidence gate remains separate.
+
+## Native/root handoff blockers
+
+Native owner must implement the asynchronous callback and supported-runtime guard, file result/cancellation/error UI, large-payload handling and actual WebView tests. Do not replace its synchronous boolean test with `!!Promise`. Shared paid/day root owner still must integrate the registry and reservation policy; archive coordination creates no controller/root/fence. Hydration candidate preparation is isolated, not a replacement for the owner's accepted restore transaction and capacity reservations. Native lifecycle while requests are pending, process death, callback-delivery failure and physical-device memory remain acceptance gates. The prototype stays disabled.

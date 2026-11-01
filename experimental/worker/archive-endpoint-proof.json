@@ -1,0 +1,46 @@
+{
+  "delayedReply": true,
+  "duplicateRejected": true,
+  "cancelledSaveNoWrites": true,
+  "oldEpochSaveAfterRestoreRejected": true,
+  "replies": [
+    {
+      "id": 1,
+      "ok": true,
+      "epoch": 1,
+      "admitted": false,
+      "committed": false,
+      "result": {
+        "archive": "canonical"
+      }
+    },
+    {
+      "id": 2,
+      "ok": false,
+      "epoch": 1,
+      "admitted": false,
+      "committed": false,
+      "outcome": "NOT_ADMITTED",
+      "error": "CANCELLED"
+    },
+    {
+      "id": 3,
+      "ok": true,
+      "epoch": 2,
+      "admitted": true,
+      "committed": true,
+      "result": {
+        "restored": true
+      }
+    },
+    {
+      "id": 4,
+      "ok": false,
+      "epoch": 2,
+      "admitted": false,
+      "committed": false,
+      "outcome": "NOT_ADMITTED",
+      "error": "STALE_EPOCH"
+    }
+  ]
+}
