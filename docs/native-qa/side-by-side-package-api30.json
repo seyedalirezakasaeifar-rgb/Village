@@ -1,0 +1,59 @@
+{
+  "result": "TEST_ONLY_SIDE_BY_SIDE_INSTALL_PASSED",
+  "source_commit": "a675ce4e3b7ed421f0cc04f600d5543606bceb0d",
+  "package": "org.townledger.vale.qa",
+  "application_label": "TownLedger: The Vale (TEST ONLY)",
+  "version_name": "8.0.0-side-by-side-test",
+  "version_code": 900005,
+  "min_sdk": 24,
+  "target_sdk": 36,
+  "apk_sha256": "648b344a0ba8feb59334eab0dd2fdfba142e848d020622f9029dc7160469fcbe",
+  "apk_bytes": 18397586,
+  "installed_apk_hash_matched_build": true,
+  "signing_certificate_sha256": "efcc9e62a1f908df7a51271061d887a1e9e227271a8a5478095627b17af0cbd5",
+  "signer_classification": "existing development key, not the 7.1.1 signing identity",
+  "emulator": "Android 11/API 30, emulator-5556",
+  "install_checks": {
+    "qa_package_installed": true,
+    "qa_activity_started": true,
+    "qa_package_and_original_package_coexist": true,
+    "original_package_remained_org_townledger_vale": true,
+    "old_package_was_restored_to_foreground_after_test": true
+  },
+  "original_package_baseline": {
+    "package": "org.townledger.vale",
+    "version_name": "private-native-qa",
+    "version_code": 900004,
+    "installed_apk_sha256": "038ae49937d34319e5b48c72306d395144b76b02f5c67bb70c2bfefaf765ba7e",
+    "certificate_sha256": "8660b90451e4b4727f7fe4c682309491d5da2ff7bb13cd47aa45be8ff8e21795",
+    "synthetic_local_storage_before_and_after": [
+      {
+        "slot": "townledger-music",
+        "chars": 192,
+        "fnv32": "1dceba7f"
+      },
+      {
+        "slot": "townledger-v6",
+        "chars": 151714,
+        "fnv32": "c7d8a7a8"
+      },
+      {
+        "slot": "townledger-v6-backup",
+        "chars": 386830,
+        "fnv32": "8bdf7159"
+      }
+    ],
+    "storage_summary_unchanged_after_install_and_launch": true
+  },
+  "release_signing_comparison": {
+    "delivered_7_1_1_certificate_sha256": "52ae61b76c6cebd430dbdd0db54f8347e5dcd223e4146b4af92dfbdb0190650e",
+    "available_development_key_matches_7_1_1": false,
+    "in_place_update_signing_from_this_environment": "not available",
+    "side_by_side_requirement": "distinct Android application ID; this test used org.townledger.vale.qa"
+  },
+  "limitations": [
+    "The installed original was a synthetic native QA build, not the delivered 7.1.1 APK.",
+    "This proves package-ID isolation and a safe emulator install path, not a production release or data migration.",
+    "No real user save or production signing key was used."
+  ]
+}
