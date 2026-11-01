@@ -602,7 +602,7 @@
     },
     "clinic": 204,
     "clinicCost": 8000,
-    "treasuryAfter": 1248734.4138669185
+    "treasuryAfter": 1187621.3995474065
   },
   "incomeProfilesBefore": [
     {
@@ -610,8 +610,8 @@
       "character": "Market centre",
       "incomeBand": "Middle income",
       "people": 20,
-      "perPersonIncome": 23.65795925666181,
-      "rentBurden": 0.21854771832606343,
+      "perPersonIncome": 23.6142539096191,
+      "rentBurden": 0.21908495588828922,
       "condition": 99.89491961662853
     },
     {
@@ -619,8 +619,8 @@
       "character": "Downtown mixed-use",
       "incomeBand": "Middle income",
       "people": 46,
-      "perPersonIncome": 27.670890446335207,
-      "rentBurden": 0.15604888841889072,
+      "perPersonIncome": 26.755489986145857,
+      "rentBurden": 0.16174501489401197,
       "condition": 99.75895885615093
     },
     {
@@ -646,8 +646,8 @@
       "character": "Agricultural belt",
       "incomeBand": "Middle income",
       "people": 11,
-      "perPersonIncome": 23.564117563050004,
-      "rentBurden": 0.07750164839128777,
+      "perPersonIncome": 23.589927033790705,
+      "rentBurden": 0.07746097043161279,
       "condition": 100
     },
     {
@@ -664,8 +664,8 @@
       "character": "Market centre",
       "incomeBand": "Middle income",
       "people": 37,
-      "perPersonIncome": 26.65256542361943,
-      "rentBurden": 0.1251067201406192,
+      "perPersonIncome": 26.090923359948754,
+      "rentBurden": 0.12790738014024297,
       "condition": 99.22534072713337
     },
     {
@@ -673,8 +673,8 @@
       "character": "Residential neighbourhood",
       "incomeBand": "Higher income",
       "people": 15,
-      "perPersonIncome": 37.722574845195886,
-      "rentBurden": 0.12290188638677202,
+      "perPersonIncome": 37.76643812468981,
+      "rentBurden": 0.12322007420531711,
       "condition": 98.78056912351362
     },
     {
@@ -682,8 +682,8 @@
       "character": "Residential neighbourhood",
       "incomeBand": "Middle income",
       "people": 14,
-      "perPersonIncome": 23.98046673081552,
-      "rentBurden": 0.029498868298164102,
+      "perPersonIncome": 24.003618954471314,
+      "rentBurden": 0.029487209347455048,
       "condition": 100
     },
     {
@@ -691,8 +691,8 @@
       "character": "Mixed quarter",
       "incomeBand": "Middle income",
       "people": 9,
-      "perPersonIncome": 19.573043699447545,
-      "rentBurden": 0.1453116895237838,
+      "perPersonIncome": 19.57919473030334,
+      "rentBurden": 0.14534881749440157,
       "condition": 100
     },
     {
@@ -700,8 +700,8 @@
       "character": "Suburban neighbourhood",
       "incomeBand": "Middle income",
       "people": 33,
-      "perPersonIncome": 22.659852039558285,
-      "rentBurden": 0.04935442726956054,
+      "perPersonIncome": 22.680918437560198,
+      "rentBurden": 0.049336684409775386,
       "condition": 99.35450304624074
     },
     {
@@ -709,8 +709,8 @@
       "character": "Residential neighbourhood",
       "incomeBand": "Middle income",
       "people": 39,
-      "perPersonIncome": 23.006975298874966,
-      "rentBurden": 0.13229290576980332,
+      "perPersonIncome": 23.616091568235536,
+      "rentBurden": 0.12894682800084312,
       "condition": 99.48682940072699
     },
     {
@@ -718,8 +718,8 @@
       "character": "Suburban neighbourhood",
       "incomeBand": "Middle income",
       "people": 40,
-      "perPersonIncome": 23.497682916902082,
-      "rentBurden": 0.11888708103376837,
+      "perPersonIncome": 24.067444093797814,
+      "rentBurden": 0.11604744931707973,
       "condition": 100
     },
     {
@@ -727,8 +727,8 @@
       "character": "Residential neighbourhood",
       "incomeBand": "Middle income",
       "people": 23,
-      "perPersonIncome": 25.88354805647195,
-      "rentBurden": 0.11315536052346713,
+      "perPersonIncome": 26.423998627743597,
+      "rentBurden": 0.1118717616876193,
       "condition": 99.76501456982832
     },
     {
@@ -756,8 +756,8 @@
       "character": "Market centre",
       "incomeBand": "Middle income",
       "people": 21,
-      "perPersonIncome": 22.536810798171214,
-      "rentBurden": 0.2280607842798679,
+      "perPersonIncome": 22.556577567355337,
+      "rentBurden": 0.22796536055202501,
       "condition": 99.89491961662853
     },
     {
@@ -765,8 +765,8 @@
       "character": "Downtown mixed-use",
       "incomeBand": "Middle income",
       "people": 50,
-      "perPersonIncome": 25.650011542900792,
-      "rentBurden": 0.16249025776457202,
+      "perPersonIncome": 25.790060871376244,
+      "rentBurden": 0.16157169179805903,
       "condition": 99.75895885615093
     },
     {
@@ -792,8 +792,8 @@
       "character": "Agricultural belt",
       "incomeBand": "Middle income",
       "people": 11,
-      "perPersonIncome": 23.905873821817007,
-      "rentBurden": 0.07602713649446455,
+      "perPersonIncome": 23.914391422692358,
+      "rentBurden": 0.07597921425202836,
       "condition": 100
     },
     {
@@ -810,8 +810,8 @@
       "character": "Market centre",
       "incomeBand": "Middle income",
       "people": 40,
-      "perPersonIncome": 26.68497270230207,
-      "rentBurden": 0.13035945625156328,
+      "perPersonIncome": 25.766661159615275,
+      "rentBurden": 0.1349592892647897,
       "condition": 99.22534072713337
     },
     {
@@ -819,8 +819,8 @@
       "character": "Residential neighbourhood",
       "incomeBand": "Higher income",
       "people": 15,
-      "perPersonIncome": 35.02891179614747,
-      "rentBurden": 0.13236675143607537,
+      "perPersonIncome": 36.37706142331957,
+      "rentBurden": 0.12745918981746704,
       "condition": 98.87437149862795
     },
     {
@@ -828,8 +828,8 @@
       "character": "Residential neighbourhood",
       "incomeBand": "Middle income",
       "people": 15,
-      "perPersonIncome": 24.344525722530058,
-      "rentBurden": 0.02728809702059708,
+      "perPersonIncome": 24.349572773859865,
+      "rentBurden": 0.027274958461563043,
       "condition": 100
     },
     {
@@ -837,8 +837,8 @@
       "character": "Mixed quarter",
       "incomeBand": "Middle income",
       "people": 11,
-      "perPersonIncome": 18.8439099233632,
-      "rentBurden": 0.17415622604706532,
+      "perPersonIncome": 21.026088948946462,
+      "rentBurden": 0.15605169010278183,
       "condition": 100
     },
     {
@@ -846,8 +846,8 @@
       "character": "Suburban neighbourhood",
       "incomeBand": "Middle income",
       "people": 34,
-      "perPersonIncome": 23.4661606173624,
-      "rentBurden": 0.053021089406930934,
+      "perPersonIncome": 23.576962209339634,
+      "rentBurden": 0.05276211471580131,
       "condition": 99.32913621672643
     },
     {
@@ -855,8 +855,8 @@
       "character": "Residential neighbourhood",
       "incomeBand": "Middle income",
       "people": 39,
-      "perPersonIncome": 24.23149826978328,
-      "rentBurden": 0.14264996909867425,
+      "perPersonIncome": 24.339364074901958,
+      "rentBurden": 0.14197883160079652,
       "condition": 99.48682940072699
     },
     {
@@ -864,8 +864,8 @@
       "character": "Residential neighbourhood",
       "incomeBand": "Middle income",
       "people": 42,
-      "perPersonIncome": 21.770588057933743,
-      "rentBurden": 0.1353406199824838,
+      "perPersonIncome": 22.704084310067245,
+      "rentBurden": 0.1297615196131131,
       "condition": 99.95381198824656
     },
     {
@@ -873,8 +873,8 @@
       "character": "Residential neighbourhood",
       "incomeBand": "Middle income",
       "people": 27,
-      "perPersonIncome": 25.948717783975507,
-      "rentBurden": 0.09664699236887987,
+      "perPersonIncome": 25.57598252880236,
+      "rentBurden": 0.09803511065544768,
       "condition": 99.32224936251521
     },
     {
@@ -906,23 +906,404 @@
     }
   ],
   "exact360DaySaveReplay": true,
+  "partiallyCompletedProjectArchive": {
+    "beforeSave": {
+      "id": 203,
+      "kind": "redevelop",
+      "remaining": 36,
+      "duration": 40,
+      "start": 2701,
+      "target": "apartment",
+      "units": 4,
+      "priorKind": "farm",
+      "formerValue": 31000,
+      "urbanRenewal": true,
+      "builder": "Construction Co. of Hawthorn",
+      "stalledDays": 8,
+      "reason": "Crew and materials available",
+      "workedDay": 2713
+    },
+    "afterLoad": {
+      "id": 203,
+      "kind": "redevelop",
+      "remaining": 36,
+      "duration": 40,
+      "start": 2701,
+      "target": "apartment",
+      "units": 4,
+      "priorKind": "farm",
+      "formerValue": 31000,
+      "urbanRenewal": true,
+      "builder": "Construction Co. of Hawthorn",
+      "stalledDays": 8,
+      "reason": "Crew and materials available",
+      "workedDay": 2713
+    },
+    "exactRemainingWorkPreserved": true,
+    "completionAfterReplay": {
+      "id": 203,
+      "kind": "apartment",
+      "x": 36,
+      "y": 36,
+      "value": 188288.2421388122,
+      "condition": 100,
+      "owner": -2,
+      "firm": -1,
+      "hh": 107,
+      "developer": true,
+      "footprint": [
+        4644,
+        4645,
+        4772,
+        4773
+      ],
+      "title": {
+        "kind": "investor",
+        "id": 0
+      },
+      "baseValue": 175000,
+      "replacedKind": "farm",
+      "redevelopment": null,
+      "lastRedeveloped": 2828,
+      "units": [
+        107
+      ],
+      "marketRent": 36.210922651352135
+    }
+  },
+  "edgeExpansionJourney": {
+    "parcel": "belt-102-2",
+    "price": 40224,
+    "site": [
+      125,
+      11
+    ],
+    "roadTiles": [
+      [
+        55,
+        13
+      ],
+      [
+        55,
+        12
+      ],
+      [
+        55,
+        11
+      ],
+      [
+        55,
+        10
+      ],
+      [
+        56,
+        10
+      ],
+      [
+        57,
+        10
+      ],
+      [
+        58,
+        10
+      ],
+      [
+        59,
+        10
+      ],
+      [
+        60,
+        10
+      ],
+      [
+        61,
+        10
+      ],
+      [
+        62,
+        10
+      ],
+      [
+        63,
+        10
+      ],
+      [
+        64,
+        10
+      ],
+      [
+        65,
+        10
+      ],
+      [
+        66,
+        10
+      ],
+      [
+        67,
+        10
+      ],
+      [
+        68,
+        10
+      ],
+      [
+        69,
+        10
+      ],
+      [
+        70,
+        10
+      ],
+      [
+        71,
+        10
+      ],
+      [
+        72,
+        10
+      ],
+      [
+        73,
+        10
+      ],
+      [
+        74,
+        10
+      ],
+      [
+        75,
+        10
+      ],
+      [
+        76,
+        10
+      ],
+      [
+        77,
+        10
+      ],
+      [
+        78,
+        10
+      ],
+      [
+        79,
+        10
+      ],
+      [
+        80,
+        10
+      ],
+      [
+        81,
+        10
+      ],
+      [
+        82,
+        10
+      ],
+      [
+        83,
+        10
+      ],
+      [
+        84,
+        10
+      ],
+      [
+        85,
+        10
+      ],
+      [
+        86,
+        10
+      ],
+      [
+        87,
+        10
+      ],
+      [
+        88,
+        10
+      ],
+      [
+        89,
+        10
+      ],
+      [
+        90,
+        10
+      ],
+      [
+        91,
+        10
+      ],
+      [
+        92,
+        10
+      ],
+      [
+        93,
+        10
+      ],
+      [
+        94,
+        10
+      ],
+      [
+        95,
+        10
+      ],
+      [
+        96,
+        10
+      ],
+      [
+        97,
+        10
+      ],
+      [
+        98,
+        10
+      ],
+      [
+        99,
+        10
+      ],
+      [
+        100,
+        10
+      ],
+      [
+        101,
+        10
+      ],
+      [
+        102,
+        10
+      ],
+      [
+        103,
+        10
+      ],
+      [
+        104,
+        10
+      ],
+      [
+        105,
+        10
+      ],
+      [
+        106,
+        10
+      ],
+      [
+        107,
+        10
+      ],
+      [
+        108,
+        10
+      ],
+      [
+        109,
+        10
+      ],
+      [
+        110,
+        10
+      ],
+      [
+        111,
+        10
+      ],
+      [
+        112,
+        10
+      ],
+      [
+        113,
+        10
+      ],
+      [
+        114,
+        10
+      ],
+      [
+        115,
+        10
+      ],
+      [
+        116,
+        10
+      ],
+      [
+        117,
+        10
+      ],
+      [
+        118,
+        10
+      ],
+      [
+        119,
+        10
+      ],
+      [
+        120,
+        10
+      ],
+      [
+        121,
+        10
+      ],
+      [
+        122,
+        10
+      ],
+      [
+        123,
+        10
+      ],
+      [
+        124,
+        10
+      ],
+      [
+        125,
+        10
+      ]
+    ],
+    "roadCost": 11100,
+    "connectedRoadDistanceToTownHall": 114,
+    "nearestPublicServiceRoadDistances": {
+      "clinic": 116,
+      "school": 113
+    },
+    "outsideCurrentClinicAndSchoolRanges": true,
+    "ownedBoundaryParcel": true,
+    "homeBuiltAtOuterEdge": 211
+  },
   "final": {
-    "day": 3061,
-    "treasury": 1248734.4138669185,
-    "region": 9792277.395718642,
-    "total": 15493516.999959879,
+    "day": 3073,
+    "treasury": 1187621.3995474065,
+    "region": 9813720.463504687,
+    "total": 15493516.99995994,
     "population": 307,
     "owned": [
       "east-meadow",
       "county-ridge",
-      "belt-78-2"
+      "belt-78-2",
+      "belt-102-2"
     ],
     "valid": {
       "ok": true,
       "issues": [],
-      "total": 15493516.999959879,
+      "total": 15493516.99995994,
       "population": 307,
-      "day": 3061
+      "day": 3073
     }
   },
   "errors": []

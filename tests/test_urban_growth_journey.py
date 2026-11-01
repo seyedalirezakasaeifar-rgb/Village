@@ -15,6 +15,9 @@ probe = r'''window.__growthJourney={
  center:(x,y)=>{const q=iso(x,y);cam={x:q[0],y:q[1]+18,zoom:.9};dirty=true;},
  can:(kind,x,y)=>canPlace(x,y,true,kind),
  roadPlan:()=>{const cells=[];for(let y=26;y>=14;y--){const id=roadId(55,y);if(G.tiles[id]===1)continue;if(![0,3].includes(cityCell(55,y))||G.landUse[id]||buildingAt(55,y))return {ok:false,blocked:[55,y]};cells.push([55,y]);}for(let x=56;x<=58;x++){const id=roadId(x,14);if(G.tiles[id]===1)continue;if(![0,3].includes(cityCell(x,14))||G.landUse[id]||buildingAt(x,14))return {ok:false,blocked:[x,14]};cells.push([x,14]);}return {ok:true,cells,cost:cells.length*buildCost.road};},
+ edgeRoadPlan:()=>{const cells=[];for(let y=13;y>=10;y--){const id=roadId(55,y);if(G.tiles[id]===1)continue;if(![0,3].includes(G.tiles[id])||!charterOwns(55,y)||G.landUse[id]||buildingAt(55,y))return {ok:false,blocked:[55,y]};cells.push([55,y]);}for(let x=56;x<=125;x++){const id=roadId(x,10);if(G.tiles[id]===1)continue;if(![0,3].includes(G.tiles[id])||!charterOwns(x,10)||G.landUse[id]||buildingAt(x,10))return {ok:false,blocked:[x,10]};cells.push([x,10]);}return {ok:true,cells,cost:cells.length*buildCost.road};},
+ roadReach:(id)=>{const net=graph(),home=net.portals.get(id),hall=net.portals.get(G.buildings.find(b=>b.kind==='townhall')?.id);return home==null||hall==null?null:roadDistance(home,hall);},
+ serviceRoadDistances:(id)=>{const net=graph(),home=net.portals.get(id),nearest=kind=>Math.min(Infinity,...G.buildings.filter(b=>b.kind===kind&&isPublicFacility(b)).map(b=>{const port=net.portals.get(b.id);return home==null||port==null?Infinity:roadDistance(home,port)}));return{clinic:nearest('clinic'),school:nearest('school')};},
  treasury:()=>G.treasury,
  parcelPrice:(id)=>parcelSurvey(ANNEX_PARCELS.find(p=>p.id===id)).price,
  plan:(x,y)=>ensureUrban().zones[urbanBlockKey(x,y)],
@@ -229,6 +232,12 @@ with sync_playwright() as pw:
     assert abs(after_clear['treasury'] - post_service['treasury'] - 8000) < .001
     assert post_service['valid']['ok'] and abs(post_service['total'] - initial['total']) < .1
 
+    # Let the apartment project advance partway, then verify that its exact
+    # remaining work survives archive load and continues identically.
+    page.evaluate('__townTest.step(12)')
+    project_before_save = page.evaluate('__growthJourney.renewalProject()')
+    assert project_before_save and 0 < project_before_save['remaining'] < project_before_save['duration']
+
     # Capture emergent income bands after a natural further year, then verify
     # the same ordinary interval replays exactly through the archive loader.
     profiles_before = page.evaluate('__growthJourney.profile()')
@@ -237,10 +246,47 @@ with sync_playwright() as pw:
     continuation = page.evaluate('__growthJourney.snapshot()')
     profiles_after = page.evaluate('__growthJourney.profile()')
     assert page.evaluate('s=>__townTest.load(s)', checkpoint)
+    project_after_load = page.evaluate('__growthJourney.renewalProject()')
+    assert project_after_load and project_after_load['id'] == project_before_save['id'] and project_after_load['remaining'] == project_before_save['remaining']
     page.evaluate('__townTest.step(360)')
     replay = page.evaluate('__growthJourney.snapshot()')
     assert canonical(replay) == canonical(continuation)
-    final = page.evaluate('__growthJourney.state()')
+    # Extend the same funded street line to a genuinely outer parcel close to
+    # the 128×128 atlas boundary using actual deed, road and home controls.
+    open_construction()
+    office = page.locator('#charterOffice')
+    if not office.evaluate('(e)=>e.open'):
+        office.locator(':scope > summary').click()
+    edge_button = page.locator('[data-parcel-buy="belt-102-2"]')
+    edge_price = page.evaluate('__growthJourney.parcelPrice', 'belt-102-2')
+    assert not edge_button.is_disabled()
+    edge_button.scroll_into_view_if_needed()
+    edge_button.click()
+    page.locator('[data-event-choice="0"]').click()
+    assert abs(page.evaluate("__townTest.get().total") - initial['total']) < .1
+    edge_road_plan = page.evaluate('__growthJourney.edgeRoadPlan()')
+    assert edge_road_plan['ok'], edge_road_plan
+    open_construction()
+    page.locator('[data-build=road]').click()
+    for start in range(0, len(edge_road_plan['cells']), 8):
+        group = edge_road_plan['cells'][start:start+8]
+        page.evaluate('(q)=>__growthJourney.center(q[0],q[1])', group[len(group)//2])
+        for x,y in group:
+            point = page.evaluate('(q)=>__growthJourney.point(q[0],q[1])', [x,y])
+            page.mouse.click(point['x'], point['y'])
+    assert page.evaluate('(q)=>__growthJourney.can("home",125,11)', edge_road_plan)
+    open_construction()
+    page.locator('[data-build=home]').click()
+    page.evaluate('__growthJourney.center(125,11)')
+    point = page.evaluate('__growthJourney.point(125,11)')
+    page.mouse.click(point['x'], point['y'])
+    edge_home = page.evaluate('__growthJourney.homeAt(125,11)')
+    assert edge_home is not None and page.evaluate('__growthJourney.roadReach', edge_home) is not None
+    edge_services = page.evaluate('__growthJourney.serviceRoadDistances', edge_home)
+    assert edge_services['clinic'] > 60 and edge_services['school'] > 40, edge_services
+    edge_state = page.evaluate('__growthJourney.state()')
+    assert 'belt-102-2' in edge_state['owned'] and edge_state['valid']['ok']
+    final = edge_state
     apartment = page.evaluate('(q)=>__growthJourney.kindAt("apartment",q.x,q.y)', farm)
     assert apartment and not page.evaluate('__growthJourney.renewalProject()')
     assert final['valid']['ok'] and abs(final['total'] - initial['total']) < .1 and not errors
@@ -264,6 +310,14 @@ with sync_playwright() as pw:
         'incomeProfilesBefore': profiles_before,
         'incomeProfilesAfterOneNaturalYear': profiles_after,
         'exact360DaySaveReplay': True,
+        'partiallyCompletedProjectArchive': {'beforeSave': project_before_save, 'afterLoad': project_after_load,
+                                             'exactRemainingWorkPreserved': True, 'completionAfterReplay': apartment},
+        'edgeExpansionJourney': {'parcel': 'belt-102-2', 'price': edge_price, 'site': [125,11],
+                                 'roadTiles': edge_road_plan['cells'], 'roadCost': edge_road_plan['cost'],
+                                 'connectedRoadDistanceToTownHall': page.evaluate('__growthJourney.roadReach', edge_home),
+                                 'nearestPublicServiceRoadDistances': edge_services,
+                                 'outsideCurrentClinicAndSchoolRanges': True,
+                                 'ownedBoundaryParcel': True, 'homeBuiltAtOuterEdge': edge_home},
         'final': final,
         'errors': errors,
     })
