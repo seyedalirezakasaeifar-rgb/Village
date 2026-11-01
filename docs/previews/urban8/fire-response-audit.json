@@ -1,0 +1,143 @@
+{
+  "source_sha256": "e3ccd0d8c71ebc8fb5ab84f320d2d8354f9f8bf9119b4883e4b9170a4003b971",
+  "fixture": "Controlled seed42 municipal station/home with temporary test-only road isolation, plus a controlled independent brigade with one ordinary service day. No fire incident or casualties are injected. Only the private-provider fixture changes service provider state; no money or people are injected.",
+  "cityReadiness": 76,
+  "connectedHome": {
+    "municipal": 0.5869272315804208,
+    "independent": 0,
+    "combined": 0.5869272315804208,
+    "damageReduction": 0.45780324063272826,
+    "publicDistance": 13,
+    "privateDistance": null,
+    "hasRoadAccess": true,
+    "onTownNetwork": true,
+    "activePrivate": 0,
+    "readiness": 76,
+    "funded": 1
+  },
+  "overlayInvalidation": {
+    "before": {
+      "municipal": 0.5869272315804208,
+      "independent": 0,
+      "combined": 0.5869272315804208,
+      "damageReduction": 0.45780324063272826,
+      "publicDistance": 13,
+      "privateDistance": null,
+      "hasRoadAccess": true,
+      "onTownNetwork": true,
+      "activePrivate": 0,
+      "readiness": 76,
+      "funded": 1
+    },
+    "blocked": {
+      "municipal": 0,
+      "independent": 0,
+      "combined": 0,
+      "damageReduction": 0,
+      "publicDistance": null,
+      "privateDistance": null,
+      "hasRoadAccess": false,
+      "onTownNetwork": false,
+      "activePrivate": 0,
+      "readiness": 76,
+      "funded": 1
+    },
+    "restored": {
+      "municipal": 0.5869272315804208,
+      "independent": 0,
+      "combined": 0.5869272315804208,
+      "damageReduction": 0.45780324063272826,
+      "publicDistance": 13,
+      "privateDistance": null,
+      "hasRoadAccess": true,
+      "onTownNetwork": true,
+      "activePrivate": 0,
+      "readiness": 76,
+      "funded": 1
+    },
+    "valid": {
+      "ok": true,
+      "issues": [],
+      "total": 15493516.999999985,
+      "population": 169,
+      "day": 2
+    }
+  },
+  "disconnectedHome": {
+    "changed": 2,
+    "response": {
+      "municipal": 0,
+      "independent": 0,
+      "combined": 0,
+      "damageReduction": 0,
+      "publicDistance": null,
+      "privateDistance": null,
+      "hasRoadAccess": false,
+      "onTownNetwork": false,
+      "activePrivate": 0,
+      "readiness": 76,
+      "funded": 1
+    },
+    "restored": {
+      "municipal": 0.5869272315804208,
+      "independent": 0,
+      "combined": 0.5869272315804208,
+      "damageReduction": 0.45780324063272826,
+      "publicDistance": 13,
+      "privateDistance": null,
+      "hasRoadAccess": true,
+      "onTownNetwork": true,
+      "activePrivate": 0,
+      "readiness": 76,
+      "funded": 1
+    },
+    "valid": {
+      "ok": true,
+      "issues": [],
+      "total": 15493516.999999985,
+      "population": 169,
+      "day": 2
+    }
+  },
+  "privateBrigade": {
+    "firm": 26,
+    "household": 0,
+    "home": 34,
+    "staff": 2,
+    "capacity": 180,
+    "memberships": 159.31528388431252,
+    "response": {
+      "municipal": 0,
+      "independent": 0.1939655172413793,
+      "combined": 0.1939655172413793,
+      "damageReduction": 0.15129310344827587,
+      "publicDistance": null,
+      "privateDistance": 13,
+      "hasRoadAccess": true,
+      "onTownNetwork": true,
+      "activePrivate": 1,
+      "readiness": 3,
+      "funded": 0
+    },
+    "totalDrift": -1.6763806343078613e-08,
+    "valid": {
+      "ok": true,
+      "issues": [],
+      "total": 15493516.999999983,
+      "population": 169,
+      "day": 2
+    }
+  },
+  "saveReplay": {
+    "equal": true,
+    "totalDrift": -5.904585123062134e-07,
+    "valid": {
+      "ok": true,
+      "issues": [],
+      "total": 15493516.999999395,
+      "population": 166,
+      "day": 32
+    }
+  },
+  "errors": []
+}
