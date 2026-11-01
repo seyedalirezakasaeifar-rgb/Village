@@ -1,20 +1,21 @@
 {
-  "source_sha256": "60c7160870d0aca50ce66380cb9233dd7fcf71a2d5132175975cb66efb6f6f37",
+  "source_sha256": "027beab4e2f8da97b82b0a0fce5bcbfb645f2372760053e7f3482319ac5c40f2",
   "naturalSixYearProfiles": [
     {
       "seed": 42,
       "day": 2160,
       "patternCounts": {
-        "Employment quarter": 2,
+        "Market centre": 2,
+        "Employment quarter": 3,
         "Downtown": 1,
         "Agricultural belt": 3,
-        "Residential neighbourhood": 6
+        "Residential neighbourhood": 4
       },
       "incomeBands": {
         "Lower income": 0,
-        "Middle income": 10,
-        "Higher income": 1,
-        "No resident income": 3
+        "Middle income": 11,
+        "Higher income": 0,
+        "No resident income": 4
       },
       "financialEvidence": []
     },
@@ -22,6 +23,7 @@
       "seed": 101,
       "day": 2160,
       "patternCounts": {
+        "Market centre": 2,
         "Employment quarter": 2,
         "Residential neighbourhood": 3,
         "Agricultural belt": 4,
@@ -45,22 +47,35 @@
     "bank": {
       "buildingKind": "bank",
       "buildingCue": "nl-stone-brick-bank",
-      "streetscapeCue": "working-employment-yard",
-      "observedCharacter": "Employment quarter",
-      "character": "Employment quarter",
+      "streetscapeCue": "market-street",
+      "observedCharacter": "Market centre",
+      "observedTags": [
+        "Market centre",
+        "Employment quarter"
+      ],
+      "character": "Market centre",
       "incomeBand": "Middle income",
-      "perPersonIncome": 18.372390097760274,
-      "rentBurden": 0,
+      "perPersonIncome": 19.577444131286846,
+      "rentBurden": 0.2643291302160849,
       "condition": 93.10698538070721,
       "roadDistanceToTownHall": 3.28,
       "housingUnits": 6,
       "staffedWorkers": 29,
       "jobCapacity": 29,
       "retailBusinesses": 3,
+      "retailActiveBusinesses": 3,
+      "retailStaffedWorkers": 3,
+      "retailSalesTrend": 162.74590449466405,
+      "retailRevenueTrend": 563.035809461724,
+      "retailResidentsWithin24": 247,
+      "retailStockedResidentsWithin24": 247,
       "farms": 0,
+      "industrialBusinesses": 3,
       "openBankBranches": 3,
-      "bankDeposits": 1181667.4777794122,
-      "bankLoans": 820,
+      "foundingBankBranches": 3,
+      "expandedBankBranches": 0,
+      "bankDeposits": 1181760.11668321,
+      "bankLoans": 815,
       "clinicRoadReach": 1,
       "clinicFundedCoverage": 0.4605263157894737,
       "schoolRoadReach": 1,
@@ -72,7 +87,7 @@
         "physicalCondition": 93.10698538070721,
         "kind": "bank",
         "coastal": false,
-        "pattern": "Employment quarter"
+        "pattern": "Market centre"
       }
     },
     "home": {
@@ -80,18 +95,30 @@
       "buildingCue": "nl-village-house",
       "streetscapeCue": "mixed-village-street",
       "observedCharacter": "Residential neighbourhood",
+      "observedTags": [
+        "Residential neighbourhood"
+      ],
       "character": "Residential neighbourhood",
       "incomeBand": "Middle income",
-      "perPersonIncome": 16.429093544863605,
-      "rentBurden": 0,
+      "perPersonIncome": 23.908667637756487,
+      "rentBurden": 0.15368268645541686,
       "condition": 100,
       "roadDistanceToTownHall": 13,
       "housingUnits": 11,
       "staffedWorkers": 1,
       "jobCapacity": 1,
       "retailBusinesses": 1,
+      "retailActiveBusinesses": 1,
+      "retailStaffedWorkers": 1,
+      "retailSalesTrend": 28.168227776413076,
+      "retailRevenueTrend": 101.26132315689381,
+      "retailResidentsWithin24": 183,
+      "retailStockedResidentsWithin24": 183,
       "farms": 0,
+      "industrialBusinesses": 0,
       "openBankBranches": 0,
+      "foundingBankBranches": 0,
+      "expandedBankBranches": 0,
       "bankDeposits": 0,
       "bankLoans": 0,
       "clinicRoadReach": 1,
@@ -146,8 +173,8 @@
       "nl-village-house",
       "nl-new-suburb-house",
       "nl-historic-town-row",
-      "nl-merchant-house",
       "nl-compact-worker-house",
+      "nl-merchant-house",
       "nl-working-waterfront"
     ],
     "cityValid": {

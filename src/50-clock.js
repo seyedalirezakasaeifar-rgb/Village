@@ -16,7 +16,7 @@ function tick(){if(!G||pendingEvent||simulationTickFailed)return;simulationTickA
  if(G.day%60===0){const signal=marketSignal();if(signal.kind!=='normal'&&signal.title!==G.lastEconomicSignal){story(signal.title+'. '+signal.description,signal.kind==='good'?'good':'bad');G.lastEconomicSignal=signal.title;}}
  // Autosaves are scheduled in wall time by the frame controller.
  dirty=true;committed=true;
- }catch(error){simulationTickFailed=true;autoSaveOK=false;paused=true;acc=0;toast('Day update failed. Reload the last saved town or restore a valid backup.');throw error;}finally{simulationTickActive=false;finishCommittedTickSave(committed);}
+ }catch(error){simulationTickFailed=true;autoSaveOK=false;paused=true;acc=0;toast('Day update failed. Reload the last saved town or restore a valid backup.');throw error;}finally{simulationTickActive=false;invalidateUrban();finishCommittedTickSave(committed);}
 }
 
 function resetTownTransientUI(){

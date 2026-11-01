@@ -51,7 +51,7 @@ function bankLoan(kind,id,amount,term=360){
  b.cash-=amount;owner.cash+=amount;
  const loan={id:(G.nextLoanId= Math.max(G.nextLoanId||0,G.loans.length)+1),bankId:b.id,ownerType:kind,ownerId:id,original:amount,balance:amount,rate,spread:Math.max(.02,rate-(G.policy.policyRate||0)/100),fixedRate:false,term,created:G.day,arrears:0,status:'active',paid:0};
  G.loans.push(loan);b.loansOriginated++;G.finance.creditIssued+=amount;
- if(kind==='firm')owner.debt=(owner.debt||0)+amount;
+ if(kind==='firm')owner.debt=(owner.debt||0)+amount;invalidateUrban();
  return loan;
 }
 function loanPayments(loans=G.loans){
@@ -79,10 +79,10 @@ function loanPayments(loans=G.loans){
    owner.creditScore=clamp(owner.creditScore-.22,.05,.99);
    story((l.ownerType==='firm'?owner.name:'The '+owner.name+' household')+' defaulted on a bank loan of '+money(l.balance)+'.','bad',l.ownerType==='firm'?owner.building:owner.home);
   }
- }
+ }invalidateUrban();
 }
 function depositTransfer(h,b,amount){
- if(!b||b.closed||amount<=0)return 0;amount=Math.max(0,Math.min(h.cash,amount));h.cash-=amount;b.cash+=amount;h.deposits[b.id]=(h.deposits[b.id]||0)+amount;return amount;
+ if(!b||b.closed||amount<=0)return 0;amount=Math.max(0,Math.min(h.cash,amount));h.cash-=amount;b.cash+=amount;h.deposits[b.id]=(h.deposits[b.id]||0)+amount;if(amount>0)invalidateUrban();return amount;
 }
 function withdrawal(h,b,amount){
  if(!b||b.closed||amount<=0)return 0;
@@ -90,7 +90,7 @@ function withdrawal(h,b,amount){
  const requested=Math.min(amount,h.deposits?.[b.id]||0),redeem=Math.min(Math.max(0,requested-b.cash),b.regionCredit||0,Math.max(0,G.region));
  if(redeem>0){G.region-=redeem;b.cash+=redeem;b.regionCredit-=redeem;}
  amount=Math.min(requested,b.cash);
- h.deposits[b.id]-=amount;b.cash-=amount;h.cash+=amount;return amount;
+ h.deposits[b.id]-=amount;b.cash-=amount;h.cash+=amount;if(amount>0)invalidateUrban();return amount;
 }
 function liquidateBank(b,reason='Insolvent balance sheet'){
  if(b.closed)return;const claims=bankDeposits(b.id);
@@ -117,7 +117,7 @@ function liquidateBank(b,reason='Insolvent balance sheet'){
  }
  G.finance.depositLosses+=losses;
  G.region+=Math.max(0,b.cash);b.cash=0;
- story(b.name+' entered receivership: '+reason+'. Depositor losses '+money(losses)+', '+transferred+' loans sold to regional lenders.','bad');
+ story(b.name+' entered receivership: '+reason+'. Depositor losses '+money(losses)+', '+transferred+' loans sold to regional lenders.','bad');invalidateUrban();
 }
 function regionalCapitalMarket(){
  // Depositor-backed private investment and municipal savings purchase bonds
@@ -192,7 +192,7 @@ function bankMarketEntry(){
  let branch=G.buildings.find(b=>b.kind==='bank'&&(b.bankId===retired?.id||G.banks[b.bankId]?.closed));
  if(!branch){const candidates=buildableCandidates('business');let place=candidates[0];if(place){branch={id:G.nextId++,kind:'bank',x:place.x,y:place.y,value:75000,condition:100,owner:-1,firm:-1,hh:-1};G.buildings.push(branch);invalidateRoads(false);}}
  if(branch)branch.bankId=id;
- staticDirty=true;dirty=true;
+ staticDirty=true;dirty=true;invalidateUrban();
  story(bank.name+' opened after raising '+money(initial)+' in subscribed regional capital. Depositors now have another choice.','good',branch?.id||0);
  return true;
 }
@@ -256,7 +256,7 @@ function bankDaily(){
   for(const f of s){const loan=bankLoan('firm',f.id,Math.round(clamp(6800-f.cash,2300,6500)),420);
    if(loan)story(f.name+' received '+money(loan.original)+' of working-capital credit from '+G.banks[loan.bankId].name+'.','neutral',f.building);
   }
- }
+ }invalidateUrban();
 }
 function liquidateFirm(f,reason){
  // Insolvent companies dispose of stock/equipment, pay secured creditors, and
@@ -280,7 +280,7 @@ function liquidateFirm(f,reason){
  f.stock={};f.closed=true;f.closedDay=G.day;G.finance.insolvencies++;
  for(const id of f.workers)if(G.people[id])G.people[id].job=-1;
  f.workers=[];
- story(f.name+' entered liquidation: '+reason+'. Creditors received asset proceeds before shareholders.','bad',f.building);
+ story(f.name+' entered liquidation: '+reason+'. Creditors received asset proceeds before shareholders.','bad',f.building);invalidateUrban();
  return true;
 }
 function liquidityStress(){
