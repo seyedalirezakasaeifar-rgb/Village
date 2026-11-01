@@ -1,9 +1,9 @@
 {
-  "sourceCommit": "2c316f6 shared hooks +818b81f land module;669-lineage model",
-  "oracleSha256": "5df42ea1348872ad692a53bfa6ea1081472d1c8783ec9ace2b5cf011bcfb6e20",
-  "hostSha256": "5df42ea1348872ad692a53bfa6ea1081472d1c8783ec9ace2b5cf011bcfb6e20",
-  "workerSha256": "781548f98a17e924415524caac4178125674b21c78ad53e9bc6cb09edd687559",
-  "bridgeSha256": "4a39cfde7739dbd19537c1ad1899544dbf56a036963f2623aeb7d42522954e26",
+  "sourceCommit": "97b761e current01eeda hooks plus completed land module",
+  "oracleSha256": "84ecbaef6b0ae999a9c5adcd49b9ba1678840cabfc36cf02b617c74a93d208a4",
+  "hostSha256": "ac119726075abebf96683eb332782a5d55be69e42fe4545a9def0fd8a9ad6d1c",
+  "workerSha256": "f5fc651fefefc09a48a1150f655993f24cbc8a41e989dad1e700de2fc6d6c0fc",
+  "bridgeSha256": "a9f1cc28c4a2e8f2d6649830d6af3e80b0c7ced880f753721ebd43f1d123135a",
   "referenceDryRun": false,
   "productionEnabled": false,
   "nativeDurability": false,
@@ -41,7 +41,8 @@
     }
   ],
   "errors": [],
-  "currentPublicModelPortAccepted": false,
+  "oracleCommit": "01eeda3d2ff09822b9422721f75e97fabbc9958a",
+  "currentPublicModelPortAccepted": true,
   "scope": "actual two-deed bindings, pending/duplicate/ACK, original writer failure and actual Save Now retry only",
   "allChecksPass": true,
   "blockedOrFailingChecks": []

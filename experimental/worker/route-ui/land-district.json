@@ -9,7 +9,8 @@
         "name": "data-parcel-buy",
         "as": "string"
       }
-    }
+    },
+    "refresh": false
   },
   {
     "event": "click",
@@ -26,7 +27,8 @@
         "name": "data-district-focus",
         "as": "string"
       }
-    }
+    },
+    "refresh": false
   },
   {
     "event": "click",
@@ -38,7 +40,8 @@
         "name": "data-district-budget",
         "as": "string"
       }
-    }
+    },
+    "refresh": false
   },
   {
     "event": "click",
@@ -50,13 +53,15 @@
         "name": "data-civic-watch-project",
         "as": "integer"
       }
-    }
+    },
+    "refresh": false
   },
   {
     "event": "click",
     "selector": "[data-road-remove-tool]",
     "operation": "road-remove-tool",
-    "fields": {}
+    "fields": {},
+    "refresh": false
   },
   {
     "event": "click",
@@ -68,7 +73,8 @@
         "name": "data-bridge-repair",
         "as": "integer"
       }
-    }
+    },
+    "refresh": false
   },
   {
     "event": "click",
@@ -80,13 +86,15 @@
         "name": "data-bridge-remove",
         "as": "integer"
       }
-    }
+    },
+    "refresh": false
   },
   {
     "event": "click",
     "selector": "[data-bridge-build]",
     "operation": "bridge-build-tool",
-    "fields": {}
+    "fields": {},
+    "refresh": false
   },
   {
     "event": "map",
@@ -133,13 +141,15 @@
         "name": "data-urban-plan",
         "as": "string"
       }
-    }
+    },
+    "refresh": false
   },
   {
     "event": "click",
     "selector": "[data-urban-rehousing]",
     "operation": "urban-rehousing",
-    "fields": {}
+    "fields": {},
+    "refresh": false
   },
   {
     "event": "click",
@@ -151,13 +161,15 @@
         "name": "data-urban-clear",
         "as": "integer"
       }
-    }
+    },
+    "refresh": false
   },
   {
     "event": "click",
     "selector": "[data-urban-clear-tool]",
     "operation": "urban-clear-tool",
-    "fields": {}
+    "fields": {},
+    "refresh": false
   },
   {
     "event": "click",
@@ -169,7 +181,8 @@
         "name": "data-urban-farm-renew",
         "as": "integer"
       }
-    }
+    },
+    "refresh": false
   },
   {
     "event": "map",
@@ -190,7 +203,8 @@
     "event": "click",
     "selector": "#regionalApproaches",
     "operation": "regional-approaches",
-    "fields": {}
+    "fields": {},
+    "refresh": false
   },
   {
     "event": "click",
@@ -202,7 +216,8 @@
         "name": "data-civic-recharter",
         "as": "string"
       }
-    }
+    },
+    "refresh": false
   },
   {
     "event": "click",
@@ -217,6 +232,58 @@
       "action": {
         "source": "attribute",
         "name": "data-brownfield-action",
+        "as": "string"
+      }
+    },
+    "refresh": false
+  },
+  {
+    "event": "click",
+    "selector": "[data-district-admission]",
+    "operation": "district-admission",
+    "fields": {
+      "building": {
+        "source": "attribute",
+        "name": "data-district-admission",
+        "as": "integer"
+      }
+    },
+    "refresh": false
+  },
+  {
+    "event": "click",
+    "selector": "[data-district-finish]",
+    "operation": "district-finish",
+    "fields": {
+      "index": {
+        "source": "attribute",
+        "name": "data-district-finish",
+        "as": "integer"
+      }
+    },
+    "refresh": false
+  },
+  {
+    "event": "click",
+    "selector": "[data-public-place]",
+    "operation": "public-place",
+    "fields": {
+      "kind": {
+        "source": "attribute",
+        "name": "data-public-place",
+        "as": "string"
+      }
+    },
+    "refresh": false
+  },
+  {
+    "event": "choice",
+    "selector": "[data-worker-choice]",
+    "operation": "public-place",
+    "fields": {
+      "name": {
+        "source": "input",
+        "selector": "#publicPlaceName",
         "as": "string"
       }
     }

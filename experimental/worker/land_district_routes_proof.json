@@ -1,8 +1,10 @@
 {
   "productionEnabled": false,
-  "sourceSha256": "5df42ea1348872ad692a53bfa6ea1081472d1c8783ec9ace2b5cf011bcfb6e20",
-  "moduleSha256": "60273f79a4d54c0606656f977c7a43af25baeee4a377d2fd81215143f2cc7f43",
-  "workerSha256": "33aa69369abb2983364b29f208241b9bf98f3c7b71544ae4fd33b579657a29bf",
+  "oracleCommit": "01eeda3d2ff09822b9422721f75e97fabbc9958a",
+  "oracleSha256": "84ecbaef6b0ae999a9c5adcd49b9ba1678840cabfc36cf02b617c74a93d208a4",
+  "sourceSha256": "ac119726075abebf96683eb332782a5d55be69e42fe4545a9def0fd8a9ad6d1c",
+  "moduleSha256": "0bb7b347084cc25964d8f621fccb3a969980f8b6cc8daa933ba39371569ba35a",
+  "workerSha256": "f5fc651fefefc09a48a1150f655993f24cbc8a41e989dad1e700de2fc6d6c0fc",
   "conservedFixtureTreasuryTransfer": 200000,
   "additionalControlledFixtures": [
     "bridge condition50",
@@ -28,6 +30,8 @@
     "bridge-repair",
     "bridge-keep",
     "bridge-remove",
+    "paid-district-rezone-aged-fixture",
+    "current-district-stewardship-navigation",
     "civic-recharter-aged-fixture",
     "post-fault-same-review-legitimate-retry"
   ],

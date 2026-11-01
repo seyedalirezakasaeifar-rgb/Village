@@ -1,0 +1,119 @@
+{
+  "productionEnabled": false,
+  "compositionBase": "97b761e1a0c4f1719e8374c538273e6b1bdc421f",
+  "oracleCommit": "01eeda3d2ff09822b9422721f75e97fabbc9958a",
+  "workerSha256": "f5fc651fefefc09a48a1150f655993f24cbc8a41e989dad1e700de2fc6d6c0fc",
+  "moduleSha256": "0bb7b347084cc25964d8f621fccb3a969980f8b6cc8daa933ba39371569ba35a",
+  "bindingsSha256": "e990b2ed6a324bffe480af827aa9e5f06374195bdbd99c23d6939b38ec3d5e82",
+  "assignedControls": [
+    {
+      "control": "data-parcel-buy",
+      "operation": "parcel-buy"
+    },
+    {
+      "control": "regionalApproaches",
+      "operation": "regional-approaches"
+    },
+    {
+      "control": "data-district-focus:paid-rezone",
+      "operation": "district-focus"
+    },
+    {
+      "control": "data-district-admission",
+      "operation": "district-admission"
+    },
+    {
+      "control": "data-district-finish",
+      "operation": "district-finish"
+    },
+    {
+      "control": "data-district-budget",
+      "operation": "district-budget"
+    },
+    {
+      "control": "data-civic-recharter",
+      "operation": "civic-recharter"
+    },
+    {
+      "control": "data-civic-watch-project",
+      "operation": "civic-watch-project"
+    },
+    {
+      "control": "data-urban-clear",
+      "operation": "urban-clear"
+    },
+    {
+      "control": "data-urban-plan",
+      "operation": "urban-plan"
+    },
+    {
+      "control": "data-public-place",
+      "operation": "public-place"
+    },
+    {
+      "control": "data-brownfield-action",
+      "operation": "brownfield-action"
+    },
+    {
+      "control": "data-urban-farm-renew",
+      "operation": "urban-farm-renew"
+    },
+    {
+      "control": "data-urban-rehousing",
+      "operation": "urban-rehousing"
+    },
+    {
+      "control": "data-road-remove-tool",
+      "operation": "road-remove-tool"
+    },
+    {
+      "control": "data-bridge-repair",
+      "operation": "bridge-repair"
+    },
+    {
+      "control": "data-bridge-remove",
+      "operation": "bridge-remove"
+    }
+  ],
+  "assignedCount": 17,
+  "registeredOperations": [
+    "district-admission",
+    "district-finish",
+    "public-place",
+    "regional-approaches",
+    "civic-recharter",
+    "brownfield-action",
+    "urban-plan",
+    "urban-rehousing",
+    "urban-clear",
+    "urban-clear-map",
+    "urban-clear-tool",
+    "urban-farm-renew",
+    "parcel-buy",
+    "district-focus",
+    "district-budget",
+    "civic-watch-project",
+    "road-remove-tool",
+    "road-remove-review",
+    "bridge-repair",
+    "bridge-remove",
+    "bridge-build-tool",
+    "bridge-review"
+  ],
+  "extraOperations": [
+    "urban-clear-map",
+    "urban-clear-tool",
+    "road-remove-review",
+    "bridge-build-tool",
+    "bridge-review"
+  ],
+  "allAssignedControlsRegistered": true,
+  "fullNativeRealtimeReleaseCertified": false,
+  "fixtureSha256": {
+    "farm-ordinary-current.json.gz": "9842376c62d9dc1f67c172d860c53a8b36f0b54a095c23ddeb8da88bd43e927d",
+    "district-unconnected-ordinary-current.json.gz": "e2e05ae0dcddf32bad691bf86caa329f7f98babb81925c71fba2cd04ddd027a3",
+    "market-ordinary-current.json.gz": "55896fd0a3359b00101bf962bb74ac2af142e0aa1ac159c800df7c42c18db8e6",
+    "district-ordinary-current.json.gz": "50cae7cd1a17fa20d3d75c8a32977df1108c96fb3ec9be45710e3cd72d851303",
+    "brownfield-ready-ordinary-current.json.gz": "87c342482f75507ada5a1f60dc98bee0677e59ab737746d5dfdc58534463b2dc"
+  }
+}
