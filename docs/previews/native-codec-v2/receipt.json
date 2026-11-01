@@ -1,0 +1,44 @@
+{
+  "source_sha256": "b9f015806b20e5795bdb1814373b25a8786247c7c67f634ac9104c4c79d4f12f",
+  "setup": {
+    "households": 3001,
+    "firms": 3001,
+    "people": 172
+  },
+  "realistic": {
+    "ok": true,
+    "exact": true,
+    "bytes": 5999575,
+    "encodeMs": 18984.89999999944,
+    "decodeMs": 12603.900000000081,
+    "heapSamples": [
+      81400000,
+      81400000,
+      81400000
+    ],
+    "version": 2,
+    "postGcHeap": 81400000
+  },
+  "nearBudget": {
+    "ok": true,
+    "exact": true,
+    "bytes": 8387584,
+    "encodeMs": 21827.40000000014,
+    "decodeMs": 12267.5,
+    "heapSamples": [
+      81400000,
+      81400000,
+      81400000
+    ],
+    "version": 2
+  },
+  "malformed": {
+    "rejected": true,
+    "exact": true,
+    "epochEqual": true,
+    "rngEqual": true,
+    "ms": 38330.20000000042
+  },
+  "postGcHeap": 81400000,
+  "outcome": "PASS"
+}
