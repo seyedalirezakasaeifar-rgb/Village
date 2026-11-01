@@ -2,7 +2,37 @@
 const INACTIVE_CODEC_LIMITS=Object.freeze({bytes:8*1024*1024,logicalBytes:16*1024*1024,active:8000,inactive:16000,total:24000,entityActive:3000,entityInactive:6000,entityTotal:9000,fields:64,entityFields:128,cells:500000,nodes:1000000,depth:24});
 let inactivePersonCodecEnabled=false;
 function inactiveCodecCooperative(){return typeof cooperativeDayBusy==='function';}
-function inactiveCodecBudget(value){let nodes=0;function visit(v,depth){if(++nodes>INACTIVE_CODEC_LIMITS.nodes||depth>INACTIVE_CODEC_LIMITS.depth)throw Error('Inactive identity expansion budget exceeded');if(typeof v==='number'&&!Number.isFinite(v))throw Error('Nonfinite identity value');if(v&&typeof v==='object')for(const key in v)if(owns(v,key))visit(v[key],depth+1);}visit(value,0);}
+// Count canonical JSON bytes before allocating reconstructed directories. Raw JSON
+// numbers (for example 1e20) may grow when serialized; raw input size is not an
+// upper bound. JSON-derived inputs contain only these types. Do not stringify
+// the whole decoded object merely to measure it.
+function inactiveCodecBudget(value){
+ const lim=INACTIVE_CODEC_LIMITS;let nodes=0,bytes=0;
+ const add=n=>{bytes+=n;if(bytes>lim.logicalBytes)throw Error('Decoded archive expansion budget exceeded');};
+ function stringBytes(s){
+  add(2);for(let i=0;i<s.length;i++){const c=s.charCodeAt(i);
+   if(c===34||c===92||c===8||c===9||c===10||c===12||c===13)add(2);
+   else if(c<32)add(6);
+   else if(c<128)add(1);
+   else if(c<2048)add(2);
+   else if(c>=0xd800&&c<=0xdbff&&i+1<s.length&&s.charCodeAt(i+1)>=0xdc00&&s.charCodeAt(i+1)<=0xdfff){add(4);i++;}
+   else if(c>=0xd800&&c<=0xdfff)add(6);
+   else add(3);
+  }
+ }
+ function visit(v,depth){
+  if(++nodes>lim.nodes||depth>lim.depth)throw Error('Inactive identity expansion budget exceeded');
+  if(v===null){add(4);return;}
+  if(typeof v==='number'){if(!Number.isFinite(v))throw Error('Nonfinite identity value');add(String(v).length);return;}
+  if(typeof v==='string'){stringBytes(v);return;}
+  if(typeof v==='boolean'){add(v?4:5);return;}
+  if(!v||typeof v!=='object')throw Error('Unsupported identity value');
+  add(2);let count=0;
+  if(Array.isArray(v)){for(let i=0;i<v.length;i++){if(count++)add(1);visit(v[i],depth+1);}}
+  else for(const key in v)if(owns(v,key)){if(count++)add(1);stringBytes(key);add(1);visit(v[key],depth+1);}
+ }
+ visit(value,0);return bytes;
+}
 function historicalEntity(kind,row){return kind==='households'?Array.isArray(row?.people)&&row.people.length===0:row?.closed===true&&row.demolished===true;}
 function encodeHistoricalEntity(kind,all){
  const lim=INACTIVE_CODEC_LIMITS;if(!Array.isArray(all)||all.length>lim.entityTotal||all.some((r,i)=>!r||r.id!==i))throw Error('Entity directory capacity exceeded');
@@ -24,8 +54,8 @@ function decodeInactiveEnvelope(wire,encodedBytes){
  if(!wire||wire.format!=='TownLedgerInactivePeople'||![1,2].includes(wire.version)||wire.schema!==9||wire.logicalSchema!==8||!wire.payload||wire.payload.schema!==9)throw Error('Unsupported inactive identity format');
  const packed=wire.inactive,data=wire.payload;
  if(!packed||!Number.isSafeInteger(packed.total)||packed.total<1||packed.total>lim.total||!Array.isArray(packed.fields)||packed.fields.length>lim.fields||new Set(packed.fields).size!==packed.fields.length||packed.fields.some((k,i)=>typeof k!=='string'||k.length>128||k==='id'||i&&k<=packed.fields[i-1])||!Array.isArray(packed.rows)||packed.rows.length>lim.inactive||!Array.isArray(data.people)||data.people.length>lim.active||data.people.length+packed.rows.length!==packed.total)throw Error('Malformed inactive identity directory');
- inactiveCodecBudget(wire);
- const shared={cells:0,expansion:(encodedBytes??new Blob([JSON.stringify(wire)]).size)+packed.total*16};
+ const canonicalBytes=inactiveCodecBudget(wire);
+ const shared={cells:0,expansion:Math.max(encodedBytes??0,canonicalBytes)+packed.total*16};
  if(wire.version===2){if(!wire.entities||Object.keys(wire.entities).sort().join(',')!=='firms,households')throw Error('Malformed estate directory');for(const kind of ['households','firms'])data[kind]=decodeHistoricalEntity(kind,data[kind],wire.entities[kind],shared);}else if(wire.entities!=null)throw Error('Unexpected estate directory');
  const keyBytes=packed.fields.map(k=>new Blob([JSON.stringify(k)]).size),people=new Array(packed.total),seen=new Set();let cells=shared.cells,expansion=shared.expansion;if(expansion>lim.logicalBytes)throw Error('Decoded archive expansion budget exceeded');
  const put=p=>{if(!p||!Number.isSafeInteger(p.id)||p.id<0||p.id>=packed.total||seen.has(p.id))throw Error('Duplicate or invalid person ID');seen.add(p.id);people[p.id]=p;};

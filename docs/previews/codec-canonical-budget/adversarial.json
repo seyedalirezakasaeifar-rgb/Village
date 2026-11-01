@@ -1,0 +1,69 @@
+{
+  "source_sha256": "138b2d021290e3381ab96314cf43d2a1527da0cbad8713baa486b055dd8cb3ff",
+  "hostChromium": true,
+  "physicalAndroid": false,
+  "productionFlagEnabled": false,
+  "result": {
+    "canonicalStringAndNumberFixtures": 108,
+    "exactLimitAccepted": true,
+    "oneByteOverRejected": true,
+    "atomicStateAndRng": true,
+    "results": [
+      {
+        "name": "v1-flat-numeric",
+        "inputBytes": 4135503,
+        "error": "Decoded archive expansion budget exceeded"
+      },
+      {
+        "name": "v1-nested-numeric",
+        "inputBytes": 4147503,
+        "error": "Decoded archive expansion budget exceeded"
+      },
+      {
+        "name": "v1-mixed-record-numeric",
+        "inputBytes": 4135521,
+        "error": "Decoded archive expansion budget exceeded"
+      },
+      {
+        "name": "v1-packed-record-numeric",
+        "inputBytes": 4135554,
+        "error": "Decoded archive expansion budget exceeded"
+      },
+      {
+        "name": "v1-valid-near-logical-limit",
+        "inputBytes": 3835503,
+        "logicalBytes": 16415367
+      },
+      {
+        "name": "v2-flat-numeric",
+        "inputBytes": 4135607,
+        "error": "Decoded archive expansion budget exceeded"
+      },
+      {
+        "name": "v2-nested-numeric",
+        "inputBytes": 4147607,
+        "error": "Decoded archive expansion budget exceeded"
+      },
+      {
+        "name": "v2-mixed-record-numeric",
+        "inputBytes": 4135625,
+        "error": "Decoded archive expansion budget exceeded"
+      },
+      {
+        "name": "v2-mixed-estates-firms-numeric",
+        "inputBytes": 4135643,
+        "error": "Decoded archive expansion budget exceeded"
+      },
+      {
+        "name": "v2-packed-record-numeric",
+        "inputBytes": 4135658,
+        "error": "Decoded archive expansion budget exceeded"
+      },
+      {
+        "name": "v2-valid-near-logical-limit",
+        "inputBytes": 3835607,
+        "logicalBytes": 16415367
+      }
+    ]
+  }
+}
