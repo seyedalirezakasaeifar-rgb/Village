@@ -1,7 +1,8 @@
 {
-  "source_sha256": "a8e5074e0a721be0c2fbb863e53b3926f47b87988ebb58d9f6281629917b8f41",
+  "source_sha256": "4a8c523a9dda013810784dc3b9a2a116c0992c0b143ed2990eba781e4173c9c6",
   "exactCanonical": true,
   "trafficBefore": 4,
   "trafficAfter": 4,
+  "legacyTradeDefaultStable": true,
   "differences": []
 }
