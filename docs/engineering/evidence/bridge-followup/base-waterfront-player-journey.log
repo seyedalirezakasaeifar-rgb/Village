@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/workspace/bridge-base-check/tests/test_waterfront_player_journey.py", line 27, in <module>
+    place('road',5,58);place('fishery',4,58);g=json.loads(p.evaluate('__townTest.save()'));fish=g['firms'][-1];assert fish['kind']=='fishery' and fish['workers']==[]
+                                                                                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

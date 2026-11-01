@@ -1,0 +1,32 @@
+{
+  "source_sha256": "8031901f1dca4e8b45d43d653e7657abff20f91f3bd5f2f823bd5c8a25e56a67",
+  "atomicArchiveFaults": [
+    "missingBridge",
+    "orphanDeck",
+    "duplicateCell",
+    "duplicateIdentity",
+    "badBank",
+    "badAxis",
+    "badCondition",
+    "futureBuild",
+    "unfundedCapital",
+    "missingDeed"
+  ],
+  "activeBus": {
+    "usesAll": true,
+    "reason": "Active passenger route Bus 1 uses this bridge. Replan or retire that route through Public Works first.",
+    "retiredRouteUnlocksDecommission": true
+  },
+  "closed": {
+    "condition": 24.75,
+    "closed": true,
+    "roadDisconnected": true,
+    "waterIntact": true,
+    "moneyConserved": true,
+    "paid": 0
+  },
+  "repairCost": 6773,
+  "salvage": 2421,
+  "actualRepairCancelAndDecommissionControls": true
+}
+PASS bridge graph fault rejection, active transit conflict, unfunded closure, paid repair and conserved decommission

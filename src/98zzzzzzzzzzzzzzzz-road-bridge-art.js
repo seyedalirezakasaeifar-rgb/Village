@@ -14,7 +14,8 @@ function bridgeArtItems(visible){
    bounds:[Math.min(...xs)-5,Math.min(...ys)-9,Math.max(...xs)+5,Math.max(...ys)+16],
    _paintBounds:[Math.min(...xs)-5,Math.min(...ys)-9,Math.max(...xs)+5,Math.max(...ys)+16],
    x:mid[0],y:mid[1],condition:b.condition,closed:b.closed};
-  if(visible(item.x,item.y,100))result.push(item);
+  const margin=Math.max(item.x-item.bounds[0],item.bounds[2]-item.x,item.y-item.bounds[1],item.bounds[3]-item.y);
+  if(visible(item.x,item.y,margin))result.push(item);
  }
  return result;
 }

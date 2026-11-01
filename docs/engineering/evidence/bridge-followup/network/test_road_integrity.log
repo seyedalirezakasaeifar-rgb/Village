@@ -1,0 +1,22 @@
+1 {'traffic': 19, 'road': 385, 'people': 164, 'buildings': 102, 'day': 91, 'financeError': 1.5776604413986206e-06}
+2 {'traffic': 19, 'road': 385, 'people': 166, 'buildings': 102, 'day': 91, 'financeError': 1.5720725059509277e-06}
+3 {'traffic': 15, 'road': 385, 'people': 93, 'buildings': 67, 'day': 91, 'financeError': 2.812594175338745e-07}
+4 {'traffic': 19, 'road': 385, 'people': 167, 'buildings': 102, 'day': 91, 'financeError': 2.002343535423279e-06}
+5 {'traffic': 19, 'road': 385, 'people': 164, 'buildings': 102, 'day': 91, 'financeError': 1.5776604413986206e-06}
+6 {'traffic': 19, 'road': 385, 'people': 166, 'buildings': 102, 'day': 91, 'financeError': 1.5720725059509277e-06}
+7 {'traffic': 15, 'road': 385, 'people': 93, 'buildings': 67, 'day': 91, 'financeError': 2.812594175338745e-07}
+8 {'traffic': 19, 'road': 385, 'people': 167, 'buildings': 102, 'day': 91, 'financeError': 2.002343535423279e-06}
+9 {'traffic': 19, 'road': 385, 'people': 164, 'buildings': 102, 'day': 91, 'financeError': 1.5776604413986206e-06}
+10 {'traffic': 19, 'road': 385, 'people': 166, 'buildings': 102, 'day': 91, 'financeError': 1.5720725059509277e-06}
+11 {'traffic': 15, 'road': 385, 'people': 93, 'buildings': 67, 'day': 91, 'financeError': 2.812594175338745e-07}
+12 {'traffic': 19, 'road': 385, 'people': 167, 'buildings': 102, 'day': 91, 'financeError': 2.002343535423279e-06}
+13 {'traffic': 19, 'road': 385, 'people': 164, 'buildings': 102, 'day': 91, 'financeError': 1.5776604413986206e-06}
+14 {'traffic': 19, 'road': 385, 'people': 166, 'buildings': 102, 'day': 91, 'financeError': 1.5720725059509277e-06}
+15 {'traffic': 15, 'road': 385, 'people': 93, 'buildings': 67, 'day': 91, 'financeError': 2.812594175338745e-07}
+16 {'traffic': 19, 'road': 385, 'people': 167, 'buildings': 102, 'day': 91, 'financeError': 2.002343535423279e-06}
+17 {'traffic': 19, 'road': 385, 'people': 164, 'buildings': 102, 'day': 91, 'financeError': 1.5776604413986206e-06}
+18 {'traffic': 19, 'road': 385, 'people': 166, 'buildings': 102, 'day': 91, 'financeError': 1.5720725059509277e-06}
+19 {'traffic': 15, 'road': 385, 'people': 93, 'buildings': 67, 'day': 91, 'financeError': 2.812594175338745e-07}
+20 {'traffic': 19, 'road': 385, 'people': 167, 'buildings': 102, 'day': 91, 'financeError': 2.002343535423279e-06}
+20 town simulations passed in 11.0 s; errors: []
+render ms/frame on host 2.86

@@ -1,0 +1,120 @@
+{
+  "source_sha256": "8031901f1dca4e8b45d43d653e7657abff20f91f3bd5f2f823bd5c8a25e56a67",
+  "base": "c0f4f6b10704ce0468e508082015ae78c48a3128",
+  "gates": [
+    {
+      "test": "test_bridge_save_fence",
+      "exit_code": 0,
+      "seconds": 3.44,
+      "log_sha256": "7581cde7f127562c3d34d39bb274803128df0b93d96d136ddcee418e772b0834"
+    },
+    {
+      "test": "test_bridge_camera_edges",
+      "exit_code": 0,
+      "seconds": 3.53,
+      "log_sha256": "b864469117fe07647e5c3c2de8dafe2c9e37464493bb96139c6d4937050306fe"
+    },
+    {
+      "test": "test_bridge_cold_continue",
+      "exit_code": 1,
+      "seconds": 3.78,
+      "log_sha256": "300fc0186e287ad310d6614015deac7d0da67f240b342cb7392556124d23e0c2"
+    },
+    {
+      "test": "test_road_bridge",
+      "exit_code": 0,
+      "seconds": 3.98,
+      "log_sha256": "67f51e7b2c31c99f4e91313ff002cb893f1abae2daf76ad6dd8cc4b13dda4442"
+    },
+    {
+      "test": "test_road_removal_network",
+      "exit_code": 0,
+      "seconds": 3.88,
+      "log_sha256": "023f5de7fd8b14dfdc0da7eec66833cc558ba93f8d36d5ff6dcbb318ac303f1d"
+    },
+    {
+      "test": "test_road_bridge_art",
+      "exit_code": 0,
+      "seconds": 2.68,
+      "log_sha256": "13d8549511ae40f8b24cb57e3a6b089f39a641296a0564d0523d95c1ff24cdf5"
+    },
+    {
+      "test": "test_transit_network",
+      "exit_code": 0,
+      "seconds": 4.39,
+      "log_sha256": "82e613b60a02b99e0e8215936aa7a078e5f19e6cd0e643ce68fed1c398e72543"
+    },
+    {
+      "test": "test_transit_remap",
+      "exit_code": 0,
+      "seconds": 2.58,
+      "log_sha256": "b938844f2a6b54e9352fa5914b334b28151a0469cb333229fcb82856a3798a83"
+    },
+    {
+      "test": "test_waterfront",
+      "exit_code": 0,
+      "seconds": 5.1,
+      "log_sha256": "ee1c66366a8b36c648ad1655e8d698c28c5ef790012ef6468126b1f8fe2bfb43"
+    },
+    {
+      "test": "test_waterfront_player_journey",
+      "exit_code": 1,
+      "seconds": 3.28,
+      "log_sha256": "11918ed63fb8ec1744e2a8582e0acfb6c26d3ba0ebf773e5d9df3be1fa8428a9"
+    },
+    {
+      "test": "test_waterfront_mobile",
+      "exit_code": 0,
+      "seconds": 8.6,
+      "log_sha256": "67f442e1ba1b90aa61d12aae8551c0231e276d1eb87b8dbcfcb956fda355ddbe"
+    },
+    {
+      "test": "test_port_freight_faults",
+      "exit_code": 0,
+      "seconds": 2.32,
+      "log_sha256": "87f6175b1a2c0558cc27efe73bee20249ee8c2b6a607d3e01806c1e262292ed9"
+    },
+    {
+      "test": "test_logistics_recovery",
+      "exit_code": 0,
+      "seconds": 4.85,
+      "log_sha256": "8c03bd5469afaaf9c5d93462a66cfa4f88d294840a3fca9e04390fe1dd769e14"
+    },
+    {
+      "test": "test_dynamic_camera_matrix",
+      "exit_code": 0,
+      "seconds": 33.86,
+      "log_sha256": "53e79bd3d6e5c26ab389b86c180ccbef971ae13bb99a9db909eeecd5f0e2977f"
+    },
+    {
+      "test": "test_actor_compositor",
+      "exit_code": 0,
+      "seconds": 2.58,
+      "log_sha256": "3d18d9f64fec64ea1179bf2d5f44b147a0f50d075c6b3383d6543368d547ac30"
+    },
+    {
+      "test": "test_bridge_occlusion",
+      "exit_code": 0,
+      "seconds": 2.58,
+      "log_sha256": "363d4eb84e0dbf4f7fa0c61e3a68de15e8b7149ecc03e6f56566a48d5a4e67b6"
+    },
+    {
+      "test": "test_committed_day_save",
+      "exit_code": 0,
+      "seconds": 6.1,
+      "log_sha256": "0bdb1b943f362163e2c640680bcab9042abf7d0e62d60026131a8605eeacfcd6"
+    },
+    {
+      "test": "test_pending_review_flows",
+      "exit_code": 0,
+      "seconds": 4.68,
+      "log_sha256": "1c98d58419fb4d5dad2763f77c7532feb677ef4b04486ac3ccf23512c577af9d"
+    },
+    {
+      "test": "test_school_placement_preview",
+      "exit_code": 0,
+      "seconds": 3.28,
+      "log_sha256": "9b2bffd175a0e21d68c0b42d9728ecbc2e117a1812b80d4f7ee287f7ffa1b0c2"
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{'lastFirmKind': 'wharf', 'lastFirmWorkers': [150, 70], 'targetBuildings': [], 'toast': 'Construction tool closed'}
+Traceback (most recent call last):
+  File "/workspace/bridge-base-check/tests/test_waterfront_journey_baseline_diagnostic.py", line 27, in <module>
+    place('road',5,58);place('fishery',4,58);g=json.loads(p.evaluate('__townTest.save()'));fish=g['firms'][-1];print({'lastFirmKind':fish['kind'],'lastFirmWorkers':fish['workers'],'targetBuildings':[(x['id'],x['kind']) for x in g['buildings'] if x['x']==4 and x['y']==58],'toast':p.locator('#toast').inner_text()},flush=True);assert fish['kind']=='fishery' and fish['workers']==[]
+                                                                                                                                                                                                                                                                                                                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
