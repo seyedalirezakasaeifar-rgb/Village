@@ -28,3 +28,5 @@ One unresolved negative result remains: `test_save_adversarial.py` accepts its `
 No SDK, adb or emulator is installed in this environment. Full Activity compilation and exact-batch Android/API30/device/picker tests were not run. Upstream API30 results are separate supporting evidence, not an exact-source native acceptance run. No APK was built, signed or released. Performance benchmarks and the full candidate release/build pipeline were not run.
 
 Schema remains 8. Cooperative simulation, schema-9 identity codecs/admission prototypes, retention save fixes, and road bridges remain outside this batch. No main/integration ref, PR approval/merge, deployment, credentials or private saves were changed.
+
+Follow-up: the preserved household mismatch failure was subsequently diagnosed as an inactive-person test assumption. See [household archive acceptance](HOUSEHOLD-ARCHIVE-ACCEPTANCE-8.md) for the corrected fixture and valid estate counterexamples; the original negative logs above remain unchanged.

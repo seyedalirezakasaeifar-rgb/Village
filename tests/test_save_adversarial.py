@@ -14,7 +14,8 @@ window.__saveQA=()=>{
  const mutations={
   missingMember:g=>{const p=g.people.find(p=>!p.deceased&&!p.movedAway);g.households[p.hh].people=g.households[p.hh].people.filter(id=>id!==p.id)},
   duplicateMember:g=>g.households[0].people.push(g.households[0].people[0]),
-  householdMismatch:g=>g.people[0].hh=(g.people[0].hh+1)%g.households.length,
+  // Current membership is bidirectional only for living residents in town.
+  householdMismatch:g=>{const p=g.people.find(p=>!p.deceased&&!p.movedAway);p.hh=(p.hh+1)%g.households.length;},
   missingHome:g=>g.households.find(h=>h.people.length).home=999999,
   tileUsedAsHomeId:g=>{const b=g.buildings.find(b=>b.kind==='home');g.households.find(h=>h.people.length).home=b.y*T+b.x},
   missingFirmBuilding:g=>g.firms[0].building=999999,
@@ -47,7 +48,27 @@ window.__saveQA=()=>{
  for(const raw of [original.slice(0,-1),'{broken','null','[]'])if(hydrateSave(raw)||archivePayload()!==original)throw Error('Truncated/raw import not atomic');
  const candidate=JSON.parse(original),before=JSON.stringify(candidate);if(!hydrateSave(candidate))throw Error('Valid object import rejected');if(JSON.stringify(candidate)!==before)throw Error('Successful import mutated caller candidate');candidate.households[0].cash+=99999;if(G.households[0].cash===candidate.households[0].cash)throw Error('Live town aliases caller object');
  if(!hydrateSave(original)||!validateTown().ok)throw Error('Original cannot continue');
- return {grid:T,schema:RELEASE.schema,recordsRejected:checks,truncatedRejected:4,callerIndependent:true,atomicRNGAndTimeline:true};
+ return {grid:T,schema:RELEASE.schema,originalPersonZero:{id:base.people[0].id,hh:base.people[0].hh,deceased:!!base.people[0].deceased,movedAway:!!base.people[0].movedAway,rosters:base.households.filter(h=>h.people.includes(0)).map(h=>h.id)},recordsRejected:checks,truncatedRejected:4,callerIndependent:true,atomicRNGAndTimeline:true};
+};
+window.__householdCounterexamples=()=>{
+ const original=archivePayload(),money=totalMoney(),results=[];
+ // Historical people deliberately leave current rosters at death/departure.
+ // Their household and its financial/property identity remain in the archive.
+ for(const status of ['deceased','movedAway'])for(const legacy of [false,true])for(const empty of [false,true]){
+  const g=JSON.parse(original),h=g.households.find(h=>h.people.length>1),ids=empty?h.people.slice():h.people.slice(0,1);
+  for(const id of ids){const p=g.people[id];p[status]=true;p.job=-1;for(const f of g.firms)f.workers=f.workers.filter(n=>n!==id);}
+  h.people=h.people.filter(id=>!ids.includes(id));if(empty&&!legacy)h.home=-1;if(legacy)g.schema=7;
+  const estate={id:h.id,cash:h.cash,deposits:JSON.stringify(h.deposits),owners:JSON.stringify(g.buildings.filter(b=>b.owner===h.id||b.title?.kind==='household'&&b.title.id===h.id).map(b=>b.id)),loans:JSON.stringify(g.loans.filter(l=>l.ownerType==='household'&&l.ownerId===h.id))};
+  if(!hydrateSave(g))throw Error('Valid historical household rejected: '+status+'/'+legacy+'/'+empty);
+  const kept=G.households[h.id];if(kept.cash!==estate.cash||JSON.stringify(kept.deposits)!==estate.deposits||JSON.stringify(G.loans.filter(l=>l.ownerType==='household'&&l.ownerId===h.id))!==estate.loans||JSON.stringify(G.buildings.filter(b=>b.owner===h.id||b.title?.kind==='household'&&b.title.id===h.id).map(b=>b.id))!==estate.owners||ids.some(id=>G.people[id].hh!==h.id)||Math.abs(totalMoney()-money)>.001)throw Error('Historical estate identity/balances changed');
+  const accepted=archivePayload();for(const fault of ['historicalRoster','missingHistoricalHousehold']){
+   const bad=JSON.parse(accepted);if(fault==='historicalRoster')bad.households[h.id].people.push(ids[0]);else bad.people[ids[0]].hh=bad.households.length;
+   const before=archivePayload(),rng=rngState,timeline=JSON.stringify([saveEpoch,saveTown,saveRevision,saveOrder]),caller=JSON.stringify(bad);
+   if(hydrateSave(bad)||archivePayload()!==before||rngState!==rng||JSON.stringify([saveEpoch,saveTown,saveRevision,saveOrder])!==timeline||JSON.stringify(bad)!==caller)throw Error('Historical graph rejection not atomic: '+fault);
+  }
+  results.push({status,legacy,people:ids.length,emptyEstate:empty,validHouseholdAccepted:true,financialIdentityPreserved:true,invalidRosterAndHouseholdRejected:true});
+ }
+ if(!hydrateSave(original))throw Error('Counterexample original cannot continue');return results;
 };
 window.__saveReplay=()=>{
  const canonical=v=>Array.isArray(v)?v.map(canonical):v&&typeof v==='object'?Object.fromEntries(Object.keys(v).sort().map(k=>[k,canonical(v[k])])):v;
@@ -63,7 +84,7 @@ with sync_playwright() as pw:
  for scenario,days in [('settlement',0),('regional',360),('hardtimes',720)]:
   p.evaluate('sc=>__townTest.reset(sc,42)',scenario)
   if days:p.evaluate('n=>__townTest.step(n)',days)
-  result=p.evaluate('__saveQA()');result['scenario']=scenario;result['ageDays']=days;result['replay']=p.evaluate('__saveReplay()');results['checks'].append(result);print('PASS',scenario,days,'atomic rejection and replay',flush=True)
+  result=p.evaluate('__saveQA()');result['scenario']=scenario;result['ageDays']=days;result['historicalCounterexamples']=p.evaluate('__householdCounterexamples()');result['replay']=p.evaluate('__saveReplay()');results['checks'].append(result);print('PASS',scenario,days,'atomic rejection and replay',flush=True)
  for path in sorted((ROOT/'tests/fixtures').glob('*.json')):
   assert p.evaluate('s=>__townTest.load(s)',path.read_text()),path.name
   assert p.evaluate('__townTest.validate().ok'),path.name
