@@ -41,8 +41,12 @@ with sync_playwright() as pw:
  # Exercise every unresolved enabled button, not merely its static classification.
  def adopt(text):
   p.keyboard.press('Escape');settle();panel('settings');p.locator('#importSave').click();p.locator('#importText').fill(text);p.locator('#restoreGo').click();p.wait_for_function('document.querySelector("#helpDialog").style.display==="none"');settle()
- for r in list(unique.values()):
-  if r['classification']!='UNRESOLVED' or r['tag']!='BUTTON' or r['disabled'] or r['id']=='tutorial':continue
+ baseline_path=Path(__file__).parent/'independent-a649-review/control-census.json'
+ baseline=json.loads(baseline_path.read_text()) if baseline_path.exists() else None
+ # Keep the original failing targets even when a later candidate adds bindings.
+ # New registration alone must never cause its regression click to disappear.
+ regression_targets=[r for r in (baseline['uniqueControlShapes'] if baseline else list(unique.values())) if r['classification']=='UNRESOLVED' and r['tag']=='BUTTON' and not r['disabled'] and r['id']!='tutorial']
+ for r in regression_targets:
   adopt(world_archives[r['world']]);panel(r['panel']);p.locator('#panelBody details').evaluate_all('(nodes)=>nodes.forEach(d=>d.open=true)')
   if r['id']:selector='[id='+json.dumps(r['id'])+']'
   else:
@@ -55,5 +59,5 @@ with sync_playwright() as pw:
   current=p.locator(selector).input_value();values=p.locator(selector+' option').evaluate_all('(nodes)=>nodes.filter(n=>!n.disabled).map(n=>n.value)');other=next((v for v in values if v!=current),None)
   if other is None:selection_probes.append({'selector':selector,'alternatives':0});continue
   before=p.evaluate('real.command({type:"export"})')['archive'];p.locator(selector).select_option(other);settle();selection_probes.append({'selector':selector,'requested':other,'displayedAfterSettled':p.locator(selector).input_value(),'retained':p.locator(selector).input_value()==other,'authoritativeArchiveUnchanged':p.evaluate('real.command({type:"export"})')['archive']==before})
- receipt={'candidateCommit':'a649a55ccb752b6f1fd170e9f0689edb92dff34c','sourceSha256':hashlib.sha256(source.encode()).hexdigest(),'workerSha256':hashlib.sha256(worker.encode()).hexdigest(),'bridgeSha256':hashlib.sha256(bridge.encode()).hexdigest(),'actualFoundImportAndPanelNavigation':True,'expandedDisclosureStateOnly':True,'records':len(rows),'uniqueControlShapes':list(unique.values()),'unresolved':[r for r in unique.values() if r['classification']=='UNRESOLVED'],'actualManualProbe':manual,'actualUnresolvedButtonProbes':button_probes,'actualAlternativeSelectionProbes':selection_probes,'pageErrors':errors,'classificationIsNotBehavioralAcceptance':True}
+ receipt={'candidateCommit':'a649a55ccb752b6f1fd170e9f0689edb92dff34c','sourceSha256':hashlib.sha256(source.encode()).hexdigest(),'workerSha256':hashlib.sha256(worker.encode()).hexdigest(),'bridgeSha256':hashlib.sha256(bridge.encode()).hexdigest(),'actualFoundImportAndPanelNavigation':True,'expandedDisclosureStateOnly':True,'records':len(rows),'uniqueControlShapes':list(unique.values()),'unresolved':[r for r in unique.values() if r['classification']=='UNRESOLVED'],'actualManualProbe':manual,'actualUnresolvedButtonProbes':button_probes,'actualAlternativeSelectionProbes':selection_probes,'pageErrors':errors,'classificationIsNotBehavioralAcceptance':True,'frozenOriginalRegressionTargets':baseline is not None}
  Path('experimental/worker/independent-control-census.json').write_text(json.dumps(receipt,indent=2)+'\n');print('CENSUS',len(rows),'shapes',len(unique),'unresolved',len(receipt['unresolved']),'manual',manual,flush=True);assert not errors,errors;b.close()
