@@ -47,7 +47,7 @@ window.__cityVisualActors=(detail,bounds)=>{
  const revision=window.__cityVisualRevision();if(cityVisualOrderCache?.town!==G||cityVisualOrderCache.revision!==revision)cityVisualOrderCache={town:G,revision,orders:(G.regionalTrade?.shipments||[]).filter(o=>regionalShipmentVisualState(o)?.visible!==false).slice(0,16)};
  for(const o of cityVisualOrderCache.orders){work.sources++;const p=shipmentVisualPose(o);if(p)add('cargo:'+o.id,'truck',p,o.direction==='import'?'#698e89':'#b48c58');}
  const ordinals=new Map();for(const p of transitArtActors(()=>true,frameClock,1)){work.sources++;const ordinal=ordinals.get(p.route)||0;ordinals.set(p.route,ordinal+1);add('transit:'+p.route+':'+ordinal,p.mode==='elevated'?'train':'bus',p,p.color,p.elevation);}
- if(gameOptions.effects&&gameOptions.quality!=='low')for(const p of waterfrontActors((x,y)=>visible(project({x,y,dx:1,dy:0})))){work.sources++;add('vessel:'+p.id,'boat',p,p.consignment?'#b18b57':'#648778');}
+ if(gameOptions.effects&&gameOptions.quality!=='low')for(const p of waterfrontActors((x,y)=>visible(project({x,y,dx:1,dy:0})),{budget:{boats:true},cap:fastRenderEnabled()?2:gameOptions.quality==='high'?10:6})){work.sources++;add('vessel:'+p.id,'boat',p,p.consignment?'#b18b57':'#648778');}
  return actors;
 };
 const cityVisualCanvasBudget=visualDetailBudget;

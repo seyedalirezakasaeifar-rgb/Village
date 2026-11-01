@@ -1,0 +1,7 @@
+# Confirmed paused far-to-near boat disappearance
+
+The frozen29dd12a Rich running soak stopped at its fourth checkpoint: actor projection and rendered actor IDs could not converge while paused. The saved generated city reproduces the visible issue at the actual wharf: after far→near camera movement, two actual working vessels at(3,27)/(3,26) are absent from the rendered layer until simulation resumes. Before/after captures and complete projected/rendered poses are preserved in webgl-actor-options-8. This is a second defect, separate from the traffic checkbox cache.
+
+Cause: the actor adapter requested new near-detail poses, but both waterfront actor helpers consulted visualDetailBudget(), which still observed the previously published far-LOD WebGL API. The first new-frame projection suppressed boats; paused clock/mode then stayed stable so it never refreshed. Diagnostic reads subsequently saw the new near budget and exposed the mismatch.
+
+Fix: the3Dadapter supplies explicit presentation budget/cap to both existing waterfront helpers. Default arguments retain Canvas behavior and existing caps. No cargo, settlement, routes, money or simulation algorithms change. The provided fixture is the generated failed-soak save, not a user save. The browser regression verifies the real missing IDs/coordinates are rendered after the same paused transition; strict archive/RNG equality is also checked.

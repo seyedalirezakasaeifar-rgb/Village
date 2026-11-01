@@ -6711,11 +6711,11 @@ function waterRoutePose(path,travel,returning=false){
  const p=iso(...position),sign=returning?-1:1;return {x:p[0],y:p[1],gx:position[0],gy:position[1],dx:(tangent[0]-tangent[1])*36*sign,dy:(tangent[0]+tangent[1])*18*sign};
 }
 let waterVesselTown=null,waterVesselClock=0,waterVessels=new Map();
-function waterfrontActors(visible){
- if(!visualDetailBudget().boats)return [];
+function waterfrontActors(visible,presentation=null){
+ if(!(presentation?.budget||visualDetailBudget()).boats)return [];
  if(waterVesselTown!==G||frameClock<waterVesselClock){waterVessels=new Map();waterVesselTown=G;waterVesselClock=frameClock;}
  const elapsed=Math.min(.25,Math.max(0,frameClock-waterVesselClock));waterVesselClock=frameClock;
- const cap=fastRenderEnabled()?2:gameOptions.quality==='high'?10:6,actors=[],orders=new Map();
+ const cap=presentation?.cap??(fastRenderEnabled()?2:gameOptions.quality==='high'?10:6),actors=[],orders=new Map();
  for(const m of (G.waterway?.manifests||[]).slice().reverse())if(!orders.has(m.port))orders.set(m.port,m);
  for(const f of G.firms){if(!['fishery','wharf'].includes(f.kind))continue;const b=readBuild(f.building);if(!b||b.firm!==f.id){waterVessels.delete(f.id);continue;}
   const m=orders.get(f.id),fishing=f.kind==='fishery',working=!f.closed&&workingStaff(f).length>0,hasOrder=working&&(fishing?f.production>0:!!m),token=fishing?G.day:m?.id;
@@ -7716,9 +7716,9 @@ function paidPortBoatPose(o){
  pose.x-=pose.dy/length*4;pose.y+=pose.dx/length*4;
  return {...pose,progress,opacity:o.inbound?clamp(progress/.035,0,1):clamp((1-progress)/.035,0,1)};
 }
-waterfrontActors=function(visible){
- const actors=portWaterActorsBase(visible);if(!visualDetailBudget().boats||gameOptions.reducedMotion)return actors;
- const cap=fastRenderEnabled()?2:gameOptions.quality==='high'?10:6;
+waterfrontActors=function(visible,presentation=null){
+ const actors=portWaterActorsBase(visible,presentation);if(!(presentation?.budget||visualDetailBudget()).boats||gameOptions.reducedMotion)return actors;
+ const cap=presentation?.cap??(fastRenderEnabled()?2:gameOptions.quality==='high'?10:6);
  for(const o of portCargoPoses()){
   if(actors.length>=cap)break;const f=G.firms[o.port];if(!f)continue;const pose=paidPortBoatPose(o);if(!pose||G.tiles[roadId(Math.floor(pose.gx),Math.floor(pose.gy))]===1||!visible(pose.x,pose.y,35))continue;
   // Same-day bulk orders can share an identical local itinerary. Render one
@@ -8240,7 +8240,7 @@ window.__cityVisualActors=(detail,bounds)=>{
  const revision=window.__cityVisualRevision();if(cityVisualOrderCache?.town!==G||cityVisualOrderCache.revision!==revision)cityVisualOrderCache={town:G,revision,orders:(G.regionalTrade?.shipments||[]).filter(o=>regionalShipmentVisualState(o)?.visible!==false).slice(0,16)};
  for(const o of cityVisualOrderCache.orders){work.sources++;const p=shipmentVisualPose(o);if(p)add('cargo:'+o.id,'truck',p,o.direction==='import'?'#698e89':'#b48c58');}
  const ordinals=new Map();for(const p of transitArtActors(()=>true,frameClock,1)){work.sources++;const ordinal=ordinals.get(p.route)||0;ordinals.set(p.route,ordinal+1);add('transit:'+p.route+':'+ordinal,p.mode==='elevated'?'train':'bus',p,p.color,p.elevation);}
- if(gameOptions.effects&&gameOptions.quality!=='low')for(const p of waterfrontActors((x,y)=>visible(project({x,y,dx:1,dy:0})))){work.sources++;add('vessel:'+p.id,'boat',p,p.consignment?'#b18b57':'#648778');}
+ if(gameOptions.effects&&gameOptions.quality!=='low')for(const p of waterfrontActors((x,y)=>visible(project({x,y,dx:1,dy:0})),{budget:{boats:true},cap:fastRenderEnabled()?2:gameOptions.quality==='high'?10:6})){work.sources++;add('vessel:'+p.id,'boat',p,p.consignment?'#b18b57':'#648778');}
  return actors;
 };
 const cityVisualCanvasBudget=visualDetailBudget;
