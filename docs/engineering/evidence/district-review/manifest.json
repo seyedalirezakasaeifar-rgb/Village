@@ -1,0 +1,54 @@
+{
+  "base": "e3fae439e96b33bc3a62340f9a898029af674111",
+  "published_runtime_sha256": "dbbb77a80e54a8c02fa5d7da8af020ba6b8a24078270c39cd5d844bd236dd949",
+  "candidate": "b7a6039a799b2ceac38903f85da45933b61d4154",
+  "scratch_candidate_runtime_sha256": "a6a1339050cbbe572ade5f430e1157fe88f37faf4ca1d1ed244566ee4cb1a9f6",
+  "decision": "HOLD; no district runtime code integrated",
+  "failures": [
+    "90-day observed-character commit clears proposal while retaining old base character",
+    "Derived current bank/income profile changes after cache-only invalidation on an unchanged completed town"
+  ],
+  "proposed_one_line_character_fix": "Validated in memory only; cache issue persists",
+  "historical_missing_fixture": "Original failed before product assertions; retained historical-kernel-negative.log",
+  "replacement_kernel_oracle": {
+    "reference_commit": "bb02bbcebd1edfa291fa2e318df361da303263a2",
+    "fixture": "tests/fixtures/retail-refusal-pending-project.json.gz",
+    "fixture_sha256": "901b418c73ad9f3422e31607b2c0971235b4770ba5f5fbe8000e761aadc62824",
+    "cases": [
+      "late town",
+      "jobs",
+      "closure",
+      "income",
+      "condition",
+      "day",
+      "revision"
+    ],
+    "current_public_passed": true,
+    "candidate_passed": true,
+    "exact_model_days": 180,
+    "model_exclusions": []
+  },
+  "candidate_owner_six_year_test_passed": true,
+  "candidate_financial_equivalence": "8 scenario/seed x180 days; only intended district name/character/review metadata removed; financial/identity/road/cargo/RNG exact",
+  "not_run": [
+    "Full candidate core release gates: candidate failed behavioral acceptance before promotion",
+    "Android/device/WebGL/worker/admission/codec activation",
+    "Signing/build/release/promotion"
+  ],
+  "files_sha256": {
+    "current-equivalent-kernel-candidate.log": "aa83403d751a6cb58bab3db523de286abdad5305b3650cc0ff363b838969cd54",
+    "model-original-port.log": "c8a7b0cce979ee6f96ff2668d35650a1e0e0e22faa285ee7dda0a58f6de49249",
+    "candidate-port.patch": "05dc2feedffb21a0f93a6ae47012799d0c08550913620d6ee557166f2721781f",
+    "owner-test-original-port.log": "b1676aebfc43ba2f4e8f2eee5b25ffa62a91fd9c481a0fc183f0107aa0e98123",
+    "OWNER-CANDIDATE-SCOPE.md": "b1a6ddc57b731d8c798cf2ac38f078a5e4c5f4773de9e0032ad9114f5119511d",
+    "candidate-kernel-equivalent.json": "f03ecfec33c450ef114c67d091c80590d44a0b61b8fc1b2f068f88e46c1a5d6c",
+    "independent-original-negative.log": "7434fddcc87b7749078f2f7d3b1292ce0799cfa0efaffbd481c2541c67b21697",
+    "historical-kernel-negative.log": "cc95772cb17ccb72f5c703834665bfc37221965422d81c622692444bfc7311bd",
+    "reproducible-held-review.log": "ff1d53b336e692a801a71aa15c792e1b38912d24cdac68f7cd1c673cef9f8c4e",
+    "current-equivalent-kernel-public.log": "8c804be514b0ac464abe6fba0d75107f6b040d190cc2cb6a76b278d777e5c2b8",
+    "public-kernel-equivalent.json": "ffe094b1e1712bcff59b61abe6619b8f06c91acabdab0968bd2fc1688a310c5c",
+    "candidate-natural-six-years.json": "94d041086d63301a66015e83dc015e2ca3f08c4ad65f634ad400e6f42899d98b"
+  },
+  "tool_sha256": "f256248cf4a51f1604d0413e2423bc47984f6da27de6ff6718ffc51a7ba623d6",
+  "kernel_test_sha256": "fc0f1929a137c6fcc9fbecae9c0257869e1c82d233abf87095e6e62b1754e9e2"
+}

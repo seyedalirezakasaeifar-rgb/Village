@@ -1,0 +1,55 @@
+{
+  "base": "e3fae439e96b33bc3a62340f9a898029af674111",
+  "source_sha256": "a6a1339050cbbe572ade5f430e1157fe88f37faf4ca1d1ed244566ee4cb1a9f6",
+  "cases": [
+    {
+      "scenario": "settlement",
+      "seed": 42,
+      "day": 181,
+      "all_existing_fields_equal": true
+    },
+    {
+      "scenario": "settlement",
+      "seed": 909,
+      "day": 181,
+      "all_existing_fields_equal": true
+    },
+    {
+      "scenario": "regional",
+      "seed": 42,
+      "day": 181,
+      "all_existing_fields_equal": true
+    },
+    {
+      "scenario": "regional",
+      "seed": 909,
+      "day": 181,
+      "all_existing_fields_equal": true
+    },
+    {
+      "scenario": "hardtimes",
+      "seed": 42,
+      "day": 181,
+      "all_existing_fields_equal": true
+    },
+    {
+      "scenario": "hardtimes",
+      "seed": 909,
+      "day": 181,
+      "all_existing_fields_equal": true
+    },
+    {
+      "scenario": "industrial",
+      "seed": 42,
+      "day": 181,
+      "all_existing_fields_equal": true
+    },
+    {
+      "scenario": "industrial",
+      "seed": 909,
+      "day": 181,
+      "all_existing_fields_equal": true
+    }
+  ],
+  "comparison": "Only intentional district name/character/review metadata removed; all financial/identity/road/cargo/RNG fields exact"
+}

@@ -1,0 +1,175 @@
+{
+  "source_sha256": "a6a1339050cbbe572ade5f430e1157fe88f37faf4ca1d1ed244566ee4cb1a9f6",
+  "naturalSixYearProfiles": [
+    {
+      "seed": 42,
+      "day": 2160,
+      "patternCounts": {
+        "Employment quarter": 2,
+        "Downtown": 1,
+        "Agricultural belt": 3,
+        "Residential neighbourhood": 6
+      },
+      "incomeBands": {
+        "Lower income": 0,
+        "Middle income": 10,
+        "Higher income": 1,
+        "No resident income": 3
+      },
+      "financialEvidence": []
+    },
+    {
+      "seed": 101,
+      "day": 2160,
+      "patternCounts": {
+        "Employment quarter": 2,
+        "Residential neighbourhood": 3,
+        "Agricultural belt": 4,
+        "Downtown": 1,
+        "Suburban neighbourhood": 2
+      },
+      "incomeBands": {
+        "Lower income": 1,
+        "Middle income": 11,
+        "Higher income": 1,
+        "No resident income": 4
+      },
+      "financialEvidence": []
+    }
+  ],
+  "rendererHandoff": {
+    "cashBefore": 15489571.99997377,
+    "cashAfter": 15489571.99997377,
+    "rngBefore": 4242949057,
+    "rngAfter": 4242949057,
+    "bank": {
+      "buildingKind": "bank",
+      "buildingCue": "nl-stone-brick-bank",
+      "streetscapeCue": "working-employment-yard",
+      "observedCharacter": "Employment quarter",
+      "character": "Employment quarter",
+      "incomeBand": "Middle income",
+      "perPersonIncome": 18.372390097760274,
+      "rentBurden": 0,
+      "condition": 93.10698538070721,
+      "roadDistanceToTownHall": 3.28,
+      "housingUnits": 6,
+      "staffedWorkers": 29,
+      "jobCapacity": 29,
+      "retailBusinesses": 3,
+      "farms": 0,
+      "openBankBranches": 3,
+      "bankDeposits": 1181667.4777794122,
+      "bankLoans": 820,
+      "clinicRoadReach": 1,
+      "clinicFundedCoverage": 0.4605263157894737,
+      "schoolRoadReach": 1,
+      "schoolFundedCoverage": 0.21992481203007522,
+      "documentedForm": "Generalized Newfoundland bank precedents: weightier stone or brick, symmetrical classical or Italianate proportions, arches and stringcourses.",
+      "inference": "The simulation records bank deposits and credit, but does not simulate a separate district-level financial service effect.",
+      "visualInputsIndependent": {
+        "incomeBand": "Middle income",
+        "physicalCondition": 93.10698538070721,
+        "kind": "bank",
+        "coastal": false,
+        "pattern": "Employment quarter"
+      }
+    },
+    "home": {
+      "buildingKind": "home",
+      "buildingCue": "nl-village-house",
+      "streetscapeCue": "mixed-village-street",
+      "observedCharacter": "Residential neighbourhood",
+      "character": "Residential neighbourhood",
+      "incomeBand": "Middle income",
+      "perPersonIncome": 16.429093544863605,
+      "rentBurden": 0,
+      "condition": 100,
+      "roadDistanceToTownHall": 13,
+      "housingUnits": 11,
+      "staffedWorkers": 1,
+      "jobCapacity": 1,
+      "retailBusinesses": 1,
+      "farms": 0,
+      "openBankBranches": 0,
+      "bankDeposits": 0,
+      "bankLoans": 0,
+      "clinicRoadReach": 1,
+      "clinicFundedCoverage": 0.4605263157894737,
+      "schoolRoadReach": 1,
+      "schoolFundedCoverage": 0.2199248120300752,
+      "documentedForm": "Mixed residential reference: Cape Cod, bungalow, townhome and vernacular timber forms.",
+      "inference": "",
+      "visualInputsIndependent": {
+        "incomeBand": "Middle income",
+        "physicalCondition": 100,
+        "kind": "home",
+        "coastal": false,
+        "pattern": "Residential neighbourhood"
+      }
+    },
+    "availableKinds": [
+      "townhall",
+      "police",
+      "fire",
+      "clinic",
+      "school",
+      "square",
+      "bank",
+      "grocer",
+      "bakery",
+      "mill",
+      "farm",
+      "forestry",
+      "sawmill",
+      "quarry",
+      "contractor",
+      "tavern",
+      "office",
+      "factory",
+      "warehouse",
+      "home",
+      "fishery",
+      "wharf",
+      "worksite"
+    ],
+    "buildingFamilies": [
+      "local-building",
+      "nl-fire-apparatus-hall",
+      "nl-cottage-clinic",
+      "nl-institutional-brick-stone",
+      "nl-stone-brick-bank",
+      "nl-market-streetfront",
+      "nl-working-industry",
+      "nl-farmstead",
+      "nl-commercial-chambers",
+      "nl-village-house",
+      "nl-new-suburb-house",
+      "nl-historic-town-row",
+      "nl-merchant-house",
+      "nl-compact-worker-house",
+      "nl-working-waterfront"
+    ],
+    "cityValid": {
+      "ok": true,
+      "issues": [],
+      "total": 15489571.99997377,
+      "population": 247,
+      "day": 2161
+    }
+  },
+  "uiPlanReview": {
+    "target": {
+      "id": 34,
+      "plan": "residential",
+      "existing": "market",
+      "cost": 600,
+      "day": 2161
+    },
+    "reviewText": "Target Harbour Heights, the 8 \u00d7 8 neighbourhood centered at grid (20, 22). Current plan: Market-led mixed use. Pay $600 for this survey and public-register entry. Existing private property remains legal. Revisions require 90 days.",
+    "totalFundsConserved": true,
+    "noHouseholdJobOrGoodsChanges": true
+  },
+  "exact30DaySaveReplay": true,
+  "errors": []
+}
