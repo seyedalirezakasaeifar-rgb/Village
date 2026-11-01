@@ -1,6 +1,6 @@
 # Experimental worker handoff — development only
 
-**Release policy: keep synchronous startup and save ownership as the default.** No worker activation or player-facing experimental option is approved. Public release base remains 87811c; the independent whole-control correction candidate is `a2f49fbd3994f27042a2c56c34500af80ef7a9c8`. The separate header/save work on 9730423/bc6a174 is not part of this candidate. This document supersedes earlier experimental readiness/count summaries, not their retained evidence.
+**Release policy: keep synchronous startup and save ownership as the default.** No worker activation or player-facing experimental option is approved. Current public release base is 72419dc, still synchronous with the independently reviewed header/save backport; the worker model/oracle remains based on 87811c; the independent whole-control correction candidate is `a2f49fbd3994f27042a2c56c34500af80ef7a9c8`. The separate header/save work on 9730423/bc6a174 is not part of this candidate. This document supersedes earlier experimental readiness/count summaries, not their retained evidence.
 
 ## What was tested
 
@@ -14,7 +14,11 @@
 
 The mall’s positive correctness case uses the preexisting controlled source-unit fixture that adds household members before published population rolls forward. It is deliberately synthetic, without an organic-growth or performance claim. Other targeted cases use generated founding/day 1081 QA towns. No macroeconomic recovery was forced. Functional observer barriers and concurrent work change elapsed days; these receipts are not timing benchmarks.
 
-Older land/transit/civic/3D and lifecycle receipts remain in history. Some older transit runs excluded visual metadata; they must not be described as whole visual-state equivalence. The current targeted financial proof has zero exclusions. This candidate has 96 registered operations and 112 bindings, which is an inventory, not all-game acceptance. Seven census shapes remain statically unclassified/not newly certified: existing agenda navigation, two service-budget inputs, music volume/mood and renderer/quality selects. Independent recheck is pending.
+Older land/transit/civic/3D and lifecycle receipts remain in history. Some older transit runs excluded visual metadata; they must not be described as whole visual-state equivalence. The current targeted financial proof has zero exclusions. This candidate has 96 registered operations and 112 bindings, which is an inventory, not all-game acceptance. Seven census shapes remain statically unclassified in the retained owner receipt: existing agenda navigation, two service-budget inputs, music volume/mood and renderer/quality selects. The parent now reports independent host review 4fb183d726888bc8ec09ccd1632d534e97b46be9 accepts those seven inputs together with all 15 corrected buttons/three selectors and the broader census. Static classification was not changed to manufacture that result. This is bounded host acceptance, not a universal or native certification.
+
+## Independent host acceptance update
+
+The parent reports review 4fb183d726888bc8ec09ccd1632d534e97b46be9 accepts unchanged code candidate a2f49fb: 15 reported buttons, three supplier selectors, broader census/seven inputs, a separate 26-checkpoint/41-day journey with full cold replay, 16 financial parity checkpoints, recovery and actual 3D roads. No host blocker was reproduced within that scope. The reviewer’s runtime/artifact hashes and full receipts remain with that owner; this handoff records the parent’s confirmed outcome. No release activation follows. Native worker durability and sustained performance remain open.
 
 ## Exact artifacts
 
