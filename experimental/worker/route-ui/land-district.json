@@ -185,5 +185,40 @@
         "as": "integer"
       }
     }
+  },
+  {
+    "event": "click",
+    "selector": "#regionalApproaches",
+    "operation": "regional-approaches",
+    "fields": {}
+  },
+  {
+    "event": "click",
+    "selector": "[data-civic-recharter]",
+    "operation": "civic-recharter",
+    "fields": {
+      "parcel": {
+        "source": "attribute",
+        "name": "data-civic-recharter",
+        "as": "string"
+      }
+    }
+  },
+  {
+    "event": "click",
+    "selector": "[data-brownfield-action]",
+    "operation": "brownfield-action",
+    "fields": {
+      "id": {
+        "source": "attribute",
+        "name": "data-brownfield-id",
+        "as": "integer"
+      },
+      "action": {
+        "source": "attribute",
+        "name": "data-brownfield-action",
+        "as": "string"
+      }
+    }
   }
 ]

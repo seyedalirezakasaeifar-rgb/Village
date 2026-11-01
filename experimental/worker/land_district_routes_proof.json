@@ -1,20 +1,35 @@
 {
   "productionEnabled": false,
   "sourceSha256": "5df42ea1348872ad692a53bfa6ea1081472d1c8783ec9ace2b5cf011bcfb6e20",
-  "moduleSha256": "121e06be00971f1864f9c2d7a8e79a1435503fb3cda9388641ce1ddd4cb03359",
-  "workerSha256": "45b87b43d6a464f6b78bf49d519c7c23076f8e4b83192abd6b8a750c3a78e521",
+  "moduleSha256": "60273f79a4d54c0606656f977c7a43af25baeee4a377d2fd81215143f2cc7f43",
+  "workerSha256": "33aa69369abb2983364b29f208241b9bf98f3c7b71544ae4fd33b579657a29bf",
   "conservedFixtureTreasuryTransfer": 200000,
+  "additionalControlledFixtures": [
+    "bridge condition50",
+    "charter at day1 inspected at day40"
+  ],
+  "postDebitInjectedFaultCount": 1,
+  "postFaultSameReviewRetryExact": true,
   "fullModelRngExact": [
     "deed-cancel",
     "deed-purchase",
     "initial-charter",
     "urban-plan",
     "reserved-rehousing",
+    "compensated-public-site-clearance",
+    "brownfield-assess",
+    "brownfield-withdraw",
+    "brownfield-assess",
+    "brownfield-acquire",
+    "brownfield-fund",
     "road-retire",
+    "regional-approaches-after-road-retirement",
     "bridge-build",
     "bridge-repair",
     "bridge-keep",
-    "bridge-remove"
+    "bridge-remove",
+    "civic-recharter-aged-fixture",
+    "post-fault-same-review-legitimate-retry"
   ],
   "refusals": [
     "duplicate-deed-choice",
@@ -38,7 +53,10 @@
     {
       "operation": "parcel-buy",
       "refusal": "Error: Unknown route field: extra"
-    }
+    },
+    "pending-review-command-unchanged",
+    "post-debit-fault-full-archive-rng-rollback",
+    "cancelled-review-token-unchanged"
   ],
   "pageErrors": [],
   "actualUiBridgeBindingsPending": true,
