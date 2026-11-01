@@ -1,0 +1,140 @@
+{
+  "integration_source": "848bf1bfb8fdddc3155ba5a7773348d28073ade4",
+  "source_sha256": "da3b0af9e1df3423994b2838fb494b6061f99d11fe10c9c6925cf5d586c349c5",
+  "actualPaidOrder": {
+    "id": 1,
+    "qty": 12,
+    "estimate": 8,
+    "mode": "road",
+    "firm": 7,
+    "market": "upland",
+    "quoteDays": 7,
+    "cashConserved": true,
+    "goods": [
+      {
+        "good": "grain",
+        "opening": 960,
+        "produced": 0,
+        "consumed": 0,
+        "imports": 92,
+        "exports": 0,
+        "stock": 1052,
+        "error": 0,
+        "price": 2
+      },
+      {
+        "good": "flour",
+        "opening": 960,
+        "produced": 0,
+        "consumed": 0,
+        "imports": 80,
+        "exports": 0,
+        "stock": 1040,
+        "error": 0,
+        "price": 3
+      },
+      {
+        "good": "food",
+        "opening": 1920,
+        "produced": 0,
+        "consumed": 0,
+        "imports": 160,
+        "exports": 0,
+        "stock": 2080,
+        "error": 0,
+        "price": 3.3
+      },
+      {
+        "good": "logs",
+        "opening": 720,
+        "produced": 0,
+        "consumed": 0,
+        "imports": 60,
+        "exports": 0,
+        "stock": 780,
+        "error": 0,
+        "price": 2
+      },
+      {
+        "good": "timber",
+        "opening": 720,
+        "produced": 0,
+        "consumed": 0,
+        "imports": 60,
+        "exports": 0,
+        "stock": 780,
+        "error": 0,
+        "price": 4
+      },
+      {
+        "good": "stone",
+        "opening": 720,
+        "produced": 0,
+        "consumed": 0,
+        "imports": 60,
+        "exports": 0,
+        "stock": 780,
+        "error": 0,
+        "price": 3
+      },
+      {
+        "good": "manufactures",
+        "opening": 0,
+        "produced": 0,
+        "consumed": 0,
+        "imports": 0,
+        "exports": 0,
+        "stock": 0,
+        "error": 0,
+        "price": 8.5
+      }
+    ]
+  },
+  "initialSchedule": {
+    "schedule": "Expected in 7 simulated days",
+    "overdue": 0,
+    "remaining": 7,
+    "stage": "origin loading",
+    "checkpoint": 2,
+    "detail": "Currently origin loading; the next stage is planned for day 2. Handling, routing and disruptions can change the arrival estimate.",
+    "roadAccess": false
+  },
+  "controlledRoadOutage": {
+    "interrupted": true,
+    "day": 4,
+    "due": 8,
+    "stage": "collecting",
+    "status": "Route interrupted",
+    "detail": {
+      "schedule": "Expected in 4 simulated days",
+      "overdue": 0,
+      "remaining": 4,
+      "stage": "collecting",
+      "checkpoint": 4,
+      "detail": "The last freight check found no connected road route to the regional gate. Use the existing road tool to reconnect access; this cargo remains recorded and will retry on a later day.",
+      "roadAccess": true
+    },
+    "removed": 45
+  },
+  "twoDaysPastEstimate": {
+    "schedule": "2 simulated days past estimate",
+    "overdue": 2,
+    "remaining": 0,
+    "stage": "collecting",
+    "checkpoint": 4,
+    "detail": "The last freight check found no connected road route to the regional gate. Use the existing road tool to reconnect access; this cargo remains recorded and will retry on a later day.",
+    "roadAccess": true
+  },
+  "restoredRouteGuidance": {
+    "schedule": "Expected in 4 simulated days",
+    "overdue": 0,
+    "remaining": 4,
+    "stage": "collecting",
+    "checkpoint": 4,
+    "detail": "A road route is available again. This cargo retries on the next simulated freight day.",
+    "roadAccess": false
+  },
+  "roadMapActionModelInvariant": true,
+  "validTown": true,
+  "errors": []
+}
