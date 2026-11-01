@@ -1,0 +1,51 @@
+{
+  "source_sha256": "218de17d31e130f8f683ab1287307380eb2ec0689b06d39a9003ef26883a1fc7",
+  "noGhostProduction": {
+    "newProduction": 0,
+    "valid": true
+  },
+  "inventoryAccounting": {
+    "purchases": 898.7707904814857,
+    "costRecognized": 356.07624654601227,
+    "stockValue": 1620.5294599256447,
+    "statementReconciles": true
+  },
+  "retirement": {
+    "age": 71,
+    "job": -1,
+    "pension": 16,
+    "valid": true
+  },
+  "monetaryTransmission": {
+    "low": {
+      "rate": 0.07163935546875,
+      "paid": 1030.9661577758789,
+      "quotes": [
+        0.03176824662646251,
+        0.035962330726080155,
+        0.040350498925315455
+      ],
+      "total": 15493516.999997145
+    },
+    "high": {
+      "rate": 0.194942578125,
+      "paid": 1135.0997438964841,
+      "quotes": [
+        0.1788569851321977,
+        0.18305106923181536,
+        0.18743923743105068
+      ],
+      "total": 15493516.999996973
+    }
+  },
+  "legacyFixedContract": {
+    "fixed": true,
+    "unchangedRate": 0.0963
+  },
+  "interestUI": {
+    "staged": true,
+    "enacted": 2.25,
+    "saved": true
+  },
+  "errors": []
+}

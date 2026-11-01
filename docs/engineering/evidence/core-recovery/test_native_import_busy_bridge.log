@@ -1,0 +1,48 @@
+{
+  "activity_sha256": "7e8ddccb1e20c95900e7449dd79320aeb5569e6b608f123cfacea3bf488ca341",
+  "cases": [
+    {
+      "mode": "success",
+      "calls": 1,
+      "acks": [
+        true
+      ],
+      "observed": {
+        "busy": "true",
+        "overlay": true,
+        "raw": "fixture archive"
+      },
+      "busy": false,
+      "overlay": false
+    },
+    {
+      "mode": "rejected",
+      "calls": 1,
+      "acks": [
+        false
+      ],
+      "observed": {
+        "busy": "true",
+        "overlay": true,
+        "raw": "fixture archive"
+      },
+      "busy": false,
+      "overlay": false
+    },
+    {
+      "mode": "exception",
+      "calls": 1,
+      "acks": [
+        false
+      ],
+      "observed": {
+        "busy": "true",
+        "overlay": true,
+        "raw": "fixture archive"
+      },
+      "busy": false,
+      "overlay": false
+    }
+  ]
+}
+PASS exact production import script: success, rejection, exception acknowledgement and overlay cleanup
