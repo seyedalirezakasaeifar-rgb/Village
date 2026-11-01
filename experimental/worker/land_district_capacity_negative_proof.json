@@ -1,0 +1,32 @@
+{
+  "productionEnabled": false,
+  "currentPublicPortAccepted": false,
+  "sourceSha256": "5df42ea1348872ad692a53bfa6ea1081472d1c8783ec9ace2b5cf011bcfb6e20",
+  "workerSha256": "781548f98a17e924415524caac4178125674b21c78ad53e9bc6cb09edd687559",
+  "fixtureRawSha256": "a7bff8dfd8ee12c7245133ec86f0d6f7745370917610cda8088a728e5b4c4730",
+  "syntheticHistoryBoundaryOnly": true,
+  "injectedMoneyStocksPeople": false,
+  "cases": [
+    {
+      "case": "historical-capacity",
+      "firmRecords": 3000,
+      "reservedFirmCompletions": 3,
+      "refusal": "Error: The construction site or funding is no longer available.",
+      "entireArchiveRngUnchanged": true,
+      "noWriteOrSaveAck": true,
+      "readySiteRetained": true,
+      "workerRemainsUsable": true
+    },
+    {
+      "case": "reserved-completion-slots",
+      "firmRecords": 2997,
+      "reservedFirmCompletions": 3,
+      "refusal": "Error: The construction site or funding is no longer available.",
+      "entireArchiveRngUnchanged": true,
+      "noWriteOrSaveAck": true,
+      "readySiteRetained": true,
+      "workerRemainsUsable": true
+    }
+  ],
+  "pageErrors": []
+}
