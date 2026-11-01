@@ -1,0 +1,17 @@
+{
+  "candidate": "f93a87ca331669c7a7907453799f009eb8adbfa0",
+  "source_sha256": "c1ad404fb87f2fb27d1ce85ef39ca5a3ab04d2b03785f6411774e4db7512b713",
+  "hostChromium": true,
+  "physicalAndroid": false,
+  "fixture": "Adversarial valid JSON short exponent tokens in permitted unknown payload field",
+  "result": {
+    "encodedBytes": 4135509,
+    "encodedLimit": 8388608,
+    "logicalBytes": 17735373,
+    "logicalLimit": 16777216,
+    "parseError": "",
+    "accepted": true,
+    "exportError": "Archive exceeds encoded byte budget",
+    "claimedLogicalBoundExceeded": true
+  }
+}

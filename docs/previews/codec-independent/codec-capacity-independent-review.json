@@ -1,0 +1,20 @@
+{
+  "candidate": "d1f963afc24dc932e91c48bb72253583b3390429",
+  "source_sha256": "b9f015806b20e5795bdb1814373b25a8786247c7c67f634ac9104c4c79d4f12f",
+  "hostChromium": true,
+  "physicalAndroid": false,
+  "fixture": "Synthetic near-budget padding, actual createFirm helper; not a naturally evolved city or paid UI construction test",
+  "result": {
+    "acceptedBytes": 8388186,
+    "limit": 8388608,
+    "actualCreator": "createFirm",
+    "creatorActions": 3,
+    "newFirmId": 28,
+    "liveMutationBeforeExportFailure": true,
+    "saveReturnedFalseBeforeAnyWrite": true,
+    "recoveryRestoredPriorValidArchive": true,
+    "failedLiveCount": 29,
+    "recoveredCount": 28,
+    "error": "Error: Archive exceeds encoded byte budget"
+  }
+}

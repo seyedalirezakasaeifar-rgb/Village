@@ -1,0 +1,28 @@
+{
+  "candidate": "d1f963afc24dc932e91c48bb72253583b3390429",
+  "optimizedVariant": true,
+  "source_sha256": "b9f015806b20e5795bdb1814373b25a8786247c7c67f634ac9104c4c79d4f12f",
+  "hostChromium": true,
+  "physicalAndroid": false,
+  "fixturePreparation": "Owner boundary generator, independent assertions; synthetic historical records with real creator boundary actions",
+  "boundary": {
+    "people": 172,
+    "households": 3001,
+    "firms": 3001,
+    "wireBytes": 6104471
+  },
+  "additionalAtomicRejected": [
+    "personEstate",
+    "loanCreditor",
+    "loanOwner",
+    "summaryOwner",
+    "firmId",
+    "entityVersionSpoof",
+    "utf8SharedExpansion"
+  ],
+  "fullLogicalFieldAndReferenceEquality": true,
+  "allDirectoriesReorderedWithoutReindexing": true,
+  "canonicalOriginalVsDecodedReplayDays": 45,
+  "regionalCreditorAndHighEstateReferencesPreserved": true,
+  "ownPrototypeAndConstructorFieldsPreserved": true
+}

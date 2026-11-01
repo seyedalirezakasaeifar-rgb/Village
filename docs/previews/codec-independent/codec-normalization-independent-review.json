@@ -1,0 +1,17 @@
+{
+  "candidate": "d1f963afc24dc932e91c48bb72253583b3390429",
+  "source_sha256": "b9f015806b20e5795bdb1814373b25a8786247c7c67f634ac9104c4c79d4f12f",
+  "hostChromium": true,
+  "physicalAndroid": false,
+  "fixture": "Synthetic near-budget padding and omitted optional fields; no creator action after import",
+  "result": {
+    "inputBytes": 8388544,
+    "limit": 8388608,
+    "strippedOptionalUnitCostRecords": 26,
+    "accepted": true,
+    "exportError": "Archive exceeds encoded byte budget",
+    "saveResult": false,
+    "persistenceWrites": 0,
+    "postImportCodecCapacity": true
+  }
+}
