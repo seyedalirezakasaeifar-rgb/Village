@@ -1,0 +1,159 @@
+{
+  "productionEnabled": false,
+  "modelCommit": "01eeda3d2ff09822b9422721f75e97fabbc9958a",
+  "sourceSha256": "84ecbaef6b0ae999a9c5adcd49b9ba1678840cabfc36cf02b617c74a93d208a4",
+  "workerModelSourceSha256": "5df42ea1348872ad692a53bfa6ea1081472d1c8783ec9ace2b5cf011bcfb6e20",
+  "sameSourceComposition": false,
+  "workerSha256": "66fba86c5b41e7f780fd0baf0646b1527c1c8c1dbd893cedbaff6de4370e6c29",
+  "moduleSha256": "60273f79a4d54c0606656f977c7a43af25baeee4a377d2fd81215143f2cc7f43",
+  "fixtureSha256": {
+    "farm": "2ef25944a2d9ac1a3a3c7e540385ed0198e58391031fc788dd67164035f4a9ab",
+    "brownfieldReady": "a7bff8dfd8ee12c7245133ec86f0d6f7745370917610cda8088a728e5b4c4730"
+  },
+  "fixtureFundingInjection": false,
+  "deterministicOracleVisualClockAtChoiceAndStep": true,
+  "fixtureOriginalHydrationIncludesTwoPausedRenderFrames": true,
+  "exactCompleteModelRng": [
+    "eligible-farm-cancel",
+    "eligible-farm-relocation",
+    "farm-worksite-canonical-load",
+    "farm-worksite-12-day-exact-replay"
+  ],
+  "normalization": [
+    {
+      "stage": "immediate-farm-worksite-hydration",
+      "changedKeys": []
+    }
+  ],
+  "negative": [
+    {
+      "currentSourceFence": "active",
+      "atomic": true
+    },
+    {
+      "currentSourceFence": "failed",
+      "atomic": true
+    },
+    {
+      "actualPaidOwnerForcedActiveTickFence": true,
+      "atomic": true
+    }
+  ],
+  "farm": {
+    "farm": 8,
+    "building": 18,
+    "fields": 17,
+    "workers": [
+      125,
+      162
+    ],
+    "stock": {
+      "grain": 80.31659727169699,
+      "flour": 40,
+      "food": 80,
+      "logs": 30,
+      "timber": 30,
+      "stone": 30
+    },
+    "destination": {
+      "x": 12,
+      "y": 6,
+      "plots": [
+        {
+          "id": 524,
+          "x": 12,
+          "y": 4
+        },
+        {
+          "id": 778,
+          "x": 10,
+          "y": 6
+        },
+        {
+          "id": 782,
+          "x": 14,
+          "y": 6
+        },
+        {
+          "id": 1036,
+          "x": 12,
+          "y": 8
+        },
+        {
+          "id": 396,
+          "x": 12,
+          "y": 3
+        },
+        {
+          "id": 525,
+          "x": 13,
+          "y": 4
+        },
+        {
+          "id": 650,
+          "x": 10,
+          "y": 5
+        },
+        {
+          "id": 783,
+          "x": 15,
+          "y": 6
+        },
+        {
+          "id": 906,
+          "x": 10,
+          "y": 7
+        },
+        {
+          "id": 1037,
+          "x": 13,
+          "y": 8
+        },
+        {
+          "id": 1164,
+          "x": 12,
+          "y": 9
+        },
+        {
+          "id": 395,
+          "x": 11,
+          "y": 3
+        },
+        {
+          "id": 522,
+          "x": 10,
+          "y": 4
+        },
+        {
+          "id": 649,
+          "x": 9,
+          "y": 5
+        },
+        {
+          "id": 776,
+          "x": 8,
+          "y": 6
+        },
+        {
+          "id": 784,
+          "x": 16,
+          "y": 6
+        },
+        {
+          "id": 905,
+          "x": 9,
+          "y": 7
+        }
+      ]
+    },
+    "relocationCost": 54000,
+    "ownerPremium": 10850
+  },
+  "pageErrors": [],
+  "farmGoodsMaxError": 7.039488991722465e-10,
+  "farmCashDrift": 1.1175870895385742e-08,
+  "originalSourceHandlerClicks": true,
+  "visibleOriginalControlJourney": false,
+  "actualWorkerUiBindingsCertified": false,
+  "saveFailureRetryCertified": false
+}

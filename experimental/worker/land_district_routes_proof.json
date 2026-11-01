@@ -1,0 +1,64 @@
+{
+  "productionEnabled": false,
+  "sourceSha256": "5df42ea1348872ad692a53bfa6ea1081472d1c8783ec9ace2b5cf011bcfb6e20",
+  "moduleSha256": "60273f79a4d54c0606656f977c7a43af25baeee4a377d2fd81215143f2cc7f43",
+  "workerSha256": "33aa69369abb2983364b29f208241b9bf98f3c7b71544ae4fd33b579657a29bf",
+  "conservedFixtureTreasuryTransfer": 200000,
+  "additionalControlledFixtures": [
+    "bridge condition50",
+    "charter at day1 inspected at day40"
+  ],
+  "postDebitInjectedFaultCount": 1,
+  "postFaultSameReviewRetryExact": true,
+  "fullModelRngExact": [
+    "deed-cancel",
+    "deed-purchase",
+    "initial-charter",
+    "urban-plan",
+    "reserved-rehousing",
+    "compensated-public-site-clearance",
+    "brownfield-assess",
+    "brownfield-withdraw",
+    "brownfield-assess",
+    "brownfield-acquire",
+    "brownfield-fund",
+    "road-retire",
+    "regional-approaches-after-road-retirement",
+    "bridge-build",
+    "bridge-repair",
+    "bridge-keep",
+    "bridge-remove",
+    "civic-recharter-aged-fixture",
+    "post-fault-same-review-legitimate-retry"
+  ],
+  "refusals": [
+    "duplicate-deed-choice",
+    "duplicate-deed-choice",
+    {
+      "operation": "parcel-buy",
+      "refusal": "Error: This adjoining deed is no longer available."
+    },
+    {
+      "operation": "parcel-buy",
+      "refusal": "Error: Invalid route enum"
+    },
+    {
+      "operation": "bridge-repair",
+      "refusal": "Error: This bridge record no longer exists."
+    },
+    {
+      "operation": "road-remove-review",
+      "refusal": "Error: Invalid bounded route number"
+    },
+    {
+      "operation": "parcel-buy",
+      "refusal": "Error: Unknown route field: extra"
+    },
+    "pending-review-command-unchanged",
+    "post-debit-fault-full-archive-rng-rollback",
+    "cancelled-review-token-unchanged"
+  ],
+  "pageErrors": [],
+  "actualUiBridgeBindingsPending": true,
+  "currentPublicSourcePortPending": true
+}
