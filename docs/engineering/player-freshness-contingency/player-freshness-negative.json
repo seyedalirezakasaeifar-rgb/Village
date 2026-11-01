@@ -1,0 +1,40 @@
+{
+  "sourceSha256": "84ecbaef6b0ae999a9c5adcd49b9ba1678840cabfc36cf02b617c74a93d208a4",
+  "completed": true,
+  "finalDay": 1097,
+  "daysElapsed": 16,
+  "cashDrift": 2.514570951461792e-07,
+  "errors": [],
+  "strictFreshViewAccepted": false,
+  "stalePanelState": [
+    {
+      "requested": "settings",
+      "active": "settings",
+      "displayedTitle": "Town Hall"
+    },
+    {
+      "requested": "settings",
+      "active": "settings",
+      "displayedTitle": "Town Hall"
+    }
+  ],
+  "staleCargoPreview": {
+    "id": 19304,
+    "authority": {
+      "active": false,
+      "recent": false
+    },
+    "activePanel": "economy",
+    "visibleText": "Can this supplier keep the promise?\nDepot operations \u00b7 0 queued \u00b7 0 late\n\nPaid cargo moves through collection, a staffed loading bay, the regional road and final delivery. Outside travel is not painted as a truck driving around town. Ready queues compete for actual depot crews. Handling receipts com"
+  },
+  "rawArchiveRoundtripEqual": false,
+  "rawArchiveRoundtripDifferences": [
+    ".stats.townBalance"
+  ],
+  "fullColdUiOracleEqual": true,
+  "actualUiOnly": true,
+  "fixtureRef": "01eeda3d2ff09822b9422721f75e97fabbc9958a",
+  "pinnedJourneyRef": "856f944b551296ebe3c61c862439a946c803dc21",
+  "expectStale": true,
+  "checkpoints": 26
+}
