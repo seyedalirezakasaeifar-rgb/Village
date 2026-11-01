@@ -151,6 +151,107 @@
           "initialStoreCapacity": 1040,
           "initialStoreStaff": 13,
           "initialSellableFood": 1040,
+          "allStoreDetails": [
+            {
+              "firm": 0,
+              "stock": 1330.4279172598685,
+              "capacity": 160,
+              "staff": 2,
+              "price": 4.101591553204264,
+              "part": 0,
+              "partNeed": 1076.800000000006
+            },
+            {
+              "firm": 1,
+              "stock": 885.0938931106366,
+              "capacity": 160,
+              "staff": 2,
+              "price": 4.128292148481979,
+              "part": 0,
+              "partNeed": 1076.800000000006
+            },
+            {
+              "firm": 2,
+              "stock": 1004.5931960723673,
+              "capacity": 160,
+              "staff": 2,
+              "price": 4.025620404487036,
+              "part": 0,
+              "partNeed": 1076.800000000006
+            },
+            {
+              "firm": 17,
+              "stock": 669.6037590137369,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.920532503902875,
+              "part": 0,
+              "partNeed": 1076.800000000006
+            },
+            {
+              "firm": 50,
+              "stock": 484.8515867019759,
+              "capacity": 80,
+              "staff": 1,
+              "price": 4.093386450792672,
+              "part": 0,
+              "partNeed": 1076.800000000006
+            },
+            {
+              "firm": 51,
+              "stock": 601.0408517285973,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.9548052719260065,
+              "part": 0,
+              "partNeed": 1076.800000000006
+            },
+            {
+              "firm": 52,
+              "stock": 610.7870909090911,
+              "capacity": 80,
+              "staff": 1,
+              "price": 4.152125567206745,
+              "part": 0,
+              "partNeed": 1076.800000000006
+            },
+            {
+              "firm": 53,
+              "stock": 638.21582169787,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.87666494074267,
+              "part": 0,
+              "partNeed": 1076.800000000006
+            },
+            {
+              "firm": 54,
+              "stock": 409.96206736593524,
+              "capacity": 80,
+              "staff": 1,
+              "price": 4.135691002956785,
+              "part": 0,
+              "partNeed": 1076.800000000006
+            },
+            {
+              "firm": 55,
+              "stock": 344.6235222799366,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.8227758105072223,
+              "part": 0,
+              "partNeed": 1076.800000000006
+            },
+            {
+              "firm": 88,
+              "stock": 254.422,
+              "capacity": 0,
+              "staff": 0,
+              "price": 3.9385657017991305,
+              "part": 0,
+              "partNeed": 1076.800000000006
+            }
+          ],
           "storesWithSellableFood": 10,
           "purchases": [
             {
@@ -317,6 +418,107 @@
           "initialStoreCapacity": 1040,
           "initialStoreStaff": 13,
           "initialSellableFood": 1040,
+          "allStoreDetails": [
+            {
+              "firm": 0,
+              "stock": 1330.4279172598685,
+              "capacity": 160,
+              "staff": 2,
+              "price": 4.101591553204264,
+              "part": 0,
+              "partNeed": 1076.800000000006
+            },
+            {
+              "firm": 1,
+              "stock": 885.0938931106366,
+              "capacity": 160,
+              "staff": 2,
+              "price": 4.128292148481979,
+              "part": 0,
+              "partNeed": 1076.800000000006
+            },
+            {
+              "firm": 2,
+              "stock": 1004.5931960723673,
+              "capacity": 160,
+              "staff": 2,
+              "price": 4.025620404487036,
+              "part": 0,
+              "partNeed": 1076.800000000006
+            },
+            {
+              "firm": 17,
+              "stock": 669.6037590137369,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.920532503902875,
+              "part": 0,
+              "partNeed": 1076.800000000006
+            },
+            {
+              "firm": 50,
+              "stock": 484.8515867019759,
+              "capacity": 80,
+              "staff": 1,
+              "price": 4.093386450792672,
+              "part": 0,
+              "partNeed": 1076.800000000006
+            },
+            {
+              "firm": 51,
+              "stock": 601.0408517285973,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.9548052719260065,
+              "part": 0,
+              "partNeed": 1076.800000000006
+            },
+            {
+              "firm": 52,
+              "stock": 610.7870909090911,
+              "capacity": 80,
+              "staff": 1,
+              "price": 4.152125567206745,
+              "part": 0,
+              "partNeed": 1076.800000000006
+            },
+            {
+              "firm": 53,
+              "stock": 638.21582169787,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.87666494074267,
+              "part": 0,
+              "partNeed": 1076.800000000006
+            },
+            {
+              "firm": 54,
+              "stock": 409.96206736593524,
+              "capacity": 80,
+              "staff": 1,
+              "price": 4.135691002956785,
+              "part": 0,
+              "partNeed": 1076.800000000006
+            },
+            {
+              "firm": 55,
+              "stock": 344.6235222799366,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.8227758105072223,
+              "part": 0,
+              "partNeed": 1076.800000000006
+            },
+            {
+              "firm": 88,
+              "stock": 254.422,
+              "capacity": 0,
+              "staff": 0,
+              "price": 3.9385657017991305,
+              "part": 0,
+              "partNeed": 1076.800000000006
+            }
+          ],
           "storesWithSellableFood": 10,
           "purchases": []
         },
@@ -473,6 +675,107 @@
           "initialStoreCapacity": 1040,
           "initialStoreStaff": 13,
           "initialSellableFood": 1040,
+          "allStoreDetails": [
+            {
+              "firm": 0,
+              "stock": 1330.4279172598685,
+              "capacity": 160,
+              "staff": 2,
+              "price": 4.101591553204264,
+              "part": 0,
+              "partNeed": 1076.800000000006
+            },
+            {
+              "firm": 1,
+              "stock": 885.0938931106366,
+              "capacity": 160,
+              "staff": 2,
+              "price": 4.128292148481979,
+              "part": 0,
+              "partNeed": 1076.800000000006
+            },
+            {
+              "firm": 2,
+              "stock": 1004.5931960723673,
+              "capacity": 160,
+              "staff": 2,
+              "price": 4.025620404487036,
+              "part": 0,
+              "partNeed": 1076.800000000006
+            },
+            {
+              "firm": 17,
+              "stock": 669.6037590137369,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.920532503902875,
+              "part": 0,
+              "partNeed": 1076.800000000006
+            },
+            {
+              "firm": 50,
+              "stock": 484.8515867019759,
+              "capacity": 80,
+              "staff": 1,
+              "price": 4.093386450792672,
+              "part": 0,
+              "partNeed": 1076.800000000006
+            },
+            {
+              "firm": 51,
+              "stock": 601.0408517285973,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.9548052719260065,
+              "part": 0,
+              "partNeed": 1076.800000000006
+            },
+            {
+              "firm": 52,
+              "stock": 610.7870909090911,
+              "capacity": 80,
+              "staff": 1,
+              "price": 4.152125567206745,
+              "part": 0,
+              "partNeed": 1076.800000000006
+            },
+            {
+              "firm": 53,
+              "stock": 638.21582169787,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.87666494074267,
+              "part": 0,
+              "partNeed": 1076.800000000006
+            },
+            {
+              "firm": 54,
+              "stock": 409.96206736593524,
+              "capacity": 80,
+              "staff": 1,
+              "price": 4.135691002956785,
+              "part": 0,
+              "partNeed": 1076.800000000006
+            },
+            {
+              "firm": 55,
+              "stock": 344.6235222799366,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.8227758105072223,
+              "part": 0,
+              "partNeed": 1076.800000000006
+            },
+            {
+              "firm": 88,
+              "stock": 254.422,
+              "capacity": 0,
+              "staff": 0,
+              "price": 3.9385657017991305,
+              "part": 0,
+              "partNeed": 1076.800000000006
+            }
+          ],
           "storesWithSellableFood": 10,
           "purchases": []
         },
@@ -623,6 +926,107 @@
           "initialStoreCapacity": 1040,
           "initialStoreStaff": 13,
           "initialSellableFood": 1040,
+          "allStoreDetails": [
+            {
+              "firm": 0,
+              "stock": 1330.4279172598685,
+              "capacity": 160,
+              "staff": 2,
+              "price": 4.101591553204264,
+              "part": 0,
+              "partNeed": 1076.800000000006
+            },
+            {
+              "firm": 1,
+              "stock": 885.0938931106366,
+              "capacity": 160,
+              "staff": 2,
+              "price": 4.128292148481979,
+              "part": 0,
+              "partNeed": 1076.800000000006
+            },
+            {
+              "firm": 2,
+              "stock": 1004.5931960723673,
+              "capacity": 160,
+              "staff": 2,
+              "price": 4.025620404487036,
+              "part": 0,
+              "partNeed": 1076.800000000006
+            },
+            {
+              "firm": 17,
+              "stock": 669.6037590137369,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.920532503902875,
+              "part": 0,
+              "partNeed": 1076.800000000006
+            },
+            {
+              "firm": 50,
+              "stock": 484.8515867019759,
+              "capacity": 80,
+              "staff": 1,
+              "price": 4.093386450792672,
+              "part": 0,
+              "partNeed": 1076.800000000006
+            },
+            {
+              "firm": 51,
+              "stock": 601.0408517285973,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.9548052719260065,
+              "part": 0,
+              "partNeed": 1076.800000000006
+            },
+            {
+              "firm": 52,
+              "stock": 610.7870909090911,
+              "capacity": 80,
+              "staff": 1,
+              "price": 4.152125567206745,
+              "part": 0,
+              "partNeed": 1076.800000000006
+            },
+            {
+              "firm": 53,
+              "stock": 638.21582169787,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.87666494074267,
+              "part": 0,
+              "partNeed": 1076.800000000006
+            },
+            {
+              "firm": 54,
+              "stock": 409.96206736593524,
+              "capacity": 80,
+              "staff": 1,
+              "price": 4.135691002956785,
+              "part": 0,
+              "partNeed": 1076.800000000006
+            },
+            {
+              "firm": 55,
+              "stock": 344.6235222799366,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.8227758105072223,
+              "part": 0,
+              "partNeed": 1076.800000000006
+            },
+            {
+              "firm": 88,
+              "stock": 254.422,
+              "capacity": 0,
+              "staff": 0,
+              "price": 3.9385657017991305,
+              "part": 0,
+              "partNeed": 1076.800000000006
+            }
+          ],
           "storesWithSellableFood": 10,
           "purchases": []
         },
@@ -779,6 +1183,107 @@
           "initialStoreCapacity": 1040,
           "initialStoreStaff": 13,
           "initialSellableFood": 1040,
+          "allStoreDetails": [
+            {
+              "firm": 0,
+              "stock": 1330.4279172598685,
+              "capacity": 160,
+              "staff": 2,
+              "price": 4.101591553204264,
+              "part": 0,
+              "partNeed": 1076.800000000006
+            },
+            {
+              "firm": 1,
+              "stock": 885.0938931106366,
+              "capacity": 160,
+              "staff": 2,
+              "price": 4.128292148481979,
+              "part": 0,
+              "partNeed": 1076.800000000006
+            },
+            {
+              "firm": 2,
+              "stock": 1004.5931960723673,
+              "capacity": 160,
+              "staff": 2,
+              "price": 4.025620404487036,
+              "part": 0,
+              "partNeed": 1076.800000000006
+            },
+            {
+              "firm": 17,
+              "stock": 669.6037590137369,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.920532503902875,
+              "part": 0,
+              "partNeed": 1076.800000000006
+            },
+            {
+              "firm": 50,
+              "stock": 484.8515867019759,
+              "capacity": 80,
+              "staff": 1,
+              "price": 4.093386450792672,
+              "part": 0,
+              "partNeed": 1076.800000000006
+            },
+            {
+              "firm": 51,
+              "stock": 601.0408517285973,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.9548052719260065,
+              "part": 0,
+              "partNeed": 1076.800000000006
+            },
+            {
+              "firm": 52,
+              "stock": 610.7870909090911,
+              "capacity": 80,
+              "staff": 1,
+              "price": 4.152125567206745,
+              "part": 0,
+              "partNeed": 1076.800000000006
+            },
+            {
+              "firm": 53,
+              "stock": 638.21582169787,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.87666494074267,
+              "part": 0,
+              "partNeed": 1076.800000000006
+            },
+            {
+              "firm": 54,
+              "stock": 409.96206736593524,
+              "capacity": 80,
+              "staff": 1,
+              "price": 4.135691002956785,
+              "part": 0,
+              "partNeed": 1076.800000000006
+            },
+            {
+              "firm": 55,
+              "stock": 344.6235222799366,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.8227758105072223,
+              "part": 0,
+              "partNeed": 1076.800000000006
+            },
+            {
+              "firm": 88,
+              "stock": 254.422,
+              "capacity": 0,
+              "staff": 0,
+              "price": 3.9385657017991305,
+              "part": 0,
+              "partNeed": 1076.800000000006
+            }
+          ],
           "storesWithSellableFood": 10,
           "purchases": []
         },
@@ -935,6 +1440,107 @@
           "initialStoreCapacity": 1040,
           "initialStoreStaff": 13,
           "initialSellableFood": 1040,
+          "allStoreDetails": [
+            {
+              "firm": 0,
+              "stock": 1330.4279172598685,
+              "capacity": 160,
+              "staff": 2,
+              "price": 4.101591553204264,
+              "part": 0,
+              "partNeed": 1076.800000000006
+            },
+            {
+              "firm": 1,
+              "stock": 885.0938931106366,
+              "capacity": 160,
+              "staff": 2,
+              "price": 4.128292148481979,
+              "part": 0,
+              "partNeed": 1076.800000000006
+            },
+            {
+              "firm": 2,
+              "stock": 1004.5931960723673,
+              "capacity": 160,
+              "staff": 2,
+              "price": 4.025620404487036,
+              "part": 0,
+              "partNeed": 1076.800000000006
+            },
+            {
+              "firm": 17,
+              "stock": 669.6037590137369,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.920532503902875,
+              "part": 0,
+              "partNeed": 1076.800000000006
+            },
+            {
+              "firm": 50,
+              "stock": 484.8515867019759,
+              "capacity": 80,
+              "staff": 1,
+              "price": 4.093386450792672,
+              "part": 0,
+              "partNeed": 1076.800000000006
+            },
+            {
+              "firm": 51,
+              "stock": 601.0408517285973,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.9548052719260065,
+              "part": 0,
+              "partNeed": 1076.800000000006
+            },
+            {
+              "firm": 52,
+              "stock": 610.7870909090911,
+              "capacity": 80,
+              "staff": 1,
+              "price": 4.152125567206745,
+              "part": 0,
+              "partNeed": 1076.800000000006
+            },
+            {
+              "firm": 53,
+              "stock": 638.21582169787,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.87666494074267,
+              "part": 0,
+              "partNeed": 1076.800000000006
+            },
+            {
+              "firm": 54,
+              "stock": 409.96206736593524,
+              "capacity": 80,
+              "staff": 1,
+              "price": 4.135691002956785,
+              "part": 0,
+              "partNeed": 1076.800000000006
+            },
+            {
+              "firm": 55,
+              "stock": 344.6235222799366,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.8227758105072223,
+              "part": 0,
+              "partNeed": 1076.800000000006
+            },
+            {
+              "firm": 88,
+              "stock": 254.422,
+              "capacity": 0,
+              "staff": 0,
+              "price": 3.9385657017991305,
+              "part": 0,
+              "partNeed": 1076.800000000006
+            }
+          ],
           "storesWithSellableFood": 10,
           "purchases": []
         },
@@ -1085,6 +1691,107 @@
           "initialStoreCapacity": 1040,
           "initialStoreStaff": 13,
           "initialSellableFood": 1040,
+          "allStoreDetails": [
+            {
+              "firm": 0,
+              "stock": 1330.4279172598685,
+              "capacity": 160,
+              "staff": 2,
+              "price": 4.101591553204264,
+              "part": 0,
+              "partNeed": 1076.800000000006
+            },
+            {
+              "firm": 1,
+              "stock": 885.0938931106366,
+              "capacity": 160,
+              "staff": 2,
+              "price": 4.128292148481979,
+              "part": 0,
+              "partNeed": 1076.800000000006
+            },
+            {
+              "firm": 2,
+              "stock": 1004.5931960723673,
+              "capacity": 160,
+              "staff": 2,
+              "price": 4.025620404487036,
+              "part": 0,
+              "partNeed": 1076.800000000006
+            },
+            {
+              "firm": 17,
+              "stock": 669.6037590137369,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.920532503902875,
+              "part": 0,
+              "partNeed": 1076.800000000006
+            },
+            {
+              "firm": 50,
+              "stock": 484.8515867019759,
+              "capacity": 80,
+              "staff": 1,
+              "price": 4.093386450792672,
+              "part": 0,
+              "partNeed": 1076.800000000006
+            },
+            {
+              "firm": 51,
+              "stock": 601.0408517285973,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.9548052719260065,
+              "part": 0,
+              "partNeed": 1076.800000000006
+            },
+            {
+              "firm": 52,
+              "stock": 610.7870909090911,
+              "capacity": 80,
+              "staff": 1,
+              "price": 4.152125567206745,
+              "part": 0,
+              "partNeed": 1076.800000000006
+            },
+            {
+              "firm": 53,
+              "stock": 638.21582169787,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.87666494074267,
+              "part": 0,
+              "partNeed": 1076.800000000006
+            },
+            {
+              "firm": 54,
+              "stock": 409.96206736593524,
+              "capacity": 80,
+              "staff": 1,
+              "price": 4.135691002956785,
+              "part": 0,
+              "partNeed": 1076.800000000006
+            },
+            {
+              "firm": 55,
+              "stock": 344.6235222799366,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.8227758105072223,
+              "part": 0,
+              "partNeed": 1076.800000000006
+            },
+            {
+              "firm": 88,
+              "stock": 254.422,
+              "capacity": 0,
+              "staff": 0,
+              "price": 3.9385657017991305,
+              "part": 0,
+              "partNeed": 1076.800000000006
+            }
+          ],
           "storesWithSellableFood": 10,
           "purchases": []
         },
@@ -1241,6 +1948,107 @@
           "initialStoreCapacity": 1040,
           "initialStoreStaff": 13,
           "initialSellableFood": 1040,
+          "allStoreDetails": [
+            {
+              "firm": 0,
+              "stock": 1330.4279172598685,
+              "capacity": 160,
+              "staff": 2,
+              "price": 4.101591553204264,
+              "part": 0,
+              "partNeed": 1076.800000000006
+            },
+            {
+              "firm": 1,
+              "stock": 885.0938931106366,
+              "capacity": 160,
+              "staff": 2,
+              "price": 4.128292148481979,
+              "part": 0,
+              "partNeed": 1076.800000000006
+            },
+            {
+              "firm": 2,
+              "stock": 1004.5931960723673,
+              "capacity": 160,
+              "staff": 2,
+              "price": 4.025620404487036,
+              "part": 0,
+              "partNeed": 1076.800000000006
+            },
+            {
+              "firm": 17,
+              "stock": 669.6037590137369,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.920532503902875,
+              "part": 0,
+              "partNeed": 1076.800000000006
+            },
+            {
+              "firm": 50,
+              "stock": 484.8515867019759,
+              "capacity": 80,
+              "staff": 1,
+              "price": 4.093386450792672,
+              "part": 0,
+              "partNeed": 1076.800000000006
+            },
+            {
+              "firm": 51,
+              "stock": 601.0408517285973,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.9548052719260065,
+              "part": 0,
+              "partNeed": 1076.800000000006
+            },
+            {
+              "firm": 52,
+              "stock": 610.7870909090911,
+              "capacity": 80,
+              "staff": 1,
+              "price": 4.152125567206745,
+              "part": 0,
+              "partNeed": 1076.800000000006
+            },
+            {
+              "firm": 53,
+              "stock": 638.21582169787,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.87666494074267,
+              "part": 0,
+              "partNeed": 1076.800000000006
+            },
+            {
+              "firm": 54,
+              "stock": 409.96206736593524,
+              "capacity": 80,
+              "staff": 1,
+              "price": 4.135691002956785,
+              "part": 0,
+              "partNeed": 1076.800000000006
+            },
+            {
+              "firm": 55,
+              "stock": 344.6235222799366,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.8227758105072223,
+              "part": 0,
+              "partNeed": 1076.800000000006
+            },
+            {
+              "firm": 88,
+              "stock": 254.422,
+              "capacity": 0,
+              "staff": 0,
+              "price": 3.9385657017991305,
+              "part": 0,
+              "partNeed": 1076.800000000006
+            }
+          ],
           "storesWithSellableFood": 10,
           "purchases": []
         },
@@ -1391,6 +2199,107 @@
           "initialStoreCapacity": 1040,
           "initialStoreStaff": 13,
           "initialSellableFood": 1040,
+          "allStoreDetails": [
+            {
+              "firm": 0,
+              "stock": 1430.2416804203276,
+              "capacity": 160,
+              "staff": 2,
+              "price": 3.866381204837632,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 1,
+              "stock": 2280.1947568313603,
+              "capacity": 240,
+              "staff": 3,
+              "price": 4.273332021420314,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 2,
+              "stock": 1486.7637706732512,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.742400376417653,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 17,
+              "stock": 877.3818181818156,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.5731221916781193,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 50,
+              "stock": 957.3818181818153,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.629187850304779,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 51,
+              "stock": 877.3818181818153,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.654818492519145,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 52,
+              "stock": 1037.3818181818165,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.6515033283268155,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 53,
+              "stock": 1037.3818181818165,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.6267105230221706,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 54,
+              "stock": 877.3818181818142,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.661563051295341,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 55,
+              "stock": 1037.3818181818165,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.6509707234061377,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 88,
+              "stock": 1079.860351245468,
+              "capacity": 0,
+              "staff": 0,
+              "price": 4.104095959278848,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            }
+          ],
           "storesWithSellableFood": 10,
           "purchases": [
             {
@@ -1551,6 +2460,107 @@
           "initialStoreCapacity": 1040,
           "initialStoreStaff": 13,
           "initialSellableFood": 1040,
+          "allStoreDetails": [
+            {
+              "firm": 0,
+              "stock": 1430.2416804203276,
+              "capacity": 160,
+              "staff": 2,
+              "price": 3.866381204837632,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 1,
+              "stock": 2280.1947568313603,
+              "capacity": 240,
+              "staff": 3,
+              "price": 4.273332021420314,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 2,
+              "stock": 1486.7637706732512,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.742400376417653,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 17,
+              "stock": 877.3818181818156,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.5731221916781193,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 50,
+              "stock": 957.3818181818153,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.629187850304779,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 51,
+              "stock": 877.3818181818153,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.654818492519145,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 52,
+              "stock": 1037.3818181818165,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.6515033283268155,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 53,
+              "stock": 1037.3818181818165,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.6267105230221706,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 54,
+              "stock": 877.3818181818142,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.661563051295341,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 55,
+              "stock": 1037.3818181818165,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.6509707234061377,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 88,
+              "stock": 1079.860351245468,
+              "capacity": 0,
+              "staff": 0,
+              "price": 4.104095959278848,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            }
+          ],
           "storesWithSellableFood": 10,
           "purchases": []
         },
@@ -1701,6 +2711,107 @@
           "initialStoreCapacity": 1040,
           "initialStoreStaff": 13,
           "initialSellableFood": 1040,
+          "allStoreDetails": [
+            {
+              "firm": 0,
+              "stock": 1430.2416804203276,
+              "capacity": 160,
+              "staff": 2,
+              "price": 3.866381204837632,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 1,
+              "stock": 2280.1947568313603,
+              "capacity": 240,
+              "staff": 3,
+              "price": 4.273332021420314,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 2,
+              "stock": 1486.7637706732512,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.742400376417653,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 17,
+              "stock": 877.3818181818156,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.5731221916781193,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 50,
+              "stock": 957.3818181818153,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.629187850304779,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 51,
+              "stock": 877.3818181818153,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.654818492519145,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 52,
+              "stock": 1037.3818181818165,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.6515033283268155,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 53,
+              "stock": 1037.3818181818165,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.6267105230221706,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 54,
+              "stock": 877.3818181818142,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.661563051295341,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 55,
+              "stock": 1037.3818181818165,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.6509707234061377,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 88,
+              "stock": 1079.860351245468,
+              "capacity": 0,
+              "staff": 0,
+              "price": 4.104095959278848,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            }
+          ],
           "storesWithSellableFood": 10,
           "purchases": []
         },
@@ -1851,6 +2962,107 @@
           "initialStoreCapacity": 1040,
           "initialStoreStaff": 13,
           "initialSellableFood": 1040,
+          "allStoreDetails": [
+            {
+              "firm": 0,
+              "stock": 1430.2416804203276,
+              "capacity": 160,
+              "staff": 2,
+              "price": 3.866381204837632,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 1,
+              "stock": 2280.1947568313603,
+              "capacity": 240,
+              "staff": 3,
+              "price": 4.273332021420314,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 2,
+              "stock": 1486.7637706732512,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.742400376417653,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 17,
+              "stock": 877.3818181818156,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.5731221916781193,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 50,
+              "stock": 957.3818181818153,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.629187850304779,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 51,
+              "stock": 877.3818181818153,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.654818492519145,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 52,
+              "stock": 1037.3818181818165,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.6515033283268155,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 53,
+              "stock": 1037.3818181818165,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.6267105230221706,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 54,
+              "stock": 877.3818181818142,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.661563051295341,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 55,
+              "stock": 1037.3818181818165,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.6509707234061377,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 88,
+              "stock": 1079.860351245468,
+              "capacity": 0,
+              "staff": 0,
+              "price": 4.104095959278848,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            }
+          ],
           "storesWithSellableFood": 10,
           "purchases": []
         },
@@ -2001,6 +3213,107 @@
           "initialStoreCapacity": 1040,
           "initialStoreStaff": 13,
           "initialSellableFood": 1040,
+          "allStoreDetails": [
+            {
+              "firm": 0,
+              "stock": 1430.2416804203276,
+              "capacity": 160,
+              "staff": 2,
+              "price": 3.866381204837632,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 1,
+              "stock": 2280.1947568313603,
+              "capacity": 240,
+              "staff": 3,
+              "price": 4.273332021420314,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 2,
+              "stock": 1486.7637706732512,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.742400376417653,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 17,
+              "stock": 877.3818181818156,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.5731221916781193,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 50,
+              "stock": 957.3818181818153,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.629187850304779,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 51,
+              "stock": 877.3818181818153,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.654818492519145,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 52,
+              "stock": 1037.3818181818165,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.6515033283268155,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 53,
+              "stock": 1037.3818181818165,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.6267105230221706,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 54,
+              "stock": 877.3818181818142,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.661563051295341,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 55,
+              "stock": 1037.3818181818165,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.6509707234061377,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 88,
+              "stock": 1079.860351245468,
+              "capacity": 0,
+              "staff": 0,
+              "price": 4.104095959278848,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            }
+          ],
           "storesWithSellableFood": 10,
           "purchases": []
         },
@@ -2151,6 +3464,107 @@
           "initialStoreCapacity": 1040,
           "initialStoreStaff": 13,
           "initialSellableFood": 1040,
+          "allStoreDetails": [
+            {
+              "firm": 0,
+              "stock": 1430.2416804203276,
+              "capacity": 160,
+              "staff": 2,
+              "price": 3.866381204837632,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 1,
+              "stock": 2280.1947568313603,
+              "capacity": 240,
+              "staff": 3,
+              "price": 4.273332021420314,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 2,
+              "stock": 1486.7637706732512,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.742400376417653,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 17,
+              "stock": 877.3818181818156,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.5731221916781193,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 50,
+              "stock": 957.3818181818153,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.629187850304779,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 51,
+              "stock": 877.3818181818153,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.654818492519145,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 52,
+              "stock": 1037.3818181818165,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.6515033283268155,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 53,
+              "stock": 1037.3818181818165,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.6267105230221706,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 54,
+              "stock": 877.3818181818142,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.661563051295341,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 55,
+              "stock": 1037.3818181818165,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.6509707234061377,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 88,
+              "stock": 1079.860351245468,
+              "capacity": 0,
+              "staff": 0,
+              "price": 4.104095959278848,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            }
+          ],
           "storesWithSellableFood": 10,
           "purchases": []
         },
@@ -2301,6 +3715,107 @@
           "initialStoreCapacity": 1040,
           "initialStoreStaff": 13,
           "initialSellableFood": 1040,
+          "allStoreDetails": [
+            {
+              "firm": 0,
+              "stock": 1430.2416804203276,
+              "capacity": 160,
+              "staff": 2,
+              "price": 3.866381204837632,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 1,
+              "stock": 2280.1947568313603,
+              "capacity": 240,
+              "staff": 3,
+              "price": 4.273332021420314,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 2,
+              "stock": 1486.7637706732512,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.742400376417653,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 17,
+              "stock": 877.3818181818156,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.5731221916781193,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 50,
+              "stock": 957.3818181818153,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.629187850304779,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 51,
+              "stock": 877.3818181818153,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.654818492519145,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 52,
+              "stock": 1037.3818181818165,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.6515033283268155,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 53,
+              "stock": 1037.3818181818165,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.6267105230221706,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 54,
+              "stock": 877.3818181818142,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.661563051295341,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 55,
+              "stock": 1037.3818181818165,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.6509707234061377,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 88,
+              "stock": 1079.860351245468,
+              "capacity": 0,
+              "staff": 0,
+              "price": 4.104095959278848,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            }
+          ],
           "storesWithSellableFood": 10,
           "purchases": []
         },
@@ -2451,6 +3966,107 @@
           "initialStoreCapacity": 1040,
           "initialStoreStaff": 13,
           "initialSellableFood": 1040,
+          "allStoreDetails": [
+            {
+              "firm": 0,
+              "stock": 1430.2416804203276,
+              "capacity": 160,
+              "staff": 2,
+              "price": 3.866381204837632,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 1,
+              "stock": 2280.1947568313603,
+              "capacity": 240,
+              "staff": 3,
+              "price": 4.273332021420314,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 2,
+              "stock": 1486.7637706732512,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.742400376417653,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 17,
+              "stock": 877.3818181818156,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.5731221916781193,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 50,
+              "stock": 957.3818181818153,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.629187850304779,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 51,
+              "stock": 877.3818181818153,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.654818492519145,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 52,
+              "stock": 1037.3818181818165,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.6515033283268155,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 53,
+              "stock": 1037.3818181818165,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.6267105230221706,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 54,
+              "stock": 877.3818181818142,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.661563051295341,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 55,
+              "stock": 1037.3818181818165,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.6509707234061377,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 88,
+              "stock": 1079.860351245468,
+              "capacity": 0,
+              "staff": 0,
+              "price": 4.104095959278848,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            }
+          ],
           "storesWithSellableFood": 10,
           "purchases": []
         },
@@ -2601,6 +4217,107 @@
           "initialStoreCapacity": 1040,
           "initialStoreStaff": 13,
           "initialSellableFood": 1040,
+          "allStoreDetails": [
+            {
+              "firm": 0,
+              "stock": 1430.2416804203276,
+              "capacity": 160,
+              "staff": 2,
+              "price": 3.866381204837632,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 1,
+              "stock": 2280.1947568313603,
+              "capacity": 240,
+              "staff": 3,
+              "price": 4.273332021420314,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 2,
+              "stock": 1486.7637706732512,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.742400376417653,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 17,
+              "stock": 877.3818181818156,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.5731221916781193,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 50,
+              "stock": 957.3818181818153,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.629187850304779,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 51,
+              "stock": 877.3818181818153,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.654818492519145,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 52,
+              "stock": 1037.3818181818165,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.6515033283268155,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 53,
+              "stock": 1037.3818181818165,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.6267105230221706,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 54,
+              "stock": 877.3818181818142,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.661563051295341,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 55,
+              "stock": 1037.3818181818165,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.6509707234061377,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 88,
+              "stock": 1079.860351245468,
+              "capacity": 0,
+              "staff": 0,
+              "price": 4.104095959278848,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            }
+          ],
           "storesWithSellableFood": 10,
           "purchases": []
         },
@@ -2751,6 +4468,107 @@
           "initialStoreCapacity": 1040,
           "initialStoreStaff": 13,
           "initialSellableFood": 1040,
+          "allStoreDetails": [
+            {
+              "firm": 0,
+              "stock": 1430.2416804203276,
+              "capacity": 160,
+              "staff": 2,
+              "price": 3.866381204837632,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 1,
+              "stock": 2280.1947568313603,
+              "capacity": 240,
+              "staff": 3,
+              "price": 4.273332021420314,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 2,
+              "stock": 1486.7637706732512,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.742400376417653,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 17,
+              "stock": 877.3818181818156,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.5731221916781193,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 50,
+              "stock": 957.3818181818153,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.629187850304779,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 51,
+              "stock": 877.3818181818153,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.654818492519145,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 52,
+              "stock": 1037.3818181818165,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.6515033283268155,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 53,
+              "stock": 1037.3818181818165,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.6267105230221706,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 54,
+              "stock": 877.3818181818142,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.661563051295341,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 55,
+              "stock": 1037.3818181818165,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.6509707234061377,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 88,
+              "stock": 1079.860351245468,
+              "capacity": 0,
+              "staff": 0,
+              "price": 4.104095959278848,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            }
+          ],
           "storesWithSellableFood": 10,
           "purchases": []
         },
@@ -2901,6 +4719,107 @@
           "initialStoreCapacity": 1040,
           "initialStoreStaff": 13,
           "initialSellableFood": 1040,
+          "allStoreDetails": [
+            {
+              "firm": 0,
+              "stock": 1430.2416804203276,
+              "capacity": 160,
+              "staff": 2,
+              "price": 3.866381204837632,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 1,
+              "stock": 2280.1947568313603,
+              "capacity": 240,
+              "staff": 3,
+              "price": 4.273332021420314,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 2,
+              "stock": 1486.7637706732512,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.742400376417653,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 17,
+              "stock": 877.3818181818156,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.5731221916781193,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 50,
+              "stock": 957.3818181818153,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.629187850304779,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 51,
+              "stock": 877.3818181818153,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.654818492519145,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 52,
+              "stock": 1037.3818181818165,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.6515033283268155,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 53,
+              "stock": 1037.3818181818165,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.6267105230221706,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 54,
+              "stock": 877.3818181818142,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.661563051295341,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 55,
+              "stock": 1037.3818181818165,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.6509707234061377,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 88,
+              "stock": 1079.860351245468,
+              "capacity": 0,
+              "staff": 0,
+              "price": 4.104095959278848,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            }
+          ],
           "storesWithSellableFood": 10,
           "purchases": []
         },
@@ -3051,6 +4970,107 @@
           "initialStoreCapacity": 1040,
           "initialStoreStaff": 13,
           "initialSellableFood": 1040,
+          "allStoreDetails": [
+            {
+              "firm": 0,
+              "stock": 1430.2416804203276,
+              "capacity": 160,
+              "staff": 2,
+              "price": 3.866381204837632,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 1,
+              "stock": 2280.1947568313603,
+              "capacity": 240,
+              "staff": 3,
+              "price": 4.273332021420314,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 2,
+              "stock": 1486.7637706732512,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.742400376417653,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 17,
+              "stock": 877.3818181818156,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.5731221916781193,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 50,
+              "stock": 957.3818181818153,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.629187850304779,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 51,
+              "stock": 877.3818181818153,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.654818492519145,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 52,
+              "stock": 1037.3818181818165,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.6515033283268155,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 53,
+              "stock": 1037.3818181818165,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.6267105230221706,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 54,
+              "stock": 877.3818181818142,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.661563051295341,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 55,
+              "stock": 1037.3818181818165,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.6509707234061377,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 88,
+              "stock": 1079.860351245468,
+              "capacity": 0,
+              "staff": 0,
+              "price": 4.104095959278848,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            }
+          ],
           "storesWithSellableFood": 10,
           "purchases": []
         },
@@ -3201,6 +5221,107 @@
           "initialStoreCapacity": 1040,
           "initialStoreStaff": 13,
           "initialSellableFood": 1040,
+          "allStoreDetails": [
+            {
+              "firm": 0,
+              "stock": 1430.2416804203276,
+              "capacity": 160,
+              "staff": 2,
+              "price": 3.866381204837632,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 1,
+              "stock": 2280.1947568313603,
+              "capacity": 240,
+              "staff": 3,
+              "price": 4.273332021420314,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 2,
+              "stock": 1486.7637706732512,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.742400376417653,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 17,
+              "stock": 877.3818181818156,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.5731221916781193,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 50,
+              "stock": 957.3818181818153,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.629187850304779,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 51,
+              "stock": 877.3818181818153,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.654818492519145,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 52,
+              "stock": 1037.3818181818165,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.6515033283268155,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 53,
+              "stock": 1037.3818181818165,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.6267105230221706,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 54,
+              "stock": 877.3818181818142,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.661563051295341,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 55,
+              "stock": 1037.3818181818165,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.6509707234061377,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 88,
+              "stock": 1079.860351245468,
+              "capacity": 0,
+              "staff": 0,
+              "price": 4.104095959278848,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            }
+          ],
           "storesWithSellableFood": 10,
           "purchases": []
         },
@@ -3351,6 +5472,107 @@
           "initialStoreCapacity": 1040,
           "initialStoreStaff": 13,
           "initialSellableFood": 1040,
+          "allStoreDetails": [
+            {
+              "firm": 0,
+              "stock": 1430.2416804203276,
+              "capacity": 160,
+              "staff": 2,
+              "price": 3.866381204837632,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 1,
+              "stock": 2280.1947568313603,
+              "capacity": 240,
+              "staff": 3,
+              "price": 4.273332021420314,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 2,
+              "stock": 1486.7637706732512,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.742400376417653,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 17,
+              "stock": 877.3818181818156,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.5731221916781193,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 50,
+              "stock": 957.3818181818153,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.629187850304779,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 51,
+              "stock": 877.3818181818153,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.654818492519145,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 52,
+              "stock": 1037.3818181818165,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.6515033283268155,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 53,
+              "stock": 1037.3818181818165,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.6267105230221706,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 54,
+              "stock": 877.3818181818142,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.661563051295341,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 55,
+              "stock": 1037.3818181818165,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.6509707234061377,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 88,
+              "stock": 1079.860351245468,
+              "capacity": 0,
+              "staff": 0,
+              "price": 4.104095959278848,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            }
+          ],
           "storesWithSellableFood": 10,
           "purchases": []
         },
@@ -3501,6 +5723,107 @@
           "initialStoreCapacity": 1040,
           "initialStoreStaff": 13,
           "initialSellableFood": 1040,
+          "allStoreDetails": [
+            {
+              "firm": 0,
+              "stock": 1430.2416804203276,
+              "capacity": 160,
+              "staff": 2,
+              "price": 3.866381204837632,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 1,
+              "stock": 2280.1947568313603,
+              "capacity": 240,
+              "staff": 3,
+              "price": 4.273332021420314,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 2,
+              "stock": 1486.7637706732512,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.742400376417653,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 17,
+              "stock": 877.3818181818156,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.5731221916781193,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 50,
+              "stock": 957.3818181818153,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.629187850304779,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 51,
+              "stock": 877.3818181818153,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.654818492519145,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 52,
+              "stock": 1037.3818181818165,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.6515033283268155,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 53,
+              "stock": 1037.3818181818165,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.6267105230221706,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 54,
+              "stock": 877.3818181818142,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.661563051295341,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 55,
+              "stock": 1037.3818181818165,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.6509707234061377,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 88,
+              "stock": 1079.860351245468,
+              "capacity": 0,
+              "staff": 0,
+              "price": 4.104095959278848,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            }
+          ],
           "storesWithSellableFood": 10,
           "purchases": []
         },
@@ -3651,6 +5974,107 @@
           "initialStoreCapacity": 1040,
           "initialStoreStaff": 13,
           "initialSellableFood": 1040,
+          "allStoreDetails": [
+            {
+              "firm": 0,
+              "stock": 1430.2416804203276,
+              "capacity": 160,
+              "staff": 2,
+              "price": 3.866381204837632,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 1,
+              "stock": 2280.1947568313603,
+              "capacity": 240,
+              "staff": 3,
+              "price": 4.273332021420314,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 2,
+              "stock": 1486.7637706732512,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.742400376417653,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 17,
+              "stock": 877.3818181818156,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.5731221916781193,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 50,
+              "stock": 957.3818181818153,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.629187850304779,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 51,
+              "stock": 877.3818181818153,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.654818492519145,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 52,
+              "stock": 1037.3818181818165,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.6515033283268155,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 53,
+              "stock": 1037.3818181818165,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.6267105230221706,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 54,
+              "stock": 877.3818181818142,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.661563051295341,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 55,
+              "stock": 1037.3818181818165,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.6509707234061377,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 88,
+              "stock": 1079.860351245468,
+              "capacity": 0,
+              "staff": 0,
+              "price": 4.104095959278848,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            }
+          ],
           "storesWithSellableFood": 10,
           "purchases": []
         },
@@ -3801,6 +6225,107 @@
           "initialStoreCapacity": 1040,
           "initialStoreStaff": 13,
           "initialSellableFood": 1040,
+          "allStoreDetails": [
+            {
+              "firm": 0,
+              "stock": 1430.2416804203276,
+              "capacity": 160,
+              "staff": 2,
+              "price": 3.866381204837632,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 1,
+              "stock": 2280.1947568313603,
+              "capacity": 240,
+              "staff": 3,
+              "price": 4.273332021420314,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 2,
+              "stock": 1486.7637706732512,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.742400376417653,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 17,
+              "stock": 877.3818181818156,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.5731221916781193,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 50,
+              "stock": 957.3818181818153,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.629187850304779,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 51,
+              "stock": 877.3818181818153,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.654818492519145,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 52,
+              "stock": 1037.3818181818165,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.6515033283268155,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 53,
+              "stock": 1037.3818181818165,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.6267105230221706,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 54,
+              "stock": 877.3818181818142,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.661563051295341,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 55,
+              "stock": 1037.3818181818165,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.6509707234061377,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 88,
+              "stock": 1079.860351245468,
+              "capacity": 0,
+              "staff": 0,
+              "price": 4.104095959278848,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            }
+          ],
           "storesWithSellableFood": 10,
           "purchases": []
         },
@@ -3951,6 +6476,107 @@
           "initialStoreCapacity": 1040,
           "initialStoreStaff": 13,
           "initialSellableFood": 1040,
+          "allStoreDetails": [
+            {
+              "firm": 0,
+              "stock": 1430.2416804203276,
+              "capacity": 160,
+              "staff": 2,
+              "price": 3.866381204837632,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 1,
+              "stock": 2280.1947568313603,
+              "capacity": 240,
+              "staff": 3,
+              "price": 4.273332021420314,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 2,
+              "stock": 1486.7637706732512,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.742400376417653,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 17,
+              "stock": 877.3818181818156,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.5731221916781193,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 50,
+              "stock": 957.3818181818153,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.629187850304779,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 51,
+              "stock": 877.3818181818153,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.654818492519145,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 52,
+              "stock": 1037.3818181818165,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.6515033283268155,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 53,
+              "stock": 1037.3818181818165,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.6267105230221706,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 54,
+              "stock": 877.3818181818142,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.661563051295341,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 55,
+              "stock": 1037.3818181818165,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.6509707234061377,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 88,
+              "stock": 1079.860351245468,
+              "capacity": 0,
+              "staff": 0,
+              "price": 4.104095959278848,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            }
+          ],
           "storesWithSellableFood": 10,
           "purchases": []
         },
@@ -4101,6 +6727,107 @@
           "initialStoreCapacity": 1040,
           "initialStoreStaff": 13,
           "initialSellableFood": 1040,
+          "allStoreDetails": [
+            {
+              "firm": 0,
+              "stock": 1430.2416804203276,
+              "capacity": 160,
+              "staff": 2,
+              "price": 3.866381204837632,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 1,
+              "stock": 2280.1947568313603,
+              "capacity": 240,
+              "staff": 3,
+              "price": 4.273332021420314,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 2,
+              "stock": 1486.7637706732512,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.742400376417653,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 17,
+              "stock": 877.3818181818156,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.5731221916781193,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 50,
+              "stock": 957.3818181818153,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.629187850304779,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 51,
+              "stock": 877.3818181818153,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.654818492519145,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 52,
+              "stock": 1037.3818181818165,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.6515033283268155,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 53,
+              "stock": 1037.3818181818165,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.6267105230221706,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 54,
+              "stock": 877.3818181818142,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.661563051295341,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 55,
+              "stock": 1037.3818181818165,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.6509707234061377,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 88,
+              "stock": 1079.860351245468,
+              "capacity": 0,
+              "staff": 0,
+              "price": 4.104095959278848,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            }
+          ],
           "storesWithSellableFood": 10,
           "purchases": []
         },
@@ -4244,6 +6971,107 @@
           "initialStoreCapacity": 1040,
           "initialStoreStaff": 13,
           "initialSellableFood": 1040,
+          "allStoreDetails": [
+            {
+              "firm": 0,
+              "stock": 1430.2416804203276,
+              "capacity": 160,
+              "staff": 2,
+              "price": 3.866381204837632,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 1,
+              "stock": 2280.1947568313603,
+              "capacity": 240,
+              "staff": 3,
+              "price": 4.273332021420314,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 2,
+              "stock": 1486.7637706732512,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.742400376417653,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 17,
+              "stock": 877.3818181818156,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.5731221916781193,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 50,
+              "stock": 957.3818181818153,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.629187850304779,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 51,
+              "stock": 877.3818181818153,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.654818492519145,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 52,
+              "stock": 1037.3818181818165,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.6515033283268155,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 53,
+              "stock": 1037.3818181818165,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.6267105230221706,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 54,
+              "stock": 877.3818181818142,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.661563051295341,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 55,
+              "stock": 1037.3818181818165,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.6509707234061377,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 88,
+              "stock": 1079.860351245468,
+              "capacity": 0,
+              "staff": 0,
+              "price": 4.104095959278848,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            }
+          ],
           "storesWithSellableFood": 10,
           "purchases": []
         },
@@ -4400,6 +7228,107 @@
           "initialStoreCapacity": 1040,
           "initialStoreStaff": 13,
           "initialSellableFood": 1040,
+          "allStoreDetails": [
+            {
+              "firm": 0,
+              "stock": 1430.2416804203276,
+              "capacity": 160,
+              "staff": 2,
+              "price": 3.866381204837632,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 1,
+              "stock": 2280.1947568313603,
+              "capacity": 240,
+              "staff": 3,
+              "price": 4.273332021420314,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 2,
+              "stock": 1486.7637706732512,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.742400376417653,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 17,
+              "stock": 877.3818181818156,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.5731221916781193,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 50,
+              "stock": 957.3818181818153,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.629187850304779,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 51,
+              "stock": 877.3818181818153,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.654818492519145,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 52,
+              "stock": 1037.3818181818165,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.6515033283268155,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 53,
+              "stock": 1037.3818181818165,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.6267105230221706,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 54,
+              "stock": 877.3818181818142,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.661563051295341,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 55,
+              "stock": 1037.3818181818165,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.6509707234061377,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 88,
+              "stock": 1079.860351245468,
+              "capacity": 0,
+              "staff": 0,
+              "price": 4.104095959278848,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            }
+          ],
           "storesWithSellableFood": 10,
           "purchases": []
         },
@@ -4556,6 +7485,107 @@
           "initialStoreCapacity": 1040,
           "initialStoreStaff": 13,
           "initialSellableFood": 1040,
+          "allStoreDetails": [
+            {
+              "firm": 0,
+              "stock": 1430.2416804203276,
+              "capacity": 160,
+              "staff": 2,
+              "price": 3.866381204837632,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 1,
+              "stock": 2280.1947568313603,
+              "capacity": 240,
+              "staff": 3,
+              "price": 4.273332021420314,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 2,
+              "stock": 1486.7637706732512,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.742400376417653,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 17,
+              "stock": 877.3818181818156,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.5731221916781193,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 50,
+              "stock": 957.3818181818153,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.629187850304779,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 51,
+              "stock": 877.3818181818153,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.654818492519145,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 52,
+              "stock": 1037.3818181818165,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.6515033283268155,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 53,
+              "stock": 1037.3818181818165,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.6267105230221706,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 54,
+              "stock": 877.3818181818142,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.661563051295341,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 55,
+              "stock": 1037.3818181818165,
+              "capacity": 80,
+              "staff": 1,
+              "price": 3.6509707234061377,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            },
+            {
+              "firm": 88,
+              "stock": 1079.860351245468,
+              "capacity": 0,
+              "staff": 0,
+              "price": 4.104095959278848,
+              "part": 0,
+              "partNeed": 1110.4000000000065
+            }
+          ],
           "storesWithSellableFood": 10,
           "purchases": []
         }
@@ -5051,6 +8081,107 @@
             "initialStoreCapacity": 1040,
             "initialStoreStaff": 13,
             "initialSellableFood": 1040,
+            "allStoreDetails": [
+              {
+                "firm": 0,
+                "stock": 1330.4279172598685,
+                "capacity": 160,
+                "staff": 2,
+                "price": 4.101591553204264,
+                "part": 0,
+                "partNeed": 1076.800000000006
+              },
+              {
+                "firm": 1,
+                "stock": 885.0938931106366,
+                "capacity": 160,
+                "staff": 2,
+                "price": 4.128292148481979,
+                "part": 0,
+                "partNeed": 1076.800000000006
+              },
+              {
+                "firm": 2,
+                "stock": 1004.5931960723673,
+                "capacity": 160,
+                "staff": 2,
+                "price": 4.025620404487036,
+                "part": 0,
+                "partNeed": 1076.800000000006
+              },
+              {
+                "firm": 17,
+                "stock": 669.6037590137369,
+                "capacity": 80,
+                "staff": 1,
+                "price": 3.920532503902875,
+                "part": 0,
+                "partNeed": 1076.800000000006
+              },
+              {
+                "firm": 50,
+                "stock": 484.8515867019759,
+                "capacity": 80,
+                "staff": 1,
+                "price": 4.093386450792672,
+                "part": 0,
+                "partNeed": 1076.800000000006
+              },
+              {
+                "firm": 51,
+                "stock": 601.0408517285973,
+                "capacity": 80,
+                "staff": 1,
+                "price": 3.9548052719260065,
+                "part": 0,
+                "partNeed": 1076.800000000006
+              },
+              {
+                "firm": 52,
+                "stock": 610.7870909090911,
+                "capacity": 80,
+                "staff": 1,
+                "price": 4.152125567206745,
+                "part": 0,
+                "partNeed": 1076.800000000006
+              },
+              {
+                "firm": 53,
+                "stock": 638.21582169787,
+                "capacity": 80,
+                "staff": 1,
+                "price": 3.87666494074267,
+                "part": 0,
+                "partNeed": 1076.800000000006
+              },
+              {
+                "firm": 54,
+                "stock": 409.96206736593524,
+                "capacity": 80,
+                "staff": 1,
+                "price": 4.135691002956785,
+                "part": 0,
+                "partNeed": 1076.800000000006
+              },
+              {
+                "firm": 55,
+                "stock": 344.6235222799366,
+                "capacity": 80,
+                "staff": 1,
+                "price": 3.8227758105072223,
+                "part": 0,
+                "partNeed": 1076.800000000006
+              },
+              {
+                "firm": 88,
+                "stock": 254.422,
+                "capacity": 0,
+                "staff": 0,
+                "price": 3.9385657017991305,
+                "part": 0,
+                "partNeed": 1076.800000000006
+              }
+            ],
             "storesWithSellableFood": 10,
             "purchases": [
               {
@@ -5217,6 +8348,107 @@
             "initialStoreCapacity": 1040,
             "initialStoreStaff": 13,
             "initialSellableFood": 1040,
+            "allStoreDetails": [
+              {
+                "firm": 0,
+                "stock": 1330.4279172598685,
+                "capacity": 160,
+                "staff": 2,
+                "price": 4.101591553204264,
+                "part": 0,
+                "partNeed": 1076.800000000006
+              },
+              {
+                "firm": 1,
+                "stock": 885.0938931106366,
+                "capacity": 160,
+                "staff": 2,
+                "price": 4.128292148481979,
+                "part": 0,
+                "partNeed": 1076.800000000006
+              },
+              {
+                "firm": 2,
+                "stock": 1004.5931960723673,
+                "capacity": 160,
+                "staff": 2,
+                "price": 4.025620404487036,
+                "part": 0,
+                "partNeed": 1076.800000000006
+              },
+              {
+                "firm": 17,
+                "stock": 669.6037590137369,
+                "capacity": 80,
+                "staff": 1,
+                "price": 3.920532503902875,
+                "part": 0,
+                "partNeed": 1076.800000000006
+              },
+              {
+                "firm": 50,
+                "stock": 484.8515867019759,
+                "capacity": 80,
+                "staff": 1,
+                "price": 4.093386450792672,
+                "part": 0,
+                "partNeed": 1076.800000000006
+              },
+              {
+                "firm": 51,
+                "stock": 601.0408517285973,
+                "capacity": 80,
+                "staff": 1,
+                "price": 3.9548052719260065,
+                "part": 0,
+                "partNeed": 1076.800000000006
+              },
+              {
+                "firm": 52,
+                "stock": 610.7870909090911,
+                "capacity": 80,
+                "staff": 1,
+                "price": 4.152125567206745,
+                "part": 0,
+                "partNeed": 1076.800000000006
+              },
+              {
+                "firm": 53,
+                "stock": 638.21582169787,
+                "capacity": 80,
+                "staff": 1,
+                "price": 3.87666494074267,
+                "part": 0,
+                "partNeed": 1076.800000000006
+              },
+              {
+                "firm": 54,
+                "stock": 409.96206736593524,
+                "capacity": 80,
+                "staff": 1,
+                "price": 4.135691002956785,
+                "part": 0,
+                "partNeed": 1076.800000000006
+              },
+              {
+                "firm": 55,
+                "stock": 344.6235222799366,
+                "capacity": 80,
+                "staff": 1,
+                "price": 3.8227758105072223,
+                "part": 0,
+                "partNeed": 1076.800000000006
+              },
+              {
+                "firm": 88,
+                "stock": 254.422,
+                "capacity": 0,
+                "staff": 0,
+                "price": 3.9385657017991305,
+                "part": 0,
+                "partNeed": 1076.800000000006
+              }
+            ],
             "storesWithSellableFood": 10,
             "purchases": []
           },
@@ -5373,6 +8605,107 @@
             "initialStoreCapacity": 1040,
             "initialStoreStaff": 13,
             "initialSellableFood": 1040,
+            "allStoreDetails": [
+              {
+                "firm": 0,
+                "stock": 1330.4279172598685,
+                "capacity": 160,
+                "staff": 2,
+                "price": 4.101591553204264,
+                "part": 0,
+                "partNeed": 1076.800000000006
+              },
+              {
+                "firm": 1,
+                "stock": 885.0938931106366,
+                "capacity": 160,
+                "staff": 2,
+                "price": 4.128292148481979,
+                "part": 0,
+                "partNeed": 1076.800000000006
+              },
+              {
+                "firm": 2,
+                "stock": 1004.5931960723673,
+                "capacity": 160,
+                "staff": 2,
+                "price": 4.025620404487036,
+                "part": 0,
+                "partNeed": 1076.800000000006
+              },
+              {
+                "firm": 17,
+                "stock": 669.6037590137369,
+                "capacity": 80,
+                "staff": 1,
+                "price": 3.920532503902875,
+                "part": 0,
+                "partNeed": 1076.800000000006
+              },
+              {
+                "firm": 50,
+                "stock": 484.8515867019759,
+                "capacity": 80,
+                "staff": 1,
+                "price": 4.093386450792672,
+                "part": 0,
+                "partNeed": 1076.800000000006
+              },
+              {
+                "firm": 51,
+                "stock": 601.0408517285973,
+                "capacity": 80,
+                "staff": 1,
+                "price": 3.9548052719260065,
+                "part": 0,
+                "partNeed": 1076.800000000006
+              },
+              {
+                "firm": 52,
+                "stock": 610.7870909090911,
+                "capacity": 80,
+                "staff": 1,
+                "price": 4.152125567206745,
+                "part": 0,
+                "partNeed": 1076.800000000006
+              },
+              {
+                "firm": 53,
+                "stock": 638.21582169787,
+                "capacity": 80,
+                "staff": 1,
+                "price": 3.87666494074267,
+                "part": 0,
+                "partNeed": 1076.800000000006
+              },
+              {
+                "firm": 54,
+                "stock": 409.96206736593524,
+                "capacity": 80,
+                "staff": 1,
+                "price": 4.135691002956785,
+                "part": 0,
+                "partNeed": 1076.800000000006
+              },
+              {
+                "firm": 55,
+                "stock": 344.6235222799366,
+                "capacity": 80,
+                "staff": 1,
+                "price": 3.8227758105072223,
+                "part": 0,
+                "partNeed": 1076.800000000006
+              },
+              {
+                "firm": 88,
+                "stock": 254.422,
+                "capacity": 0,
+                "staff": 0,
+                "price": 3.9385657017991305,
+                "part": 0,
+                "partNeed": 1076.800000000006
+              }
+            ],
             "storesWithSellableFood": 10,
             "purchases": []
           }
@@ -5547,6 +8880,107 @@
             "initialStoreCapacity": 1040,
             "initialStoreStaff": 13,
             "initialSellableFood": 1040,
+            "allStoreDetails": [
+              {
+                "firm": 0,
+                "stock": 1430.2416804203276,
+                "capacity": 160,
+                "staff": 2,
+                "price": 3.866381204837632,
+                "part": 0,
+                "partNeed": 1110.4000000000065
+              },
+              {
+                "firm": 1,
+                "stock": 2280.1947568313603,
+                "capacity": 240,
+                "staff": 3,
+                "price": 4.273332021420314,
+                "part": 0,
+                "partNeed": 1110.4000000000065
+              },
+              {
+                "firm": 2,
+                "stock": 1486.7637706732512,
+                "capacity": 80,
+                "staff": 1,
+                "price": 3.742400376417653,
+                "part": 0,
+                "partNeed": 1110.4000000000065
+              },
+              {
+                "firm": 17,
+                "stock": 877.3818181818156,
+                "capacity": 80,
+                "staff": 1,
+                "price": 3.5731221916781193,
+                "part": 0,
+                "partNeed": 1110.4000000000065
+              },
+              {
+                "firm": 50,
+                "stock": 957.3818181818153,
+                "capacity": 80,
+                "staff": 1,
+                "price": 3.629187850304779,
+                "part": 0,
+                "partNeed": 1110.4000000000065
+              },
+              {
+                "firm": 51,
+                "stock": 877.3818181818153,
+                "capacity": 80,
+                "staff": 1,
+                "price": 3.654818492519145,
+                "part": 0,
+                "partNeed": 1110.4000000000065
+              },
+              {
+                "firm": 52,
+                "stock": 1037.3818181818165,
+                "capacity": 80,
+                "staff": 1,
+                "price": 3.6515033283268155,
+                "part": 0,
+                "partNeed": 1110.4000000000065
+              },
+              {
+                "firm": 53,
+                "stock": 1037.3818181818165,
+                "capacity": 80,
+                "staff": 1,
+                "price": 3.6267105230221706,
+                "part": 0,
+                "partNeed": 1110.4000000000065
+              },
+              {
+                "firm": 54,
+                "stock": 877.3818181818142,
+                "capacity": 80,
+                "staff": 1,
+                "price": 3.661563051295341,
+                "part": 0,
+                "partNeed": 1110.4000000000065
+              },
+              {
+                "firm": 55,
+                "stock": 1037.3818181818165,
+                "capacity": 80,
+                "staff": 1,
+                "price": 3.6509707234061377,
+                "part": 0,
+                "partNeed": 1110.4000000000065
+              },
+              {
+                "firm": 88,
+                "stock": 1079.860351245468,
+                "capacity": 0,
+                "staff": 0,
+                "price": 4.104095959278848,
+                "part": 0,
+                "partNeed": 1110.4000000000065
+              }
+            ],
             "storesWithSellableFood": 10,
             "purchases": [
               {
@@ -5707,6 +9141,107 @@
             "initialStoreCapacity": 1040,
             "initialStoreStaff": 13,
             "initialSellableFood": 1040,
+            "allStoreDetails": [
+              {
+                "firm": 0,
+                "stock": 1430.2416804203276,
+                "capacity": 160,
+                "staff": 2,
+                "price": 3.866381204837632,
+                "part": 0,
+                "partNeed": 1110.4000000000065
+              },
+              {
+                "firm": 1,
+                "stock": 2280.1947568313603,
+                "capacity": 240,
+                "staff": 3,
+                "price": 4.273332021420314,
+                "part": 0,
+                "partNeed": 1110.4000000000065
+              },
+              {
+                "firm": 2,
+                "stock": 1486.7637706732512,
+                "capacity": 80,
+                "staff": 1,
+                "price": 3.742400376417653,
+                "part": 0,
+                "partNeed": 1110.4000000000065
+              },
+              {
+                "firm": 17,
+                "stock": 877.3818181818156,
+                "capacity": 80,
+                "staff": 1,
+                "price": 3.5731221916781193,
+                "part": 0,
+                "partNeed": 1110.4000000000065
+              },
+              {
+                "firm": 50,
+                "stock": 957.3818181818153,
+                "capacity": 80,
+                "staff": 1,
+                "price": 3.629187850304779,
+                "part": 0,
+                "partNeed": 1110.4000000000065
+              },
+              {
+                "firm": 51,
+                "stock": 877.3818181818153,
+                "capacity": 80,
+                "staff": 1,
+                "price": 3.654818492519145,
+                "part": 0,
+                "partNeed": 1110.4000000000065
+              },
+              {
+                "firm": 52,
+                "stock": 1037.3818181818165,
+                "capacity": 80,
+                "staff": 1,
+                "price": 3.6515033283268155,
+                "part": 0,
+                "partNeed": 1110.4000000000065
+              },
+              {
+                "firm": 53,
+                "stock": 1037.3818181818165,
+                "capacity": 80,
+                "staff": 1,
+                "price": 3.6267105230221706,
+                "part": 0,
+                "partNeed": 1110.4000000000065
+              },
+              {
+                "firm": 54,
+                "stock": 877.3818181818142,
+                "capacity": 80,
+                "staff": 1,
+                "price": 3.661563051295341,
+                "part": 0,
+                "partNeed": 1110.4000000000065
+              },
+              {
+                "firm": 55,
+                "stock": 1037.3818181818165,
+                "capacity": 80,
+                "staff": 1,
+                "price": 3.6509707234061377,
+                "part": 0,
+                "partNeed": 1110.4000000000065
+              },
+              {
+                "firm": 88,
+                "stock": 1079.860351245468,
+                "capacity": 0,
+                "staff": 0,
+                "price": 4.104095959278848,
+                "part": 0,
+                "partNeed": 1110.4000000000065
+              }
+            ],
             "storesWithSellableFood": 10,
             "purchases": []
           },
@@ -5857,6 +9392,107 @@
             "initialStoreCapacity": 1040,
             "initialStoreStaff": 13,
             "initialSellableFood": 1040,
+            "allStoreDetails": [
+              {
+                "firm": 0,
+                "stock": 1430.2416804203276,
+                "capacity": 160,
+                "staff": 2,
+                "price": 3.866381204837632,
+                "part": 0,
+                "partNeed": 1110.4000000000065
+              },
+              {
+                "firm": 1,
+                "stock": 2280.1947568313603,
+                "capacity": 240,
+                "staff": 3,
+                "price": 4.273332021420314,
+                "part": 0,
+                "partNeed": 1110.4000000000065
+              },
+              {
+                "firm": 2,
+                "stock": 1486.7637706732512,
+                "capacity": 80,
+                "staff": 1,
+                "price": 3.742400376417653,
+                "part": 0,
+                "partNeed": 1110.4000000000065
+              },
+              {
+                "firm": 17,
+                "stock": 877.3818181818156,
+                "capacity": 80,
+                "staff": 1,
+                "price": 3.5731221916781193,
+                "part": 0,
+                "partNeed": 1110.4000000000065
+              },
+              {
+                "firm": 50,
+                "stock": 957.3818181818153,
+                "capacity": 80,
+                "staff": 1,
+                "price": 3.629187850304779,
+                "part": 0,
+                "partNeed": 1110.4000000000065
+              },
+              {
+                "firm": 51,
+                "stock": 877.3818181818153,
+                "capacity": 80,
+                "staff": 1,
+                "price": 3.654818492519145,
+                "part": 0,
+                "partNeed": 1110.4000000000065
+              },
+              {
+                "firm": 52,
+                "stock": 1037.3818181818165,
+                "capacity": 80,
+                "staff": 1,
+                "price": 3.6515033283268155,
+                "part": 0,
+                "partNeed": 1110.4000000000065
+              },
+              {
+                "firm": 53,
+                "stock": 1037.3818181818165,
+                "capacity": 80,
+                "staff": 1,
+                "price": 3.6267105230221706,
+                "part": 0,
+                "partNeed": 1110.4000000000065
+              },
+              {
+                "firm": 54,
+                "stock": 877.3818181818142,
+                "capacity": 80,
+                "staff": 1,
+                "price": 3.661563051295341,
+                "part": 0,
+                "partNeed": 1110.4000000000065
+              },
+              {
+                "firm": 55,
+                "stock": 1037.3818181818165,
+                "capacity": 80,
+                "staff": 1,
+                "price": 3.6509707234061377,
+                "part": 0,
+                "partNeed": 1110.4000000000065
+              },
+              {
+                "firm": 88,
+                "stock": 1079.860351245468,
+                "capacity": 0,
+                "staff": 0,
+                "price": 4.104095959278848,
+                "part": 0,
+                "partNeed": 1110.4000000000065
+              }
+            ],
             "storesWithSellableFood": 10,
             "purchases": []
           }
