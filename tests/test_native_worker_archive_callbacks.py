@@ -1,5 +1,5 @@
 from pathlib import Path
-import subprocess,tempfile
+import subprocess,tempfile,sys
 
 ROOT=Path(__file__).resolve().parents[1]
 with tempfile.TemporaryDirectory() as tmp:
@@ -16,3 +16,5 @@ java=(ROOT/'android/app/src/main/java/org/townledger/vale/MainActivity.java').re
 for method in ('workerArchiveStarted','workerArchiveRejected','workerArchiveResult','requestWorkerExport','requestWorkerImport'):
     assert method in java
 print('PASS opt-in native worker archive callbacks preserve synchronous export/import fallback')
+
+subprocess.run([sys.executable,str(ROOT/'tests/test_native_completion_duplicate_fields.py')],check=True)
