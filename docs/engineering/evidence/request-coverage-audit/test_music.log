@@ -1,0 +1,1 @@
+PASS ten original pieces decode with nonzero signal, real gesture playback, contextual/no-repeat selection, independent controls, host pause/resume, natural handoff and preference persistence {'pieces': 10, 'seconds': 2846.3730000000005, 'selections': 100, 'unique': 10, 'noRepeatWindow': 6, 'quietSelections': 340, 'livelyQuietSelections': 70, 'economicStateUnchanged': True}

@@ -1,0 +1,1968 @@
+{
+  "localCommit": "01eeda3d2ff09822b9422721f75e97fabbc9958a",
+  "source_sha256": "84ecbaef6b0ae999a9c5adcd49b9ba1678840cabfc36cf02b617c74a93d208a4",
+  "panels": [
+    {
+      "panel": "overview",
+      "title": "Town Hall",
+      "text": "YOUR MAYOR\u2019S DESK \u00b7 DAY 1\nTown direction \u2192\nWhat needs your decision?\nTake the first council session\nAwaiting the first daily settlement\nTrace the supply chain\nWhy this matters\n\nTrace food stocks and enterprise cash now. Let one simulated day finish before judging food and funded service coverage.\n\nOptional first council session \u00b7 0 / 4 reports explored\nTrace one shortage\n\nCompare available food, inbound cargo and the landed price. Return to Town Hall to review an inbound delivery when a suitable shop needs stock.\n\nOpen trace one shortageHide guide\nConcrete civic projects\nCompare a food circuit, district gateway and school-to-work promise.\nA trading town \u00b7 your next decision\n\nVillage Stores Ltd. needs a food buffer. Broker 60 units from Ironridge Works: approximately $203 of the enterprise\u2019s cash, 9 days to arrive. Imports buy reliability and outside competition; local production keeps more receipts with local suppliers.\n\nReview an inbound food delivery\nPlan local food production\nFull borough report, programme & trading decisions\nCOUNCIL PROGRAMME \u00b7 CHAPTER 1 OF 3\nThe everyday essentials\n\n0 / 30 consecutive qualifying days.\n\nMET\nResidents in work\n80% / at least 75%\nReview\nNEEDS WORK\nEssential food supplied\n0% / at least 95%\nReview\nMET\nHouseholds in hardship\n7% / at most 15%\nReview\nHow to work on this chapter\n\nEstablish reliable work and a food basket families can obtain. Missing a condition resets this chapter\u2019s qualifying-day count. Completed chapters remain recorded.\n\nResidents in work. Inspect sales and margins before financing more jobs.\n\nEssential food supplied. Check reachable shops, stock, retail staff and household buying power.\n\nHouseholds in hardship. Inspect a struggling family; income, rent and access can bind differently.\n\nThis is an observed programme, not a forecast. Recruitment takes 30 days; training needs 120 funded teaching days; equipment commissions 30 days after payment. A budget cannot create a missing road or qualified worker instantly.\n\nPROSPEROUS VALE \u00b7 Your council, your growing town\nTHE BOROUGH AT A GLANCE\nResidents\n169\nTown treasury\n$90,000\nResidents in work\n80%\nCouncil trust\n65%\nThe economy is adjusting\n\nChoose an ambition, inspect the constraint in Economy, and enact a small policy package. Let several weeks pass, then compare the Policy journal and individual household accounts.\n\nFollow private construction, credit, employment and household purchasing power.\n\nReview local services\nReview the economy\nPrepare policy\nReview outcomes\nTHE STATE OF DAILY LIFE\nPublic safety\n88%\nHousehold wellbeing\n72%\nLocal business confidence\n60%\nHouseholds struggling\n7%\nCrime reports in last month\n0\nTrading businesses\n26 / 26\nCurrent ambition: Keep the books\n\nMaintain $60,000 in municipal cash, no debt, and 65% employment for 25 days.\n\nKeep the books\nTRACKING\n0 / 25 qualifying days\nView council ambitions\nVisit struggling household\nA HOUSEHOLD BEHIND THE NUMBERS\nThe Baker family\n\n3 residents \u00b7 $2,504 in savings \u00b7 70/100 wellbeing. Yesterday's income $0, essential spending $0, net household flow $0.\n\nInspect this family\nFROM THE TOWN CRIER\nDAY 1\nThe council inherits a promising community and a difficult balancing act.\nDAY 1\nA new council has taken responsibility for the prosperity of the Vale.\nEMPLOYMENT TREND\n\nThe figures will appear as the town develops.",
+      "buttons": [
+        {
+          "text": "Town direction \u2192",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Trace the supply chain",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Open trace one shortage",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Hide guide",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Concrete civic projects",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Review an inbound food delivery",
+          "id": "firstFoodOrder",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Plan local food production",
+          "id": "firstLocalFood",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Review",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Review",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Review",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Review local services",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Review the economy",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Prepare policy",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Review outcomes",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "View council ambitions",
+          "id": "jumpAgenda",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Visit struggling household",
+          "id": "focusBad",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Inspect this family",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        }
+      ],
+      "inputs": []
+    },
+    {
+      "panel": "economy",
+      "title": "The Living Economy",
+      "text": "Can this supplier keep the promise?\n\nCompare retained stock, already promised output, freight cash and the full arrival lag. A suggested size is a forecast; a full buyer window can be risky. Inventory margin excludes future payroll, tax and disruption.\n\nCompare buyer, commodity and producer\nCheck the city cash runway\nDepot operations \u00b7 0 queued \u00b7 0 late\n\nPaid cargo moves through collection, a staffed loading bay, the regional road and final delivery. Outside travel is not painted as a truck driving around town. Ready queues compete for actual depot crews. Handling receipts come from the carriage already paid, never a second invoice.\n\nHandling units used today\n0\nOrdinary daily capacity\n980\nRefund/recovery receivables\n$0\nExtra shift purchases today\n$0.00\n\nDispatch policy changes ready queues, not purchases already made. Essential imports protect food and inputs; agreement priority can postpone household supplies. Balanced mode uses due dates and order numbers.\n\nBalanced\nFood & inputs first\nAgreements first\n\nRouting preference applies to new orders. Interchange-only avoids private handling detours but concentrates queues; depot preference uses available staffed businesses. Automatic compares freight and waiting.\n\nAutomatic routing\nInterchange only\nPrefer staffed depots\nPrefer Greyhaven river freight\nReview a 30-day extra shift\nPlan a staffed warehouse\n\nExtra interchange crews add up to 300 handling units per day at $0.36 per unit actually processed, at most $108/day. Empty queues cost nothing. A warehouse is a longer investment: assigned workers, wages, access and demand must sustain it; an empty building adds no capacity.\n\nCounty interchange crews500 handling units/day \u00b7 0 waiting \u00b7 regional carrier\nFreight Depot & Co.480 handling units/day \u00b7 0 waiting \u00b7 $0.00 actual handling receipts today\nVale River Landing1200 handling units/day \u00b7 0 waiting \u00b7 $0.00 actual handling receipts today\n\nEarly imports still being prepared can recover invoice and duty; prepaid carriage is retained. Later returns recover 90% of invoice, with duty retained after border entry. Refunds use actual supplier/treasury cash; an unpaid balance remains a receivable, not invented cash. A 30-day route failure uses a 70% reference-price recovery sale. Export recalls return owned stock rather than paying a fictional sale.\n\nTHE REGIONAL EXCHANGE\n\nImports are paid inventories on the road, not instant shelf stock. Road exports earn receipts on arrival; river buyers take title at dock collection. Market quotes change monthly; road capacity and working capital limit dispatch. Regional buyers share the conserved external cash account.\n\nConsignments travelling\n0\nCompleted deliveries\n0\nLoading units left today\n980\nDelayed cargo\n0\nUpland Cooperative \u00b7 2 days outside town\n\nSupplies grain, food, logs; values timber, manufactures, stone. Shared daily handling 700 units. Prices below exclude local road freight and import duties.\n\nCommodity\tBuy from region\tSell to region\ngrain\t$1.72\t$2.00\nflour\t$3.11\t$3.11\nfood\t$3.23\t$3.44\nlogs\t$2.13\t$2.01\ntimber\t$3.86\t$4.25\nstone\t$2.87\t$2.99\nmanufactures\t$8.39\t$9.74\nGreyhaven Port \u00b7 3 days outside town\n\nSupplies manufactures, timber, food; values grain, flour, food. Shared daily handling 900 units. Prices below exclude local road freight and import duties.\n\nCommodity\tBuy from region\tSell to region\ngrain\t$2.09\t$2.23\nflour\t$3.05\t$3.44\nfood\t$3.47\t$3.53\nlogs\t$1.91\t$1.91\ntimber\t$3.68\t$3.92\nstone\t$3.07\t$3.07\nmanufactures\t$7.55\t$8.88\nIronridge Works \u00b7 4 days outside town\n\nSupplies stone, logs, grain; values timber, food, manufactures. Shared daily handling 600 units. Prices below exclude local road freight and import duties.\n\nCommodity\tBuy from region\tSell to region\ngrain\t$2.08\t$1.96\nflour\t$2.87\t$2.87\nfood\t$3.21\t$3.69\nlogs\t$1.85\t$2.03\ntimber\t$4.17\t$4.93\nstone\t$2.60\t$3.10\nmanufactures\t$8.43\t$8.69\n\nDispatch uses a shared local loading budget: 500 units daily plus 120 per attending warehouse worker. A depot without road access or crews adds nothing. Firms compare local landed prices with regional quotes, duties and freight; imports may undercut local producers. Transit time and local food reserves still matter.\n\nReview regional highway approaches\nA RELIABLE SURPLUS EARNS A RELATIONSHIP\n\nBroker one limited 30-day export agreement. The supplying enterprise receives the sale; town hall receives no artificial reward. Preview stock, local reserve, freight and approximate inventory margin. Missed windows remain in the agreement record, but never confiscate stock or invent money.\n\nUpland Cooperative \u00b7 up to 200 timber\n\nSupplier Sawmill Ltd. \u00b7 held 30 \u00b7 6 days to arrive. Quote $4.59/unit; road freight $0.18/unit. Estimated inventory margin $81 before future payroll, taxes and disruption. Working stock retained: 67.6. Recent output 0/day is not free surplus: existing promises claim 0. Estimated deliverable 0; suggested commitment 0. Forecast assumes current staffing, inputs, freight cash and access continue. The full buyer window exceeds the forecast.\n\nReview 30-day agreement\nGreyhaven Port \u00b7 up to 200 flour\n\nSupplier Flour Mill Works \u00b7 held 40 \u00b7 7 days to arrive. Quote $3.72/unit; road freight $0.19/unit. Estimated inventory margin $104 before future payroll, taxes and disruption. Working stock retained: 91. Recent output 0/day is not free surplus: existing promises claim 0. Estimated deliverable 0; suggested commitment 0. Forecast assumes current staffing, inputs, freight cash and access continue. The full buyer window exceeds the forecast.\n\nReview 30-day agreement\nIronridge Works \u00b7 up to 200 manufactures\n\nSupplier Manufacturing Works & Co. \u00b7 held 0 \u00b7 9 days to arrive. Quote $9.38/unit; road freight $0.18/unit. Estimated inventory margin $141 before future payroll, taxes and disruption. Working stock retained: 44.2. Recent output 0/day is not free surplus: existing promises claim 0. Estimated deliverable 0; suggested commitment 0. Forecast assumes current staffing, inputs, freight cash and access continue. The full buyer window exceeds the forecast.\n\nReview 30-day agreement\nCompare other suppliers and commodities \u00b7 including food\nRegional buyer \nUpland Cooperative\nGreyhaven Port\nIronridge Works\nCommodity the buyer seeks \ngrain\nflour\nfood\nLocal producer \nBaker & Sons Ltd.\nBaker & Sons Trading\nBaker & Sons Works\nVale Net & Line\n\nThe forecast supports fewer than ten additional units after retained stock, existing promises, handling and freight cash.\n\nHeld / retained units\n80 / 104\nAlready promised units\n0\nForecast / suggested units\n0 / 0\nFreight cash available\n$23,605\n\nBaker & Sons Ltd. \u2192 Greyhaven Port. Quote $3.81/unit; freight $0.20/unit. Suggested-size inventory margin $0 excludes future payroll, tax and disruption. 0 recent output/day, 21 usable dispatch days; standard deadline day 31. Food and other working reserves are retained. Priority dispatch can reduce stock for local buyers. Estimates assume current inputs, attendance, cash and routes persist.\n\nReview this supplier\u2019s food promise\nFOLLOW A REAL CONSIGNMENT\nREGIONAL DEVELOPMENT ORDERS\n\nTwo timed deliveries compete for one supply chain. The second stage opens after the first deadline; a late first delivery cannot repair its record. Same buyer prices, no bonus. Both stages need two agreement slots. Cancelling either stops both future dispatches; owned cargo and liabilities continue.\n\nReview Upland Cooperative staged timber orderReview Greyhaven Port staged flour orderReview Ironridge Works staged manufactures order\nGreyhaven river freight \u00b7 compare before investing\n\nWharves compete for real imports and exports. River line haul can save road distance but takes longer, ties up working capital and needs attending crews. Existing docks may already cover demand. No route guarantees profit. Each load shares the same 600-unit-per-worker capacity with spot exports. Carriage pays handling once; no municipal subsidy.\n\nVale River Landing \u00b7 2 attending crew\n\nToday 0 units, $0 handling; actual operating expense $0. Break-even at today\u2019s expenses 0 units. Empty capacity earns nothing.\n\nVillage Stores Ltd. \u00b7 import food\n\nRiver freight $0.21/unit \u00b7 8 days; road $0.20/unit \u00b7 7 days. Affordable 120 units now; retained 0. This load earns dock $12 before wages/rates. Future demand is not promised.\n\nReview this river load\nVillage Stores Trading \u00b7 import food\n\nRiver freight $0.22/unit \u00b7 8 days; road $0.20/unit \u00b7 7 days. Affordable 120 units now; retained 0. This load earns dock $12 before wages/rates. Future demand is not promised.\n\nReview this river load\nVillage Stores of Eastmead \u00b7 import food\n\nRiver freight $0.22/unit \u00b7 8 days; road $0.19/unit \u00b7 8 days. Affordable 120 units now; retained 0. This load earns dock $12 before wages/rates. Future demand is not promised.\n\nReview this river load\nBaker & Sons Ltd. \u00b7 export food\n\nRiver freight $0.22/unit \u00b7 8 days; road $0.20/unit \u00b7 8 days. Affordable 0 units now; retained 104. This load earns dock $0 before wages/rates. Future demand is not promised.\n\nReview this river load\nBaker & Sons Trading \u00b7 export food\n\nRiver freight $0.22/unit \u00b7 8 days; road $0.20/unit \u00b7 7 days. Affordable 0 units now; retained 104. This load earns dock $0 before wages/rates. Future demand is not promised.\n\nReview this river load\nFlour Mill Works \u00b7 export flour\n\nRiver freight $0.19/unit \u00b7 7 days; road $0.20/unit \u00b7 7 days. Affordable 0 units now; retained 91. This load earns dock $0 before wages/rates. Future demand is not promised.\n\nReview this river load\nFlour Mill of Oakford \u00b7 export flour\n\nRiver freight $0.22/unit \u00b7 8 days; road $0.20/unit \u00b7 8 days. Affordable 0 units now; retained 91. This load earns dock $0 before wages/rates. Future demand is not promised.\n\nReview this river load\nFarm Ltd. \u00b7 export grain\n\nRiver freight $0.23/unit \u00b7 8 days; road $0.25/unit \u00b7 8 days. Affordable 0 units now; retained 72.8. This load earns dock $0 before wages/rates. Future demand is not promised.\n\nReview this river load\nCURRENT PRESSURES\n\nRoad upkeep: approximately $75/day is needed to offset ordinary wear on public streets; $25/day is authorized. Growing infrastructure needs a larger maintenance budget.\n\nEmployment: 20% of the workforce is seeking work. Inspect sector operating margins and vacancies; lower financing costs help viable expansion but cannot supply customers to an unprofitable business.\n\nORDERS, COSTS AND MONETARY POLICY\nBenchmark interest\n3%\nLiving-cost basket index\n100\nBusiness sales / day\n$0\nPrivate payroll / day\n$0\nInventory sold at cost\n$0\nNet business earnings\n$0\n\nFirms buy inventories, sell to finite local and external demand, and hire from sustained sales. Stock purchases reduce cash immediately; their cost enters profit when sold. The interest benchmark feeds lending and deposit quotes gradually, reprices variable debt, and changes investment hurdles. A tax cut helps returns; it cannot replace missing customers or inputs.\n\nUnfilled food demand today\n0 units\nRegional export receipts today\n$0\nSubscribed restart equity since upgrade\n$0\nAdjust interest policy\nCREDIT AND INVESTMENT PIPELINE\nActive household / enterprise loans\n0 / 0\nLoans with missed payments\n0\nFunded equipment orders\n0\n\nDebt service reduces spendable household income. Banks price impaired portfolios and assess a rate-stressed repayment. Equipment is paid for at order and becomes productive after commissioning; credit cannot replace demand or missing inputs.\n\nLIVE BOROUGH ECONOMY\nThe economy is adjusting\n\nFollow private construction, credit, employment and household purchasing power.\n\nEMPLOYMENT\n80%\n88 residents working\nMEDIAN SAVINGS\n$640\nper household member\nHOUSING PRESSURE\n72/100\n0 vacant cottages\nPRIVATE WORK SITES\n0\nprojects underway\nBUSINESSES\n26\n0 historical closures\nBANKS & CREDIT\n3\n$0 loans outstanding\nWHERE PEOPLE EARN THEIR LIVING\n\nActual operating enterprises, employees, sales and daily operating profit. A negative profit reflects losses, not an abstract score.\n\nIndustry\tFirms\tJobs\tDaily profit\nAgriculture\t6\t23/23\t$0\nFood & retail\t8\t20/20\t$0\nManufacturing\t4\t16/16\t$0\nResource extraction\t3\t9/9\t$0\nConstruction\t2\t8/8\t$0\nServices\t1\t6/6\t$0\nLogistics\t2\t6/6\t$0\nPRIVATE INVESTMENT, NOT PLAYER PLACEMENT\nDemand for homes\n68%\nDemand for commerce\n11%\nJob openings\n0\nResidential capacity\n67 housing units\nNext private sites\n0 projects in construction\nRegional exports & investment\n$14,760,000\nBANKS, LOANS AND SAVINGS\nHousehold and company deposits\n$23,858\nCash reserves at local banks\n$112,858\nLoans still being repaid\n$0\nBanks in operation\n3\nWHAT SHOULD THE GOVERNMENT DO?\n\nYou do not control private developers, firms or banks. Adjust a few policy rates, funding priorities or municipal borrowing and let the market respond. Watch outcomes over months and years, not just individual days.\n\nReview policy rates\nInspect households\nInspect firms\nEMPLOYMENT HISTORY\n\nThe figures will appear as the town develops.\n\nPRIVATE ENTERPRISE COUNT\n\nThe figures will appear as the town develops.\n\nHOUSEHOLDS UNDER PRESSURE\n\nThe figures will appear as the town develops.\n\nRECENT ECONOMIC DEVELOPMENTS\nDAY 1\nThe council inherits a promising community and a difficult balancing act.\nDAY 1\nA new council has taken responsibility for the prosperity of the Vale.\nPROPERTY & CAPITAL\nMedian home valuation\n$50,688\nRent index (founding = 1)\n1\nUnoccupied dwellings\n0\nPaid construction contracts\n$11,100\n\nValuations respond gradually to rents, access, condition and location. Investors compare operating yields with funding costs. Regional capital is finite; land and construction have recorded counterparties.\n\nHOUSING RENTS OVER TIME\n\nObservations accumulate every ten days.\n\nA GOVERNMENT DECISION, FOLLOWED THROUGH\n\nEnact a policy package to begin a measured before-and-after record. Town readings are sampled every ten simulated days.\n\nFREIGHT IN THE REAL SUPPLY CHAIN\nCargo currently travelling\n0 consignments\nCargo and sampled trips completed\n0\nBlocked cargo-days\n0\nPHYSICAL GOODS & CLEARING PRICES\nCommodity\tInventory incl. cargo\tUnit price\ngrain\t1,040\t$2\nflour\t1,040\t$3\nfood\t2,080\t$3\nlogs\t780\t$2\ntimber\t780\t$4\nstone\t780\t$3\nmanufactures\t0\t$9\n\nProduction, transformation, household use, imports, exports and cargo are counted separately. Wholesale prices adjust gradually to inventory coverage and regional demand.\n\nRECENT INVESTMENT ACCOUNTS\n$4,256 \u00b7 Building materials and external constructionDay 1 \u00b7 Vale Property Partnership \u2192 Regional suppliers\n$3,344 \u00b7 Construction labour and marginDay 1 \u00b7 Vale Property Partnership \u2192 Construction Co. Works\n$7,600 \u00b7 Equity subscriptionDay 1 \u00b7 Regional capital \u2192 Vale Property Partnership\n$1,960 \u00b7 Building materials and external constructionDay 1 \u00b7 Vale Property Partnership \u2192 Regional suppliers\n$1,540 \u00b7 Construction labour and marginDay 1 \u00b7 Vale Property Partnership \u2192 Construction Co. Works\n$3,500 \u00b7 Equity subscriptionDay 1 \u00b7 Regional capital \u2192 Vale Property Partnership",
+      "buttons": [
+        {
+          "text": "Compare buyer, commodity and producer",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Check the city cash runway",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Balanced",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Food & inputs first",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Agreements first",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Automatic routing",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Interchange only",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Prefer staffed depots",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Prefer Greyhaven river freight",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Review a 30-day extra shift",
+          "id": "logisticsRelief",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Plan a staffed warehouse",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Review regional highway approaches",
+          "id": "regionalApproaches",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Review 30-day agreement",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Review 30-day agreement",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Review 30-day agreement",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Review this supplier\u2019s food promise",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Review Upland Cooperative staged timber order",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Review Greyhaven Port staged flour order",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Review Ironridge Works staged manufactures order",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Review this river load",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Review this river load",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Review this river load",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Review this river load",
+          "id": "",
+          "disabled": true,
+          "visible": true
+        },
+        {
+          "text": "Review this river load",
+          "id": "",
+          "disabled": true,
+          "visible": true
+        },
+        {
+          "text": "Review this river load",
+          "id": "",
+          "disabled": true,
+          "visible": true
+        },
+        {
+          "text": "Review this river load",
+          "id": "",
+          "disabled": true,
+          "visible": true
+        },
+        {
+          "text": "Review this river load",
+          "id": "",
+          "disabled": true,
+          "visible": true
+        },
+        {
+          "text": "Adjust interest policy",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Review policy rates",
+          "id": "marketPolicy",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Inspect households",
+          "id": "marketFamilies",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Inspect firms",
+          "id": "marketCompanies",
+          "disabled": false,
+          "visible": true
+        }
+      ],
+      "inputs": [
+        {
+          "id": "supplierMarket",
+          "type": "select-one",
+          "value": "port",
+          "preference": null
+        },
+        {
+          "id": "supplierGood",
+          "type": "select-one",
+          "value": "food",
+          "preference": null
+        },
+        {
+          "id": "supplierFirm",
+          "type": "select-one",
+          "value": "3",
+          "preference": null
+        }
+      ]
+    },
+    {
+      "panel": "policies",
+      "title": "Economic Policy",
+      "text": "Authorization, purchases and one-off costs\n\nService authorizations are ceilings: real purchases still need cash, qualified staff and access. Deeds, compensated renewal and gathering preparation are separate outlays. Compare the proposed daily bound with recent receipts before enacting a package.\n\nReview this proposal\u2019s cash plan\nOpen actual treasury accounts\nIndependent service licensing & affordability\nLicense new private schools and brigades\n1\nOne permits entrepreneurial entry; zero stops new licenses without confiscating existing providers.\nPrivate tuition ceiling / learner / day\n$4\nMaximum fee per equivalent learner-day. A low ceiling improves prices only if an operator can still cover qualified teaching and premises costs.\nPrivate brigade membership ceiling / resident / day\n$1\nVoluntary inspection, prevention and priority membership. Nonmembers still receive nearby emergency spillover; rescue is never sold at the burning doorstep.\nTargeted private-service vouchers / day\n$0\nPurchase otherwise unaffordable private teaching or brigade memberships for low-liquid-wealth families. Actual purchases only; unused authorization stays in the treasury.\nThe market runs itself. You set rules and fiscal priorities. Select a council programme or adjust rates manually, then enact the package and watch the town adapt over time.\nMake room for enterprise\nLower taxes, permits and barriers to development.\nOpen the housing market\nEase planning rules and improve access.\nInvest in families\nFinance schools, care, relief and roads.\nBalance the council purse\nReduce spending and slow new commitments.\nTaxation\nIncome tax\n12%\n\nShare of earnings paid by working residents to the town.\n\nBusiness profit tax\n12%\n\nTax on positive net operating profit of private businesses.\n\nProperty tax (annual)\n1.1%\n\nTax on property values, charged to owners daily in annualized instalments.\n\nBusiness property rate (annual)\n0.6%\n\nAnnual tax on privately operating premises, payable even in years with weak profits.\n\nFood sales tax\n4%\n\nCollected from purchases at local grocers; reduces food affordability.\n\nDomestic energy levy\n2%\n\nLevied on actual household heating and electricity bills. Raises funds, increases living costs.\n\nWork and enterprise\nMinimum daily wage\n$28\n\nRaises pay but also raises labour costs for small firms.\n\nWage subsidy / worker / day\n$0\n\nTown reimburses employers per filled job, subject to available funds.\n\nBusiness entry permit\n$250\n\nFee charged when an investor opens a new enterprise.\n\nBusiness compliance rules\n25%\n\nSafeguards can lower workplace incidents but add costs to local firms.\n\nBuilding restrictions\n25%\n\nHigher restrictions slow private homebuilding, reducing housing supply.\n\nGovernment services\nRetirement pension / person / day\n$16\n\nTreasury-funded income for residents over 70. Benefits are shared proportionally if funds fall short; an ageing population raises the fiscal cost.\n\nConstabulary budget / day\n$180\n\nFund patrols, investigators and public safety. Stations improve coverage.\n\nFire and civil defence / day\n$140\n\nMaintains emergency preparedness. Stations improve response.\n\nClinic & public health / day\n$70\n$\n/ day\n\nEnter exact daily dollars, up to $50,000. Changes remain a proposal until enacted; unused authorization stays in the treasury.\n\n169 residents \u00b7 full public standard $104/day \u00b7 currently reachable public need $104/day.\n\nNo current purchase measured after this archive or policy refresh. 1 public facilities; 100% geographic/capacity access.\n\nDraft $104/day public standard\nDraft $103/day within a 30-day cash plan\nHow this estimate works\n\nThe standard prices five clinic staff per 350 residents at $28/staff-day, including the existing supplier share. Actual purchases still require treasury cash, qualified staff and reachable facilities. Additional regional recruitment normally takes 30 days. Private purchases may change after public investment; the combined-gap estimate assumes today\u2019s purchases continue. Learning indices are service equivalents, not a count of every pupil enrolled.\n\nSchool & training / day\n$90\n$\n/ day\n\nEnter exact daily dollars, up to $50,000. Changes remain a proposal until enacted; unused authorization stays in the treasury.\n\n169 residents \u00b7 full public standard $280/day \u00b7 currently reachable public need $280/day.\n\nNo current purchase measured after this archive or policy refresh. 1 public facilities; 100% geographic/capacity access.\n\nDraft $280/day public standard\nDraft $280/day within a 30-day cash plan\nHow this estimate works\n\nThe standard prices ten school staff per 260 residents at $28/staff-day, including the existing supplier share. Actual purchases still require treasury cash, qualified staff and reachable facilities. Additional regional recruitment normally takes 30 days. Private purchases may change after public investment; the combined-gap estimate assumes today\u2019s purchases continue. Learning indices are service equivalents, not a count of every pupil enrolled.\n\nHousing assistance / day\n$100\n\nDirect household transfers, prioritized by hardship and low savings.\n\nHeating assistance / day\n$35\n\nPays energy bills for low-cash households, especially in winter.\n\nCommunity outreach / day\n$40\n\nLocal support services that reduce isolation and some risk factors.\n\nRoad maintenance / day\n$25\n\nUpkeep for roads and local access; poor service lowers trade efficiency.\n\nCommuter transit / day\n$35\n\nLegacy commuter support while no public routes exist. Public bus and elevated metro service is authorized separately in Public Works, with quoted fleet, staffing and daily costs.\n\nCivil defence volunteers / day\n$25\n\nReserve volunteers who help manage exceptional floods and regional emergencies.\n\nMonetary policy and credit\nPolicy interest rate (annual)\n3%\n\nBenchmark set by the monetary authority. Bank funding, new and variable-rate credit, savings and investment hurdles adjust with a lag. Higher rates restrain borrowing and demand; lower rates do not make insolvent projects viable.\n\nBank minimum reserve\n12%\n\nBank cash reserves against deposits. Higher levels lower lending capacity and help meet withdrawals.\n\nCredit underwriting standards\n35%\n\nStrict standards constrain risky borrowing but reduce investment and consumption credit.\n\nDeposit insurance coverage\n0%\n\nWhen a bank fails, cover this share of otherwise lost deposits using available municipal funds.\n\nRegional reserve investment share\n60%\n\nShare of surplus municipal cash available to buy outside-region securities when trade liquidity is low.\n\nTrade and exchange\nImport tariff\n0%\n\nAdds costs to imported food and industrial materials, producing revenue.\n\nRegional inventory imports\nALLOWED\nReview the proposed daily commitments\nFull authorization ceiling\n$1,124/day\nBounded by current reachable service need\n$1,124/day\nHistorical daily receipts\n$0/day\nCash at that current-need bound\n80.1 days\n\nThe ceiling is not an immediate charge. The current-need bound assumes reachable service capacity can recruit; actual purchases may be lower. This cash plan uses receipts since founding and today\u2019s cash, not a promise of future income. Growth, prices, staffing and new policy effects can change it.\n\nProposed policy package\n\nMove one or more controls to propose changes.\n\nENACT POLICY CHANGES\nDiscard changes",
+      "buttons": [
+        {
+          "text": "Review this proposal\u2019s cash plan",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Open actual treasury accounts",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Make room for enterprise\nLower taxes, permits and barriers to development.",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Open the housing market\nEase planning rules and improve access.",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Invest in families\nFinance schools, care, relief and roads.",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Balance the council purse\nReduce spending and slow new commitments.",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Draft $104/day public standard",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Draft $103/day within a 30-day cash plan",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Draft $280/day public standard",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Draft $280/day within a 30-day cash plan",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "ALLOWED",
+          "id": "tradeToggle",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "ENACT POLICY CHANGES",
+          "id": "enactPolicy",
+          "disabled": true,
+          "visible": true
+        },
+        {
+          "text": "Discard changes",
+          "id": "resetPolicy",
+          "disabled": false,
+          "visible": true
+        }
+      ],
+      "inputs": [
+        {
+          "id": "",
+          "type": "range",
+          "value": "1",
+          "preference": null
+        },
+        {
+          "id": "",
+          "type": "range",
+          "value": "4",
+          "preference": null
+        },
+        {
+          "id": "",
+          "type": "range",
+          "value": "1",
+          "preference": null
+        },
+        {
+          "id": "",
+          "type": "range",
+          "value": "0",
+          "preference": null
+        },
+        {
+          "id": "",
+          "type": "range",
+          "value": "12",
+          "preference": null
+        },
+        {
+          "id": "",
+          "type": "range",
+          "value": "12",
+          "preference": null
+        },
+        {
+          "id": "",
+          "type": "range",
+          "value": "1.1",
+          "preference": null
+        },
+        {
+          "id": "",
+          "type": "range",
+          "value": "0.5",
+          "preference": null
+        },
+        {
+          "id": "",
+          "type": "range",
+          "value": "4",
+          "preference": null
+        },
+        {
+          "id": "",
+          "type": "range",
+          "value": "2",
+          "preference": null
+        },
+        {
+          "id": "",
+          "type": "range",
+          "value": "28",
+          "preference": null
+        },
+        {
+          "id": "",
+          "type": "range",
+          "value": "0",
+          "preference": null
+        },
+        {
+          "id": "",
+          "type": "range",
+          "value": "250",
+          "preference": null
+        },
+        {
+          "id": "",
+          "type": "range",
+          "value": "25",
+          "preference": null
+        },
+        {
+          "id": "",
+          "type": "range",
+          "value": "25",
+          "preference": null
+        },
+        {
+          "id": "",
+          "type": "range",
+          "value": "16",
+          "preference": null
+        },
+        {
+          "id": "",
+          "type": "range",
+          "value": "180",
+          "preference": null
+        },
+        {
+          "id": "",
+          "type": "range",
+          "value": "140",
+          "preference": null
+        },
+        {
+          "id": "serviceBudgetAmount-healthBudget",
+          "type": "number",
+          "value": "70",
+          "preference": null
+        },
+        {
+          "id": "",
+          "type": "range",
+          "value": "70",
+          "preference": null
+        },
+        {
+          "id": "serviceBudgetAmount-educationBudget",
+          "type": "number",
+          "value": "90",
+          "preference": null
+        },
+        {
+          "id": "",
+          "type": "range",
+          "value": "90",
+          "preference": null
+        },
+        {
+          "id": "",
+          "type": "range",
+          "value": "100",
+          "preference": null
+        },
+        {
+          "id": "",
+          "type": "range",
+          "value": "40",
+          "preference": null
+        },
+        {
+          "id": "",
+          "type": "range",
+          "value": "40",
+          "preference": null
+        },
+        {
+          "id": "",
+          "type": "range",
+          "value": "30",
+          "preference": null
+        },
+        {
+          "id": "",
+          "type": "range",
+          "value": "40",
+          "preference": null
+        },
+        {
+          "id": "",
+          "type": "range",
+          "value": "30",
+          "preference": null
+        },
+        {
+          "id": "",
+          "type": "range",
+          "value": "3",
+          "preference": null
+        },
+        {
+          "id": "",
+          "type": "range",
+          "value": "12",
+          "preference": null
+        },
+        {
+          "id": "",
+          "type": "range",
+          "value": "35",
+          "preference": null
+        },
+        {
+          "id": "",
+          "type": "range",
+          "value": "0",
+          "preference": null
+        },
+        {
+          "id": "",
+          "type": "range",
+          "value": "60",
+          "preference": null
+        },
+        {
+          "id": "",
+          "type": "range",
+          "value": "0",
+          "preference": null
+        }
+      ]
+    },
+    {
+      "panel": "community",
+      "title": "Civic Services",
+      "text": "An empty home is not an arriving household\n\nResidents compare funded reachable jobs, rent, food, travel and spendable savings with outside alternatives. A departure does not erase property, loans or locked bank claims. Read the actual household assessment and this session\u2019s recorded decisions.\n\nRead actual moving decisions\nInspect a household budget\nWHO PAYS FOR LOCAL SERVICES?\n\nMunicipal schools and brigades remain publicly funded. Independent institutions invest their own capital, employ qualified workers and charge voluntary fees. Entry licensing does not confiscate existing providers. Vouchers purchase actual otherwise unaffordable service; they are not a blanket grant to owners.\n\nIndependent schools\n0\nIndependent brigades\n0\nLearner equivalents today\n0\nVoucher purchases today\n$0\n\nPrivate teaching purchases remaining public-service gaps, subject to pupils, household budgets and qualified capacity. Learning terms require120 equivalent teaching days. Brigade memberships buy prevention and priority readiness; nearby nonmembers still receive emergency spillover. No family is billed at a burning doorstep. Public response remains independent.\n\nInvite school proposals\nInvite brigade proposals\nLicensing, fees & targeted vouchers\nMoving in, moving out & housing\n\nA new household needs an actual vacant unit, funded work it can reach, and take-home pay covering rent, food, utilities and fares. Existing local jobseekers get first consideration. Families also compare outside prices and local care/learning access. Affordable spare teaching places at working independent schools can also enter the forecast; their fees are included without assumed vouchers. A quoted job or place can change before arrival.\n\nOutside comparison: Ironridge Works \u00b7 $49/day reference income and $33 essentials for two working adults. Income and rent use the founding-policy benchmark; food uses current market quotes. This is a comparison, not a guaranteed foreign job.\n\nOBSERVED POPULATION CHANGES \u00b7 SINCE DAY 1\nBirths / deaths\n0 / 0\nImmigration / emigration\n0 / 0\n\nThese observations restart after loading a town; no earlier census is reconstructed.\n\nNo migration decision has been observed since this town was opened. Earlier demographic history is not reconstructed from missing records.\n\nLOCAL CARE AND LEARNING\n\nService provision is recorded after the next simulated day. Budgets authorize spending; buildings and paid operating costs determine coverage.\n\nLOCAL QUALIFICATIONS AND TRAINING\n\nEach operating school offers two adult-training places. A term needs 120 equivalent funded teaching days and adds 10 skill points; partial coverage progresses more slowly. Regional staffing contracts provide a recovery path when no local qualified worker is available.\n\nNo adult course is active. Fund reachable schools to open places.\n\nPRIVATE GROWTH AND MOBILITY\nHousing demand\n68/100\nBusiness demand\n11/100\nPrivate road lots\n0\nProjects under construction\n0\nPrivate road tolls\n$0\nPrivate homes\n0\nNew enterprises\n0\nUnderground stations\n0\nSubway rides\n0\nRail operator cash\n$0\nAgricultural district plots\n25\nApartment redevelopments\n0\nResidential towers\n0\nPrivate airfields\n0\nDownzoned properties\n0\nRegional passengers\n0\nIndustrial employers\n3\n\nInvestors respond to demand automatically. Road developers finance extensions from regional capital; housing developers choose lots near jobs, and merchants enter underserved markets. Underground investors evaluate population and density, then fund stations and tunnels. Farmers acquire field plots and raise grain output; factory owners and freight depots respond to supply and demand; landlords may replace cottages with apartments or towers after assembling a site; and airport investors require a major regional market, a clear runway, and long-term operating capital. The railway pays ongoing costs from fares. Income, profit and property taxes, zoning and business rules influence investment.\n\nNo subway yet. Investors usually require at least 350 residents, sufficient density and financial confidence.\n\nBANKING & ENTERPRISE FINANCE\nCompeting banks\n3 operating\nOutstanding bank credit\n$0\nCONSTABULARY & CIVIL DEFENCE\nPublic safety\n88/100\nCrime reports \u00b7 30 days\n0\nEmergency readiness\n76%\nResidents in hardship\n7%\n\nIncidents affect named residents and firms. Police staffing and funding reduce risk; underfunded emergency services leave properties more exposed to fire and storm damage.\n\nPEOPLE, HEALTH AND SCHOOLS\nPublic health\n74/100\nEducation level\n46/100\nWellbeing\n72/100\nCommunity security\n88/100\nROAD NETWORK AND EMERGENCY REACH\nPavement condition\n100 / 100\nMain road-network tiles\n385\nDisconnected road clusters\n0\nFirms connected to town\n26 / 26\nFunded road maintenance\n100% of budget\nRoad-access map\nFUNDED SERVICES\nActual patrol budget paid\n100% of authorized\nActual fire budget paid\n100% of authorized\nConstabulary per day\n$180\nFire & rescue per day\n$140\nMedical services per day\n$70\nSchools & training per day\n$90\nCivil defence volunteers\n$25\nHousehold relief per day\n$100\nHeating assistance\n$35\nPublic transit / commuter support\n$35\nCrime map\nHardship map\nCONSTABULARY INCIDENT LOG\n\nNo recorded incidents. This does not mean risk is zero.\n\nSAFETY ACROSS TIME\n\nThe figures will appear as the town develops.",
+      "buttons": [
+        {
+          "text": "Read actual moving decisions",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Inspect a household budget",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Invite school proposals",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Invite brigade proposals",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Licensing, fees & targeted vouchers",
+          "id": "privateServicePolicies",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Road-access map",
+          "id": "overlayR",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Crime map",
+          "id": "overlayC",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Hardship map",
+          "id": "overlayH",
+          "disabled": false,
+          "visible": true
+        }
+      ],
+      "inputs": []
+    },
+    {
+      "panel": "construction",
+      "title": "Works & Planning",
+      "text": "A missing site, or a larger boundary?\n\nAnnex when a specific lawful site or connection is missing. A deed grants building rights; roads, vacancies, workers and recurring services are separate commitments. Compare renewal of existing land before buying farther out.\n\nCompare actual district deeds\nCompare reuse and compensation\nCity transit\n\nBuild a depot, choose a bus corridor, then tap street stops and review the capital and daily wage bill. Elevated metro uses roadside stations and guideway over existing streets. Passengers walk up to five street tiles and can transfer between routes.\n\nPassenger journeys today\n0\nPeak passengers left behind\n0\nFares today\n$0\nOperating cost today\n$0\nDEPOT \u00b7 $9,000\nELEVATED STATION \u00b7 $12,500\nNEW BUS ROUTE\nNEW ELEVATED ROUTE\nSHOW TRANSIT MAP\n\nEach depot holds eight bus bays; each metro set needs two. Driver wages require available residents with basic skills and a street route to the depot. Fare: $0.65 bus / $1.25 metro, including transfers. Building a route authorizes its quoted daily operations; reduce or suspend service to save costs. The commuter-budget policy funds the legacy support service only while no public routes exist.\n\nBrownfield renewal \u00b7 give an industrial place a second life\n\nReview closed or working industrial premises, compensate their recorded owners and displaced workers, pay for ground works, then fund housing, a local shop or green space. Existing industrial neighbours still affect rents and residential suitability. Renewing this site retires its former industrial location; reopening those jobs requires another lawful site.\n\nGround-work estimates and conditions\n\nGround preparation is priced from recorded enterprise age and footprint. Funded external crews require open regional trade and road access. Paid surveys/contracts are non-refundable; cancelling a review spends nothing.\n\nReview industrial sites \u00b7 3 premises\nSawmill Ltd. \u00b7 3 current employees\n\nAssessment $300; current compensated assembly estimate $47,958, including $1,008 worker severance. Ground works and replacement capital are additional.\n\nInspect property, jobs and planningAssess this industrial site \u00b7 $300\nQuarry Ltd. \u00b7 3 current employees\n\nAssessment $300; current compensated assembly estimate $46,046, including $1,296 worker severance. Ground works and replacement capital are additional.\n\nInspect property, jobs and planningAssess this industrial site \u00b7 $300\nManufacturing Works & Co. \u00b7 7 current employees\n\nAssessment $300; current compensated assembly estimate $113,304, including $2,604 worker severance. Ground works and replacement capital are additional.\n\nInspect property, jobs and planningAssess this industrial site \u00b7 $300\n\nInspect any other industrial building on the map to review its own renewal quote.\n\nLiving neighbourhoods \u00b7 land assembly & retail centres\nPlan vacant or occupied land on the map\nView neighbourhood map\nCommission replacement housing\nAssemble land on the map\nInvite a shopping centre proposal\n\nShape new development, review local rents and access, or assemble a compensated site for public services.\n\nHow neighbourhoods evolve & land assembly works\n\nDistricts form from actual homes, jobs, active retail and road-accessible catchments. Market and employment patterns can overlap in a mixed-use block. Financial districts require real deposits or active loans plus at least one post-founding bank entrant; the three founding institutions alone are shown as a banking node. A new character must persist for 90 days; an emptied district dissolves after 180 days. Income bands compare observed after-tax income per resident with the town median; they do not assign identities or change wages. Property condition and funded service reach are shown separately.\n\nBanks currently share townwide deposit and loan markets; the simulation does not assign branch-specific staff or customer service areas, so it cannot truthfully quote a privately built branch as expanding access. Plans govern construction, preserving existing titles.\n\nLand assembly pays the recorded owner, relocates tenants to actual connected vacant homes, and compensates displaced workers. Paid cargo and construction must settle first. After clearance, select and fund the new service through Public Works.\n\nEmerging quarter 2:2\n\nResidential neighbourhood \u00b7 Lower income \u00b7 27 residents \u00b7 0 job capacity \u00b7 condition 100%. Observed income $0 per resident/day; rent 0% of household income.\n\nObserved tags: Residential neighbourhood. Road centre: 13 road segments from town hall; housing capacity 11 units; 0/0 job places staffed. Market access: 0 staffed retailers with recent sales, 0 retail workers, 0 sales units/day and $0/day sales trend; 0 residents within 24 road steps of a local grocer, 0 within range of a stocked, staffed grocer. This is a reach snapshot; it does not promise a purchase or affordability. Clinic: 100% within a road catchment, 0% funded access. School: 100% within a road catchment, 0% funded access. No operating bank branch in this block.\n\nObserved pattern: Residential neighbourhood \u00b7 plan: Market-led mixed use \u00b7 8 \u00d7 8 block at 16, 16.\n\nInspect & plan this neighbourhood\nEmerging quarter 2:4\n\nResidential neighbourhood \u00b7 Lower income \u00b7 26 residents \u00b7 0 job capacity \u00b7 condition 100%. Observed income $0 per resident/day; rent 0% of household income.\n\nObserved tags: Residential neighbourhood. Road centre: 15 road segments from town hall; housing capacity 10 units; 0/0 job places staffed. Market access: 0 staffed retailers with recent sales, 0 retail workers, 0 sales units/day and $0/day sales trend; 0 residents within 24 road steps of a local grocer, 0 within range of a stocked, staffed grocer. This is a reach snapshot; it does not promise a purchase or affordability. Clinic: 100% within a road catchment, 0% funded access. School: 100% within a road catchment, 0% funded access. No operating bank branch in this block.\n\nObserved pattern: Residential neighbourhood \u00b7 plan: Market-led mixed use \u00b7 8 \u00d7 8 block at 16, 32.\n\nInspect & plan this neighbourhood\nEmerging quarter 2:3\n\nDowntown mixed-use \u00b7 Lower income \u00b7 24 residents \u00b7 9 job capacity \u00b7 condition 100%. Observed income $0 per resident/day; rent 0% of household income.\n\nObserved tags: Downtown. Road centre: 11 road segments from town hall; housing capacity 9 units; 9/9 job places staffed. Market access: 1 staffed retailers with recent sales, 2 retail workers, 30 sales units/day and $86/day sales trend; 163 residents within 24 road steps of a local grocer, 163 within range of a stocked, staffed grocer. This is a reach snapshot; it does not promise a purchase or affordability. Clinic: 100% within a road catchment, 0% funded access. School: 100% within a road catchment, 0% funded access. No operating bank branch in this block.\n\nObserved pattern: Downtown mixed-use \u00b7 plan: Market-led mixed use \u00b7 8 \u00d7 8 block at 16, 24.\n\nInspect & plan this neighbourhood\nEmerging quarter 4:4\n\nResidential neighbourhood \u00b7 Lower income \u00b7 23 residents \u00b7 4 job capacity \u00b7 condition 100%. Observed income $0 per resident/day; rent 0% of household income.\n\nObserved tags: Residential neighbourhood. Road centre: 17 road segments from town hall; housing capacity 9 units; 4/4 job places staffed. Market access: 0 staffed retailers with recent sales, 0 retail workers, 0 sales units/day and $0/day sales trend; 0 residents within 24 road steps of a local grocer, 0 within range of a stocked, staffed grocer. This is a reach snapshot; it does not promise a purchase or affordability. Clinic: 100% within a road catchment, 0% funded access. School: 100% within a road catchment, 0% funded access. No operating bank branch in this block.\n\nObserved pattern: Residential neighbourhood \u00b7 plan: Market-led mixed use \u00b7 8 \u00d7 8 block at 32, 32.\n\nInspect & plan this neighbourhood\nEmerging quarter 4:3\n\nResidential neighbourhood \u00b7 Lower income \u00b7 22 residents \u00b7 4 job capacity \u00b7 condition 100%. Observed income $0 per resident/day; rent 0% of household income.\n\nObserved tags: Residential neighbourhood. Road centre: 12 road segments from town hall; housing capacity 9 units; 4/4 job places staffed. Market access: 0 staffed retailers with recent sales, 0 retail workers, 0 sales units/day and $0/day sales trend; 0 residents within 24 road steps of a local grocer, 0 within range of a stocked, staffed grocer. This is a reach snapshot; it does not promise a purchase or affordability. Clinic: 100% within a road catchment, 0% funded access. School: 100% within a road catchment, 0% funded access. No operating bank branch in this block.\n\nObserved pattern: Residential neighbourhood \u00b7 plan: Market-led mixed use \u00b7 8 \u00d7 8 block at 32, 24.\n\nInspect & plan this neighbourhood\nEmerging quarter 4:2\n\nResidential neighbourhood \u00b7 Lower income \u00b7 20 residents \u00b7 0 job capacity \u00b7 condition 100%. Observed income $0 per resident/day; rent 0% of household income.\n\nObserved tags: Residential neighbourhood. Road centre: 15 road segments from town hall; housing capacity 8 units; 0/0 job places staffed. Market access: 0 staffed retailers with recent sales, 0 retail workers, 0 sales units/day and $0/day sales trend; 0 residents within 24 road steps of a local grocer, 0 within range of a stocked, staffed grocer. This is a reach snapshot; it does not promise a purchase or affordability. Clinic: 100% within a road catchment, 0% funded access. School: 100% within a road catchment, 0% funded access. No operating bank branch in this block.\n\nObserved pattern: Residential neighbourhood \u00b7 plan: Market-led mixed use \u00b7 8 \u00d7 8 block at 32, 16.\n\nInspect & plan this neighbourhood\nEmerging quarter 5:3\n\nAgricultural belt \u00b7 Lower income \u00b7 10 residents \u00b7 4 job capacity \u00b7 condition 100%. Observed income $0 per resident/day; rent 0% of household income.\n\nObserved tags: Agricultural belt. Road centre: 17 road segments from town hall; housing capacity 4 units; 4/4 job places staffed. Market access: 0 staffed retailers with recent sales, 0 retail workers, 0 sales units/day and $0/day sales trend; 0 residents within 24 road steps of a local grocer, 0 within range of a stocked, staffed grocer. This is a reach snapshot; it does not promise a purchase or affordability. Clinic: 100% within a road catchment, 0% funded access. School: 100% within a road catchment, 0% funded access. No operating bank branch in this block.\n\nObserved pattern: Agricultural belt \u00b7 plan: Market-led mixed use \u00b7 8 \u00d7 8 block at 40, 24.\n\nInspect & plan this neighbourhood\nEmerging quarter 1:3\n\nAgricultural belt \u00b7 Lower income \u00b7 7 residents \u00b7 4 job capacity \u00b7 condition 100%. Observed income $0 per resident/day; rent 0% of household income.\n\nObserved tags: Agricultural belt. Road centre: 16 road segments from town hall; housing capacity 3 units; 4/4 job places staffed. Market access: 0 staffed retailers with recent sales, 0 retail workers, 0 sales units/day and $0/day sales trend; 0 residents within 24 road steps of a local grocer, 0 within range of a stocked, staffed grocer. This is a reach snapshot; it does not promise a purchase or affordability. Clinic: 100% within a road catchment, 0% funded access. School: 100% within a road catchment, 0% funded access. No operating bank branch in this block.\n\nObserved pattern: Agricultural belt \u00b7 plan: Market-led mixed use \u00b7 8 \u00d7 8 block at 8, 24.\n\nInspect & plan this neighbourhood\nEmerging quarter 3:2\n\nMixed quarter \u00b7 Lower income \u00b7 5 residents \u00b7 9 job capacity \u00b7 condition 100%. Observed income $0 per resident/day; rent 0% of household income.\n\nObserved tags: no current commercial or land-use cluster. Road centre: 6 road segments from town hall; housing capacity 2 units; 9/9 job places staffed. Market access: 0 staffed retailers with recent sales, 0 retail workers, 0 sales units/day and $0/day sales trend; 0 residents within 24 road steps of a local grocer, 0 within range of a stocked, staffed grocer. This is a reach snapshot; it does not promise a purchase or affordability. Clinic: 100% within a road catchment, 0% funded access. School: 100% within a road catchment, 0% funded access. No operating bank branch in this block.\n\nObserved pattern: Mixed quarter \u00b7 plan: Market-led mixed use \u00b7 8 \u00d7 8 block at 24, 16.\n\nInspect & plan this neighbourhood\nEmerging quarter 3:4\n\nMixed quarter \u00b7 Lower income \u00b7 5 residents \u00b7 14 job capacity \u00b7 condition 100%. Observed income $0 per resident/day; rent 0% of household income.\n\nObserved tags: no current commercial or land-use cluster. Road centre: 9 road segments from town hall; housing capacity 2 units; 14/14 job places staffed. Market access: 1 staffed retailers with recent sales, 3 retail workers, 30 sales units/day and $109/day sales trend; 0 residents within 24 road steps of a local grocer, 0 within range of a stocked, staffed grocer. This is a reach snapshot; it does not promise a purchase or affordability. Clinic: 100% within a road catchment, 0% funded access. School: 100% within a road catchment, 0% funded access. No operating bank branch in this block.\n\nObserved pattern: Mixed quarter \u00b7 plan: Market-led mixed use \u00b7 8 \u00d7 8 block at 24, 32.\n\nInspect & plan this neighbourhood\nEmerging quarter 3:3\n\nMarket centre \u00b7 No resident income \u00b7 0 residents \u00b7 27 job capacity \u00b7 condition 100%. Observed income $0 per resident/day; rent 0% of household income.\n\nObserved tags: Market centre, Employment quarter. Road centre: 3 road segments from town hall; housing capacity 0 units; 27/27 job places staffed. Market access: 3 staffed retailers with recent sales, 6 retail workers, 90 sales units/day and $257/day sales trend; 169 residents within 24 road steps of a local grocer, 169 within range of a stocked, staffed grocer. This is a reach snapshot; it does not promise a purchase or affordability. Clinic: 0% within a road catchment, 0% funded access. School: 0% within a road catchment, 0% funded access. 3 open branches (3 founding, 0 later bank entrants) \u00b7 $23,858 deposits \u00b7 $0 active credit. A financial district requires a post-founding entrant; founding branches alone remain a banking node.\n\nObserved pattern: Market centre \u00b7 plan: Market-led mixed use \u00b7 8 \u00d7 8 block at 24, 24.\n\nInspect & plan this neighbourhood\nDistrict commitments & development programmes\n\nA deed buys geography; a charter chooses which new uses may compete for its lots. Existing titles remain intact. Initial designation is free; revision requires30 days and a$1,200 planning purchase. Completing30 days of connected district activity opens larger enterprise supply agreements, not free municipal cash.\n\nEast Meadow\n\n138 woodland tiles; 129 water tiles. Lake frontage supports fishing and waterfront parks; it is not a regional cargo outlet. For each100 new residents, fully purchased standard teaching and care require approximately $166 and $62 daily respectively, plus facilities, access and staff. These are planning estimates, not new automatic charges.\n\nReview land deed\nCounty Ridge\n\n195 woodland tiles; 12 water tiles. Transport and commuting require an actual street connection. For each100 new residents, fully purchased standard teaching and care require approximately $166 and $62 daily respectively, plus facilities, access and staff. These are planning estimates, not new automatic charges.\n\nReview land deed\nLower River Reach\n\n149 woodland tiles; 89 water tiles. Open river frontage supports regional shipping; inland lakes do not. For each100 new residents, fully purchased standard teaching and care require approximately $166 and $62 daily respectively, plus facilities, access and staff. These are planning estimates, not new automatic charges.\n\nReview land deed\nOrchard Downs\n\n177 woodland tiles; 0 water tiles. Transport and commuting require an actual street connection. For each100 new residents, fully purchased standard teaching and care require approximately $166 and $62 daily respectively, plus facilities, access and staff. These are planning estimates, not new automatic charges.\n\nReview land deed\nHigh Common\n\n171 woodland tiles; 0 water tiles. Requires an adjoining deed and a longer connection before utilities or shops become reachable. For each100 new residents, fully purchased standard teaching and care require approximately $166 and $62 daily respectively, plus facilities, access and staff. These are planning estimates, not new automatic charges.\n\nReview land deed\nEastern Heights\n\n189 woodland tiles; 0 water tiles. Transport and commuting require an actual street connection. For each100 new residents, fully purchased standard teaching and care require approximately $166 and $62 daily respectively, plus facilities, access and staff. These are planning estimates, not new automatic charges.\n\nReview land deed\nFar Eastern Heights\n\n209 woodland tiles; 0 water tiles. Transport and commuting require an actual street connection. For each100 new residents, fully purchased standard teaching and care require approximately $166 and $62 daily respectively, plus facilities, access and staff. These are planning estimates, not new automatic charges.\n\nReview land deed\nEastern Commons\n\n172 woodland tiles; 0 water tiles. Transport and commuting require an actual street connection. For each100 new residents, fully purchased standard teaching and care require approximately $166 and $62 daily respectively, plus facilities, access and staff. These are planning estimates, not new automatic charges.\n\nReview land deed\nFar Eastern Commons\n\n174 woodland tiles; 0 water tiles. Transport and commuting require an actual street connection. For each100 new residents, fully purchased standard teaching and care require approximately $166 and $62 daily respectively, plus facilities, access and staff. These are planning estimates, not new automatic charges.\n\nReview land deed\nEastern Gardens\n\n184 woodland tiles; 0 water tiles. Transport and commuting require an actual street connection. For each100 new residents, fully purchased standard teaching and care require approximately $166 and $62 daily respectively, plus facilities, access and staff. These are planning estimates, not new automatic charges.\n\nReview land deed\nFar Eastern Gardens\n\n196 woodland tiles; 0 water tiles. Transport and commuting require an actual street connection. For each100 new residents, fully purchased standard teaching and care require approximately $166 and $62 daily respectively, plus facilities, access and staff. These are planning estimates, not new automatic charges.\n\nReview land deed\nSouthern Riverlands\n\n211 woodland tiles; 78 water tiles. Transport and commuting require an actual street connection. For each100 new residents, fully purchased standard teaching and care require approximately $166 and $62 daily respectively, plus facilities, access and staff. These are planning estimates, not new automatic charges.\n\nReview land deed\nSouthern Orchards\n\n174 woodland tiles; 0 water tiles. Transport and commuting require an actual street connection. For each100 new residents, fully purchased standard teaching and care require approximately $166 and $62 daily respectively, plus facilities, access and staff. These are planning estimates, not new automatic charges.\n\nReview land deed\nSouthern Meadows\n\n159 woodland tiles; 0 water tiles. Transport and commuting require an actual street connection. For each100 new residents, fully purchased standard teaching and care require approximately $166 and $62 daily respectively, plus facilities, access and staff. These are planning estimates, not new automatic charges.\n\nReview land deed\nSouthern Commons\n\n165 woodland tiles; 0 water tiles. Transport and commuting require an actual street connection. For each100 new residents, fully purchased standard teaching and care require approximately $166 and $62 daily respectively, plus facilities, access and staff. These are planning estimates, not new automatic charges.\n\nReview land deed\nSouthern Ridge\n\n188 woodland tiles; 0 water tiles. Transport and commuting require an actual street connection. For each100 new residents, fully purchased standard teaching and care require approximately $166 and $62 daily respectively, plus facilities, access and staff. These are planning estimates, not new automatic charges.\n\nReview land deed\nFar Southern Riverlands\n\n199 woodland tiles; 80 water tiles. Transport and commuting require an actual street connection. For each100 new residents, fully purchased standard teaching and care require approximately $166 and $62 daily respectively, plus facilities, access and staff. These are planning estimates, not new automatic charges.\n\nReview land deed\nFar Southern Orchards\n\n179 woodland tiles; 0 water tiles. Transport and commuting require an actual street connection. For each100 new residents, fully purchased standard teaching and care require approximately $166 and $62 daily respectively, plus facilities, access and staff. These are planning estimates, not new automatic charges.\n\nReview land deed\nFar Southern Meadows\n\n184 woodland tiles; 0 water tiles. Transport and commuting require an actual street connection. For each100 new residents, fully purchased standard teaching and care require approximately $166 and $62 daily respectively, plus facilities, access and staff. These are planning estimates, not new automatic charges.\n\nReview land deed\nFar Southern Commons\n\n167 woodland tiles; 0 water tiles. Transport and commuting require an actual street connection. For each100 new residents, fully purchased standard teaching and care require approximately $166 and $62 daily respectively, plus facilities, access and staff. These are planning estimates, not new automatic charges.\n\nReview land deed\nFar Southern Ridge\n\n185 woodland tiles; 0 water tiles. Transport and commuting require an actual street connection. For each100 new residents, fully purchased standard teaching and care require approximately $166 and $62 daily respectively, plus facilities, access and staff. These are planning estimates, not new automatic charges.\n\nReview land deed\nExpand the borough \u00b7 21 districts available\nEXPAND THE BOROUGH\nNew land, a real civic commitment\n\nThe original 56 \u00d7 56 town retains its rights. Twenty-one substantial outer districts extend this bounded region to 128 \u00d7 128, through successive purchases. A deed makes new land available for development; it does not create roads, workers, utilities or service coverage. Existing private property titles remain unchanged.\n\nORIGINAL TOWN\nChartered surface\n3,136 regional tiles\nOuter districts acquired\n0 / 21\nView regional boundaries\nReturn to town\nREGIONAL LAND AVAILABLE\nEast Meadow\n\nA large eastern tract with woodland and lake frontage.\n\nDistrict surface\n572 tiles \u00b7 22 \u00d7 26\nLand / water\n443 / 129 tiles\nDevelopment-rights price\n$30,606\n\nA connection from existing streets is still required. New households and firms face the usual utility bills, paid staffing and local service catchments.\n\nPreview district\nReview purchase \u00b7 $30,606\nREGIONAL LAND AVAILABLE\nCounty Ridge\n\nEastern upland for a new connected district.\n\nDistrict surface\n616 tiles \u00b7 22 \u00d7 28\nLand / water\n604 / 12 tiles\nDevelopment-rights price\n$37,368\n\nA connection from existing streets is still required. New households and firms face the usual utility bills, paid staffing and local service catchments.\n\nPreview district\nReview purchase \u00b7 $37,368\nREGIONAL LAND AVAILABLE\nLower River Reach\n\nNew southern riverbank, suitable for working waterfronts.\n\nDistrict surface\n572 tiles \u00b7 26 \u00d7 22\nLand / water\n483 / 89 tiles\nDevelopment-rights price\n$32,286\n\nA connection from existing streets is still required. New households and firms face the usual utility bills, paid staffing and local service catchments.\n\nPreview district\nReview purchase \u00b7 $32,286\nREGIONAL LAND AVAILABLE\nOrchard Downs\n\nA substantial southern tract for homes, farms and civic sites.\n\nDistrict surface\n616 tiles \u00b7 28 \u00d7 22\nLand / water\n616 / 0 tiles\nDevelopment-rights price\n$37,872\n\nA connection from existing streets is still required. New households and firms face the usual utility bills, paid staffing and local service catchments.\n\nPreview district\nReview purchase \u00b7 $37,872\nADJOINING DEED REQUIRED\nHigh Common\n\nThe far southeastern common, reached through an adjoining district.\n\nDistrict surface\n484 tiles \u00b7 22 \u00d7 22\nLand / water\n484 / 0 tiles\nDevelopment-rights price\n$32,328\n\nAcquire an adjoining district before extending into this belt.\n\nPreview district\nReview purchase \u00b7 $32,328\nADJOINING DEED REQUIRED\nEastern Heights\n\nA new eastern borough: reserve agricultural land, connect streets, and plan services before settlement.\n\nDistrict surface\n672 tiles \u00b7 24 \u00d7 28\nLand / water\n672 / 0 tiles\nDevelopment-rights price\n$40,224\n\nAcquire an adjoining district before extending into this belt.\n\nPreview district\nReview purchase \u00b7 $40,224\nADJOINING DEED REQUIRED\nFar Eastern Heights\n\nA new eastern borough: reserve agricultural land, connect streets, and plan services before settlement.\n\nDistrict surface\n672 tiles \u00b7 24 \u00d7 28\nLand / water\n672 / 0 tiles\nDevelopment-rights price\n$40,224\n\nAcquire an adjoining district before extending into this belt.\n\nPreview district\nReview purchase \u00b7 $40,224\nADJOINING DEED REQUIRED\nEastern Commons\n\nA new eastern borough: reserve agricultural land, connect streets, and plan services before settlement.\n\nDistrict surface\n576 tiles \u00b7 24 \u00d7 24\nLand / water\n576 / 0 tiles\nDevelopment-rights price\n$36,192\n\nAcquire an adjoining district before extending into this belt.\n\nPreview district\nReview purchase \u00b7 $36,192\nADJOINING DEED REQUIRED\nFar Eastern Commons\n\nA new eastern borough: reserve agricultural land, connect streets, and plan services before settlement.\n\nDistrict surface\n576 tiles \u00b7 24 \u00d7 24\nLand / water\n576 / 0 tiles\nDevelopment-rights price\n$36,192\n\nAcquire an adjoining district before extending into this belt.\n\nPreview district\nReview purchase \u00b7 $36,192\nADJOINING DEED REQUIRED\nEastern Gardens\n\nA new eastern borough: reserve agricultural land, connect streets, and plan services before settlement.\n\nDistrict surface\n576 tiles \u00b7 24 \u00d7 24\nLand / water\n576 / 0 tiles\nDevelopment-rights price\n$36,192\n\nAcquire an adjoining district before extending into this belt.\n\nPreview district\nReview purchase \u00b7 $36,192\nADJOINING DEED REQUIRED\nFar Eastern Gardens\n\nA new eastern borough: reserve agricultural land, connect streets, and plan services before settlement.\n\nDistrict surface\n576 tiles \u00b7 24 \u00d7 24\nLand / water\n576 / 0 tiles\nDevelopment-rights price\n$36,192\n\nAcquire an adjoining district before extending into this belt.\n\nPreview district\nReview purchase \u00b7 $36,192\nADJOINING DEED REQUIRED\nSouthern Riverlands\n\nAn extended river corridor with agricultural and working waterfront opportunities.\n\nDistrict surface\n672 tiles \u00b7 28 \u00d7 24\nLand / water\n594 / 78 tiles\nDevelopment-rights price\n$36,948\n\nAcquire an adjoining district before extending into this belt.\n\nPreview district\nReview purchase \u00b7 $36,948\nADJOINING DEED REQUIRED\nSouthern Orchards\n\nA substantial outer borough with room for a new town centre and surrounding agricultural belt.\n\nDistrict surface\n576 tiles \u00b7 24 \u00d7 24\nLand / water\n576 / 0 tiles\nDevelopment-rights price\n$36,192\n\nAcquire an adjoining district before extending into this belt.\n\nPreview district\nReview purchase \u00b7 $36,192\nADJOINING DEED REQUIRED\nSouthern Meadows\n\nA substantial outer borough with room for a new town centre and surrounding agricultural belt.\n\nDistrict surface\n576 tiles \u00b7 24 \u00d7 24\nLand / water\n576 / 0 tiles\nDevelopment-rights price\n$36,192\n\nAcquire an adjoining district before extending into this belt.\n\nPreview district\nReview purchase \u00b7 $36,192\nADJOINING DEED REQUIRED\nSouthern Commons\n\nA substantial outer borough with room for a new town centre and surrounding agricultural belt.\n\nDistrict surface\n576 tiles \u00b7 24 \u00d7 24\nLand / water\n576 / 0 tiles\nDevelopment-rights price\n$36,192\n\nAcquire an adjoining district before extending into this belt.\n\nPreview district\nReview purchase \u00b7 $36,192\nADJOINING DEED REQUIRED\nSouthern Ridge\n\nA substantial outer borough with room for a new town centre and surrounding agricultural belt.\n\nDistrict surface\n576 tiles \u00b7 24 \u00d7 24\nLand / water\n576 / 0 tiles\nDevelopment-rights price\n$36,192\n\nAcquire an adjoining district before extending into this belt.\n\nPreview district\nReview purchase \u00b7 $36,192\nADJOINING DEED REQUIRED\nFar Southern Riverlands\n\nAn extended river corridor with agricultural and working waterfront opportunities.\n\nDistrict surface\n672 tiles \u00b7 28 \u00d7 24\nLand / water\n592 / 80 tiles\nDevelopment-rights price\n$36,864\n\nAcquire an adjoining district before extending into this belt.\n\nPreview district\nReview purchase \u00b7 $36,864\nADJOINING DEED REQUIRED\nFar Southern Orchards\n\nA substantial outer borough with room for a new town centre and surrounding agricultural belt.\n\nDistrict surface\n576 tiles \u00b7 24 \u00d7 24\nLand / water\n576 / 0 tiles\nDevelopment-rights price\n$36,192\n\nAcquire an adjoining district before extending into this belt.\n\nPreview district\nReview purchase \u00b7 $36,192\nADJOINING DEED REQUIRED\nFar Southern Meadows\n\nA substantial outer borough with room for a new town centre and surrounding agricultural belt.\n\nDistrict surface\n576 tiles \u00b7 24 \u00d7 24\nLand / water\n576 / 0 tiles\nDevelopment-rights price\n$36,192\n\nAcquire an adjoining district before extending into this belt.\n\nPreview district\nReview purchase \u00b7 $36,192\nADJOINING DEED REQUIRED\nFar Southern Commons\n\nA substantial outer borough with room for a new town centre and surrounding agricultural belt.\n\nDistrict surface\n576 tiles \u00b7 24 \u00d7 24\nLand / water\n576 / 0 tiles\nDevelopment-rights price\n$36,192\n\nAcquire an adjoining district before extending into this belt.\n\nPreview district\nReview purchase \u00b7 $36,192\nADJOINING DEED REQUIRED\nFar Southern Ridge\n\nA substantial outer borough with room for a new town centre and surrounding agricultural belt.\n\nDistrict surface\n576 tiles \u00b7 24 \u00d7 24\nLand / water\n576 / 0 tiles\nDevelopment-rights price\n$36,192\n\nAcquire an adjoining district before extending into this belt.\n\nPreview district\nReview purchase \u00b7 $36,192\nBUILD THE BOROUGH\n\nChoose a structure, then tap vacant land beside an existing road. Paint roads by dragging. Industrial and retail firms receive private investment, but council must authorize the site.\n\nBuildings in town\n102\nDeveloped road tiles\n385\nRoad condition\n100%\nFirms with road access\n26 / 26\nHomes with road access\n67 / 67\nAll\nHousing\nCommerce\nIndustry\nWaterfront\nCivic works\n\u2316\nINSPECT\nReturn to surveying\n\u25a4\nTransit Depot\n$9,000 \u00b7 place on map\nE\nElevated Metro Station\n$12,500 \u00b7 place on map\n\u2550\nRoad\n$150 \u00b7 place on map\n\u21bb\nResurface road\n$135 \u00b7 place on map\n\u2302\nCottage\n$20,000 \u00b7 place on map\n\u25a3\nGrocer\n$4,300 \u00b7 place on map\n\u2668\nBakery\n$3,600 \u00b7 place on map\n\u25c8\nFlour Mill\n$4,800 \u00b7 place on map\n\u2756\nFarm\n$3,100 \u00b7 place on map\n\u2663\nForestry\n$3,000 \u00b7 place on map\n\u25a5\nSawmill\n$4,100 \u00b7 place on map\n\u25c6\nQuarry\n$3,900 \u00b7 place on map\n\u2692\nConstruction Co.\n$4,400 \u00b7 place on map\n\u265c\nConstabulary\n$7,600 \u00b7 place on map\n\u2668\nFire Brigade\n$6,900 \u00b7 place on map\n\u271a\nClinic\n$8,000 \u00b7 place on map\n\u2663\nPublic Green\n$550 \u00b7 place on map\n\u270e\nVillage School\n$6,900 \u00b7 place on map\n\u2696\nMagistrates Court\n$8,400 \u00b7 place on map\n\u265c\nWatchtower\n$4,900 \u00b7 place on map\n\u25c9\nMarket Square\n$2,500 \u00b7 place on map\n\u2693\nRiver Cargo Wharf\n$7,600 \u00b7 place on map\n\u2248\nRiver Fishery\n$3,500 \u00b7 place on map\n\u2668\nVillage Tavern\n$3,200 \u00b7 place on map\n\u2699\nManufacturing Works\n$9,800 \u00b7 place on map\n\u25a4\nFreight Depot\n$12,000 \u00b7 place on map\n\u25a6\nCommercial Offices\n$14,200 \u00b7 place on map\n\u265c\nPrivate College\n$18,000 \u00b7 place on map\nPrivate development\nHousing demand\n68/100\nBusiness demand\n11/100\nPrivate road lots\n0\nProjects under construction\n0\nPrivate road tolls\n$0\nPrivate homes\n0\nNew enterprises\n0\nUnderground stations\n0\nSubway rides\n0\nRail operator cash\n$0\nAgricultural district plots\n25\nApartment redevelopments\n0\nResidential towers\n0\nPrivate airfields\n0\nDownzoned properties\n0\nRegional passengers\n0\nIndustrial employers\n3\n\nInvestors respond to demand automatically. Road developers finance extensions from regional capital; housing developers choose lots near jobs, and merchants enter underserved markets. Underground investors evaluate population and density, then fund stations and tunnels. Farmers acquire field plots and raise grain output; factory owners and freight depots respond to supply and demand; landlords may replace cottages with apartments or towers after assembling a site; and airport investors require a major regional market, a clear runway, and long-term operating capital. The railway pays ongoing costs from fares. Income, profit and property taxes, zoning and business rules influence investment.\n\nNo subway yet. Investors usually require at least 350 residents, sufficient density and financial confidence.\n\nPAUSE PRIVATE DEVELOPMENTSHOW UNDERGROUND NETWORK\nRoad transport\n\nAll traffic follows connected streets. Disconnected businesses cannot use local suppliers; deliveries become more expensive with distance and poor maintenance. Roads connect only at shared tile edges.\n\nShow road accessibility\nPlanning office notes\nBuilding requires unoccupied land touching a road. Parks improve local wellbeing; stations strengthen funded services. New enterprises need workers and customers to survive. Private developers can extend roads, build new homes and open companies without council placement. Construction responds to demand, taxation, local earnings, capital availability and planning restrictions.\nRaised road bridges\n\nBuild a straight bridge across 1\u20135 owned water tiles. Five tiles is the widest short span currently supported. Water remains water beneath the deck; existing navigable routes, docks and active fishing paths are protected. Both banks need an existing road; at least one approach must already reach the town network. Capital and daily upkeep are paid from municipal cash. If upkeep cannot be paid, structural condition falls and the crossing closes below 25%.\n\nSurvey a short water crossing\n\nNo bridges built.\n\nRetire a street tile\n\nReview a road tile before taking it out of service. The quote lists homes, employers and civic sites that would lose the town road connection. Active transit, freight and reserved rehousing links are protected.\n\nReview road removal on the map\nWorking waterfront \u00b7 fisheries & river cargo\n\nBuild beside real water and a connected road. Fisheries turn staffed catch into food. Cargo wharves require a river outlet; an enclosed lake can support fishing, but cannot carry regional exports. Exporters compare road and river freight costs. A dock without crews or competitive orders earns nothing.\n\nTrading fisheries\n1\nTrading cargo wharves\n1\nRiver cargo today\n0\nWharf receipts today\n$0\n\nA cargo manifest belongs to its paying regional buyer after collection. Boats show paid cargo voyages and fishing trips. Export ownership passes to the regional buyer on collection; follow the accounts to see stock and payments.\n\nVisit the river landingChoose a waterfront business",
+      "buttons": [
+        {
+          "text": "Compare actual district deeds",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Compare reuse and compensation",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "DEPOT \u00b7 $9,000",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "ELEVATED STATION \u00b7 $12,500",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "NEW BUS ROUTE",
+          "id": "",
+          "disabled": true,
+          "visible": true
+        },
+        {
+          "text": "NEW ELEVATED ROUTE",
+          "id": "",
+          "disabled": true,
+          "visible": true
+        },
+        {
+          "text": "SHOW TRANSIT MAP",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Inspect property, jobs and planning",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Assess this industrial site \u00b7 $300",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Inspect property, jobs and planning",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Assess this industrial site \u00b7 $300",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Inspect property, jobs and planning",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Assess this industrial site \u00b7 $300",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Plan vacant or occupied land on the map",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "View neighbourhood map",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Commission replacement housing",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Assemble land on the map",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Invite a shopping centre proposal",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Inspect & plan this neighbourhood",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Inspect & plan this neighbourhood",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Inspect & plan this neighbourhood",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Inspect & plan this neighbourhood",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Inspect & plan this neighbourhood",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Inspect & plan this neighbourhood",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Inspect & plan this neighbourhood",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Inspect & plan this neighbourhood",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Inspect & plan this neighbourhood",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Inspect & plan this neighbourhood",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Inspect & plan this neighbourhood",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Review land deed",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Review land deed",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Review land deed",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Review land deed",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Review land deed",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Review land deed",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Review land deed",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Review land deed",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Review land deed",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Review land deed",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Review land deed",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Review land deed",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Review land deed",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Review land deed",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Review land deed",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Review land deed",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Review land deed",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Review land deed",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Review land deed",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Review land deed",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Review land deed",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "View regional boundaries",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Return to town",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Preview district",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Review purchase \u00b7 $30,606",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Preview district",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Review purchase \u00b7 $37,368",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Preview district",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Review purchase \u00b7 $32,286",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Preview district",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Review purchase \u00b7 $37,872",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Preview district",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Review purchase \u00b7 $32,328",
+          "id": "",
+          "disabled": true,
+          "visible": true
+        },
+        {
+          "text": "Preview district",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Review purchase \u00b7 $40,224",
+          "id": "",
+          "disabled": true,
+          "visible": true
+        },
+        {
+          "text": "Preview district",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Review purchase \u00b7 $40,224",
+          "id": "",
+          "disabled": true,
+          "visible": true
+        },
+        {
+          "text": "Preview district",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Review purchase \u00b7 $36,192",
+          "id": "",
+          "disabled": true,
+          "visible": true
+        },
+        {
+          "text": "Preview district",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Review purchase \u00b7 $36,192",
+          "id": "",
+          "disabled": true,
+          "visible": true
+        },
+        {
+          "text": "Preview district",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Review purchase \u00b7 $36,192",
+          "id": "",
+          "disabled": true,
+          "visible": true
+        },
+        {
+          "text": "Preview district",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Review purchase \u00b7 $36,192",
+          "id": "",
+          "disabled": true,
+          "visible": true
+        },
+        {
+          "text": "Preview district",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Review purchase \u00b7 $36,948",
+          "id": "",
+          "disabled": true,
+          "visible": true
+        },
+        {
+          "text": "Preview district",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Review purchase \u00b7 $36,192",
+          "id": "",
+          "disabled": true,
+          "visible": true
+        },
+        {
+          "text": "Preview district",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Review purchase \u00b7 $36,192",
+          "id": "",
+          "disabled": true,
+          "visible": true
+        },
+        {
+          "text": "Preview district",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Review purchase \u00b7 $36,192",
+          "id": "",
+          "disabled": true,
+          "visible": true
+        },
+        {
+          "text": "Preview district",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Review purchase \u00b7 $36,192",
+          "id": "",
+          "disabled": true,
+          "visible": true
+        },
+        {
+          "text": "Preview district",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Review purchase \u00b7 $36,864",
+          "id": "",
+          "disabled": true,
+          "visible": true
+        },
+        {
+          "text": "Preview district",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Review purchase \u00b7 $36,192",
+          "id": "",
+          "disabled": true,
+          "visible": true
+        },
+        {
+          "text": "Preview district",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Review purchase \u00b7 $36,192",
+          "id": "",
+          "disabled": true,
+          "visible": true
+        },
+        {
+          "text": "Preview district",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Review purchase \u00b7 $36,192",
+          "id": "",
+          "disabled": true,
+          "visible": true
+        },
+        {
+          "text": "Preview district",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Review purchase \u00b7 $36,192",
+          "id": "",
+          "disabled": true,
+          "visible": true
+        },
+        {
+          "text": "All",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Housing",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Commerce",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Industry",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Waterfront",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Civic works",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "\u2316\nINSPECT\nReturn to surveying",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "\u25a4\nTransit Depot\n$9,000 \u00b7 place on map",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "E\nElevated Metro Station\n$12,500 \u00b7 place on map",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "\u2550\nRoad\n$150 \u00b7 place on map",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "\u21bb\nResurface road\n$135 \u00b7 place on map",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "\u2302\nCottage\n$20,000 \u00b7 place on map",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "\u25a3\nGrocer\n$4,300 \u00b7 place on map",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "\u2668\nBakery\n$3,600 \u00b7 place on map",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "\u25c8\nFlour Mill\n$4,800 \u00b7 place on map",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "\u2756\nFarm\n$3,100 \u00b7 place on map",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "\u2663\nForestry\n$3,000 \u00b7 place on map",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "\u25a5\nSawmill\n$4,100 \u00b7 place on map",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "\u25c6\nQuarry\n$3,900 \u00b7 place on map",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "\u2692\nConstruction Co.\n$4,400 \u00b7 place on map",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "\u265c\nConstabulary\n$7,600 \u00b7 place on map",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "\u2668\nFire Brigade\n$6,900 \u00b7 place on map",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "\u271a\nClinic\n$8,000 \u00b7 place on map",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "\u2663\nPublic Green\n$550 \u00b7 place on map",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "\u270e\nVillage School\n$6,900 \u00b7 place on map",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "\u2696\nMagistrates Court\n$8,400 \u00b7 place on map",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "\u265c\nWatchtower\n$4,900 \u00b7 place on map",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "\u25c9\nMarket Square\n$2,500 \u00b7 place on map",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "\u2693\nRiver Cargo Wharf\n$7,600 \u00b7 place on map",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "\u2248\nRiver Fishery\n$3,500 \u00b7 place on map",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "\u2668\nVillage Tavern\n$3,200 \u00b7 place on map",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "\u2699\nManufacturing Works\n$9,800 \u00b7 place on map",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "\u25a4\nFreight Depot\n$12,000 \u00b7 place on map",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "\u25a6\nCommercial Offices\n$14,200 \u00b7 place on map",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "\u265c\nPrivate College\n$18,000 \u00b7 place on map",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "PAUSE PRIVATE DEVELOPMENT",
+          "id": "toggleDevelopment",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "SHOW UNDERGROUND NETWORK",
+          "id": "overlayMetro",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Show road accessibility",
+          "id": "overlayR",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Survey a short water crossing",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Review road removal on the map",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Visit the river landing",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Choose a waterfront business",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        }
+      ],
+      "inputs": []
+    },
+    {
+      "panel": "agenda",
+      "title": "Council Agenda",
+      "text": "Give the market a future\nReview a public market square \u00b7 $2,500\nReview a working loading court \u00b7 $12,000\nThe land choice and its consequences\n\nBoth reviews seek the same legally buildable market site. Public space uses land and municipal capital; private handling uses more capital and requires payroll and actual traffic. Neither grants an identity bonus. Existing owners remain protected. If no vacant site fits, use the compensated planning office.\n\nReview land assembly and replacement housing\nCivic calendar \u00b7 0 upcoming / active\n\nMake an actual square a place to meet. Preparation competes with public services and capital; there is no free-money reward. Gathering crowds are bounded visual samples, not extra economic agents.\n\nPrepare Square at 28, 26 \u00b7 $228\nPLACES WITH COMPETING FUTURES\nThe next town stories\nHow place stories work\n\nFollow a real place, review actual purchases, then record the outcome. Recording intent spends nothing and grants no reward.\n\nCONCRETE WORK \u00b7 COMPETING COMMITMENTS\nBuild something the town can use\n\nChoose what deserves capital, working cash and people. Projects can run together, but draw on the same real economy. They earn a permanent delivery record, not a cash prize.\n\nCONDITION-DRIVEN OPPORTUNITY\nThe fresh-food circuit\nA shop can commission a paid buffer before its shelves run low.\n\nBridge the next deliveries with outside stock, or commission a local producer that must find workers and earn its costs. The routes compete for enterprise cash, municipal capital and labour.\n\nCompare the project routesPass for now\nA TOWN WITH A PURPOSE\nChoose your town\u2019s next story\n\nA direction is an optional plan, not a policy preset. It spends no money, changes no rules and gives no cash reward. Build through the real economy. Completed stages stay on this record when conditions later worsen; the final stage needs a sustained healthy town.\n\nThree different ways to grow\nThe regional crossroads\nBuild a dependable trading town\n\nImports can relieve shortages quickly, but tie up enterprise cash in transit and compete with local suppliers. Export agreements reserve stock before payment arrives.\n\nReview this direction\nThe working river\nMake scarce shore land earn its place\n\nFishing supplies food within a shared catch limit. Freight needs a river outlet, attending workers and competitive orders; the inland lake cannot ship regional cargo.\n\nReview this direction\nThe complete neighbourhood\nGrow a place where families can stay\n\nNew land without reachable work, care and teaching creates a burden. Public provision spends municipal funds; private provision needs paying customers and access. Compare actual coverage before choosing either.\n\nReview this direction\nDid the decision help?\n\nSave a comparison before a decision, then return after deliveries or staffing have had time to change. This records observations; other events also affect outcomes.\n\nRecord a comparison\nField notes from the borough\n\nAccounts and observed access, rather than a random opinion poll. These snapshots can change with tomorrow\u2019s settlement.\n\nA family with the thinnest liquid cushion\n\nThe Smith household has 3 residents and $80 cash and deposits per resident. Recorded daily income $0, food $0, rent $0 and aid $0. Inspect other expenses before attributing the result to one policy.\n\nVisit the household account\nCOUNCIL PROGRAMME \u00b7 CHAPTER 1 OF 3\nBuild a lasting borough\nThe everyday essentials\n\nEstablish reliable work and a food basket families can obtain.\n\n0 / 30 consecutive qualifying days. Missing a condition resets this chapter\u2019s count; completed chapters remain recorded.\n\nMET\nResidents in work\n80% / at least 75%\nReview\nNEEDS WORK\nEssential food supplied\n0% / at least 95%\nReview\nMET\nHouseholds in hardship\n7% / at most 15%\nReview\nHow to work on this chapter\n\nEstablish reliable work and a food basket families can obtain. Missing a condition resets this chapter\u2019s qualifying-day count. Completed chapters remain recorded.\n\nResidents in work. Inspect sales and margins before financing more jobs.\n\nEssential food supplied. Check reachable shops, stock, retail staff and household buying power.\n\nHouseholds in hardship. Inspect a struggling family; income, rent and access can bind differently.\n\nThis is an observed programme, not a forecast. Recruitment takes 30 days; training needs 120 funded teaching days; equipment commissions 30 days after payment. A budget cannot create a missing road or qualified worker instantly.\n\nOBSERVED OUTCOMES\n\nThe ten-day record will begin to show trends after two observations.\n\nThe shared scale is 0\u2013100%. These are observed outcomes, including other influences; a policy change is not a controlled experiment.\n\nTHE FULL PROGRAMME\nCURRENT\n1. The everyday essentials\n\nEstablish reliable work and a food basket families can obtain. Sustain all conditions 30 days.\n\nLATER CHAPTER\n2. Care within reach\n\nPurchase usable care and teaching, then retain a month of authorized commitments. Sustain all conditions 30 days.\n\nFunded medical access: at least 65%\nFunded school access: at least 60%\nAuthorized spending reserve: at least 30 days\nLATER CHAPTER\n3. Prosperity with a cushion\n\nSustain useful services and family buffers through a longer operating period. Sustain all conditions 60 days.\n\nResidents in work: at least 75%\nFamilies with $300 per resident: at least 75%\nFunded medical access: at least 65%\nFunded school access: at least 60%\nAuthorized spending reserve: at least 30 days\nTHE COUNCIL CHAMBER\nApproval\n65%\nDays until election\n359\nElections held\n0\nAmbitions fulfilled\n0 / 10\n\nCouncil approval changes in response to employment, household finances, safety, taxation and business conditions. Each constituency weighs these outcomes differently.\n\nFOUR VOICES OF THE TOWN\nWorking families\n60%\nMerchants & employers\n62%\nProperty owners\n60%\nPublic services & safety\n66%\nTOWN AMBITIONS\n\nChoose one ambition to track. All 10 can be completed over a long playthrough. Awards provide small, finite grants from the region rather than creating money.\n\nA resilient banking centre\nSELECT\nKeep three solvent banks operating, fewer than two business loan defaults, and 75% employment for 50 days.\n0 / 50 qualifying days \u00b7 Development grant $6,500\nKeep the books\nTRACKING\nMaintain $60,000 in municipal cash, no debt, and 65% employment for 25 days.\n0 / 25 qualifying days \u00b7 Development grant $3,500\nA safe place to live\nSELECT\nMaintain a safety index of 88, with no more than two crimes in 30 days, for 20 days.\n0 / 20 qualifying days \u00b7 Development grant $3,200\nA thriving market town\nSELECT\nSupport at least 25 trading businesses and employment above 80% for 25 days.\n0 / 25 qualifying days \u00b7 Development grant $5,000\nA town for families\nSELECT\nReduce household hardship under 9% while retaining at least 70 homes for 20 days.\nConditions not yet sustained \u00b7 Development grant $4,800\nA learned community\nSELECT\nRaise schooling to 70 and public health to 80, then sustain both for 20 days.\nConditions not yet sustained \u00b7 Development grant $4,200\nA leaner tax regime\nSELECT\nMaintain income tax at 5% or less, employment at 75%+, and a $25,000 reserve for 25 days.\nConditions not yet sustained \u00b7 Development grant $4,000\nReady for hard times\nSELECT\nRaise emergency readiness to 80+, fund a second fire brigade, and sustain it 20 days.\nConditions not yet sustained \u00b7 Development grant $4,000\nAn ambitious borough\nSELECT\nBring 300 residents into the town without losing employment below 70% for 25 days.\nConditions not yet sustained \u00b7 Development grant $6,500\nAn enduring mandate\nSELECT\nEarn 78% council approval, with a safety index of 75, for 30 days.\nConditions not yet sustained \u00b7 Development grant $5,000\nCOUNCIL CORRESPONDENCE\n\nLetters, petitions and dilemmas arrive in the inbox without stopping the town. Review them on your own schedule, or let the economy run unattended at any speed.\n\nNo correspondence is waiting. The town continues operating on its own.\n\nRequest council meeting\nOpen policy journal",
+      "buttons": [
+        {
+          "text": "Review a public market square \u00b7 $2,500",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Review a working loading court \u00b7 $12,000",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Review land assembly and replacement housing",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Prepare Square at 28, 26 \u00b7 $228",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Compare the project routes",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Pass for now",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Review this direction",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Review this direction",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Review this direction",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Record a comparison",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Visit the household account",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Review",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Review",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Review",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Request council meeting",
+          "id": "convene",
+          "disabled": true,
+          "visible": true
+        },
+        {
+          "text": "Open policy journal",
+          "id": "jumpJournal",
+          "disabled": false,
+          "visible": true
+        }
+      ],
+      "inputs": []
+    },
+    {
+      "panel": "treasury",
+      "title": "The Public Purse",
+      "text": "PUBLIC BALANCE SHEET\nLiquid municipal cash\n$90,000\nOutstanding debt\n$0\nReceipts since founding\n$0\nPublic spending\n$0\nBudget outlook\n\nAuthorization is a ceiling. Health and school services retain funds that exceed current operating need or facility capacity; compare actual provision in Services.\n\nAverage daily receipts since founding\n$0\nAuthorized daily programmes\n$1,124\nDifference at full authorization\n\u2212$1,124\nA backward-looking estimate, not a guaranteed forecast. Receipts change with employment, business profitability, imports and other conditions; annual taxes accrue daily.\nPensions paid\n$0\nPension funding today\n100%\nCUMULATIVE RECEIPTS\nIncome tax\n$0\nCompany profit tax\n$0\nAnnual property tax instalments\n$0\nFood sales tax\n$0\nDomestic energy levy\n$0\nCommercial property rates\n$0\nImport duties\n$0\nBusiness licences\n$0\nPublic passenger fares\n$0\nFINANCIAL INSTRUMENTS\nDraw $5,000 credit\nRepay up to $5,000\n\nRegional credit is capped at $59,150. Credit creates matching debt; monthly interest uses the policy benchmark plus a 1.5-point regional spread. Private investment is not municipal borrowing.\n\nCASH RESERVE OVER TIME\n\nThe figures will appear as the town develops.",
+      "buttons": [
+        {
+          "text": "Draw $5,000 credit",
+          "id": "borrow",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Repay up to $5,000",
+          "id": "repay",
+          "disabled": true,
+          "visible": true
+        }
+      ],
+      "inputs": []
+    },
+    {
+      "panel": "banking",
+      "title": "Banks & Credit",
+      "text": "MONETARY AUTHORITY\nPolicy benchmark\n3% annual\n\nBank quotes adjust every fifteen days. Variable-rate loan costs adjust monthly; existing fixed-rate contracts retain their agreed rate. The authority sets a benchmark, not every bank\u2019s final risk spread.\n\nSet policy interest rate\nBANKING AND CREDIT MARKETS\n\nBanks compete for deposits and make loans from actual available cash. Firms can fail after losses and debt defaults; banks can enter receivership following asset losses and withdrawals. Deposits are liabilities, not extra money.\n\nHousehold deposits\n$23,858\nOutstanding credit\n$0\nOperating banks\n3 / 3\nBank failures\n0\nBusiness insolvencies\n0\nLoan defaults\n0\nDepositor losses\n$0\nConverted towers\n0\nCOMPETING INSTITUTIONS\nVale Mutual Savings \u00b7 OPEN\nDeposits owed\n$7,609\nCash reserves\n$41,609\nLoan portfolio\n$0\nRegional securities\n$0\nEquity after impairments\n$34,000\nSavings interest\n1.6% annual\nBase lending rate\n7.1% annual\nMercantile & County Bank \u00b7 OPEN\nDeposits owed\n$7,601\nCash reserves\n$36,601\nLoan portfolio\n$0\nRegional securities\n$0\nEquity after impairments\n$29,000\nSavings interest\n2.4% annual\nBase lending rate\n8.5% annual\nFirst Borough Credit \u00b7 OPEN\nDeposits owed\n$8,648\nCash reserves\n$34,648\nLoan portfolio\n$0\nRegional securities\n$0\nEquity after impairments\n$26,000\nSavings interest\n3.1% annual\nBase lending rate\n10.9% annual\nCURRENT DEBTORS\nMUNICIPAL SAVINGS\nPublic regional-bond holdings\n$0\nLiquid municipal cash\n$90,000\nFINANCIAL HISTORY\n\nThe figures will appear as the town develops.\n\nCouncil policies influence reserve requirements, credit standards and whether public funds insure part of the deposits lost in a bank liquidation. Bank failures are possible without being guaranteed.",
+      "buttons": [
+        {
+          "text": "Set policy interest rate",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        }
+      ],
+      "inputs": []
+    },
+    {
+      "panel": "businesses",
+      "title": "Local Enterprise",
+      "text": "THE COMMERCIAL HIGH STREET\n\nProduction follows supply chains: farms supply mills, mills supply bakeries, and bakeries supply grocers. Forests and stone quarries feed construction markets. Firms hire people and make real payments.\n\nEnterprises trading\n26\nMarket confidence\n60/100\nRegional demand\n100/100\nBusinesses on road grid\n100%\nFreight fees paid\n$0\nAll\nTrading\nClosed\nLoss-making\nMost capital\nLeast capital\nVillage Stores Ltd.\nTRADING\nGrocer \u00b7 2 / 2 jobs \u00b7 Capital $12,793\nRevenue $0 \u00b7 Profit $0 \u00b7 Tax $0\nVillage Stores Trading\nTRADING\nGrocer \u00b7 2 / 2 jobs \u00b7 Capital $16,296\nRevenue $0 \u00b7 Profit $0 \u00b7 Tax $0\nVillage Stores of Eastmead\nTRADING\nGrocer \u00b7 2 / 2 jobs \u00b7 Capital $18,126\nRevenue $0 \u00b7 Profit $0 \u00b7 Tax $0\nBaker & Sons Ltd.\nTRADING\nBakery \u00b7 3 / 3 jobs \u00b7 Capital $23,605\nRevenue $0 \u00b7 Profit $0 \u00b7 Tax $0\nBaker & Sons Trading\nTRADING\nBakery \u00b7 3 / 3 jobs \u00b7 Capital $23,927\nRevenue $0 \u00b7 Profit $0 \u00b7 Tax $0\nFlour Mill Works\nTRADING\nFlour Mill \u00b7 3 / 3 jobs \u00b7 Capital $17,025\nRevenue $0 \u00b7 Profit $0 \u00b7 Tax $0\nFlour Mill of Oakford\nTRADING\nFlour Mill \u00b7 3 / 3 jobs \u00b7 Capital $12,929\nRevenue $0 \u00b7 Profit $0 \u00b7 Tax $0\nFarm Ltd.\nTRADING\nFarm \u00b7 4 / 4 jobs \u00b7 Capital $12,681\nRevenue $0 \u00b7 Profit $0 \u00b7 Tax $0\nFarm of Eastmead\nTRADING\nFarm \u00b7 4 / 4 jobs \u00b7 Capital $15,614\nRevenue $0 \u00b7 Profit $0 \u00b7 Tax $0\nFarm Works\nTRADING\nFarm \u00b7 4 / 4 jobs \u00b7 Capital $14,037\nRevenue $0 \u00b7 Profit $0 \u00b7 Tax $0\nFarm & Co.\nTRADING\nFarm \u00b7 4 / 4 jobs \u00b7 Capital $12,955\nRevenue $0 \u00b7 Profit $0 \u00b7 Tax $0\nForestry Works\nTRADING\nForestry \u00b7 3 / 3 jobs \u00b7 Capital $13,619\nRevenue $0 \u00b7 Profit $0 \u00b7 Tax $0\nForestry Ltd.\nTRADING\nForestry \u00b7 3 / 3 jobs \u00b7 Capital $16,891\nRevenue $0 \u00b7 Profit $0 \u00b7 Tax $0\nSawmill Ltd.\nTRADING\nSawmill \u00b7 3 / 3 jobs \u00b7 Capital $11,253\nRevenue $0 \u00b7 Profit $0 \u00b7 Tax $0\nQuarry Ltd.\nTRADING\nQuarry \u00b7 3 / 3 jobs \u00b7 Capital $10,823\nRevenue $0 \u00b7 Profit $0 \u00b7 Tax $0\nConstruction Co. of Hawthorn\nTRADING\nConstruction Co. \u00b7 4 / 4 jobs \u00b7 Capital $12,940\nRevenue $0 \u00b7 Profit $0 \u00b7 Tax $0\nConstruction Co. Works\nTRADING\nConstruction Co. \u00b7 4 / 4 jobs \u00b7 Capital $26,143\nRevenue $0 \u00b7 Profit $0 \u00b7 Tax $0\nVillage Stores Works\nTRADING\nGrocer \u00b7 2 / 2 jobs \u00b7 Capital $23,285\nRevenue $0 \u00b7 Profit $0 \u00b7 Tax $0\nBaker & Sons Works\nTRADING\nBakery \u00b7 3 / 3 jobs \u00b7 Capital $16,248\nRevenue $0 \u00b7 Profit $0 \u00b7 Tax $0\nFarm & Co.\nTRADING\nFarm \u00b7 4 / 4 jobs \u00b7 Capital $21,818\nRevenue $0 \u00b7 Profit $0 \u00b7 Tax $0\nVillage Tavern Works\nTRADING\nVillage Tavern \u00b7 3 / 3 jobs \u00b7 Capital $16,951\nRevenue $0 \u00b7 Profit $0 \u00b7 Tax $0\nCommercial Offices Trading\nTRADING\nCommercial Offices \u00b7 6 / 6 jobs \u00b7 Capital $17,281\nRevenue $0 \u00b7 Profit $0 \u00b7 Tax $0\nManufacturing Works & Co.\nTRADING\nManufacturing Works \u00b7 7 / 7 jobs \u00b7 Capital $20,491\nRevenue $0 \u00b7 Profit $0 \u00b7 Tax $0\nFreight Depot & Co.\nTRADING\nFreight Depot \u00b7 4 / 4 jobs \u00b7 Capital $20,670\nRevenue $0 \u00b7 Profit $0 \u00b7 Tax $0\nVale Net & Line\nTRADING\nRiver Fishery \u00b7 3 / 3 jobs \u00b7 Capital $11,075\nRevenue $0 \u00b7 Profit $0 \u00b7 Tax $0\nVale River Landing\nTRADING\nRiver Cargo Wharf \u00b7 2 / 2 jobs \u00b7 Capital $11,736\nRevenue $0 \u00b7 Profit $0 \u00b7 Tax $0",
+      "buttons": [
+        {
+          "text": "All",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Trading",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Closed",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Loss-making",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Most capital",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Least capital",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        }
+      ],
+      "inputs": []
+    },
+    {
+      "panel": "citizens",
+      "title": "Our Residents",
+      "text": "LIVES BEHIND THE STATISTICS\n\nEvery family has savings, employment, food spending, rent, a home, health and security. Inspect a cottage to see the direct consequences of policy.\n\nAll\nAt risk\nNo job\nLeast savings\nMost savings\nShowing 67 of 67 matching households\nThe Hughes family\nSEEKING WORK\n3 residents \u00b7 0 employed \u00b7 Cash $645 \u00b7 Daily net $0\nNo employed household members\nThe Moore family\nWORKING\n3 residents \u00b7 2 employed \u00b7 Cash $1,720 \u00b7 Daily net $0\nFinances currently stable\nThe Sutton family\nWORKING\n3 residents \u00b7 2 employed \u00b7 Cash $325 \u00b7 Daily net $0\nFinances currently stable\nThe Grant family\nWORKING\n3 residents \u00b7 1 employed \u00b7 Cash $660 \u00b7 Daily net $0\nFinances currently stable\nThe Parker family\nWORKING\n3 residents \u00b7 2 employed \u00b7 Cash $1,826 \u00b7 Daily net $0\nFinances currently stable\nThe Hughes family\nWORKING\n3 residents \u00b7 1 employed \u00b7 Cash $2,144 \u00b7 Daily net $0\nFinances currently stable\nThe Wilson family\nSEEKING WORK\n3 residents \u00b7 0 employed \u00b7 Cash $2,574 \u00b7 Daily net $0\nNo employed household members\nThe Campbell family\nWORKING\n3 residents \u00b7 2 employed \u00b7 Cash $2,150 \u00b7 Daily net $0\nFinances currently stable\nThe Ward family\nWORKING\n3 residents \u00b7 2 employed \u00b7 Cash $1,556 \u00b7 Daily net $0\nFinances currently stable\nThe Ward family\nWORKING\n3 residents \u00b7 2 employed \u00b7 Cash $1,539 \u00b7 Daily net $0\nFinances currently stable\nThe Smith family\nWORKING\n3 residents \u00b7 2 employed \u00b7 Cash $222 \u00b7 Daily net $0\nMoney is extremely tight\nThe Hill family\nWORKING\n3 residents \u00b7 2 employed \u00b7 Cash $1,822 \u00b7 Daily net $0\nFinances currently stable\nThe Clarke family\nSEEKING WORK\n3 residents \u00b7 0 employed \u00b7 Cash $489 \u00b7 Daily net $0\nNo employed household members\nThe Howard family\nWORKING\n3 residents \u00b7 1 employed \u00b7 Cash $654 \u00b7 Daily net $0\nFinances currently stable\nThe Grant family\nWORKING\n3 residents \u00b7 2 employed \u00b7 Cash $1,014 \u00b7 Daily net $0\nFinances currently stable\nThe Sutton family\nSEEKING WORK\n3 residents \u00b7 0 employed \u00b7 Cash $553 \u00b7 Daily net $0\nNo employed household members\nThe Parker family\nWORKING\n3 residents \u00b7 2 employed \u00b7 Cash $676 \u00b7 Daily net $0\nFinances currently stable\nThe Morgan family\nSEEKING WORK\n3 residents \u00b7 0 employed \u00b7 Cash $1,489 \u00b7 Daily net $0\nNo employed household members\nThe Reed family\nSEEKING WORK\n3 residents \u00b7 0 employed \u00b7 Cash $656 \u00b7 Daily net $0\nNo employed household members\nThe Hughes family\nWORKING\n3 residents \u00b7 2 employed \u00b7 Cash $1,438 \u00b7 Daily net $0\nFinances currently stable\nThe Wilson family\nWORKING\n3 residents \u00b7 2 employed \u00b7 Cash $1,823 \u00b7 Daily net $0\nFinances currently stable\nThe Campbell family\nWORKING\n3 residents \u00b7 1 employed \u00b7 Cash $2,907 \u00b7 Daily net $0\nFinances currently stable\nThe Foster family\nWORKING\n3 residents \u00b7 2 employed \u00b7 Cash $1,306 \u00b7 Daily net $0\nFinances currently stable\nThe Baker family\nWORKING\n3 residents \u00b7 1 employed \u00b7 Cash $2,504 \u00b7 Daily net $0\nFinances currently stable\nThe Howard family\nSEEKING WORK\n3 residents \u00b7 0 employed \u00b7 Cash $1,907 \u00b7 Daily net $0\nNo employed household members\nThe Turner family\nWORKING\n3 residents \u00b7 1 employed \u00b7 Cash $367 \u00b7 Daily net $0\nFinances currently stable\nThe Taylor family\nWORKING\n3 residents \u00b7 2 employed \u00b7 Cash $1,920 \u00b7 Daily net $0\nFinances currently stable\nThe Turner family\nSEEKING WORK\n3 residents \u00b7 0 employed \u00b7 Cash $664 \u00b7 Daily net $0\nNo employed household members\nThe Wilson family\nWORKING\n3 residents \u00b7 2 employed \u00b7 Cash $271 \u00b7 Daily net $0\nMoney is extremely tight\nThe Turner family\nWORKING\n3 residents \u00b7 2 employed \u00b7 Cash $2,235 \u00b7 Daily net $0\nFinances currently stable\nThe Wilson family\nSEEKING WORK\n3 residents \u00b7 0 employed \u00b7 Cash $2,597 \u00b7 Daily net $0\nNo employed household members\nThe Clarke family\nWORKING\n3 residents \u00b7 2 employed \u00b7 Cash $614 \u00b7 Daily net $0\nFinances currently stable\nThe Hughes family\nWORKING\n3 residents \u00b7 2 employed \u00b7 Cash $984 \u00b7 Daily net $0\nFinances currently stable\nThe Campbell family\nWORKING\n3 residents \u00b7 2 employed \u00b7 Cash $689 \u00b7 Daily net $0\nFinances currently stable\nThe Taylor family\nWORKING\n3 residents \u00b7 2 employed \u00b7 Cash $2,115 \u00b7 Daily net $0\nFinances currently stable\nThe Morgan family\nWORKING\n2 residents \u00b7 2 employed \u00b7 Cash $568 \u00b7 Daily net $0\nFinances currently stable\nThe Smith family\nRETIRED\n2 residents \u00b7 0 employed \u00b7 Cash $2,386 \u00b7 Daily net $0\nRetired household\nThe Wright family\nWORKING\n2 residents \u00b7 1 employed \u00b7 Cash $1,403 \u00b7 Daily net $0\nFinances currently stable\nThe Sutton family\nWORKING\n2 residents \u00b7 2 employed \u00b7 Cash $1,839 \u00b7 Daily net $0\nFinances currently stable\nThe Wright family\nWORKING\n2 residents \u00b7 2 employed \u00b7 Cash $2,020 \u00b7 Daily net $0\nFinances currently stable\nThe Smith family\nWORKING\n2 residents \u00b7 2 employed \u00b7 Cash $2,486 \u00b7 Daily net $0\nFinances currently stable\nThe Miller family\nWORKING\n2 residents \u00b7 2 employed \u00b7 Cash $1,932 \u00b7 Daily net $0\nFinances currently stable\nThe Carter family\nRETIRED\n2 residents \u00b7 0 employed \u00b7 Cash $1,657 \u00b7 Daily net $0\nRetired household\nThe Grant family\nWORKING\n2 residents \u00b7 2 employed \u00b7 Cash $1,539 \u00b7 Daily net $0\nFinances currently stable\nThe Miller family\nWORKING\n2 residents \u00b7 2 employed \u00b7 Cash $863 \u00b7 Daily net $0\nFinances currently stable\nThe Taylor family\nWORKING\n2 residents \u00b7 2 employed \u00b7 Cash $1,514 \u00b7 Daily net $0\nFinances currently stable\nThe Miller family\nWORKING\n2 residents \u00b7 2 employed \u00b7 Cash $1,857 \u00b7 Daily net $0\nFinances currently stable\nThe Carter family\nWORKING\n2 residents \u00b7 2 employed \u00b7 Cash $1,683 \u00b7 Daily net $0\nFinances currently stable\nThe Carter family\nRETIRED\n2 residents \u00b7 0 employed \u00b7 Cash $903 \u00b7 Daily net $0\nRetired household\nThe Taylor family\nWORKING\n2 residents \u00b7 2 employed \u00b7 Cash $1,417 \u00b7 Daily net $0\nFinances currently stable\nThe Sutton family\nWORKING\n2 residents \u00b7 2 employed \u00b7 Cash $2,244 \u00b7 Daily net $0\nFinances currently stable\nThe Miller family\nWORKING\n2 residents \u00b7 2 employed \u00b7 Cash $1,550 \u00b7 Daily net $0\nFinances currently stable\nThe Clarke family\nWORKING\n2 residents \u00b7 2 employed \u00b7 Cash $219 \u00b7 Daily net $0\nMoney is extremely tight\nThe Wilson family\nSEEKING WORK\n2 residents \u00b7 0 employed \u00b7 Cash $1,547 \u00b7 Daily net $0\nNo employed household members\nThe Baker family\nRETIRED\n2 residents \u00b7 0 employed \u00b7 Cash $1,340 \u00b7 Daily net $0\nRetired household\nThe Russell family\nWORKING\n2 residents \u00b7 2 employed \u00b7 Cash $2,109 \u00b7 Daily net $0\nFinances currently stable\nThe Moore family\nWORKING\n2 residents \u00b7 2 employed \u00b7 Cash $2,309 \u00b7 Daily net $0\nFinances currently stable\nThe Turner family\nWORKING\n2 residents \u00b7 1 employed \u00b7 Cash $651 \u00b7 Daily net $0\nFinances currently stable\nThe Reed family\nWORKING\n2 residents \u00b7 2 employed \u00b7 Cash $1,265 \u00b7 Daily net $0\nFinances currently stable\nThe Ward family\nSEEKING WORK\n2 residents \u00b7 0 employed \u00b7 Cash $2,341 \u00b7 Daily net $0\nNo employed household members\nThe Brooks family\nRETIRED\n2 residents \u00b7 0 employed \u00b7 Cash $1,985 \u00b7 Daily net $0\nRetired household\nThe Bennett family\nWORKING\n2 residents \u00b7 1 employed \u00b7 Cash $1,324 \u00b7 Daily net $0\nFinances currently stable\nThe Carter family\nWORKING\n2 residents \u00b7 2 employed \u00b7 Cash $1,938 \u00b7 Daily net $0\nFinances currently stable\nThe Sutton family\nWORKING\n2 residents \u00b7 1 employed \u00b7 Cash $1,188 \u00b7 Daily net $0\nFinances currently stable\nThe Russell family\nWORKING\n2 residents \u00b7 2 employed \u00b7 Cash $2,029 \u00b7 Daily net $0\nFinances currently stable\nThe Miller family\nSEEKING WORK\n2 residents \u00b7 0 employed \u00b7 Cash $1,448 \u00b7 Daily net $0\nNo employed household members\nThe Davies family\nRETIRED\n2 residents \u00b7 0 employed \u00b7 Cash $2,838 \u00b7 Daily net $0\nRetired household",
+      "buttons": [
+        {
+          "text": "All",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "At risk",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "No job",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Least savings",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Most savings",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        }
+      ],
+      "inputs": [
+        {
+          "id": "searchPeople",
+          "type": "text",
+          "value": "",
+          "preference": null
+        }
+      ]
+    },
+    {
+      "panel": "journal",
+      "title": "Public Record",
+      "text": "THE PUBLIC RECORD\n\nEvery recorded policy change preserves the indicators at the date of enactment. Comparisons are observational; several causes can change at once.\n\nRecorded decisions\n1\nYears in office\n1\nCrimes reported\n0\nEmergency incidents\n0\nECONOMIC HISTORY\n\nThe figures will appear as the town develops.\n\nCOUNCIL TRUST OVER TIME\n\nThe figures will appear as the town develops.\n\nGOVERNMENT DECISIONS\nDAY 1: Village founded\n\nTown hall records open. Follow real people, employers and policy consequences.\n\nEmployment +5 pts \u00a0\u00b7\u00a0 Hardship +0 pts \u00a0\u00b7\u00a0 Safety +0 pts\nBusinesses +2 \u00a0\u00b7\u00a0 Treasury +0\nRECENT EVENTS\nDAY 1\nThe council inherits a promising community and a difficult balancing act.\nDAY 1\nA new council has taken responsibility for the prosperity of the Vale.",
+      "buttons": [],
+      "inputs": []
+    },
+    {
+      "panel": "settings",
+      "title": "Game Options",
+      "text": "MUSIC & ATMOSPHERE\n\nTen original chamber pieces \u00b7 about 47 minutes. The next piece reflects the town\u2019s activity and your preferred character, with six recent pieces held out. Changes take effect between pieces. Music and effects have separate controls.\n\nWork at the Waterline\n\nMUSIC ON\nNEXT PIECE\nMusic volume Music character \nFollow the town\nQuieter selections\nLivelier selections\nOriginal score & credits\n\nOriginal melodies, arrangements and offline synthesis for TownLedger, dedicated under CC0. No borrowed recordings or samples.\n\nMorning Ledger \u00b7 3 min\n\nRiver And Road \u00b7 3 min\n\nLamplit Windows \u00b7 4 min\n\nOrchard Footpaths \u00b7 5 min\n\nRails to Greyhaven \u00b7 5 min\n\nWork at the Waterline \u00b7 5 min\n\nThe Long Market Day \u00b7 5 min\n\nRooms after the Rain \u00b7 6 min\n\nA Borough Grows \u00b7 6 min\n\nThe Quiet River \u00b7 6 min\n\nDISPLAY & ACCESSIBILITY\nGraphics quality\nPerformance\nBalanced\nRich detail\nFrame-rate limit\n20 FPS\n30 FPS\n60 FPS\nStreet names\nNamed streets and a visible road hierarchy.\nON\nVisible traffic\nCommuters and trucks. Cargo and jobs continue when hidden.\nON\nAtmospheric effects\nSmoke, water shimmer and weather particles.\nON\nGardens & landscape detail\nFlowers, fences, masonry and roof texture.\nON\nReduced motion\nStop decorative movement and traffic animation.\nOFF\nLarger text\nLarger menu labels and reading text.\nOFF\nMap hints\nShow the short map guidance below the town.\nON\nCLIMATE RULES\nSeasonal cycle\nOFF by default: green landscape and stable farm output all year. Saved with this town.\nOFF\nWeather events\nOFF by default: no storms or droughts. Saved with this town.\nOFF\nSAVING\nAutosave interval\n15 seconds\n30 seconds\n1 minute\n2 minutes\n\nPausing or leaving the app also saves. At 64\u00d7, Balanced and Performance simplify ground detail and reduce map resolution; pause or choose Rich detail to restore full detail. At high speed, the map refreshes at up to 20 FPS to give the economy more CPU time. The speed indicator measures days actually completed; slower devices may run below the selected rate.\n\nRecover previous autosave\nVIEWS OF THE VALE\nEvening light\nWhole borough\nMarket district\nFarm belt\nLand values\nRoad access\nSESSION DIAGNOSTICS\nDraw CPU median / p95\n2.50 / 208.80 ms\nDaily simulation median / p95\n0.00 / 0.00 ms\nRequested / measured speed\n1\u00d7 / 1.0\u00d7\nQueued simulation\n0.2 days\nLargest cash ledger drift\n$0\n\nCPU timings in this session are not device FPS or a thermal measurement. Measured speed counts completed simulation days. CPU work and queued wall time are bounded to keep controls responsive.\n\nYOUR GAME AND ARCHIVE\nEdition\nA Trading Town 8.0.0\nEngine\nOffline fixed-step economy + cached pixel canvas\nLiving residents\n169\nConstruction completed\n0\nTown founded\nsettlement\nAutomatic saving\nOn-device save confirmed\nSimulation speed\n1\u00d7 (1\u201364\u00d7, dynamic workload cap)\nTURN OFF AMBIENCE & SOUND\nSAVE NOW\nEXPORT BACKUP\nRESTORE BACKUP\nGAME MANUAL\nSTART NEW TOWN\nSIMULATION PRINCIPLES\n\nThe economy runs as real linked accounts: wages and purchases move money among firms, families, the town treasury and the external region. Goods have inventory; people have jobs; firms have expenses. Government services spend actual cash and provide observable benefits.\n\nImportant: This is an experimental, self-contained Android adaptation. Policy coefficients are designed for gameplay, not calibrated forecasts of real municipal outcomes. Retain a text backup if you change devices or uninstall.",
+      "buttons": [
+        {
+          "text": "MUSIC ON",
+          "id": "musicToggle",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "NEXT PIECE",
+          "id": "musicNext",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "ON",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "ON",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "ON",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "ON",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "OFF",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "OFF",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "ON",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "OFF",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "OFF",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Recover previous autosave",
+          "id": "recoverAutosave",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Evening light",
+          "id": "nightView",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Whole borough",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Market district",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Farm belt",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Land values",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "Road access",
+          "id": "",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "TURN OFF AMBIENCE & SOUND",
+          "id": "soundToggle",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "SAVE NOW",
+          "id": "saveNow",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "EXPORT BACKUP",
+          "id": "backupSave",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "RESTORE BACKUP",
+          "id": "importSave",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "GAME MANUAL",
+          "id": "tutorial",
+          "disabled": false,
+          "visible": true
+        },
+        {
+          "text": "START NEW TOWN",
+          "id": "restart",
+          "disabled": false,
+          "visible": true
+        }
+      ],
+      "inputs": [
+        {
+          "id": "musicVolume",
+          "type": "range",
+          "value": "45",
+          "preference": null
+        },
+        {
+          "id": "musicMood",
+          "type": "select-one",
+          "value": "adaptive",
+          "preference": null
+        },
+        {
+          "id": "",
+          "type": "select-one",
+          "value": "balanced",
+          "preference": "quality"
+        },
+        {
+          "id": "",
+          "type": "select-one",
+          "value": "30",
+          "preference": "fps"
+        },
+        {
+          "id": "",
+          "type": "select-one",
+          "value": "30",
+          "preference": "autoSave"
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "model": {
+    "day": 1,
+    "total": 15493517,
+    "population": 169,
+    "privateServices": [],
+    "transitRoutes": 0
+  },
+  "map": {
+    "context": "CanvasRenderingContext2D",
+    "zoom": 0.95,
+    "visualBudget": {
+      "traffic": true,
+      "people": true,
+      "boats": true
+    },
+    "workerEndpoint": false
+  },
+  "settingsChanged": {
+    "quality": "low",
+    "fps": 20,
+    "traffic": true,
+    "effects": true,
+    "decor": true,
+    "seasons": false,
+    "weather": false,
+    "largeText": false,
+    "reducedMotion": true,
+    "autoSave": 30,
+    "showHints": true,
+    "streetNames": true
+  },
+  "settingsPersisted": true,
+  "audioAfterReloadBeforeNewGesture": {
+    "enabled": true,
+    "volume": 0.45,
+    "mood": "adaptive",
+    "track": -1,
+    "status": "Starts after your first tap",
+    "decks": []
+  },
+  "mapAfterReload": {
+    "context": "CanvasRenderingContext2D",
+    "zoom": 0.68,
+    "visualBudget": {
+      "traffic": false,
+      "people": false,
+      "boats": false
+    },
+    "workerEndpoint": false
+  }
+}

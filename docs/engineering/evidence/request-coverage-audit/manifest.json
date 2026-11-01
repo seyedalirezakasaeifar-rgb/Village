@@ -1,0 +1,27 @@
+{
+  "snapshotUTC": "2026-11-01T07:15:12.423290+00:00",
+  "productionCommit": "01eeda3d2ff09822b9422721f75e97fabbc9958a",
+  "gameSha256": "84ecbaef6b0ae999a9c5adcd49b9ba1678840cabfc36cf02b617c74a93d208a4",
+  "noProductionCodeChanged": true,
+  "actualPanelsInspected": 12,
+  "additionalChecksPassed": 6,
+  "latestRendererHandoff": "29dd12af7d4aac6b22efcfe1cec1e2d59aff2c1f",
+  "latestRendererIndependentlyAccepted": false,
+  "files": {
+    "media-assets.json": "e7fa183e6f294bd3ef31cddea8a9af6f4236d2e053f106682521235d5e95611a",
+    "test_music.log": "4d6b4a0706b44d2a8cab77c795b1642311f63dbd2426847bf87609bd5d5b7965",
+    "sound-assets.json": "d7057c03370fce0497618a1292c73e384fdfc94d3d226af964c6a2c6ef925490",
+    "actual-controls.json": "e64e0aa17798f75b5a7d0ff591b6e9e6ccbdf58212975ffb2cbff300652a9bd1",
+    "test_visual_lod.log": "5c6457ad14a3cfb7894cb917c237e9201a82d09ee76ca32bac6a9fa5c1bda265",
+    "current-production-map.png": "73c2b58047b64e2b3d1ac84f120065cb1fad94cbd3b14597793ca800fb32ad66",
+    "current-settings-controls.png": "2482ca2a1ce289322ef68e0c773466691d97c0272e27b9997d60ffaaec63017a",
+    "private-school-current.png": "0600ac8167be36732e06971a8753856b527b172b550dd010bff86386b45720e9",
+    "test_audio_lifecycle.log": "be314b50d6dde75d064790fa1789a0f9f69a618bcf7862566cd1867b74f50e3a",
+    "experimental-heads.txt": "c6876b6fcd318a474ec78000e6a9fe483af2e22949847d1490c76484cd47b5fe",
+    "test_transit_network.log": "82e613b60a02b99e0e8215936aa7a078e5f19e6cd0e643ce68fed1c398e72543",
+    "test_private_service_entry.log": "f257de93976c13728fc65aa4ef8499a9d3a5370470d6e3bfb566457451f4193b",
+    "test_migration_causality.log": "87254d239bd67240f7c44df3f63e0b226962831d49509b2b3cee9234f5d41ea7",
+    "checks.json": "8caab7a21af20209e5f36535f60e038c468940c03887ddc51bc9034dd4db00e8",
+    "real-music-playback.json": "ad7bb26a0b69a2b473c5d68ed9e0b36ecdff3dd1c52bcd578757d1a064001eab"
+  }
+}
