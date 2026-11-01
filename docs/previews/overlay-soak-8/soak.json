@@ -1,0 +1,344 @@
+{
+  "start_utc": "2026-10-31T23:43:05.653593+00:00",
+  "end_utc": "2026-11-01T00:13:05.892592+00:00",
+  "requested_duration_s": 1800,
+  "actual_duration_s": 1800.2,
+  "immutable_commit": "d4607eefbadee15a8347568f4e5e8ade7a1c322c",
+  "source_sha256": "6260809a99d39d3f3c8131bcd9e85343695617d5629950409cca1ba7ef2aa1aa",
+  "fixture": {
+    "grid": 128,
+    "deeds": 21,
+    "relocatedHouseholds": 29,
+    "routes": [
+      1,
+      2,
+      3
+    ],
+    "capital": 191450,
+    "total": 15493517
+  },
+  "transitions": 18565,
+  "paused_checkpoints": 1547,
+  "cache_resets": 10,
+  "samples": [
+    {
+      "elapsed_s": 300.2,
+      "utc": "2026-10-31T23:48:05.983350+00:00",
+      "transitions": 3073,
+      "checkpoints": 256,
+      "cache_resets": 1,
+      "heap_after_gc": 17100000,
+      "cache": {
+        "overlay": "roads",
+        "night": false,
+        "zoom": 1.25,
+        "quality": "high",
+        "reducedMotion": false,
+        "dom": 406,
+        "keyNodes": 1,
+        "atlasBytes": 1536000,
+        "atlasEntries": 26,
+        "brownfieldBytes": 0,
+        "nightEmissionBytes": 397600,
+        "viewRasterBytes": 941904,
+        "underlayBytes": 941904,
+        "repairBytes": 941904,
+        "heap": 17100000,
+        "actors": 6,
+        "drawCalls": 7668
+      },
+      "draw_ms": {
+        "n": 7668,
+        "p50": 4.3,
+        "p95": 85,
+        "max": 271.4
+      },
+      "raf_interval_ms": {
+        "n": 11611,
+        "p50": 16.7,
+        "p95": 66.7,
+        "max": 833.3
+      },
+      "input_pair_latency_ms": {
+        "n": 512,
+        "p50": 67.357,
+        "p95": 86.842,
+        "max": 151.094
+      },
+      "errors": []
+    },
+    {
+      "elapsed_s": 600.0,
+      "utc": "2026-10-31T23:53:05.825381+00:00",
+      "transitions": 6166,
+      "checkpoints": 513,
+      "cache_resets": 3,
+      "heap_after_gc": 17100000,
+      "cache": {
+        "overlay": "neighbourhoods",
+        "night": true,
+        "zoom": 0.22,
+        "quality": "high",
+        "reducedMotion": false,
+        "dom": 406,
+        "keyNodes": 1,
+        "atlasBytes": 7702528,
+        "atlasEntries": 97,
+        "brownfieldBytes": 0,
+        "nightEmissionBytes": 2197260,
+        "viewRasterBytes": 2197260,
+        "underlayBytes": 0,
+        "repairBytes": 0,
+        "heap": 17100000,
+        "actors": 0,
+        "drawCalls": 15375
+      },
+      "draw_ms": {
+        "n": 7707,
+        "p50": 4.6,
+        "p95": 85.4,
+        "max": 279.1
+      },
+      "raf_interval_ms": {
+        "n": 11715,
+        "p50": 16.7,
+        "p95": 66.7,
+        "max": 283.3
+      },
+      "input_pair_latency_ms": {
+        "n": 514,
+        "p50": 67.554,
+        "p95": 91.244,
+        "max": 106.797
+      },
+      "errors": []
+    },
+    {
+      "elapsed_s": 900.1,
+      "utc": "2026-10-31T23:58:05.876825+00:00",
+      "transitions": 9268,
+      "checkpoints": 772,
+      "cache_resets": 4,
+      "heap_after_gc": 17100000,
+      "cache": {
+        "overlay": "crime",
+        "night": true,
+        "zoom": 0.65,
+        "quality": "high",
+        "reducedMotion": true,
+        "dom": 406,
+        "keyNodes": 1,
+        "atlasBytes": 8617984,
+        "atlasEntries": 111,
+        "brownfieldBytes": 0,
+        "nightEmissionBytes": 941904,
+        "viewRasterBytes": 941904,
+        "underlayBytes": 0,
+        "repairBytes": 0,
+        "heap": 17100000,
+        "actors": 0,
+        "drawCalls": 23108
+      },
+      "draw_ms": {
+        "n": 7733,
+        "p50": 4.4,
+        "p95": 84.6,
+        "max": 277.4
+      },
+      "raf_interval_ms": {
+        "n": 11762,
+        "p50": 16.7,
+        "p95": 66.7,
+        "max": 283.4
+      },
+      "input_pair_latency_ms": {
+        "n": 518,
+        "p50": 67.24,
+        "p95": 86.337,
+        "max": 101.369
+      },
+      "errors": []
+    },
+    {
+      "elapsed_s": 1200.1,
+      "utc": "2026-11-01T00:03:05.871775+00:00",
+      "transitions": 12376,
+      "checkpoints": 1031,
+      "cache_resets": 6,
+      "heap_after_gc": 17100000,
+      "cache": {
+        "overlay": "crime",
+        "night": true,
+        "zoom": 0.65,
+        "quality": "high",
+        "reducedMotion": false,
+        "dom": 406,
+        "keyNodes": 1,
+        "atlasBytes": 7234048,
+        "atlasEntries": 96,
+        "brownfieldBytes": 0,
+        "nightEmissionBytes": 941904,
+        "viewRasterBytes": 941904,
+        "underlayBytes": 941904,
+        "repairBytes": 941904,
+        "heap": 17100000,
+        "actors": 6,
+        "drawCalls": 30856
+      },
+      "draw_ms": {
+        "n": 7748,
+        "p50": 4.6,
+        "p95": 84.2,
+        "max": 353.6
+      },
+      "raf_interval_ms": {
+        "n": 11718,
+        "p50": 16.7,
+        "p95": 66.7,
+        "max": 349.9
+      },
+      "input_pair_latency_ms": {
+        "n": 518,
+        "p50": 67.408,
+        "p95": 85.154,
+        "max": 112.506
+      },
+      "errors": []
+    },
+    {
+      "elapsed_s": 1500.0,
+      "utc": "2026-11-01T00:08:05.825136+00:00",
+      "transitions": 15467,
+      "checkpoints": 1288,
+      "cache_resets": 8,
+      "heap_after_gc": 33100000,
+      "cache": {
+        "overlay": "charter",
+        "night": true,
+        "zoom": 1.25,
+        "quality": "low",
+        "reducedMotion": false,
+        "dom": 406,
+        "keyNodes": 1,
+        "atlasBytes": 2266112,
+        "atlasEntries": 30,
+        "brownfieldBytes": 0,
+        "nightEmissionBytes": 607680,
+        "viewRasterBytes": 607680,
+        "underlayBytes": 607680,
+        "repairBytes": 607680,
+        "heap": 33100000,
+        "actors": 6,
+        "drawCalls": 38560
+      },
+      "draw_ms": {
+        "n": 7704,
+        "p50": 4.4,
+        "p95": 84.6,
+        "max": 272
+      },
+      "raf_interval_ms": {
+        "n": 11718,
+        "p50": 16.7,
+        "p95": 66.7,
+        "max": 266.7
+      },
+      "input_pair_latency_ms": {
+        "n": 514,
+        "p50": 67.32,
+        "p95": 86.543,
+        "max": 102.389
+      },
+      "errors": []
+    },
+    {
+      "elapsed_s": 1800.0,
+      "utc": "2026-11-01T00:13:05.784275+00:00",
+      "transitions": 18565,
+      "checkpoints": 1547,
+      "cache_resets": 9,
+      "heap_after_gc": 33100000,
+      "cache": {
+        "overlay": "roads",
+        "night": true,
+        "zoom": 0.65,
+        "quality": "low",
+        "reducedMotion": false,
+        "dom": 406,
+        "keyNodes": 1,
+        "atlasBytes": 920576,
+        "atlasEntries": 19,
+        "brownfieldBytes": 0,
+        "nightEmissionBytes": 397600,
+        "viewRasterBytes": 397600,
+        "underlayBytes": 397600,
+        "repairBytes": 397600,
+        "heap": 33100000,
+        "actors": 6,
+        "drawCalls": 46284
+      },
+      "draw_ms": {
+        "n": 7724,
+        "p50": 4.5,
+        "p95": 83.3,
+        "max": 270.9
+      },
+      "raf_interval_ms": {
+        "n": 11766,
+        "p50": 16.7,
+        "p95": 66.7,
+        "max": 266.7
+      },
+      "input_pair_latency_ms": {
+        "n": 518,
+        "p50": 67.236,
+        "p95": 83.014,
+        "max": 108.354
+      },
+      "errors": []
+    }
+  ],
+  "final": {
+    "overlay": "roads",
+    "night": true,
+    "zoom": 0.65,
+    "quality": "low",
+    "reducedMotion": false,
+    "dom": 406,
+    "keyNodes": 1,
+    "atlasBytes": 920576,
+    "atlasEntries": 19,
+    "brownfieldBytes": 0,
+    "nightEmissionBytes": 397600,
+    "viewRasterBytes": 397600,
+    "underlayBytes": 397600,
+    "repairBytes": 397600,
+    "heap": 33100000,
+    "actors": 6,
+    "drawCalls": 46285
+  },
+  "final_heap_after_gc": 33100000,
+  "final_state_unchanged": true,
+  "final_rng_unchanged": true,
+  "final_paused": true,
+  "tail_draw_ms": {
+    "n": 1,
+    "p50": 15,
+    "p95": 15,
+    "max": 15
+  },
+  "tail_raf_interval_ms": {
+    "n": 12,
+    "p50": 16.7,
+    "p95": 16.7,
+    "max": 16.7
+  },
+  "tail_input_pair_latency_ms": {
+    "n": 0,
+    "p50": null,
+    "p95": null,
+    "max": null
+  },
+  "page_errors": [],
+  "failure": null
+}
