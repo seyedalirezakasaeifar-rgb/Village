@@ -1,0 +1,19 @@
+{
+  "productionEnabled": false,
+  "currentOracleCommit": "01eeda3d2ff09822b9422721f75e97fabbc9958a",
+  "workerSourceSha256": "5df42ea1348872ad692a53bfa6ea1081472d1c8783ec9ace2b5cf011bcfb6e20",
+  "failedCurrentOnlyComposition": [
+    "panelContents is not defined",
+    "closeCouncilDialogState is not defined"
+  ],
+  "crossSourceBrownfieldParkFailure": {
+    "field": "trafficState.vehicles",
+    "workerCount": 2,
+    "originalCount": 0,
+    "beforeActionBothCount": 2,
+    "cause": "Original hydration/archivePayload aliases G.trafficState.vehicles to traffic; invalidateRoads clears traffic.length during construction. Raw worker load does not establish this alias, so persisted model retains old vehicles. No fields were excluded.",
+    "financialFieldsAndRngDiffer": false
+  },
+  "currentSourcePortAccepted": false,
+  "centralFixRequired": "Restore/hydrate source runtime and archive transport alias semantics at completed world adoption, preserving authoritative archives and RNG. Do not clear visual archives only in this family or drop comparisons."
+}

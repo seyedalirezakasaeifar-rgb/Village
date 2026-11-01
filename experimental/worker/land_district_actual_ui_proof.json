@@ -1,0 +1,48 @@
+{
+  "sourceCommit": "2c316f6 shared hooks +818b81f land module;669-lineage model",
+  "oracleSha256": "5df42ea1348872ad692a53bfa6ea1081472d1c8783ec9ace2b5cf011bcfb6e20",
+  "hostSha256": "5df42ea1348872ad692a53bfa6ea1081472d1c8783ec9ace2b5cf011bcfb6e20",
+  "workerSha256": "781548f98a17e924415524caac4178125674b21c78ad53e9bc6cb09edd687559",
+  "bridgeSha256": "4a39cfde7739dbd19537c1ad1899544dbf56a036963f2623aeb7d42522954e26",
+  "referenceDryRun": false,
+  "productionEnabled": false,
+  "nativeDurability": false,
+  "checks": {
+    "visiblePendingBeforeAcknowledgment": true,
+    "oldFrozenModelUntilAcknowledgment": true,
+    "duplicateTapsSubmitOneChoice": true,
+    "noWriteBeforeCommitAcknowledgment": true,
+    "entireCurrentOracleModelAndRng": true,
+    "noDurableAckBeforeWriter": true,
+    "modelCommittedWhileWritePending": true,
+    "originalWebWriterReadbackExact": true,
+    "tokenAckAfterVerifiedWriter": true,
+    "noUncaughtPageErrors": true,
+    "failedWriterKeepsCommittedSecondDeedExact": true,
+    "failedWriterPreservesPriorVerifiedSave": true,
+    "failedWriterDoesNotAck": true,
+    "actualSaveNowRetryWritesCommittedModel": true,
+    "actualSaveNowRetryDoesNotReplayPayment": true,
+    "retryDurableAckAfterWriter": true,
+    "productionCommandOwner": true
+  },
+  "pendingMarkers": [
+    {
+      "tag": "DIV",
+      "id": "gameRoot",
+      "text": "\nTLTOWNLEDGERTHE WORKING CITY\nRESIDENTS169MUNICIPAL CASH$90,000EMPLOYMENT80%SAFETY88/100COUNCIL TRUST65%YEAR 1 \u00b7 MONTH 1 \u00b7 DAY 1THE WORKING CITY1\u00d7\n\n\n+\u2212\u25c9\nREGIONAL LAND OFFICEChoose a district\u20261. East Meadow2. County Ridge3. Lower River Reach4. Orchard Downs5. High Common6. Eastern Heights7. Far Easte",
+      "ariaBusy": "true"
+    },
+    {
+      "tag": "SPAN",
+      "id": "workerRealStatus",
+      "text": "Applying action\u2026 waiting for model confirmation.",
+      "ariaBusy": null
+    }
+  ],
+  "errors": [],
+  "currentPublicModelPortAccepted": false,
+  "scope": "actual two-deed bindings, pending/duplicate/ACK, original writer failure and actual Save Now retry only",
+  "allChecksPass": true,
+  "blockedOrFailingChecks": []
+}

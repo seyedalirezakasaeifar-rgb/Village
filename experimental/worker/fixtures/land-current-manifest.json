@@ -1,0 +1,26 @@
+{
+  "sourceCommit": "01eeda3d2ff09822b9422721f75e97fabbc9958a",
+  "sourceSha256": "84ecbaef6b0ae999a9c5adcd49b9ba1678840cabfc36cf02b617c74a93d208a4",
+  "injectedFundingPeopleStocksCropTitles": false,
+  "clock": "Existing deterministic QA stepping, not a human-play duration claim",
+  "farm": "Existing test_urban_growth_journey ordinary settlement42, paid deeds/homes/plans then2700days; stopped before manual relocation",
+  "brownfield": "Existing test_brownfield_player_path ordinary regional42,180days plus separately paid assessment/acquisition/groundworks; existing two-day closed-trade test then real workdays to ready; stopped before reuse",
+  "fixtures": [
+    {
+      "path": "farm-ordinary-current.json.gz",
+      "sha256": "2ef25944a2d9ac1a3a3c7e540385ed0198e58391031fc788dd67164035f4a9ab",
+      "day": 2701,
+      "people": 299,
+      "treasury": 1010706.7166736267,
+      "region": 10470000.687433988
+    },
+    {
+      "path": "brownfield-ready-ordinary-current.json.gz",
+      "sha256": "a7bff8dfd8ee12c7245133ec86f0d6f7745370917610cda8088a728e5b4c4730",
+      "day": 209,
+      "people": 670,
+      "treasury": 450383.2153330062,
+      "region": 9576093.438906735
+    }
+  ]
+}
