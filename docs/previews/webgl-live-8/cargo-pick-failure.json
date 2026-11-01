@@ -1,0 +1,11 @@
+{
+  "point": {
+    "x": 635.5675011421315,
+    "y": 330.07020855240677
+  },
+  "picked": {
+    "actor": "cargo:1"
+  },
+  "body": "REGIONAL FREIGHT \u00b7 INBOUND\nCounterparty\nUpland Cooperative\nEnterprise\nFarm Trading\nCargo\n60 grain\nExpected arrival\nDay 8\nState\ndelivering\n\nThe enterprise already owns and paid for this inventory; it becomes usable on arrival.\n\nInspect enterprise",
+  "errors": []
+}

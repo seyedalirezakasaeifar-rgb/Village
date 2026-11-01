@@ -1,0 +1,20 @@
+{
+  "backend": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+  "warmRAF": {
+    "count": 81,
+    "medianMs": 523.3000000044703,
+    "p95Ms": 555.3999999985099,
+    "maxMs": 1211.2000000029802
+  },
+  "submissionCpuMedianMs": 3.5499999970197678,
+  "stateInvariant": true,
+  "saveReload": true,
+  "errors": [],
+  "files": {
+    "assets/game.js": "b33f81267dfbd671e914383cebc4638461e0c07c6db4724e57313503cac901a2",
+    "assets/webgl-taste.js": "8e972c6a950c9454b8aecf4ab1ada43d4fe6a328afd3826cb76502c39798d322",
+    "assets/newfoundland-kit.js": "19815a12517fbf39f3e5e1f73bf46395ebeb7696912e3d3626685beb883dea81",
+    "docs/previews/newfoundland-8/overview.png": "1214d1ea0154cdeab2366858f5c6478963b1aae1b850ea4b06d94b4fc411c4be",
+    "docs/previews/newfoundland-8/street-close.png": "df6ea57e39e4dd8ca5dd96470041dde2bbb5d152f2a18f84e7f2ed2938dcd0ca"
+  }
+}

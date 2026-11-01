@@ -1,0 +1,14 @@
+{
+  "assets/game.js": "0fa74c84768f835616804be362e550ca1fec65cf1c1d20b94ff30564481492dc",
+  "assets/webgl-transit-geometry.js": "46a6e7308dcefbf8f9925b7c55d11b7cbff6d813fe38c1a5247cbdf7428433ee",
+  "assets/webgl-actors.js": "e7f761691a2edcc9ddb7937dad3d50464fb3ff73129ac8b22e418cbe1fb094cb",
+  "assets/webgl-bridges.js": "e4f3ea3b53e0d27f7431bc232ff29981c87f91363d3da0b6084e7e8a48d0da01",
+  "assets/webgl-view.js": "07fafead609e237b2a1e56ea67f56a1292754f596a6fa754c43485e83998d83c",
+  "assets/webgl-static-batch.js": "ef5927cf016acc06ec768f71e1beac5c12f21e6bf9ca9c034c155a68587fc292",
+  "assets/webgl-entry.js": "980175962efeb1cff600fda381246b3db42bc7e5b6afc3e2f6825472da25047e",
+  "assets/webgl-taste.js": "7bb53ac05caa72ce3a03ebae42262e05c5bb11aab7238c36a8c8f5d95969728f",
+  "assets/newfoundland-specialized.js": "621d61fd65319f39bba59fcfe07b5803a505f3152c3b7ee50f91bf82e4833123",
+  "assets/newfoundland-workplaces.js": "411521c2e02d33192adff545fd081905995ebd2411e04cfa30cbee4c4760d4e5",
+  "assets/newfoundland-families.js": "207d24e6078e19b0fe56a4a30d16f0e6f5552bf7baf00b14f3b2f88bf1d0d757",
+  "assets/newfoundland-kit.js": "a217b26fed43725c23f5e3b11bad6b37b2ef7776648a84954eea597500bd983d"
+}

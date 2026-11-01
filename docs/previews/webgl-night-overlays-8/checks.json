@@ -1,0 +1,205 @@
+{
+  "sourceModules": {
+    "assets/game.js": "b482a418c2eba8bb010af1204d000b640083470c3269c3ba72d743bb6bde79a4",
+    "assets/webgl-actors.js": "e7f761691a2edcc9ddb7937dad3d50464fb3ff73129ac8b22e418cbe1fb094cb",
+    "assets/webgl-bridges.js": "e4f3ea3b53e0d27f7431bc232ff29981c87f91363d3da0b6084e7e8a48d0da01",
+    "assets/webgl-entry.js": "980175962efeb1cff600fda381246b3db42bc7e5b6afc3e2f6825472da25047e",
+    "assets/webgl-map-overlay.js": "d4df7a9a75c7da788f87c9f22ad4e97e8f192a359b8103ef576045335f318cb2",
+    "assets/webgl-static-batch.js": "ef5927cf016acc06ec768f71e1beac5c12f21e6bf9ca9c034c155a68587fc292",
+    "assets/webgl-taste.js": "5346eec63ed52693fff7c442356863d373dfc18bf46e72e667b3d31d8e0a3d8d",
+    "assets/webgl-transit-geometry.js": "46a6e7308dcefbf8f9925b7c55d11b7cbff6d813fe38c1a5247cbdf7428433ee",
+    "assets/webgl-view.js": "55164f63aed7f4e7809e07af32ca2d6db776be7ebaa0ebcdbdb036fc7eb22f79",
+    "assets/newfoundland-families.js": "207d24e6078e19b0fe56a4a30d16f0e6f5552bf7baf00b14f3b2f88bf1d0d757",
+    "assets/newfoundland-kit.js": "a217b26fed43725c23f5e3b11bad6b37b2ef7776648a84954eea597500bd983d",
+    "assets/newfoundland-specialized.js": "621d61fd65319f39bba59fcfe07b5803a505f3152c3b7ee50f91bf82e4833123",
+    "assets/newfoundland-workplaces.js": "411521c2e02d33192adff545fd081905995ebd2411e04cfa30cbee4c4760d4e5"
+  },
+  "cases": [
+    {
+      "overlay": "roads",
+      "stats": {
+        "marks": 72,
+        "areas": 0,
+        "routes": 0
+      },
+      "memory": {
+        "geometries": 15,
+        "textures": 3
+      },
+      "quality": "balanced",
+      "canvases": 1,
+      "held": true
+    },
+    {
+      "overlay": "business",
+      "stats": {
+        "marks": 19,
+        "areas": 0,
+        "routes": 0
+      },
+      "memory": {
+        "geometries": 15,
+        "textures": 3
+      },
+      "quality": "balanced",
+      "canvases": 1,
+      "held": true
+    },
+    {
+      "overlay": "hardship",
+      "stats": {
+        "marks": 44,
+        "areas": 0,
+        "routes": 0
+      },
+      "memory": {
+        "geometries": 15,
+        "textures": 3
+      },
+      "quality": "balanced",
+      "canvases": 1,
+      "held": true
+    },
+    {
+      "overlay": "crime",
+      "stats": {
+        "marks": 0,
+        "areas": 0,
+        "routes": 0
+      },
+      "memory": {
+        "geometries": 15,
+        "textures": 3
+      },
+      "quality": "balanced",
+      "canvases": 1,
+      "held": true
+    },
+    {
+      "overlay": "land",
+      "stats": {
+        "marks": 72,
+        "areas": 0,
+        "routes": 0
+      },
+      "memory": {
+        "geometries": 15,
+        "textures": 3
+      },
+      "quality": "balanced",
+      "canvases": 1,
+      "held": true
+    },
+    {
+      "overlay": "healthAccess",
+      "stats": {
+        "marks": 44,
+        "areas": 0,
+        "routes": 0
+      },
+      "memory": {
+        "geometries": 15,
+        "textures": 3
+      },
+      "quality": "balanced",
+      "canvases": 1,
+      "held": true
+    },
+    {
+      "overlay": "schoolAccess",
+      "stats": {
+        "marks": 44,
+        "areas": 0,
+        "routes": 0
+      },
+      "memory": {
+        "geometries": 15,
+        "textures": 3
+      },
+      "quality": "balanced",
+      "canvases": 1,
+      "held": true
+    },
+    {
+      "overlay": "transit",
+      "stats": {
+        "marks": 0,
+        "areas": 0,
+        "routes": 0
+      },
+      "memory": {
+        "geometries": 15,
+        "textures": 3
+      },
+      "quality": "balanced",
+      "canvases": 1,
+      "held": true
+    },
+    {
+      "overlay": "metro",
+      "stats": {
+        "marks": 0,
+        "areas": 0,
+        "routes": 0
+      },
+      "memory": {
+        "geometries": 15,
+        "textures": 3
+      },
+      "quality": "balanced",
+      "canvases": 1,
+      "held": true
+    },
+    {
+      "overlay": "neighbourhoods",
+      "stats": {
+        "marks": 0,
+        "areas": 0,
+        "routes": 0
+      },
+      "memory": {
+        "geometries": 15,
+        "textures": 3
+      },
+      "quality": "balanced",
+      "canvases": 1,
+      "held": true
+    },
+    {
+      "overlay": "charter",
+      "stats": {
+        "marks": 0,
+        "areas": 1,
+        "routes": 0
+      },
+      "memory": {
+        "geometries": 15,
+        "textures": 3
+      },
+      "quality": "balanced",
+      "canvases": 1,
+      "held": true
+    },
+    {
+      "overlay": "none",
+      "stats": {
+        "marks": 0,
+        "areas": 0,
+        "routes": 0
+      },
+      "memory": {
+        "geometries": 15,
+        "textures": 3
+      },
+      "quality": "balanced",
+      "canvases": 1,
+      "held": true
+    }
+  ],
+  "archiveInvariant": true,
+  "farIndividualWorkZero": true,
+  "largeTextReducedMotion": true,
+  "canvasFallbackClean": true,
+  "save": true,
+  "errors": []
+}

@@ -1,0 +1,11 @@
+# Composite batching experiment
+
+Composite source includes the exact urban descriptor module from b7a6039a799b2ceac38903f85da45933b61d4154. Architecture cue projection is exercised, rather than just an optional fallback contract. This does not promote that candidate to production.
+
+Static material groups bake original mesh transforms and inverse-transpose normals into shared geometry. Triangle ranges retain original building identity for actual ray picking. Instanced box components remain instanced. No model or road topology changes.
+
+Initial timing run overlaps the control regression browser and is retained as a contaminated diagnostic, not a controlled performance comparison. A serial measurement replaces the primary results below. All measurements are host Chromium SwiftShader software graphics, not physical-device performance. Architectural family coverage remains partial.
+
+Serial same-archive results (1000×577 backing, same model digest): unbatched 846 calls /188,906 triangles, RAF median422.8ms/p95454.3; batched131calls/192,802triangles, median422.0/p95435.5; batched + static shadow cache66calls/96,402triangles on warm colour frames, median305.7/p95336.9. CPU submission3.85→1.15→0.8ms is reported separately from actual RAF. GPU geometry resources372→13; warm shaderprograms8→6 with cached shadows (not a full material count). Group culling slightly increases submitted triangles with batching; no claim of geometry reduction for batching alone. This is a useful call/submission improvement but still extremely slow software rendering, not production performance acceptance.
+
+Cached shadow image is pixel-identical to batched dynamically rebuilt shadow image. Batching vs original differs in134 of2,800,000 screenshot channels (floating-point transformed geometry/raster edges); no broad material/lighting difference. Both source frames are preserved. Authoritative context projection reports actual architecture cues on all102buildings with unchanged archive and no errors. Controls/picking/paid road/live rebuild/portrait/save/fallback passed before shadow-cache toggle; static shadow caching is valid only for this current static scene, invalidated on every committed scene rebuild. Future moving actors must use a separately updated shadow path or invalidate it; they are not implemented here.

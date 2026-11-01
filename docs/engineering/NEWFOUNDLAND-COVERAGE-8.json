@@ -1,0 +1,176 @@
+{
+  "source": "95a9b1f / Newfoundland kit2f12f8f",
+  "registeredTypeCount": 34,
+  "types": [
+    {
+      "kind": "transit_depot",
+      "webglStatus": "missing_specialized_representation",
+      "productionAccepted": false
+    },
+    {
+      "kind": "elevated_station",
+      "webglStatus": "missing_specialized_representation",
+      "productionAccepted": false
+    },
+    {
+      "kind": "bank",
+      "webglStatus": "generic_placeholder",
+      "productionAccepted": false
+    },
+    {
+      "kind": "worksite",
+      "webglStatus": "missing_specialized_representation",
+      "productionAccepted": false
+    },
+    {
+      "kind": "apartment",
+      "webglStatus": "covered_geometry_partial_context",
+      "productionAccepted": false
+    },
+    {
+      "kind": "tower",
+      "webglStatus": "missing_specialized_representation",
+      "productionAccepted": false
+    },
+    {
+      "kind": "factory",
+      "webglStatus": "generic_placeholder",
+      "productionAccepted": false
+    },
+    {
+      "kind": "warehouse",
+      "webglStatus": "generic_placeholder",
+      "productionAccepted": false
+    },
+    {
+      "kind": "office",
+      "webglStatus": "generic_placeholder",
+      "productionAccepted": false
+    },
+    {
+      "kind": "college",
+      "webglStatus": "generic_placeholder",
+      "productionAccepted": false
+    },
+    {
+      "kind": "airport",
+      "webglStatus": "missing_specialized_representation",
+      "productionAccepted": false
+    },
+    {
+      "kind": "metro_station",
+      "webglStatus": "missing_specialized_representation",
+      "productionAccepted": false
+    },
+    {
+      "kind": "repair",
+      "webglStatus": "tool_not_building",
+      "productionAccepted": false
+    },
+    {
+      "kind": "home",
+      "webglStatus": "covered_geometry_partial_context",
+      "productionAccepted": false
+    },
+    {
+      "kind": "grocer",
+      "webglStatus": "covered_geometry_partial_context",
+      "productionAccepted": false
+    },
+    {
+      "kind": "bakery",
+      "webglStatus": "covered_geometry_partial_context",
+      "productionAccepted": false
+    },
+    {
+      "kind": "mill",
+      "webglStatus": "generic_placeholder",
+      "productionAccepted": false
+    },
+    {
+      "kind": "farm",
+      "webglStatus": "missing_specialized_representation",
+      "productionAccepted": false
+    },
+    {
+      "kind": "forestry",
+      "webglStatus": "missing_specialized_representation",
+      "productionAccepted": false
+    },
+    {
+      "kind": "sawmill",
+      "webglStatus": "generic_placeholder",
+      "productionAccepted": false
+    },
+    {
+      "kind": "quarry",
+      "webglStatus": "missing_specialized_representation",
+      "productionAccepted": false
+    },
+    {
+      "kind": "contractor",
+      "webglStatus": "generic_placeholder",
+      "productionAccepted": false
+    },
+    {
+      "kind": "townhall",
+      "webglStatus": "generic_placeholder",
+      "productionAccepted": false
+    },
+    {
+      "kind": "police",
+      "webglStatus": "generic_placeholder",
+      "productionAccepted": false
+    },
+    {
+      "kind": "fire",
+      "webglStatus": "generic_placeholder",
+      "productionAccepted": false
+    },
+    {
+      "kind": "clinic",
+      "webglStatus": "generic_placeholder",
+      "productionAccepted": false
+    },
+    {
+      "kind": "park",
+      "webglStatus": "missing_specialized_representation",
+      "productionAccepted": false
+    },
+    {
+      "kind": "school",
+      "webglStatus": "generic_placeholder",
+      "productionAccepted": false
+    },
+    {
+      "kind": "courthouse",
+      "webglStatus": "generic_placeholder",
+      "productionAccepted": false
+    },
+    {
+      "kind": "watchtower",
+      "webglStatus": "missing_specialized_representation",
+      "productionAccepted": false
+    },
+    {
+      "kind": "square",
+      "webglStatus": "missing_specialized_representation",
+      "productionAccepted": false
+    },
+    {
+      "kind": "wharf",
+      "webglStatus": "missing_specialized_representation",
+      "productionAccepted": false
+    },
+    {
+      "kind": "fishery",
+      "webglStatus": "missing_specialized_representation",
+      "productionAccepted": false
+    },
+    {
+      "kind": "tavern",
+      "webglStatus": "covered_geometry_partial_context",
+      "productionAccepted": false
+    }
+  ]
+}

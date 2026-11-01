@@ -1,0 +1,16 @@
+[
+  {
+    "failedWebGLImport": false,
+    "canvasVisible": true,
+    "saveOK": true,
+    "noHeavyDefaultImports": true,
+    "errors": []
+  },
+  {
+    "failedWebGLImport": true,
+    "canvasVisible": true,
+    "saveOK": true,
+    "noHeavyDefaultImports": false,
+    "errors": []
+  }
+]

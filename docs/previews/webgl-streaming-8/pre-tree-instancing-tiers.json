@@ -1,0 +1,226 @@
+[
+  {
+    "quality": "reference",
+    "lod": "near",
+    "selected": {
+      "minX": 0,
+      "minZ": 0,
+      "maxX": 56,
+      "maxZ": 56,
+      "lod": "near",
+      "key": "0:0:56:56:near"
+    },
+    "buildMs": 255.60000000149012,
+    "loaded": 102,
+    "backingSize": [
+      1000,
+      577
+    ],
+    "shadowSize": 1024,
+    "shadowPasses": 0,
+    "cpu": {
+      "n": 28,
+      "medianMs": 0.5999999940395355,
+      "p95Ms": 2.100000001490116,
+      "maxMs": 2.399999998509884
+    },
+    "raf": {
+      "n": 27,
+      "medianMs": 344.3999999985099,
+      "p95Ms": 363.8999999985099,
+      "maxMs": 382.8999999985099
+    },
+    "backend": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+    "calls": 20,
+    "triangles": 182270,
+    "memory": {
+      "geometries": 12,
+      "textures": 2
+    },
+    "batching": {
+      "removed": 1494,
+      "groups": 12
+    },
+    "programs": 7,
+    "materials": 20,
+    "before": {
+      "day": 1,
+      "total": 15508288,
+      "rng": 2736594555
+    },
+    "batchMode": "detail",
+    "modelDigest": "e1c9b1eae01d5cac5d74996e2ac3ed888168d711b36806b44d3f6e4a91cfa8da",
+    "elapsedSeconds": 19.090703950001625,
+    "stateInvariant": true,
+    "saveOK": true,
+    "errors": []
+  },
+  {
+    "quality": "reference",
+    "lod": "mid",
+    "selected": {
+      "minX": 0,
+      "minZ": 0,
+      "maxX": 56,
+      "maxZ": 56,
+      "lod": "mid",
+      "key": "0:0:56:56:mid"
+    },
+    "buildMs": 150.30000000447035,
+    "loaded": 102,
+    "backingSize": [
+      1000,
+      577
+    ],
+    "shadowSize": 1024,
+    "shadowPasses": 0,
+    "cpu": {
+      "n": 28,
+      "medianMs": 0.6999999955296516,
+      "p95Ms": 1,
+      "maxMs": 1
+    },
+    "raf": {
+      "n": 27,
+      "medianMs": 281.70000000298023,
+      "p95Ms": 299.5,
+      "maxMs": 309.09999999403954
+    },
+    "backend": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+    "calls": 19,
+    "triangles": 89274,
+    "memory": {
+      "geometries": 12,
+      "textures": 2
+    },
+    "batching": {
+      "removed": 1046,
+      "groups": 12
+    },
+    "programs": 7,
+    "materials": 19,
+    "before": {
+      "day": 1,
+      "total": 15508288,
+      "rng": 2736594555
+    },
+    "batchMode": "lod",
+    "modelDigest": "e1c9b1eae01d5cac5d74996e2ac3ed888168d711b36806b44d3f6e4a91cfa8da",
+    "elapsedSeconds": 12.494128097998328,
+    "stateInvariant": true,
+    "saveOK": true,
+    "errors": []
+  },
+  {
+    "quality": "unshadowed",
+    "lod": "mid",
+    "selected": {
+      "minX": 0,
+      "minZ": 0,
+      "maxX": 56,
+      "maxZ": 56,
+      "lod": "mid",
+      "key": "0:0:56:56:mid"
+    },
+    "buildMs": 97.89999999850988,
+    "loaded": 102,
+    "backingSize": [
+      1000,
+      577
+    ],
+    "shadowSize": 0,
+    "shadowPasses": 0,
+    "cpu": {
+      "n": 28,
+      "medianMs": 0.5,
+      "p95Ms": 0.7999999970197678,
+      "maxMs": 0.8999999985098839
+    },
+    "raf": {
+      "n": 27,
+      "medianMs": 193.29999999701977,
+      "p95Ms": 211,
+      "maxMs": 220
+    },
+    "backend": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+    "calls": 19,
+    "triangles": 89274,
+    "memory": {
+      "geometries": 12,
+      "textures": 1
+    },
+    "batching": {
+      "removed": 1046,
+      "groups": 12
+    },
+    "programs": 4,
+    "materials": 19,
+    "before": {
+      "day": 1,
+      "total": 15508288,
+      "rng": 2736594555
+    },
+    "batchMode": "no-shadow",
+    "modelDigest": "e1c9b1eae01d5cac5d74996e2ac3ed888168d711b36806b44d3f6e4a91cfa8da",
+    "elapsedSeconds": 11.377790475999063,
+    "stateInvariant": true,
+    "saveOK": true,
+    "errors": []
+  },
+  {
+    "quality": "low",
+    "lod": "mid",
+    "selected": {
+      "minX": 0,
+      "minZ": 0,
+      "maxX": 56,
+      "maxZ": 56,
+      "lod": "mid",
+      "key": "0:0:56:56:mid"
+    },
+    "buildMs": 78.70000000298023,
+    "loaded": 102,
+    "backingSize": [
+      750,
+      432
+    ],
+    "shadowSize": 0,
+    "shadowPasses": 0,
+    "cpu": {
+      "n": 28,
+      "medianMs": 0.5,
+      "p95Ms": 0.7000000029802322,
+      "maxMs": 0.8000000044703484
+    },
+    "raf": {
+      "n": 27,
+      "medianMs": 166,
+      "p95Ms": 174.69999999552965,
+      "maxMs": 206.39999999850988
+    },
+    "backend": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+    "calls": 19,
+    "triangles": 89274,
+    "memory": {
+      "geometries": 12,
+      "textures": 1
+    },
+    "batching": {
+      "removed": 1046,
+      "groups": 12
+    },
+    "programs": 4,
+    "materials": 19,
+    "before": {
+      "day": 1,
+      "total": 15508288,
+      "rng": 2736594555
+    },
+    "batchMode": "low-raster",
+    "modelDigest": "e1c9b1eae01d5cac5d74996e2ac3ed888168d711b36806b44d3f6e4a91cfa8da",
+    "elapsedSeconds": 9.594987783006218,
+    "stateInvariant": true,
+    "saveOK": true,
+    "errors": []
+  }
+]

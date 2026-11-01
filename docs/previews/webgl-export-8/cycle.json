@@ -1,0 +1,213 @@
+{
+  "sourceSha256": "1506c33c70ad5a040b65176bde83074261c23c450d9a1795c0e41208ce6749d2",
+  "order": {
+    "id": 73,
+    "direction": "export",
+    "mode": "river",
+    "stage": "collecting"
+  },
+  "actualProductionDaysBeforeQuote": 4,
+  "normalClockSeconds": 10.796,
+  "departureVesselObserved": true,
+  "beyondOutletSeaIntervalHidden": true,
+  "terminalStatus": "Delivered",
+  "cycle": [
+    {
+      "elapsed": 0.61,
+      "day": 5,
+      "active": "collecting",
+      "recent": null,
+      "boat": null
+    },
+    {
+      "elapsed": 1.252,
+      "day": 5,
+      "active": "collecting",
+      "recent": null,
+      "boat": null
+    },
+    {
+      "elapsed": 2.196,
+      "day": 6,
+      "active": "collecting",
+      "recent": null,
+      "boat": null
+    },
+    {
+      "elapsed": 2.931,
+      "day": 6,
+      "active": "collecting",
+      "recent": null,
+      "boat": null
+    },
+    {
+      "elapsed": 3.916,
+      "day": 6,
+      "active": "collecting",
+      "recent": null,
+      "boat": {
+        "id": "vessel:900073",
+        "kind": "boat",
+        "x": 3.1242259987499867,
+        "z": 22.926171962886357,
+        "dx": 0,
+        "dz": -0.35999999999999943,
+        "color": "#b18b57",
+        "opacity": 1
+      }
+    },
+    {
+      "elapsed": 4.64,
+      "day": 7,
+      "active": "outside",
+      "recent": null,
+      "boat": {
+        "id": "vessel:900073",
+        "kind": "boat",
+        "x": 3.124225998749987,
+        "z": 8.745929538643955,
+        "dx": 0,
+        "dz": -1,
+        "color": "#b18b57",
+        "opacity": 1
+      }
+    },
+    {
+      "elapsed": 5.178,
+      "day": 7,
+      "active": "outside",
+      "recent": null,
+      "boat": {
+        "id": "vessel:900073",
+        "kind": "boat",
+        "x": 3.1242259987499894,
+        "z": 0.867141659856068,
+        "dx": 0,
+        "dz": -1,
+        "color": "#b18b57",
+        "opacity": 0.8709956709956858
+      }
+    },
+    {
+      "elapsed": 5.807,
+      "day": 8,
+      "active": "outside",
+      "recent": null,
+      "boat": null
+    },
+    {
+      "elapsed": 6.073,
+      "day": 8,
+      "active": "outside",
+      "recent": null,
+      "boat": null
+    },
+    {
+      "elapsed": 6.319,
+      "day": 8,
+      "active": "outside",
+      "recent": null,
+      "boat": null
+    },
+    {
+      "elapsed": 6.586,
+      "day": 8,
+      "active": "outside",
+      "recent": null,
+      "boat": null
+    },
+    {
+      "elapsed": 6.875,
+      "day": 8,
+      "active": "outside",
+      "recent": null,
+      "boat": null
+    },
+    {
+      "elapsed": 7.145,
+      "day": 9,
+      "active": "outside",
+      "recent": null,
+      "boat": null
+    },
+    {
+      "elapsed": 7.477,
+      "day": 9,
+      "active": "outside",
+      "recent": null,
+      "boat": null
+    },
+    {
+      "elapsed": 7.778,
+      "day": 9,
+      "active": "outside",
+      "recent": null,
+      "boat": null
+    },
+    {
+      "elapsed": 8.037,
+      "day": 9,
+      "active": "outside",
+      "recent": null,
+      "boat": null
+    },
+    {
+      "elapsed": 8.309,
+      "day": 9,
+      "active": "outside",
+      "recent": null,
+      "boat": null
+    },
+    {
+      "elapsed": 8.595,
+      "day": 10,
+      "active": "outside",
+      "recent": null,
+      "boat": null
+    },
+    {
+      "elapsed": 8.864,
+      "day": 10,
+      "active": "outside",
+      "recent": null,
+      "boat": null
+    },
+    {
+      "elapsed": 9.209,
+      "day": 10,
+      "active": "outside",
+      "recent": null,
+      "boat": null
+    },
+    {
+      "elapsed": 9.499,
+      "day": 10,
+      "active": "outside",
+      "recent": null,
+      "boat": null
+    },
+    {
+      "elapsed": 9.765,
+      "day": 10,
+      "active": "outside",
+      "recent": null,
+      "boat": null
+    },
+    {
+      "elapsed": 10.025,
+      "day": 10,
+      "active": "outside",
+      "recent": null,
+      "boat": null
+    },
+    {
+      "elapsed": 10.293,
+      "day": 11,
+      "active": null,
+      "recent": "Delivered",
+      "boat": null
+    }
+  ],
+  "save": true,
+  "errors": []
+}

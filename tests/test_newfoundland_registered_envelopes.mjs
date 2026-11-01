@@ -1,0 +1,13 @@
+// Exercise every registered entity's original kit on its real newly-built lot.
+import fs from 'node:fs';import os from 'node:os';import path from 'node:path';import {pathToFileURL} from 'node:url';
+const tmp=fs.mkdtempSync(path.join(os.tmpdir(),'nl-registered-'));
+try{
+fs.copyFileSync('assets/vendor/three-0.160.1.module.js',tmp+'/three.mjs');for(const name of ['families','kit','workplaces','specialized'])fs.writeFileSync(tmp+'/'+name+'.mjs',fs.readFileSync('assets/newfoundland-'+name+'.js','utf8').replace('./vendor/three-0.160.1.module.js','./three.mjs').replace('./newfoundland-families.js','./families.mjs'));
+const THREE=await import(pathToFileURL(tmp+'/three.mjs')),{newfoundlandBuilding}=await import(pathToFileURL(tmp+'/kit.mjs')),{newfoundlandWorkplace}=await import(pathToFileURL(tmp+'/workplaces.mjs')),{newfoundlandSpecialized}=await import(pathToFileURL(tmp+'/specialized.mjs'));
+const foundation=fs.readFileSync('src/00-foundation.js','utf8').split('const types={')[1].split('\n};')[0],kinds=[...foundation.matchAll(/^\s*(\w+):\{/gm)].map(m=>m[1]),sizes=Function('return '+fs.readFileSync('src/20-world.js','utf8').match(/const LANDMARK_SIZE=(\{[\s\S]*?\});/)[1])();let cases=0;
+for(const kind of kinds.filter(k=>!['repair','worksite'].includes(k)))for(let front=0;front<4;front++){
+ const [w,d]=sizes[kind]||[1,1],T=32,x=12,z=12,footprint=Array.from({length:w*d},(_,i)=>(z+Math.floor(i/w))*T+x+i%w),b={id:7,x,y:z,kind,condition:100,footprint,firm:{closed:false,stock:{logs:100}}},state={size:T,tiles:Array(T*T).fill(0),buildings:[b],districtSemanticsAccepted:false};const [dx,dz]=[[0,1],[1,0],[0,-1],[-1,0]][front];state.tiles[(z+(dz>0?d:dz<0?-1:0))*T+x+(dx>0?w:dx<0?-1:0)]=1;const before=JSON.stringify(state),scene=new THREE.Scene(),bounds=[];const box=(xx,y,zz,a,h,c)=>bounds.push([xx-a/2,zz-c/2,xx+a/2,zz+c/2]);
+ if(!(newfoundlandSpecialized(b,{state,box})||newfoundlandBuilding(b,{state,scene,box})||newfoundlandWorkplace(b,{state,scene,box})))throw Error('missing registered entity '+kind);scene.updateMatrixWorld(true);scene.traverse(o=>{if(o.isMesh){o.geometry.computeBoundingBox();const q=o.geometry.boundingBox.clone().applyMatrix4(o.matrixWorld);bounds.push([q.min.x,q.min.z,q.max.x,q.max.z]);}});for(const q of bounds)if(q[0]<x-.5-1e-6||q[1]<z-.5-1e-6||q[2]>x+w-.5+1e-6||q[3]>z+d-.5+1e-6)throw Error(JSON.stringify({kind,front,q,w,d}));if(JSON.stringify(state)!==before)throw Error('changed model '+kind);scene.traverse(o=>{o.geometry?.dispose();o.material?.dispose();});cases++;
+}
+console.log('PASS',cases,'registered-kind/cardinal real-footprint geometry envelopes; repair is a tool, worksite fenced by renderer');
+}finally{fs.rmSync(tmp,{recursive:true,force:true});}

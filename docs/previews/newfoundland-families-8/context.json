@@ -1,0 +1,27 @@
+{
+  "firstAnd10CachedMs": 7.699999995529652,
+  "districtCount": 16,
+  "buildings": 102,
+  "hasTenure": true,
+  "hasArchitecture": true,
+  "architectureCues": [
+    "local-building",
+    "nl-fire-apparatus-hall",
+    "nl-cottage-clinic",
+    "nl-institutional-brick-stone",
+    "nl-stone-brick-bank",
+    "nl-market-streetfront",
+    "nl-working-industry",
+    "nl-farmstead",
+    "nl-commercial-chambers",
+    "nl-compact-worker-house",
+    "nl-historic-town-row",
+    "nl-working-waterfront"
+  ],
+  "incomeBands": [
+    "No resident income",
+    "Lower income"
+  ],
+  "archiveInvariant": true,
+  "errors": []
+}
