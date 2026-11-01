@@ -1,0 +1,12 @@
+{
+  "firstAnd10CachedMs": 4.199999995529652,
+  "districtCount": 16,
+  "buildings": 102,
+  "hasTenure": true,
+  "incomeBands": [
+    "No resident income",
+    "Lower income"
+  ],
+  "archiveInvariant": true,
+  "errors": []
+}

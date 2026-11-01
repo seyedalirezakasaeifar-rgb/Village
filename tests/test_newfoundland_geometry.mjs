@@ -1,5 +1,6 @@
 import fs from 'node:fs';import os from 'node:os';import path from 'node:path';import {pathToFileURL} from 'node:url';
 const tmp=fs.mkdtempSync(path.join(os.tmpdir(),'newfoundland-geometry-'));fs.copyFileSync(new URL('../assets/vendor/three-0.160.1.module.js',import.meta.url),path.join(tmp,'three.mjs'));fs.writeFileSync(path.join(tmp,'kit.mjs'),fs.readFileSync(new URL('../assets/newfoundland-kit.js',import.meta.url),'utf8').replace('./vendor/three-0.160.1.module.js','./three.mjs'));
+fs.writeFileSync(path.join(tmp,'families.mjs'),fs.readFileSync(new URL('../assets/newfoundland-families.js',import.meta.url),'utf8'));fs.writeFileSync(path.join(tmp,'kit.mjs'),fs.readFileSync(path.join(tmp,'kit.mjs'),'utf8').replace('./newfoundland-families.js','./families.mjs'));
 const THREE=await import(pathToFileURL(path.join(tmp,'three.mjs'))),{newfoundlandBuilding}=await import(pathToFileURL(path.join(tmp,'kit.mjs')));
 let cases=0;
 for(const kind of ['home','apartment','grocer','bakery','tavern'])for(let front=0;front<4;front++)for(const attached of [false,true]){

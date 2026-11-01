@@ -7,9 +7,8 @@
   },
   "dragPick": {
     "x": 20,
-    "y": 28,
-    "id": 3604,
-    "building": 80
+    "y": 27,
+    "id": 3476
   },
   "zoomWheel": true,
   "resizePortrait": true,
