@@ -14,7 +14,9 @@ Base: common disabled codec candidate `f4f094d5c3bd7fe025a9f2a463fa795f2caf36c8`
 - Both actual roots refuse on a certified initialized near-limit state (about 8,380,416 / 8,380,470 wire bytes). A controlled conservative 16 KiB reservation exceeds remaining headroom. Full G JSON, live RNG, crew state, save chronology, pending-save reference, and all watched persistence/story/toast calls remain unchanged; no success effects occur. This is a controlled refusal policy, not a proved forecast of these operations' actual byte growth. The experiment cannot grant even if a callback returns ok:true.
 - The common candidate's pure encodeInactiveLogicalArchive certifies the initialized near-limit fixture. hydrateSave is used only to prepare/import the test fixture before command snapshots; it is never a command/day commit or rollback helper. captureArchiveRuntime is not used as a whole-model rollback mechanism.
 
-The reused side-effect corpus also passes strict atomic mode with this actual root interceptor:
+The same strict corpus on bare f4f094d (without the experimental root) fails the four external/financial/world gates, as expected because this common candidate has no paid-command admission yet. The receipt is bare-common-negative.json. No expected conservation or committed-state checks were relaxed.
+
+The reused side-effect corpus passes strict atomic mode with this actual root interceptor:
 
 `CAPACITY_EXPECT_ATOMIC=1 CAPACITY_ROOT_PROTOTYPE=1 python tools/test_capacity_side_effects.py`
 
