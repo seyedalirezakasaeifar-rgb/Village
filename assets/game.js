@@ -8227,7 +8227,7 @@ window.__cityVisualSave=()=>save();
 window.__cityVisualRevision=()=>G&&!simulationBusy&&!roadBatchDirty?[cityVisualUrbanEpoch,G.day,G.construction,roadsVersion,G.bridgeRevision||0,G.transit?.revision||0,G.urban?.revision||0,G.regionalTrade?.serial||0,G.regionalTrade?.shipments?.length||0,nightMode,overlay,gameOptions.quality,gameOptions.decor,gameOptions.largeText,gameOptions.fps,G.charter?.revision||0,parcelFocus].join(':'):'';
 window.__cityVisualTap=(x,y)=>{if(!G||simulationBusy||!Number.isInteger(x)||!Number.isInteger(y)||x<0||y<0||x>=T||y>=T)return false;const p=roadCenter(roadId(x,y)),r=cv.getBoundingClientRect();onTap(r.left+cw/2+(p[0]-cam.x)*cam.zoom,r.top+ch/2+(p[1]-cam.y)*cam.zoom);return true;};
 // Live presentation bridge. Cooperative partial days are never inspected.
-window.__cityVisualMotionState=()=>G?{paused,busy:simulationBusy||roadBatchDirty,clock:frameClock,reduced:gameOptions.reducedMotion}:null;
+window.__cityVisualMotionState=()=>G?{paused,busy:simulationBusy||roadBatchDirty,clock:frameClock,reduced:gameOptions.reducedMotion,traffic:gameOptions.traffic,effects:gameOptions.effects}:null;
 let cityVisualOrderCache=null;
 window.__cityVisualActors=(detail,bounds)=>{
  window.__cityVisualActorWork={sources:0,positions:0};

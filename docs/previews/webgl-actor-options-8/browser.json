@@ -1,0 +1,9 @@
+{
+  "realTripActorsBefore": 1,
+  "actorsWhilePausedTrafficOff": 0,
+  "reappearedWhileStillPaused": true,
+  "fullArchiveRNGInvariantAfterSettingsVisit": true,
+  "noSyntheticActors": true,
+  "save": true,
+  "errors": []
+}
