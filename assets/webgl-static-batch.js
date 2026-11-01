@@ -1,11 +1,11 @@
 // Original static material batching. Model identity is retained per triangle;
 // transformed normals use the inverse-transpose matrix, including nonuniform scale.
 import * as THREE from './vendor/three-0.160.1.module.js';
-export function batchStaticMeshes(scene){
+export function batchStaticMeshes(scene,chunkSize=Infinity){
  const groups=new Map();scene.updateMatrixWorld(true);
  for(const mesh of [...scene.children]){
   if(!mesh.isMesh||mesh.isInstancedMesh||Array.isArray(mesh.material))continue;
-  const m=mesh.material,key=[m.type,m.color?.getHex(),m.roughness,m.metalness,m.side,m.map?.uuid||'',mesh.castShadow,mesh.receiveShadow].join(':');
+  const m=mesh.material,key=[m.type,m.color?.getHex(),m.roughness,m.metalness,m.side,m.map?.uuid||'',mesh.castShadow,mesh.receiveShadow,Math.floor(mesh.position.x/chunkSize),Math.floor(mesh.position.z/chunkSize)].join(':');
   if(!groups.has(key))groups.set(key,[]);groups.get(key).push(mesh);
  }
  let removed=0;

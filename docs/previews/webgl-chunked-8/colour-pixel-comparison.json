@@ -1,0 +1,11 @@
+{
+  "differentChannels": 43,
+  "totalChannels": 2100000,
+  "maximumDifference": 29,
+  "bounds": [
+    342,
+    149,
+    887,
+    386
+  ]
+}
