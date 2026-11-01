@@ -1,0 +1,1 @@
+PASS exact next-day road-quality continuation {'day': 118, 'exact': True, 'changed': [], 'uninterruptedQuality': 96, 'restoredQuality': 96, 'roadCondition': 96, 'statsDifferences': [], 'rngA': 1787470690, 'rngB': 1787470690, 'moneyDrift': -2.0489096641540527e-08}

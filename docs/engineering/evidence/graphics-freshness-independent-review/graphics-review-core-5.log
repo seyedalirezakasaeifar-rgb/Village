@@ -1,0 +1,204 @@
+{
+  "base": "0a6d217933eb0eac0c42787483ae96c624d23ef5",
+  "base_source_sha256": "0eb5adab795072940e9a5966aae295381daa490c6be2b8e97a32725dc45f9db4",
+  "source_sha256": "9a0f9837671de4f2b4e0177a43a60c852bb5baa2cd09643d360cfc3f2d123c58",
+  "excludedFields": [],
+  "checkpoints": [
+    {
+      "scenario": "settlement",
+      "elapsedDays": 0,
+      "completeStateMatchesIndependentExpectedLedger": true,
+      "historyColdBuilds": 0,
+      "quarterCalls": 0,
+      "quarterCaptureCPUmsWithDuplicateCapture": 0
+    },
+    {
+      "scenario": "settlement",
+      "elapsedDays": 90,
+      "completeStateMatchesIndependentExpectedLedger": true,
+      "historyColdBuilds": 0,
+      "quarterCalls": 1,
+      "quarterCaptureCPUmsWithDuplicateCapture": 4.799999997019768
+    },
+    {
+      "scenario": "settlement",
+      "elapsedDays": 180,
+      "completeStateMatchesIndependentExpectedLedger": true,
+      "historyColdBuilds": 0,
+      "quarterCalls": 2,
+      "quarterCaptureCPUmsWithDuplicateCapture": 5.299999997019768
+    },
+    {
+      "scenario": "settlement",
+      "elapsedDays": 270,
+      "completeStateMatchesIndependentExpectedLedger": true,
+      "historyColdBuilds": 0,
+      "quarterCalls": 3,
+      "quarterCaptureCPUmsWithDuplicateCapture": 5.5
+    },
+    {
+      "scenario": "settlement",
+      "elapsedDays": 360,
+      "completeStateMatchesIndependentExpectedLedger": true,
+      "historyColdBuilds": 0,
+      "quarterCalls": 4,
+      "quarterCaptureCPUmsWithDuplicateCapture": 5.700000002980232
+    },
+    {
+      "scenario": "regional",
+      "elapsedDays": 0,
+      "completeStateMatchesIndependentExpectedLedger": true,
+      "historyColdBuilds": 0,
+      "quarterCalls": 0,
+      "quarterCaptureCPUmsWithDuplicateCapture": 0
+    },
+    {
+      "scenario": "regional",
+      "elapsedDays": 90,
+      "completeStateMatchesIndependentExpectedLedger": true,
+      "historyColdBuilds": 0,
+      "quarterCalls": 1,
+      "quarterCaptureCPUmsWithDuplicateCapture": 0.30000000447034836
+    },
+    {
+      "scenario": "regional",
+      "elapsedDays": 180,
+      "completeStateMatchesIndependentExpectedLedger": true,
+      "historyColdBuilds": 0,
+      "quarterCalls": 2,
+      "quarterCaptureCPUmsWithDuplicateCapture": 0.7000000104308128
+    },
+    {
+      "scenario": "regional",
+      "elapsedDays": 270,
+      "completeStateMatchesIndependentExpectedLedger": true,
+      "historyColdBuilds": 0,
+      "quarterCalls": 3,
+      "quarterCaptureCPUmsWithDuplicateCapture": 1.1000000089406967
+    },
+    {
+      "scenario": "regional",
+      "elapsedDays": 360,
+      "completeStateMatchesIndependentExpectedLedger": true,
+      "historyColdBuilds": 0,
+      "quarterCalls": 4,
+      "quarterCaptureCPUmsWithDuplicateCapture": 1.5000000074505806
+    },
+    {
+      "scenario": "industrial",
+      "elapsedDays": 0,
+      "completeStateMatchesIndependentExpectedLedger": true,
+      "historyColdBuilds": 0,
+      "quarterCalls": 0,
+      "quarterCaptureCPUmsWithDuplicateCapture": 0
+    },
+    {
+      "scenario": "industrial",
+      "elapsedDays": 90,
+      "completeStateMatchesIndependentExpectedLedger": true,
+      "historyColdBuilds": 0,
+      "quarterCalls": 1,
+      "quarterCaptureCPUmsWithDuplicateCapture": 0.10000000149011612
+    },
+    {
+      "scenario": "industrial",
+      "elapsedDays": 180,
+      "completeStateMatchesIndependentExpectedLedger": true,
+      "historyColdBuilds": 0,
+      "quarterCalls": 2,
+      "quarterCaptureCPUmsWithDuplicateCapture": 0.20000000298023224
+    },
+    {
+      "scenario": "industrial",
+      "elapsedDays": 270,
+      "completeStateMatchesIndependentExpectedLedger": true,
+      "historyColdBuilds": 0,
+      "quarterCalls": 3,
+      "quarterCaptureCPUmsWithDuplicateCapture": 0.4000000059604645
+    },
+    {
+      "scenario": "industrial",
+      "elapsedDays": 360,
+      "completeStateMatchesIndependentExpectedLedger": true,
+      "historyColdBuilds": 0,
+      "quarterCalls": 4,
+      "quarterCaptureCPUmsWithDuplicateCapture": 0.6000000014901161
+    }
+  ],
+  "schema": {
+    "cases": [
+      {
+        "kind": "longAliasKey",
+        "accepted": false,
+        "atomic": true
+      },
+      {
+        "kind": "extraSnapshotField",
+        "accepted": false,
+        "atomic": true
+      },
+      {
+        "kind": "extraRowField",
+        "accepted": false,
+        "atomic": true
+      },
+      {
+        "kind": "negative",
+        "accepted": false,
+        "atomic": true
+      },
+      {
+        "kind": "fractional",
+        "accepted": false,
+        "atomic": true
+      },
+      {
+        "kind": "tooLarge",
+        "accepted": false,
+        "atomic": true
+      },
+      {
+        "kind": "threeSamples",
+        "accepted": false,
+        "atomic": true
+      },
+      {
+        "kind": "wrongSpacing",
+        "accepted": false,
+        "atomic": true
+      },
+      {
+        "kind": "future",
+        "accepted": false,
+        "atomic": true
+      },
+      {
+        "kind": "arrayBlocks",
+        "accepted": false,
+        "atomic": true
+      },
+      {
+        "kind": "arrayRow",
+        "accepted": false,
+        "atomic": true
+      },
+      {
+        "kind": "missingValue",
+        "accepted": false,
+        "atomic": true
+      }
+    ],
+    "maximumShapeAccepted": true,
+    "maximumLedgerUtf8Bytes": 51630,
+    "normalTownRestored": true
+  },
+  "observationalRecordCases": {
+    "youngSearching": 1,
+    "adultSearching": 1,
+    "paidCrewSearching": 0,
+    "publicCrewIncrease": 1,
+    "completeArchiveAndRngUnchanged": true,
+    "hundredReadsMs": 1.2000000029802322
+  },
+  "timingLimits": "Host diagnostic timers, including deliberate duplicate capture; not a device/FPS guarantee."
+}
