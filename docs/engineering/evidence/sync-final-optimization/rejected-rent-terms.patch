@@ -1,0 +1,15 @@
+diff --git a/src/27-urban-evolution.js b/src/27-urban-evolution.js
+index 14e344c..e3b4150 100644
+--- a/src/27-urban-evolution.js
++++ b/src/27-urban-evolution.js
+@@ -291,7 +291,9 @@ function urbanRetailProposal(explicit=false,reviewedKey=null){
+  site.footprint=best.footprint;site.retailCentre=true;invalidateBuildingIndex();financeConstruction(cost,site.id);G.development.privateSpend=(G.development.privateSpend||0)+cost;ensureUrban().revision++;invalidateUrban();story('Investors funded a six-plot shopping centre with an anchor food market, covered shopfronts and a loading court. It must recruit staff and buy real inventory before serving its catchment.','good',site.id);return {ok:true,reason:'A privately funded shopping centre is under construction.'};
+ }
+ function urbanEvolutionDay(){if(G.day%30!==0)return;urbanHousingMobility();urbanDistrictReview();if(G.day%90===0)urbanRecordActivity();if(!urbanFarmRenewal(cityDemand())&&G.day%90===0)urbanRetailProposal();}
+-function urbanRentMultiplier(home){if(!home)return 1;const d=urbanDescriptor(home.x,home.y);return clamp(.80+d.landValue/12000+home.condition*.0015+d.amenity*.018-d.pollution*.04,.65,1.55);}
++// Rent uses these numeric terms only; avoid allocating a full neighbourhood
++// descriptor per household. Arithmetic order matches urbanDescriptor exactly.
++function urbanRentMultiplier(home){if(!home)return 1;const c=urbanSpatial(),x=home.x,y=home.y,id=roadId(x,y),density=c.homes[id]||0,work=c.jobs[id]||0,pollution=c.industry[id]||0,amenity=c.amenity[id]||0,central=Math.max(0,1-(Math.abs(x-27)+Math.abs(y-27))/35),access=nearRoad(x,y),landValue=Math.round(600+(density*130+work*95+central*900+amenity*170)*(access?1:.55));return clamp(.80+landValue/12000+home.condition*.0015+amenity*.018-pollution*.04,.65,1.55);}
+ function urbanHousingMobility(){
+  const living=G.households.filter(h=>h.people.length),vacancies=urbanVacancies(-1,false);if(!living.length||!vacancies.length)return 0;const net=graph(),offset=(Math.floor(G.day/30)*24)%living.length;let moved=0;
+  const costAt=(h,site)=>{const portal=net.portals.get(site.id);if(portal==null||net.parts[portal]!==net.mainPart)return null;let commute=0,workers=0;

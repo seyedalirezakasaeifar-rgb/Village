@@ -1,0 +1,663 @@
+{
+  "sourceSHA256": "d80fc7e847ac6ed343413c523d5756cabd8fb1d69959d38d8317c1322330292e",
+  "fixtureSHA256": "ad6256fd85d4146fda9eeac0b16d5b182ed352c23bbd96af3b320553c29ce786",
+  "physicalDevice": false,
+  "audioStopped": true,
+  "panel": "economy",
+  "rows": [
+    {
+      "rate": 1,
+      "initial": {
+        "day": 41681,
+        "population": 778,
+        "total": 15493517.000209823
+      },
+      "final": {
+        "day": 41685,
+        "calls": {
+          "renderPanel": {
+            "n": 6,
+            "totalMs": 163.30000000447035,
+            "meanMs": 27.216666667411726,
+            "maxMs": 34.600000001490116
+          },
+          "draw": {
+            "n": 174,
+            "totalMs": 1085.5999999791384,
+            "meanMs": 6.2390804596502205,
+            "maxMs": 46.19999999552965
+          },
+          "updateHeader": {
+            "n": 31,
+            "totalMs": 11.200000017881393,
+            "meanMs": 0.3612903231574643,
+            "maxMs": 1.6999999955296516
+          },
+          "dailyEconomy": {
+            "n": 4,
+            "totalMs": 282.2000000104308,
+            "meanMs": 70.5500000026077,
+            "maxMs": 122.30000000447035
+          },
+          "recompute": {
+            "n": 8,
+            "totalMs": 4.200000002980232,
+            "meanMs": 0.525000000372529,
+            "maxMs": 0.9000000059604645
+          },
+          "systemsDay": {
+            "n": 4,
+            "totalMs": 2.1999999955296516,
+            "meanMs": 0.5499999988824129,
+            "maxMs": 1.2999999970197678
+          },
+          "urbanEvolutionDay": {
+            "n": 4,
+            "totalMs": 0,
+            "meanMs": 0.0,
+            "maxMs": 0
+          },
+          "tick": {
+            "n": 4,
+            "totalMs": 356.4999999925494,
+            "meanMs": 89.12499999813735,
+            "maxMs": 163.39999999850988
+          },
+          "assignJobs": {
+            "n": 1,
+            "totalMs": 2.2999999970197678,
+            "meanMs": 2.2999999970197678,
+            "maxMs": 2.2999999970197678
+          }
+        },
+        "population": 778,
+        "total": 15493517.000209821,
+        "goodsError": 3.68308974429965e-08,
+        "valid": {
+          "ok": true,
+          "issues": [],
+          "total": 15493517.000209821,
+          "population": 778,
+          "day": 41685
+        },
+        "requested": 1,
+        "displayedActual": 1.6499999999999995,
+        "backlog": 0.8483636363636384,
+        "pending": null
+      },
+      "wallMs": 8011.4000000059605,
+      "deliveredRate": 0.8238260478811555,
+      "cpuExclusive": [
+        {
+          "function": "(idle)",
+          "line": 0,
+          "ms": 6011.5070000000005
+        },
+        {
+          "function": "drawImage",
+          "line": 0,
+          "ms": 451.1320000000003
+        },
+        {
+          "function": "(program)",
+          "line": 0,
+          "ms": 431.93300000000033
+        },
+        {
+          "function": "renderPanel",
+          "line": 4779,
+          "ms": 72.733
+        },
+        {
+          "function": "urbanSpatial",
+          "line": 1846,
+          "ms": 66.40400000000002
+        },
+        {
+          "function": "drawImage",
+          "line": 0,
+          "ms": 55.756999999999984
+        },
+        {
+          "function": "draw",
+          "line": 4234,
+          "ms": 37.88500000000001
+        },
+        {
+          "function": "atmosphere",
+          "line": 4221,
+          "ms": 30.142
+        },
+        {
+          "function": "drawImage",
+          "line": 0,
+          "ms": 29.566999999999997
+        },
+        {
+          "function": "propertyAppearance",
+          "line": 4572,
+          "ms": 27.217
+        },
+        {
+          "function": "urbanRentMultiplier",
+          "line": 2126,
+          "ms": 26.831999999999997
+        },
+        {
+          "function": "appearanceKey",
+          "line": 7689,
+          "ms": 26.235000000000007
+        },
+        {
+          "function": "draw",
+          "line": 7892,
+          "ms": 23.24
+        },
+        {
+          "function": "frame",
+          "line": 4848,
+          "ms": 23.165999999999997
+        },
+        {
+          "function": "vehiclePaint",
+          "line": 4200,
+          "ms": 20.810000000000002
+        },
+        {
+          "function": "dailyEconomy",
+          "line": 2315,
+          "ms": 18.143
+        },
+        {
+          "function": "spriteFor",
+          "line": 4109,
+          "ms": 17.479
+        },
+        {
+          "function": "(garbage collector)",
+          "line": 0,
+          "ms": 17.282999999999998
+        },
+        {
+          "function": "vehiclePaint",
+          "line": 6911,
+          "ms": 15.88
+        },
+        {
+          "function": "drawImage",
+          "line": 0,
+          "ms": 15.813
+        },
+        {
+          "function": "fillRect",
+          "line": 0,
+          "ms": 15.437
+        },
+        {
+          "function": "trafficUpdate",
+          "line": 3861,
+          "ms": 14.661000000000003
+        },
+        {
+          "function": "tone",
+          "line": 3943,
+          "ms": 13.200000000000001
+        },
+        {
+          "function": "roadDistanceRow",
+          "line": 3809,
+          "ms": 13.050999999999998
+        },
+        {
+          "function": "urbanSpatial",
+          "line": 1846,
+          "ms": 11.672999999999998
+        }
+      ]
+    },
+    {
+      "rate": 16,
+      "initial": {
+        "day": 41681,
+        "population": 778,
+        "total": 15493517.000209823
+      },
+      "final": {
+        "day": 41755,
+        "calls": {
+          "updateHeader": {
+            "n": 28,
+            "totalMs": 91.10000002384186,
+            "meanMs": 3.2535714294229234,
+            "maxMs": 15.199999995529652
+          },
+          "renderPanel": {
+            "n": 6,
+            "totalMs": 175.70000000298023,
+            "meanMs": 29.28333333383004,
+            "maxMs": 34.400000005960464
+          },
+          "draw": {
+            "n": 116,
+            "totalMs": 1072.8999999910593,
+            "meanMs": 9.249137930957408,
+            "maxMs": 48.100000001490116
+          },
+          "dailyEconomy": {
+            "n": 74,
+            "totalMs": 3662.4999999925494,
+            "meanMs": 49.49324324314256,
+            "maxMs": 131.90000000596046
+          },
+          "recompute": {
+            "n": 152,
+            "totalMs": 76.7000000551343,
+            "meanMs": 0.5046052635206204,
+            "maxMs": 3.5
+          },
+          "systemsDay": {
+            "n": 74,
+            "totalMs": 44.999999955296516,
+            "meanMs": 0.608108107504007,
+            "maxMs": 18.899999998509884
+          },
+          "urbanEvolutionDay": {
+            "n": 74,
+            "totalMs": 58.400000005960464,
+            "meanMs": 0.789189189269736,
+            "maxMs": 52.100000001490116
+          },
+          "tick": {
+            "n": 74,
+            "totalMs": 4899.700000055134,
+            "meanMs": 66.21216216290722,
+            "maxMs": 556.7000000029802
+          },
+          "assignJobs": {
+            "n": 22,
+            "totalMs": 11.300000004470348,
+            "meanMs": 0.5136363638395612,
+            "maxMs": 2.399999998509884
+          },
+          "save": {
+            "n": 2,
+            "totalMs": 106.39999999850988,
+            "meanMs": 53.19999999925494,
+            "maxMs": 106.30000000447035
+          },
+          "archivePayload": {
+            "n": 1,
+            "totalMs": 24.899999998509884,
+            "meanMs": 24.899999998509884,
+            "maxMs": 24.899999998509884
+          }
+        },
+        "population": 779,
+        "total": 15493517.000209864,
+        "goodsError": 3.6710844142362475e-08,
+        "valid": {
+          "ok": true,
+          "issues": [],
+          "total": 15493517.000209864,
+          "population": 779,
+          "day": 41755
+        },
+        "requested": 16,
+        "displayedActual": 15.714285714285717,
+        "backlog": 0.017939393939404615,
+        "pending": null
+      },
+      "wallMs": 8064.89999999851,
+      "deliveredRate": 15.139679351265677,
+      "cpuExclusive": [
+        {
+          "function": "(idle)",
+          "line": 0,
+          "ms": 1409.7680000000005
+        },
+        {
+          "function": "urbanSpatial",
+          "line": 1846,
+          "ms": 997.4220000000016
+        },
+        {
+          "function": "urbanRentMultiplier",
+          "line": 2126,
+          "ms": 764.1350000000001
+        },
+        {
+          "function": "(program)",
+          "line": 0,
+          "ms": 459.5720000000004
+        },
+        {
+          "function": "drawImage",
+          "line": 0,
+          "ms": 346.88299999999987
+        },
+        {
+          "function": "dailyEconomy",
+          "line": 2315,
+          "ms": 251.48200000000003
+        },
+        {
+          "function": "buildableCandidates",
+          "line": 2557,
+          "ms": 132.9510000000001
+        },
+        {
+          "function": "dailyEconomy",
+          "line": 6374,
+          "ms": 123.00299999999997
+        },
+        {
+          "function": "drawImage",
+          "line": 0,
+          "ms": 121.939
+        },
+        {
+          "function": "(garbage collector)",
+          "line": 0,
+          "ms": 86.09200000000003
+        },
+        {
+          "function": "serviceAccess",
+          "line": 708,
+          "ms": 83.31899999999995
+        },
+        {
+          "function": "serviceAccess",
+          "line": 708,
+          "ms": 81.95900000000002
+        },
+        {
+          "function": "transitJourney",
+          "line": 3415,
+          "ms": 76.36400000000002
+        },
+        {
+          "function": "renderPanel",
+          "line": 4779,
+          "ms": 73.56900000000002
+        },
+        {
+          "function": "seekPrivateServiceInvestment",
+          "line": 1050,
+          "ms": 70.91799999999999
+        },
+        {
+          "function": "privateServiceDay",
+          "line": 1032,
+          "ms": 63.83000000000001
+        },
+        {
+          "function": "householdLiquidity",
+          "line": 260,
+          "ms": 63.709
+        },
+        {
+          "function": "roadDistanceRow",
+          "line": 3809,
+          "ms": 48.39100000000001
+        },
+        {
+          "function": "transitOperatingDay",
+          "line": 3444,
+          "ms": 45.154999999999994
+        },
+        {
+          "function": "roadDistanceRow",
+          "line": 3809,
+          "ms": 44.153000000000006
+        },
+        {
+          "function": "tick",
+          "line": 3669,
+          "ms": 42.84200000000001
+        },
+        {
+          "function": "recompute",
+          "line": 2464,
+          "ms": 42.594
+        },
+        {
+          "function": "draw",
+          "line": 4234,
+          "ms": 41.65699999999999
+        },
+        {
+          "function": "regionBuy",
+          "line": 1435,
+          "ms": 39.999
+        },
+        {
+          "function": "",
+          "line": 1671,
+          "ms": 38.296
+        }
+      ]
+    },
+    {
+      "rate": 64,
+      "initial": {
+        "day": 41681,
+        "population": 778,
+        "total": 15493517.000209823
+      },
+      "final": {
+        "day": 41789,
+        "calls": {
+          "renderPanel": {
+            "n": 6,
+            "totalMs": 178.0,
+            "meanMs": 29.666666666666668,
+            "maxMs": 51.100000001490116
+          },
+          "draw": {
+            "n": 90,
+            "totalMs": 959.3000000268221,
+            "meanMs": 10.658888889186912,
+            "maxMs": 146
+          },
+          "dailyEconomy": {
+            "n": 108,
+            "totalMs": 4782.400000028312,
+            "meanMs": 44.28148148174363,
+            "maxMs": 127.39999999850988
+          },
+          "recompute": {
+            "n": 222,
+            "totalMs": 99.5999999716878,
+            "meanMs": 0.4486486485211162,
+            "maxMs": 6.199999995529652
+          },
+          "systemsDay": {
+            "n": 108,
+            "totalMs": 77.79999998956919,
+            "meanMs": 0.7203703702737888,
+            "maxMs": 26
+          },
+          "urbanEvolutionDay": {
+            "n": 108,
+            "totalMs": 162.2999999895692,
+            "meanMs": 1.5027777776811961,
+            "maxMs": 106.39999999850988
+          },
+          "tick": {
+            "n": 108,
+            "totalMs": 6498.699999988079,
+            "meanMs": 60.17314814803777,
+            "maxMs": 608.8000000044703
+          },
+          "updateHeader": {
+            "n": 25,
+            "totalMs": 95.89999996870756,
+            "meanMs": 3.8359999987483024,
+            "maxMs": 10.799999997019768
+          },
+          "assignJobs": {
+            "n": 32,
+            "totalMs": 11.899999998509884,
+            "meanMs": 0.37187499995343387,
+            "maxMs": 2.399999998509884
+          },
+          "save": {
+            "n": 2,
+            "totalMs": 103.60000000149012,
+            "meanMs": 51.80000000074506,
+            "maxMs": 103.60000000149012
+          },
+          "archivePayload": {
+            "n": 1,
+            "totalMs": 23.100000001490116,
+            "meanMs": 23.100000001490116,
+            "maxMs": 23.100000001490116
+          }
+        },
+        "population": 772,
+        "total": 15493517.000209885,
+        "goodsError": 3.667446435429156e-08,
+        "valid": {
+          "ok": true,
+          "issues": [],
+          "total": 15493517.000209885,
+          "population": 772,
+          "day": 41789
+        },
+        "requested": 64,
+        "displayedActual": 37.326645028031905,
+        "backlog": 7,
+        "pending": null
+      },
+      "wallMs": 8048.39999999851,
+      "deliveredRate": 22.141046667664753,
+      "cpuExclusive": [
+        {
+          "function": "urbanSpatial",
+          "line": 1846,
+          "ms": 1350.2270000000026
+        },
+        {
+          "function": "urbanRentMultiplier",
+          "line": 2126,
+          "ms": 997.6500000000008
+        },
+        {
+          "function": "(program)",
+          "line": 0,
+          "ms": 368.0430000000001
+        },
+        {
+          "function": "dailyEconomy",
+          "line": 2315,
+          "ms": 332.5680000000002
+        },
+        {
+          "function": "drawImage",
+          "line": 0,
+          "ms": 218.92200000000003
+        },
+        {
+          "function": "buildableCandidates",
+          "line": 2557,
+          "ms": 196.02999999999997
+        },
+        {
+          "function": "drawImage",
+          "line": 0,
+          "ms": 169.39099999999993
+        },
+        {
+          "function": "dailyEconomy",
+          "line": 6374,
+          "ms": 148.9619999999999
+        },
+        {
+          "function": "privateServiceDay",
+          "line": 1032,
+          "ms": 113.52399999999996
+        },
+        {
+          "function": "(garbage collector)",
+          "line": 0,
+          "ms": 99.48799999999997
+        },
+        {
+          "function": "serviceAccess",
+          "line": 708,
+          "ms": 96.49699999999996
+        },
+        {
+          "function": "householdLiquidity",
+          "line": 260,
+          "ms": 96.11300000000001
+        },
+        {
+          "function": "seekPrivateServiceInvestment",
+          "line": 1050,
+          "ms": 94.52699999999992
+        },
+        {
+          "function": "serviceAccess",
+          "line": 708,
+          "ms": 92.044
+        },
+        {
+          "function": "renderPanel",
+          "line": 4779,
+          "ms": 80.42900000000004
+        },
+        {
+          "function": "transitJourney",
+          "line": 3415,
+          "ms": 75.42099999999999
+        },
+        {
+          "function": "tick",
+          "line": 3669,
+          "ms": 61.203
+        },
+        {
+          "function": "groceryChoices",
+          "line": 925,
+          "ms": 58.90600000000001
+        },
+        {
+          "function": "stroke",
+          "line": 0,
+          "ms": 50.58300000000001
+        },
+        {
+          "function": "buildableCandidates",
+          "line": 2557,
+          "ms": 50.50300000000002
+        },
+        {
+          "function": "",
+          "line": 1671,
+          "ms": 46.52600000000001
+        },
+        {
+          "function": "roadDistanceRow",
+          "line": 3809,
+          "ms": 46.350000000000016
+        },
+        {
+          "function": "recompute",
+          "line": 2464,
+          "ms": 44.973000000000006
+        },
+        {
+          "function": "roadDistanceRow",
+          "line": 3809,
+          "ms": 42.715
+        },
+        {
+          "function": "transitOperatingDay",
+          "line": 3444,
+          "ms": 42.221000000000004
+        }
+      ]
+    }
+  ]
+}
