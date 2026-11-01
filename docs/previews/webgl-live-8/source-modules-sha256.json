@@ -1,0 +1,11 @@
+{
+  "assets/game.js": "b8931e5fcb44b511636d55f3d4b79b2d8c2f497e639213e64930032497cf7587",
+  "assets/webgl-taste.js": "48e946e9a05ce80cae8cfeeadd29c05b75d52d6df072f423ea8bc53c796e0320",
+  "assets/webgl-view.js": "dbb46ce556990949c44a119b7a96bb8f019c367db76f906df392f38cb847cccd",
+  "assets/webgl-actors.js": "2c92ff4884f6b9fc05e7f73bb003bafe440be50d3f52ffbf1f72d5fd5da40921",
+  "assets/webgl-bridges.js": "e4f3ea3b53e0d27f7431bc232ff29981c87f91363d3da0b6084e7e8a48d0da01",
+  "assets/webgl-static-batch.js": "ef5927cf016acc06ec768f71e1beac5c12f21e6bf9ca9c034c155a68587fc292",
+  "assets/newfoundland-kit.js": "c2e9ee7fd18b8cceead4047ec9d18381aa7d3100c753714aa9cf478aa9af4e23",
+  "assets/newfoundland-families.js": "b1ffa774e73613bd003296075648b7778d299672dc24ee6de756a28d0afce464",
+  "assets/newfoundland-workplaces.js": "411521c2e02d33192adff545fd081905995ebd2411e04cfa30cbee4c4760d4e5"
+}

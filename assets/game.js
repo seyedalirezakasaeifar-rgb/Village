@@ -7295,10 +7295,10 @@ function transitTerminalHeading(r,phase,dx,dy){
  const eased=progress*progress*(3-2*progress),angle=base+Math.PI*(reverse?1+eased:eased),length=Math.hypot(dx,dy)||1;
  return [Math.cos(angle)*length,Math.sin(angle)*length];
 }
-function transitArtActors(visible){
- if(gameOptions.reducedMotion||!gameOptions.traffic||cam.zoom<.38)return [];
- const poses=transitVehiclePoses(frameClock,cam.zoom),routes=new Map(transitTopology().routes.map(r=>[r.id,r])),ordinals=new Map(),result=[];
- for(const pose of poses){const r=routes.get(pose.route),index=ordinals.get(pose.route)||0;ordinals.set(pose.route,index+1);if(!r||!r.path||r.path.length<2)continue;const count=Math.min(4,r.stats.staff.length/TRANSIT_MODES[r.mode].staff),span=r.path.length-1,phase=(frameClock*(r.mode==='bus'?.48:.85)+index*span*2/count)%(span*2),forward=phase<span,at=forward?phase:span*2-phase,i=Math.min(span-1,Math.floor(at)),t=at-i,points=[Math.max(0,i-1),i,i+1,Math.min(span,i+2)].map(k=>roadCenter(r.path[k])),[previous,a,b,next]=points;
+function transitArtActors(visible,time=frameClock,zoom=cam.zoom){
+ if(gameOptions.reducedMotion||!gameOptions.traffic||zoom<.38)return [];
+ const poses=transitVehiclePoses(time,zoom),routes=new Map(transitTopology().routes.map(r=>[r.id,r])),ordinals=new Map(),result=[];
+ for(const pose of poses){const r=routes.get(pose.route),index=ordinals.get(pose.route)||0;ordinals.set(pose.route,index+1);if(!r||!r.path||r.path.length<2)continue;const count=Math.min(4,r.stats.staff.length/TRANSIT_MODES[r.mode].staff),span=r.path.length-1,phase=(time*(r.mode==='bus'?.48:.85)+index*span*2/count)%(span*2),forward=phase<span,at=forward?phase:span*2-phase,i=Math.min(span-1,Math.floor(at)),t=at-i,points=[Math.max(0,i-1),i,i+1,Math.min(span,i+2)].map(k=>roadCenter(r.path[k])),[previous,a,b,next]=points;
   let x=pose.x,y=pose.y,dx=pose.dx,dy=pose.dy,corner,u;const radius=.18;
   if(t<radius&&i>0){corner=[previous,a,b];u=(t+radius)/(2*radius);}else if(t>1-radius&&i+2<r.path.length){corner=[a,b,next];u=(t-1+radius)/(2*radius);}
   if(corner){const [start,c,end]=corner,s=c.map((v,k)=>v-(v-start[k])*radius),e=c.map((v,k)=>v+(end[k]-v)*radius),p=c.map((v,k)=>(1-u)*(1-u)*s[k]+2*(1-u)*u*v+u*u*e[k]),h=c.map((v,k)=>2*(1-u)*(v-s[k])+2*u*(e[k]-v));x=p[0];y=p[1]-pose.elevation;dx=h[0]*(forward?1:-1);dy=h[1]*(forward?1:-1);}
@@ -7976,10 +7976,33 @@ function cityVisualContext(){
  }
  return cityVisualContextCache={town:G,revision,districts,properties};
 }
-window.__cityVisualSnapshot=()=>{if(!G||simulationBusy)return null;const hall=G.buildings.find(b=>b.kind==='townhall')||{x:28,y:28},context=cityVisualContext();return {revision:window.__cityVisualRevision(),paused,day:G.day,population:G.stats.population,treasury:G.treasury,total:totalMoney(),rng:rngState,size:T,center:{x:hall.x,y:hall.y},tiles:G.tiles.slice(),landUse:{...(G.landUse||{})},districts:context.districts,buildings:G.buildings.map(b=>({id:b.id,x:b.x,y:b.y,kind:b.kind,condition:b.condition,footprint:footprintOf(b).slice(),...context.properties.get(b.id)})),bridges:typeof bridgeRenderSnapshot==='function'?bridgeRenderSnapshot():[]};};
+window.__cityVisualSnapshot=()=>{if(!G||simulationBusy)return null;const hall=G.buildings.find(b=>b.kind==='townhall')||{x:28,y:28},context=cityVisualContext();return {revision:window.__cityVisualRevision(),paused,day:G.day,population:G.stats.population,treasury:G.treasury,total:totalMoney(),rng:rngState,size:T,center:{x:hall.x,y:hall.y},tiles:G.tiles.slice(),landUse:{...(G.landUse||{})},districts:context.districts,buildings:G.buildings.map(b=>({id:b.id,x:b.x,y:b.y,kind:b.kind,condition:b.condition,footprint:footprintOf(b).slice(),...context.properties.get(b.id)})),transit:{tracks:(G.transit?.tracks||[]).slice(),routes:(G.transit?.routes||[]).map(r=>({id:r.id,mode:r.mode,color:r.color,operating:!!r.stats?.operating,path:r.path.slice(),stops:r.stops.slice()}))},bridges:typeof bridgeRenderSnapshot==='function'?bridgeRenderSnapshot():[]};};
 window.__cityVisualSave=()=>save();
-window.__cityVisualRevision=()=>G&&!simulationBusy?[G.day,G.construction,roadsVersion,G.bridgeRevision||0].join(':'):'';
+window.__cityVisualRevision=()=>G&&!simulationBusy?[G.day,G.construction,roadsVersion,G.bridgeRevision||0,G.transit?.revision||0,G.urban?.revision||0].join(':'):'';
 window.__cityVisualTap=(x,y)=>{if(!G||simulationBusy||!Number.isInteger(x)||!Number.isInteger(y)||x<0||y<0||x>=T||y>=T)return false;const p=roadCenter(roadId(x,y)),r=cv.getBoundingClientRect();onTap(r.left+cw/2+(p[0]-cam.x)*cam.zoom,r.top+ch/2+(p[1]-cam.y)*cam.zoom);return true;};
+// Live presentation bridge. Cooperative partial days are never inspected.
+window.__cityVisualMotionState=()=>G?{paused,busy:simulationBusy,clock:frameClock,reduced:gameOptions.reducedMotion}:null;
+let cityVisualOrderCache=null;
+window.__cityVisualActors=(detail,bounds)=>{
+ window.__cityVisualActorWork={sources:0,positions:0};
+ if(!G||simulationBusy||detail==='far'||gameOptions.reducedMotion||!gameOptions.traffic)return [];
+ const work=window.__cityVisualActorWork,actors=[],near=detail==='near';
+ const project=(p,elevation=0)=>({x:(p.x-RW/2)/TW+(p.y+elevation-32-TH/2)/TH,z:(p.y+elevation-32-TH/2)/TH-(p.x-RW/2)/TW,dx:p.dx/TW+p.dy/TH,dz:p.dy/TH-p.dx/TW});
+ const visible=p=>!bounds||p.x>=bounds.minX&&p.x<=bounds.maxX&&p.z>=bounds.minZ&&p.z<=bounds.maxZ;
+ const add=(id,kind,p,color,elevation=0)=>{work.positions++;const q=project(p,elevation);if(visible(q)&&actors.length<64)actors.push({id,kind,...q,color});};
+ for(const v of traffic){work.sources++;if(v.style==='pedestrian'&&!near)continue;add('road:'+v.id,v.style==='pedestrian'?'pedestrian':v.style==='truck'||v.style==='tractor'?'truck':'car',vehiclePosition(v),v.color);}
+ const revision=window.__cityVisualRevision();if(cityVisualOrderCache?.town!==G||cityVisualOrderCache.revision!==revision)cityVisualOrderCache={town:G,revision,orders:(G.regionalTrade?.shipments||[]).filter(o=>regionalShipmentVisualState(o)?.visible!==false).slice(0,16)};
+ for(const o of cityVisualOrderCache.orders){work.sources++;const p=shipmentVisualPose(o);if(p)add('cargo:'+o.id,'truck',p,o.direction==='import'?'#698e89':'#b48c58');}
+ const ordinals=new Map();for(const p of transitArtActors(()=>true,frameClock,1)){work.sources++;const ordinal=ordinals.get(p.route)||0;ordinals.set(p.route,ordinal+1);add('transit:'+p.route+':'+ordinal,p.mode==='elevated'?'train':'bus',p,p.color,p.elevation);}
+ if(gameOptions.effects&&gameOptions.quality!=='low')for(const p of waterfrontActors((x,y)=>visible(project({x,y,dx:1,dy:0})))){work.sources++;add('vessel:'+p.id,'boat',p,p.consignment?'#b18b57':'#648778');}
+ return actors;
+};
+const cityVisualCanvasBudget=visualDetailBudget;
+visualDetailBudget=function(){const v=window.__webglTaste;if(!v)return cityVisualCanvasBudget();return {traffic:v.lod!=='far'&&gameOptions.traffic&&!gameOptions.reducedMotion,people:v.lod==='near'&&gameOptions.effects&&!gameOptions.reducedMotion,boats:v.lod!=='far'&&gameOptions.traffic&&gameOptions.effects&&!gameOptions.reducedMotion&&gameOptions.quality!=='low'};};
+const cityVisualCanvasDraw=draw;
+draw=function(){if(window.__webglTaste){dirty=false;return;}cityVisualCanvasDraw();};
+
+window.__cityVisualResumeCanvas=()=>{staticDirty=true;dirty=true;draw();};
 
 // SOURCE: 99-instrumentation.js
 // Read-only / test instrumentation. No remote telemetry is used.

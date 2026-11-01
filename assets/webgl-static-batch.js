@@ -11,15 +11,15 @@ export function batchStaticMeshes(scene,chunkSize=Infinity){
  let removed=0;
  for(const meshes of groups.values()){
   if(meshes.length<2)continue;
-  const positions=[],normals=[],uvs=[],ids=[];let allUV=true;
+  const positions=[],normals=[],uvs=[],ids=[],tiles=[];let allUV=true;
   for(const mesh of meshes){
    const geo=mesh.geometry.index?mesh.geometry.toNonIndexed():mesh.geometry.clone();geo.applyMatrix4(mesh.matrixWorld);
    const p=geo.getAttribute('position'),n=geo.getAttribute('normal'),uv=geo.getAttribute('uv');allUV=allUV&&!!uv;
-   for(let i=0;i<p.count;i++){positions.push(p.getX(i),p.getY(i),p.getZ(i));normals.push(n.getX(i),n.getY(i),n.getZ(i));if(uv)uvs.push(uv.getX(i),uv.getY(i));else uvs.push(0,0);if(i%3===0)ids.push(mesh.userData.buildingId);}
+   for(let i=0;i<p.count;i++){positions.push(p.getX(i),p.getY(i),p.getZ(i));normals.push(n.getX(i),n.getY(i),n.getZ(i));if(uv)uvs.push(uv.getX(i),uv.getY(i));else uvs.push(0,0);if(i%3===0){ids.push(mesh.userData.buildingId);tiles.push(mesh.userData.gridTileId);}}
    geo.dispose();scene.remove(mesh);mesh.geometry.dispose();removed++;
   }
   const g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.Float32BufferAttribute(positions,3));g.setAttribute('normal',new THREE.Float32BufferAttribute(normals,3));if(allUV)g.setAttribute('uv',new THREE.Float32BufferAttribute(uvs,2));g.computeBoundingSphere();
-  const merged=new THREE.Mesh(g,meshes[0].material);merged.castShadow=meshes[0].castShadow;merged.receiveShadow=meshes[0].receiveShadow;merged.userData.faceBuildingIds=ids;scene.add(merged);
+  const merged=new THREE.Mesh(g,meshes[0].material);merged.castShadow=meshes[0].castShadow;merged.receiveShadow=meshes[0].receiveShadow;merged.userData.faceBuildingIds=ids;merged.userData.faceGridTileIds=tiles;scene.add(merged);
   for(const mesh of meshes.slice(1))if(mesh.material!==meshes[0].material)mesh.material.dispose();
  }
  return {removed,groups:groups.size};
