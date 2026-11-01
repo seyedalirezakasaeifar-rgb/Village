@@ -1,0 +1,10 @@
+{
+  "oracleCommit": "01eeda3d2ff09822b9422721f75e97fabbc9958a",
+  "sourceSha256": "ac119726075abebf96683eb332782a5d55be69e42fe4545a9def0fd8a9ad6d1c",
+  "workerSha256": "df56c9d766b0cb78d984419a4c11f5f1a1a4c9949cc7f3d91e9257be1dbd4342",
+  "twoGenuineVehiclesLoadedExactly": true,
+  "roadInvalidationFullModelRngTrafficEqual": true,
+  "exactReloadRestoresBothVehicles": true,
+  "excludedFields": [],
+  "pageErrors": []
+}

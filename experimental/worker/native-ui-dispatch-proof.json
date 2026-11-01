@@ -1,0 +1,9 @@
+{
+  "sourceSha256": "ac119726075abebf96683eb332782a5d55be69e42fe4545a9def0fd8a9ad6d1c",
+  "workerSha256": "5f2052f0ad8ea339e429af017798907ca8d1dd75ca9302cff8c709332a6131e7",
+  "actualSettingsButtonsUseAsyncJavaMethods": true,
+  "missingAsyncBridgeRefusesWithoutLegacyStaleExport": true,
+  "modelArchiveUnchanged": true,
+  "bridgeMockOnlyNotPhysicalNativeAcceptance": true,
+  "pageErrors": []
+}

@@ -1,0 +1,15 @@
+# Explicit completion member uniqueness
+
+Base: `3bea58b0b8d21cced9611049ee5e5038e57383c7`. Game source and MainActivity are unchanged: game SHA-256 `84ecbaef6b0ae999a9c5adcd49b9ba1678840cabfc36cf02b617c74a93d208a4`, MainActivity SHA-256 `7283d9365de4efdf0633205c520c6c7b660f369420b3d4cb9e1612f9bcd2345d`.
+
+The old reader tracked duplicate required identity/status names, but not repeated `result`, `error` or `outcome` members, nor repeated members inside `result`. Sequential assignments could therefore combine different result objects or overwrite `persisted:false` with `persisted:true`. The original uniqueness policy, extracted from the immutable base source, fails the executable duplicate-result counterexample. This is a host policy reproduction, not an Android parser execution claim.
+
+The production parser now passes each envelope name and each result-object name through its own pure-Java uniqueness set before interpreting the value. All duplicate names in those two scopes reject, including unknown names. Escaped spellings resolve to the same decoded name. Each scope also permits at most 128 names of at most 256 UTF-16 units. The existing envelope/UTF-8 archive limits remain in force. The guard does not parse the town archive string, inspect ignored nested metadata objects, or impose a generic archive-node budget.
+
+The integration uses the documented `JsonReader.nextName()` member stream and existing typed reads/`skipValue()`: [official Android API reference](https://developer.android.com/reference/android/util/JsonReader). No denied source retrieval was retried or replaced with another source implementation.
+
+The focused executable suite passes 18 duplicate-preserving JSON fixtures plus two field-budget cases. Cases include false/true overwrites, duplicate archives/result objects, null-then-result, escaped-name aliases, unknown duplicated members, valid failure statuses, cross-object name reuse and embedded archive text. Python's standard JSON parser retains ordered member pairs for these fixtures; the actual production Java guard executes on the corresponding decoded member events. The real parser and guard also compile against declaration-only shapes of the documented Android API. Those declarations contain no parser behavior and are never used as an Android runtime substitute.
+
+The existing callback/registry suite now invokes this regression automatically. Existing Back dispatch, bounded ArchiveIO, browser native-route selection, Back recovery and committed-save fault/coalescing checks also pass. This native-only validation change does not require another model endurance run: the game bytes remain identical to the coherent 115-year source. Raw receipts are in `evidence/native-completion-fields/`.
+
+The native owner must still build and execute this parser on Android, including malformed completion callbacks and real provider/lifecycle behavior. The Worker endpoint remains disabled; this result does not certify Worker ownership, durability, capacity admission or device performance. No APK was signed/released, and no integration ref was updated here.

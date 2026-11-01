@@ -1,0 +1,41 @@
+{
+  "oracleCommit": "01eeda3d2ff09822b9422721f75e97fabbc9958a",
+  "oracleSha256": "84ecbaef6b0ae999a9c5adcd49b9ba1678840cabfc36cf02b617c74a93d208a4",
+  "hostSha256": "ac119726075abebf96683eb332782a5d55be69e42fe4545a9def0fd8a9ad6d1c",
+  "workerSha256": "5f2052f0ad8ea339e429af017798907ca8d1dd75ca9302cff8c709332a6131e7",
+  "bridgeSha256": "db2e5a8b787fd7e3133916297dd1e321b7c412b911af4cb1dd3bc410c63c0f5d",
+  "referenceDryRun": false,
+  "productionEnabled": false,
+  "nativeDurability": false,
+  "checks": {
+    "visiblePendingBeforeAcknowledgment": true,
+    "oldFrozenModelUntilAcknowledgment": true,
+    "duplicateTapsSubmitOneChoice": true,
+    "noWriteBeforeCommitAcknowledgment": true,
+    "entireCurrentOracleModelAndRng": true,
+    "noDurableAckBeforeWriter": true,
+    "modelCommittedWhileWritePending": true,
+    "originalWebWriterReadbackExact": true,
+    "tokenAckAfterVerifiedWriter": true,
+    "noUncaughtPageErrors": true,
+    "productionCommandOwner": true
+  },
+  "pendingMarkers": [
+    {
+      "tag": "DIV",
+      "id": "gameRoot",
+      "text": "\nTLTOWNLEDGERTHE WORKING CITY\nRESIDENTS169MUNICIPAL CASH$87,982EMPLOYMENT93%SAFETY91/100COUNCIL TRUST65%YEAR 1 \u00b7 MONTH 1 \u00b7 DAY 20THE WORKING CITY1\u00d7\n\n\n+\u2212\u25c9\nREGIONAL LAND OFFICEChoose a district\u20261. East Meadow2. County Ridge3. Lower River Reach4. Orchard Downs5. High Common6. Eastern Heights7. Far East",
+      "ariaBusy": "true"
+    },
+    {
+      "tag": "SPAN",
+      "id": "workerRealStatus",
+      "text": "Applying action\u2026 waiting for model confirmation.",
+      "ariaBusy": null
+    }
+  ],
+  "errors": [],
+  "currentModelCovered": false,
+  "allChecksPass": true,
+  "blockedOrFailingChecks": []
+}

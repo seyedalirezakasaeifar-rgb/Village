@@ -1,0 +1,14 @@
+{
+  "productionEnabled": false,
+  "economicBaseCommit": "01eeda3d2ff09822b9422721f75e97fabbc9958a",
+  "nativeFourFilesByteEqualToPublic": true,
+  "retainedRoutedIdentifiers": 35,
+  "pendingBeforeFamilyComposition": 51,
+  "files": {
+    "assets/game.js": "ac119726075abebf96683eb332782a5d55be69e42fe4545a9def0fd8a9ad6d1c",
+    "android/app/src/main/java/org/townledger/vale/MainActivity.java": "7283d9365de4efdf0633205c520c6c7b660f369420b3d4cb9e1612f9bcd2345d",
+    "experimental/worker/model.generated.js": "df56c9d766b0cb78d984419a4c11f5f1a1a4c9949cc7f3d91e9257be1dbd4342",
+    "experimental/worker/real-view-bridge.js": "cd67956b82f56c1659f788808e5d18910054c37b6ceaad794d214d2c6264ac00",
+    "experimental/worker/civic-boundary.js": "f08ec380aa382afa1f3385cdbeb617cf7bfd939d4a85e26c81d49366658b31da"
+  }
+}

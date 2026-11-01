@@ -1,0 +1,2 @@
+PASS synchronous/read-phase restore Back stays busy; registered async restore and admitted-save Back use async feedback only
+{"MainActivity_sha256": "7283d9365de4efdf0633205c520c6c7b660f369420b3d4cb9e1612f9bcd2345d", "scope": "Actual first Back branch extracted and compiled with the real registry; cancellation body and Android activity are not emulated."}

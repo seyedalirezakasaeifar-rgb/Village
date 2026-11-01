@@ -16,7 +16,7 @@ function workerViewContext(m){
  workerPreparePanel(active);return {__workerReply:true};
 }
 // Public paid7233d8d composition only. Never creates a competing controller.
-function workerPreparePanel(tab){const html=panelContents(tab);if(html.includes('Panel error:'))throw Error('Headless panel boundary incomplete: '+tab);workerEffect('panel-render',{panel:tab,title:names[tab]||'TownLedger',html});}
+function workerPreparePanel(tab){const html=panelContents(tab);if(html.includes('Panel error:'))throw Error('Headless panel boundary incomplete: '+tab);workerEffect('panel-render',{panel:tab,title:names[tab]||'TownLedger',html,inspector:transitInspectorReport?.town===G&&G.transit?.routes.some(r=>r.id===transitInspectorReport.id)?{id:transitInspectorReport.id,report:transitInspectorReport.report}:null});}
 function workerInstallPaidOwner(owner){
  const execution=owner.workerExecution;
  if(execution){if(execution.version!==1||execution.mode!=='paid-command'||typeof execution.bind!=='function'||typeof execution.readyForOrdinaryDay!=='function')throw Error('Unsupported explicit paid-command execution contract');}

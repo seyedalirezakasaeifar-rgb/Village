@@ -1,0 +1,83 @@
+PASS async archive id/epoch correlation, duplicate refusal, stale reply, cancel, capacity and lifecycle clear
+PASS duplicate-preserving completion JSON fixtures and field budgets
+PASS actual parser/guard compilation against declaration-only Android API shapes; no Android parser execution claimed
+{
+  "cases": [
+    {
+      "name": "valid",
+      "accepted": true
+    },
+    {
+      "name": "restore",
+      "accepted": true
+    },
+    {
+      "name": "nullResult",
+      "accepted": true
+    },
+    {
+      "name": "archiveText",
+      "accepted": true
+    },
+    {
+      "name": "duplicateResult",
+      "accepted": false
+    },
+    {
+      "name": "nullThenResult",
+      "accepted": false
+    },
+    {
+      "name": "persistedFalseTrue",
+      "accepted": false
+    },
+    {
+      "name": "restoredTrueFalse",
+      "accepted": false
+    },
+    {
+      "name": "duplicateArchive",
+      "accepted": false
+    },
+    {
+      "name": "escapedAlias",
+      "accepted": false
+    },
+    {
+      "name": "duplicateError",
+      "accepted": false
+    },
+    {
+      "name": "duplicateOutcome",
+      "accepted": false
+    },
+    {
+      "name": "duplicateIdentity",
+      "accepted": false
+    },
+    {
+      "name": "scopeIsolation",
+      "accepted": true
+    },
+    {
+      "name": "failureStatus",
+      "accepted": true
+    },
+    {
+      "name": "duplicateUnknownTop",
+      "accepted": false
+    },
+    {
+      "name": "duplicateUnknownResult",
+      "accepted": false
+    },
+    {
+      "name": "escapedResultAlias",
+      "accepted": false
+    }
+  ],
+  "fieldBudgetCases": 2,
+  "productionGuardSha256": "557e230bc59c9783ef2a7126c7ac4b4512bd670bde79ecd0e40193b4a1d16509",
+  "scope": "Production pure-Java uniqueness guard driven by decoded ordered JSON member events; Android JsonReader execution and APK integration require native-owner rerun."
+}
+PASS opt-in native worker archive callbacks preserve synchronous export/import fallback
