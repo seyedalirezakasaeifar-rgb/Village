@@ -1,0 +1,2 @@
+PASS async archive id/epoch correlation, duplicate refusal, stale reply, cancel, capacity and lifecycle clear
+PASS opt-in native worker archive callbacks preserve synchronous export/import fallback

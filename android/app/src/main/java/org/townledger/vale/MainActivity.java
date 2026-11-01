@@ -103,7 +103,7 @@ public final class MainActivity extends Activity {
     private void resumeGame(){if(activityResumed&&web!=null&&!isFinishing()&&!isDestroyed())web.evaluateJavascript("window.__townArchive && window.__townArchive.resume()",null);}
     private void finishImport(){restoringArchive=false;workerRestoreAwaitingSave=false;workerArchivePicker=false;archiveRequest=0;if(importDialog!=null){importDialog.dismiss();importDialog=null;}if(web!=null)web.requestFocus();}
     @Override public void onBackPressed() {
-        if(restoringArchive){cancelWorkerRestore();return;}
+        if(restoringArchive){if(workerRestoreAwaitingSave||workerArchiveRequests.current("restore")!=null)cancelWorkerRestore();return;}
         if(web==null){if(rendererFailed)showRendererRecovery();else finish();return;}
         final int request=backNavigation.begin();if(request==0)return;
         backTimeout=new Runnable(){public void run(){if(backNavigation.claim(request)){clearBackTimeout();dismissSavingDialog();message("The town is busy. Back did not close it; try again shortly.");resumeGame();}}};
