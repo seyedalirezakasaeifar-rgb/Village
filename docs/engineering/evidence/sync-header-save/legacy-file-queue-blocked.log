@@ -1,0 +1,23 @@
+Traceback (most recent call last):
+  File "/workspace/sync-header-save/tests/test_save_queue.py", line 9, in <module>
+    b=pw.chromium.launch(executable_path='/usr/bin/chromium',args=['--no-sandbox']);p=b.new_page();p.route('**/game.js',lambda r:r.fulfill(body=script,content_type='application/javascript'));p.goto((ROOT/'assets/index.html').as_uri());p.evaluate('__queueTest.ready()');p.locator('#newTown').click();p.locator('#pause').click();p.evaluate('__queueTest.flush()');payloadBytes=p.evaluate('__queueTest.large()');p.evaluate('__queueTest.save()');p.evaluate('__queueTest.flush()');p.locator('[data-panel=settings]').click();p.evaluate('__queueTest.hold();document.querySelector("#saveNow").click()');p.wait_for_function('__writeCalls===1');p.evaluate('for(let i=0;i<40;i++)document.querySelector("#saveNow").click()');assert p.locator('#saveNow').is_disabled();p.evaluate('for(let i=0;i<40;i++)__queueTest.save();void 0');p.evaluate('__releaseWrite()');p.evaluate('__queueTest.flush()');calls=p.evaluate('__writeCalls');assert calls<=2,{'indexedWritesFor41Clicks':calls};assert p.evaluate('__queueTest.state().ok');assert not p.locator('#saveNow').is_disabled();assert p.evaluate('__townTest.validate().ok');b.close()
+                                                                                                                                                                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/sync_api/_generated.py", line 9875, in goto
+    self._sync(
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_sync_base.py", line 115, in _sync
+    return task.result()
+           ^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_page.py", line 560, in goto
+    return await self._main_frame.goto(**locals_to_params(locals()))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_frame.py", line 156, in goto
+    await self._channel.send(
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_connection.py", line 76, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_connection.py", line 632, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.Error: Page.goto: net::ERR_BLOCKED_BY_ADMINISTRATOR at file:///workspace/sync-header-save/assets/index.html
+Call log:
+  - navigating to "file:///workspace/sync-header-save/assets/index.html", waiting until "load"
+

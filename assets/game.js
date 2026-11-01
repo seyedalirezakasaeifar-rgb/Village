@@ -3613,7 +3613,7 @@ function readSaveEnvelope(value){
   return e.checksum===checksum([e.format,e.order,e.town,e.revision,e.payload].join('|'))?e:null;
  }catch(_){return null;}
 }
-function localSaveCandidates(){const out=[];for(const key of ['townledger-v6','townledger-v6-backup'])try{const e=readSaveEnvelope(localStorage.getItem(key));if(e)out.push(e)}catch(_){}return out;}
+function localSaveCandidates(read=readSaveEnvelope){const out=[];for(const key of ['townledger-v6','townledger-v6-backup'])try{const e=read(localStorage.getItem(key));if(e)out.push(e)}catch(_){}return out;}
 function observeSaveOrder(e){if(e)saveOrder=Math.max(saveOrder,e.order||0);}
 function queueIndexedWrite(envelope,epoch){
  const promise=new Promise(resolve=>{
@@ -3627,9 +3627,12 @@ function queueIndexedWrite(envelope,epoch){
 }
 function persistSnapshot(payload,epoch){
  if(epoch!==saveEpoch)return Promise.resolve(false);
- let e;try{for(const v of localSaveCandidates())observeSaveOrder(v);e=saveEnvelope(payload)}catch(_){autoSaveOK=false;return Promise.resolve(false)}
+ // Identical local text is validated once within this synchronous preparation
+ // only. Later reads and asynchronous durability checks remain strict/fresh.
+ const checked=new Map(),readLocal=value=>{if(typeof value!=='string')return readSaveEnvelope(value);if(checked.has(value)){const e=checked.get(value);return e?{...e}:null;}const e=readSaveEnvelope(value);if(checked.size<2)checked.set(value,e?{...e}:null);return e;};
+ let e;try{for(const v of localSaveCandidates(readLocal))observeSaveOrder(v);e=saveEnvelope(payload)}catch(_){autoSaveOK=false;return Promise.resolve(false)}
  let localOK=false;const text=JSON.stringify(e),key='townledger-v6';
- try{const previous=localStorage.getItem(key);if(readSaveEnvelope(previous)){try{localStorage.setItem(key+'-backup',previous)}catch(_){/* A full backup slot must not prevent updating the primary. */}}localStorage.setItem(key,text);localOK=true;try{localStorage.removeItem('townledger-village-founder-3')}catch(_){}}catch(_){}
+ try{const previous=localStorage.getItem(key);if(readLocal(previous)){try{localStorage.setItem(key+'-backup',previous)}catch(_){/* A full backup slot must not prevent updating the primary. */}}localStorage.setItem(key,text);localOK=true;try{localStorage.removeItem('townledger-village-founder-3')}catch(_){}}catch(_){}
  autoSaveOK=localOK;
  // Keep one active and one latest pending snapshot; superseded clicks share completion.
  const revision=e.revision,town=e.town,write=queueIndexedWrite(e,epoch);
@@ -3695,13 +3698,16 @@ function toast(msg){const el=$('toast');el.textContent=msg;el.style.display='blo
 function headerText(id,value){const el=$(id),text=String(value);if(el&&el.textContent!==text)el.textContent=text;}
 function headerMoney(value){return Math.abs(value)>=1000000?(value<0?'−':'')+'$'+(Math.abs(value)/1000000).toLocaleString('en-CA',{maximumFractionDigits:1})+'m':money(value);}
 let liveStatusTown=null,liveStatusDay=-1,liveStatusPaused=null,liveStatusKey='';
+// The compact header consumes only headline and firm/project counts. Earlier
+// warnings do not need the full household/shop demand snapshot.
+function headerMarketSignal(){const s=G.stats;let title;if((G.market?.foodDisconnected||0)>0)title='Groceries out of reach';else if((G.market?.unmetFood||0)>s.population*.08)title='Essential food is going unfilled';else if(s.hardship>35)title='Households under pressure';else if(s.employment<65)title='A weak labour market';else return marketSignal();return {title,m:{open:G.firms.reduce((n,f)=>n+!f.closed,0),projects:(G.projects||[]).length}};}
 function updateLiveStatus(){
  if(!$('liveEconomy'))return;
  const care=G.serviceProvision?.health?.coverage,school=G.serviceProvision?.school?.coverage;
  const key=[G.day,care,school,G.stats.businesses,G.stats.population,G.stats.employment,G.stats.hardship,G.stats.marketConfidence,G.market?.foodDisconnected,G.market?.unmetFood,G.journal?.length,G.finance?.creditIssued].join('|');
  const due=liveStatusTown!==G||liveStatusPaused!==paused||G.day<liveStatusDay||G.day-liveStatusDay>=5||((paused||G.day<5)&&key!==liveStatusKey);
  if(!due)return;
- const m=marketSignal();headerText('marketHeadline',m.title);headerText('marketDetail',Number.isFinite(care)&&Number.isFinite(school)?Math.round(care*100)+'% care · '+Math.round(school*100)+'% school · '+m.m.open+' firms':m.m.open+' firms · '+m.m.projects+' projects · '+G.stats.hardship+'% hardship');
+ const m=headerMarketSignal();headerText('marketHeadline',m.title);headerText('marketDetail',Number.isFinite(care)&&Number.isFinite(school)?Math.round(care*100)+'% care · '+Math.round(school*100)+'% school · '+m.m.open+' firms':m.m.open+' firms · '+m.m.projects+' projects · '+G.stats.hardship+'% hardship');
  liveStatusTown=G;liveStatusDay=G.day;liveStatusPaused=paused;liveStatusKey=key;
 }
 function updateHeader(){

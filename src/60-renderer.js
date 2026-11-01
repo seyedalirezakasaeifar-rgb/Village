@@ -1,13 +1,16 @@
 function headerText(id,value){const el=$(id),text=String(value);if(el&&el.textContent!==text)el.textContent=text;}
 function headerMoney(value){return Math.abs(value)>=1000000?(value<0?'−':'')+'$'+(Math.abs(value)/1000000).toLocaleString('en-CA',{maximumFractionDigits:1})+'m':money(value);}
 let liveStatusTown=null,liveStatusDay=-1,liveStatusPaused=null,liveStatusKey='';
+// The compact header consumes only headline and firm/project counts. Earlier
+// warnings do not need the full household/shop demand snapshot.
+function headerMarketSignal(){const s=G.stats;let title;if((G.market?.foodDisconnected||0)>0)title='Groceries out of reach';else if((G.market?.unmetFood||0)>s.population*.08)title='Essential food is going unfilled';else if(s.hardship>35)title='Households under pressure';else if(s.employment<65)title='A weak labour market';else return marketSignal();return {title,m:{open:G.firms.reduce((n,f)=>n+!f.closed,0),projects:(G.projects||[]).length}};}
 function updateLiveStatus(){
  if(!$('liveEconomy'))return;
  const care=G.serviceProvision?.health?.coverage,school=G.serviceProvision?.school?.coverage;
  const key=[G.day,care,school,G.stats.businesses,G.stats.population,G.stats.employment,G.stats.hardship,G.stats.marketConfidence,G.market?.foodDisconnected,G.market?.unmetFood,G.journal?.length,G.finance?.creditIssued].join('|');
  const due=liveStatusTown!==G||liveStatusPaused!==paused||G.day<liveStatusDay||G.day-liveStatusDay>=5||((paused||G.day<5)&&key!==liveStatusKey);
  if(!due)return;
- const m=marketSignal();headerText('marketHeadline',m.title);headerText('marketDetail',Number.isFinite(care)&&Number.isFinite(school)?Math.round(care*100)+'% care · '+Math.round(school*100)+'% school · '+m.m.open+' firms':m.m.open+' firms · '+m.m.projects+' projects · '+G.stats.hardship+'% hardship');
+ const m=headerMarketSignal();headerText('marketHeadline',m.title);headerText('marketDetail',Number.isFinite(care)&&Number.isFinite(school)?Math.round(care*100)+'% care · '+Math.round(school*100)+'% school · '+m.m.open+' firms':m.m.open+' firms · '+m.m.projects+' projects · '+G.stats.hardship+'% hardship');
  liveStatusTown=G;liveStatusDay=G.day;liveStatusPaused=paused;liveStatusKey=key;
 }
 function updateHeader(){

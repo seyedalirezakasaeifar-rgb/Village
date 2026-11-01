@@ -1,0 +1,230 @@
+{
+  "hostDiagnostic": true,
+  "physicalDevice": false,
+  "audioStopped": true,
+  "workerEnabled": false,
+  "fixtureSHA256": "ad6256fd85d4146fda9eeac0b16d5b182ed352c23bbd96af3b320553c29ce786",
+  "actions": "real pans, Economy, Pause, Options and three actual Save clicks",
+  "rows": [
+    {
+      "repeat": 0,
+      "variant": "base",
+      "sourceSHA256": "037c92b56d4b736f2c9c2bb96a950ae194bc815d1a393d36b3634f4272521d94",
+      "initial": {
+        "day": 41681,
+        "population": 778,
+        "total": 15493517.000209823
+      },
+      "final": {
+        "day": 41797,
+        "population": 771,
+        "total": 15493517.000209855,
+        "valid": {
+          "ok": true,
+          "issues": [],
+          "total": 15493517.000209855,
+          "population": 771,
+          "day": 41797
+        },
+        "goodsError": 3.665991243906319e-08,
+        "rows": {
+          "updateHeader": {
+            "calls": 34,
+            "totalMs": 114.10000000149012,
+            "meanMs": 3.3558823529850033,
+            "maxMs": 15.899999998509884
+          },
+          "draw": {
+            "calls": 101,
+            "totalMs": 1709.5999999642372,
+            "meanMs": 16.92673267291324,
+            "maxMs": 286.19999999552965
+          },
+          "tick": {
+            "calls": 116,
+            "totalMs": 7061.399999968708,
+            "meanMs": 60.87413793076472,
+            "maxMs": 715.2000000029802
+          },
+          "persistSnapshot": {
+            "calls": 5,
+            "totalMs": 524.0,
+            "meanMs": 104.8,
+            "maxMs": 203.30000000447035
+          },
+          "renderPanel": {
+            "calls": 6,
+            "totalMs": 142.30000001192093,
+            "meanMs": 23.716666668653488,
+            "maxMs": 39.70000000298023
+          }
+        }
+      }
+    },
+    {
+      "repeat": 0,
+      "variant": "candidate",
+      "sourceSHA256": "3e262a51d4a95992c2b9df3f8205025ffdb1f05d6a5376a528ff75ddceedae8b",
+      "initial": {
+        "day": 41681,
+        "population": 778,
+        "total": 15493517.000209823
+      },
+      "final": {
+        "day": 41797,
+        "population": 771,
+        "total": 15493517.000209855,
+        "valid": {
+          "ok": true,
+          "issues": [],
+          "total": 15493517.000209855,
+          "population": 771,
+          "day": 41797
+        },
+        "goodsError": 3.665991243906319e-08,
+        "rows": {
+          "updateHeader": {
+            "calls": 33,
+            "totalMs": 14.100000016391277,
+            "meanMs": 0.42727272776943265,
+            "maxMs": 1
+          },
+          "draw": {
+            "calls": 100,
+            "totalMs": 1482.300000011921,
+            "meanMs": 14.82300000011921,
+            "maxMs": 285.80000000447035
+          },
+          "tick": {
+            "calls": 116,
+            "totalMs": 6786.19999999553,
+            "meanMs": 58.501724137892495,
+            "maxMs": 511
+          },
+          "persistSnapshot": {
+            "calls": 5,
+            "totalMs": 295.8999999985099,
+            "meanMs": 59.17999999970198,
+            "maxMs": 69.80000000447035
+          },
+          "renderPanel": {
+            "calls": 6,
+            "totalMs": 166.70000000298023,
+            "meanMs": 27.78333333383004,
+            "maxMs": 43.29999999701977
+          }
+        }
+      }
+    },
+    {
+      "repeat": 1,
+      "variant": "base",
+      "sourceSHA256": "037c92b56d4b736f2c9c2bb96a950ae194bc815d1a393d36b3634f4272521d94",
+      "initial": {
+        "day": 41681,
+        "population": 778,
+        "total": 15493517.000209823
+      },
+      "final": {
+        "day": 41797,
+        "population": 771,
+        "total": 15493517.000209855,
+        "valid": {
+          "ok": true,
+          "issues": [],
+          "total": 15493517.000209855,
+          "population": 771,
+          "day": 41797
+        },
+        "goodsError": 3.665991243906319e-08,
+        "rows": {
+          "updateHeader": {
+            "calls": 34,
+            "totalMs": 95.60000001639128,
+            "meanMs": 2.8117647063644493,
+            "maxMs": 8.700000002980232
+          },
+          "draw": {
+            "calls": 101,
+            "totalMs": 1725.1000000163913,
+            "meanMs": 17.08019801996427,
+            "maxMs": 278.3999999985099
+          },
+          "tick": {
+            "calls": 116,
+            "totalMs": 6742.600000046194,
+            "meanMs": 58.12586206936374,
+            "maxMs": 508.6000000014901
+          },
+          "persistSnapshot": {
+            "calls": 5,
+            "totalMs": 359.30000001192093,
+            "meanMs": 71.86000000238418,
+            "maxMs": 76.70000000298023
+          },
+          "renderPanel": {
+            "calls": 6,
+            "totalMs": 158.70000000298023,
+            "meanMs": 26.450000000496704,
+            "maxMs": 41.5
+          }
+        }
+      }
+    },
+    {
+      "repeat": 1,
+      "variant": "candidate",
+      "sourceSHA256": "3e262a51d4a95992c2b9df3f8205025ffdb1f05d6a5376a528ff75ddceedae8b",
+      "initial": {
+        "day": 41681,
+        "population": 778,
+        "total": 15493517.000209823
+      },
+      "final": {
+        "day": 41798,
+        "population": 771,
+        "total": 15493517.000209855,
+        "valid": {
+          "ok": true,
+          "issues": [],
+          "total": 15493517.000209855,
+          "population": 771,
+          "day": 41798
+        },
+        "goodsError": 3.666355041787028e-08,
+        "rows": {
+          "updateHeader": {
+            "calls": 32,
+            "totalMs": 13.200000002980232,
+            "meanMs": 0.41250000009313226,
+            "maxMs": 1
+          },
+          "draw": {
+            "calls": 98,
+            "totalMs": 1506.900000065565,
+            "meanMs": 15.37653061291393,
+            "maxMs": 299.80000000447035
+          },
+          "tick": {
+            "calls": 117,
+            "totalMs": 6745.999999962747,
+            "meanMs": 57.65811965780126,
+            "maxMs": 509.3999999985099
+          },
+          "persistSnapshot": {
+            "calls": 5,
+            "totalMs": 279.6000000014901,
+            "meanMs": 55.920000000298025,
+            "maxMs": 60.900000005960464
+          },
+          "renderPanel": {
+            "calls": 6,
+            "totalMs": 148.2999999821186,
+            "meanMs": 24.716666663686436,
+            "maxMs": 40.79999999701977
+          }
+        }
+      }
+    }
+  ]
+}

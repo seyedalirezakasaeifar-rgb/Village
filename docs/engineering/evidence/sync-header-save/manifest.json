@@ -1,0 +1,14 @@
+{
+  "base": "87811c52cdb9aecd13cd23beebd52f6475c6dd9c",
+  "candidateSHA256": "3e262a51d4a95992c2b9df3f8205025ffdb1f05d6a5376a528ff75ddceedae8b",
+  "upstreamReview": "9730423bace3039047a0b5c910e1c461083bc303",
+  "workerEnabled": false,
+  "nativeOrIndexDiff": [],
+  "productionChanges": [
+    "src/49-persistence.js",
+    "src/60-renderer.js",
+    "assets/game.js"
+  ],
+  "priorRentPrototypeIncluded": false,
+  "data": "Synthetic aggregates/model digests/screenshots only; no private save/key/personal data"
+}

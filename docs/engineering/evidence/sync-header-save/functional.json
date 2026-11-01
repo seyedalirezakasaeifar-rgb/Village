@@ -1,0 +1,215 @@
+{
+  "baseSHA256": "037c92b56d4b736f2c9c2bb96a950ae194bc815d1a393d36b3634f4272521d94",
+  "candidateSHA256": "3e262a51d4a95992c2b9df3f8205025ffdb1f05d6a5376a528ff75ddceedae8b",
+  "syntheticHeaderInputs": true,
+  "headers": [
+    {
+      "seed": 42,
+      "branch": 0,
+      "text": [
+        "Groceries out of reach",
+        "26 firms \u00b7 0 projects \u00b7 70% hardship"
+      ],
+      "exactModelRng": true,
+      "fullSnapshotCallsBase": 1,
+      "fullSnapshotCallsCandidate": 0
+    },
+    {
+      "seed": 42,
+      "branch": 1,
+      "text": [
+        "Essential food is going unfilled",
+        "26 firms \u00b7 0 projects \u00b7 70% hardship"
+      ],
+      "exactModelRng": true,
+      "fullSnapshotCallsBase": 1,
+      "fullSnapshotCallsCandidate": 0
+    },
+    {
+      "seed": 42,
+      "branch": 2,
+      "text": [
+        "Households under pressure",
+        "26 firms \u00b7 0 projects \u00b7 70% hardship"
+      ],
+      "exactModelRng": true,
+      "fullSnapshotCallsBase": 1,
+      "fullSnapshotCallsCandidate": 0
+    },
+    {
+      "seed": 42,
+      "branch": 3,
+      "text": [
+        "A weak labour market",
+        "26 firms \u00b7 0 projects \u00b7 0% hardship"
+      ],
+      "exactModelRng": true,
+      "fullSnapshotCallsBase": 1,
+      "fullSnapshotCallsCandidate": 0
+    },
+    {
+      "seed": 42,
+      "branch": 4,
+      "text": [
+        "Strong work and household reserves",
+        "26 firms \u00b7 0 projects \u00b7 0% hardship"
+      ],
+      "exactModelRng": true,
+      "fullSnapshotCallsBase": 1,
+      "fullSnapshotCallsCandidate": 1
+    },
+    {
+      "seed": 91,
+      "branch": 0,
+      "text": [
+        "Groceries out of reach",
+        "26 firms \u00b7 0 projects \u00b7 70% hardship"
+      ],
+      "exactModelRng": true,
+      "fullSnapshotCallsBase": 1,
+      "fullSnapshotCallsCandidate": 0
+    },
+    {
+      "seed": 91,
+      "branch": 1,
+      "text": [
+        "Essential food is going unfilled",
+        "26 firms \u00b7 0 projects \u00b7 70% hardship"
+      ],
+      "exactModelRng": true,
+      "fullSnapshotCallsBase": 1,
+      "fullSnapshotCallsCandidate": 0
+    },
+    {
+      "seed": 91,
+      "branch": 2,
+      "text": [
+        "Households under pressure",
+        "26 firms \u00b7 0 projects \u00b7 70% hardship"
+      ],
+      "exactModelRng": true,
+      "fullSnapshotCallsBase": 1,
+      "fullSnapshotCallsCandidate": 0
+    },
+    {
+      "seed": 91,
+      "branch": 3,
+      "text": [
+        "A weak labour market",
+        "26 firms \u00b7 0 projects \u00b7 0% hardship"
+      ],
+      "exactModelRng": true,
+      "fullSnapshotCallsBase": 1,
+      "fullSnapshotCallsCandidate": 0
+    },
+    {
+      "seed": 91,
+      "branch": 4,
+      "text": [
+        "Strong work and household reserves",
+        "26 firms \u00b7 0 projects \u00b7 0% hardship"
+      ],
+      "exactModelRng": true,
+      "fullSnapshotCallsBase": 1,
+      "fullSnapshotCallsCandidate": 1
+    },
+    {
+      "seed": 909,
+      "branch": 0,
+      "text": [
+        "Groceries out of reach",
+        "26 firms \u00b7 0 projects \u00b7 70% hardship"
+      ],
+      "exactModelRng": true,
+      "fullSnapshotCallsBase": 1,
+      "fullSnapshotCallsCandidate": 0
+    },
+    {
+      "seed": 909,
+      "branch": 1,
+      "text": [
+        "Essential food is going unfilled",
+        "26 firms \u00b7 0 projects \u00b7 70% hardship"
+      ],
+      "exactModelRng": true,
+      "fullSnapshotCallsBase": 1,
+      "fullSnapshotCallsCandidate": 0
+    },
+    {
+      "seed": 909,
+      "branch": 2,
+      "text": [
+        "Households under pressure",
+        "26 firms \u00b7 0 projects \u00b7 70% hardship"
+      ],
+      "exactModelRng": true,
+      "fullSnapshotCallsBase": 1,
+      "fullSnapshotCallsCandidate": 0
+    },
+    {
+      "seed": 909,
+      "branch": 3,
+      "text": [
+        "A weak labour market",
+        "26 firms \u00b7 0 projects \u00b7 0% hardship"
+      ],
+      "exactModelRng": true,
+      "fullSnapshotCallsBase": 1,
+      "fullSnapshotCallsCandidate": 0
+    },
+    {
+      "seed": 909,
+      "branch": 4,
+      "text": [
+        "Strong work and household reserves",
+        "26 firms \u00b7 0 projects \u00b7 0% hardship"
+      ],
+      "exactModelRng": true,
+      "fullSnapshotCallsBase": 1,
+      "fullSnapshotCallsCandidate": 1
+    }
+  ],
+  "strictPersistence": [
+    {
+      "variant": "base",
+      "corruptPrimary": false,
+      "ok": true,
+      "syncCalls": 3,
+      "validatorUnchanged": true,
+      "freshRead": true,
+      "payloadExact": true,
+      "order": 7
+    },
+    {
+      "variant": "base",
+      "corruptPrimary": true,
+      "ok": true,
+      "syncCalls": 3,
+      "validatorUnchanged": true,
+      "freshRead": true,
+      "payloadExact": true,
+      "order": 10
+    },
+    {
+      "variant": "candidate",
+      "corruptPrimary": false,
+      "ok": true,
+      "syncCalls": 2,
+      "validatorUnchanged": true,
+      "freshRead": true,
+      "payloadExact": true,
+      "order": 7
+    },
+    {
+      "variant": "candidate",
+      "corruptPrimary": true,
+      "ok": true,
+      "syncCalls": 2,
+      "validatorUnchanged": true,
+      "freshRead": true,
+      "payloadExact": true,
+      "order": 10
+    }
+  ],
+  "workerEnabled": false
+}
