@@ -1,0 +1,180 @@
+{
+  "sourceCommit": "a3c1f94c9c84b8d06a2dfe26a818b6f51c0efea5",
+  "acceptedModelBase": "669c908706af997375680674390e46fd132a970a",
+  "gameBundleSHA256": "ba03c5017a9353521600f55014af46fcd1512051c817dcb56a385801f61f2c0d",
+  "requiredChangedFiles": [
+    {
+      "path": "assets/game.js",
+      "bytes": 1160358,
+      "sha256": "ba03c5017a9353521600f55014af46fcd1512051c817dcb56a385801f61f2c0d"
+    },
+    {
+      "path": "assets/index.html",
+      "bytes": 12557,
+      "sha256": "8e40493dcad4a40666cc0d3b3bf508b6e7bf23a5ce951605dff7dd5f0ce992b0"
+    },
+    {
+      "path": "assets/newfoundland-families.js",
+      "bytes": 2024,
+      "sha256": "207d24e6078e19b0fe56a4a30d16f0e6f5552bf7baf00b14f3b2f88bf1d0d757"
+    },
+    {
+      "path": "assets/newfoundland-kit.js",
+      "bytes": 8065,
+      "sha256": "79be3c5956bbcb3b9db5a9c84ce10be46892cee568e44e864b92d3ba926fae2c"
+    },
+    {
+      "path": "assets/newfoundland-specialized.js",
+      "bytes": 4732,
+      "sha256": "6941345479806d6bf28d444b1248e23d4194929cbaa2dc19282da6acaafaba78"
+    },
+    {
+      "path": "assets/newfoundland-workplaces.js",
+      "bytes": 4844,
+      "sha256": "9bb59f5ab1347328c2afb1818e29701e00b1da1bef649569f3b55dbc20bd619a"
+    },
+    {
+      "path": "assets/vendor/THREE-LICENSE.txt",
+      "bytes": 1081,
+      "sha256": "852e0e8699169bf9f6fdc6bda3e682d078dcbc738b5d33e74df594721bff271d"
+    },
+    {
+      "path": "assets/vendor/three-0.160.1.module.js",
+      "bytes": 1272972,
+      "sha256": "76dea8151bc9352aef3528b4262e249b2604f62543828328db978d060d61a495"
+    },
+    {
+      "path": "assets/webgl-actors.js",
+      "bytes": 3920,
+      "sha256": "e7f761691a2edcc9ddb7937dad3d50464fb3ff73129ac8b22e418cbe1fb094cb"
+    },
+    {
+      "path": "assets/webgl-bridges.js",
+      "bytes": 2205,
+      "sha256": "74942b383da346235286d096f7e376a9c5b378993b135586c5df780c46a60ace"
+    },
+    {
+      "path": "assets/webgl-economy-facades.js",
+      "bytes": 1947,
+      "sha256": "a9eb09d198d19d3b6f268ee233949d7e63521eabb36c7e41d7c636a1805acacd"
+    },
+    {
+      "path": "assets/webgl-entry.js",
+      "bytes": 1177,
+      "sha256": "8a60d7d3d24a8c903afb025ba8c493c0b196aeebfca5be7b17500f71bcb2cb35"
+    },
+    {
+      "path": "assets/webgl-map-overlay.js",
+      "bytes": 5646,
+      "sha256": "d4df7a9a75c7da788f87c9f22ad4e97e8f192a359b8103ef576045335f318cb2"
+    },
+    {
+      "path": "assets/webgl-materials.js",
+      "bytes": 2773,
+      "sha256": "1ec2ded334a92ec0397d9e2ebc4444d19eee5472df11abcc35dd7205504f1b04"
+    },
+    {
+      "path": "assets/webgl-quality-policy.js",
+      "bytes": 1544,
+      "sha256": "51a341506b5a5b9b942084027b77d5dcde46f6c2f3823a9a7d43724edeefb041"
+    },
+    {
+      "path": "assets/webgl-static-batch.js",
+      "bytes": 2162,
+      "sha256": "ef5927cf016acc06ec768f71e1beac5c12f21e6bf9ca9c034c155a68587fc292"
+    },
+    {
+      "path": "assets/webgl-taste.js",
+      "bytes": 34608,
+      "sha256": "1758108efbfedf454659afb4b9b20745888aff7746bd934a8294a63455555b3f"
+    },
+    {
+      "path": "assets/webgl-transit-geometry.js",
+      "bytes": 1180,
+      "sha256": "46a6e7308dcefbf8f9925b7c55d11b7cbff6d813fe38c1a5247cbdf7428433ee"
+    },
+    {
+      "path": "assets/webgl-view.js",
+      "bytes": 815,
+      "sha256": "55164f63aed7f4e7809e07af32ca2d6db776be7ebaa0ebcdbdb036fc7eb22f79"
+    },
+    {
+      "path": "src/93-preferences.js",
+      "bytes": 3306,
+      "sha256": "63c949d8e5895dcb2a6c7ed8ecd4da0eb8e8f653108f02923da60f6582dbc764"
+    },
+    {
+      "path": "src/98-waterfront-art.js",
+      "bytes": 11501,
+      "sha256": "12fe4faf623ac2c186b709d6c65f434868419c67df56905a5dbf9e8a28e34885"
+    },
+    {
+      "path": "src/98zzzzz-transit-diorama.js",
+      "bytes": 8730,
+      "sha256": "39ad8ae5ad5537287786ee92349ae7fba20eb7c13913dd2004cda16d84e96a8e"
+    },
+    {
+      "path": "src/98zzzzzzzz-port-cargo-art.js",
+      "bytes": 4569,
+      "sha256": "94fcc9427e08035e09f58f9d70f868c5b9b77ee01b25120cb9d323da6310dc6b"
+    },
+    {
+      "path": "src/98zzzzzzzzz-region-locator.js",
+      "bytes": 5644,
+      "sha256": "ec9e2150951852c5fe61a8595fef50a22b1da5c74378447fdd3435ed0b0d004a"
+    },
+    {
+      "path": "src/98zzzzzzzzzzzzzzzzz-webgl-snapshot.js",
+      "bytes": 15152,
+      "sha256": "66d6045797c792d5fc438f2327af2adcc718d0df7027f8cb50e0e5190a17d731"
+    }
+  ],
+  "registeredFamilies": {
+    "residential_and_shop": [
+      "home",
+      "apartment",
+      "grocer",
+      "bakery",
+      "tavern"
+    ],
+    "civic_commercial_working": [
+      "townhall",
+      "school",
+      "college",
+      "courthouse",
+      "police",
+      "clinic",
+      "fire",
+      "bank",
+      "office",
+      "warehouse",
+      "factory",
+      "mill",
+      "sawmill",
+      "contractor",
+      "fishery",
+      "wharf",
+      "farm"
+    ],
+    "specialized": [
+      "park",
+      "square",
+      "tower",
+      "quarry",
+      "forestry",
+      "transit_depot",
+      "elevated_station",
+      "metro_station",
+      "airport",
+      "watchtower"
+    ],
+    "construction": [
+      "worksite"
+    ],
+    "tool_only": [
+      "repair"
+    ]
+  },
+  "coverageMeaning": "Authored representation, not production aesthetic acceptance; concave titles use per-cell fallback; detailed state coverage incomplete",
+  "license": "Three.js0.160.1 MIT; bundled assets/vendor/THREE-LICENSE.txt; original procedural art, no reference images bundled"
+}
