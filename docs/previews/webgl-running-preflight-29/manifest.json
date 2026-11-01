@@ -1,0 +1,520 @@
+{
+  "sourceCommit": "29dd12af7d4aac6b22efcfe1cec1e2d59aff2c1f",
+  "sourceModules": {
+    "assets/game.js": "b277816a34f6de3ce3448a459a47630a61ed5e980e5e02f6bae2dcd135c8bd58",
+    "assets/webgl-actors.js": "e7f761691a2edcc9ddb7937dad3d50464fb3ff73129ac8b22e418cbe1fb094cb",
+    "assets/webgl-bridges.js": "74942b383da346235286d096f7e376a9c5b378993b135586c5df780c46a60ace",
+    "assets/webgl-economy-facades.js": "a9eb09d198d19d3b6f268ee233949d7e63521eabb36c7e41d7c636a1805acacd",
+    "assets/webgl-entry.js": "8a60d7d3d24a8c903afb025ba8c493c0b196aeebfca5be7b17500f71bcb2cb35",
+    "assets/webgl-map-overlay.js": "d4df7a9a75c7da788f87c9f22ad4e97e8f192a359b8103ef576045335f318cb2",
+    "assets/webgl-materials.js": "1ec2ded334a92ec0397d9e2ebc4444d19eee5472df11abcc35dd7205504f1b04",
+    "assets/webgl-quality-policy.js": "51a341506b5a5b9b942084027b77d5dcde46f6c2f3823a9a7d43724edeefb041",
+    "assets/webgl-static-batch.js": "ef5927cf016acc06ec768f71e1beac5c12f21e6bf9ca9c034c155a68587fc292",
+    "assets/webgl-taste.js": "16735b5d0dae37ace0c183bf893321f4256e73c8803e547a725ffcbcea430eab",
+    "assets/webgl-transit-geometry.js": "46a6e7308dcefbf8f9925b7c55d11b7cbff6d813fe38c1a5247cbdf7428433ee",
+    "assets/webgl-view.js": "55164f63aed7f4e7809e07af32ca2d6db776be7ebaa0ebcdbdb036fc7eb22f79",
+    "assets/newfoundland-families.js": "207d24e6078e19b0fe56a4a30d16f0e6f5552bf7baf00b14f3b2f88bf1d0d757",
+    "assets/newfoundland-kit.js": "79be3c5956bbcb3b9db5a9c84ce10be46892cee568e44e864b92d3ba926fae2c",
+    "assets/newfoundland-specialized.js": "6941345479806d6bf28d444b1248e23d4194929cbaa2dc19282da6acaafaba78",
+    "assets/newfoundland-workplaces.js": "9bb59f5ab1347328c2afb1818e29701e00b1da1bef649569f3b55dbc20bd619a"
+  },
+  "routedProbeSHA256": "3f7d2326ea8523ae71b81fceea7e9c717596b807e7af6a5884e520b09d42358a",
+  "startUTC": "2026-11-01T07:20:55.795973+00:00",
+  "processPID": 108063,
+  "secondsPerPhase": 12,
+  "sequential": true,
+  "phases": [
+    {
+      "phase": "economy",
+      "actions": [
+        {
+          "kind": "actual-reviewed-clearance-paid-park",
+          "old": 6,
+          "new": 103,
+          "day": 2,
+          "cashBefore": 90362.20087695315,
+          "cashAfter": 87962.20087695315
+        },
+        {
+          "kind": "river-order-skipped",
+          "reason": "no affordable staffed route"
+        }
+      ],
+      "samples": [],
+      "checks": [],
+      "errors": [],
+      "knownFindings": [],
+      "shippingChanges": [
+        {
+          "elapsed": 0.04,
+          "day": 2,
+          "population": 169,
+          "cash": 87962.20087695315,
+          "buildings": 102,
+          "paused": false,
+          "clock": 1.9999000000000002,
+          "rng": 586407924,
+          "active": [
+            {
+              "id": 14,
+              "stage": "origin-loading",
+              "qty": 120
+            }
+          ],
+          "recent": [],
+          "boats": []
+        },
+        {
+          "elapsed": 1.67,
+          "day": 3,
+          "population": 169,
+          "cash": 87796.71240503025,
+          "buildings": 102,
+          "paused": false,
+          "clock": 3.3832999999999984,
+          "rng": 1786138067,
+          "active": [
+            {
+              "id": 14,
+              "stage": "outside",
+              "qty": 120
+            },
+            {
+              "id": 29,
+              "stage": "origin-loading",
+              "qty": 120
+            }
+          ],
+          "recent": [],
+          "boats": []
+        },
+        {
+          "elapsed": 4.25,
+          "day": 4,
+          "population": 169,
+          "cash": 87594.7400882813,
+          "buildings": 102,
+          "paused": false,
+          "clock": 5.7831999999999955,
+          "rng": 1154302397,
+          "active": [
+            {
+              "id": 14,
+              "stage": "outside",
+              "qty": 120
+            },
+            {
+              "id": 29,
+              "stage": "outside",
+              "qty": 120
+            },
+            {
+              "id": 47,
+              "stage": "origin-loading",
+              "qty": 120
+            }
+          ],
+          "recent": [],
+          "boats": []
+        },
+        {
+          "elapsed": 5.49,
+          "day": 5,
+          "population": 169,
+          "cash": 87428.22088214135,
+          "buildings": 102,
+          "paused": false,
+          "clock": 6.916399999999997,
+          "rng": 522466727,
+          "active": [
+            {
+              "id": 14,
+              "stage": "outside",
+              "qty": 120
+            },
+            {
+              "id": 29,
+              "stage": "outside",
+              "qty": 120
+            },
+            {
+              "id": 47,
+              "stage": "outside",
+              "qty": 120
+            }
+          ],
+          "recent": [],
+          "boats": []
+        },
+        {
+          "elapsed": 7.15,
+          "day": 6,
+          "population": 169,
+          "cash": 87239.92732496711,
+          "buildings": 102,
+          "paused": false,
+          "clock": 8.399599999999994,
+          "rng": 1090361200,
+          "active": [
+            {
+              "id": 14,
+              "stage": "outside",
+              "qty": 120
+            },
+            {
+              "id": 29,
+              "stage": "outside",
+              "qty": 120
+            },
+            {
+              "id": 47,
+              "stage": "outside",
+              "qty": 120
+            },
+            {
+              "id": 73,
+              "stage": "origin-loading",
+              "qty": 120
+            },
+            {
+              "id": 80,
+              "stage": "origin-loading",
+              "qty": 76
+            }
+          ],
+          "recent": [
+            {
+              "id": 18,
+              "status": "Delivered"
+            }
+          ],
+          "boats": [
+            14
+          ]
+        },
+        {
+          "elapsed": 8.72,
+          "day": 7,
+          "population": 169,
+          "cash": 87061.37767450405,
+          "buildings": 102,
+          "paused": false,
+          "clock": 9.866299999999995,
+          "rng": 3489821486,
+          "active": [
+            {
+              "id": 14,
+              "stage": "delivering",
+              "qty": 120
+            },
+            {
+              "id": 29,
+              "stage": "outside",
+              "qty": 120
+            },
+            {
+              "id": 47,
+              "stage": "outside",
+              "qty": 120
+            },
+            {
+              "id": 73,
+              "stage": "outside",
+              "qty": 120
+            },
+            {
+              "id": 80,
+              "stage": "outside",
+              "qty": 76
+            },
+            {
+              "id": 81,
+              "stage": "collecting",
+              "qty": 77.151
+            }
+          ],
+          "recent": [
+            {
+              "id": 35,
+              "status": "Delivered"
+            },
+            {
+              "id": 27,
+              "status": "Delivered"
+            },
+            {
+              "id": 12,
+              "status": "Delivered"
+            },
+            {
+              "id": 9,
+              "status": "Delivered"
+            },
+            {
+              "id": 4,
+              "status": "Delivered"
+            },
+            {
+              "id": 1,
+              "status": "Delivered"
+            },
+            {
+              "id": 18,
+              "status": "Delivered"
+            }
+          ],
+          "boats": [
+            29
+          ]
+        },
+        {
+          "elapsed": 11.27,
+          "day": 8,
+          "population": 169,
+          "cash": 86848.13962549041,
+          "buildings": 102,
+          "paused": false,
+          "clock": 12.2662,
+          "rng": 394584333,
+          "active": [
+            {
+              "id": 29,
+              "stage": "delivering",
+              "qty": 120
+            },
+            {
+              "id": 47,
+              "stage": "outside",
+              "qty": 120
+            },
+            {
+              "id": 73,
+              "stage": "outside",
+              "qty": 120
+            },
+            {
+              "id": 80,
+              "stage": "outside",
+              "qty": 76
+            },
+            {
+              "id": 81,
+              "stage": "collecting",
+              "qty": 77.151
+            },
+            {
+              "id": 82,
+              "stage": "collecting",
+              "qty": 77.151
+            }
+          ],
+          "recent": [
+            {
+              "id": 15,
+              "status": "Delivered"
+            },
+            {
+              "id": 14,
+              "status": "Delivered"
+            },
+            {
+              "id": 8,
+              "status": "Delivered"
+            },
+            {
+              "id": 6,
+              "status": "Delivered"
+            },
+            {
+              "id": 2,
+              "status": "Delivered"
+            },
+            {
+              "id": 35,
+              "status": "Delivered"
+            },
+            {
+              "id": 27,
+              "status": "Delivered"
+            },
+            {
+              "id": 12,
+              "status": "Delivered"
+            },
+            {
+              "id": 9,
+              "status": "Delivered"
+            },
+            {
+              "id": 4,
+              "status": "Delivered"
+            },
+            {
+              "id": 1,
+              "status": "Delivered"
+            },
+            {
+              "id": 18,
+              "status": "Delivered"
+            }
+          ],
+          "boats": [
+            47
+          ]
+        }
+      ],
+      "initial": {
+        "lod": "mid",
+        "revision": "1:2:1:16:0:0:1:18:18:false:none:low:true:false:20:0:",
+        "loaded": 91,
+        "memory": {
+          "geometries": 15,
+          "textures": 11
+        },
+        "calls": 20,
+        "triangles": 70500,
+        "backend": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "actors": 0,
+        "work": {
+          "sources": 1,
+          "positions": 1
+        },
+        "fullArchiveSHA256": "f778111d08dce52551e42e5e5bfb46a1a6d99e6fff74979a102795bd4ed6b94e",
+        "pausedPixelSHA256": "a1d5041cfe107790236cfed8ee3220c9cbe5b908b27d65746a81d765cf89e7a6",
+        "pausedInvariant": true
+      },
+      "startUTC": "2026-11-01T07:21:03.109750+00:00",
+      "deadlineUTC": "2026-11-01T07:21:15.109770+00:00",
+      "browserPIDNote": "Playwright-managed Chromium, sequential phase",
+      "final": {
+        "lod": "mid",
+        "revision": "505:9:1:16:0:0:1:89:69:false:none:low:true:false:20:0:",
+        "loaded": 91,
+        "memory": {
+          "geometries": 15,
+          "textures": 11
+        },
+        "calls": 21,
+        "triangles": 71160,
+        "backend": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "actors": 7,
+        "work": {
+          "sources": 27,
+          "positions": 25
+        },
+        "fullArchiveSHA256": "647193898f48c90a498e44e665e7cfb8fd726bb04b29ddae183fb4f1858ebf1a",
+        "pausedPixelSHA256": "7663147098a6f8178017ddd6e12310539268195c177db72a8d649d5e3cca9849",
+        "pausedInvariant": true
+      },
+      "finalStatus": {
+        "day": 9,
+        "population": 169,
+        "cash": 86687.55368526702,
+        "buildings": 102,
+        "paused": true,
+        "clock": 13.949400000000004,
+        "rng": 1594314476,
+        "active": [
+          {
+            "id": 47,
+            "stage": "delivering",
+            "qty": 120
+          },
+          {
+            "id": 73,
+            "stage": "outside",
+            "qty": 120
+          },
+          {
+            "id": 80,
+            "stage": "outside",
+            "qty": 76
+          },
+          {
+            "id": 81,
+            "stage": "outside",
+            "qty": 77.151
+          },
+          {
+            "id": 82,
+            "stage": "collecting",
+            "qty": 77.151
+          },
+          {
+            "id": 84,
+            "stage": "origin-loading",
+            "qty": 120
+          },
+          {
+            "id": 87,
+            "stage": "origin-loading",
+            "qty": 120
+          },
+          {
+            "id": 89,
+            "stage": "collecting",
+            "qty": 77.151
+          }
+        ],
+        "recent": [
+          {
+            "id": 30,
+            "status": "Delivered"
+          },
+          {
+            "id": 29,
+            "status": "Delivered"
+          },
+          {
+            "id": 45,
+            "status": "Delivered"
+          },
+          {
+            "id": 32,
+            "status": "Delivered"
+          },
+          {
+            "id": 19,
+            "status": "Delivered"
+          },
+          {
+            "id": 17,
+            "status": "Delivered"
+          },
+          {
+            "id": 16,
+            "status": "Delivered"
+          },
+          {
+            "id": 11,
+            "status": "Delivered"
+          },
+          {
+            "id": 15,
+            "status": "Delivered"
+          },
+          {
+            "id": 14,
+            "status": "Delivered"
+          },
+          {
+            "id": 8,
+            "status": "Delivered"
+          },
+          {
+            "id": 6,
+            "status": "Delivered"
+          }
+        ],
+        "boats": [
+          81
+        ]
+      },
+      "endUTC": "2026-11-01T07:21:16.910865+00:00",
+      "elapsedSeconds": 13.801111257998855,
+      "result": "completed"
+    }
+  ],
+  "endUTC": "2026-11-01T07:21:17.197689+00:00",
+  "sourceStillImmutable": true
+}
