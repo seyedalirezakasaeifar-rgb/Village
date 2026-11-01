@@ -1,0 +1,91 @@
+{
+  "fixtureSha256": "ad6256fd85d4146fda9eeac0b16d5b182ed352c23bbd96af3b320553c29ce786",
+  "sourceSha256": "218de17d31e130f8f683ab1287307380eb2ec0689b06d39a9003ef26883a1fc7",
+  "exactModelRng62Days": true,
+  "validCouncilChoice": true,
+  "staleAndRepeatedRejected": true,
+  "oldEpochRejected": true,
+  "exportExact": true,
+  "dayEffectsEqual": true,
+  "projectionEnabled": false,
+  "projectionBatchProfile": {
+    "tickMs": 4323.300000015646,
+    "snapshotMs": 365,
+    "snapshots": 12,
+    "stringifyMs": 239.6000000052154,
+    "parseMs": 125.09999999403954,
+    "postMs": 121.10000000149012
+  },
+  "projectionBytes": 3954350,
+  "first31DayWallSeconds": {
+    "synchronous": 1.3559056789999886,
+    "workerIncludingSnapshot": 3.9172974130015064
+  },
+  "trustedInputs": [
+    {
+      "trusted": true,
+      "time": 35496.29999999702
+    },
+    {
+      "trusted": true,
+      "time": 35591.39999999851
+    },
+    {
+      "trusted": true,
+      "time": 35724.199999999255
+    },
+    {
+      "trusted": true,
+      "time": 35830.39999999851
+    },
+    {
+      "trusted": true,
+      "time": 35941
+    }
+  ],
+  "acks": [
+    {
+      "transferMs": 33.5,
+      "ms": 88.80000000074506,
+      "ok": true,
+      "epoch": 1,
+      "day": 41745
+    },
+    {
+      "transferMs": 39.499755859375,
+      "ms": 86.80000000074506,
+      "ok": true,
+      "epoch": 1,
+      "day": 41746
+    },
+    {
+      "transferMs": 30.19970703125,
+      "ms": 83.30000000074506,
+      "ok": true,
+      "epoch": 1,
+      "day": 41749
+    },
+    {
+      "transferMs": 28.89990234375,
+      "ms": 81.69999999925494,
+      "ok": true,
+      "epoch": 1,
+      "day": 41751
+    },
+    {
+      "transferMs": 27.899658203125,
+      "ms": 59.19999999925494,
+      "ok": true,
+      "epoch": 1,
+      "day": 41753
+    }
+  ],
+  "rafMaxMs": 516.6999999999971,
+  "rafSamples": 290,
+  "limitations": [
+    "Minimal separate readonly UI; not production renderer",
+    "No durable storage writes",
+    "Host Chromium only",
+    "Single matched fixture; not throughput certification"
+  ]
+}

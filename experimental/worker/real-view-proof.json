@@ -1,0 +1,20 @@
+{
+  "realRendererFrozenSnapshot": true,
+  "trustedStepPolicyCouncilSaveButtons": true,
+  "actualConstructionAndInspection": true,
+  "unsupportedRestartBlocked": true,
+  "sourceEpochLoadAvailable": true,
+  "productionEnvelopeReadback": true,
+  "concurrentSaveCallersOneRevision": true,
+  "failedOwnerWriteNotAcknowledged": true,
+  "actualPolicyPackageControl": true,
+  "day": 41682,
+  "errors": [],
+  "limitations": [
+    "Paused opt-in integration only",
+    "Real build function tested via bridge command, not pointer placement trace",
+    "Full view snapshots currently required; projection schema incomplete",
+    "Unsupported controls explicitly blocked; not a release candidate",
+    "Uses actual persistSnapshot/saveEnvelope on isolated browser origin; native restore/export blocked pending async contract"
+  ]
+}
