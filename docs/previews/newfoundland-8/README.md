@@ -1,0 +1,15 @@
+# Newfoundland original geometry checkpoint
+
+Actual local-HTTP renders: overview.png and street-close.png. Both derive from the existing169-resident town and legal property geometry. The closer view uses actual neighbouring properties; no reference illustration, photographic backdrop, invented residents or extra economic capacity is substituted.
+
+Original modular kit assets/newfoundland-kit.js supplies road-facing colourful façades, shared procedural clapboard detail, white corner boards and framed glazing, transoms, brass door hardware, stone stoops, rails, mansard/hip forms, dormers and chimney variations. Adjacent real home plots receive half-party-wall extensions that meet only at their legal boundary. Doors face the nearest actual street; gaps remain where real plots are not contiguous. Generic civic/industrial architecture is still visible and not yet fully harmonized with the selected art direction.
+
+Public architectural references read: https://www.newfoundlandlabrador.com/trip-ideas/travel-stories/jellybean-fall-colours and https://destinationstjohns.com/row-houses-character/ . Their published text supports colourful heritage row houses and white trim. Important limitation: the private generated concept could not be materialized, and direct public photo downloads failed with proxy403; web reads returned image pointers/captions rather than image pixels. No claim of having visually inspected those source images is made. No reference photo or private concept is bundled or published here.
+
+Validation on this checkpoint: forty kind×street-orientation×attachment geometry cases keep all authored boxes and roof meshes within the existing legal footprint, with unchanged input state. HTTP render keeps day/funds/RNG unchanged; real save and Continue/reload preserve the town. Actual inspector click, road placement through the existing paid action, live committed-view refresh, camera, portrait resize, state invariance and Canvas disposal fallback pass the shared browser regression. These tests do not establish all-tools/mobile/native completeness.
+
+## Negative performance evidence
+
+The host is ANGLE Vulkan SwiftShader (software), not a physical phone GPU. The first geometric-siding diagnostic had warm RAF median~731ms,p95~789ms,max1824ms despite submitted-render CPU~4ms. Replacing thousands of lap-course shadow-casting boxes with one original shared procedural material and using1024 shadow maps yielded an observed median523ms,p95555ms,max1211ms in the next diagnostic. That run reports170 draw calls and81,170 triangles at the close view, with CPU median3.6ms. These are two diagnostic runs, not a controlled physical-device comparison. The result is still very slow on this backend. Do not quote submission CPU as FPS or claim smoothness. Raw warm RAF intervals and backend string are retained in measurements.json.
+
+Remaining: selected-style civic/harbour assets, landscape composition, pinch/road painting/full control coverage, worker projection integration, economic actors/bridges, large-world view streaming, memory soak and native/physical-device budgets. No production promotion or concept-fidelity guarantee.
