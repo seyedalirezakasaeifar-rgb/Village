@@ -3915,12 +3915,12 @@ function spriteFor(item){
  // Tight, conservative sprite envelopes avoid uploading acres of transparent
  // pixels whenever a dense viewport changes. Geometry keeps its world anchor.
  const side=item.kind==='building'?Math.ceil((item.w+item.d)*18+20):36,top=item.kind==='building'?(b.kind==='tower'?192:112):72,bottom=item.kind==='building'?Math.ceil((item.w+item.d)*18+24):24;
- const c=document.createElement('canvas');c.width=side*2;c.height=top+bottom;c.anchorX=side;c.anchorY=top;const g=c.getContext('2d');g.translate(c.anchorX,c.anchorY);const previousLights=spriteLightRecorder;spriteLightRecorder=[];
+ const c=document.createElement('canvas'),artScale=window.CITY_REDESIGN&&item.kind==='building'?2:1;c.width=side*2*artScale;c.height=(top+bottom)*artScale;c.anchorX=side;c.anchorY=top;c.artScale=artScale;const g=c.getContext('2d');g.scale(artScale,artScale);g.translate(c.anchorX,c.anchorY);const previousLights=spriteLightRecorder;spriteLightRecorder=[];
  if(item.kind==='streetprop')streetProp(g,item.id%3);else if(item.kind==='tree')tree(g,0,0,item.id%11,.83);else{polygon(g,[point(-item.w*.4,-item.d*.4),point(item.w*.6,-item.d*.4),point(item.w*.9,item.d*.3),point(0,item.d*.7)],'#48523f30');architecture(g,b.kind==='worksite'||b.redevelopment?b:{...b,id:variant},item.w,item.d);parcelDetails(g,b,item.w,item.d);architecturalIdentity(g,b,item.w,item.d);}
  c.lightSources=spriteLightRecorder;spriteLightRecorder=previousLights;
  atlas.set(key,c);atlasBytes+=c.width*c.height*4;while(atlas.size>600||atlasBytes>48*1024*1024){const oldest=atlas.keys().next().value,retired=atlas.get(oldest);atlasBytes-=retired.width*retired.height*4;atlas.delete(oldest);}return c;
 }
-function drawSceneSprite(g,item){if(item.kind==='tree'&&cam.zoom<.30){g.fillStyle=seasonPalette().leaf[item.id%3];g.beginPath();g.ellipse(item.x,item.y-18,19,13,0,0,Math.PI*2);g.fill();return;}const sprite=spriteFor(item);g.drawImage(sprite,Math.round(item.x-sprite.anchorX),Math.round(item.y-sprite.anchorY));}
+function drawSceneSprite(g,item){if(item.kind==='tree'&&cam.zoom<.30){g.fillStyle=seasonPalette().leaf[item.id%3];g.beginPath();g.ellipse(item.x,item.y-18,19,13,0,0,Math.PI*2);g.fill();return;}const sprite=spriteFor(item);g.drawImage(sprite,Math.round(item.x-sprite.anchorX),Math.round(item.y-sprite.anchorY),sprite.width/(sprite.artScale||1),sprite.height/(sprite.artScale||1));}
 function prepareScene(){
  displayItems=[];const occupied=new Set(G.buildings.flatMap(b=>footprintOf(b)));
  for(let y=0;y<T;y++)for(let x=0;x<T;x++){const id=roadId(x,y);if(G.tiles[id]===3&&!occupied.has(id)&&!G.landUse?.[id]&&hash(id+G.worldSeed)%4!==0){const [px,py]=iso(x,y);displayItems.push({kind:'tree',id,x:px,y:py+18,w:1,d:1});}}
@@ -4037,7 +4037,7 @@ function draw(){
  if(!G||!dirty)return;dirty=false;document.body.classList.toggle('surveying-region',overlay==='charter');$('gameRoot').classList.toggle('building-map',!!buildMode);updateRegionSurvey();if(lastGroundOverview!==(cam.zoom<.24))staticDirty=true;if(staticDirty||lastSceneMonth!==visualMonth())drawStatic();
  ctx.setTransform(1,0,0,1,0,0);ctx.fillStyle='#6d8774';ctx.fillRect(0,0,cv.width,cv.height);
  const sx=cam.x-cw/(2*cam.zoom),sy=cam.y-ch/(2*cam.zoom),ww=cw/cam.zoom,hh=ch/cam.zoom;
- ctx.setTransform(dpr,0,0,dpr,0,0);ctx.imageSmoothingEnabled=false;transform();ctx.imageSmoothingEnabled=false;
+ ctx.setTransform(dpr,0,0,dpr,0,0);ctx.imageSmoothingEnabled=!!window.CITY_REDESIGN;transform();ctx.imageSmoothingEnabled=!!window.CITY_REDESIGN;
  const visible=(x,y,m=120)=>x>=sx-m&&x<=sx+ww+m&&y>=sy-m&&y<=sy+hh+m;
  // Retain the camera's static composition. Moving actors only redraw intersecting
  // foreground objects, preserving depth without repainting every house each frame.
@@ -4050,7 +4050,7 @@ function draw(){
  const bridgeStyle=typeof bridgeRenderSnapshot==='function'?bridgeRenderSnapshot().map(b=>`${b.id}:${Math.floor(b.condition/20)}:${b.closed?1:0}`).join(','):'';
  const key=[cam.x,cam.y,cam.zoom,cw,ch,dpr,nightMode,gameOptions.streetNames,landscapeRevision,states,G.transit?.revision||0,bridgeStyle].join('|');
  if(key!==viewRasterKey){
-  if(viewRaster.width!==cv.width)viewRaster.width=cv.width;if(viewRaster.height!==cv.height)viewRaster.height=cv.height;const vg=viewRaster.getContext('2d',{alpha:false});vg.imageSmoothingEnabled=false;
+  if(viewRaster.width!==cv.width)viewRaster.width=cv.width;if(viewRaster.height!==cv.height)viewRaster.height=cv.height;const vg=viewRaster.getContext('2d',{alpha:false});vg.imageSmoothingEnabled=!!window.CITY_REDESIGN;
   // The cached background already has backing-store dimensions. Copy it at
   // identity before applying the logical-pixel transform for world sprites.
   vg.setTransform(1,0,0,1,0,0);vg.drawImage(viewBackgroundRaster,0,0);vg.setTransform(dpr,0,0,dpr,0,0);vg.translate(cw/2,ch/2);vg.scale(cam.zoom,cam.zoom);vg.translate(-cam.x,-cam.y);
@@ -7932,9 +7932,9 @@ if(new URLSearchParams(location.search).get('cityArt')==='prototype'||window.CIT
   if(!kit.has(b.kind)||b.redevelopment){priorArchitecture(g,b,w,d);return;}
   const residential=b.kind==='home',urban=['apartment','office'].includes(b.kind),industry=['factory','warehouse','mill','sawmill'].includes(b.kind),id=b.id||0;
   const bw=w*(residential?.92:.82),bd=d*(residential?.83:.74),u=-bw/2,v=-bd/2;
-  const masonry=['#c6b99f','#a9957f','#d5cbb6','#a5aaa0','#ba9d80'][id%5],roof=['#343e48','#50504a','#694b3e'][id%3];
+  const masonry=['#d8c6a4','#b68163','#e1d7bd','#96a5a0','#c6a47e'][id%5],roof=['#3b505b','#677d73','#985c43'][id%3];
   // Broad quiet material planes replace the tiny pastel cottage vocabulary.
-  g.fillStyle='#273e3228';g.beginPath();g.ellipse(8,9,w*30,d*13,.14,0,Math.PI*2);g.fill();
+  g.shadowColor='#253a3c55';g.shadowBlur=7;g.fillStyle='#273e3228';g.beginPath();g.ellipse(8,9,w*30,d*13,.14,0,Math.PI*2);g.fill();g.shadowBlur=0;
   slab(g,-w*.48,-d*.48,w*.96,d*.96,1,'#8c9182');
   slab(g,u-.08,v-.08,bw+.16,bd+.16,3,'#555a50');
   const floors=urban?3+(id%3):industry?1:residential?2:2,H=industry?38:residential?(id%3===0?37:27):floors*20;
@@ -7944,16 +7944,17 @@ if(new URLSearchParams(location.search).get('cityArt')==='prototype'||window.CIT
    if(residential&&f>0&&H<35)continue;const z=residential?8+f*17:10+f*20,columns=residential?2:3;
    for(let j=0;j<columns;j++){
     const ww=Math.min(.17,(bw-.25)/columns),x=u+.10+j*(bw-.18)/columns;
-    polygon(g,[point(x,v+bd+.008,z),point(x+ww,v+bd+.008,z),point(x+ww,v+bd+.008,z+10),point(x,v+bd+.008,z+10)],'#3a3e39');
-    polygon(g,[point(x+.025,v+bd+.015,z+2),point(x+ww-.025,v+bd+.015,z+2),point(x+ww-.025,v+bd+.015,z+9),point(x+.025,v+bd+.015,z+9)],nightMode?'#f5c47d':'#47636c');
+    polygon(g,[point(x,v+bd+.008,z),point(x+ww,v+bd+.008,z),point(x+ww,v+bd+.008,z+10),point(x,v+bd+.008,z+10)],'#4b5c5c');
+    polygon(g,[point(x+.025,v+bd+.015,z+2),point(x+ww-.025,v+bd+.015,z+2),point(x+ww-.025,v+bd+.015,z+9),point(x+.025,v+bd+.015,z+9)],nightMode?'#f5c47d':'#73939c');
     segment(g,point(x,v+bd+.04,z),point(x+ww,v+bd+.04,z),'#dfcfac',2);
     const y=v+.10+j*(bd-.15)/columns;
-    polygon(g,[point(u+bw+.01,y,z),point(u+bw+.01,y+ww,z),point(u+bw+.01,y+ww,z+9),point(u+bw+.01,y,z+9)],nightMode?'#cd9c5e':'#314952');
+    polygon(g,[point(u+bw+.01,y,z),point(u+bw+.01,y+ww,z),point(u+bw+.01,y+ww,z+9),point(u+bw+.01,y,z+9)],nightMode?'#cd9c5e':'#496a79');
    }
    if(urban)slab(g,u-.035,v-.035,bw+.07,bd+.07,z+15,'#746f63');
   }
   if(residential){
-   if(id%3===0)gable(g,u-.03,v-.04,bw+.06,bd+.08,H+5,17,roof);else if(id%3===1){slab(g,u-.05,v-.05,bw+.10,bd+.10,H+7,roof);box(g,u+.08,v+.08,bw*.4,bd*.35,H+8,4,'#797e72');}else dioramaHipRoof(g,u-.04,v-.04,bw+.08,bd+.08,H+5,14,roof);
+   slab(g,u-.06,v-.06,bw+.12,bd+.12,H+4,'#524b40');
+   if(id%3===0)gable(g,u-.03,v-.04,bw+.06,bd+.08,H+5,17,roof);else if(id%3===1){gable(g,u-.05,v-.05,bw+.1,bd+.1,H+5,19,roof);box(g,u+bw*.15,v+.10,.11,.11,H+12,15,'#9a8063');}else dioramaHipRoof(g,u-.04,v-.04,bw+.08,bd+.08,H+5,14,roof);
    box(g,u+bw*.12,v+bd*.17,.11,.12,H+10,20,'#7d6d5b');
    // A deep covered entry and broad steps give houses a grounded human scale.
    box(g,-.12,v+bd+.01,.25,.15,3,18,'#77786b');slab(g,-.18,v+bd+.01,.36,.23,24,roof);

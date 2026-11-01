@@ -9,9 +9,9 @@ if(new URLSearchParams(location.search).get('cityArt')==='prototype'||window.CIT
   if(!kit.has(b.kind)||b.redevelopment){priorArchitecture(g,b,w,d);return;}
   const residential=b.kind==='home',urban=['apartment','office'].includes(b.kind),industry=['factory','warehouse','mill','sawmill'].includes(b.kind),id=b.id||0;
   const bw=w*(residential?.92:.82),bd=d*(residential?.83:.74),u=-bw/2,v=-bd/2;
-  const masonry=['#c6b99f','#a9957f','#d5cbb6','#a5aaa0','#ba9d80'][id%5],roof=['#343e48','#50504a','#694b3e'][id%3];
+  const masonry=['#d8c6a4','#b68163','#e1d7bd','#96a5a0','#c6a47e'][id%5],roof=['#3b505b','#677d73','#985c43'][id%3];
   // Broad quiet material planes replace the tiny pastel cottage vocabulary.
-  g.fillStyle='#273e3228';g.beginPath();g.ellipse(8,9,w*30,d*13,.14,0,Math.PI*2);g.fill();
+  g.shadowColor='#253a3c55';g.shadowBlur=7;g.fillStyle='#273e3228';g.beginPath();g.ellipse(8,9,w*30,d*13,.14,0,Math.PI*2);g.fill();g.shadowBlur=0;
   slab(g,-w*.48,-d*.48,w*.96,d*.96,1,'#8c9182');
   slab(g,u-.08,v-.08,bw+.16,bd+.16,3,'#555a50');
   const floors=urban?3+(id%3):industry?1:residential?2:2,H=industry?38:residential?(id%3===0?37:27):floors*20;
@@ -21,16 +21,17 @@ if(new URLSearchParams(location.search).get('cityArt')==='prototype'||window.CIT
    if(residential&&f>0&&H<35)continue;const z=residential?8+f*17:10+f*20,columns=residential?2:3;
    for(let j=0;j<columns;j++){
     const ww=Math.min(.17,(bw-.25)/columns),x=u+.10+j*(bw-.18)/columns;
-    polygon(g,[point(x,v+bd+.008,z),point(x+ww,v+bd+.008,z),point(x+ww,v+bd+.008,z+10),point(x,v+bd+.008,z+10)],'#3a3e39');
-    polygon(g,[point(x+.025,v+bd+.015,z+2),point(x+ww-.025,v+bd+.015,z+2),point(x+ww-.025,v+bd+.015,z+9),point(x+.025,v+bd+.015,z+9)],nightMode?'#f5c47d':'#47636c');
+    polygon(g,[point(x,v+bd+.008,z),point(x+ww,v+bd+.008,z),point(x+ww,v+bd+.008,z+10),point(x,v+bd+.008,z+10)],'#4b5c5c');
+    polygon(g,[point(x+.025,v+bd+.015,z+2),point(x+ww-.025,v+bd+.015,z+2),point(x+ww-.025,v+bd+.015,z+9),point(x+.025,v+bd+.015,z+9)],nightMode?'#f5c47d':'#73939c');
     segment(g,point(x,v+bd+.04,z),point(x+ww,v+bd+.04,z),'#dfcfac',2);
     const y=v+.10+j*(bd-.15)/columns;
-    polygon(g,[point(u+bw+.01,y,z),point(u+bw+.01,y+ww,z),point(u+bw+.01,y+ww,z+9),point(u+bw+.01,y,z+9)],nightMode?'#cd9c5e':'#314952');
+    polygon(g,[point(u+bw+.01,y,z),point(u+bw+.01,y+ww,z),point(u+bw+.01,y+ww,z+9),point(u+bw+.01,y,z+9)],nightMode?'#cd9c5e':'#496a79');
    }
    if(urban)slab(g,u-.035,v-.035,bw+.07,bd+.07,z+15,'#746f63');
   }
   if(residential){
-   if(id%3===0)gable(g,u-.03,v-.04,bw+.06,bd+.08,H+5,17,roof);else if(id%3===1){slab(g,u-.05,v-.05,bw+.10,bd+.10,H+7,roof);box(g,u+.08,v+.08,bw*.4,bd*.35,H+8,4,'#797e72');}else dioramaHipRoof(g,u-.04,v-.04,bw+.08,bd+.08,H+5,14,roof);
+   slab(g,u-.06,v-.06,bw+.12,bd+.12,H+4,'#524b40');
+   if(id%3===0)gable(g,u-.03,v-.04,bw+.06,bd+.08,H+5,17,roof);else if(id%3===1){gable(g,u-.05,v-.05,bw+.1,bd+.1,H+5,19,roof);box(g,u+bw*.15,v+.10,.11,.11,H+12,15,'#9a8063');}else dioramaHipRoof(g,u-.04,v-.04,bw+.08,bd+.08,H+5,14,roof);
    box(g,u+bw*.12,v+bd*.17,.11,.12,H+10,20,'#7d6d5b');
    // A deep covered entry and broad steps give houses a grounded human scale.
    box(g,-.12,v+bd+.01,.25,.15,3,18,'#77786b');slab(g,-.18,v+bd+.01,.36,.23,24,roof);

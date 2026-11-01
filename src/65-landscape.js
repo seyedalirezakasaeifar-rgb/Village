@@ -188,12 +188,12 @@ function spriteFor(item){
  // Tight, conservative sprite envelopes avoid uploading acres of transparent
  // pixels whenever a dense viewport changes. Geometry keeps its world anchor.
  const side=item.kind==='building'?Math.ceil((item.w+item.d)*18+20):36,top=item.kind==='building'?(b.kind==='tower'?192:112):72,bottom=item.kind==='building'?Math.ceil((item.w+item.d)*18+24):24;
- const c=document.createElement('canvas');c.width=side*2;c.height=top+bottom;c.anchorX=side;c.anchorY=top;const g=c.getContext('2d');g.translate(c.anchorX,c.anchorY);const previousLights=spriteLightRecorder;spriteLightRecorder=[];
+ const c=document.createElement('canvas'),artScale=window.CITY_REDESIGN&&item.kind==='building'?2:1;c.width=side*2*artScale;c.height=(top+bottom)*artScale;c.anchorX=side;c.anchorY=top;c.artScale=artScale;const g=c.getContext('2d');g.scale(artScale,artScale);g.translate(c.anchorX,c.anchorY);const previousLights=spriteLightRecorder;spriteLightRecorder=[];
  if(item.kind==='streetprop')streetProp(g,item.id%3);else if(item.kind==='tree')tree(g,0,0,item.id%11,.83);else{polygon(g,[point(-item.w*.4,-item.d*.4),point(item.w*.6,-item.d*.4),point(item.w*.9,item.d*.3),point(0,item.d*.7)],'#48523f30');architecture(g,b.kind==='worksite'||b.redevelopment?b:{...b,id:variant},item.w,item.d);parcelDetails(g,b,item.w,item.d);architecturalIdentity(g,b,item.w,item.d);}
  c.lightSources=spriteLightRecorder;spriteLightRecorder=previousLights;
  atlas.set(key,c);atlasBytes+=c.width*c.height*4;while(atlas.size>600||atlasBytes>48*1024*1024){const oldest=atlas.keys().next().value,retired=atlas.get(oldest);atlasBytes-=retired.width*retired.height*4;atlas.delete(oldest);}return c;
 }
-function drawSceneSprite(g,item){if(item.kind==='tree'&&cam.zoom<.30){g.fillStyle=seasonPalette().leaf[item.id%3];g.beginPath();g.ellipse(item.x,item.y-18,19,13,0,0,Math.PI*2);g.fill();return;}const sprite=spriteFor(item);g.drawImage(sprite,Math.round(item.x-sprite.anchorX),Math.round(item.y-sprite.anchorY));}
+function drawSceneSprite(g,item){if(item.kind==='tree'&&cam.zoom<.30){g.fillStyle=seasonPalette().leaf[item.id%3];g.beginPath();g.ellipse(item.x,item.y-18,19,13,0,0,Math.PI*2);g.fill();return;}const sprite=spriteFor(item);g.drawImage(sprite,Math.round(item.x-sprite.anchorX),Math.round(item.y-sprite.anchorY),sprite.width/(sprite.artScale||1),sprite.height/(sprite.artScale||1));}
 function prepareScene(){
  displayItems=[];const occupied=new Set(G.buildings.flatMap(b=>footprintOf(b)));
  for(let y=0;y<T;y++)for(let x=0;x<T;x++){const id=roadId(x,y);if(G.tiles[id]===3&&!occupied.has(id)&&!G.landUse?.[id]&&hash(id+G.worldSeed)%4!==0){const [px,py]=iso(x,y);displayItems.push({kind:'tree',id,x:px,y:py+18,w:1,d:1});}}
@@ -310,7 +310,7 @@ function draw(){
  if(!G||!dirty)return;dirty=false;document.body.classList.toggle('surveying-region',overlay==='charter');$('gameRoot').classList.toggle('building-map',!!buildMode);updateRegionSurvey();if(lastGroundOverview!==(cam.zoom<.24))staticDirty=true;if(staticDirty||lastSceneMonth!==visualMonth())drawStatic();
  ctx.setTransform(1,0,0,1,0,0);ctx.fillStyle='#6d8774';ctx.fillRect(0,0,cv.width,cv.height);
  const sx=cam.x-cw/(2*cam.zoom),sy=cam.y-ch/(2*cam.zoom),ww=cw/cam.zoom,hh=ch/cam.zoom;
- ctx.setTransform(dpr,0,0,dpr,0,0);ctx.imageSmoothingEnabled=false;transform();ctx.imageSmoothingEnabled=false;
+ ctx.setTransform(dpr,0,0,dpr,0,0);ctx.imageSmoothingEnabled=!!window.CITY_REDESIGN;transform();ctx.imageSmoothingEnabled=!!window.CITY_REDESIGN;
  const visible=(x,y,m=120)=>x>=sx-m&&x<=sx+ww+m&&y>=sy-m&&y<=sy+hh+m;
  // Retain the camera's static composition. Moving actors only redraw intersecting
  // foreground objects, preserving depth without repainting every house each frame.
@@ -323,7 +323,7 @@ function draw(){
  const bridgeStyle=typeof bridgeRenderSnapshot==='function'?bridgeRenderSnapshot().map(b=>`${b.id}:${Math.floor(b.condition/20)}:${b.closed?1:0}`).join(','):'';
  const key=[cam.x,cam.y,cam.zoom,cw,ch,dpr,nightMode,gameOptions.streetNames,landscapeRevision,states,G.transit?.revision||0,bridgeStyle].join('|');
  if(key!==viewRasterKey){
-  if(viewRaster.width!==cv.width)viewRaster.width=cv.width;if(viewRaster.height!==cv.height)viewRaster.height=cv.height;const vg=viewRaster.getContext('2d',{alpha:false});vg.imageSmoothingEnabled=false;
+  if(viewRaster.width!==cv.width)viewRaster.width=cv.width;if(viewRaster.height!==cv.height)viewRaster.height=cv.height;const vg=viewRaster.getContext('2d',{alpha:false});vg.imageSmoothingEnabled=!!window.CITY_REDESIGN;
   // The cached background already has backing-store dimensions. Copy it at
   // identity before applying the logical-pixel transform for world sprites.
   vg.setTransform(1,0,0,1,0,0);vg.drawImage(viewBackgroundRaster,0,0);vg.setTransform(dpr,0,0,dpr,0,0);vg.translate(cw/2,ch/2);vg.scale(cam.zoom,cam.zoom);vg.translate(-cam.x,-cam.y);
