@@ -1,0 +1,132 @@
+{
+  "beforeEnactment": {
+    "day": 50682,
+    "publicPaid": 360,
+    "pensionPaid": 194.51368011053546,
+    "priorPaid": 554.5136801105355,
+    "services": [
+      {
+        "kind": "health",
+        "day": 50682,
+        "authorized": 70,
+        "required": 443.69230769230774,
+        "requested": 70,
+        "paid": 0,
+        "unspent": 70,
+        "population": 721,
+        "facilities": 6,
+        "facilityCoverage": 1,
+        "accessCoverage": 0.9001386962552023,
+        "accessLimit": 60,
+        "accessibleResidents": 649.0000000000008,
+        "staffing": {
+          "local": 232.64285714285714,
+          "regional": 0,
+          "needed": 10.3,
+          "coverage": 0.9001386962552024,
+          "pending": null,
+          "qualification": 0.7
+        },
+        "coverage": 0,
+        "wage": 28
+      },
+      {
+        "kind": "school",
+        "day": 50682,
+        "authorized": 90,
+        "required": 1194.5562130177514,
+        "requested": 90,
+        "paid": 0,
+        "unspent": 90,
+        "population": 721,
+        "facilities": 8,
+        "facilityCoverage": 1,
+        "accessCoverage": 0.9001386962552013,
+        "accessLimit": 40,
+        "accessibleResidents": 649.0000000000001,
+        "staffing": {
+          "local": 234.64285714285714,
+          "regional": 0,
+          "needed": 27.73076923076923,
+          "coverage": 0.9001386962552012,
+          "pending": null,
+          "qualification": 0.55
+        },
+        "coverage": 0,
+        "wage": 28
+      }
+    ],
+    "endingCash": 327.9036328274067
+  },
+  "afterEnactmentBeforeAnotherTick": {
+    "reported": {
+      "day": 50682,
+      "publicPaid": 360,
+      "pensionPaid": 0,
+      "priorPaid": 360,
+      "services": [
+        {
+          "kind": "health",
+          "day": 50682,
+          "authorized": 70,
+          "required": 443.69230769230774,
+          "requested": 70,
+          "paid": 0,
+          "unspent": 70,
+          "population": 721,
+          "facilities": 6,
+          "facilityCoverage": 1,
+          "accessCoverage": 0.9001386962552023,
+          "accessLimit": 60,
+          "accessibleResidents": 649.0000000000008,
+          "staffing": {
+            "local": 232.64285714285714,
+            "regional": 0,
+            "needed": 10.3,
+            "coverage": 0.9001386962552024,
+            "pending": null,
+            "qualification": 0.7
+          },
+          "coverage": 0,
+          "wage": 28
+        },
+        {
+          "kind": "school",
+          "day": 50682,
+          "authorized": 90,
+          "required": 1194.5562130177514,
+          "requested": 90,
+          "paid": 0,
+          "unspent": 90,
+          "population": 721,
+          "facilities": 8,
+          "facilityCoverage": 1,
+          "accessCoverage": 0.9001386962552013,
+          "accessLimit": 40,
+          "accessibleResidents": 649.0000000000001,
+          "staffing": {
+            "local": 234.64285714285714,
+            "regional": 0,
+            "needed": 27.73076923076923,
+            "coverage": 0.9001386962552012,
+            "pending": null,
+            "qualification": 0.55
+          },
+          "coverage": 0,
+          "wage": 28
+        }
+      ],
+      "endingCash": 327.9036328274067
+    },
+    "actualHouseholdPensions": 194.51368011053586,
+    "day": 50682
+  }
+}
+Traceback (most recent call last):
+  File "/workspace/service-warning-review/tests/test_service_budget_cash_warning_stale.py", line 87, in <module>
+    print(json.dumps(test_service_budget_cash_warning(), indent=2))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/service-warning-review/tests/test_service_budget_cash_warning_stale.py", line 59, in test_service_budget_cash_warning
+    assert stale['reported']['pensionPaid']==after_day['pensionPaid'], 'A same-day policy edit must not rewrite the previous day paid pension amount' 
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: A same-day policy edit must not rewrite the previous day paid pension amount
