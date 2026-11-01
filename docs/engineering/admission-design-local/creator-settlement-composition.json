@@ -1,0 +1,13 @@
+{
+  "twoCommitmentsReserved": true,
+  "oneLastSlotExactlyOneCompletion": true,
+  "blockedProjectPreserved": true,
+  "secondAttemptZeroWorkMoneyIdsRngChanges": true,
+  "stalledCommitmentColdReload": true,
+  "lowerHistoryArchiveRecoveryResumesCreation": true,
+  "controlledConstructionReadiness": true,
+  "workerOrPaidOwnerReadinessClaimed": false,
+  "totalBytesNodesProtected": false,
+  "source_sha256": "c455fd6cd5f875edbdecbe30fe263294da6b730c214c151b6f136c2ea2fd308e",
+  "noHistoricalIdentityPrunedForCapacity": true
+}
