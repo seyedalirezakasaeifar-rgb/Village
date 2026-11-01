@@ -1,0 +1,25 @@
+# Independent composed realtime acceptance — prepared, not executed
+
+Await the central published composition. Minimum oracle is current public87811c52, including reviewed graphics and the three player-freshness corrections. The older856f944 journey remains useful as an action sequence and historical negative; its stale-cargo, restore-panel and fleet-balance discrepancies are NOT expected behavior anymore. No unchanged accepted suite has been rerun for this preparation.
+
+`realtime-player-journey-plan.json` retains all23 route families, the funded fixture provenance/hash and exact new freshness expectations. Candidate delivery must identify host/worker/bindings/family hashes and documented startup/complete-day barriers. Use the existing command owner and real UI, not a second scheduler or replay model. Actual mutations remain buttons, form fields and map input; read-only probes and visual camera positioning are explicitly separated.
+
+## Journey and gates
+
+Run the existing26-checkpoint trajectory on the candidate: pause/speed controls and live construction; council; repeated deed/charter expansion; district/renewal prerequisites; bus depot, draft/quote/cancel/authorize/service/retire; elevated stations/guideway/fleet; freight priority/shift/contracts and actual cargo inspection; settings, Save Now, export/import and independent cold original-UI load. Include6702b49's ordinary-funded district, named-place, eligible-farm and ready-brownfield cases and the macro owner's current passenger/freight cases. An unavailable conditional fixture is an explicit blocked subcase; it is never counted through a generic unsupported toast.
+
+Pausing may finish an admitted day. After the candidate's documented completed-day/view barrier, the displayed day/model and actual panels must stay stable. Requested rate, delivered rate and owed days are distinct; pauses/admission must not erase owed work. A live action must either enter the bounded command queue truthfully or refuse without payment, state or save effects. Duplicate taps cannot duplicate payment. Forecasts, opaque choices, quoted property and draft state must revalidate against the admitted current state.
+
+Freshness is strict: current live cargo control must resolve to active/recent authority; expired control must explain expiry and refresh instead of silently leaving the old panel. Restore must leave Overview active, selected and displayed coherently. All transit capital/refunds must update stats.townBalance to treasury+publicReserve−debt. Raw export/import and the independent full cold original-UI oracle must match without deleting fields. Forms retain unsent edits where the source promises that behavior.
+
+Hold model replies and the original writer independently for representative paid actions, then verify visible pending feedback and the prior immutable complete view. Model confirmation must precede save intent, original writer/readback must precede token ACK, and a writer failure must retain the prior verified save while exposing committed-unsaved state. Actual Save Now retry must not replay money/world actions. Preserve ordinary capacity refusal versus fatal-root/failed-day recovery; fresh-realm recovery and old-save Continue/import must use actual saved data and retire old epochs/commands.
+
+## Determinism and measurements
+
+Independently timed live runs legitimately admit actions on different days; do not compare arbitrary final states or force their day counts to agree. Record the candidate's actual admitted completed-day/action sequence, epoch/request identity and RNG, and replay those boundaries with the existing untouched87811c52 model. Include every model/financial/history/traffic/identity field. The live journey itself must not call step/reset or inject cash, residents, stocks, crop titles or drivers. Separate deterministic fixture setup and replay evidence from actual live controls.
+
+Use a test-only transport observer to retain request IDs/epochs/types/arguments and reply day/version/RNG/paid/effect metadata. Archive bodies should be hashed once off the interaction path rather than repeatedly copied into Python. Observe trusted input, visible pending feedback and committed map/panel response separately; a next RAF alone does not establish a causal visible response. Measure throughput and owed work alongside input latency so a slowed simulation cannot masquerade as responsiveness. Do not infer sustained1–64×, multi-hour play or physical-device smoothness from the bounded functional journey.
+
+Read-only UI/report observations must not mutate G/RNG, and presentations must never expose partial accounts. Retain original-source fixture normalization and drawer context honestly; do not force-click through overlays or hide the experiment bar. Current internal bar can overlap the drawer close button; real active-tab navigation is available, but final product layout still needs its own acceptance.
+
+No new module, simulator or production activation is part of this preparation. Exact candidate is pending; once supplied, adapt only its published boot/settling/observer hooks and run the meaningful integrated cases.

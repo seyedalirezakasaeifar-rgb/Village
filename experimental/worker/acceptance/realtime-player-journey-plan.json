@@ -1,0 +1,267 @@
+{
+  "status": "PREPARED_NOT_RUN_AWAITING_CENTRAL_CANDIDATE",
+  "productionEnabled": false,
+  "minimumPublicOracleCommit": "87811c52",
+  "oracleSha256": "037c92b56d4b736f2c9c2bb96a950ae194bc815d1a393d36b3634f4272521d94",
+  "journeyOriginCommit": "856f944b551296ebe3c61c862439a946c803dc21",
+  "fixturePath": "docs/previews/growth-journey/regional-42-planned.json.gz",
+  "fixtureSha256": "928cd298306ecd884be0e7dac2e8d0a1fa2c5501cc090db285f47b158cc5db87",
+  "actualUiOnlyMutations": true,
+  "workerBootContract": {
+    "buildEnvironment": "WORKER_PAID_COMMAND_OWNER=1",
+    "initializer": "initialize-command-owner",
+    "options": {
+      "realtime": true,
+      "startPaused": true,
+      "routeBindings": "parsed route-bindings.generated.json"
+    }
+  },
+  "requiredRoutes": [
+    {
+      "id": "clock.speed-button",
+      "selectors": [
+        "#speed"
+      ],
+      "expected": "speed preset cycles and is reported truthfully",
+      "kind": "scheduler"
+    },
+    {
+      "id": "clock.speed-range",
+      "selectors": [
+        "#speedRange"
+      ],
+      "expected": "range input/change admits chosen finite speed",
+      "kind": "scheduler"
+    },
+    {
+      "id": "clock.pause-resume",
+      "selectors": [
+        "#pause"
+      ],
+      "expected": "real day progress then stable completed day after pause; no discarded pending action",
+      "kind": "scheduler"
+    },
+    {
+      "id": "council.review",
+      "selectors": [
+        "[data-inbox]",
+        "#convene",
+        "#eventChoices button"
+      ],
+      "expected": "one original affordable council choice, exact settlement, no duplicate root",
+      "kind": "paid"
+    },
+    {
+      "id": "construction.live-park",
+      "selectors": [
+        "[data-panel=construction]",
+        "[data-build=park]",
+        "#view"
+      ],
+      "expected": "one legal paid footprint while clock runs; no private callback fallback",
+      "kind": "paid while running"
+    },
+    {
+      "id": "land.purchase",
+      "selectors": [
+        "#charterOffice>summary",
+        "[data-parcel-buy]",
+        "#eventChoices button"
+      ],
+      "expected": "one extra deed, exactly quoted capital, existing titles preserved",
+      "kind": "paid"
+    },
+    {
+      "id": "district.charter",
+      "selectors": [
+        "[data-district-focus=neighbourhood]"
+      ],
+      "expected": "record owned-tract focus; first designation free; no fake homes/services",
+      "kind": "model"
+    },
+    {
+      "id": "renewal.plan",
+      "selectors": [
+        "[data-urban-plan=residential]"
+      ],
+      "expected": "one actual survey/rezoning settlement; reviewed site/version checked",
+      "kind": "paid"
+    },
+    {
+      "id": "renewal.review",
+      "selectors": [
+        "[data-urban-farm-renew]",
+        "#eventDefer"
+      ],
+      "expected": "real opportunity or model prerequisite refusal; no unsupported placeholder; no speculative payment",
+      "kind": "review"
+    },
+    {
+      "id": "transit.depot",
+      "selectors": [
+        "[data-build=transit_depot]",
+        "#view"
+      ],
+      "expected": "actual municipal depot capital/footprint",
+      "kind": "paid"
+    },
+    {
+      "id": "transit.bus-draft",
+      "selectors": [
+        "[data-transit-action=new-bus]",
+        "#transitLevel",
+        "[data-transit-action=map]",
+        "#view"
+      ],
+      "expected": "mode/depot/level/stop sequence remains coherent; no model finance while selecting",
+      "kind": "draft"
+    },
+    {
+      "id": "transit.quote-cancel",
+      "selectors": [
+        "[data-transit-action=quote]",
+        "[data-transit-action=cancel]"
+      ],
+      "expected": "full reviewed forecast; cancel leaves cash/capital/routes unchanged",
+      "kind": "review"
+    },
+    {
+      "id": "transit.authorize-bus",
+      "selectors": [
+        "[data-transit-action=build]"
+      ],
+      "expected": "one route/fleet capital; stop paths and depot capacity valid",
+      "kind": "paid"
+    },
+    {
+      "id": "transit.service",
+      "selectors": [
+        "[data-transit-level]"
+      ],
+      "expected": "suspend/resume exact level; funded staff/riders/cost or truthful shortage",
+      "kind": "model/paid"
+    },
+    {
+      "id": "transit.elevated",
+      "selectors": [
+        "[data-build=elevated_station]",
+        "[data-transit-action=new-elevated]",
+        "[data-transit-action=map]",
+        "[data-transit-action=quote]",
+        "[data-transit-action=build]"
+      ],
+      "expected": "two original roadside stations and original guideway/fleet quote, no property clearing shortcut",
+      "kind": "paid"
+    },
+    {
+      "id": "freight.priority",
+      "selectors": [
+        "[data-logistics-priority=essentials]"
+      ],
+      "expected": "actual ready-queue priority, not extra inventory/crews",
+      "kind": "model"
+    },
+    {
+      "id": "freight.shift",
+      "selectors": [
+        "#logisticsRelief",
+        "#eventChoices button"
+      ],
+      "expected": "30-day authorization; charge only actual handling under original model",
+      "kind": "paid commitment"
+    },
+    {
+      "id": "freight.agreement",
+      "selectors": [
+        "[data-trade-offer]",
+        "#eventChoices button"
+      ],
+      "expected": "one original sized/risky commitment with supplier/quantity/deadline; no signing reward",
+      "kind": "model commitment"
+    },
+    {
+      "id": "freight.inspect",
+      "selectors": [
+        "[data-regional-cargo]"
+      ],
+      "expected": "latest active or completed ledger view; stale controls refresh/explain, never silent",
+      "kind": "read"
+    },
+    {
+      "id": "transit.retire",
+      "selectors": [
+        "[data-transit-action=retire]"
+      ],
+      "expected": "fleet refund once; infrastructure retained; derived balance refreshed before publication",
+      "kind": "paid"
+    },
+    {
+      "id": "settings.presentation",
+      "selectors": [
+        "#nightView",
+        "#soundToggle"
+      ],
+      "expected": "trusted UI preference actions; no economic changes; no audible-device claim",
+      "kind": "view"
+    },
+    {
+      "id": "save.original-owner",
+      "selectors": [
+        "#saveNow"
+      ],
+      "expected": "committed snapshot to original writer; success only after verified owner result",
+      "kind": "storage"
+    },
+    {
+      "id": "archive.export-import",
+      "selectors": [
+        "#backupSave",
+        "#saveText",
+        "#archiveClose",
+        "#importSave",
+        "#importText",
+        "#restoreGo"
+      ],
+      "expected": "actual forms, epoch barriers, coherent panel/active state; full original cold UI oracle, no excluded fields",
+      "kind": "storage/adoption"
+    }
+  ],
+  "requiredFreshness": {
+    "staleCargoPreview": false,
+    "stalePanelState": false,
+    "rawArchiveRoundtripEqual": true,
+    "fullColdUiOracleEqual": true,
+    "transitTownBalanceExactFormula": "treasury + publicReserve - debt",
+    "expiredCargo": "explicit unavailable/completed explanation and current Economy view; never silent failure"
+  },
+  "additionalJourneys": [
+    "all17 land controls from6702b49 using funded ordinary district/market/farm/brownfield archives",
+    "published current transit/freight route and contract cases from macro owner",
+    "original saver hold/readback/ACK, failure/storage-only retry and fresh-realm saved recovery",
+    "old schema8 save Continue/import and replay on exact composed model"
+  ],
+  "oracleRules": [
+    "No legacy freshness workaround accepted as success",
+    "No expected final-day equality between independently timed live runs",
+    "Replay exact admitted complete-day/action sequence against untouched87811c52 original model",
+    "No field exclusion, RNG adjustment, injected wallet/person/stock/driver or parallel simulation",
+    "Model/scene actions wait for the committed boundary; camera-only reads may use the old complete view",
+    "No generic unsupported/refusal response counted as supported control",
+    "Inspect pause/speed requested/delivered/debt separately; owed work cannot disappear",
+    "Separate model commit, writer completion, readback and durable ACK"
+  ],
+  "requiredCandidateArtifacts": [
+    "exact central composition commit",
+    "host assembled source and generated worker hashes",
+    "generated route bindings and per-family source hashes",
+    "known unsupported controls, if any",
+    "realtime complete-day/publication barrier API and causal action trace entrypoints",
+    "original writer/native lifecycle integration scope"
+  ],
+  "uncoveredUntilCandidate": [
+    "full composed realtime journey",
+    "all-source exact replay on87811c52",
+    "requested-speed sustained throughput and causal visible response",
+    "physical/native durability and final polished layout"
+  ]
+}
