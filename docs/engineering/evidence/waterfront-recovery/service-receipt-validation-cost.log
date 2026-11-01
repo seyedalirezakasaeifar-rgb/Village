@@ -1,0 +1,36 @@
+{
+  "source_sha256": "884d8087368dbb6ac0a058a5baee7296e47fcc79ea72db25b478ef50a7af0582",
+  "scope": "Standalone host Chromium, metadata validation only; excludes JSON decode, full hydration, rendering, native IO and large-capacity performance",
+  "cases": [
+    {
+      "kind": "school",
+      "people": 169,
+      "households": 67,
+      "privateAllocations": 13,
+      "millisecondsPerValidation": [
+        0.02550000000279397,
+        0.02,
+        0.01,
+        0.007999999998137355,
+        0.0075
+      ],
+      "modelAndReceiptUnchanged": true,
+      "medianMillisecondsPerValidation": 0.01
+    },
+    {
+      "kind": "fire",
+      "people": 169,
+      "households": 67,
+      "privateAllocations": 66,
+      "millisecondsPerValidation": [
+        0.0325,
+        0.031499999999068676,
+        0.0275,
+        0.028999999999068677,
+        0.03300000000279397
+      ],
+      "modelAndReceiptUnchanged": true,
+      "medianMillisecondsPerValidation": 0.031499999999068676
+    }
+  ]
+}

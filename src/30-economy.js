@@ -119,8 +119,8 @@ function finalizeMarketBooks(){
  }
  updateCreditObservations();marketOpen=false;
 }
-function policePower(){const b=G.buildings.filter(b=>b.kind==='police').length,court=G.buildings.filter(b=>b.kind==='courthouse').length;const funded=G.actualServiceFunding?.police??1;return clamp(.035+funded*((G.policy.policeBudget/(G.stats.population*.7+1))*.48 + b*.10+court*.05),.035,.95)}
-function defensePower(){const b=G.buildings.filter(b=>b.kind==='fire'&&isPublicFacility(b)).length;const funded=G.actualServiceFunding?.fire??1;return clamp(.025+funded*((G.policy.defenseBudget/(G.stats.population*.65+1))*.50+b*.1),.025,.96)}
+function policePower(population=G.stats.population){const b=G.buildings.filter(b=>b.kind==='police').length,court=G.buildings.filter(b=>b.kind==='courthouse').length;const funded=G.actualServiceFunding?.police??1;return clamp(.035+funded*((G.policy.policeBudget/(population*.7+1))*.48 + b*.10+court*.05),.035,.95)}
+function defensePower(population=G.stats.population){const b=G.buildings.filter(b=>b.kind==='fire'&&isPublicFacility(b)).length;const funded=G.actualServiceFunding?.fire??1;return clamp(.025+funded*((G.policy.defenseBudget/(population*.65+1))*.50+b*.1),.025,.96)}
 function incidents(){
  const unemployment=1-G.people.filter(p=>!p.deceased&&p.movedAway!==true&&p.age>=16&&p.age<=70&&((p.job>=0&&!p.commuteBlocked)||p.publicWork)).length/Math.max(1,G.people.filter(p=>!p.deceased&&p.movedAway!==true&&p.age>=16&&p.age<=70).length);
  const residentHouseholds=G.households.filter(h=>h.people.length>0);
@@ -146,11 +146,11 @@ function incidents(){
 }
 function recompute(){
  let people=G.people.filter(p=>!p.deceased&&p.movedAway!==true).length,working=G.people.filter(p=>!p.deceased&&p.movedAway!==true&&p.age>=16&&p.age<=70),employed=working.filter(p=>(p.job>=0&&!p.commuteBlocked)||p.publicWork).length,poor=G.households.filter(h=>h.people.length>0&&(householdLiquidity(h)/Math.max(1,h.people.length)<150||h.stress>65)).length;
- const safety=clamp(Math.round(60+policePower()*34+G.policy.outreachBudget*(G.actualServiceFunding?.outreach??1)/30-poor/Math.max(1,G.households.filter(h=>h.people.length>0).length)*28),0,100);
+ const safety=clamp(Math.round(60+policePower(people)*34+G.policy.outreachBudget*(G.actualServiceFunding?.outreach??1)/30-poor/Math.max(1,G.households.filter(h=>h.people.length>0).length)*28),0,100);
  const businessCount=G.firms.filter(f=>!f.closed).length;
  const oldStats=G.stats||{};
- G.stats={population:people,employed,workforce:working.length,employment:working.length?Math.round(employed/working.length*100):100,unemployment:working.length?Math.round((working.length-employed)/working.length*100):0,
-   hardship:Math.round(poor/Math.max(1,G.households.filter(h=>h.people.length>0).length)*100),safety,preparedness:Math.round(defensePower()*100),businesses:businessCount,
+ G.stats={population:people,approval:Math.round(G.council?.approval??65),employed,workforce:working.length,employment:working.length?Math.round(employed/working.length*100):100,unemployment:working.length?Math.round((working.length-employed)/working.length*100):0,
+   hardship:Math.round(poor/Math.max(1,G.households.filter(h=>h.people.length>0).length)*100),safety,preparedness:Math.round(defensePower(people)*100),businesses:businessCount,
    cash:G.households.reduce((s,h)=>s+h.cash,0),businessCash:G.firms.reduce((s,f)=>s+f.cash,0),dailyCrime:G.cases.filter(c=>c.day>G.day-30).length,
    income:G.households.reduce((s,h)=>s+h.income,0),townBalance:G.treasury+(G.publicReserve||0)-G.debt};
  for(let k of ['health','education','wellbeing','marketConfidence','roadCondition','roadService','militia','realWages','prosperity','avgCash','compliance','propertyCosts','airPollution'])if(oldStats[k]!=null&&Number.isFinite(oldStats[k]))G.stats[k]=oldStats[k];

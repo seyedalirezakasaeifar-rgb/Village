@@ -30,10 +30,10 @@ cv.addEventListener('touchend',e=>{touches=new Map([...e.touches].map(t=>[t.iden
 cv.addEventListener('touchcancel',()=>{touches.clear();pointer.pinch=0;pointer.down=false;pointer.activeId=null;pointer.lastRoad=null;roadPainted.clear();flushRoadBatch();});
 function closeBuildTool(){cancelTransitDraft();flushRoadBatch();buildMode='';pointer.hover=null;pointer.down=false;pointer.activeId=null;pointer.lastRoad=null;roadPainted.clear();dirty=true;$('placementHint').classList.remove('school-placement');$('placementHint').style.display='none';$('hint').textContent='DRAG TO PAN · TAP TO INSPECT';toast('Construction tool closed');}
 function construct(kind,x,y,quiet=false){
- if(['transit_depot','elevated_station'].includes(kind)){if(buildTransitFacility(kind,x,y)){updateHeader();save();toast(types[kind].n+' constructed.');}else toast('Needs an owned vacant footprint by a street and '+money(buildCost[kind])+'.');return;}
+ if(['transit_depot','elevated_station'].includes(kind)){if(buildTransitFacility(kind,x,y)){ensureSystems();ensureFinance();ensureMarketModel();recompute();updateHeader();save();toast(types[kind].n+' constructed.');}else toast('Needs an owned vacant footprint by a street and '+money(buildCost[kind])+'.');return;}
  if(kind!=='inspect'&&!charterOwns(x,y)){if(!quiet)toast('Regional land: purchase the district in Public Works before developing it.');return;}
  if(kind==='inspect'){buildMode='';const target=buildingAt(x,y);if(target){selected={id:target.id};openPanel('inspect')}else toast('No building is present at this lot.');dirty=true;return}
- if(kind==='repair'){if(x<0||x>=T||y<0||y>=T||cityCell(x,y)!==1){if(!quiet)toast('Select an existing road tile to resurface.');return}ensureRoadWear();if(G.roadWear[roadId(x,y)]>96){if(!quiet)toast('This street is already in excellent condition.');return}if(G.treasury<buildCost.repair){if(!quiet)toast('Insufficient town funds.');return}G.treasury-=buildCost.repair;G.region+=buildCost.repair;G.roadWear[roadId(x,y)]=100;G.construction++;staticDirty=true;dirty=true;updateHeader();if(!quiet)toast('Street resurfaced.');return}
+ if(kind==='repair'){if(x<0||x>=T||y<0||y>=T||cityCell(x,y)!==1){if(!quiet)toast('Select an existing road tile to resurface.');return}ensureRoadWear();if(G.roadWear[roadId(x,y)]>96){if(!quiet)toast('This street is already in excellent condition.');return}if(G.treasury<buildCost.repair){if(!quiet)toast('Insufficient town funds.');return}G.treasury-=buildCost.repair;G.region+=buildCost.repair;G.roadWear[roadId(x,y)]=100;G.construction++;staticDirty=true;dirty=true;recompute();updateHeader();save();if(!quiet)toast('Street resurfaced.');return}
  if(kind==='road'){
    if(x<0||x>=T||y<0||y>=T)return;
    if(![0,3].includes(cityCell(x,y))||G.landUse?.[roadId(x,y)]||buildingAt(x,y)){if(!quiet)toast('Road requires vacant, unreserved land.');return}
@@ -53,7 +53,7 @@ function construct(kind,x,y,quiet=false){
    const family=addHouseholdAt(b,rn(900,3000));if(family)migrationRegisterTenancy(family,b);
    story(family?'A household rented the new municipal home after comparing paid work and living costs.':'A municipal rental home opened. It remains vacant until a household can reach funded work and afford its living costs.','good',b.id,family?.id??-1);
  }else G.buildings.push({id:G.nextId++,kind,x,y,value:cost*10,condition:100,owner:-1,firm:-1,hh:-1,footprint:footprintFor(x,y,kind)});
- G.construction++;invalidateRoads();recompute();updateHeader();staticDirty=true;dirty=true;save();toast(types[kind].n+' constructed.');if(active==='construction')renderPanel('construction');
+ G.construction++;invalidateRoads();ensureSystems();ensureFinance();ensureMarketModel();recompute();updateHeader();staticDirty=true;dirty=true;save();toast(types[kind].n+' constructed.');if(active==='construction')renderPanel('construction');
 }
 function stat(label,value,cls=''){return `<div class="stat"><small>${esc(label)}</small><b class="${cls}">${esc(value)}</b></div>`}
 function line(label,value,cls=''){return `<div class="line"><span>${esc(label)}</span><span class="${cls}">${esc(value)}</span></div>`}

@@ -1,5 +1,5 @@
 {
-  "source_sha256": "8031901f1dca4e8b45d43d653e7657abff20f91f3bd5f2f823bd5c8a25e56a67",
+  "source_sha256": "884d8087368dbb6ac0a058a5baee7296e47fcc79ea72db25b478ef50a7af0582",
   "paidImportQuantity": 60,
   "routeCrossesAllSpanTiles": true,
   "openBridge": {
@@ -12,8 +12,8 @@
       1573.5219806739988
     ]
   },
-  "baselineDrawMs": 0.53,
-  "bridgeDrawMs": 1.12,
+  "baselineDrawMs": 0.51,
+  "bridgeDrawMs": 1.08,
   "closedState": {
     "closed": true,
     "water": true

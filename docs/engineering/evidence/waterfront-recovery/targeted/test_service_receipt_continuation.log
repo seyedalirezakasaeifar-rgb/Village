@@ -1,0 +1,41 @@
+{
+  "source_sha256": "884d8087368dbb6ac0a058a5baee7296e47fcc79ea72db25b478ef50a7af0582",
+  "cases": [
+    {
+      "kind": "school",
+      "paid": 96,
+      "sameDayWholeStateUnchanged": true,
+      "privateReceiptPreserved": true,
+      "publicReceiptPreserved": true,
+      "sameDayCashUnchanged": true,
+      "learningUnchanged": true,
+      "totalConserved": true
+    },
+    {
+      "kind": "fire",
+      "paid": 133.0522271074499,
+      "sameDayWholeStateUnchanged": true,
+      "privateReceiptPreserved": true,
+      "publicReceiptPreserved": true,
+      "sameDayCashUnchanged": true,
+      "learningUnchanged": true,
+      "totalConserved": true
+    }
+  ],
+  "archiveCases": {
+    "atomicRejected": [
+      "publicOverpay",
+      "publicFuture",
+      "publicBadCoverage",
+      "privateWrongHousehold",
+      "privateWrongProvider",
+      "privateNegativeSubsidy",
+      "privateInconsistentTotals",
+      "privateFuture",
+      "privateBadCoverage"
+    ],
+    "legacyMissingObservationsAccepted": true,
+    "staleObservationsInvalidatedWithoutMovingMoney": true
+  }
+}
+PASS paid public/private receipt continuity and exactly-once same-day cash/learning

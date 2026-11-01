@@ -1,0 +1,2 @@
+PASS Back request identity, duplicate suppression, timeout/pause cancellation and stale acknowledgements
+PASS native Back coordinator/generated-JS persistence handshake, failure retention, renderer cleanup guards; dialogs require native testing

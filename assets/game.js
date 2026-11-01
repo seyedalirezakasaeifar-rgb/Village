@@ -863,6 +863,43 @@ function creditDecisionReport(owner){
 const creditEconomyBase=renderEconomy;
 renderEconomy=function(){const active=G.loans.filter(l=>l.status==='active'),orders=G.firms.filter(f=>f.pendingEquipment);return head('Credit and investment pipeline')+strip('Active household / enterprise loans',active.filter(l=>l.ownerType==='household').length+' / '+active.filter(l=>l.ownerType==='firm').length)+strip('Loans with missed payments',active.filter(l=>l.arrears>0).length)+strip('Funded equipment orders',orders.length)+tip('Debt service reduces spendable household income. Banks price impaired portfolios and assess a rate-stressed repayment. Equipment is paid for at order and becomes productive after commissioning; credit cannot replace demand or missing inputs.')+creditEconomyBase();};
 
+// SOURCE: 14-service-receipt-archive.js
+// Daily service purchases include paid allocations and an exactly-once guard.
+// Preserve validated same-day receipts; invalidate older observations, not cash.
+function normalizeServiceReceiptArchive(data){
+ const object=v=>v!=null&&typeof v==='object'&&!Array.isArray(v),nonnegative=v=>Number.isFinite(v)&&v>=0;
+ const day=v=>Number.isSafeInteger(v)&&v>=1&&v<=data.day,close=(a,b)=>Math.abs(a-b)<=.005+Math.max(Math.abs(a),Math.abs(b))*1e-9;
+ const ownedEntries=(map,owners)=>object(map)&&Object.keys(map).length<=owners.length&&Object.entries(map).every(([id])=>/^\d+$/.test(id)&&String(+id)===id&&owners[+id]);
+ const validPublic=state=>object(state)&&Object.keys(state).every(kind=>{
+  if(!['health','school'].includes(kind))return false;const r=state[kind];
+  if(!object(r)||!day(r.day)||!['authorized','required','requested','paid','population','coverage','wage'].every(k=>nonnegative(r[k])))return false;
+  if(r.paid>r.requested+.005||r.requested>Math.min(r.authorized,r.required)+.005||r.coverage>1.000001||r.population>data.people.length)return false;
+  for(const k of ['unspent','facilities','facilityCoverage','accessCoverage','accessLimit','accessibleResidents'])if(r[k]!=null&&!nonnegative(r[k]))return false;
+  if(r.unspent!=null&&!close(r.unspent,r.authorized-r.paid)||['facilityCoverage','accessCoverage'].some(k=>r[k]!=null&&r[k]>1.000001))return false;
+  const s=r.staffing;if(s!=null&&(!object(s)||!['local','regional','needed','coverage','qualification'].every(k=>nonnegative(s[k]))||s.coverage>1.000001||s.pending!=null&&(!object(s.pending)||!nonnegative(s.pending.target)||!Number.isSafeInteger(s.pending.day)||s.pending.day<1)))return false;
+  return true;
+ });
+ const validPrivate=state=>{
+  if(!object(state)||state.version!==1||!day(state.day)||!['tuition','memberships','vouchers','pupils','fireMembers'].every(k=>nonnegative(state[k])))return false;
+  if(!['school','fire'].every(kind=>ownedEntries(state[kind],data.households)&&Object.values(state[kind]).every(v=>nonnegative(v)&&v<=1.000001))||!ownedEntries(state.allocations,data.firms))return false;
+  const totals={tuition:0,memberships:0,vouchers:0,pupils:0,fireMembers:0};
+  for(const [id,allocations] of Object.entries(state.allocations)){
+   const kind=data.firms[+id].privateService;if(!['school','fire'].includes(kind)||!ownedEntries(allocations,data.households))return false;
+   for(const row of Object.values(allocations)){
+    if(!object(row)||!['served','paid','subsidy'].every(k=>nonnegative(row[k])))return false;
+    totals[kind==='school'?'tuition':'memberships']+=row.paid;totals[kind==='school'?'pupils':'fireMembers']+=row.served;totals.vouchers+=row.subsidy;
+   }
+  }
+  return Object.keys(totals).every(k=>Number.isFinite(totals[k])&&close(totals[k],state[k]));
+ };
+ for(const [key,validate] of [['serviceProvision',validPublic],['privateServiceProvision',validPrivate]]){
+  const state=data[key];if(state==null)continue;
+  if(!validate(state)){if(data.schema!=null&&data.schema>=8)return false;data[key]=null;continue;}
+  if(key==='serviceProvision'?Object.values(state).some(row=>row.day!==data.day):state.day!==data.day)data[key]=null;
+ }
+ return true;
+}
+
 // SOURCE: 15-household-markets.js
 let householdMarketCache=null;
 function householdMarket(){
@@ -2262,8 +2299,8 @@ function finalizeMarketBooks(){
  }
  updateCreditObservations();marketOpen=false;
 }
-function policePower(){const b=G.buildings.filter(b=>b.kind==='police').length,court=G.buildings.filter(b=>b.kind==='courthouse').length;const funded=G.actualServiceFunding?.police??1;return clamp(.035+funded*((G.policy.policeBudget/(G.stats.population*.7+1))*.48 + b*.10+court*.05),.035,.95)}
-function defensePower(){const b=G.buildings.filter(b=>b.kind==='fire'&&isPublicFacility(b)).length;const funded=G.actualServiceFunding?.fire??1;return clamp(.025+funded*((G.policy.defenseBudget/(G.stats.population*.65+1))*.50+b*.1),.025,.96)}
+function policePower(population=G.stats.population){const b=G.buildings.filter(b=>b.kind==='police').length,court=G.buildings.filter(b=>b.kind==='courthouse').length;const funded=G.actualServiceFunding?.police??1;return clamp(.035+funded*((G.policy.policeBudget/(population*.7+1))*.48 + b*.10+court*.05),.035,.95)}
+function defensePower(population=G.stats.population){const b=G.buildings.filter(b=>b.kind==='fire'&&isPublicFacility(b)).length;const funded=G.actualServiceFunding?.fire??1;return clamp(.025+funded*((G.policy.defenseBudget/(population*.65+1))*.50+b*.1),.025,.96)}
 function incidents(){
  const unemployment=1-G.people.filter(p=>!p.deceased&&p.movedAway!==true&&p.age>=16&&p.age<=70&&((p.job>=0&&!p.commuteBlocked)||p.publicWork)).length/Math.max(1,G.people.filter(p=>!p.deceased&&p.movedAway!==true&&p.age>=16&&p.age<=70).length);
  const residentHouseholds=G.households.filter(h=>h.people.length>0);
@@ -2289,11 +2326,11 @@ function incidents(){
 }
 function recompute(){
  let people=G.people.filter(p=>!p.deceased&&p.movedAway!==true).length,working=G.people.filter(p=>!p.deceased&&p.movedAway!==true&&p.age>=16&&p.age<=70),employed=working.filter(p=>(p.job>=0&&!p.commuteBlocked)||p.publicWork).length,poor=G.households.filter(h=>h.people.length>0&&(householdLiquidity(h)/Math.max(1,h.people.length)<150||h.stress>65)).length;
- const safety=clamp(Math.round(60+policePower()*34+G.policy.outreachBudget*(G.actualServiceFunding?.outreach??1)/30-poor/Math.max(1,G.households.filter(h=>h.people.length>0).length)*28),0,100);
+ const safety=clamp(Math.round(60+policePower(people)*34+G.policy.outreachBudget*(G.actualServiceFunding?.outreach??1)/30-poor/Math.max(1,G.households.filter(h=>h.people.length>0).length)*28),0,100);
  const businessCount=G.firms.filter(f=>!f.closed).length;
  const oldStats=G.stats||{};
- G.stats={population:people,employed,workforce:working.length,employment:working.length?Math.round(employed/working.length*100):100,unemployment:working.length?Math.round((working.length-employed)/working.length*100):0,
-   hardship:Math.round(poor/Math.max(1,G.households.filter(h=>h.people.length>0).length)*100),safety,preparedness:Math.round(defensePower()*100),businesses:businessCount,
+ G.stats={population:people,approval:Math.round(G.council?.approval??65),employed,workforce:working.length,employment:working.length?Math.round(employed/working.length*100):100,unemployment:working.length?Math.round((working.length-employed)/working.length*100):0,
+   hardship:Math.round(poor/Math.max(1,G.households.filter(h=>h.people.length>0).length)*100),safety,preparedness:Math.round(defensePower(people)*100),businesses:businessCount,
    cash:G.households.reduce((s,h)=>s+h.cash,0),businessCash:G.firms.reduce((s,f)=>s+f.cash,0),dailyCrime:G.cases.filter(c=>c.day>G.day-30).length,
    income:G.households.reduce((s,h)=>s+h.income,0),townBalance:G.treasury+(G.publicReserve||0)-G.debt};
  for(let k of ['health','education','wellbeing','marketConfidence','roadCondition','roadService','militia','realWages','prosperity','avgCash','compliance','propertyCosts','airPollution'])if(oldStats[k]!=null&&Number.isFinite(oldStats[k]))G.stats[k]=oldStats[k];
@@ -2768,7 +2805,7 @@ function addHouseholdAt(building,capital=1700){
  const profiles=migrationNewProfiles(occupants),assessment=G.day>1?migrationAssessment(building,profiles,cash):null;
  if(assessment&&!assessment.eligible){migrationRecord('arrival-deferred',{home:building.id,assessment});return null;}
  if(assessment&&random()>=assessment.pullProbability){migrationRecord('outside-option-preferred',{home:building.id,assessment});return null;}
- G.region-=cash;const h={id:G.households.length,name:pick(surnames),cash,home:building.id,owner:-1,people:[],income:0,rent:0,food:0,tax:0,incomeTax:0,energyTax:0,utilities:0,travel:0,aid:0,crimeLoss:0,stress:27,security:86,last:[],worklessness:0};G.households.push(h);
+ G.region-=cash;const h={id:G.households.length,name:pick(surnames),cash,deposits:{},creditScore:.65,home:building.id,owner:-1,people:[],income:0,rent:0,food:0,tax:0,incomeTax:0,energyTax:0,utilities:0,travel:0,aid:0,crimeLoss:0,stress:27,security:86,last:[],worklessness:0};G.households.push(h);
  for(const profile of profiles){const p={id:G.people.length,name:pick(first)+' '+h.name,...profile,hh:h.id,job:-1,last:[]};G.people.push(p);h.people.push(p.id);}
  migrationRegisterTenancy(h,building);migrationAcceptOffers(h.people.map(id=>G.people[id]),assessment);
  if(G.day>1){assignJobs();recompute();migrationRecord('household-arrival',{household:h.id,people:profiles.length,capital:cash,assessment});}return h;
@@ -4459,10 +4496,10 @@ cv.addEventListener('touchend',e=>{touches=new Map([...e.touches].map(t=>[t.iden
 cv.addEventListener('touchcancel',()=>{touches.clear();pointer.pinch=0;pointer.down=false;pointer.activeId=null;pointer.lastRoad=null;roadPainted.clear();flushRoadBatch();});
 function closeBuildTool(){cancelTransitDraft();flushRoadBatch();buildMode='';pointer.hover=null;pointer.down=false;pointer.activeId=null;pointer.lastRoad=null;roadPainted.clear();dirty=true;$('placementHint').classList.remove('school-placement');$('placementHint').style.display='none';$('hint').textContent='DRAG TO PAN · TAP TO INSPECT';toast('Construction tool closed');}
 function construct(kind,x,y,quiet=false){
- if(['transit_depot','elevated_station'].includes(kind)){if(buildTransitFacility(kind,x,y)){updateHeader();save();toast(types[kind].n+' constructed.');}else toast('Needs an owned vacant footprint by a street and '+money(buildCost[kind])+'.');return;}
+ if(['transit_depot','elevated_station'].includes(kind)){if(buildTransitFacility(kind,x,y)){ensureSystems();ensureFinance();ensureMarketModel();recompute();updateHeader();save();toast(types[kind].n+' constructed.');}else toast('Needs an owned vacant footprint by a street and '+money(buildCost[kind])+'.');return;}
  if(kind!=='inspect'&&!charterOwns(x,y)){if(!quiet)toast('Regional land: purchase the district in Public Works before developing it.');return;}
  if(kind==='inspect'){buildMode='';const target=buildingAt(x,y);if(target){selected={id:target.id};openPanel('inspect')}else toast('No building is present at this lot.');dirty=true;return}
- if(kind==='repair'){if(x<0||x>=T||y<0||y>=T||cityCell(x,y)!==1){if(!quiet)toast('Select an existing road tile to resurface.');return}ensureRoadWear();if(G.roadWear[roadId(x,y)]>96){if(!quiet)toast('This street is already in excellent condition.');return}if(G.treasury<buildCost.repair){if(!quiet)toast('Insufficient town funds.');return}G.treasury-=buildCost.repair;G.region+=buildCost.repair;G.roadWear[roadId(x,y)]=100;G.construction++;staticDirty=true;dirty=true;updateHeader();if(!quiet)toast('Street resurfaced.');return}
+ if(kind==='repair'){if(x<0||x>=T||y<0||y>=T||cityCell(x,y)!==1){if(!quiet)toast('Select an existing road tile to resurface.');return}ensureRoadWear();if(G.roadWear[roadId(x,y)]>96){if(!quiet)toast('This street is already in excellent condition.');return}if(G.treasury<buildCost.repair){if(!quiet)toast('Insufficient town funds.');return}G.treasury-=buildCost.repair;G.region+=buildCost.repair;G.roadWear[roadId(x,y)]=100;G.construction++;staticDirty=true;dirty=true;recompute();updateHeader();save();if(!quiet)toast('Street resurfaced.');return}
  if(kind==='road'){
    if(x<0||x>=T||y<0||y>=T)return;
    if(![0,3].includes(cityCell(x,y))||G.landUse?.[roadId(x,y)]||buildingAt(x,y)){if(!quiet)toast('Road requires vacant, unreserved land.');return}
@@ -4482,7 +4519,7 @@ function construct(kind,x,y,quiet=false){
    const family=addHouseholdAt(b,rn(900,3000));if(family)migrationRegisterTenancy(family,b);
    story(family?'A household rented the new municipal home after comparing paid work and living costs.':'A municipal rental home opened. It remains vacant until a household can reach funded work and afford its living costs.','good',b.id,family?.id??-1);
  }else G.buildings.push({id:G.nextId++,kind,x,y,value:cost*10,condition:100,owner:-1,firm:-1,hh:-1,footprint:footprintFor(x,y,kind)});
- G.construction++;invalidateRoads();recompute();updateHeader();staticDirty=true;dirty=true;save();toast(types[kind].n+' constructed.');if(active==='construction')renderPanel('construction');
+ G.construction++;invalidateRoads();ensureSystems();ensureFinance();ensureMarketModel();recompute();updateHeader();staticDirty=true;dirty=true;save();toast(types[kind].n+' constructed.');if(active==='construction')renderPanel('construction');
 }
 function stat(label,value,cls=''){return `<div class="stat"><small>${esc(label)}</small><b class="${cls}">${esc(value)}</b></div>`}
 function line(label,value,cls=''){return `<div class="line"><span>${esc(label)}</span><span class="${cls}">${esc(value)}</span></div>`}
@@ -5160,7 +5197,7 @@ function hydrateSave(raw){
   for(const h of data.households)for(const id of h.people){if(memberSet.has(id)||data.people[id].hh!==h.id||data.people[id].deceased||data.people[id].movedAway)return false;memberSet.add(id)}
   if(!validateSettledLoanHistory(data))return false;
   if(!normalizeArchiveTenancies(data))return false;
-  if(!validateBrownfields(data)||!validateUrbanRetailLabour(data)||!validateArchiveRecords(data)||!validatePublicPlaces(data)||!validateTownSituations(data)||!validateCivicCampaign(data)||!validateUrbanRehousing(data)||!validateUrban(data)||!validateCivicProjects(data)||!validateMayorJourney(data)||!validatePrivateServices(data)||!validateDistrictProgrammes(data)||!validateRegionalTrade(data)||!validateWaterfrontArchive(data)||!validateGoodsAccounting(data))return false;
+  if(!validateBrownfields(data)||!validateUrbanRetailLabour(data)||!validateArchiveRecords(data)||!validatePublicPlaces(data)||!validateTownSituations(data)||!validateCivicCampaign(data)||!validateUrbanRehousing(data)||!validateUrban(data)||!validateCivicProjects(data)||!validateMayorJourney(data)||!validatePrivateServices(data)||!normalizeServiceReceiptArchive(data)||!validateDistrictProgrammes(data)||!validateRegionalTrade(data)||!validateWaterfrontArchive(data)||!validateGoodsAccounting(data))return false;
   if(!validateTransit(data)||!validateCivicState(data)||!validateCreditState(data)||!validateScenarioProgramme(data)||!validateCharter(data)||!validateBridgeArchive(data))return false;
   data.version=3;data.policy={...defaults,...data.policy};
   data.banks=Array.isArray(data.banks)?data.banks.filter(b=>b&&Number.isInteger(b.id)&&b.id>=0&&b.id<12&&Number.isFinite(b.cash)&&b.cash>=0&&Number.isFinite(b.depositAPY)&&Number.isFinite(b.loanAPY)).slice(0,12):[];
@@ -5182,7 +5219,7 @@ function hydrateSave(raw){
   const workerIDs=new Set();for(const f of data.firms){for(const id of f.workers){if(workerIDs.has(id)||!data.people[id]||data.people[id].deceased||data.people[id].movedAway||data.people[id].job!==f.id)return false;workerIDs.add(id)}}
   for(const loan of data.loans||[])if(loan.fixedRate==null)loan.fixedRate=true;
   rollback={traffic:traffic.slice(),trafficClock,frameClock,trafficElapsed,vehicleSerial,intersectionGates:new Map(intersectionGates),visualState,rngState};
-  G=data;resetTownTransientUI();G.serviceProvision=null;G.privateServiceProvision=null;crewDay=-1;crewsUsed=new Map();regionalCrews=0;ensureSystems();rngState=Number.isInteger(G.rngState)?G.rngState:G.scenarioSeed;ensureFinance();ensureMarketModel();ensureRegionalTrade();if(!G.banks.length)seedBanks();draftPolicy={};roadBatchDirty=false;traffic=[];intersectionGates=new Map();invalidateRoads(false);cacheBuildingsFor=null;recompute();G.stats.approval=Math.round(G.council.approval);G.stats.health=Math.round(G.health);G.stats.education=Math.round(G.education);G.stats.marketConfidence=G.stats.marketConfidence||55;G.stats.wellbeing=G.stats.wellbeing??70;ensureScenarioProgramme();if(!previousTown)centerTownCamera();restoreTransport();staticDirty=true;dirty=true;updateHeader();beginSaveTimeline();return true;
+  G=data;resetTownTransientUI();G.serviceProvision=G.serviceProvision??null;G.privateServiceProvision=G.privateServiceProvision??null;crewDay=-1;crewsUsed=new Map();regionalCrews=0;ensureSystems();rngState=Number.isInteger(G.rngState)?G.rngState:G.scenarioSeed;ensureFinance();ensureMarketModel();ensureRegionalTrade();if(!G.banks.length)seedBanks();draftPolicy={};roadBatchDirty=false;traffic=[];intersectionGates=new Map();invalidateRoads(false);cacheBuildingsFor=null;recompute();G.stats.approval=Math.round(G.council.approval);G.stats.health=Math.round(G.health);G.stats.education=Math.round(G.education);G.stats.marketConfidence=G.stats.marketConfidence??55;G.stats.wellbeing=G.stats.wellbeing??70;ensureScenarioProgramme();if(!previousTown)centerTownCamera();restoreTransport();staticDirty=true;dirty=true;updateHeader();beginSaveTimeline();return true;
  }catch(e){if(rollback){G=previousTown;traffic=rollback.traffic;trafficClock=rollback.trafficClock;frameClock=rollback.frameClock;trafficElapsed=rollback.trafficElapsed;vehicleSerial=rollback.vehicleSerial;intersectionGates=rollback.intersectionGates;visualState=rollback.visualState;rngState=rollback.rngState;roadNetwork=null;cacheBuildingsFor=null;staticDirty=true;dirty=true;}console.error('Invalid save',e);return false}
 }
 function writeIndexedDB(envelope,epoch){

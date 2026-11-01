@@ -423,7 +423,7 @@ function addHouseholdAt(building,capital=1700){
  const profiles=migrationNewProfiles(occupants),assessment=G.day>1?migrationAssessment(building,profiles,cash):null;
  if(assessment&&!assessment.eligible){migrationRecord('arrival-deferred',{home:building.id,assessment});return null;}
  if(assessment&&random()>=assessment.pullProbability){migrationRecord('outside-option-preferred',{home:building.id,assessment});return null;}
- G.region-=cash;const h={id:G.households.length,name:pick(surnames),cash,home:building.id,owner:-1,people:[],income:0,rent:0,food:0,tax:0,incomeTax:0,energyTax:0,utilities:0,travel:0,aid:0,crimeLoss:0,stress:27,security:86,last:[],worklessness:0};G.households.push(h);
+ G.region-=cash;const h={id:G.households.length,name:pick(surnames),cash,deposits:{},creditScore:.65,home:building.id,owner:-1,people:[],income:0,rent:0,food:0,tax:0,incomeTax:0,energyTax:0,utilities:0,travel:0,aid:0,crimeLoss:0,stress:27,security:86,last:[],worklessness:0};G.households.push(h);
  for(const profile of profiles){const p={id:G.people.length,name:pick(first)+' '+h.name,...profile,hh:h.id,job:-1,last:[]};G.people.push(p);h.people.push(p.id);}
  migrationRegisterTenancy(h,building);migrationAcceptOffers(h.people.map(id=>G.people[id]),assessment);
  if(G.day>1){assignJobs();recompute();migrationRecord('household-arrival',{household:h.id,people:profiles.length,capital:cash,assessment});}return h;
