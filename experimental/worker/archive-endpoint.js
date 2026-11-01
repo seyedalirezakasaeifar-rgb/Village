@@ -1,7 +1,7 @@
 // Request coordination only. Validation/payment/root/persistence stay with owners.
 function createWorkerArchiveEndpoint(owner){
- const session=typeof owner.session==='function'?owner.session():null;let lastId=0,tail=Promise.resolve();const active=new Map();
- function submit(input){const request=input&&Object.freeze({id:input.id,session:input.session,epoch:input.epoch,op:input.op,archive:input.archive,scenario:input.scenario,seed:input.seed});
+ const session=typeof owner.session==='function'?owner.session():null;let retired=false,lastId=0,tail=Promise.resolve();const active=new Map();
+ function submit(input){if(retired)return {accepted:false,error:'RETIRED_SESSION'};const request=input&&Object.freeze({id:input.id,session:input.session,epoch:input.epoch,op:input.op,archive:input.archive,scenario:input.scenario,seed:input.seed});
   if(!request||!Number.isSafeInteger(request.id)||request.id<=lastId)return {accepted:false,error:'DUPLICATE_OR_INVALID_ID'};
   if(session!==null&&request.session!==session)return {accepted:false,error:'STALE_SESSION'};
   lastId=request.id;
@@ -21,5 +21,5 @@ function createWorkerArchiveEndpoint(owner){
   active.delete(request.id);try{owner.complete(reply);}catch(error){/* Completion delivery cannot undo an already committed owner operation. */}return reply;};
   tail=tail.then(run,run);return {accepted:true,id:request.id,session};
  }
- return Object.freeze({submit,cancel:(id,requestSession)=>{if(session!==null&&requestSession!==session)return {cancelled:false,reason:'STALE_SESSION'};const record=active.get(id);if(!record||record.admitted)return {cancelled:false,reason:record?'ALREADY_ADMITTED':'NOT_PENDING'};record.cancelled=true;return {cancelled:true};},status:()=>({session,pending:active.size,lastId,epoch:owner.epoch()})});
+ return Object.freeze({submit,retire:()=>{if(active.size)return {retired:false,reason:'REQUESTS_PENDING'};retired=true;return {retired:true};},cancel:(id,requestSession)=>{if(session!==null&&requestSession!==session)return {cancelled:false,reason:'STALE_SESSION'};const record=active.get(id);if(!record||record.admitted)return {cancelled:false,reason:record?'ALREADY_ADMITTED':'NOT_PENDING'};record.cancelled=true;return {cancelled:true};},status:()=>({session,retired,pending:active.size,lastId,epoch:owner.epoch()})});
 }

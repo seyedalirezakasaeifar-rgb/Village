@@ -1,4 +1,6 @@
 {
+  "retirementWaitsForPending": true,
+  "retiredClientCannotSubmit": true,
   "staleSessionRejectedBeforeIdConsumption": true,
   "delayedReply": true,
   "duplicateRejected": true,

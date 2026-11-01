@@ -1,0 +1,18 @@
+{
+  "sourceSha256": "7619b1fafdf5f05a8a3d8c79ea5669aaa13f5262957dd34a3e7c1b3479681461",
+  "workerSha256": "0b3ffc369d4856f9b1a8dfeb3538f924720e01244395622561730574c723e3ad",
+  "instrumentedWorkerSha256": "7643283b02f77e17540bd243bcaf697159d11a1708bd225ca487b05104c6666c",
+  "actualCommandOnlyOwner": true,
+  "referenceOwnerUsed": false,
+  "actualRecoveryConfirmationCancelSafe": true,
+  "freshRealmPreservesSavedPayloadWithoutWrite": true,
+  "ownerReinitializedBeforeAdoption": true,
+  "epochAndSessionAdvance": true,
+  "retiredAndStaleArchiveClientsReject": true,
+  "oldWorkerCannotResolveCurrentRequest": true,
+  "ordinaryFailureSameRealmRestore": true,
+  "paidCommitFailedWriteRemainsUnsaved": true,
+  "writeRetryDoesNotReplayPayment": true,
+  "nativeDurabilityClaim": false,
+  "pageErrors": []
+}

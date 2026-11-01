@@ -241,6 +241,11 @@
   },
   {
     "file": "90-archive-panels.js",
+    "statement": "saveStorePromise=discoverIndexedDB();",
+    "reason": "Page storage discovery belongs to the original main-thread owner"
+  },
+  {
+    "file": "90-archive-panels.js",
     "declaration": "originalHelp=$('helpDialog').querySelector('.paper').innerHTML"
   },
   {

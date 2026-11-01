@@ -1,0 +1,265 @@
+{
+  "sourceSha256": "7619b1fafdf5f05a8a3d8c79ea5669aaa13f5262957dd34a3e7c1b3479681461",
+  "workerSha256": "363eab190ab59a58683596f2260cdd9c84b3083e7058cb98102171bfda1a7b69",
+  "bridgeSha256": "717e6234e33cf084a01e98b9b396c0eb38739d1b7677262c8d906af1a9b28d95",
+  "ownerSha256": "b9705d2dc19d98a349a1ff454dc2ad94467696bf5233cdd5e5de379b2c5a24ea",
+  "fixtureSha256": "447adc1e5d45dc9bd59a033a8f9a3a18bc39ccb82e5575712e5d1e1b973515d8",
+  "livingPopulation": 778,
+  "personRecords": 3108,
+  "fundingSetup": "Conserved regional transfer to5000 treasury; synthetic benchmark, not ordinary play",
+  "timingMethod": "Browser timestamps and compact replies only; no full model transfer to Python",
+  "actualGameUi": true,
+  "productionEnabled": false,
+  "nativeDurabilityClaim": false,
+  "rows": [
+    {
+      "rep": 0,
+      "command": {
+        "kind": "choice",
+        "state": "committed",
+        "started": 2315.5,
+        "elapsedMs": 633.8999999985099,
+        "workerRequestMs": 552.8999999985099,
+        "transferDeliveryMs": 25.5,
+        "saveOwnerConfirmed": true,
+        "saveOwnerElapsedMs": 849.5
+      },
+      "ownerMetrics": {
+        "intent": "council-choice",
+        "captureMs": 118.70000000298023,
+        "rows": 22818,
+        "restoreMs": 0,
+        "checkMs": 1.8000000044703484
+      },
+      "saveReceipt": {
+        "day": 41681,
+        "version": 0,
+        "prepareRoundTripMs": 39.5,
+        "ownerWriteConfirmed": true,
+        "workerAckConfirmed": true,
+        "syncOwnerCallMs": 78.79999999701977,
+        "ownerWriteMs": 150.5,
+        "ackMs": 7.9000000059604645
+      },
+      "allFrameMs": {
+        "n": 53,
+        "p50": 16.699999999999818,
+        "p95": 16.800000000000182,
+        "max": 66.69999999999982
+      },
+      "pendingFrameMs": {
+        "n": 34,
+        "p50": 16.699999999999818,
+        "p95": 16.800000000000182,
+        "max": 16.800000000000182
+      },
+      "trustedInputs": 9,
+      "pendingInputs": 7,
+      "pendingHandlerDelayMs": {
+        "n": 7,
+        "p50": 0.3999999985098839,
+        "p95": 0.5,
+        "max": 0.5
+      },
+      "pendingInputToRafMs": {
+        "n": 7,
+        "p50": 26.100000001490116,
+        "p95": 31.69999999552965,
+        "max": 31.69999999552965
+      },
+      "allInputToRafMs": {
+        "n": 9,
+        "p50": 26.100000001490116,
+        "p95": 63.399999998509884,
+        "max": 63.399999998509884
+      },
+      "actualCanvasPans": 8,
+      "inputTargets": [
+        "",
+        "view"
+      ],
+      "longtasks": [
+        {
+          "ms": 70,
+          "start": 2878.6999999955297
+        },
+        {
+          "ms": 79,
+          "start": 2988.0999999940395
+        }
+      ],
+      "heapObservedBytes": 40756233,
+      "fullModelRngHash": {
+        "sha256": "4ddee0150e38d64d15ee3d6698af18fafd39ea93ed3a36aabde3869d6f8ff2a0",
+        "bytes": 3659029
+      },
+      "pageErrors": []
+    },
+    {
+      "rep": 1,
+      "command": {
+        "kind": "choice",
+        "state": "committed",
+        "started": 2414.10000000149,
+        "elapsedMs": 648,
+        "workerRequestMs": 550.2000000029802,
+        "transferDeliveryMs": 29.900146484375,
+        "saveOwnerConfirmed": true,
+        "saveOwnerElapsedMs": 877.2000000029802
+      },
+      "ownerMetrics": {
+        "intent": "council-choice",
+        "captureMs": 117,
+        "rows": 22818,
+        "restoreMs": 0,
+        "checkMs": 1.8999999985098839
+      },
+      "saveReceipt": {
+        "day": 41681,
+        "version": 0,
+        "prepareRoundTripMs": 43.100000001490116,
+        "ownerWriteConfirmed": true,
+        "workerAckConfirmed": true,
+        "syncOwnerCallMs": 78.19999999552965,
+        "ownerWriteMs": 161.60000000149012,
+        "ackMs": 7.200000002980232
+      },
+      "allFrameMs": {
+        "n": 57,
+        "p50": 16.699999999999818,
+        "p95": 16.800000000000182,
+        "max": 83.30000000000018
+      },
+      "pendingFrameMs": {
+        "n": 33,
+        "p50": 16.699999999999818,
+        "p95": 16.799999999999727,
+        "max": 16.800000000000182
+      },
+      "trustedInputs": 9,
+      "pendingInputs": 6,
+      "pendingHandlerDelayMs": {
+        "n": 6,
+        "p50": 0.5,
+        "p95": 0.6000000014901161,
+        "max": 0.6000000014901161
+      },
+      "pendingInputToRafMs": {
+        "n": 6,
+        "p50": 25.899999998509884,
+        "p95": 37.099999994039536,
+        "max": 37.099999994039536
+      },
+      "allInputToRafMs": {
+        "n": 9,
+        "p50": 25.69999999552965,
+        "p95": 91.69999999552965,
+        "max": 91.69999999552965
+      },
+      "actualCanvasPans": 8,
+      "inputTargets": [
+        "",
+        "view"
+      ],
+      "longtasks": [
+        {
+          "ms": 87,
+          "start": 2974.60000000149
+        },
+        {
+          "ms": 79,
+          "start": 3104.39999999851
+        }
+      ],
+      "heapObservedBytes": 41009573,
+      "fullModelRngHash": {
+        "sha256": "4ddee0150e38d64d15ee3d6698af18fafd39ea93ed3a36aabde3869d6f8ff2a0",
+        "bytes": 3659029
+      },
+      "pageErrors": []
+    },
+    {
+      "rep": 2,
+      "command": {
+        "kind": "choice",
+        "state": "committed",
+        "started": 2361,
+        "elapsedMs": 651.1000000014901,
+        "workerRequestMs": 553,
+        "transferDeliveryMs": 39.599853515625,
+        "saveOwnerConfirmed": true,
+        "saveOwnerElapsedMs": 886.8000000044703
+      },
+      "ownerMetrics": {
+        "intent": "council-choice",
+        "captureMs": 111.60000000149012,
+        "rows": 22818,
+        "restoreMs": 0,
+        "checkMs": 2.100000001490116
+      },
+      "saveReceipt": {
+        "day": 41681,
+        "version": 0,
+        "prepareRoundTripMs": 42.100000001490116,
+        "ownerWriteConfirmed": true,
+        "workerAckConfirmed": true,
+        "syncOwnerCallMs": 87.10000000149012,
+        "ownerWriteMs": 164.10000000149012,
+        "ackMs": 8.600000001490116
+      },
+      "allFrameMs": {
+        "n": 59,
+        "p50": 16.699999999999818,
+        "p95": 16.800000000000182,
+        "max": 83.30000000000018
+      },
+      "pendingFrameMs": {
+        "n": 35,
+        "p50": 16.699999999999818,
+        "p95": 16.799999999999727,
+        "max": 16.799999999999727
+      },
+      "trustedInputs": 9,
+      "pendingInputs": 7,
+      "pendingHandlerDelayMs": {
+        "n": 7,
+        "p50": 0.5,
+        "p95": 1,
+        "max": 1
+      },
+      "pendingInputToRafMs": {
+        "n": 7,
+        "p50": 25.299999997019768,
+        "p95": 35.70000000298023,
+        "max": 35.70000000298023
+      },
+      "allInputToRafMs": {
+        "n": 9,
+        "p50": 23.399999998509884,
+        "p95": 35.70000000298023,
+        "max": 35.70000000298023
+      },
+      "actualCanvasPans": 8,
+      "inputTargets": [
+        "",
+        "view"
+      ],
+      "longtasks": [
+        {
+          "ms": 73,
+          "start": 2939.3000000044703
+        },
+        {
+          "ms": 88,
+          "start": 3053.3000000044703
+        }
+      ],
+      "heapObservedBytes": 69840716,
+      "fullModelRngHash": {
+        "sha256": "4ddee0150e38d64d15ee3d6698af18fafd39ea93ed3a36aabde3869d6f8ff2a0",
+        "bytes": 3659029
+      },
+      "pageErrors": []
+    }
+  ]
+}
