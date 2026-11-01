@@ -1,0 +1,18 @@
+--------- beginning of main
+--------- beginning of system
+--------- beginning of kernel
+I/TownLedgerLifecycleQA(26675): onCreate pid=26675 savedState=false swdp=360 size=640x288
+I/TownLedgerLifecycleQA(26675): onResume pid=26675
+I/TownLedgerLifecycleQA(26675): pageStarted pid=26675 url=file:///android_asset/index.html?cityBadge=1
+I/TownLedgerLifecycleQA(26675): pageFinished pid=26675 url=file:///android_asset/index.html?cityBadge=1
+I/TownLedgerLifecycleQA(26675): onPause pid=26675
+I/TownLedgerLifecycleQA(26675): onDestroy pid=26675 finishing=false
+I/TownLedgerLifecycleQA(26675): onCreate pid=26675 savedState=true swdp=450 size=800x378
+I/TownLedgerLifecycleQA(26675): onResume pid=26675
+I/TownLedgerLifecycleQA(26675): pageStarted pid=26675 url=file:///android_asset/index.html?cityBadge=1
+I/TownLedgerLifecycleQA(26675): onPause pid=26675
+I/TownLedgerLifecycleQA(26675): onDestroy pid=26675 finishing=false
+I/TownLedgerLifecycleQA(26675): onCreate pid=26675 savedState=true swdp=360 size=640x288
+I/TownLedgerLifecycleQA(26675): onResume pid=26675
+I/TownLedgerLifecycleQA(26675): pageStarted pid=26675 url=file:///android_asset/index.html?cityBadge=1
+I/TownLedgerLifecycleQA(26675): pageFinished pid=26675 url=file:///android_asset/index.html?cityBadge=1
