@@ -8,10 +8,10 @@ import {batchStaticMeshes} from './webgl-static-batch.js';
 import {newfoundlandSpecialized} from './newfoundland-specialized.js';
 import {newfoundlandWorkplace} from './newfoundland-workplaces.js';
 import {newfoundlandBuilding} from './newfoundland-kit.js';
+let clapboardTexture,lampTexture,renderSerial=0;
 if(new URLSearchParams(location.search).get('cityArt')==='webgl'){
  const start=()=>{const state=window.__cityVisualSnapshot?.();if(!state){setTimeout(start,100);return;}try{build(state);}catch(e){window.__webglPartialCleanup?.();delete window.__webglPartialCleanup;document.querySelector('#webglTaste')?.remove();document.querySelector('#webglMapOverlay')?.remove();delete window.__webglTaste;window.__cityVisualResumeCanvas?.();window.__webglTasteFailure=String(e);console.warn('WebGL preview unavailable; Canvas remains active.',e);}};start();
 }
-let clapboardTexture,lampTexture,renderSerial=0;
 function lampPoolMap(){if(lampTexture)return lampTexture;const c=document.createElement('canvas');c.width=c.height=64;const g=c.getContext('2d'),r=g.createRadialGradient(32,32,1,32,32,31);r.addColorStop(0,'rgba(255,255,255,.65)');r.addColorStop(.4,'rgba(255,255,255,.28)');r.addColorStop(1,'rgba(255,255,255,0)');g.fillStyle=r;g.fillRect(0,0,64,64);lampTexture=new THREE.CanvasTexture(c);lampTexture.colorSpace=THREE.SRGBColorSpace;return lampTexture;}
 function clapboardMap(){if(clapboardTexture)return clapboardTexture;const c=document.createElement('canvas');c.width=32;c.height=256;const g=c.getContext('2d');g.fillStyle='#f0f0f0';g.fillRect(0,0,32,256);for(let y=0;y<256;y+=8){g.fillStyle='#b7b7b7';g.fillRect(0,y,32,1);g.fillStyle='#ffffff';g.fillRect(0,y+1,32,1);}clapboardTexture=new THREE.CanvasTexture(c);clapboardTexture.colorSpace=THREE.SRGBColorSpace;return clapboardTexture;}
 function build(state,view=null,existingRenderer=null){

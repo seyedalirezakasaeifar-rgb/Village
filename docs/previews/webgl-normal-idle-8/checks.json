@@ -1,0 +1,20 @@
+[
+  {
+    "mode": "pre-town",
+    "pausedExtraDraws": 0,
+    "pausedActorQueries": 0,
+    "archiveInvariant": true,
+    "zoomRedraw": true,
+    "save": true,
+    "errors": []
+  },
+  {
+    "mode": "post-town",
+    "pausedExtraDraws": 0,
+    "pausedActorQueries": 0,
+    "archiveInvariant": true,
+    "zoomRedraw": true,
+    "save": true,
+    "errors": []
+  }
+]
