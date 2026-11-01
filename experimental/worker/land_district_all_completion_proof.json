@@ -1,11 +1,13 @@
 {
   "productionEnabled": false,
-  "modelCommit": "80598e2c3604074a4d3741cd9a2d2b7e32ff319c",
-  "sourceSha256": "ac119726075abebf96683eb332782a5d55be69e42fe4545a9def0fd8a9ad6d1c",
+  "modelCommit": "01eeda3d2ff09822b9422721f75e97fabbc9958a",
+  "sourceSha256": "84ecbaef6b0ae999a9c5adcd49b9ba1678840cabfc36cf02b617c74a93d208a4",
   "workerModelSourceSha256": "ac119726075abebf96683eb332782a5d55be69e42fe4545a9def0fd8a9ad6d1c",
-  "sameSourceComposition": true,
-  "workerSha256": "8e2dd0b9e444fbf011c730dd2233004eabeebc3cf3dba9145efb7cd331a2a6a0",
-  "moduleSha256": "60273f79a4d54c0606656f977c7a43af25baeee4a377d2fd81215143f2cc7f43",
+  "sameSourceComposition": false,
+  "workerSha256": "a515cc754d821438a297a09fa3ca2bc4f2338b5e378ab2080365f7570b9c1fea",
+  "baseWorkerSha256": "f5fc651fefefc09a48a1150f655993f24cbc8a41e989dad1e700de2fc6d6c0fc",
+  "workerCompositionBase": "97b761e1a0c4f1719e8374c538273e6b1bdc421f",
+  "moduleSha256": "0bb7b347084cc25964d8f621fccb3a969980f8b6cc8daa933ba39371569ba35a",
   "fixtureSha256": {
     "farm": "2ef25944a2d9ac1a3a3c7e540385ed0198e58391031fc788dd67164035f4a9ab",
     "brownfieldReady": "a7bff8dfd8ee12c7245133ec86f0d6f7745370917610cda8088a728e5b4c4730"

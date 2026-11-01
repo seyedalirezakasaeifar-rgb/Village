@@ -1,0 +1,110 @@
+{
+  "productionEnabled": false,
+  "oracleCommit": "01eeda3d2ff09822b9422721f75e97fabbc9958a",
+  "oracleSha256": "84ecbaef6b0ae999a9c5adcd49b9ba1678840cabfc36cf02b617c74a93d208a4",
+  "hostSha256": "ac119726075abebf96683eb332782a5d55be69e42fe4545a9def0fd8a9ad6d1c",
+  "workerSha256": "f5fc651fefefc09a48a1150f655993f24cbc8a41e989dad1e700de2fc6d6c0fc",
+  "moduleSha256": "0bb7b347084cc25964d8f621fccb3a969980f8b6cc8daa933ba39371569ba35a",
+  "bindingSha256": "e990b2ed6a324bffe480af827aa9e5f06374195bdbd99c23d6939b38ec3d5e82",
+  "originalUiFundedFixtures": true,
+  "actualPaidButtonsAndTypedName": true,
+  "negative": [
+    "square-blank-name-atomic-no-write",
+    "square-duplicate-opaque-choice-no-write",
+    "warehouse-blank-name-atomic-no-write",
+    "warehouse-duplicate-opaque-choice-no-write"
+  ],
+  "states": [
+    {
+      "label": "district-finish-home-actual-ui",
+      "day": 32,
+      "treasury": 39811.80385418478,
+      "nextId": 106
+    },
+    {
+      "label": "district-admission-business-forecast-actual-ui",
+      "day": 32,
+      "treasury": 39811.80385418478,
+      "nextId": 106
+    },
+    {
+      "label": "district-admission-actual-address-visit",
+      "day": 32,
+      "treasury": 39811.80385418478,
+      "nextId": 106
+    },
+    {
+      "label": "district-finish-business-delegation-actual-ui",
+      "day": 32,
+      "treasury": 35761.80385418478,
+      "nextId": 107
+    },
+    {
+      "label": "district-finish-paid-road-delegation-actual-ui",
+      "day": 32,
+      "treasury": 59811.80385418478,
+      "nextId": 105
+    },
+    {
+      "label": "district-budget-authorization-navigation-only",
+      "day": 32,
+      "treasury": 59811.80385418478,
+      "nextId": 105
+    },
+    {
+      "label": "actual-map-tool-road_remove",
+      "day": 32,
+      "treasury": 59811.80385418478,
+      "nextId": 105
+    },
+    {
+      "label": "actual-map-tool-road_bridge",
+      "day": 32,
+      "treasury": 59811.80385418478,
+      "nextId": 105
+    },
+    {
+      "label": "actual-map-tool-urban_clearance",
+      "day": 32,
+      "treasury": 59811.80385418478,
+      "nextId": 105
+    },
+    {
+      "label": "named-square-typed-form-purchase-actual-ui",
+      "day": 3,
+      "treasury": 87708.42242217148,
+      "nextId": 104
+    },
+    {
+      "label": "named-warehouse-typed-form-purchase-actual-ui",
+      "day": 3,
+      "treasury": 78458.42242217148,
+      "nextId": 104
+    }
+  ],
+  "pageErrors": [],
+  "nativeDurability": false,
+  "remainingUnsupportedAssignedControls": [],
+  "exactCompleteModelRng": [
+    "district-finish-home-actual-ui",
+    "district-admission-business-forecast-actual-ui",
+    "district-admission-actual-address-visit",
+    "district-finish-business-delegation-actual-ui",
+    "district-finish-paid-road-delegation-actual-ui",
+    "district-budget-authorization-navigation-only",
+    "actual-map-tool-road_remove",
+    "actual-map-tool-road_bridge",
+    "actual-map-tool-urban_clearance",
+    "named-square-typed-form-purchase-actual-ui",
+    "named-warehouse-typed-form-purchase-actual-ui"
+  ],
+  "originalWriterReadback": [
+    "district-finish-home-actual-ui",
+    "district-admission-business-forecast-actual-ui",
+    "district-admission-actual-address-visit",
+    "district-finish-business-delegation-actual-ui",
+    "district-finish-paid-road-delegation-actual-ui",
+    "named-square-typed-form-purchase-actual-ui",
+    "named-warehouse-typed-form-purchase-actual-ui"
+  ]
+}

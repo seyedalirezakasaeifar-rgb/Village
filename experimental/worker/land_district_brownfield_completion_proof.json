@@ -1,0 +1,50 @@
+{
+  "productionEnabled": false,
+  "modelCommit": "01eeda3d2ff09822b9422721f75e97fabbc9958a",
+  "sourceSha256": "84ecbaef6b0ae999a9c5adcd49b9ba1678840cabfc36cf02b617c74a93d208a4",
+  "workerModelSourceSha256": "ac119726075abebf96683eb332782a5d55be69e42fe4545a9def0fd8a9ad6d1c",
+  "sameSourceComposition": false,
+  "workerSha256": "3ec13e6749af3356c69c9e6db4efcba68523cb8de3830549a98abeda80ad85c3",
+  "moduleSha256": "d6b97152ad018561ce972a0f13b2cf41e5e33cc80255af19fefb72caf478e0f7",
+  "fixtureSha256": {
+    "farm": "2ef25944a2d9ac1a3a3c7e540385ed0198e58391031fc788dd67164035f4a9ab",
+    "brownfieldReady": "a7bff8dfd8ee12c7245133ec86f0d6f7745370917610cda8088a728e5b4c4730"
+  },
+  "fixtureFundingInjection": false,
+  "deterministicOracleVisualClockAtChoiceAndStep": true,
+  "fixtureOriginalHydrationIncludesTwoPausedRenderFrames": true,
+  "exactCompleteModelRng": [
+    "brownfield-reuse-park",
+    "brownfield-park-canonical-load",
+    "brownfield-reuse-home",
+    "brownfield-home-canonical-load",
+    "brownfield-reuse-grocer",
+    "brownfield-grocer-canonical-load"
+  ],
+  "normalization": [
+    {
+      "stage": "brownfield-park-hydrate",
+      "changedKeys": []
+    },
+    {
+      "stage": "brownfield-home-hydrate",
+      "changedKeys": []
+    },
+    {
+      "stage": "brownfield-grocer-hydrate",
+      "changedKeys": []
+    }
+  ],
+  "negative": [],
+  "farm": {},
+  "pageErrors": [],
+  "farmGoodsMaxError": null,
+  "farmCashDrift": null,
+  "originalSourceHandlerClicks": true,
+  "visibleOriginalControlJourney": false,
+  "actualWorkerUiBindingsCertified": false,
+  "saveFailureRetryCertified": false,
+  "baseWorkerSha256": "6597d4be4c240a801341ebaff117071747cfc1398b7f4d793a812a90c4d249b3",
+  "diagnosticSuffixSha256": "3bf8e6aca0cf36f225cc1287820844bf48f46b2daa3c6ba55ea2656b641c7cb2",
+  "workerCompositionBase": "97b761e1a0c4f1719e8374c538273e6b1bdc421f"
+}

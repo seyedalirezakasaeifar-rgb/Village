@@ -1,0 +1,15 @@
+"""Ordinary founding-funded district commitment through original current UI controls."""
+from pathlib import Path
+import sys,subprocess,gzip,json,hashlib
+sys.path.insert(0,'tests')
+from test_mobile_rendering import html
+from playwright.sync_api import sync_playwright
+commit='01eeda3d2ff09822b9422721f75e97fabbc9958a';source=subprocess.check_output(['git','show',commit+':assets/game.js']).decode()
+with sync_playwright() as pw:
+ b=pw.chromium.launch(executable_path='/usr/bin/chromium',args=['--no-sandbox']);p=b.new_page(viewport={'width':1200,'height':850});errors=[];p.on('pageerror',lambda e:errors.append(str(e)));p.set_content(html);p.add_script_tag(content=source);p.locator('#townSeed').fill('42');p.locator('#newTown').click();p.locator('#pause').click();p.evaluate('__townTest.step(31)');p.locator('[data-civic-projects]').click();p.locator('[data-civic-project-review="district"]').click();p.locator('#projectParcel').select_option('orchard-downs');p.locator('#projectFocus').select_option('neighbourhood');p.locator('#projectDistrictAdopt').click()
+ for selector in ['[data-civic-project-deed]','[data-civic-project-charter]','[data-civic-project-road]']:
+  if selector=='[data-civic-project-road]':Path('experimental/worker/fixtures/district-unconnected-ordinary-current.json.gz').write_bytes(gzip.compress(p.evaluate('__townTest.save()').encode(),mtime=0))
+  p.locator(selector).click();p.locator('[data-event-choice="0"]').click()
+ archive=p.evaluate('__townTest.save()');data=json.loads(archive);assert data['civicProjects']['active']['district']['target']=='orchard-downs';assert data['districtProgrammes']['orchard-downs']['focus']=='neighbourhood';assert p.locator('[data-district-finish]').count()>0;assert not errors,errors
+ out=Path('experimental/worker/fixtures');(out/'district-ordinary-current.json.gz').write_bytes(gzip.compress(archive.encode(),mtime=0));(out/'district-ordinary-current-manifest.json').write_text(json.dumps(dict(sourceCommit=commit,sourceSha256=hashlib.sha256(source.encode()).hexdigest(),rawArchiveSha256=hashlib.sha256(archive.encode()).hexdigest(),ordinaryDay=data['day'],treasury=data['treasury'],originalUiAdoptionDeedCharterRoad=True,qaAcceleratedDays=31,injectedFundingPeopleStocks=False,pageErrors=errors),indent=2)+'\n');print('PASS original funded district fixture',data['day'],data['treasury']);p.close()
+ p=b.new_page();p.set_content(html);p.add_script_tag(content=source);p.locator('#townSeed').fill('42');p.locator('#newTown').click();p.locator('#pause').click();p.evaluate('__townTest.step(2)');market=p.evaluate('__townTest.save()');(out/'market-ordinary-current.json.gz').write_bytes(gzip.compress(market.encode(),mtime=0));(out/'market-ordinary-current-manifest.json').write_text(json.dumps(dict(sourceCommit=commit,sourceSha256=hashlib.sha256(source.encode()).hexdigest(),rawArchiveSha256=hashlib.sha256(market.encode()).hexdigest(),qaAcceleratedDays=2,injectedFundingPeopleStocks=False),indent=2)+'\n');print('PASS ordinary funded two-day market fixture');b.close()
