@@ -13,6 +13,8 @@
   "completedBoundaryExportUnchanged": true,
   "missingAutomaticSafetyRefusesBeforeDay": true,
   "refusedDayZeroSnapshotsCertificates": true,
+  "initialEnableCertificates": 1,
+  "refusedDayCertificateDelta": 0,
   "paidCommandCaptureScopes": [
     "paid-command"
   ],
