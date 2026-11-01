@@ -1,0 +1,6 @@
+// Host control test owner ONLY. Not production admission, normalization or reserve certification.
+window.__installCurrentPaidTestOwner=function(){
+ const p=__capacityAdmissionProtocol,s=p.shared,bridge=p.installFences(s),registry=[],metrics={captures:0,certificates:0,restores:0,last:null};
+ s.configure({capture:()=>{const runtime=registry.map(a=>a.capture());metrics.captures++;return {town:G,busy:simulationBusy,runtime,graph:p.graphSnapshot([G,...runtime])};},restore:snapshot=>{p.graphRestore(snapshot.graph);G=snapshot.town;registry.forEach((a,i)=>a.restore(snapshot.runtime[i]));metrics.restores++;},enter:()=>{simulationBusy=true;},leave:snapshot=>{simulationBusy=snapshot.busy;},certify:()=>{metrics.certificates++;if(!validateArchiveRecords(G)||!validateBridgeArchive(G)||G.people.length>8000||G.households.length>3000||G.firms.length>3000)return {ok:false,reason:'Current archive records rejected'};return (window.__denyCurrent||window.__denyDirect)?{ok:false,reason:'Test reservation refusal'}:{ok:true};},generation:()=>saveEpoch,onRefusal:()=>{},onFatal:()=>{paused=true;simulationBusy=false;}});
+ return {shared:s,metrics:()=>({...metrics}),registerRuntime:a=>{if(s.status().enabled||s.isActive())throw Error('Register while disabled and idle');registry.push(a);},testOnly:true};
+};
