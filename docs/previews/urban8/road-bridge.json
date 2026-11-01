@@ -1,5 +1,5 @@
 {
-  "source_sha256": "bd3ee33d5a16f0c463e76dccd23398fab49e451be391397f5f198f59c05d8c93",
+  "source_sha256": "90650a392ac61a621ee334e908dc282f370482f0c4756b6385005609142b0049",
   "ordinaryTownBeforeBridge": {
     "home": 104,
     "connected": false,
@@ -470,26 +470,131 @@
       "day": 35
     }
   },
-  "noBenefitExistingRoadDetour": {
-    "sameComponent": true,
-    "currentPathSteps": 8,
-    "currentPath": [
-      1983,
-      1855,
-      1856,
-      1857,
-      1858,
-      1859,
-      1860,
-      1861,
-      1989
-    ],
-    "quote": {
-      "ok": false,
-      "reason": "Existing streets already connect these banks; a bridge would save only 2 road steps. The minimum useful shortcut is 3 steps."
+  "redundantExistingRoadDetour": {
+    "scenario": {
+      "sameComponent": true,
+      "currentPathSteps": 8,
+      "currentPath": [
+        1983,
+        1855,
+        1856,
+        1857,
+        1858,
+        1859,
+        1860,
+        1861,
+        1989
+      ],
+      "quote": {
+        "ok": true,
+        "axis": "east-west",
+        "cells": [
+          1984,
+          1985,
+          1986,
+          1987,
+          1988
+        ],
+        "banks": [
+          1983,
+          1989
+        ],
+        "gain": 2,
+        "connectsComponents": false,
+        "bankParts": [
+          0,
+          0
+        ],
+        "mainPart": 0,
+        "cost": 13450,
+        "maintenance": 12.5,
+        "bank": 1983,
+        "day": 1,
+        "cash": 54144,
+        "roads": 59,
+        "key": "[1,54144,59,{\"ok\":true,\"axis\":\"east-west\",\"cells\":[1984,1985,1986,1987,1988],\"banks\":[1983,1989],\"gain\":2,\"connectsComponents\":false,\"bankParts\":[0,0],\"mainPart\":0,\"cost\":13450,\"maintenance\":12.5}]"
+      },
+      "treasury": 54144,
+      "total": 15493517,
+      "totalDrift": 0,
+      "accounts": {
+        "treasury": 54144,
+        "region": 14795856,
+        "spending": 0
+      },
+      "screen": [
+        422,
+        191.5
+      ]
     },
-    "treasury": 54144,
-    "totalDrift": 0
+    "review": "Proposed east-west deck from bank (63,15) to (69,15) across 5 water tiles. Both banks already connect to town roads; the shortest modeled trip becomes 2 road steps shorter. This adds an alternate crossing, not new property access. No congestion or traffic-capacity benefit is modeled. Both banks and the full span are chartered; at least one approach already reaches the town network. Capital $13,450; upkeep $12.50/day, transferred to the bridge contractor from municipal cash. Water remains water beneath the raised deck. Navigation, docks, active fishing paths, private titles and buildings are protected.",
+    "cancelledBefore": {
+      "treasury": 54144,
+      "region": 14795856,
+      "spending": 0
+    },
+    "cancelledAfter": {
+      "total": 15493517,
+      "accounts": {
+        "treasury": 54144,
+        "region": 14795856,
+        "spending": 0
+      },
+      "bridges": 0
+    },
+    "authorized": {
+      "bridge": {
+        "id": 1,
+        "name": "East Meadow Causeway",
+        "axis": "east-west",
+        "cells": [
+          1984,
+          1985,
+          1986,
+          1987,
+          1988
+        ],
+        "banks": [
+          1983,
+          1989
+        ],
+        "condition": 100,
+        "builtDay": 1,
+        "capital": 13450
+      },
+      "connected": true,
+      "pathSteps": 6,
+      "path": [
+        1983,
+        1984,
+        1985,
+        1986,
+        1987,
+        1988,
+        1989
+      ],
+      "cells": [
+        1984,
+        1985,
+        1986,
+        1987,
+        1988
+      ],
+      "accounts": {
+        "treasury": 40694,
+        "region": 14809306,
+        "spending": 13450
+      },
+      "total": 15493517,
+      "maintenance": 12.5,
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15493517,
+        "population": 169,
+        "day": 1
+      }
+    }
   },
   "exact30DayReplay": true,
   "errors": []
