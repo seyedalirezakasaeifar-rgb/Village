@@ -1,0 +1,929 @@
+{
+  "source_sha256": "0d1a4b7e810fd3dde8dc8c09e15f6f6960328460f78b8a0c08e28bb1d6d72b95",
+  "ordinaryFundingOnly": true,
+  "initial": {
+    "day": 1,
+    "treasury": 90000,
+    "region": 14760000,
+    "total": 15493517,
+    "population": 169,
+    "owned": [],
+    "valid": {
+      "ok": true,
+      "issues": [],
+      "total": 15493517,
+      "population": 169,
+      "day": 1
+    }
+  },
+  "twoDayOneDeeds": {
+    "prices": {
+      "east-meadow": 30606,
+      "county-ridge": 37368
+    },
+    "state": {
+      "day": 1,
+      "treasury": 22026,
+      "region": 14827974,
+      "total": 15493517,
+      "population": 169,
+      "owned": [
+        "east-meadow",
+        "county-ridge"
+      ],
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15493517,
+        "population": 169,
+        "day": 1
+      }
+    },
+    "nextDeedShortfall": 18198,
+    "nextDeedInitiallyDisabled": true
+  },
+  "sixYearRecovery": {
+    "day": 2161,
+    "treasury": 776301.9503089811,
+    "region": 11201851.765505258,
+    "total": 15493516.999960568,
+    "population": 269,
+    "owned": [
+      "east-meadow",
+      "county-ridge"
+    ],
+    "valid": {
+      "ok": true,
+      "issues": [],
+      "total": 15493516.999960568,
+      "population": 269,
+      "day": 2161
+    }
+  },
+  "sameOpenPanelDeedBecamePurchasable": true,
+  "thirdDeed": {
+    "parcel": "belt-78-2",
+    "price": 40224,
+    "state": {
+      "day": 2161,
+      "treasury": 736077.9503089811,
+      "region": 11242075.765505258,
+      "total": 15493516.999960568,
+      "population": 269,
+      "owned": [
+        "east-meadow",
+        "county-ridge",
+        "belt-78-2"
+      ],
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15493516.999960568,
+        "population": 269,
+        "day": 2161
+      }
+    }
+  },
+  "outerCottage": {
+    "site": [
+      59,
+      14
+    ],
+    "price": 20000,
+    "plan": {
+      "plan": "residential",
+      "day": 2161
+    },
+    "roadTiles": [
+      [
+        55,
+        26
+      ],
+      [
+        55,
+        25
+      ],
+      [
+        55,
+        24
+      ],
+      [
+        55,
+        23
+      ],
+      [
+        55,
+        22
+      ],
+      [
+        55,
+        21
+      ],
+      [
+        55,
+        20
+      ],
+      [
+        55,
+        19
+      ],
+      [
+        55,
+        18
+      ],
+      [
+        55,
+        17
+      ],
+      [
+        55,
+        16
+      ],
+      [
+        55,
+        15
+      ],
+      [
+        55,
+        14
+      ],
+      [
+        56,
+        14
+      ],
+      [
+        57,
+        14
+      ],
+      [
+        58,
+        14
+      ]
+    ],
+    "roadCost": 2400
+  },
+  "farmTransition": {
+    "before": {
+      "id": 8,
+      "building": 18,
+      "x": 36,
+      "y": 36,
+      "key": "4:4",
+      "density": 3.857142925262451,
+      "workers": [
+        125,
+        162
+      ],
+      "fields": 17,
+      "stock": {
+        "grain": 95.95489414652616,
+        "flour": 40,
+        "food": 80,
+        "logs": 30,
+        "timber": 30,
+        "stone": 30
+      }
+    },
+    "paidHomes": [
+      {
+        "site": [
+          36,
+          34
+        ],
+        "building": 194,
+        "cost": 20000
+      },
+      {
+        "site": [
+          34,
+          36
+        ],
+        "building": 195,
+        "cost": 20000
+      }
+    ],
+    "after": {
+      "id": 8,
+      "building": 18,
+      "x": 36,
+      "y": 36,
+      "key": "4:4",
+      "density": 5.857142925262451,
+      "workers": [
+        125,
+        162
+      ],
+      "fields": 17,
+      "stock": {
+        "grain": 80.31659727169708,
+        "flour": 40,
+        "food": 80,
+        "logs": 30,
+        "timber": 30,
+        "stone": 30
+      }
+    },
+    "relocated": false,
+    "anyFarmRelocated": false,
+    "movedFarms": [],
+    "renewalGateAudit": {
+      "demand": {
+        "residents": 289,
+        "homes": 133,
+        "jobs": 196,
+        "jobVacancy": 0,
+        "homeDemand": 10,
+        "housingPressure": 55,
+        "businessDemand": 17,
+        "applicants": {
+          "grocer": 0,
+          "bakery": 20.065789473684216,
+          "farm": 0,
+          "mill": 8.365384615384619,
+          "forestry": 0,
+          "sawmill": 0,
+          "contractor": 0,
+          "quarry": 0,
+          "tavern": 0,
+          "fishery": 13.469387755102035,
+          "wharf": 0,
+          "factory": 2.4107142857142936,
+          "warehouse": 0,
+          "office": 0,
+          "college": 0
+        },
+        "freeLots": 48,
+        "confidence": 74,
+        "hardship": 0,
+        "auto": true
+      },
+      "autoBuild": true,
+      "eligible": 1,
+      "candidate": {
+        "id": 8,
+        "x": 36,
+        "y": 36,
+        "density": 5.857142925262451,
+        "fields": 17,
+        "plots": 17
+      },
+      "ruralLots": 132,
+      "suitableReplacement": true,
+      "region": 10470001.413043333,
+      "requiredRegionalCapital": 164850,
+      "oldSiteApartment": true
+    },
+    "reviewedRelocation": {
+      "quote": {
+        "ok": true,
+        "farm": 8,
+        "building": 18,
+        "x": 36,
+        "y": 36,
+        "block": "4:4",
+        "density": 5.857142925262451,
+        "homeDemand": 10,
+        "confidence": 74,
+        "fields": 17,
+        "fieldIds": [
+          4392,
+          4646,
+          4647,
+          4648,
+          4649,
+          4650,
+          4774,
+          4775,
+          4900,
+          4901,
+          4902,
+          4904,
+          5029,
+          5030,
+          5031,
+          5158,
+          5284
+        ],
+        "workers": [
+          125,
+          162
+        ],
+        "stock": {
+          "grain": 80.31659727169708,
+          "flour": 40,
+          "food": 80,
+          "logs": 30,
+          "timber": 30,
+          "stone": 30
+        },
+        "destination": {
+          "x": 12,
+          "y": 6,
+          "plots": [
+            {
+              "id": 524,
+              "x": 12,
+              "y": 4
+            },
+            {
+              "id": 778,
+              "x": 10,
+              "y": 6
+            },
+            {
+              "id": 782,
+              "x": 14,
+              "y": 6
+            },
+            {
+              "id": 1036,
+              "x": 12,
+              "y": 8
+            },
+            {
+              "id": 396,
+              "x": 12,
+              "y": 3
+            },
+            {
+              "id": 525,
+              "x": 13,
+              "y": 4
+            },
+            {
+              "id": 650,
+              "x": 10,
+              "y": 5
+            },
+            {
+              "id": 783,
+              "x": 15,
+              "y": 6
+            },
+            {
+              "id": 906,
+              "x": 10,
+              "y": 7
+            },
+            {
+              "id": 1037,
+              "x": 13,
+              "y": 8
+            },
+            {
+              "id": 1164,
+              "x": 12,
+              "y": 9
+            },
+            {
+              "id": 395,
+              "x": 11,
+              "y": 3
+            },
+            {
+              "id": 522,
+              "x": 10,
+              "y": 4
+            },
+            {
+              "id": 649,
+              "x": 9,
+              "y": 5
+            },
+            {
+              "id": 776,
+              "x": 8,
+              "y": 6
+            },
+            {
+              "id": 784,
+              "x": 16,
+              "y": 6
+            },
+            {
+              "id": 905,
+              "x": 9,
+              "y": 7
+            }
+          ]
+        },
+        "relocationCost": 54000,
+        "ownerPremium": 10850,
+        "requiredRegionalCapital": 164850,
+        "apartmentCost": 175000,
+        "constructionDays": 40,
+        "reviewKey": "[2701,3,290,10470001.413043333,8,18,36,36,\"residential\",2161,5.857142925262451,10,74,[4392,4646,4647,4648,4649,4650,4774,4775,4900,4901,4902,4904,5029,5030,5031,5158,5284],[125,162],42155.935649250634,{\"grain\":80.31659727169708,\"flour\":40,\"food\":80,\"logs\":30,\"timber\":30,\"stone\":30},12,6,[{\"id\":524,\"x\":12,\"y\":4},{\"id\":778,\"x\":10,\"y\":6},{\"id\":782,\"x\":14,\"y\":6},{\"id\":1036,\"x\":12,\"y\":8},{\"id\":396,\"x\":12,\"y\":3},{\"id\":525,\"x\":13,\"y\":4},{\"id\":650,\"x\":10,\"y\":5},{\"id\":783,\"x\":15,\"y\":6},{\"id\":906,\"x\":10,\"y\":7},{\"id\":1037,\"x\":13,\"y\":8},{\"id\":1164,\"x\":12,\"y\":9},{\"id\":395,\"x\":11,\"y\":3},{\"id\":522,\"x\":10,\"y\":4},{\"id\":649,\"x\":9,\"y\":5},{\"id\":776,\"x\":8,\"y\":6},{\"id\":784,\"x\":16,\"y\":6},{\"id\":905,\"x\":9,\"y\":7}],2]"
+      },
+      "cancelWasReadOnly": true,
+      "afterApproval": {
+        "id": 8,
+        "building": 18,
+        "x": 12,
+        "y": 6,
+        "key": "1:0",
+        "density": 0,
+        "workers": [
+          125,
+          162
+        ],
+        "fields": 17,
+        "stock": {
+          "grain": 80.31659727169708,
+          "flour": 40,
+          "food": 80,
+          "logs": 30,
+          "timber": 30,
+          "stone": 30
+        }
+      },
+      "project": {
+        "id": 203,
+        "kind": "redevelop",
+        "remaining": 40,
+        "duration": 40,
+        "start": 2701,
+        "target": "apartment",
+        "units": 4,
+        "priorKind": "farm",
+        "formerValue": 31000,
+        "urbanRenewal": true
+      },
+      "preservedFieldsWorkersStock": true,
+      "fourUnitHousingProjectStarted": true,
+      "completedAfterNaturalYear": {
+        "id": 203,
+        "kind": "apartment",
+        "x": 36,
+        "y": 36,
+        "value": 188288.2421388122,
+        "condition": 100,
+        "owner": -2,
+        "firm": -1,
+        "hh": 107,
+        "developer": true,
+        "footprint": [
+          4644,
+          4645,
+          4772,
+          4773
+        ],
+        "title": {
+          "kind": "investor",
+          "id": 0
+        },
+        "baseValue": 175000,
+        "replacedKind": "farm",
+        "redevelopment": null,
+        "lastRedeveloped": 2828,
+        "units": [
+          107
+        ],
+        "marketRent": 36.210922651352135
+      }
+    },
+    "note": "Automatic renewal remains gated by strong market pressure. A mayor can separately review moderate observed demand after a residential plan; full farm titles move intact and housing proceeds only through a funded project."
+  },
+  "serviceAssembly": {
+    "target": 34,
+    "quote": {
+      "ok": true,
+      "x": 20,
+      "y": 22,
+      "building": 34,
+      "fields": [],
+      "households": [
+        68
+      ],
+      "relocations": [
+        150
+      ],
+      "relocationReview": [
+        {
+          "household": 68,
+          "destination": 150,
+          "x": 18,
+          "y": 22,
+          "reserved": false,
+          "workers": [
+            {
+              "person": 172,
+              "firm": 33,
+              "reachable": true,
+              "mode": "road",
+              "distance": 4
+            },
+            {
+              "person": 173,
+              "firm": 18,
+              "reachable": true,
+              "mode": "road",
+              "distance": 11
+            }
+          ],
+          "services": {
+            "health": {
+              "distance": 17,
+              "limit": 60,
+              "within": true
+            },
+            "school": {
+              "distance": 13,
+              "limit": 40,
+              "within": true
+            }
+          }
+        }
+      ],
+      "workers": [],
+      "compensation": 50742,
+      "demolition": 1850,
+      "relocation": 2000,
+      "severance": 0,
+      "total": 54592,
+      "reason": "1 households move to specific vacant homes on the connected town road network. Reed \u2192 cottage 150 at (18, 22); 2 current commutes remain reachable by road; nearest public clinic 17 road segments (within the 60-segment range), nearest public school 13 road segments (within the 40-segment range). Service capacity and funded coverage are assessed separately. 0 workers receive twelve days of severance. Enterprise inventories are sold through liquidation, loans settled, and crop titles released."
+    },
+    "householdBefore": {
+      "id": 68,
+      "home": 34,
+      "people": [
+        172,
+        173,
+        249
+      ],
+      "income": 90.52788471866899,
+      "tax": 8.021091267313816,
+      "cash": 11883.505818194799,
+      "workers": [
+        {
+          "id": 172,
+          "job": 33,
+          "blocked": false
+        },
+        {
+          "id": 173,
+          "job": 18,
+          "blocked": false
+        },
+        {
+          "id": 249,
+          "job": -1,
+          "blocked": false
+        }
+      ]
+    },
+    "householdAfter": {
+      "id": 68,
+      "home": 150,
+      "people": [
+        172,
+        173,
+        249
+      ],
+      "income": 90.52788471866899,
+      "tax": 8.021091267313816,
+      "cash": 13883.505818194799,
+      "workers": [
+        {
+          "id": 172,
+          "job": 33,
+          "blocked": false
+        },
+        {
+          "id": 173,
+          "job": 18,
+          "blocked": false
+        },
+        {
+          "id": 249,
+          "job": -1,
+          "blocked": false
+        }
+      ]
+    },
+    "clinic": 204,
+    "clinicCost": 8000,
+    "treasuryAfter": 1248809.3395771
+  },
+  "incomeProfilesBefore": [
+    {
+      "key": "3:3",
+      "character": "Market centre",
+      "incomeBand": "Middle income",
+      "people": 20,
+      "perPersonIncome": 23.65795925666181,
+      "rentBurden": 0.21854771832606343,
+      "condition": 99.89491961662853
+    },
+    {
+      "key": "2:3",
+      "character": "Downtown mixed-use",
+      "incomeBand": "Middle income",
+      "people": 46,
+      "perPersonIncome": 27.670888162958466,
+      "rentBurden": 0.1560489012959043,
+      "condition": 99.75895885615093
+    },
+    {
+      "key": "2:1",
+      "character": "Agricultural belt",
+      "incomeBand": "No resident income",
+      "people": 0,
+      "perPersonIncome": 0,
+      "rentBurden": 0,
+      "condition": 100
+    },
+    {
+      "key": "1:0",
+      "character": "Agricultural belt",
+      "incomeBand": "No resident income",
+      "people": 0,
+      "perPersonIncome": 0,
+      "rentBurden": 0,
+      "condition": 100
+    },
+    {
+      "key": "1:3",
+      "character": "Agricultural belt",
+      "incomeBand": "Middle income",
+      "people": 11,
+      "perPersonIncome": 23.564117563050004,
+      "rentBurden": 0.07750164839128777,
+      "condition": 100
+    },
+    {
+      "key": "2:5",
+      "character": "Agricultural belt",
+      "incomeBand": "No resident income",
+      "people": 0,
+      "perPersonIncome": 0,
+      "rentBurden": 0,
+      "condition": 100
+    },
+    {
+      "key": "4:3",
+      "character": "Market centre",
+      "incomeBand": "Middle income",
+      "people": 37,
+      "perPersonIncome": 26.652580479966154,
+      "rentBurden": 0.12510664946640593,
+      "condition": 99.22534072713337
+    },
+    {
+      "key": "3:2",
+      "character": "Residential neighbourhood",
+      "incomeBand": "Higher income",
+      "people": 15,
+      "perPersonIncome": 37.722574845195886,
+      "rentBurden": 0.12290188638677202,
+      "condition": 98.78056912351362
+    },
+    {
+      "key": "5:3",
+      "character": "Residential neighbourhood",
+      "incomeBand": "Middle income",
+      "people": 14,
+      "perPersonIncome": 23.98046673081552,
+      "rentBurden": 0.029498868298164102,
+      "condition": 100
+    },
+    {
+      "key": "3:4",
+      "character": "Mixed quarter",
+      "incomeBand": "Middle income",
+      "people": 9,
+      "perPersonIncome": 19.573043699447545,
+      "rentBurden": 0.1453116895237838,
+      "condition": 100
+    },
+    {
+      "key": "4:2",
+      "character": "Suburban neighbourhood",
+      "incomeBand": "Middle income",
+      "people": 33,
+      "perPersonIncome": 22.659852039558285,
+      "rentBurden": 0.04935442726956054,
+      "condition": 99.35450304624074
+    },
+    {
+      "key": "2:4",
+      "character": "Residential neighbourhood",
+      "incomeBand": "Middle income",
+      "people": 39,
+      "perPersonIncome": 23.006972579073736,
+      "rentBurden": 0.132292921408993,
+      "condition": 99.48682940072699
+    },
+    {
+      "key": "4:4",
+      "character": "Suburban neighbourhood",
+      "incomeBand": "Middle income",
+      "people": 40,
+      "perPersonIncome": 23.497680673016053,
+      "rentBurden": 0.11888709238676376,
+      "condition": 100
+    },
+    {
+      "key": "2:2",
+      "character": "Residential neighbourhood",
+      "incomeBand": "Middle income",
+      "people": 23,
+      "perPersonIncome": 25.88354805647195,
+      "rentBurden": 0.11315536052346713,
+      "condition": 99.76501456982832
+    },
+    {
+      "key": "0:3",
+      "character": "Open countryside",
+      "incomeBand": "No resident income",
+      "people": 0,
+      "perPersonIncome": 0,
+      "rentBurden": 0,
+      "condition": 100
+    },
+    {
+      "key": "7:1",
+      "character": "Open countryside",
+      "incomeBand": "Lower income",
+      "people": 2,
+      "perPersonIncome": 16,
+      "rentBurden": 0.25,
+      "condition": 100
+    }
+  ],
+  "incomeProfilesAfterOneNaturalYear": [
+    {
+      "key": "3:3",
+      "character": "Market centre",
+      "incomeBand": "Middle income",
+      "people": 21,
+      "perPersonIncome": 22.536810798171214,
+      "rentBurden": 0.2280607842798679,
+      "condition": 99.89491961662853
+    },
+    {
+      "key": "2:3",
+      "character": "Downtown mixed-use",
+      "incomeBand": "Middle income",
+      "people": 50,
+      "perPersonIncome": 25.649967959267318,
+      "rentBurden": 0.16249053386300025,
+      "condition": 99.75895885615093
+    },
+    {
+      "key": "2:1",
+      "character": "Agricultural belt",
+      "incomeBand": "No resident income",
+      "people": 0,
+      "perPersonIncome": 0,
+      "rentBurden": 0,
+      "condition": 100
+    },
+    {
+      "key": "1:0",
+      "character": "Agricultural belt",
+      "incomeBand": "No resident income",
+      "people": 0,
+      "perPersonIncome": 0,
+      "rentBurden": 0,
+      "condition": 100
+    },
+    {
+      "key": "1:3",
+      "character": "Agricultural belt",
+      "incomeBand": "Middle income",
+      "people": 11,
+      "perPersonIncome": 23.905873821817007,
+      "rentBurden": 0.07602713649446455,
+      "condition": 100
+    },
+    {
+      "key": "2:5",
+      "character": "Agricultural belt",
+      "incomeBand": "No resident income",
+      "people": 0,
+      "perPersonIncome": 0,
+      "rentBurden": 0,
+      "condition": 100
+    },
+    {
+      "key": "4:3",
+      "character": "Market centre",
+      "incomeBand": "Middle income",
+      "people": 40,
+      "perPersonIncome": 26.684968196830322,
+      "rentBurden": 0.13035947826136454,
+      "condition": 99.22534072713337
+    },
+    {
+      "key": "3:2",
+      "character": "Residential neighbourhood",
+      "incomeBand": "Higher income",
+      "people": 15,
+      "perPersonIncome": 35.02891179614747,
+      "rentBurden": 0.13236675143607537,
+      "condition": 98.87437149862795
+    },
+    {
+      "key": "5:3",
+      "character": "Residential neighbourhood",
+      "incomeBand": "Middle income",
+      "people": 15,
+      "perPersonIncome": 24.344525722530058,
+      "rentBurden": 0.02728809702059708,
+      "condition": 100
+    },
+    {
+      "key": "3:4",
+      "character": "Mixed quarter",
+      "incomeBand": "Middle income",
+      "people": 11,
+      "perPersonIncome": 18.8439099233632,
+      "rentBurden": 0.17415622604706532,
+      "condition": 100
+    },
+    {
+      "key": "4:2",
+      "character": "Suburban neighbourhood",
+      "incomeBand": "Middle income",
+      "people": 34,
+      "perPersonIncome": 23.4661606173624,
+      "rentBurden": 0.053021089406930934,
+      "condition": 99.32913621672643
+    },
+    {
+      "key": "2:4",
+      "character": "Residential neighbourhood",
+      "incomeBand": "Middle income",
+      "people": 39,
+      "perPersonIncome": 24.23138500667563,
+      "rentBurden": 0.14265063587768015,
+      "condition": 99.48682940072699
+    },
+    {
+      "key": "4:4",
+      "character": "Residential neighbourhood",
+      "incomeBand": "Middle income",
+      "people": 42,
+      "perPersonIncome": 21.770534240751847,
+      "rentBurden": 0.1353409545471152,
+      "condition": 99.95381198824656
+    },
+    {
+      "key": "2:2",
+      "character": "Residential neighbourhood",
+      "incomeBand": "Middle income",
+      "people": 27,
+      "perPersonIncome": 25.948717783975507,
+      "rentBurden": 0.09664699236887987,
+      "condition": 99.32224936251521
+    },
+    {
+      "key": "0:3",
+      "character": "Open countryside",
+      "incomeBand": "No resident income",
+      "people": 0,
+      "perPersonIncome": 0,
+      "rentBurden": 0,
+      "condition": 100
+    },
+    {
+      "key": "7:1",
+      "character": "Open countryside",
+      "incomeBand": "Lower income",
+      "people": 2,
+      "perPersonIncome": 16,
+      "rentBurden": 0.25,
+      "condition": 100
+    },
+    {
+      "key": "5:2",
+      "character": "Open countryside",
+      "incomeBand": "No resident income",
+      "people": 0,
+      "perPersonIncome": 0,
+      "rentBurden": 0,
+      "condition": 100
+    }
+  ],
+  "exact360DaySaveReplay": true,
+  "final": {
+    "day": 3061,
+    "treasury": 1248809.3395771,
+    "region": 9792291.366733158,
+    "total": 15493516.9999598,
+    "population": 307,
+    "owned": [
+      "east-meadow",
+      "county-ridge",
+      "belt-78-2"
+    ],
+    "valid": {
+      "ok": true,
+      "issues": [],
+      "total": 15493516.9999598,
+      "population": 307,
+      "day": 3061
+    }
+  },
+  "errors": []
+}

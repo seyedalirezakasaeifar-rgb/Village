@@ -186,18 +186,43 @@ function urbanClearance(x,y,quotedTotal,reviewedKey=null){
  const u=ensureUrban();u.renewals.unshift({day:G.day,action:b?'Municipal clearance: '+types[b.kind].n:'Crop-title acquisition',cost:q.total});u.renewals=u.renewals.slice(0,80);u.revision++;invalidateUrban();invalidateBuildingIndex();invalidateRoads(false);recompute();assignJobs();staticDirty=true;dirty=true;book('Municipal land assembly','Owners, tenants, workers and clearance contractors',q.total,'Compensated land assembly',b?.id||-1);story('Land assembled for redevelopment. '+q.reason,'neutral');save();return {ok:true,reason:'Land is vacant and available for a new permitted use.'};
 }
 function urbanSiteSuitability(x,y,kind){const d=urbanDescriptor(x,y);if(urbanPlacementReason(x,y,kind))return -10000;if(kind==='farm')return 28-d.density*5-d.landValue*.006;if(['home','apartment','tower'].includes(kind))return d.work*.55+d.amenity*2-d.pollution*4;if(['grocer','tavern'].includes(kind))return d.density*1.8+d.work*.5;return d.work*.3-d.density*.5;}
-// Existing farms can move intact when urban land demand makes renewal worthwhile.
-// Identity, inventory, capital and contracts remain with the same enterprise.
-function urbanFarmRenewal(demand){
- if(G.autoBuild===false||demand.homeDemand<18||demand.housingPressure<65||demand.confidence<40||G.policy.zoningRestriction>65||G.projects.some(p=>p.urbanRenewal))return false;
- const farms=G.firms.filter(f=>f.kind==='farm'&&!f.closed&&!G.projects.some(p=>p.firmId===f.id)&&!(G.freight||[]).some(s=>s.from===f.id||s.to===f.id)&&!(G.regionalTrade?.shipments||[]).some(s=>s.firm===f.id)).map(f=>({f,b:readBuild(f.building)})).filter(v=>v.b&&urbanDescriptor(v.b.x,v.b.y).density>=5&&G.day-(v.b.lastRelocated||-720)>=540&&footprintOf(v.b).length===4);
- farms.sort((a,b)=>urbanDescriptor(b.b.x,b.b.y).landValue-urbanDescriptor(a.b.x,a.b.y).landValue||a.f.id-b.f.id);
- const candidate=farms[0];if(!candidate)return false;const {f,b}=candidate,u=ensureUrban();
- const lots=buildableCandidates('business').filter(v=>canPlace(v.x,v.y,true,'farm')&&urbanDescriptor(v.x,v.y).density<1.5).sort((a,b)=>urbanSiteSuitability(b.x,b.y,'farm')-urbanSiteSuitability(a.x,a.y,'farm')||a.x-b.x||a.y-b.y),dest=lots[0];
- const oldFields=Object.keys(G.fieldOwner||{}).filter(id=>G.fieldOwner[id]===f.id&&G.landUse[id]===1).length;
- const replacement=lots.map(place=>({...place,plots:urbanRelocationFields(place.x,place.y,oldFields)})).find(place=>place.plots.length===oldFields);
- if(!replacement)return false;
- const cost=types.farm.cost+39000+8500+oldFields*200,compensation=Math.round(b.value*.35);if(!dest||G.region<cost+compensation+100000||!canPlace(b.x,b.y,true,'apartment',b))return false;
+// A mayor can review the same funded relocation normally used by the market.
+// The preview preserves model RNG and requires a residential plan, real demand,
+// clear cargo commitments, suitable rural acreage and fully funded capital.
+function urbanFarmRenewalQuote(farmId){
+ const f=G.firms[farmId],b=f?.kind==='farm'&&!f.closed?readBuild(f.building):null;if(!b)return {ok:false,reason:'Select an operating farm to review its relocation.'};
+ const d=urbanDescriptor(b.x,b.y),demand=cityDemand(),zone=ensureUrban().zones[urbanBlockKey(b.x,b.y)];
+ if(zone?.plan!=='residential')return {ok:false,reason:'Record a residential neighbourhood plan for this block before reviewing farm relocation. Existing farm rights remain intact until a separate paid renewal is approved.'};
+ if(d.density<5)return {ok:false,reason:'This block has not reached the modeled residential density of five. Build connected housing and review again.'};
+ if(G.day-(b.lastRelocated||-720)<540)return {ok:false,reason:'This farm was relocated recently; wait for the 540-day recovery period.'};
+ if(footprintOf(b).length!==4)return {ok:false,reason:'This farm footprint cannot be safely renewed by the current four-tile plan.'};
+ if(G.projects.some(p=>p.urbanRenewal||p.firmId===f.id))return {ok:false,reason:'A farm or renewal project is already under construction.'};
+ if((G.freight||[]).some(s=>s.from===f.id||s.to===f.id)||(G.regionalTrade?.shipments||[]).some(s=>s.firm===f.id))return {ok:false,reason:'Paid farm cargo is still in transit. Let its contracts and shipments settle before moving the fields.'};
+ if(demand.homeDemand<10||demand.confidence<40||G.policy.zoningRestriction>65)return {ok:false,reason:'This proposal needs at least modest observed housing demand, investor confidence and a workable zoning rule. No demand is invented.'};
+ const fieldIds=Object.keys(G.fieldOwner||{}).filter(id=>G.fieldOwner[id]===f.id&&G.landUse[id]===1).map(Number).sort((a,b)=>a-b),oldFields=fieldIds.length;if(oldFields<1)return {ok:false,reason:'This farm has no active crop titles to relocate.'};
+ const savedRng=rngState;let lots,replacement;try{lots=buildableCandidates('business').filter(v=>canPlace(v.x,v.y,true,'farm')&&urbanDescriptor(v.x,v.y).density<1.5).sort((a,b)=>urbanSiteSuitability(b.x,b.y,'farm')-urbanSiteSuitability(a.x,a.y,'farm')||a.x-b.x||a.y-b.y);replacement=lots.map(place=>({...place,plots:urbanRelocationFields(place.x,place.y,oldFields)})).find(place=>place.plots.length===oldFields);}finally{rngState=savedRng;}
+ if(!replacement)return {ok:false,reason:'No owned rural site can receive every active crop title. Acquire and connect a suitable agricultural parcel first.'};
+ if(!canPlace(b.x,b.y,true,'apartment',b))return {ok:false,reason:'The former farm footprint cannot receive the four-unit housing project without crossing protected property.'};
+ const cost=types.farm.cost+39000+8500+oldFields*200,compensation=Math.round(b.value*.35),required=cost+compensation+100000;if(G.region<required)return {ok:false,reason:'Regional investors need '+money(required)+' available for relocation, owner premium and working reserve.'};
+ const reviewKey=JSON.stringify([G.day,G.charter?.revision||0,G.construction||0,G.region,f.id,b.id,b.x,b.y,zone.plan,zone.day,d.density,demand.homeDemand,demand.confidence,fieldIds,f.workers.slice(),f.cash,f.stock,replacement.x,replacement.y,replacement.plots,G.projects.length]);
+ return {ok:true,farm:f.id,building:b.id,x:b.x,y:b.y,block:urbanBlockKey(b.x,b.y),density:d.density,homeDemand:demand.homeDemand,confidence:demand.confidence,fields:oldFields,fieldIds,workers:f.workers.slice(),stock:{...f.stock},destination:{x:replacement.x,y:replacement.y,plots:replacement.plots},relocationCost:cost,ownerPremium:compensation,requiredRegionalCapital:required,apartmentCost:175000,constructionDays:40,reviewKey};
+}
+// Existing automatic relocation still waits for strong market pressure. A
+// reviewed mayoral project may act on modest demand after a residential plan.
+function urbanFarmRenewal(demand,farmId=null,reviewedKey=null){
+ let candidate,replacement,oldFields,cost,compensation,manual=farmId!=null;
+ if(manual){const q=urbanFarmRenewalQuote(farmId);if(!q.ok)return {ok:false,reason:q.reason};if(q.reviewKey!==reviewedKey)return {ok:false,reason:'The demand, site, crop titles or available capital changed. Review the farm relocation again.'};const f=G.firms[q.farm],b=readBuild(q.building);candidate={f,b};replacement={x:q.destination.x,y:q.destination.y,plots:q.destination.plots};oldFields=q.fields;cost=q.relocationCost;compensation=q.ownerPremium;}
+ else{
+  if(G.autoBuild===false||demand.homeDemand<18||demand.housingPressure<65||demand.confidence<40||G.policy.zoningRestriction>65||G.projects.some(p=>p.urbanRenewal))return false;
+  const farms=G.firms.filter(f=>f.kind==='farm'&&!f.closed&&!G.projects.some(p=>p.firmId===f.id)&&!(G.freight||[]).some(s=>s.from===f.id||s.to===f.id)&&!(G.regionalTrade?.shipments||[]).some(s=>s.firm===f.id)).map(f=>({f,b:readBuild(f.building)})).filter(v=>v.b&&urbanDescriptor(v.b.x,v.b.y).density>=5&&G.day-(v.b.lastRelocated||-720)>=540&&footprintOf(v.b).length===4);
+  farms.sort((a,b)=>urbanDescriptor(b.b.x,b.b.y).landValue-urbanDescriptor(a.b.x,a.b.y).landValue||a.f.id-b.f.id);
+  candidate=farms[0];if(!candidate)return false;
+  const lots=buildableCandidates('business').filter(v=>canPlace(v.x,v.y,true,'farm')&&urbanDescriptor(v.x,v.y).density<1.5).sort((a,b)=>urbanSiteSuitability(b.x,b.y,'farm')-urbanSiteSuitability(a.x,a.y,'farm')||a.x-b.x||a.y-b.y),dest=lots[0];
+  oldFields=Object.keys(G.fieldOwner||{}).filter(id=>G.fieldOwner[id]===candidate.f.id&&G.landUse[id]===1).length;
+  replacement=lots.map(place=>({...place,plots:urbanRelocationFields(place.x,place.y,oldFields)})).find(place=>place.plots.length===oldFields);if(!replacement)return false;
+  cost=types.farm.cost+39000+8500+oldFields*200;compensation=Math.round(candidate.b.value*.35);if(!dest||G.region<cost+compensation+100000||!canPlace(candidate.b.x,candidate.b.y,true,'apartment',candidate.b))return false;
+ }
+ const {f,b}=candidate,u=ensureUrban();
  // canPlace ignores the old building but never ignores neighbouring property.
  if(!financeConstruction(cost,b.id))return false;
  const account=urbanTitleAccount(b);if(account){G.region-=compensation;account.cash+=compensation;book('Regional developer',account.name||'Property owner',compensation,'Urban land-release premium with replacement farm',b.id);}
@@ -210,7 +235,7 @@ function urbanFarmRenewal(demand){
  const site=startDevelopmentProject('redevelop',origin,175000,40,{target:'apartment',units:4,priorKind:'farm',formerValue:b.value,urbanRenewal:true});
  if(site){site.footprint=footprintFor(origin.x,origin.y,'apartment');invalidateBuildingIndex();}
  if(!site)throw Error('Reserved urban renewal origin became unavailable');
- u.renewals.unshift({day:G.day,action:'Farm relocated; four urban dwellings commissioned',cost:cost+(account?compensation:0)});u.renewals=u.renewals.slice(0,80);u.revision++;G.development.privateSpend=(G.development.privateSpend||0)+cost+(account?compensation:0);invalidateUrban();invalidateRoads(false);assignJobs();story('A farm moved to the agricultural belt with its existing workers, stocks and accounts. Paid construction is replacing its urban plot with housing.','good',b.id);return true;
+ u.renewals.unshift({day:G.day,action:'Farm relocated; four urban dwellings commissioned',cost:cost+(account?compensation:0)});u.renewals=u.renewals.slice(0,80);u.revision++;G.development.privateSpend=(G.development.privateSpend||0)+cost+(account?compensation:0);invalidateUrban();invalidateRoads(false);assignJobs();story('A farm moved to the agricultural belt with its existing workers, stocks and accounts. Paid construction is replacing its urban plot with housing.','good',b.id);return manual?{ok:true,reason:'Farm relocated intact. Its fields, staff, stock and accounts continue at the new rural site; four housing units are under paid construction. Existing households are not moved.'}:true;
 }
 function urbanRetailProposal(explicit=false,reviewedKey=null){
  const preview=explicit==='preview';
