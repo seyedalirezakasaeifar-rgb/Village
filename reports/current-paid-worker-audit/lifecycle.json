@@ -1,0 +1,146 @@
+{
+  "workerSources": [
+    {
+      "commit": "9054452918642043173d01cfbe4c5a72c8deadfd",
+      "adapter_sha256": "485ec29f0984b8ffefed0c72633a206edafe5b53163f28ee5ee98961668131ba",
+      "protocolOnlyStubEconomics": true,
+      "duplicateStep": {
+        "firstDay": 2,
+        "secondDay": 3,
+        "consumedCommand": 0,
+        "duplicateExecutes": true
+      },
+      "staleLoad": {
+        "submittedEpoch": 0,
+        "activeEpochBefore": 1,
+        "adoptedEpoch": 2,
+        "staleLoadAdmitted": true
+      },
+      "exportConsumesEffects": {
+        "exportedEffects": [
+          "council-event"
+        ],
+        "stepReplyEffects": [],
+        "workerHasPending": true,
+        "mainExportAdapterDiscardsOutbox": true,
+        "modalLost": true
+      },
+      "unintegratedChoiceFault": {
+        "error": "Controlled creator refusal",
+        "treasury": 93,
+        "region": 107,
+        "consumedCommand": 1,
+        "partialTransferRetained": true
+      },
+      "sharedRootSaveOrdering": {
+        "replyBeforeDrain": [],
+        "replyAfterDrain": [
+          "save-request"
+        ],
+        "saveMissedByEarlyReply": true
+      },
+      "generation": [
+        {
+          "generationHook": "browserSaveEpoch",
+          "saverResult": true,
+          "savedEpochs": [
+            2
+          ],
+          "activeEpoch": 2
+        },
+        {
+          "generationHook": "workerEpoch",
+          "saverResult": false,
+          "savedEpochs": [],
+          "activeEpoch": 2
+        }
+      ]
+    },
+    {
+      "commit": "ab1fc8141b8767b490c8d1f6f789991003251dbd",
+      "adapter_sha256": "5c6a21812639a3d64e009bc07c4968d73015d909295c18f443c4127a2b51ac85",
+      "protocolOnlyStubEconomics": true,
+      "duplicateStep": {
+        "firstDay": 2,
+        "secondDay": 3,
+        "consumedCommand": 0,
+        "duplicateExecutes": true
+      },
+      "staleLoad": {
+        "submittedEpoch": 0,
+        "activeEpochBefore": 1,
+        "adoptedEpoch": 2,
+        "staleLoadAdmitted": true
+      },
+      "exportConsumesEffects": {
+        "exportedEffects": [
+          "council-event"
+        ],
+        "stepReplyEffects": [],
+        "workerHasPending": true,
+        "mainExportAdapterDiscardsOutbox": true,
+        "modalLost": true
+      },
+      "unintegratedChoiceFault": {
+        "error": "Controlled creator refusal",
+        "treasury": 93,
+        "region": 107,
+        "consumedCommand": 1,
+        "partialTransferRetained": true
+      },
+      "sharedRootSaveOrdering": {
+        "replyBeforeDrain": [],
+        "replyAfterDrain": [
+          "save-request"
+        ],
+        "saveMissedByEarlyReply": true
+      },
+      "generation": [
+        {
+          "generationHook": "browserSaveEpoch",
+          "saverResult": true,
+          "savedEpochs": [
+            2
+          ],
+          "activeEpoch": 2
+        },
+        {
+          "generationHook": "workerEpoch",
+          "saverResult": false,
+          "savedEpochs": [],
+          "activeEpoch": 2
+        }
+      ]
+    }
+  ],
+  "archiveEndpoint": {
+    "commit": "ab1fc8141b8767b490c8d1f6f789991003251dbd",
+    "sha256": "98b244ceacdcf0ce52bb7da0686dfe8d5aac0f73b97708948c638c3f19a14045",
+    "mutableRequestAlias": {
+      "accepted": {
+        "accepted": true,
+        "id": 1
+      },
+      "calls": [
+        "restore:changed after submit"
+      ],
+      "reply": {
+        "id": 2,
+        "ok": true,
+        "epoch": 0,
+        "admitted": true,
+        "committed": true,
+        "result": {
+          "restored": true
+        }
+      },
+      "status": {
+        "pending": 1,
+        "lastId": 1,
+        "epoch": 0
+      }
+    }
+  },
+  "productionComposition": false,
+  "workerFilesModified": false
+}

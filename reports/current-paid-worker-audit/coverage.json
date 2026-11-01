@@ -1,0 +1,422 @@
+{
+  "workerCommit": "ab1fc8141b8767b490c8d1f6f789991003251dbd",
+  "sourceCommit": "d2b7086187621ae8c3c147fc3c04764efaadf49d",
+  "count": 69,
+  "productionComposition": false,
+  "rows": [
+    {
+      "family": "paid core",
+      "operation": "construct:site",
+      "status": "callable model wrapper; DTO missing",
+      "nextStep": "Call original wrapped construct/enactPolicyPackage inside shared root; validate bounded scalar fields and return actual refusal. Do not retain old worker financial implementation."
+    },
+    {
+      "family": "paid core",
+      "operation": "construct:road-stroke",
+      "status": "host event root; DTO missing",
+      "nextStep": "Bounded coordinate samples and committed stroke result; do not transport pointer events or silently omit samples."
+    },
+    {
+      "family": "paid core",
+      "operation": "construct:repair",
+      "status": "callable model wrapper; DTO missing",
+      "nextStep": "Call original wrapped construct/enactPolicyPackage inside shared root; validate bounded scalar fields and return actual refusal. Do not retain old worker financial implementation."
+    },
+    {
+      "family": "paid core",
+      "operation": "enactPolicy:shared-root",
+      "status": "callable model wrapper; DTO missing",
+      "nextStep": "Call original wrapped construct/enactPolicyPackage inside shared root; validate bounded scalar fields and return actual refusal. Do not retain old worker financial implementation."
+    },
+    {
+      "family": "paid core",
+      "operation": "borrow",
+      "status": "inline handler; model helper extraction needed",
+      "nextStep": "Extract original model body once before DTO; synthetic DOM and copied financial algorithms are not supported."
+    },
+    {
+      "family": "paid core",
+      "operation": "repay",
+      "status": "inline handler; model helper extraction needed",
+      "nextStep": "Extract original model body once before DTO; synthetic DOM and copied financial algorithms are not supported."
+    },
+    {
+      "family": "paid core",
+      "operation": "toggleDevelopment",
+      "status": "inline handler; model helper extraction needed",
+      "nextStep": "Extract original model body once before DTO; synthetic DOM and copied financial algorithms are not supported."
+    },
+    {
+      "family": "paid core",
+      "operation": "data-ambition",
+      "status": "inline handler; model helper extraction needed",
+      "nextStep": "Extract original model body once before DTO; synthetic DOM and copied financial algorithms are not supported."
+    },
+    {
+      "family": "paid core",
+      "operation": "data-private-invite",
+      "status": "DTO implemented; worker composition pending",
+      "nextStep": "private-provider school/fire; owner must consume safe request ID before one root and drain committed save intent."
+    },
+    {
+      "family": "council/custom reviews",
+      "operation": "convene",
+      "status": "missing DTO",
+      "nextStep": "Explicit model command descriptor plus source-result/refusal handling and exact parity."
+    },
+    {
+      "family": "council/custom reviews",
+      "operation": "eventDefer",
+      "status": "missing DTO",
+      "nextStep": "Use closeCouncilDialogState with committed outbox/save semantics and current pending worker review token."
+    },
+    {
+      "family": "council/custom reviews",
+      "operation": "data-mayor-direction",
+      "status": "missing DTO",
+      "nextStep": "Explicit model command descriptor plus source-result/refusal handling and exact parity."
+    },
+    {
+      "family": "council/custom reviews",
+      "operation": "data-mayor-baseline",
+      "status": "missing DTO",
+      "nextStep": "Explicit model command descriptor plus source-result/refusal handling and exact parity."
+    },
+    {
+      "family": "council/custom reviews",
+      "operation": "data-situation-choice",
+      "status": "missing DTO",
+      "nextStep": "Explicit model command descriptor plus source-result/refusal handling and exact parity."
+    },
+    {
+      "family": "council/custom reviews",
+      "operation": "data-situation-pass",
+      "status": "missing DTO",
+      "nextStep": "Explicit model command descriptor plus source-result/refusal handling and exact parity."
+    },
+    {
+      "family": "land/district/renewal",
+      "operation": "data-parcel-buy",
+      "status": "choice settlement supported; opening DTO missing",
+      "nextStep": "Worker creates original local review; council-choice DTO selects worker-local descriptor with matching current review token. Tool selection remains view-only."
+    },
+    {
+      "family": "land/district/renewal",
+      "operation": "regionalApproaches",
+      "status": "missing DTO",
+      "nextStep": "Explicit model command descriptor plus source-result/refusal handling and exact parity."
+    },
+    {
+      "family": "land/district/renewal",
+      "operation": "data-district-review",
+      "status": "missing DTO",
+      "nextStep": "Explicit model command descriptor plus source-result/refusal handling and exact parity."
+    },
+    {
+      "family": "land/district/renewal",
+      "operation": "data-district-focus",
+      "status": "missing DTO",
+      "nextStep": "Explicit model command descriptor plus source-result/refusal handling and exact parity."
+    },
+    {
+      "family": "land/district/renewal",
+      "operation": "data-district-admission",
+      "status": "missing DTO",
+      "nextStep": "Explicit model command descriptor plus source-result/refusal handling and exact parity."
+    },
+    {
+      "family": "land/district/renewal",
+      "operation": "data-district-finish",
+      "status": "missing DTO",
+      "nextStep": "Explicit model command descriptor plus source-result/refusal handling and exact parity."
+    },
+    {
+      "family": "land/district/renewal",
+      "operation": "data-district-budget",
+      "status": "missing DTO",
+      "nextStep": "Explicit model command descriptor plus source-result/refusal handling and exact parity."
+    },
+    {
+      "family": "land/district/renewal",
+      "operation": "data-civic-recharter",
+      "status": "missing DTO",
+      "nextStep": "Explicit model command descriptor plus source-result/refusal handling and exact parity."
+    },
+    {
+      "family": "land/district/renewal",
+      "operation": "data-civic-watch-project",
+      "status": "missing DTO",
+      "nextStep": "Explicit model command descriptor plus source-result/refusal handling and exact parity."
+    },
+    {
+      "family": "land/district/renewal",
+      "operation": "data-urban-clear",
+      "status": "missing DTO",
+      "nextStep": "Explicit model command descriptor plus source-result/refusal handling and exact parity."
+    },
+    {
+      "family": "land/district/renewal",
+      "operation": "data-urban-plan",
+      "status": "missing DTO",
+      "nextStep": "Explicit model command descriptor plus source-result/refusal handling and exact parity."
+    },
+    {
+      "family": "land/district/renewal",
+      "operation": "data-public-place",
+      "status": "missing DTO",
+      "nextStep": "Explicit model command descriptor plus source-result/refusal handling and exact parity."
+    },
+    {
+      "family": "land/district/renewal",
+      "operation": "data-brownfield-action",
+      "status": "missing DTO",
+      "nextStep": "Explicit model command descriptor plus source-result/refusal handling and exact parity."
+    },
+    {
+      "family": "road/bridge",
+      "operation": "data-road-remove-tool",
+      "status": "choice settlement supported; opening DTO missing",
+      "nextStep": "Worker creates original local review; council-choice DTO selects worker-local descriptor with matching current review token. Tool selection remains view-only."
+    },
+    {
+      "family": "road/bridge",
+      "operation": "data-bridge-repair",
+      "status": "choice settlement supported; opening DTO missing",
+      "nextStep": "Worker creates original local review; council-choice DTO selects worker-local descriptor with matching current review token. Tool selection remains view-only."
+    },
+    {
+      "family": "road/bridge",
+      "operation": "data-bridge-remove",
+      "status": "choice settlement supported; opening DTO missing",
+      "nextStep": "Worker creates original local review; council-choice DTO selects worker-local descriptor with matching current review token. Tool selection remains view-only."
+    },
+    {
+      "family": "public projects",
+      "operation": "data-civic-project-review",
+      "status": "missing DTO",
+      "nextStep": "Explicit model command descriptor plus source-result/refusal handling and exact parity."
+    },
+    {
+      "family": "public projects",
+      "operation": "data-civic-project-replan",
+      "status": "missing DTO",
+      "nextStep": "Explicit model command descriptor plus source-result/refusal handling and exact parity."
+    },
+    {
+      "family": "public projects",
+      "operation": "data-civic-project-decline",
+      "status": "missing DTO",
+      "nextStep": "Explicit model command descriptor plus source-result/refusal handling and exact parity."
+    },
+    {
+      "family": "public projects",
+      "operation": "data-civic-project-restore",
+      "status": "missing DTO",
+      "nextStep": "Explicit model command descriptor plus source-result/refusal handling and exact parity."
+    },
+    {
+      "family": "public projects",
+      "operation": "data-civic-project-withdraw",
+      "status": "missing DTO",
+      "nextStep": "Explicit model command descriptor plus source-result/refusal handling and exact parity."
+    },
+    {
+      "family": "public projects",
+      "operation": "data-civic-project-build",
+      "status": "choice settlement supported; opening DTO missing",
+      "nextStep": "Worker creates original local review; council-choice DTO selects worker-local descriptor with matching current review token. Tool selection remains view-only."
+    },
+    {
+      "family": "public projects",
+      "operation": "data-civic-project-deed",
+      "status": "choice settlement supported; opening DTO missing",
+      "nextStep": "Worker creates original local review; council-choice DTO selects worker-local descriptor with matching current review token. Tool selection remains view-only."
+    },
+    {
+      "family": "public projects",
+      "operation": "data-civic-project-charter",
+      "status": "missing DTO",
+      "nextStep": "Explicit model command descriptor plus source-result/refusal handling and exact parity."
+    },
+    {
+      "family": "transit",
+      "operation": "data-transit-level",
+      "status": "missing DTO",
+      "nextStep": "Register transitDraft and all quote/runtime state before implementing original route/service/removal commands; original choice callbacks need explicit descriptors."
+    },
+    {
+      "family": "transit",
+      "operation": "data-transit-action:new-bus",
+      "status": "missing DTO",
+      "nextStep": "Register transitDraft and all quote/runtime state before implementing original route/service/removal commands; original choice callbacks need explicit descriptors."
+    },
+    {
+      "family": "transit",
+      "operation": "data-transit-action:new-elevated",
+      "status": "missing DTO",
+      "nextStep": "Register transitDraft and all quote/runtime state before implementing original route/service/removal commands; original choice callbacks need explicit descriptors."
+    },
+    {
+      "family": "transit",
+      "operation": "data-transit-action:edit",
+      "status": "missing DTO",
+      "nextStep": "Register transitDraft and all quote/runtime state before implementing original route/service/removal commands; original choice callbacks need explicit descriptors."
+    },
+    {
+      "family": "transit",
+      "operation": "data-transit-action:quote",
+      "status": "missing DTO",
+      "nextStep": "Register transitDraft and all quote/runtime state before implementing original route/service/removal commands; original choice callbacks need explicit descriptors."
+    },
+    {
+      "family": "transit",
+      "operation": "data-transit-action:build",
+      "status": "missing DTO",
+      "nextStep": "Register transitDraft and all quote/runtime state before implementing original route/service/removal commands; original choice callbacks need explicit descriptors."
+    },
+    {
+      "family": "transit",
+      "operation": "data-transit-action:retire",
+      "status": "missing DTO",
+      "nextStep": "Register transitDraft and all quote/runtime state before implementing original route/service/removal commands; original choice callbacks need explicit descriptors."
+    },
+    {
+      "family": "transit",
+      "operation": "data-transit-action:remove-guideway",
+      "status": "missing DTO",
+      "nextStep": "Register transitDraft and all quote/runtime state before implementing original route/service/removal commands; original choice callbacks need explicit descriptors."
+    },
+    {
+      "family": "transit",
+      "operation": "data-transit-action:remove-site",
+      "status": "missing DTO",
+      "nextStep": "Register transitDraft and all quote/runtime state before implementing original route/service/removal commands; original choice callbacks need explicit descriptors."
+    },
+    {
+      "family": "freight/contracts",
+      "operation": "data-procurement",
+      "status": "missing DTO",
+      "nextStep": "Explicit source-local shipment/contract IDs, stage checks and commit results; review callbacks currently lack supported paid descriptors."
+    },
+    {
+      "family": "freight/contracts",
+      "operation": "data-trade-offer",
+      "status": "missing DTO",
+      "nextStep": "Explicit source-local shipment/contract IDs, stage checks and commit results; review callbacks currently lack supported paid descriptors."
+    },
+    {
+      "family": "freight/contracts",
+      "operation": "data-trade-cancel",
+      "status": "missing DTO",
+      "nextStep": "Explicit source-local shipment/contract IDs, stage checks and commit results; review callbacks currently lack supported paid descriptors."
+    },
+    {
+      "family": "freight/contracts",
+      "operation": "data-logistics-routing",
+      "status": "missing DTO",
+      "nextStep": "Explicit source-local shipment/contract IDs, stage checks and commit results; review callbacks currently lack supported paid descriptors."
+    },
+    {
+      "family": "freight/contracts",
+      "operation": "data-logistics-transfer",
+      "status": "missing DTO",
+      "nextStep": "Explicit source-local shipment/contract IDs, stage checks and commit results; review callbacks currently lack supported paid descriptors."
+    },
+    {
+      "family": "freight/contracts",
+      "operation": "data-logistics-priority",
+      "status": "missing DTO",
+      "nextStep": "Explicit source-local shipment/contract IDs, stage checks and commit results; review callbacks currently lack supported paid descriptors."
+    },
+    {
+      "family": "freight/contracts",
+      "operation": "data-logistics-cancel",
+      "status": "missing DTO",
+      "nextStep": "Explicit source-local shipment/contract IDs, stage checks and commit results; review callbacks currently lack supported paid descriptors."
+    },
+    {
+      "family": "freight/contracts",
+      "operation": "logisticsRelief",
+      "status": "missing DTO",
+      "nextStep": "Explicit source-local shipment/contract IDs, stage checks and commit results; review callbacks currently lack supported paid descriptors."
+    },
+    {
+      "family": "freight/contracts",
+      "operation": "logisticsReliefStop",
+      "status": "missing DTO",
+      "nextStep": "Explicit source-local shipment/contract IDs, stage checks and commit results; review callbacks currently lack supported paid descriptors."
+    },
+    {
+      "family": "freight/contracts",
+      "operation": "data-port-freight",
+      "status": "missing DTO",
+      "nextStep": "Explicit source-local shipment/contract IDs, stage checks and commit results; review callbacks currently lack supported paid descriptors."
+    },
+    {
+      "family": "calendar",
+      "operation": "data-gathering-review",
+      "status": "missing DTO",
+      "nextStep": "Original venue/event review plus explicit gathering command descriptors, stale venue/status checks; no transported callbacks."
+    },
+    {
+      "family": "calendar",
+      "operation": "data-gathering-cancel",
+      "status": "missing DTO",
+      "nextStep": "Original venue/event review plus explicit gathering command descriptors, stale venue/status checks; no transported callbacks."
+    },
+    {
+      "family": "founding/legacy archive UI",
+      "operation": "newTown",
+      "status": "adoption owner; not paid dispatcher",
+      "nextStep": "Worker epoch + save timeline and native restore validation/drain; do not nest hydration in a financial root."
+    },
+    {
+      "family": "founding/legacy archive UI",
+      "operation": "continue",
+      "status": "adoption owner; not paid dispatcher",
+      "nextStep": "Worker epoch + save timeline and native restore validation/drain; do not nest hydration in a financial root."
+    },
+    {
+      "family": "founding/legacy archive UI",
+      "operation": "restart",
+      "status": "adoption owner; not paid dispatcher",
+      "nextStep": "Worker epoch + save timeline and native restore validation/drain; do not nest hydration in a financial root."
+    },
+    {
+      "family": "founding/legacy archive UI",
+      "operation": "recoverAutosave",
+      "status": "adoption owner; not paid dispatcher",
+      "nextStep": "Worker epoch + save timeline and native restore validation/drain; do not nest hydration in a financial root."
+    },
+    {
+      "family": "realtime/native admission",
+      "operation": "pause",
+      "status": "scheduler/native owner; not paid dispatcher",
+      "nextStep": "Serialize against model admission/adoption; preserve native request identity and durable ACK."
+    },
+    {
+      "family": "realtime/native admission",
+      "operation": "speed",
+      "status": "scheduler/native owner; not paid dispatcher",
+      "nextStep": "Serialize against model admission/adoption; preserve native request identity and durable ACK."
+    },
+    {
+      "family": "realtime/native admission",
+      "operation": "speedRange",
+      "status": "scheduler/native owner; not paid dispatcher",
+      "nextStep": "Serialize against model admission/adoption; preserve native request identity and durable ACK."
+    },
+    {
+      "family": "realtime/native admission",
+      "operation": "native Java workerArchiveResult adoption",
+      "status": "scheduler/native owner; not paid dispatcher",
+      "nextStep": "Serialize against model admission/adoption; preserve native request identity and durable ACK."
+    },
+    {
+      "family": "realtime/native admission",
+      "operation": "native lifecycle while async request pending",
+      "status": "scheduler/native owner; not paid dispatcher",
+      "nextStep": "Serialize against model admission/adoption; preserve native request identity and durable ACK."
+    }
+  ]
+}
