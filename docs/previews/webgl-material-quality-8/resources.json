@@ -1,0 +1,69 @@
+{
+  "samples": [
+    {
+      "lod": "near",
+      "memory": {
+        "geometries": 17,
+        "textures": 7
+      }
+    },
+    {
+      "lod": "mid",
+      "memory": {
+        "geometries": 17,
+        "textures": 7
+      }
+    },
+    {
+      "lod": "far",
+      "memory": {
+        "geometries": 14,
+        "textures": 7
+      }
+    },
+    {
+      "lod": "near",
+      "memory": {
+        "geometries": 17,
+        "textures": 7
+      }
+    },
+    {
+      "lod": "near",
+      "memory": {
+        "geometries": 17,
+        "textures": 7
+      }
+    },
+    {
+      "lod": "mid",
+      "memory": {
+        "geometries": 17,
+        "textures": 7
+      }
+    },
+    {
+      "lod": "far",
+      "memory": {
+        "geometries": 14,
+        "textures": 7
+      }
+    },
+    {
+      "lod": "near",
+      "memory": {
+        "geometries": 17,
+        "textures": 7
+      }
+    }
+  ],
+  "disposed": {
+    "geometries": 0,
+    "textures": 0
+  },
+  "pickHall": true,
+  "pausedNoExtraDraws": true,
+  "archiveInvariant": true,
+  "save": true,
+  "errors": []
+}

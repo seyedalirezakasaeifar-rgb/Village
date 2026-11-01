@@ -26,7 +26,7 @@ export function newfoundlandBuilding(b,{state,scene,box,lod="near",lotDetails=tr
  if(!lotDetails)local(0,.045,0,localW*.96,.09,localD*.96,'#a1a293');
  else{
   // Every garden, path and boundary stays on the property's real title.
-  local(0,.018,0,localW*.96,.036,localD*.96,home?'#82936b':'#a1a293');
+  local(0,.018,0,localW*.96,.036,localD*.96,home?['#82936b','#8b996e','#7c926c'][b.id%3]:'#a1a293');
   local(W*.24,.042,D/2+.10,.25,.035,Math.max(.08,(localD-D)/2-.02),'#b6b09a');
   if(home&&lod!=='far'){
    local(0,.043,-localD*.43,localW*.72,.035,.08,b.id%2?'#667c57':'#968268');
