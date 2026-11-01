@@ -1,0 +1,274 @@
+{
+  "sourceCommit": "01eeda3d2ff09822b9422721f75e97fabbc9958a",
+  "sourceSha256": "84ecbaef6b0ae999a9c5adcd49b9ba1678840cabfc36cf02b617c74a93d208a4",
+  "fixturePath": "docs/previews/growth-journey/regional-42-planned.json.gz",
+  "fixtureSha256": "928cd298306ecd884be0e7dac2e8d0a1fa2c5501cc090db285f47b158cc5db87",
+  "injectedMoneyPeopleStockDrivers": false,
+  "directSimulationCalls": false,
+  "workerAcceptance": false,
+  "completed": true,
+  "actions": [
+    {
+      "name": "import:funded-trajectory",
+      "day": 1081,
+      "treasury": 615843.0258730656,
+      "construction": 506,
+      "total": 15493516.999995423
+    },
+    {
+      "name": "clock:speed-button",
+      "day": 1081,
+      "treasury": 615843.0258730656,
+      "construction": 506,
+      "total": 15493516.999995423
+    },
+    {
+      "name": "clock:8x",
+      "day": 1083,
+      "treasury": 620033.5255737127,
+      "construction": 506,
+      "total": 15493516.999995437,
+      "startDay": 1081,
+      "daysObserved": 2,
+      "handledOrdinaryLetters": 0
+    },
+    {
+      "name": "council:actual-review",
+      "day": 1083,
+      "treasury": 618233.5255737127,
+      "construction": 506,
+      "total": 15493516.999995437,
+      "title": "Illness spreads at the school"
+    },
+    {
+      "name": "construct:park",
+      "day": 1087,
+      "treasury": 625736.7859613674,
+      "construction": 507,
+      "total": 15493516.999995505,
+      "site": {
+        "id": 309,
+        "kind": "park",
+        "x": 26,
+        "y": 3
+      }
+    },
+    {
+      "name": "clock:8x",
+      "day": 1088,
+      "treasury": 627971.8807796731,
+      "construction": 507,
+      "total": 15493516.999995526,
+      "startDay": 1083,
+      "daysObserved": 5,
+      "handledOrdinaryLetters": 0
+    },
+    {
+      "name": "district:buy",
+      "day": 1088,
+      "treasury": 587747.8807796731,
+      "construction": 507,
+      "total": 15493516.999995526,
+      "parcel": {
+        "id": "belt-102-2",
+        "price": 40224
+      }
+    },
+    {
+      "name": "district:charter",
+      "day": 1088,
+      "treasury": 587747.8807796731,
+      "construction": 507,
+      "total": 15493516.999995526
+    },
+    {
+      "name": "renewal:residential-plan",
+      "day": 1088,
+      "treasury": 587147.8807796731,
+      "construction": 507,
+      "total": 15493516.999995526
+    },
+    {
+      "name": "renewal:prerequisite-refusal",
+      "day": 1088,
+      "treasury": 587147.8807796731,
+      "construction": 507,
+      "total": 15493516.999995526,
+      "reason": "This farm has no active crop titles to relocate."
+    },
+    {
+      "name": "construct:transit_depot",
+      "day": 1088,
+      "treasury": 578147.8807796731,
+      "construction": 508,
+      "total": 15493516.999995526,
+      "site": {
+        "id": 310,
+        "kind": "transit_depot",
+        "x": 28,
+        "y": 3
+      }
+    },
+    {
+      "name": "transit:cancel-quoted-bus",
+      "day": 1088,
+      "treasury": 578147.8807796731,
+      "construction": 508,
+      "total": 15493516.999995526
+    },
+    {
+      "name": "transit:authorize-bus",
+      "day": 1088,
+      "treasury": 564847.8807796731,
+      "construction": 508,
+      "total": 15493516.999995526,
+      "route": 1,
+      "depot": 310
+    },
+    {
+      "name": "clock:16x",
+      "day": 1093,
+      "treasury": 577527.2134121165,
+      "construction": 508,
+      "total": 15493516.999995572,
+      "startDay": 1088,
+      "daysObserved": 5,
+      "handledOrdinaryLetters": 0
+    },
+    {
+      "name": "transit:suspend",
+      "day": 1093,
+      "treasury": 577527.2134121165,
+      "construction": 508,
+      "total": 15493516.999995572
+    },
+    {
+      "name": "transit:resume",
+      "day": 1093,
+      "treasury": 580007.2134121165,
+      "construction": 508,
+      "total": 15493516.999995572
+    },
+    {
+      "name": "construct:elevated_station",
+      "day": 1093,
+      "treasury": 567507.2134121165,
+      "construction": 509,
+      "total": 15493516.999995572,
+      "site": {
+        "id": 311,
+        "kind": "elevated_station",
+        "x": 11,
+        "y": 4
+      }
+    },
+    {
+      "name": "construct:elevated_station",
+      "day": 1093,
+      "treasury": 555007.2134121165,
+      "construction": 510,
+      "total": 15493516.999995572,
+      "site": {
+        "id": 312,
+        "kind": "elevated_station",
+        "x": 21,
+        "y": 4
+      }
+    },
+    {
+      "name": "transit:authorize-elevated",
+      "day": 1093,
+      "treasury": 507657.2134121165,
+      "construction": 510,
+      "total": 15493516.999995572
+    },
+    {
+      "name": "freight:priority-and-paid-shift",
+      "day": 1093,
+      "treasury": 507657.2134121165,
+      "construction": 510,
+      "total": 15493516.999995572
+    },
+    {
+      "name": "freight:agreement",
+      "day": 1093,
+      "treasury": 507657.2134121165,
+      "construction": 510,
+      "total": 15493516.999995572,
+      "contract": 19443,
+      "review": "Sawmill Ltd. \u2192 Upland Cooperative: up to 200 timber at $3.52/unit; due day 1123. Held 181.22, working reserve 168.99, already promised 0. Recent output 204.87/day \u00d7 22 usable dispatch days; estimated deliverable 0.01, suggested 0. Agreements take output above working stock BEFORE ordinary regional and local wholesale sales; shops may need more imports. Full-window inventory margin $444 excludes payroll/tax; freight $33 is paid at dispatch, receipts on delivery. Staffing, inputs, queues and cash can invalidate the forecast. Cancel stops future dispatch; travelling loads continue."
+    },
+    {
+      "name": "clock:16x",
+      "day": 1098,
+      "treasury": 521265.6081576021,
+      "construction": 510,
+      "total": 15493516.999995682,
+      "startDay": 1093,
+      "daysObserved": 5,
+      "handledOrdinaryLetters": 0
+    },
+    {
+      "name": "freight:inspect-live-cargo",
+      "day": 1098,
+      "treasury": 521265.6081576021,
+      "construction": 510,
+      "total": 15493516.999995682,
+      "requiredManualRefresh": true
+    },
+    {
+      "name": "transit:retire-bus-retain-sites",
+      "day": 1098,
+      "treasury": 523745.6081576021,
+      "construction": 510,
+      "total": 15493516.999995682
+    },
+    {
+      "name": "settings:presentation-controls",
+      "day": 1098,
+      "treasury": 523745.6081576021,
+      "construction": 510,
+      "total": 15493516.999995682,
+      "audibleHardwareClaim": false
+    },
+    {
+      "name": "save:full-ui-roundtrip",
+      "day": 1098,
+      "treasury": 523745.6081576021,
+      "construction": 510,
+      "total": 15493516.999995682
+    }
+  ],
+  "staleCargoPreview": {
+    "id": 19305,
+    "authority": {
+      "active": false,
+      "recent": false
+    },
+    "activePanel": "economy",
+    "visibleText": "Can this supplier keep the promise?\nDepot operations \u00b7 0 queued \u00b7 0 late\n\nPaid cargo moves through collection, a staffed loading bay, the regional road and final delivery. Outside travel is not painted as a truck driving around town. Ready queues compete for actual depot crews. Handling receipts com"
+  },
+  "stalePanelState": [
+    {
+      "requested": "settings",
+      "active": "settings",
+      "displayedTitle": "Town Hall"
+    },
+    {
+      "requested": "settings",
+      "active": "settings",
+      "displayedTitle": "Town Hall"
+    }
+  ],
+  "rawArchiveRoundtripEqual": false,
+  "rawArchiveRoundtripDifferences": [
+    ".stats.townBalance"
+  ],
+  "fullColdUiOracleEqual": true,
+  "finalDay": 1098,
+  "daysElapsed": 17,
+  "cashDrift": 2.5890767574310303e-07,
+  "errors": [],
+  "audioHardwareClaim": false,
+  "strictFreshViewAccepted": false
+}

@@ -1,0 +1,235 @@
+{
+  "baselineCommit": "01eeda3d2ff09822b9422721f75e97fabbc9958a",
+  "sourceSha256": "84ecbaef6b0ae999a9c5adcd49b9ba1678840cabfc36cf02b617c74a93d208a4",
+  "fixturePath": "docs/previews/growth-journey/regional-42-planned.json.gz",
+  "fixtureSha256": "928cd298306ecd884be0e7dac2e8d0a1fa2c5501cc090db285f47b158cc5db87",
+  "completedBaselineCheckpoints": 26,
+  "baselineDaysElapsed": 17,
+  "baselineStrictFreshViewAccepted": false,
+  "actualUiOnlyMutations": true,
+  "readOnlyProbeAndVisualCameraOnly": true,
+  "workerAcceptance": false,
+  "requiredRoutes": [
+    {
+      "id": "clock.speed-button",
+      "selectors": [
+        "#speed"
+      ],
+      "expected": "speed preset cycles and is reported truthfully",
+      "kind": "scheduler"
+    },
+    {
+      "id": "clock.speed-range",
+      "selectors": [
+        "#speedRange"
+      ],
+      "expected": "range input/change admits chosen finite speed",
+      "kind": "scheduler"
+    },
+    {
+      "id": "clock.pause-resume",
+      "selectors": [
+        "#pause"
+      ],
+      "expected": "real day progress then stable completed day after pause; no discarded pending action",
+      "kind": "scheduler"
+    },
+    {
+      "id": "council.review",
+      "selectors": [
+        "[data-inbox]",
+        "#convene",
+        "#eventChoices button"
+      ],
+      "expected": "one original affordable council choice, exact settlement, no duplicate root",
+      "kind": "paid"
+    },
+    {
+      "id": "construction.live-park",
+      "selectors": [
+        "[data-panel=construction]",
+        "[data-build=park]",
+        "#view"
+      ],
+      "expected": "one legal paid footprint while clock runs; no private callback fallback",
+      "kind": "paid while running"
+    },
+    {
+      "id": "land.purchase",
+      "selectors": [
+        "#charterOffice>summary",
+        "[data-parcel-buy]",
+        "#eventChoices button"
+      ],
+      "expected": "one extra deed, exactly quoted capital, existing titles preserved",
+      "kind": "paid"
+    },
+    {
+      "id": "district.charter",
+      "selectors": [
+        "[data-district-focus=neighbourhood]"
+      ],
+      "expected": "record owned-tract focus; first designation free; no fake homes/services",
+      "kind": "model"
+    },
+    {
+      "id": "renewal.plan",
+      "selectors": [
+        "[data-urban-plan=residential]"
+      ],
+      "expected": "one actual survey/rezoning settlement; reviewed site/version checked",
+      "kind": "paid"
+    },
+    {
+      "id": "renewal.review",
+      "selectors": [
+        "[data-urban-farm-renew]",
+        "#eventDefer"
+      ],
+      "expected": "real opportunity or model prerequisite refusal; no unsupported placeholder; no speculative payment",
+      "kind": "review"
+    },
+    {
+      "id": "transit.depot",
+      "selectors": [
+        "[data-build=transit_depot]",
+        "#view"
+      ],
+      "expected": "actual municipal depot capital/footprint",
+      "kind": "paid"
+    },
+    {
+      "id": "transit.bus-draft",
+      "selectors": [
+        "[data-transit-action=new-bus]",
+        "#transitLevel",
+        "[data-transit-action=map]",
+        "#view"
+      ],
+      "expected": "mode/depot/level/stop sequence remains coherent; no model finance while selecting",
+      "kind": "draft"
+    },
+    {
+      "id": "transit.quote-cancel",
+      "selectors": [
+        "[data-transit-action=quote]",
+        "[data-transit-action=cancel]"
+      ],
+      "expected": "full reviewed forecast; cancel leaves cash/capital/routes unchanged",
+      "kind": "review"
+    },
+    {
+      "id": "transit.authorize-bus",
+      "selectors": [
+        "[data-transit-action=build]"
+      ],
+      "expected": "one route/fleet capital; stop paths and depot capacity valid",
+      "kind": "paid"
+    },
+    {
+      "id": "transit.service",
+      "selectors": [
+        "[data-transit-level]"
+      ],
+      "expected": "suspend/resume exact level; funded staff/riders/cost or truthful shortage",
+      "kind": "model/paid"
+    },
+    {
+      "id": "transit.elevated",
+      "selectors": [
+        "[data-build=elevated_station]",
+        "[data-transit-action=new-elevated]",
+        "[data-transit-action=map]",
+        "[data-transit-action=quote]",
+        "[data-transit-action=build]"
+      ],
+      "expected": "two original roadside stations and original guideway/fleet quote, no property clearing shortcut",
+      "kind": "paid"
+    },
+    {
+      "id": "freight.priority",
+      "selectors": [
+        "[data-logistics-priority=essentials]"
+      ],
+      "expected": "actual ready-queue priority, not extra inventory/crews",
+      "kind": "model"
+    },
+    {
+      "id": "freight.shift",
+      "selectors": [
+        "#logisticsRelief",
+        "#eventChoices button"
+      ],
+      "expected": "30-day authorization; charge only actual handling under original model",
+      "kind": "paid commitment"
+    },
+    {
+      "id": "freight.agreement",
+      "selectors": [
+        "[data-trade-offer]",
+        "#eventChoices button"
+      ],
+      "expected": "one original sized/risky commitment with supplier/quantity/deadline; no signing reward",
+      "kind": "model commitment"
+    },
+    {
+      "id": "freight.inspect",
+      "selectors": [
+        "[data-regional-cargo]"
+      ],
+      "expected": "latest active or completed ledger view; stale controls refresh/explain, never silent",
+      "kind": "read"
+    },
+    {
+      "id": "transit.retire",
+      "selectors": [
+        "[data-transit-action=retire]"
+      ],
+      "expected": "fleet refund once; infrastructure retained; derived balance refreshed before publication",
+      "kind": "paid"
+    },
+    {
+      "id": "settings.presentation",
+      "selectors": [
+        "#nightView",
+        "#soundToggle"
+      ],
+      "expected": "trusted UI preference actions; no economic changes; no audible-device claim",
+      "kind": "view"
+    },
+    {
+      "id": "save.original-owner",
+      "selectors": [
+        "#saveNow"
+      ],
+      "expected": "committed snapshot to original writer; success only after verified owner result",
+      "kind": "storage"
+    },
+    {
+      "id": "archive.export-import",
+      "selectors": [
+        "#backupSave",
+        "#saveText",
+        "#archiveClose",
+        "#importSave",
+        "#importText",
+        "#restoreGo"
+      ],
+      "expected": "actual forms, epoch barriers, coherent panel/active state; full original cold UI oracle, no excluded fields",
+      "kind": "storage/adoption"
+    }
+  ],
+  "knownBaselineDefects": [
+    "stale cargo button references neither active nor recent ledger",
+    "Overview content while Settings remains active after import",
+    "stats.townBalance omits2480 fleet refund until recompute on load"
+  ],
+  "uncovered": [
+    "paid farm relocation authorization/completion when opportunity eligible",
+    "road stroke/bridge build-removal-repair",
+    "private school/fire provider UI",
+    "all remaining101-event inventory controls",
+    "sustained1\u201364x/full-session and physical-device performance",
+    "native picker/suspend/process-death/durable storage"
+  ]
+}
