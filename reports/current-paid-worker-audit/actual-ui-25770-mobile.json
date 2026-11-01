@@ -1,0 +1,57 @@
+{
+  "oracleCommit": "669c908706af997375680674390e46fd132a970a",
+  "oracleSha256": "54e223010e0468b43ec8485fa889b288ee0a7aac404b2d98a892e03443f63903",
+  "hostSha256": "ca9bb2dac72bc8e62160694711e9c99646487c8a19b22f6d7f18e5a4d221e97e",
+  "workerSha256": "b79086ac644c54b88b4c31a0511f7b1e2f8dcaae523fb62bf06a6e562a7c0653",
+  "instrumentedWorkerSha256": "b79086ac644c54b88b4c31a0511f7b1e2f8dcaae523fb62bf06a6e562a7c0653",
+  "finiteFatalDiagnostic": false,
+  "mobile": true,
+  "bridgeSha256": "f21ad6fe80460854abd3b41b6f9662edc5d02b051d856ee11256063b8c2f0af0",
+  "referenceDryRun": false,
+  "productionEnabled": false,
+  "nativeDurability": false,
+  "checks": {
+    "visiblePendingBeforeAcknowledgment": true,
+    "oldFrozenModelUntilAcknowledgment": true,
+    "duplicateTapsSubmitOneChoice": true,
+    "noWriteBeforeCommitAcknowledgment": true,
+    "entireCurrentOracleModelAndRng": true,
+    "noDurableAckBeforeWriter": true,
+    "modelCommittedWhileWritePending": true,
+    "originalWebWriterReadbackExact": true,
+    "tokenAckAfterVerifiedWriter": true,
+    "noUncaughtPageErrors": true,
+    "productionCommandOwner": true
+  },
+  "pendingScreenshot": "reports/current-paid-worker-audit/pending-mobile.png",
+  "pendingMarkers": [
+    {
+      "tag": "DIV",
+      "id": "gameRoot",
+      "text": "\nTLTOWNLEDGERTHE WORKING CITY\nRESIDENTS169MUNICIPAL CASH$87,982EMPLOYMENT93%SAFETY91/100COUNCIL TRUST65%YEAR 1 \u00b7 MONTH 1 \u00b7 DAY 20THE WORKING CITY1\u00d7\n\n\n+\u2212\u25c9\nREGIONAL LAND OFFICEChoose a district\u20261. East Meadow2. County Ridge3. Lower River Reach4. Orchard Downs5. High Common6. Eastern Heights7. Far East",
+      "ariaBusy": "true",
+      "rect": {
+        "left": 0,
+        "top": 0,
+        "width": 390,
+        "height": 844
+      }
+    },
+    {
+      "tag": "SPAN",
+      "id": "workerRealStatus",
+      "text": "Applying action\u2026 waiting for model confirmation.",
+      "ariaBusy": null,
+      "rect": {
+        "left": 18,
+        "top": 169.578125,
+        "width": 346.828125,
+        "height": 46.421875
+      }
+    }
+  ],
+  "errors": [],
+  "currentModelCovered": true,
+  "allChecksPass": true,
+  "blockedOrFailingChecks": []
+}
