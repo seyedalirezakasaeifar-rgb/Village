@@ -8,6 +8,7 @@
   "concurrentSaveCallersOneRevision": true,
   "failedOwnerWriteNotAcknowledged": true,
   "actualPolicyPackageControl": true,
+  "actualClimateAndGuideControls": true,
   "day": 41682,
   "errors": [],
   "limitations": [

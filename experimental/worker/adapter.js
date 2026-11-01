@@ -21,9 +21,12 @@ function workerRequest(m){
  if(!workerRuntimeStatus.ok)throw Error('UNSUPPORTED_INTEGER_RUNTIME: model admission blocked; archive unchanged');
  const reply=()=>workerSnapshot(m.projection===true);
  if(m.type!=='load'&&m.epoch!==workerEpoch)throw Error('Stale model epoch');
- if(['policy','choice','review','build','policy-package','visit-panel'].includes(m.type)){if(!Number.isInteger(m.command)||m.command<=workerCommand)throw Error('Repeated command');workerCommand=m.command;}
+ if(['policy','choice','review','build','policy-package','visit-panel','climate','mayor-guide'].includes(m.type)){if(!Number.isInteger(m.command)||m.command<=workerCommand)throw Error('Repeated command');workerCommand=m.command;}
  if(m.type==='load'){workerEpoch++;workerCommand=0;workerSavePrepared=null;for(const key of Object.keys(workerProfile))workerProfile[key]=0;workerOutbox.length=0;G=JSON.parse(m.archive);rngState=G.rngState;visualState=G.visualState;workerVersion=0;pendingEvent=null;invalidateRoads();return reply();}
- if(m.type==='visit-panel'){if(!owns(names,m.panel))throw Error('Unknown panel');const journey=ensureMayorJourney();if(!journey.visited.includes(m.panel)){journey.visited.push(m.panel);save();}return reply();}
+ if(m.type==='climate'){if(!['seasons','weather'].includes(m.key)||typeof m.value!=='boolean')throw Error('Invalid climate preference');gameOptions[m.key]=m.value;if(m.key==='seasons')G.climateSeasons=m.value;else{G.climateWeather=m.value;if(!m.value)G.weather='clear';refreshAmbience();}save();return reply();}
+ if(m.type==='mayor-guide'){if(typeof m.visible!=='boolean')throw Error('Invalid guide state');ensureMayorJourney().guide=m.visible;save();return reply();}
+ if(m.type==='visit-panel'){
+if(!owns(names,m.panel))throw Error('Unknown panel');const journey=ensureMayorJourney();if(!journey.visited.includes(m.panel)){journey.visited.push(m.panel);save();}return reply();}
  if(m.type==='inspect'){const b=readBuild(m.building);if(!b)throw Error('Unknown building');return {...reply(),inspection:JSON.parse(JSON.stringify(b))};}
  if(m.type==='build'){if(!Number.isInteger(m.x)||!Number.isInteger(m.y)||!types[m.kind]||m.kind==='inspect')throw Error('Invalid building command');const before=G.construction;construct(m.kind,m.x,m.y);return {...reply(),built:G.construction>before};}
  if(m.type==='policy-package'){if(!m.values||typeof m.values!=='object'||Array.isArray(m.values))throw Error('Invalid policy package');for(const [key,value] of Object.entries(m.values)){if(key==='imports'){if(typeof value!=='boolean')throw Error('Invalid import policy');continue;}const d=defs.find(d=>d[0]===key);if(!d||!Number.isFinite(value)||value<d[2]||value>d[3])throw Error('Invalid policy value: '+key);}draftPolicy={...m.values};const before=G.journal.length;enactPolicyPackage();return {...reply(),enacted:G.journal.length>before};}

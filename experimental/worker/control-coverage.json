@@ -1,0 +1,137 @@
+{
+  "sourceCommit": "d2b7086187621ae8c3c147fc3c04764efaadf49d",
+  "handlerEntryCount": 101,
+  "routedCommandCount": 12,
+  "routedCommandKeys": [
+    "visit-panel",
+    "mayor-guide",
+    "climate:seasons",
+    "climate:weather",
+    "policy-package",
+    "review",
+    "choice",
+    "inspect",
+    "step:manual",
+    "archive:export",
+    "archive:restore",
+    "archive:save"
+  ],
+  "routingIsNotPaidRootCertification": true,
+  "viewGroups": [
+    "camera pan/pinch/wheel",
+    "zoomIn/zoomOut/center/overlayToggle",
+    "panel close/navigation",
+    "house/firm/building selection",
+    "people search/filter",
+    "firm filter",
+    "construction category/tool selection",
+    "policy draft/discard/cabinet/import draft",
+    "service budget draft/preset",
+    "non-climate display options",
+    "audio/music controls",
+    "trip close",
+    "read-only reports"
+  ],
+  "blockedPendingCount": 69,
+  "blockedPendingByFamily": {
+    "paid core": [
+      "construct:site",
+      "construct:road-stroke",
+      "construct:repair",
+      "enactPolicy:shared-root",
+      "borrow",
+      "repay",
+      "toggleDevelopment",
+      "data-ambition",
+      "data-private-invite"
+    ],
+    "council/custom reviews": [
+      "convene",
+      "eventDefer",
+      "data-mayor-direction",
+      "data-mayor-baseline",
+      "data-situation-choice",
+      "data-situation-pass"
+    ],
+    "land/district/renewal": [
+      "data-parcel-buy",
+      "regionalApproaches",
+      "data-district-review",
+      "data-district-focus",
+      "data-district-admission",
+      "data-district-finish",
+      "data-district-budget",
+      "data-civic-recharter",
+      "data-civic-watch-project",
+      "data-urban-clear",
+      "data-urban-plan",
+      "data-public-place",
+      "data-brownfield-action"
+    ],
+    "road/bridge": [
+      "data-road-remove-tool",
+      "data-bridge-repair",
+      "data-bridge-remove"
+    ],
+    "public projects": [
+      "data-civic-project-review",
+      "data-civic-project-replan",
+      "data-civic-project-decline",
+      "data-civic-project-restore",
+      "data-civic-project-withdraw",
+      "data-civic-project-build",
+      "data-civic-project-deed",
+      "data-civic-project-charter"
+    ],
+    "transit": [
+      "data-transit-level",
+      "data-transit-action:new-bus",
+      "data-transit-action:new-elevated",
+      "data-transit-action:edit",
+      "data-transit-action:quote",
+      "data-transit-action:build",
+      "data-transit-action:retire",
+      "data-transit-action:remove-guideway",
+      "data-transit-action:remove-site"
+    ],
+    "freight/contracts": [
+      "data-procurement",
+      "data-trade-offer",
+      "data-trade-cancel",
+      "data-logistics-routing",
+      "data-logistics-transfer",
+      "data-logistics-priority",
+      "data-logistics-cancel",
+      "logisticsRelief",
+      "logisticsReliefStop",
+      "data-port-freight"
+    ],
+    "calendar": [
+      "data-gathering-review",
+      "data-gathering-cancel"
+    ],
+    "founding/legacy archive UI": [
+      "newTown",
+      "continue",
+      "restart",
+      "recoverAutosave"
+    ],
+    "realtime/native admission": [
+      "pause",
+      "speed",
+      "speedRange",
+      "native Java workerArchiveResult adoption",
+      "native lifecycle while async request pending"
+    ]
+  },
+  "unreviewedHandlerPolicy": "BLOCKED_OR_NOT_RELEASED; no coverage inferred from generic button guard",
+  "realPanelAuditCount": 12,
+  "actualEnabledPaidRejectionCount": 3,
+  "missingControlPolicy": "Unavailable fixture controls do not count as tested",
+  "oracleOnlyBuildTransport": "Retained for source equivalence tests; real placement now explicitly refuses until paid dispatcher",
+  "additionalOriginalControlAliasesRouted": [
+    "backupSave",
+    "importSave",
+    "restoreGo"
+  ]
+}

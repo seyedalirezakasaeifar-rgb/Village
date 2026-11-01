@@ -9,7 +9,7 @@ def model(g):
 
 with sync_playwright() as pw:
  b=pw.chromium.launch(executable_path='/usr/bin/chromium',args=['--no-sandbox'])
- p=b.new_page();p.set_content(html);p.add_script_tag(content=(root/'assets/game.js').read_text().replace('// SOURCE: 99-instrumentation.js', '''save=()=>true;window.workerOracle={package:values=>{draftPolicy=values;enactPolicyPackage();G.rngState=rngState;return JSON.parse(JSON.stringify(G));},step:n=>{for(let i=0;i<n;i++)tick();G.rngState=rngState;return JSON.parse(JSON.stringify(G));},policy:(key,value)=>{const old=G.policy[key];G.policy[key]=value;journalPolicy(key,old,value);recompute();}};
+ p=b.new_page();p.set_content(html);p.add_script_tag(content=(root/'assets/game.js').read_text().replace('// SOURCE: 99-instrumentation.js', '''save=()=>true;window.workerOracle={climate:(key,value)=>{changePreference(key,value);G.rngState=rngState;return JSON.parse(JSON.stringify(G));},package:values=>{draftPolicy=values;enactPolicyPackage();G.rngState=rngState;return JSON.parse(JSON.stringify(G));},step:n=>{for(let i=0;i<n;i++)tick();G.rngState=rngState;return JSON.parse(JSON.stringify(G));},policy:(key,value)=>{const old=G.policy[key];G.policy[key]=value;journalPolicy(key,old,value);recompute();}};
 // SOURCE: 99-instrumentation.js'''));p.locator('#newTown').click();p.locator('#pause').click()
  archive=p.evaluate('__townTest.save()')
  code=(root/'experimental/worker/model.generated.js').read_text()
@@ -24,9 +24,12 @@ with sync_playwright() as pw:
  oracle=p.evaluate('workerOracle.step(30)');assert model(oracle)==model(result['result']['model']),[(k,str(oracle[k])[:100],str(result['result']['model'].get(k))[:100]) for k in oracle if oracle[k]!=result['result']['model'].get(k)]
  packaged=p.evaluate("ask({type:'policy-package',values:{healthBudget:123.45,educationBudget:234.56}})");assert packaged['ok'] and packaged['result']['enacted'],packaged
  oracle=p.evaluate('values=>workerOracle.package(values)',{'healthBudget':123.45,'educationBudget':234.56});assert model(oracle)==model(packaged['result']['model']),'Actual policy-package parity differs'
+ for key in ['seasons','weather']:
+  changed=p.evaluate("key=>ask({type:'climate',key,value:true})",key);assert changed['ok'],changed
+  oracle=p.evaluate('key=>workerOracle.climate(key,true)',key);assert model(oracle)==model(changed['result']['model']),'Climate source parity differs'
  exported=p.evaluate("ask({type:'export'})");assert exported['ok'] and model(json.loads(exported['result']['archive']))==model(oracle)
  stale=p.evaluate("ask({type:'choice',eventId:-1})");assert not stale['ok'] and 'Stale' in stale['error']
- receipt={'days':61,'exactFullModel':True,'exactRng':True,'policyCommand':True,'actualPolicyPackageEvidenceExact':True,'exportHandshake':True,'staleRejected':True,'day':oracle['day'],'outbox':result['result']['outbox']}
+ receipt={'days':61,'exactFullModel':True,'exactRng':True,'policyCommand':True,'actualPolicyPackageEvidenceExact':True,'actualClimateFunctionParity':True,'exportHandshake':True,'staleRejected':True,'day':oracle['day'],'outbox':result['result']['outbox']}
  timing=p.evaluate("""async()=>{async function sample(work){let gaps=[],last=performance.now();const timer=setInterval(()=>{const t=performance.now();gaps.push(t-last);last=t;},8);await new Promise(r=>setTimeout(r,20));const t=performance.now();await work();const ms=performance.now()-t;await new Promise(r=>setTimeout(r,20));clearInterval(timer);return {ms,daysPerSecond:60*1000/ms,maxMainTimerGap:Math.max(...gaps)};}const sync=await sample(()=>workerOracle.step(60));const worker=await sample(()=>ask({type:'step',days:60}));return {sync,worker};}""")
  receipt['timing']=timing
  import hashlib
