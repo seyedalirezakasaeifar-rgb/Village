@@ -1,0 +1,26 @@
+{
+  "base_source_sha256": "8be2585815ad9585f3fde86d2fb00909589b44f39956c4faa0e146fe47bb970a",
+  "adapter_sha256": "a85a299d5c2f91d95b38aea438c7ad9feba5d8cd5f1754a2f04cebacf3caa527",
+  "result": {
+    "oracleDays": 360,
+    "exactArchiveAndRng": true,
+    "wholeDayBudgetRefusal": true,
+    "midDaySaveDiscarded": true,
+    "staleDayCommandRejected": true,
+    "insufficientVisualReserveRefusedBeforeDay": true,
+    "objectIdentityPreserved": true,
+    "noAutomaticRetry": true,
+    "explicitRetry": true,
+    "visualActorCap": 80,
+    "authoritativeCargoUntouched": true,
+    "certificate": {
+      "bytes": 524488,
+      "logicalBytes": 525123,
+      "nodes": 57084,
+      "reserveBytes": 769024,
+      "reserveNodes": 55764,
+      "roads": 385
+    },
+    "productionAssembled": false
+  }
+}

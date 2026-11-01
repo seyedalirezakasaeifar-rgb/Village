@@ -1,0 +1,15 @@
+# Disabled automatic-day admission candidate
+
+Base: 4ee829c731da5f517ebb7a11277fa0691bed2bec (shared root API), on the disabled codec initialization-safety chain. Neither experiment is assembled into the application. Production behavior remains unchanged.
+
+Inject root-capacity-api.js and then automatic-day-admission.js inside the game closure before instrumentation. Explicitly enable the identity codec, then call __automaticDayAdmission.enable(). Paid-command integration must use the same protocol.shared controller and fences. Do not install the earlier leaf-refusal construction experiment within this adapter: a nested refusal must poison the complete root.
+
+The adapter wraps the real complete tick, including births, migration, automatic investment, procurement/project completion, histories and final RNG publication. It journals the model and mutable runtime graph, preserving original object identities and own-property order. Refusal restores the whole day, discards pending saves/presentation, pauses frame retries and drains the accumulator. Explicit retry is required. Ordinary saves retain the shared API's direct committed-save path; they do not capture or certify the world.
+
+Toast, effects audio and ambience are outboxed. An automatic modal currently refuses the whole day before opening: showCustomEvent mixes model changes and DOM, so it is deliberately not treated as a presentation-only effect. This is a residual integration restriction, not successful event delivery.
+
+Traffic array vehicles are disposable visual samples. G.freight, regional trade shipments, transit journeys/services/fares and transport financial counters remain authoritative and are never pruned. New visual actor creation is limited to 80 before consuming visual RNG; existing fleets above 80 refuse activation. Certification reserves a full fleet's simple-road paths based on the larger of current road count and retained visual path length, plus gate/clock/number room. Even a world with only 16 spare encoded bytes refuses activation before a day mutates anything.
+
+The budget certificate runs the real strict wire encoder and logical budget counter, then applies explicit reserved byte and node headroom. Existing record/cell/depth limits stay enforced by the codec. The per-entity initialization reserve is conservative policy, not yet a mathematical proof against every future constructor or arbitrary user field length. Full paid commands must certify road/path/actor growth too. This candidate must remain disabled until those bounds, automatic dialogs, complete runtime binding coverage, native latency/heap and outer paid-command integration receive independent review. A large/full-road atlas may exhaust the conservative reserve before the nominal wire limit; this is explicit refusal, never identity deletion or payment followed by a skipped child action.
+
+Run python tools/assemble.py and ADMISSION_DAYS=360 python tools/test_automatic_day_admission.py. Aggregate synthetic results are in reports/automatic-day-admission/result.json. No user saves are published.
