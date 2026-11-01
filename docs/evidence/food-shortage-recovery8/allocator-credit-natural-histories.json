@@ -1,0 +1,5649 @@
+{
+  "source_commit": "dd11a82fb9f469ed58726fb7bde7a5b21d900e72",
+  "source_sha256": "2fceb86f38436e7698be260a22baf415421c84875389c13b94f99c961976cdbc",
+  "seeds": [
+    42,
+    91,
+    909
+  ],
+  "years": 4,
+  "arms": [
+    "funded-base",
+    "wage-only",
+    "funded-tight",
+    "wage-only-tight",
+    "funded-tight-recovery"
+  ],
+  "method": "Matched ordinary settlement saves after 360-day natural warmup, each with one API-approved $500 firm loan to a profitable vacancy-holder if approved; this funded financing is shared across arms; no grants or forced recovery. Wage-only arm uses previous effective-wage comparator in same source. Tightening uses policyRate18/lendingRules90 from intervention start; recovery arm restores original policy after2years. 360-day game years. Model evidence only.",
+  "pageErrors": [],
+  "runs": [
+    {
+      "arm": "funded-base",
+      "seed": 54039764,
+      "years": 4,
+      "policy": {
+        "rate": 3,
+        "lending": 35
+      },
+      "rows": [
+        {
+          "year": 1,
+          "day": 721,
+          "population": 205,
+          "births": 0,
+          "movedAway": 0,
+          "deaths": 0,
+          "employment": 100,
+          "employed": 145,
+          "jobs": 144,
+          "vacancies": 3,
+          "unpaidWorkers": 0,
+          "unpaidWorkerDays": 0,
+          "firmClosures": 0,
+          "firmCash": 1338897.2868070842,
+          "treasury": 150443.13953566537,
+          "debt": 0,
+          "defaults": {
+            "household": 0,
+            "business": 0
+          },
+          "loans": 2,
+          "foodNeed": 327.9999999999997,
+          "foodCapacity": 640,
+          "foodSellable": 640,
+          "unmetFood": 0,
+          "unmet30": 4.929390229335695e-13,
+          "grocers": 4,
+          "groceryWorkers": 8,
+          "schoolAccess": 0.26498257839721256,
+          "fireAccess": 0,
+          "privateProviders": [
+            {
+              "kind": "school",
+              "cash": 19567.986820357357,
+              "workers": 3,
+              "profit": 20.708165309325103
+            },
+            {
+              "kind": "school",
+              "cash": 5128.937906767188,
+              "workers": 1,
+              "profit": -3.480438752028917
+            }
+          ],
+          "borrower": {
+            "kind": "sawmill",
+            "cash": 55692.820995806025,
+            "debt": 249.99999999999545,
+            "jobs": 5,
+            "workers": 4,
+            "loan": {
+              "id": 2,
+              "bankId": 0,
+              "ownerType": "firm",
+              "ownerId": 13,
+              "original": 500,
+              "balance": 249.99999999999545,
+              "rate": 0.08639644232270755,
+              "spread": 0.056396442322707546,
+              "fixedRate": false,
+              "term": 720,
+              "created": 361,
+              "arrears": 0,
+              "status": "active",
+              "paid": 282.4286646357105,
+              "lastPaymentDay": 721,
+              "scheduledDue": 0.7546086336390757,
+              "paidToday": 0.7546086336390757
+            }
+          },
+          "treasuryEmpty": false,
+          "liquidityP10": 1251.968589649565,
+          "arrivals": 0,
+          "valid": {
+            "ok": true,
+            "issues": [],
+            "total": 15493516.999985592,
+            "population": 205,
+            "day": 721
+          },
+          "cashDrift": -7.776543498039246e-06,
+          "goodsError": 9.094947017729282e-12
+        },
+        {
+          "year": 2,
+          "day": 1081,
+          "population": 230,
+          "births": 0,
+          "movedAway": 0,
+          "deaths": 0,
+          "employment": 100,
+          "employed": 162,
+          "jobs": 162,
+          "vacancies": 4,
+          "unpaidWorkers": 0,
+          "unpaidWorkerDays": 7,
+          "firmClosures": 1,
+          "firmCash": 1458061.548270426,
+          "treasury": 248118.7374106249,
+          "debt": 0,
+          "defaults": {
+            "household": 0,
+            "business": 0
+          },
+          "loans": 1,
+          "foodNeed": 367.99999999999983,
+          "foodCapacity": 560,
+          "foodSellable": 560,
+          "unmetFood": 0,
+          "unmet30": 4.2099657093785936e-13,
+          "grocers": 4,
+          "groceryWorkers": 7,
+          "schoolAccess": 0.2361801242236025,
+          "fireAccess": 0,
+          "privateProviders": [
+            {
+              "kind": "school",
+              "cash": 24488.128427041152,
+              "workers": 3,
+              "profit": 4.05005891591107
+            },
+            {
+              "kind": "fire",
+              "cash": 7599.124442031596,
+              "workers": 2,
+              "profit": 40.04506033586797
+            }
+          ],
+          "borrower": {
+            "kind": "sawmill",
+            "cash": 63255.361829510286,
+            "debt": 0,
+            "jobs": 6,
+            "workers": 5,
+            "loan": {
+              "id": 2,
+              "bankId": 0,
+              "ownerType": "firm",
+              "ownerId": 13,
+              "original": 500,
+              "balance": 0,
+              "rate": 0.08639644232270755,
+              "spread": 0.056396442322707546,
+              "fixedRate": false,
+              "term": 720,
+              "created": 361,
+              "arrears": 0,
+              "status": "repaid",
+              "paid": 543.2582186907371,
+              "lastPaymentDay": 1081,
+              "scheduledDue": 0.6946111042417982,
+              "paidToday": 0.6946111042417982
+            }
+          },
+          "treasuryEmpty": false,
+          "liquidityP10": 1503.2797040509215,
+          "arrivals": 0,
+          "valid": {
+            "ok": true,
+            "issues": [],
+            "total": 15493516.999973863,
+            "population": 230,
+            "day": 1081
+          },
+          "cashDrift": -1.9505620002746582e-05,
+          "goodsError": 4.3655745685100555e-11
+        },
+        {
+          "year": 3,
+          "day": 1441,
+          "population": 258,
+          "births": 0,
+          "movedAway": 0,
+          "deaths": 0,
+          "employment": 99,
+          "employed": 177,
+          "jobs": 173,
+          "vacancies": 0,
+          "unpaidWorkers": 0,
+          "unpaidWorkerDays": 7,
+          "firmClosures": 1,
+          "firmCash": 1588770.1786519263,
+          "treasury": 374167.4007994429,
+          "debt": 0,
+          "defaults": {
+            "household": 0,
+            "business": 0
+          },
+          "loans": 2,
+          "foodNeed": 412.7999999999999,
+          "foodCapacity": 720,
+          "foodSellable": 720,
+          "unmetFood": 6.217248937900877e-15,
+          "unmet30": 5.404565683875262e-13,
+          "grocers": 6,
+          "groceryWorkers": 9,
+          "schoolAccess": 0.21054817275747506,
+          "fireAccess": 0,
+          "privateProviders": [
+            {
+              "kind": "school",
+              "cash": 26256.55412426752,
+              "workers": 3,
+              "profit": 7.933788202414094
+            },
+            {
+              "kind": "fire",
+              "cash": 20922.533290272975,
+              "workers": 2,
+              "profit": 23.70422807409344
+            }
+          ],
+          "borrower": {
+            "kind": "sawmill",
+            "cash": 56827.1164385822,
+            "debt": 0,
+            "jobs": 4,
+            "workers": 4,
+            "loan": {
+              "id": 2,
+              "bankId": 0,
+              "ownerType": "firm",
+              "ownerId": 13,
+              "original": 500,
+              "balance": 0,
+              "rate": 0.08639644232270755,
+              "spread": 0.056396442322707546,
+              "fixedRate": false,
+              "term": 720,
+              "created": 361,
+              "arrears": 0,
+              "status": "repaid",
+              "paid": 543.2582186907371,
+              "lastPaymentDay": 1081,
+              "scheduledDue": 0.6946111042417982,
+              "paidToday": 0.6946111042417982
+            }
+          },
+          "treasuryEmpty": false,
+          "liquidityP10": 1489.9393295834607,
+          "arrivals": 0,
+          "valid": {
+            "ok": true,
+            "issues": [],
+            "total": 15493516.999958545,
+            "population": 258,
+            "day": 1441
+          },
+          "cashDrift": -3.482401371002197e-05,
+          "goodsError": 2.000888343900442e-11
+        },
+        {
+          "year": 4,
+          "day": 1801,
+          "population": 272,
+          "births": 0,
+          "movedAway": 0,
+          "deaths": 0,
+          "employment": 97,
+          "employed": 181,
+          "jobs": 169,
+          "vacancies": 0,
+          "unpaidWorkers": 0,
+          "unpaidWorkerDays": 7,
+          "firmClosures": 1,
+          "firmCash": 1604093.2297163163,
+          "treasury": 525988.4431538802,
+          "debt": 0,
+          "defaults": {
+            "household": 0,
+            "business": 0
+          },
+          "loans": 1,
+          "foodNeed": 435.1999999999999,
+          "foodCapacity": 720,
+          "foodSellable": 720,
+          "unmetFood": 2.7533531010703882e-14,
+          "unmet30": 5.995204332975845e-13,
+          "grocers": 6,
+          "groceryWorkers": 9,
+          "schoolAccess": 0.19971113445378152,
+          "fireAccess": 0,
+          "privateProviders": [
+            {
+              "kind": "school",
+              "cash": 26575.10409102522,
+              "workers": 2,
+              "profit": 18.386396262029407
+            },
+            {
+              "kind": "fire",
+              "cash": 24694.635418772115,
+              "workers": 2,
+              "profit": 17.98968937196654
+            }
+          ],
+          "borrower": {
+            "kind": "sawmill",
+            "cash": 49139.19166437106,
+            "debt": 0,
+            "jobs": 4,
+            "workers": 4,
+            "loan": {
+              "id": 2,
+              "bankId": 0,
+              "ownerType": "firm",
+              "ownerId": 13,
+              "original": 500,
+              "balance": 0,
+              "rate": 0.08639644232270755,
+              "spread": 0.056396442322707546,
+              "fixedRate": false,
+              "term": 720,
+              "created": 361,
+              "arrears": 0,
+              "status": "repaid",
+              "paid": 543.2582186907371,
+              "lastPaymentDay": 1081,
+              "scheduledDue": 0.6946111042417982,
+              "paidToday": 0.6946111042417982
+            }
+          },
+          "treasuryEmpty": false,
+          "liquidityP10": 1523.5304547356877,
+          "arrivals": 0,
+          "valid": {
+            "ok": true,
+            "issues": [],
+            "total": 15493516.999949446,
+            "population": 272,
+            "day": 1801
+          },
+          "cashDrift": -4.39230352640152e-05,
+          "goodsError": 1.4370016288012266e-10
+        }
+      ],
+      "foundingSeed": 42,
+      "loanSetup": {
+        "borrower": 13,
+        "loan": {
+          "id": 2,
+          "bankId": 0,
+          "ownerType": "firm",
+          "ownerId": 13,
+          "original": 500,
+          "balance": 500,
+          "rate": 0.08639644232270755,
+          "spread": 0.056396442322707546,
+          "fixedRate": false,
+          "term": 720,
+          "created": 361,
+          "arrears": 0,
+          "status": "active",
+          "paid": 0
+        },
+        "decision": {
+          "day": 361,
+          "requested": 500,
+          "approved": true,
+          "reason": "Payment fits observed surplus and reserves",
+          "scheduled": 0.8144395032259827,
+          "stressed": 0.8422172810037605,
+          "capacity": 125.51356150091884,
+          "recurring": 110.96217588237485,
+          "essential": 0
+        }
+      }
+    },
+    {
+      "arm": "wage-only",
+      "seed": 54039764,
+      "years": 4,
+      "policy": {
+        "rate": 3,
+        "lending": 35
+      },
+      "rows": [
+        {
+          "year": 1,
+          "day": 721,
+          "population": 205,
+          "births": 0,
+          "movedAway": 0,
+          "deaths": 0,
+          "employment": 100,
+          "employed": 145,
+          "jobs": 144,
+          "vacancies": 3,
+          "unpaidWorkers": 0,
+          "unpaidWorkerDays": 0,
+          "firmClosures": 0,
+          "firmCash": 1338897.2868070842,
+          "treasury": 150443.13953566537,
+          "debt": 0,
+          "defaults": {
+            "household": 0,
+            "business": 0
+          },
+          "loans": 2,
+          "foodNeed": 327.9999999999997,
+          "foodCapacity": 640,
+          "foodSellable": 640,
+          "unmetFood": 0,
+          "unmet30": 4.929390229335695e-13,
+          "grocers": 4,
+          "groceryWorkers": 8,
+          "schoolAccess": 0.26498257839721256,
+          "fireAccess": 0,
+          "privateProviders": [
+            {
+              "kind": "school",
+              "cash": 19567.986820357357,
+              "workers": 3,
+              "profit": 20.708165309325103
+            },
+            {
+              "kind": "school",
+              "cash": 5128.937906767188,
+              "workers": 1,
+              "profit": -3.480438752028917
+            }
+          ],
+          "borrower": {
+            "kind": "sawmill",
+            "cash": 55692.820995806025,
+            "debt": 249.99999999999545,
+            "jobs": 5,
+            "workers": 4,
+            "loan": {
+              "id": 2,
+              "bankId": 0,
+              "ownerType": "firm",
+              "ownerId": 13,
+              "original": 500,
+              "balance": 249.99999999999545,
+              "rate": 0.08639644232270755,
+              "spread": 0.056396442322707546,
+              "fixedRate": false,
+              "term": 720,
+              "created": 361,
+              "arrears": 0,
+              "status": "active",
+              "paid": 282.4286646357105,
+              "lastPaymentDay": 721,
+              "scheduledDue": 0.7546086336390757,
+              "paidToday": 0.7546086336390757
+            }
+          },
+          "treasuryEmpty": false,
+          "liquidityP10": 1251.968589649565,
+          "arrivals": 0,
+          "valid": {
+            "ok": true,
+            "issues": [],
+            "total": 15493516.999985592,
+            "population": 205,
+            "day": 721
+          },
+          "cashDrift": -7.776543498039246e-06,
+          "goodsError": 9.094947017729282e-12
+        },
+        {
+          "year": 2,
+          "day": 1081,
+          "population": 230,
+          "births": 0,
+          "movedAway": 0,
+          "deaths": 0,
+          "employment": 100,
+          "employed": 162,
+          "jobs": 163,
+          "vacancies": 5,
+          "unpaidWorkers": 0,
+          "unpaidWorkerDays": 17,
+          "firmClosures": 1,
+          "firmCash": 1458874.5935449847,
+          "treasury": 247415.86780717998,
+          "debt": 0,
+          "defaults": {
+            "household": 0,
+            "business": 0
+          },
+          "loans": 1,
+          "foodNeed": 367.99999999999983,
+          "foodCapacity": 640,
+          "foodSellable": 640,
+          "unmetFood": 0,
+          "unmet30": 5.329070518200751e-13,
+          "grocers": 4,
+          "groceryWorkers": 8,
+          "schoolAccess": 0.2361801242236025,
+          "fireAccess": 0,
+          "privateProviders": [
+            {
+              "kind": "school",
+              "cash": 24488.128427041152,
+              "workers": 3,
+              "profit": 4.05005891591107
+            },
+            {
+              "kind": "fire",
+              "cash": 7599.124442031596,
+              "workers": 2,
+              "profit": 40.04506033586797
+            }
+          ],
+          "borrower": {
+            "kind": "sawmill",
+            "cash": 61327.85771889755,
+            "debt": 0,
+            "jobs": 6,
+            "workers": 6,
+            "loan": {
+              "id": 2,
+              "bankId": 0,
+              "ownerType": "firm",
+              "ownerId": 13,
+              "original": 500,
+              "balance": 0,
+              "rate": 0.08639644232270755,
+              "spread": 0.056396442322707546,
+              "fixedRate": false,
+              "term": 720,
+              "created": 361,
+              "arrears": 0,
+              "status": "repaid",
+              "paid": 543.2582186907371,
+              "lastPaymentDay": 1081,
+              "scheduledDue": 0.6946111042417982,
+              "paidToday": 0.6946111042417982
+            }
+          },
+          "treasuryEmpty": false,
+          "liquidityP10": 1506.0165232867962,
+          "arrivals": 0,
+          "valid": {
+            "ok": true,
+            "issues": [],
+            "total": 15493516.999974027,
+            "population": 230,
+            "day": 1081
+          },
+          "cashDrift": -1.9341707229614258e-05,
+          "goodsError": 4.18367562815547e-11
+        },
+        {
+          "year": 3,
+          "day": 1441,
+          "population": 248,
+          "births": 0,
+          "movedAway": 0,
+          "deaths": 0,
+          "employment": 99,
+          "employed": 171,
+          "jobs": 157,
+          "vacancies": 0,
+          "unpaidWorkers": 0,
+          "unpaidWorkerDays": 17,
+          "firmClosures": 1,
+          "firmCash": 1496862.789541336,
+          "treasury": 352530.308583518,
+          "debt": 0,
+          "defaults": {
+            "household": 0,
+            "business": 0
+          },
+          "loans": 1,
+          "foodNeed": 396.79999999999984,
+          "foodCapacity": 720,
+          "foodSellable": 720,
+          "unmetFood": 1.0658141036401503e-14,
+          "unmet30": 5.435651928564766e-13,
+          "grocers": 6,
+          "groceryWorkers": 9,
+          "schoolAccess": 0.21903801843317972,
+          "fireAccess": 0,
+          "privateProviders": [
+            {
+              "kind": "school",
+              "cash": 25685.225796252795,
+              "workers": 2,
+              "profit": 17.02487425102599
+            },
+            {
+              "kind": "fire",
+              "cash": 20690.0284120242,
+              "workers": 2,
+              "profit": 25.42393169362333
+            }
+          ],
+          "borrower": {
+            "kind": "sawmill",
+            "cash": 46915.9199960587,
+            "debt": 0,
+            "jobs": 1,
+            "workers": 1,
+            "loan": {
+              "id": 2,
+              "bankId": 0,
+              "ownerType": "firm",
+              "ownerId": 13,
+              "original": 500,
+              "balance": 0,
+              "rate": 0.08639644232270755,
+              "spread": 0.056396442322707546,
+              "fixedRate": false,
+              "term": 720,
+              "created": 361,
+              "arrears": 0,
+              "status": "repaid",
+              "paid": 543.2582186907371,
+              "lastPaymentDay": 1081,
+              "scheduledDue": 0.6946111042417982,
+              "paidToday": 0.6946111042417982
+            }
+          },
+          "treasuryEmpty": false,
+          "liquidityP10": 1515.9910983575603,
+          "arrivals": 0,
+          "valid": {
+            "ok": true,
+            "issues": [],
+            "total": 15493516.999959234,
+            "population": 248,
+            "day": 1441
+          },
+          "cashDrift": -3.413483500480652e-05,
+          "goodsError": 1.9099388737231493e-11
+        },
+        {
+          "year": 4,
+          "day": 1801,
+          "population": 260,
+          "births": 0,
+          "movedAway": 0,
+          "deaths": 0,
+          "employment": 97,
+          "employed": 171,
+          "jobs": 160,
+          "vacancies": 0,
+          "unpaidWorkers": 0,
+          "unpaidWorkerDays": 17,
+          "firmClosures": 1,
+          "firmCash": 1486367.1053237063,
+          "treasury": 449401.67699393234,
+          "debt": 0,
+          "defaults": {
+            "household": 0,
+            "business": 0
+          },
+          "loans": 0,
+          "foodNeed": 415.99999999999994,
+          "foodCapacity": 720,
+          "foodSellable": 720,
+          "unmetFood": 0,
+          "unmet30": 3.7214675785435247e-13,
+          "grocers": 6,
+          "groceryWorkers": 9,
+          "schoolAccess": 0.20892857142857144,
+          "fireAccess": 0,
+          "privateProviders": [
+            {
+              "kind": "school",
+              "cash": 24618.138024105687,
+              "workers": 2,
+              "profit": 11.395909644557067
+            },
+            {
+              "kind": "fire",
+              "cash": 24901.929595408346,
+              "workers": 2,
+              "profit": 18.469713171550843
+            }
+          ],
+          "borrower": {
+            "kind": "sawmill",
+            "cash": 24951.1571968695,
+            "debt": 0,
+            "jobs": 1,
+            "workers": 1,
+            "loan": {
+              "id": 2,
+              "bankId": 0,
+              "ownerType": "firm",
+              "ownerId": 13,
+              "original": 500,
+              "balance": 0,
+              "rate": 0.08639644232270755,
+              "spread": 0.056396442322707546,
+              "fixedRate": false,
+              "term": 720,
+              "created": 361,
+              "arrears": 0,
+              "status": "repaid",
+              "paid": 543.2582186907371,
+              "lastPaymentDay": 1081,
+              "scheduledDue": 0.6946111042417982,
+              "paidToday": 0.6946111042417982
+            }
+          },
+          "treasuryEmpty": false,
+          "liquidityP10": 1637.08805858075,
+          "arrivals": 0,
+          "valid": {
+            "ok": true,
+            "issues": [],
+            "total": 15493516.999946611,
+            "population": 260,
+            "day": 1801
+          },
+          "cashDrift": -4.6757981181144714e-05,
+          "goodsError": 1.291482476517558e-10
+        }
+      ],
+      "foundingSeed": 42,
+      "loanSetup": {
+        "borrower": 13,
+        "loan": {
+          "id": 2,
+          "bankId": 0,
+          "ownerType": "firm",
+          "ownerId": 13,
+          "original": 500,
+          "balance": 500,
+          "rate": 0.08639644232270755,
+          "spread": 0.056396442322707546,
+          "fixedRate": false,
+          "term": 720,
+          "created": 361,
+          "arrears": 0,
+          "status": "active",
+          "paid": 0
+        },
+        "decision": {
+          "day": 361,
+          "requested": 500,
+          "approved": true,
+          "reason": "Payment fits observed surplus and reserves",
+          "scheduled": 0.8144395032259827,
+          "stressed": 0.8422172810037605,
+          "capacity": 125.51356150091884,
+          "recurring": 110.96217588237485,
+          "essential": 0
+        }
+      }
+    },
+    {
+      "arm": "funded-tight",
+      "seed": 54039764,
+      "years": 4,
+      "policy": {
+        "rate": 3,
+        "lending": 35
+      },
+      "rows": [
+        {
+          "year": 1,
+          "day": 721,
+          "population": 196,
+          "births": 0,
+          "movedAway": 0,
+          "deaths": 0,
+          "employment": 95,
+          "employed": 132,
+          "jobs": 128,
+          "vacancies": 0,
+          "unpaidWorkers": 0,
+          "unpaidWorkerDays": 0,
+          "firmClosures": 0,
+          "firmCash": 1180973.343673214,
+          "treasury": 119056.8016721527,
+          "debt": 0,
+          "defaults": {
+            "household": 0,
+            "business": 0
+          },
+          "loans": 1,
+          "foodNeed": 313.5999999999997,
+          "foodCapacity": 560,
+          "foodSellable": 560,
+          "unmetFood": 0,
+          "unmet30": 3.5704772471945034e-13,
+          "grocers": 4,
+          "groceryWorkers": 7,
+          "schoolAccess": 0.2771501457725948,
+          "fireAccess": 0,
+          "privateProviders": [
+            {
+              "kind": "school",
+              "cash": 19755.858279623437,
+              "workers": 3,
+              "profit": 20.708165309325103
+            },
+            {
+              "kind": "school",
+              "cash": 3555.7022793214405,
+              "workers": 1,
+              "profit": -21.59128111001729
+            }
+          ],
+          "borrower": {
+            "kind": "sawmill",
+            "cash": 53486.848690877785,
+            "debt": 249.99999999999545,
+            "jobs": 5,
+            "workers": 5,
+            "loan": {
+              "id": 2,
+              "bankId": 0,
+              "ownerType": "firm",
+              "ownerId": 13,
+              "original": 500,
+              "balance": 249.99999999999545,
+              "rate": 0.23164498951909576,
+              "spread": 0.056396442322707546,
+              "fixedRate": false,
+              "term": 720,
+              "created": 361,
+              "arrears": 0,
+              "status": "active",
+              "paid": 317.98390111575384,
+              "lastPaymentDay": 721,
+              "scheduledDue": 0.8557558665439662,
+              "paidToday": 0.8557558665439662
+            }
+          },
+          "treasuryEmpty": false,
+          "liquidityP10": 1456.4118506324248,
+          "arrivals": 0,
+          "valid": {
+            "ok": true,
+            "issues": [],
+            "total": 15493516.99998566,
+            "population": 196,
+            "day": 721
+          },
+          "cashDrift": -7.709488272666931e-06,
+          "goodsError": 3.637978807091713e-12
+        },
+        {
+          "year": 2,
+          "day": 1081,
+          "population": 216,
+          "births": 0,
+          "movedAway": 0,
+          "deaths": 0,
+          "employment": 99,
+          "employed": 148,
+          "jobs": 144,
+          "vacancies": 0,
+          "unpaidWorkers": 0,
+          "unpaidWorkerDays": 7,
+          "firmClosures": 1,
+          "firmCash": 1256076.2609186198,
+          "treasury": 180490.1738785389,
+          "debt": 0,
+          "defaults": {
+            "household": 0,
+            "business": 0
+          },
+          "loans": 0,
+          "foodNeed": 345.5999999999998,
+          "foodCapacity": 640,
+          "foodSellable": 640,
+          "unmetFood": 0,
+          "unmet30": 4.0678571622265736e-13,
+          "grocers": 4,
+          "groceryWorkers": 8,
+          "schoolAccess": 0.25148809523809523,
+          "fireAccess": 0,
+          "privateProviders": [
+            {
+              "kind": "school",
+              "cash": 24015.487988526187,
+              "workers": 3,
+              "profit": 6.264773784323231
+            }
+          ],
+          "borrower": {
+            "kind": "sawmill",
+            "cash": 55519.69518739688,
+            "debt": 0,
+            "jobs": 5,
+            "workers": 5,
+            "loan": {
+              "id": 2,
+              "bankId": 0,
+              "ownerType": "firm",
+              "ownerId": 13,
+              "original": 500,
+              "balance": 0,
+              "rate": 0.23624593363107452,
+              "spread": 0.056396442322707546,
+              "fixedRate": false,
+              "term": 720,
+              "created": 361,
+              "arrears": 0,
+              "status": "repaid",
+              "paid": 597.3353758889755,
+              "lastPaymentDay": 1081,
+              "scheduledDue": 0.694900165760523,
+              "paidToday": 0.694900165760523
+            }
+          },
+          "treasuryEmpty": false,
+          "liquidityP10": 1989.1212114316268,
+          "arrivals": 0,
+          "valid": {
+            "ok": true,
+            "issues": [],
+            "total": 15493516.99997621,
+            "population": 216,
+            "day": 1081
+          },
+          "cashDrift": -1.7158687114715576e-05,
+          "goodsError": 1.4551915228366852e-11
+        },
+        {
+          "year": 3,
+          "day": 1441,
+          "population": 231,
+          "births": 0,
+          "movedAway": 0,
+          "deaths": 0,
+          "employment": 99,
+          "employed": 155,
+          "jobs": 151,
+          "vacancies": 0,
+          "unpaidWorkers": 0,
+          "unpaidWorkerDays": 7,
+          "firmClosures": 1,
+          "firmCash": 1299497.2287597058,
+          "treasury": 248959.6254285206,
+          "debt": 0,
+          "defaults": {
+            "household": 0,
+            "business": 0
+          },
+          "loans": 0,
+          "foodNeed": 369.59999999999985,
+          "foodCapacity": 560,
+          "foodSellable": 560,
+          "unmetFood": 0,
+          "unmet30": 2.651212582804874e-13,
+          "grocers": 4,
+          "groceryWorkers": 7,
+          "schoolAccess": 0.23515769944341372,
+          "fireAccess": 0,
+          "privateProviders": [
+            {
+              "kind": "school",
+              "cash": 24445.763883439697,
+              "workers": 2,
+              "profit": 14.420955133323494
+            },
+            {
+              "kind": "fire",
+              "cash": 11778.134430937376,
+              "workers": 2,
+              "profit": 22.86998997348774
+            }
+          ],
+          "borrower": {
+            "kind": "sawmill",
+            "cash": 54696.49547532536,
+            "debt": 0,
+            "jobs": 5,
+            "workers": 5,
+            "loan": {
+              "id": 2,
+              "bankId": 0,
+              "ownerType": "firm",
+              "ownerId": 13,
+              "original": 500,
+              "balance": 0,
+              "rate": 0.23624593363107452,
+              "spread": 0.056396442322707546,
+              "fixedRate": false,
+              "term": 720,
+              "created": 361,
+              "arrears": 0,
+              "status": "repaid",
+              "paid": 597.3353758889755,
+              "lastPaymentDay": 1081,
+              "scheduledDue": 0.694900165760523,
+              "paidToday": 0.694900165760523
+            }
+          },
+          "treasuryEmpty": false,
+          "liquidityP10": 1562.2381649624397,
+          "arrivals": 0,
+          "valid": {
+            "ok": true,
+            "issues": [],
+            "total": 15493516.999966972,
+            "population": 231,
+            "day": 1441
+          },
+          "cashDrift": -2.6397407054901123e-05,
+          "goodsError": 2.637534635141492e-11
+        },
+        {
+          "year": 4,
+          "day": 1801,
+          "population": 250,
+          "births": 0,
+          "movedAway": 0,
+          "deaths": 0,
+          "employment": 98,
+          "employed": 165,
+          "jobs": 157,
+          "vacancies": 0,
+          "unpaidWorkers": 0,
+          "unpaidWorkerDays": 7,
+          "firmClosures": 1,
+          "firmCash": 1516082.2276053547,
+          "treasury": 381331.1036912412,
+          "debt": 0,
+          "defaults": {
+            "household": 0,
+            "business": 0
+          },
+          "loans": 0,
+          "foodNeed": 399.99999999999994,
+          "foodCapacity": 720,
+          "foodSellable": 720,
+          "unmetFood": 4.263256414560601e-14,
+          "unmet30": 3.4727776210274897e-13,
+          "grocers": 7,
+          "groceryWorkers": 9,
+          "schoolAccess": 0.2172857142857143,
+          "fireAccess": 0,
+          "privateProviders": [
+            {
+              "kind": "school",
+              "cash": 25041.181217993195,
+              "workers": 2,
+              "profit": 15.43095826607006
+            },
+            {
+              "kind": "fire",
+              "cash": 18663.690063642396,
+              "workers": 2,
+              "profit": 18.650433299484074
+            }
+          ],
+          "borrower": {
+            "kind": "sawmill",
+            "cash": 61020.18782717865,
+            "debt": 0,
+            "jobs": 6,
+            "workers": 6,
+            "loan": {
+              "id": 2,
+              "bankId": 0,
+              "ownerType": "firm",
+              "ownerId": 13,
+              "original": 500,
+              "balance": 0,
+              "rate": 0.23624593363107452,
+              "spread": 0.056396442322707546,
+              "fixedRate": false,
+              "term": 720,
+              "created": 361,
+              "arrears": 0,
+              "status": "repaid",
+              "paid": 597.3353758889755,
+              "lastPaymentDay": 1081,
+              "scheduledDue": 0.694900165760523,
+              "paidToday": 0.694900165760523
+            }
+          },
+          "treasuryEmpty": false,
+          "liquidityP10": 1811.4860566718783,
+          "arrivals": 0,
+          "valid": {
+            "ok": true,
+            "issues": [],
+            "total": 15493516.999952884,
+            "population": 250,
+            "day": 1801
+          },
+          "cashDrift": -4.048459231853485e-05,
+          "goodsError": 1.355147105641663e-10
+        }
+      ],
+      "foundingSeed": 42,
+      "loanSetup": {
+        "borrower": 13,
+        "loan": {
+          "id": 2,
+          "bankId": 0,
+          "ownerType": "firm",
+          "ownerId": 13,
+          "original": 500,
+          "balance": 500,
+          "rate": 0.08639644232270755,
+          "spread": 0.056396442322707546,
+          "fixedRate": false,
+          "term": 720,
+          "created": 361,
+          "arrears": 0,
+          "status": "active",
+          "paid": 0
+        },
+        "decision": {
+          "day": 361,
+          "requested": 500,
+          "approved": true,
+          "reason": "Payment fits observed surplus and reserves",
+          "scheduled": 0.8144395032259827,
+          "stressed": 0.8422172810037605,
+          "capacity": 125.51356150091884,
+          "recurring": 110.96217588237485,
+          "essential": 0
+        }
+      }
+    },
+    {
+      "arm": "wage-only-tight",
+      "seed": 54039764,
+      "years": 4,
+      "policy": {
+        "rate": 3,
+        "lending": 35
+      },
+      "rows": [
+        {
+          "year": 1,
+          "day": 721,
+          "population": 196,
+          "births": 0,
+          "movedAway": 0,
+          "deaths": 0,
+          "employment": 95,
+          "employed": 132,
+          "jobs": 128,
+          "vacancies": 0,
+          "unpaidWorkers": 0,
+          "unpaidWorkerDays": 0,
+          "firmClosures": 0,
+          "firmCash": 1180973.343673214,
+          "treasury": 119056.8016721527,
+          "debt": 0,
+          "defaults": {
+            "household": 0,
+            "business": 0
+          },
+          "loans": 1,
+          "foodNeed": 313.5999999999997,
+          "foodCapacity": 560,
+          "foodSellable": 560,
+          "unmetFood": 0,
+          "unmet30": 3.5704772471945034e-13,
+          "grocers": 4,
+          "groceryWorkers": 7,
+          "schoolAccess": 0.2771501457725948,
+          "fireAccess": 0,
+          "privateProviders": [
+            {
+              "kind": "school",
+              "cash": 19755.858279623437,
+              "workers": 3,
+              "profit": 20.708165309325103
+            },
+            {
+              "kind": "school",
+              "cash": 3555.7022793214405,
+              "workers": 1,
+              "profit": -21.59128111001729
+            }
+          ],
+          "borrower": {
+            "kind": "sawmill",
+            "cash": 53486.848690877785,
+            "debt": 249.99999999999545,
+            "jobs": 5,
+            "workers": 5,
+            "loan": {
+              "id": 2,
+              "bankId": 0,
+              "ownerType": "firm",
+              "ownerId": 13,
+              "original": 500,
+              "balance": 249.99999999999545,
+              "rate": 0.23164498951909576,
+              "spread": 0.056396442322707546,
+              "fixedRate": false,
+              "term": 720,
+              "created": 361,
+              "arrears": 0,
+              "status": "active",
+              "paid": 317.98390111575384,
+              "lastPaymentDay": 721,
+              "scheduledDue": 0.8557558665439662,
+              "paidToday": 0.8557558665439662
+            }
+          },
+          "treasuryEmpty": false,
+          "liquidityP10": 1456.4118506324248,
+          "arrivals": 0,
+          "valid": {
+            "ok": true,
+            "issues": [],
+            "total": 15493516.99998566,
+            "population": 196,
+            "day": 721
+          },
+          "cashDrift": -7.709488272666931e-06,
+          "goodsError": 3.637978807091713e-12
+        },
+        {
+          "year": 2,
+          "day": 1081,
+          "population": 214,
+          "births": 0,
+          "movedAway": 0,
+          "deaths": 0,
+          "employment": 100,
+          "employed": 149,
+          "jobs": 144,
+          "vacancies": 0,
+          "unpaidWorkers": 0,
+          "unpaidWorkerDays": 14,
+          "firmClosures": 1,
+          "firmCash": 1259566.9300908705,
+          "treasury": 180461.47327996255,
+          "debt": 0,
+          "defaults": {
+            "household": 0,
+            "business": 0
+          },
+          "loans": 0,
+          "foodNeed": 342.3999999999998,
+          "foodCapacity": 560,
+          "foodSellable": 560,
+          "unmetFood": 5.329070518200751e-15,
+          "unmet30": 2.5490720645393594e-13,
+          "grocers": 4,
+          "groceryWorkers": 7,
+          "schoolAccess": 0.2538384512683578,
+          "fireAccess": 0,
+          "privateProviders": [
+            {
+              "kind": "school",
+              "cash": 24015.148956163946,
+              "workers": 3,
+              "profit": 5.925741422056635
+            },
+            {
+              "kind": "fire",
+              "cash": 6043.519040428378,
+              "workers": 2,
+              "profit": 21.80983588728816
+            }
+          ],
+          "borrower": {
+            "kind": "sawmill",
+            "cash": 55633.49024624249,
+            "debt": 0,
+            "jobs": 5,
+            "workers": 5,
+            "loan": {
+              "id": 2,
+              "bankId": 0,
+              "ownerType": "firm",
+              "ownerId": 13,
+              "original": 500,
+              "balance": 0,
+              "rate": 0.23624593363107452,
+              "spread": 0.056396442322707546,
+              "fixedRate": false,
+              "term": 720,
+              "created": 361,
+              "arrears": 0,
+              "status": "repaid",
+              "paid": 597.3353758889755,
+              "lastPaymentDay": 1081,
+              "scheduledDue": 0.694900165760523,
+              "paidToday": 0.694900165760523
+            }
+          },
+          "treasuryEmpty": false,
+          "liquidityP10": 1949.8672522276634,
+          "arrivals": 0,
+          "valid": {
+            "ok": true,
+            "issues": [],
+            "total": 15493516.999976218,
+            "population": 214,
+            "day": 1081
+          },
+          "cashDrift": -1.7151236534118652e-05,
+          "goodsError": 2.4556356947869062e-11
+        },
+        {
+          "year": 3,
+          "day": 1441,
+          "population": 238,
+          "births": 0,
+          "movedAway": 0,
+          "deaths": 0,
+          "employment": 99,
+          "employed": 165,
+          "jobs": 161,
+          "vacancies": 0,
+          "unpaidWorkers": 0,
+          "unpaidWorkerDays": 14,
+          "firmClosures": 1,
+          "firmCash": 1445933.011745113,
+          "treasury": 298317.794454246,
+          "debt": 0,
+          "defaults": {
+            "household": 0,
+            "business": 0
+          },
+          "loans": 0,
+          "foodNeed": 380.7999999999999,
+          "foodCapacity": 560,
+          "foodSellable": 560,
+          "unmetFood": 0,
+          "unmet30": 4.085620730620576e-13,
+          "grocers": 4,
+          "groceryWorkers": 7,
+          "schoolAccess": 0.22824129651860747,
+          "fireAccess": 0,
+          "privateProviders": [
+            {
+              "kind": "school",
+              "cash": 26092.81977141547,
+              "workers": 2,
+              "profit": 25.02986376717086
+            },
+            {
+              "kind": "fire",
+              "cash": 13757.459215385845,
+              "workers": 2,
+              "profit": 22.56850834475223
+            }
+          ],
+          "borrower": {
+            "kind": "sawmill",
+            "cash": 62529.74033945422,
+            "debt": 0,
+            "jobs": 6,
+            "workers": 6,
+            "loan": {
+              "id": 2,
+              "bankId": 0,
+              "ownerType": "firm",
+              "ownerId": 13,
+              "original": 500,
+              "balance": 0,
+              "rate": 0.23624593363107452,
+              "spread": 0.056396442322707546,
+              "fixedRate": false,
+              "term": 720,
+              "created": 361,
+              "arrears": 0,
+              "status": "repaid",
+              "paid": 597.3353758889755,
+              "lastPaymentDay": 1081,
+              "scheduledDue": 0.694900165760523,
+              "paidToday": 0.694900165760523
+            }
+          },
+          "treasuryEmpty": false,
+          "liquidityP10": 1595.4867037701217,
+          "arrivals": 0,
+          "valid": {
+            "ok": true,
+            "issues": [],
+            "total": 15493516.999965481,
+            "population": 238,
+            "day": 1441
+          },
+          "cashDrift": -2.788752317428589e-05,
+          "goodsError": 2.4556356947869062e-11
+        },
+        {
+          "year": 4,
+          "day": 1801,
+          "population": 247,
+          "births": 0,
+          "movedAway": 0,
+          "deaths": 0,
+          "employment": 98,
+          "employed": 167,
+          "jobs": 156,
+          "vacancies": 0,
+          "unpaidWorkers": 0,
+          "unpaidWorkerDays": 14,
+          "firmClosures": 1,
+          "firmCash": 1522947.022402611,
+          "treasury": 433496.4090695497,
+          "debt": 0,
+          "defaults": {
+            "household": 0,
+            "business": 0
+          },
+          "loans": 0,
+          "foodNeed": 395.1999999999998,
+          "foodCapacity": 560,
+          "foodSellable": 560,
+          "unmetFood": 0,
+          "unmet30": 2.1671553440683056e-13,
+          "grocers": 7,
+          "groceryWorkers": 7,
+          "schoolAccess": 0.2199248120300752,
+          "fireAccess": 0,
+          "privateProviders": [
+            {
+              "kind": "school",
+              "cash": 25052.13439666156,
+              "workers": 2,
+              "profit": 9.335756850175805
+            },
+            {
+              "kind": "fire",
+              "cash": 20542.91904620438,
+              "workers": 2,
+              "profit": 17.726895558696707
+            }
+          ],
+          "borrower": {
+            "kind": "sawmill",
+            "cash": 61324.82199320245,
+            "debt": 0,
+            "jobs": 6,
+            "workers": 6,
+            "loan": {
+              "id": 2,
+              "bankId": 0,
+              "ownerType": "firm",
+              "ownerId": 13,
+              "original": 500,
+              "balance": 0,
+              "rate": 0.23624593363107452,
+              "spread": 0.056396442322707546,
+              "fixedRate": false,
+              "term": 720,
+              "created": 361,
+              "arrears": 0,
+              "status": "repaid",
+              "paid": 597.3353758889755,
+              "lastPaymentDay": 1081,
+              "scheduledDue": 0.694900165760523,
+              "paidToday": 0.694900165760523
+            }
+          },
+          "treasuryEmpty": false,
+          "liquidityP10": 2040.2487888769042,
+          "arrivals": 0,
+          "valid": {
+            "ok": true,
+            "issues": [],
+            "total": 15493516.999949777,
+            "population": 247,
+            "day": 1801
+          },
+          "cashDrift": -4.359148442745209e-05,
+          "goodsError": 1.6825651982799172e-10
+        }
+      ],
+      "foundingSeed": 42,
+      "loanSetup": {
+        "borrower": 13,
+        "loan": {
+          "id": 2,
+          "bankId": 0,
+          "ownerType": "firm",
+          "ownerId": 13,
+          "original": 500,
+          "balance": 500,
+          "rate": 0.08639644232270755,
+          "spread": 0.056396442322707546,
+          "fixedRate": false,
+          "term": 720,
+          "created": 361,
+          "arrears": 0,
+          "status": "active",
+          "paid": 0
+        },
+        "decision": {
+          "day": 361,
+          "requested": 500,
+          "approved": true,
+          "reason": "Payment fits observed surplus and reserves",
+          "scheduled": 0.8144395032259827,
+          "stressed": 0.8422172810037605,
+          "capacity": 125.51356150091884,
+          "recurring": 110.96217588237485,
+          "essential": 0
+        }
+      }
+    },
+    {
+      "arm": "funded-tight-recovery",
+      "seed": 54039764,
+      "years": 4,
+      "policy": {
+        "rate": 3,
+        "lending": 35
+      },
+      "rows": [
+        {
+          "year": 1,
+          "day": 721,
+          "population": 196,
+          "births": 0,
+          "movedAway": 0,
+          "deaths": 0,
+          "employment": 95,
+          "employed": 132,
+          "jobs": 128,
+          "vacancies": 0,
+          "unpaidWorkers": 0,
+          "unpaidWorkerDays": 0,
+          "firmClosures": 0,
+          "firmCash": 1180973.343673214,
+          "treasury": 119056.8016721527,
+          "debt": 0,
+          "defaults": {
+            "household": 0,
+            "business": 0
+          },
+          "loans": 1,
+          "foodNeed": 313.5999999999997,
+          "foodCapacity": 560,
+          "foodSellable": 560,
+          "unmetFood": 0,
+          "unmet30": 3.5704772471945034e-13,
+          "grocers": 4,
+          "groceryWorkers": 7,
+          "schoolAccess": 0.2771501457725948,
+          "fireAccess": 0,
+          "privateProviders": [
+            {
+              "kind": "school",
+              "cash": 19755.858279623437,
+              "workers": 3,
+              "profit": 20.708165309325103
+            },
+            {
+              "kind": "school",
+              "cash": 3555.7022793214405,
+              "workers": 1,
+              "profit": -21.59128111001729
+            }
+          ],
+          "borrower": {
+            "kind": "sawmill",
+            "cash": 53486.848690877785,
+            "debt": 249.99999999999545,
+            "jobs": 5,
+            "workers": 5,
+            "loan": {
+              "id": 2,
+              "bankId": 0,
+              "ownerType": "firm",
+              "ownerId": 13,
+              "original": 500,
+              "balance": 249.99999999999545,
+              "rate": 0.23164498951909576,
+              "spread": 0.056396442322707546,
+              "fixedRate": false,
+              "term": 720,
+              "created": 361,
+              "arrears": 0,
+              "status": "active",
+              "paid": 317.98390111575384,
+              "lastPaymentDay": 721,
+              "scheduledDue": 0.8557558665439662,
+              "paidToday": 0.8557558665439662
+            }
+          },
+          "treasuryEmpty": false,
+          "liquidityP10": 1456.4118506324248,
+          "arrivals": 0,
+          "valid": {
+            "ok": true,
+            "issues": [],
+            "total": 15493516.99998566,
+            "population": 196,
+            "day": 721
+          },
+          "cashDrift": -7.709488272666931e-06,
+          "goodsError": 3.637978807091713e-12
+        },
+        {
+          "year": 2,
+          "day": 1081,
+          "population": 216,
+          "births": 0,
+          "movedAway": 0,
+          "deaths": 0,
+          "employment": 99,
+          "employed": 148,
+          "jobs": 144,
+          "vacancies": 0,
+          "unpaidWorkers": 0,
+          "unpaidWorkerDays": 7,
+          "firmClosures": 1,
+          "firmCash": 1256076.2609186198,
+          "treasury": 180490.1738785389,
+          "debt": 0,
+          "defaults": {
+            "household": 0,
+            "business": 0
+          },
+          "loans": 0,
+          "foodNeed": 345.5999999999998,
+          "foodCapacity": 640,
+          "foodSellable": 640,
+          "unmetFood": 0,
+          "unmet30": 4.0678571622265736e-13,
+          "grocers": 4,
+          "groceryWorkers": 8,
+          "schoolAccess": 0.25148809523809523,
+          "fireAccess": 0,
+          "privateProviders": [
+            {
+              "kind": "school",
+              "cash": 24015.487988526187,
+              "workers": 3,
+              "profit": 6.264773784323231
+            }
+          ],
+          "borrower": {
+            "kind": "sawmill",
+            "cash": 55519.69518739688,
+            "debt": 0,
+            "jobs": 5,
+            "workers": 5,
+            "loan": {
+              "id": 2,
+              "bankId": 0,
+              "ownerType": "firm",
+              "ownerId": 13,
+              "original": 500,
+              "balance": 0,
+              "rate": 0.23624593363107452,
+              "spread": 0.056396442322707546,
+              "fixedRate": false,
+              "term": 720,
+              "created": 361,
+              "arrears": 0,
+              "status": "repaid",
+              "paid": 597.3353758889755,
+              "lastPaymentDay": 1081,
+              "scheduledDue": 0.694900165760523,
+              "paidToday": 0.694900165760523
+            }
+          },
+          "treasuryEmpty": false,
+          "liquidityP10": 1989.1212114316268,
+          "arrivals": 0,
+          "valid": {
+            "ok": true,
+            "issues": [],
+            "total": 15493516.99997621,
+            "population": 216,
+            "day": 1081
+          },
+          "cashDrift": -1.7158687114715576e-05,
+          "goodsError": 1.4551915228366852e-11
+        },
+        {
+          "year": 3,
+          "day": 1441,
+          "population": 231,
+          "births": 0,
+          "movedAway": 0,
+          "deaths": 0,
+          "employment": 99,
+          "employed": 159,
+          "jobs": 155,
+          "vacancies": 0,
+          "unpaidWorkers": 0,
+          "unpaidWorkerDays": 7,
+          "firmClosures": 1,
+          "firmCash": 1366208.349504043,
+          "treasury": 275151.29463395476,
+          "debt": 0,
+          "defaults": {
+            "household": 0,
+            "business": 0
+          },
+          "loans": 0,
+          "foodNeed": 369.5999999999999,
+          "foodCapacity": 640,
+          "foodSellable": 640,
+          "unmetFood": 0,
+          "unmet30": 3.12194714524594e-13,
+          "grocers": 4,
+          "groceryWorkers": 8,
+          "schoolAccess": 0.23515769944341372,
+          "fireAccess": 0,
+          "privateProviders": [
+            {
+              "kind": "school",
+              "cash": 24605.45175419887,
+              "workers": 2,
+              "profit": 19.830225367933632
+            },
+            {
+              "kind": "fire",
+              "cash": 11937.490286626798,
+              "workers": 2,
+              "profit": 21.727185078540558
+            }
+          ],
+          "borrower": {
+            "kind": "sawmill",
+            "cash": 56179.10718425596,
+            "debt": 0,
+            "jobs": 5,
+            "workers": 5,
+            "loan": {
+              "id": 2,
+              "bankId": 0,
+              "ownerType": "firm",
+              "ownerId": 13,
+              "original": 500,
+              "balance": 0,
+              "rate": 0.23624593363107452,
+              "spread": 0.056396442322707546,
+              "fixedRate": false,
+              "term": 720,
+              "created": 361,
+              "arrears": 0,
+              "status": "repaid",
+              "paid": 597.3353758889755,
+              "lastPaymentDay": 1081,
+              "scheduledDue": 0.694900165760523,
+              "paidToday": 0.694900165760523
+            }
+          },
+          "treasuryEmpty": false,
+          "liquidityP10": 1449.880036103505,
+          "arrivals": 0,
+          "valid": {
+            "ok": true,
+            "issues": [],
+            "total": 15493516.999966031,
+            "population": 231,
+            "day": 1441
+          },
+          "cashDrift": -2.7338042855262756e-05,
+          "goodsError": 3.456079866737127e-11
+        },
+        {
+          "year": 4,
+          "day": 1801,
+          "population": 238,
+          "births": 0,
+          "movedAway": 0,
+          "deaths": 0,
+          "employment": 90,
+          "employed": 148,
+          "jobs": 134,
+          "vacancies": 0,
+          "unpaidWorkers": 0,
+          "unpaidWorkerDays": 7,
+          "firmClosures": 1,
+          "firmCash": 1312307.7522099407,
+          "treasury": 358029.215276571,
+          "debt": 0,
+          "defaults": {
+            "household": 0,
+            "business": 0
+          },
+          "loans": 1,
+          "foodNeed": 380.79999999999995,
+          "foodCapacity": 560,
+          "foodSellable": 560,
+          "unmetFood": 3.552713678800501e-15,
+          "unmet30": 3.526068326209497e-13,
+          "grocers": 5,
+          "groceryWorkers": 7,
+          "schoolAccess": 0.22824129651860747,
+          "fireAccess": 0,
+          "privateProviders": [
+            {
+              "kind": "school",
+              "cash": 23838.651172303318,
+              "workers": 2,
+              "profit": 4.036956860775966
+            },
+            {
+              "kind": "fire",
+              "cash": 18197.763593451735,
+              "workers": 2,
+              "profit": 15.724061764880666
+            }
+          ],
+          "borrower": {
+            "kind": "sawmill",
+            "cash": 49650.087892893986,
+            "debt": 0,
+            "jobs": 4,
+            "workers": 4,
+            "loan": {
+              "id": 2,
+              "bankId": 0,
+              "ownerType": "firm",
+              "ownerId": 13,
+              "original": 500,
+              "balance": 0,
+              "rate": 0.23624593363107452,
+              "spread": 0.056396442322707546,
+              "fixedRate": false,
+              "term": 720,
+              "created": 361,
+              "arrears": 0,
+              "status": "repaid",
+              "paid": 597.3353758889755,
+              "lastPaymentDay": 1081,
+              "scheduledDue": 0.694900165760523,
+              "paidToday": 0.694900165760523
+            }
+          },
+          "treasuryEmpty": false,
+          "liquidityP10": 1330.7112596348447,
+          "arrivals": 0,
+          "valid": {
+            "ok": true,
+            "issues": [],
+            "total": 15493516.999954153,
+            "population": 238,
+            "day": 1801
+          },
+          "cashDrift": -3.921613097190857e-05,
+          "goodsError": 1.0913936421275139e-10
+        }
+      ],
+      "foundingSeed": 42,
+      "loanSetup": {
+        "borrower": 13,
+        "loan": {
+          "id": 2,
+          "bankId": 0,
+          "ownerType": "firm",
+          "ownerId": 13,
+          "original": 500,
+          "balance": 500,
+          "rate": 0.08639644232270755,
+          "spread": 0.056396442322707546,
+          "fixedRate": false,
+          "term": 720,
+          "created": 361,
+          "arrears": 0,
+          "status": "active",
+          "paid": 0
+        },
+        "decision": {
+          "day": 361,
+          "requested": 500,
+          "approved": true,
+          "reason": "Payment fits observed surplus and reserves",
+          "scheduled": 0.8144395032259827,
+          "stressed": 0.8422172810037605,
+          "capacity": 125.51356150091884,
+          "recurring": 110.96217588237485,
+          "essential": 0
+        }
+      }
+    },
+    {
+      "arm": "funded-base",
+      "seed": 28929867,
+      "years": 4,
+      "policy": {
+        "rate": 3,
+        "lending": 35
+      },
+      "rows": [
+        {
+          "year": 1,
+          "day": 721,
+          "population": 213,
+          "births": 0,
+          "movedAway": 0,
+          "deaths": 0,
+          "employment": 100,
+          "employed": 146,
+          "jobs": 146,
+          "vacancies": 4,
+          "unpaidWorkers": 0,
+          "unpaidWorkerDays": 0,
+          "firmClosures": 0,
+          "firmCash": 1449510.0604344746,
+          "treasury": 201088.41631789596,
+          "debt": 0,
+          "defaults": {
+            "household": 0,
+            "business": 0
+          },
+          "loans": 5,
+          "foodNeed": 340.7999999999998,
+          "foodCapacity": 560,
+          "foodSellable": 560,
+          "unmetFood": 0,
+          "unmet30": 4.867217739956686e-13,
+          "grocers": 4,
+          "groceryWorkers": 7,
+          "schoolAccess": 0.25503018108651915,
+          "fireAccess": 0,
+          "privateProviders": [
+            {
+              "kind": "school",
+              "cash": 19177.223594504096,
+              "workers": 3,
+              "profit": 20.708165309325054
+            },
+            {
+              "kind": "school",
+              "cash": 1434.7565744833555,
+              "workers": 1,
+              "profit": -20.121599962025734
+            }
+          ],
+          "borrower": {
+            "kind": "mill",
+            "cash": 66916.55576958362,
+            "debt": 249.99999999999545,
+            "jobs": 6,
+            "workers": 6,
+            "loan": {
+              "id": 3,
+              "bankId": 0,
+              "ownerType": "firm",
+              "ownerId": 5,
+              "original": 500,
+              "balance": 249.99999999999545,
+              "rate": 0.08661132173943714,
+              "spread": 0.05661132173943714,
+              "fixedRate": false,
+              "term": 720,
+              "created": 361,
+              "arrears": 0,
+              "status": "active",
+              "paid": 282.5093190278928,
+              "lastPaymentDay": 721,
+              "scheduledDue": 0.7547582699612967,
+              "paidToday": 0.7547582699612967
+            }
+          },
+          "treasuryEmpty": false,
+          "liquidityP10": 1369.8570430738464,
+          "arrivals": 0,
+          "valid": {
+            "ok": true,
+            "issues": [],
+            "total": 15529975.99999601,
+            "population": 213,
+            "day": 721
+          },
+          "cashDrift": -2.946704626083374e-06,
+          "goodsError": 4.8203219193965197e-11
+        },
+        {
+          "year": 2,
+          "day": 1081,
+          "population": 247,
+          "births": 0,
+          "movedAway": 0,
+          "deaths": 0,
+          "employment": 96,
+          "employed": 171,
+          "jobs": 167,
+          "vacancies": 0,
+          "unpaidWorkers": 0,
+          "unpaidWorkerDays": 13,
+          "firmClosures": 1,
+          "firmCash": 1602563.248679976,
+          "treasury": 318107.70305722597,
+          "debt": 0,
+          "defaults": {
+            "household": 0,
+            "business": 0
+          },
+          "loans": 1,
+          "foodNeed": 395.1999999999999,
+          "foodCapacity": 800,
+          "foodSellable": 800,
+          "unmetFood": 1.7763568394002505e-15,
+          "unmet30": 7.265299473147024e-13,
+          "grocers": 7,
+          "groceryWorkers": 10,
+          "schoolAccess": 0.2199248120300752,
+          "fireAccess": 0,
+          "privateProviders": [
+            {
+              "kind": "school",
+              "cash": 23379.484845336665,
+              "workers": 3,
+              "profit": 17.014482120339416
+            },
+            {
+              "kind": "fire",
+              "cash": 7543.983529495951,
+              "workers": 2,
+              "profit": 37.07384180345284
+            }
+          ],
+          "borrower": {
+            "kind": "mill",
+            "cash": 69450.70048720935,
+            "debt": 0,
+            "jobs": 8,
+            "workers": 8,
+            "loan": {
+              "id": 3,
+              "bankId": 0,
+              "ownerType": "firm",
+              "ownerId": 5,
+              "original": 500,
+              "balance": 0,
+              "rate": 0.08661132173943714,
+              "spread": 0.05661132173943714,
+              "fixedRate": false,
+              "term": 720,
+              "created": 361,
+              "arrears": 0,
+              "status": "repaid",
+              "paid": 543.3658076209193,
+              "lastPaymentDay": 1081,
+              "scheduledDue": 0.6946115187468459,
+              "paidToday": 0.6946115187468459
+            }
+          },
+          "treasuryEmpty": false,
+          "liquidityP10": 1638.8165438860628,
+          "arrivals": 0,
+          "valid": {
+            "ok": true,
+            "issues": [],
+            "total": 15529975.999989554,
+            "population": 247,
+            "day": 1081
+          },
+          "cashDrift": -9.402632713317871e-06,
+          "goodsError": 9.458744898438454e-11
+        },
+        {
+          "year": 3,
+          "day": 1441,
+          "population": 262,
+          "births": 0,
+          "movedAway": 0,
+          "deaths": 0,
+          "employment": 96,
+          "employed": 179,
+          "jobs": 171,
+          "vacancies": 0,
+          "unpaidWorkers": 0,
+          "unpaidWorkerDays": 13,
+          "firmClosures": 1,
+          "firmCash": 1600928.6755287517,
+          "treasury": 439531.2938390043,
+          "debt": 0,
+          "defaults": {
+            "household": 0,
+            "business": 0
+          },
+          "loans": 3,
+          "foodNeed": 419.19999999999993,
+          "foodCapacity": 720,
+          "foodSellable": 720,
+          "unmetFood": 7.105427357601002e-15,
+          "unmet30": 3.4727776210274897e-13,
+          "grocers": 7,
+          "groceryWorkers": 9,
+          "schoolAccess": 0.20733369683751365,
+          "fireAccess": 0,
+          "privateProviders": [
+            {
+              "kind": "school",
+              "cash": 26365.645386651668,
+              "workers": 3,
+              "profit": 12.436867552521845
+            },
+            {
+              "kind": "fire",
+              "cash": 16624.38038019041,
+              "workers": 2,
+              "profit": 20.29682118795644
+            }
+          ],
+          "borrower": {
+            "kind": "mill",
+            "cash": 68031.19650868486,
+            "debt": 0,
+            "jobs": 7,
+            "workers": 7,
+            "loan": {
+              "id": 3,
+              "bankId": 0,
+              "ownerType": "firm",
+              "ownerId": 5,
+              "original": 500,
+              "balance": 0,
+              "rate": 0.08661132173943714,
+              "spread": 0.05661132173943714,
+              "fixedRate": false,
+              "term": 720,
+              "created": 361,
+              "arrears": 0,
+              "status": "repaid",
+              "paid": 543.3658076209193,
+              "lastPaymentDay": 1081,
+              "scheduledDue": 0.6946115187468459,
+              "paidToday": 0.6946115187468459
+            }
+          },
+          "treasuryEmpty": false,
+          "liquidityP10": 1541.5141293326578,
+          "arrivals": 0,
+          "valid": {
+            "ok": true,
+            "issues": [],
+            "total": 15529975.999984408,
+            "population": 262,
+            "day": 1441
+          },
+          "cashDrift": -1.4549121260643005e-05,
+          "goodsError": 2.0372681319713593e-10
+        },
+        {
+          "year": 4,
+          "day": 1801,
+          "population": 273,
+          "births": 0,
+          "movedAway": 0,
+          "deaths": 0,
+          "employment": 98,
+          "employed": 189,
+          "jobs": 182,
+          "vacancies": 0,
+          "unpaidWorkers": 0,
+          "unpaidWorkerDays": 13,
+          "firmClosures": 1,
+          "firmCash": 1733617.798325169,
+          "treasury": 612090.8578399696,
+          "debt": 0,
+          "defaults": {
+            "household": 0,
+            "business": 0
+          },
+          "loans": 2,
+          "foodNeed": 436.7999999999999,
+          "foodCapacity": 720,
+          "foodSellable": 720,
+          "unmetFood": 2.4868995751603507e-14,
+          "unmet30": 5.653255641391297e-13,
+          "grocers": 7,
+          "groceryWorkers": 9,
+          "schoolAccess": 0.1989795918367347,
+          "fireAccess": 0,
+          "privateProviders": [
+            {
+              "kind": "school",
+              "cash": 26995.613071325115,
+              "workers": 2,
+              "profit": 21.837654185666977
+            },
+            {
+              "kind": "fire",
+              "cash": 22760.82286259588,
+              "workers": 2,
+              "profit": 17.769251313907514
+            }
+          ],
+          "borrower": {
+            "kind": "mill",
+            "cash": 71555.2559705834,
+            "debt": 0,
+            "jobs": 7,
+            "workers": 7,
+            "loan": {
+              "id": 3,
+              "bankId": 0,
+              "ownerType": "firm",
+              "ownerId": 5,
+              "original": 500,
+              "balance": 0,
+              "rate": 0.08661132173943714,
+              "spread": 0.05661132173943714,
+              "fixedRate": false,
+              "term": 720,
+              "created": 361,
+              "arrears": 0,
+              "status": "repaid",
+              "paid": 543.3658076209193,
+              "lastPaymentDay": 1081,
+              "scheduledDue": 0.6946115187468459,
+              "paidToday": 0.6946115187468459
+            }
+          },
+          "treasuryEmpty": false,
+          "liquidityP10": 1872.408669747923,
+          "arrivals": 0,
+          "valid": {
+            "ok": true,
+            "issues": [],
+            "total": 15529975.999984775,
+            "population": 273,
+            "day": 1801
+          },
+          "cashDrift": -1.4182180166244507e-05,
+          "goodsError": 3.5288394428789616e-10
+        }
+      ],
+      "foundingSeed": 91,
+      "loanSetup": {
+        "borrower": 5,
+        "loan": {
+          "id": 3,
+          "bankId": 0,
+          "ownerType": "firm",
+          "ownerId": 5,
+          "original": 500,
+          "balance": 500,
+          "rate": 0.08661132173943714,
+          "spread": 0.05661132173943714,
+          "fixedRate": false,
+          "term": 720,
+          "created": 361,
+          "arrears": 0,
+          "status": "active",
+          "paid": 0
+        },
+        "decision": {
+          "day": 361,
+          "requested": 500,
+          "approved": true,
+          "reason": "Payment fits observed surplus and reserves",
+          "scheduled": 0.8147379468603293,
+          "stressed": 0.8425157246381071,
+          "capacity": 136.4193964037029,
+          "recurring": 128.78827462716845,
+          "essential": 0
+        }
+      }
+    },
+    {
+      "arm": "wage-only",
+      "seed": 28929867,
+      "years": 4,
+      "policy": {
+        "rate": 3,
+        "lending": 35
+      },
+      "rows": [
+        {
+          "year": 1,
+          "day": 721,
+          "population": 213,
+          "births": 0,
+          "movedAway": 0,
+          "deaths": 0,
+          "employment": 100,
+          "employed": 146,
+          "jobs": 146,
+          "vacancies": 4,
+          "unpaidWorkers": 0,
+          "unpaidWorkerDays": 0,
+          "firmClosures": 0,
+          "firmCash": 1449510.0604344746,
+          "treasury": 201088.41631789596,
+          "debt": 0,
+          "defaults": {
+            "household": 0,
+            "business": 0
+          },
+          "loans": 5,
+          "foodNeed": 340.7999999999998,
+          "foodCapacity": 560,
+          "foodSellable": 560,
+          "unmetFood": 0,
+          "unmet30": 4.867217739956686e-13,
+          "grocers": 4,
+          "groceryWorkers": 7,
+          "schoolAccess": 0.25503018108651915,
+          "fireAccess": 0,
+          "privateProviders": [
+            {
+              "kind": "school",
+              "cash": 19177.223594504096,
+              "workers": 3,
+              "profit": 20.708165309325054
+            },
+            {
+              "kind": "school",
+              "cash": 1434.7565744833555,
+              "workers": 1,
+              "profit": -20.121599962025734
+            }
+          ],
+          "borrower": {
+            "kind": "mill",
+            "cash": 66916.55576958362,
+            "debt": 249.99999999999545,
+            "jobs": 6,
+            "workers": 6,
+            "loan": {
+              "id": 3,
+              "bankId": 0,
+              "ownerType": "firm",
+              "ownerId": 5,
+              "original": 500,
+              "balance": 249.99999999999545,
+              "rate": 0.08661132173943714,
+              "spread": 0.05661132173943714,
+              "fixedRate": false,
+              "term": 720,
+              "created": 361,
+              "arrears": 0,
+              "status": "active",
+              "paid": 282.5093190278928,
+              "lastPaymentDay": 721,
+              "scheduledDue": 0.7547582699612967,
+              "paidToday": 0.7547582699612967
+            }
+          },
+          "treasuryEmpty": false,
+          "liquidityP10": 1369.8570430738464,
+          "arrivals": 0,
+          "valid": {
+            "ok": true,
+            "issues": [],
+            "total": 15529975.99999601,
+            "population": 213,
+            "day": 721
+          },
+          "cashDrift": -2.946704626083374e-06,
+          "goodsError": 4.8203219193965197e-11
+        },
+        {
+          "year": 2,
+          "day": 1081,
+          "population": 242,
+          "births": 0,
+          "movedAway": 0,
+          "deaths": 0,
+          "employment": 99,
+          "employed": 171,
+          "jobs": 167,
+          "vacancies": 0,
+          "unpaidWorkers": 0,
+          "unpaidWorkerDays": 28,
+          "firmClosures": 1,
+          "firmCash": 1569067.5263888026,
+          "treasury": 310850.0981476703,
+          "debt": 0,
+          "defaults": {
+            "household": 0,
+            "business": 0
+          },
+          "loans": 0,
+          "foodNeed": 387.1999999999999,
+          "foodCapacity": 960,
+          "foodSellable": 960,
+          "unmetFood": 7.105427357601002e-15,
+          "unmet30": 6.190603585309873e-13,
+          "grocers": 6,
+          "groceryWorkers": 12,
+          "schoolAccess": 0.2244687131050767,
+          "fireAccess": 0,
+          "privateProviders": [
+            {
+              "kind": "school",
+              "cash": 23914.312800009528,
+              "workers": 3,
+              "profit": 7.508729167657164
+            },
+            {
+              "kind": "fire",
+              "cash": 10318.18992173916,
+              "workers": 2,
+              "profit": 31.12853389963288
+            }
+          ],
+          "borrower": {
+            "kind": "mill",
+            "cash": 69456.10939454475,
+            "debt": 0,
+            "jobs": 7,
+            "workers": 7,
+            "loan": {
+              "id": 3,
+              "bankId": 0,
+              "ownerType": "firm",
+              "ownerId": 5,
+              "original": 500,
+              "balance": 0,
+              "rate": 0.08661132173943714,
+              "spread": 0.05661132173943714,
+              "fixedRate": false,
+              "term": 720,
+              "created": 361,
+              "arrears": 0,
+              "status": "repaid",
+              "paid": 543.3658076209193,
+              "lastPaymentDay": 1081,
+              "scheduledDue": 0.6946115187468459,
+              "paidToday": 0.6946115187468459
+            }
+          },
+          "treasuryEmpty": false,
+          "liquidityP10": 1418.3231906277006,
+          "arrivals": 0,
+          "valid": {
+            "ok": true,
+            "issues": [],
+            "total": 15529975.999989983,
+            "population": 242,
+            "day": 1081
+          },
+          "cashDrift": -8.974224328994751e-06,
+          "goodsError": 8.003553375601768e-11
+        },
+        {
+          "year": 3,
+          "day": 1441,
+          "population": 262,
+          "births": 0,
+          "movedAway": 0,
+          "deaths": 0,
+          "employment": 100,
+          "employed": 182,
+          "jobs": 179,
+          "vacancies": 1,
+          "unpaidWorkers": 0,
+          "unpaidWorkerDays": 28,
+          "firmClosures": 1,
+          "firmCash": 1629976.6233200484,
+          "treasury": 443311.8213174473,
+          "debt": 0,
+          "defaults": {
+            "household": 0,
+            "business": 0
+          },
+          "loans": 0,
+          "foodNeed": 419.2,
+          "foodCapacity": 720,
+          "foodSellable": 720,
+          "unmetFood": 4.263256414560601e-14,
+          "unmet30": 5.133671265866724e-13,
+          "grocers": 6,
+          "groceryWorkers": 9,
+          "schoolAccess": 0.20733369683751365,
+          "fireAccess": 0,
+          "privateProviders": [
+            {
+              "kind": "school",
+              "cash": 25797.760900289544,
+              "workers": 3,
+              "profit": 14.884889847037872
+            },
+            {
+              "kind": "fire",
+              "cash": 18750.412067817462,
+              "workers": 2,
+              "profit": 21.97481475830241
+            }
+          ],
+          "borrower": {
+            "kind": "mill",
+            "cash": 73182.6499530413,
+            "debt": 0,
+            "jobs": 7,
+            "workers": 7,
+            "loan": {
+              "id": 3,
+              "bankId": 0,
+              "ownerType": "firm",
+              "ownerId": 5,
+              "original": 500,
+              "balance": 0,
+              "rate": 0.08661132173943714,
+              "spread": 0.05661132173943714,
+              "fixedRate": false,
+              "term": 720,
+              "created": 361,
+              "arrears": 0,
+              "status": "repaid",
+              "paid": 543.3658076209193,
+              "lastPaymentDay": 1081,
+              "scheduledDue": 0.6946115187468459,
+              "paidToday": 0.6946115187468459
+            }
+          },
+          "treasuryEmpty": false,
+          "liquidityP10": 1440.9922274277922,
+          "arrivals": 0,
+          "valid": {
+            "ok": true,
+            "issues": [],
+            "total": 15529975.999983769,
+            "population": 262,
+            "day": 1441
+          },
+          "cashDrift": -1.5188008546829224e-05,
+          "goodsError": 1.9281287677586079e-10
+        },
+        {
+          "year": 4,
+          "day": 1801,
+          "population": 272,
+          "births": 0,
+          "movedAway": 0,
+          "deaths": 0,
+          "employment": 98,
+          "employed": 182,
+          "jobs": 176,
+          "vacancies": 0,
+          "unpaidWorkers": 0,
+          "unpaidWorkerDays": 28,
+          "firmClosures": 1,
+          "firmCash": 1625048.0437913318,
+          "treasury": 578195.8814085631,
+          "debt": 0,
+          "defaults": {
+            "household": 0,
+            "business": 0
+          },
+          "loans": 0,
+          "foodNeed": 435.20000000000005,
+          "foodCapacity": 880,
+          "foodSellable": 880,
+          "unmetFood": 0,
+          "unmet30": 2.802202914153895e-13,
+          "grocers": 6,
+          "groceryWorkers": 11,
+          "schoolAccess": 0.19971113445378152,
+          "fireAccess": 0,
+          "privateProviders": [
+            {
+              "kind": "school",
+              "cash": 26547.865878325345,
+              "workers": 2,
+              "profit": 13.708930249574923
+            },
+            {
+              "kind": "fire",
+              "cash": 23837.17912455865,
+              "workers": 2,
+              "profit": 18.083813274037922
+            }
+          ],
+          "borrower": {
+            "kind": "mill",
+            "cash": 70785.75361448803,
+            "debt": 0,
+            "jobs": 7,
+            "workers": 7,
+            "loan": {
+              "id": 3,
+              "bankId": 0,
+              "ownerType": "firm",
+              "ownerId": 5,
+              "original": 500,
+              "balance": 0,
+              "rate": 0.08661132173943714,
+              "spread": 0.05661132173943714,
+              "fixedRate": false,
+              "term": 720,
+              "created": 361,
+              "arrears": 0,
+              "status": "repaid",
+              "paid": 543.3658076209193,
+              "lastPaymentDay": 1081,
+              "scheduledDue": 0.6946115187468459,
+              "paidToday": 0.6946115187468459
+            }
+          },
+          "treasuryEmpty": false,
+          "liquidityP10": 1869.9378304950785,
+          "arrivals": 0,
+          "valid": {
+            "ok": true,
+            "issues": [],
+            "total": 15529975.999984704,
+            "population": 272,
+            "day": 1801
+          },
+          "cashDrift": -1.4252960681915283e-05,
+          "goodsError": 4.2382453102618456e-10
+        }
+      ],
+      "foundingSeed": 91,
+      "loanSetup": {
+        "borrower": 5,
+        "loan": {
+          "id": 3,
+          "bankId": 0,
+          "ownerType": "firm",
+          "ownerId": 5,
+          "original": 500,
+          "balance": 500,
+          "rate": 0.08661132173943714,
+          "spread": 0.05661132173943714,
+          "fixedRate": false,
+          "term": 720,
+          "created": 361,
+          "arrears": 0,
+          "status": "active",
+          "paid": 0
+        },
+        "decision": {
+          "day": 361,
+          "requested": 500,
+          "approved": true,
+          "reason": "Payment fits observed surplus and reserves",
+          "scheduled": 0.8147379468603293,
+          "stressed": 0.8425157246381071,
+          "capacity": 136.4193964037029,
+          "recurring": 128.78827462716845,
+          "essential": 0
+        }
+      }
+    },
+    {
+      "arm": "funded-tight",
+      "seed": 28929867,
+      "years": 4,
+      "policy": {
+        "rate": 3,
+        "lending": 35
+      },
+      "rows": [
+        {
+          "year": 1,
+          "day": 721,
+          "population": 207,
+          "births": 0,
+          "movedAway": 0,
+          "deaths": 0,
+          "employment": 100,
+          "employed": 143,
+          "jobs": 142,
+          "vacancies": 3,
+          "unpaidWorkers": 0,
+          "unpaidWorkerDays": 7,
+          "firmClosures": 0,
+          "firmCash": 1390577.0224009494,
+          "treasury": 184122.78857112728,
+          "debt": 0,
+          "defaults": {
+            "household": 0,
+            "business": 0
+          },
+          "loans": 2,
+          "foodNeed": 331.19999999999976,
+          "foodCapacity": 640,
+          "foodSellable": 640,
+          "unmetFood": 0,
+          "unmet30": 3.694822225952521e-13,
+          "grocers": 4,
+          "groceryWorkers": 8,
+          "schoolAccess": 0.2624223602484472,
+          "fireAccess": 0,
+          "privateProviders": [
+            {
+              "kind": "school",
+              "cash": 19172.301479206875,
+              "workers": 3,
+              "profit": 20.708165309325103
+            },
+            {
+              "kind": "school",
+              "cash": 0,
+              "workers": 0,
+              "profit": 0
+            }
+          ],
+          "borrower": {
+            "kind": "mill",
+            "cash": 63598.72167634945,
+            "debt": 249.99999999999545,
+            "jobs": 7,
+            "workers": 6,
+            "loan": {
+              "id": 3,
+              "bankId": 0,
+              "ownerType": "firm",
+              "ownerId": 5,
+              "original": 500,
+              "balance": 249.99999999999545,
+              "rate": 0.23185986893582536,
+              "spread": 0.05661132173943714,
+              "fixedRate": false,
+              "term": 720,
+              "created": 361,
+              "arrears": 0,
+              "status": "active",
+              "paid": 318.06455550793584,
+              "lastPaymentDay": 721,
+              "scheduledDue": 0.8559055028661872,
+              "paidToday": 0.8559055028661872
+            }
+          },
+          "treasuryEmpty": false,
+          "liquidityP10": 1759.637713662017,
+          "arrivals": 0,
+          "valid": {
+            "ok": true,
+            "issues": [],
+            "total": 15529975.999995632,
+            "population": 207,
+            "day": 721
+          },
+          "cashDrift": -3.3248215913772583e-06,
+          "goodsError": 5.820766091346741e-11
+        },
+        {
+          "year": 2,
+          "day": 1081,
+          "population": 231,
+          "births": 0,
+          "movedAway": 0,
+          "deaths": 0,
+          "employment": 95,
+          "employed": 158,
+          "jobs": 154,
+          "vacancies": 0,
+          "unpaidWorkers": 0,
+          "unpaidWorkerDays": 7,
+          "firmClosures": 1,
+          "firmCash": 1488470.000546217,
+          "treasury": 271197.4444543553,
+          "debt": 0,
+          "defaults": {
+            "household": 0,
+            "business": 0
+          },
+          "loans": 0,
+          "foodNeed": 369.5999999999998,
+          "foodCapacity": 560,
+          "foodSellable": 560,
+          "unmetFood": 1.0835776720341528e-13,
+          "unmet30": 4.432010314303625e-13,
+          "grocers": 4,
+          "groceryWorkers": 7,
+          "schoolAccess": 0.23515769944341372,
+          "fireAccess": 0,
+          "privateProviders": [
+            {
+              "kind": "school",
+              "cash": 22966.198430303666,
+              "workers": 3,
+              "profit": 7.050754798533456
+            },
+            {
+              "kind": "fire",
+              "cash": 7447.697071340197,
+              "workers": 2,
+              "profit": 22.771801348114664
+            }
+          ],
+          "borrower": {
+            "kind": "mill",
+            "cash": 69412.03950510579,
+            "debt": 0,
+            "jobs": 7,
+            "workers": 7,
+            "loan": {
+              "id": 3,
+              "bankId": 0,
+              "ownerType": "firm",
+              "ownerId": 5,
+              "original": 500,
+              "balance": 0,
+              "rate": 0.2364608130478041,
+              "spread": 0.05661132173943714,
+              "fixedRate": false,
+              "term": 720,
+              "created": 361,
+              "arrears": 0,
+              "status": "repaid",
+              "paid": 597.4429648191563,
+              "lastPaymentDay": 1081,
+              "scheduledDue": 0.6949005802655708,
+              "paidToday": 0.6949005802655708
+            }
+          },
+          "treasuryEmpty": false,
+          "liquidityP10": 2389.7638649186865,
+          "arrivals": 0,
+          "valid": {
+            "ok": true,
+            "issues": [],
+            "total": 15529975.999989586,
+            "population": 231,
+            "day": 1081
+          },
+          "cashDrift": -9.370967745780945e-06,
+          "goodsError": 1.1004885891452432e-10
+        },
+        {
+          "year": 3,
+          "day": 1441,
+          "population": 251,
+          "births": 0,
+          "movedAway": 0,
+          "deaths": 0,
+          "employment": 98,
+          "employed": 175,
+          "jobs": 171,
+          "vacancies": 0,
+          "unpaidWorkers": 0,
+          "unpaidWorkerDays": 7,
+          "firmClosures": 1,
+          "firmCash": 1671865.3459752284,
+          "treasury": 418450.83914221224,
+          "debt": 0,
+          "defaults": {
+            "household": 0,
+            "business": 0
+          },
+          "loans": 0,
+          "foodNeed": 401.5999999999999,
+          "foodCapacity": 720,
+          "foodSellable": 720,
+          "unmetFood": 1.3322676295501878e-15,
+          "unmet30": 3.206324095117452e-13,
+          "grocers": 8,
+          "groceryWorkers": 9,
+          "schoolAccess": 0.21642003414911784,
+          "fireAccess": 0,
+          "privateProviders": [
+            {
+              "kind": "school",
+              "cash": 25238.475550342795,
+              "workers": 2,
+              "profit": 18.53820967117862
+            },
+            {
+              "kind": "fire",
+              "cash": 14807.882186038749,
+              "workers": 2,
+              "profit": 21.426843639515102
+            }
+          ],
+          "borrower": {
+            "kind": "mill",
+            "cash": 65778.32115092376,
+            "debt": 0,
+            "jobs": 6,
+            "workers": 6,
+            "loan": {
+              "id": 3,
+              "bankId": 0,
+              "ownerType": "firm",
+              "ownerId": 5,
+              "original": 500,
+              "balance": 0,
+              "rate": 0.2364608130478041,
+              "spread": 0.05661132173943714,
+              "fixedRate": false,
+              "term": 720,
+              "created": 361,
+              "arrears": 0,
+              "status": "repaid",
+              "paid": 597.4429648191563,
+              "lastPaymentDay": 1081,
+              "scheduledDue": 0.6949005802655708,
+              "paidToday": 0.6949005802655708
+            }
+          },
+          "treasuryEmpty": false,
+          "liquidityP10": 2764.135572456975,
+          "arrivals": 0,
+          "valid": {
+            "ok": true,
+            "issues": [],
+            "total": 15529975.999977829,
+            "population": 251,
+            "day": 1441
+          },
+          "cashDrift": -2.1127983927726746e-05,
+          "goodsError": 1.709850039333105e-10
+        },
+        {
+          "year": 4,
+          "day": 1801,
+          "population": 256,
+          "births": 0,
+          "movedAway": 0,
+          "deaths": 0,
+          "employment": 98,
+          "employed": 180,
+          "jobs": 174,
+          "vacancies": 0,
+          "unpaidWorkers": 0,
+          "unpaidWorkerDays": 7,
+          "firmClosures": 1,
+          "firmCash": 1686070.6489378219,
+          "treasury": 572614.7383750868,
+          "debt": 0,
+          "defaults": {
+            "household": 0,
+            "business": 0
+          },
+          "loans": 0,
+          "foodNeed": 409.5999999999999,
+          "foodCapacity": 640,
+          "foodSellable": 640,
+          "unmetFood": 1.9539925233402755e-14,
+          "unmet30": 4.098943406916078e-13,
+          "grocers": 8,
+          "groceryWorkers": 8,
+          "schoolAccess": 0.21219308035714282,
+          "fireAccess": 0,
+          "privateProviders": [
+            {
+              "kind": "school",
+              "cash": 24905.828843576135,
+              "workers": 2,
+              "profit": 13.800288174898645
+            },
+            {
+              "kind": "fire",
+              "cash": 20542.71244131254,
+              "workers": 2,
+              "profit": 17.39306022420305
+            }
+          ],
+          "borrower": {
+            "kind": "mill",
+            "cash": 63936.222271770326,
+            "debt": 0,
+            "jobs": 6,
+            "workers": 6,
+            "loan": {
+              "id": 3,
+              "bankId": 0,
+              "ownerType": "firm",
+              "ownerId": 5,
+              "original": 500,
+              "balance": 0,
+              "rate": 0.2364608130478041,
+              "spread": 0.05661132173943714,
+              "fixedRate": false,
+              "term": 720,
+              "created": 361,
+              "arrears": 0,
+              "status": "repaid",
+              "paid": 597.4429648191563,
+              "lastPaymentDay": 1081,
+              "scheduledDue": 0.6949005802655708,
+              "paidToday": 0.6949005802655708
+            }
+          },
+          "treasuryEmpty": false,
+          "liquidityP10": 3680.6016494009696,
+          "arrivals": 0,
+          "valid": {
+            "ok": true,
+            "issues": [],
+            "total": 15529975.999964012,
+            "population": 256,
+            "day": 1801
+          },
+          "cashDrift": -3.4945085644721985e-05,
+          "goodsError": 2.5647750589996576e-10
+        }
+      ],
+      "foundingSeed": 91,
+      "loanSetup": {
+        "borrower": 5,
+        "loan": {
+          "id": 3,
+          "bankId": 0,
+          "ownerType": "firm",
+          "ownerId": 5,
+          "original": 500,
+          "balance": 500,
+          "rate": 0.08661132173943714,
+          "spread": 0.05661132173943714,
+          "fixedRate": false,
+          "term": 720,
+          "created": 361,
+          "arrears": 0,
+          "status": "active",
+          "paid": 0
+        },
+        "decision": {
+          "day": 361,
+          "requested": 500,
+          "approved": true,
+          "reason": "Payment fits observed surplus and reserves",
+          "scheduled": 0.8147379468603293,
+          "stressed": 0.8425157246381071,
+          "capacity": 136.4193964037029,
+          "recurring": 128.78827462716845,
+          "essential": 0
+        }
+      }
+    },
+    {
+      "arm": "wage-only-tight",
+      "seed": 28929867,
+      "years": 4,
+      "policy": {
+        "rate": 3,
+        "lending": 35
+      },
+      "rows": [
+        {
+          "year": 1,
+          "day": 721,
+          "population": 207,
+          "births": 0,
+          "movedAway": 0,
+          "deaths": 0,
+          "employment": 100,
+          "employed": 143,
+          "jobs": 142,
+          "vacancies": 4,
+          "unpaidWorkers": 0,
+          "unpaidWorkerDays": 9,
+          "firmClosures": 0,
+          "firmCash": 1391146.0455281183,
+          "treasury": 184223.87887104694,
+          "debt": 0,
+          "defaults": {
+            "household": 0,
+            "business": 0
+          },
+          "loans": 2,
+          "foodNeed": 331.19999999999976,
+          "foodCapacity": 640,
+          "foodSellable": 640,
+          "unmetFood": 0,
+          "unmet30": 3.694822225952521e-13,
+          "grocers": 4,
+          "groceryWorkers": 8,
+          "schoolAccess": 0.2624223602484472,
+          "fireAccess": 0,
+          "privateProviders": [
+            {
+              "kind": "school",
+              "cash": 19172.301479206875,
+              "workers": 3,
+              "profit": 20.708165309325103
+            },
+            {
+              "kind": "school",
+              "cash": 0,
+              "workers": 0,
+              "profit": 0
+            }
+          ],
+          "borrower": {
+            "kind": "mill",
+            "cash": 63598.722566270975,
+            "debt": 249.99999999999545,
+            "jobs": 7,
+            "workers": 6,
+            "loan": {
+              "id": 3,
+              "bankId": 0,
+              "ownerType": "firm",
+              "ownerId": 5,
+              "original": 500,
+              "balance": 249.99999999999545,
+              "rate": 0.23185986893582536,
+              "spread": 0.05661132173943714,
+              "fixedRate": false,
+              "term": 720,
+              "created": 361,
+              "arrears": 0,
+              "status": "active",
+              "paid": 318.06455550793584,
+              "lastPaymentDay": 721,
+              "scheduledDue": 0.8559055028661872,
+              "paidToday": 0.8559055028661872
+            }
+          },
+          "treasuryEmpty": false,
+          "liquidityP10": 1759.637713662017,
+          "arrivals": 0,
+          "valid": {
+            "ok": true,
+            "issues": [],
+            "total": 15529975.999995587,
+            "population": 207,
+            "day": 721
+          },
+          "cashDrift": -3.3695250749588013e-06,
+          "goodsError": 5.820766091346741e-11
+        },
+        {
+          "year": 2,
+          "day": 1081,
+          "population": 235,
+          "births": 0,
+          "movedAway": 0,
+          "deaths": 0,
+          "employment": 95,
+          "employed": 161,
+          "jobs": 156,
+          "vacancies": 0,
+          "unpaidWorkers": 0,
+          "unpaidWorkerDays": 11,
+          "firmClosures": 1,
+          "firmCash": 1543583.4372960364,
+          "treasury": 285424.1232894289,
+          "debt": 0,
+          "defaults": {
+            "household": 0,
+            "business": 0
+          },
+          "loans": 0,
+          "foodNeed": 375.99999999999994,
+          "foodCapacity": 560,
+          "foodSellable": 560,
+          "unmetFood": 0,
+          "unmet30": 5.693223670277803e-13,
+          "grocers": 4,
+          "groceryWorkers": 7,
+          "schoolAccess": 0.2311550151975684,
+          "fireAccess": 0,
+          "privateProviders": [
+            {
+              "kind": "school",
+              "cash": 24350.99833899248,
+              "workers": 3,
+              "profit": 16.481553487091723
+            },
+            {
+              "kind": "fire",
+              "cash": 8875.591110650683,
+              "workers": 2,
+              "profit": 31.267921060973677
+            }
+          ],
+          "borrower": {
+            "kind": "mill",
+            "cash": 72779.2774767,
+            "debt": 0,
+            "jobs": 8,
+            "workers": 8,
+            "loan": {
+              "id": 3,
+              "bankId": 0,
+              "ownerType": "firm",
+              "ownerId": 5,
+              "original": 500,
+              "balance": 0,
+              "rate": 0.2364608130478041,
+              "spread": 0.05661132173943714,
+              "fixedRate": false,
+              "term": 720,
+              "created": 361,
+              "arrears": 0,
+              "status": "repaid",
+              "paid": 597.4429648191563,
+              "lastPaymentDay": 1081,
+              "scheduledDue": 0.6949005802655708,
+              "paidToday": 0.6949005802655708
+            }
+          },
+          "treasuryEmpty": false,
+          "liquidityP10": 2352.8804989538553,
+          "arrivals": 0,
+          "valid": {
+            "ok": true,
+            "issues": [],
+            "total": 15529975.999989916,
+            "population": 235,
+            "day": 1081
+          },
+          "cashDrift": -9.041279554367065e-06,
+          "goodsError": 5.547917680814862e-11
+        },
+        {
+          "year": 3,
+          "day": 1441,
+          "population": 256,
+          "births": 0,
+          "movedAway": 0,
+          "deaths": 0,
+          "employment": 98,
+          "employed": 179,
+          "jobs": 175,
+          "vacancies": 0,
+          "unpaidWorkers": 0,
+          "unpaidWorkerDays": 11,
+          "firmClosures": 1,
+          "firmCash": 1686708.5503928042,
+          "treasury": 437410.40232377645,
+          "debt": 0,
+          "defaults": {
+            "household": 0,
+            "business": 0
+          },
+          "loans": 0,
+          "foodNeed": 409.6,
+          "foodCapacity": 720,
+          "foodSellable": 720,
+          "unmetFood": 0,
+          "unmet30": 4.9649173661237e-13,
+          "grocers": 5,
+          "groceryWorkers": 9,
+          "schoolAccess": 0.21219308035714282,
+          "fireAccess": 0,
+          "privateProviders": [
+            {
+              "kind": "school",
+              "cash": 26662.519422406625,
+              "workers": 3,
+              "profit": 16.891269386577346
+            },
+            {
+              "kind": "fire",
+              "cash": 17622.136914621024,
+              "workers": 2,
+              "profit": 21.214178220589382
+            }
+          ],
+          "borrower": {
+            "kind": "mill",
+            "cash": 75502.63670205031,
+            "debt": 0,
+            "jobs": 7,
+            "workers": 7,
+            "loan": {
+              "id": 3,
+              "bankId": 0,
+              "ownerType": "firm",
+              "ownerId": 5,
+              "original": 500,
+              "balance": 0,
+              "rate": 0.2364608130478041,
+              "spread": 0.05661132173943714,
+              "fixedRate": false,
+              "term": 720,
+              "created": 361,
+              "arrears": 0,
+              "status": "repaid",
+              "paid": 597.4429648191563,
+              "lastPaymentDay": 1081,
+              "scheduledDue": 0.6949005802655708,
+              "paidToday": 0.6949005802655708
+            }
+          },
+          "treasuryEmpty": false,
+          "liquidityP10": 2273.1880550155715,
+          "arrivals": 0,
+          "valid": {
+            "ok": true,
+            "issues": [],
+            "total": 15529975.9999816,
+            "population": 256,
+            "day": 1441
+          },
+          "cashDrift": -1.7356127500534058e-05,
+          "goodsError": 1.3460521586239338e-10
+        },
+        {
+          "year": 4,
+          "day": 1801,
+          "population": 266,
+          "births": 0,
+          "movedAway": 0,
+          "deaths": 0,
+          "employment": 98,
+          "employed": 182,
+          "jobs": 176,
+          "vacancies": 0,
+          "unpaidWorkers": 0,
+          "unpaidWorkerDays": 11,
+          "firmClosures": 1,
+          "firmCash": 1742478.940189383,
+          "treasury": 608172.8679388588,
+          "debt": 0,
+          "defaults": {
+            "household": 0,
+            "business": 0
+          },
+          "loans": 0,
+          "foodNeed": 425.5999999999999,
+          "foodCapacity": 800,
+          "foodSellable": 800,
+          "unmetFood": 0,
+          "unmet30": 3.099742684753437e-13,
+          "grocers": 5,
+          "groceryWorkers": 10,
+          "schoolAccess": 0.20421589688506983,
+          "fireAccess": 0,
+          "privateProviders": [
+            {
+              "kind": "school",
+              "cash": 27369.967023315057,
+              "workers": 3,
+              "profit": 8.541488884539326
+            },
+            {
+              "kind": "fire",
+              "cash": 23306.358679675246,
+              "workers": 2,
+              "profit": 18.232671459245925
+            }
+          ],
+          "borrower": {
+            "kind": "mill",
+            "cash": 77125.34807646528,
+            "debt": 0,
+            "jobs": 8,
+            "workers": 8,
+            "loan": {
+              "id": 3,
+              "bankId": 0,
+              "ownerType": "firm",
+              "ownerId": 5,
+              "original": 500,
+              "balance": 0,
+              "rate": 0.2364608130478041,
+              "spread": 0.05661132173943714,
+              "fixedRate": false,
+              "term": 720,
+              "created": 361,
+              "arrears": 0,
+              "status": "repaid",
+              "paid": 597.4429648191563,
+              "lastPaymentDay": 1081,
+              "scheduledDue": 0.6949005802655708,
+              "paidToday": 0.6949005802655708
+            }
+          },
+          "treasuryEmpty": false,
+          "liquidityP10": 2918.0004434768553,
+          "arrivals": 0,
+          "valid": {
+            "ok": true,
+            "issues": [],
+            "total": 15529975.999984503,
+            "population": 266,
+            "day": 1801
+          },
+          "cashDrift": -1.4454126358032227e-05,
+          "goodsError": 2.2373569663614035e-10
+        }
+      ],
+      "foundingSeed": 91,
+      "loanSetup": {
+        "borrower": 5,
+        "loan": {
+          "id": 3,
+          "bankId": 0,
+          "ownerType": "firm",
+          "ownerId": 5,
+          "original": 500,
+          "balance": 500,
+          "rate": 0.08661132173943714,
+          "spread": 0.05661132173943714,
+          "fixedRate": false,
+          "term": 720,
+          "created": 361,
+          "arrears": 0,
+          "status": "active",
+          "paid": 0
+        },
+        "decision": {
+          "day": 361,
+          "requested": 500,
+          "approved": true,
+          "reason": "Payment fits observed surplus and reserves",
+          "scheduled": 0.8147379468603293,
+          "stressed": 0.8425157246381071,
+          "capacity": 136.4193964037029,
+          "recurring": 128.78827462716845,
+          "essential": 0
+        }
+      }
+    },
+    {
+      "arm": "funded-tight-recovery",
+      "seed": 28929867,
+      "years": 4,
+      "policy": {
+        "rate": 3,
+        "lending": 35
+      },
+      "rows": [
+        {
+          "year": 1,
+          "day": 721,
+          "population": 207,
+          "births": 0,
+          "movedAway": 0,
+          "deaths": 0,
+          "employment": 100,
+          "employed": 143,
+          "jobs": 142,
+          "vacancies": 3,
+          "unpaidWorkers": 0,
+          "unpaidWorkerDays": 7,
+          "firmClosures": 0,
+          "firmCash": 1390577.0224009494,
+          "treasury": 184122.78857112728,
+          "debt": 0,
+          "defaults": {
+            "household": 0,
+            "business": 0
+          },
+          "loans": 2,
+          "foodNeed": 331.19999999999976,
+          "foodCapacity": 640,
+          "foodSellable": 640,
+          "unmetFood": 0,
+          "unmet30": 3.694822225952521e-13,
+          "grocers": 4,
+          "groceryWorkers": 8,
+          "schoolAccess": 0.2624223602484472,
+          "fireAccess": 0,
+          "privateProviders": [
+            {
+              "kind": "school",
+              "cash": 19172.301479206875,
+              "workers": 3,
+              "profit": 20.708165309325103
+            },
+            {
+              "kind": "school",
+              "cash": 0,
+              "workers": 0,
+              "profit": 0
+            }
+          ],
+          "borrower": {
+            "kind": "mill",
+            "cash": 63598.72167634945,
+            "debt": 249.99999999999545,
+            "jobs": 7,
+            "workers": 6,
+            "loan": {
+              "id": 3,
+              "bankId": 0,
+              "ownerType": "firm",
+              "ownerId": 5,
+              "original": 500,
+              "balance": 249.99999999999545,
+              "rate": 0.23185986893582536,
+              "spread": 0.05661132173943714,
+              "fixedRate": false,
+              "term": 720,
+              "created": 361,
+              "arrears": 0,
+              "status": "active",
+              "paid": 318.06455550793584,
+              "lastPaymentDay": 721,
+              "scheduledDue": 0.8559055028661872,
+              "paidToday": 0.8559055028661872
+            }
+          },
+          "treasuryEmpty": false,
+          "liquidityP10": 1759.637713662017,
+          "arrivals": 0,
+          "valid": {
+            "ok": true,
+            "issues": [],
+            "total": 15529975.999995632,
+            "population": 207,
+            "day": 721
+          },
+          "cashDrift": -3.3248215913772583e-06,
+          "goodsError": 5.820766091346741e-11
+        },
+        {
+          "year": 2,
+          "day": 1081,
+          "population": 231,
+          "births": 0,
+          "movedAway": 0,
+          "deaths": 0,
+          "employment": 95,
+          "employed": 158,
+          "jobs": 154,
+          "vacancies": 0,
+          "unpaidWorkers": 0,
+          "unpaidWorkerDays": 7,
+          "firmClosures": 1,
+          "firmCash": 1488470.000546217,
+          "treasury": 271197.4444543553,
+          "debt": 0,
+          "defaults": {
+            "household": 0,
+            "business": 0
+          },
+          "loans": 0,
+          "foodNeed": 369.5999999999998,
+          "foodCapacity": 560,
+          "foodSellable": 560,
+          "unmetFood": 1.0835776720341528e-13,
+          "unmet30": 4.432010314303625e-13,
+          "grocers": 4,
+          "groceryWorkers": 7,
+          "schoolAccess": 0.23515769944341372,
+          "fireAccess": 0,
+          "privateProviders": [
+            {
+              "kind": "school",
+              "cash": 22966.198430303666,
+              "workers": 3,
+              "profit": 7.050754798533456
+            },
+            {
+              "kind": "fire",
+              "cash": 7447.697071340197,
+              "workers": 2,
+              "profit": 22.771801348114664
+            }
+          ],
+          "borrower": {
+            "kind": "mill",
+            "cash": 69412.03950510579,
+            "debt": 0,
+            "jobs": 7,
+            "workers": 7,
+            "loan": {
+              "id": 3,
+              "bankId": 0,
+              "ownerType": "firm",
+              "ownerId": 5,
+              "original": 500,
+              "balance": 0,
+              "rate": 0.2364608130478041,
+              "spread": 0.05661132173943714,
+              "fixedRate": false,
+              "term": 720,
+              "created": 361,
+              "arrears": 0,
+              "status": "repaid",
+              "paid": 597.4429648191563,
+              "lastPaymentDay": 1081,
+              "scheduledDue": 0.6949005802655708,
+              "paidToday": 0.6949005802655708
+            }
+          },
+          "treasuryEmpty": false,
+          "liquidityP10": 2389.7638649186865,
+          "arrivals": 0,
+          "valid": {
+            "ok": true,
+            "issues": [],
+            "total": 15529975.999989586,
+            "population": 231,
+            "day": 1081
+          },
+          "cashDrift": -9.370967745780945e-06,
+          "goodsError": 1.1004885891452432e-10
+        },
+        {
+          "year": 3,
+          "day": 1441,
+          "population": 255,
+          "births": 0,
+          "movedAway": 0,
+          "deaths": 0,
+          "employment": 99,
+          "employed": 182,
+          "jobs": 178,
+          "vacancies": 0,
+          "unpaidWorkers": 0,
+          "unpaidWorkerDays": 7,
+          "firmClosures": 1,
+          "firmCash": 1640071.6656741893,
+          "treasury": 419589.9598149521,
+          "debt": 0,
+          "defaults": {
+            "household": 0,
+            "business": 0
+          },
+          "loans": 2,
+          "foodNeed": 407.9999999999998,
+          "foodCapacity": 800,
+          "foodSellable": 800,
+          "unmetFood": 9.769962616701378e-15,
+          "unmet30": 5.59996493620929e-13,
+          "grocers": 7,
+          "groceryWorkers": 10,
+          "schoolAccess": 0.21302521008403358,
+          "fireAccess": 0,
+          "privateProviders": [
+            {
+              "kind": "school",
+              "cash": 25680.487732622303,
+              "workers": 3,
+              "profit": 9.926828769627589
+            },
+            {
+              "kind": "fire",
+              "cash": 15344.614988827487,
+              "workers": 2,
+              "profit": 20.149740583402064
+            }
+          ],
+          "borrower": {
+            "kind": "mill",
+            "cash": 63490.42509691306,
+            "debt": 0,
+            "jobs": 6,
+            "workers": 6,
+            "loan": {
+              "id": 3,
+              "bankId": 0,
+              "ownerType": "firm",
+              "ownerId": 5,
+              "original": 500,
+              "balance": 0,
+              "rate": 0.2364608130478041,
+              "spread": 0.05661132173943714,
+              "fixedRate": false,
+              "term": 720,
+              "created": 361,
+              "arrears": 0,
+              "status": "repaid",
+              "paid": 597.4429648191563,
+              "lastPaymentDay": 1081,
+              "scheduledDue": 0.6949005802655708,
+              "paidToday": 0.6949005802655708
+            }
+          },
+          "treasuryEmpty": false,
+          "liquidityP10": 2266.75721628626,
+          "arrivals": 0,
+          "valid": {
+            "ok": true,
+            "issues": [],
+            "total": 15529975.999979325,
+            "population": 255,
+            "day": 1441
+          },
+          "cashDrift": -1.9632279872894287e-05,
+          "goodsError": 1.4551915228366852e-10
+        },
+        {
+          "year": 4,
+          "day": 1801,
+          "population": 264,
+          "births": 0,
+          "movedAway": 0,
+          "deaths": 0,
+          "employment": 98,
+          "employed": 183,
+          "jobs": 173,
+          "vacancies": 0,
+          "unpaidWorkers": 0,
+          "unpaidWorkerDays": 7,
+          "firmClosures": 1,
+          "firmCash": 1656865.5885743888,
+          "treasury": 580647.2438797939,
+          "debt": 0,
+          "defaults": {
+            "household": 0,
+            "business": 0
+          },
+          "loans": 1,
+          "foodNeed": 422.39999999999986,
+          "foodCapacity": 800,
+          "foodSellable": 800,
+          "unmetFood": 0,
+          "unmet30": 5.17808018685173e-13,
+          "grocers": 7,
+          "groceryWorkers": 10,
+          "schoolAccess": 0.20576298701298704,
+          "fireAccess": 0,
+          "privateProviders": [
+            {
+              "kind": "school",
+              "cash": 25685.03744627008,
+              "workers": 2,
+              "profit": 12.30114733174998
+            },
+            {
+              "kind": "fire",
+              "cash": 21631.121308912792,
+              "workers": 2,
+              "profit": 18.360125238279355
+            }
+          ],
+          "borrower": {
+            "kind": "mill",
+            "cash": 60269.60929120415,
+            "debt": 0,
+            "jobs": 6,
+            "workers": 6,
+            "loan": {
+              "id": 3,
+              "bankId": 0,
+              "ownerType": "firm",
+              "ownerId": 5,
+              "original": 500,
+              "balance": 0,
+              "rate": 0.2364608130478041,
+              "spread": 0.05661132173943714,
+              "fixedRate": false,
+              "term": 720,
+              "created": 361,
+              "arrears": 0,
+              "status": "repaid",
+              "paid": 597.4429648191563,
+              "lastPaymentDay": 1081,
+              "scheduledDue": 0.6949005802655708,
+              "paidToday": 0.6949005802655708
+            }
+          },
+          "treasuryEmpty": false,
+          "liquidityP10": 2742.975106982297,
+          "arrivals": 0,
+          "valid": {
+            "ok": true,
+            "issues": [],
+            "total": 15529975.99996798,
+            "population": 264,
+            "day": 1801
+          },
+          "cashDrift": -3.0977651476860046e-05,
+          "goodsError": 2.191882231272757e-10
+        }
+      ],
+      "foundingSeed": 91,
+      "loanSetup": {
+        "borrower": 5,
+        "loan": {
+          "id": 3,
+          "bankId": 0,
+          "ownerType": "firm",
+          "ownerId": 5,
+          "original": 500,
+          "balance": 500,
+          "rate": 0.08661132173943714,
+          "spread": 0.05661132173943714,
+          "fixedRate": false,
+          "term": 720,
+          "created": 361,
+          "arrears": 0,
+          "status": "active",
+          "paid": 0
+        },
+        "decision": {
+          "day": 361,
+          "requested": 500,
+          "approved": true,
+          "reason": "Payment fits observed surplus and reserves",
+          "scheduled": 0.8147379468603293,
+          "stressed": 0.8425157246381071,
+          "capacity": 136.4193964037029,
+          "recurring": 128.78827462716845,
+          "essential": 0
+        }
+      }
+    },
+    {
+      "arm": "funded-base",
+      "seed": 20155397,
+      "years": 4,
+      "policy": {
+        "rate": 3,
+        "lending": 35
+      },
+      "rows": [
+        {
+          "year": 1,
+          "day": 721,
+          "population": 218,
+          "births": 0,
+          "movedAway": 0,
+          "deaths": 0,
+          "employment": 97,
+          "employed": 150,
+          "jobs": 143,
+          "vacancies": 0,
+          "unpaidWorkers": 0,
+          "unpaidWorkerDays": 0,
+          "firmClosures": 0,
+          "firmCash": 1390962.0412215316,
+          "treasury": 212544.43176890147,
+          "debt": 0,
+          "defaults": {
+            "household": 0,
+            "business": 0
+          },
+          "loans": 2,
+          "foodNeed": 348.79999999999967,
+          "foodCapacity": 560,
+          "foodSellable": 560,
+          "unmetFood": 0,
+          "unmet30": 1.6076029396572267e-13,
+          "grocers": 4,
+          "groceryWorkers": 7,
+          "schoolAccess": 0.2491808650065531,
+          "fireAccess": 0,
+          "privateProviders": [
+            {
+              "kind": "school",
+              "cash": 20400.990310176825,
+              "workers": 4,
+              "profit": 10.934806882329239
+            }
+          ],
+          "borrower": {
+            "kind": "sawmill",
+            "cash": 60231.40216469415,
+            "debt": 249.99999999999545,
+            "jobs": 5,
+            "workers": 5,
+            "loan": {
+              "id": 3,
+              "bankId": 0,
+              "ownerType": "firm",
+              "ownerId": 13,
+              "original": 500,
+              "balance": 249.99999999999545,
+              "rate": 0.08653976834638755,
+              "spread": 0.05653976834638755,
+              "fixedRate": false,
+              "term": 720,
+              "created": 361,
+              "arrears": 0,
+              "status": "active",
+              "paid": 282.4824616605709,
+              "lastPaymentDay": 721,
+              "scheduledDue": 0.7547084420776338,
+              "paidToday": 0.7547084420776338
+            }
+          },
+          "treasuryEmpty": false,
+          "liquidityP10": 989.8345776301176,
+          "arrivals": 0,
+          "valid": {
+            "ok": true,
+            "issues": [],
+            "total": 15484590.999989958,
+            "population": 218,
+            "day": 721
+          },
+          "cashDrift": -5.753710865974426e-06,
+          "goodsError": 1.7826096154749393e-10
+        },
+        {
+          "year": 2,
+          "day": 1081,
+          "population": 228,
+          "births": 0,
+          "movedAway": 0,
+          "deaths": 0,
+          "employment": 95,
+          "employed": 157,
+          "jobs": 150,
+          "vacancies": 0,
+          "unpaidWorkers": 0,
+          "unpaidWorkerDays": 0,
+          "firmClosures": 0,
+          "firmCash": 1492955.8413491105,
+          "treasury": 330734.83492330206,
+          "debt": 0,
+          "defaults": {
+            "household": 0,
+            "business": 0
+          },
+          "loans": 0,
+          "foodNeed": 364.7999999999998,
+          "foodCapacity": 560,
+          "foodSellable": 560,
+          "unmetFood": 1.9539925233402755e-14,
+          "unmet30": 2.566835632933362e-13,
+          "grocers": 4,
+          "groceryWorkers": 7,
+          "schoolAccess": 0.2382518796992481,
+          "fireAccess": 0,
+          "privateProviders": [
+            {
+              "kind": "school",
+              "cash": 23918.6343465557,
+              "workers": 2,
+              "profit": 18.38081006053464
+            },
+            {
+              "kind": "fire",
+              "cash": 9942.339186319601,
+              "workers": 2,
+              "profit": 24.305686214941186
+            }
+          ],
+          "borrower": {
+            "kind": "sawmill",
+            "cash": 62076.18425457175,
+            "debt": 0,
+            "jobs": 6,
+            "workers": 6,
+            "loan": {
+              "id": 3,
+              "bankId": 0,
+              "ownerType": "firm",
+              "ownerId": 13,
+              "original": 500,
+              "balance": 0,
+              "rate": 0.08653976834638755,
+              "spread": 0.05653976834638755,
+              "fixedRate": false,
+              "term": 720,
+              "created": 361,
+              "arrears": 0,
+              "status": "repaid",
+              "paid": 543.3299812345383,
+              "lastPaymentDay": 1081,
+              "scheduledDue": 0.6946113807194674,
+              "paidToday": 0.6946113807194674
+            }
+          },
+          "treasuryEmpty": false,
+          "liquidityP10": 1300.025362317039,
+          "arrivals": 0,
+          "valid": {
+            "ok": true,
+            "issues": [],
+            "total": 15484590.999983244,
+            "population": 228,
+            "day": 1081
+          },
+          "cashDrift": -1.2468546628952026e-05,
+          "goodsError": 2.8558133635669947e-10
+        },
+        {
+          "year": 3,
+          "day": 1441,
+          "population": 237,
+          "births": 0,
+          "movedAway": 0,
+          "deaths": 0,
+          "employment": 96,
+          "employed": 164,
+          "jobs": 155,
+          "vacancies": 0,
+          "unpaidWorkers": 0,
+          "unpaidWorkerDays": 0,
+          "firmClosures": 0,
+          "firmCash": 1515866.768046821,
+          "treasury": 462134.72265549796,
+          "debt": 0,
+          "defaults": {
+            "household": 0,
+            "business": 0
+          },
+          "loans": 0,
+          "foodNeed": 379.1999999999999,
+          "foodCapacity": 720,
+          "foodSellable": 720,
+          "unmetFood": 0,
+          "unmet30": 4.085620730620576e-13,
+          "grocers": 7,
+          "groceryWorkers": 9,
+          "schoolAccess": 0.22920433996383366,
+          "fireAccess": 0,
+          "privateProviders": [
+            {
+              "kind": "school",
+              "cash": 23769.604189083533,
+              "workers": 2,
+              "profit": 10.121506098213189
+            },
+            {
+              "kind": "fire",
+              "cash": 16894.92610629493,
+              "workers": 2,
+              "profit": 18.978315661427438
+            }
+          ],
+          "borrower": {
+            "kind": "sawmill",
+            "cash": 59278.49930076651,
+            "debt": 0,
+            "jobs": 5,
+            "workers": 5,
+            "loan": {
+              "id": 3,
+              "bankId": 0,
+              "ownerType": "firm",
+              "ownerId": 13,
+              "original": 500,
+              "balance": 0,
+              "rate": 0.08653976834638755,
+              "spread": 0.05653976834638755,
+              "fixedRate": false,
+              "term": 720,
+              "created": 361,
+              "arrears": 0,
+              "status": "repaid",
+              "paid": 543.3299812345383,
+              "lastPaymentDay": 1081,
+              "scheduledDue": 0.6946113807194674,
+              "paidToday": 0.6946113807194674
+            }
+          },
+          "treasuryEmpty": false,
+          "liquidityP10": 1399.3624982831252,
+          "arrivals": 0,
+          "valid": {
+            "ok": true,
+            "issues": [],
+            "total": 15484590.999976397,
+            "population": 237,
+            "day": 1441
+          },
+          "cashDrift": -1.9315630197525024e-05,
+          "goodsError": 2.7193891583010554e-10
+        },
+        {
+          "year": 4,
+          "day": 1801,
+          "population": 242,
+          "births": 0,
+          "movedAway": 0,
+          "deaths": 0,
+          "employment": 97,
+          "employed": 169,
+          "jobs": 163,
+          "vacancies": 0,
+          "unpaidWorkers": 0,
+          "unpaidWorkerDays": 0,
+          "firmClosures": 0,
+          "firmCash": 1581806.354488179,
+          "treasury": 606724.3538761655,
+          "debt": 0,
+          "defaults": {
+            "household": 0,
+            "business": 0
+          },
+          "loans": 0,
+          "foodNeed": 387.1999999999998,
+          "foodCapacity": 640,
+          "foodSellable": 640,
+          "unmetFood": 5.329070518200751e-15,
+          "unmet30": 4.3876013933186186e-13,
+          "grocers": 7,
+          "groceryWorkers": 8,
+          "schoolAccess": 0.2244687131050767,
+          "fireAccess": 0,
+          "privateProviders": [
+            {
+              "kind": "school",
+              "cash": 24347.04393936237,
+              "workers": 2,
+              "profit": 14.61342526749008
+            },
+            {
+              "kind": "fire",
+              "cash": 22719.05088774156,
+              "workers": 2,
+              "profit": 15.667023068911234
+            }
+          ],
+          "borrower": {
+            "kind": "sawmill",
+            "cash": 63056.95649266372,
+            "debt": 0,
+            "jobs": 6,
+            "workers": 6,
+            "loan": {
+              "id": 3,
+              "bankId": 0,
+              "ownerType": "firm",
+              "ownerId": 13,
+              "original": 500,
+              "balance": 0,
+              "rate": 0.08653976834638755,
+              "spread": 0.05653976834638755,
+              "fixedRate": false,
+              "term": 720,
+              "created": 361,
+              "arrears": 0,
+              "status": "repaid",
+              "paid": 543.3299812345383,
+              "lastPaymentDay": 1081,
+              "scheduledDue": 0.6946113807194674,
+              "paidToday": 0.6946113807194674
+            }
+          },
+          "treasuryEmpty": false,
+          "liquidityP10": 1737.9979893550285,
+          "arrivals": 0,
+          "valid": {
+            "ok": true,
+            "issues": [],
+            "total": 15484590.99997339,
+            "population": 242,
+            "day": 1801
+          },
+          "cashDrift": -2.232193946838379e-05,
+          "goodsError": 1.9736035028472543e-10
+        }
+      ],
+      "foundingSeed": 909,
+      "loanSetup": {
+        "borrower": 13,
+        "loan": {
+          "id": 3,
+          "bankId": 0,
+          "ownerType": "firm",
+          "ownerId": 13,
+          "original": 500,
+          "balance": 500,
+          "rate": 0.08653976834638755,
+          "spread": 0.05653976834638755,
+          "fixedRate": false,
+          "term": 720,
+          "created": 361,
+          "arrears": 0,
+          "status": "active",
+          "paid": 0
+        },
+        "decision": {
+          "day": 361,
+          "requested": 500,
+          "approved": true,
+          "reason": "Payment fits observed surplus and reserves",
+          "scheduled": 0.8146385671477605,
+          "stressed": 0.8424163449255382,
+          "capacity": 154.68547058781428,
+          "recurring": 144.96773186455772,
+          "essential": 0
+        }
+      }
+    },
+    {
+      "arm": "wage-only",
+      "seed": 20155397,
+      "years": 4,
+      "policy": {
+        "rate": 3,
+        "lending": 35
+      },
+      "rows": [
+        {
+          "year": 1,
+          "day": 721,
+          "population": 218,
+          "births": 0,
+          "movedAway": 0,
+          "deaths": 0,
+          "employment": 97,
+          "employed": 150,
+          "jobs": 143,
+          "vacancies": 0,
+          "unpaidWorkers": 0,
+          "unpaidWorkerDays": 0,
+          "firmClosures": 0,
+          "firmCash": 1390962.0412215316,
+          "treasury": 212544.43176890147,
+          "debt": 0,
+          "defaults": {
+            "household": 0,
+            "business": 0
+          },
+          "loans": 2,
+          "foodNeed": 348.79999999999967,
+          "foodCapacity": 560,
+          "foodSellable": 560,
+          "unmetFood": 0,
+          "unmet30": 1.6076029396572267e-13,
+          "grocers": 4,
+          "groceryWorkers": 7,
+          "schoolAccess": 0.2491808650065531,
+          "fireAccess": 0,
+          "privateProviders": [
+            {
+              "kind": "school",
+              "cash": 20400.990310176825,
+              "workers": 4,
+              "profit": 10.934806882329239
+            }
+          ],
+          "borrower": {
+            "kind": "sawmill",
+            "cash": 60231.40216469415,
+            "debt": 249.99999999999545,
+            "jobs": 5,
+            "workers": 5,
+            "loan": {
+              "id": 3,
+              "bankId": 0,
+              "ownerType": "firm",
+              "ownerId": 13,
+              "original": 500,
+              "balance": 249.99999999999545,
+              "rate": 0.08653976834638755,
+              "spread": 0.05653976834638755,
+              "fixedRate": false,
+              "term": 720,
+              "created": 361,
+              "arrears": 0,
+              "status": "active",
+              "paid": 282.4824616605709,
+              "lastPaymentDay": 721,
+              "scheduledDue": 0.7547084420776338,
+              "paidToday": 0.7547084420776338
+            }
+          },
+          "treasuryEmpty": false,
+          "liquidityP10": 989.8345776301176,
+          "arrivals": 0,
+          "valid": {
+            "ok": true,
+            "issues": [],
+            "total": 15484590.999989958,
+            "population": 218,
+            "day": 721
+          },
+          "cashDrift": -5.753710865974426e-06,
+          "goodsError": 1.7826096154749393e-10
+        },
+        {
+          "year": 2,
+          "day": 1081,
+          "population": 228,
+          "births": 0,
+          "movedAway": 0,
+          "deaths": 0,
+          "employment": 95,
+          "employed": 157,
+          "jobs": 150,
+          "vacancies": 0,
+          "unpaidWorkers": 0,
+          "unpaidWorkerDays": 0,
+          "firmClosures": 0,
+          "firmCash": 1492955.8413491105,
+          "treasury": 330734.83492330206,
+          "debt": 0,
+          "defaults": {
+            "household": 0,
+            "business": 0
+          },
+          "loans": 0,
+          "foodNeed": 364.7999999999998,
+          "foodCapacity": 560,
+          "foodSellable": 560,
+          "unmetFood": 1.9539925233402755e-14,
+          "unmet30": 2.566835632933362e-13,
+          "grocers": 4,
+          "groceryWorkers": 7,
+          "schoolAccess": 0.2382518796992481,
+          "fireAccess": 0,
+          "privateProviders": [
+            {
+              "kind": "school",
+              "cash": 23918.6343465557,
+              "workers": 2,
+              "profit": 18.38081006053464
+            },
+            {
+              "kind": "fire",
+              "cash": 9942.339186319601,
+              "workers": 2,
+              "profit": 24.305686214941186
+            }
+          ],
+          "borrower": {
+            "kind": "sawmill",
+            "cash": 62076.18425457175,
+            "debt": 0,
+            "jobs": 6,
+            "workers": 6,
+            "loan": {
+              "id": 3,
+              "bankId": 0,
+              "ownerType": "firm",
+              "ownerId": 13,
+              "original": 500,
+              "balance": 0,
+              "rate": 0.08653976834638755,
+              "spread": 0.05653976834638755,
+              "fixedRate": false,
+              "term": 720,
+              "created": 361,
+              "arrears": 0,
+              "status": "repaid",
+              "paid": 543.3299812345383,
+              "lastPaymentDay": 1081,
+              "scheduledDue": 0.6946113807194674,
+              "paidToday": 0.6946113807194674
+            }
+          },
+          "treasuryEmpty": false,
+          "liquidityP10": 1300.025362317039,
+          "arrivals": 0,
+          "valid": {
+            "ok": true,
+            "issues": [],
+            "total": 15484590.999983244,
+            "population": 228,
+            "day": 1081
+          },
+          "cashDrift": -1.2468546628952026e-05,
+          "goodsError": 2.8558133635669947e-10
+        },
+        {
+          "year": 3,
+          "day": 1441,
+          "population": 237,
+          "births": 0,
+          "movedAway": 0,
+          "deaths": 0,
+          "employment": 96,
+          "employed": 164,
+          "jobs": 155,
+          "vacancies": 0,
+          "unpaidWorkers": 0,
+          "unpaidWorkerDays": 0,
+          "firmClosures": 0,
+          "firmCash": 1515866.768046821,
+          "treasury": 462134.72265549796,
+          "debt": 0,
+          "defaults": {
+            "household": 0,
+            "business": 0
+          },
+          "loans": 0,
+          "foodNeed": 379.1999999999999,
+          "foodCapacity": 720,
+          "foodSellable": 720,
+          "unmetFood": 0,
+          "unmet30": 4.085620730620576e-13,
+          "grocers": 7,
+          "groceryWorkers": 9,
+          "schoolAccess": 0.22920433996383366,
+          "fireAccess": 0,
+          "privateProviders": [
+            {
+              "kind": "school",
+              "cash": 23769.604189083533,
+              "workers": 2,
+              "profit": 10.121506098213189
+            },
+            {
+              "kind": "fire",
+              "cash": 16894.92610629493,
+              "workers": 2,
+              "profit": 18.978315661427438
+            }
+          ],
+          "borrower": {
+            "kind": "sawmill",
+            "cash": 59278.49930076651,
+            "debt": 0,
+            "jobs": 5,
+            "workers": 5,
+            "loan": {
+              "id": 3,
+              "bankId": 0,
+              "ownerType": "firm",
+              "ownerId": 13,
+              "original": 500,
+              "balance": 0,
+              "rate": 0.08653976834638755,
+              "spread": 0.05653976834638755,
+              "fixedRate": false,
+              "term": 720,
+              "created": 361,
+              "arrears": 0,
+              "status": "repaid",
+              "paid": 543.3299812345383,
+              "lastPaymentDay": 1081,
+              "scheduledDue": 0.6946113807194674,
+              "paidToday": 0.6946113807194674
+            }
+          },
+          "treasuryEmpty": false,
+          "liquidityP10": 1399.3624982831252,
+          "arrivals": 0,
+          "valid": {
+            "ok": true,
+            "issues": [],
+            "total": 15484590.999976397,
+            "population": 237,
+            "day": 1441
+          },
+          "cashDrift": -1.9315630197525024e-05,
+          "goodsError": 2.7193891583010554e-10
+        },
+        {
+          "year": 4,
+          "day": 1801,
+          "population": 242,
+          "births": 0,
+          "movedAway": 0,
+          "deaths": 0,
+          "employment": 97,
+          "employed": 169,
+          "jobs": 163,
+          "vacancies": 0,
+          "unpaidWorkers": 0,
+          "unpaidWorkerDays": 0,
+          "firmClosures": 0,
+          "firmCash": 1581806.354488179,
+          "treasury": 606724.3538761655,
+          "debt": 0,
+          "defaults": {
+            "household": 0,
+            "business": 0
+          },
+          "loans": 0,
+          "foodNeed": 387.1999999999998,
+          "foodCapacity": 640,
+          "foodSellable": 640,
+          "unmetFood": 5.329070518200751e-15,
+          "unmet30": 4.3876013933186186e-13,
+          "grocers": 7,
+          "groceryWorkers": 8,
+          "schoolAccess": 0.2244687131050767,
+          "fireAccess": 0,
+          "privateProviders": [
+            {
+              "kind": "school",
+              "cash": 24347.04393936237,
+              "workers": 2,
+              "profit": 14.61342526749008
+            },
+            {
+              "kind": "fire",
+              "cash": 22719.05088774156,
+              "workers": 2,
+              "profit": 15.667023068911234
+            }
+          ],
+          "borrower": {
+            "kind": "sawmill",
+            "cash": 63056.95649266372,
+            "debt": 0,
+            "jobs": 6,
+            "workers": 6,
+            "loan": {
+              "id": 3,
+              "bankId": 0,
+              "ownerType": "firm",
+              "ownerId": 13,
+              "original": 500,
+              "balance": 0,
+              "rate": 0.08653976834638755,
+              "spread": 0.05653976834638755,
+              "fixedRate": false,
+              "term": 720,
+              "created": 361,
+              "arrears": 0,
+              "status": "repaid",
+              "paid": 543.3299812345383,
+              "lastPaymentDay": 1081,
+              "scheduledDue": 0.6946113807194674,
+              "paidToday": 0.6946113807194674
+            }
+          },
+          "treasuryEmpty": false,
+          "liquidityP10": 1737.9979893550285,
+          "arrivals": 0,
+          "valid": {
+            "ok": true,
+            "issues": [],
+            "total": 15484590.99997339,
+            "population": 242,
+            "day": 1801
+          },
+          "cashDrift": -2.232193946838379e-05,
+          "goodsError": 1.9736035028472543e-10
+        }
+      ],
+      "foundingSeed": 909,
+      "loanSetup": {
+        "borrower": 13,
+        "loan": {
+          "id": 3,
+          "bankId": 0,
+          "ownerType": "firm",
+          "ownerId": 13,
+          "original": 500,
+          "balance": 500,
+          "rate": 0.08653976834638755,
+          "spread": 0.05653976834638755,
+          "fixedRate": false,
+          "term": 720,
+          "created": 361,
+          "arrears": 0,
+          "status": "active",
+          "paid": 0
+        },
+        "decision": {
+          "day": 361,
+          "requested": 500,
+          "approved": true,
+          "reason": "Payment fits observed surplus and reserves",
+          "scheduled": 0.8146385671477605,
+          "stressed": 0.8424163449255382,
+          "capacity": 154.68547058781428,
+          "recurring": 144.96773186455772,
+          "essential": 0
+        }
+      }
+    },
+    {
+      "arm": "funded-tight",
+      "seed": 20155397,
+      "years": 4,
+      "policy": {
+        "rate": 3,
+        "lending": 35
+      },
+      "rows": [
+        {
+          "year": 1,
+          "day": 721,
+          "population": 220,
+          "births": 0,
+          "movedAway": 0,
+          "deaths": 0,
+          "employment": 97,
+          "employed": 147,
+          "jobs": 143,
+          "vacancies": 0,
+          "unpaidWorkers": 0,
+          "unpaidWorkerDays": 0,
+          "firmClosures": 0,
+          "firmCash": 1362943.2193817827,
+          "treasury": 198027.0820791882,
+          "debt": 0,
+          "defaults": {
+            "household": 0,
+            "business": 0
+          },
+          "loans": 2,
+          "foodNeed": 351.9999999999998,
+          "foodCapacity": 560,
+          "foodSellable": 560,
+          "unmetFood": 0,
+          "unmet30": 2.566835632933362e-13,
+          "grocers": 4,
+          "groceryWorkers": 7,
+          "schoolAccess": 0.2469155844155844,
+          "fireAccess": 0,
+          "privateProviders": [
+            {
+              "kind": "school",
+              "cash": 20305.074295852897,
+              "workers": 4,
+              "profit": 11.965604045820564
+            }
+          ],
+          "borrower": {
+            "kind": "sawmill",
+            "cash": 58944.719569782814,
+            "debt": 249.99999999999545,
+            "jobs": 5,
+            "workers": 5,
+            "loan": {
+              "id": 3,
+              "bankId": 0,
+              "ownerType": "firm",
+              "ownerId": 13,
+              "original": 500,
+              "balance": 249.99999999999545,
+              "rate": 0.23178831554277582,
+              "spread": 0.05653976834638755,
+              "fixedRate": false,
+              "term": 720,
+              "created": 361,
+              "arrears": 0,
+              "status": "active",
+              "paid": 318.0376981406143,
+              "lastPaymentDay": 721,
+              "scheduledDue": 0.8558556749825242,
+              "paidToday": 0.8558556749825242
+            }
+          },
+          "treasuryEmpty": false,
+          "liquidityP10": 1220.9383116703063,
+          "arrivals": 0,
+          "valid": {
+            "ok": true,
+            "issues": [],
+            "total": 15484590.999990098,
+            "population": 220,
+            "day": 721
+          },
+          "cashDrift": -5.6140124797821045e-06,
+          "goodsError": 9.367795428261161e-11
+        },
+        {
+          "year": 2,
+          "day": 1081,
+          "population": 233,
+          "births": 0,
+          "movedAway": 0,
+          "deaths": 0,
+          "employment": 96,
+          "employed": 156,
+          "jobs": 150,
+          "vacancies": 0,
+          "unpaidWorkers": 0,
+          "unpaidWorkerDays": 0,
+          "firmClosures": 0,
+          "firmCash": 1431011.3421536528,
+          "treasury": 289977.8258147047,
+          "debt": 0,
+          "defaults": {
+            "household": 0,
+            "business": 0
+          },
+          "loans": 0,
+          "foodNeed": 372.79999999999984,
+          "foodCapacity": 640,
+          "foodSellable": 640,
+          "unmetFood": 3.552713678800501e-14,
+          "unmet30": 3.6415315207705135e-13,
+          "grocers": 4,
+          "groceryWorkers": 8,
+          "schoolAccess": 0.23313917841814835,
+          "fireAccess": 0,
+          "privateProviders": [
+            {
+              "kind": "school",
+              "cash": 23255.36089390389,
+              "workers": 3,
+              "profit": 14.014166985196784
+            },
+            {
+              "kind": "fire",
+              "cash": 14021.85936122715,
+              "workers": 2,
+              "profit": 21.41252856562759
+            }
+          ],
+          "borrower": {
+            "kind": "sawmill",
+            "cash": 61482.015387745414,
+            "debt": 0,
+            "jobs": 6,
+            "workers": 6,
+            "loan": {
+              "id": 3,
+              "bankId": 0,
+              "ownerType": "firm",
+              "ownerId": 13,
+              "original": 500,
+              "balance": 0,
+              "rate": 0.23638925965475457,
+              "spread": 0.05653976834638755,
+              "fixedRate": false,
+              "term": 720,
+              "created": 361,
+              "arrears": 0,
+              "status": "repaid",
+              "paid": 597.4071384327762,
+              "lastPaymentDay": 1081,
+              "scheduledDue": 0.6949004422381921,
+              "paidToday": 0.6949004422381921
+            }
+          },
+          "treasuryEmpty": false,
+          "liquidityP10": 1486.3682321838262,
+          "arrivals": 0,
+          "valid": {
+            "ok": true,
+            "issues": [],
+            "total": 15484590.999984479,
+            "population": 233,
+            "day": 1081
+          },
+          "cashDrift": -1.1233612895011902e-05,
+          "goodsError": 7.457856554538012e-11
+        },
+        {
+          "year": 3,
+          "day": 1441,
+          "population": 249,
+          "births": 0,
+          "movedAway": 0,
+          "deaths": 0,
+          "employment": 96,
+          "employed": 165,
+          "jobs": 157,
+          "vacancies": 0,
+          "unpaidWorkers": 0,
+          "unpaidWorkerDays": 0,
+          "firmClosures": 0,
+          "firmCash": 1519507.6181821935,
+          "treasury": 413004.47225475695,
+          "debt": 0,
+          "defaults": {
+            "household": 0,
+            "business": 0
+          },
+          "loans": 0,
+          "foodNeed": 398.4,
+          "foodCapacity": 640,
+          "foodSellable": 640,
+          "unmetFood": 1.9539925233402755e-14,
+          "unmet30": 3.490541189421492e-13,
+          "grocers": 6,
+          "groceryWorkers": 8,
+          "schoolAccess": 0.21815834767641998,
+          "fireAccess": 0,
+          "privateProviders": [
+            {
+              "kind": "school",
+              "cash": 26647.2138359063,
+              "workers": 3,
+              "profit": 1.5565831084206503
+            },
+            {
+              "kind": "fire",
+              "cash": 21231.744117951945,
+              "workers": 2,
+              "profit": 17.31985350633633
+            }
+          ],
+          "borrower": {
+            "kind": "sawmill",
+            "cash": 56324.344659006674,
+            "debt": 0,
+            "jobs": 4,
+            "workers": 4,
+            "loan": {
+              "id": 3,
+              "bankId": 0,
+              "ownerType": "firm",
+              "ownerId": 13,
+              "original": 500,
+              "balance": 0,
+              "rate": 0.23638925965475457,
+              "spread": 0.05653976834638755,
+              "fixedRate": false,
+              "term": 720,
+              "created": 361,
+              "arrears": 0,
+              "status": "repaid",
+              "paid": 597.4071384327762,
+              "lastPaymentDay": 1081,
+              "scheduledDue": 0.6949004422381921,
+              "paidToday": 0.6949004422381921
+            }
+          },
+          "treasuryEmpty": false,
+          "liquidityP10": 1771.4752245415455,
+          "arrivals": 0,
+          "valid": {
+            "ok": true,
+            "issues": [],
+            "total": 15484590.999979148,
+            "population": 249,
+            "day": 1441
+          },
+          "cashDrift": -1.65645033121109e-05,
+          "goodsError": 5.547917680814862e-11
+        },
+        {
+          "year": 4,
+          "day": 1801,
+          "population": 255,
+          "births": 0,
+          "movedAway": 0,
+          "deaths": 0,
+          "employment": 95,
+          "employed": 169,
+          "jobs": 161,
+          "vacancies": 0,
+          "unpaidWorkers": 0,
+          "unpaidWorkerDays": 0,
+          "firmClosures": 0,
+          "firmCash": 1604356.194378568,
+          "treasury": 558159.0746303188,
+          "debt": 0,
+          "defaults": {
+            "household": 0,
+            "business": 0
+          },
+          "loans": 0,
+          "foodNeed": 408.00000000000006,
+          "foodCapacity": 800,
+          "foodSellable": 800,
+          "unmetFood": 2.842170943040401e-14,
+          "unmet30": 3.561595462997502e-13,
+          "grocers": 6,
+          "groceryWorkers": 10,
+          "schoolAccess": 0.21302521008403358,
+          "fireAccess": 0,
+          "privateProviders": [
+            {
+              "kind": "school",
+              "cash": 25256.426694237078,
+              "workers": 2,
+              "profit": 12.159723356777853
+            },
+            {
+              "kind": "fire",
+              "cash": 24238.041367642945,
+              "workers": 2,
+              "profit": 16.835800090623305
+            }
+          ],
+          "borrower": {
+            "kind": "sawmill",
+            "cash": 51255.83851852046,
+            "debt": 0,
+            "jobs": 4,
+            "workers": 4,
+            "loan": {
+              "id": 3,
+              "bankId": 0,
+              "ownerType": "firm",
+              "ownerId": 13,
+              "original": 500,
+              "balance": 0,
+              "rate": 0.23638925965475457,
+              "spread": 0.05653976834638755,
+              "fixedRate": false,
+              "term": 720,
+              "created": 361,
+              "arrears": 0,
+              "status": "repaid",
+              "paid": 597.4071384327762,
+              "lastPaymentDay": 1081,
+              "scheduledDue": 0.6949004422381921,
+              "paidToday": 0.6949004422381921
+            }
+          },
+          "treasuryEmpty": false,
+          "liquidityP10": 2238.299006309894,
+          "arrivals": 0,
+          "valid": {
+            "ok": true,
+            "issues": [],
+            "total": 15484590.999978483,
+            "population": 255,
+            "day": 1801
+          },
+          "cashDrift": -1.7229467630386353e-05,
+          "goodsError": 2.455635694786906e-10
+        }
+      ],
+      "foundingSeed": 909,
+      "loanSetup": {
+        "borrower": 13,
+        "loan": {
+          "id": 3,
+          "bankId": 0,
+          "ownerType": "firm",
+          "ownerId": 13,
+          "original": 500,
+          "balance": 500,
+          "rate": 0.08653976834638755,
+          "spread": 0.05653976834638755,
+          "fixedRate": false,
+          "term": 720,
+          "created": 361,
+          "arrears": 0,
+          "status": "active",
+          "paid": 0
+        },
+        "decision": {
+          "day": 361,
+          "requested": 500,
+          "approved": true,
+          "reason": "Payment fits observed surplus and reserves",
+          "scheduled": 0.8146385671477605,
+          "stressed": 0.8424163449255382,
+          "capacity": 154.68547058781428,
+          "recurring": 144.96773186455772,
+          "essential": 0
+        }
+      }
+    },
+    {
+      "arm": "wage-only-tight",
+      "seed": 20155397,
+      "years": 4,
+      "policy": {
+        "rate": 3,
+        "lending": 35
+      },
+      "rows": [
+        {
+          "year": 1,
+          "day": 721,
+          "population": 220,
+          "births": 0,
+          "movedAway": 0,
+          "deaths": 0,
+          "employment": 97,
+          "employed": 147,
+          "jobs": 143,
+          "vacancies": 0,
+          "unpaidWorkers": 0,
+          "unpaidWorkerDays": 0,
+          "firmClosures": 0,
+          "firmCash": 1362943.2193817827,
+          "treasury": 198027.0820791882,
+          "debt": 0,
+          "defaults": {
+            "household": 0,
+            "business": 0
+          },
+          "loans": 2,
+          "foodNeed": 351.9999999999998,
+          "foodCapacity": 560,
+          "foodSellable": 560,
+          "unmetFood": 0,
+          "unmet30": 2.566835632933362e-13,
+          "grocers": 4,
+          "groceryWorkers": 7,
+          "schoolAccess": 0.2469155844155844,
+          "fireAccess": 0,
+          "privateProviders": [
+            {
+              "kind": "school",
+              "cash": 20305.074295852897,
+              "workers": 4,
+              "profit": 11.965604045820564
+            }
+          ],
+          "borrower": {
+            "kind": "sawmill",
+            "cash": 58944.719569782814,
+            "debt": 249.99999999999545,
+            "jobs": 5,
+            "workers": 5,
+            "loan": {
+              "id": 3,
+              "bankId": 0,
+              "ownerType": "firm",
+              "ownerId": 13,
+              "original": 500,
+              "balance": 249.99999999999545,
+              "rate": 0.23178831554277582,
+              "spread": 0.05653976834638755,
+              "fixedRate": false,
+              "term": 720,
+              "created": 361,
+              "arrears": 0,
+              "status": "active",
+              "paid": 318.0376981406143,
+              "lastPaymentDay": 721,
+              "scheduledDue": 0.8558556749825242,
+              "paidToday": 0.8558556749825242
+            }
+          },
+          "treasuryEmpty": false,
+          "liquidityP10": 1220.9383116703063,
+          "arrivals": 0,
+          "valid": {
+            "ok": true,
+            "issues": [],
+            "total": 15484590.999990098,
+            "population": 220,
+            "day": 721
+          },
+          "cashDrift": -5.6140124797821045e-06,
+          "goodsError": 9.367795428261161e-11
+        },
+        {
+          "year": 2,
+          "day": 1081,
+          "population": 233,
+          "births": 0,
+          "movedAway": 0,
+          "deaths": 0,
+          "employment": 96,
+          "employed": 156,
+          "jobs": 150,
+          "vacancies": 0,
+          "unpaidWorkers": 0,
+          "unpaidWorkerDays": 0,
+          "firmClosures": 0,
+          "firmCash": 1431011.3421536528,
+          "treasury": 289977.8258147047,
+          "debt": 0,
+          "defaults": {
+            "household": 0,
+            "business": 0
+          },
+          "loans": 0,
+          "foodNeed": 372.79999999999984,
+          "foodCapacity": 640,
+          "foodSellable": 640,
+          "unmetFood": 3.552713678800501e-14,
+          "unmet30": 3.6415315207705135e-13,
+          "grocers": 4,
+          "groceryWorkers": 8,
+          "schoolAccess": 0.23313917841814835,
+          "fireAccess": 0,
+          "privateProviders": [
+            {
+              "kind": "school",
+              "cash": 23255.36089390389,
+              "workers": 3,
+              "profit": 14.014166985196784
+            },
+            {
+              "kind": "fire",
+              "cash": 14021.85936122715,
+              "workers": 2,
+              "profit": 21.41252856562759
+            }
+          ],
+          "borrower": {
+            "kind": "sawmill",
+            "cash": 61482.015387745414,
+            "debt": 0,
+            "jobs": 6,
+            "workers": 6,
+            "loan": {
+              "id": 3,
+              "bankId": 0,
+              "ownerType": "firm",
+              "ownerId": 13,
+              "original": 500,
+              "balance": 0,
+              "rate": 0.23638925965475457,
+              "spread": 0.05653976834638755,
+              "fixedRate": false,
+              "term": 720,
+              "created": 361,
+              "arrears": 0,
+              "status": "repaid",
+              "paid": 597.4071384327762,
+              "lastPaymentDay": 1081,
+              "scheduledDue": 0.6949004422381921,
+              "paidToday": 0.6949004422381921
+            }
+          },
+          "treasuryEmpty": false,
+          "liquidityP10": 1486.3682321838262,
+          "arrivals": 0,
+          "valid": {
+            "ok": true,
+            "issues": [],
+            "total": 15484590.999984479,
+            "population": 233,
+            "day": 1081
+          },
+          "cashDrift": -1.1233612895011902e-05,
+          "goodsError": 7.457856554538012e-11
+        },
+        {
+          "year": 3,
+          "day": 1441,
+          "population": 249,
+          "births": 0,
+          "movedAway": 0,
+          "deaths": 0,
+          "employment": 96,
+          "employed": 165,
+          "jobs": 157,
+          "vacancies": 0,
+          "unpaidWorkers": 0,
+          "unpaidWorkerDays": 0,
+          "firmClosures": 0,
+          "firmCash": 1519507.6181821935,
+          "treasury": 413004.47225475695,
+          "debt": 0,
+          "defaults": {
+            "household": 0,
+            "business": 0
+          },
+          "loans": 0,
+          "foodNeed": 398.4,
+          "foodCapacity": 640,
+          "foodSellable": 640,
+          "unmetFood": 1.9539925233402755e-14,
+          "unmet30": 3.490541189421492e-13,
+          "grocers": 6,
+          "groceryWorkers": 8,
+          "schoolAccess": 0.21815834767641998,
+          "fireAccess": 0,
+          "privateProviders": [
+            {
+              "kind": "school",
+              "cash": 26647.2138359063,
+              "workers": 3,
+              "profit": 1.5565831084206503
+            },
+            {
+              "kind": "fire",
+              "cash": 21231.744117951945,
+              "workers": 2,
+              "profit": 17.31985350633633
+            }
+          ],
+          "borrower": {
+            "kind": "sawmill",
+            "cash": 56324.344659006674,
+            "debt": 0,
+            "jobs": 4,
+            "workers": 4,
+            "loan": {
+              "id": 3,
+              "bankId": 0,
+              "ownerType": "firm",
+              "ownerId": 13,
+              "original": 500,
+              "balance": 0,
+              "rate": 0.23638925965475457,
+              "spread": 0.05653976834638755,
+              "fixedRate": false,
+              "term": 720,
+              "created": 361,
+              "arrears": 0,
+              "status": "repaid",
+              "paid": 597.4071384327762,
+              "lastPaymentDay": 1081,
+              "scheduledDue": 0.6949004422381921,
+              "paidToday": 0.6949004422381921
+            }
+          },
+          "treasuryEmpty": false,
+          "liquidityP10": 1771.4752245415455,
+          "arrivals": 0,
+          "valid": {
+            "ok": true,
+            "issues": [],
+            "total": 15484590.999979148,
+            "population": 249,
+            "day": 1441
+          },
+          "cashDrift": -1.65645033121109e-05,
+          "goodsError": 5.547917680814862e-11
+        },
+        {
+          "year": 4,
+          "day": 1801,
+          "population": 255,
+          "births": 0,
+          "movedAway": 0,
+          "deaths": 0,
+          "employment": 95,
+          "employed": 169,
+          "jobs": 161,
+          "vacancies": 0,
+          "unpaidWorkers": 0,
+          "unpaidWorkerDays": 0,
+          "firmClosures": 0,
+          "firmCash": 1604356.194378568,
+          "treasury": 558159.0746303188,
+          "debt": 0,
+          "defaults": {
+            "household": 0,
+            "business": 0
+          },
+          "loans": 0,
+          "foodNeed": 408.00000000000006,
+          "foodCapacity": 800,
+          "foodSellable": 800,
+          "unmetFood": 2.842170943040401e-14,
+          "unmet30": 3.561595462997502e-13,
+          "grocers": 6,
+          "groceryWorkers": 10,
+          "schoolAccess": 0.21302521008403358,
+          "fireAccess": 0,
+          "privateProviders": [
+            {
+              "kind": "school",
+              "cash": 25256.426694237078,
+              "workers": 2,
+              "profit": 12.159723356777853
+            },
+            {
+              "kind": "fire",
+              "cash": 24238.041367642945,
+              "workers": 2,
+              "profit": 16.835800090623305
+            }
+          ],
+          "borrower": {
+            "kind": "sawmill",
+            "cash": 51255.83851852046,
+            "debt": 0,
+            "jobs": 4,
+            "workers": 4,
+            "loan": {
+              "id": 3,
+              "bankId": 0,
+              "ownerType": "firm",
+              "ownerId": 13,
+              "original": 500,
+              "balance": 0,
+              "rate": 0.23638925965475457,
+              "spread": 0.05653976834638755,
+              "fixedRate": false,
+              "term": 720,
+              "created": 361,
+              "arrears": 0,
+              "status": "repaid",
+              "paid": 597.4071384327762,
+              "lastPaymentDay": 1081,
+              "scheduledDue": 0.6949004422381921,
+              "paidToday": 0.6949004422381921
+            }
+          },
+          "treasuryEmpty": false,
+          "liquidityP10": 2238.299006309894,
+          "arrivals": 0,
+          "valid": {
+            "ok": true,
+            "issues": [],
+            "total": 15484590.999978483,
+            "population": 255,
+            "day": 1801
+          },
+          "cashDrift": -1.7229467630386353e-05,
+          "goodsError": 2.455635694786906e-10
+        }
+      ],
+      "foundingSeed": 909,
+      "loanSetup": {
+        "borrower": 13,
+        "loan": {
+          "id": 3,
+          "bankId": 0,
+          "ownerType": "firm",
+          "ownerId": 13,
+          "original": 500,
+          "balance": 500,
+          "rate": 0.08653976834638755,
+          "spread": 0.05653976834638755,
+          "fixedRate": false,
+          "term": 720,
+          "created": 361,
+          "arrears": 0,
+          "status": "active",
+          "paid": 0
+        },
+        "decision": {
+          "day": 361,
+          "requested": 500,
+          "approved": true,
+          "reason": "Payment fits observed surplus and reserves",
+          "scheduled": 0.8146385671477605,
+          "stressed": 0.8424163449255382,
+          "capacity": 154.68547058781428,
+          "recurring": 144.96773186455772,
+          "essential": 0
+        }
+      }
+    },
+    {
+      "arm": "funded-tight-recovery",
+      "seed": 20155397,
+      "years": 4,
+      "policy": {
+        "rate": 3,
+        "lending": 35
+      },
+      "rows": [
+        {
+          "year": 1,
+          "day": 721,
+          "population": 220,
+          "births": 0,
+          "movedAway": 0,
+          "deaths": 0,
+          "employment": 97,
+          "employed": 147,
+          "jobs": 143,
+          "vacancies": 0,
+          "unpaidWorkers": 0,
+          "unpaidWorkerDays": 0,
+          "firmClosures": 0,
+          "firmCash": 1362943.2193817827,
+          "treasury": 198027.0820791882,
+          "debt": 0,
+          "defaults": {
+            "household": 0,
+            "business": 0
+          },
+          "loans": 2,
+          "foodNeed": 351.9999999999998,
+          "foodCapacity": 560,
+          "foodSellable": 560,
+          "unmetFood": 0,
+          "unmet30": 2.566835632933362e-13,
+          "grocers": 4,
+          "groceryWorkers": 7,
+          "schoolAccess": 0.2469155844155844,
+          "fireAccess": 0,
+          "privateProviders": [
+            {
+              "kind": "school",
+              "cash": 20305.074295852897,
+              "workers": 4,
+              "profit": 11.965604045820564
+            }
+          ],
+          "borrower": {
+            "kind": "sawmill",
+            "cash": 58944.719569782814,
+            "debt": 249.99999999999545,
+            "jobs": 5,
+            "workers": 5,
+            "loan": {
+              "id": 3,
+              "bankId": 0,
+              "ownerType": "firm",
+              "ownerId": 13,
+              "original": 500,
+              "balance": 249.99999999999545,
+              "rate": 0.23178831554277582,
+              "spread": 0.05653976834638755,
+              "fixedRate": false,
+              "term": 720,
+              "created": 361,
+              "arrears": 0,
+              "status": "active",
+              "paid": 318.0376981406143,
+              "lastPaymentDay": 721,
+              "scheduledDue": 0.8558556749825242,
+              "paidToday": 0.8558556749825242
+            }
+          },
+          "treasuryEmpty": false,
+          "liquidityP10": 1220.9383116703063,
+          "arrivals": 0,
+          "valid": {
+            "ok": true,
+            "issues": [],
+            "total": 15484590.999990098,
+            "population": 220,
+            "day": 721
+          },
+          "cashDrift": -5.6140124797821045e-06,
+          "goodsError": 9.367795428261161e-11
+        },
+        {
+          "year": 2,
+          "day": 1081,
+          "population": 233,
+          "births": 0,
+          "movedAway": 0,
+          "deaths": 0,
+          "employment": 96,
+          "employed": 156,
+          "jobs": 150,
+          "vacancies": 0,
+          "unpaidWorkers": 0,
+          "unpaidWorkerDays": 0,
+          "firmClosures": 0,
+          "firmCash": 1431011.3421536528,
+          "treasury": 289977.8258147047,
+          "debt": 0,
+          "defaults": {
+            "household": 0,
+            "business": 0
+          },
+          "loans": 0,
+          "foodNeed": 372.79999999999984,
+          "foodCapacity": 640,
+          "foodSellable": 640,
+          "unmetFood": 3.552713678800501e-14,
+          "unmet30": 3.6415315207705135e-13,
+          "grocers": 4,
+          "groceryWorkers": 8,
+          "schoolAccess": 0.23313917841814835,
+          "fireAccess": 0,
+          "privateProviders": [
+            {
+              "kind": "school",
+              "cash": 23255.36089390389,
+              "workers": 3,
+              "profit": 14.014166985196784
+            },
+            {
+              "kind": "fire",
+              "cash": 14021.85936122715,
+              "workers": 2,
+              "profit": 21.41252856562759
+            }
+          ],
+          "borrower": {
+            "kind": "sawmill",
+            "cash": 61482.015387745414,
+            "debt": 0,
+            "jobs": 6,
+            "workers": 6,
+            "loan": {
+              "id": 3,
+              "bankId": 0,
+              "ownerType": "firm",
+              "ownerId": 13,
+              "original": 500,
+              "balance": 0,
+              "rate": 0.23638925965475457,
+              "spread": 0.05653976834638755,
+              "fixedRate": false,
+              "term": 720,
+              "created": 361,
+              "arrears": 0,
+              "status": "repaid",
+              "paid": 597.4071384327762,
+              "lastPaymentDay": 1081,
+              "scheduledDue": 0.6949004422381921,
+              "paidToday": 0.6949004422381921
+            }
+          },
+          "treasuryEmpty": false,
+          "liquidityP10": 1486.3682321838262,
+          "arrivals": 0,
+          "valid": {
+            "ok": true,
+            "issues": [],
+            "total": 15484590.999984479,
+            "population": 233,
+            "day": 1081
+          },
+          "cashDrift": -1.1233612895011902e-05,
+          "goodsError": 7.457856554538012e-11
+        },
+        {
+          "year": 3,
+          "day": 1441,
+          "population": 257,
+          "births": 0,
+          "movedAway": 0,
+          "deaths": 0,
+          "employment": 97,
+          "employed": 173,
+          "jobs": 167,
+          "vacancies": 0,
+          "unpaidWorkers": 0,
+          "unpaidWorkerDays": 0,
+          "firmClosures": 0,
+          "firmCash": 1647850.418012566,
+          "treasury": 448618.7443436225,
+          "debt": 0,
+          "defaults": {
+            "household": 0,
+            "business": 0
+          },
+          "loans": 2,
+          "foodNeed": 411.1999999999998,
+          "foodCapacity": 720,
+          "foodSellable": 720,
+          "unmetFood": 2.3092638912203256e-14,
+          "unmet30": 3.304023721284466e-13,
+          "grocers": 6,
+          "groceryWorkers": 9,
+          "schoolAccess": 0.2113674263479711,
+          "fireAccess": 0,
+          "privateProviders": [
+            {
+              "kind": "school",
+              "cash": 27411.711989323092,
+              "workers": 3,
+              "profit": 10.912239487159944
+            },
+            {
+              "kind": "fire",
+              "cash": 21182.92548823948,
+              "workers": 2,
+              "profit": 21.786751895405956
+            }
+          ],
+          "borrower": {
+            "kind": "sawmill",
+            "cash": 59154.23140841054,
+            "debt": 0,
+            "jobs": 4,
+            "workers": 4,
+            "loan": {
+              "id": 3,
+              "bankId": 0,
+              "ownerType": "firm",
+              "ownerId": 13,
+              "original": 500,
+              "balance": 0,
+              "rate": 0.23638925965475457,
+              "spread": 0.05653976834638755,
+              "fixedRate": false,
+              "term": 720,
+              "created": 361,
+              "arrears": 0,
+              "status": "repaid",
+              "paid": 597.4071384327762,
+              "lastPaymentDay": 1081,
+              "scheduledDue": 0.6949004422381921,
+              "paidToday": 0.6949004422381921
+            }
+          },
+          "treasuryEmpty": false,
+          "liquidityP10": 1441.5305698159564,
+          "arrivals": 0,
+          "valid": {
+            "ok": true,
+            "issues": [],
+            "total": 15484590.999979295,
+            "population": 257,
+            "day": 1441
+          },
+          "cashDrift": -1.6417354345321655e-05,
+          "goodsError": 1.000444171950221e-11
+        },
+        {
+          "year": 4,
+          "day": 1801,
+          "population": 266,
+          "births": 0,
+          "movedAway": 0,
+          "deaths": 0,
+          "employment": 95,
+          "employed": 174,
+          "jobs": 163,
+          "vacancies": 0,
+          "unpaidWorkers": 0,
+          "unpaidWorkerDays": 0,
+          "firmClosures": 0,
+          "firmCash": 1627092.4905965358,
+          "treasury": 602815.0119782623,
+          "debt": 0,
+          "defaults": {
+            "household": 0,
+            "business": 0
+          },
+          "loans": 0,
+          "foodNeed": 425.5999999999999,
+          "foodCapacity": 800,
+          "foodSellable": 800,
+          "unmetFood": 0,
+          "unmet30": 3.4283687000424834e-13,
+          "grocers": 6,
+          "groceryWorkers": 10,
+          "schoolAccess": 0.20421589688506983,
+          "fireAccess": 0,
+          "privateProviders": [
+            {
+              "kind": "school",
+              "cash": 27017.282231993773,
+              "workers": 2,
+              "profit": 33.681110382719844
+            },
+            {
+              "kind": "fire",
+              "cash": 24487.957119084254,
+              "workers": 2,
+              "profit": 17.048901598932673
+            }
+          ],
+          "borrower": {
+            "kind": "sawmill",
+            "cash": 50129.99451430237,
+            "debt": 0,
+            "jobs": 4,
+            "workers": 4,
+            "loan": {
+              "id": 3,
+              "bankId": 0,
+              "ownerType": "firm",
+              "ownerId": 13,
+              "original": 500,
+              "balance": 0,
+              "rate": 0.23638925965475457,
+              "spread": 0.05653976834638755,
+              "fixedRate": false,
+              "term": 720,
+              "created": 361,
+              "arrears": 0,
+              "status": "repaid",
+              "paid": 597.4071384327762,
+              "lastPaymentDay": 1081,
+              "scheduledDue": 0.6949004422381921,
+              "paidToday": 0.6949004422381921
+            }
+          },
+          "treasuryEmpty": false,
+          "liquidityP10": 1625.1793221065166,
+          "arrivals": 0,
+          "valid": {
+            "ok": true,
+            "issues": [],
+            "total": 15484590.99997987,
+            "population": 266,
+            "day": 1801
+          },
+          "cashDrift": -1.584179699420929e-05,
+          "goodsError": 1.6279955161735415e-10
+        }
+      ],
+      "foundingSeed": 909,
+      "loanSetup": {
+        "borrower": 13,
+        "loan": {
+          "id": 3,
+          "bankId": 0,
+          "ownerType": "firm",
+          "ownerId": 13,
+          "original": 500,
+          "balance": 500,
+          "rate": 0.08653976834638755,
+          "spread": 0.05653976834638755,
+          "fixedRate": false,
+          "term": 720,
+          "created": 361,
+          "arrears": 0,
+          "status": "active",
+          "paid": 0
+        },
+        "decision": {
+          "day": 361,
+          "requested": 500,
+          "approved": true,
+          "reason": "Payment fits observed surplus and reserves",
+          "scheduled": 0.8146385671477605,
+          "stressed": 0.8424163449255382,
+          "capacity": 154.68547058781428,
+          "recurring": 144.96773186455772,
+          "essential": 0
+        }
+      }
+    }
+  ]
+}
