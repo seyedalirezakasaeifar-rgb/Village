@@ -1,0 +1,48 @@
+{
+  "days": 61,
+  "exactFullModel": true,
+  "exactRng": true,
+  "policyCommand": true,
+  "exportHandshake": true,
+  "staleRejected": true,
+  "day": 62,
+  "outbox": [
+    {
+      "type": "notification",
+      "day": 51,
+      "version": 49,
+      "payload": {
+        "text": "Ambition complete: A resilient banking centre!"
+      }
+    },
+    {
+      "type": "save-request",
+      "day": 51,
+      "version": 49,
+      "payload": {}
+    },
+    {
+      "type": "ambience-refresh",
+      "day": 60,
+      "version": 58,
+      "payload": {}
+    }
+  ],
+  "timing": {
+    "sync": {
+      "ms": 414.8999999985099,
+      "daysPerSecond": 144.61315979806096,
+      "maxMainTimerGap": 499.79999999701977
+    },
+    "worker": {
+      "ms": 409.69999999925494,
+      "daysPerSecond": 146.44862094241913,
+      "maxMainTimerGap": 10.5
+    }
+  },
+  "sourceSha256": "218de17d31e130f8f683ab1287307380eb2ec0689b06d39a9003ef26883a1fc7",
+  "visualEnvelopeExcluded": [
+    "trafficState",
+    "visualState"
+  ]
+}
