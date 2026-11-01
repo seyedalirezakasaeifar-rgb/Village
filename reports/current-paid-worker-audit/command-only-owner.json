@@ -1,14 +1,14 @@
 {
-  "workerCommit": "f45846c1c44b1f2a0d0e715d66c50fe0ed89bff1",
-  "workerSha256": "c9f0a76595249505afe39f8a7e771542009444f8c30d862af53c94cce67211f5",
-  "hostSourceSha256": "6ed9d208b0112e4e360f40ef21063b68c519aefd9df3e1b39071c02c78e22a02",
+  "workerCommit": "f77ceddbba004d120a1f40ea90a9ac5037b061f2",
+  "workerSha256": "9270a4e18b28206880275db413fac24f4ddef4e48533f50fe77d49f49499e971",
+  "hostSourceSha256": "7619b1fafdf5f05a8a3d8c79ea5669aaa13f5262957dd34a3e7c1b3479681461",
   "stubEconomics": false,
   "commandOnlyPrototype": true,
   "workerScopeShimInHarnessOnly": false,
   "creatorCommit": "c91475af7dd079a51a72eb89b413673adae886c1",
   "ownerSha256": "108376582841c5a6ace499f1b0e656ae00014db9fd697d1a46c7c0691760c947",
   "paidLayerSha256": "ffe237b9a7470c170b5a330ac5cd6beb8557fd2a6f0222e19ae40e8170e180f2",
-  "inputWorkerSha256": "b9eeebe4891578c69d5f1cf8d12feb9c4e769f20242f0ede8837b188ada5ed2f",
+  "inputWorkerSha256": "304b28f85b5b3011b929500fb3c95ac5fdd825241fa35958d876367f59390935",
   "diagnosticSchedulingGateOnly": true,
   "productionComposition": false,
   "native": false,
@@ -164,8 +164,8 @@
         {
           "iteration": 0,
           "refused": false,
-          "wallMs": 211.6846130011254,
-          "workerReplyMs": 17.799999997019768,
+          "wallMs": 192.86251099401852,
+          "workerReplyMs": 21.69999999552965,
           "intent": "council-choice",
           "captureMs": 9.600000001490116,
           "rows": 1135,
@@ -175,13 +175,13 @@
         {
           "iteration": 0,
           "refused": true,
-          "wallMs": 74.67994499893393,
+          "wallMs": 74.77902199752862,
           "workerReplyMs": null,
           "intent": "council-choice",
-          "captureMs": 14.100000001490116,
+          "captureMs": 14,
           "rows": 2244,
-          "restoreMs": 49.100000001490116,
-          "checkMs": 0.10000000149011612
+          "restoreMs": 47.5,
+          "checkMs": 0.19999999552965164
         }
       ],
       "fundingSetup": "Dense/late paid-command fixture transfers cash from region to treasury to reach5000; no cash creation"
@@ -196,24 +196,24 @@
         {
           "iteration": 0,
           "refused": false,
-          "wallMs": 2174.402482996811,
-          "workerReplyMs": 89.60000000149012,
+          "wallMs": 2196.0361300007207,
+          "workerReplyMs": 97.10000000149012,
           "intent": "council-choice",
-          "captureMs": 46.29999999701977,
+          "captureMs": 49.69999999552965,
           "rows": 13458,
           "restoreMs": 0,
-          "checkMs": 1.7999999970197678
+          "checkMs": 2
         },
         {
           "iteration": 0,
           "refused": true,
-          "wallMs": 343.5806010020315,
+          "wallMs": 355.25857000175165,
           "workerReplyMs": null,
           "intent": "council-choice",
-          "captureMs": 84.60000000149012,
+          "captureMs": 89.30000000447035,
           "rows": 26888,
-          "restoreMs": 230.29999999701977,
-          "checkMs": 0.20000000298023224
+          "restoreMs": 236.79999999701977,
+          "checkMs": 0
         }
       ],
       "fundingSetup": "Dense/late paid-command fixture transfers cash from region to treasury to reach5000; no cash creation"
@@ -228,24 +228,24 @@
         {
           "iteration": 0,
           "refused": false,
-          "wallMs": 3159.8404469987145,
-          "workerReplyMs": 100.5,
+          "wallMs": 3165.0888889998896,
+          "workerReplyMs": 108.39999999850988,
           "intent": "council-choice",
-          "captureMs": 50.69999999552965,
+          "captureMs": 57.399999998509884,
           "rows": 16736,
           "restoreMs": 0,
-          "checkMs": 3.899999998509884
+          "checkMs": 2.8000000044703484
         },
         {
           "iteration": 0,
           "refused": true,
-          "wallMs": 445.0710960009019,
+          "wallMs": 435.0549820010201,
           "workerReplyMs": null,
           "intent": "council-choice",
-          "captureMs": 119.60000000149012,
+          "captureMs": 108.10000000149012,
           "rows": 33444,
-          "restoreMs": 274.6000000014901,
-          "checkMs": 0.19999999552965164
+          "restoreMs": 285.3999999985099,
+          "checkMs": 0.6999999955296516
         }
       ],
       "fundingSetup": "Dense/late paid-command fixture transfers cash from region to treasury to reach5000; no cash creation"

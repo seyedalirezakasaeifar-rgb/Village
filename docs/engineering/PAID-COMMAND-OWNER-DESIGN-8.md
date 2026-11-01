@@ -65,3 +65,19 @@ Unexpected ordinary-day exceptions retain the existing failed-day fence. The com
 Run `python3 tools/test_command_only_owner.py --worker-code /path/to/composed/model.generated.js` after `python3 tools/assemble.py`. This is a disabled acceptance harness with finite initialization/fault/scheduling diagnostics; normal startup does not include the owner. Its report records worker/creator/source hashes, exact model/RNG/reference rollback, empty/capacity/due completion zero-capture behavior, forced-failure recovery, missing-creator readiness refusal and early/dense/late actual paid-command cost samples. Dense/late paid-purchase fixtures explicitly transfer sufficient regional cash to treasury, conserving total cash; source fixture archives are untouched. No worker heap peak or physical/native performance claim is made.
 
 Completion scopes/creator guards now have a coherent executable test path. Remaining blockers: independent reviewer and native exact-source acceptance, approved production startup/routing/storage integration, full UI preparation measurements, high successful-command CPU latency, unsupported DTO families and all global capacity limits listed above. Do not promote based on occasional-command snapshot cost alone.
+
+## Latest current-source checkpointf77ceddb
+
+Runtime/API checkpoint20723d3 is now independently exercised against exact public worker compositef77ceddbba004d120a1f40ea90a9ac5037b061f2. Host source SHA2567619b1fafdf5f05a8a3d8c79ea5669aaa13f5262957dd34a3e7c1b3479681461 matches that composite's published manifest. Build its normal worker without reference-owner flag, then pass `--worker-code /path/model.generated.js --host-source /path/assets/game.js`. The tool's default commit is nowf77; worker scope code is used unchanged, with only the exact paid layer and command-owner source injected in the isolated bundle. Source hashes are recorded. Earlier f458 composition and preliminary cost receipts are preserved separately.
+
+All17 functional gates pass, including missing-creator readiness refusal before day start, empty/active/due/blocked-completion zero captures, paid model/RNG/reference rollback, retry/outbox/save-drain semantics and failed-day verified recovery. `--fatal-only` additionally forces a nonrestorable property during the real authored callback: shared rollback halts, no success response escapes, export/save-prepare/step/same-realm load all return ROOT_HALTED_RECREATE_WORKER. A fresh worker restores the exact prior archive and accepts the actual paid choice. `command-only-fatal.json` records this separately. Ordinary failed-day recovery and fatal shared-root recovery intentionally follow different existing fences.
+
+Latest source-specific host samples (one successful and one forced-refusal sample per fixture; NOT p95 or native claims):
+
+| Fixture | People | Successful command wall ms | Snapshot ms | Refusal wall ms | Restore ms |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Early day1 |169|192.9|9.6|74.8|47.5|
+| Dense day15561 |2346|2196.0|49.7|355.3|236.8|
+| Late day41681 |3108|3165.1|57.4|435.1|285.4|
+
+Times include the real worker/transport result for this model command with logical active panel empty. Full UI preparation, renderer and native storage are not measured. Repeated-load refusal captures traverse roughly twice as many graph rows as the initial capture (late16736→33444); residual runtime/cache references to prior towns are a plausible cause requiring owner/worker profiling. No alias roots were dropped to improve the numbers. This measured command latency remains a promotion blocker, even though it adds zero snapshot work to ordinary days. Native durability and final-source UI/performance gates remain open; no production startup flag changed.
