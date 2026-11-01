@@ -23,7 +23,7 @@ The worker creates/retains its OWN pendingEvent from the same current source. It
 
 Returns a plain cloneable result with ok/reason, requestId/epoch/reviewToken, joined/provisional and publicationErrors. If called inside the owner's outer command root, joined/provisional is true: the owner MUST withhold response, snapshot, outbox and persistence until that outer root finishes. A joined result is not a commit acknowledgement. Presentation errors cannot negate an already committed financial result; report them separately. Existing worker save prepare/owner-write/ACK and native asynchronous callbacks remain owned by their respective owners.
 
-Supported DTO kind is currently council-choice only: authored council choices plus the explicitly registered current bridge build/repair/decommission and street retirement reviews, prior registered deed/named construction choices. Unsupported custom choices still refuse. This is NOT a general callback transport or a claim of complete101-handler routing. Existing construct/policy worker commands can invoke their actual functions inside the same owner's root; further DTO kinds require an explicit shared contract, not a second financial implementation.
+Supported DTO kinds are council-choice and private-provider (specified below): authored council choices plus the explicitly registered current bridge build/repair/decommission and street retirement reviews, prior registered deed/project construction choices. Named-place and other unsynchronized form-input choices are not admitted by this DTO path: index-only packets cannot carry a user-entered name, so the worker must block them until an authoritative field protocol exists. Unsupported custom choices still refuse. This is NOT a general callback transport or a claim of complete101-handler routing. Existing construct/policy worker commands can invoke their actual functions inside the same owner's root; further DTO kinds require an explicit shared contract, not a second financial implementation.
 
 ## Current road operations
 
@@ -38,3 +38,27 @@ Current plain streets already recompute/save on repair; current public transit c
 `python tools/assemble.py`; `python tools/test_current_paid_roads.py`; `python tools/test_current_paid_direct.py`. Current vanilla road bridge/removal and council regressions are separate controls. Host tests are not Android, native lifecycle, worker/save ACK, capacity-reserve or performance acceptance.
 
 Actual production composition is pending: published automatic-day686ae40 depends on older experimental codec/prepareArchiveCandidate helpers absent in d2b7086; it must be ported by its owner without replacing current retention/receipts. Worker current90544529 and its native/save ACK protocol must be assembled and jointly tested with this exact layer and an approved admission owner. This branch keeps all experiments disabled and leaves source defaults unchanged.
+
+## Additional model-safe provider DTO
+
+```js
+__rootAdmission.dispatchSerializable(
+ {version:1,kind:'private-provider',requestId:43,epoch:3,providerKind:'school'},
+ {requestId:43,epoch:3}
+)
+```
+
+providerKind is school or fire. No pending review may exist. It shares the same privateInvitation function as the actual panel click, including the increased-construction-spending-without-project refusal. Success and a creator returning null after payment are both covered by current host DTO tests. It does not transport source callbacks. Automatic investment still belongs to the day owner and must independently poison its containing root on creator refusal.
+
+## DOM-free worker adapter requirements
+
+Worker90544529's generated source includes the economic globals, but its adapter has no DOM. Define `globalThis.window=globalThis` (namespace alias only), keep source-local pending choices in the worker, and override these presentation boundaries before installing paid wrappers:
+
+* `closeCouncilDialog(defer)`: call the new pure current-source `closeCouncilDialogState(defer)`; reproduce any active-agenda invalidation and request save; append semantic council-close to the registered worker outbox. Do not call the browser project-survey wrapper or invent another inbox algorithm. The helper preserves current housing-retention inbox behavior.
+* Existing toast/updateHeader/renderPanel/showCustomEvent/save overrides remain semantic worker/outbox functions. playSfx must also be an explicit worker-local presentation hook, not the original Audio/document implementation. Worker review creation uses current source review functions (reviewRoadBridge, reviewBridgeRemoval, reviewRoadRemoval; structural repair currently comes from the source button handler).
+* `ownerAdapter.deferDOM()` is an optional synchronous semantic view-invalidation hook. When supplied, paid `deferUI` queues this hook after root commit instead of executing opaque browser focus/scroll closures. Failure discards it. No closure is posted to the main thread. Without it, ordinary browser behavior remains unchanged.
+* Browser openPanel must be replaced by the worker's logical active-panel/outbox boundary before any deed/project choice that calls it. Main readonly rendering/panel previews must not silently change worker model RNG. This port preserves the exact current browser render call count; it does not certify headless rendering parity by analogy.
+
+Root registration must include the worker outbox, review event serial and provisional save state as described by worker CURRENT-SOURCE-ROUTING.md. Admission epoch/consumed request sequence/native request correlation are NOT rollback fields. The worker's old hand-written choice settlement must be replaced by this dispatcher, never run before or after it. A joined result is withheld until the single owner root succeeds. These are concrete integration requirements, not a production acceptance result.
+
+The current direct-dialog tail deliberately does not add the generic council's extra active-panel render: day2 agenda previews consume model RNG in current source. The port originally found971 versus1456 preview RNG calls for named-place commit; restoring the original direct path's call count restores full model/RNG equality. No RNG reset/filter or discarded archive field is used.

@@ -256,9 +256,12 @@ function reviewCouncilInbox(index){
 }
 
 let councilOpener=null;
-function closeCouncilDialog(defer=false){
+function closeCouncilDialogState(defer=false){
  const event=pendingEvent;pendingEvent=null;
- if(defer&&event&&event.type!=='TOWN ARCHIVE'&&(COUNCIL_EVENTS.some(e=>e.title===event.title)||isHousingRetentionTitle(event.title))){G.councilInbox=G.councilInbox||[];if(!G.councilInbox.some(e=>e.title===event.title))G.councilInbox.unshift({title:event.title,day:G.day});}
+ if(defer&&event&&event.type!=='TOWN ARCHIVE'&&(COUNCIL_EVENTS.some(e=>e.title===event.title)||isHousingRetentionTitle(event.title))){G.councilInbox=G.councilInbox||[];if(!G.councilInbox.some(e=>e.title===event.title))G.councilInbox.unshift({title:event.title,day:G.day});}return event;
+}
+function closeCouncilDialog(defer=false){
+ closeCouncilDialogState(defer);
  const finish=()=>{$('eventDialog').style.display='none';const target=councilOpener?.isConnected?councilOpener:$('tabs').querySelector('[data-panel="agenda"]');target?.focus();councilOpener=null;};
  if(window.__rootAdmission?.inModel()){if(active==='agenda')renderPanel(active);save();window.__rootAdmission.deferUI(finish);return;}
  $('eventDialog').style.display='none';if(active==='agenda')renderPanel(active);save();finish();
