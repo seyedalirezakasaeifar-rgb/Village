@@ -1,0 +1,69 @@
+{
+  "source_sha256": "3af2f8355807bfa3c23482b25816f657ae618970dfeb4e38dc6c34aa3140115c",
+  "formerStaleCacheFailure": {
+    "changes": [],
+    "modelUnchanged": true
+  },
+  "formerTransitionFailure": {
+    "key": "3:3",
+    "stages": [
+      {
+        "day": 721,
+        "observed": "Market centre",
+        "archived": {
+          "name": "Review control",
+          "character": "Employment quarter",
+          "since": 1,
+          "changed": 1,
+          "proposed": "Market centre",
+          "proposedSince": 721
+        }
+      },
+      {
+        "day": 751,
+        "observed": "Market centre",
+        "archived": {
+          "name": "Review control",
+          "character": "Employment quarter",
+          "since": 1,
+          "changed": 1,
+          "proposed": "Market centre",
+          "proposedSince": 721
+        }
+      },
+      {
+        "day": 781,
+        "observed": "Market centre",
+        "archived": {
+          "name": "Review control",
+          "character": "Employment quarter",
+          "since": 1,
+          "changed": 1,
+          "proposed": "Market centre",
+          "proposedSince": 721
+        }
+      },
+      {
+        "day": 811,
+        "observed": "Market centre",
+        "archived": {
+          "name": "Review control",
+          "character": "Market centre",
+          "since": 1,
+          "changed": 811
+        }
+      }
+    ],
+    "rngBefore": 1804364479,
+    "rngAfter": 1804364479
+  },
+  "readOnly": {
+    "cacheStable": true,
+    "descriptors": 271,
+    "completeArchiveUnchanged": true,
+    "moneyUnchanged": true,
+    "rngUnchanged": true,
+    "hasNoFakeFinance": true
+  },
+  "errors": []
+}

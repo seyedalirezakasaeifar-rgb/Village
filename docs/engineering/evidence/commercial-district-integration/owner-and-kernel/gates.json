@@ -1,0 +1,30 @@
+{
+  "source_sha256": "3af2f8355807bfa3c23482b25816f657ae618970dfeb4e38dc6c34aa3140115c",
+  "base": "848bf1bfb8fdddc3155ba5a7773348d28073ade4",
+  "gates": [
+    {
+      "test": "test_urban_profile_observation_contract",
+      "exit_code": 0,
+      "seconds": 20.51,
+      "log_sha256": "da69a75c86bc4d075e33d2a03ac1fdca93d85451552241d696dfd44d91179c80"
+    },
+    {
+      "test": "test_urban_district_profiles",
+      "exit_code": 0,
+      "seconds": 42.49,
+      "log_sha256": "b1676aebfc43ba2f4e8f2eee5b25ffa62a91fd9c481a0fc183f0107aa0e98123"
+    },
+    {
+      "test": "test_urban_commercial_districts",
+      "exit_code": 0,
+      "seconds": 125.26,
+      "log_sha256": "09f75d0afca6b237e0a905ee4135862e462d3cdf730ed8e63fcbf6f8fe4b49b7"
+    },
+    {
+      "test": "test_urban_kernel",
+      "exit_code": 0,
+      "seconds": 51.43,
+      "log_sha256": "a990f8c89ed9eb8e2fd4543f922909aceeefc609747f88703596703205d3a26f"
+    }
+  ]
+}

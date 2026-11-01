@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/workspace/core-recovery/tests/test_retail_proposal_review.py", line 41, in <module>
+    assert page.evaluate('s=>__townTest.load(s)',archive);page.evaluate('__townTest.step(2)');assert page.evaluate('__townTest.save()')==continuation
+                                                                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

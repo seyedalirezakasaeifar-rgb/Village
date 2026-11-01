@@ -414,7 +414,7 @@ function bankLoan(kind,id,amount,term=360){
  b.cash-=amount;owner.cash+=amount;
  const loan={id:(G.nextLoanId= Math.max(G.nextLoanId||0,G.loans.length)+1),bankId:b.id,ownerType:kind,ownerId:id,original:amount,balance:amount,rate,spread:Math.max(.02,rate-(G.policy.policyRate||0)/100),fixedRate:false,term,created:G.day,arrears:0,status:'active',paid:0};
  G.loans.push(loan);b.loansOriginated++;G.finance.creditIssued+=amount;
- if(kind==='firm')owner.debt=(owner.debt||0)+amount;
+ if(kind==='firm')owner.debt=(owner.debt||0)+amount;invalidateUrban();
  return loan;
 }
 function loanPayments(loans=G.loans){
@@ -442,10 +442,10 @@ function loanPayments(loans=G.loans){
    owner.creditScore=clamp(owner.creditScore-.22,.05,.99);
    story((l.ownerType==='firm'?owner.name:'The '+owner.name+' household')+' defaulted on a bank loan of '+money(l.balance)+'.','bad',l.ownerType==='firm'?owner.building:owner.home);
   }
- }
+ }invalidateUrban();
 }
 function depositTransfer(h,b,amount){
- if(!b||b.closed||amount<=0)return 0;amount=Math.max(0,Math.min(h.cash,amount));h.cash-=amount;b.cash+=amount;h.deposits[b.id]=(h.deposits[b.id]||0)+amount;return amount;
+ if(!b||b.closed||amount<=0)return 0;amount=Math.max(0,Math.min(h.cash,amount));h.cash-=amount;b.cash+=amount;h.deposits[b.id]=(h.deposits[b.id]||0)+amount;if(amount>0)invalidateUrban();return amount;
 }
 function withdrawal(h,b,amount){
  if(!b||b.closed||amount<=0)return 0;
@@ -453,7 +453,7 @@ function withdrawal(h,b,amount){
  const requested=Math.min(amount,h.deposits?.[b.id]||0),redeem=Math.min(Math.max(0,requested-b.cash),b.regionCredit||0,Math.max(0,G.region));
  if(redeem>0){G.region-=redeem;b.cash+=redeem;b.regionCredit-=redeem;}
  amount=Math.min(requested,b.cash);
- h.deposits[b.id]-=amount;b.cash-=amount;h.cash+=amount;return amount;
+ h.deposits[b.id]-=amount;b.cash-=amount;h.cash+=amount;if(amount>0)invalidateUrban();return amount;
 }
 function liquidateBank(b,reason='Insolvent balance sheet'){
  if(b.closed)return;const claims=bankDeposits(b.id);
@@ -480,7 +480,7 @@ function liquidateBank(b,reason='Insolvent balance sheet'){
  }
  G.finance.depositLosses+=losses;
  G.region+=Math.max(0,b.cash);b.cash=0;
- story(b.name+' entered receivership: '+reason+'. Depositor losses '+money(losses)+', '+transferred+' loans sold to regional lenders.','bad');
+ story(b.name+' entered receivership: '+reason+'. Depositor losses '+money(losses)+', '+transferred+' loans sold to regional lenders.','bad');invalidateUrban();
 }
 function regionalCapitalMarket(){
  // Depositor-backed private investment and municipal savings purchase bonds
@@ -555,7 +555,7 @@ function bankMarketEntry(){
  let branch=G.buildings.find(b=>b.kind==='bank'&&(b.bankId===retired?.id||G.banks[b.bankId]?.closed));
  if(!branch){const candidates=buildableCandidates('business');let place=candidates[0];if(place){branch={id:G.nextId++,kind:'bank',x:place.x,y:place.y,value:75000,condition:100,owner:-1,firm:-1,hh:-1};G.buildings.push(branch);invalidateRoads(false);}}
  if(branch)branch.bankId=id;
- staticDirty=true;dirty=true;
+ staticDirty=true;dirty=true;invalidateUrban();
  story(bank.name+' opened after raising '+money(initial)+' in subscribed regional capital. Depositors now have another choice.','good',branch?.id||0);
  return true;
 }
@@ -619,7 +619,7 @@ function bankDaily(){
   for(const f of s){const loan=bankLoan('firm',f.id,Math.round(clamp(6800-f.cash,2300,6500)),420);
    if(loan)story(f.name+' received '+money(loan.original)+' of working-capital credit from '+G.banks[loan.bankId].name+'.','neutral',f.building);
   }
- }
+ }invalidateUrban();
 }
 function liquidateFirm(f,reason){
  // Insolvent companies dispose of stock/equipment, pay secured creditors, and
@@ -643,7 +643,7 @@ function liquidateFirm(f,reason){
  f.stock={};f.closed=true;f.closedDay=G.day;G.finance.insolvencies++;
  for(const id of f.workers)if(G.people[id])G.people[id].job=-1;
  f.workers=[];
- story(f.name+' entered liquidation: '+reason+'. Creditors received asset proceeds before shareholders.','bad',f.building);
+ story(f.name+' entered liquidation: '+reason+'. Creditors received asset proceeds before shareholders.','bad',f.building);invalidateUrban();
  return true;
 }
 function liquidityStress(){
@@ -740,7 +740,13 @@ function serviceAccess(kind,extraSite=null){
   for(let at=sink;at!==0;){const [from,index]=parents[at];amount=Math.min(amount,edges[from][index].capacity);at=from;}
   for(let at=sink;at!==0;){const [from,index]=parents[at],edge=edges[from][index];edge.capacity-=amount;edges[at][edge.reverse].capacity+=amount;at=from;}served+=amount;
  }
- const result={kind,limit,served:Math.min(served,G.stats.population),population:G.stats.population,coverage:G.stats.population?Math.min(1,served/G.stats.population):0,households:homes.map((h,j)=>{const port=net.portals.get(h.home),reachable=distances.map(d=>d.get(port)).filter(d=>d!=null),row={...h,served:clamp(h.residents-homeEdges[j].capacity,0,h.residents),distance:reachable.length?Math.min(...reachable):null};if(extraSite)row.siteDistance=port==null?null:distances[facilities.length-1].get(port)??null;return row;})};
+ // Household membership is authoritative at this point in the daily tick.
+ // G.stats.population is a published aggregate that can still describe the
+ // prior tick while births, arrivals, or archive restoration have changed the
+ // household rows. Clamping to that stale aggregate poisons this cache entry
+ // and makes same-day civic training differ after save/load.
+ const population=homes.reduce((n,h)=>n+h.residents,0);
+ const result={kind,limit,served:Math.min(served,population),population,coverage:population?Math.min(1,served/population):0,households:homes.map((h,j)=>{const port=net.portals.get(h.home),reachable=distances.map(d=>d.get(port)).filter(d=>d!=null),row={...h,served:clamp(h.residents-homeEdges[j].capacity,0,h.residents),distance:reachable.length?Math.min(...reachable):null};if(extraSite)row.siteDistance=port==null?null:distances[facilities.length-1].get(port)??null;return row;})};
  if(!extraSite)serviceAccessCaches.set(kind,{town:G,net,key,result});return result;
 }
 // Prospective civic-site routing reuses the live catchment allocator without
@@ -1818,40 +1824,86 @@ const URBAN_PLANS={market:'Market-led mixed use',residential:'Residential neighb
 let urbanCache=null;
 function ensureUrban(){return G.urban||(G.urban={version:1,revision:0,zones:{},districts:{},renewals:[],lastReview:0});}
 function urbanBlockKey(x,y){return Math.floor(x/URBAN_BLOCK)+':'+Math.floor(y/URBAN_BLOCK);}
+// O(1) observation-cache invalidation. Any same-day writer of income, rent,
+// staffing, retail flow, bank books, or property condition must invalidate at
+// its transaction/day boundary; renderers may safely reuse the snapshot until
+// then, and never trigger a town-wide economic rescan on every draw.
 function invalidateUrban(){urbanCache=null;}
+function urbanMedian(values){const sorted=values.filter(Number.isFinite).sort((a,b)=>a-b);return sorted.length?sorted[Math.floor(sorted.length/2)]:null;}
+function urbanServiceProfile(kind){const access=serviceAccess(kind),rows=new Map(access.households.map(h=>[h.id,h])),coverage=G.serviceProvision?.[kind]?.coverage||0;return {rows,scale:access.coverage>0?coverage/access.coverage:0};}
+function urbanBlockServiceStats(block,access){let residents=0,reachable=0,funded=0;for(const id of block.households){const row=access.rows.get(id);if(!row)continue;residents+=row.residents;if(row.distance!=null)reachable+=row.residents;funded+=row.served*access.scale;}return {roadReach:residents?reachable/residents:0,fundedCoverage:residents?clamp(funded/residents,0,1):0};}
 function urbanSpatial(){
  // Staffing, closures and household income can change daily. A monthly cache
  // must not carry stale rent/land-value inputs across a save and restore.
  const u=ensureUrban(),net=graph(),day=G.day;
  if(urbanCache?.town===G&&urbanCache.net===net&&urbanCache.day===day&&urbanCache.count===G.buildings.length&&urbanCache.revision===u.revision)return urbanCache;
  const residentsByHome=new Map();for(const h of G.households)if(h.people.length){if(!residentsByHome.has(h.home))residentsByHome.set(h.home,[]);residentsByHome.get(h.home).push(h);}
- const homes=new Float32Array(T*T),jobs=new Float32Array(T*T),industry=new Float32Array(T*T),amenity=new Float32Array(T*T),blocks={};
+ const homes=new Float32Array(T*T),jobs=new Float32Array(T*T),industry=new Float32Array(T*T),amenity=new Float32Array(T*T),blocks={},profileStats={};
+ const townHall=G.buildings.find(b=>b.kind==='townhall'),townHallPort=townHall&&net.portals.get(townHall.id),townHallDistances=townHallPort==null?null:roadDistancesFrom(townHallPort,net);
  for(const b of G.buildings){
-  const f=G.firms[b.firm],key=urbanBlockKey(b.x,b.y),block=blocks[key]||(blocks[key]={key,x:Math.floor(b.x/8)*8,y:Math.floor(b.y/8)*8,buildings:[],households:[],residents:0,farms:0,jobs:0,retail:0,industry:0,income:0,rent:0,condition:0});
+  const f=G.firms[b.firm],key=urbanBlockKey(b.x,b.y),block=blocks[key]||(blocks[key]={key,x:Math.floor(b.x/8)*8,y:Math.floor(b.y/8)*8,buildings:[],households:[],residents:0,farms:0,jobs:0,retail:0,industry:0,income:0,rent:0,condition:0}),profile=profileStats[key]||(profileStats[key]={housingUnits:0,residentialBuildings:0,staffedWorkers:0,retailFirmIds:[],retailGrocerIds:[],retailActiveBusinesses:0,retailStaffedWorkers:0,retailSalesTrend:0,retailRevenueTrend:0,retailResidentsWithin24:0,retailStockedResidentsWithin24:0,openBankBranches:0,foundingBankBranches:0,expandedBankBranches:0,bankDeposits:0,bankLoans:0,civicFacilities:0,connectedProperties:0,roadDistanceTotal:0});
   block.buildings.push(b.id);block.condition+=b.condition;
   const residents=residentsByHome.get(b.id)||[];
   for(const h of residents){block.households.push(h.id);block.residents+=h.people.length;block.income+=Math.max(0,(h.income||0)-(h.tax||0));block.rent+=h.rent||0;}
   const units=['home','apartment','tower'].includes(b.kind)?(b.kind==='tower'?9:b.kind==='apartment'?4:1):0;
+  if(units){profile.housingUnits+=units;profile.residentialBuildings++;}
   const heavy=f&&!f.closed&&['factory','quarry','sawmill','forestry','wharf'].includes(f.kind),work=f&&!f.closed?f.jobs:0,civic=['school','clinic','park','square','college'].includes(b.kind);
-  if(f&&!f.closed){block.jobs+=f.jobs;if(f.kind==='farm')block.farms++;if(f.kind==='grocer'||f.kind==='tavern')block.retail++;if(heavy)block.industry++;}
+  if(f&&!f.closed){block.jobs+=f.jobs;profile.staffedWorkers+=workingStaff(f).length;if(f.kind==='farm')block.farms++;if(f.kind==='grocer'||f.kind==='tavern'){block.retail++;profile.retailFirmIds.push(f.id);if(f.kind==='grocer')profile.retailGrocerIds.push(f.id);const staff=workingStaff(f).length;if(staff>0&&Math.max(0,f.salesTrend||0)>.1){profile.retailActiveBusinesses++;profile.retailStaffedWorkers+=staff;profile.retailSalesTrend+=Math.max(0,f.salesTrend||0);profile.retailRevenueTrend+=Math.max(0,f.revenueTrend||0);}}if(heavy)block.industry++;}
+  if(b.kind==='bank'){const bank=G.banks?.[b.bankId];if(bank&&!bank.closed){profile.openBankBranches++;if((bank.createdDay||0)>0)profile.expandedBankBranches++;else profile.foundingBankBranches++;profile.bankDeposits+=bankDeposits(bank.id);profile.bankLoans+=bankLoans(bank.id);}}
+  if(civic&&isPublicFacility(b))profile.civicFacilities++;
+  const portal=net.portals.get(b.id),distance=portal==null||!townHallDistances?-1:townHallDistances[portal];if(distance>=0){profile.connectedProperties++;profile.roadDistanceTotal+=distance;}
   for(let dy=-6;dy<=6;dy++)for(let dx=-6;dx<=6;dx++){
    const d=Math.abs(dx)+Math.abs(dy),x=b.x+dx,y=b.y+dy;if(d>6||x<0||y<0||x>=T||y>=T)continue;const id=roadId(x,y),weight=(7-d)/7;
    // Skip zero contributions; preserve contribution order and Float32 rounding.
    if(units!==0)homes[id]+=units*weight;if(work!==0)jobs[id]+=work*weight*.14;if(heavy)industry[id]+=weight;if(civic)amenity[id]+=weight;
   }
  }
+ // Measure food-shop access using the same cached road-distance maps consumed
+ // by household purchasing. This is a reach snapshot, not a purchase promise.
+ const market=householdMarket(),localGrocers=G.firms.filter(f=>!f.closed&&f.kind==='grocer').map(f=>({firm:f,key:urbanBlockKey(readBuild(f.building)?.x??-100,readBuild(f.building)?.y??-100),distance:market.stores.get(f.id)?.distance}));
+ for(const [key,s] of Object.entries(profileStats))if(s.retailFirmIds.length){const stores=localGrocers.filter(v=>v.key===key&&v.distance),stocked=stores.filter(v=>workingStaff(v.firm).length>0&&(v.firm.stock.food||0)>0);for(const h of G.households){if(!h.people.length)continue;const port=net.portals.get(h.home);if(port==null)continue;const within=stores.some(v=>(v.distance.get(port)??Infinity)<=24);if(within){s.retailResidentsWithin24+=h.people.length;if(stocked.some(v=>(v.distance.get(port)??Infinity)<=24))s.retailStockedResidentsWithin24+=h.people.length;}}}
  const incomes=Object.values(blocks).filter(b=>b.residents).map(b=>b.income/b.residents).sort((a,b)=>a-b),median=incomes[Math.floor(incomes.length/2)]||15;
+ const occupied=Object.values(blocks).filter(b=>b.residents>=12),medianCenterDistance=urbanMedian(occupied.map(b=>profileStats[b.key]?.connectedProperties?profileStats[b.key].roadDistanceTotal/profileStats[b.key].connectedProperties:null)),medianHousingUnits=urbanMedian(occupied.map(b=>profileStats[b.key]?.housingUnits||null)),medianJobCapacity=urbanMedian(occupied.map(b=>b.jobs>0?b.jobs:null)),health=urbanServiceProfile('health'),school=urbanServiceProfile('school'),profiles={};
  for(const b of Object.values(blocks)){
   b.condition/=Math.max(1,b.buildings.length);b.perPersonIncome=b.income/Math.max(1,b.residents);b.rentBurden=b.rent/Math.max(1,b.income);
   b.incomeBand=b.residents?(b.perPersonIncome<median*.72?'Lower income':b.perPersonIncome>median*1.4?'Higher income':'Middle income'):'No resident income';
   b.character=b.industry>=2?'Employment quarter':b.retail>=2&&b.jobs>12?'Market centre':b.farms&&b.residents<12?'Agricultural belt':b.residents>=12?'Residential neighbourhood':b.buildings.length>=3?'Mixed quarter':'Open countryside';
+  const s=profileStats[b.key],roadDistance=s.connectedProperties?s.roadDistanceTotal/s.connectedProperties:null,healthStats=urbanBlockServiceStats(b,health),schoolStats=urbanBlockServiceStats(b,school),financialActivity=s.bankDeposits+s.bankLoans;
+  const agricultural=b.farms>0&&b.residents<12,financial=s.openBankBranches>=2&&s.expandedBankBranches>0&&financialActivity>0&&b.farms===0,market=s.retailActiveBusinesses>=2&&s.retailSalesTrend>0&&s.retailResidentsWithin24>=12&&b.farms===0;
+  const downtown=b.residents>=12&&roadDistance!=null&&medianCenterDistance!=null&&roadDistance<=medianCenterDistance&&s.housingUnits>=(medianHousingUnits||0)&&b.jobs>0&&b.jobs>=(medianJobCapacity||0)&&(b.retail>0||s.openBankBranches>0)&&b.farms===0;
+  const suburban=b.residents>=12&&roadDistance!=null&&medianCenterDistance!=null&&roadDistance>medianCenterDistance&&s.housingUnits>0&&s.housingUnits<=(medianHousingUnits||Infinity)&&b.jobs<=(medianJobCapacity||Infinity)&&b.retail===0&&b.industry===0&&b.farms===0;
+  const employment=b.industry>=2,tags=[];if(agricultural)tags.push('Agricultural belt');if(financial)tags.push('Financial district');if(market)tags.push('Market centre');if(downtown)tags.push('Downtown');if(suburban)tags.push('Suburban neighbourhood');if(employment)tags.push('Employment quarter');if(!tags.length&&b.residents>=12)tags.push('Residential neighbourhood');
+  const character=agricultural?'Agricultural belt':financial?'Financial district':market?'Market centre':downtown?'Downtown mixed-use':employment?'Employment quarter':suburban?'Suburban neighbourhood':b.residents>=12?'Residential neighbourhood':b.buildings.length>=3?'Mixed quarter':'Open countryside';
+  const streetscapeCue=agricultural?'working-farm-edge':financial?'banking-street':market?'market-street':downtown?'compact-mixed-use':employment?'working-employment-yard':suburban?'low-rise-residential':b.residents>=12?'mixed-village-street':'rural-edge';
+  profiles[b.key]={key:b.key,character,tags,observedTags:tags.slice(),streetscapeCue,housingUnits:s.housingUnits,residentialBuildings:s.residentialBuildings,staffedWorkers:s.staffedWorkers,jobCapacity:b.jobs,retailBusinesses:b.retail,retailActiveBusinesses:s.retailActiveBusinesses,retailStaffedWorkers:s.retailStaffedWorkers,retailSalesTrend:s.retailSalesTrend,retailRevenueTrend:s.retailRevenueTrend,retailResidentsWithin24:s.retailResidentsWithin24,retailStockedResidentsWithin24:s.retailStockedResidentsWithin24,farms:b.farms,industrialBusinesses:b.industry,openBankBranches:s.openBankBranches,foundingBankBranches:s.foundingBankBranches,expandedBankBranches:s.expandedBankBranches,bankDeposits:s.bankDeposits,bankLoans:s.bankLoans,financialActivity,civicFacilities:s.civicFacilities,connectedProperties:s.connectedProperties,properties:b.buildings.length,roadDistanceToTownHall:roadDistance,medianRoadDistance:medianCenterDistance,clinicRoadReach:healthStats.roadReach,clinicFundedCoverage:healthStats.fundedCoverage,schoolRoadReach:schoolStats.roadReach,schoolFundedCoverage:schoolStats.fundedCoverage,incomeBand:b.incomeBand,perPersonIncome:b.perPersonIncome,rentBurden:b.rentBurden,condition:b.condition};
  }
- return urbanCache={town:G,net,day,count:G.buildings.length,revision:u.revision,homes,jobs,industry,amenity,blocks,median};
+ return urbanCache={town:G,net,day,count:G.buildings.length,revision:u.revision,homes,jobs,industry,amenity,blocks,profiles,median,medianCenterDistance,medianHousingUnits,medianJobCapacity};
 }
 function urbanDescriptor(x,y){
- const c=urbanSpatial(),id=roadId(x,y),block=c.blocks[urbanBlockKey(x,y)],u=ensureUrban(),plan=u.zones[urbanBlockKey(x,y)]?.plan||'market',district=u.districts[urbanBlockKey(x,y)];
+ const c=urbanSpatial(),id=roadId(x,y),key=urbanBlockKey(x,y),block=c.blocks[key],profile=c.profiles[key],u=ensureUrban(),plan=u.zones[key]?.plan||'market',district=u.districts[key];
  const density=c.homes[id]||0,work=c.jobs[id]||0,pollution=c.industry[id]||0,access=nearRoad(x,y),central=Math.max(0,1-(Math.abs(x-27)+Math.abs(y-27))/35);
- return {key:urbanBlockKey(x,y),plan,density,work,pollution,amenity:c.amenity[id]||0,landValue:Math.round(600+(density*130+work*95+central*900+(c.amenity[id]||0)*170)*(access?1:.55)),agricultural:plan==='agriculture'||density<2.8&&central<.58,name:district?.name||'Unsettled land',character:district?.character||block?.character||'Open countryside',incomeBand:block?.incomeBand||'No resident income',perPersonIncome:block?.perPersonIncome||0,rentBurden:block?.rentBurden||0,condition:block?.condition||100,retailCentre:false};
+ return {key,plan,density,work,pollution,amenity:c.amenity[id]||0,landValue:Math.round(600+(density*130+work*95+central*900+(c.amenity[id]||0)*170)*(access?1:.55)),agricultural:plan==='agriculture'||density<2.8&&central<.58,name:district?.name||'Unsettled land',character:district?.character||profile?.character||block?.character||'Open countryside',observedCharacter:profile?.character||block?.character||'Open countryside',observedTags:profile?.observedTags||[],profile:profile||null,incomeBand:block?.incomeBand||'No resident income',perPersonIncome:block?.perPersonIncome||0,rentBurden:block?.rentBurden||0,condition:block?.condition||100,retailCentre:false};
+}
+function urbanNearNaturalWater(b){for(const tile of footprintOf(b)){const x=tile%T,y=tile/T|0;for(const [dx,dy] of roadOffsets){const xx=x+dx,yy=y+dy;if(xx>=0&&yy>=0&&xx<T&&yy<T&&G.tiles[roadId(xx,yy)]===2)return true;}}return false;}
+function urbanBuildingDescriptor(buildingOrId){
+ const b=typeof buildingOrId==='number'?readBuild(buildingOrId):buildingOrId;if(!b)return null;const d=urbanDescriptor(b.x,b.y),p=d.profile,kind=b.kind,coastal=['home','apartment'].includes(kind)&&urbanNearNaturalWater(b),income=d.incomeBand;
+ let family='local-building',documentedForm='TownLedger building-use cue; exact façade is a renderer choice.',inference='';
+ if(kind==='home'){
+  if(d.observedCharacter==='Downtown mixed-use'||d.observedCharacter==='Market centre'){family='nl-historic-town-row';documentedForm='Historic town forms: two to three storeys, attached clapboard frontage, varied dormers or bays, tight setbacks and front steps.';}
+  else if(coastal){family='nl-outport-house';documentedForm='Outport house forms: saltbox or modified saltbox, biscuit-box massing, simple sash and garden/shed setting.';inference='The game models nearby natural water, not harbour-facing lot orientation or mixed fishing livelihoods.';}
+  else if(d.observedCharacter==='Suburban neighbourhood'){family='nl-new-suburb-house';documentedForm='Newfoundland suburb precedents: Cape Cod, bungalow, split-level and townhome infill with gardens and service streets.';}
+  else{family=income==='Higher income'?'nl-merchant-house':income==='Lower income'?'nl-compact-worker-house':'nl-village-house';documentedForm=income==='Higher income'?'Merchant-home reference: detached mansard or Queen Anne scale, verandah, bays, dormer and garden.':income==='Lower income'?'Modest worker-home reference: compact timber form, restrained trim, regular windows and shared yard; physical wear is controlled separately by condition.':'Mixed residential reference: Cape Cod, bungalow, townhome and vernacular timber forms.';}
+ }else if(kind==='bank'){family='nl-stone-brick-bank';documentedForm='Generalized Newfoundland bank precedents: weightier stone or brick, symmetrical classical or Italianate proportions, arches and stringcourses.';inference='The simulation records bank deposits and credit, but does not simulate a separate district-level financial service effect.';}
+ else if(['grocer','bakery','tavern'].includes(kind)||b.retailCentre){family='nl-market-streetfront';documentedForm='Market-street reference: visible ground-floor shopfront with residential or office upper floors.';inference='Stalls and covered market-hall details are visual adaptations, not a claim about a historic building.';}
+ else if(kind==='office'){family='nl-commercial-chambers';documentedForm='Generalized commercial-chambers reference: timber and masonry low-rise storefront / office frontage.';}
+ else if(kind==='school'||kind==='college'||kind==='courthouse'){family='nl-institutional-brick-stone';documentedForm='Civic precedent: symmetrical brick or stone institutional windows and a modest planted forecourt.';}
+ else if(kind==='clinic'){family='nl-cottage-clinic';documentedForm='Clinic cue: practical small cottage-hospital scale; this is a gameplay adaptation of regional institutional forms.';}
+ else if(kind==='fire'){family='nl-fire-apparatus-hall';documentedForm='Fire-hall cue: visible apparatus doors and straightforward working frontage.';}
+ else if(kind==='farm'){family='nl-farmstead';documentedForm='Farm reference: small farmhouse, barn or stable, sheds, garden and active field context.';}
+ else if(kind==='wharf'||kind==='fishery'){family='nl-working-waterfront';documentedForm='Working-waterfront reference: stage, wharf, fish store, warehouse and workshop forms oriented to water.';inference='Net loft and salt-store props are visual adaptations; the simulation currently models wharves and fisheries, not each historic trade.';}
+ else if(['factory','warehouse','mill','sawmill','quarry','forestry'].includes(kind)){family='nl-working-industry';documentedForm='Working-industry reference: utilitarian brick or timber workshop massing with real loading / resource access.';}
+ else if(kind==='church'){family='nl-community-church';documentedForm='The source building inventory has no church entity; this family is a reserved renderer cue only.';}
+ const pCue=p?.streetscapeCue||'rural-edge';return {buildingKind:kind,buildingCue:family,streetscapeCue:pCue,observedCharacter:d.observedCharacter,observedTags:d.observedTags.slice(),character:d.character,incomeBand:income,perPersonIncome:d.perPersonIncome,rentBurden:d.rentBurden,condition:b.condition,roadDistanceToTownHall:p?.roadDistanceToTownHall??null,housingUnits:p?.housingUnits||0,staffedWorkers:p?.staffedWorkers||0,jobCapacity:p?.jobCapacity||0,retailBusinesses:p?.retailBusinesses||0,retailActiveBusinesses:p?.retailActiveBusinesses||0,retailStaffedWorkers:p?.retailStaffedWorkers||0,retailSalesTrend:p?.retailSalesTrend||0,retailRevenueTrend:p?.retailRevenueTrend||0,retailResidentsWithin24:p?.retailResidentsWithin24||0,retailStockedResidentsWithin24:p?.retailStockedResidentsWithin24||0,farms:p?.farms||0,industrialBusinesses:p?.industrialBusinesses||0,openBankBranches:p?.openBankBranches||0,foundingBankBranches:p?.foundingBankBranches||0,expandedBankBranches:p?.expandedBankBranches||0,bankDeposits:p?.bankDeposits||0,bankLoans:p?.bankLoans||0,clinicRoadReach:p?.clinicRoadReach||0,clinicFundedCoverage:p?.clinicFundedCoverage||0,schoolRoadReach:p?.schoolRoadReach||0,schoolFundedCoverage:p?.schoolFundedCoverage||0,documentedForm,inference,visualInputsIndependent:{incomeBand:income,physicalCondition:b.condition,kind,coastal,pattern:d.observedCharacter}};
 }
 function urbanPlacementReason(x,y,kind){
  if(['road','repair','inspect','urban_clearance','plot'].includes(kind))return '';
@@ -1876,11 +1928,12 @@ function urbanDistrictReview(){
  const u=ensureUrban();if(u.lastReview===G.day)return;const c=urbanSpatial(),active=new Set();
  for(const [key,b] of Object.entries(c.blocks)){
   if(b.buildings.length<3)continue;active.add(key);const old=u.districts[key];
-  if(!old){u.districts[key]={name:['Oak','Cedar','Willow','Maple','River','Stone','Meadow','Market','Birch','Alder','Orchard','Pine','Elm','Laurel','Ash','Beech'][(b.x/8+(G.worldSeed%16))%16]+' '+['Quarter','Ward','Gardens','Heights','Terrace','Crossing','Meadows','Commons','Park','Reach','Grove','Vale','Gate','Fields','Square','Hill'][(b.y/8+(hash(G.worldSeed)%16))%16],character:b.character,since:G.day,changed:G.day};continue;}
+  const observed=c.profiles[key]?.character||b.character;
+  if(!old){u.districts[key]={name:['Oak','Cedar','Willow','Maple','River','Stone','Meadow','Birch','Alder','Orchard','Pine','Elm','Laurel','Ash','Beech','Harbour'][(b.x/8+(G.worldSeed%16))%16]+' '+['Quarter','Ward','Gardens','Heights','Terrace','Crossing','Meadows','Commons','Park','Reach','Grove','Vale','Gate','Fields','Square','Hill'][(b.y/8+(hash(G.worldSeed)%16))%16],character:observed,since:G.day,changed:G.day};continue;}
   delete old.vacantSince;
-  if(old.character===b.character){delete old.proposed;delete old.proposedSince;continue;}
-  if(old.proposed!==b.character){old.proposed=b.character;old.proposedSince=G.day;}
-  else if(G.day-old.proposedSince>=90){old.character=b.character;old.changed=G.day;delete old.proposed;delete old.proposedSince;}
+  if(old.character===observed){delete old.proposed;delete old.proposedSince;continue;}
+  if(old.proposed!==observed){old.proposed=observed;old.proposedSince=G.day;}
+  else if(G.day-old.proposedSince>=90){old.character=observed;old.changed=G.day;delete old.proposed;delete old.proposedSince;}
  }
  for(const [key,d] of Object.entries(u.districts))if(!active.has(key)){d.vacantSince=d.vacantSince||G.day;if(G.day-d.vacantSince>=180)delete u.districts[key];}
  u.lastReview=G.day;
@@ -2306,7 +2359,7 @@ function dailyEconomy(){
  for(const h of living){const workers=h.people.some(id=>(G.people[id]?.job>=0&&!G.people[id]?.commuteBlocked)||G.people[id]?.publicWork);h.worklessness=workers?0:(h.worklessness||0)+1;h.stress=clamp(h.stress+(h.cash<h.people.length*50?.12:workers?-.06:.02),0,100);}
  const foodPrice=grocers.length?grocers.reduce((a,f)=>a+f.price,0)/grocers.length:G.market.baseFoodPrice,previous=G.market.cpi;
  G.market.cpi=100*(.55*foodPrice/G.market.baseFoodPrice+.25*(G.housingMarket?.rentIndex||1)+.20);G.market.inflation=(G.market.cpi/Math.max(1,previous)-1)*360*100;
- restartViableEnterprise();
+ restartViableEnterprise();invalidateUrban();
 }
 function finalizeMarketBooks(){
  for(const f of G.firms){if(f.closed)continue;f.profit=f.revenue-(f.cogs||0)-f.expenses;f.tax=Math.min(f.cash,Math.max(0,f.profit)*G.policy.profitTax/100);f.cash-=f.tax;transferTreasury(f.tax,'profitTax');f.netProfit=f.profit-f.tax;
@@ -2319,7 +2372,7 @@ function finalizeMarketBooks(){
   const owner=G.households[f.owner];if(owner&&f.netProfit>0&&f.cash>workerIncome(f)*f.jobs*60){const dividend=Math.min(f.cash*.002,f.netProfit*.20);f.cash-=dividend;owner.cash+=dividend;owner.income+=dividend;owner.dividends=(owner.dividends||0)+dividend;}
   f.history.push(f.cash);if(f.history.length>45)f.history.shift();
  }
- updateCreditObservations();marketOpen=false;
+ updateCreditObservations();marketOpen=false;invalidateUrban();
 }
 function policePower(population=G.stats.population){const b=G.buildings.filter(b=>b.kind==='police').length,court=G.buildings.filter(b=>b.kind==='courthouse').length;const funded=G.actualServiceFunding?.police??1;return clamp(.035+funded*((G.policy.policeBudget/(population*.7+1))*.48 + b*.10+court*.05),.035,.95)}
 function defensePower(population=G.stats.population){const b=G.buildings.filter(b=>b.kind==='fire'&&isPublicFacility(b)).length;const funded=G.actualServiceFunding?.fire??1;return clamp(.025+funded*((G.policy.defenseBudget/(population*.65+1))*.50+b*.1),.025,.96)}
@@ -3562,7 +3615,7 @@ function tick(){if(!G||pendingEvent||simulationTickFailed)return;simulationTickA
  if(G.day%60===0){const signal=marketSignal();if(signal.kind!=='normal'&&signal.title!==G.lastEconomicSignal){story(signal.title+'. '+signal.description,signal.kind==='good'?'good':'bad');G.lastEconomicSignal=signal.title;}}
  // Autosaves are scheduled in wall time by the frame controller.
  dirty=true;committed=true;
- }catch(error){simulationTickFailed=true;autoSaveOK=false;paused=true;acc=0;toast('Day update failed. Reload the last saved town or restore a valid backup.');throw error;}finally{simulationTickActive=false;finishCommittedTickSave(committed);}
+ }catch(error){simulationTickFailed=true;autoSaveOK=false;paused=true;acc=0;toast('Day update failed. Reload the last saved town or restore a valid backup.');throw error;}finally{simulationTickActive=false;invalidateUrban();finishCommittedTickSave(committed);}
 }
 
 function resetTownTransientUI(){
@@ -6553,9 +6606,11 @@ const regionalInspectTripBase=inspectTripAt;inspectTripAt=function(x,y){for(cons
 // dialog path: settlement must never run a second generic council cash transfer.
 const urbanDirectDialog=directTransactionDialog;
 directTransactionDialog=function(type){return type==='URBAN PLANNING'||type==='LAND ASSEMBLY'||urbanDirectDialog(type);};
+function urbanProfileSummary(p){if(!p)return 'Spatial indicators unavailable.';const center=p.roadDistanceToTownHall==null?'outside the connected town-road network':Math.round(p.roadDistanceToTownHall)+' road segments from town hall',tags=p.observedTags?.length?p.observedTags.join(', '):'no current commercial or land-use cluster';return `Observed tags: ${tags}. Road centre: ${center}; housing capacity ${p.housingUnits} units; ${p.staffedWorkers}/${p.jobCapacity} job places staffed. Market access: ${p.retailActiveBusinesses} staffed retailers with recent sales, ${p.retailStaffedWorkers} retail workers, ${Math.round(p.retailSalesTrend)} sales units/day and ${money(p.retailRevenueTrend)}/day sales trend; ${p.retailResidentsWithin24} residents within 24 road steps of a local grocer, ${p.retailStockedResidentsWithin24} within range of a stocked, staffed grocer. This is a reach snapshot; it does not promise a purchase or affordability. Clinic: ${Math.round(p.clinicRoadReach*100)}% within a road catchment, ${Math.round(p.clinicFundedCoverage*100)}% funded access. School: ${Math.round(p.schoolRoadReach*100)}% within a road catchment, ${Math.round(p.schoolFundedCoverage*100)}% funded access.`;}
+function urbanFinanceSummary(p){if(!p?.openBankBranches)return 'No operating bank branch in this block.';return `${p.openBankBranches} open branches (${p.foundingBankBranches} founding, ${p.expandedBankBranches} later bank entrants) · ${money(p.bankDeposits)} deposits · ${money(p.bankLoans)} active credit. A financial district requires a post-founding entrant; founding branches alone remain a banking node.`;}
 function urbanNeighbourhoodPanel(){
  const c=urbanSpatial(),u=ensureUrban(),blocks=Object.values(c.blocks).filter(b=>b.buildings.length>=3).sort((a,b)=>b.residents-a.residents||a.x-b.x||a.y-b.y);
- return `<details class="council-card" id="urbanPlanningOffice"><summary>Living neighbourhoods · land assembly & retail centres</summary><div class="btnrow"><button data-urban-overlay>View neighbourhood map</button><button data-urban-rehousing>Commission replacement housing</button><button data-urban-clear-tool>Assemble land on the map</button><button data-urban-retail>Invite a shopping centre proposal</button></div><p class="desc">Shape new development, review local rents and access, or assemble a compensated site for public services.</p><details><summary>How neighbourhoods evolve & land assembly works</summary><p class="desc">Districts form from actual homes and jobs. A new character must persist for 90 days; an emptied district dissolves after 180 days. Income bands compare observed income per resident across settled blocks; they do not assign anyone an identity or change their wages. Plans govern new construction, preserving existing titles.</p><p class="desc">Land assembly pays the recorded owner, relocates tenants to actual connected vacant homes, and compensates displaced workers. Paid cargo and construction must settle first. After clearance, select and fund the new service through Public Works.</p></details>`+blocks.map(b=>{const d=urbanDescriptor(b.x+3,b.y+3),id=b.buildings[0];return `<section class="council-card"><h3>${esc(d.name==='Unsettled land'?'Emerging quarter '+b.key:d.name)}</h3><p class="desc">${esc(d.character)} · ${esc(b.incomeBand)} · ${b.residents} residents · ${b.jobs} job capacity · condition ${Math.round(b.condition)}%. Observed income ${money(b.perPersonIncome)} per resident/day; rent ${Math.round(b.rentBurden*100)}% of household income.</p><p class="desc">Plan: ${esc(URBAN_PLANS[d.plan])} · 8 × 8 tile planning area at ${b.x}, ${b.y}.</p><button data-inspect="${id}">Inspect & plan this neighbourhood</button></section>`;}).join('')+(u.renewals.length?head('Recent land changes')+u.renewals.slice(0,8).map(r=>strip('Day '+r.day+' · '+r.action,money(r.cost))).join(''):'')+'</details>';
+ return `<details class="council-card" id="urbanPlanningOffice"><summary>Living neighbourhoods · land assembly & retail centres</summary><div class="btnrow"><button data-urban-overlay>View neighbourhood map</button><button data-urban-rehousing>Commission replacement housing</button><button data-urban-clear-tool>Assemble land on the map</button><button data-urban-retail>Invite a shopping centre proposal</button></div><p class="desc">Shape new development, review local rents and access, or assemble a compensated site for public services.</p><details><summary>How neighbourhoods evolve & land assembly works</summary><p class="desc">Districts form from actual homes, jobs, active retail and road-accessible catchments. Market and employment patterns can overlap in a mixed-use block. Financial districts require real deposits or active loans plus at least one post-founding bank entrant; the three founding institutions alone are shown as a banking node. A new character must persist for 90 days; an emptied district dissolves after 180 days. Income bands compare observed after-tax income per resident with the town median; they do not assign identities or change wages. Property condition and funded service reach are shown separately.</p><p class="desc">Banks currently share townwide deposit and loan markets; the simulation does not assign branch-specific staff or customer service areas, so it cannot truthfully quote a privately built branch as expanding access. Plans govern construction, preserving existing titles.</p><p class="desc">Land assembly pays the recorded owner, relocates tenants to actual connected vacant homes, and compensates displaced workers. Paid cargo and construction must settle first. After clearance, select and fund the new service through Public Works.</p></details>`+blocks.map(b=>{const d=urbanDescriptor(b.x+3,b.y+3),p=d.profile,id=b.buildings[0];return `<section class="council-card"><h3>${esc(d.name==='Unsettled land'?'Emerging quarter '+b.key:d.name)}</h3><p class="desc">${esc(d.character)} · ${esc(b.incomeBand)} · ${b.residents} residents · ${b.jobs} job capacity · condition ${Math.round(b.condition)}%. Observed income ${money(b.perPersonIncome)} per resident/day; rent ${Math.round(b.rentBurden*100)}% of household income.</p><p class="desc">${esc(urbanProfileSummary(p))} ${esc(urbanFinanceSummary(p))}</p><p class="desc">Observed pattern: ${esc(d.observedCharacter)}${d.character!==d.observedCharacter?' · 90-day review pending':''} · plan: ${esc(URBAN_PLANS[d.plan])} · 8 × 8 block at ${b.x}, ${b.y}.</p><button data-inspect="${id}">Inspect & plan this neighbourhood</button></section>`;}).join('')+(u.renewals.length?head('Recent land changes')+u.renewals.slice(0,8).map(r=>strip('Day '+r.day+' · '+r.action,money(r.cost))).join(''):'')+'</details>';
 }
 function reviewUrbanRetailProposal(){
  const q=urbanRetailProposal('preview');if(!q.ok){toast(q.reason);return;}
@@ -6563,8 +6618,8 @@ function reviewUrbanRetailProposal(){
  showCustomEvent('URBAN PLANNING','Review a shopping-centre proposal',text,[{title:'Invite investors at this site',desc:'Construction takes about 65 funded workdays. The proposal is recalculated at approval; a changed market or site requires a fresh review.',apply:()=>{const r=urbanRetailProposal(true,q.reviewKey);toast(r.reason);if(active)renderPanel(active);}}]);
 }
 function urbanInspectPanel(b){
- const d=urbanDescriptor(b.x,b.y),q=urbanClearanceQuote(b.x,b.y);
- return head('Neighbourhood & planning')+tip(d.name+' · '+d.character+' · '+d.incomeBand)+strip('Income / resident / day',money(d.perPersonIncome))+strip('Local land-demand estimate',money(d.landValue)+' per tile')+strip('Residential intensity',fmt(d.density))+strip('Planning rule',URBAN_PLANS[d.plan])+`<details><summary>Change the 8 × 8 neighbourhood plan</summary><p class="desc">First survey ${money(600)}; revisions ${money(1800)} after 90 days. Existing occupants and businesses keep their titles. A civic reserve protects vacant lots while you assemble a service site.</p><div class="btnrow">${Object.entries(URBAN_PLANS).map(([key,name])=>`<button data-urban-plan="${key}" data-urban-building="${b.id}" ${d.plan===key?'disabled':''}>${esc(name)}</button>`).join('')}</div></details>`+(b.retailCentre?head('Shopping centre')+tip('A six-plot private development: anchor food retail, smaller shopfronts and a service/loading court. Actual employed staff, stock purchases, household travel costs and receipts determine viability. It receives no automatic customer or income bonus.'):'')+(b.municipalRehousing?head('Municipal replacement housing')+tip((b.relocationReserve?'Reserved for displacement: no new household is created.':'Occupied replacement dwelling.')+' Rent is capped at 25% of current after-tax income; receipts belong to the treasury. The municipality pays $1/day maintenance when funds permit.'):'')+head('Assemble this property')+tip(q.ok?q.reason:q.reason)+(q.ok?strip('Owner / crop title compensation',money(q.compensation))+strip('Clearance contractor',money(q.demolition))+strip('Tenant relocation allowance',money(q.relocation||0))+strip('Worker severance',money(q.severance||0))+`<button data-urban-clear="${b.id}" ${G.treasury<q.total?'disabled':''}>Review land assembly · ${money(q.total)}</button>`:'');
+ const d=urbanDescriptor(b.x,b.y),q=urbanClearanceQuote(b.x,b.y),p=d.profile;
+ return head('Neighbourhood & planning')+tip(d.name+' · '+d.character+' · '+d.incomeBand)+strip('Observed pattern',d.observedCharacter+(d.character!==d.observedCharacter?' · 90-day review pending':''))+strip('Observed tags',d.observedTags.length?d.observedTags.join(' · '):'No current commercial or land-use cluster')+strip('Income / resident / day',money(d.perPersonIncome))+strip('Local land-demand estimate',money(d.landValue)+' per tile')+strip('Residential intensity',fmt(d.density))+`<p class="desc">${esc(urbanProfileSummary(p))} ${esc(urbanFinanceSummary(p))}</p>`+strip('Planning rule',URBAN_PLANS[d.plan])+`<details><summary>Change the 8 × 8 neighbourhood plan</summary><p class="desc">First survey ${money(600)}; revisions ${money(1800)} after 90 days. Existing occupants and businesses keep their titles. A civic reserve protects vacant lots while you assemble a service site.</p><div class="btnrow">${Object.entries(URBAN_PLANS).map(([key,name])=>`<button data-urban-plan="${key}" data-urban-building="${b.id}" ${d.plan===key?'disabled':''}>${esc(name)}</button>`).join('')}</div></details>`+(b.retailCentre?head('Shopping centre')+tip('A six-plot private development: anchor food retail, smaller shopfronts and a service/loading court. Actual employed staff, stock purchases, household travel costs and receipts determine viability. It receives no automatic customer or income bonus.'):'')+(b.municipalRehousing?head('Municipal replacement housing')+tip((b.relocationReserve?'Reserved for displacement: no new household is created.':'Occupied replacement dwelling.')+' Rent is capped at 25% of current after-tax income; receipts belong to the treasury. The municipality pays $1/day maintenance when funds permit.'):'')+head('Assemble this property')+tip(q.ok?q.reason:q.reason)+(q.ok?strip('Owner / crop title compensation',money(q.compensation))+strip('Clearance contractor',money(q.demolition))+strip('Tenant relocation allowance',money(q.relocation||0))+strip('Worker severance',money(q.severance||0))+`<button data-urban-clear="${b.id}" ${G.treasury<q.total?'disabled':''}>Review land assembly · ${money(q.total)}</button>`:'');
 }
 function urbanClearanceQuoteKey(q){return JSON.stringify([q.building,q.fields,q.households,q.relocations,q.workers,q.compensation,q.demolition,q.relocation,q.severance,q.total]);}
 function reviewUrbanClearance(x,y){
@@ -6583,9 +6638,9 @@ document.addEventListener('click',e=>{const b=e.target.closest('button');if(!b||
 });
 function drawUrbanOverlay(g,visible){
  if(overlay!=='neighbourhoods')return;const c=urbanSpatial();g.save();
- for(const b of Object.values(c.blocks)){if(b.buildings.length<3)continue;const center=iso(b.x+3.5,b.y+3.5);if(!visible(center[0],center[1],360))continue;const d=urbanDescriptor(b.x+3,b.y+3),planCode=d.plan==='agriculture'?'A':d.plan==='civic'?'C':'M',color=d.plan==='agriculture'?'#7ca45a':d.plan==='civic'?'#78b9c4':b.incomeBand==='Higher income'?'#99c8b7':b.incomeBand==='Lower income'?'#c9a482':'#c3c691',points=[[b.x-.5,b.y-.5],[b.x+7.5,b.y-.5],[b.x+7.5,b.y+7.5],[b.x-.5,b.y+7.5]].map(([x,y])=>iso(x,y));
+ for(const b of Object.values(c.blocks)){if(b.buildings.length<3)continue;const center=iso(b.x+3.5,b.y+3.5);if(!visible(center[0],center[1],360))continue;const d=urbanDescriptor(b.x+3,b.y+3),p=c.profiles[b.key],planCode=d.plan==='agriculture'?'A':d.plan==='civic'?'C':'M',codes=(p?.observedTags||[]).map(tag=>({'Financial district':'F','Market centre':'M','Downtown':'D','Suburban neighbourhood':'S','Agricultural belt':'A','Employment quarter':'E','Residential neighbourhood':'R'}[tag])).filter(Boolean),formCode=codes[0]||'V',formLabel=codes.join('/')||'V',formColor={F:'#697f91',M:'#c39a57',D:'#82958d',S:'#a5b89c',A:'#7ca45a',E:'#9a9c91',R:'#c3c691',V:'#b5aa91'}[formCode],color=d.plan==='agriculture'?'#7ca45a':d.plan==='civic'?'#78b9c4':formColor,points=[[b.x-.5,b.y-.5],[b.x+7.5,b.y-.5],[b.x+7.5,b.y+7.5],[b.x-.5,b.y+7.5]].map(([x,y])=>iso(x,y));
   g.globalAlpha=.25;g.fillStyle=color;g.beginPath();points.forEach((p,i)=>i?g.lineTo(p[0],p[1]+18):g.moveTo(p[0],p[1]+18));g.closePath();g.fill();g.globalAlpha=.8;g.strokeStyle=color;g.lineWidth=1.2/cam.zoom;g.setLineDash(d.plan==='agriculture'?[6/cam.zoom,4/cam.zoom]:d.plan==='civic'?[2/cam.zoom,3/cam.zoom]:[]);g.stroke();g.setLineDash([]);
-  if(cam.zoom>.25){const label=d.name==='Unsettled land'?'Emerging quarter':d.name,subLabel=b.incomeBand+' · '+planCode,w=Math.max(label.length,subLabel.length)*5.8+12;g.globalAlpha=.95;g.fillStyle='#f1ead8';g.fillRect(center[0]-w/2/cam.zoom,center[1]-12/cam.zoom,w/cam.zoom,30/cam.zoom);g.fillStyle='#304d43';g.font=(10/cam.zoom)+'px sans-serif';g.textAlign='center';g.fillText(label,center[0],center[1]);g.fillText(subLabel,center[0],center[1]+12/cam.zoom);}
+  if(cam.zoom>.25){const label=d.name==='Unsettled land'?'Emerging quarter':d.name,subLabel=b.incomeBand+' · '+formLabel+' · '+planCode,w=Math.max(label.length,subLabel.length)*5.8+12;g.globalAlpha=.95;g.fillStyle='#f1ead8';g.fillRect(center[0]-w/2/cam.zoom,center[1]-12/cam.zoom,w/cam.zoom,30/cam.zoom);g.fillStyle='#304d43';g.font=(10/cam.zoom)+'px sans-serif';g.textAlign='center';g.fillText(label,center[0],center[1]);g.fillText(subLabel,center[0],center[1]+12/cam.zoom);}
  }g.restore();
 }
 

@@ -1,0 +1,38 @@
+{
+  "source_sha256": "3af2f8355807bfa3c23482b25816f657ae618970dfeb4e38dc6c34aa3140115c",
+  "cases": [
+    {
+      "scenario": "settlement",
+      "days": 370,
+      "calls": 740,
+      "allMismatches": [],
+      "moneyError": -6.224960088729858e-06,
+      "valid": true
+    },
+    {
+      "scenario": "regional",
+      "days": 370,
+      "calls": 740,
+      "allMismatches": [],
+      "moneyError": -3.1068921089172363e-06,
+      "valid": true
+    },
+    {
+      "scenario": "industrial",
+      "days": 370,
+      "calls": 740,
+      "allMismatches": [],
+      "moneyError": -7.27921724319458e-06,
+      "valid": true
+    },
+    {
+      "scenario": "hardtimes",
+      "days": 370,
+      "calls": 740,
+      "allMismatches": [],
+      "moneyError": -8.588656783103943e-06,
+      "valid": true
+    }
+  ],
+  "scope": "Normal authored-scenario daily purchase boundaries through annual demographics; no blanket statement about externally corrupted aggregates"
+}

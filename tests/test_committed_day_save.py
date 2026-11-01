@@ -86,6 +86,12 @@ try:
         page.locator('#continue').wait_for(state='visible')
         page.locator('#continue').click()
         page.wait_for_function('document.querySelector("#welcome").style.display === "none"')
+        # Continue intentionally resumes the real clock. Freeze it through the
+        # actual control before driver-owned replay and fault-injection phases.
+        continued_clock_was_running = not page.evaluate('__dayBoundary.isPaused()')
+        if continued_clock_was_running:
+            page.locator('#pause').click()
+        assert page.evaluate('__dayBoundary.isPaused()')
         assert page.evaluate('__townTest.get().day') == 30
         checkpoint = page.evaluate('__townTest.save()')
         page.evaluate('__townTest.step(10)')
@@ -111,10 +117,12 @@ try:
         # A failure after the monthly-review save request must discard the partial day.
         page.evaluate("__townTest.reset('settlement',42);__townTest.step(28);window.__inTickSavePromises=[];window.__indexedWriteCalls=0")
         assert page.evaluate('__dayBoundary.createRisk().assessment.eligible')
-        before_fault = page.evaluate('__dayBoundary.persisted().day')
+        before_fault_state = page.evaluate('__dayBoundary.persisted()')
+        before_fault = before_fault_state['day']
         assert page.evaluate('__dayBoundary.failAfterReview()') == 'injected after monthly review'
         assert page.evaluate('__dayBoundary.inTickResults()') == [False]
         assert page.evaluate('__dayBoundary.persisted().day') == before_fault
+        assert page.evaluate('__dayBoundary.persisted()') == before_fault_state
         assert page.evaluate('__dayBoundary.deferredState()') == {'requested': False, 'waiters': 0}
         assert page.evaluate('__dayBoundary.manualSave()') is False, 'A later manual save must not bless the partially executed failed day'
         fault_day = page.evaluate('__townTest.get().day')

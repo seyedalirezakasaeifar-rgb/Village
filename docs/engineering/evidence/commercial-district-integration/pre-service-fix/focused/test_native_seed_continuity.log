@@ -1,0 +1,155 @@
+{
+  "base": "ecbc945c4aeeb99d27d0cf7b7cd8ee63651af785",
+  "base_source_sha256": "8031901f1dca4e8b45d43d653e7657abff20f91f3bd5f2f823bd5c8a25e56a67",
+  "source_sha256": "49acb7517a496cb5febc7535af6143fc36e79f58a8b7451cc87d4929af87d69e",
+  "cases": [
+    {
+      "scenario": "settlement",
+      "seed": 42,
+      "differences": [
+        {
+          "path": ".journal.0.baseline.safety",
+          "before": null,
+          "after": 88
+        }
+      ]
+    },
+    {
+      "scenario": "settlement",
+      "seed": 101,
+      "differences": [
+        {
+          "path": ".journal.0.baseline.safety",
+          "before": null,
+          "after": 89
+        }
+      ]
+    },
+    {
+      "scenario": "settlement",
+      "seed": 909,
+      "differences": [
+        {
+          "path": ".journal.0.baseline.safety",
+          "before": null,
+          "after": 89
+        }
+      ]
+    },
+    {
+      "scenario": "regional",
+      "seed": 42,
+      "differences": [
+        {
+          "path": ".journal.0.baseline.safety",
+          "before": null,
+          "after": 88
+        },
+        {
+          "path": ".journal.1.baseline.approval",
+          "before": null,
+          "after": 65
+        }
+      ]
+    },
+    {
+      "scenario": "regional",
+      "seed": 101,
+      "differences": [
+        {
+          "path": ".journal.0.baseline.safety",
+          "before": null,
+          "after": 89
+        },
+        {
+          "path": ".journal.1.baseline.approval",
+          "before": null,
+          "after": 65
+        }
+      ]
+    },
+    {
+      "scenario": "regional",
+      "seed": 909,
+      "differences": [
+        {
+          "path": ".journal.0.baseline.safety",
+          "before": null,
+          "after": 89
+        },
+        {
+          "path": ".journal.1.baseline.approval",
+          "before": null,
+          "after": 65
+        }
+      ]
+    },
+    {
+      "scenario": "hardtimes",
+      "seed": 42,
+      "differences": [
+        {
+          "path": ".journal.0.baseline.safety",
+          "before": null,
+          "after": 88
+        }
+      ]
+    },
+    {
+      "scenario": "hardtimes",
+      "seed": 101,
+      "differences": [
+        {
+          "path": ".journal.0.baseline.safety",
+          "before": null,
+          "after": 89
+        }
+      ]
+    },
+    {
+      "scenario": "hardtimes",
+      "seed": 909,
+      "differences": [
+        {
+          "path": ".journal.0.baseline.safety",
+          "before": null,
+          "after": 89
+        }
+      ]
+    },
+    {
+      "scenario": "industrial",
+      "seed": 42,
+      "differences": [
+        {
+          "path": ".journal.0.baseline.safety",
+          "before": null,
+          "after": 88
+        }
+      ]
+    },
+    {
+      "scenario": "industrial",
+      "seed": 101,
+      "differences": [
+        {
+          "path": ".journal.0.baseline.safety",
+          "before": null,
+          "after": 89
+        }
+      ]
+    },
+    {
+      "scenario": "industrial",
+      "seed": 909,
+      "differences": [
+        {
+          "path": ".journal.0.baseline.safety",
+          "before": null,
+          "after": 89
+        }
+      ]
+    }
+  ]
+}
+PASS 12 accepted authored starts retain financial/identity/road/cargo/RNG state; explicit founding-journal census corrections only

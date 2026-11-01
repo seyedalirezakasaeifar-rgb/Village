@@ -1,0 +1,51 @@
+{"label": "base", "day": 7201, "population": 426, "before_sha256": "df9dc8bf5d9a19ad2649eae379f9e4d2fa40d17972d03b3308cdf91bae1ecbbd", "canonical_sha256": "f636d69ddaa6f3129a1180cc95350d63b95a2a48955b0437b79b3069ceae168b", "all_initial_cold_differences": [{"path": ".buildings.84.units.1", "before": 135, "after": 128}, {"path": ".buildings.84.units.3", "before": 128, "after": 135}], "moneyBefore": 9221719.340150163, "financialArraysUnchanged": true, "rngUnchanged": true}
+{"label": "candidate", "day": 7201, "population": 365, "before_sha256": "98fc7b377866d6462db3a53758fa7434160153e5849a95cc258cf79dd6db9cab", "canonical_sha256": "98fc7b377866d6462db3a53758fa7434160153e5849a95cc258cf79dd6db9cab", "all_initial_cold_differences": [], "moneyBefore": 9933631.880709436, "financialArraysUnchanged": true, "rngUnchanged": true}
+{
+  "base": "848bf1bfb8fdddc3155ba5a7773348d28073ade4",
+  "base_sha256": "78f4c3b5dc1a34313ff8752b6a6a5e85410a832b597b04fba4a0f1005ec62174",
+  "source_sha256": "49acb7517a496cb5febc7535af6143fc36e79f58a8b7451cc87d4929af87d69e",
+  "cases": [
+    {
+      "label": "base",
+      "day": 7201,
+      "population": 426,
+      "before_sha256": "df9dc8bf5d9a19ad2649eae379f9e4d2fa40d17972d03b3308cdf91bae1ecbbd",
+      "canonical_sha256": "f636d69ddaa6f3129a1180cc95350d63b95a2a48955b0437b79b3069ceae168b",
+      "all_initial_cold_differences": [
+        {
+          "path": ".buildings.84.units.1",
+          "before": 135,
+          "after": 128
+        },
+        {
+          "path": ".buildings.84.units.3",
+          "before": 128,
+          "after": 135
+        }
+      ],
+      "moneyBefore": 9221719.340150163,
+      "financialArraysUnchanged": true,
+      "rngUnchanged": true,
+      "all_replay_differences": [],
+      "exactReplayFromCanonicalStart": true
+    },
+    {
+      "label": "candidate",
+      "day": 7201,
+      "population": 365,
+      "before_sha256": "98fc7b377866d6462db3a53758fa7434160153e5849a95cc258cf79dd6db9cab",
+      "canonical_sha256": "98fc7b377866d6462db3a53758fa7434160153e5849a95cc258cf79dd6db9cab",
+      "all_initial_cold_differences": [],
+      "moneyBefore": 9933631.880709436,
+      "financialArraysUnchanged": true,
+      "rngUnchanged": true,
+      "all_replay_differences": [],
+      "exactReplayFromCanonicalStart": true
+    }
+  ],
+  "same_candidate_archive_public_vs_candidate_loader_differences": [],
+  "same_base_archive_public_vs_candidate_loader_differences": [],
+  "src/90-archive-panels.js_identical_to_public_base_sha256": "e9017594b4b2572c6be614ea382d42fc15b296ca8a2e58f4c3a783b64d407cb4",
+  "src/44-migration.js_identical_to_public_base_sha256": "8aee05d1cfc701b1f90327a4053a637dec7f553a8e925d19a72224e279db17a1",
+  "comparisonPolicy": "All differences enumerated. Only established tenant-list ordering normalization allowed before replay; no fields excluded from replay or shared-input loader comparisons."
+}

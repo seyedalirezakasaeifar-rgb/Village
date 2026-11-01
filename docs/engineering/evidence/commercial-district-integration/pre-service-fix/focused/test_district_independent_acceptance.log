@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/workspace/core-recovery/tests/test_district_independent_acceptance.py", line 10, in <module>
+    stages=review['stages'];assert all(s['archived']['character']=='Residential neighbourhood'for s in stages[:3]),stages
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: [{'day': 721, 'observed': 'Market centre', 'archived': {'name': 'Review control', 'character': 'Employment quarter', 'since': 1, 'changed': 1, 'proposed': 'Market centre', 'proposedSince': 721}}, {'day': 751, 'observed': 'Market centre', 'archived': {'name': 'Review control', 'character': 'Employment quarter', 'since': 1, 'changed': 1, 'proposed': 'Market centre', 'proposedSince': 721}}, {'day': 781, 'observed': 'Market centre', 'archived': {'name': 'Review control', 'character': 'Employment quarter', 'since': 1, 'changed': 1, 'proposed': 'Market centre', 'proposedSince': 721}}, {'day': 811, 'observed': 'Market centre', 'archived': {'name': 'Review control', 'character': 'Market centre', 'since': 1, 'changed': 811}}]

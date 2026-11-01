@@ -1,0 +1,96 @@
+{
+  "source_sha256": "49acb7517a496cb5febc7535af6143fc36e79f58a8b7451cc87d4929af87d69e",
+  "base": "848bf1bfb8fdddc3155ba5a7773348d28073ade4",
+  "gates": [
+    {
+      "test": "test_district_independent_acceptance",
+      "exit_code": 1,
+      "seconds": 25.78,
+      "log_sha256": "a6ec14b08858a376768c38b9f9b512b00f77ef8cc04ef013c9cd98c6de43e143"
+    },
+    {
+      "test": "test_urban_active_play",
+      "exit_code": 0,
+      "seconds": 11.45,
+      "log_sha256": "efb11d0fa10864bfad59c2d616872069eabfb29700c9a1713ebdfa6cd09fd53d"
+    },
+    {
+      "test": "test_urban_trajectories",
+      "exit_code": 2,
+      "seconds": 0.17,
+      "log_sha256": "d3a7ac652eaa4a853a732c443f8abf7a05a56894d630e90b230f4ac70077ead4"
+    },
+    {
+      "test": "test_urban_art",
+      "exit_code": 0,
+      "seconds": 6.4,
+      "log_sha256": "f3f59c93f7f1680658d7ec9febb6652980dbac5389bc1c389d4e43fe6a10538d"
+    },
+    {
+      "test": "test_repeated_expansion_controls",
+      "exit_code": 0,
+      "seconds": 26.27,
+      "log_sha256": "11228c42eaff10d394b240276c79265192cc8b5a20c3add6805cd90aa1a4e599"
+    },
+    {
+      "test": "test_agent_viewport_edges",
+      "exit_code": 0,
+      "seconds": 4.36,
+      "log_sha256": "85f754604dc11bf58b34414ff7d6a0a4fd6da0c2acffe00c950adec28229b73f"
+    },
+    {
+      "test": "test_bridge_cold_continue",
+      "exit_code": 0,
+      "seconds": 7.14,
+      "log_sha256": "4992f8e8b2bf0f444a29c330eeec7e5a27439a7798d6005c6ad27c09261c6fc1"
+    },
+    {
+      "test": "test_waterfront_player_journey",
+      "exit_code": 0,
+      "seconds": 14.38,
+      "log_sha256": "0154177b2011dc3f3e6b48d03514244faa97a2e585d61f3979935f9b5d599ed3"
+    },
+    {
+      "test": "test_committed_day_save",
+      "exit_code": 0,
+      "seconds": 7.71,
+      "log_sha256": "0bdb1b943f362163e2c640680bcab9042abf7d0e62d60026131a8605eeacfcd6"
+    },
+    {
+      "test": "test_pending_review_flows",
+      "exit_code": 0,
+      "seconds": 5.78,
+      "log_sha256": "2e95444704a95150a0d1e24c2149f81581bfd0fcf8d2a662b4accf167b256a86"
+    },
+    {
+      "test": "test_modal_readability",
+      "exit_code": 0,
+      "seconds": 5.3,
+      "log_sha256": "1547e5fe42a3f14a3b355bea6442f5620cc41f65ffcfc1052268ff7e5fdb6e62"
+    },
+    {
+      "test": "test_tenancy_archive",
+      "exit_code": 0,
+      "seconds": 8.7,
+      "log_sha256": "baa928942a9abad1e31392e288882cbf8b1f78a6da6551a0471fef567d1c3d3c"
+    },
+    {
+      "test": "test_upgrade_matrix",
+      "exit_code": 0,
+      "seconds": 9.21,
+      "log_sha256": "6d7ce13021f7de08ecb771a3d3dd76bbb44858eddedbd501fa75a0dc3de0f6ea"
+    },
+    {
+      "test": "test_service_receipt_continuation",
+      "exit_code": 0,
+      "seconds": 4.52,
+      "log_sha256": "6b133472e6c289de5108542b646898c03275fec1ac1c7cea2b5c39ebd3176f80"
+    },
+    {
+      "test": "test_native_seed_continuity",
+      "exit_code": 0,
+      "seconds": 22.41,
+      "log_sha256": "c3f1a830c9ce00a33c75bdee72e2c75c810997f2fe37326a135f83ba3af9ec50"
+    }
+  ]
+}

@@ -107,7 +107,7 @@ function dailyEconomy(){
  for(const h of living){const workers=h.people.some(id=>(G.people[id]?.job>=0&&!G.people[id]?.commuteBlocked)||G.people[id]?.publicWork);h.worklessness=workers?0:(h.worklessness||0)+1;h.stress=clamp(h.stress+(h.cash<h.people.length*50?.12:workers?-.06:.02),0,100);}
  const foodPrice=grocers.length?grocers.reduce((a,f)=>a+f.price,0)/grocers.length:G.market.baseFoodPrice,previous=G.market.cpi;
  G.market.cpi=100*(.55*foodPrice/G.market.baseFoodPrice+.25*(G.housingMarket?.rentIndex||1)+.20);G.market.inflation=(G.market.cpi/Math.max(1,previous)-1)*360*100;
- restartViableEnterprise();
+ restartViableEnterprise();invalidateUrban();
 }
 function finalizeMarketBooks(){
  for(const f of G.firms){if(f.closed)continue;f.profit=f.revenue-(f.cogs||0)-f.expenses;f.tax=Math.min(f.cash,Math.max(0,f.profit)*G.policy.profitTax/100);f.cash-=f.tax;transferTreasury(f.tax,'profitTax');f.netProfit=f.profit-f.tax;
@@ -120,7 +120,7 @@ function finalizeMarketBooks(){
   const owner=G.households[f.owner];if(owner&&f.netProfit>0&&f.cash>workerIncome(f)*f.jobs*60){const dividend=Math.min(f.cash*.002,f.netProfit*.20);f.cash-=dividend;owner.cash+=dividend;owner.income+=dividend;owner.dividends=(owner.dividends||0)+dividend;}
   f.history.push(f.cash);if(f.history.length>45)f.history.shift();
  }
- updateCreditObservations();marketOpen=false;
+ updateCreditObservations();marketOpen=false;invalidateUrban();
 }
 function policePower(population=G.stats.population){const b=G.buildings.filter(b=>b.kind==='police').length,court=G.buildings.filter(b=>b.kind==='courthouse').length;const funded=G.actualServiceFunding?.police??1;return clamp(.035+funded*((G.policy.policeBudget/(population*.7+1))*.48 + b*.10+court*.05),.035,.95)}
 function defensePower(population=G.stats.population){const b=G.buildings.filter(b=>b.kind==='fire'&&isPublicFacility(b)).length;const funded=G.actualServiceFunding?.fire??1;return clamp(.025+funded*((G.policy.defenseBudget/(population*.65+1))*.50+b*.1),.025,.96)}

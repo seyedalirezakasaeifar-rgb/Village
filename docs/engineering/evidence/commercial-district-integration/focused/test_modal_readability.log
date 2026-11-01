@@ -1,0 +1,119 @@
+{
+  "sourceSha256": "3af2f8355807bfa3c23482b25816f657ae618970dfeb4e38dc6c34aa3140115c",
+  "results": [
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "largeTextDialog": {
+        "paper": {
+          "top": 9,
+          "bottom": 311
+        },
+        "defer": {
+          "top": 222.40625,
+          "bottom": 270.40625,
+          "height": 48
+        },
+        "choices": {
+          "scroll": 280,
+          "client": 112
+        },
+        "copy": {
+          "scroll": 218,
+          "client": 75
+        },
+        "firstChoice": {
+          "top": 110.40625,
+          "bottom": 221.46875
+        },
+        "readingFont": 15,
+        "actionFont": 15,
+        "choiceHeight": 111.0625,
+        "horizontalOverflow": false
+      },
+      "inspector": {
+        "width": 373,
+        "scroll": 373,
+        "over": []
+      },
+      "ledgerRow": {
+        "width": 317,
+        "scroll": 317,
+        "children": [
+          {
+            "width": 222,
+            "scroll": 222,
+            "text": "Unusually long translated municipal balance label for accessibility review"
+          },
+          {
+            "width": 87,
+            "scroll": 87,
+            "text": "$9,999,999,999,999,999.99"
+          }
+        ]
+      },
+      "helpFont": 15,
+      "pendingAfterBack": false,
+      "errors": []
+    },
+    {
+      "viewport": [
+        390,
+        844
+      ],
+      "largeTextDialog": {
+        "paper": {
+          "top": 38.203125,
+          "bottom": 805.796875
+        },
+        "defer": {
+          "top": 712.203125,
+          "bottom": 760.203125,
+          "height": 48
+        },
+        "choices": {
+          "scroll": 365,
+          "client": 310
+        },
+        "copy": {
+          "scroll": 391,
+          "client": 333
+        },
+        "firstChoice": {
+          "top": 401.796875,
+          "bottom": 555.390625
+        },
+        "readingFont": 15,
+        "actionFont": 15,
+        "choiceHeight": 153.59375,
+        "horizontalOverflow": false
+      },
+      "inspector": {
+        "width": 352,
+        "scroll": 352,
+        "over": []
+      },
+      "ledgerRow": {
+        "width": 288,
+        "scroll": 288,
+        "children": [
+          {
+            "width": 206,
+            "scroll": 206,
+            "text": "Unusually long translated municipal balance label for accessibility review"
+          },
+          {
+            "width": 74,
+            "scroll": 74,
+            "text": "$9,999,999,999,999,999.99"
+          }
+        ]
+      },
+      "helpFont": 15,
+      "pendingAfterBack": false,
+      "errors": []
+    }
+  ]
+}

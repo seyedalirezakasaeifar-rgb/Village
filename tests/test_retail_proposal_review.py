@@ -6,7 +6,7 @@ import gzip, json
 source=(ROOT/'assets/game.js').read_text()
 probe=r'''
 window.__retailReview={
- setup:()=>{__townTest.reset('settlement',42);for(const h of G.households)for(let j=0;j<18;j++){const p={id:G.people.length,name:'Review fixture resident',age:29,skill:.7,health:90,hh:h.id,job:-1,life:70,last:[]};G.people.push(p);h.people.push(p.id);}G.stats.marketConfidence=75;return {total:totalMoney(),treasury:G.treasury,region:G.region,shops:G.firms.filter(f=>!f.closed&&f.kind==='grocer').length,households:G.households.map(h=>[h.id,h.home,h.people.slice()]),titles:G.buildings.map(b=>[b.id,b.owner,b.title?.kind,b.title?.id]),fields:Object.entries(G.fieldOwner||{}),closed:G.firms.filter(f=>f.closed).map(f=>f.id)};},
+ setup:()=>{__townTest.reset('settlement',42);for(const h of G.households)for(let j=0;j<18;j++){const p={id:G.people.length,name:'Review fixture resident',age:29,skill:.7,health:90,hh:h.id,job:-1,life:70,last:[]};G.people.push(p);h.people.push(p.id);}G.stats.marketConfidence=75;return {total:totalMoney(),treasury:G.treasury,region:G.region,shops:G.firms.filter(f=>!f.closed&&f.kind==='grocer').length,households:G.households.map(h=>[h.id,h.home,h.people.slice()]),titles:G.buildings.map(b=>[b.id,b.owner,b.title?.kind,b.title?.id]),fields:Object.entries(G.fieldOwner||{}),closed:G.firms.filter(f=>f.closed).map(f=>f.id),publishedPopulation:G.stats.population,householdPopulation:G.households.reduce((n,h)=>n+h.people.filter(id=>G.people[id]&&!G.people[id].deceased&&!G.people[id].movedAway).length,0),access:()=>({health:serviceAccess('health'),school:serviceAccess('school')})};},
  preview:()=>urbanRetailProposal('preview'),authorize:key=>urbanRetailProposal(true,key),bumpDay:()=>G.day++,footprint:p=>p.footprint.map(id=>({id,land:G.landUse?.[id]||0,plan:urbanDescriptor(id%T,id/T|0).plan,why:urbanPlacementReason(id%T,id/T|0,'grocer')})),access:p=>roadOffsets.some(([dx,dy])=>graph().parts[roadId(p.x+dx,p.y+dy)]===graph().mainPart),
  snapshot:()=>({total:totalMoney(),treasury:G.treasury,region:G.region,shops:G.firms.filter(f=>!f.closed&&f.kind==='grocer').map(f=>[f.id,f.building,f.workers.slice()]),households:G.households.map(h=>[h.id,h.home,h.people.slice()]),titles:G.buildings.map(b=>[b.id,b.owner,b.title?.kind,b.title?.id]),fields:Object.entries(G.fieldOwner||{}),closed:G.firms.filter(f=>f.closed).map(f=>f.id),projects:G.projects.filter(p=>p.retailCentre).map(p=>({id:p.id,remaining:p.remaining,escrow:p.urbanEscrow,staff:p.retailStaff,wage:p.retailWage,x:G.buildings.find(b=>b.id===p.id)?.x,y:G.buildings.find(b=>b.id===p.id)?.y,footprint:G.buildings.find(b=>b.id===p.id)?.footprint.slice()})),valid:validateTown()})
 };'''
@@ -16,6 +16,14 @@ with sync_playwright() as pw:
     page=browser.new_page(viewport={'width':1280,'height':850});errors=[];page.on('pageerror',lambda e:errors.append(str(e)))
     page.set_content(html);page.add_script_tag(content=script);page.locator('#newTown').click();page.locator('#pause').click()
     before=page.evaluate('__retailReview.setup()')
+    # This controlled adversarial fixture changes household membership before
+    # the published stats roll forward. Spatial service access must use those
+    # authoritative household rows rather than cache a population-clamped result.
+    immediate_access=page.evaluate('__retailReview.setup().access()')
+    assert before['householdPopulation']>before['publishedPopulation']
+    assert immediate_access['health']['population']==before['householdPopulation']
+    assert immediate_access['school']['population']==before['householdPopulation']
+    assert abs(immediate_access['health']['coverage']-immediate_access['health']['served']/before['householdPopulation'])<1e-10
     page.locator('[data-panel=construction]').click();page.locator('#urbanPlanningOffice>summary').click();page.locator('[data-urban-retail]').click()
     text=page.locator('#eventText').inner_text()
     assert 'six-tile site' in text and '534 residents' in text and 'existing centres count double' in text and 'not a guarantee or new spending' in text and 'regional capital' in text,text
