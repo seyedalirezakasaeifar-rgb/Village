@@ -43,10 +43,26 @@ function validateHistoricalEntityDirectory(kind,active,packed){
  const lim=INACTIVE_CODEC_LIMITS;
  if(!packed||!Number.isSafeInteger(packed.total)||packed.total<0||packed.total>lim.entityTotal||!Array.isArray(active)||active.length>lim.entityActive||!Array.isArray(packed.rows)||packed.rows.length>lim.entityInactive||active.length+packed.rows.length!==packed.total||!Array.isArray(packed.fields)||packed.fields.length>lim.entityFields||new Set(packed.fields).size!==packed.fields.length||packed.fields.some((k,i)=>typeof k!=='string'||k.length>128||k==='id'||i&&k<=packed.fields[i-1]))throw Error('Malformed historical '+kind+' directory');
 }
-function decodeHistoricalEntity(kind,active,packed,shared){
+// Validate row metadata and charge every repeated key before constructing any
+// records. Use a private counter copy so reconstruction retains its own checks.
+function preflightIdentityExpansion(packed,shared,entity){
+ const lim=INACTIVE_CODEC_LIMITS,label=entity?'historical entity':'identity';
+ if(entity)shared.expansion+=packed.total*16;
+ if(shared.expansion>lim.logicalBytes)throw Error('Decoded archive expansion budget exceeded');
+ const keyBytes=packed.fields.map(k=>new Blob([JSON.stringify(k)]).size);
+ for(const row of packed.rows){
+  if(!Array.isArray(row)||row.length!==3||!Array.isArray(row[1])||!Array.isArray(row[2])||row[1].length!==row[2].length||(shared.cells+=row[1].length)>lim.cells)throw Error('Malformed '+label+' row');
+  for(let i=0;i<row[1].length;i++){const at=row[1][i];
+   if(!Number.isSafeInteger(at)||at<0||at>=packed.fields.length||i&&at<=row[1][i-1])throw Error('Invalid '+label+' field index');
+   shared.expansion+=keyBytes[at]+3;if(shared.expansion>lim.logicalBytes)throw Error('Decoded archive expansion budget exceeded');
+  }
+ }
+ return keyBytes;
+}
+function decodeHistoricalEntity(kind,active,packed,shared,keyBytes){
  const lim=INACTIVE_CODEC_LIMITS;
  shared.expansion+=packed.total*16;if(shared.expansion>lim.logicalBytes)throw Error('Decoded archive expansion budget exceeded');
- const records=new Array(packed.total),seen=new Set(),keyBytes=packed.fields.map(k=>new Blob([JSON.stringify(k)]).size),put=r=>{if(!r||!Number.isSafeInteger(r.id)||r.id<0||r.id>=packed.total||seen.has(r.id))throw Error('Duplicate historical entity ID');seen.add(r.id);records[r.id]=r;};
+ const records=new Array(packed.total),seen=new Set(),put=r=>{if(!r||!Number.isSafeInteger(r.id)||r.id<0||r.id>=packed.total||seen.has(r.id))throw Error('Duplicate historical entity ID');seen.add(r.id);records[r.id]=r;};
  for(const r of active){if(historicalEntity(kind,r))throw Error('Historical entity in active section');put(r);}
  for(const row of packed.rows){if(!Array.isArray(row)||row.length!==3||!Array.isArray(row[1])||!Array.isArray(row[2])||row[1].length!==row[2].length||(shared.cells+=row[1].length)>lim.cells)throw Error('Malformed historical entity row');const r={id:row[0]};for(let i=0;i<row[1].length;i++){const at=row[1][i];if(!Number.isSafeInteger(at)||at<0||at>=packed.fields.length||i&&at<=row[1][i-1])throw Error('Invalid historical entity field index');shared.expansion+=keyBytes[at]+3;if(shared.expansion>lim.logicalBytes)throw Error('Decoded archive expansion budget exceeded');Object.defineProperty(r,packed.fields[at],{value:row[2][i],writable:true,enumerable:true,configurable:true});}if(!historicalEntity(kind,r))throw Error('Active entity hidden in history');put(r);}
  if(seen.size!==packed.total)throw Error('Historical entity directory has holes');return records;
@@ -67,8 +83,11 @@ function decodeInactiveEnvelope(wire,encodedBytes){
  }else if(wire.entities!=null)throw Error('Unexpected estate directory');
  const canonicalBytes=inactiveCodecBudget(wire);
  const shared={cells:0,expansion:Math.max(encodedBytes??0,canonicalBytes)+packed.total*16};
- if(wire.version===2)for(const kind of ['households','firms'])data[kind]=decodeHistoricalEntity(kind,data[kind],wire.entities[kind],shared);
- const keyBytes=packed.fields.map(k=>new Blob([JSON.stringify(k)]).size),people=new Array(packed.total),seen=new Set();let cells=shared.cells,expansion=shared.expansion;if(expansion>lim.logicalBytes)throw Error('Decoded archive expansion budget exceeded');
+ const planned={...shared},entityKeyBytes={};
+ if(wire.version===2)for(const kind of ['households','firms'])entityKeyBytes[kind]=preflightIdentityExpansion(wire.entities[kind],planned,true);
+ const keyBytes=preflightIdentityExpansion(packed,planned,false);
+ if(wire.version===2)for(const kind of ['households','firms'])data[kind]=decodeHistoricalEntity(kind,data[kind],wire.entities[kind],shared,entityKeyBytes[kind]);
+ const people=new Array(packed.total),seen=new Set();let cells=shared.cells,expansion=shared.expansion;if(expansion>lim.logicalBytes)throw Error('Decoded archive expansion budget exceeded');
  const put=p=>{if(!p||!Number.isSafeInteger(p.id)||p.id<0||p.id>=packed.total||seen.has(p.id))throw Error('Duplicate or invalid person ID');seen.add(p.id);people[p.id]=p;};
  for(const p of data.people){if(p.deceased===true||p.movedAway===true)throw Error('Inactive person in active section');put(p);}
  for(const row of packed.rows){if(!Array.isArray(row)||row.length!==3||!Array.isArray(row[1])||!Array.isArray(row[2])||row[1].length!==row[2].length||(cells+=row[1].length)>lim.cells)throw Error('Malformed identity row');const p={id:row[0]};for(let i=0;i<row[1].length;i++){const at=row[1][i];if(!Number.isSafeInteger(at)||at<0||at>=packed.fields.length||i&&at<=row[1][i-1])throw Error('Invalid identity field index');expansion+=keyBytes[at]+3;if(expansion>lim.logicalBytes)throw Error('Decoded archive expansion budget exceeded');Object.defineProperty(p,packed.fields[at],{value:row[2][i],writable:true,enumerable:true,configurable:true});}if(p.deceased!==true&&p.movedAway!==true)throw Error('Active person hidden in history');put(p);}
