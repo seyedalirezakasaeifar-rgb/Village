@@ -8,6 +8,7 @@ source=(ROOT/'assets/game.js').read_text()
 bootstrap=(ROOT/'experiments/root-capacity-api.js').read_text()+'\n'+(ROOT/'experiments/game-capacity-root-adapter.js').read_text()+'\n'+(ROOT/'experiments/paid-command-root.js').read_text()+"\nwindow.__installGameCapacityRoot({oracleOnly:true});const rootAdmission=window.__installPaidCommandLayer();\n"
 probe=r'''
 window.__rootTxTest={
+ councilList:()=>COUNCIL_EVENTS.map(e=>({title:e.title,count:e.choices.length})),selfImport:()=>hydrateSave(archivePayload()),
  prep:(kind='construct',enabled=false,near=false)=>{
   rootAdmission.enable(false);__townTest.reset('settlement',42);paused=true;active='';crewDay=-1;crewsUsed=new Map();regionalCrews=0;frameClock=0;traffic=[];intersectionGates.clear();visualState=918273;__inactivePersonCodec.enable(true);
   let site=null;for(let y=2;y<T-2&&!site;y++)for(let x=2;x<T-2;x++)if(canPlace(x,y,true,'grocer')){site={x,y};break;}if(!site)throw Error('No construction site');
@@ -40,6 +41,18 @@ with sync_playwright() as pw:
  b=pw.chromium.launch(executable_path='/usr/bin/chromium',args=['--no-sandbox','--js-flags=--max-old-space-size=512'])
  def page(oracle=True):
   p=b.new_page();p.route('http://root-review.test/**',lambda r:r.fulfill(status=200,content_type='text/html',body=html));p.goto('http://root-review.test/');p.add_script_tag(content=source.replace('// SOURCE: 99-instrumentation.js',(bootstrap if oracle else bootstrap.replace('oracleOnly:true','oracleOnly:false'))+probe+'\n// SOURCE: 99-instrumentation.js'));p.locator('#newTown').click();p.locator('#pause').click();return p
+ if os.environ.get('ROOT_COUNCIL_MATRIX_ONLY'):
+  left,right=page(),page();events=left.evaluate('__rootTxTest.councilList()');out['councilMatrix']=[]
+  for i,event in enumerate(events):
+   for j in range(event['count']):
+    values=[]
+    for p,enabled in [(left,False),(right,True)]:
+     p.evaluate('x=>__rootTxTest.openChoice(false,x.enabled,false,x.i)',{'enabled':enabled,'i':i});p.locator('[data-event-choice="'+str(j)+'"]').click();r=p.evaluate('__rootTxTest.choiceResult()');values.append((r['model'],r['rng']))
+     if enabled and not r['status']['last']['ok']:raise AssertionError((event,j,r['status']))
+     if not p.evaluate('__rootTxTest.selfImport()'):raise AssertionError((event,j,'self-import'))
+    assert values[0]==values[1],('Full council model/RNG mismatch',event,j)
+    out['councilMatrix'].append({'event':event['title'],'choice':j,'exactModelRng':True,'selfImport':True})
+  left.close();right.close();b.close();(ROOT/'reports/paid-council-matrix.json').write_text(json.dumps(out,indent=2));print('PASS',len(out['councilMatrix']),'actual council choices, full-model/RNG equivalence and self-import');sys.exit()
  if os.environ.get('ROOT_ONLY_NEAR'):
   p=page();print(p.evaluate('__rootTxTest.nearAccepted(128,true)'));p.close();b.close();sys.exit()
  for kind in ['construct','completion','grant']:
