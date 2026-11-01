@@ -166,6 +166,7 @@ function urbanFarmRenewal(demand){
  u.renewals.unshift({day:G.day,action:'Farm relocated; four urban dwellings commissioned',cost:cost+(account?compensation:0)});u.renewals=u.renewals.slice(0,80);u.revision++;G.development.privateSpend=(G.development.privateSpend||0)+cost+(account?compensation:0);invalidateUrban();invalidateRoads(false);assignJobs();story('A farm moved to the agricultural belt with its existing workers, stocks and accounts. Paid construction is replacing its urban plot with housing.','good',b.id);return true;
 }
 function urbanRetailProposal(explicit=false,reviewedKey=null){
+ const capacityReason=creatorCapacityReason(0,0,1,true);if(capacityReason)return {ok:false,reason:capacityReason};
  const preview=explicit==='preview';
  const demand=cityDemand(),blockers=[];
  if(!explicit&&G.autoBuild===false)blockers.push('Automatic private development is paused.');

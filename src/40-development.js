@@ -89,6 +89,7 @@ function privatelyBuiltRoads(demand){
  story('A funded '+name+' extension opened a connected block for development.','good');return true;
 }
 function startDevelopmentProject(kind,place,value,days,extra={}){
+ if((kind==='firm'||kind==='airport')&&creatorCapacityReason(0,0,1,true))return null;
  const target=kind==='firm'?extra.firmKind:kind;
  if(!canPlace(place.x,place.y,true,target))return null;
  const b={id:G.nextId++,kind:'worksite',x:place.x,y:place.y,value,condition:100,owner:-1,firm:-1,hh:-1,developer:true,footprint:footprintFor(place.x,place.y,target)};
@@ -103,7 +104,7 @@ function completeDevelopmentProjects(){
  if(!G.projects?.length)return;
  let changed=false;
  for(let i=G.projects.length-1;i>=0;i--){
-  const p=G.projects[i];if(!constructionWork(p))continue;p.remaining--;
+  const p=G.projects[i];if((p.kind==='firm'||p.kind==='airport')&&creatorCapacityReason(0,0,1)){p.reason=creatorCapacityReason(0,0,1);continue;}if(!constructionWork(p))continue;p.remaining--;
   if(p.remaining>0)continue;
   if(p.kind==='fields'){G.projects.splice(i,1);completeFarmFields(p);changed=true;continue;}
   const b=readBuild(p.id);
@@ -153,6 +154,7 @@ function privatelyBuiltHome(demand){
  return true;
 }
 function privatelyBuiltFirm(demand){
+ if(creatorCapacityReason(0,0,1,true))return false;
  if(demand.businessDemand<17||demand.hardship>70||G.region<120000||G.policy.permitFee>2800||G.policy.zoningRestriction>=90)return false;
  const capacity=G.people.filter(p=>!p.deceased&&p.movedAway!==true&&p.age>=16&&p.age<=70&&p.job<0).length;
  if(capacity<3&&!(demand.confidence>48&&demand.homeDemand>15&&G.region>250000))return false;
@@ -419,6 +421,7 @@ function urbanRedevelopment(demand){
 function addHouseholdAt(building,capital=1700){
  const housing=migrationHousingStatus(building);if(!housing.capacity||housing.available<1||housing.reserved||housing.underConstruction)return null;
  const occupants=Math.min(2,2000-G.people.filter(p=>!p.deceased&&!p.movedAway).length);if(occupants<1)return null;
+ if(creatorCapacityReason(occupants,1))return null;
  const cash=Math.min(Math.max(0,G.region),capital);if(cash<500)return null;
  const profiles=migrationNewProfiles(occupants),assessment=G.day>1?migrationAssessment(building,profiles,cash):null;
  if(assessment&&!assessment.eligible){migrationRecord('arrival-deferred',{home:building.id,assessment});return null;}
@@ -467,6 +470,7 @@ function airfieldCandidate(){
  return options[0];
 }
 function airfieldInvestment(demand){
+ if(creatorCapacityReason(0,0,1,true))return false;
  if(G.airport||demand.residents<520||demand.confidence<38||G.policy.zoningRestriction>=72||G.region<850000)return false;
  const site=airfieldCandidate();if(!site)return false;
  const outlay=225000;

@@ -43,6 +43,8 @@ function construct(kind,x,y,quiet=false){
  }
  if(!canPlace(x,y,true,kind)){toast(districtPlacementReason(x,y,kind)||(['fishery','wharf'].includes(kind)?waterfrontSitingReason(x,y,kind):'This project requires a fully vacant footprint with road access.'));return}
  if(kind==='forestry'&&!Array.from({length:25},(_,i)=>[x+(i%5)-2,y+Math.floor(i/5)-2]).some(([a,b])=>cityCell(a,b)===3)){toast('Forestry operations require nearby woodland.');return}
+ const createsFirm=['grocer','bakery','mill','farm','forestry','sawmill','quarry','contractor','tavern','fishery','wharf','factory','warehouse','office','college'].includes(kind);
+ const capacityReason=createsFirm?creatorCapacityReason(0,0,1,true):'';if(capacityReason){if(!quiet)toast(capacityReason);return;}
  const cost=buildCost[kind];if(G.treasury<cost){toast('Town treasury cannot afford '+types[kind].n+' ('+money(cost)+').');return}
  G.treasury-=cost;G.region+=cost;
  if(['grocer','bakery','mill','farm','forestry','sawmill','quarry','contractor','tavern','fishery','wharf','factory','warehouse','office','college'].includes(kind)){
@@ -67,7 +69,8 @@ function renderOverview(){const s=G.stats;
 }
 function eventHtml(e){return `<div class="event"><strong>Day ${e.day}</strong> · ${esc(e.text)} ${e.bid>0?`<button class="small" data-inspect="${e.bid}">View</button>`:''}</div>`}
 function renderCommunity(){const s=G.stats;
- return head('Community condition')+`<div class="statgrid">${stat('Safety index',s.safety+'/100')}${stat('Crime / last 30 days',fmt(s.dailyCrime))}${stat('Emergency readiness',s.preparedness+'%')}${stat('Households in hardship',s.hardship+'%')}</div>`+
+ const capacityNotice=[creatorCapacityReason(1),creatorCapacityReason(0,1),creatorCapacityReason(0,0,1,true)].filter(Boolean);
+ return (capacityNotice.length?head('Long-session record capacity')+'<p class="desc">'+capacityNotice.map(esc).join('<br>')+'</p>':'')+head('Community condition')+`<div class="statgrid">${stat('Safety index',s.safety+'/100')}${stat('Crime / last 30 days',fmt(s.dailyCrime))}${stat('Emergency readiness',s.preparedness+'%')}${stat('Households in hardship',s.hardship+'%')}</div>`+
  `<p class="desc">Funding and stations affect response capacity. Hardship, job loss and isolation affect risks. Theft removes real money from victims and transfers it to another local household; incidents are attached to locations.</p>`+
  head('Community expenditure')+line('Policing / day',money(G.policy.policeBudget))+line('Fire & defence / day',money(G.policy.defenseBudget))+line('Housing assistance / day',money(G.policy.aidBudget))+line('Outreach / day',money(G.policy.outreachBudget))+
  head('Local incident register')+(G.cases.length?G.cases.slice(0,15).map(eventHtml).join(''):'<p class="desc">No criminal incidents recorded yet.</p>')+

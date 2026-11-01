@@ -19,6 +19,7 @@ function municipalProcurement(){
  }
 }
 function householdFormation(){
+ if(creatorCapacityReason(0,1))return;
  if(G.day%90!==0)return;
  const vacant=G.buildings.find(b=>b.kind==='home'&&!b.redevelopment&&!b.relocationReserve&&migrationHousingStatus(b).available>0);if(!vacant)return;
  const young=G.people.find(p=>!p.deceased&&!p.movedAway&&p.age>=20&&p.age<31&&p.job>=0&&G.households[p.hh].people.length>2&&G.households[p.hh].cash>3600);if(!young||!migrationCanReach(vacant,G.firms[young.job]))return;
