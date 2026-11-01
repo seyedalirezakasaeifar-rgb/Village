@@ -1,0 +1,15 @@
+{
+  "frame": 3,
+  "size": [
+    211,
+    69
+  ],
+  "lod": "mid",
+  "calls": 15,
+  "triangles": 21872,
+  "paused": true,
+  "zeroExtraDrawsDuring3s": true,
+  "archiveInvariant": true,
+  "badge": "QA \u00b7 WebGL drawn 3 \u00b7 paused true",
+  "errors": []
+}

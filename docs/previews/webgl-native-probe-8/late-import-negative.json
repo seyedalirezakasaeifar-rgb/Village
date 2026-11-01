@@ -1,0 +1,5 @@
+{
+  "error": "ReferenceError: Cannot access 'clapboardTexture' before initialization",
+  "badge": "QA \u00b7 Canvas fallback: module failed",
+  "oldInitializationOrder": true
+}
