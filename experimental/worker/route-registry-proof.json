@@ -1,7 +1,7 @@
 {
   "productionEnabled": false,
   "sourceSha256": "5df42ea1348872ad692a53bfa6ea1081472d1c8783ec9ace2b5cf011bcfb6e20",
-  "workerSha256": "ca03d7d4909189399d390c9de4498d4d8459a4e66f1a6e5a79ef331b5ab70399",
+  "workerSha256": "96227e3eed726ccb855286c83983c53fcdd5fa04bc6c401103ac02db9674eb24",
   "workingExampleActualModelRngCalendarEqual": true,
   "notificationPreserved": true,
   "unknownAndSchemaRefusalsUnchanged": [

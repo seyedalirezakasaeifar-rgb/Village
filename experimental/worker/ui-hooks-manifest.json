@@ -1,0 +1,16 @@
+{
+  "productionEnabled": false,
+  "economicBaseCommit": "669c908706af997375680674390e46fd132a970a",
+  "latestPublicTarget": "01eeda3d2ff09822b9422721f75e97fabbc9958a",
+  "currentPublicPortComplete": false,
+  "retainedRoutedIdentifiers": 35,
+  "pendingOperationsBeforeFamilyComposition": 51,
+  "files": {
+    "assets/game.js": "5df42ea1348872ad692a53bfa6ea1081472d1c8783ec9ace2b5cf011bcfb6e20",
+    "android/app/src/main/java/org/townledger/vale/MainActivity.java": "7e8ddccb1e20c95900e7449dd79320aeb5569e6b608f123cfacea3bf488ca341",
+    "experimental/worker/model.generated.js": "fe98bfd334e36ddf6ea5eb36185896d476ae5a0410c4694e38dac2ae834ae543",
+    "experimental/worker/real-view-bridge.js": "14c53496445f9dac91ea7a0a773c05fd0412c05b784b2d0e305d401b30dea48e",
+    "experimental/worker/route-registry.js": "07aaa9b444972040cb4d89337b2a5d8e516e170cbe8827fb714314dedf3f9cfd",
+    "experimental/worker/route-presentation.js": "84cfd12ac11aaf86c93c29205fa20b5940dc52bef1bbf4a1557c0f69a105c4b9"
+  }
+}

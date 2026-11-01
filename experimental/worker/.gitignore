@@ -1,2 +1,3 @@
 node_modules/
 model.generated.js
+route-bindings.generated.json
