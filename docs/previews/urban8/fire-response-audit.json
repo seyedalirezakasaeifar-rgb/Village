@@ -1,5 +1,5 @@
 {
-  "source_sha256": "e3ccd0d8c71ebc8fb5ab84f320d2d8354f9f8bf9119b4883e4b9170a4003b971",
+  "source_sha256": "0bcd169f6baa49ba35d7b87b451b3d28d234fab484af905a2c479149b6a98368",
   "fixture": "Controlled seed42 municipal station/home with temporary test-only road isolation, plus a controlled independent brigade with one ordinary service day. No fire incident or casualties are injected. Only the private-provider fixture changes service provider state; no money or people are injected.",
   "cityReadiness": 76,
   "connectedHome": {

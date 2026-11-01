@@ -1,0 +1,243 @@
+{
+  "source_sha256": "0bcd169f6baa49ba35d7b87b451b3d28d234fab484af905a2c479149b6a98368",
+  "fixture": {
+    "opening": 15493517,
+    "total": 15493517,
+    "treasury": 34144,
+    "farm": 26,
+    "bridgeA": 3512,
+    "bridgeB": 3256,
+    "reserve": {
+      "commission": {
+        "ok": true,
+        "reason": "Replacement housing commissioned; existing residents retain their homes during construction.",
+        "building": 104
+      },
+      "quote": {
+        "ok": false,
+        "reason": "Protected replacement housing 104 would lose its town connection. Preserve a road to the reserved site or complete/cancel the commitment first."
+      }
+    }
+  },
+  "cargo": {
+    "market": "upland",
+    "qty": 60,
+    "days": 7,
+    "path": [
+      3514,
+      3513,
+      3512,
+      3511,
+      3510,
+      3509,
+      3508,
+      3507,
+      3506,
+      3505,
+      3504,
+      3503,
+      3502,
+      3501,
+      3500,
+      3499,
+      3498,
+      3497,
+      3496,
+      3495,
+      3494,
+      3493,
+      3492,
+      3491,
+      3490,
+      3489,
+      3488,
+      3487,
+      3486,
+      3485,
+      3484,
+      3483,
+      3355,
+      3227,
+      3099,
+      2971,
+      2843,
+      2715,
+      2587,
+      2459,
+      2331,
+      2203,
+      2075,
+      1947,
+      1819,
+      1691,
+      1563,
+      1435,
+      1307,
+      1179,
+      1051,
+      923,
+      795,
+      667,
+      539,
+      411,
+      283,
+      155,
+      27
+    ],
+    "shipment": {
+      "id": 1,
+      "path": [
+        27,
+        155,
+        283,
+        411,
+        539,
+        667,
+        795,
+        923,
+        1051,
+        1179,
+        1307,
+        1435,
+        1563,
+        1691,
+        1819,
+        1947,
+        2075,
+        2203,
+        2331,
+        2459,
+        2587,
+        2715,
+        2843,
+        2971,
+        3099,
+        3227,
+        3355,
+        3483,
+        3484,
+        3485,
+        3486,
+        3487,
+        3488,
+        3489,
+        3490,
+        3491,
+        3492,
+        3493,
+        3494,
+        3495,
+        3496,
+        3497,
+        3498,
+        3499,
+        3500,
+        3501,
+        3502,
+        3503,
+        3504,
+        3505,
+        3506,
+        3507,
+        3508,
+        3509,
+        3510,
+        3511,
+        3512,
+        3513,
+        3514
+      ],
+      "activePath": []
+    },
+    "bridgeA": 3512,
+    "bridgeB": 3256,
+    "valid": true
+  },
+  "activeCargoRefusal": "Paid regional shipment 1 is still committed to this tile. Let it settle or use the freight recovery controls before changing the road.",
+  "protectedReplacementProject": "Protected replacement housing 104 would lose its town connection. Preserve a road to the reserved site or complete/cancel the commitment first.",
+  "staleQuote": {
+    "refused": {
+      "ok": false,
+      "reason": "Road access or city finances changed. Review the tile again."
+    },
+    "before": 15493517,
+    "after": 15493517,
+    "tileBefore": 1,
+    "tileAfter": 1
+  },
+  "removalQuote": "Street tile (56, 25). Road works $50. 2 connected sites lose their town-road link: 1 households / 2 residents (0 employed residents), 4 workers commute to the isolated businesses, 1 businesses and 0 civic facilities. 1 households lose current road reach to a public clinic and 1 to a public school. These household and service figures are current road-distance estimates; funding and staffing still determine actual coverage. Active paid shipments, transit routes, regional gates and reserved replacement homes are protected. The road will be removed from the network; you may build another street later for its normal cost.",
+  "disconnected": {
+    "main": false,
+    "service": {
+      "health": {
+        "distance": null,
+        "limit": 60,
+        "within": false
+      },
+      "school": {
+        "distance": null,
+        "limit": 40,
+        "within": false
+      }
+    },
+    "commuters": 4,
+    "firmWorkers": 4,
+    "total": 15493517,
+    "accounts": {
+      "treasury": 31244,
+      "region": 14793540.034227047,
+      "spending": 20050
+    },
+    "roadVersion": 40,
+    "day": 1,
+    "household": 67,
+    "home": 105,
+    "farm": 27
+  },
+  "disconnectedDayAdvance": {
+    "blocked": 4,
+    "workers": 4,
+    "homeAccess": false,
+    "shipment": "outside",
+    "valid": {
+      "ok": true,
+      "issues": [],
+      "total": 15493516.999999989,
+      "population": 171,
+      "day": 2
+    }
+  },
+  "restored": {
+    "road": 1,
+    "main": true,
+    "service": {
+      "health": {
+        "distance": 40,
+        "limit": 60,
+        "within": true
+      },
+      "school": {
+        "distance": 40,
+        "limit": 40,
+        "within": true
+      }
+    },
+    "valid": {
+      "ok": true,
+      "issues": [],
+      "total": 15493516.999999989,
+      "population": 171,
+      "day": 2
+    },
+    "total": 15493516.999999989,
+    "accounts": {
+      "treasury": 31474.61961472731,
+      "region": 14796929.000043156,
+      "spending": 21175
+    },
+    "version": 42,
+    "mode": "road"
+  },
+  "exact30DayReplay": true,
+  "errors": []
+}
