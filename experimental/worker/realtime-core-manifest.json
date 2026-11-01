@@ -1,0 +1,18 @@
+{
+  "baseCommit": "25770f587718a481903c74b11ceb2ccad4bb2884",
+  "economicOracle": "669c908706af997375680674390e46fd132a970a",
+  "productionEnabled": false,
+  "currentPublicPortComplete": false,
+  "workerSha256": "cd85a8f963db5ceb8b4781504bd3f100bf7631917ba985c19b736efc36a77d6f",
+  "bridgeSha256": "b73bf4ec7499bf82eb071d70ab2ffb6c3536606b56d6e158b22da72f59c5b5d6",
+  "files": {
+    "assets/game.js": "5df42ea1348872ad692a53bfa6ea1081472d1c8783ec9ace2b5cf011bcfb6e20",
+    "src/70-interaction.js": "78743992b77f2f32f6679163c2496a2d1c2c4713d483d6720eb8c76f730dc01b",
+    "experimental/worker/adapter.js": "3d6fe9e57e3b248f3b760a4cf30a9814690fcb020af59144b37d58181c77597e",
+    "experimental/worker/view-stream.js": "2b937ec921e2406c7bd9a4e9c8812862a0e6de27a9ea75f22faf7be39891c029",
+    "experimental/worker/view-apply.js": "ef52ef66086f1a360e7f83e781b8ef8bd8b7fbc20179c3d2cbd287fac498c000",
+    "experimental/worker/real-view-bridge.js": "3e3cbea778c16f84d39d66d6f9da380db28c16347636e5bb4d9af3ea86dc2f0b",
+    "experiments/paid-command-root.js": "a7f6dc7ac359ca5712c1de19fd581e2966718fa8b0d7d64e7514681447dea413",
+    "experiments/paid-command-owner.js": "cb2035578e612a5c73c5b14eee97d4c92d80deb6b1fa495e10bfa61245101452"
+  }
+}

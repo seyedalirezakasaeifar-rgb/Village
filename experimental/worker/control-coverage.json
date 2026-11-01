@@ -1,7 +1,7 @@
 {
-  "sourceCommit": "669c908706af997375680674390e46fd132a970a plus published creator/paid boundaries",
+  "sourceCommit": "25770f5 composite on669c908 plus isolated realtime/core-control candidate",
   "handlerEntryCount": 101,
-  "routedCommandCount": 24,
+  "routedCommandCount": 35,
   "routedCommandKeys": [
     "visit-panel",
     "mayor-guide",
@@ -26,7 +26,18 @@
     "defer",
     "prepare-panel",
     "close-view",
-    "private-provider"
+    "private-provider",
+    "construct:site",
+    "construct:road-stroke",
+    "construct:repair",
+    "enactPolicy:shared-root",
+    "borrow",
+    "repay",
+    "toggleDevelopment",
+    "data-ambition",
+    "pause",
+    "speed",
+    "speedRange"
   ],
   "routingIsNotPaidRootCertification": true,
   "viewGroups": [
@@ -44,18 +55,8 @@
     "trip close",
     "read-only reports"
   ],
-  "blockedPendingCount": 62,
+  "blockedPendingCount": 51,
   "blockedPendingByFamily": {
-    "paid core": [
-      "construct:site",
-      "construct:road-stroke",
-      "construct:repair",
-      "enactPolicy:shared-root",
-      "borrow",
-      "repay",
-      "toggleDevelopment",
-      "data-ambition"
-    ],
     "council/custom reviews": [
       "data-mayor-direction",
       "data-mayor-baseline",
@@ -121,9 +122,6 @@
     ],
     "founding/legacy archive UI": [],
     "realtime/native admission": [
-      "pause",
-      "speed",
-      "speedRange",
       "native Java workerArchiveResult adoption",
       "native lifecycle while async request pending"
     ]
@@ -132,7 +130,7 @@
   "realPanelAuditCount": 12,
   "actualEnabledPaidRejectionCount": 3,
   "missingControlPolicy": "Unavailable fixture controls do not count as tested",
-  "oracleOnlyBuildTransport": "Retained for source equivalence tests; real placement now explicitly refuses until paid dispatcher",
+  "oracleOnlyBuildTransport": "Legacy direct build/policy transports still refuse in command-only mode; new finite construction/road-stroke/panel-control DTOs use the same paid root.",
   "additionalOriginalControlAliasesRouted": [
     "backupSave",
     "importSave",
@@ -142,9 +140,23 @@
     "restart",
     "recoverAutosave"
   ],
-  "assembledSourceSha256": "ca9bb2dac72bc8e62160694711e9c99646487c8a19b22f6d7f18e5a4d221e97e",
+  "assembledSourceSha256": "5df42ea1348872ad692a53bfa6ea1081472d1c8783ec9ace2b5cf011bcfb6e20",
   "readOnlyDomLabelsNotCommands": [
     "data-parcel-funds"
   ],
-  "synchronousDebugModelMutationPolicy": "REFUSED_WHILE_WORKER_OWNS_MODEL"
+  "synchronousDebugModelMutationPolicy": "REFUSED_WHILE_WORKER_OWNS_MODEL",
+  "completedPendingOperationsThisCheckpoint": [
+    "construct:site",
+    "construct:road-stroke",
+    "construct:repair",
+    "enactPolicy:shared-root",
+    "borrow",
+    "repay",
+    "toggleDevelopment",
+    "data-ambition",
+    "pause",
+    "speed",
+    "speedRange"
+  ],
+  "countDefinition": "Retains prior24 semantic transport/view identifiers and adds11 explicit formerly-pending UI operations; not a percentage of101 raw handlers or a complete acceptance claim."
 }

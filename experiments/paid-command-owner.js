@@ -4,7 +4,7 @@
   const p=__capacityAdmissionProtocol,s=p.shared;
   if(s.status().enabled||s.isActive()||s.status().pendingSaveGenerations)throw Error('Install command owner disabled, idle and drained');
   if(window.__paidCommandOwner)throw Error('Command owner already installed');
-  const registry=[],samples=[],allowed=new Set(['council-choice','private-provider']);let scope='idle',refusal=null,activeSnapshot=null,readContext=null,completionScopeReady=false;
+  const registry=[],samples=[],allowed=new Set(['council-choice','private-provider','panel-control','construction','road-stroke']);let scope='idle',refusal=null,activeSnapshot=null,readContext=null,completionScopeReady=false;
   const creator=options.automaticCreators,creatorReady=!!(creator&&creator.version===1&&creator.sourceCommit==='c91475af7dd079a51a72eb89b413673adae886c1'&&typeof creatorCapacityReason==='function'&&creator.preflight===creatorCapacityReason);
   const context=()=>readContext?readContext():{version:1,mode:scope};
   const mode=()=>context().mode;

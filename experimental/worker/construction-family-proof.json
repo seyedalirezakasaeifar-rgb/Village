@@ -1,0 +1,50 @@
+{
+  "productionEnabled": false,
+  "oracleCommit": "669c908706af997375680674390e46fd132a970a",
+  "sourceSha256": "5df42ea1348872ad692a53bfa6ea1081472d1c8783ec9ace2b5cf011bcfb6e20",
+  "workerSha256": "cd85a8f963db5ceb8b4781504bd3f100bf7631917ba985c19b736efc36a77d6f",
+  "operationsExactFullModelRng": [
+    {
+      "type": "construction",
+      "kind": "park",
+      "x": 20,
+      "y": 28,
+      "score": 29.854850990036564
+    },
+    {
+      "type": "construction",
+      "kind": "home",
+      "x": 20,
+      "y": 26,
+      "score": 28.666574011590704
+    },
+    {
+      "type": "construction",
+      "kind": "grocer",
+      "x": 18,
+      "y": 26,
+      "score": 29.365843848747303
+    },
+    {
+      "type": "construction",
+      "kind": "repair",
+      "x": 27,
+      "y": 0
+    },
+    {
+      "type": "road-stroke",
+      "points": [
+        [
+          6,
+          1
+        ],
+        [
+          7,
+          1
+        ]
+      ]
+    }
+  ],
+  "invalidOrOccupiedRefuseUnchanged": 4,
+  "pageErrors": []
+}

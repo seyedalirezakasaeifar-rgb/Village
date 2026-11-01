@@ -1,0 +1,101 @@
+{
+  "productionEnabled": false,
+  "sourceSha256": "98373fa2415cf3f32c246397feb9f55c888be59a055ab91c8c58a59bd540c8a8",
+  "workerSha256": "6250a619eddcc9e28c2ea0f8dd4b8a902e05f54025f02cc40d688484f70da3e5",
+  "bridgeSha256": "88d0c9a208fbb98469b0fe5b58c64e67b90856aff92279ef94482e51db38f549",
+  "fixtureSha256": "ad6256fd85d4146fda9eeac0b16d5b182ed352c23bbd96af3b320553c29ce786",
+  "fullCanonicalModelRngEqual": true,
+  "rows": [
+    {
+      "speed": 1,
+      "elapsedMs": 4857.5,
+      "days": 2,
+      "state": {
+        "enabled": true,
+        "paused": true,
+        "requested": 1,
+        "owedDays": 0.8595757575757589,
+        "reason": "paused",
+        "committedDay": 41683,
+        "viewDay": 41683,
+        "queued": 0,
+        "publicationSequence": 6
+      },
+      "frames": {
+        "n": 294,
+        "p95": 16.799999999999272,
+        "p99": 33.399999999999636,
+        "max": 66.60000000000036
+      },
+      "input": {
+        "n": 8,
+        "p95": 29,
+        "p99": 29,
+        "max": 29
+      },
+      "trusted": true,
+      "hud": "paused \u00b7 Actual 0.7\u00d7 \u00b7 0.86 days owed"
+    },
+    {
+      "speed": 16,
+      "elapsedMs": 5127.10000000149,
+      "days": 36,
+      "state": {
+        "enabled": true,
+        "paused": true,
+        "requested": 16,
+        "owedDays": 10.36993939393942,
+        "reason": "paused",
+        "committedDay": 41717,
+        "viewDay": 41717,
+        "queued": 0,
+        "publicationSequence": 16
+      },
+      "frames": {
+        "n": 297,
+        "p95": 16.80000000000291,
+        "p99": 66.60000000000218,
+        "max": 83.29999999999927
+      },
+      "input": {
+        "n": 8,
+        "p95": 35.100000001490116,
+        "p99": 35.100000001490116,
+        "max": 35.100000001490116
+      },
+      "trusted": true,
+      "hud": "paused \u00b7 Actual 11.3\u00d7 \u00b7 10.37 days owed"
+    },
+    {
+      "speed": 64,
+      "elapsedMs": 5234.0,
+      "days": 43,
+      "state": {
+        "enabled": true,
+        "paused": true,
+        "requested": 64,
+        "owedDays": 142.10351515168884,
+        "reason": "paused",
+        "committedDay": 41724,
+        "viewDay": 41724,
+        "queued": 0,
+        "publicationSequence": 26
+      },
+      "frames": {
+        "n": 290,
+        "p95": 16.80000000000291,
+        "p99": 66.69999999999709,
+        "max": 300.09999999999854
+      },
+      "input": {
+        "n": 8,
+        "p95": 26.5,
+        "p99": 26.5,
+        "max": 26.5
+      },
+      "trusted": true,
+      "hud": "paused \u00b7 Actual 13.4\u00d7 \u00b7 142.10 days owed"
+    }
+  ],
+  "pageErrors": []
+}

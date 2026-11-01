@@ -4599,8 +4599,9 @@ function onTap(sx,sy){if(!G)return;const r=cv.getBoundingClientRect();const [x,y
  dirty=true;
 }
 cv.addEventListener('pointerdown',e=>{if(pointer.down){pointer.moved=true;return;}pointer.activeId=e.pointerId;roadPainted.clear();pointer.lastRoad=buildMode==='road'?toWorld(e.clientX-cv.getBoundingClientRect().left,e.clientY-cv.getBoundingClientRect().top):null;pointer.down=true;pointer.startX=pointer.px=e.clientX;pointer.startY=pointer.py=e.clientY;pointer.moved=false;try{cv.setPointerCapture(e.pointerId)}catch(err){} });
+function paintRoadSegment(prev,pt){let dxg=pt[0]-prev[0],dyg=pt[1]-prev[1],steps=Math.max(Math.abs(dxg),Math.abs(dyg),1);for(let k=0;k<=steps;k++){let ax=Math.round(prev[0]+dxg*k/steps),ay=Math.round(prev[1]+dyg*k/steps),key=ax+'/'+ay;if(!roadPainted.has(key)){roadPainted.add(key);construct('road',ax,ay,true)}}}
 function handleMapPointerMove(e){if(!pointer.down){if(buildMode){const r=cv.getBoundingClientRect(),p=toWorld(e.clientX-r.left,e.clientY-r.top);pointer.hover={x:p[0],y:p[1]};dirty=true;}return;}if(pointer.activeId!==e.pointerId||touches.size>1)return;let dx=e.clientX-pointer.px,dy=e.clientY-pointer.py;if(Math.abs(e.clientX-pointer.startX)>7||Math.abs(e.clientY-pointer.startY)>7)pointer.moved=true;
- if(buildMode==='road'){let br=cv.getBoundingClientRect(),pt=toWorld(e.clientX-br.left,e.clientY-br.top);let prev=pointer.lastRoad||pt;let dxg=pt[0]-prev[0],dyg=pt[1]-prev[1],steps=Math.max(Math.abs(dxg),Math.abs(dyg),1);for(let k=0;k<=steps;k++){let ax=Math.round(prev[0]+dxg*k/steps),ay=Math.round(prev[1]+dyg*k/steps),key=ax+'/'+ay;if(!roadPainted.has(key)){roadPainted.add(key);construct('road',ax,ay,true)}}pointer.lastRoad=pt}else{cam.x-=dx/cam.zoom;cam.y-=dy/cam.zoom;cam.x=clamp(cam.x,0,RW);cam.y=clamp(cam.y,0,RH)}pointer.px=e.clientX;pointer.py=e.clientY;let rect=cv.getBoundingClientRect(),tile=toWorld(e.clientX-rect.left,e.clientY-rect.top);pointer.hover={x:tile[0],y:tile[1]};dirty=true;}
+ if(buildMode==='road'){let br=cv.getBoundingClientRect(),pt=toWorld(e.clientX-br.left,e.clientY-br.top);let prev=pointer.lastRoad||pt;paintRoadSegment(prev,pt);pointer.lastRoad=pt}else{cam.x-=dx/cam.zoom;cam.y-=dy/cam.zoom;cam.x=clamp(cam.x,0,RW);cam.y=clamp(cam.y,0,RH)}pointer.px=e.clientX;pointer.py=e.clientY;let rect=cv.getBoundingClientRect(),tile=toWorld(e.clientX-rect.left,e.clientY-rect.top);pointer.hover={x:tile[0],y:tile[1]};dirty=true;}
 cv.addEventListener('pointermove',e=>{if(window.__rootAdmission?.routeRoadStroke?.(e,()=>handleMapPointerMove(e)))return;handleMapPointerMove(e);});
 cv.addEventListener('pointerup',e=>{$('gameRoot').classList.add('map-used');if(pointer.activeId!==e.pointerId)return;if(pointer.down&&!pointer.moved)onTap(e.clientX,e.clientY);flushRoadBatch();pointer.down=false;pointer.activeId=null;pointer.lastRoad=null;roadPainted.clear()});
 window.addEventListener('keydown',e=>{
@@ -4765,6 +4766,15 @@ $('tabs').addEventListener('click',e=>{const b=e.target.closest('button[data-pan
 $('panelClose').onclick=closePanel;$('topNotice').onclick=()=>openPanel('journal',$('topNotice'));$('liveEconomy').onclick=()=>openPanel('economy',$('liveEconomy'));
 $('panelBody').addEventListener('input',e=>{if(e.target.id==='searchPeople'){citizenQuery=e.target.value;return;}const input=e.target.closest('[data-policy]');if(!input)return;let k=input.dataset.policy,value=+input.value;const d=defs.find(d=>d[0]===k);draftPolicy[k]=value;const el=$('show-'+k);if(el)el.textContent=d[5]==='$'?money(value):policyNumber(value)+d[5];const button=$('enactPolicy');if(button)button.disabled=false;const summ=$('draftSummary');if(summ)summ.textContent=Object.keys(draftPolicy).filter(k=>draftPolicy[k]!==G.policy[k]).map(k=>k==='imports'?'Regional inventory imports: '+(G.policy.imports?'OPEN':'RESTRICTED')+' → '+(draftPolicy.imports?'OPEN':'RESTRICTED'):defs.find(d=>d[0]===k)?.[1]+': '+policyNumber(G.policy[k])+' → '+policyNumber(draftPolicy[k])).join(' · ')});
 $('panelBody').addEventListener('change',e=>{if(e.target.id==='searchPeople'){renderPanel('citizens');return;}const input=e.target.closest('[data-policy]');if(!input)return;draftPolicy[input.dataset.policy]=+input.value;const b=$('enactPolicy');if(b)b.disabled=false});
+// Shared DOM-free bodies for the actual panel controls and isolated worker dispatcher.
+function applyDirectPanelModel(control,ambition){
+ if(control==='ambition'){G.ambition=ambition;updateHeader();renderPanel('agenda');save();return;}
+ if(control==='toggleDevelopment'){G.autoBuild=!G.autoBuild;save();renderPanel(active);toast(G.autoBuild?'Private investment resumed.':'New private construction paused.');return;}
+ if(control==='borrow'){let limit=Math.max(25000,G.stats.population*350);if(G.debt+5000>limit||G.region<5000){toast('Regional lender declined: the credit limit or available funds have been reached.');return;}G.debt+=5000;G.treasury+=5000;G.region-=5000;story('Council borrowed $5,000 from the regional lender.');recompute();updateHeader();save();renderPanel(active);return;}
+ if(control==='repay'){let v=Math.min(5000,G.debt,G.treasury);G.debt-=v;G.treasury-=v;G.region+=v;recompute();updateHeader();save();renderPanel(active);return;}
+ if(control==='enactPolicy'){enactPolicyPackage();return;}
+ throw Error('Unknown direct panel model control');
+}
 function handlePanelAction(e){const b=e.target.closest('button,[data-house],[data-firm],[data-inspect],[data-ambition]');if(!b)return;
  if(b.dataset.build!==undefined){flushRoadBatch();buildMode=b.dataset.build;$('placementHint').classList.toggle('school-placement',buildMode==='school');if(overlay==='charter'){overlay='none';parcelFocus=null;}dirty=true;$('hint').textContent=buildMode?'TAP A CLEAR ROADSIDE PLOT · '+(buildMode==='road'?'DRAG TO PAINT ROADS':'DRAG TO PAN'):'DRAG TO PAN · TAP TO INSPECT';$('placementHint').style.display=buildMode?'block':'none';$('placementHint').textContent=buildMode?'PLACING '+(types[buildMode]?.n||'ROADS').toUpperCase()+' · COST '+money(buildCost[buildMode])+(['fishery','wharf'].includes(buildMode)?' · SHORE + ROAD'+(buildMode==='wharf'?' + RIVER OUTLET':''):''):'';closePanel();toast(buildMode?'Tap the map to build '+(types[buildMode]?.n||'road')+'.':'Inspection mode enabled');return}
  if(b.dataset.house!==undefined){const h=G.households[+b.dataset.house];if(h){const house=readBuild(h.home);if(!house){toast('This household no longer has an address in town.');return}selected={id:h.home};openPanel('inspect');const p=iso(house.x,house.y);cam.x=p[0];cam.y=p[1];dirty=true}return}
@@ -4786,7 +4796,7 @@ function handlePanelAction(e){const b=e.target.closest('button,[data-house],[dat
  if(b.id==='closeInspect'){closePanel();return}
  if(b.id==='convene'){if(G.day-G.lastEventDay>=12){offerCouncilEvent(true)}return}
  if(b.dataset.inbox!==undefined){reviewCouncilInbox(+b.dataset.inbox);return}
- if(b.dataset.ambition){G.ambition=b.dataset.ambition;updateHeader();renderPanel('agenda');save();return}
+ if(b.dataset.ambition){applyDirectPanelModel('ambition',b.dataset.ambition);return;}
  if(b.dataset.filterPeople){filterPeople=b.dataset.filterPeople;renderPanel('citizens');return}
  if(b.dataset.filterFirms){filterFirms=b.dataset.filterFirms;renderPanel('businesses');return}
  if(b.dataset.buildCategory){constructionCategory=b.dataset.buildCategory;renderPanel('construction');return}
@@ -4802,7 +4812,7 @@ function handlePanelAction(e){const b=e.target.closest('button,[data-house],[dat
  if(b.dataset.serviceAccess){overlay=b.dataset.serviceAccess==='health'?'healthAccess':'schoolAccess';closePanel();dirty=true;toast('Service access: green available · gold partial · copper unserved. Road distance and shared facility places determine reach.');return}
  if(b.dataset.openPanel){openPanel(b.dataset.openPanel);return}
  if(b.id==='tutorial'){openTutorialDialog(b);return}
- if(b.id==='toggleDevelopment'){G.autoBuild=!G.autoBuild;save();renderPanel(active);toast(G.autoBuild?'Private investment resumed.':'New private construction paused.');return;}
+ if(b.id==='toggleDevelopment'){applyDirectPanelModel('toggleDevelopment',b.dataset.ambition);return;}
  if(b.id==='overlayMetro'){overlay=overlay==='metro'?'none':'metro';dirty=true;renderPanel(active);return;}
  if(b.id==='overlayR'){overlay=overlay==='roads'?'none':'roads';dirty=true;renderPanel(active);return}
  if(b.id==='overlayC'){overlay=overlay==='crime'?'none':'crime';dirty=true;renderPanel(active);return}
@@ -4810,8 +4820,8 @@ function handlePanelAction(e){const b=e.target.closest('button,[data-house],[dat
  if(b.id==='overlayB'){overlay=overlay==='business'?'none':'business';dirty=true;renderPanel(active);return}
  if(b.id==='tradeToggle'){draftPolicy.imports=!(draftPolicy.imports??G.policy.imports);renderPanel('policies');return}
  if(b.id==='soundToggle'){soundEnabled=!soundEnabled;try{localStorage.setItem('townledger-audio',soundEnabled?'on':'off')}catch(e){};refreshAmbience();renderPanel('settings');return}
- if(b.id==='borrow'){let limit=Math.max(25000,G.stats.population*350);if(G.debt+5000>limit||G.region<5000){toast('Regional lender declined: the credit limit or available funds have been reached.');return;}G.debt+=5000;G.treasury+=5000;G.region-=5000;story('Council borrowed $5,000 from the regional lender.');recompute();updateHeader();save();renderPanel(active)}
- if(b.id==='repay'){let v=Math.min(5000,G.debt,G.treasury);G.debt-=v;G.treasury-=v;G.region+=v;recompute();updateHeader();save();renderPanel(active)}
+ if(b.id==='borrow'){applyDirectPanelModel('borrow',b.dataset.ambition);return;}
+ if(b.id==='repay'){applyDirectPanelModel('repay',b.dataset.ambition);return;}
 }
 $('panelBody').addEventListener('click',e=>{if(window.__rootAdmission?.routePanelControl?.(e,()=>handlePanelAction(e)))return;handlePanelAction(e);});
 $('zoomIn').onclick=()=>{cam.zoom=clamp(cam.zoom*1.22,.025,1.7);dirty=true};$('zoomOut').onclick=()=>{cam.zoom=clamp(cam.zoom/1.22,.025,1.7);dirty=true};$('center').onclick=()=>{if(overlay==='charter'){overlay='none';parcelFocus=null;}centerTownCamera();};$('overlayToggle').onclick=()=>{overlay=overlay==='none'?'roads':overlay==='roads'?'metro':overlay==='metro'?'hardship':overlay==='hardship'?'crime':overlay==='crime'?'business':'none';dirty=true;toast('Map overlay: '+overlay)};

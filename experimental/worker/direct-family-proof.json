@@ -1,0 +1,32 @@
+{
+  "productionEnabled": false,
+  "oracleCommit": "669c908706af997375680674390e46fd132a970a",
+  "sourceSha256": "5df42ea1348872ad692a53bfa6ea1081472d1c8783ec9ace2b5cf011bcfb6e20",
+  "workerSha256": "cd85a8f963db5ceb8b4781504bd3f100bf7631917ba985c19b736efc36a77d6f",
+  "operationsExactFullModelRng": [
+    {
+      "control": "borrow"
+    },
+    {
+      "control": "repay"
+    },
+    {
+      "control": "toggleDevelopment"
+    },
+    {
+      "control": "toggleDevelopment"
+    },
+    {
+      "control": "ambition",
+      "ambition": "balanced"
+    },
+    {
+      "control": "enactPolicy",
+      "values": {
+        "minWage": 14
+      }
+    }
+  ],
+  "invalidOrNoopDtosRefuseUnchanged": 5,
+  "pageErrors": []
+}

@@ -1,0 +1,1547 @@
+{
+  "productionEnabled": false,
+  "sourceSha256": "5df42ea1348872ad692a53bfa6ea1081472d1c8783ec9ace2b5cf011bcfb6e20",
+  "workerSha256": "cd85a8f963db5ceb8b4781504bd3f100bf7631917ba985c19b736efc36a77d6f",
+  "bridgeSha256": "b73bf4ec7499bf82eb071d70ab2ffb6c3536606b56d6e158b22da72f59c5b5d6",
+  "fixtureSha256": "ad6256fd85d4146fda9eeac0b16d5b182ed352c23bbd96af3b320553c29ce786",
+  "fullCanonicalModelRngEqual": true,
+  "rows": [
+    {
+      "speed": 1,
+      "elapsedMs": 4534.9000000059605,
+      "days": 2,
+      "state": {
+        "enabled": true,
+        "paused": true,
+        "requested": 1,
+        "owedDays": 0.6795757575748551,
+        "reason": "paused",
+        "committedDay": 41683,
+        "viewDay": 41683,
+        "queued": 0,
+        "publicationSequence": 6,
+        "timings": [
+          {
+            "kind": "day",
+            "day": 41682,
+            "roundTripMs": 243.09999999403954,
+            "workerRequestMs": 242.5
+          },
+          {
+            "kind": "publication",
+            "day": 41682,
+            "roundTripMs": 73.60000000149012,
+            "workerRequestMs": 60.79999999701977,
+            "mainAdoptionWallMs": 160.10000000149012,
+            "patches": 2238,
+            "profile": {
+              "tickMs": 239.5,
+              "snapshotMs": 93.6000000089407,
+              "snapshots": 3,
+              "stringifyMs": 61.6000000089407,
+              "parseMs": 32,
+              "postMs": 13.49999999254942
+            }
+          },
+          {
+            "kind": "day",
+            "day": 41683,
+            "roundTripMs": 95,
+            "workerRequestMs": 94.70000000298023
+          },
+          {
+            "kind": "publication",
+            "day": 41683,
+            "roundTripMs": 60,
+            "workerRequestMs": 50.600000001490116,
+            "mainAdoptionWallMs": 102.70000000298023,
+            "patches": 1369,
+            "profile": {
+              "tickMs": 334.1000000014901,
+              "snapshotMs": 127.50000000745058,
+              "snapshots": 4,
+              "stringifyMs": 80.90000000596046,
+              "parseMs": 46.600000001490116,
+              "postMs": 18.49999999254942
+            }
+          },
+          {
+            "kind": "publication",
+            "day": 41683,
+            "roundTripMs": 54.30000000447035,
+            "workerRequestMs": 53.899999998509884,
+            "mainAdoptionWallMs": 44.399999998509884,
+            "patches": 0,
+            "profile": {
+              "tickMs": 334.1000000014901,
+              "snapshotMs": 166.30000000447035,
+              "snapshots": 5,
+              "stringifyMs": 103.30000000447035,
+              "parseMs": 63,
+              "postMs": 21.99999999254942
+            }
+          }
+        ]
+      },
+      "frames": {
+        "n": 272,
+        "p95": 16.799999999999272,
+        "p99": 33.399999999999636,
+        "max": 100
+      },
+      "input": {
+        "n": 8,
+        "p95": 22.799999997019768,
+        "p99": 22.799999997019768,
+        "max": 22.799999997019768
+      },
+      "trusted": true,
+      "hud": "paused \u00b7 Actual 0.7\u00d7 \u00b7 0.68 days owed"
+    },
+    {
+      "speed": 16,
+      "elapsedMs": 4812.39999999851,
+      "days": 44,
+      "state": {
+        "enabled": true,
+        "paused": true,
+        "requested": 16,
+        "owedDays": 0.8484848484993094,
+        "reason": "paused",
+        "committedDay": 41725,
+        "viewDay": 41725,
+        "queued": 0,
+        "publicationSequence": 17,
+        "timings": [
+          {
+            "kind": "day",
+            "day": 41682,
+            "roundTripMs": 243.09999999403954,
+            "workerRequestMs": 242.5
+          },
+          {
+            "kind": "publication",
+            "day": 41682,
+            "roundTripMs": 73.60000000149012,
+            "workerRequestMs": 60.79999999701977,
+            "mainAdoptionWallMs": 160.10000000149012,
+            "patches": 2238,
+            "profile": {
+              "tickMs": 239.5,
+              "snapshotMs": 93.6000000089407,
+              "snapshots": 3,
+              "stringifyMs": 61.6000000089407,
+              "parseMs": 32,
+              "postMs": 13.49999999254942
+            }
+          },
+          {
+            "kind": "day",
+            "day": 41683,
+            "roundTripMs": 95,
+            "workerRequestMs": 94.70000000298023
+          },
+          {
+            "kind": "publication",
+            "day": 41683,
+            "roundTripMs": 60,
+            "workerRequestMs": 50.600000001490116,
+            "mainAdoptionWallMs": 102.70000000298023,
+            "patches": 1369,
+            "profile": {
+              "tickMs": 334.1000000014901,
+              "snapshotMs": 127.50000000745058,
+              "snapshots": 4,
+              "stringifyMs": 80.90000000596046,
+              "parseMs": 46.600000001490116,
+              "postMs": 18.49999999254942
+            }
+          },
+          {
+            "kind": "publication",
+            "day": 41683,
+            "roundTripMs": 54.30000000447035,
+            "workerRequestMs": 53.899999998509884,
+            "mainAdoptionWallMs": 44.399999998509884,
+            "patches": 0,
+            "profile": {
+              "tickMs": 334.1000000014901,
+              "snapshotMs": 166.30000000447035,
+              "snapshots": 5,
+              "stringifyMs": 103.30000000447035,
+              "parseMs": 63,
+              "postMs": 21.99999999254942
+            }
+          },
+          {
+            "kind": "day",
+            "day": 41682,
+            "roundTripMs": 193.29999999701977,
+            "workerRequestMs": 192.79999999701977
+          },
+          {
+            "kind": "publication",
+            "day": 41682,
+            "roundTripMs": 74.70000000298023,
+            "workerRequestMs": 62.5,
+            "mainAdoptionWallMs": 107.39999999850988,
+            "patches": 2238,
+            "profile": {
+              "tickMs": 192,
+              "snapshotMs": 111.90000000596046,
+              "snapshots": 3,
+              "stringifyMs": 75.09999999403954,
+              "parseMs": 36.80000001192093,
+              "postMs": 11.99999999254942
+            }
+          },
+          {
+            "kind": "day",
+            "day": 41683,
+            "roundTripMs": 187,
+            "workerRequestMs": 85.89999999850988
+          },
+          {
+            "kind": "day",
+            "day": 41684,
+            "roundTripMs": 93.79999999701977,
+            "workerRequestMs": 92.59999999403954
+          },
+          {
+            "kind": "day",
+            "day": 41685,
+            "roundTripMs": 66.5,
+            "workerRequestMs": 65.80000000447035
+          },
+          {
+            "kind": "day",
+            "day": 41686,
+            "roundTripMs": 48.100000001490116,
+            "workerRequestMs": 45
+          },
+          {
+            "kind": "day",
+            "day": 41687,
+            "roundTripMs": 52.600000001490116,
+            "workerRequestMs": 52.30000000447035
+          },
+          {
+            "kind": "day",
+            "day": 41688,
+            "roundTripMs": 55.5,
+            "workerRequestMs": 54.399999998509884
+          },
+          {
+            "kind": "day",
+            "day": 41689,
+            "roundTripMs": 59.30000000447035,
+            "workerRequestMs": 58.899999998509884
+          },
+          {
+            "kind": "day",
+            "day": 41690,
+            "roundTripMs": 72.10000000149012,
+            "workerRequestMs": 68.29999999701977
+          },
+          {
+            "kind": "publication",
+            "day": 41690,
+            "roundTripMs": 66.10000000149012,
+            "workerRequestMs": 48.79999999701977,
+            "mainAdoptionWallMs": 126.70000000298023,
+            "patches": 2586,
+            "profile": {
+              "tickMs": 703.099999986589,
+              "snapshotMs": 142.00000000745058,
+              "snapshots": 4,
+              "stringifyMs": 94.19999999552965,
+              "parseMs": 47.80000001192093,
+              "postMs": 17.399999991059303
+            }
+          },
+          {
+            "kind": "day",
+            "day": 41691,
+            "roundTripMs": 188.70000000298023,
+            "workerRequestMs": 80.70000000298023
+          },
+          {
+            "kind": "day",
+            "day": 41692,
+            "roundTripMs": 62.70000000298023,
+            "workerRequestMs": 61.69999999552965
+          },
+          {
+            "kind": "day",
+            "day": 41693,
+            "roundTripMs": 68.60000000149012,
+            "workerRequestMs": 68.39999999850988
+          },
+          {
+            "kind": "day",
+            "day": 41694,
+            "roundTripMs": 61.30000000447035,
+            "workerRequestMs": 61
+          },
+          {
+            "kind": "day",
+            "day": 41695,
+            "roundTripMs": 56.19999999552965,
+            "workerRequestMs": 55.900000005960464
+          },
+          {
+            "kind": "day",
+            "day": 41696,
+            "roundTripMs": 58.29999999701977,
+            "workerRequestMs": 57.80000000447035
+          },
+          {
+            "kind": "day",
+            "day": 41697,
+            "roundTripMs": 65.29999999701977,
+            "workerRequestMs": 64.89999999850988
+          },
+          {
+            "kind": "publication",
+            "day": 41697,
+            "roundTripMs": 53.5,
+            "workerRequestMs": 45.899999998509884,
+            "mainAdoptionWallMs": 103.10000000149012,
+            "patches": 1517,
+            "profile": {
+              "tickMs": 1146.9999999850988,
+              "snapshotMs": 173.7000000104308,
+              "snapshots": 5,
+              "stringifyMs": 113.69999999552965,
+              "parseMs": 60.00000001490116,
+              "postMs": 28.200000002980232
+            }
+          },
+          {
+            "kind": "day",
+            "day": 41698,
+            "roundTripMs": 107.69999999552965,
+            "workerRequestMs": 83.19999999552965
+          },
+          {
+            "kind": "day",
+            "day": 41699,
+            "roundTripMs": 91.60000000149012,
+            "workerRequestMs": 91
+          },
+          {
+            "kind": "day",
+            "day": 41700,
+            "roundTripMs": 500.8999999985099,
+            "workerRequestMs": 500.69999999552965
+          },
+          {
+            "kind": "publication",
+            "day": 41700,
+            "roundTripMs": 94,
+            "workerRequestMs": 65.79999999701977,
+            "mainAdoptionWallMs": 142,
+            "patches": 4027,
+            "profile": {
+              "tickMs": 1819.0999999940395,
+              "snapshotMs": 212.50000000745058,
+              "snapshots": 6,
+              "stringifyMs": 138.59999999403954,
+              "parseMs": 73.90000001341105,
+              "postMs": 30.700000010430813
+            }
+          },
+          {
+            "kind": "day",
+            "day": 41701,
+            "roundTripMs": 239.79999999701977,
+            "workerRequestMs": 136.10000000149012
+          },
+          {
+            "kind": "day",
+            "day": 41702,
+            "roundTripMs": 31.899999998509884,
+            "workerRequestMs": 29.600000001490116
+          },
+          {
+            "kind": "day",
+            "day": 41703,
+            "roundTripMs": 39.30000000447035,
+            "workerRequestMs": 35.399999998509884
+          },
+          {
+            "kind": "day",
+            "day": 41704,
+            "roundTripMs": 33.100000001490116,
+            "workerRequestMs": 32.80000000447035
+          },
+          {
+            "kind": "day",
+            "day": 41705,
+            "roundTripMs": 29,
+            "workerRequestMs": 28.80000000447035
+          },
+          {
+            "kind": "day",
+            "day": 41706,
+            "roundTripMs": 31,
+            "workerRequestMs": 30.80000000447035
+          },
+          {
+            "kind": "day",
+            "day": 41707,
+            "roundTripMs": 26.80000000447035,
+            "workerRequestMs": 26.5
+          },
+          {
+            "kind": "day",
+            "day": 41708,
+            "roundTripMs": 28.799999997019768,
+            "workerRequestMs": 27.69999999552965
+          },
+          {
+            "kind": "day",
+            "day": 41709,
+            "roundTripMs": 46.19999999552965,
+            "workerRequestMs": 45.899999998509884
+          },
+          {
+            "kind": "publication",
+            "day": 41709,
+            "roundTripMs": 50.899999998509884,
+            "workerRequestMs": 43.79999999701977,
+            "mainAdoptionWallMs": 55,
+            "patches": 1583,
+            "profile": {
+              "tickMs": 2206.8999999910593,
+              "snapshotMs": 240.80000000447035,
+              "snapshots": 7,
+              "stringifyMs": 157.09999999403954,
+              "parseMs": 83.70000001043081,
+              "postMs": 46.6000000089407
+            }
+          },
+          {
+            "kind": "day",
+            "day": 41710,
+            "roundTripMs": 108.39999999850988,
+            "workerRequestMs": 28.5
+          },
+          {
+            "kind": "day",
+            "day": 41711,
+            "roundTripMs": 42.399999998509884,
+            "workerRequestMs": 42.19999999552965
+          },
+          {
+            "kind": "day",
+            "day": 41712,
+            "roundTripMs": 49.099999994039536,
+            "workerRequestMs": 48.100000001490116
+          },
+          {
+            "kind": "day",
+            "day": 41713,
+            "roundTripMs": 40.79999999701977,
+            "workerRequestMs": 40.5
+          },
+          {
+            "kind": "day",
+            "day": 41714,
+            "roundTripMs": 35.600000001490116,
+            "workerRequestMs": 35.29999999701977
+          },
+          {
+            "kind": "day",
+            "day": 41715,
+            "roundTripMs": 38.29999999701977,
+            "workerRequestMs": 38.100000001490116
+          },
+          {
+            "kind": "day",
+            "day": 41716,
+            "roundTripMs": 71,
+            "workerRequestMs": 70.30000000447035
+          },
+          {
+            "kind": "day",
+            "day": 41717,
+            "roundTripMs": 64.70000000298023,
+            "workerRequestMs": 63.399999998509884
+          },
+          {
+            "kind": "day",
+            "day": 41718,
+            "roundTripMs": 58,
+            "workerRequestMs": 57.5
+          },
+          {
+            "kind": "publication",
+            "day": 41718,
+            "roundTripMs": 69.79999999701977,
+            "workerRequestMs": 54,
+            "mainAdoptionWallMs": 88.70000000298023,
+            "patches": 2858,
+            "profile": {
+              "tickMs": 2625.9999999925494,
+              "snapshotMs": 278.20000000298023,
+              "snapshots": 8,
+              "stringifyMs": 179.69999999552965,
+              "parseMs": 98.50000000745058,
+              "postMs": 50.1000000089407
+            }
+          },
+          {
+            "kind": "day",
+            "day": 41719,
+            "roundTripMs": 104.80000000447035,
+            "workerRequestMs": 51.69999999552965
+          },
+          {
+            "kind": "day",
+            "day": 41720,
+            "roundTripMs": 58.899999998509884,
+            "workerRequestMs": 55.400000005960464
+          },
+          {
+            "kind": "day",
+            "day": 41721,
+            "roundTripMs": 60.79999999701977,
+            "workerRequestMs": 60
+          },
+          {
+            "kind": "day",
+            "day": 41722,
+            "roundTripMs": 69.5,
+            "workerRequestMs": 69.10000000149012
+          },
+          {
+            "kind": "day",
+            "day": 41723,
+            "roundTripMs": 58,
+            "workerRequestMs": 57.70000000298023
+          },
+          {
+            "kind": "day",
+            "day": 41724,
+            "roundTripMs": 59,
+            "workerRequestMs": 58.69999999552965
+          },
+          {
+            "kind": "day",
+            "day": 41725,
+            "roundTripMs": 70.20000000298023,
+            "workerRequestMs": 69.89999999850988
+          },
+          {
+            "kind": "publication",
+            "day": 41725,
+            "roundTripMs": 56.599999994039536,
+            "workerRequestMs": 44.80000000447035,
+            "mainAdoptionWallMs": 58.70000000298023,
+            "patches": 2756,
+            "profile": {
+              "tickMs": 3047,
+              "snapshotMs": 310.20000000298023,
+              "snapshots": 9,
+              "stringifyMs": 201.19999999552965,
+              "parseMs": 109.00000000745058,
+              "postMs": 55.50000000745058
+            }
+          },
+          {
+            "kind": "publication",
+            "day": 41725,
+            "roundTripMs": 45.100000001490116,
+            "workerRequestMs": 44.399999998509884,
+            "mainAdoptionWallMs": 17.299999997019768,
+            "patches": 0,
+            "profile": {
+              "tickMs": 3047,
+              "snapshotMs": 339.80000000447035,
+              "snapshots": 10,
+              "stringifyMs": 221.19999999552965,
+              "parseMs": 118.6000000089407,
+              "postMs": 60.50000000745058
+            }
+          }
+        ]
+      },
+      "frames": {
+        "n": 282,
+        "p95": 16.799999999999272,
+        "p99": 50,
+        "max": 83.29999999999927
+      },
+      "input": {
+        "n": 8,
+        "p95": 22.899999998509884,
+        "p99": 22.899999998509884,
+        "max": 22.899999998509884
+      },
+      "trusted": true,
+      "hud": "paused \u00b7 Actual 15.2\u00d7 \u00b7 0.85 days owed"
+    },
+    {
+      "speed": 64,
+      "elapsedMs": 5132.10000000149,
+      "days": 69,
+      "state": {
+        "enabled": true,
+        "paused": true,
+        "requested": 64,
+        "owedDays": 112.41478787867273,
+        "reason": "paused",
+        "committedDay": 41750,
+        "viewDay": 41750,
+        "queued": 0,
+        "publicationSequence": 28,
+        "timings": [
+          {
+            "kind": "publication",
+            "day": 41682,
+            "roundTripMs": 74.70000000298023,
+            "workerRequestMs": 62.5,
+            "mainAdoptionWallMs": 107.39999999850988,
+            "patches": 2238,
+            "profile": {
+              "tickMs": 192,
+              "snapshotMs": 111.90000000596046,
+              "snapshots": 3,
+              "stringifyMs": 75.09999999403954,
+              "parseMs": 36.80000001192093,
+              "postMs": 11.99999999254942
+            }
+          },
+          {
+            "kind": "day",
+            "day": 41683,
+            "roundTripMs": 187,
+            "workerRequestMs": 85.89999999850988
+          },
+          {
+            "kind": "day",
+            "day": 41684,
+            "roundTripMs": 93.79999999701977,
+            "workerRequestMs": 92.59999999403954
+          },
+          {
+            "kind": "day",
+            "day": 41685,
+            "roundTripMs": 66.5,
+            "workerRequestMs": 65.80000000447035
+          },
+          {
+            "kind": "day",
+            "day": 41686,
+            "roundTripMs": 48.100000001490116,
+            "workerRequestMs": 45
+          },
+          {
+            "kind": "day",
+            "day": 41687,
+            "roundTripMs": 52.600000001490116,
+            "workerRequestMs": 52.30000000447035
+          },
+          {
+            "kind": "day",
+            "day": 41688,
+            "roundTripMs": 55.5,
+            "workerRequestMs": 54.399999998509884
+          },
+          {
+            "kind": "day",
+            "day": 41689,
+            "roundTripMs": 59.30000000447035,
+            "workerRequestMs": 58.899999998509884
+          },
+          {
+            "kind": "day",
+            "day": 41690,
+            "roundTripMs": 72.10000000149012,
+            "workerRequestMs": 68.29999999701977
+          },
+          {
+            "kind": "publication",
+            "day": 41690,
+            "roundTripMs": 66.10000000149012,
+            "workerRequestMs": 48.79999999701977,
+            "mainAdoptionWallMs": 126.70000000298023,
+            "patches": 2586,
+            "profile": {
+              "tickMs": 703.099999986589,
+              "snapshotMs": 142.00000000745058,
+              "snapshots": 4,
+              "stringifyMs": 94.19999999552965,
+              "parseMs": 47.80000001192093,
+              "postMs": 17.399999991059303
+            }
+          },
+          {
+            "kind": "day",
+            "day": 41691,
+            "roundTripMs": 188.70000000298023,
+            "workerRequestMs": 80.70000000298023
+          },
+          {
+            "kind": "day",
+            "day": 41692,
+            "roundTripMs": 62.70000000298023,
+            "workerRequestMs": 61.69999999552965
+          },
+          {
+            "kind": "day",
+            "day": 41693,
+            "roundTripMs": 68.60000000149012,
+            "workerRequestMs": 68.39999999850988
+          },
+          {
+            "kind": "day",
+            "day": 41694,
+            "roundTripMs": 61.30000000447035,
+            "workerRequestMs": 61
+          },
+          {
+            "kind": "day",
+            "day": 41695,
+            "roundTripMs": 56.19999999552965,
+            "workerRequestMs": 55.900000005960464
+          },
+          {
+            "kind": "day",
+            "day": 41696,
+            "roundTripMs": 58.29999999701977,
+            "workerRequestMs": 57.80000000447035
+          },
+          {
+            "kind": "day",
+            "day": 41697,
+            "roundTripMs": 65.29999999701977,
+            "workerRequestMs": 64.89999999850988
+          },
+          {
+            "kind": "publication",
+            "day": 41697,
+            "roundTripMs": 53.5,
+            "workerRequestMs": 45.899999998509884,
+            "mainAdoptionWallMs": 103.10000000149012,
+            "patches": 1517,
+            "profile": {
+              "tickMs": 1146.9999999850988,
+              "snapshotMs": 173.7000000104308,
+              "snapshots": 5,
+              "stringifyMs": 113.69999999552965,
+              "parseMs": 60.00000001490116,
+              "postMs": 28.200000002980232
+            }
+          },
+          {
+            "kind": "day",
+            "day": 41698,
+            "roundTripMs": 107.69999999552965,
+            "workerRequestMs": 83.19999999552965
+          },
+          {
+            "kind": "day",
+            "day": 41699,
+            "roundTripMs": 91.60000000149012,
+            "workerRequestMs": 91
+          },
+          {
+            "kind": "day",
+            "day": 41700,
+            "roundTripMs": 500.8999999985099,
+            "workerRequestMs": 500.69999999552965
+          },
+          {
+            "kind": "publication",
+            "day": 41700,
+            "roundTripMs": 94,
+            "workerRequestMs": 65.79999999701977,
+            "mainAdoptionWallMs": 142,
+            "patches": 4027,
+            "profile": {
+              "tickMs": 1819.0999999940395,
+              "snapshotMs": 212.50000000745058,
+              "snapshots": 6,
+              "stringifyMs": 138.59999999403954,
+              "parseMs": 73.90000001341105,
+              "postMs": 30.700000010430813
+            }
+          },
+          {
+            "kind": "day",
+            "day": 41701,
+            "roundTripMs": 239.79999999701977,
+            "workerRequestMs": 136.10000000149012
+          },
+          {
+            "kind": "day",
+            "day": 41702,
+            "roundTripMs": 31.899999998509884,
+            "workerRequestMs": 29.600000001490116
+          },
+          {
+            "kind": "day",
+            "day": 41703,
+            "roundTripMs": 39.30000000447035,
+            "workerRequestMs": 35.399999998509884
+          },
+          {
+            "kind": "day",
+            "day": 41704,
+            "roundTripMs": 33.100000001490116,
+            "workerRequestMs": 32.80000000447035
+          },
+          {
+            "kind": "day",
+            "day": 41705,
+            "roundTripMs": 29,
+            "workerRequestMs": 28.80000000447035
+          },
+          {
+            "kind": "day",
+            "day": 41706,
+            "roundTripMs": 31,
+            "workerRequestMs": 30.80000000447035
+          },
+          {
+            "kind": "day",
+            "day": 41707,
+            "roundTripMs": 26.80000000447035,
+            "workerRequestMs": 26.5
+          },
+          {
+            "kind": "day",
+            "day": 41708,
+            "roundTripMs": 28.799999997019768,
+            "workerRequestMs": 27.69999999552965
+          },
+          {
+            "kind": "day",
+            "day": 41709,
+            "roundTripMs": 46.19999999552965,
+            "workerRequestMs": 45.899999998509884
+          },
+          {
+            "kind": "publication",
+            "day": 41709,
+            "roundTripMs": 50.899999998509884,
+            "workerRequestMs": 43.79999999701977,
+            "mainAdoptionWallMs": 55,
+            "patches": 1583,
+            "profile": {
+              "tickMs": 2206.8999999910593,
+              "snapshotMs": 240.80000000447035,
+              "snapshots": 7,
+              "stringifyMs": 157.09999999403954,
+              "parseMs": 83.70000001043081,
+              "postMs": 46.6000000089407
+            }
+          },
+          {
+            "kind": "day",
+            "day": 41710,
+            "roundTripMs": 108.39999999850988,
+            "workerRequestMs": 28.5
+          },
+          {
+            "kind": "day",
+            "day": 41711,
+            "roundTripMs": 42.399999998509884,
+            "workerRequestMs": 42.19999999552965
+          },
+          {
+            "kind": "day",
+            "day": 41712,
+            "roundTripMs": 49.099999994039536,
+            "workerRequestMs": 48.100000001490116
+          },
+          {
+            "kind": "day",
+            "day": 41713,
+            "roundTripMs": 40.79999999701977,
+            "workerRequestMs": 40.5
+          },
+          {
+            "kind": "day",
+            "day": 41714,
+            "roundTripMs": 35.600000001490116,
+            "workerRequestMs": 35.29999999701977
+          },
+          {
+            "kind": "day",
+            "day": 41715,
+            "roundTripMs": 38.29999999701977,
+            "workerRequestMs": 38.100000001490116
+          },
+          {
+            "kind": "day",
+            "day": 41716,
+            "roundTripMs": 71,
+            "workerRequestMs": 70.30000000447035
+          },
+          {
+            "kind": "day",
+            "day": 41717,
+            "roundTripMs": 64.70000000298023,
+            "workerRequestMs": 63.399999998509884
+          },
+          {
+            "kind": "day",
+            "day": 41718,
+            "roundTripMs": 58,
+            "workerRequestMs": 57.5
+          },
+          {
+            "kind": "publication",
+            "day": 41718,
+            "roundTripMs": 69.79999999701977,
+            "workerRequestMs": 54,
+            "mainAdoptionWallMs": 88.70000000298023,
+            "patches": 2858,
+            "profile": {
+              "tickMs": 2625.9999999925494,
+              "snapshotMs": 278.20000000298023,
+              "snapshots": 8,
+              "stringifyMs": 179.69999999552965,
+              "parseMs": 98.50000000745058,
+              "postMs": 50.1000000089407
+            }
+          },
+          {
+            "kind": "day",
+            "day": 41719,
+            "roundTripMs": 104.80000000447035,
+            "workerRequestMs": 51.69999999552965
+          },
+          {
+            "kind": "day",
+            "day": 41720,
+            "roundTripMs": 58.899999998509884,
+            "workerRequestMs": 55.400000005960464
+          },
+          {
+            "kind": "day",
+            "day": 41721,
+            "roundTripMs": 60.79999999701977,
+            "workerRequestMs": 60
+          },
+          {
+            "kind": "day",
+            "day": 41722,
+            "roundTripMs": 69.5,
+            "workerRequestMs": 69.10000000149012
+          },
+          {
+            "kind": "day",
+            "day": 41723,
+            "roundTripMs": 58,
+            "workerRequestMs": 57.70000000298023
+          },
+          {
+            "kind": "day",
+            "day": 41724,
+            "roundTripMs": 59,
+            "workerRequestMs": 58.69999999552965
+          },
+          {
+            "kind": "day",
+            "day": 41725,
+            "roundTripMs": 70.20000000298023,
+            "workerRequestMs": 69.89999999850988
+          },
+          {
+            "kind": "publication",
+            "day": 41725,
+            "roundTripMs": 56.599999994039536,
+            "workerRequestMs": 44.80000000447035,
+            "mainAdoptionWallMs": 58.70000000298023,
+            "patches": 2756,
+            "profile": {
+              "tickMs": 3047,
+              "snapshotMs": 310.20000000298023,
+              "snapshots": 9,
+              "stringifyMs": 201.19999999552965,
+              "parseMs": 109.00000000745058,
+              "postMs": 55.50000000745058
+            }
+          },
+          {
+            "kind": "publication",
+            "day": 41725,
+            "roundTripMs": 45.100000001490116,
+            "workerRequestMs": 44.399999998509884,
+            "mainAdoptionWallMs": 17.299999997019768,
+            "patches": 0,
+            "profile": {
+              "tickMs": 3047,
+              "snapshotMs": 339.80000000447035,
+              "snapshots": 10,
+              "stringifyMs": 221.19999999552965,
+              "parseMs": 118.6000000089407,
+              "postMs": 60.50000000745058
+            }
+          },
+          {
+            "kind": "day",
+            "day": 41682,
+            "roundTripMs": 143.80000000447035,
+            "workerRequestMs": 141.5
+          },
+          {
+            "kind": "publication",
+            "day": 41682,
+            "roundTripMs": 78.5,
+            "workerRequestMs": 60.5,
+            "mainAdoptionWallMs": 226.59999999403954,
+            "patches": 2238,
+            "profile": {
+              "tickMs": 140.79999999701977,
+              "snapshotMs": 101,
+              "snapshots": 3,
+              "stringifyMs": 65.5,
+              "parseMs": 35.5,
+              "postMs": 15
+            }
+          },
+          {
+            "kind": "day",
+            "day": 41683,
+            "roundTripMs": 318.80000000447035,
+            "workerRequestMs": 77.69999999552965
+          },
+          {
+            "kind": "day",
+            "day": 41684,
+            "roundTripMs": 51.900000005960464,
+            "workerRequestMs": 44
+          },
+          {
+            "kind": "day",
+            "day": 41685,
+            "roundTripMs": 48.70000000298023,
+            "workerRequestMs": 48
+          },
+          {
+            "kind": "day",
+            "day": 41686,
+            "roundTripMs": 47.5,
+            "workerRequestMs": 47.29999999701977
+          },
+          {
+            "kind": "day",
+            "day": 41687,
+            "roundTripMs": 46.399999998509884,
+            "workerRequestMs": 46.100000001490116
+          },
+          {
+            "kind": "day",
+            "day": 41688,
+            "roundTripMs": 45.900000005960464,
+            "workerRequestMs": 45.70000000298023
+          },
+          {
+            "kind": "day",
+            "day": 41689,
+            "roundTripMs": 55.5,
+            "workerRequestMs": 55.100000001490116
+          },
+          {
+            "kind": "day",
+            "day": 41690,
+            "roundTripMs": 50.70000000298023,
+            "workerRequestMs": 50.29999999701977
+          },
+          {
+            "kind": "day",
+            "day": 41691,
+            "roundTripMs": 52.5,
+            "workerRequestMs": 52.20000000298023
+          },
+          {
+            "kind": "day",
+            "day": 41692,
+            "roundTripMs": 56.5,
+            "workerRequestMs": 56.100000001490116
+          },
+          {
+            "kind": "day",
+            "day": 41693,
+            "roundTripMs": 57.400000005960464,
+            "workerRequestMs": 55.399999998509884
+          },
+          {
+            "kind": "publication",
+            "day": 41693,
+            "roundTripMs": 63.69999999552965,
+            "workerRequestMs": 41.80000000447035,
+            "mainAdoptionWallMs": 91.10000000149012,
+            "patches": 2583,
+            "profile": {
+              "tickMs": 713.8999999910593,
+              "snapshotMs": 130.5,
+              "snapshots": 4,
+              "stringifyMs": 83.60000000149012,
+              "parseMs": 46.79999999701977,
+              "postMs": 20.5
+            }
+          },
+          {
+            "kind": "day",
+            "day": 41694,
+            "roundTripMs": 158.90000000596046,
+            "workerRequestMs": 60.899999998509884
+          },
+          {
+            "kind": "day",
+            "day": 41695,
+            "roundTripMs": 55.80000000447035,
+            "workerRequestMs": 55.80000000447035
+          },
+          {
+            "kind": "day",
+            "day": 41696,
+            "roundTripMs": 52.79999999701977,
+            "workerRequestMs": 52.5
+          },
+          {
+            "kind": "day",
+            "day": 41697,
+            "roundTripMs": 52.79999999701977,
+            "workerRequestMs": 52.5
+          },
+          {
+            "kind": "day",
+            "day": 41698,
+            "roundTripMs": 56.70000000298023,
+            "workerRequestMs": 56.399999998509884
+          },
+          {
+            "kind": "day",
+            "day": 41699,
+            "roundTripMs": 65.80000000447035,
+            "workerRequestMs": 65.39999999850988
+          },
+          {
+            "kind": "day",
+            "day": 41700,
+            "roundTripMs": 291.09999999403954,
+            "workerRequestMs": 291.09999999403954
+          },
+          {
+            "kind": "publication",
+            "day": 41700,
+            "roundTripMs": 58.5,
+            "workerRequestMs": 39.79999999701977,
+            "mainAdoptionWallMs": 88.60000000149012,
+            "patches": 4263,
+            "profile": {
+              "tickMs": 1347.4999999850988,
+              "snapshotMs": 158.89999999850988,
+              "snapshots": 5,
+              "stringifyMs": 102.5,
+              "parseMs": 56.29999999701977,
+              "postMs": 25
+            }
+          },
+          {
+            "kind": "day",
+            "day": 41701,
+            "roundTripMs": 151.10000000149012,
+            "workerRequestMs": 68.29999999701977
+          },
+          {
+            "kind": "day",
+            "day": 41702,
+            "roundTripMs": 40.599999994039536,
+            "workerRequestMs": 40.400000005960464
+          },
+          {
+            "kind": "day",
+            "day": 41703,
+            "roundTripMs": 23.399999998509884,
+            "workerRequestMs": 22.5
+          },
+          {
+            "kind": "day",
+            "day": 41704,
+            "roundTripMs": 32.399999998509884,
+            "workerRequestMs": 21.5
+          },
+          {
+            "kind": "day",
+            "day": 41705,
+            "roundTripMs": 46.80000000447035,
+            "workerRequestMs": 25.400000005960464
+          },
+          {
+            "kind": "day",
+            "day": 41706,
+            "roundTripMs": 22.799999997019768,
+            "workerRequestMs": 22.600000001490116
+          },
+          {
+            "kind": "day",
+            "day": 41707,
+            "roundTripMs": 24.899999998509884,
+            "workerRequestMs": 24.799999997019768
+          },
+          {
+            "kind": "day",
+            "day": 41708,
+            "roundTripMs": 25,
+            "workerRequestMs": 24.700000002980232
+          },
+          {
+            "kind": "day",
+            "day": 41709,
+            "roundTripMs": 25.600000001490116,
+            "workerRequestMs": 25.400000005960464
+          },
+          {
+            "kind": "day",
+            "day": 41710,
+            "roundTripMs": 24.100000001490116,
+            "workerRequestMs": 23.399999998509884
+          },
+          {
+            "kind": "day",
+            "day": 41711,
+            "roundTripMs": 26.400000005960464,
+            "workerRequestMs": 26.200000002980232
+          },
+          {
+            "kind": "day",
+            "day": 41712,
+            "roundTripMs": 78.20000000298023,
+            "workerRequestMs": 27.899999998509884
+          },
+          {
+            "kind": "publication",
+            "day": 41711,
+            "roundTripMs": 52,
+            "workerRequestMs": 41,
+            "mainAdoptionWallMs": 62.599999994039536,
+            "patches": 2799,
+            "profile": {
+              "tickMs": 1665.7999999821186,
+              "snapshotMs": 187.89999999850988,
+              "snapshots": 6,
+              "stringifyMs": 121,
+              "parseMs": 66.79999999701977,
+              "postMs": 32.70000000298023
+            }
+          },
+          {
+            "kind": "day",
+            "day": 41713,
+            "roundTripMs": 43.099999994039536,
+            "workerRequestMs": 39.80000000447035
+          },
+          {
+            "kind": "day",
+            "day": 41714,
+            "roundTripMs": 34.600000001490116,
+            "workerRequestMs": 34.399999998509884
+          },
+          {
+            "kind": "day",
+            "day": 41715,
+            "roundTripMs": 39,
+            "workerRequestMs": 38.79999999701977
+          },
+          {
+            "kind": "day",
+            "day": 41716,
+            "roundTripMs": 43.5,
+            "workerRequestMs": 43.30000000447035
+          },
+          {
+            "kind": "day",
+            "day": 41717,
+            "roundTripMs": 37.80000000447035,
+            "workerRequestMs": 37.600000001490116
+          },
+          {
+            "kind": "day",
+            "day": 41718,
+            "roundTripMs": 45.30000000447035,
+            "workerRequestMs": 42.30000000447035
+          },
+          {
+            "kind": "day",
+            "day": 41719,
+            "roundTripMs": 43.80000000447035,
+            "workerRequestMs": 43.5
+          },
+          {
+            "kind": "day",
+            "day": 41720,
+            "roundTripMs": 51.099999994039536,
+            "workerRequestMs": 50.600000001490116
+          },
+          {
+            "kind": "day",
+            "day": 41721,
+            "roundTripMs": 52.100000001490116,
+            "workerRequestMs": 49.899999998509884
+          },
+          {
+            "kind": "day",
+            "day": 41722,
+            "roundTripMs": 50.70000000298023,
+            "workerRequestMs": 50.400000005960464
+          },
+          {
+            "kind": "day",
+            "day": 41723,
+            "roundTripMs": 54.599999994039536,
+            "workerRequestMs": 54.20000000298023
+          },
+          {
+            "kind": "day",
+            "day": 41724,
+            "roundTripMs": 54.600000001490116,
+            "workerRequestMs": 54.20000000298023
+          },
+          {
+            "kind": "publication",
+            "day": 41724,
+            "roundTripMs": 52.80000000447035,
+            "workerRequestMs": 40.29999999701977,
+            "mainAdoptionWallMs": 63.399999998509884,
+            "patches": 2887,
+            "profile": {
+              "tickMs": 2223.5999999791384,
+              "snapshotMs": 216.19999999552965,
+              "snapshots": 7,
+              "stringifyMs": 139.59999999403954,
+              "parseMs": 76.5,
+              "postMs": 37.50000001490116
+            }
+          },
+          {
+            "kind": "day",
+            "day": 41725,
+            "roundTripMs": 119.90000000596046,
+            "workerRequestMs": 56.600000001490116
+          },
+          {
+            "kind": "day",
+            "day": 41726,
+            "roundTripMs": 60.399999998509884,
+            "workerRequestMs": 60.20000000298023
+          },
+          {
+            "kind": "day",
+            "day": 41727,
+            "roundTripMs": 60.80000000447035,
+            "workerRequestMs": 60.399999998509884
+          },
+          {
+            "kind": "day",
+            "day": 41728,
+            "roundTripMs": 59.899999998509884,
+            "workerRequestMs": 59.600000001490116
+          },
+          {
+            "kind": "day",
+            "day": 41729,
+            "roundTripMs": 71.30000000447035,
+            "workerRequestMs": 71.10000000149012
+          },
+          {
+            "kind": "day",
+            "day": 41730,
+            "roundTripMs": 196.40000000596046,
+            "workerRequestMs": 196.30000000447035
+          },
+          {
+            "kind": "day",
+            "day": 41731,
+            "roundTripMs": 37.70000000298023,
+            "workerRequestMs": 37.399999998509884
+          },
+          {
+            "kind": "day",
+            "day": 41732,
+            "roundTripMs": 23.69999999552965,
+            "workerRequestMs": 23.5
+          },
+          {
+            "kind": "day",
+            "day": 41733,
+            "roundTripMs": 96.79999999701977,
+            "workerRequestMs": 40.100000001490116
+          },
+          {
+            "kind": "publication",
+            "day": 41732,
+            "roundTripMs": 66.5,
+            "workerRequestMs": 42.399999998509884,
+            "mainAdoptionWallMs": 100.40000000596046,
+            "patches": 4281,
+            "profile": {
+              "tickMs": 2784.499999985099,
+              "snapshotMs": 245.19999999552965,
+              "snapshots": 8,
+              "stringifyMs": 158.8999999910593,
+              "parseMs": 86.20000000298023,
+              "postMs": 42.400000020861626
+            }
+          },
+          {
+            "kind": "day",
+            "day": 41734,
+            "roundTripMs": 70.29999999701977,
+            "workerRequestMs": 38.599999994039536
+          },
+          {
+            "kind": "day",
+            "day": 41735,
+            "roundTripMs": 34,
+            "workerRequestMs": 29.19999999552965
+          },
+          {
+            "kind": "day",
+            "day": 41736,
+            "roundTripMs": 42.29999999701977,
+            "workerRequestMs": 25.700000002980232
+          },
+          {
+            "kind": "day",
+            "day": 41737,
+            "roundTripMs": 25.899999998509884,
+            "workerRequestMs": 25.5
+          },
+          {
+            "kind": "day",
+            "day": 41738,
+            "roundTripMs": 26.69999999552965,
+            "workerRequestMs": 26.399999998509884
+          },
+          {
+            "kind": "day",
+            "day": 41739,
+            "roundTripMs": 27.700000002980232,
+            "workerRequestMs": 27.5
+          },
+          {
+            "kind": "day",
+            "day": 41740,
+            "roundTripMs": 27.69999999552965,
+            "workerRequestMs": 27.100000001490116
+          },
+          {
+            "kind": "day",
+            "day": 41741,
+            "roundTripMs": 26.600000001490116,
+            "workerRequestMs": 25.799999997019768
+          },
+          {
+            "kind": "day",
+            "day": 41742,
+            "roundTripMs": 31.399999998509884,
+            "workerRequestMs": 31.099999994039536
+          },
+          {
+            "kind": "day",
+            "day": 41743,
+            "roundTripMs": 29.100000001490116,
+            "workerRequestMs": 27.599999994039536
+          },
+          {
+            "kind": "day",
+            "day": 41744,
+            "roundTripMs": 29.19999999552965,
+            "workerRequestMs": 29
+          },
+          {
+            "kind": "day",
+            "day": 41745,
+            "roundTripMs": 34.20000000298023,
+            "workerRequestMs": 33.899999998509884
+          },
+          {
+            "kind": "day",
+            "day": 41746,
+            "roundTripMs": 46.5,
+            "workerRequestMs": 46
+          },
+          {
+            "kind": "day",
+            "day": 41747,
+            "roundTripMs": 48.600000001490116,
+            "workerRequestMs": 48.29999999701977
+          },
+          {
+            "kind": "day",
+            "day": 41748,
+            "roundTripMs": 48.100000001490116,
+            "workerRequestMs": 47.70000000298023
+          },
+          {
+            "kind": "day",
+            "day": 41749,
+            "roundTripMs": 52.80000000447035,
+            "workerRequestMs": 52.5
+          },
+          {
+            "kind": "day",
+            "day": 41750,
+            "roundTripMs": 131.60000000149012,
+            "workerRequestMs": 80.20000000298023
+          },
+          {
+            "kind": "publication",
+            "day": 41749,
+            "roundTripMs": 62.79999999701977,
+            "workerRequestMs": 43.5,
+            "mainAdoptionWallMs": 360.20000000298023,
+            "patches": 2684,
+            "profile": {
+              "tickMs": 3357,
+              "snapshotMs": 273.79999999701977,
+              "snapshots": 9,
+              "stringifyMs": 177.69999999552965,
+              "parseMs": 96,
+              "postMs": 51.10000003129244
+            }
+          },
+          {
+            "kind": "publication",
+            "day": 41750,
+            "roundTripMs": 60.69999999552965,
+            "workerRequestMs": 49.30000000447035,
+            "mainAdoptionWallMs": 68.70000000298023,
+            "patches": 2339,
+            "profile": {
+              "tickMs": 3437.2000000029802,
+              "snapshotMs": 309.79999999701977,
+              "snapshots": 10,
+              "stringifyMs": 202.19999999552965,
+              "parseMs": 107.29999999701977,
+              "postMs": 56.30000003427267
+            }
+          }
+        ]
+      },
+      "frames": {
+        "n": 282,
+        "p95": 16.799999999995634,
+        "p99": 66.70000000000437,
+        "max": 266.70000000000437
+      },
+      "input": {
+        "n": 8,
+        "p95": 22.30000000447035,
+        "p99": 22.30000000447035,
+        "max": 22.30000000447035
+      },
+      "trusted": true,
+      "hud": "paused \u00b7 Actual 22.3\u00d7 \u00b7 112.41 days owed"
+    }
+  ],
+  "pageErrors": []
+}

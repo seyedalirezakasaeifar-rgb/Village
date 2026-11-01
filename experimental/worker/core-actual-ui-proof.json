@@ -1,0 +1,21 @@
+{
+  "productionEnabled": false,
+  "oracleCommit": "669c908706af997375680674390e46fd132a970a",
+  "sourceSha256": "5df42ea1348872ad692a53bfa6ea1081472d1c8783ec9ace2b5cf011bcfb6e20",
+  "workerSha256": "cd85a8f963db5ceb8b4781504bd3f100bf7631917ba985c19b736efc36a77d6f",
+  "bridgeSha256": "b73bf4ec7499bf82eb071d70ab2ffb6c3536606b56d6e158b22da72f59c5b5d6",
+  "trustedActualControlsFullModelRngEqual": [
+    "borrow",
+    "repay",
+    "toggleDevelopment",
+    "ambition",
+    "enactPolicy",
+    "map:park",
+    "map:home",
+    "map:grocer",
+    "map:repair",
+    "map:road"
+  ],
+  "fixtureSetup": "conserved region-to-town test funding, one worn road, RNG-preserving coordinate selection; no simulation workload omitted",
+  "pageErrors": []
+}
