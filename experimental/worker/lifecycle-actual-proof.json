@@ -1,6 +1,6 @@
 {
   "workerCommit": "worker-paid-current-candidate",
-  "workerSha256": "1fb3a357f81edf8cbec95a7a8e9c24c2f889ab98921401f786acc528bf71790b",
+  "workerSha256": "928be0774a4aaf4e9340c7381c7ae6459c1ae615e1fae17200aee99da8113f8d",
   "hostSourceSha256": "6ed9d208b0112e4e360f40ef21063b68c519aefd9df3e1b39071c02c78e22a02",
   "stubEconomics": false,
   "diagnosticSchedulingGateOnly": true,

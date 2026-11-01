@@ -1,0 +1,22 @@
+{
+  "sourceSha256": "6ed9d208b0112e4e360f40ef21063b68c519aefd9df3e1b39071c02c78e22a02",
+  "instrumentedWorkerSha256": "63c061cf01b9055461163083a79e1e8fcf7ce3857965b68a697ba4eb3c9684fd",
+  "testOwnerOnly": true,
+  "undeclaredOwnerRefused": true,
+  "batchRejectedKinds": [
+    "choice",
+    "private-provider",
+    "convene",
+    "load",
+    "policy"
+  ],
+  "completedBoundaryExportUnchanged": true,
+  "missingAutomaticSafetyRefusesBeforeDay": true,
+  "refusedDayZeroSnapshotsCertificates": true,
+  "paidCommandCaptureScopes": [
+    "paid-command"
+  ],
+  "trustedScopeRestoresIdle": true,
+  "productionOwnerInstalled": false,
+  "automaticCompletionSafetyClaimed": false
+}
