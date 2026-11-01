@@ -1,0 +1,29 @@
+{
+  "productionEnabled": false,
+  "oracleCommit": "01eeda3d2ff09822b9422721f75e97fabbc9958a",
+  "sourceSha256": "ac119726075abebf96683eb332782a5d55be69e42fe4545a9def0fd8a9ad6d1c",
+  "workerSha256": "31bbd28252a6ae13b7117f33ceffc9da03ab531f99e4efe7faf80207f30f081c",
+  "generatedBridgeSha256": "77b84720743bc498479ce1650c30a585579244c5d902539fd2a28810c4edf132",
+  "checkpoints": [
+    "direction",
+    "baseline",
+    "baseline replace",
+    "food project",
+    "food replan",
+    "withdraw",
+    "decline",
+    "restore offers",
+    "district form",
+    "district adopt",
+    "skills project",
+    "school budget proposal",
+    "square purchase",
+    "gathering preview",
+    "gathering funded",
+    "gathering cancel"
+  ],
+  "fullModelRngEquality": true,
+  "excludedFields": [],
+  "fixture": "seed42 after30 original complete days; no resource injection",
+  "pageErrors": []
+}

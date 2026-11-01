@@ -20,3 +20,5 @@ fs.writeFileSync('experimental/worker/model.generated.js',out+fs.readFileSync('e
 fs.writeFileSync('experimental/worker/excluded.json',JSON.stringify(excluded,null,2));
 
 const routeBindings=fs.readdirSync('experimental/worker/route-ui').filter(n=>n.endsWith('.json')).sort().flatMap(n=>JSON.parse(fs.readFileSync('experimental/worker/route-ui/'+n,'utf8')).map(b=>({module:n.slice(0,-5),...b})));fs.writeFileSync('experimental/worker/route-bindings.generated.json',JSON.stringify(routeBindings,null,2)+'\n');
+
+fs.writeFileSync('experimental/worker/real-view.generated.js',fs.readFileSync('experimental/worker/runtime-guard.js','utf8')+'\n'+fs.readFileSync('experimental/worker/archive-endpoint.js','utf8')+'\nconst WORKER_BUILT_ROUTE_BINDINGS='+JSON.stringify(routeBindings)+';\n'+fs.readFileSync('experimental/worker/real-view-bridge.js','utf8'));

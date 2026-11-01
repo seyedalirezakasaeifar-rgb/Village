@@ -1,0 +1,493 @@
+[
+  {
+    "event": "click",
+    "selector": "[data-mayor-direction]",
+    "operation": "direction-review",
+    "fields": {
+      "id": {
+        "source": "attribute",
+        "name": "data-mayor-direction",
+        "as": "string"
+      }
+    },
+    "refresh": false
+  },
+  {
+    "event": "click",
+    "selector": "[data-mayor-baseline]",
+    "operation": "baseline",
+    "fields": {},
+    "refresh": false
+  },
+  {
+    "event": "click",
+    "selector": "[data-civic-project-review]",
+    "operation": "project-review",
+    "fields": {
+      "kind": {
+        "source": "attribute",
+        "name": "data-civic-project-review",
+        "as": "string"
+      },
+      "replan": {
+        "source": "constant",
+        "value": false
+      }
+    },
+    "refresh": false
+  },
+  {
+    "event": "click",
+    "selector": "[data-civic-project-replan]",
+    "operation": "project-review",
+    "fields": {
+      "kind": {
+        "source": "attribute",
+        "name": "data-civic-project-replan",
+        "as": "string"
+      },
+      "replan": {
+        "source": "constant",
+        "value": true
+      }
+    },
+    "refresh": false
+  },
+  {
+    "event": "click",
+    "selector": "[data-civic-project-decline]",
+    "operation": "project-decline",
+    "fields": {
+      "kind": {
+        "source": "attribute",
+        "name": "data-civic-project-decline",
+        "as": "string"
+      }
+    },
+    "refresh": false
+  },
+  {
+    "event": "click",
+    "selector": "[data-civic-project-withdraw]",
+    "operation": "project-withdraw",
+    "fields": {
+      "kind": {
+        "source": "attribute",
+        "name": "data-civic-project-withdraw",
+        "as": "string"
+      }
+    },
+    "refresh": false
+  },
+  {
+    "event": "click",
+    "selector": "[data-civic-project-visit]",
+    "operation": "project-visit",
+    "fields": {
+      "kind": {
+        "source": "attribute",
+        "name": "data-civic-project-visit",
+        "as": "string"
+      }
+    },
+    "refresh": false
+  },
+  {
+    "event": "click",
+    "selector": "[data-civic-project-restore]",
+    "operation": "project-restore",
+    "fields": {},
+    "refresh": false
+  },
+  {
+    "event": "click",
+    "selector": "[data-civic-project-road]",
+    "operation": "project-road",
+    "fields": {},
+    "refresh": false
+  },
+  {
+    "event": "click",
+    "selector": "[data-civic-project-order]",
+    "operation": "project-order",
+    "fields": {},
+    "refresh": false
+  },
+  {
+    "event": "click",
+    "selector": "[data-civic-project-budget]",
+    "operation": "project-budget",
+    "fields": {},
+    "refresh": false
+  },
+  {
+    "event": "click",
+    "selector": "[data-civic-project-deed]",
+    "operation": "project-deed",
+    "fields": {},
+    "refresh": false
+  },
+  {
+    "event": "click",
+    "selector": "[data-civic-project-charter]",
+    "operation": "project-charter",
+    "fields": {},
+    "refresh": false
+  },
+  {
+    "event": "click",
+    "selector": "[data-civic-project-plan]",
+    "operation": "project-plan",
+    "fields": {},
+    "refresh": false
+  },
+  {
+    "event": "click",
+    "selector": "[data-civic-projects]",
+    "operation": "project-open",
+    "fields": {},
+    "refresh": false
+  },
+  {
+    "event": "click",
+    "selector": "[data-civic-project-build]",
+    "operation": "project-build",
+    "fields": {
+      "kind": {
+        "source": "attribute",
+        "name": "data-civic-project-build",
+        "as": "string"
+      },
+      "project": {
+        "source": "attribute",
+        "name": "data-civic-project-kind",
+        "as": "string"
+      }
+    },
+    "refresh": false
+  },
+  {
+    "event": "change",
+    "selector": "#projectParcel",
+    "operation": "project-survey",
+    "fields": {
+      "parcel": {
+        "source": "input",
+        "selector": "#projectParcel",
+        "as": "string"
+      },
+      "focus": {
+        "source": "input",
+        "selector": "#projectFocus",
+        "as": "string"
+      }
+    },
+    "refresh": false
+  },
+  {
+    "event": "change",
+    "selector": "#projectFocus",
+    "operation": "project-survey",
+    "fields": {
+      "parcel": {
+        "source": "input",
+        "selector": "#projectParcel",
+        "as": "string"
+      },
+      "focus": {
+        "source": "input",
+        "selector": "#projectFocus",
+        "as": "string"
+      }
+    },
+    "refresh": false
+  },
+  {
+    "event": "click",
+    "selector": "#projectDistrictAdopt",
+    "operation": "project-adopt",
+    "fields": {
+      "parcel": {
+        "source": "input",
+        "selector": "#projectParcel",
+        "as": "string"
+      },
+      "focus": {
+        "source": "input",
+        "selector": "#projectFocus",
+        "as": "string"
+      }
+    },
+    "refresh": false
+  },
+  {
+    "event": "click",
+    "selector": "[data-district-migration-office]",
+    "operation": "office",
+    "fields": {
+      "panel": {
+        "source": "constant",
+        "value": "community"
+      },
+      "office": {
+        "source": "constant",
+        "value": "migration"
+      }
+    },
+    "refresh": false
+  },
+  {
+    "event": "click",
+    "selector": "[data-district-service-review]",
+    "operation": "office",
+    "fields": {
+      "panel": {
+        "source": "constant",
+        "value": "community"
+      },
+      "office": {
+        "source": "constant",
+        "value": "migration"
+      }
+    },
+    "refresh": false
+  },
+  {
+    "event": "click",
+    "selector": "[data-situation-choice]",
+    "operation": "situation-choice",
+    "fields": {
+      "key": {
+        "source": "attribute",
+        "name": "data-situation-key",
+        "as": "string"
+      },
+      "choice": {
+        "source": "attribute",
+        "name": "data-situation-choice",
+        "as": "string"
+      }
+    },
+    "refresh": false
+  },
+  {
+    "event": "click",
+    "selector": "[data-situation-pass]",
+    "operation": "situation-pass",
+    "fields": {
+      "key": {
+        "source": "attribute",
+        "name": "data-situation-pass",
+        "as": "string"
+      }
+    },
+    "refresh": false
+  },
+  {
+    "event": "click",
+    "selector": "[data-situation-restore]",
+    "operation": "situation-restore",
+    "fields": {},
+    "refresh": false
+  },
+  {
+    "event": "click",
+    "selector": "[data-situation-act]",
+    "operation": "situation-action",
+    "fields": {
+      "id": {
+        "source": "attribute",
+        "name": "data-situation-act",
+        "as": "integer"
+      }
+    },
+    "refresh": false
+  },
+  {
+    "event": "click",
+    "selector": "[data-situation-observe]",
+    "operation": "situation-observe",
+    "fields": {
+      "id": {
+        "source": "attribute",
+        "name": "data-situation-observe",
+        "as": "integer"
+      }
+    },
+    "refresh": false
+  },
+  {
+    "event": "click",
+    "selector": "[data-situation-close]",
+    "operation": "situation-close",
+    "fields": {
+      "id": {
+        "source": "attribute",
+        "name": "data-situation-close",
+        "as": "integer"
+      }
+    },
+    "refresh": false
+  },
+  {
+    "event": "click",
+    "selector": "[data-situation-visit]",
+    "operation": "situation-visit",
+    "fields": {
+      "id": {
+        "source": "attribute",
+        "name": "data-situation-visit",
+        "as": "integer"
+      }
+    },
+    "refresh": false
+  },
+  {
+    "event": "click",
+    "selector": "[data-gathering-review]",
+    "operation": "gathering-review",
+    "fields": {
+      "venue": {
+        "source": "attribute",
+        "name": "data-gathering-review",
+        "as": "integer"
+      }
+    },
+    "refresh": false
+  },
+  {
+    "event": "click",
+    "selector": "[data-gathering-cancel]",
+    "operation": "gathering-cancel",
+    "fields": {
+      "id": {
+        "source": "attribute",
+        "name": "data-gathering-cancel",
+        "as": "integer"
+      }
+    },
+    "refresh": false
+  },
+  {
+    "event": "click",
+    "selector": "[data-gathering-visit]",
+    "operation": "gathering-visit",
+    "fields": {
+      "id": {
+        "source": "attribute",
+        "name": "data-gathering-visit",
+        "as": "integer"
+      }
+    },
+    "refresh": false
+  },
+  {
+    "event": "choice",
+    "selector": "[data-worker-choice]",
+    "operation": "gathering-review",
+    "fields": {
+      "start": {
+        "source": "input",
+        "selector": "#gatheringStart",
+        "as": "integer"
+      }
+    }
+  },
+  {
+    "event": "click",
+    "selector": "#liveEconomy",
+    "operation": "panel",
+    "fields": {
+      "panel": {
+        "source": "constant",
+        "value": "economy"
+      }
+    },
+    "refresh": false
+  },
+  {
+    "event": "click",
+    "selector": "#topNotice",
+    "operation": "panel",
+    "fields": {
+      "panel": {
+        "source": "constant",
+        "value": "journal"
+      }
+    },
+    "refresh": false
+  },
+  {
+    "event": "click",
+    "selector": "#privateServicePolicies",
+    "operation": "office",
+    "fields": {
+      "panel": {
+        "source": "constant",
+        "value": "policies"
+      },
+      "office": {
+        "source": "constant",
+        "value": "licensing"
+      }
+    },
+    "refresh": false
+  },
+  {
+    "event": "click",
+    "selector": "[data-public-assembly]",
+    "operation": "office",
+    "fields": {
+      "panel": {
+        "source": "constant",
+        "value": "construction"
+      },
+      "office": {
+        "source": "constant",
+        "value": "urban"
+      }
+    },
+    "refresh": false
+  },
+  {
+    "event": "click",
+    "selector": "[data-logistics-build]",
+    "operation": "warehouse-plan",
+    "fields": {},
+    "refresh": false
+  },
+  {
+    "event": "click",
+    "selector": "[data-public-visit]",
+    "operation": "public-visit",
+    "fields": {
+      "id": {
+        "source": "attribute",
+        "name": "data-public-visit",
+        "as": "integer"
+      }
+    },
+    "refresh": false
+  },
+  {
+    "event": "click",
+    "selector": "[data-regional-road-access]",
+    "operation": "roads-view",
+    "fields": {},
+    "refresh": false
+  },
+  {
+    "event": "click",
+    "selector": "[data-charter-home]",
+    "operation": "charter-home",
+    "fields": {},
+    "refresh": false
+  },
+  {
+    "event": "click",
+    "selector": "[data-charter-overview]",
+    "operation": "charter-overview",
+    "fields": {},
+    "refresh": false
+  }
+]

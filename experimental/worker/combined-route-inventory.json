@@ -1,0 +1,1256 @@
+{
+  "sourceCommit": "80598e2c3604074a4d3741cd9a2d2b7e32ff319c",
+  "economicSourceSha256": "ac119726075abebf96683eb332782a5d55be69e42fe4545a9def0fd8a9ad6d1c",
+  "productionEnabled": false,
+  "registeredOperations": 78,
+  "modules": [
+    {
+      "id": "civic",
+      "operations": [
+        "direction-review",
+        "baseline",
+        "project-review",
+        "project-survey",
+        "project-adopt",
+        "project-decline",
+        "project-restore",
+        "project-withdraw",
+        "project-build",
+        "project-road",
+        "project-order",
+        "project-budget",
+        "project-deed",
+        "project-charter",
+        "gathering-review",
+        "gathering-cancel",
+        "gathering-visit",
+        "panel",
+        "warehouse-plan",
+        "public-visit",
+        "roads-view",
+        "charter-overview",
+        "charter-home",
+        "project-open",
+        "project-plan",
+        "project-visit",
+        "office",
+        "situation-choice",
+        "situation-pass",
+        "situation-restore",
+        "situation-action",
+        "situation-observe",
+        "situation-close",
+        "situation-visit"
+      ]
+    },
+    {
+      "id": "land-district",
+      "operations": [
+        "regional-approaches",
+        "civic-recharter",
+        "brownfield-action",
+        "urban-plan",
+        "urban-rehousing",
+        "urban-clear",
+        "urban-clear-map",
+        "urban-clear-tool",
+        "urban-farm-renew",
+        "parcel-buy",
+        "district-focus",
+        "district-budget",
+        "civic-watch-project",
+        "road-remove-tool",
+        "road-remove-review",
+        "bridge-repair",
+        "bridge-remove",
+        "bridge-build-tool",
+        "bridge-review"
+      ]
+    },
+    {
+      "id": "transit-freight",
+      "operations": [
+        "report",
+        "hide-report",
+        "overlay",
+        "draft-start",
+        "draft-tap",
+        "draft-config",
+        "draft-map",
+        "level",
+        "draft-undo",
+        "draft-quote",
+        "draft-cancel",
+        "draft-build",
+        "relief-review",
+        "procurement-review",
+        "cargo-cancel-review",
+        "cargo-transfer-review",
+        "offer-review",
+        "port-review",
+        "agreement-cancel",
+        "routing",
+        "priority",
+        "stop-relief",
+        "retire",
+        "remove-guideway",
+        "remove-site"
+      ]
+    }
+  ],
+  "exampleNotCounted": [
+    {
+      "id": "example-calendar",
+      "operations": [
+        "summary"
+      ]
+    }
+  ],
+  "declarativeUiBindings": 88,
+  "bindings": [
+    {
+      "module": "civic",
+      "event": "click",
+      "selector": "[data-mayor-direction]",
+      "operation": "direction-review",
+      "fields": {
+        "id": {
+          "source": "attribute",
+          "name": "data-mayor-direction",
+          "as": "string"
+        }
+      },
+      "refresh": false
+    },
+    {
+      "module": "civic",
+      "event": "click",
+      "selector": "[data-mayor-baseline]",
+      "operation": "baseline",
+      "fields": {},
+      "refresh": false
+    },
+    {
+      "module": "civic",
+      "event": "click",
+      "selector": "[data-civic-project-review]",
+      "operation": "project-review",
+      "fields": {
+        "kind": {
+          "source": "attribute",
+          "name": "data-civic-project-review",
+          "as": "string"
+        },
+        "replan": {
+          "source": "constant",
+          "value": false
+        }
+      },
+      "refresh": false
+    },
+    {
+      "module": "civic",
+      "event": "click",
+      "selector": "[data-civic-project-replan]",
+      "operation": "project-review",
+      "fields": {
+        "kind": {
+          "source": "attribute",
+          "name": "data-civic-project-replan",
+          "as": "string"
+        },
+        "replan": {
+          "source": "constant",
+          "value": true
+        }
+      },
+      "refresh": false
+    },
+    {
+      "module": "civic",
+      "event": "click",
+      "selector": "[data-civic-project-decline]",
+      "operation": "project-decline",
+      "fields": {
+        "kind": {
+          "source": "attribute",
+          "name": "data-civic-project-decline",
+          "as": "string"
+        }
+      },
+      "refresh": false
+    },
+    {
+      "module": "civic",
+      "event": "click",
+      "selector": "[data-civic-project-withdraw]",
+      "operation": "project-withdraw",
+      "fields": {
+        "kind": {
+          "source": "attribute",
+          "name": "data-civic-project-withdraw",
+          "as": "string"
+        }
+      },
+      "refresh": false
+    },
+    {
+      "module": "civic",
+      "event": "click",
+      "selector": "[data-civic-project-visit]",
+      "operation": "project-visit",
+      "fields": {
+        "kind": {
+          "source": "attribute",
+          "name": "data-civic-project-visit",
+          "as": "string"
+        }
+      },
+      "refresh": false
+    },
+    {
+      "module": "civic",
+      "event": "click",
+      "selector": "[data-civic-project-restore]",
+      "operation": "project-restore",
+      "fields": {},
+      "refresh": false
+    },
+    {
+      "module": "civic",
+      "event": "click",
+      "selector": "[data-civic-project-road]",
+      "operation": "project-road",
+      "fields": {},
+      "refresh": false
+    },
+    {
+      "module": "civic",
+      "event": "click",
+      "selector": "[data-civic-project-order]",
+      "operation": "project-order",
+      "fields": {},
+      "refresh": false
+    },
+    {
+      "module": "civic",
+      "event": "click",
+      "selector": "[data-civic-project-budget]",
+      "operation": "project-budget",
+      "fields": {},
+      "refresh": false
+    },
+    {
+      "module": "civic",
+      "event": "click",
+      "selector": "[data-civic-project-deed]",
+      "operation": "project-deed",
+      "fields": {},
+      "refresh": false
+    },
+    {
+      "module": "civic",
+      "event": "click",
+      "selector": "[data-civic-project-charter]",
+      "operation": "project-charter",
+      "fields": {},
+      "refresh": false
+    },
+    {
+      "module": "civic",
+      "event": "click",
+      "selector": "[data-civic-project-plan]",
+      "operation": "project-plan",
+      "fields": {},
+      "refresh": false
+    },
+    {
+      "module": "civic",
+      "event": "click",
+      "selector": "[data-civic-projects]",
+      "operation": "project-open",
+      "fields": {},
+      "refresh": false
+    },
+    {
+      "module": "civic",
+      "event": "click",
+      "selector": "[data-civic-project-build]",
+      "operation": "project-build",
+      "fields": {
+        "kind": {
+          "source": "attribute",
+          "name": "data-civic-project-build",
+          "as": "string"
+        },
+        "project": {
+          "source": "attribute",
+          "name": "data-civic-project-kind",
+          "as": "string"
+        }
+      },
+      "refresh": false
+    },
+    {
+      "module": "civic",
+      "event": "change",
+      "selector": "#projectParcel",
+      "operation": "project-survey",
+      "fields": {
+        "parcel": {
+          "source": "input",
+          "selector": "#projectParcel",
+          "as": "string"
+        },
+        "focus": {
+          "source": "input",
+          "selector": "#projectFocus",
+          "as": "string"
+        }
+      },
+      "refresh": false
+    },
+    {
+      "module": "civic",
+      "event": "change",
+      "selector": "#projectFocus",
+      "operation": "project-survey",
+      "fields": {
+        "parcel": {
+          "source": "input",
+          "selector": "#projectParcel",
+          "as": "string"
+        },
+        "focus": {
+          "source": "input",
+          "selector": "#projectFocus",
+          "as": "string"
+        }
+      },
+      "refresh": false
+    },
+    {
+      "module": "civic",
+      "event": "click",
+      "selector": "#projectDistrictAdopt",
+      "operation": "project-adopt",
+      "fields": {
+        "parcel": {
+          "source": "input",
+          "selector": "#projectParcel",
+          "as": "string"
+        },
+        "focus": {
+          "source": "input",
+          "selector": "#projectFocus",
+          "as": "string"
+        }
+      },
+      "refresh": false
+    },
+    {
+      "module": "civic",
+      "event": "click",
+      "selector": "[data-district-migration-office]",
+      "operation": "office",
+      "fields": {
+        "panel": {
+          "source": "constant",
+          "value": "community"
+        },
+        "office": {
+          "source": "constant",
+          "value": "migration"
+        }
+      },
+      "refresh": false
+    },
+    {
+      "module": "civic",
+      "event": "click",
+      "selector": "[data-district-service-review]",
+      "operation": "office",
+      "fields": {
+        "panel": {
+          "source": "constant",
+          "value": "community"
+        },
+        "office": {
+          "source": "constant",
+          "value": "migration"
+        }
+      },
+      "refresh": false
+    },
+    {
+      "module": "civic",
+      "event": "click",
+      "selector": "[data-situation-choice]",
+      "operation": "situation-choice",
+      "fields": {
+        "key": {
+          "source": "attribute",
+          "name": "data-situation-key",
+          "as": "string"
+        },
+        "choice": {
+          "source": "attribute",
+          "name": "data-situation-choice",
+          "as": "string"
+        }
+      },
+      "refresh": false
+    },
+    {
+      "module": "civic",
+      "event": "click",
+      "selector": "[data-situation-pass]",
+      "operation": "situation-pass",
+      "fields": {
+        "key": {
+          "source": "attribute",
+          "name": "data-situation-pass",
+          "as": "string"
+        }
+      },
+      "refresh": false
+    },
+    {
+      "module": "civic",
+      "event": "click",
+      "selector": "[data-situation-restore]",
+      "operation": "situation-restore",
+      "fields": {},
+      "refresh": false
+    },
+    {
+      "module": "civic",
+      "event": "click",
+      "selector": "[data-situation-act]",
+      "operation": "situation-action",
+      "fields": {
+        "id": {
+          "source": "attribute",
+          "name": "data-situation-act",
+          "as": "integer"
+        }
+      },
+      "refresh": false
+    },
+    {
+      "module": "civic",
+      "event": "click",
+      "selector": "[data-situation-observe]",
+      "operation": "situation-observe",
+      "fields": {
+        "id": {
+          "source": "attribute",
+          "name": "data-situation-observe",
+          "as": "integer"
+        }
+      },
+      "refresh": false
+    },
+    {
+      "module": "civic",
+      "event": "click",
+      "selector": "[data-situation-close]",
+      "operation": "situation-close",
+      "fields": {
+        "id": {
+          "source": "attribute",
+          "name": "data-situation-close",
+          "as": "integer"
+        }
+      },
+      "refresh": false
+    },
+    {
+      "module": "civic",
+      "event": "click",
+      "selector": "[data-situation-visit]",
+      "operation": "situation-visit",
+      "fields": {
+        "id": {
+          "source": "attribute",
+          "name": "data-situation-visit",
+          "as": "integer"
+        }
+      },
+      "refresh": false
+    },
+    {
+      "module": "civic",
+      "event": "click",
+      "selector": "[data-gathering-review]",
+      "operation": "gathering-review",
+      "fields": {
+        "venue": {
+          "source": "attribute",
+          "name": "data-gathering-review",
+          "as": "integer"
+        }
+      },
+      "refresh": false
+    },
+    {
+      "module": "civic",
+      "event": "click",
+      "selector": "[data-gathering-cancel]",
+      "operation": "gathering-cancel",
+      "fields": {
+        "id": {
+          "source": "attribute",
+          "name": "data-gathering-cancel",
+          "as": "integer"
+        }
+      },
+      "refresh": false
+    },
+    {
+      "module": "civic",
+      "event": "click",
+      "selector": "[data-gathering-visit]",
+      "operation": "gathering-visit",
+      "fields": {
+        "id": {
+          "source": "attribute",
+          "name": "data-gathering-visit",
+          "as": "integer"
+        }
+      },
+      "refresh": false
+    },
+    {
+      "module": "civic",
+      "event": "choice",
+      "selector": "[data-worker-choice]",
+      "operation": "gathering-review",
+      "fields": {
+        "start": {
+          "source": "input",
+          "selector": "#gatheringStart",
+          "as": "integer"
+        }
+      }
+    },
+    {
+      "module": "civic",
+      "event": "click",
+      "selector": "#liveEconomy",
+      "operation": "panel",
+      "fields": {
+        "panel": {
+          "source": "constant",
+          "value": "economy"
+        }
+      },
+      "refresh": false
+    },
+    {
+      "module": "civic",
+      "event": "click",
+      "selector": "#topNotice",
+      "operation": "panel",
+      "fields": {
+        "panel": {
+          "source": "constant",
+          "value": "journal"
+        }
+      },
+      "refresh": false
+    },
+    {
+      "module": "civic",
+      "event": "click",
+      "selector": "#privateServicePolicies",
+      "operation": "office",
+      "fields": {
+        "panel": {
+          "source": "constant",
+          "value": "policies"
+        },
+        "office": {
+          "source": "constant",
+          "value": "licensing"
+        }
+      },
+      "refresh": false
+    },
+    {
+      "module": "civic",
+      "event": "click",
+      "selector": "[data-public-assembly]",
+      "operation": "office",
+      "fields": {
+        "panel": {
+          "source": "constant",
+          "value": "construction"
+        },
+        "office": {
+          "source": "constant",
+          "value": "urban"
+        }
+      },
+      "refresh": false
+    },
+    {
+      "module": "civic",
+      "event": "click",
+      "selector": "[data-logistics-build]",
+      "operation": "warehouse-plan",
+      "fields": {},
+      "refresh": false
+    },
+    {
+      "module": "civic",
+      "event": "click",
+      "selector": "[data-public-visit]",
+      "operation": "public-visit",
+      "fields": {
+        "id": {
+          "source": "attribute",
+          "name": "data-public-visit",
+          "as": "integer"
+        }
+      },
+      "refresh": false
+    },
+    {
+      "module": "civic",
+      "event": "click",
+      "selector": "[data-regional-road-access]",
+      "operation": "roads-view",
+      "fields": {},
+      "refresh": false
+    },
+    {
+      "module": "civic",
+      "event": "click",
+      "selector": "[data-charter-home]",
+      "operation": "charter-home",
+      "fields": {},
+      "refresh": false
+    },
+    {
+      "module": "civic",
+      "event": "click",
+      "selector": "[data-charter-overview]",
+      "operation": "charter-overview",
+      "fields": {},
+      "refresh": false
+    },
+    {
+      "module": "land-district",
+      "event": "click",
+      "selector": "[data-parcel-buy]",
+      "operation": "parcel-buy",
+      "fields": {
+        "parcel": {
+          "source": "attribute",
+          "name": "data-parcel-buy",
+          "as": "string"
+        }
+      }
+    },
+    {
+      "module": "land-district",
+      "event": "click",
+      "selector": "[data-district-focus]",
+      "operation": "district-focus",
+      "fields": {
+        "parcel": {
+          "source": "attribute",
+          "name": "data-district-id",
+          "as": "string"
+        },
+        "focus": {
+          "source": "attribute",
+          "name": "data-district-focus",
+          "as": "string"
+        }
+      }
+    },
+    {
+      "module": "land-district",
+      "event": "click",
+      "selector": "[data-district-budget]",
+      "operation": "district-budget",
+      "fields": {
+        "key": {
+          "source": "attribute",
+          "name": "data-district-budget",
+          "as": "string"
+        }
+      }
+    },
+    {
+      "module": "land-district",
+      "event": "click",
+      "selector": "[data-civic-watch-project]",
+      "operation": "civic-watch-project",
+      "fields": {
+        "project": {
+          "source": "attribute",
+          "name": "data-civic-watch-project",
+          "as": "integer"
+        }
+      }
+    },
+    {
+      "module": "land-district",
+      "event": "click",
+      "selector": "[data-road-remove-tool]",
+      "operation": "road-remove-tool",
+      "fields": {}
+    },
+    {
+      "module": "land-district",
+      "event": "click",
+      "selector": "[data-bridge-repair]",
+      "operation": "bridge-repair",
+      "fields": {
+        "id": {
+          "source": "attribute",
+          "name": "data-bridge-repair",
+          "as": "integer"
+        }
+      }
+    },
+    {
+      "module": "land-district",
+      "event": "click",
+      "selector": "[data-bridge-remove]",
+      "operation": "bridge-remove",
+      "fields": {
+        "id": {
+          "source": "attribute",
+          "name": "data-bridge-remove",
+          "as": "integer"
+        }
+      }
+    },
+    {
+      "module": "land-district",
+      "event": "click",
+      "selector": "[data-bridge-build]",
+      "operation": "bridge-build-tool",
+      "fields": {}
+    },
+    {
+      "module": "land-district",
+      "event": "map",
+      "tool": "road_remove",
+      "operation": "road-remove-review",
+      "fields": {
+        "x": {
+          "source": "tile-x",
+          "as": "integer"
+        },
+        "y": {
+          "source": "tile-y",
+          "as": "integer"
+        }
+      }
+    },
+    {
+      "module": "land-district",
+      "event": "map",
+      "tool": "road_bridge",
+      "operation": "bridge-review",
+      "fields": {
+        "x": {
+          "source": "tile-x",
+          "as": "integer"
+        },
+        "y": {
+          "source": "tile-y",
+          "as": "integer"
+        }
+      }
+    },
+    {
+      "module": "land-district",
+      "event": "click",
+      "selector": "[data-urban-plan]",
+      "operation": "urban-plan",
+      "fields": {
+        "building": {
+          "source": "attribute",
+          "name": "data-urban-building",
+          "as": "integer"
+        },
+        "plan": {
+          "source": "attribute",
+          "name": "data-urban-plan",
+          "as": "string"
+        }
+      }
+    },
+    {
+      "module": "land-district",
+      "event": "click",
+      "selector": "[data-urban-rehousing]",
+      "operation": "urban-rehousing",
+      "fields": {}
+    },
+    {
+      "module": "land-district",
+      "event": "click",
+      "selector": "[data-urban-clear]",
+      "operation": "urban-clear",
+      "fields": {
+        "building": {
+          "source": "attribute",
+          "name": "data-urban-clear",
+          "as": "integer"
+        }
+      }
+    },
+    {
+      "module": "land-district",
+      "event": "click",
+      "selector": "[data-urban-clear-tool]",
+      "operation": "urban-clear-tool",
+      "fields": {}
+    },
+    {
+      "module": "land-district",
+      "event": "click",
+      "selector": "[data-urban-farm-renew]",
+      "operation": "urban-farm-renew",
+      "fields": {
+        "firm": {
+          "source": "attribute",
+          "name": "data-urban-farm-renew",
+          "as": "integer"
+        }
+      }
+    },
+    {
+      "module": "land-district",
+      "event": "map",
+      "tool": "urban_clearance",
+      "operation": "urban-clear-map",
+      "fields": {
+        "x": {
+          "source": "tile-x",
+          "as": "integer"
+        },
+        "y": {
+          "source": "tile-y",
+          "as": "integer"
+        }
+      }
+    },
+    {
+      "module": "land-district",
+      "event": "click",
+      "selector": "#regionalApproaches",
+      "operation": "regional-approaches",
+      "fields": {}
+    },
+    {
+      "module": "land-district",
+      "event": "click",
+      "selector": "[data-civic-recharter]",
+      "operation": "civic-recharter",
+      "fields": {
+        "parcel": {
+          "source": "attribute",
+          "name": "data-civic-recharter",
+          "as": "string"
+        }
+      }
+    },
+    {
+      "module": "land-district",
+      "event": "click",
+      "selector": "[data-brownfield-action]",
+      "operation": "brownfield-action",
+      "fields": {
+        "id": {
+          "source": "attribute",
+          "name": "data-brownfield-id",
+          "as": "integer"
+        },
+        "action": {
+          "source": "attribute",
+          "name": "data-brownfield-action",
+          "as": "string"
+        }
+      }
+    },
+    {
+      "module": "transit-freight",
+      "event": "click",
+      "selector": "[data-logistics-routing]",
+      "operation": "routing",
+      "fields": {
+        "value": {
+          "source": "attribute",
+          "name": "data-logistics-routing",
+          "as": "string"
+        }
+      }
+    },
+    {
+      "module": "transit-freight",
+      "event": "click",
+      "selector": "[data-logistics-priority]",
+      "operation": "priority",
+      "fields": {
+        "value": {
+          "source": "attribute",
+          "name": "data-logistics-priority",
+          "as": "string"
+        }
+      }
+    },
+    {
+      "module": "transit-freight",
+      "event": "click",
+      "selector": "#logisticsReliefStop",
+      "operation": "stop-relief",
+      "fields": {}
+    },
+    {
+      "module": "transit-freight",
+      "event": "click",
+      "selector": "[data-transit-action=\"remove-guideway\"]",
+      "operation": "remove-guideway",
+      "fields": {}
+    },
+    {
+      "module": "transit-freight",
+      "event": "click",
+      "selector": "[data-transit-action=\"retire\"]",
+      "operation": "retire",
+      "fields": {
+        "id": {
+          "source": "attribute",
+          "name": "data-route",
+          "as": "integer"
+        }
+      }
+    },
+    {
+      "module": "transit-freight",
+      "event": "click",
+      "selector": "[data-transit-action=\"remove-site\"]",
+      "operation": "remove-site",
+      "fields": {
+        "id": {
+          "source": "attribute",
+          "name": "data-site",
+          "as": "integer"
+        }
+      }
+    },
+    {
+      "module": "transit-freight",
+      "event": "click",
+      "selector": "#logisticsRelief",
+      "operation": "relief-review",
+      "fields": {}
+    },
+    {
+      "module": "transit-freight",
+      "event": "click",
+      "selector": "[data-trade-cancel]",
+      "operation": "agreement-cancel",
+      "fields": {
+        "id": {
+          "source": "attribute",
+          "name": "data-trade-cancel",
+          "as": "integer"
+        }
+      }
+    },
+    {
+      "module": "transit-freight",
+      "event": "click",
+      "selector": "[data-procurement]",
+      "operation": "procurement-review",
+      "fields": {
+        "firm": {
+          "source": "attribute",
+          "name": "data-firm",
+          "as": "integer"
+        },
+        "market": {
+          "source": "attribute",
+          "name": "data-procurement",
+          "as": "string"
+        },
+        "good": {
+          "source": "attribute",
+          "name": "data-good",
+          "as": "string"
+        }
+      }
+    },
+    {
+      "module": "transit-freight",
+      "event": "click",
+      "selector": "[data-transit-action=\"new-bus\"]",
+      "operation": "draft-start",
+      "fields": {
+        "mode": {
+          "source": "constant",
+          "value": "bus"
+        },
+        "editing": {
+          "source": "constant",
+          "value": -1
+        }
+      }
+    },
+    {
+      "module": "transit-freight",
+      "event": "click",
+      "selector": "[data-transit-action=\"new-elevated\"]",
+      "operation": "draft-start",
+      "fields": {
+        "mode": {
+          "source": "constant",
+          "value": "elevated"
+        },
+        "editing": {
+          "source": "constant",
+          "value": -1
+        }
+      }
+    },
+    {
+      "module": "transit-freight",
+      "event": "click",
+      "selector": "[data-transit-action=\"edit\"]",
+      "operation": "draft-start",
+      "fields": {
+        "mode": {
+          "source": "constant",
+          "value": "bus"
+        },
+        "editing": {
+          "source": "attribute",
+          "name": "data-route",
+          "as": "integer"
+        }
+      }
+    },
+    {
+      "module": "transit-freight",
+      "event": "click",
+      "selector": "[data-transit-action=\"undo\"]",
+      "operation": "draft-undo",
+      "fields": {}
+    },
+    {
+      "module": "transit-freight",
+      "event": "click",
+      "selector": "[data-transit-action=\"quote\"]",
+      "operation": "draft-quote",
+      "fields": {}
+    },
+    {
+      "module": "transit-freight",
+      "event": "click",
+      "selector": "[data-transit-action=\"cancel\"]",
+      "operation": "draft-cancel",
+      "fields": {}
+    },
+    {
+      "module": "transit-freight",
+      "event": "click",
+      "selector": "[data-transit-action=\"build\"]",
+      "operation": "draft-build",
+      "fields": {}
+    },
+    {
+      "module": "transit-freight",
+      "event": "map",
+      "tool": "transit-draft",
+      "operation": "draft-tap",
+      "fields": {
+        "x": {
+          "source": "tile-x",
+          "as": "integer"
+        },
+        "y": {
+          "source": "tile-y",
+          "as": "integer"
+        }
+      }
+    },
+    {
+      "module": "transit-freight",
+      "event": "click",
+      "selector": "[data-logistics-cancel]",
+      "operation": "cargo-cancel-review",
+      "fields": {
+        "id": {
+          "source": "attribute",
+          "name": "data-logistics-cancel",
+          "as": "integer"
+        }
+      }
+    },
+    {
+      "module": "transit-freight",
+      "event": "click",
+      "selector": "[data-logistics-transfer]",
+      "operation": "cargo-transfer-review",
+      "fields": {
+        "id": {
+          "source": "attribute",
+          "name": "data-logistics-transfer",
+          "as": "integer"
+        }
+      }
+    },
+    {
+      "module": "transit-freight",
+      "event": "click",
+      "selector": "[data-trade-offer]",
+      "operation": "offer-review",
+      "fields": {
+        "firm": {
+          "source": "attribute",
+          "name": "data-trade-firm",
+          "as": "integer"
+        },
+        "market": {
+          "source": "attribute",
+          "name": "data-trade-offer",
+          "as": "string"
+        },
+        "good": {
+          "source": "attribute",
+          "name": "data-trade-good",
+          "as": "string"
+        }
+      }
+    },
+    {
+      "module": "transit-freight",
+      "event": "click",
+      "selector": "[data-port-freight]",
+      "operation": "port-review",
+      "fields": {
+        "firm": {
+          "source": "attribute",
+          "name": "data-port-freight",
+          "as": "integer"
+        },
+        "dock": {
+          "source": "attribute",
+          "name": "data-port-dock",
+          "as": "integer"
+        },
+        "good": {
+          "source": "attribute",
+          "name": "data-port-good",
+          "as": "string"
+        },
+        "direction": {
+          "source": "attribute",
+          "name": "data-port-direction",
+          "as": "string"
+        }
+      }
+    },
+    {
+      "module": "transit-freight",
+      "event": "click",
+      "selector": "[data-transit-action=\"map\"]",
+      "operation": "draft-map",
+      "fields": {}
+    },
+    {
+      "module": "transit-freight",
+      "event": "click",
+      "selector": "[data-transit-level]",
+      "operation": "level",
+      "fields": {
+        "key": {
+          "source": "attribute",
+          "name": "data-transit-level",
+          "as": "string"
+        }
+      }
+    },
+    {
+      "module": "transit-freight",
+      "event": "change",
+      "selector": "#transitDepot",
+      "operation": "draft-config",
+      "fields": {
+        "field": {
+          "source": "constant",
+          "value": "depot"
+        },
+        "value": {
+          "source": "input",
+          "selector": "#transitDepot",
+          "as": "integer"
+        }
+      }
+    },
+    {
+      "module": "transit-freight",
+      "event": "change",
+      "selector": "#transitLevel",
+      "operation": "draft-config",
+      "fields": {
+        "field": {
+          "source": "constant",
+          "value": "level"
+        },
+        "value": {
+          "source": "input",
+          "selector": "#transitLevel",
+          "as": "integer"
+        }
+      }
+    },
+    {
+      "module": "transit-freight",
+      "event": "click",
+      "selector": "[data-transit-action=\"report\"]",
+      "operation": "report",
+      "fields": {
+        "id": {
+          "source": "attribute",
+          "name": "data-route",
+          "as": "integer"
+        }
+      }
+    },
+    {
+      "module": "transit-freight",
+      "event": "click",
+      "selector": "[data-transit-action=\"hide-report\"]",
+      "operation": "hide-report",
+      "fields": {}
+    },
+    {
+      "module": "transit-freight",
+      "event": "click",
+      "selector": "[data-transit-action=\"overlay\"]",
+      "operation": "overlay",
+      "fields": {}
+    }
+  ],
+  "knownUnimplementedOriginalOperations": [
+    "land-district:public-place",
+    "land-district:district-admission",
+    "land-district:district-finish"
+  ],
+  "nativePathsImplementedButUncertified": [
+    "actual supported-runtime async picker/export/restore durability",
+    "native lifecycle with model/archive work pending"
+  ],
+  "fullVisibleControlAuditComplete": false,
+  "registrationIsNotAcceptance": true
+}
