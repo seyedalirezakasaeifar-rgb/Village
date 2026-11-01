@@ -1,5 +1,7 @@
 # Native asynchronous archive bridge — QA receipt
 
+Historical owner receipt for `5ad7a941`. Environment and license statements below describe that run. Later owner updates reported an approved official Play API30 image installation whose boot failed; modern-runtime acceptance remains open. Current composition is documented in `NATIVE-ASYNC-INTEGRATION-8.md`, with the subsequent synchronous Back correction in `NATIVE-RESTORE-BACK-8.md`.
+
 This candidate is based on integration `e3fae439e96b33bc3a62340f9a898029af674111`. The worker archive endpoint is opt-in; the production worker model remains disabled. Its synchronous archive path remains the fallback whenever the endpoint is absent.
 
 ## Changes

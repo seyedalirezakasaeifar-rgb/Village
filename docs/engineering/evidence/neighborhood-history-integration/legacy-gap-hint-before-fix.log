@@ -1,0 +1,20 @@
+{
+  "source_sha256": "871e43eba5da1edfca2c43ba1feaf46f2c56df1f0198382a1a472872029ae69e",
+  "olderAppRoundTrip": {
+    "before": 271,
+    "oldObservationDays": [
+      90,
+      180
+    ],
+    "after": 361,
+    "newObservationDays": [
+      360
+    ],
+    "selfArchiveValid": true
+  }
+}
+Traceback (most recent call last):
+  File "/workspace/core-recovery/tests/test_history_legacy_gap.py", line 14, in <module>
+    assert f"Latest activity sample: day {first['activity'][0]['day']}" in message,message
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: <div class="section">Neighbourhood life &amp; needs</div><p class="desc">Resident work records: 0 work in this neighbourhood, 6 commute to Construction Co. of Hawthorn (2), Construction Co. Works (1), 0 have recorded public crew work, 0 working-age residents have no job record, and 0 have a blocked commute. These are current household records, not vacancies or job promises. The first comparable neighbourhood activity snapshot is recorded on day 90; a 90-day change will appear after the next review.</p><p class="desc">Nearby groceries residents can reach within 24 road steps: Village Stores Ltd. — 6 residents in catchment, 2 working staff, 533 food in stock; Village Stores of Eastmead — 6 residents in catchment, 1 working staff, 467 food in stock; Village Stores Trading — 6 residents in catchment, 2 working staff, 392 food in stock. Reach is not a purchase record; household choice depends on prices, travel, stock and capacity.</p><div class="btnrow"><button data-urban-local-access="health">Map medical reach</button><button data-urban-local-access="school">Map school reach</button></div><p class="desc">Reach maps show current road proximity and shared funded places. Use Public Works to site services, or inspect nearby worksites before paying to expand a road.</p>

@@ -1,0 +1,60 @@
+{
+  "source_sha256": "84ecbaef6b0ae999a9c5adcd49b9ba1678840cabfc36cf02b617c74a93d208a4",
+  "transition": [
+    {
+      "day": 721,
+      "character": "Residential neighbourhood",
+      "proposed": "Market centre",
+      "proposedSince": 721,
+      "observed": "Market centre"
+    },
+    {
+      "day": 751,
+      "character": "Residential neighbourhood",
+      "proposed": "Market centre",
+      "proposedSince": 721,
+      "observed": "Market centre"
+    },
+    {
+      "day": 781,
+      "character": "Residential neighbourhood",
+      "proposed": "Market centre",
+      "proposedSince": 721,
+      "observed": "Market centre"
+    },
+    {
+      "day": 811,
+      "character": "Market centre",
+      "proposed": null,
+      "proposedSince": null,
+      "observed": "Market centre"
+    }
+  ],
+  "bankDepositMutationRefresh": {
+    "before": 23858,
+    "after": 23859,
+    "amount": 1,
+    "moneyBefore": 15493517,
+    "moneyAfter": 15493517,
+    "rngBefore": 3224482224,
+    "rngAfter": 3224482224
+  },
+  "sameDayIncomeRefresh": {
+    "dayBefore": 1,
+    "dayAfter": 1,
+    "before": 0,
+    "after": 0,
+    "expected": 0,
+    "sameCache": false,
+    "rng": 3224482224,
+    "valid": {
+      "ok": true,
+      "issues": [],
+      "total": 15493516.999999981,
+      "population": 169,
+      "day": 1
+    }
+  },
+  "readOnlyStateStable": true,
+  "errors": []
+}
