@@ -1,5 +1,5 @@
 {
-  "firstAnd10CachedMs": 7.699999995529652,
+  "firstAnd10CachedMs": 5.399999998509884,
   "districtCount": 16,
   "buildings": 102,
   "hasTenure": true,
@@ -15,7 +15,7 @@
     "nl-farmstead",
     "nl-commercial-chambers",
     "nl-compact-worker-house",
-    "nl-historic-town-row",
+    "nl-new-suburb-house",
     "nl-working-waterfront"
   ],
   "incomeBands": [

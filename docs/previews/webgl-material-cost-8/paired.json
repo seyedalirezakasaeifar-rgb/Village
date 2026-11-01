@@ -1,0 +1,88 @@
+[
+  {
+    "calls": 17,
+    "triangles": 135788,
+    "materials": 28,
+    "programs": 5,
+    "memory": {
+      "geometries": 13,
+      "textures": 1
+    },
+    "buildMs": 27.399999998509884,
+    "cpu": {
+      "n": 21,
+      "medianMs": 0.5,
+      "p95Ms": 0.8999999985098839,
+      "maxMs": 4.100000001490116
+    },
+    "raf": {
+      "n": 20,
+      "medianMs": 218.55000000074506,
+      "p95Ms": 242.69999999552965,
+      "maxMs": 263.19999999552965
+    },
+    "backend": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+    "mode": "standard",
+    "sourceModuleHashes": {
+      "assets/game.js": "451bfa6f9686c9ad6c29e2ce19b8614908339596ddd02aa94f8a5e2b70374b03",
+      "assets/webgl-actors.js": "e7f761691a2edcc9ddb7937dad3d50464fb3ff73129ac8b22e418cbe1fb094cb",
+      "assets/webgl-bridges.js": "e4f3ea3b53e0d27f7431bc232ff29981c87f91363d3da0b6084e7e8a48d0da01",
+      "assets/webgl-entry.js": "980175962efeb1cff600fda381246b3db42bc7e5b6afc3e2f6825472da25047e",
+      "assets/webgl-map-overlay.js": "d4df7a9a75c7da788f87c9f22ad4e97e8f192a359b8103ef576045335f318cb2",
+      "assets/webgl-static-batch.js": "ef5927cf016acc06ec768f71e1beac5c12f21e6bf9ca9c034c155a68587fc292",
+      "assets/webgl-taste.js": "5346eec63ed52693fff7c442356863d373dfc18bf46e72e667b3d31d8e0a3d8d",
+      "assets/webgl-transit-geometry.js": "46a6e7308dcefbf8f9925b7c55d11b7cbff6d813fe38c1a5247cbdf7428433ee",
+      "assets/webgl-view.js": "55164f63aed7f4e7809e07af32ca2d6db776be7ebaa0ebcdbdb036fc7eb22f79",
+      "assets/newfoundland-families.js": "207d24e6078e19b0fe56a4a30d16f0e6f5552bf7baf00b14f3b2f88bf1d0d757",
+      "assets/newfoundland-kit.js": "a217b26fed43725c23f5e3b11bad6b37b2ef7776648a84954eea597500bd983d",
+      "assets/newfoundland-specialized.js": "621d61fd65319f39bba59fcfe07b5803a505f3152c3b7ee50f91bf82e4833123",
+      "assets/newfoundland-workplaces.js": "411521c2e02d33192adff545fd081905995ebd2411e04cfa30cbee4c4760d4e5"
+    },
+    "baselineRendererHash": "5346eec63ed52693fff7c442356863d373dfc18bf46e72e667b3d31d8e0a3d8d",
+    "archiveDigest": "56b2778edf58110eed634c9719af7a4c8c8e381d3179394d883dbca0a6deaab2",
+    "errors": []
+  },
+  {
+    "calls": 17,
+    "triangles": 135788,
+    "materials": 28,
+    "programs": 6,
+    "memory": {
+      "geometries": 13,
+      "textures": 1
+    },
+    "buildMs": 41.5,
+    "cpu": {
+      "n": 21,
+      "medianMs": 0.5,
+      "p95Ms": 0.7000000029802322,
+      "maxMs": 1.1000000014901161
+    },
+    "raf": {
+      "n": 20,
+      "medianMs": 210.09999999776483,
+      "p95Ms": 236.60000000149012,
+      "maxMs": 244.20000000298023
+    },
+    "backend": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+    "mode": "lambert",
+    "sourceModuleHashes": {
+      "assets/game.js": "451bfa6f9686c9ad6c29e2ce19b8614908339596ddd02aa94f8a5e2b70374b03",
+      "assets/webgl-actors.js": "e7f761691a2edcc9ddb7937dad3d50464fb3ff73129ac8b22e418cbe1fb094cb",
+      "assets/webgl-bridges.js": "e4f3ea3b53e0d27f7431bc232ff29981c87f91363d3da0b6084e7e8a48d0da01",
+      "assets/webgl-entry.js": "980175962efeb1cff600fda381246b3db42bc7e5b6afc3e2f6825472da25047e",
+      "assets/webgl-map-overlay.js": "d4df7a9a75c7da788f87c9f22ad4e97e8f192a359b8103ef576045335f318cb2",
+      "assets/webgl-static-batch.js": "ef5927cf016acc06ec768f71e1beac5c12f21e6bf9ca9c034c155a68587fc292",
+      "assets/webgl-taste.js": "5346eec63ed52693fff7c442356863d373dfc18bf46e72e667b3d31d8e0a3d8d",
+      "assets/webgl-transit-geometry.js": "46a6e7308dcefbf8f9925b7c55d11b7cbff6d813fe38c1a5247cbdf7428433ee",
+      "assets/webgl-view.js": "55164f63aed7f4e7809e07af32ca2d6db776be7ebaa0ebcdbdb036fc7eb22f79",
+      "assets/newfoundland-families.js": "207d24e6078e19b0fe56a4a30d16f0e6f5552bf7baf00b14f3b2f88bf1d0d757",
+      "assets/newfoundland-kit.js": "a217b26fed43725c23f5e3b11bad6b37b2ef7776648a84954eea597500bd983d",
+      "assets/newfoundland-specialized.js": "621d61fd65319f39bba59fcfe07b5803a505f3152c3b7ee50f91bf82e4833123",
+      "assets/newfoundland-workplaces.js": "411521c2e02d33192adff545fd081905995ebd2411e04cfa30cbee4c4760d4e5"
+    },
+    "baselineRendererHash": "5346eec63ed52693fff7c442356863d373dfc18bf46e72e667b3d31d8e0a3d8d",
+    "archiveDigest": "56b2778edf58110eed634c9719af7a4c8c8e381d3179394d883dbca0a6deaab2",
+    "errors": []
+  }
+]

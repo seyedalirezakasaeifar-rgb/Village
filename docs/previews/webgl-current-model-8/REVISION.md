@@ -1,0 +1,7 @@
+# Same-day architecture snapshot correction
+
+Accepted model669c908 already invalidated urban observation caches correctly. The graphics adapter's separate context cache used day/construction/road/etc keys, so a same-day finance transaction could leave a stale visual descriptor. The fix observes the existing invalidateUrban boundary with a transient counter, and joins that counter to visual revision. No household/income calculation is added to rendering, and no economic save field is introduced. Snapshot reads remain blocked while simulationBusy or roadBatchDirty.
+
+`committed-revision.json` verifies an actual paid household deposit changes revision and cached context on the same day, matches every authoritative building descriptor, preserves total money, and leaves repeated reads/archive unchanged. The gate can therefore enable accepted descriptor family cues. Default renderer remains Canvas and native acceptance is still pending.
+
+Current day/night/overlay captures were regenerated. Visual inspection found no additional reproducible roof/window/actor/bridge depth fault in these views; empty terrain, repeated silhouettes and simplified shore geometry remain visual-quality limitations, not certified finished art. A bridge test initially timed out during concurrent software-GPU work; an isolated diagnostic rerun passed real paid-cargo deck placement, paused pixels/state, closed-span/water and save checks without a renderer change. Historical images are retained as diagnostics, not falsely described as a same-town before/after.

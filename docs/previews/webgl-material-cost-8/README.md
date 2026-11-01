@@ -1,0 +1,5 @@
+# Controlled material-cost experiment
+
+This is a measurement-only route override, not a production material change. Both final modes restore one exact archive/camera, low tier (no shadows, reduced raster), same17 calls/135,788 triangles and28 material groups. Current MeshStandard material RAF median218.55ms/p95242.70ms; Lambert route210.10ms/p95236.60ms,20 warm observations each. A roughly4% median difference in one software-rendered pair does not justify losing the authored PBR material treatment, so no shader/material source change was retained. Submission time is not FPS. Earlier shadow/resolution experiments remain in webgl-quality-8; this result reinforces that merely swapping lighting models does not solve severe SwiftShader cost.
+
+`paired.json` holds final serial comparison and module hashes. `contended-diagnostic.json` preserves an earlier run where a separate bridge Chromium process overlapped the second mode; it is excluded from conclusions. Screenshots standard.png/lambert.png are actual same-state experimental renders; Lambert is not proposed art.

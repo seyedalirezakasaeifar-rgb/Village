@@ -1,0 +1,13 @@
+{
+  "paid": 1,
+  "sameDay": true,
+  "revisionChanged": true,
+  "cacheReplaced": true,
+  "cachedStable": true,
+  "semantics": true,
+  "totalInvariant": true,
+  "descriptorExact": true,
+  "readInvariant": true,
+  "partialGuard": true,
+  "errors": []
+}

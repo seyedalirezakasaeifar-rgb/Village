@@ -1,6 +1,6 @@
 {
   "sourceModules": {
-    "assets/game.js": "e9af06490f8e9106babce32c17663df6d4663349ca8b9d5843b638066d7ff25b",
+    "assets/game.js": "451bfa6f9686c9ad6c29e2ce19b8614908339596ddd02aa94f8a5e2b70374b03",
     "assets/webgl-actors.js": "e7f761691a2edcc9ddb7937dad3d50464fb3ff73129ac8b22e418cbe1fb094cb",
     "assets/webgl-bridges.js": "e4f3ea3b53e0d27f7431bc232ff29981c87f91363d3da0b6084e7e8a48d0da01",
     "assets/webgl-entry.js": "980175962efeb1cff600fda381246b3db42bc7e5b6afc3e2f6825472da25047e",
@@ -18,7 +18,7 @@
     {
       "overlay": "roads",
       "stats": {
-        "marks": 73,
+        "marks": 71,
         "areas": 0,
         "routes": 0
       },
@@ -28,7 +28,7 @@
       },
       "quality": "balanced",
       "canvases": 1,
-      "held": true
+      "accepted": true
     },
     {
       "overlay": "business",
@@ -43,12 +43,12 @@
       },
       "quality": "balanced",
       "canvases": 1,
-      "held": true
+      "accepted": true
     },
     {
       "overlay": "hardship",
       "stats": {
-        "marks": 45,
+        "marks": 43,
         "areas": 0,
         "routes": 0
       },
@@ -58,7 +58,7 @@
       },
       "quality": "balanced",
       "canvases": 1,
-      "held": true
+      "accepted": true
     },
     {
       "overlay": "crime",
@@ -73,12 +73,12 @@
       },
       "quality": "balanced",
       "canvases": 1,
-      "held": true
+      "accepted": true
     },
     {
       "overlay": "land",
       "stats": {
-        "marks": 73,
+        "marks": 71,
         "areas": 0,
         "routes": 0
       },
@@ -88,12 +88,12 @@
       },
       "quality": "balanced",
       "canvases": 1,
-      "held": true
+      "accepted": true
     },
     {
       "overlay": "healthAccess",
       "stats": {
-        "marks": 45,
+        "marks": 43,
         "areas": 0,
         "routes": 0
       },
@@ -103,12 +103,12 @@
       },
       "quality": "balanced",
       "canvases": 1,
-      "held": true
+      "accepted": true
     },
     {
       "overlay": "schoolAccess",
       "stats": {
-        "marks": 45,
+        "marks": 43,
         "areas": 0,
         "routes": 0
       },
@@ -118,7 +118,7 @@
       },
       "quality": "balanced",
       "canvases": 1,
-      "held": true
+      "accepted": true
     },
     {
       "overlay": "transit",
@@ -133,7 +133,7 @@
       },
       "quality": "balanced",
       "canvases": 1,
-      "held": true
+      "accepted": true
     },
     {
       "overlay": "metro",
@@ -148,7 +148,7 @@
       },
       "quality": "balanced",
       "canvases": 1,
-      "held": true
+      "accepted": true
     },
     {
       "overlay": "neighbourhoods",
@@ -163,7 +163,7 @@
       },
       "quality": "balanced",
       "canvases": 1,
-      "held": true
+      "accepted": true
     },
     {
       "overlay": "charter",
@@ -178,7 +178,7 @@
       },
       "quality": "balanced",
       "canvases": 1,
-      "held": true
+      "accepted": true
     },
     {
       "overlay": "none",
@@ -193,7 +193,7 @@
       },
       "quality": "balanced",
       "canvases": 1,
-      "held": true
+      "accepted": true
     }
   ],
   "archiveInvariant": true,
