@@ -53,12 +53,12 @@ function serviceBudgetOutlook(policy={...(G?.policy||defaults),...draftPolicy}){
 // commitments that ran before civic purchases. This is diagnostic only: a
 // prior day is evidence, not a forecast or a promise about today's treasury.
 function serviceBudgetCashPressure(){
- if(!G?.serviceProvision||!G.actualServiceFunding||!G.market)return null;
- const services=['health','school'].map(kind=>({kind,...G.serviceProvision[kind]})).filter(s=>Number.isFinite(s.requested)&&Number.isFinite(s.paid)&&s.requested>s.paid+.005);
+ const evidence=G?.serviceCashEvidence;
+ if(!evidence||evidence.version!==1||evidence.day!==G.day||!evidence.services||!evidence.payroll||!Number.isFinite(evidence.pensionPaid)||!Number.isFinite(evidence.cashBeforeServices)||!Number.isFinite(evidence.closingCash))return null;
+ const services=['health','school'].map(kind=>({kind,...evidence.services[kind]})).filter(s=>Number.isFinite(s.requested)&&Number.isFinite(s.paid)&&s.requested>s.paid+.005);
  if(!services.length)return null;
- const p=G.policy||defaults, funding=G.actualServiceFunding, publicPaid=['police','fire','outreach'].reduce((sum,key)=>sum+(Number(p[key==='fire'?'defenseBudget':key+'Budget'])||0)*clamp(Number(funding[key])||0,0,1),0);
- const pensionDue=G.people.filter(person=>!person.deceased&&!person.movedAway&&person.age>70).length*(Number(p.pensionDaily)||0),pensionPaid=pensionDue*clamp(Number(G.market.pensionFunding)||0,0,1);
- return {day:G.day,publicPaid,pensionPaid,priorPaid:publicPaid+pensionPaid,services,endingCash:Number(G.treasury)||0};
+ const payroll=['police','fire','outreach'],hasPayroll=payroll.every(key=>Number.isFinite(evidence.payroll[key])&&evidence.payroll[key]>=0);
+ return {day:evidence.day,publicPaid:hasPayroll?payroll.reduce((sum,key)=>sum+evidence.payroll[key],0):null,pensionPaid:evidence.pensionPaid,services,cashBeforeServices:evidence.cashBeforeServices,endingCash:evidence.closingCash};
 }
 function serviceBudgetRecommendation(key,policy={...(G?.policy||defaults),...draftPolicy}){
  const outlook=serviceBudgetOutlook(policy),estimate=outlook.estimates[SERVICE_BUDGET_KEYS[key]],other=outlook.currentNeed-Math.min(Number(policy[key])||0,estimate.reachable),cashEnvelope=Math.max(0,outlook.dailyReceipts+outlook.cash/30-other);

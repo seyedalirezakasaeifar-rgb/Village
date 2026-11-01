@@ -7,7 +7,7 @@ from playwright.sync_api import sync_playwright
 FIXTURE = ROOT / 'docs/evidence/service-budget-warning8/fixtures/late-town-service-terminal.json.gz'
 ARCHIVE = json.loads(gzip.open(FIXTURE, 'rt', encoding='utf-8').read())
 SOURCE = (ROOT / 'assets/game.js').read_text()
-PROBE = '''window.__cashWarn={pressure:serviceBudgetCashPressure,html:serviceBudgetOutlookHtml,range:serviceBudgetRange,policy:()=>G.policy,proposal:()=>draftPolicy,step:n=>__townTest.step(n),load:x=>__townTest.load(x),save:()=>__townTest.save(),state:()=>G,validate:()=>__townTest.validate(),money:totalMoney,watch:()=>{const original=fundCivicServices;window.__serviceBoundary=[];fundCivicServices=function(){window.__serviceBoundary.push(G.treasury);return original();};},enact:p=>{draftPolicy={...G.policy,...p};return enactPolicyPackage();}};'''
+PROBE = '''window.__cashWarn={pressure:serviceBudgetCashPressure,html:serviceBudgetOutlookHtml,range:serviceBudgetRange,policy:()=>G.policy,proposal:()=>draftPolicy,step:n=>__townTest.step(n),load:x=>__townTest.load(x),save:()=>__townTest.save(),state:()=>G,validate:()=>__townTest.validate(),money:totalMoney,pensionPaid:()=>G.households.reduce((n,h)=>n+(h.pension||0),0),watch:()=>{const original=fundCivicServices;window.__serviceBoundary=[];fundCivicServices=function(){window.__serviceBoundary.push(G.treasury);return original();};},enact:p=>{draftPolicy={...G.policy,...p};return enactPolicyPackage();}};'''
 SCRIPT = SOURCE.replace('// SOURCE: 99-instrumentation.js', PROBE + '\n// SOURCE: 99-instrumentation.js')
 
 
@@ -50,10 +50,33 @@ def test_service_budget_cash_warning():
         assert 'Recent cash shortfall' in visible_warning and 'Health paid $0 of $70 requested' in visible_warning and 'School paid $0 of $90 requested' in visible_warning
         assert page.evaluate('__cashWarn.validate().ok')
 
+        # A same-day policy edit must not rewrite payments already posted to the prior day's ledger.
+        ledger_before = page.evaluate('''()=>JSON.stringify(__cashWarn.state().serviceCashEvidence)''')
+        pension_receipt = page.evaluate('__cashWarn.pensionPaid()')
+        assert abs(pension_receipt - after_day['pensionPaid']) < 1e-7, (pension_receipt, after_day)
+        page.evaluate("__cashWarn.enact({pensionDaily:0})")
+        unchanged_history = page.evaluate('''()=>({warning:__cashWarn.pressure(),ledger:JSON.stringify(__cashWarn.state().serviceCashEvidence),pension:__cashWarn.pensionPaid()})''')
+        assert unchanged_history['ledger'] == ledger_before
+        assert abs(unchanged_history['pension'] - pension_receipt) < 1e-7
+        assert unchanged_history['warning']['pensionPaid'] == after_day['pensionPaid']
+
+        # Current-format saves retain the evidence after serviceProvision's derived cache is cleared.
+        current_save = page.evaluate('__cashWarn.save()')
+        assert page.evaluate('(save)=>__cashWarn.load(save)', current_save)
+        restored = page.evaluate('__cashWarn.pressure()')
+        assert restored and restored['pensionPaid'] == after_day['pensionPaid']
+        assert page.evaluate('()=>__cashWarn.state().serviceProvision===null')
+        # A legacy archive with no immutable ledger omits the historical warning.
+        legacy_save = page.evaluate('(save)=>{const a=JSON.parse(save);delete a.serviceCashEvidence;return JSON.stringify(a)}', current_save)
+        assert page.evaluate('(save)=>__cashWarn.load(save)', legacy_save)
+        assert page.evaluate('__cashWarn.pressure()') is None
+        assert 'Recent cash shortfall' not in page.evaluate('__cashWarn.html()')
+        assert page.evaluate('(save)=>__cashWarn.load(save)', current_save)
+
         # With an enacted, ordinary policy change releasing the earlier pension claim,
         # available pre-service cash funds the requested health and school purchases.
-        page.evaluate("__cashWarn.enact({pensionDaily:0})")
-        page.evaluate('__cashWarn.step(1)')
+        replay = page.evaluate('''()=>{const start=__cashWarn.save();__cashWarn.step(1);const first=__cashWarn.save();__cashWarn.load(start);__cashWarn.step(1);const second=__cashWarn.save();return {same:first===second,first,second}}''')
+        assert replay['same'], 'Saved service-cash evidence did not replay exactly'
         funded = page.evaluate('''()=>{const g=__cashWarn.state();return {cash:window.__serviceBoundary[window.__serviceBoundary.length-1],health:g.serviceProvision.health,school:g.serviceProvision.school,pressure:__cashWarn.pressure(),valid:__cashWarn.validate()}}''')
         assert funded['cash'] > 0, funded
         assert funded['health']['paid'] >= funded['health']['requested'] - .005, funded
@@ -73,6 +96,9 @@ def test_service_budget_cash_warning():
             'fundedIntervention': {'serviceBoundaryCash': funded['cash'], 'healthRequested': funded['health']['requested'], 'healthPaid': funded['health']['paid'], 'schoolRequested': funded['school']['requested'], 'schoolPaid': funded['school']['paid'], 'warningCleared': funded['pressure'] is None},
             'warningAndOutlookReadOnly': before_warning == after_warning,
             'visibleInPolicyPanelBeforeEnactment': True,
+            'sameDayPolicyEditPreservesHistoricalPensions': unchanged_history['warning']['pensionPaid'] == after_day['pensionPaid'] and abs(unchanged_history['pension'] - pension_receipt) < 1e-7,
+            'newSaveRetainsEvidenceAndLegacySaveOmitsWarning': bool(restored) and page.evaluate('()=>__cashWarn.state().serviceCashEvidence.version===1'),
+            'exactSameDayLedgerReplay': replay['same'],
             'validTownAfterSteps': funded['valid']['ok'],
         }
         browser.close()

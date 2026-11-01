@@ -11,6 +11,7 @@ function tick(){if(!G||pendingEvent)return;ensureSystems();ensureMarketModel();G
  // Publish and save one canonical end-of-day snapshot after demographic and civic changes.
  recompute();G.stats.approval=Math.round(G.council.approval);G.rngState=rngState;
  brownfieldDay();privateServiceInvestmentDay();districtProgrammeDay();urbanEvolutionDay();migrationTenancyDay();updateScenarioProgramme();mayorJourneyDay();civicProjectsDay();civicCampaignDay();G.rngState=rngState;if(G.day%10===0)recordObservation();
+ if(G.serviceCashEvidence?.day===G.day)G.serviceCashEvidence.closingCash=G.treasury;
  G.history.push({day:G.day,employment:G.stats.employment,hardship:G.stats.hardship,safety:G.stats.safety,treasury:Math.round(G.treasury),businesses:G.stats.businesses,deposits:(G.banks||[]).reduce((n,b)=>n+bankDeposits(b.id),0),crime:G.stats.dailyCrime,approval:G.council.approval,education:G.education,health:G.health});if(G.history.length>240)G.history.shift();
  if(G.day%60===0){const signal=marketSignal();if(signal.kind!=='normal'&&signal.title!==G.lastEconomicSignal){story(signal.title+'. '+signal.description,signal.kind==='good'?'good':'bad');G.lastEconomicSignal=signal.title;}}
  // Autosaves are scheduled in wall time by the frame controller.
