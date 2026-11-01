@@ -1,0 +1,78 @@
+{
+  "result": "RUNTIME_NUMERIC_CONVERSION_FAULT_REPRODUCED",
+  "prototype_commit": "a675ce4e3b7ed421f0cc04f600d5543606bceb0d",
+  "game_js_sha256": "218de17d31e130f8f683ab1287307380eb2ec0689b06d39a9003ef26883a1fc7",
+  "generated_worker_sha256": "4d25fdaaad07f79cd7d9e5cbff03268d7572bcbd04fa18617d54f716680e0b75",
+  "fixture_sha256": "1a00aa514eb557ff721329b0c947331ff448941f6e32f6fc4b9c851637a968b2",
+  "device": "Android 11/API 30 emulator-5556",
+  "webview": "Chrome 83.0.4103.120",
+  "initial_state": {
+    "archive_rng": 2218605210,
+    "worker_load_rng": 2218605210,
+    "worker_load_model_exactly_equals_archive": true
+  },
+  "structured_clone_roundtrip": {
+    "values": [
+      1,
+      2147483647,
+      2147483648,
+      2786499683,
+      4294967295
+    ],
+    "worker_received_and_echoed_values_exactly": true,
+    "worker_json_serialization_preserved_values": true
+  },
+  "dynamic_bitwise_conversion": {
+    "contexts_tested": [
+      "actual worker built from prototype bundle",
+      "blank iframe",
+      "page main realm",
+      "bare Blob worker without game source"
+    ],
+    "input_values": [
+      1,
+      2147483647,
+      2147483648,
+      2786499683,
+      4294967295
+    ],
+    "dynamic_unsigned_shift_results": [
+      1,
+      2147483647,
+      2147483647,
+      2147483647,
+      2147483647
+    ],
+    "dynamic_signed_or_results": [
+      1,
+      2147483647,
+      2147483647,
+      2147483647,
+      2147483647
+    ],
+    "Math_imul(value_2147483648_times_1)": 2147483647,
+    "Uint32Array_roundtrip_preserves_large_unsigned_values": true,
+    "JSON_stringify_preserves_original_values": true,
+    "compile_time_literal_2147483648_unsigned_shift": 2147483648
+  },
+  "rng_transition_reproduction": {
+    "initial_rng_state": 2218605210,
+    "increment": 1831565813,
+    "sum_before_unsigned_conversion": 4050171023,
+    "expected_uint32": 4050171023,
+    "observed_dynamic_unsigned_shift": 2147483647,
+    "game_rng_update_expression": "rngState=(rngState+0x6D2B79F5)>>>0"
+  },
+  "comparison_to_previous_native_failure": {
+    "two_day_worker_step_final_rng": 2147483647,
+    "host_oracle_final_rng": 2786499683,
+    "strict_model_equal": false
+  },
+  "java_boundary": "The tested worker protocol sends page JavaScript values directly through Worker.postMessage and receives the reply in page JavaScript. No Java number conversion is on this path. Android harness uses evaluateJavascript for unrelated test expressions; it does not mediate worker messages.",
+  "assessment": "The native worker transport preserves the values. Dynamic bitwise/numeric conversion in this API30/WebView83 runtime saturates values above 2^31-1, matching the RNG clamp observed during simulation. This strongly explains the state divergence; confirm the runtime behavior on a supported physical device or newer WebView before selecting a compatibility workaround.",
+  "limitations": [
+    "Emulator-only runtime behavior; no physical Android confirmation.",
+    "No production code was changed and worker remains disabled.",
+    "Host oracle parity did not fail on the same deterministic fixture; its exact source was the same game.js hash recorded above."
+  ]
+}

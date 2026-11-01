@@ -1,0 +1,47 @@
+{
+  "result": "WORKER_OPERATION_SUCCEEDED_PARITY_FAILED",
+  "prototype_commit": "a675ce4e3b7ed421f0cc04f600d5543606bceb0d",
+  "device": "Android 11/API 30 emulator-5556",
+  "webview": "Chrome 83.0.4103.120",
+  "page_origin": "file:///android_asset/index.html",
+  "game_js_sha256": "218de17d31e130f8f683ab1287307380eb2ec0689b06d39a9003ef26883a1fc7",
+  "generated_worker_sha256": "4d25fdaaad07f79cd7d9e5cbff03268d7572bcbd04fa18617d54f716680e0b75",
+  "fixture": {
+    "seed": 314159265,
+    "initial_day": 1,
+    "population": 169,
+    "archive_bytes": 135394,
+    "archive_sha256": "1a00aa514eb557ff721329b0c947331ff448941f6e32f6fc4b9c851637a968b2"
+  },
+  "apk_sha256": "8f2c3d337a27966c8ecacf7be7f96a9de9fdf792f647e7613d21dfb66badb399",
+  "embedded_and_installed_source_hash_verified": true,
+  "actual_webview_operations": {
+    "worker_blob_bootstrap": "PASS",
+    "valid_archive_load": "PASS; worker initial model matched loaded fixture",
+    "simulation": "PASS; 2 days advanced day 1 to day 3",
+    "structured_policy_command": "PASS; sequence 3 set minWage from 28 to 29",
+    "export": "PASS; produced day 3 archive"
+  },
+  "strict_host_oracle_comparison": {
+    "result": "FAIL",
+    "comparator": "same-source synchronous model and same deterministic synthetic fixture",
+    "comparison": "Host same-source worker parity test passes, but actual API30/WebView83 worker output differs from synchronous oracle.",
+    "step_model_equal": false,
+    "policy_model_equal": false,
+    "export_equal": false,
+    "worker_days": 2,
+    "worker_final_day": 3,
+    "oracle_final_day": 3,
+    "worker_rng_state": 2147483647,
+    "host_oracle_rng_state": 2786499683,
+    "step_model_mismatch_count": 275,
+    "policy_value": 29,
+    "worker_protocol_version": 2
+  },
+  "disposition": "Test-only prototype remains disabled for production. Native command/step/export path works, but deterministic state parity fails on API30/WebView83 and requires investigation before rollout.",
+  "limitations": [
+    "No dense-city performance or smoothness certification.",
+    "No production save ownership integration or rollout.",
+    "Emulator result only; no physical-device performance certification."
+  ]
+}
