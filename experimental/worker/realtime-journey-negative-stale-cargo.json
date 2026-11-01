@@ -1,0 +1,214 @@
+{
+  "sourceCommit": "87811c52cdb9aecd13cd23beebd52f6475c6dd9c",
+  "sourceSha256": "f08cdd9cf77bed07c94722995f4e14f45ff6c9a2f85c77406badcdfc13eaa905",
+  "fixturePath": "docs/previews/growth-journey/regional-42-planned.json.gz",
+  "fixtureSha256": "928cd298306ecd884be0e7dac2e8d0a1fa2c5501cc090db285f47b158cc5db87",
+  "injectedMoneyPeopleStockDrivers": false,
+  "directSimulationCalls": false,
+  "workerAcceptance": false,
+  "functionalObserverBarriers": true,
+  "performanceClaim": false,
+  "completed": false,
+  "actions": [
+    {
+      "name": "import:funded-trajectory",
+      "day": 1081,
+      "treasury": 615843.0258730656,
+      "construction": 506,
+      "total": 15493516.999995423
+    },
+    {
+      "name": "clock:speed-button",
+      "day": 1081,
+      "treasury": 615843.0258730656,
+      "construction": 506,
+      "total": 15493516.999995423
+    },
+    {
+      "name": "clock:8x",
+      "day": 1085,
+      "treasury": 623797.9072354133,
+      "construction": 506,
+      "total": 15493516.999995468,
+      "startDay": 1081,
+      "daysObserved": 4,
+      "handledOrdinaryLetters": 0
+    },
+    {
+      "name": "council:actual-review",
+      "day": 1085,
+      "treasury": 621997.9072354133,
+      "construction": 506,
+      "total": 15493516.999995468,
+      "title": "An urgent issue"
+    },
+    {
+      "name": "construct:park",
+      "day": 1095,
+      "treasury": 645137.4392802175,
+      "construction": 507,
+      "total": 15493516.99999563,
+      "site": {
+        "id": 309,
+        "kind": "park",
+        "x": 26,
+        "y": 3
+      }
+    },
+    {
+      "name": "clock:8x",
+      "day": 1098,
+      "treasury": 652933.6918529649,
+      "construction": 507,
+      "total": 15493516.999995679,
+      "startDay": 1085,
+      "daysObserved": 13,
+      "handledOrdinaryLetters": 0
+    },
+    {
+      "name": "district:buy",
+      "day": 1098,
+      "treasury": 612709.6918529649,
+      "construction": 507,
+      "total": 15493516.999995679,
+      "parcel": {
+        "id": "belt-102-2",
+        "price": 40224
+      }
+    },
+    {
+      "name": "district:charter",
+      "day": 1098,
+      "treasury": 612709.6918529649,
+      "construction": 507,
+      "total": 15493516.999995679
+    },
+    {
+      "name": "renewal:residential-plan",
+      "day": 1098,
+      "treasury": 612109.6918529649,
+      "construction": 507,
+      "total": 15493516.999995679
+    },
+    {
+      "name": "renewal:prerequisite-refusal",
+      "day": 1098,
+      "treasury": 612109.6918529649,
+      "construction": 507,
+      "total": 15493516.999995679,
+      "reason": "Error: Paid farm cargo is still in transit. Let its contracts and shipments settle before moving the fields."
+    },
+    {
+      "name": "construct:transit_depot",
+      "day": 1098,
+      "treasury": 603109.6918529649,
+      "construction": 508,
+      "total": 15493516.999995679,
+      "site": {
+        "id": 310,
+        "kind": "transit_depot",
+        "x": 28,
+        "y": 3
+      }
+    },
+    {
+      "name": "transit:cancel-quoted-bus",
+      "day": 1098,
+      "treasury": 603109.6918529649,
+      "construction": 508,
+      "total": 15493516.999995679
+    },
+    {
+      "name": "transit:authorize-bus",
+      "day": 1098,
+      "treasury": 589809.6918529649,
+      "construction": 508,
+      "total": 15493516.999995679,
+      "route": 1,
+      "depot": 310
+    },
+    {
+      "name": "clock:16x",
+      "day": 1108,
+      "treasury": 614448.3905824012,
+      "construction": 514,
+      "total": 15493516.999995848,
+      "startDay": 1098,
+      "daysObserved": 10,
+      "handledOrdinaryLetters": 0
+    },
+    {
+      "name": "transit:suspend",
+      "day": 1108,
+      "treasury": 614448.3905824012,
+      "construction": 514,
+      "total": 15493516.999995848
+    },
+    {
+      "name": "transit:resume",
+      "day": 1108,
+      "treasury": 616928.3905824012,
+      "construction": 514,
+      "total": 15493516.999995848
+    },
+    {
+      "name": "construct:elevated_station",
+      "day": 1108,
+      "treasury": 604428.3905824012,
+      "construction": 515,
+      "total": 15493516.999995848,
+      "site": {
+        "id": 311,
+        "kind": "elevated_station",
+        "x": 11,
+        "y": 4
+      }
+    },
+    {
+      "name": "construct:elevated_station",
+      "day": 1108,
+      "treasury": 591928.3905824012,
+      "construction": 516,
+      "total": 15493516.999995848,
+      "site": {
+        "id": 312,
+        "kind": "elevated_station",
+        "x": 21,
+        "y": 4
+      }
+    },
+    {
+      "name": "transit:authorize-elevated",
+      "day": 1108,
+      "treasury": 544578.3905824012,
+      "construction": 516,
+      "total": 15493516.999995848
+    },
+    {
+      "name": "freight:priority-and-paid-shift",
+      "day": 1108,
+      "treasury": 544578.3905824012,
+      "construction": 516,
+      "total": 15493516.999995848
+    },
+    {
+      "name": "freight:agreement",
+      "day": 1108,
+      "treasury": 544578.3905824012,
+      "construction": 516,
+      "total": 15493516.999995848,
+      "contract": 19685,
+      "review": "Sawmill of Eastmead \u2192 Upland Cooperative: up to 200 timber at $3.52/unit; due day 1138. Held 434.42, working reserve 137.43, already promised 0. Recent output 191.39/day \u00d7 22 usable dispatch days; estimated deliverable 2,454.41, suggested 200. Agreements take output above working stock BEFORE ordinary regional and local wholesale sales; shops may need more imports. Full-window inventory margin $440 excludes payroll/tax; freight $38 is paid at dispatch, receipts on delivery. Staffing, inputs, queues and cash can invalidate the forecast. Cancel stops future dispatch; travelling loads continue."
+    },
+    {
+      "name": "clock:16x",
+      "day": 1126,
+      "treasury": 531114.6402850581,
+      "construction": 526,
+      "total": 15493516.999996096,
+      "startDay": 1108,
+      "daysObserved": 18,
+      "handledOrdinaryLetters": 0
+    }
+  ]
+}

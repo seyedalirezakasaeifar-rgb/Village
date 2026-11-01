@@ -47,5 +47,18 @@ with sync_playwright() as pw:
  settle();check('square purchase')
  panel('agenda');both('[data-gathering-review]');check('gathering preview');choose();check('gathering funded')
  both('[data-gathering-cancel]');choose();check('gathering cancel')
+ # Place stories are real model offers, never fabricated records.
+ offers=oracle.locator('[data-situation-choice]').count()
+ assert offers,'Generated30-day town has no situation choice for this gate'
+ both('[data-situation-choice]');choose();check('situation recorded');panel('agenda')
+ both('[data-situation-observe]');check('situation observation')
+ both('[data-situation-act]');check('situation real controls')
+ # Return using the ordinary tab when the action navigated away.
+ for p in pages:
+  if not p.locator('[data-situation-visit]').count():click(p,'#tabs [data-panel="agenda"]')
+ settle();both('[data-situation-visit]');check('situation visit')
+ panel('agenda');both('[data-situation-close]');choose();check('situation close')
+ if oracle.locator('[data-situation-pass]').count():
+  both('[data-situation-pass]');check('situation pass');both('[data-situation-restore]');check('situation restore')
  assert not errors,errors
  Path('experimental/worker/civic-actual-ui-proof.json').write_text(json.dumps({'productionEnabled':False,'oracleCommit':oracleCommit,'sourceSha256':hashlib.sha256(source.encode()).hexdigest(),'workerSha256':hashlib.sha256(worker.encode()).hexdigest(),'generatedBridgeSha256':hashlib.sha256(bridge.encode()).hexdigest(),'checkpoints':rows,'fullModelRngEquality':True,'excludedFields':[],'fixture':'seed42 after30 original complete days; no resource injection','pageErrors':errors},indent=2)+'\n');b.close()

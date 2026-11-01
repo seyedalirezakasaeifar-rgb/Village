@@ -155,7 +155,8 @@
     "event": "click",
     "selector": "[data-transit-action=\"quote\"]",
     "operation": "draft-quote",
-    "fields": {}
+    "fields": {},
+    "pauseBefore": true
   },
   {
     "event": "click",

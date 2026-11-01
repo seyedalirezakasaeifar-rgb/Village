@@ -1,0 +1,264 @@
+{
+  "productionEnabled": false,
+  "publicOracle": "87811c52cdb9aecd13cd23beebd52f6475c6dd9c",
+  "sourceSha256": "f08cdd9cf77bed07c94722995f4e14f45ff6c9a2f85c77406badcdfc13eaa905",
+  "workerSha256": "70ba7c53ecef1aa5785ddb3fe0b50eb8e96a26db41bf7199eef9a1423fe15b5c",
+  "bridgeSha256": "af2ac68047c1b38a76e08d0fd7d37e2ea35a794fc709055e243c4819fe3ff347",
+  "fixtureSha256": "ad6256fd85d4146fda9eeac0b16d5b182ed352c23bbd96af3b320553c29ce786",
+  "fixturePopulation": 778,
+  "physicalAndroidClaim": false,
+  "classicRendererOnly": true,
+  "audioHardwareClaim": false,
+  "sameInitialFixtureSequentialWorkloads": true,
+  "deterministicReplayClaim": false,
+  "rows": [
+    {
+      "mode": "sync",
+      "requested": 0,
+      "initialPopulation": 778,
+      "finalPopulation": 778,
+      "days": 0,
+      "elapsedMs": 5937.80000000447,
+      "delivered": 0.0,
+      "frameMs": {
+        "n": 356,
+        "p95": 16.800000000000182,
+        "p99": 33.30000000000018,
+        "max": 33.40000000000009
+      },
+      "handlerDelayMs": {
+        "n": 10,
+        "p95": 0.5,
+        "p99": 0.5,
+        "max": 0.5
+      },
+      "inputNextRafMs": {
+        "n": 10,
+        "p95": 54.80000000447035,
+        "p99": 54.80000000447035,
+        "max": 54.80000000447035
+      },
+      "heapObservedBytes": 49325352,
+      "owedDays": null,
+      "hud": "",
+      "errors": []
+    },
+    {
+      "mode": "worker",
+      "requested": 0,
+      "initialPopulation": 778,
+      "finalPopulation": 778,
+      "days": 0,
+      "elapsedMs": 5614.5,
+      "delivered": 0.0,
+      "frameMs": {
+        "n": 342,
+        "p95": 16.700000000000728,
+        "p99": 16.800000000000182,
+        "max": 16.800000000000182
+      },
+      "handlerDelayMs": {
+        "n": 10,
+        "p95": 0.6000000014901161,
+        "p99": 0.6000000014901161,
+        "max": 0.6000000014901161
+      },
+      "inputNextRafMs": {
+        "n": 10,
+        "p95": 31.799999997019768,
+        "p99": 31.799999997019768,
+        "max": 31.799999997019768
+      },
+      "heapObservedBytes": 51143610,
+      "owedDays": 0,
+      "hud": "paused \u00b7 Actual 0.0\u00d7 \u00b7 0.00 days owed",
+      "errors": []
+    },
+    {
+      "mode": "sync",
+      "requested": 1,
+      "initialPopulation": 778,
+      "finalPopulation": 778,
+      "days": 3,
+      "elapsedMs": 6157.20000000298,
+      "delivered": 0.803936854413955,
+      "frameMs": {
+        "n": 351,
+        "p95": 16.799999999999955,
+        "p99": 33.40000000000009,
+        "max": 216.5999999999999
+      },
+      "handlerDelayMs": {
+        "n": 12,
+        "p95": 17,
+        "p99": 17,
+        "max": 17
+      },
+      "inputNextRafMs": {
+        "n": 12,
+        "p95": 140.5,
+        "p99": 140.5,
+        "max": 140.5
+      },
+      "heapObservedBytes": 80406202,
+      "owedDays": null,
+      "hud": "",
+      "errors": []
+    },
+    {
+      "mode": "worker",
+      "requested": 1,
+      "initialPopulation": 778,
+      "finalPopulation": 778,
+      "days": 3,
+      "elapsedMs": 5826.60000000149,
+      "delivered": 0.8495520543711143,
+      "frameMs": {
+        "n": 339,
+        "p95": 16.799999999999272,
+        "p99": 66.60000000000036,
+        "max": 83.40000000000009
+      },
+      "handlerDelayMs": {
+        "n": 12,
+        "p95": 8.199999995529652,
+        "p99": 8.199999995529652,
+        "max": 8.199999995529652
+      },
+      "inputNextRafMs": {
+        "n": 12,
+        "p95": 33.79999999701977,
+        "p99": 33.79999999701977,
+        "max": 33.79999999701977
+      },
+      "heapObservedBytes": 107562922,
+      "owedDays": 0.37430303030122547,
+      "hud": "paused \u00b7 Actual 0.9\u00d7 \u00b7 0.37 days owed",
+      "errors": []
+    },
+    {
+      "mode": "sync",
+      "requested": 16,
+      "initialPopulation": 778,
+      "finalPopulation": 772,
+      "days": 84,
+      "elapsedMs": 9289.79999999702,
+      "delivered": 14.919589226898799,
+      "frameMs": {
+        "n": 282,
+        "p95": 83.40000000000009,
+        "p99": 266.60000000000036,
+        "max": 550
+      },
+      "handlerDelayMs": {
+        "n": 12,
+        "p95": 102,
+        "p99": 102,
+        "max": 102
+      },
+      "inputNextRafMs": {
+        "n": 12,
+        "p95": 185.70000000298023,
+        "p99": 185.70000000298023,
+        "max": 185.70000000298023
+      },
+      "heapObservedBytes": 66580386,
+      "owedDays": null,
+      "hud": "",
+      "errors": []
+    },
+    {
+      "mode": "worker",
+      "requested": 16,
+      "initialPopulation": 778,
+      "finalPopulation": 779,
+      "days": 56,
+      "elapsedMs": 6156.89999999851,
+      "delivered": 15.00755250207448,
+      "frameMs": {
+        "n": 343,
+        "p95": 16.800000000000182,
+        "p99": 66.69999999999982,
+        "max": 99.90000000000009
+      },
+      "handlerDelayMs": {
+        "n": 12,
+        "p95": 11.300000004470348,
+        "p99": 11.300000004470348,
+        "max": 11.300000004470348
+      },
+      "inputNextRafMs": {
+        "n": 12,
+        "p95": 37.79999999701977,
+        "p99": 37.79999999701977,
+        "max": 37.79999999701977
+      },
+      "heapObservedBytes": 45273030,
+      "owedDays": 0.7214545454978907,
+      "hud": "paused \u00b7 Actual 15.6\u00d7 \u00b7 0.72 days owed",
+      "errors": []
+    },
+    {
+      "mode": "sync",
+      "requested": 64,
+      "initialPopulation": 778,
+      "finalPopulation": 775,
+      "days": 172,
+      "elapsedMs": 12609.70000000298,
+      "delivered": 22.506483104271545,
+      "frameMs": {
+        "n": 186,
+        "p95": 133.30000000000018,
+        "p99": 416.6999999999989,
+        "max": 600
+      },
+      "handlerDelayMs": {
+        "n": 12,
+        "p95": 122.39999999850988,
+        "p99": 122.39999999850988,
+        "max": 122.39999999850988
+      },
+      "inputNextRafMs": {
+        "n": 12,
+        "p95": 432.79999999701977,
+        "p99": 432.79999999701977,
+        "max": 432.79999999701977
+      },
+      "heapObservedBytes": 81281232,
+      "owedDays": null,
+      "hud": "",
+      "errors": []
+    },
+    {
+      "mode": "worker",
+      "requested": 64,
+      "initialPopulation": 778,
+      "finalPopulation": 779,
+      "days": 74,
+      "elapsedMs": 6382.0,
+      "delivered": 19.131933563146347,
+      "frameMs": {
+        "n": 338,
+        "p95": 16.800000000000182,
+        "p99": 66.69999999999982,
+        "max": 283.39999999999964
+      },
+      "handlerDelayMs": {
+        "n": 12,
+        "p95": 3.5,
+        "p99": 3.5,
+        "max": 3.5
+      },
+      "inputNextRafMs": {
+        "n": 12,
+        "p95": 27.899999998509884,
+        "p99": 27.899999998509884,
+        "max": 27.899999998509884
+      },
+      "heapObservedBytes": 74759177,
+      "owedDays": 148.57260606060606,
+      "hud": "paused \u00b7 Actual 20.3\u00d7 \u00b7 148.57 days owed",
+      "errors": []
+    }
+  ]
+}

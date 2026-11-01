@@ -158,5 +158,8 @@
     "speed",
     "speedRange"
   ],
-  "countDefinition": "Retains prior24 semantic transport/view identifiers and adds11 explicit formerly-pending UI operations; not a percentage of101 raw handlers or a complete acceptance claim."
+  "countDefinition": "Retains prior24 semantic transport/view identifiers and adds11 explicit formerly-pending UI operations; not a percentage of101 raw handlers or a complete acceptance claim.",
+  "historicReceipt": true,
+  "supersededBy": "combined-route-inventory.json",
+  "note": "Old35/51 counts describe pre-family implementation only. Current compiled registry has82 operations and93 bindings; acceptance is tracked separately."
 }

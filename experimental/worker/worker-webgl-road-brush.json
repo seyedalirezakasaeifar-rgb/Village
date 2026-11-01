@@ -1,0 +1,28 @@
+{
+  "sourceSha256": "f08cdd9cf77bed07c94722995f4e14f45ff6c9a2f85c77406badcdfc13eaa905",
+  "workerSha256": "70ba7c53ecef1aa5785ddb3fe0b50eb8e96a26db41bf7199eef9a1423fe15b5c",
+  "bridgeSha256": "5b1c64909d36bd5b2fb0ca115b836f8a6ae2583b42671622464948b829ae6341",
+  "threeActualRoadTiles": [
+    {
+      "x": 18,
+      "y": 12
+    },
+    {
+      "x": 19,
+      "y": 12
+    },
+    {
+      "x": 20,
+      "y": 12
+    }
+  ],
+  "debit": 450,
+  "totalMoneyPreserved": true,
+  "cameraDidNotPan": true,
+  "graphCommitAndLiveRefresh": true,
+  "save": true,
+  "productionEnabled": false,
+  "actualWebglWorkerComposition": true,
+  "syntheticStaleBrushCannotMutateReplacedTown": true,
+  "errors": []
+}

@@ -1,5 +1,5 @@
 {
-  "sourceCommit": "14f27abda1aa93835303184769274767accc1043",
+  "sourceCommit": "d4413f535aada19772bc1ba61e7a47fe1d7aac8f",
   "economicSourceSha256": "f08cdd9cf77bed07c94722995f4e14f45ff6c9a2f85c77406badcdfc13eaa905",
   "productionEnabled": false,
   "registeredOperations": 82,
@@ -1126,7 +1126,8 @@
       "event": "click",
       "selector": "[data-transit-action=\"quote\"]",
       "operation": "draft-quote",
-      "fields": {}
+      "fields": {},
+      "pauseBefore": true
     },
     {
       "module": "transit-freight",
