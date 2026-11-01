@@ -11,5 +11,5 @@ else if(n.type==='ExpressionStatement'&&n.expression.type==='CallExpression'&&n.
 else if(name==='18-region-charter.js'&&n.type==='ForOfStatement')out+=source.slice(n.start,n.end)+'\n';
 else excluded.push({file:name,statement:source.slice(n.start,n.end).slice(0,160)});
 }}
-fs.writeFileSync('experimental/worker/model.generated.js',out+fs.readFileSync('experimental/worker/adapter.js','utf8'));
+fs.writeFileSync('experimental/worker/model.generated.js',out+fs.readFileSync('experimental/worker/runtime-guard.js','utf8')+fs.readFileSync('experimental/worker/adapter.js','utf8'));
 fs.writeFileSync('experimental/worker/excluded.json',JSON.stringify(excluded,null,2));

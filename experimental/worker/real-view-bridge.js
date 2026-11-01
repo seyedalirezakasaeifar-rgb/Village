@@ -1,13 +1,16 @@
 // Inject inside the existing game closure for opt-in integration tests only.
 // Full renderer input is immutable. All unsupported controls fail visibly.
 window.__workerRealView={enable:async function(code,archive){
- paused=true;let serial=0,epoch=0,sequence=0,busy=false,councilId=null;
- const worker=new Worker(URL.createObjectURL(new Blob([code],{type:'application/javascript'})));
- const pending=new Map();worker.onmessage=e=>{const p=pending.get(e.data.id);if(!p)return;pending.delete(e.data.id);e.data.ok?p.resolve(e.data.result):p.reject(Error(e.data.error));};
+ const pageStatus=workerRuntimeArithmetic();if(!pageStatus.ok)throw Error('Unsupported arithmetic runtime: archive unchanged; update the supported WebView runtime before simulation');
+ let serial=0,epoch=0,sequence=0,busy=false,councilId=null;
+ let worker;try{worker=new Worker(URL.createObjectURL(new Blob([code],{type:'application/javascript'})));}catch(error){return {fallback:'synchronous',reason:'Worker startup unavailable; main arithmetic passed'};}
+ const pending=new Map();worker.onerror=()=>{for(const p of pending.values())p.reject(Error('Worker runtime failed; no stale-model fallback is permitted after admission'));pending.clear();};worker.onmessage=e=>{const p=pending.get(e.data.id);if(!p)return;pending.delete(e.data.id);e.data.ok?p.resolve(e.data.result):p.reject(Error(e.data.error));};
  function freeze(v){if(v&&typeof v==='object'&&!Object.isFrozen(v)){Object.freeze(v);for(const x of Object.values(v))freeze(x);}return v;}
  function apply(snapshot){if(snapshot.epoch<epoch)return;epoch=snapshot.epoch;if(snapshot.projection)throw Error('Real renderer requires complete view schema');G=freeze(snapshot.model);rngState=snapshot.rng;roadsVersion++;roadNetwork=null;traffic.length=0;trafficClock=0;intersectionGates.clear();dirty=true;staticDirty=true;updateHeader();draw();for(const effect of snapshot.outbox||[]){switch(effect.type){case 'notification':toast(effect.payload.text);break;case 'ambience-refresh':refreshAmbience();break;case 'header-invalidated':break;case 'panel-invalidated':if(active)renderPanel(active);break;case 'save-request':$('workerRealStatus').textContent='Save pending — use Save test slot';break;case 'council-event':{const e=effect.payload;councilId=e.id;$('eventTitle').textContent=e.title;$('eventText').textContent=e.text;$('eventChoices').innerHTML=e.choices.map(c=>'<button data-worker-choice="'+c.index+'">'+esc(c.title)+'</button>').join('');$('eventDialog').style.display='flex';break;}case 'council-closed':councilId=null;$('eventDialog').style.display='none';break;default:throw Error('Unsupported worker effect: '+effect.type);}}}
  function request(m){return new Promise((resolve,reject)=>{const id=++serial;pending.set(id,{resolve,reject});worker.postMessage({id,epoch,command:++sequence,...m});});}
  async function command(m){if(busy)throw Error('A real-view command is awaiting acknowledgement');busy=true;try{const r=await request(m);if(r.model)apply(r);return r;}finally{busy=false;}}
+ let workerStatus;try{workerStatus=await request({type:'runtime-status'});}catch(error){worker.terminate();return {fallback:'synchronous',reason:'Worker startup failed before model admission; main arithmetic passed'};}if(!workerStatus.ok){worker.terminate();return {fallback:workerRuntimeFallback(pageStatus,workerStatus),reason:'Worker arithmetic failed; synchronous production was not replaced'};}
+ paused=true;
  const originalConstruct=construct;construct=(kind,x,y)=>{if(kind==='inspect'){const target=buildingAt(x,y);if(target){selected={id:target.id};openPanel('inspect');request({type:'inspect',building:target.id}).catch(e=>toast(e.message));}return;}command({type:'build',kind,x,y}).catch(e=>toast(e.message));};
  // Stop synchronous simulation and its periodic persistence at the shared frame entry.
  frame=function workerReadFrame(){paused=true;if(dirty&&G)draw();requestAnimationFrame(frame);};

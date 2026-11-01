@@ -4,7 +4,7 @@ sys.path.insert(0,'tests')
 from test_mobile_rendering import html
 from playwright.sync_api import sync_playwright
 archive=gzip.decompress(subprocess.check_output(['git','show','833afee:tests/fixtures/generated-late-31987fc/terminal.json.gz'])).decode()
-bridge=Path('experimental/worker/real-view-bridge.js').read_text()+'''window.bridgeProbe={state:()=>({day:G.day,wage:G.policy.minWage,pop:G.stats.population,frozen:Object.isFrozen(G),construction:G.construction}),lot:()=>buildableCandidates('park').find(p=>canPlace(p.x,p.y,true,'park')),clear:()=>localStorage.removeItem('worker-prototype-test-slot')};\n'''
+bridge=Path('experimental/worker/runtime-guard.js').read_text()+Path('experimental/worker/real-view-bridge.js').read_text()+'''window.bridgeProbe={state:()=>({day:G.day,wage:G.policy.minWage,pop:G.stats.population,frozen:Object.isFrozen(G),construction:G.construction}),lot:()=>buildableCandidates('park').find(p=>canPlace(p.x,p.y,true,'park')),clear:()=>localStorage.removeItem('worker-prototype-test-slot')};\n'''
 with sync_playwright() as pw:
  b=pw.chromium.launch(executable_path='/usr/bin/chromium',args=['--no-sandbox']);p=b.new_page();errors=[];p.on('pageerror',lambda e:errors.append(str(e)));p.route('http://worker-real.test/',lambda r:r.fulfill(body=html,content_type='text/html'));p.goto('http://worker-real.test/');p.add_script_tag(content=Path('assets/game.js').read_text().replace('// SOURCE: 99-instrumentation.js',bridge+'// SOURCE: 99-instrumentation.js'))
  p.evaluate('''async args=>{window.real=await __workerRealView.enable(args.code,args.archive);}''',{'code':Path('experimental/worker/model.generated.js').read_text(),'archive':archive})

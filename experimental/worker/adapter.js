@@ -14,7 +14,10 @@ showCustomEvent=(type,title,text,choices)=>{pendingEvent={type,title,text,choice
 const workerProfile={tickMs:0,snapshotMs:0,snapshots:0,stringifyMs:0,parseMs:0,postMs:0};
 function workerFullSnapshot(){let t=performance.now();const text=JSON.stringify(G);workerProfile.stringifyMs+=performance.now()-t;t=performance.now();const model=JSON.parse(text);workerProfile.parseMs+=performance.now()-t;return model;}
 function workerSnapshot(projection=false){const started=performance.now();G.rngState=rngState;const model=projection?{policy:{minWage:G.policy.minWage},stats:{population:G.stats.population,employment:G.stats.employment},treasury:G.treasury,buildings:G.buildings.map(b=>({id:b.id,x:b.x,y:b.y,kind:b.kind}))}:workerFullSnapshot();workerProfile.snapshotMs+=performance.now()-started;workerProfile.snapshots++;return {profile:{...workerProfile},projection,epoch:workerEpoch,command:workerCommand,version:workerVersion,day:G.day,rng:rngState,model,outbox:workerOutbox.splice(0)};}
+const workerRuntimeStatus=workerRuntimeArithmetic();
 function workerRequest(m){
+ if(m.type==='runtime-status')return {epoch:workerEpoch,...workerRuntimeStatus};
+ if(!workerRuntimeStatus.ok)throw Error('UNSUPPORTED_INTEGER_RUNTIME: model admission blocked; archive unchanged');
  const reply=()=>workerSnapshot(m.projection===true);
  if(m.type!=='load'&&m.epoch!==workerEpoch)throw Error('Stale model epoch');
  if(['policy','choice','review','build'].includes(m.type)){if(!Number.isInteger(m.command)||m.command<=workerCommand)throw Error('Repeated command');workerCommand=m.command;}
