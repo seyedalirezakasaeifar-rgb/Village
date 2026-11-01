@@ -1,0 +1,13 @@
+{
+  "productionEnabled": false,
+  "testOnlyModule": true,
+  "sourceSha256": "5df42ea1348872ad692a53bfa6ea1081472d1c8783ec9ace2b5cf011bcfb6e20",
+  "workerSha256": "fe98bfd334e36ddf6ea5eb36185896d476ae5a0410c4694e38dac2ae834ae543",
+  "bridgeSha256": "596afd657a8ffb61abf664ea08799f5c5d94ccd4c166198f1966238168b822be",
+  "trustedClickBinding": true,
+  "typedPolicyCameraToolOverlayEffects": true,
+  "trustedMapBinding": true,
+  "opaqueChoiceTypedInputSettlement": true,
+  "hostViewRemainsFrozen": true,
+  "pageErrors": []
+}
