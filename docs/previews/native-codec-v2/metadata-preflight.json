@@ -1,0 +1,18 @@
+{
+  "source_sha256": "47c2659adccbfbd32c857d1911f0d7cfcaa7f436c4fdcce2a0425a7844b92e02",
+  "setup": {
+    "households": 3001,
+    "firms": 3001,
+    "people": 172
+  },
+  "bytes": 8387584,
+  "attack": {
+    "rejected": true,
+    "exact": true,
+    "epochEqual": true,
+    "rngEqual": true,
+    "rejectionMs": 10493.300000000105,
+    "inclusiveComparisonMs": 37585.90000000008
+  },
+  "outcome": "PASS"
+}
