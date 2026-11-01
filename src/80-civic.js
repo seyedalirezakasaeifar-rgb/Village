@@ -214,21 +214,24 @@ function reviewCouncilInbox(index){
 
 let councilOpener=null;
 function closeCouncilDialog(defer=false){
- const event=pendingEvent;pendingEvent=null;$('eventDialog').style.display='none';
+ const event=pendingEvent;pendingEvent=null;
  if(defer&&event&&event.type!=='TOWN ARCHIVE'&&COUNCIL_EVENTS.some(e=>e.title===event.title)){G.councilInbox=G.councilInbox||[];if(!G.councilInbox.some(e=>e.title===event.title))G.councilInbox.unshift({title:event.title,day:G.day});}
- if(active==='agenda')renderPanel(active);save();
- const target=councilOpener?.isConnected?councilOpener:$('tabs').querySelector('[data-panel="agenda"]');target?.focus();councilOpener=null;
+ const finish=()=>{$('eventDialog').style.display='none';const target=councilOpener?.isConnected?councilOpener:$('tabs').querySelector('[data-panel="agenda"]');target?.focus();councilOpener=null;};
+ if(window.__rootAdmission?.inModel()){if(active==='agenda')renderPanel(active);save();window.__rootAdmission.deferUI(finish);return;}
+ $('eventDialog').style.display='none';if(active==='agenda')renderPanel(active);save();finish();
 }
 function directTransactionDialog(type){return ['REGIONAL EXCHANGE','REGIONAL ROADS','DISTRICT PLANNING','FIRST DELIVERY','TOWN DIRECTION','OBSERVED OUTCOMES','LOGISTICS CHOICE','CARGO RECOVERY','CIVIC PROJECT'].includes(type)}
-function showCustomEvent(type,title,text,choices){councilOpener=document.activeElement;pendingEvent={type,title,text,choices};
- $('eventEyebrow').textContent=type;$('eventTitle').textContent=title;$('eventText').textContent=text;
- $('eventChoices').innerHTML=choices.map((c,i)=>`<button data-event-choice="${i}" ${c.cost>0?'data-sound="coin"':''} ${c.cost&&G.treasury<c.cost?'disabled':''}><strong>${esc(c.title)}</strong><small>${esc(c.desc||'')}${c.cost?' · Cost: '+money(c.cost):''}</small></button>`).join('');
+function showCustomEvent(type,title,text,choices){
+ if(window.__rootAdmission?.enabled()&&!window.__rootAdmission.active()&&type!=='TOWN ARCHIVE'){const result=window.__rootAdmission.run({kind:'council-review'},()=>showCustomEvent(type,title,text,choices));window.__rootAdmission.notifyRefusal(result);return result;}
+ const opener=document.activeElement,event={type,title,text,choices};pendingEvent=event;
+ const publish=()=>{councilOpener=opener;$('eventEyebrow').textContent=type;$('eventTitle').textContent=title;$('eventText').textContent=text;$('eventChoices').innerHTML=choices.map((c,i)=>`<button data-event-choice="${i}" ${c.cost>0?'data-sound="coin"':''} ${c.cost&&G.treasury<c.cost?'disabled':''}><strong>${esc(c.title)}</strong><small>${esc(c.desc||'')}${c.cost?' · Cost: '+money(c.cost):''}</small></button>`).join('');$('eventDialog').style.display='flex';$('eventDefer').textContent=(type==='TOWN ARCHIVE'||type==='LAND PURCHASE'||directTransactionDialog(type))?'CANCEL':'DECIDE LATER';$('eventChoices').querySelector('button:not([disabled])')?.focus();};
  if(type!=='TOWN ARCHIVE'&&COUNCIL_EVENTS.some(e=>e.title===title)){G.councilInbox=G.councilInbox||[];if(!G.councilInbox.some(e=>e.title===title))G.councilInbox.unshift({title,day:G.day});save();}
- $('eventDialog').style.display='flex';$('eventDefer').textContent=(type==='TOWN ARCHIVE'||type==='LAND PURCHASE'||directTransactionDialog(type))?'CANCEL':'DECIDE LATER';$('eventChoices').querySelector('button:not([disabled])')?.focus();
+ if(window.__rootAdmission?.deferUI(publish))return;publish();
 }
 $('eventChoices').addEventListener('click',e=>{
  const b=e.target.closest('button[data-event-choice]');if(!b||!pendingEvent)return;
  const evt=pendingEvent,c=evt.choices[+b.dataset.eventChoice];if(!c)return;
+ if(window.__rootAdmission?.enabled()&&evt.type!=='TOWN ARCHIVE'){e.stopPropagation();const result=window.__rootAdmission.dispatchCouncilChoice(evt,c);window.__rootAdmission.notifyRefusal(result);return;}
  if(evt.type==='TOWN ARCHIVE'||evt.type==='LAND PURCHASE'){if(c.cost&&G.treasury<c.cost)return;closeCouncilDialog();c.apply();return;}
  if(directTransactionDialog(evt.type)){closeCouncilDialog();c.apply();recompute();updateHeader();save();dirty=true;return;}
  const goodsBefore=stockTotals();const fundsBefore=totalMoney();if(c.cost){if(G.treasury<c.cost)return;G.treasury-=c.cost;G.region+=c.cost;G.cumulative.spending+=c.cost;}

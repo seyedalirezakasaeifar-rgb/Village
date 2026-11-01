@@ -123,7 +123,7 @@ function renderInspect(){const b=selected&&readBuild(selected.id);if(!b)return '
  html+=`<p class="desc">Ownership and all financial amounts are modelled local accounts, not decorative scores.</p>`;return html;
 }
 let panelOpener=null;
-function openPanel(tab,opener=null){panelOpener=opener||document.activeElement;active=tab;$('gameRoot').classList.add('drawer-open');$('panel').classList.add('show');$('panelBody').scrollTop=0;$('tabs').querySelectorAll('button').forEach(b=>b.classList.toggle('active',b.dataset.panel===tab));renderPanel(tab)}
+function openPanel(tab,opener=null){panelOpener=opener||document.activeElement;active=tab;const publish=()=>{$('gameRoot').classList.add('drawer-open');$('panel').classList.add('show');$('panelBody').scrollTop=0;$('tabs').querySelectorAll('button').forEach(b=>b.classList.toggle('active',b.dataset.panel===tab));};if(window.__rootAdmission?.deferUI(publish)){renderPanel(tab);return;}publish();renderPanel(tab)}
 function closePanel(){const previous=active;active='';$('gameRoot').classList.remove('drawer-open');$('panel').classList.remove('show');$('tabs').querySelectorAll('button').forEach(b=>b.classList.remove('active'));const returnTarget=panelOpener?.isConnected&&panelOpener!==document.body&&panelOpener.getClientRects().length?panelOpener:$('tabs').querySelector(`button[data-panel="${previous}"]`);if(returnTarget)returnTarget.focus();panelOpener=null}
 function economySnapshot(){
  const demand=cityDemand(),activeFirms=G.firms.filter(f=>!f.closed),families=G.households.filter(h=>h.people.some(id=>G.people[id]&&!G.people[id].deceased&&!G.people[id].movedAway));
@@ -161,12 +161,13 @@ function renderEconomy(){let signal=marketSignal(),m=signal.m,d=m.demand,active=
  head('Employment history')+miniChart('employment')+head('Private enterprise count')+miniChart('businesses')+head('Households under pressure')+miniChart('hardship')+head('Recent economic developments')+headlineList(8);
 }
 const names={economy:'The Living Economy',banking:'Banks & Credit',overview:'Town Hall',agenda:'Council Agenda',community:'Civic Services',policies:'Economic Policy',treasury:'The Public Purse',citizens:'Our Residents',businesses:'Local Enterprise',construction:'Works & Planning',journal:'Public Record',settings:'Game Options',inspect:'Property Inspector',trip:'Journey Inspector'};
-function renderPanel(tab){if(!G)return;const sc=$('panelBody');const y=sc.scrollTop;let contents='';
+function panelContents(tab){let contents='';
  try{contents=({overview:renderOverviewFull,economy:renderEconomy,agenda:renderAgenda,community:renderCommunityFull,policies:renderPoliciesFull,treasury:renderTreasuryFull,banking:financePanel,citizens:renderCitizensFull,businesses:renderBusinessesFull,construction:renderConstructionFull,journal:renderJournalFull,settings:renderSettingsFull,inspect:renderInspectFull,trip:renderTripInspector}[tab]||renderOverview)()}
  catch(e){contents='<div class="event">Panel error: '+esc(e.message)+'</div>';console.error(e)}
  if(tab==='construction')contents=transitOfficePanel()+contents;
- $('panelTitle').textContent=names[tab]||'TownLedger';sc.innerHTML=contents;sc.scrollTop=y;
+ return contents;
 }
+function renderPanel(tab){if(!G)return;const sc=$('panelBody'),y=sc.scrollTop,contents=panelContents(tab),publish=()=>{$('panelTitle').textContent=names[tab]||'TownLedger';sc.innerHTML=contents;sc.scrollTop=y;};if(window.__rootAdmission?.deferUI(publish))return;publish();}
 function journalPolicy(k,old,nv){const base={...G.stats,treasury:G.treasury};G.journal.push({day:G.day,name:defs.find(d=>d[0]===k)?.[1]||k,message:`Policy revised from ${fmt(old)} to ${fmt(nv)}.`,baseline:base});if(G.journal.length>100)G.journal.shift();story('Council revised '+(defs.find(d=>d[0]===k)?.[1]||k)+'.','neutral')}
 $('tabs').addEventListener('click',e=>{const b=e.target.closest('button[data-panel]');if(!b)return;const p=b.dataset.panel;if(p===active)closePanel();else openPanel(p)});
 $('panelClose').onclick=closePanel;$('topNotice').onclick=()=>openPanel('journal',$('topNotice'));$('liveEconomy').onclick=()=>openPanel('economy',$('liveEconomy'));
