@@ -1,0 +1,19 @@
+{
+  "sourceSha256": "5df42ea1348872ad692a53bfa6ea1081472d1c8783ec9ace2b5cf011bcfb6e20",
+  "workerSha256": "968b897efa5e8909357027065e0888a793821e2b3d7f2884d0f6ed8735233950",
+  "normalResources": true,
+  "actualUiFullModelRng": [
+    "new bus draft",
+    "trusted map stops and authoritative quote",
+    "paid route build",
+    "service level 0",
+    "service level 1",
+    "paid route retirement",
+    "freight priority",
+    "freight routing",
+    "paid import recall actual controls"
+  ],
+  "saveBarriers": true,
+  "nativeDurability": false,
+  "pageErrors": []
+}
