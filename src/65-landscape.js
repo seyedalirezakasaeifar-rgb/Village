@@ -318,7 +318,8 @@ function draw(){
   if(viewBackgroundRaster.width!==cv.width)viewBackgroundRaster.width=cv.width;if(viewBackgroundRaster.height!==cv.height)viewBackgroundRaster.height=cv.height;
   const bgView=viewBackgroundRaster.getContext('2d',{alpha:false});bgView.imageSmoothingEnabled=false;bgView.setTransform(dpr,0,0,dpr,0,0);bgView.fillStyle='#5d7967';bgView.fillRect(0,0,cw,ch);bgView.drawImage(bitmap,sx*groundScale,sy*groundScale,ww*groundScale,hh*groundScale,0,0,cw,ch);viewBackgroundKey=backgroundKey;
  }
- const key=[cam.x,cam.y,cam.zoom,cw,ch,dpr,nightMode,gameOptions.streetNames,landscapeRevision,states,G.transit?.revision||0].join('|');
+ const bridgeStyle=typeof bridgeRenderSnapshot==='function'?bridgeRenderSnapshot().map(b=>`${b.id}:${Math.floor(b.condition/20)}:${b.closed?1:0}`).join(','):'';
+ const key=[cam.x,cam.y,cam.zoom,cw,ch,dpr,nightMode,gameOptions.streetNames,landscapeRevision,states,G.transit?.revision||0,bridgeStyle].join('|');
  if(key!==viewRasterKey){
   if(viewRaster.width!==cv.width)viewRaster.width=cv.width;if(viewRaster.height!==cv.height)viewRaster.height=cv.height;const vg=viewRaster.getContext('2d',{alpha:false});vg.imageSmoothingEnabled=false;
   // The cached background already has backing-store dimensions. Copy it at
@@ -331,14 +332,14 @@ function draw(){
    const xMargin=building?132:treeItem?24:38,topMargin=building?172:treeItem?64:55,bottomMargin=building?84:treeItem?34:28;
    return item.x>=sx-xMargin&&item.x<=sx+ww+xMargin&&item.y>=sy-bottomMargin&&item.y<=sy+hh+topMargin;
   });
-  viewBuildings.push(...transitInfrastructureItems(visible));viewBuildings.sort((a,b)=>a.y-b.y);
+  viewBuildings.push(...transitInfrastructureItems(visible));if(typeof bridgeArtItems==='function')viewBuildings.push(...bridgeArtItems(visible));viewBuildings.sort((a,b)=>a.y-b.y);
   paintCastShadows(vg,viewBuildings);
   const actorDetail=!gameOptions.reducedMotion&&((gameOptions.traffic&&cam.zoom>=.32)||(gameOptions.effects&&cam.zoom>=.62));if(actorDetail){if(viewUnderlayRaster.width!==cv.width)viewUnderlayRaster.width=cv.width;if(viewUnderlayRaster.height!==cv.height)viewUnderlayRaster.height=cv.height;const ug=viewUnderlayRaster.getContext('2d',{alpha:false});ug.setTransform(1,0,0,1,0,0);ug.drawImage(viewRaster,0,0);}else{viewUnderlayRaster.width=0;viewUnderlayRaster.height=0;actorRepairRaster.width=0;actorRepairRaster.height=0;}
-  for(const item of viewBuildings)drawSceneSprite(vg,item);
+  for(const item of viewBuildings)if(item.kind!=='roadBridge')drawSceneSprite(vg,item);
   viewRasterKey=key;
  }
  ctx.setTransform(1,0,0,1,0,0);ctx.drawImage(viewRaster,0,0);transform();
- drawWaterLife(ctx,visible);drawWaterfrontPiers(ctx,visible);drawRegionalGates(ctx,visible);drawTransitInfrastructure(ctx,visible);
+ drawWaterLife(ctx,visible);drawWaterfrontPiers(ctx,visible);if(typeof paintRoadBridgeLayers==='function')paintRoadBridgeLayers(ctx);drawRegionalGates(ctx,visible);drawTransitInfrastructure(ctx,visible);
  const visibleParcels=viewBuildings.filter(item=>visible(item.x,item.y,0)),actors=[...transitArtActors(visible),...neighbourhoodAmbient(visibleParcels),...buildingActivity(visibleParcels),...workdayScenes(visibleParcels),...waterfrontActors(visible),...regionalCargoActors().filter(a=>visible(a.x,a.y,15))];if(visualDetailBudget().traffic)for(const v of traffic){const p=vehiclePosition(v);if(visible(p.x,p.y,15))actors.push({kind:'vehicle',v,...p});}actors.sort((a,b)=>a.y-b.y);
 
  if(actors.length)paintSceneActors(ctx,actors,visible);
