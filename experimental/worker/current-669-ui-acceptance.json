@@ -3,7 +3,7 @@
   "oracleSha256": "54e223010e0468b43ec8485fa889b288ee0a7aac404b2d98a892e03443f63903",
   "hostSha256": "ca9bb2dac72bc8e62160694711e9c99646487c8a19b22f6d7f18e5a4d221e97e",
   "workerSha256": "b79086ac644c54b88b4c31a0511f7b1e2f8dcaae523fb62bf06a6e562a7c0653",
-  "bridgeSha256": "237842244fbc59d3e5ad03c6fb54766b7008d8716fcbe22dedd242d6671fd4e7",
+  "bridgeSha256": "f21ad6fe80460854abd3b41b6f9662edc5d02b051d856ee11256063b8c2f0af0",
   "referenceDryRun": false,
   "productionEnabled": false,
   "nativeDurability": false,
