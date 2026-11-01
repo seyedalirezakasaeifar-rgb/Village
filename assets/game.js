@@ -100,7 +100,7 @@ const FIN_BANK_NAMES=['Vale Mutual Savings','Mercantile & County Bank','First Bo
 
 // SOURCE: 05-systems.js
 // Deterministic model services. Presentation has its own hash-based randomness.
-const RELEASE=Object.freeze({"version":"8.0.0","code":22,"edition":"A Trading Town","schema":8,"package":"org.townledger.vale"});
+const RELEASE=Object.freeze({"version":"8.0.0-async-archive-qa","code":900011,"edition":"A Trading Town","schema":8,"package":"org.townledger.vale.qa"});
 let rngState=42,visualState=918273,simulationBusy=false;
 const perfStats={frames:[],ticks:[],effective:1,backlog:0,days:0,elapsed:0,errors:[]};
 function random(){rngState=(rngState+0x6D2B79F5)>>>0;let t=rngState;t=Math.imul(t^(t>>>15),t|1);t^=t+Math.imul(t^(t>>>7),t|61);return ((t^(t>>>14))>>>0)/4294967296;}
@@ -5499,8 +5499,8 @@ window.__townArchive={
  back:()=>{if($('helpDialog').style.display!=='none'){hideHelpDialog();return true;}if(pendingEvent){closeCouncilDialog(true);return true;}if(active){closePanel();return true;}if(buildMode){closeBuildTool();return true;}return false;}
 };
 const originalExport=exportSave,originalImport=importSave;
-exportSave=function(){if(simulationTickFailed){toast('Day update failed. Reload the last saved town or restore a valid backup.');return;}if(window.AndroidArchive)window.AndroidArchive.writeBackup(archivePayload());else originalExport();};
-importSave=function(){if(window.AndroidArchive)window.AndroidArchive.openBackup();else originalImport();};
+exportSave=function(){if(simulationTickFailed){toast('Day update failed. Reload the last saved town or restore a valid backup.');return;}if(window.AndroidArchive&&window.__workerArchiveAsync&&typeof AndroidArchive.requestWorkerExport==='function'){AndroidArchive.requestWorkerExport();return;}if(window.AndroidArchive)window.AndroidArchive.writeBackup(archivePayload());else originalExport();};
+importSave=function(){if(window.AndroidArchive&&window.__workerArchiveAsync&&typeof AndroidArchive.requestWorkerImport==='function'){AndroidArchive.requestWorkerImport();return;}if(window.AndroidArchive)window.AndroidArchive.openBackup();else originalImport();};
 
 if($('townSeed')){try{$('townSeed').value=String(crypto.getRandomValues(new Uint32Array(1))[0]||42);}catch(_){$('townSeed').value=String(Date.now()%4294967295||42);}}
 
