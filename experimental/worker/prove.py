@@ -13,7 +13,7 @@ with sync_playwright() as pw:
 // SOURCE: 99-instrumentation.js'''));p.locator('#newTown').click();p.locator('#pause').click()
  archive=p.evaluate('__townTest.save()')
  code=(root/'experimental/worker/model.generated.js').read_text()
- p.evaluate('''code=>{window.w=new Worker(URL.createObjectURL(new Blob([code],{type:'application/javascript'})));window.workerErrors=[];w.onerror=e=>workerErrors.push(e.message);let serial=0;window.ask=m=>new Promise((resolve,reject)=>{const id=++serial;const h=e=>{if(e.data.id===id){w.removeEventListener('message',h);resolve(e.data);}};w.addEventListener('message',h);w.postMessage({...m,id});setTimeout(()=>reject(Error(JSON.stringify(workerErrors))),10000);});}''',code)
+ p.evaluate('''code=>{window.w=new Worker(URL.createObjectURL(new Blob([code],{type:'application/javascript'})));window.workerErrors=[];w.onerror=e=>workerErrors.push(e.message);let serial=0,epoch=0,command=0;window.ask=m=>new Promise((resolve,reject)=>{const id=++serial;const h=e=>{if(e.data.id===id){w.removeEventListener('message',h);if(e.data.ok)epoch=e.data.result.epoch;resolve(e.data);}};w.addEventListener('message',h);w.postMessage({epoch,command:++command,...m,id});setTimeout(()=>reject(Error(JSON.stringify(workerErrors))),10000);});}''',code)
  result=p.evaluate("a=>ask({type:'load',archive:a})",archive);assert result['ok'],result
  result=p.evaluate("ask({type:'step',days:31})");assert result['ok'],result
  oracle=p.evaluate('workerOracle.step(31)');assert model(oracle)==model(result['result']['model']),[(k,str(oracle[k])[:100],str(result['result']['model'].get(k))[:100]) for k in oracle if oracle[k]!=result['result']['model'].get(k)]
@@ -23,7 +23,7 @@ with sync_playwright() as pw:
  result=p.evaluate("ask({type:'step',days:30})");assert result['ok'],result
  oracle=p.evaluate('workerOracle.step(30)');assert model(oracle)==model(result['result']['model']),[(k,str(oracle[k])[:100],str(result['result']['model'].get(k))[:100]) for k in oracle if oracle[k]!=result['result']['model'].get(k)]
  exported=p.evaluate("ask({type:'export'})");assert exported['ok'] and model(json.loads(exported['result']['archive']))==model(oracle)
- stale=p.evaluate("ask({type:'choice',id:-1})");assert not stale['ok'] and 'Stale' in stale['error']
+ stale=p.evaluate("ask({type:'choice',eventId:-1})");assert not stale['ok'] and 'Stale' in stale['error']
  receipt={'days':61,'exactFullModel':True,'exactRng':True,'policyCommand':True,'exportHandshake':True,'staleRejected':True,'day':oracle['day'],'outbox':result['result']['outbox']}
  timing=p.evaluate("""async()=>{async function sample(work){let gaps=[],last=performance.now();const timer=setInterval(()=>{const t=performance.now();gaps.push(t-last);last=t;},8);await new Promise(r=>setTimeout(r,20));const t=performance.now();await work();const ms=performance.now()-t;await new Promise(r=>setTimeout(r,20));clearInterval(timer);return {ms,daysPerSecond:60*1000/ms,maxMainTimerGap:Math.max(...gaps)};}const sync=await sample(()=>workerOracle.step(60));const worker=await sample(()=>ask({type:'step',days:60}));return {sync,worker};}""")
  receipt['timing']=timing
