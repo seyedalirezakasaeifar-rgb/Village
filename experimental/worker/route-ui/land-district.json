@@ -1,0 +1,189 @@
+[
+  {
+    "event": "click",
+    "selector": "[data-parcel-buy]",
+    "operation": "parcel-buy",
+    "fields": {
+      "parcel": {
+        "source": "attribute",
+        "name": "data-parcel-buy",
+        "as": "string"
+      }
+    }
+  },
+  {
+    "event": "click",
+    "selector": "[data-district-focus]",
+    "operation": "district-focus",
+    "fields": {
+      "parcel": {
+        "source": "attribute",
+        "name": "data-district-id",
+        "as": "string"
+      },
+      "focus": {
+        "source": "attribute",
+        "name": "data-district-focus",
+        "as": "string"
+      }
+    }
+  },
+  {
+    "event": "click",
+    "selector": "[data-district-budget]",
+    "operation": "district-budget",
+    "fields": {
+      "key": {
+        "source": "attribute",
+        "name": "data-district-budget",
+        "as": "string"
+      }
+    }
+  },
+  {
+    "event": "click",
+    "selector": "[data-civic-watch-project]",
+    "operation": "civic-watch-project",
+    "fields": {
+      "project": {
+        "source": "attribute",
+        "name": "data-civic-watch-project",
+        "as": "integer"
+      }
+    }
+  },
+  {
+    "event": "click",
+    "selector": "[data-road-remove-tool]",
+    "operation": "road-remove-tool",
+    "fields": {}
+  },
+  {
+    "event": "click",
+    "selector": "[data-bridge-repair]",
+    "operation": "bridge-repair",
+    "fields": {
+      "id": {
+        "source": "attribute",
+        "name": "data-bridge-repair",
+        "as": "integer"
+      }
+    }
+  },
+  {
+    "event": "click",
+    "selector": "[data-bridge-remove]",
+    "operation": "bridge-remove",
+    "fields": {
+      "id": {
+        "source": "attribute",
+        "name": "data-bridge-remove",
+        "as": "integer"
+      }
+    }
+  },
+  {
+    "event": "click",
+    "selector": "[data-bridge-build]",
+    "operation": "bridge-build-tool",
+    "fields": {}
+  },
+  {
+    "event": "map",
+    "tool": "road_remove",
+    "operation": "road-remove-review",
+    "fields": {
+      "x": {
+        "source": "tile-x",
+        "as": "integer"
+      },
+      "y": {
+        "source": "tile-y",
+        "as": "integer"
+      }
+    }
+  },
+  {
+    "event": "map",
+    "tool": "road_bridge",
+    "operation": "bridge-review",
+    "fields": {
+      "x": {
+        "source": "tile-x",
+        "as": "integer"
+      },
+      "y": {
+        "source": "tile-y",
+        "as": "integer"
+      }
+    }
+  },
+  {
+    "event": "click",
+    "selector": "[data-urban-plan]",
+    "operation": "urban-plan",
+    "fields": {
+      "building": {
+        "source": "attribute",
+        "name": "data-urban-building",
+        "as": "integer"
+      },
+      "plan": {
+        "source": "attribute",
+        "name": "data-urban-plan",
+        "as": "string"
+      }
+    }
+  },
+  {
+    "event": "click",
+    "selector": "[data-urban-rehousing]",
+    "operation": "urban-rehousing",
+    "fields": {}
+  },
+  {
+    "event": "click",
+    "selector": "[data-urban-clear]",
+    "operation": "urban-clear",
+    "fields": {
+      "building": {
+        "source": "attribute",
+        "name": "data-urban-clear",
+        "as": "integer"
+      }
+    }
+  },
+  {
+    "event": "click",
+    "selector": "[data-urban-clear-tool]",
+    "operation": "urban-clear-tool",
+    "fields": {}
+  },
+  {
+    "event": "click",
+    "selector": "[data-urban-farm-renew]",
+    "operation": "urban-farm-renew",
+    "fields": {
+      "firm": {
+        "source": "attribute",
+        "name": "data-urban-farm-renew",
+        "as": "integer"
+      }
+    }
+  },
+  {
+    "event": "map",
+    "tool": "urban_clearance",
+    "operation": "urban-clear-map",
+    "fields": {
+      "x": {
+        "source": "tile-x",
+        "as": "integer"
+      },
+      "y": {
+        "source": "tile-y",
+        "as": "integer"
+      }
+    }
+  }
+]

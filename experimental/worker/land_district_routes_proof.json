@@ -1,0 +1,46 @@
+{
+  "productionEnabled": false,
+  "sourceSha256": "5df42ea1348872ad692a53bfa6ea1081472d1c8783ec9ace2b5cf011bcfb6e20",
+  "moduleSha256": "121e06be00971f1864f9c2d7a8e79a1435503fb3cda9388641ce1ddd4cb03359",
+  "workerSha256": "45b87b43d6a464f6b78bf49d519c7c23076f8e4b83192abd6b8a750c3a78e521",
+  "conservedFixtureTreasuryTransfer": 200000,
+  "fullModelRngExact": [
+    "deed-cancel",
+    "deed-purchase",
+    "initial-charter",
+    "urban-plan",
+    "reserved-rehousing",
+    "road-retire",
+    "bridge-build",
+    "bridge-repair",
+    "bridge-keep",
+    "bridge-remove"
+  ],
+  "refusals": [
+    "duplicate-deed-choice",
+    "duplicate-deed-choice",
+    {
+      "operation": "parcel-buy",
+      "refusal": "Error: This adjoining deed is no longer available."
+    },
+    {
+      "operation": "parcel-buy",
+      "refusal": "Error: Invalid route enum"
+    },
+    {
+      "operation": "bridge-repair",
+      "refusal": "Error: This bridge record no longer exists."
+    },
+    {
+      "operation": "road-remove-review",
+      "refusal": "Error: Invalid bounded route number"
+    },
+    {
+      "operation": "parcel-buy",
+      "refusal": "Error: Unknown route field: extra"
+    }
+  ],
+  "pageErrors": [],
+  "actualUiBridgeBindingsPending": true,
+  "currentPublicSourcePortPending": true
+}
