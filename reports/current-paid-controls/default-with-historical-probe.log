@@ -1,0 +1,24 @@
+source_sha256 6ed9d208b0112e4e360f40ef21063b68c519aefd9df3e1b39071c02c78e22a02
+RUN test_road_bridge.py
+PASS reviewed bridge construction, stale-quote rejection, road and water connectivity, save validation, maintenance and exact replay
+RUN test_road_removal_network.py
+PASS actual expanded-road build/removal/rebuild, active freight and protected rehousing guards, commute/service access invalidation, disconnected save-load and exact replay
+RUN test_housing_retention_dilemma.py
+PASS pressure-triggered correspondence, save/load and defer, distinct cash-bridge/training paths, exact conserved transfer, stale-quote rejection
+RUN test_retention_midday_save.py
+fatal: invalid object name '726d0a5'.
+Traceback (most recent call last):
+  File "/workspace/paid-current/tests/test_retention_midday_save.py", line 5, in <module>
+    ROOT=Path(__file__).resolve().parents[1];source=subprocess.check_output(['git','show','726d0a5:assets/game.js'],cwd=ROOT,text=True)
+                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 466, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'show', '726d0a5:assets/game.js']' returned non-zero exit status 128.
+Traceback (most recent call last):
+  File "<stdin>", line 4, in <module>
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['python', 'tests/test_retention_midday_save.py']' returned non-zero exit status 1.

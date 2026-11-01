@@ -1,0 +1,78 @@
+{
+  "base": "d2b7086187621ae8c3c147fc3c04764efaadf49d",
+  "branch": "codex/8-paid-controls-current",
+  "implementationCommits": [
+    "3ce3aed",
+    "b68b746",
+    "694784f"
+  ],
+  "source_sha256": "6ed9d208b0112e4e360f40ef21063b68c519aefd9df3e1b39071c02c78e22a02",
+  "runtime_sha256": {
+    "root-capacity-api.js": "cfc65e914a4e5a3d54914f39b0f20ccda3be4734d17db079a8f18847aaaa4e65",
+    "paid-command-root.js": "7f60a8bc904420e95899ad88acde18b6a13dc689cab5172b19d070d383e8e1c6"
+  },
+  "currentConstructorBodyByteIdentical": true,
+  "productionPersistenceValidationEconomyNativeFilesUnchanged": [
+    "src/49-persistence.js",
+    "src/90-archive-panels.js",
+    "src/30-economy.js",
+    "src/92-government.js"
+  ],
+  "productionEnabled": false,
+  "productionComposition": false,
+  "hostTestOwnerOnly": true,
+  "nativeAccepted": false,
+  "actualCurrentBridgeAndRemovalControls": 4,
+  "perControlRefusalReasons": [
+    "reservation",
+    "stale",
+    "failed-day-fence",
+    "already-completed-or-no-op"
+  ],
+  "actualCurrentDirectControls": 10,
+  "actualCurrentStreetGestures": 8,
+  "actualCurrentCouncilChoicesFullModelRngNormalizedEquality": 60,
+  "completedDayServiceEvidencePreserved": true,
+  "normalizedActualHydrateSaveFixedPoints": true,
+  "dtoJSONRoundTripAndTrustedControlEquality": true,
+  "dtoRequestEpochReviewMismatchAndDuplicateReject": true,
+  "dtoPrivateProviderCreatorRefusalRollsBackCapitalAndWritesZero": true,
+  "semanticDomBoundaryDoesNotExecuteBrowserClosures": true,
+  "currentDefaultRegressionPasses": [
+    "road_bridge",
+    "road_removal_network",
+    "housing_retention_dilemma",
+    "committed_day_save",
+    "service_cash_evidence_noninterference"
+  ],
+  "historicalNegativeProbe": {
+    "name": "test_retention_midday_save.py",
+    "status": "not executed; unavailable historical candidate object",
+    "target": "726d0a5a76512b6df8662d9c83f921b4a90d00b6:assets/game.js",
+    "reason": "test intentionally targets prior partial-save candidate; not current source regression",
+    "notRetried": true
+  },
+  "workerContract": {
+    "publishedWorkerRead": "9054452918642043173d01cfbe4c5a72c8deadfd",
+    "sharedRootOnly": "__capacityAdmissionProtocol.shared",
+    "adapterRegistry": "capture results are graph roots; graph restore precedes registered restore",
+    "trustedContext": "request identity/adoption epoch/current review serial from owner, never packet echo",
+    "requestCounters": "consumed outside financial rollback",
+    "presentation": "window namespace alias; logical close/open and semantic hooks; no dummy DOM",
+    "saveOrder": "generation tracks worker epoch; committed saver microtasks drain before reply snapshot"
+  },
+  "remainingBlockers": [
+    "Approved current-source normalized-capacity/day owner port; old686ae40 relies on absent codec/prepare helpers",
+    "Actual worker/admission/save-ACK/native composition and source-bound acceptance",
+    "Other unsupported101-handler families, review/form inputs and lifecycle admission",
+    "Performance and memory acceptance; no smoothness or native claim"
+  ],
+  "testFixture_sha256": {
+    "tools/fixtures/current-paid-fixture.js": "a163eec148ca8d6617b28fda1c504c38b62c5723c0815c714d6d946dee9537ea",
+    "tools/fixtures/current-paid-owner.js": "53c055c5aa56658b52fc0b7bf101ad82baadf23d815dc3a38c97d698c9be21fb",
+    "tools/test_current_paid_council.py": "e24e02314d0ecdd965c36c5afc4b6e6b0320654be37c4fcb800bb93d4fb9619d",
+    "tools/test_current_paid_streets.py": "329a0a2208427cedb5ee8bd21114b53cff6017e16ef5edcacd6272ffb083a8bc",
+    "tools/test_current_paid_direct.py": "6b8a7b6259af8873e15e54c392778e5368b4ec7fe9f0e89de7c49049564c955f",
+    "tools/test_current_paid_roads.py": "59a99da6fcca3a2bbfbb67eb4827fe280165e246a1958a478bc1b435711f72dd"
+  }
+}

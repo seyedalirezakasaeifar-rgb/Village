@@ -1,0 +1,792 @@
+{
+  "base": "d2b7086187621ae8c3c147fc3c04764efaadf49d",
+  "source_sha256": "6ed9d208b0112e4e360f40ef21063b68c519aefd9df3e1b39071c02c78e22a02",
+  "runtime_sha256": {
+    "root-capacity-api.js": "cfc65e914a4e5a3d54914f39b0f20ccda3be4734d17db079a8f18847aaaa4e65",
+    "paid-command-root.js": "7f60a8bc904420e95899ad88acde18b6a13dc689cab5172b19d070d383e8e1c6"
+  },
+  "hostTestOwnerOnly": true,
+  "productionComposition": false,
+  "native": false,
+  "enabledByDefault": false,
+  "cases": [
+    {
+      "action": "bridge-build",
+      "exactFullModelRngAndNormalizedReload": true,
+      "refusals": [
+        {
+          "reason": "capacity",
+          "rng": 2592646554,
+          "normalized": null,
+          "unchanged": true,
+          "reject": true,
+          "status": {
+            "enabled": true,
+            "active": false,
+            "halted": false,
+            "last": {
+              "ok": false,
+              "reason": "Test reservation refusal",
+              "command": "council-choice",
+              "ms": 239.5,
+              "code": "refused",
+              "publicationErrors": []
+            },
+            "protocol": {
+              "enabled": true,
+              "halted": false,
+              "active": false,
+              "kind": null,
+              "phase": "idle",
+              "last": {
+                "kind": "command",
+                "ok": false,
+                "reason": "Test reservation refusal",
+                "effectErrors": []
+              },
+              "pendingSaveGenerations": 0
+            },
+            "metrics": {
+              "captures": 2,
+              "certificates": 3,
+              "restores": 1,
+              "last": null
+            }
+          },
+          "writes": [],
+          "completedReceiptPreserved": true
+        },
+        {
+          "reason": "stale",
+          "rng": 2592646554,
+          "normalized": null,
+          "unchanged": true,
+          "reject": true,
+          "status": {
+            "enabled": true,
+            "active": false,
+            "halted": false,
+            "last": {
+              "ok": false,
+              "reason": "Water access, road access or city finances changed. Survey this span again.",
+              "command": "council-choice",
+              "ms": 357.20000000298023,
+              "code": "refused",
+              "publicationErrors": []
+            },
+            "protocol": {
+              "enabled": true,
+              "halted": false,
+              "active": false,
+              "kind": null,
+              "phase": "idle",
+              "last": {
+                "kind": "command",
+                "ok": false,
+                "reason": "Water access, road access or city finances changed. Survey this span again.",
+                "effectErrors": []
+              },
+              "pendingSaveGenerations": 0
+            },
+            "metrics": {
+              "captures": 2,
+              "certificates": 2,
+              "restores": 1,
+              "last": null
+            }
+          },
+          "writes": [],
+          "completedReceiptPreserved": true
+        },
+        {
+          "reason": "failed",
+          "rng": 2592646554,
+          "normalized": null,
+          "unchanged": true,
+          "reject": true,
+          "status": {
+            "enabled": true,
+            "active": false,
+            "halted": false,
+            "last": {
+              "ok": false,
+              "reason": "Recover the last committed town before changing the model.",
+              "command": "council-choice",
+              "ms": 261.5,
+              "code": "refused",
+              "publicationErrors": []
+            },
+            "protocol": {
+              "enabled": true,
+              "halted": false,
+              "active": false,
+              "kind": null,
+              "phase": "idle",
+              "last": {
+                "kind": "command",
+                "ok": false,
+                "reason": "Recover the last committed town before changing the model.",
+                "effectErrors": []
+              },
+              "pendingSaveGenerations": 0
+            },
+            "metrics": {
+              "captures": 2,
+              "certificates": 2,
+              "restores": 1,
+              "last": null
+            }
+          },
+          "writes": [],
+          "completedReceiptPreserved": true
+        },
+        {
+          "reason": "noop",
+          "rng": 2592646554,
+          "normalized": null,
+          "unchanged": true,
+          "reject": true,
+          "status": {
+            "enabled": true,
+            "active": false,
+            "halted": false,
+            "last": {
+              "ok": false,
+              "reason": "No safe short span is ready from this bank. Need 1\u20135 water cells, owned water and roads on both banks, at least one bank already on the town network, no dock/fishing path through the work zone, and a useful new connection or shortcut.",
+              "command": "council-choice",
+              "ms": 300.8999999985099,
+              "code": "refused",
+              "publicationErrors": []
+            },
+            "protocol": {
+              "enabled": true,
+              "halted": false,
+              "active": false,
+              "kind": null,
+              "phase": "idle",
+              "last": {
+                "kind": "command",
+                "ok": false,
+                "reason": "No safe short span is ready from this bank. Need 1\u20135 water cells, owned water and roads on both banks, at least one bank already on the town network, no dock/fishing path through the work zone, and a useful new connection or shortcut.",
+                "effectErrors": []
+              },
+              "pendingSaveGenerations": 0
+            },
+            "metrics": {
+              "captures": 2,
+              "certificates": 2,
+              "restores": 1,
+              "last": null
+            }
+          },
+          "writes": [],
+          "completedReceiptPreserved": true
+        }
+      ]
+    },
+    {
+      "action": "bridge-repair",
+      "exactFullModelRngAndNormalizedReload": true,
+      "refusals": [
+        {
+          "reason": "capacity",
+          "rng": 2592646554,
+          "normalized": null,
+          "unchanged": true,
+          "reject": true,
+          "status": {
+            "enabled": true,
+            "active": false,
+            "halted": false,
+            "last": {
+              "ok": false,
+              "reason": "Test reservation refusal",
+              "command": "council-choice",
+              "ms": 252,
+              "code": "refused",
+              "publicationErrors": []
+            },
+            "protocol": {
+              "enabled": true,
+              "halted": false,
+              "active": false,
+              "kind": null,
+              "phase": "idle",
+              "last": {
+                "kind": "command",
+                "ok": false,
+                "reason": "Test reservation refusal",
+                "effectErrors": []
+              },
+              "pendingSaveGenerations": 0
+            },
+            "metrics": {
+              "captures": 2,
+              "certificates": 3,
+              "restores": 1,
+              "last": null
+            }
+          },
+          "writes": [],
+          "completedReceiptPreserved": true
+        },
+        {
+          "reason": "stale",
+          "rng": 2592646554,
+          "normalized": null,
+          "unchanged": true,
+          "reject": true,
+          "status": {
+            "enabled": true,
+            "active": false,
+            "halted": false,
+            "last": {
+              "ok": false,
+              "reason": "Bridge condition or town finances changed. Review the repair quote again.",
+              "command": "council-choice",
+              "ms": 260.3999999985099,
+              "code": "refused",
+              "publicationErrors": []
+            },
+            "protocol": {
+              "enabled": true,
+              "halted": false,
+              "active": false,
+              "kind": null,
+              "phase": "idle",
+              "last": {
+                "kind": "command",
+                "ok": false,
+                "reason": "Bridge condition or town finances changed. Review the repair quote again.",
+                "effectErrors": []
+              },
+              "pendingSaveGenerations": 0
+            },
+            "metrics": {
+              "captures": 2,
+              "certificates": 2,
+              "restores": 1,
+              "last": null
+            }
+          },
+          "writes": [],
+          "completedReceiptPreserved": true
+        },
+        {
+          "reason": "failed",
+          "rng": 2592646554,
+          "normalized": null,
+          "unchanged": true,
+          "reject": true,
+          "status": {
+            "enabled": true,
+            "active": false,
+            "halted": false,
+            "last": {
+              "ok": false,
+              "reason": "Recover the last committed town before changing the model.",
+              "command": "council-choice",
+              "ms": 288.8999999985099,
+              "code": "refused",
+              "publicationErrors": []
+            },
+            "protocol": {
+              "enabled": true,
+              "halted": false,
+              "active": false,
+              "kind": null,
+              "phase": "idle",
+              "last": {
+                "kind": "command",
+                "ok": false,
+                "reason": "Recover the last committed town before changing the model.",
+                "effectErrors": []
+              },
+              "pendingSaveGenerations": 0
+            },
+            "metrics": {
+              "captures": 2,
+              "certificates": 2,
+              "restores": 1,
+              "last": null
+            }
+          },
+          "writes": [],
+          "completedReceiptPreserved": true
+        },
+        {
+          "reason": "noop",
+          "rng": 2592646554,
+          "normalized": null,
+          "unchanged": true,
+          "reject": true,
+          "status": {
+            "enabled": true,
+            "active": false,
+            "halted": false,
+            "last": {
+              "ok": false,
+              "reason": "This bridge is already structurally sound.",
+              "command": "council-choice",
+              "ms": 242.70000000298023,
+              "code": "refused",
+              "publicationErrors": []
+            },
+            "protocol": {
+              "enabled": true,
+              "halted": false,
+              "active": false,
+              "kind": null,
+              "phase": "idle",
+              "last": {
+                "kind": "command",
+                "ok": false,
+                "reason": "This bridge is already structurally sound.",
+                "effectErrors": []
+              },
+              "pendingSaveGenerations": 0
+            },
+            "metrics": {
+              "captures": 2,
+              "certificates": 2,
+              "restores": 1,
+              "last": null
+            }
+          },
+          "writes": [],
+          "completedReceiptPreserved": true
+        }
+      ]
+    },
+    {
+      "action": "bridge-remove",
+      "exactFullModelRngAndNormalizedReload": true,
+      "refusals": [
+        {
+          "reason": "capacity",
+          "rng": 2592646554,
+          "normalized": null,
+          "unchanged": true,
+          "reject": true,
+          "status": {
+            "enabled": true,
+            "active": false,
+            "halted": false,
+            "last": {
+              "ok": false,
+              "reason": "Test reservation refusal",
+              "command": "council-choice",
+              "ms": 231.20000000298023,
+              "code": "refused",
+              "publicationErrors": []
+            },
+            "protocol": {
+              "enabled": true,
+              "halted": false,
+              "active": false,
+              "kind": null,
+              "phase": "idle",
+              "last": {
+                "kind": "command",
+                "ok": false,
+                "reason": "Test reservation refusal",
+                "effectErrors": []
+              },
+              "pendingSaveGenerations": 0
+            },
+            "metrics": {
+              "captures": 2,
+              "certificates": 3,
+              "restores": 1,
+              "last": null
+            }
+          },
+          "writes": [],
+          "completedReceiptPreserved": true
+        },
+        {
+          "reason": "stale",
+          "rng": 2592646554,
+          "normalized": null,
+          "unchanged": true,
+          "reject": true,
+          "status": {
+            "enabled": true,
+            "active": false,
+            "halted": false,
+            "last": {
+              "ok": false,
+              "reason": "Bridge access or city finances changed. Review the decommission quote again.",
+              "command": "council-choice",
+              "ms": 339.80000000447035,
+              "code": "refused",
+              "publicationErrors": []
+            },
+            "protocol": {
+              "enabled": true,
+              "halted": false,
+              "active": false,
+              "kind": null,
+              "phase": "idle",
+              "last": {
+                "kind": "command",
+                "ok": false,
+                "reason": "Bridge access or city finances changed. Review the decommission quote again.",
+                "effectErrors": []
+              },
+              "pendingSaveGenerations": 0
+            },
+            "metrics": {
+              "captures": 2,
+              "certificates": 2,
+              "restores": 1,
+              "last": null
+            }
+          },
+          "writes": [],
+          "completedReceiptPreserved": true
+        },
+        {
+          "reason": "failed",
+          "rng": 2592646554,
+          "normalized": null,
+          "unchanged": true,
+          "reject": true,
+          "status": {
+            "enabled": true,
+            "active": false,
+            "halted": false,
+            "last": {
+              "ok": false,
+              "reason": "Recover the last committed town before changing the model.",
+              "command": "council-choice",
+              "ms": 229.20000000298023,
+              "code": "refused",
+              "publicationErrors": []
+            },
+            "protocol": {
+              "enabled": true,
+              "halted": false,
+              "active": false,
+              "kind": null,
+              "phase": "idle",
+              "last": {
+                "kind": "command",
+                "ok": false,
+                "reason": "Recover the last committed town before changing the model.",
+                "effectErrors": []
+              },
+              "pendingSaveGenerations": 0
+            },
+            "metrics": {
+              "captures": 2,
+              "certificates": 2,
+              "restores": 1,
+              "last": null
+            }
+          },
+          "writes": [],
+          "completedReceiptPreserved": true
+        },
+        {
+          "reason": "noop",
+          "rng": 2592646554,
+          "normalized": null,
+          "unchanged": true,
+          "reject": true,
+          "status": {
+            "enabled": true,
+            "active": false,
+            "halted": false,
+            "last": {
+              "ok": false,
+              "reason": "This bridge record no longer exists.",
+              "command": "council-choice",
+              "ms": 281,
+              "code": "refused",
+              "publicationErrors": []
+            },
+            "protocol": {
+              "enabled": true,
+              "halted": false,
+              "active": false,
+              "kind": null,
+              "phase": "idle",
+              "last": {
+                "kind": "command",
+                "ok": false,
+                "reason": "This bridge record no longer exists.",
+                "effectErrors": []
+              },
+              "pendingSaveGenerations": 0
+            },
+            "metrics": {
+              "captures": 2,
+              "certificates": 2,
+              "restores": 1,
+              "last": null
+            }
+          },
+          "writes": [],
+          "completedReceiptPreserved": true
+        }
+      ]
+    },
+    {
+      "action": "road-remove",
+      "exactFullModelRngAndNormalizedReload": true,
+      "refusals": [
+        {
+          "reason": "capacity",
+          "rng": 2592646554,
+          "normalized": null,
+          "unchanged": true,
+          "reject": true,
+          "status": {
+            "enabled": true,
+            "active": false,
+            "halted": false,
+            "last": {
+              "ok": false,
+              "reason": "Test reservation refusal",
+              "command": "council-choice",
+              "ms": 263.79999999701977,
+              "code": "refused",
+              "publicationErrors": []
+            },
+            "protocol": {
+              "enabled": true,
+              "halted": false,
+              "active": false,
+              "kind": null,
+              "phase": "idle",
+              "last": {
+                "kind": "command",
+                "ok": false,
+                "reason": "Test reservation refusal",
+                "effectErrors": []
+              },
+              "pendingSaveGenerations": 0
+            },
+            "metrics": {
+              "captures": 2,
+              "certificates": 3,
+              "restores": 1,
+              "last": null
+            }
+          },
+          "writes": [],
+          "completedReceiptPreserved": true
+        },
+        {
+          "reason": "stale",
+          "rng": 2592646554,
+          "normalized": null,
+          "unchanged": true,
+          "reject": true,
+          "status": {
+            "enabled": true,
+            "active": false,
+            "halted": false,
+            "last": {
+              "ok": false,
+              "reason": "Road access or city finances changed. Review the tile again.",
+              "command": "council-choice",
+              "ms": 257.1000000014901,
+              "code": "refused",
+              "publicationErrors": []
+            },
+            "protocol": {
+              "enabled": true,
+              "halted": false,
+              "active": false,
+              "kind": null,
+              "phase": "idle",
+              "last": {
+                "kind": "command",
+                "ok": false,
+                "reason": "Road access or city finances changed. Review the tile again.",
+                "effectErrors": []
+              },
+              "pendingSaveGenerations": 0
+            },
+            "metrics": {
+              "captures": 2,
+              "certificates": 2,
+              "restores": 1,
+              "last": null
+            }
+          },
+          "writes": [],
+          "completedReceiptPreserved": true
+        },
+        {
+          "reason": "failed",
+          "rng": 2592646554,
+          "normalized": null,
+          "unchanged": true,
+          "reject": true,
+          "status": {
+            "enabled": true,
+            "active": false,
+            "halted": false,
+            "last": {
+              "ok": false,
+              "reason": "Recover the last committed town before changing the model.",
+              "command": "council-choice",
+              "ms": 230.10000000149012,
+              "code": "refused",
+              "publicationErrors": []
+            },
+            "protocol": {
+              "enabled": true,
+              "halted": false,
+              "active": false,
+              "kind": null,
+              "phase": "idle",
+              "last": {
+                "kind": "command",
+                "ok": false,
+                "reason": "Recover the last committed town before changing the model.",
+                "effectErrors": []
+              },
+              "pendingSaveGenerations": 0
+            },
+            "metrics": {
+              "captures": 2,
+              "certificates": 2,
+              "restores": 1,
+              "last": null
+            }
+          },
+          "writes": [],
+          "completedReceiptPreserved": true
+        },
+        {
+          "reason": "noop",
+          "rng": 2592646554,
+          "normalized": null,
+          "unchanged": true,
+          "reject": true,
+          "status": {
+            "enabled": true,
+            "active": false,
+            "halted": false,
+            "last": {
+              "ok": false,
+              "reason": "Select an existing street tile.",
+              "command": "council-choice",
+              "ms": 291.1000000014901,
+              "code": "refused",
+              "publicationErrors": []
+            },
+            "protocol": {
+              "enabled": true,
+              "halted": false,
+              "active": false,
+              "kind": null,
+              "phase": "idle",
+              "last": {
+                "kind": "command",
+                "ok": false,
+                "reason": "Select an existing street tile.",
+                "effectErrors": []
+              },
+              "pendingSaveGenerations": 0
+            },
+            "metrics": {
+              "captures": 2,
+              "certificates": 2,
+              "restores": 1,
+              "last": null
+            }
+          },
+          "writes": [],
+          "completedReceiptPreserved": true
+        }
+      ]
+    }
+  ],
+  "domFreeBoundary": {
+    "commitPublicationOnce": true,
+    "rejectedPublicationDiscarded": true,
+    "browserClosureNeverExecuted": true
+  },
+  "dto": {
+    "hostSyntheticAdmissionContext": true,
+    "productionWorkerComposition": false,
+    "jsonRoundTrip": true,
+    "matchedTrustedControl": true,
+    "staleIdentityRejections": [
+      {
+        "result": {
+          "ok": false,
+          "code": "stale-admission",
+          "reason": "The admitted identity, epoch, review or command is stale or unsupported.",
+          "requestId": 42,
+          "epoch": 5,
+          "reviewToken": 9
+        },
+        "unchanged": true,
+        "captures": 0,
+        "writes": 0
+      },
+      {
+        "result": {
+          "ok": false,
+          "code": "stale-admission",
+          "reason": "The admitted identity, epoch, review or command is stale or unsupported.",
+          "requestId": 42,
+          "epoch": 5,
+          "reviewToken": 9
+        },
+        "unchanged": true,
+        "captures": 0,
+        "writes": 0
+      },
+      {
+        "result": {
+          "ok": false,
+          "code": "stale-admission",
+          "reason": "The admitted identity, epoch, review or command is stale or unsupported.",
+          "requestId": 42,
+          "epoch": 5,
+          "reviewToken": 9
+        },
+        "unchanged": true,
+        "captures": 0,
+        "writes": 0
+      }
+    ],
+    "accepted": {
+      "result": {
+        "ok": true,
+        "joined": false,
+        "value": {
+          "committed": true
+        },
+        "requestId": 42,
+        "epoch": 5,
+        "reviewToken": 9,
+        "provisional": false,
+        "publicationErrors": []
+      },
+      "unchanged": false,
+      "captures": 1,
+      "writes": 1
+    },
+    "duplicate": {
+      "result": {
+        "ok": false,
+        "code": "stale-admission",
+        "reason": "The admitted identity, epoch, review or command is stale or unsupported.",
+        "requestId": 42,
+        "epoch": 5,
+        "reviewToken": 9
+      },
+      "unchanged": true,
+      "captures": 0,
+      "writes": 0
+    }
+  }
+}
