@@ -1,0 +1,33 @@
+{
+  "candidate": "64d4316a337847aa14e4f0b8e420a6de4d1ef900",
+  "parent": "72419dc89e0526888afcb956d34bcc78abff3f3e",
+  "assembledSHA256": "d3ed25306c7c4754485d0691d04d9d4f9739dccafc1d2efbaa909762977a7081",
+  "decision": "Accept one-line source change for fresh-day1 scope",
+  "actualBaselineNegativeReproduced": true,
+  "actualDay1AllFieldsExact": true,
+  "actualDay6AllFieldsExact": true,
+  "actualNormalizedLegacyAllFieldsExact": true,
+  "pairedDays": [
+    2,
+    31,
+    60,
+    120
+  ],
+  "extraMetricsMedianMs": 2.75,
+  "extraMetricsMaxMs": 4.799999997019768,
+  "wholeStart": {
+    "baseline": {
+      "medianStartMs": 311.6000000014901,
+      "maxStartMs": 326.09999999403954,
+      "roadCallsPerStart": 4
+    },
+    "fixed": {
+      "medianStartMs": 333.5,
+      "maxStartMs": 345.70000000298023,
+      "roadCallsPerStart": 5
+    }
+  },
+  "runtimeSourceOnlyCommitNeedsAssembly": true,
+  "publication": "local only; no refs or uploads changed",
+  "nativeClaim": false
+}

@@ -1,0 +1,12 @@
+{
+  "baseline": {
+    "medianStartMs": 311.6000000014901,
+    "maxStartMs": 326.09999999403954,
+    "roadCallsPerStart": 4
+  },
+  "fixed": {
+    "medianStartMs": 333.5,
+    "maxStartMs": 345.70000000298023,
+    "roadCallsPerStart": 5
+  }
+}

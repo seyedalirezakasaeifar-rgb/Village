@@ -1,0 +1,12 @@
+{
+  "sourceSha256": "d3ed25306c7c4754485d0691d04d9d4f9739dccafc1d2efbaa909762977a7081",
+  "realUiControls": true,
+  "rafDisabledToFreezeCompletedDay": true,
+  "actualLiveDaysRequested": 0,
+  "legacyV60NormalizedThroughUiBeforeSave": false,
+  "dayBefore": 1,
+  "dayAfter": 1,
+  "excludedFields": [],
+  "differences": [],
+  "exact": true
+}

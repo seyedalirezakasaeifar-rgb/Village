@@ -1,0 +1,27 @@
+{
+  "sourceSha256": "3e262a51d4a95992c2b9df3f8205025ffdb1f05d6a5376a528ff75ddceedae8b",
+  "realUiControls": true,
+  "rafDisabledToFreezeCompletedDay": true,
+  "actualLiveDaysRequested": 0,
+  "legacyV60NormalizedThroughUiBeforeSave": false,
+  "dayBefore": 1,
+  "dayAfter": 1,
+  "excludedFields": [],
+  "differences": [
+    {
+      "path": ".roadMetrics",
+      "before": null,
+      "after": {
+        "connectedFirms": 26,
+        "totalFirms": 26,
+        "connectedHomes": 67,
+        "totalHomes": 67,
+        "roadTiles": 385,
+        "roadClusters": 1,
+        "averageJourney": 13,
+        "quality": 75
+      }
+    }
+  ],
+  "exact": false
+}
