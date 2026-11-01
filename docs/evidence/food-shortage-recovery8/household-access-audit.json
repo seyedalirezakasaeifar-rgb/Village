@@ -1,0 +1,5876 @@
+{
+  "source_sha256": "affae2d0365cc9bffdb6858fda184f9495c5304d2b2900ae152234a6b9e01d6c",
+  "runs": {
+    "connected": {
+      "mode": "connected",
+      "audit": [
+        {
+          "day": 196,
+          "hh": 11,
+          "people": 2,
+          "home": 45,
+          "homePart": 0,
+          "shoppingIndex": 305,
+          "shoppingOffset": 19,
+          "households": 313,
+          "need": 3.2,
+          "unmet": 3.199999999999954,
+          "cashBeforeFood": 3110.421761507919,
+          "cashAfterFood": 3110.001761507919,
+          "bankFunds": [
+            {
+              "bank": 2,
+              "deposit": 2144.502133474861,
+              "bankCash": 575086.9991938646,
+              "closed": false
+            }
+          ],
+          "liquidity": 5254.5038949827795,
+          "income": 28.50817886033496,
+          "wages": 28.50817886033496,
+          "aid": 0,
+          "stress": 40.66099236581484,
+          "foodTax": 4,
+          "reachable": [
+            {
+              "firm": 51,
+              "distance": 1,
+              "travel": 0.030000000000000006,
+              "price": 3.9548052719260065,
+              "stock": 521.0408517285965,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 53,
+              "distance": 15,
+              "travel": 0.45000000000000007,
+              "price": 3.87666494074267,
+              "stock": 558.2158216978696,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 55,
+              "distance": 25,
+              "travel": 0.7500000000000001,
+              "price": 3.8227758105072223,
+              "stock": 264.62352227993654,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 17,
+              "distance": 18,
+              "travel": 0.5400000000000001,
+              "price": 3.920532503902875,
+              "stock": 589.603759013736,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 54,
+              "distance": 0,
+              "travel": 0,
+              "price": 4.135691002956785,
+              "stock": 329.9620673659355,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 2,
+              "distance": 15,
+              "travel": 0.45000000000000007,
+              "price": 4.025620404487036,
+              "stock": 844.5931960723653,
+              "capacity": 0,
+              "workers": 2,
+              "part": 0
+            },
+            {
+              "firm": 88,
+              "distance": 26,
+              "travel": 0.7800000000000001,
+              "price": 3.9385657017991305,
+              "stock": 254.422,
+              "capacity": 0,
+              "workers": 0,
+              "part": 0
+            },
+            {
+              "firm": 52,
+              "distance": 4,
+              "travel": 0.12000000000000002,
+              "price": 4.152125567206745,
+              "stock": 530.7870909090902,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 0,
+              "distance": 13,
+              "travel": 0.39000000000000007,
+              "price": 4.101591553204264,
+              "stock": 1170.4279172598665,
+              "capacity": 0,
+              "workers": 2,
+              "part": 0
+            },
+            {
+              "firm": 1,
+              "distance": 14,
+              "travel": 0.4200000000000001,
+              "price": 4.128292148481979,
+              "stock": 725.0938931106358,
+              "capacity": 4.618527782440651e-14,
+              "workers": 2,
+              "part": 0
+            },
+            {
+              "firm": 50,
+              "distance": 19,
+              "travel": 0.5700000000000001,
+              "price": 4.093386450792672,
+              "stock": 404.8515867019762,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            }
+          ],
+          "accessibleStock": 6193.6217061400075,
+          "accessibleCapacity": 4.618527782440651e-14,
+          "inaccessibleStock": 0,
+          "allStoreStock": 7233.621706140016,
+          "allStores": 11,
+          "initialStoreCapacity": 1040,
+          "initialStoreStaff": 13,
+          "initialSellableFood": 1040,
+          "storesWithSellableFood": 10,
+          "purchases": [
+            {
+              "firm": 1,
+              "qty": 4.618527782440651e-14,
+              "price": 4.128292148481979,
+              "travel": 0.4200000000000001,
+              "distance": 14,
+              "stockBefore": 725.0938931106358,
+              "capacityBefore": 9.237055564881302e-14
+            }
+          ]
+        },
+        {
+          "day": 196,
+          "hh": 12,
+          "people": 3,
+          "home": 46,
+          "homePart": 0,
+          "shoppingIndex": 306,
+          "shoppingOffset": 19,
+          "households": 313,
+          "need": 4.800000000000001,
+          "unmet": 4.800000000000001,
+          "cashBeforeFood": 7444.523894402108,
+          "cashAfterFood": 7444.523894402108,
+          "bankFunds": [
+            {
+              "bank": 0,
+              "deposit": 120.46184168212064,
+              "bankCash": 39613.92249902308,
+              "closed": false
+            },
+            {
+              "bank": 2,
+              "deposit": 3638.5901404987994,
+              "bankCash": 575086.9991938646,
+              "closed": false
+            }
+          ],
+          "liquidity": 11203.575876583029,
+          "income": 42.03568235602418,
+          "wages": 0,
+          "aid": 0,
+          "stress": 60.82639221869417,
+          "foodTax": 4,
+          "reachable": [
+            {
+              "firm": 55,
+              "distance": 16,
+              "travel": 0.4800000000000001,
+              "price": 3.8227758105072223,
+              "stock": 264.62352227993654,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 53,
+              "distance": 10,
+              "travel": 0.30000000000000004,
+              "price": 3.87666494074267,
+              "stock": 558.2158216978696,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 17,
+              "distance": 7,
+              "travel": 0.21000000000000005,
+              "price": 3.920532503902875,
+              "stock": 589.603759013736,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 51,
+              "distance": 20,
+              "travel": 0.6000000000000001,
+              "price": 3.9548052719260065,
+              "stock": 521.0408517285965,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 2,
+              "distance": 14,
+              "travel": 0.4200000000000001,
+              "price": 4.025620404487036,
+              "stock": 844.5931960723653,
+              "capacity": 0,
+              "workers": 2,
+              "part": 0
+            },
+            {
+              "firm": 50,
+              "distance": 6,
+              "travel": 0.18000000000000002,
+              "price": 4.093386450792672,
+              "stock": 404.8515867019762,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 0,
+              "distance": 12,
+              "travel": 0.36000000000000004,
+              "price": 4.101591553204264,
+              "stock": 1170.4279172598665,
+              "capacity": 0,
+              "workers": 2,
+              "part": 0
+            },
+            {
+              "firm": 1,
+              "distance": 13,
+              "travel": 0.39000000000000007,
+              "price": 4.128292148481979,
+              "stock": 725.0938931106358,
+              "capacity": 0,
+              "workers": 2,
+              "part": 0
+            },
+            {
+              "firm": 88,
+              "distance": 47,
+              "travel": 1.4100000000000004,
+              "price": 3.9385657017991305,
+              "stock": 254.422,
+              "capacity": 0,
+              "workers": 0,
+              "part": 0
+            },
+            {
+              "firm": 52,
+              "distance": 17,
+              "travel": 0.5100000000000001,
+              "price": 4.152125567206745,
+              "stock": 530.7870909090902,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 54,
+              "distance": 21,
+              "travel": 0.6300000000000001,
+              "price": 4.135691002956785,
+              "stock": 329.9620673659355,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            }
+          ],
+          "accessibleStock": 6193.6217061400075,
+          "accessibleCapacity": 0,
+          "inaccessibleStock": 0,
+          "allStoreStock": 7233.621706140016,
+          "allStores": 11,
+          "initialStoreCapacity": 1040,
+          "initialStoreStaff": 13,
+          "initialSellableFood": 1040,
+          "storesWithSellableFood": 10,
+          "purchases": []
+        },
+        {
+          "day": 196,
+          "hh": 13,
+          "people": 3,
+          "home": 47,
+          "homePart": 0,
+          "shoppingIndex": 307,
+          "shoppingOffset": 19,
+          "households": 313,
+          "need": 4.800000000000001,
+          "unmet": 4.800000000000001,
+          "cashBeforeFood": 8060.986292278665,
+          "cashAfterFood": 8060.986292278665,
+          "bankFunds": [
+            {
+              "bank": 1,
+              "deposit": 637.7715241289958,
+              "bankCash": 36605.902644023154,
+              "closed": false
+            },
+            {
+              "bank": 2,
+              "deposit": 4917.640024234115,
+              "bankCash": 575086.9991938646,
+              "closed": false
+            }
+          ],
+          "liquidity": 13616.397840641777,
+          "income": 84.90622427661333,
+          "wages": 65.0639557471449,
+          "aid": 0,
+          "stress": 32.12063748832808,
+          "foodTax": 4,
+          "reachable": [
+            {
+              "firm": 53,
+              "distance": 16,
+              "travel": 0.4800000000000001,
+              "price": 3.87666494074267,
+              "stock": 558.2158216978696,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 55,
+              "distance": 26,
+              "travel": 0.7800000000000001,
+              "price": 3.8227758105072223,
+              "stock": 264.62352227993654,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 51,
+              "distance": 6,
+              "travel": 0.18000000000000002,
+              "price": 3.9548052719260065,
+              "stock": 521.0408517285965,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 17,
+              "distance": 19,
+              "travel": 0.5700000000000001,
+              "price": 3.920532503902875,
+              "stock": 589.603759013736,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 2,
+              "distance": 16,
+              "travel": 0.4800000000000001,
+              "price": 4.025620404487036,
+              "stock": 844.5931960723653,
+              "capacity": 0,
+              "workers": 2,
+              "part": 0
+            },
+            {
+              "firm": 88,
+              "distance": 33,
+              "travel": 0.9900000000000001,
+              "price": 3.9385657017991305,
+              "stock": 254.422,
+              "capacity": 0,
+              "workers": 0,
+              "part": 0
+            },
+            {
+              "firm": 52,
+              "distance": 3,
+              "travel": 0.09000000000000001,
+              "price": 4.152125567206745,
+              "stock": 530.7870909090902,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 54,
+              "distance": 7,
+              "travel": 0.21000000000000005,
+              "price": 4.135691002956785,
+              "stock": 329.9620673659355,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 0,
+              "distance": 14,
+              "travel": 0.4200000000000001,
+              "price": 4.101591553204264,
+              "stock": 1170.4279172598665,
+              "capacity": 0,
+              "workers": 2,
+              "part": 0
+            },
+            {
+              "firm": 50,
+              "distance": 20,
+              "travel": 0.6000000000000001,
+              "price": 4.093386450792672,
+              "stock": 404.8515867019762,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 1,
+              "distance": 15,
+              "travel": 0.45000000000000007,
+              "price": 4.128292148481979,
+              "stock": 725.0938931106358,
+              "capacity": 0,
+              "workers": 2,
+              "part": 0
+            }
+          ],
+          "accessibleStock": 6193.6217061400075,
+          "accessibleCapacity": 0,
+          "inaccessibleStock": 0,
+          "allStoreStock": 7233.621706140016,
+          "allStores": 11,
+          "initialStoreCapacity": 1040,
+          "initialStoreStaff": 13,
+          "initialSellableFood": 1040,
+          "storesWithSellableFood": 10,
+          "purchases": []
+        },
+        {
+          "day": 196,
+          "hh": 14,
+          "people": 3,
+          "home": 48,
+          "homePart": 0,
+          "shoppingIndex": 308,
+          "shoppingOffset": 19,
+          "households": 313,
+          "need": 4.800000000000001,
+          "unmet": 4.800000000000001,
+          "cashBeforeFood": 2510.335156218851,
+          "cashAfterFood": 2510.335156218851,
+          "bankFunds": [
+            {
+              "bank": 2,
+              "deposit": 1023.580618059141,
+              "bankCash": 575086.9991938646,
+              "closed": false
+            }
+          ],
+          "liquidity": 3533.9157742779917,
+          "income": 81.4100393281136,
+          "wages": 59.979377787298176,
+          "aid": 0,
+          "stress": 30.8600000000001,
+          "foodTax": 4,
+          "reachable": [
+            {
+              "firm": 55,
+              "distance": 13,
+              "travel": 0.39000000000000007,
+              "price": 3.8227758105072223,
+              "stock": 264.62352227993654,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 53,
+              "distance": 11,
+              "travel": 0.33,
+              "price": 3.87666494074267,
+              "stock": 558.2158216978696,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 17,
+              "distance": 10,
+              "travel": 0.30000000000000004,
+              "price": 3.920532503902875,
+              "stock": 589.603759013736,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 2,
+              "distance": 11,
+              "travel": 0.33,
+              "price": 4.025620404487036,
+              "stock": 844.5931960723653,
+              "capacity": 0,
+              "workers": 2,
+              "part": 0
+            },
+            {
+              "firm": 51,
+              "distance": 25,
+              "travel": 0.7500000000000001,
+              "price": 3.9548052719260065,
+              "stock": 521.0408517285965,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 88,
+              "distance": 34,
+              "travel": 1.0200000000000002,
+              "price": 3.9385657017991305,
+              "stock": 254.422,
+              "capacity": 0,
+              "workers": 0,
+              "part": 0
+            },
+            {
+              "firm": 50,
+              "distance": 11,
+              "travel": 0.33,
+              "price": 4.093386450792672,
+              "stock": 404.8515867019762,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 0,
+              "distance": 13,
+              "travel": 0.39000000000000007,
+              "price": 4.101591553204264,
+              "stock": 1170.4279172598665,
+              "capacity": 0,
+              "workers": 2,
+              "part": 0
+            },
+            {
+              "firm": 1,
+              "distance": 12,
+              "travel": 0.36000000000000004,
+              "price": 4.128292148481979,
+              "stock": 725.0938931106358,
+              "capacity": 0,
+              "workers": 2,
+              "part": 0
+            },
+            {
+              "firm": 54,
+              "distance": 26,
+              "travel": 0.7800000000000001,
+              "price": 4.135691002956785,
+              "stock": 329.9620673659355,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 52,
+              "distance": 24,
+              "travel": 0.7200000000000001,
+              "price": 4.152125567206745,
+              "stock": 530.7870909090902,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            }
+          ],
+          "accessibleStock": 6193.6217061400075,
+          "accessibleCapacity": 0,
+          "inaccessibleStock": 0,
+          "allStoreStock": 7233.621706140016,
+          "allStores": 11,
+          "initialStoreCapacity": 1040,
+          "initialStoreStaff": 13,
+          "initialSellableFood": 1040,
+          "storesWithSellableFood": 10,
+          "purchases": []
+        },
+        {
+          "day": 196,
+          "hh": 15,
+          "people": 3,
+          "home": 49,
+          "homePart": 0,
+          "shoppingIndex": 309,
+          "shoppingOffset": 19,
+          "households": 313,
+          "need": 4.800000000000001,
+          "unmet": 4.800000000000001,
+          "cashBeforeFood": 5234.992315953114,
+          "cashAfterFood": 5234.992315953114,
+          "bankFunds": [
+            {
+              "bank": 0,
+              "deposit": 257.12023350637526,
+              "bankCash": 39613.92249902308,
+              "closed": false
+            },
+            {
+              "bank": 2,
+              "deposit": 3720.671330077216,
+              "bankCash": 575086.9991938646,
+              "closed": false
+            }
+          ],
+          "liquidity": 9212.783879536706,
+          "income": 62.46176366072033,
+          "wages": 62.46176366072033,
+          "aid": 0,
+          "stress": 31.902269841735457,
+          "foodTax": 4,
+          "reachable": [
+            {
+              "firm": 55,
+              "distance": 27,
+              "travel": 0.8100000000000002,
+              "price": 3.8227758105072223,
+              "stock": 264.62352227993654,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 53,
+              "distance": 21,
+              "travel": 0.6300000000000001,
+              "price": 3.87666494074267,
+              "stock": 558.2158216978696,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 51,
+              "distance": 11,
+              "travel": 0.33,
+              "price": 3.9548052719260065,
+              "stock": 521.0408517285965,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 88,
+              "distance": 20,
+              "travel": 0.6000000000000001,
+              "price": 3.9385657017991305,
+              "stock": 254.422,
+              "capacity": 0,
+              "workers": 0,
+              "part": 0
+            },
+            {
+              "firm": 17,
+              "distance": 24,
+              "travel": 0.7200000000000001,
+              "price": 3.920532503902875,
+              "stock": 589.603759013736,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 2,
+              "distance": 13,
+              "travel": 0.39000000000000007,
+              "price": 4.025620404487036,
+              "stock": 844.5931960723653,
+              "capacity": 0,
+              "workers": 2,
+              "part": 0
+            },
+            {
+              "firm": 0,
+              "distance": 15,
+              "travel": 0.45000000000000007,
+              "price": 4.101591553204264,
+              "stock": 1170.4279172598665,
+              "capacity": 0,
+              "workers": 2,
+              "part": 0
+            },
+            {
+              "firm": 54,
+              "distance": 12,
+              "travel": 0.36000000000000004,
+              "price": 4.135691002956785,
+              "stock": 329.9620673659355,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 52,
+              "distance": 10,
+              "travel": 0.30000000000000004,
+              "price": 4.152125567206745,
+              "stock": 530.7870909090902,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 1,
+              "distance": 14,
+              "travel": 0.4200000000000001,
+              "price": 4.128292148481979,
+              "stock": 725.0938931106358,
+              "capacity": 0,
+              "workers": 2,
+              "part": 0
+            },
+            {
+              "firm": 50,
+              "distance": 25,
+              "travel": 0.7500000000000001,
+              "price": 4.093386450792672,
+              "stock": 404.8515867019762,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            }
+          ],
+          "accessibleStock": 6193.6217061400075,
+          "accessibleCapacity": 0,
+          "inaccessibleStock": 0,
+          "allStoreStock": 7233.621706140016,
+          "allStores": 11,
+          "initialStoreCapacity": 1040,
+          "initialStoreStaff": 13,
+          "initialSellableFood": 1040,
+          "storesWithSellableFood": 10,
+          "purchases": []
+        },
+        {
+          "day": 196,
+          "hh": 16,
+          "people": 3,
+          "home": 50,
+          "homePart": 0,
+          "shoppingIndex": 310,
+          "shoppingOffset": 19,
+          "households": 313,
+          "need": 4.800000000000001,
+          "unmet": 4.800000000000001,
+          "cashBeforeFood": 3768.468420910766,
+          "cashAfterFood": 3768.468420910766,
+          "bankFunds": [
+            {
+              "bank": 1,
+              "deposit": 144.99416208338073,
+              "bankCash": 36605.902644023154,
+              "closed": false
+            },
+            {
+              "bank": 2,
+              "deposit": 1393.0489935671494,
+              "bankCash": 575086.9991938646,
+              "closed": false
+            }
+          ],
+          "liquidity": 5306.511576561295,
+          "income": 90.13078503547207,
+          "wages": 60.542029054559,
+          "aid": 0,
+          "stress": 38.76556756332673,
+          "foodTax": 4,
+          "reachable": [
+            {
+              "firm": 55,
+              "distance": 4,
+              "travel": 0.12000000000000002,
+              "price": 3.8227758105072223,
+              "stock": 264.62352227993654,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 53,
+              "distance": 6,
+              "travel": 0.18000000000000002,
+              "price": 3.87666494074267,
+              "stock": 558.2158216978696,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 17,
+              "distance": 5,
+              "travel": 0.15000000000000002,
+              "price": 3.920532503902875,
+              "stock": 589.603759013736,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 51,
+              "distance": 20,
+              "travel": 0.6000000000000001,
+              "price": 3.9548052719260065,
+              "stock": 521.0408517285965,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 2,
+              "distance": 14,
+              "travel": 0.4200000000000001,
+              "price": 4.025620404487036,
+              "stock": 844.5931960723653,
+              "capacity": 0,
+              "workers": 2,
+              "part": 0
+            },
+            {
+              "firm": 50,
+              "distance": 6,
+              "travel": 0.18000000000000002,
+              "price": 4.093386450792672,
+              "stock": 404.8515867019762,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 0,
+              "distance": 12,
+              "travel": 0.36000000000000004,
+              "price": 4.101591553204264,
+              "stock": 1170.4279172598665,
+              "capacity": 0,
+              "workers": 2,
+              "part": 0
+            },
+            {
+              "firm": 1,
+              "distance": 13,
+              "travel": 0.39000000000000007,
+              "price": 4.128292148481979,
+              "stock": 725.0938931106358,
+              "capacity": 0,
+              "workers": 2,
+              "part": 0
+            },
+            {
+              "firm": 88,
+              "distance": 47,
+              "travel": 1.4100000000000004,
+              "price": 3.9385657017991305,
+              "stock": 254.422,
+              "capacity": 0,
+              "workers": 0,
+              "part": 0
+            },
+            {
+              "firm": 54,
+              "distance": 21,
+              "travel": 0.6300000000000001,
+              "price": 4.135691002956785,
+              "stock": 329.9620673659355,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 52,
+              "distance": 19,
+              "travel": 0.5700000000000001,
+              "price": 4.152125567206745,
+              "stock": 530.7870909090902,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            }
+          ],
+          "accessibleStock": 6193.6217061400075,
+          "accessibleCapacity": 0,
+          "inaccessibleStock": 0,
+          "allStoreStock": 7233.621706140016,
+          "allStores": 11,
+          "initialStoreCapacity": 1040,
+          "initialStoreStaff": 13,
+          "initialSellableFood": 1040,
+          "storesWithSellableFood": 10,
+          "purchases": []
+        },
+        {
+          "day": 196,
+          "hh": 17,
+          "people": 3,
+          "home": 51,
+          "homePart": 0,
+          "shoppingIndex": 311,
+          "shoppingOffset": 19,
+          "households": 313,
+          "need": 4.800000000000001,
+          "unmet": 4.800000000000001,
+          "cashBeforeFood": 4170.682531672971,
+          "cashAfterFood": 4170.682531672971,
+          "bankFunds": [
+            {
+              "bank": 2,
+              "deposit": 2000.6043414295357,
+              "bankCash": 575086.9991938646,
+              "closed": false
+            }
+          ],
+          "liquidity": 6171.286873102506,
+          "income": 75.12803812346439,
+          "wages": 64.83657297618633,
+          "aid": 0,
+          "stress": 37.3842150778324,
+          "foodTax": 4,
+          "reachable": [
+            {
+              "firm": 53,
+              "distance": 20,
+              "travel": 0.6000000000000001,
+              "price": 3.87666494074267,
+              "stock": 558.2158216978696,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 55,
+              "distance": 30,
+              "travel": 0.9000000000000001,
+              "price": 3.8227758105072223,
+              "stock": 264.62352227993654,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 51,
+              "distance": 10,
+              "travel": 0.30000000000000004,
+              "price": 3.9548052719260065,
+              "stock": 521.0408517285965,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 17,
+              "distance": 23,
+              "travel": 0.6900000000000001,
+              "price": 3.920532503902875,
+              "stock": 589.603759013736,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 88,
+              "distance": 29,
+              "travel": 0.8700000000000002,
+              "price": 3.9385657017991305,
+              "stock": 254.422,
+              "capacity": 0,
+              "workers": 0,
+              "part": 0
+            },
+            {
+              "firm": 2,
+              "distance": 20,
+              "travel": 0.6000000000000001,
+              "price": 4.025620404487036,
+              "stock": 844.5931960723653,
+              "capacity": 0,
+              "workers": 2,
+              "part": 0
+            },
+            {
+              "firm": 54,
+              "distance": 11,
+              "travel": 0.33,
+              "price": 4.135691002956785,
+              "stock": 329.9620673659355,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 52,
+              "distance": 9,
+              "travel": 0.2700000000000001,
+              "price": 4.152125567206745,
+              "stock": 530.7870909090902,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 0,
+              "distance": 18,
+              "travel": 0.5400000000000001,
+              "price": 4.101591553204264,
+              "stock": 1170.4279172598665,
+              "capacity": 0,
+              "workers": 2,
+              "part": 0
+            },
+            {
+              "firm": 50,
+              "distance": 24,
+              "travel": 0.7200000000000001,
+              "price": 4.093386450792672,
+              "stock": 404.8515867019762,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 1,
+              "distance": 19,
+              "travel": 0.5700000000000001,
+              "price": 4.128292148481979,
+              "stock": 725.0938931106358,
+              "capacity": 0,
+              "workers": 2,
+              "part": 0
+            }
+          ],
+          "accessibleStock": 6193.621706140008,
+          "accessibleCapacity": 0,
+          "inaccessibleStock": 0,
+          "allStoreStock": 7233.621706140016,
+          "allStores": 11,
+          "initialStoreCapacity": 1040,
+          "initialStoreStaff": 13,
+          "initialSellableFood": 1040,
+          "storesWithSellableFood": 10,
+          "purchases": []
+        },
+        {
+          "day": 196,
+          "hh": 18,
+          "people": 3,
+          "home": 52,
+          "homePart": 0,
+          "shoppingIndex": 312,
+          "shoppingOffset": 19,
+          "households": 313,
+          "need": 4.800000000000001,
+          "unmet": 4.800000000000001,
+          "cashBeforeFood": 3610.4339877845464,
+          "cashAfterFood": 3610.4339877845464,
+          "bankFunds": [
+            {
+              "bank": 0,
+              "deposit": 197.39545485725682,
+              "bankCash": 39613.92249902308,
+              "closed": false
+            },
+            {
+              "bank": 2,
+              "deposit": 1628.9015229162035,
+              "bankCash": 575086.9991938646,
+              "closed": false
+            }
+          ],
+          "liquidity": 5436.730965558007,
+          "income": 42.153404867477185,
+          "wages": 0,
+          "aid": 0,
+          "stress": 65.20643658559771,
+          "foodTax": 4,
+          "reachable": [
+            {
+              "firm": 55,
+              "distance": 16,
+              "travel": 0.4800000000000001,
+              "price": 3.8227758105072223,
+              "stock": 264.62352227993654,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 53,
+              "distance": 10,
+              "travel": 0.30000000000000004,
+              "price": 3.87666494074267,
+              "stock": 558.2158216978696,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 17,
+              "distance": 7,
+              "travel": 0.21000000000000005,
+              "price": 3.920532503902875,
+              "stock": 589.603759013736,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 51,
+              "distance": 24,
+              "travel": 0.7200000000000001,
+              "price": 3.9548052719260065,
+              "stock": 521.0408517285965,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 50,
+              "distance": 6,
+              "travel": 0.18000000000000002,
+              "price": 4.093386450792672,
+              "stock": 404.8515867019762,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 2,
+              "distance": 18,
+              "travel": 0.5400000000000001,
+              "price": 4.025620404487036,
+              "stock": 844.5931960723653,
+              "capacity": 0,
+              "workers": 2,
+              "part": 0
+            },
+            {
+              "firm": 0,
+              "distance": 16,
+              "travel": 0.4800000000000001,
+              "price": 4.101591553204264,
+              "stock": 1170.4279172598665,
+              "capacity": 0,
+              "workers": 2,
+              "part": 0
+            },
+            {
+              "firm": 1,
+              "distance": 17,
+              "travel": 0.5100000000000001,
+              "price": 4.128292148481979,
+              "stock": 725.0938931106358,
+              "capacity": 0,
+              "workers": 2,
+              "part": 0
+            },
+            {
+              "firm": 88,
+              "distance": 51,
+              "travel": 1.5300000000000002,
+              "price": 3.9385657017991305,
+              "stock": 254.422,
+              "capacity": 0,
+              "workers": 0,
+              "part": 0
+            },
+            {
+              "firm": 52,
+              "distance": 21,
+              "travel": 0.6300000000000001,
+              "price": 4.152125567206745,
+              "stock": 530.7870909090902,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 54,
+              "distance": 25,
+              "travel": 0.7500000000000001,
+              "price": 4.135691002956785,
+              "stock": 329.9620673659355,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            }
+          ],
+          "accessibleStock": 6193.6217061400075,
+          "accessibleCapacity": 0,
+          "inaccessibleStock": 0,
+          "allStoreStock": 7233.621706140016,
+          "allStores": 11,
+          "initialStoreCapacity": 1040,
+          "initialStoreStaff": 13,
+          "initialSellableFood": 1040,
+          "storesWithSellableFood": 10,
+          "purchases": []
+        },
+        {
+          "day": 271,
+          "hh": 300,
+          "people": 2,
+          "home": 217,
+          "homePart": 0,
+          "shoppingIndex": 298,
+          "shoppingOffset": 2,
+          "households": 320,
+          "need": 3.2,
+          "unmet": 1.5999999999997874,
+          "cashBeforeFood": 1402.2168601298602,
+          "cashAfterFood": 1394.3860356462158,
+          "bankFunds": [
+            {
+              "bank": 2,
+              "deposit": 1527.937604092852,
+              "bankCash": 874137.0842499762,
+              "closed": false
+            }
+          ],
+          "liquidity": 2922.323639739068,
+          "income": 32,
+          "wages": 0,
+          "aid": 0,
+          "stress": 31.993900000000128,
+          "foodTax": 4,
+          "reachable": [
+            {
+              "firm": 17,
+              "distance": 34,
+              "travel": 1.0200000000000002,
+              "price": 3.5731221916781193,
+              "stock": 797.3818181818161,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 53,
+              "distance": 31,
+              "travel": 0.9300000000000003,
+              "price": 3.6267105230221706,
+              "stock": 957.3818181818159,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 50,
+              "distance": 35,
+              "travel": 1.05,
+              "price": 3.629187850304779,
+              "stock": 877.3818181818145,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 2,
+              "distance": 23,
+              "travel": 0.6900000000000001,
+              "price": 3.742400376417653,
+              "stock": 1406.76377067325,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 52,
+              "distance": 36,
+              "travel": 1.0800000000000003,
+              "price": 3.6515033283268155,
+              "stock": 957.3818181818167,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 55,
+              "distance": 37,
+              "travel": 1.1100000000000003,
+              "price": 3.6509707234061377,
+              "stock": 957.3818181818157,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 51,
+              "distance": 37,
+              "travel": 1.1100000000000003,
+              "price": 3.654818492519145,
+              "stock": 797.3818181818148,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 54,
+              "distance": 38,
+              "travel": 1.1400000000000001,
+              "price": 3.661563051295341,
+              "stock": 797.3818181818131,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 0,
+              "distance": 25,
+              "travel": 0.7500000000000001,
+              "price": 3.866381204837632,
+              "stock": 1270.2416804203256,
+              "capacity": 0,
+              "workers": 2,
+              "part": 0
+            },
+            {
+              "firm": 88,
+              "distance": 32,
+              "travel": 0.9600000000000002,
+              "price": 4.104095959278848,
+              "stock": 1079.860351245468,
+              "capacity": 0,
+              "workers": 0,
+              "part": 0
+            },
+            {
+              "firm": 1,
+              "distance": 24,
+              "travel": 0.7200000000000001,
+              "price": 4.273332021420314,
+              "stock": 2041.7947568313703,
+              "capacity": 1.6000000000002128,
+              "workers": 3,
+              "part": 0
+            }
+          ],
+          "accessibleStock": 11940.333286443121,
+          "accessibleCapacity": 1.6000000000002128,
+          "inaccessibleStock": 0,
+          "allStoreStock": 12978.73328644312,
+          "allStores": 11,
+          "initialStoreCapacity": 1040,
+          "initialStoreStaff": 13,
+          "initialSellableFood": 1040,
+          "storesWithSellableFood": 10,
+          "purchases": [
+            {
+              "firm": 1,
+              "qty": 1.6000000000002128,
+              "price": 4.273332021420314,
+              "travel": 0.7200000000000001,
+              "distance": 24,
+              "stockBefore": 2043.3947568313704,
+              "capacityBefore": 3.2000000000004256
+            }
+          ]
+        },
+        {
+          "day": 271,
+          "hh": 301,
+          "people": 2,
+          "home": 217,
+          "homePart": 0,
+          "shoppingIndex": 299,
+          "shoppingOffset": 2,
+          "households": 320,
+          "need": 3.2,
+          "unmet": 3.2,
+          "cashBeforeFood": 2355.929164197142,
+          "cashAfterFood": 2355.929164197142,
+          "bankFunds": [
+            {
+              "bank": 2,
+              "deposit": 2111.1648819150982,
+              "bankCash": 874137.0842499762,
+              "closed": false
+            }
+          ],
+          "liquidity": 4467.094046112241,
+          "income": 65.25958723543403,
+          "wages": 65.25958723543403,
+          "aid": 0,
+          "stress": 15.740000000000194,
+          "foodTax": 4,
+          "reachable": [
+            {
+              "firm": 17,
+              "distance": 34,
+              "travel": 1.0200000000000002,
+              "price": 3.5731221916781193,
+              "stock": 797.3818181818161,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 53,
+              "distance": 31,
+              "travel": 0.9300000000000003,
+              "price": 3.6267105230221706,
+              "stock": 957.3818181818159,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 50,
+              "distance": 35,
+              "travel": 1.05,
+              "price": 3.629187850304779,
+              "stock": 877.3818181818145,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 2,
+              "distance": 23,
+              "travel": 0.6900000000000001,
+              "price": 3.742400376417653,
+              "stock": 1406.76377067325,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 52,
+              "distance": 36,
+              "travel": 1.0800000000000003,
+              "price": 3.6515033283268155,
+              "stock": 957.3818181818167,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 55,
+              "distance": 37,
+              "travel": 1.1100000000000003,
+              "price": 3.6509707234061377,
+              "stock": 957.3818181818157,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 51,
+              "distance": 37,
+              "travel": 1.1100000000000003,
+              "price": 3.654818492519145,
+              "stock": 797.3818181818148,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 54,
+              "distance": 38,
+              "travel": 1.1400000000000001,
+              "price": 3.661563051295341,
+              "stock": 797.3818181818131,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 0,
+              "distance": 25,
+              "travel": 0.7500000000000001,
+              "price": 3.866381204837632,
+              "stock": 1270.2416804203256,
+              "capacity": 0,
+              "workers": 2,
+              "part": 0
+            },
+            {
+              "firm": 88,
+              "distance": 32,
+              "travel": 0.9600000000000002,
+              "price": 4.104095959278848,
+              "stock": 1079.860351245468,
+              "capacity": 0,
+              "workers": 0,
+              "part": 0
+            },
+            {
+              "firm": 1,
+              "distance": 24,
+              "travel": 0.7200000000000001,
+              "price": 4.273332021420314,
+              "stock": 2040.1947568313701,
+              "capacity": 0,
+              "workers": 3,
+              "part": 0
+            }
+          ],
+          "accessibleStock": 11938.733286443121,
+          "accessibleCapacity": 0,
+          "inaccessibleStock": 0,
+          "allStoreStock": 12978.73328644312,
+          "allStores": 11,
+          "initialStoreCapacity": 1040,
+          "initialStoreStaff": 13,
+          "initialSellableFood": 1040,
+          "storesWithSellableFood": 10,
+          "purchases": []
+        },
+        {
+          "day": 271,
+          "hh": 302,
+          "people": 2,
+          "home": 217,
+          "homePart": 0,
+          "shoppingIndex": 300,
+          "shoppingOffset": 2,
+          "households": 320,
+          "need": 3.2,
+          "unmet": 3.2,
+          "cashBeforeFood": 2434.8592998607755,
+          "cashAfterFood": 2434.8592998607755,
+          "bankFunds": [
+            {
+              "bank": 2,
+              "deposit": 2512.58635535649,
+              "bankCash": 874137.0842499762,
+              "closed": false
+            }
+          ],
+          "liquidity": 4947.445655217265,
+          "income": 65.45529225055397,
+          "wages": 65.45529225055397,
+          "aid": 0,
+          "stress": 14.620000000000214,
+          "foodTax": 4,
+          "reachable": [
+            {
+              "firm": 17,
+              "distance": 34,
+              "travel": 1.0200000000000002,
+              "price": 3.5731221916781193,
+              "stock": 797.3818181818161,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 53,
+              "distance": 31,
+              "travel": 0.9300000000000003,
+              "price": 3.6267105230221706,
+              "stock": 957.3818181818159,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 50,
+              "distance": 35,
+              "travel": 1.05,
+              "price": 3.629187850304779,
+              "stock": 877.3818181818145,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 2,
+              "distance": 23,
+              "travel": 0.6900000000000001,
+              "price": 3.742400376417653,
+              "stock": 1406.76377067325,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 52,
+              "distance": 36,
+              "travel": 1.0800000000000003,
+              "price": 3.6515033283268155,
+              "stock": 957.3818181818167,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 55,
+              "distance": 37,
+              "travel": 1.1100000000000003,
+              "price": 3.6509707234061377,
+              "stock": 957.3818181818157,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 51,
+              "distance": 37,
+              "travel": 1.1100000000000003,
+              "price": 3.654818492519145,
+              "stock": 797.3818181818148,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 54,
+              "distance": 38,
+              "travel": 1.1400000000000001,
+              "price": 3.661563051295341,
+              "stock": 797.3818181818131,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 0,
+              "distance": 25,
+              "travel": 0.7500000000000001,
+              "price": 3.866381204837632,
+              "stock": 1270.2416804203256,
+              "capacity": 0,
+              "workers": 2,
+              "part": 0
+            },
+            {
+              "firm": 88,
+              "distance": 32,
+              "travel": 0.9600000000000002,
+              "price": 4.104095959278848,
+              "stock": 1079.860351245468,
+              "capacity": 0,
+              "workers": 0,
+              "part": 0
+            },
+            {
+              "firm": 1,
+              "distance": 24,
+              "travel": 0.7200000000000001,
+              "price": 4.273332021420314,
+              "stock": 2040.1947568313701,
+              "capacity": 0,
+              "workers": 3,
+              "part": 0
+            }
+          ],
+          "accessibleStock": 11938.733286443121,
+          "accessibleCapacity": 0,
+          "inaccessibleStock": 0,
+          "allStoreStock": 12978.73328644312,
+          "allStores": 11,
+          "initialStoreCapacity": 1040,
+          "initialStoreStaff": 13,
+          "initialSellableFood": 1040,
+          "storesWithSellableFood": 10,
+          "purchases": []
+        },
+        {
+          "day": 271,
+          "hh": 303,
+          "people": 2,
+          "home": 218,
+          "homePart": 0,
+          "shoppingIndex": 301,
+          "shoppingOffset": 2,
+          "households": 320,
+          "need": 3.2,
+          "unmet": 3.2,
+          "cashBeforeFood": 1196.702430990482,
+          "cashAfterFood": 1196.702430990482,
+          "bankFunds": [
+            {
+              "bank": 2,
+              "deposit": 1165.887974132611,
+              "bankCash": 874137.0842499762,
+              "closed": false
+            }
+          ],
+          "liquidity": 2362.5904051230928,
+          "income": 32.01576782043244,
+          "wages": 32.01576782043244,
+          "aid": 0,
+          "stress": 12.540000000000358,
+          "foodTax": 4,
+          "reachable": [
+            {
+              "firm": 17,
+              "distance": 22,
+              "travel": 0.66,
+              "price": 3.5731221916781193,
+              "stock": 797.3818181818161,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 50,
+              "distance": 21,
+              "travel": 0.6300000000000001,
+              "price": 3.629187850304779,
+              "stock": 877.3818181818145,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 55,
+              "distance": 19,
+              "travel": 0.5700000000000001,
+              "price": 3.6509707234061377,
+              "stock": 957.3818181818157,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 53,
+              "distance": 25,
+              "travel": 0.7500000000000001,
+              "price": 3.6267105230221706,
+              "stock": 957.3818181818159,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 52,
+              "distance": 36,
+              "travel": 1.0800000000000003,
+              "price": 3.6515033283268155,
+              "stock": 957.3818181818167,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 51,
+              "distance": 39,
+              "travel": 1.1700000000000004,
+              "price": 3.654818492519145,
+              "stock": 797.3818181818148,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 54,
+              "distance": 40,
+              "travel": 1.2000000000000002,
+              "price": 3.661563051295341,
+              "stock": 797.3818181818131,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 2,
+              "distance": 33,
+              "travel": 0.9900000000000001,
+              "price": 3.742400376417653,
+              "stock": 1406.76377067325,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 0,
+              "distance": 31,
+              "travel": 0.9300000000000003,
+              "price": 3.866381204837632,
+              "stock": 1270.2416804203256,
+              "capacity": 0,
+              "workers": 2,
+              "part": 0
+            },
+            {
+              "firm": 1,
+              "distance": 32,
+              "travel": 0.9600000000000002,
+              "price": 4.273332021420314,
+              "stock": 2040.1947568313701,
+              "capacity": 0,
+              "workers": 3,
+              "part": 0
+            },
+            {
+              "firm": 88,
+              "distance": 66,
+              "travel": 1.9800000000000002,
+              "price": 4.104095959278848,
+              "stock": 1079.860351245468,
+              "capacity": 0,
+              "workers": 0,
+              "part": 0
+            }
+          ],
+          "accessibleStock": 11938.733286443121,
+          "accessibleCapacity": 0,
+          "inaccessibleStock": 0,
+          "allStoreStock": 12978.73328644312,
+          "allStores": 11,
+          "initialStoreCapacity": 1040,
+          "initialStoreStaff": 13,
+          "initialSellableFood": 1040,
+          "storesWithSellableFood": 10,
+          "purchases": []
+        },
+        {
+          "day": 271,
+          "hh": 304,
+          "people": 2,
+          "home": 218,
+          "homePart": 0,
+          "shoppingIndex": 302,
+          "shoppingOffset": 2,
+          "households": 320,
+          "need": 3.2,
+          "unmet": 3.2,
+          "cashBeforeFood": 2468.4992252959455,
+          "cashAfterFood": 2468.4992252959455,
+          "bankFunds": [
+            {
+              "bank": 2,
+              "deposit": 3014.4595912142127,
+              "bankCash": 874137.0842499762,
+              "closed": false
+            }
+          ],
+          "liquidity": 5482.958816510158,
+          "income": 64.03153564086487,
+          "wages": 64.03153564086487,
+          "aid": 0,
+          "stress": 10.220000000000343,
+          "foodTax": 4,
+          "reachable": [
+            {
+              "firm": 17,
+              "distance": 22,
+              "travel": 0.66,
+              "price": 3.5731221916781193,
+              "stock": 797.3818181818161,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 50,
+              "distance": 21,
+              "travel": 0.6300000000000001,
+              "price": 3.629187850304779,
+              "stock": 877.3818181818145,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 55,
+              "distance": 19,
+              "travel": 0.5700000000000001,
+              "price": 3.6509707234061377,
+              "stock": 957.3818181818157,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 53,
+              "distance": 25,
+              "travel": 0.7500000000000001,
+              "price": 3.6267105230221706,
+              "stock": 957.3818181818159,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 52,
+              "distance": 36,
+              "travel": 1.0800000000000003,
+              "price": 3.6515033283268155,
+              "stock": 957.3818181818167,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 51,
+              "distance": 39,
+              "travel": 1.1700000000000004,
+              "price": 3.654818492519145,
+              "stock": 797.3818181818148,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 54,
+              "distance": 40,
+              "travel": 1.2000000000000002,
+              "price": 3.661563051295341,
+              "stock": 797.3818181818131,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 2,
+              "distance": 33,
+              "travel": 0.9900000000000001,
+              "price": 3.742400376417653,
+              "stock": 1406.76377067325,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 0,
+              "distance": 31,
+              "travel": 0.9300000000000003,
+              "price": 3.866381204837632,
+              "stock": 1270.2416804203256,
+              "capacity": 0,
+              "workers": 2,
+              "part": 0
+            },
+            {
+              "firm": 1,
+              "distance": 32,
+              "travel": 0.9600000000000002,
+              "price": 4.273332021420314,
+              "stock": 2040.1947568313701,
+              "capacity": 0,
+              "workers": 3,
+              "part": 0
+            },
+            {
+              "firm": 88,
+              "distance": 66,
+              "travel": 1.9800000000000002,
+              "price": 4.104095959278848,
+              "stock": 1079.860351245468,
+              "capacity": 0,
+              "workers": 0,
+              "part": 0
+            }
+          ],
+          "accessibleStock": 11938.733286443121,
+          "accessibleCapacity": 0,
+          "inaccessibleStock": 0,
+          "allStoreStock": 12978.73328644312,
+          "allStores": 11,
+          "initialStoreCapacity": 1040,
+          "initialStoreStaff": 13,
+          "initialSellableFood": 1040,
+          "storesWithSellableFood": 10,
+          "purchases": []
+        },
+        {
+          "day": 271,
+          "hh": 305,
+          "people": 2,
+          "home": 218,
+          "homePart": 0,
+          "shoppingIndex": 303,
+          "shoppingOffset": 2,
+          "households": 320,
+          "need": 3.2,
+          "unmet": 3.2,
+          "cashBeforeFood": 1414.4341775586356,
+          "cashAfterFood": 1414.4341775586356,
+          "bankFunds": [
+            {
+              "bank": 2,
+              "deposit": 1545.6454081415984,
+              "bankCash": 874137.0842499762,
+              "closed": false
+            }
+          ],
+          "liquidity": 2960.079585700234,
+          "income": 32,
+          "wages": 0,
+          "aid": 0,
+          "stress": 30.306856753511628,
+          "foodTax": 4,
+          "reachable": [
+            {
+              "firm": 17,
+              "distance": 22,
+              "travel": 0.66,
+              "price": 3.5731221916781193,
+              "stock": 797.3818181818161,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 50,
+              "distance": 21,
+              "travel": 0.6300000000000001,
+              "price": 3.629187850304779,
+              "stock": 877.3818181818145,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 55,
+              "distance": 19,
+              "travel": 0.5700000000000001,
+              "price": 3.6509707234061377,
+              "stock": 957.3818181818157,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 53,
+              "distance": 25,
+              "travel": 0.7500000000000001,
+              "price": 3.6267105230221706,
+              "stock": 957.3818181818159,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 52,
+              "distance": 36,
+              "travel": 1.0800000000000003,
+              "price": 3.6515033283268155,
+              "stock": 957.3818181818167,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 51,
+              "distance": 39,
+              "travel": 1.1700000000000004,
+              "price": 3.654818492519145,
+              "stock": 797.3818181818148,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 54,
+              "distance": 40,
+              "travel": 1.2000000000000002,
+              "price": 3.661563051295341,
+              "stock": 797.3818181818131,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 2,
+              "distance": 33,
+              "travel": 0.9900000000000001,
+              "price": 3.742400376417653,
+              "stock": 1406.76377067325,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 0,
+              "distance": 31,
+              "travel": 0.9300000000000003,
+              "price": 3.866381204837632,
+              "stock": 1270.2416804203256,
+              "capacity": 0,
+              "workers": 2,
+              "part": 0
+            },
+            {
+              "firm": 1,
+              "distance": 32,
+              "travel": 0.9600000000000002,
+              "price": 4.273332021420314,
+              "stock": 2040.1947568313701,
+              "capacity": 0,
+              "workers": 3,
+              "part": 0
+            },
+            {
+              "firm": 88,
+              "distance": 66,
+              "travel": 1.9800000000000002,
+              "price": 4.104095959278848,
+              "stock": 1079.860351245468,
+              "capacity": 0,
+              "workers": 0,
+              "part": 0
+            }
+          ],
+          "accessibleStock": 11938.733286443121,
+          "accessibleCapacity": 0,
+          "inaccessibleStock": 0,
+          "allStoreStock": 12978.73328644312,
+          "allStores": 11,
+          "initialStoreCapacity": 1040,
+          "initialStoreStaff": 13,
+          "initialSellableFood": 1040,
+          "storesWithSellableFood": 10,
+          "purchases": []
+        },
+        {
+          "day": 271,
+          "hh": 306,
+          "people": 2,
+          "home": 218,
+          "homePart": 0,
+          "shoppingIndex": 304,
+          "shoppingOffset": 2,
+          "households": 320,
+          "need": 3.2,
+          "unmet": 3.2,
+          "cashBeforeFood": 1226.075127993493,
+          "cashAfterFood": 1226.075127993493,
+          "bankFunds": [
+            {
+              "bank": 2,
+              "deposit": 1246.8219291427988,
+              "bankCash": 874137.0842499762,
+              "closed": false
+            }
+          ],
+          "liquidity": 2472.8970571362916,
+          "income": 36,
+          "wages": 36,
+          "aid": 0,
+          "stress": 11.38000000000029,
+          "foodTax": 4,
+          "reachable": [
+            {
+              "firm": 17,
+              "distance": 22,
+              "travel": 0.66,
+              "price": 3.5731221916781193,
+              "stock": 797.3818181818161,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 50,
+              "distance": 21,
+              "travel": 0.6300000000000001,
+              "price": 3.629187850304779,
+              "stock": 877.3818181818145,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 55,
+              "distance": 19,
+              "travel": 0.5700000000000001,
+              "price": 3.6509707234061377,
+              "stock": 957.3818181818157,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 53,
+              "distance": 25,
+              "travel": 0.7500000000000001,
+              "price": 3.6267105230221706,
+              "stock": 957.3818181818159,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 52,
+              "distance": 36,
+              "travel": 1.0800000000000003,
+              "price": 3.6515033283268155,
+              "stock": 957.3818181818167,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 51,
+              "distance": 39,
+              "travel": 1.1700000000000004,
+              "price": 3.654818492519145,
+              "stock": 797.3818181818148,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 54,
+              "distance": 40,
+              "travel": 1.2000000000000002,
+              "price": 3.661563051295341,
+              "stock": 797.3818181818131,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 2,
+              "distance": 33,
+              "travel": 0.9900000000000001,
+              "price": 3.742400376417653,
+              "stock": 1406.76377067325,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 0,
+              "distance": 31,
+              "travel": 0.9300000000000003,
+              "price": 3.866381204837632,
+              "stock": 1270.2416804203256,
+              "capacity": 0,
+              "workers": 2,
+              "part": 0
+            },
+            {
+              "firm": 1,
+              "distance": 32,
+              "travel": 0.9600000000000002,
+              "price": 4.273332021420314,
+              "stock": 2040.1947568313701,
+              "capacity": 0,
+              "workers": 3,
+              "part": 0
+            },
+            {
+              "firm": 88,
+              "distance": 66,
+              "travel": 1.9800000000000002,
+              "price": 4.104095959278848,
+              "stock": 1079.860351245468,
+              "capacity": 0,
+              "workers": 0,
+              "part": 0
+            }
+          ],
+          "accessibleStock": 11938.733286443121,
+          "accessibleCapacity": 0,
+          "inaccessibleStock": 0,
+          "allStoreStock": 12978.73328644312,
+          "allStores": 11,
+          "initialStoreCapacity": 1040,
+          "initialStoreStaff": 13,
+          "initialSellableFood": 1040,
+          "storesWithSellableFood": 10,
+          "purchases": []
+        },
+        {
+          "day": 271,
+          "hh": 307,
+          "people": 2,
+          "home": 219,
+          "homePart": 0,
+          "shoppingIndex": 305,
+          "shoppingOffset": 2,
+          "households": 320,
+          "need": 3.2,
+          "unmet": 3.2,
+          "cashBeforeFood": 2502.509957808429,
+          "cashAfterFood": 2502.509957808429,
+          "bankFunds": [
+            {
+              "bank": 2,
+              "deposit": 3057.494171283049,
+              "bankCash": 874137.0842499762,
+              "closed": false
+            }
+          ],
+          "liquidity": 5560.004129091478,
+          "income": 65.0639557471449,
+          "wages": 65.0639557471449,
+          "aid": 0,
+          "stress": 10.2200000000003,
+          "foodTax": 4,
+          "reachable": [
+            {
+              "firm": 55,
+              "distance": 15,
+              "travel": 0.45000000000000007,
+              "price": 3.6509707234061377,
+              "stock": 957.3818181818157,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 17,
+              "distance": 24,
+              "travel": 0.7200000000000001,
+              "price": 3.5731221916781193,
+              "stock": 797.3818181818161,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 53,
+              "distance": 25,
+              "travel": 0.7500000000000001,
+              "price": 3.6267105230221706,
+              "stock": 957.3818181818159,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 50,
+              "distance": 25,
+              "travel": 0.7500000000000001,
+              "price": 3.629187850304779,
+              "stock": 877.3818181818145,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 2,
+              "distance": 25,
+              "travel": 0.7500000000000001,
+              "price": 3.742400376417653,
+              "stock": 1406.76377067325,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 52,
+              "distance": 38,
+              "travel": 1.1400000000000001,
+              "price": 3.6515033283268155,
+              "stock": 957.3818181818167,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 51,
+              "distance": 39,
+              "travel": 1.1700000000000004,
+              "price": 3.654818492519145,
+              "stock": 797.3818181818148,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 54,
+              "distance": 40,
+              "travel": 1.2000000000000002,
+              "price": 3.661563051295341,
+              "stock": 797.3818181818131,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 0,
+              "distance": 27,
+              "travel": 0.8100000000000002,
+              "price": 3.866381204837632,
+              "stock": 1270.2416804203256,
+              "capacity": 0,
+              "workers": 2,
+              "part": 0
+            },
+            {
+              "firm": 88,
+              "distance": 34,
+              "travel": 1.0200000000000002,
+              "price": 4.104095959278848,
+              "stock": 1079.860351245468,
+              "capacity": 0,
+              "workers": 0,
+              "part": 0
+            },
+            {
+              "firm": 1,
+              "distance": 26,
+              "travel": 0.7800000000000001,
+              "price": 4.273332021420314,
+              "stock": 2040.1947568313701,
+              "capacity": 0,
+              "workers": 3,
+              "part": 0
+            }
+          ],
+          "accessibleStock": 11938.733286443121,
+          "accessibleCapacity": 0,
+          "inaccessibleStock": 0,
+          "allStoreStock": 12978.73328644312,
+          "allStores": 11,
+          "initialStoreCapacity": 1040,
+          "initialStoreStaff": 13,
+          "initialSellableFood": 1040,
+          "storesWithSellableFood": 10,
+          "purchases": []
+        },
+        {
+          "day": 271,
+          "hh": 308,
+          "people": 2,
+          "home": 219,
+          "homePart": 0,
+          "shoppingIndex": 306,
+          "shoppingOffset": 2,
+          "households": 320,
+          "need": 3.2,
+          "unmet": 3.2,
+          "cashBeforeFood": 2497.40745874498,
+          "cashAfterFood": 2497.40745874498,
+          "bankFunds": [
+            {
+              "bank": 2,
+              "deposit": 3033.8008367882235,
+              "bankCash": 874137.0842499762,
+              "closed": false
+            }
+          ],
+          "liquidity": 5531.208295533203,
+          "income": 65.01523086765377,
+          "wages": 65.01523086765377,
+          "aid": 0,
+          "stress": 7.456735800247617,
+          "foodTax": 4,
+          "reachable": [
+            {
+              "firm": 55,
+              "distance": 15,
+              "travel": 0.45000000000000007,
+              "price": 3.6509707234061377,
+              "stock": 957.3818181818157,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 17,
+              "distance": 24,
+              "travel": 0.7200000000000001,
+              "price": 3.5731221916781193,
+              "stock": 797.3818181818161,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 53,
+              "distance": 25,
+              "travel": 0.7500000000000001,
+              "price": 3.6267105230221706,
+              "stock": 957.3818181818159,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 50,
+              "distance": 25,
+              "travel": 0.7500000000000001,
+              "price": 3.629187850304779,
+              "stock": 877.3818181818145,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 2,
+              "distance": 25,
+              "travel": 0.7500000000000001,
+              "price": 3.742400376417653,
+              "stock": 1406.76377067325,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 52,
+              "distance": 38,
+              "travel": 1.1400000000000001,
+              "price": 3.6515033283268155,
+              "stock": 957.3818181818167,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 51,
+              "distance": 39,
+              "travel": 1.1700000000000004,
+              "price": 3.654818492519145,
+              "stock": 797.3818181818148,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 54,
+              "distance": 40,
+              "travel": 1.2000000000000002,
+              "price": 3.661563051295341,
+              "stock": 797.3818181818131,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 0,
+              "distance": 27,
+              "travel": 0.8100000000000002,
+              "price": 3.866381204837632,
+              "stock": 1270.2416804203256,
+              "capacity": 0,
+              "workers": 2,
+              "part": 0
+            },
+            {
+              "firm": 88,
+              "distance": 34,
+              "travel": 1.0200000000000002,
+              "price": 4.104095959278848,
+              "stock": 1079.860351245468,
+              "capacity": 0,
+              "workers": 0,
+              "part": 0
+            },
+            {
+              "firm": 1,
+              "distance": 26,
+              "travel": 0.7800000000000001,
+              "price": 4.273332021420314,
+              "stock": 2040.1947568313701,
+              "capacity": 0,
+              "workers": 3,
+              "part": 0
+            }
+          ],
+          "accessibleStock": 11938.733286443121,
+          "accessibleCapacity": 0,
+          "inaccessibleStock": 0,
+          "allStoreStock": 12978.73328644312,
+          "allStores": 11,
+          "initialStoreCapacity": 1040,
+          "initialStoreStaff": 13,
+          "initialSellableFood": 1040,
+          "storesWithSellableFood": 10,
+          "purchases": []
+        },
+        {
+          "day": 271,
+          "hh": 309,
+          "people": 2,
+          "home": 219,
+          "homePart": 0,
+          "shoppingIndex": 307,
+          "shoppingOffset": 2,
+          "households": 320,
+          "need": 3.2,
+          "unmet": 3.2,
+          "cashBeforeFood": 1203.8728560918853,
+          "cashAfterFood": 1203.8728560918853,
+          "bankFunds": [
+            {
+              "bank": 2,
+              "deposit": 1248.8687648797256,
+              "bankCash": 874137.0842499762,
+              "closed": false
+            }
+          ],
+          "liquidity": 2452.741620971611,
+          "income": 32.53197787357245,
+          "wages": 32.53197787357245,
+          "aid": 0,
+          "stress": 7.900000000000282,
+          "foodTax": 4,
+          "reachable": [
+            {
+              "firm": 55,
+              "distance": 15,
+              "travel": 0.45000000000000007,
+              "price": 3.6509707234061377,
+              "stock": 957.3818181818157,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 17,
+              "distance": 24,
+              "travel": 0.7200000000000001,
+              "price": 3.5731221916781193,
+              "stock": 797.3818181818161,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 53,
+              "distance": 25,
+              "travel": 0.7500000000000001,
+              "price": 3.6267105230221706,
+              "stock": 957.3818181818159,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 50,
+              "distance": 25,
+              "travel": 0.7500000000000001,
+              "price": 3.629187850304779,
+              "stock": 877.3818181818145,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 2,
+              "distance": 25,
+              "travel": 0.7500000000000001,
+              "price": 3.742400376417653,
+              "stock": 1406.76377067325,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 52,
+              "distance": 38,
+              "travel": 1.1400000000000001,
+              "price": 3.6515033283268155,
+              "stock": 957.3818181818167,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 51,
+              "distance": 39,
+              "travel": 1.1700000000000004,
+              "price": 3.654818492519145,
+              "stock": 797.3818181818148,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 54,
+              "distance": 40,
+              "travel": 1.2000000000000002,
+              "price": 3.661563051295341,
+              "stock": 797.3818181818131,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 0,
+              "distance": 27,
+              "travel": 0.8100000000000002,
+              "price": 3.866381204837632,
+              "stock": 1270.2416804203256,
+              "capacity": 0,
+              "workers": 2,
+              "part": 0
+            },
+            {
+              "firm": 88,
+              "distance": 34,
+              "travel": 1.0200000000000002,
+              "price": 4.104095959278848,
+              "stock": 1079.860351245468,
+              "capacity": 0,
+              "workers": 0,
+              "part": 0
+            },
+            {
+              "firm": 1,
+              "distance": 26,
+              "travel": 0.7800000000000001,
+              "price": 4.273332021420314,
+              "stock": 2040.1947568313701,
+              "capacity": 0,
+              "workers": 3,
+              "part": 0
+            }
+          ],
+          "accessibleStock": 11938.733286443121,
+          "accessibleCapacity": 0,
+          "inaccessibleStock": 0,
+          "allStoreStock": 12978.73328644312,
+          "allStores": 11,
+          "initialStoreCapacity": 1040,
+          "initialStoreStaff": 13,
+          "initialSellableFood": 1040,
+          "storesWithSellableFood": 10,
+          "purchases": []
+        },
+        {
+          "day": 271,
+          "hh": 310,
+          "people": 2,
+          "home": 219,
+          "homePart": 0,
+          "shoppingIndex": 308,
+          "shoppingOffset": 2,
+          "households": 320,
+          "need": 3.2,
+          "unmet": 3.2,
+          "cashBeforeFood": 1398.0649294495151,
+          "cashAfterFood": 1398.0649294495151,
+          "bankFunds": [
+            {
+              "bank": 2,
+              "deposit": 1506.4484031856625,
+              "bankCash": 874137.0842499762,
+              "closed": false
+            }
+          ],
+          "liquidity": 2904.513332635178,
+          "income": 32,
+          "wages": 0,
+          "aid": 0,
+          "stress": 28.26000000000015,
+          "foodTax": 4,
+          "reachable": [
+            {
+              "firm": 55,
+              "distance": 15,
+              "travel": 0.45000000000000007,
+              "price": 3.6509707234061377,
+              "stock": 957.3818181818157,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 17,
+              "distance": 24,
+              "travel": 0.7200000000000001,
+              "price": 3.5731221916781193,
+              "stock": 797.3818181818161,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 53,
+              "distance": 25,
+              "travel": 0.7500000000000001,
+              "price": 3.6267105230221706,
+              "stock": 957.3818181818159,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 50,
+              "distance": 25,
+              "travel": 0.7500000000000001,
+              "price": 3.629187850304779,
+              "stock": 877.3818181818145,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 2,
+              "distance": 25,
+              "travel": 0.7500000000000001,
+              "price": 3.742400376417653,
+              "stock": 1406.76377067325,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 52,
+              "distance": 38,
+              "travel": 1.1400000000000001,
+              "price": 3.6515033283268155,
+              "stock": 957.3818181818167,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 51,
+              "distance": 39,
+              "travel": 1.1700000000000004,
+              "price": 3.654818492519145,
+              "stock": 797.3818181818148,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 54,
+              "distance": 40,
+              "travel": 1.2000000000000002,
+              "price": 3.661563051295341,
+              "stock": 797.3818181818131,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 0,
+              "distance": 27,
+              "travel": 0.8100000000000002,
+              "price": 3.866381204837632,
+              "stock": 1270.2416804203256,
+              "capacity": 0,
+              "workers": 2,
+              "part": 0
+            },
+            {
+              "firm": 88,
+              "distance": 34,
+              "travel": 1.0200000000000002,
+              "price": 4.104095959278848,
+              "stock": 1079.860351245468,
+              "capacity": 0,
+              "workers": 0,
+              "part": 0
+            },
+            {
+              "firm": 1,
+              "distance": 26,
+              "travel": 0.7800000000000001,
+              "price": 4.273332021420314,
+              "stock": 2040.1947568313701,
+              "capacity": 0,
+              "workers": 3,
+              "part": 0
+            }
+          ],
+          "accessibleStock": 11938.733286443121,
+          "accessibleCapacity": 0,
+          "inaccessibleStock": 0,
+          "allStoreStock": 12978.73328644312,
+          "allStores": 11,
+          "initialStoreCapacity": 1040,
+          "initialStoreStaff": 13,
+          "initialSellableFood": 1040,
+          "storesWithSellableFood": 10,
+          "purchases": []
+        },
+        {
+          "day": 271,
+          "hh": 311,
+          "people": 2,
+          "home": 227,
+          "homePart": 0,
+          "shoppingIndex": 309,
+          "shoppingOffset": 2,
+          "households": 320,
+          "need": 3.2,
+          "unmet": 3.2,
+          "cashBeforeFood": 2652.6631055530993,
+          "cashAfterFood": 2652.6631055530993,
+          "bankFunds": [
+            {
+              "bank": 2,
+              "deposit": 1821.8631330310338,
+              "bankCash": 874137.0842499762,
+              "closed": false
+            }
+          ],
+          "liquidity": 4474.526238584133,
+          "income": 72.43297297236451,
+          "wages": 72.43297297236451,
+          "aid": 0,
+          "stress": 18.725799999999715,
+          "foodTax": 4,
+          "reachable": [
+            {
+              "firm": 17,
+              "distance": 5,
+              "travel": 0.15000000000000002,
+              "price": 3.5731221916781193,
+              "stock": 797.3818181818161,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 53,
+              "distance": 2,
+              "travel": 0.06000000000000001,
+              "price": 3.6267105230221706,
+              "stock": 957.3818181818159,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 50,
+              "distance": 6,
+              "travel": 0.18000000000000002,
+              "price": 3.629187850304779,
+              "stock": 877.3818181818145,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 52,
+              "distance": 11,
+              "travel": 0.33,
+              "price": 3.6515033283268155,
+              "stock": 957.3818181818167,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 55,
+              "distance": 12,
+              "travel": 0.36000000000000004,
+              "price": 3.6509707234061377,
+              "stock": 957.3818181818157,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 51,
+              "distance": 12,
+              "travel": 0.36000000000000004,
+              "price": 3.654818492519145,
+              "stock": 797.3818181818148,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 54,
+              "distance": 13,
+              "travel": 0.39000000000000007,
+              "price": 3.661563051295341,
+              "stock": 797.3818181818131,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 2,
+              "distance": 6,
+              "travel": 0.18000000000000002,
+              "price": 3.742400376417653,
+              "stock": 1406.76377067325,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 0,
+              "distance": 4,
+              "travel": 0.12000000000000002,
+              "price": 3.866381204837632,
+              "stock": 1270.2416804203256,
+              "capacity": 0,
+              "workers": 2,
+              "part": 0
+            },
+            {
+              "firm": 1,
+              "distance": 5,
+              "travel": 0.15000000000000002,
+              "price": 4.273332021420314,
+              "stock": 2040.1947568313701,
+              "capacity": 0,
+              "workers": 3,
+              "part": 0
+            },
+            {
+              "firm": 88,
+              "distance": 39,
+              "travel": 1.1700000000000004,
+              "price": 4.104095959278848,
+              "stock": 1079.860351245468,
+              "capacity": 0,
+              "workers": 0,
+              "part": 0
+            }
+          ],
+          "accessibleStock": 11938.733286443121,
+          "accessibleCapacity": 0,
+          "inaccessibleStock": 0,
+          "allStoreStock": 12978.73328644312,
+          "allStores": 11,
+          "initialStoreCapacity": 1040,
+          "initialStoreStaff": 13,
+          "initialSellableFood": 1040,
+          "storesWithSellableFood": 10,
+          "purchases": []
+        },
+        {
+          "day": 271,
+          "hh": 312,
+          "people": 1,
+          "home": 236,
+          "homePart": 0,
+          "shoppingIndex": 310,
+          "shoppingOffset": 2,
+          "households": 320,
+          "need": 1.6,
+          "unmet": 1.6,
+          "cashBeforeFood": 932.7577566967619,
+          "cashAfterFood": 932.7577566967619,
+          "bankFunds": [
+            {
+              "bank": 2,
+              "deposit": 294.7716295983394,
+              "bankCash": 874137.0842499762,
+              "closed": false
+            }
+          ],
+          "liquidity": 1227.5293862951014,
+          "income": 28.722632598684704,
+          "wages": 28.722632598684704,
+          "aid": 0,
+          "stress": 4.800000000000093,
+          "foodTax": 4,
+          "reachable": [
+            {
+              "firm": 53,
+              "distance": 5,
+              "travel": 0.15000000000000002,
+              "price": 3.6267105230221706,
+              "stock": 957.3818181818159,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 17,
+              "distance": 8,
+              "travel": 0.24000000000000005,
+              "price": 3.5731221916781193,
+              "stock": 797.3818181818161,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 50,
+              "distance": 9,
+              "travel": 0.2700000000000001,
+              "price": 3.629187850304779,
+              "stock": 877.3818181818145,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 2,
+              "distance": 3,
+              "travel": 0.09000000000000001,
+              "price": 3.742400376417653,
+              "stock": 1406.76377067325,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 52,
+              "distance": 10,
+              "travel": 0.30000000000000004,
+              "price": 3.6515033283268155,
+              "stock": 957.3818181818167,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 51,
+              "distance": 11,
+              "travel": 0.33,
+              "price": 3.654818492519145,
+              "stock": 797.3818181818148,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 54,
+              "distance": 12,
+              "travel": 0.36000000000000004,
+              "price": 3.661563051295341,
+              "stock": 797.3818181818131,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 0,
+              "distance": 1,
+              "travel": 0.030000000000000006,
+              "price": 3.866381204837632,
+              "stock": 1270.2416804203256,
+              "capacity": 0,
+              "workers": 2,
+              "part": 0
+            },
+            {
+              "firm": 55,
+              "distance": 15,
+              "travel": 0.45000000000000007,
+              "price": 3.6509707234061377,
+              "stock": 957.3818181818157,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 1,
+              "distance": 2,
+              "travel": 0.06000000000000001,
+              "price": 4.273332021420314,
+              "stock": 2040.1947568313701,
+              "capacity": 0,
+              "workers": 3,
+              "part": 0
+            },
+            {
+              "firm": 88,
+              "distance": 36,
+              "travel": 1.0800000000000003,
+              "price": 4.104095959278848,
+              "stock": 1079.860351245468,
+              "capacity": 0,
+              "workers": 0,
+              "part": 0
+            }
+          ],
+          "accessibleStock": 11938.733286443121,
+          "accessibleCapacity": 0,
+          "inaccessibleStock": 0,
+          "allStoreStock": 12978.73328644312,
+          "allStores": 11,
+          "initialStoreCapacity": 1040,
+          "initialStoreStaff": 13,
+          "initialSellableFood": 1040,
+          "storesWithSellableFood": 10,
+          "purchases": []
+        },
+        {
+          "day": 271,
+          "hh": 313,
+          "people": 2,
+          "home": 161,
+          "homePart": 0,
+          "shoppingIndex": 311,
+          "shoppingOffset": 2,
+          "households": 320,
+          "need": 3.2,
+          "unmet": 3.2,
+          "cashBeforeFood": 2941.7973946572647,
+          "cashAfterFood": 2941.7973946572647,
+          "bankFunds": [
+            {
+              "bank": 2,
+              "deposit": 1405.227572430741,
+              "bankCash": 874137.0842499762,
+              "closed": false
+            }
+          ],
+          "liquidity": 4347.024967088006,
+          "income": 65.34084365356188,
+          "wages": 65.34084365356188,
+          "aid": 0,
+          "stress": 9.500000000000089,
+          "foodTax": 4,
+          "reachable": [
+            {
+              "firm": 17,
+              "distance": 13,
+              "travel": 0.39000000000000007,
+              "price": 3.5731221916781193,
+              "stock": 797.3818181818161,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 53,
+              "distance": 12,
+              "travel": 0.36000000000000004,
+              "price": 3.6267105230221706,
+              "stock": 957.3818181818159,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 50,
+              "distance": 12,
+              "travel": 0.36000000000000004,
+              "price": 3.629187850304779,
+              "stock": 877.3818181818145,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 52,
+              "distance": 15,
+              "travel": 0.45000000000000007,
+              "price": 3.6515033283268155,
+              "stock": 957.3818181818167,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 51,
+              "distance": 18,
+              "travel": 0.5400000000000001,
+              "price": 3.654818492519145,
+              "stock": 797.3818181818148,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 54,
+              "distance": 19,
+              "travel": 0.5700000000000001,
+              "price": 3.661563051295341,
+              "stock": 797.3818181818131,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 55,
+              "distance": 22,
+              "travel": 0.66,
+              "price": 3.6509707234061377,
+              "stock": 957.3818181818157,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 2,
+              "distance": 12,
+              "travel": 0.36000000000000004,
+              "price": 3.742400376417653,
+              "stock": 1406.76377067325,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 0,
+              "distance": 10,
+              "travel": 0.30000000000000004,
+              "price": 3.866381204837632,
+              "stock": 1270.2416804203256,
+              "capacity": 0,
+              "workers": 2,
+              "part": 0
+            },
+            {
+              "firm": 1,
+              "distance": 11,
+              "travel": 0.33,
+              "price": 4.273332021420314,
+              "stock": 2040.1947568313701,
+              "capacity": 0,
+              "workers": 3,
+              "part": 0
+            },
+            {
+              "firm": 88,
+              "distance": 45,
+              "travel": 1.3500000000000003,
+              "price": 4.104095959278848,
+              "stock": 1079.860351245468,
+              "capacity": 0,
+              "workers": 0,
+              "part": 0
+            }
+          ],
+          "accessibleStock": 11938.733286443121,
+          "accessibleCapacity": 0,
+          "inaccessibleStock": 0,
+          "allStoreStock": 12978.73328644312,
+          "allStores": 11,
+          "initialStoreCapacity": 1040,
+          "initialStoreStaff": 13,
+          "initialSellableFood": 1040,
+          "storesWithSellableFood": 10,
+          "purchases": []
+        },
+        {
+          "day": 271,
+          "hh": 314,
+          "people": 2,
+          "home": 161,
+          "homePart": 0,
+          "shoppingIndex": 312,
+          "shoppingOffset": 2,
+          "households": 320,
+          "need": 3.2,
+          "unmet": 3.2,
+          "cashBeforeFood": 2153.5924767395136,
+          "cashAfterFood": 2153.5924767395136,
+          "bankFunds": [
+            {
+              "bank": 2,
+              "deposit": 771.0231868248743,
+              "bankCash": 874137.0842499762,
+              "closed": false
+            }
+          ],
+          "liquidity": 2924.615663564388,
+          "income": 65.27538843483816,
+          "wages": 65.27538843483816,
+          "aid": 0,
+          "stress": 9.500000000000089,
+          "foodTax": 4,
+          "reachable": [
+            {
+              "firm": 17,
+              "distance": 13,
+              "travel": 0.39000000000000007,
+              "price": 3.5731221916781193,
+              "stock": 797.3818181818161,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 53,
+              "distance": 12,
+              "travel": 0.36000000000000004,
+              "price": 3.6267105230221706,
+              "stock": 957.3818181818159,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 50,
+              "distance": 12,
+              "travel": 0.36000000000000004,
+              "price": 3.629187850304779,
+              "stock": 877.3818181818145,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 52,
+              "distance": 15,
+              "travel": 0.45000000000000007,
+              "price": 3.6515033283268155,
+              "stock": 957.3818181818167,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 51,
+              "distance": 18,
+              "travel": 0.5400000000000001,
+              "price": 3.654818492519145,
+              "stock": 797.3818181818148,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 54,
+              "distance": 19,
+              "travel": 0.5700000000000001,
+              "price": 3.661563051295341,
+              "stock": 797.3818181818131,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 55,
+              "distance": 22,
+              "travel": 0.66,
+              "price": 3.6509707234061377,
+              "stock": 957.3818181818157,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 2,
+              "distance": 12,
+              "travel": 0.36000000000000004,
+              "price": 3.742400376417653,
+              "stock": 1406.76377067325,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 0,
+              "distance": 10,
+              "travel": 0.30000000000000004,
+              "price": 3.866381204837632,
+              "stock": 1270.2416804203256,
+              "capacity": 0,
+              "workers": 2,
+              "part": 0
+            },
+            {
+              "firm": 1,
+              "distance": 11,
+              "travel": 0.33,
+              "price": 4.273332021420314,
+              "stock": 2040.1947568313701,
+              "capacity": 0,
+              "workers": 3,
+              "part": 0
+            },
+            {
+              "firm": 88,
+              "distance": 45,
+              "travel": 1.3500000000000003,
+              "price": 4.104095959278848,
+              "stock": 1079.860351245468,
+              "capacity": 0,
+              "workers": 0,
+              "part": 0
+            }
+          ],
+          "accessibleStock": 11938.733286443121,
+          "accessibleCapacity": 0,
+          "inaccessibleStock": 0,
+          "allStoreStock": 12978.73328644312,
+          "allStores": 11,
+          "initialStoreCapacity": 1040,
+          "initialStoreStaff": 13,
+          "initialSellableFood": 1040,
+          "storesWithSellableFood": 10,
+          "purchases": []
+        },
+        {
+          "day": 271,
+          "hh": 315,
+          "people": 2,
+          "home": 161,
+          "homePart": 0,
+          "shoppingIndex": 313,
+          "shoppingOffset": 2,
+          "households": 320,
+          "need": 3.2,
+          "unmet": 3.2,
+          "cashBeforeFood": 2396.669847194864,
+          "cashAfterFood": 2396.669847194864,
+          "bankFunds": [
+            {
+              "bank": 2,
+              "deposit": 852.4355940221152,
+              "bankCash": 874137.0842499762,
+              "closed": false
+            }
+          ],
+          "liquidity": 3249.105441216979,
+          "income": 69.94009634126598,
+          "wages": 69.94009634126598,
+          "aid": 0,
+          "stress": 9.500000000000089,
+          "foodTax": 4,
+          "reachable": [
+            {
+              "firm": 17,
+              "distance": 13,
+              "travel": 0.39000000000000007,
+              "price": 3.5731221916781193,
+              "stock": 797.3818181818161,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 53,
+              "distance": 12,
+              "travel": 0.36000000000000004,
+              "price": 3.6267105230221706,
+              "stock": 957.3818181818159,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 50,
+              "distance": 12,
+              "travel": 0.36000000000000004,
+              "price": 3.629187850304779,
+              "stock": 877.3818181818145,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 52,
+              "distance": 15,
+              "travel": 0.45000000000000007,
+              "price": 3.6515033283268155,
+              "stock": 957.3818181818167,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 51,
+              "distance": 18,
+              "travel": 0.5400000000000001,
+              "price": 3.654818492519145,
+              "stock": 797.3818181818148,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 54,
+              "distance": 19,
+              "travel": 0.5700000000000001,
+              "price": 3.661563051295341,
+              "stock": 797.3818181818131,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 55,
+              "distance": 22,
+              "travel": 0.66,
+              "price": 3.6509707234061377,
+              "stock": 957.3818181818157,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 2,
+              "distance": 12,
+              "travel": 0.36000000000000004,
+              "price": 3.742400376417653,
+              "stock": 1406.76377067325,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 0,
+              "distance": 10,
+              "travel": 0.30000000000000004,
+              "price": 3.866381204837632,
+              "stock": 1270.2416804203256,
+              "capacity": 0,
+              "workers": 2,
+              "part": 0
+            },
+            {
+              "firm": 1,
+              "distance": 11,
+              "travel": 0.33,
+              "price": 4.273332021420314,
+              "stock": 2040.1947568313701,
+              "capacity": 0,
+              "workers": 3,
+              "part": 0
+            },
+            {
+              "firm": 88,
+              "distance": 45,
+              "travel": 1.3500000000000003,
+              "price": 4.104095959278848,
+              "stock": 1079.860351245468,
+              "capacity": 0,
+              "workers": 0,
+              "part": 0
+            }
+          ],
+          "accessibleStock": 11938.733286443121,
+          "accessibleCapacity": 0,
+          "inaccessibleStock": 0,
+          "allStoreStock": 12978.73328644312,
+          "allStores": 11,
+          "initialStoreCapacity": 1040,
+          "initialStoreStaff": 13,
+          "initialSellableFood": 1040,
+          "storesWithSellableFood": 10,
+          "purchases": []
+        },
+        {
+          "day": 271,
+          "hh": 316,
+          "people": 2,
+          "home": 161,
+          "homePart": 0,
+          "shoppingIndex": 314,
+          "shoppingOffset": 2,
+          "households": 320,
+          "need": 3.2,
+          "unmet": 3.2,
+          "cashBeforeFood": 2627.5121813178166,
+          "cashAfterFood": 2627.5121813178166,
+          "bankFunds": [
+            {
+              "bank": 2,
+              "deposit": 1068.1310882468954,
+              "bankCash": 874137.0842499762,
+              "closed": false
+            }
+          ],
+          "liquidity": 3695.6432695647118,
+          "income": 64.96623829041785,
+          "wages": 64.96623829041785,
+          "aid": 0,
+          "stress": 9.500000000000089,
+          "foodTax": 4,
+          "reachable": [
+            {
+              "firm": 17,
+              "distance": 13,
+              "travel": 0.39000000000000007,
+              "price": 3.5731221916781193,
+              "stock": 797.3818181818161,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 53,
+              "distance": 12,
+              "travel": 0.36000000000000004,
+              "price": 3.6267105230221706,
+              "stock": 957.3818181818159,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 50,
+              "distance": 12,
+              "travel": 0.36000000000000004,
+              "price": 3.629187850304779,
+              "stock": 877.3818181818145,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 52,
+              "distance": 15,
+              "travel": 0.45000000000000007,
+              "price": 3.6515033283268155,
+              "stock": 957.3818181818167,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 51,
+              "distance": 18,
+              "travel": 0.5400000000000001,
+              "price": 3.654818492519145,
+              "stock": 797.3818181818148,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 54,
+              "distance": 19,
+              "travel": 0.5700000000000001,
+              "price": 3.661563051295341,
+              "stock": 797.3818181818131,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 55,
+              "distance": 22,
+              "travel": 0.66,
+              "price": 3.6509707234061377,
+              "stock": 957.3818181818157,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 2,
+              "distance": 12,
+              "travel": 0.36000000000000004,
+              "price": 3.742400376417653,
+              "stock": 1406.76377067325,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 0,
+              "distance": 10,
+              "travel": 0.30000000000000004,
+              "price": 3.866381204837632,
+              "stock": 1270.2416804203256,
+              "capacity": 0,
+              "workers": 2,
+              "part": 0
+            },
+            {
+              "firm": 1,
+              "distance": 11,
+              "travel": 0.33,
+              "price": 4.273332021420314,
+              "stock": 2040.1947568313701,
+              "capacity": 0,
+              "workers": 3,
+              "part": 0
+            },
+            {
+              "firm": 88,
+              "distance": 45,
+              "travel": 1.3500000000000003,
+              "price": 4.104095959278848,
+              "stock": 1079.860351245468,
+              "capacity": 0,
+              "workers": 0,
+              "part": 0
+            }
+          ],
+          "accessibleStock": 11938.733286443121,
+          "accessibleCapacity": 0,
+          "inaccessibleStock": 0,
+          "allStoreStock": 12978.73328644312,
+          "allStores": 11,
+          "initialStoreCapacity": 1040,
+          "initialStoreStaff": 13,
+          "initialSellableFood": 1040,
+          "storesWithSellableFood": 10,
+          "purchases": []
+        },
+        {
+          "day": 271,
+          "hh": 317,
+          "people": 2,
+          "home": 161,
+          "homePart": 0,
+          "shoppingIndex": 315,
+          "shoppingOffset": 2,
+          "households": 320,
+          "need": 3.2,
+          "unmet": 3.2,
+          "cashBeforeFood": 2445.460691223954,
+          "cashAfterFood": 2445.460691223954,
+          "bankFunds": [
+            {
+              "bank": 2,
+              "deposit": 970.0098318404947,
+              "bankCash": 874137.0842499762,
+              "closed": false
+            }
+          ],
+          "liquidity": 3415.470523064449,
+          "income": 64.77143654665508,
+          "wages": 64.77143654665508,
+          "aid": 0,
+          "stress": 9.500000000000089,
+          "foodTax": 4,
+          "reachable": [
+            {
+              "firm": 17,
+              "distance": 13,
+              "travel": 0.39000000000000007,
+              "price": 3.5731221916781193,
+              "stock": 797.3818181818161,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 53,
+              "distance": 12,
+              "travel": 0.36000000000000004,
+              "price": 3.6267105230221706,
+              "stock": 957.3818181818159,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 50,
+              "distance": 12,
+              "travel": 0.36000000000000004,
+              "price": 3.629187850304779,
+              "stock": 877.3818181818145,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 52,
+              "distance": 15,
+              "travel": 0.45000000000000007,
+              "price": 3.6515033283268155,
+              "stock": 957.3818181818167,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 51,
+              "distance": 18,
+              "travel": 0.5400000000000001,
+              "price": 3.654818492519145,
+              "stock": 797.3818181818148,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 54,
+              "distance": 19,
+              "travel": 0.5700000000000001,
+              "price": 3.661563051295341,
+              "stock": 797.3818181818131,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 55,
+              "distance": 22,
+              "travel": 0.66,
+              "price": 3.6509707234061377,
+              "stock": 957.3818181818157,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 2,
+              "distance": 12,
+              "travel": 0.36000000000000004,
+              "price": 3.742400376417653,
+              "stock": 1406.76377067325,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 0,
+              "distance": 10,
+              "travel": 0.30000000000000004,
+              "price": 3.866381204837632,
+              "stock": 1270.2416804203256,
+              "capacity": 0,
+              "workers": 2,
+              "part": 0
+            },
+            {
+              "firm": 1,
+              "distance": 11,
+              "travel": 0.33,
+              "price": 4.273332021420314,
+              "stock": 2040.1947568313701,
+              "capacity": 0,
+              "workers": 3,
+              "part": 0
+            },
+            {
+              "firm": 88,
+              "distance": 45,
+              "travel": 1.3500000000000003,
+              "price": 4.104095959278848,
+              "stock": 1079.860351245468,
+              "capacity": 0,
+              "workers": 0,
+              "part": 0
+            }
+          ],
+          "accessibleStock": 11938.733286443121,
+          "accessibleCapacity": 0,
+          "inaccessibleStock": 0,
+          "allStoreStock": 12978.73328644312,
+          "allStores": 11,
+          "initialStoreCapacity": 1040,
+          "initialStoreStaff": 13,
+          "initialSellableFood": 1040,
+          "storesWithSellableFood": 10,
+          "purchases": []
+        },
+        {
+          "day": 271,
+          "hh": 318,
+          "people": 2,
+          "home": 239,
+          "homePart": 0,
+          "shoppingIndex": 316,
+          "shoppingOffset": 2,
+          "households": 320,
+          "need": 3.2,
+          "unmet": 3.2,
+          "cashBeforeFood": 2488.847006908586,
+          "cashAfterFood": 2488.847006908586,
+          "bankFunds": [
+            {
+              "bank": 2,
+              "deposit": 316.7432832571078,
+              "bankCash": 874137.0842499762,
+              "closed": false
+            }
+          ],
+          "liquidity": 2805.5902901656937,
+          "income": 64.04788715937133,
+          "wages": 64.04788715937133,
+          "aid": 0,
+          "stress": 20.16000000000006,
+          "foodTax": 4,
+          "reachable": [
+            {
+              "firm": 17,
+              "distance": 10,
+              "travel": 0.30000000000000004,
+              "price": 3.5731221916781193,
+              "stock": 797.3818181818161,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 53,
+              "distance": 7,
+              "travel": 0.21000000000000005,
+              "price": 3.6267105230221706,
+              "stock": 957.3818181818159,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 52,
+              "distance": 6,
+              "travel": 0.18000000000000002,
+              "price": 3.6515033283268155,
+              "stock": 957.3818181818167,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 51,
+              "distance": 7,
+              "travel": 0.21000000000000005,
+              "price": 3.654818492519145,
+              "stock": 797.3818181818148,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 50,
+              "distance": 11,
+              "travel": 0.33,
+              "price": 3.629187850304779,
+              "stock": 877.3818181818145,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 54,
+              "distance": 8,
+              "travel": 0.24000000000000005,
+              "price": 3.661563051295341,
+              "stock": 797.3818181818131,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 55,
+              "distance": 17,
+              "travel": 0.5100000000000001,
+              "price": 3.6509707234061377,
+              "stock": 957.3818181818157,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 2,
+              "distance": 7,
+              "travel": 0.21000000000000005,
+              "price": 3.742400376417653,
+              "stock": 1406.76377067325,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 0,
+              "distance": 5,
+              "travel": 0.15000000000000002,
+              "price": 3.866381204837632,
+              "stock": 1270.2416804203256,
+              "capacity": 0,
+              "workers": 2,
+              "part": 0
+            },
+            {
+              "firm": 1,
+              "distance": 6,
+              "travel": 0.18000000000000002,
+              "price": 4.273332021420314,
+              "stock": 2040.1947568313701,
+              "capacity": 0,
+              "workers": 3,
+              "part": 0
+            },
+            {
+              "firm": 88,
+              "distance": 34,
+              "travel": 1.0200000000000002,
+              "price": 4.104095959278848,
+              "stock": 1079.860351245468,
+              "capacity": 0,
+              "workers": 0,
+              "part": 0
+            }
+          ],
+          "accessibleStock": 11938.733286443121,
+          "accessibleCapacity": 0,
+          "inaccessibleStock": 0,
+          "allStoreStock": 12978.73328644312,
+          "allStores": 11,
+          "initialStoreCapacity": 1040,
+          "initialStoreStaff": 13,
+          "initialSellableFood": 1040,
+          "storesWithSellableFood": 10,
+          "purchases": []
+        },
+        {
+          "day": 271,
+          "hh": 319,
+          "people": 1,
+          "home": 244,
+          "homePart": 0,
+          "shoppingIndex": 317,
+          "shoppingOffset": 2,
+          "households": 320,
+          "need": 1.6,
+          "unmet": 1.6,
+          "cashBeforeFood": 956.8254783139167,
+          "cashAfterFood": 956.8254783139167,
+          "bankFunds": [],
+          "liquidity": 956.8254783139167,
+          "income": 32.61323429170031,
+          "wages": 32.61323429170031,
+          "aid": 0,
+          "stress": 25.48,
+          "foodTax": 4,
+          "reachable": [
+            {
+              "firm": 52,
+              "distance": 12,
+              "travel": 0.36000000000000004,
+              "price": 3.6515033283268155,
+              "stock": 957.3818181818167,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 51,
+              "distance": 13,
+              "travel": 0.39000000000000007,
+              "price": 3.654818492519145,
+              "stock": 797.3818181818148,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 2,
+              "distance": 9,
+              "travel": 0.2700000000000001,
+              "price": 3.742400376417653,
+              "stock": 1406.76377067325,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 54,
+              "distance": 14,
+              "travel": 0.4200000000000001,
+              "price": 3.661563051295341,
+              "stock": 797.3818181818131,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 53,
+              "distance": 17,
+              "travel": 0.5100000000000001,
+              "price": 3.6267105230221706,
+              "stock": 957.3818181818159,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 17,
+              "distance": 20,
+              "travel": 0.6000000000000001,
+              "price": 3.5731221916781193,
+              "stock": 797.3818181818161,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 50,
+              "distance": 21,
+              "travel": 0.6300000000000001,
+              "price": 3.629187850304779,
+              "stock": 877.3818181818145,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 0,
+              "distance": 11,
+              "travel": 0.33,
+              "price": 3.866381204837632,
+              "stock": 1270.2416804203256,
+              "capacity": 0,
+              "workers": 2,
+              "part": 0
+            },
+            {
+              "firm": 55,
+              "distance": 23,
+              "travel": 0.6900000000000001,
+              "price": 3.6509707234061377,
+              "stock": 957.3818181818157,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 1,
+              "distance": 10,
+              "travel": 0.30000000000000004,
+              "price": 4.273332021420314,
+              "stock": 2040.1947568313701,
+              "capacity": 0,
+              "workers": 3,
+              "part": 0
+            },
+            {
+              "firm": 88,
+              "distance": 24,
+              "travel": 0.7200000000000001,
+              "price": 4.104095959278848,
+              "stock": 1079.860351245468,
+              "capacity": 0,
+              "workers": 0,
+              "part": 0
+            }
+          ],
+          "accessibleStock": 11938.733286443121,
+          "accessibleCapacity": 0,
+          "inaccessibleStock": 0,
+          "allStoreStock": 12978.73328644312,
+          "allStores": 11,
+          "initialStoreCapacity": 1040,
+          "initialStoreStaff": 13,
+          "initialSellableFood": 1040,
+          "storesWithSellableFood": 10,
+          "purchases": []
+        },
+        {
+          "day": 271,
+          "hh": 0,
+          "people": 3,
+          "home": 34,
+          "homePart": 0,
+          "shoppingIndex": 318,
+          "shoppingOffset": 2,
+          "households": 320,
+          "need": 4.800000000000001,
+          "unmet": 4.800000000000001,
+          "cashBeforeFood": 13125.134934112795,
+          "cashAfterFood": 13125.134934112795,
+          "bankFunds": [
+            {
+              "bank": 0,
+              "deposit": 32.564053079376784,
+              "bankCash": 37736.158232147776,
+              "closed": false
+            },
+            {
+              "bank": 2,
+              "deposit": 10189.801754307153,
+              "bankCash": 874137.0842499762,
+              "closed": false
+            }
+          ],
+          "liquidity": 23347.500741499323,
+          "income": 32,
+          "wages": 0,
+          "aid": 0,
+          "stress": 45.07326254677037,
+          "foodTax": 4,
+          "reachable": [
+            {
+              "firm": 17,
+              "distance": 4,
+              "travel": 0.12000000000000002,
+              "price": 3.5731221916781193,
+              "stock": 797.3818181818161,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 50,
+              "distance": 3,
+              "travel": 0.09000000000000001,
+              "price": 3.629187850304779,
+              "stock": 877.3818181818145,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 53,
+              "distance": 7,
+              "travel": 0.21000000000000005,
+              "price": 3.6267105230221706,
+              "stock": 957.3818181818159,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 55,
+              "distance": 13,
+              "travel": 0.39000000000000007,
+              "price": 3.6509707234061377,
+              "stock": 957.3818181818157,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 52,
+              "distance": 20,
+              "travel": 0.6000000000000001,
+              "price": 3.6515033283268155,
+              "stock": 957.3818181818167,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 51,
+              "distance": 21,
+              "travel": 0.6300000000000001,
+              "price": 3.654818492519145,
+              "stock": 797.3818181818148,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 54,
+              "distance": 22,
+              "travel": 0.66,
+              "price": 3.661563051295341,
+              "stock": 797.3818181818131,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 2,
+              "distance": 15,
+              "travel": 0.45000000000000007,
+              "price": 3.742400376417653,
+              "stock": 1406.76377067325,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 0,
+              "distance": 13,
+              "travel": 0.39000000000000007,
+              "price": 3.866381204837632,
+              "stock": 1270.2416804203256,
+              "capacity": 0,
+              "workers": 2,
+              "part": 0
+            },
+            {
+              "firm": 1,
+              "distance": 14,
+              "travel": 0.4200000000000001,
+              "price": 4.273332021420314,
+              "stock": 2040.1947568313701,
+              "capacity": 0,
+              "workers": 3,
+              "part": 0
+            },
+            {
+              "firm": 88,
+              "distance": 48,
+              "travel": 1.4400000000000002,
+              "price": 4.104095959278848,
+              "stock": 1079.860351245468,
+              "capacity": 0,
+              "workers": 0,
+              "part": 0
+            }
+          ],
+          "accessibleStock": 11938.733286443121,
+          "accessibleCapacity": 0,
+          "inaccessibleStock": 0,
+          "allStoreStock": 12978.73328644312,
+          "allStores": 11,
+          "initialStoreCapacity": 1040,
+          "initialStoreStaff": 13,
+          "initialSellableFood": 1040,
+          "storesWithSellableFood": 10,
+          "purchases": []
+        },
+        {
+          "day": 271,
+          "hh": 1,
+          "people": 4,
+          "home": 35,
+          "homePart": 0,
+          "shoppingIndex": 319,
+          "shoppingOffset": 2,
+          "households": 320,
+          "need": 6.4,
+          "unmet": 6.4,
+          "cashBeforeFood": 2624.639681039583,
+          "cashAfterFood": 2624.639681039583,
+          "bankFunds": [
+            {
+              "bank": 1,
+              "deposit": 380.2846082039509,
+              "bankCash": 36148.35667061621,
+              "closed": false
+            },
+            {
+              "bank": 2,
+              "deposit": 2440.5265420783417,
+              "bankCash": 874137.0842499762,
+              "closed": false
+            }
+          ],
+          "liquidity": 5445.450831321876,
+          "income": 81.13681962756169,
+          "wages": 65.92485109397956,
+          "aid": 0,
+          "stress": 29.60872163057421,
+          "foodTax": 4,
+          "reachable": [
+            {
+              "firm": 17,
+              "distance": 20,
+              "travel": 0.6000000000000001,
+              "price": 3.5731221916781193,
+              "stock": 797.3818181818161,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 52,
+              "distance": 4,
+              "travel": 0.12000000000000002,
+              "price": 3.6515033283268155,
+              "stock": 957.3818181818167,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 51,
+              "distance": 7,
+              "travel": 0.21000000000000005,
+              "price": 3.654818492519145,
+              "stock": 797.3818181818148,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 54,
+              "distance": 8,
+              "travel": 0.24000000000000005,
+              "price": 3.661563051295341,
+              "stock": 797.3818181818131,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 53,
+              "distance": 17,
+              "travel": 0.5100000000000001,
+              "price": 3.6267105230221706,
+              "stock": 957.3818181818159,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 50,
+              "distance": 19,
+              "travel": 0.5700000000000001,
+              "price": 3.629187850304779,
+              "stock": 877.3818181818145,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 55,
+              "distance": 27,
+              "travel": 0.8100000000000002,
+              "price": 3.6509707234061377,
+              "stock": 957.3818181818157,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 2,
+              "distance": 17,
+              "travel": 0.5100000000000001,
+              "price": 3.742400376417653,
+              "stock": 1406.76377067325,
+              "capacity": 0,
+              "workers": 1,
+              "part": 0
+            },
+            {
+              "firm": 0,
+              "distance": 15,
+              "travel": 0.45000000000000007,
+              "price": 3.866381204837632,
+              "stock": 1270.2416804203256,
+              "capacity": 0,
+              "workers": 2,
+              "part": 0
+            },
+            {
+              "firm": 88,
+              "distance": 34,
+              "travel": 1.0200000000000002,
+              "price": 4.104095959278848,
+              "stock": 1079.860351245468,
+              "capacity": 0,
+              "workers": 0,
+              "part": 0
+            },
+            {
+              "firm": 1,
+              "distance": 16,
+              "travel": 0.4800000000000001,
+              "price": 4.273332021420314,
+              "stock": 2040.1947568313701,
+              "capacity": 0,
+              "workers": 3,
+              "part": 0
+            }
+          ],
+          "accessibleStock": 11938.733286443121,
+          "accessibleCapacity": 0,
+          "inaccessibleStock": 0,
+          "allStoreStock": 12978.73328644312,
+          "allStores": 11,
+          "initialStoreCapacity": 1040,
+          "initialStoreStaff": 13,
+          "initialSellableFood": 1040,
+          "storesWithSellableFood": 10,
+          "purchases": []
+        }
+      ],
+      "historyAudit": [
+        {
+          "day": 196,
+          "unmet30": 9594.645325847554,
+          "unmetDays30": 30,
+          "foodNeed": 1076.800000000006,
+          "staffCapacity": 1040,
+          "sellableCapacity": 1040,
+          "retailStock": 7233.621706140016,
+          "hasRollingLabel": true,
+          "hasCapacityLabel": true,
+          "hasPressure": true,
+          "hasCapacityPressure": true
+        },
+        {
+          "day": 211,
+          "unmet30": 3279.5495712154298,
+          "unmetDays30": 29,
+          "foodNeed": 1092.8000000000063,
+          "staffCapacity": 1120,
+          "sellableCapacity": 1120,
+          "retailStock": 9007.114600382287,
+          "hasRollingLabel": true,
+          "hasCapacityLabel": true,
+          "hasPressure": true,
+          "hasCapacityPressure": false
+        },
+        {
+          "day": 241,
+          "unmet30": 3.889333299866848e-12,
+          "unmetDays30": 0,
+          "foodNeed": 1097.6000000000063,
+          "staffCapacity": 1120,
+          "sellableCapacity": 1120,
+          "retailStock": 11604.438944961177,
+          "hasRollingLabel": true,
+          "hasCapacityLabel": true,
+          "hasPressure": false,
+          "hasCapacityPressure": false
+        },
+        {
+          "day": 271,
+          "unmet30": 358.40000000000396,
+          "unmetDays30": 6,
+          "foodNeed": 1110.4000000000065,
+          "staffCapacity": 1040,
+          "sellableCapacity": 1040,
+          "retailStock": 12978.73328644312,
+          "hasRollingLabel": true,
+          "hasCapacityLabel": true,
+          "hasPressure": true,
+          "hasCapacityPressure": true
+        },
+        {
+          "day": 301,
+          "unmet30": 633.6000000000039,
+          "unmetDays30": 9,
+          "foodNeed": 1110.4000000000065,
+          "staffCapacity": 1120,
+          "sellableCapacity": 1120,
+          "retailStock": 11418.315294879776,
+          "hasRollingLabel": true,
+          "hasCapacityLabel": true,
+          "hasPressure": true,
+          "hasCapacityPressure": false
+        }
+      ],
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15484590.999997955,
+        "population": 694,
+        "day": 301
+      },
+      "cashDrift": -3.822147846221924e-06,
+      "goods": [
+        {
+          "good": "grain",
+          "opening": 960,
+          "produced": 254455,
+          "consumed": 119349.6,
+          "imports": 106903.936,
+          "exports": 233591.36760046514,
+          "stock": 9377.968399534864,
+          "error": -5.4569682106375694e-12,
+          "price": 1.6619216900152523
+        },
+        {
+          "good": "flour",
+          "opening": 960,
+          "produced": 198916,
+          "consumed": 168301.35,
+          "imports": 21498.266,
+          "exports": 41034.33035135025,
+          "stock": 12038.58564864976,
+          "error": 9.094947017729282e-12,
+          "price": 2.496286372683009
+        },
+        {
+          "good": "food",
+          "opening": 1920,
+          "produced": 348344,
+          "consumed": 270163.5107643827,
+          "imports": 65927.268,
+          "exports": 125811.90659044505,
+          "stock": 20215.850645170663,
+          "error": -1.5388650353997946e-09,
+          "price": 2.7512632336286624
+        },
+        {
+          "good": "logs",
+          "opening": 720,
+          "produced": 207501,
+          "consumed": 124373.07692307692,
+          "imports": 5575.064,
+          "exports": 82352.39426433232,
+          "stock": 7070.592812590749,
+          "error": 4.547473508864641e-12,
+          "price": 1.6619216900152523
+        },
+        {
+          "good": "timber",
+          "opening": 720,
+          "produced": 161685,
+          "consumed": 160607.3411764706,
+          "imports": 65703.52,
+          "exports": 59567.28000041465,
+          "stock": 7933.898823114745,
+          "error": -1.6370904631912708e-11,
+          "price": 3.3238433800305045
+        },
+        {
+          "good": "stone",
+          "opening": 720,
+          "produced": 50226,
+          "consumed": 554.4,
+          "imports": 2449.998,
+          "exports": 49864.10691132221,
+          "stock": 2977.491088677791,
+          "error": 0,
+          "price": 2.4928825350228787
+        },
+        {
+          "good": "manufactures",
+          "opening": 0,
+          "produced": 233980,
+          "consumed": 26848.859516797187,
+          "imports": 0,
+          "exports": 204077.20759289808,
+          "stock": 3053.9328903047235,
+          "error": 4.547473508864641e-13,
+          "price": 7.06316718256482
+        }
+      ],
+      "endingDay": 301,
+      "endingUnmet": 1.2434497875801753e-13,
+      "hardship": 0,
+      "historyFoodUnmet": 633.6000000000039,
+      "historyFoodDays": 9,
+      "foodReportHasRolling": true,
+      "foodReportHasPressure": true
+    },
+    "road": {
+      "mode": "road",
+      "audit": [],
+      "historyAudit": [
+        {
+          "day": 196,
+          "unmet30": 838.9558990584281,
+          "unmetDays30": 7,
+          "foodNeed": 1092.8000000000065,
+          "staffCapacity": 1200,
+          "sellableCapacity": 1200,
+          "retailStock": 9259.314622076248,
+          "hasRollingLabel": true,
+          "hasCapacityLabel": true,
+          "hasPressure": true,
+          "hasCapacityPressure": false
+        },
+        {
+          "day": 211,
+          "unmet30": 838.9558990584284,
+          "unmetDays30": 7,
+          "foodNeed": 1092.8000000000065,
+          "staffCapacity": 1760,
+          "sellableCapacity": 1760,
+          "retailStock": 11114.231350579232,
+          "hasRollingLabel": true,
+          "hasCapacityLabel": true,
+          "hasPressure": true,
+          "hasCapacityPressure": false
+        },
+        {
+          "day": 241,
+          "unmet30": 1.0347278589506459e-12,
+          "unmetDays30": 0,
+          "foodNeed": 1092.8000000000065,
+          "staffCapacity": 1760,
+          "sellableCapacity": 1760,
+          "retailStock": 13763.797606247665,
+          "hasRollingLabel": true,
+          "hasCapacityLabel": true,
+          "hasPressure": false,
+          "hasCapacityPressure": false
+        },
+        {
+          "day": 271,
+          "unmet30": 1.8820500713445654e-12,
+          "unmetDays30": 0,
+          "foodNeed": 1132.800000000007,
+          "staffCapacity": 1600,
+          "sellableCapacity": 1600,
+          "retailStock": 12978.13680626861,
+          "hasRollingLabel": true,
+          "hasCapacityLabel": true,
+          "hasPressure": false,
+          "hasCapacityPressure": false
+        },
+        {
+          "day": 301,
+          "unmet30": 1.8403056856186595e-12,
+          "unmetDays30": 0,
+          "foodNeed": 1136.000000000007,
+          "staffCapacity": 1520,
+          "sellableCapacity": 1520,
+          "retailStock": 11645.407925956499,
+          "hasRollingLabel": true,
+          "hasCapacityLabel": true,
+          "hasPressure": false,
+          "hasCapacityPressure": false
+        }
+      ],
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15484590.999992218,
+        "population": 710,
+        "day": 301
+      },
+      "cashDrift": -9.559094905853271e-06,
+      "goods": [
+        {
+          "good": "grain",
+          "opening": 960,
+          "produced": 261367,
+          "consumed": 134177.4,
+          "imports": 96442.472,
+          "exports": 213771.77386818206,
+          "stock": 10820.298131817939,
+          "error": -3.637978807091713e-12,
+          "price": 1.6630364444731018
+        },
+        {
+          "good": "flour",
+          "opening": 960,
+          "produced": 223629,
+          "consumed": 205307.55,
+          "imports": 16872.105,
+          "exports": 22681.446821156747,
+          "stock": 13472.108178843253,
+          "error": 0,
+          "price": 2.5292602186944806
+        },
+        {
+          "good": "food",
+          "opening": 1920,
+          "produced": 421091,
+          "consumed": 309208.4983205453,
+          "imports": 13946.063,
+          "exports": 108932.93495604066,
+          "stock": 18815.629723412065,
+          "error": -1.9608705770224333e-09,
+          "price": 2.7625433995837945
+        },
+        {
+          "good": "logs",
+          "opening": 720,
+          "produced": 188066,
+          "consumed": 108567.69230769231,
+          "imports": 6733.856,
+          "exports": 79541.1510997976,
+          "stock": 7411.012592510089,
+          "error": -1.8189894035458565e-12,
+          "price": 1.6630364444731018
+        },
+        {
+          "good": "timber",
+          "opening": 720,
+          "produced": 141138,
+          "consumed": 126171.71764705883,
+          "imports": 50623.859,
+          "exports": 58708.13091598069,
+          "stock": 7602.010436960479,
+          "error": -5.4569682106375694e-12,
+          "price": 3.3414420797286417
+        },
+        {
+          "good": "stone",
+          "opening": 720,
+          "produced": 44951,
+          "consumed": 554.4,
+          "imports": 2051.699,
+          "exports": 44384.09602844121,
+          "stock": 2784.2029715587933,
+          "error": -9.094947017729282e-13,
+          "price": 2.4945546667096523
+        },
+        {
+          "good": "manufactures",
+          "opening": 0,
+          "produced": 183514,
+          "consumed": 24146.87115678228,
+          "imports": 0,
+          "exports": 157762.170292126,
+          "stock": 1604.9585510917448,
+          "error": 4.547473508864641e-13,
+          "price": 7.447659625859488
+        }
+      ],
+      "endingDay": 301,
+      "endingUnmet": 4.796163466380676e-14,
+      "hardship": 0,
+      "historyFoodUnmet": 1.8403056856186595e-12,
+      "historyFoodDays": 0,
+      "foodReportHasRolling": true,
+      "foodReportHasPressure": false
+    }
+  },
+  "byDay": {
+    "connected": {
+      "196": {
+        "households": 8,
+        "people": 23,
+        "unmet": 36.799999999999955,
+        "noReach": 0,
+        "capacityExhausted": 8,
+        "cashLimitedCandidates": 0,
+        "depositHouseholds": 8,
+        "bankDeposits": 21825.28232051515,
+        "minCash": 2510.335156218851,
+        "maxCash": 8060.986292278665,
+        "minLiquidity": 3533.9157742779917,
+        "maxLiquidity": 13616.397840641777,
+        "examples": [
+          {
+            "day": 196,
+            "hh": 11,
+            "people": 2,
+            "home": 45,
+            "homePart": 0,
+            "shoppingIndex": 305,
+            "shoppingOffset": 19,
+            "households": 313,
+            "need": 3.2,
+            "unmet": 3.199999999999954,
+            "cashBeforeFood": 3110.421761507919,
+            "cashAfterFood": 3110.001761507919,
+            "bankFunds": [
+              {
+                "bank": 2,
+                "deposit": 2144.502133474861,
+                "bankCash": 575086.9991938646,
+                "closed": false
+              }
+            ],
+            "liquidity": 5254.5038949827795,
+            "income": 28.50817886033496,
+            "wages": 28.50817886033496,
+            "aid": 0,
+            "stress": 40.66099236581484,
+            "foodTax": 4,
+            "reachable": [
+              {
+                "firm": 51,
+                "distance": 1,
+                "travel": 0.030000000000000006,
+                "price": 3.9548052719260065,
+                "stock": 521.0408517285965,
+                "capacity": 0,
+                "workers": 1,
+                "part": 0
+              },
+              {
+                "firm": 53,
+                "distance": 15,
+                "travel": 0.45000000000000007,
+                "price": 3.87666494074267,
+                "stock": 558.2158216978696,
+                "capacity": 0,
+                "workers": 1,
+                "part": 0
+              },
+              {
+                "firm": 55,
+                "distance": 25,
+                "travel": 0.7500000000000001,
+                "price": 3.8227758105072223,
+                "stock": 264.62352227993654,
+                "capacity": 0,
+                "workers": 1,
+                "part": 0
+              },
+              {
+                "firm": 17,
+                "distance": 18,
+                "travel": 0.5400000000000001,
+                "price": 3.920532503902875,
+                "stock": 589.603759013736,
+                "capacity": 0,
+                "workers": 1,
+                "part": 0
+              },
+              {
+                "firm": 54,
+                "distance": 0,
+                "travel": 0,
+                "price": 4.135691002956785,
+                "stock": 329.9620673659355,
+                "capacity": 0,
+                "workers": 1,
+                "part": 0
+              },
+              {
+                "firm": 2,
+                "distance": 15,
+                "travel": 0.45000000000000007,
+                "price": 4.025620404487036,
+                "stock": 844.5931960723653,
+                "capacity": 0,
+                "workers": 2,
+                "part": 0
+              },
+              {
+                "firm": 88,
+                "distance": 26,
+                "travel": 0.7800000000000001,
+                "price": 3.9385657017991305,
+                "stock": 254.422,
+                "capacity": 0,
+                "workers": 0,
+                "part": 0
+              },
+              {
+                "firm": 52,
+                "distance": 4,
+                "travel": 0.12000000000000002,
+                "price": 4.152125567206745,
+                "stock": 530.7870909090902,
+                "capacity": 0,
+                "workers": 1,
+                "part": 0
+              },
+              {
+                "firm": 0,
+                "distance": 13,
+                "travel": 0.39000000000000007,
+                "price": 4.101591553204264,
+                "stock": 1170.4279172598665,
+                "capacity": 0,
+                "workers": 2,
+                "part": 0
+              },
+              {
+                "firm": 1,
+                "distance": 14,
+                "travel": 0.4200000000000001,
+                "price": 4.128292148481979,
+                "stock": 725.0938931106358,
+                "capacity": 4.618527782440651e-14,
+                "workers": 2,
+                "part": 0
+              },
+              {
+                "firm": 50,
+                "distance": 19,
+                "travel": 0.5700000000000001,
+                "price": 4.093386450792672,
+                "stock": 404.8515867019762,
+                "capacity": 0,
+                "workers": 1,
+                "part": 0
+              }
+            ],
+            "accessibleStock": 6193.6217061400075,
+            "accessibleCapacity": 4.618527782440651e-14,
+            "inaccessibleStock": 0,
+            "allStoreStock": 7233.621706140016,
+            "allStores": 11,
+            "initialStoreCapacity": 1040,
+            "initialStoreStaff": 13,
+            "initialSellableFood": 1040,
+            "storesWithSellableFood": 10,
+            "purchases": [
+              {
+                "firm": 1,
+                "qty": 4.618527782440651e-14,
+                "price": 4.128292148481979,
+                "travel": 0.4200000000000001,
+                "distance": 14,
+                "stockBefore": 725.0938931106358,
+                "capacityBefore": 9.237055564881302e-14
+              }
+            ]
+          },
+          {
+            "day": 196,
+            "hh": 12,
+            "people": 3,
+            "home": 46,
+            "homePart": 0,
+            "shoppingIndex": 306,
+            "shoppingOffset": 19,
+            "households": 313,
+            "need": 4.800000000000001,
+            "unmet": 4.800000000000001,
+            "cashBeforeFood": 7444.523894402108,
+            "cashAfterFood": 7444.523894402108,
+            "bankFunds": [
+              {
+                "bank": 0,
+                "deposit": 120.46184168212064,
+                "bankCash": 39613.92249902308,
+                "closed": false
+              },
+              {
+                "bank": 2,
+                "deposit": 3638.5901404987994,
+                "bankCash": 575086.9991938646,
+                "closed": false
+              }
+            ],
+            "liquidity": 11203.575876583029,
+            "income": 42.03568235602418,
+            "wages": 0,
+            "aid": 0,
+            "stress": 60.82639221869417,
+            "foodTax": 4,
+            "reachable": [
+              {
+                "firm": 55,
+                "distance": 16,
+                "travel": 0.4800000000000001,
+                "price": 3.8227758105072223,
+                "stock": 264.62352227993654,
+                "capacity": 0,
+                "workers": 1,
+                "part": 0
+              },
+              {
+                "firm": 53,
+                "distance": 10,
+                "travel": 0.30000000000000004,
+                "price": 3.87666494074267,
+                "stock": 558.2158216978696,
+                "capacity": 0,
+                "workers": 1,
+                "part": 0
+              },
+              {
+                "firm": 17,
+                "distance": 7,
+                "travel": 0.21000000000000005,
+                "price": 3.920532503902875,
+                "stock": 589.603759013736,
+                "capacity": 0,
+                "workers": 1,
+                "part": 0
+              },
+              {
+                "firm": 51,
+                "distance": 20,
+                "travel": 0.6000000000000001,
+                "price": 3.9548052719260065,
+                "stock": 521.0408517285965,
+                "capacity": 0,
+                "workers": 1,
+                "part": 0
+              },
+              {
+                "firm": 2,
+                "distance": 14,
+                "travel": 0.4200000000000001,
+                "price": 4.025620404487036,
+                "stock": 844.5931960723653,
+                "capacity": 0,
+                "workers": 2,
+                "part": 0
+              },
+              {
+                "firm": 50,
+                "distance": 6,
+                "travel": 0.18000000000000002,
+                "price": 4.093386450792672,
+                "stock": 404.8515867019762,
+                "capacity": 0,
+                "workers": 1,
+                "part": 0
+              },
+              {
+                "firm": 0,
+                "distance": 12,
+                "travel": 0.36000000000000004,
+                "price": 4.101591553204264,
+                "stock": 1170.4279172598665,
+                "capacity": 0,
+                "workers": 2,
+                "part": 0
+              },
+              {
+                "firm": 1,
+                "distance": 13,
+                "travel": 0.39000000000000007,
+                "price": 4.128292148481979,
+                "stock": 725.0938931106358,
+                "capacity": 0,
+                "workers": 2,
+                "part": 0
+              },
+              {
+                "firm": 88,
+                "distance": 47,
+                "travel": 1.4100000000000004,
+                "price": 3.9385657017991305,
+                "stock": 254.422,
+                "capacity": 0,
+                "workers": 0,
+                "part": 0
+              },
+              {
+                "firm": 52,
+                "distance": 17,
+                "travel": 0.5100000000000001,
+                "price": 4.152125567206745,
+                "stock": 530.7870909090902,
+                "capacity": 0,
+                "workers": 1,
+                "part": 0
+              },
+              {
+                "firm": 54,
+                "distance": 21,
+                "travel": 0.6300000000000001,
+                "price": 4.135691002956785,
+                "stock": 329.9620673659355,
+                "capacity": 0,
+                "workers": 1,
+                "part": 0
+              }
+            ],
+            "accessibleStock": 6193.6217061400075,
+            "accessibleCapacity": 0,
+            "inaccessibleStock": 0,
+            "allStoreStock": 7233.621706140016,
+            "allStores": 11,
+            "initialStoreCapacity": 1040,
+            "initialStoreStaff": 13,
+            "initialSellableFood": 1040,
+            "storesWithSellableFood": 10,
+            "purchases": []
+          },
+          {
+            "day": 196,
+            "hh": 13,
+            "people": 3,
+            "home": 47,
+            "homePart": 0,
+            "shoppingIndex": 307,
+            "shoppingOffset": 19,
+            "households": 313,
+            "need": 4.800000000000001,
+            "unmet": 4.800000000000001,
+            "cashBeforeFood": 8060.986292278665,
+            "cashAfterFood": 8060.986292278665,
+            "bankFunds": [
+              {
+                "bank": 1,
+                "deposit": 637.7715241289958,
+                "bankCash": 36605.902644023154,
+                "closed": false
+              },
+              {
+                "bank": 2,
+                "deposit": 4917.640024234115,
+                "bankCash": 575086.9991938646,
+                "closed": false
+              }
+            ],
+            "liquidity": 13616.397840641777,
+            "income": 84.90622427661333,
+            "wages": 65.0639557471449,
+            "aid": 0,
+            "stress": 32.12063748832808,
+            "foodTax": 4,
+            "reachable": [
+              {
+                "firm": 53,
+                "distance": 16,
+                "travel": 0.4800000000000001,
+                "price": 3.87666494074267,
+                "stock": 558.2158216978696,
+                "capacity": 0,
+                "workers": 1,
+                "part": 0
+              },
+              {
+                "firm": 55,
+                "distance": 26,
+                "travel": 0.7800000000000001,
+                "price": 3.8227758105072223,
+                "stock": 264.62352227993654,
+                "capacity": 0,
+                "workers": 1,
+                "part": 0
+              },
+              {
+                "firm": 51,
+                "distance": 6,
+                "travel": 0.18000000000000002,
+                "price": 3.9548052719260065,
+                "stock": 521.0408517285965,
+                "capacity": 0,
+                "workers": 1,
+                "part": 0
+              },
+              {
+                "firm": 17,
+                "distance": 19,
+                "travel": 0.5700000000000001,
+                "price": 3.920532503902875,
+                "stock": 589.603759013736,
+                "capacity": 0,
+                "workers": 1,
+                "part": 0
+              },
+              {
+                "firm": 2,
+                "distance": 16,
+                "travel": 0.4800000000000001,
+                "price": 4.025620404487036,
+                "stock": 844.5931960723653,
+                "capacity": 0,
+                "workers": 2,
+                "part": 0
+              },
+              {
+                "firm": 88,
+                "distance": 33,
+                "travel": 0.9900000000000001,
+                "price": 3.9385657017991305,
+                "stock": 254.422,
+                "capacity": 0,
+                "workers": 0,
+                "part": 0
+              },
+              {
+                "firm": 52,
+                "distance": 3,
+                "travel": 0.09000000000000001,
+                "price": 4.152125567206745,
+                "stock": 530.7870909090902,
+                "capacity": 0,
+                "workers": 1,
+                "part": 0
+              },
+              {
+                "firm": 54,
+                "distance": 7,
+                "travel": 0.21000000000000005,
+                "price": 4.135691002956785,
+                "stock": 329.9620673659355,
+                "capacity": 0,
+                "workers": 1,
+                "part": 0
+              },
+              {
+                "firm": 0,
+                "distance": 14,
+                "travel": 0.4200000000000001,
+                "price": 4.101591553204264,
+                "stock": 1170.4279172598665,
+                "capacity": 0,
+                "workers": 2,
+                "part": 0
+              },
+              {
+                "firm": 50,
+                "distance": 20,
+                "travel": 0.6000000000000001,
+                "price": 4.093386450792672,
+                "stock": 404.8515867019762,
+                "capacity": 0,
+                "workers": 1,
+                "part": 0
+              },
+              {
+                "firm": 1,
+                "distance": 15,
+                "travel": 0.45000000000000007,
+                "price": 4.128292148481979,
+                "stock": 725.0938931106358,
+                "capacity": 0,
+                "workers": 2,
+                "part": 0
+              }
+            ],
+            "accessibleStock": 6193.6217061400075,
+            "accessibleCapacity": 0,
+            "inaccessibleStock": 0,
+            "allStoreStock": 7233.621706140016,
+            "allStores": 11,
+            "initialStoreCapacity": 1040,
+            "initialStoreStaff": 13,
+            "initialSellableFood": 1040,
+            "storesWithSellableFood": 10,
+            "purchases": []
+          }
+        ],
+        "retail": {
+          "stores": 11,
+          "stock": 7233.621706140016,
+          "capacity": 1040,
+          "sellable": 1040,
+          "shopsSelling": 10,
+          "staff": 13
+        }
+      },
+      "271": {
+        "households": 22,
+        "people": 45,
+        "unmet": 70.39999999999982,
+        "noReach": 0,
+        "capacityExhausted": 21,
+        "cashLimitedCandidates": 0,
+        "depositHouseholds": 21,
+        "bankDeposits": 42514.49819705275,
+        "minCash": 932.7577566967619,
+        "maxCash": 13125.134934112795,
+        "minLiquidity": 956.8254783139167,
+        "maxLiquidity": 23347.500741499323,
+        "examples": [
+          {
+            "day": 271,
+            "hh": 300,
+            "people": 2,
+            "home": 217,
+            "homePart": 0,
+            "shoppingIndex": 298,
+            "shoppingOffset": 2,
+            "households": 320,
+            "need": 3.2,
+            "unmet": 1.5999999999997874,
+            "cashBeforeFood": 1402.2168601298602,
+            "cashAfterFood": 1394.3860356462158,
+            "bankFunds": [
+              {
+                "bank": 2,
+                "deposit": 1527.937604092852,
+                "bankCash": 874137.0842499762,
+                "closed": false
+              }
+            ],
+            "liquidity": 2922.323639739068,
+            "income": 32,
+            "wages": 0,
+            "aid": 0,
+            "stress": 31.993900000000128,
+            "foodTax": 4,
+            "reachable": [
+              {
+                "firm": 17,
+                "distance": 34,
+                "travel": 1.0200000000000002,
+                "price": 3.5731221916781193,
+                "stock": 797.3818181818161,
+                "capacity": 0,
+                "workers": 1,
+                "part": 0
+              },
+              {
+                "firm": 53,
+                "distance": 31,
+                "travel": 0.9300000000000003,
+                "price": 3.6267105230221706,
+                "stock": 957.3818181818159,
+                "capacity": 0,
+                "workers": 1,
+                "part": 0
+              },
+              {
+                "firm": 50,
+                "distance": 35,
+                "travel": 1.05,
+                "price": 3.629187850304779,
+                "stock": 877.3818181818145,
+                "capacity": 0,
+                "workers": 1,
+                "part": 0
+              },
+              {
+                "firm": 2,
+                "distance": 23,
+                "travel": 0.6900000000000001,
+                "price": 3.742400376417653,
+                "stock": 1406.76377067325,
+                "capacity": 0,
+                "workers": 1,
+                "part": 0
+              },
+              {
+                "firm": 52,
+                "distance": 36,
+                "travel": 1.0800000000000003,
+                "price": 3.6515033283268155,
+                "stock": 957.3818181818167,
+                "capacity": 0,
+                "workers": 1,
+                "part": 0
+              },
+              {
+                "firm": 55,
+                "distance": 37,
+                "travel": 1.1100000000000003,
+                "price": 3.6509707234061377,
+                "stock": 957.3818181818157,
+                "capacity": 0,
+                "workers": 1,
+                "part": 0
+              },
+              {
+                "firm": 51,
+                "distance": 37,
+                "travel": 1.1100000000000003,
+                "price": 3.654818492519145,
+                "stock": 797.3818181818148,
+                "capacity": 0,
+                "workers": 1,
+                "part": 0
+              },
+              {
+                "firm": 54,
+                "distance": 38,
+                "travel": 1.1400000000000001,
+                "price": 3.661563051295341,
+                "stock": 797.3818181818131,
+                "capacity": 0,
+                "workers": 1,
+                "part": 0
+              },
+              {
+                "firm": 0,
+                "distance": 25,
+                "travel": 0.7500000000000001,
+                "price": 3.866381204837632,
+                "stock": 1270.2416804203256,
+                "capacity": 0,
+                "workers": 2,
+                "part": 0
+              },
+              {
+                "firm": 88,
+                "distance": 32,
+                "travel": 0.9600000000000002,
+                "price": 4.104095959278848,
+                "stock": 1079.860351245468,
+                "capacity": 0,
+                "workers": 0,
+                "part": 0
+              },
+              {
+                "firm": 1,
+                "distance": 24,
+                "travel": 0.7200000000000001,
+                "price": 4.273332021420314,
+                "stock": 2041.7947568313703,
+                "capacity": 1.6000000000002128,
+                "workers": 3,
+                "part": 0
+              }
+            ],
+            "accessibleStock": 11940.333286443121,
+            "accessibleCapacity": 1.6000000000002128,
+            "inaccessibleStock": 0,
+            "allStoreStock": 12978.73328644312,
+            "allStores": 11,
+            "initialStoreCapacity": 1040,
+            "initialStoreStaff": 13,
+            "initialSellableFood": 1040,
+            "storesWithSellableFood": 10,
+            "purchases": [
+              {
+                "firm": 1,
+                "qty": 1.6000000000002128,
+                "price": 4.273332021420314,
+                "travel": 0.7200000000000001,
+                "distance": 24,
+                "stockBefore": 2043.3947568313704,
+                "capacityBefore": 3.2000000000004256
+              }
+            ]
+          },
+          {
+            "day": 271,
+            "hh": 301,
+            "people": 2,
+            "home": 217,
+            "homePart": 0,
+            "shoppingIndex": 299,
+            "shoppingOffset": 2,
+            "households": 320,
+            "need": 3.2,
+            "unmet": 3.2,
+            "cashBeforeFood": 2355.929164197142,
+            "cashAfterFood": 2355.929164197142,
+            "bankFunds": [
+              {
+                "bank": 2,
+                "deposit": 2111.1648819150982,
+                "bankCash": 874137.0842499762,
+                "closed": false
+              }
+            ],
+            "liquidity": 4467.094046112241,
+            "income": 65.25958723543403,
+            "wages": 65.25958723543403,
+            "aid": 0,
+            "stress": 15.740000000000194,
+            "foodTax": 4,
+            "reachable": [
+              {
+                "firm": 17,
+                "distance": 34,
+                "travel": 1.0200000000000002,
+                "price": 3.5731221916781193,
+                "stock": 797.3818181818161,
+                "capacity": 0,
+                "workers": 1,
+                "part": 0
+              },
+              {
+                "firm": 53,
+                "distance": 31,
+                "travel": 0.9300000000000003,
+                "price": 3.6267105230221706,
+                "stock": 957.3818181818159,
+                "capacity": 0,
+                "workers": 1,
+                "part": 0
+              },
+              {
+                "firm": 50,
+                "distance": 35,
+                "travel": 1.05,
+                "price": 3.629187850304779,
+                "stock": 877.3818181818145,
+                "capacity": 0,
+                "workers": 1,
+                "part": 0
+              },
+              {
+                "firm": 2,
+                "distance": 23,
+                "travel": 0.6900000000000001,
+                "price": 3.742400376417653,
+                "stock": 1406.76377067325,
+                "capacity": 0,
+                "workers": 1,
+                "part": 0
+              },
+              {
+                "firm": 52,
+                "distance": 36,
+                "travel": 1.0800000000000003,
+                "price": 3.6515033283268155,
+                "stock": 957.3818181818167,
+                "capacity": 0,
+                "workers": 1,
+                "part": 0
+              },
+              {
+                "firm": 55,
+                "distance": 37,
+                "travel": 1.1100000000000003,
+                "price": 3.6509707234061377,
+                "stock": 957.3818181818157,
+                "capacity": 0,
+                "workers": 1,
+                "part": 0
+              },
+              {
+                "firm": 51,
+                "distance": 37,
+                "travel": 1.1100000000000003,
+                "price": 3.654818492519145,
+                "stock": 797.3818181818148,
+                "capacity": 0,
+                "workers": 1,
+                "part": 0
+              },
+              {
+                "firm": 54,
+                "distance": 38,
+                "travel": 1.1400000000000001,
+                "price": 3.661563051295341,
+                "stock": 797.3818181818131,
+                "capacity": 0,
+                "workers": 1,
+                "part": 0
+              },
+              {
+                "firm": 0,
+                "distance": 25,
+                "travel": 0.7500000000000001,
+                "price": 3.866381204837632,
+                "stock": 1270.2416804203256,
+                "capacity": 0,
+                "workers": 2,
+                "part": 0
+              },
+              {
+                "firm": 88,
+                "distance": 32,
+                "travel": 0.9600000000000002,
+                "price": 4.104095959278848,
+                "stock": 1079.860351245468,
+                "capacity": 0,
+                "workers": 0,
+                "part": 0
+              },
+              {
+                "firm": 1,
+                "distance": 24,
+                "travel": 0.7200000000000001,
+                "price": 4.273332021420314,
+                "stock": 2040.1947568313701,
+                "capacity": 0,
+                "workers": 3,
+                "part": 0
+              }
+            ],
+            "accessibleStock": 11938.733286443121,
+            "accessibleCapacity": 0,
+            "inaccessibleStock": 0,
+            "allStoreStock": 12978.73328644312,
+            "allStores": 11,
+            "initialStoreCapacity": 1040,
+            "initialStoreStaff": 13,
+            "initialSellableFood": 1040,
+            "storesWithSellableFood": 10,
+            "purchases": []
+          },
+          {
+            "day": 271,
+            "hh": 302,
+            "people": 2,
+            "home": 217,
+            "homePart": 0,
+            "shoppingIndex": 300,
+            "shoppingOffset": 2,
+            "households": 320,
+            "need": 3.2,
+            "unmet": 3.2,
+            "cashBeforeFood": 2434.8592998607755,
+            "cashAfterFood": 2434.8592998607755,
+            "bankFunds": [
+              {
+                "bank": 2,
+                "deposit": 2512.58635535649,
+                "bankCash": 874137.0842499762,
+                "closed": false
+              }
+            ],
+            "liquidity": 4947.445655217265,
+            "income": 65.45529225055397,
+            "wages": 65.45529225055397,
+            "aid": 0,
+            "stress": 14.620000000000214,
+            "foodTax": 4,
+            "reachable": [
+              {
+                "firm": 17,
+                "distance": 34,
+                "travel": 1.0200000000000002,
+                "price": 3.5731221916781193,
+                "stock": 797.3818181818161,
+                "capacity": 0,
+                "workers": 1,
+                "part": 0
+              },
+              {
+                "firm": 53,
+                "distance": 31,
+                "travel": 0.9300000000000003,
+                "price": 3.6267105230221706,
+                "stock": 957.3818181818159,
+                "capacity": 0,
+                "workers": 1,
+                "part": 0
+              },
+              {
+                "firm": 50,
+                "distance": 35,
+                "travel": 1.05,
+                "price": 3.629187850304779,
+                "stock": 877.3818181818145,
+                "capacity": 0,
+                "workers": 1,
+                "part": 0
+              },
+              {
+                "firm": 2,
+                "distance": 23,
+                "travel": 0.6900000000000001,
+                "price": 3.742400376417653,
+                "stock": 1406.76377067325,
+                "capacity": 0,
+                "workers": 1,
+                "part": 0
+              },
+              {
+                "firm": 52,
+                "distance": 36,
+                "travel": 1.0800000000000003,
+                "price": 3.6515033283268155,
+                "stock": 957.3818181818167,
+                "capacity": 0,
+                "workers": 1,
+                "part": 0
+              },
+              {
+                "firm": 55,
+                "distance": 37,
+                "travel": 1.1100000000000003,
+                "price": 3.6509707234061377,
+                "stock": 957.3818181818157,
+                "capacity": 0,
+                "workers": 1,
+                "part": 0
+              },
+              {
+                "firm": 51,
+                "distance": 37,
+                "travel": 1.1100000000000003,
+                "price": 3.654818492519145,
+                "stock": 797.3818181818148,
+                "capacity": 0,
+                "workers": 1,
+                "part": 0
+              },
+              {
+                "firm": 54,
+                "distance": 38,
+                "travel": 1.1400000000000001,
+                "price": 3.661563051295341,
+                "stock": 797.3818181818131,
+                "capacity": 0,
+                "workers": 1,
+                "part": 0
+              },
+              {
+                "firm": 0,
+                "distance": 25,
+                "travel": 0.7500000000000001,
+                "price": 3.866381204837632,
+                "stock": 1270.2416804203256,
+                "capacity": 0,
+                "workers": 2,
+                "part": 0
+              },
+              {
+                "firm": 88,
+                "distance": 32,
+                "travel": 0.9600000000000002,
+                "price": 4.104095959278848,
+                "stock": 1079.860351245468,
+                "capacity": 0,
+                "workers": 0,
+                "part": 0
+              },
+              {
+                "firm": 1,
+                "distance": 24,
+                "travel": 0.7200000000000001,
+                "price": 4.273332021420314,
+                "stock": 2040.1947568313701,
+                "capacity": 0,
+                "workers": 3,
+                "part": 0
+              }
+            ],
+            "accessibleStock": 11938.733286443121,
+            "accessibleCapacity": 0,
+            "inaccessibleStock": 0,
+            "allStoreStock": 12978.73328644312,
+            "allStores": 11,
+            "initialStoreCapacity": 1040,
+            "initialStoreStaff": 13,
+            "initialSellableFood": 1040,
+            "storesWithSellableFood": 10,
+            "purchases": []
+          }
+        ],
+        "retail": {
+          "stores": 11,
+          "stock": 12978.73328644312,
+          "capacity": 1040,
+          "sellable": 1040,
+          "shopsSelling": 10,
+          "staff": 13
+        }
+      }
+    },
+    "road": {}
+  }
+}
