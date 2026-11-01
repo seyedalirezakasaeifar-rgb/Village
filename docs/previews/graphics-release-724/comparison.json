@@ -1,0 +1,170 @@
+{
+  "sourceCommit": "72419dc89e0526888afcb956d34bcc78abff3f3e",
+  "gameBundleSHA256": "3e262a51d4a95992c2b9df3f8205025ffdb1f05d6a5376a528ff75ddceedae8b",
+  "sameFundedTown": {
+    "day": 2,
+    "treasury": 90362.20087695315,
+    "debt": 0,
+    "population": 169,
+    "employment": 93,
+    "hardship": 7,
+    "businesses": 26,
+    "approval": 65,
+    "cases": 0,
+    "total": 15483737.999999989,
+    "regional": 14749887.624238474,
+    "hhCash": 104323.67383156142,
+    "firmCash": 425317.43660716806,
+    "events": 2,
+    "policy": {
+      "privateServices": 1,
+      "privateTuitionCap": 4,
+      "privateFireFeeCap": 1,
+      "serviceVoucherBudget": 0,
+      "policyRate": 3,
+      "pensionDaily": 16,
+      "incomeTax": 12,
+      "profitTax": 12,
+      "propertyTax": 1.1,
+      "foodTax": 4,
+      "utilityTax": 2,
+      "commercialRate": 0.6,
+      "energyAidBudget": 35,
+      "transitBudget": 35,
+      "minWage": 28,
+      "permitFee": 250,
+      "policeBudget": 180,
+      "defenseBudget": 140,
+      "aidBudget": 100,
+      "outreachBudget": 40,
+      "employmentSubsidy": 0,
+      "importTariff": 0,
+      "healthBudget": 70,
+      "educationBudget": 90,
+      "roadBudget": 25,
+      "zoningRestriction": 25,
+      "businessRegulation": 25,
+      "militiaBudget": 25,
+      "bankReserve": 12,
+      "lendingRules": 35,
+      "depositGuarantee": 0,
+      "treasuryInvestment": 60,
+      "imports": true
+    },
+    "stats": {
+      "population": 169,
+      "approval": 65,
+      "employed": 102,
+      "workforce": 110,
+      "employment": 93,
+      "unemployment": 7,
+      "hardship": 7,
+      "safety": 88,
+      "preparedness": 76,
+      "businesses": 26,
+      "cash": 104323.67383156142,
+      "businessCash": 425317.43660716806,
+      "dailyCrime": 0,
+      "income": 4140.851117444896,
+      "townBalance": 90362.20087695315,
+      "health": 74,
+      "education": 46,
+      "wellbeing": 80,
+      "marketConfidence": 61,
+      "roadCondition": 100,
+      "roadService": 58,
+      "militia": 26,
+      "realWages": 11.2,
+      "prosperity": 74,
+      "avgCash": 1546.8059701492537,
+      "compliance": 25,
+      "propertyCosts": 3.025,
+      "roadAccess": 100
+    },
+    "achievements": [],
+    "pending": false
+  },
+  "rows": [
+    {
+      "mode": "classic",
+      "archiveSHA256": "4cfc3956f1eacadaf5dc3d2cd4bcd6c182bb4b18a50897be4ca575e709da2084",
+      "rendererChoice": "canvas",
+      "qualityChoice": "balanced",
+      "view": {
+        "camera": {
+          "x": 4678,
+          "y": 968,
+          "zoom": 1.3
+        },
+        "touchCount": 0,
+        "pointer": {
+          "down": false,
+          "moved": false,
+          "pinch": 0
+        }
+      }
+    },
+    {
+      "mode": "economy",
+      "archiveSHA256": "4cfc3956f1eacadaf5dc3d2cd4bcd6c182bb4b18a50897be4ca575e709da2084",
+      "rendererChoice": "webgl",
+      "qualityChoice": "low",
+      "view": {
+        "camera": {
+          "target": {
+            "x": 26,
+            "z": 26
+          },
+          "zoom": 1.8,
+          "position": [
+            154,
+            147.69230769230768,
+            154
+          ],
+          "touches": 0,
+          "pinching": false
+        },
+        "quality": "economy",
+        "backend": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "calls": 21,
+        "triangles": 19202
+      }
+    },
+    {
+      "mode": "rich",
+      "archiveSHA256": "4cfc3956f1eacadaf5dc3d2cd4bcd6c182bb4b18a50897be4ca575e709da2084",
+      "rendererChoice": "webgl",
+      "qualityChoice": "high",
+      "view": {
+        "camera": {
+          "target": {
+            "x": 26,
+            "z": 26
+          },
+          "zoom": 1.8,
+          "position": [
+            154,
+            147.69230769230768,
+            154
+          ],
+          "touches": 0,
+          "pinching": false
+        },
+        "quality": "reference",
+        "backend": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "calls": 25,
+        "triangles": 168326
+      }
+    }
+  ],
+  "sameArchiveAllThree": true,
+  "projectionCaveat": "Economy/Rich exact camera; Classic same worldcentre26,26 with its existing isometric projection/scale",
+  "contextLossDisposed": {
+    "geometries": 0,
+    "textures": 0
+  },
+  "retryRichPreference": true,
+  "fullArchiveRNGInvariant": true,
+  "save": true,
+  "errors": []
+}

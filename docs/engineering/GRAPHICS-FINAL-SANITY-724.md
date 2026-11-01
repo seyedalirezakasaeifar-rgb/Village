@@ -1,0 +1,9 @@
+# Final graphics/save sanity on72419dc
+
+Exact source72419dc89e0526888afcb956d34bcc78abff3f3e; bundleSHA3e262a51d4a95992c2b9df3f8205025ffdb1f05d6a5376a528ff75ddceedae8b. Public runtime preserved: only tests/reports/game-only screenshots are added here. Earlier878evidence remains on its own immutable branch/commit.
+
+Five bounded HTTP browser scripts passed: pausedTraffic option/actualtrip; pausedfar→near actualboats; discoverableCityview/preferences/reload; both-tier actors/warmedcache/idle/disposal; actualClassic/Economy/Rich comparison with controlledcontextloss/retry. Four Node oracles passed: actormode, actorlayer/depth/identity,128registeredstructural/cardinalenvelopes and qualitypolicy. All paused completearchive/RNG checks passed; successfulsave; zero browsererrors; contextloss disposed0geometries/0textures and retry retained explicitRich. No regression reproduced. No30minute soak repeated.
+
+Actual final captures: docs/previews/graphics-release-724/{classic,economy,rich}.png; each corresponding*-settings.png shows chosenmode/quality. Rich image visually inspected, cleanHUD/noerrorwarning. They use the same169-resident fundedday2town and identical completearchivehash4cfc3956f1eacadaf5dc3d2cd4bcd6c182bb4b18a50897be4ca575e709da2084. Economy/Rich exactcamera; Classic sameworldcentre with existingdifferentprojection/scale. ComparisonJSON records exactsource/hash/camera/state/resource results. Low-tier softness, repeatedbuildingforms/lawns and high-tiercost remain disclosed limitations; no conceptual-fidelity or physicalsmoothness certification.
+
+Tests ran sequentially on hostChromium/SwiftShader. Nativepackaging/promotion is separate; noAPK/manifests uploaded and no native fileschanged. Capabilityclassification rules remain unchanged from878review, including its disclosedconservativeXclipse/redacted-label gap. No newartfeatures or runtimefixes were needed.

@@ -1,0 +1,9 @@
+{
+  "source": "72419dc89e0526888afcb956d34bcc78abff3f3e",
+  "bundleSHA256": "3e262a51d4a95992c2b9df3f8205025ffdb1f05d6a5376a528ff75ddceedae8b",
+  "browserScriptsPassed": 5,
+  "nodeScriptsPassed": 4,
+  "runtimeUnchanged": true,
+  "noNewRegression": true,
+  "backend": "Host Chromium SwiftShader; no physical performance certification"
+}
