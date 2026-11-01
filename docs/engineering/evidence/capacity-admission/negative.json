@@ -1,0 +1,21 @@
+{
+  "source_sha256": "b9f015806b20e5795bdb1814373b25a8786247c7c67f634ac9104c4c79d4f12f",
+  "expectedUnsafeStatusTransition": {
+    "people": {
+      "admittedBytes": 1349578,
+      "totalBefore": 16166,
+      "totalAfter": 16166,
+      "moneyPreserved": true,
+      "historicalAfter": 16001,
+      "error": "Error: Malformed inactive identity directory"
+    },
+    "households": {
+      "admittedBytes": 667396,
+      "totalBefore": 6066,
+      "totalAfter": 6066,
+      "moneyPreserved": true,
+      "historicalAfter": 6001,
+      "error": "Error: Malformed historical households directory"
+    }
+  }
+}

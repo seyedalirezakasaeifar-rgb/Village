@@ -1,0 +1,57 @@
+{
+  "source_sha256": "8be2585815ad9585f3fde86d2fb00909589b44f39956c4faa0e146fe47bb970a",
+  "result": {
+    "tests": [
+      {
+        "name": "byte-growth-from-unitCost-defaults",
+        "bytes": 8388544,
+        "rejected": true,
+        "modelRngEpochRuntimeAndUiUnchanged": true,
+        "persistenceWrites": 0,
+        "nestedSaveAttempts": 1,
+        "ms": 168.40000000223517
+      },
+      {
+        "name": "node-growth-from-unitCost-defaults",
+        "bytes": 5114576,
+        "rejected": true,
+        "modelRngEpochRuntimeAndUiUnchanged": true,
+        "persistenceWrites": 0,
+        "nestedSaveAttempts": 1,
+        "ms": 156.80000000074506
+      },
+      {
+        "name": "missing-trade-default-near-byte-limit",
+        "bytes": 8388600,
+        "rejected": true,
+        "modelRngEpochRuntimeAndUiUnchanged": true,
+        "persistenceWrites": 0,
+        "nestedSaveAttempts": 1,
+        "ms": 152.19999999925494
+      },
+      {
+        "name": "transport-normalization-near-byte-limit",
+        "bytes": 8388600,
+        "rejected": true,
+        "modelRngEpochRuntimeAndUiUnchanged": true,
+        "persistenceWrites": 0,
+        "nestedSaveAttempts": 1,
+        "ms": 145.90000000223517
+      },
+      {
+        "name": "canonical-wire-numeric-growth",
+        "bytes": 4068312,
+        "rejected": true,
+        "modelRngEpochRuntimeAndUiUnchanged": true,
+        "persistenceWrites": 0,
+        "nestedSaveAttempts": 0,
+        "ms": 74.90000000223517
+      }
+    ],
+    "canonicalWireRejectInitializationCalls": 0,
+    "supportedNormalizationAccepted": true,
+    "selfExportable": true,
+    "exactReplayDays": 30,
+    "productionEnabled": false
+  }
+}

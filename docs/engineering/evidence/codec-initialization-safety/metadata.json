@@ -1,0 +1,122 @@
+{
+  "source_sha256": "8be2585815ad9585f3fde86d2fb00909589b44f39956c4faa0e146fe47bb970a",
+  "hostChromium": true,
+  "physicalAndroid": false,
+  "productionDefaultEnabled": false,
+  "result": {
+    "wireBytes": 6101357,
+    "fixture": "Owner synthetic historical generator with actual constructor boundary actions",
+    "malformed": [
+      {
+        "name": "personTotal",
+        "budgetCalls": 0,
+        "reconstructions": 0,
+        "atomic": true
+      },
+      {
+        "name": "missingEntities",
+        "budgetCalls": 0,
+        "reconstructions": 0,
+        "atomic": true
+      },
+      {
+        "name": "extraEntities",
+        "budgetCalls": 0,
+        "reconstructions": 0,
+        "atomic": true
+      },
+      {
+        "name": "unexpectedV1Entities",
+        "budgetCalls": 0,
+        "reconstructions": 0,
+        "atomic": true
+      },
+      {
+        "name": "householdsTotal",
+        "budgetCalls": 0,
+        "reconstructions": 0,
+        "atomic": true
+      },
+      {
+        "name": "householdsOverTotal",
+        "budgetCalls": 0,
+        "reconstructions": 0,
+        "atomic": true
+      },
+      {
+        "name": "householdsMissing",
+        "budgetCalls": 0,
+        "reconstructions": 0,
+        "atomic": true
+      },
+      {
+        "name": "householdsRows",
+        "budgetCalls": 0,
+        "reconstructions": 0,
+        "atomic": true
+      },
+      {
+        "name": "householdsActive",
+        "budgetCalls": 0,
+        "reconstructions": 0,
+        "atomic": true
+      },
+      {
+        "name": "householdsFieldId",
+        "budgetCalls": 0,
+        "reconstructions": 0,
+        "atomic": true
+      },
+      {
+        "name": "householdsFieldOrder",
+        "budgetCalls": 0,
+        "reconstructions": 0,
+        "atomic": true
+      },
+      {
+        "name": "firmsTotal",
+        "budgetCalls": 0,
+        "reconstructions": 0,
+        "atomic": true
+      },
+      {
+        "name": "firmsOverTotal",
+        "budgetCalls": 0,
+        "reconstructions": 0,
+        "atomic": true
+      },
+      {
+        "name": "firmsMissing",
+        "budgetCalls": 0,
+        "reconstructions": 0,
+        "atomic": true
+      },
+      {
+        "name": "firmsRows",
+        "budgetCalls": 0,
+        "reconstructions": 0,
+        "atomic": true
+      },
+      {
+        "name": "firmsActive",
+        "budgetCalls": 0,
+        "reconstructions": 0,
+        "atomic": true
+      },
+      {
+        "name": "firmsFieldId",
+        "budgetCalls": 0,
+        "reconstructions": 0,
+        "atomic": true
+      },
+      {
+        "name": "firmsFieldOrder",
+        "budgetCalls": 0,
+        "reconstructions": 0,
+        "atomic": true
+      }
+    ],
+    "validBudgetCalls": 1,
+    "validReconstructions": 2
+  }
+}

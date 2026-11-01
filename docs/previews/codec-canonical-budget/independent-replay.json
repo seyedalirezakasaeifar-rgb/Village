@@ -1,0 +1,29 @@
+{
+  "optimizedVariant": false,
+  "source_sha256": "138b2d021290e3381ab96314cf43d2a1527da0cbad8713baa486b055dd8cb3ff",
+  "hostChromium": true,
+  "physicalAndroid": false,
+  "fixturePreparation": "Owner boundary generator, independent assertions; synthetic historical records with real creator boundary actions",
+  "boundary": {
+    "people": 172,
+    "households": 3001,
+    "firms": 3001,
+    "wireBytes": 6104471
+  },
+  "additionalAtomicRejected": [
+    "personEstate",
+    "loanCreditor",
+    "loanOwner",
+    "summaryOwner",
+    "firmId",
+    "entityVersionSpoof",
+    "utf8SharedExpansion"
+  ],
+  "fullLogicalFieldAndReferenceEquality": true,
+  "allDirectoriesReorderedWithoutReindexing": true,
+  "canonicalOriginalVsDecodedReplayDays": 45,
+  "regionalCreditorAndHighEstateReferencesPreserved": true,
+  "ownPrototypeAndConstructorFieldsPreserved": true,
+  "fixtureBaseCandidate": "aecf8e3dbbd50cc60a67fb4063ef379170abbd48",
+  "workingTreeChange": "Canonical JSON byte accounting correction in src/89-inactive-person-codec.js"
+}

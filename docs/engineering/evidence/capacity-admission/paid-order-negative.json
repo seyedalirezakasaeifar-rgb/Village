@@ -1,0 +1,24 @@
+{
+  "source_sha256": "7c1b88875d44ebfac4cbdc3e434d46b2e303e3e1052753e39df99f259b30645c",
+  "unsafePaidOrder": {
+    "action": "construct grocer",
+    "attempt": 2,
+    "error": "Error: Archive exceeds encoded byte budget",
+    "before": {
+      "treasury": 96498.78208985325,
+      "region": 14648572.741070002,
+      "firms": 27,
+      "nextId": 106,
+      "rng": 1335636808
+    },
+    "after": {
+      "treasury": 92448.78208985325,
+      "region": 14640622.741070002,
+      "firms": 28,
+      "nextId": 107,
+      "rng": 3735097094
+    },
+    "lastGoodBytes": 8388041,
+    "recoverySucceeded": true
+  }
+}

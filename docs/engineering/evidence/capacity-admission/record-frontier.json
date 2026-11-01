@@ -1,0 +1,68 @@
+{
+  "source_sha256": "7c1b88875d44ebfac4cbdc3e434d46b2e303e3e1052753e39df99f259b30645c",
+  "recordFrontier": [
+    {
+      "kind": "people",
+      "delta": -1,
+      "total": 23999,
+      "accepted": true,
+      "selfExportable": true
+    },
+    {
+      "kind": "people",
+      "delta": 0,
+      "total": 24000,
+      "accepted": true,
+      "selfExportable": true
+    },
+    {
+      "kind": "people",
+      "delta": 1,
+      "total": 24001,
+      "accepted": false,
+      "selfExportable": false
+    },
+    {
+      "kind": "households",
+      "delta": -1,
+      "total": 8999,
+      "accepted": true,
+      "selfExportable": true
+    },
+    {
+      "kind": "households",
+      "delta": 0,
+      "total": 9000,
+      "accepted": true,
+      "selfExportable": true
+    },
+    {
+      "kind": "households",
+      "delta": 1,
+      "total": 9001,
+      "accepted": false,
+      "selfExportable": false
+    },
+    {
+      "kind": "firms",
+      "delta": -1,
+      "total": 8999,
+      "accepted": true,
+      "selfExportable": true
+    },
+    {
+      "kind": "firms",
+      "delta": 0,
+      "total": 9000,
+      "accepted": true,
+      "selfExportable": true
+    },
+    {
+      "kind": "firms",
+      "delta": 1,
+      "total": 9001,
+      "accepted": false,
+      "selfExportable": false
+    }
+  ]
+}

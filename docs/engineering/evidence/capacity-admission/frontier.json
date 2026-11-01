@@ -1,0 +1,47 @@
+{
+  "source_sha256": "7c1b88875d44ebfac4cbdc3e434d46b2e303e3e1052753e39df99f259b30645c",
+  "frontier": [
+    {
+      "kind": "bytes",
+      "delta": -1,
+      "actual": 8388607,
+      "accepted": true,
+      "ms": 68.20000000298023
+    },
+    {
+      "kind": "bytes",
+      "delta": 0,
+      "actual": 8388608,
+      "accepted": true,
+      "ms": 66
+    },
+    {
+      "kind": "bytes",
+      "delta": 1,
+      "actual": 8388609,
+      "accepted": false,
+      "ms": 1.199999999254942
+    },
+    {
+      "kind": "nodes",
+      "delta": -1,
+      "actual": 999999,
+      "accepted": true,
+      "ms": 122.70000000298023
+    },
+    {
+      "kind": "nodes",
+      "delta": 0,
+      "actual": 1000000,
+      "accepted": true,
+      "ms": 123.80000000074506
+    },
+    {
+      "kind": "nodes",
+      "delta": 1,
+      "actual": 1000001,
+      "accepted": false,
+      "ms": 100.80000000074506
+    }
+  ]
+}

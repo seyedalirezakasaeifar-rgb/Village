@@ -1,0 +1,1144 @@
+{
+  "source_sha256": "8be2585815ad9585f3fde86d2fb00909589b44f39956c4faa0e146fe47bb970a",
+  "hostChromium": true,
+  "physicalAndroid": false,
+  "productionDefaultEnabled": false,
+  "browserOldSpaceCapMiB": 384,
+  "result": {
+    "seed": 1403591725,
+    "randomCanonicalCases": 2048,
+    "validWireCases": 350,
+    "invalidCases": 177,
+    "maxWireBytes": 4406102,
+    "earlyRejectCases": 152,
+    "syntaxCases": 10,
+    "lateWork": {
+      "duplicate-version-last-invalid": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Unsupported inactive identity format"
+      },
+      "syntax-[1,,2]": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Unexpected token ',', ...\"Value\":[1,,2]},\"inac\"... is not valid JSON"
+      },
+      "syntax-[1,]": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Unexpected token ']', ...\"Value\":[1,]},\"inacti\"... is not valid JSON"
+      },
+      "syntax-{\"a\":}": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Unexpected token '}', ...\"lue\":{\"a\":}},\"inacti\"... is not valid JSON"
+      },
+      "syntax-NaN": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Unexpected token 'N', ...\"iewValue\":NaN},\"inac\"... is not valid JSON"
+      },
+      "syntax-Infinity": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Unexpected token 'I', ...\"iewValue\":Infinity},\"... is not valid JSON"
+      },
+      "syntax-01": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Unexpected number in JSON at position 135154 (line 1 column 135155)"
+      },
+      "syntax-+1": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Unexpected token '+', ...\"iewValue\":+1},\"inact\"... is not valid JSON"
+      },
+      "syntax-1.": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Unterminated fractional number in JSON at position 135155 (line 1 column 135156)"
+      },
+      "syntax-1e": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Exponent part is missing a number in JSON at position 135155 (line 1 column 135156)"
+      },
+      "syntax-\"\\uZZZZ\"": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Bad Unicode escape in JSON at position 135156 (line 1 column 135157)"
+      },
+      "nonfinite-1e309": {
+        "budgetCalls": 1,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Nonfinite identity value"
+      },
+      "nonfinite--1e999": {
+        "budgetCalls": 1,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Nonfinite identity value"
+      },
+      "missingPayload": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Unsupported inactive identity format"
+      },
+      "missingPersonFields": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "missingPersonRows": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "missingSchema": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Unsupported inactive identity format"
+      },
+      "missingLogicalSchema": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Unsupported inactive identity format"
+      },
+      "entitiesArray": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed estate directory"
+      },
+      "entitiesNull": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed estate directory"
+      },
+      "unknownDirectory": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed estate directory"
+      },
+      "personTotalFraction": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "personTotalString": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "activeDuplicateId": {
+        "budgetCalls": 1,
+        "historicalDirectoryCalls": 2,
+        "propertyDefinitions": 96,
+        "error": "Duplicate or invalid person ID"
+      },
+      "activeMissingId": {
+        "budgetCalls": 1,
+        "historicalDirectoryCalls": 2,
+        "propertyDefinitions": 96,
+        "error": "Duplicate or invalid person ID"
+      },
+      "activeUnsafeId": {
+        "budgetCalls": 1,
+        "historicalDirectoryCalls": 2,
+        "propertyDefinitions": 96,
+        "error": "Duplicate or invalid person ID"
+      },
+      "historyDuplicateId": {
+        "budgetCalls": 1,
+        "historicalDirectoryCalls": 2,
+        "propertyDefinitions": 114,
+        "error": "Duplicate or invalid person ID"
+      },
+      "historyIdNull": {
+        "budgetCalls": 1,
+        "historicalDirectoryCalls": 2,
+        "propertyDefinitions": 105,
+        "error": "Duplicate or invalid person ID"
+      },
+      "historyRowNull": {
+        "budgetCalls": 1,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed identity row"
+      },
+      "historyValuesNull": {
+        "budgetCalls": 1,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed identity row"
+      },
+      "historyIndicesObject": {
+        "budgetCalls": 1,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed identity row"
+      },
+      "historySparseIndex": {
+        "budgetCalls": 1,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Invalid identity field index"
+      },
+      "historyIndexString": {
+        "budgetCalls": 1,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Invalid identity field index"
+      },
+      "historyIndexFraction": {
+        "budgetCalls": 1,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Invalid identity field index"
+      },
+      "historyIndexNegative": {
+        "budgetCalls": 1,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Invalid identity field index"
+      },
+      "historyIndexDuplicate": {
+        "budgetCalls": 1,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Invalid identity field index"
+      },
+      "historyAgeMissing": {
+        "budgetCalls": 1,
+        "historicalDirectoryCalls": 2,
+        "propertyDefinitions": 113,
+        "error": "Invalid identity/estate reference"
+      },
+      "historyHhMissing": {
+        "budgetCalls": 1,
+        "historicalDirectoryCalls": 2,
+        "propertyDefinitions": 113,
+        "error": "Invalid identity/estate reference"
+      },
+      "householdTotal": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed historical households directory"
+      },
+      "firmTotal": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed historical firms directory"
+      },
+      "firmFieldsDuplicate": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed historical firms directory"
+      },
+      "householdDuplicateId": {
+        "budgetCalls": 1,
+        "historicalDirectoryCalls": 1,
+        "propertyDefinitions": 34,
+        "error": "Duplicate historical entity ID"
+      },
+      "firmDuplicateId": {
+        "budgetCalls": 1,
+        "historicalDirectoryCalls": 2,
+        "propertyDefinitions": 96,
+        "error": "Duplicate historical entity ID"
+      },
+      "firmRowSparse": {
+        "budgetCalls": 1,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed historical entity row"
+      },
+      "firmValuesShort": {
+        "budgetCalls": 1,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed historical entity row"
+      },
+      "seeded-header-0-historyAgeMissing": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-1-activeDuplicateId": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-2-missingPersonFields": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-3-activeUnsafeId": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-4-firmFieldsDuplicate": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-5-firmRowSparse": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-6-entitiesArray": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-7-missingPayload": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Unsupported inactive identity format"
+      },
+      "seeded-header-8-firmValuesShort": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-9-historySparseIndex": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-10-personTotalString": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-11-historyIndexFraction": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-12-missingSchema": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Unsupported inactive identity format"
+      },
+      "seeded-header-13-entitiesNull": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-14-historyDuplicateId": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-15-personTotalFraction": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-16-unknownDirectory": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-17-firmTotal": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-18-historyIndicesObject": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-19-householdDuplicateId": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-20-activeMissingId": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-21-historyIdNull": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-22-historyIndexNegative": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-23-historyValuesNull": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-24-historyRowNull": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-25-missingPersonRows": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-26-householdTotal": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-27-missingLogicalSchema": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Unsupported inactive identity format"
+      },
+      "seeded-header-28-historyIndexString": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-29-historyIndexDuplicate": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-30-firmDuplicateId": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-31-historyHhMissing": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-32-historyAgeMissing": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-33-activeDuplicateId": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-34-missingPersonFields": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-35-activeUnsafeId": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-36-firmFieldsDuplicate": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-37-firmRowSparse": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-38-entitiesArray": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-39-missingPayload": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Unsupported inactive identity format"
+      },
+      "seeded-header-40-firmValuesShort": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-41-historySparseIndex": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-42-personTotalString": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-43-historyIndexFraction": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-44-missingSchema": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Unsupported inactive identity format"
+      },
+      "seeded-header-45-entitiesNull": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-46-historyDuplicateId": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-47-personTotalFraction": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-48-unknownDirectory": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-49-firmTotal": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-50-historyIndicesObject": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-51-householdDuplicateId": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-52-activeMissingId": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-53-historyIdNull": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-54-historyIndexNegative": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-55-historyValuesNull": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-56-historyRowNull": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-57-missingPersonRows": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-58-householdTotal": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-59-missingLogicalSchema": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Unsupported inactive identity format"
+      },
+      "seeded-header-60-historyIndexString": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-61-historyIndexDuplicate": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-62-firmDuplicateId": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-63-historyHhMissing": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-64-historyAgeMissing": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-65-activeDuplicateId": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-66-missingPersonFields": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-67-activeUnsafeId": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-68-firmFieldsDuplicate": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-69-firmRowSparse": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-70-entitiesArray": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-71-missingPayload": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Unsupported inactive identity format"
+      },
+      "seeded-header-72-firmValuesShort": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-73-historySparseIndex": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-74-personTotalString": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-75-historyIndexFraction": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-76-missingSchema": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Unsupported inactive identity format"
+      },
+      "seeded-header-77-entitiesNull": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-78-historyDuplicateId": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-79-personTotalFraction": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-80-unknownDirectory": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-81-firmTotal": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-82-historyIndicesObject": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-83-householdDuplicateId": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-84-activeMissingId": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-85-historyIdNull": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-86-historyIndexNegative": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-87-historyValuesNull": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-88-historyRowNull": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-89-missingPersonRows": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-90-householdTotal": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-91-missingLogicalSchema": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Unsupported inactive identity format"
+      },
+      "seeded-header-92-historyIndexString": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-93-historyIndexDuplicate": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-94-firmDuplicateId": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-95-historyHhMissing": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-96-historyAgeMissing": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-97-activeDuplicateId": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-98-missingPersonFields": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-99-activeUnsafeId": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-100-firmFieldsDuplicate": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-101-firmRowSparse": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-102-entitiesArray": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-103-missingPayload": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Unsupported inactive identity format"
+      },
+      "seeded-header-104-firmValuesShort": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-105-historySparseIndex": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-106-personTotalString": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-107-historyIndexFraction": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-108-missingSchema": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Unsupported inactive identity format"
+      },
+      "seeded-header-109-entitiesNull": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-110-historyDuplicateId": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-111-personTotalFraction": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-112-unknownDirectory": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-113-firmTotal": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-114-historyIndicesObject": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-115-householdDuplicateId": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-116-activeMissingId": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-117-historyIdNull": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-118-historyIndexNegative": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-119-historyValuesNull": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-120-historyRowNull": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-121-missingPersonRows": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-122-householdTotal": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-123-missingLogicalSchema": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Unsupported inactive identity format"
+      },
+      "seeded-header-124-historyIndexString": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-125-historyIndexDuplicate": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-126-firmDuplicateId": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "seeded-header-127-historyHhMissing": {
+        "budgetCalls": 0,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Malformed inactive identity directory"
+      },
+      "shared-node-combination": {
+        "budgetCalls": 1,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Inactive identity expansion budget exceeded"
+      },
+      "shared-key-expansion-combination": {
+        "budgetCalls": 1,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Decoded archive expansion budget exceeded"
+      },
+      "shared-key-expansion-one-byte-over": {
+        "budgetCalls": 1,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Decoded archive expansion budget exceeded"
+      },
+      "depth-combination": {
+        "budgetCalls": 1,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Inactive identity expansion budget exceeded"
+      }
+    },
+    "budgetCases": [
+      {
+        "name": "households-alone",
+        "accepted": true,
+        "budgetCalls": 1,
+        "historicalDirectoryCalls": 2,
+        "propertyDefinitions": 264000
+      },
+      {
+        "name": "firms-alone",
+        "accepted": true,
+        "budgetCalls": 1,
+        "historicalDirectoryCalls": 2,
+        "propertyDefinitions": 270000
+      },
+      {
+        "name": "combined-node-limit",
+        "budgetCalls": 1,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Inactive identity expansion budget exceeded"
+      },
+      {
+        "name": "households-key-expansion-alone",
+        "accepted": true,
+        "budgetCalls": 1,
+        "historicalDirectoryCalls": 2,
+        "propertyDefinitions": 33000
+      },
+      {
+        "name": "firms-key-expansion-alone",
+        "accepted": true,
+        "budgetCalls": 1,
+        "historicalDirectoryCalls": 2,
+        "propertyDefinitions": 36000
+      },
+      {
+        "name": "combined-key-expansion-limit",
+        "budgetCalls": 1,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Decoded archive expansion budget exceeded"
+      },
+      {
+        "name": "exact-shared-key-expansion-limit",
+        "accepted": true,
+        "conservativeBytes": 16777216,
+        "budgetCalls": 1,
+        "historicalDirectoryCalls": 2,
+        "propertyDefinitions": 46000
+      },
+      {
+        "name": "shared-key-expansion-one-byte-over",
+        "budgetCalls": 1,
+        "historicalDirectoryCalls": 0,
+        "propertyDefinitions": 0,
+        "error": "Decoded archive expansion budget exceeded"
+      }
+    ],
+    "mode": "full",
+    "failureCount": 0,
+    "negativeZeroPreservedBeforeSerialization": true,
+    "duplicateKeySemantics": "JSON.parse last value wins",
+    "identityArraysRequireUniqueIds": true
+  }
+}

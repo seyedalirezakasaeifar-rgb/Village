@@ -1,4 +1,6 @@
+let lastArchiveCapacityFailure=false;
 function archiveRestoreError(raw){
+ if(lastArchiveCapacityFailure)return 'This backup exceeds the archive capacity supported by this version after initialization. The current town is unchanged.';
  try{const data=typeof raw==='string'?JSON.parse(raw):raw;if(Number.isSafeInteger(data?.schema)&&data.schema>RELEASE.schema)return 'This backup uses newer save schema '+data.schema+'. Update TownLedger to a compatible version. The current town is unchanged.';}catch(_){}
  return 'The backup is invalid, truncated or incompatible. The current town is unchanged.';
 }
@@ -48,9 +50,12 @@ function validateArchiveRecords(data){
  for(const owner of [...data.households,...data.firms])if(owner.deposits!=null&&(typeof owner.deposits!=='object'||Array.isArray(owner.deposits)||Object.entries(owner.deposits).some(([id,v])=>!/^\d+$/.test(id)||!data.banks?.[+id]||!nonnegative(v))))return false;
  return true;
 }
+// Keep the candidate private through normalization and capacity certification.
+function captureArchiveRuntime(){return {simulationBusy,traffic,trafficClock,frameClock,trafficElapsed,vehicleSerial,intersectionGates,visualState,rngState,crewDay,crewsUsed,regionalCrews,roadBatchDirty,draftPolicy,roadNetwork,roadsVersion,roadVersionBuilt,roadGraphOwner,roadBuildingVersion,cacheBuildingsFor,cacheBuildingsCount,cacheFootprintRevision,indexFootprintRevision,buildingsByTile,buildingsById,transitTopologyCache,transitDailyCache,transitReservationVersion,transitForecastTown,transitForecastNet,transitForecastEntries,transitForecastSerial,transitInspectorReport,urbanCache,dirty,staticDirty};}
+function restoreArchiveRuntime(snapshot){({simulationBusy,traffic,trafficClock,frameClock,trafficElapsed,vehicleSerial,intersectionGates,visualState,rngState,crewDay,crewsUsed,regionalCrews,roadBatchDirty,draftPolicy,roadNetwork,roadsVersion,roadVersionBuilt,roadGraphOwner,roadBuildingVersion,cacheBuildingsFor,cacheBuildingsCount,cacheFootprintRevision,indexFootprintRevision,buildingsByTile,buildingsById,transitTopologyCache,transitDailyCache,transitReservationVersion,transitForecastTown,transitForecastNet,transitForecastEntries,transitForecastSerial,transitInspectorReport,urbanCache,dirty,staticDirty}=snapshot);}
 function hydrateSave(raw){
- const previousTown=G;let rollback=null;
- try{const decoded=parseArchiveWithInactiveCodec(raw);let data=normalizeRegionArchive(decoded.data);
+ const previousTown=G;let rollback=null;lastArchiveCapacityFailure=false;
+ try{const decoded=parseArchiveWithInactiveCodec(raw,true);let data=normalizeRegionArchive(decoded.data);
   if(!data||![2,3].includes(data.version)||!Array.isArray(data.tiles)||data.tiles.length!==T*T||!Array.isArray(data.firms)||!Array.isArray(data.people)||!Array.isArray(data.buildings)||!Array.isArray(data.households)||!data.policy||!Number.isFinite(data.treasury)||data.tiles.some(t=>!Number.isInteger(t)||t<0||t>3)||!Number.isFinite(data.region)||data.region<0||data.households.length>3000&&!decoded.entitiesExtended||data.people.length>8000&&!decoded.extended||data.firms.length>3000&&!decoded.entitiesExtended)return false;
   if(!validateServiceBudgetArchive(data))return false;
   if(data.schema!=null&&(!Number.isInteger(data.schema)||data.schema<0||data.schema>RELEASE.schema))return false;
@@ -93,9 +98,9 @@ function hydrateSave(raw){
   if(data.households.some(h=>!h||!Array.isArray(h.people)||!Number.isFinite(h.cash)||h.cash<0)||data.firms.some(f=>!f||!Array.isArray(f.workers)||!Number.isFinite(f.cash)||f.cash<0))return false;
   const workerIDs=new Set();for(const f of data.firms){for(const id of f.workers){if(workerIDs.has(id)||!data.people[id]||data.people[id].deceased||data.people[id].movedAway||data.people[id].job!==f.id)return false;workerIDs.add(id)}}
   for(const loan of data.loans||[])if(loan.fixedRate==null)loan.fixedRate=true;
-  rollback={traffic:traffic.slice(),trafficClock,frameClock,trafficElapsed,vehicleSerial,intersectionGates:new Map(intersectionGates),visualState,rngState};
-  G=data;resetTownTransientUI();G.serviceProvision=null;G.privateServiceProvision=null;crewDay=-1;crewsUsed=new Map();regionalCrews=0;ensureSystems();rngState=Number.isInteger(G.rngState)?G.rngState:G.scenarioSeed;ensureFinance();ensureMarketModel();if(!G.banks.length)seedBanks();draftPolicy={};roadBatchDirty=false;traffic=[];intersectionGates=new Map();invalidateRoads(false);cacheBuildingsFor=null;recompute();G.stats.approval=Math.round(G.council.approval);G.stats.health=Math.round(G.health);G.stats.education=Math.round(G.education);G.stats.marketConfidence=G.stats.marketConfidence||55;G.stats.wellbeing=G.stats.wellbeing??70;ensureScenarioProgramme();if(!previousTown)centerTownCamera();restoreTransport();staticDirty=true;dirty=true;updateHeader();beginSaveTimeline();return true;
- }catch(e){if(rollback){G=previousTown;traffic=rollback.traffic;trafficClock=rollback.trafficClock;frameClock=rollback.frameClock;trafficElapsed=rollback.trafficElapsed;vehicleSerial=rollback.vehicleSerial;intersectionGates=rollback.intersectionGates;visualState=rollback.visualState;rngState=rollback.rngState;roadNetwork=null;cacheBuildingsFor=null;staticDirty=true;dirty=true;}console.error('Invalid save',e);return false}
+  rollback=captureArchiveRuntime();
+  G=data;simulationBusy=true;traffic=[];intersectionGates=new Map();roadNetwork=null;cacheBuildingsFor=null;urbanCache=null;roadBatchDirty=false;draftPolicy={};transitTopologyCache=null;transitDailyCache=null;transitForecastTown=null;transitForecastNet=null;transitForecastEntries=new Map();transitInspectorReport=null;G.serviceProvision=null;G.privateServiceProvision=null;crewDay=-1;crewsUsed=new Map();regionalCrews=0;ensureSystems();rngState=Number.isInteger(G.rngState)?G.rngState:G.scenarioSeed;ensureFinance();ensureMarketModel();ensureRegionalTrade();if(!G.banks.length)seedBanks();invalidateRoads(false);cacheBuildingsFor=null;recompute();G.stats.approval=Math.round(G.council.approval);G.stats.health=Math.round(G.health);G.stats.education=Math.round(G.education);G.stats.marketConfidence=G.stats.marketConfidence||55;G.stats.wellbeing=G.stats.wellbeing??70;ensureScenarioProgramme();restoreTransport();if(inactivePersonCodecEnabled)encodeInactiveLogicalArchive(archiveLogicalPayload());resetTownTransientUI();draftPolicy={};if(!previousTown)centerTownCamera();staticDirty=true;dirty=true;updateHeader();beginSaveTimeline();simulationBusy=rollback.simulationBusy;return true;
+ }catch(e){lastArchiveCapacityFailure=inactivePersonCodecEnabled&&/budget|capacity/.test(String(e?.message||e));if(rollback){G=previousTown;restoreArchiveRuntime(rollback);}console.error('Invalid save',e);return false}
 }
 function writeIndexedDB(envelope,epoch){
  return new Promise(resolve=>{let settled=false,db=null;const finish=ok=>{if(settled)return;settled=true;clearTimeout(timer);if(db)db.close();resolve(ok)},timer=setTimeout(()=>finish(false),2500);

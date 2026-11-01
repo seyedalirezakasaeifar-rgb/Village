@@ -1,0 +1,35 @@
+{
+  "source_sha256": "d48e5ce2608c2d77db94ec271e1a0f0377657678308de73f5abc750f0a331eb6",
+  "result": {
+    "version1Readable": true,
+    "actualHousehold": 3001,
+    "actualFirm": 3001,
+    "fullLogicalPreserved": true,
+    "estateAssetsClaimsTitlesHeirsPreserved": true,
+    "demolishedFirmCargoDefaultAndSummaryPreserved": true,
+    "malformedAtomic": [
+      "version",
+      "missing",
+      "extra",
+      "duplicate",
+      "hole",
+      "activeHistory",
+      "closedOnly",
+      "field",
+      "total",
+      "rows",
+      "active",
+      "depth",
+      "sharedExpansion"
+    ],
+    "exactReplayDays": 30,
+    "version1CannotBypassEntityLimits": true,
+    "wireVersion": 2,
+    "wireBytes": 6101949,
+    "logicalBytes": 8741249,
+    "encodeMs": 396.80000000074506,
+    "decodeMs": 230.39999999850988,
+    "heapBytes": 331195709,
+    "heapAfterForcedGC": 37488112
+  }
+}

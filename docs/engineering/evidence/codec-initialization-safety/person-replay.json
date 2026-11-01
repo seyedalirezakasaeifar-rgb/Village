@@ -1,0 +1,48 @@
+{
+  "source_sha256": "8be2585815ad9585f3fde86d2fb00909589b44f39956c4faa0e146fe47bb970a",
+  "result": {
+    "unsafeDisableBlocked": true,
+    "actualBirthBeyond8000": true,
+    "recordsBefore": 8001,
+    "allPersonAndFinancialFieldsPreserved": true,
+    "unicodeAndNullPreserved": true,
+    "prototypeSafe": true,
+    "malformedAtomic": [
+      "expandedBytes",
+      "total",
+      "rows",
+      "activeRows",
+      "utf8",
+      "duplicate",
+      "hole",
+      "fieldIndex",
+      "fields",
+      "future",
+      "hiddenActive",
+      "depth"
+    ],
+    "truncatedAndOversizedRejected": true,
+    "exactReplayDays": 30,
+    "wireSchema": 9,
+    "wireBytes": 978824,
+    "logicalBytes": 1346563,
+    "encodeMs": 111,
+    "decodeMs": 190.69999999925494,
+    "maxInactive": 16000,
+    "maxTotal": 16167,
+    "maxBytes": 1914921,
+    "maxEncodeDecodeMs": 460.8999999985099,
+    "heapBytes": 150817981,
+    "heapAfterForcedGC": 18194644,
+    "mixed": {
+      "paidCargoPreserved": true,
+      "fareReceiptsPreserved": true,
+      "providerAndMallEscrowPreserved": true,
+      "ownershipPreserved": true
+    },
+    "legacyFixtures": {
+      "corporate-liquidity-trap.json": true,
+      "v60-distressed-town.json": true
+    }
+  }
+}

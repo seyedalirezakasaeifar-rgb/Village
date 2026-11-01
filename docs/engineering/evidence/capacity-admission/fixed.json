@@ -1,0 +1,23 @@
+{
+  "source_sha256": "7c1b88875d44ebfac4cbdc3e434d46b2e303e3e1052753e39df99f259b30645c",
+  "statusTransition": {
+    "people": {
+      "legacyRefused": true,
+      "admittedBytes": 1349578,
+      "totalBefore": 16166,
+      "totalAfter": 16166,
+      "moneyPreserved": true,
+      "historicalAfter": 16001,
+      "error": ""
+    },
+    "households": {
+      "legacyRefused": true,
+      "admittedBytes": 667396,
+      "totalBefore": 6066,
+      "totalAfter": 6066,
+      "moneyPreserved": true,
+      "historicalAfter": 6001,
+      "error": ""
+    }
+  }
+}
