@@ -2,7 +2,7 @@
 
 ## Start a town
 
-Choose a Newfoundland scenario from the founding screen, then start or continue. Pause before inspecting options or making a large change. The speed control selects simulation rates; its label is requested speed. At high rates the game may deliver fewer simulation days per real second, so do not treat 64× as guaranteed actual speed.
+Choose a Newfoundland scenario from the founding screen, then start or continue. Pause before inspecting options or making a large change. The speed control selects a requested simulation rate from 1× to 64×. At 8× and above, the header can also show **Actual N×**, a rolling estimate based on completed simulation days; it may be lower than the selected rate when the device cannot keep up.
 
 Start with essentials: check the food market and household hardship, keep enough treasury for wages and operations, and connect useful sites by road. Review the Works & Planning panel before placing buildings. A selected building tool only arms placement; tap a valid map location to attempt construction. Use the town reports to check whether goods, jobs, access and cash actually changed.
 
@@ -20,13 +20,13 @@ Open **Options → Display & accessibility → City view** and choose **Newfound
 
 Settings → Music & atmosphere provides separate music and effects/ambience controls, volume, three music characters and Next piece. Playback begins after your first interaction. Backgrounding or suspending the app pauses audio; return resumes subject to mute settings.
 
-Use **SAVE NOW** for the local save and **EXPORT BACKUP** to copy archive text somewhere safe before reinstalling or changing app identities. **RESTORE BACKUP** validates pasted archive text before replacing the current town. Keep an export until the restored town is open and checked.
+Use **SAVE NOW** for the local save. **EXPORT BACKUP** opens the town archive as text to copy into a file and keep somewhere safe before reinstalling or changing app identities. **RESTORE BACKUP** restores a pasted TownLedger archive and replaces the current town after it is accepted. Save a separate export first, then check that the restored town opens correctly.
 
 The checked Android manifest uses package `org.townledger.vale`, version 8.0.0, code 22, schema 8. The native development build has been verified under package `org.townledger.vale.v8sidecar`, installed alongside the older app with a development signer different from the old release signer. It is a separate app and does not inherit the old app’s private save: export from the old app and restore in the sidecar. This verifies sidecar packaging and coexistence, not delivery of the final APK. Keep the old app and a backup until the final binary is delivered and the restored town is checked.
 
 ## Known limits
 
-The WebGL direction remains an experimental paused-town view. It is not the complete live simulation renderer, and it has no physical-device performance certification. Requested simulation speed is not guaranteed achieved speed. Save backups are user-managed text; keep them private and retain an extra copy before migration.
+Newfoundland 3D is an optional live city view. It streams the world and can show moving traffic, transit and boats; the optional experimental Worker renderer is not shipped. Rendering quality and achieved frame rate depend on the device and selected workload settings. Physical-device smoothness has not been verified. Save backups are user-managed text; keep them private and retain an extra copy before migration.
 
 
-**QA source:** checked against source commit `87811c52cdb9aecd13cd23beebd52f6475c6dd9c` (especially `src/93-preferences.js` and `assets/webgl-entry.js`). This revision corrects the earlier guide: City view is available in Options and its selection persists; sidecar package/coexistence were verified in the native development build. Physical-device smoothness and final APK delivery remain unverified. The normal default renderer is Classic; Newfoundland 3D is selected explicitly.
+**QA source:** checked against source commit `87811c52cdb9aecd13cd23beebd52f6475c6dd9c` (especially `src/93-preferences.js` and `assets/webgl-entry.js`). This revision corrects the earlier guide: City view is available in Options and its selection persists; the optional 3D view is live rather than a paused snapshot; the native development sidecar was verified alongside the old app. The archive UI uses copied/pasted text, and the header’s Actual N× is a rolling achieved-rate estimate distinct from the selected speed. Physical-device smoothness and final APK delivery remain unverified. The normal default renderer is Classic; Newfoundland 3D is selected explicitly.
