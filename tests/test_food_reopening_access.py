@@ -42,7 +42,7 @@ for run in runs.values():
  assert run['valid']['ok'] and abs(run['cashDrift'])<.1 and max(abs(x['error']) for x in run['goods'])<.01
  assert all(h['hasRollingLabel'] and h['hasCapacityLabel'] for h in run['historyAudit'])
  assert any(h['unmet30']>1 and h['hasPressure'] for h in run['historyAudit']),run['historyAudit']
- assert any(h['foodNeed']>h['sellableCapacity'] and h['hasCapacityPressure'] for h in run['historyAudit']),run['historyAudit']
+ assert all(h['hasCapacityPressure']==(h['foodNeed']>h['sellableCapacity']+.01) for h in run['historyAudit']),run['historyAudit']
  assert all(r['unmet']>.001 for r in run['audit'])
 byday={}
 for mode,run in runs.items():
