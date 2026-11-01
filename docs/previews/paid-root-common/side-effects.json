@@ -1,0 +1,262 @@
+{
+  "fixtureBaseline": "6c02aadf293513d022f7a3868b52abe050202880",
+  "candidateBase": "f4f094d5c3bd7fe025a9f2a463fa795f2caf36c8",
+  "source_sha256": "8be2585815ad9585f3fde86d2fb00909589b44f39956c4faa0e146fe47bb970a",
+  "candidateOverride": false,
+  "testOnlyPrecommitControl": false,
+  "rootRefusalPrototype": true,
+  "expectation": "atomic-candidate",
+  "hostChromium": true,
+  "physicalAndroid": false,
+  "faultInjectionOnly": true,
+  "guardsImplemented": false,
+  "checks": {
+    "queuedControlsExactlyOnce": true,
+    "startupDeferralUsesCommittedModel": true,
+    "rollbackModelExact": true,
+    "metadataFinanciallyConserved": true,
+    "noPartialExternalCommit": true,
+    "queuedFinancialConservation": true,
+    "nativeCommittedFinancialState": true,
+    "exactQueuedFinancialAndWorldSignature": true
+  },
+  "result": {
+    "queuedPersistence": {
+      "kind": "Controlled null creator refusal plus deliberate model-only rollback, with real localStorage and delayed IDB spy",
+      "before": {
+        "day": 1,
+        "treasury": 90000,
+        "region": 14760000,
+        "total": 15493517,
+        "debt": 0,
+        "rng": 3224482224,
+        "people": 169,
+        "households": 67,
+        "firms": 26,
+        "buildings": 102,
+        "projects": 0,
+        "loans": 0,
+        "nextLoanId": 0,
+        "nextId": 103
+      },
+      "current": {
+        "day": 1,
+        "treasury": 90000,
+        "region": 14760000,
+        "total": 15493517,
+        "debt": 0,
+        "rng": 3224482224,
+        "people": 169,
+        "households": 67,
+        "firms": 26,
+        "buildings": 102,
+        "projects": 0,
+        "loans": 0,
+        "nextLoanId": 0,
+        "nextId": 103
+      },
+      "local": {
+        "day": 1,
+        "treasury": 90000,
+        "region": 14760000,
+        "debt": 0,
+        "people": 169,
+        "firms": 26,
+        "buildings": 102
+      },
+      "error": "",
+      "events": [
+        {
+          "kind": "local-primary",
+          "signature": {
+            "day": 1,
+            "treasury": 90000,
+            "region": 14760000,
+            "debt": 0,
+            "people": 169,
+            "firms": 26,
+            "buildings": 102
+          }
+        },
+        {
+          "kind": "idb-issued",
+          "epoch": 2,
+          "revision": 2,
+          "signature": {
+            "day": 1,
+            "treasury": 90000,
+            "region": 14760000,
+            "debt": 0,
+            "people": 169,
+            "firms": 26,
+            "buildings": 102
+          }
+        },
+        {
+          "kind": "local-primary",
+          "signature": {
+            "day": 1,
+            "treasury": 90000,
+            "region": 14760000,
+            "debt": 0,
+            "people": 169,
+            "firms": 26,
+            "buildings": 102
+          }
+        },
+        {
+          "kind": "idb-issued",
+          "epoch": 2,
+          "revision": 3,
+          "signature": {
+            "day": 1,
+            "treasury": 90000,
+            "region": 14760000,
+            "debt": 0,
+            "people": 169,
+            "firms": 26,
+            "buildings": 102
+          }
+        }
+      ],
+      "badExternalWrites": 0,
+      "chronology": {
+        "sameEpoch": true,
+        "revision": 3,
+        "order": 5
+      },
+      "oldTownObjectWasReplaced": true,
+      "restoredModelMatchesOriginal": true,
+      "forbiddenPartialCommit": false
+    },
+    "deferredStartupSave": {
+      "kind": "Ordinary startup-read save deferral, controlled model rollback before serialization",
+      "error": "",
+      "serializedCount": 1,
+      "serializedRestoredCommittedModel": true
+    },
+    "queuedUI": {
+      "kind": "Ordered browser tasks on synchronous baseline, actual borrow/save controls, native-export bridge spy",
+      "before": {
+        "day": 1,
+        "treasury": 90000,
+        "region": 14760000,
+        "total": 15493517,
+        "debt": 0,
+        "rng": 3224482224,
+        "people": 169,
+        "households": 67,
+        "firms": 26,
+        "buildings": 102,
+        "projects": 0,
+        "loans": 0,
+        "nextLoanId": 0,
+        "nextId": 103
+      },
+      "after": {
+        "day": 1,
+        "treasury": 95000,
+        "region": 14755000,
+        "total": 15493517,
+        "debt": 5000,
+        "rng": 3224482224,
+        "people": 169,
+        "households": 67,
+        "firms": 26,
+        "buildings": 102,
+        "projects": 0,
+        "loans": 0,
+        "nextLoanId": 0,
+        "nextId": 103
+      },
+      "error": "",
+      "sequence": [
+        "refused-construction",
+        "borrow-control",
+        "save-control",
+        "native-export"
+      ],
+      "notifications": [
+        {
+          "text": "Village saved on this device.",
+          "signature": {
+            "day": 1,
+            "treasury": 95000,
+            "region": 14755000,
+            "total": 15493517,
+            "debt": 5000,
+            "rng": 3224482224,
+            "people": 169,
+            "households": 67,
+            "firms": 26,
+            "buildings": 102,
+            "projects": 0,
+            "loans": 0,
+            "nextLoanId": 0,
+            "nextId": 103
+          }
+        }
+      ],
+      "nativeExports": [
+        {
+          "day": 1,
+          "treasury": 95000,
+          "region": 14755000,
+          "debt": 5000,
+          "people": 169,
+          "firms": 26,
+          "buildings": 102
+        }
+      ],
+      "borrowAppliedExactlyOnce": true,
+      "expectedTreasuryAfterBorrow": 95000,
+      "forbiddenPartialFinancialCommit": false,
+      "nativeExposedPartialFinancialState": false,
+      "saveSuccessAfterPartialFailure": true
+    },
+    "metadata": {
+      "before": {
+        "day": 1,
+        "treasury": 90000,
+        "region": 14760000,
+        "total": 15493517,
+        "debt": 0,
+        "rng": 3224482224,
+        "people": 169,
+        "households": 67,
+        "firms": 26,
+        "buildings": 102,
+        "projects": 0,
+        "loans": 10000,
+        "nextLoanId": 10000,
+        "nextId": 103
+      },
+      "after": {
+        "day": 1,
+        "treasury": 90000,
+        "region": 14760000,
+        "total": 15493517,
+        "debt": 0,
+        "rng": 3224482224,
+        "people": 169,
+        "households": 67,
+        "firms": 26,
+        "buildings": 102,
+        "projects": 0,
+        "loans": 10000,
+        "nextLoanId": 10000,
+        "nextId": 103
+      },
+      "refused": true,
+      "decision": {
+        "day": 1,
+        "requested": 1000,
+        "approved": false,
+        "reason": "The retained debt ledger is full of protected obligations. No advance was issued; existing debts and claims remain intact."
+      },
+      "persistentByteGrowth": 195,
+      "ordinaryMetadataOnly": true,
+      "forbiddenFinancialCommit": false
+    }
+  }
+}
