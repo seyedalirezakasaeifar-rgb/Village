@@ -1,0 +1,23 @@
+{
+  "baseline_commit": "dc0ddab26532fc62342e5a614ea262ec6117cac1",
+  "source_sha256": "ad1125f3d98f04278071bae186fab945368ed42825b62004808642a3f89531e2",
+  "regressions": [
+    {
+      "trigger": "current media emits error after native resume changed play epoch",
+      "baseline": "Resumed current media error was ignored",
+      "fixed": "live latest deck media errors use current epoch; stale promise rejections retain captured epoch"
+    },
+    {
+      "trigger": "normal refresh while incoming play promise is unresolved",
+      "baseline": "Routine refresh interrupted a pending handoff",
+      "fixed": "pending current deck preserves zero gain and predecessor until play resolves"
+    },
+    {
+      "trigger": "Vorbis stream reports partial finite duration and emits timeupdate near that estimate",
+      "baseline": "Partial stream duration truncated the composition",
+      "fixed": "timeupdate uses canonical committed score duration; ended still handles early EOF"
+    }
+  ],
+  "baselineAssertionsWereObservedFailing": true,
+  "finalTest": "tests/test_music_races.py"
+}

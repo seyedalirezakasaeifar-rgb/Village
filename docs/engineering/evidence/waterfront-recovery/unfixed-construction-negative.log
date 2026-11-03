@@ -1,0 +1,62 @@
+{
+  "source_sha256": "8031901f1dca4e8b45d43d653e7657abff20f91f3bd5f2f823bd5c8a25e56a67",
+  "freshPublicConstruction": {
+    "differences": [
+      ".buildings.102.baseValue",
+      ".buildings.102.title",
+      ".buildings.103.baseValue",
+      ".firms.26.ask",
+      ".firms.26.creditScore",
+      ".firms.26.lossDays",
+      ".firms.26.marginTrend",
+      ".firms.26.operating",
+      ".firms.26.revenueTrend",
+      ".firms.26.salesTrend",
+      ".firms.26.scale",
+      ".firms.26.unitCost",
+      ".firms.26.workingCapitalRaised",
+      ".households.67.creditScore",
+      ".households.67.deposits",
+      ".stats.preparedness",
+      ".stats.approval"
+    ],
+    "moneyUnchanged": true,
+    "rngUnchanged": true,
+    "buildingIdentities": true,
+    "households": 68,
+    "farms": 6
+  },
+  "committedServiceStates": [
+    {
+      "scenario": "settlement",
+      "days": 180,
+      "differences": [
+        ".privateServiceProvision",
+        ".serviceProvision"
+      ],
+      "moneyUnchanged": true,
+      "rngUnchanged": true,
+      "replayDifferences": [],
+      "privateMemberships": 0,
+      "publicPaid": 70
+    },
+    {
+      "scenario": "industrial",
+      "days": 360,
+      "differences": [
+        ".privateServiceProvision",
+        ".serviceProvision"
+      ],
+      "moneyUnchanged": true,
+      "rngUnchanged": true,
+      "replayDifferences": [],
+      "privateMemberships": 0,
+      "publicPaid": 70
+    }
+  ]
+}
+Traceback (most recent call last):
+  File "/workspace/core-recovery/tests/test_construction_continuation.py", line 17, in <module>
+    assert not fresh['differences'] and fresh['moneyUnchanged'] and fresh['rngUnchanged'],fresh
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'differences': ['.buildings.102.baseValue', '.buildings.102.title', '.buildings.103.baseValue', '.firms.26.ask', '.firms.26.creditScore', '.firms.26.lossDays', '.firms.26.marginTrend', '.firms.26.operating', '.firms.26.revenueTrend', '.firms.26.salesTrend', '.firms.26.scale', '.firms.26.unitCost', '.firms.26.workingCapitalRaised', '.households.67.creditScore', '.households.67.deposits', '.stats.preparedness', '.stats.approval'], 'moneyUnchanged': True, 'rngUnchanged': True, 'buildingIdentities': True, 'households': 68, 'farms': 6}

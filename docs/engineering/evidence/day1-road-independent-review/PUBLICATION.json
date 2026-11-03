@@ -1,0 +1,10 @@
+{
+  "parent": "64d4316a337847aa14e4f0b8e420a6de4d1ef900",
+  "base": "72419dc89e0526888afcb956d34bcc78abff3f3e",
+  "runtimeSHA256": "d3ed25306c7c4754485d0691d04d9d4f9739dccafc1d2efbaa909762977a7081",
+  "runtimeDiffExactlyOneIntendedAssignment": true,
+  "canonicalBundleIncluded": true,
+  "evidence": "Fresh own independently executed aggregate tests only; no whole saves/private keys/personal data/blocked reviewer files",
+  "publicIntegrationPromotion": false,
+  "apkOrManifestUpload": false
+}

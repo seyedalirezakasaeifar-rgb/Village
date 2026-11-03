@@ -1,0 +1,36 @@
+{
+  "source_sha256": "2b2f14477099ee7a3c4a2f34bc590714c5163d4db358fee7f9bd7288e590b0d7",
+  "base": "5dbc04186a1ee930b0a2f92b2df82d4556417d22",
+  "gates": [
+    {
+      "test": "test_service_cash_evidence_noninterference",
+      "exit_code": 0,
+      "seconds": 32.0,
+      "log_sha256": "d88e6b0713a83fb55f491c5405e8109899580fd5c6e7e5945c1a8a97939d133c"
+    },
+    {
+      "test": "test_service_budget_cash_warning",
+      "exit_code": 0,
+      "seconds": 14.76,
+      "log_sha256": "5a0ba6cd31e03bc77e55cb78b6abdb37399c1cb572652335f1a0d4c28ad0a2b2"
+    },
+    {
+      "test": "test_road_removal_network",
+      "exit_code": 0,
+      "seconds": 6.74,
+      "log_sha256": "023f5de7fd8b14dfdc0da7eec66833cc558ba93f8d36d5ff6dcbb318ac303f1d"
+    },
+    {
+      "test": "test_transit_network",
+      "exit_code": 0,
+      "seconds": 7.31,
+      "log_sha256": "82e613b60a02b99e0e8215936aa7a078e5f19e6cd0e643ce68fed1c398e72543"
+    },
+    {
+      "test": "test_bridge_save_fence",
+      "exit_code": 0,
+      "seconds": 5.72,
+      "log_sha256": "86303f7949cb8c4d73cffd8486c16160811f5b0fa8a62a2953630216f331ab53"
+    }
+  ]
+}

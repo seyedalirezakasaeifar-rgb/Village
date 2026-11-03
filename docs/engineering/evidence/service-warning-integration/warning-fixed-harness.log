@@ -1,0 +1,48 @@
+{
+  "malformedDiagnosticEvidenceOmitted": [
+    "negative",
+    "badPayroll",
+    "missingSchool",
+    "overpaid",
+    "stale"
+  ],
+  "source_sha256": "2b2f14477099ee7a3c4a2f34bc590714c5163d4db358fee7f9bd7288e590b0d7",
+  "startDay": 50681,
+  "warningDay": 50682,
+  "serviceBoundaryCash": 0,
+  "warningDayClosingCash": 327.9036328274067,
+  "earlierSafetyOutreachPaid": 331.91999999999996,
+  "pensionPaidBeforeServices": 194.5136801105355,
+  "unpaidRequests": [
+    {
+      "service": "health",
+      "requested": 70,
+      "paid": 0
+    },
+    {
+      "service": "school",
+      "requested": 90,
+      "paid": 0
+    }
+  ],
+  "scalableEducationSlider": {
+    "min": 0,
+    "max": 1500,
+    "step": 0.01,
+    "hardMax": 50000
+  },
+  "fundedIntervention": {
+    "serviceBoundaryCash": 236.17079870172202,
+    "healthRequested": 70,
+    "healthPaid": 70,
+    "schoolRequested": 90,
+    "schoolPaid": 90,
+    "warningCleared": true
+  },
+  "warningAndOutlookReadOnly": true,
+  "visibleInPolicyPanelBeforeEnactment": true,
+  "sameDayPolicyEditPreservesHistoricalPensions": true,
+  "newSaveRetainsEvidenceAndLegacySaveOmitsWarning": true,
+  "exactSameDayLedgerReplay": true,
+  "validTownAfterSteps": true
+}

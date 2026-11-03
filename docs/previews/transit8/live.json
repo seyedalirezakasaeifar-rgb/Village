@@ -1,0 +1,501 @@
+{
+  "source_sha256": "3d0608b05ab6669bf0610112b9cc7be7163941db3c2e7b05e6f36dad43050a4f",
+  "engine_module_sha256": "5c9b282ecc5b442ff9bfdd752b7781b8813ad86df249d6cc0ffad1c6fba68f82",
+  "source_root": "/workspace/Village-transit-bench",
+  "physicalAndroid": false,
+  "hostChromium": true,
+  "rows": [
+    {
+      "implementation": "optimized",
+      "routes": 0,
+      "initialTown": {
+        "population": 2000,
+        "households": 678,
+        "buildings": 713,
+        "total": 15493517
+      },
+      "initialNetwork": {
+        "routes": 0,
+        "depots": 0,
+        "drivers": 0,
+        "rides": 0,
+        "capacity": 0,
+        "total": 15493517.000000076
+      },
+      "endNetwork": {
+        "routes": 0,
+        "operating": 0,
+        "drivers": 0,
+        "rides": 0,
+        "fares": 0,
+        "capacity": 0,
+        "nodeCount": 0,
+        "treasury": 2798781.2471912922,
+        "valid": {
+          "ok": true,
+          "issues": [],
+          "total": 15493516.999990048,
+          "population": 1992,
+          "day": 374
+        }
+      },
+      "requestedSpeed": 64,
+      "elapsedSeconds": 8.118243614000221,
+      "simulatedDays": 315,
+      "measuredRate": 64.02246898623137,
+      "effectiveRate": 64.34999999999997,
+      "tickMedianMs": 11,
+      "tickP95Ms": 25,
+      "drawMedianMs": 2.1000000000931323,
+      "drawP95Ms": 41,
+      "rafP95Ms": 50,
+      "rafP99Ms": 66.69999999999982,
+      "ui": [
+        {
+          "panel": "economy",
+          "toNextFrameMs": 64.20000000018626,
+          "error": false
+        },
+        {
+          "panel": "citizens",
+          "toNextFrameMs": 54.09999999962747,
+          "error": false
+        },
+        {
+          "panel": "construction",
+          "toNextFrameMs": 58.799999999813735,
+          "error": false
+        },
+        {
+          "panel": "settings",
+          "toNextFrameMs": 42.10000000009313,
+          "error": false
+        }
+      ],
+      "moneyDrift": 9.275972843170166e-06,
+      "errors": []
+    },
+    {
+      "implementation": "baseline",
+      "routes": 8,
+      "initialTown": {
+        "population": 2000,
+        "households": 678,
+        "buildings": 713,
+        "total": 15493517
+      },
+      "initialNetwork": {
+        "routes": 8,
+        "depots": 1,
+        "drivers": 16,
+        "rides": 16,
+        "capacity": 439,
+        "total": 15493517.00000009
+      },
+      "endNetwork": {
+        "routes": 8,
+        "operating": 8,
+        "drivers": 16,
+        "rides": 6,
+        "fares": 1931.7999999999536,
+        "capacity": 423,
+        "nodeCount": 24,
+        "treasury": 2687677.4599037045,
+        "valid": {
+          "ok": true,
+          "issues": [],
+          "total": 15493516.999994487,
+          "population": 1994,
+          "day": 387
+        }
+      },
+      "requestedSpeed": 64,
+      "elapsedSeconds": 8.018073573000038,
+      "simulatedDays": 311,
+      "measuredRate": 63.999163306255376,
+      "effectiveRate": 69.29999999999997,
+      "tickMedianMs": 13.599999999627471,
+      "tickP95Ms": 34.89999999990687,
+      "drawMedianMs": 2.2000000001862645,
+      "drawP95Ms": 41.39999999990687,
+      "rafP95Ms": 50,
+      "rafP99Ms": 99.90000000000055,
+      "ui": [
+        {
+          "panel": "economy",
+          "toNextFrameMs": 72.8000000002794,
+          "error": false
+        },
+        {
+          "panel": "citizens",
+          "toNextFrameMs": 42.10000000009313,
+          "error": false
+        },
+        {
+          "panel": "construction",
+          "toNextFrameMs": 72.39999999990687,
+          "error": false
+        },
+        {
+          "panel": "settings",
+          "toNextFrameMs": 50.89999999990687,
+          "error": false
+        }
+      ],
+      "moneyDrift": 4.3548643589019775e-06,
+      "errors": []
+    },
+    {
+      "implementation": "optimized",
+      "routes": 8,
+      "initialTown": {
+        "population": 2000,
+        "households": 678,
+        "buildings": 713,
+        "total": 15493517
+      },
+      "initialNetwork": {
+        "routes": 8,
+        "depots": 1,
+        "drivers": 16,
+        "rides": 16,
+        "capacity": 439,
+        "total": 15493517.00000009
+      },
+      "endNetwork": {
+        "routes": 8,
+        "operating": 8,
+        "drivers": 16,
+        "rides": 6,
+        "fares": 1939.5999999999533,
+        "capacity": 423,
+        "nodeCount": 24,
+        "treasury": 2690558.8573988657,
+        "valid": {
+          "ok": true,
+          "issues": [],
+          "total": 15493516.99999443,
+          "population": 1994,
+          "day": 389
+        }
+      },
+      "requestedSpeed": 64,
+      "elapsedSeconds": 8.019203208999897,
+      "simulatedDays": 311,
+      "measuredRate": 63.99014797680837,
+      "effectiveRate": 66.54534723588425,
+      "tickMedianMs": 11.5,
+      "tickP95Ms": 27.700000000186265,
+      "drawMedianMs": 2.3999999999068677,
+      "drawP95Ms": 39.59999999962747,
+      "rafP95Ms": 33.40000000000009,
+      "rafP99Ms": 100,
+      "ui": [
+        {
+          "panel": "economy",
+          "toNextFrameMs": 85,
+          "error": false
+        },
+        {
+          "panel": "citizens",
+          "toNextFrameMs": 78.1999999997206,
+          "error": false
+        },
+        {
+          "panel": "construction",
+          "toNextFrameMs": 62.40000000037253,
+          "error": false
+        },
+        {
+          "panel": "settings",
+          "toNextFrameMs": 50.3000000002794,
+          "error": false
+        }
+      ],
+      "moneyDrift": 4.3548643589019775e-06,
+      "errors": []
+    },
+    {
+      "implementation": "baseline",
+      "routes": 12,
+      "initialTown": {
+        "population": 2000,
+        "households": 678,
+        "buildings": 713,
+        "total": 15493517
+      },
+      "initialNetwork": {
+        "routes": 12,
+        "depots": 2,
+        "drivers": 24,
+        "rides": 16,
+        "capacity": 646,
+        "total": 15493517.000000091
+      },
+      "endNetwork": {
+        "routes": 12,
+        "operating": 12,
+        "drivers": 24,
+        "rides": 6,
+        "fares": 1917.499999999954,
+        "capacity": 622,
+        "nodeCount": 36,
+        "treasury": 2577478.0084661734,
+        "valid": {
+          "ok": true,
+          "issues": [],
+          "total": 15493516.999996044,
+          "population": 1990,
+          "day": 385
+        }
+      },
+      "requestedSpeed": 64,
+      "elapsedSeconds": 8.023518701000285,
+      "simulatedDays": 312,
+      "measuredRate": 64.16137597284099,
+      "effectiveRate": 66.54534723588426,
+      "tickMedianMs": 13.299999999813735,
+      "tickP95Ms": 26.800000000279397,
+      "drawMedianMs": 2.2999999998137355,
+      "drawP95Ms": 37.6999999997206,
+      "rafP95Ms": 49.900000000001455,
+      "rafP99Ms": 100,
+      "ui": [
+        {
+          "panel": "economy",
+          "toNextFrameMs": 80.09999999962747,
+          "error": false
+        },
+        {
+          "panel": "citizens",
+          "toNextFrameMs": 35.89999999990687,
+          "error": false
+        },
+        {
+          "panel": "construction",
+          "toNextFrameMs": 69.6999999997206,
+          "error": false
+        },
+        {
+          "panel": "settings",
+          "toNextFrameMs": 49.799999999813735,
+          "error": false
+        }
+      ],
+      "moneyDrift": 2.946704626083374e-06,
+      "errors": []
+    },
+    {
+      "implementation": "optimized",
+      "routes": 12,
+      "initialTown": {
+        "population": 2000,
+        "households": 678,
+        "buildings": 713,
+        "total": 15493517
+      },
+      "initialNetwork": {
+        "routes": 12,
+        "depots": 2,
+        "drivers": 24,
+        "rides": 16,
+        "capacity": 646,
+        "total": 15493517.000000091
+      },
+      "endNetwork": {
+        "routes": 12,
+        "operating": 12,
+        "drivers": 24,
+        "rides": 6,
+        "fares": 1897.9999999999548,
+        "capacity": 622,
+        "nodeCount": 36,
+        "treasury": 2570940.778094172,
+        "valid": {
+          "ok": true,
+          "issues": [],
+          "total": 15493516.99999613,
+          "population": 1990,
+          "day": 380
+        }
+      },
+      "requestedSpeed": 64,
+      "elapsedSeconds": 8.022053708000385,
+      "simulatedDays": 311,
+      "measuredRate": 63.96741017680249,
+      "effectiveRate": 65.99999999999996,
+      "tickMedianMs": 9.800000000279397,
+      "tickP95Ms": 21.300000000279397,
+      "drawMedianMs": 2.1000000000931323,
+      "drawP95Ms": 38.09999999962747,
+      "rafP95Ms": 33.400000000000546,
+      "rafP99Ms": 66.70000000000027,
+      "ui": [
+        {
+          "panel": "economy",
+          "toNextFrameMs": 75,
+          "error": false
+        },
+        {
+          "panel": "citizens",
+          "toNextFrameMs": 61.299999999813735,
+          "error": false
+        },
+        {
+          "panel": "construction",
+          "toNextFrameMs": 63.40000000037253,
+          "error": false
+        },
+        {
+          "panel": "settings",
+          "toNextFrameMs": 52.5,
+          "error": false
+        }
+      ],
+      "moneyDrift": 2.9243528842926025e-06,
+      "errors": []
+    },
+    {
+      "implementation": "baseline",
+      "routes": 48,
+      "initialTown": {
+        "population": 2000,
+        "households": 678,
+        "buildings": 713,
+        "total": 15493517
+      },
+      "initialNetwork": {
+        "routes": 48,
+        "depots": 6,
+        "drivers": 96,
+        "rides": 16,
+        "capacity": 2603,
+        "total": 15493517.000000091
+      },
+      "endNetwork": {
+        "routes": 48,
+        "operating": 48,
+        "drivers": 96,
+        "rides": 6,
+        "fares": 3127.8000000001007,
+        "capacity": 2507,
+        "nodeCount": 144,
+        "treasury": 1375120.2717746797,
+        "valid": {
+          "ok": true,
+          "issues": [],
+          "total": 15493517.000008004,
+          "population": 1994,
+          "day": 346
+        }
+      },
+      "requestedSpeed": 64,
+      "elapsedSeconds": 8.145929773999796,
+      "simulatedDays": 252,
+      "measuredRate": 51.04389695663123,
+      "effectiveRate": 43.999999999999986,
+      "tickMedianMs": 23.5,
+      "tickP95Ms": 40.200000000186265,
+      "drawMedianMs": 2.2999999998137355,
+      "drawP95Ms": 38.5,
+      "rafP95Ms": 66.70000000000073,
+      "rafP99Ms": 100,
+      "ui": [
+        {
+          "panel": "economy",
+          "toNextFrameMs": 112.60000000009313,
+          "error": false
+        },
+        {
+          "panel": "citizens",
+          "toNextFrameMs": 68.89999999990687,
+          "error": false
+        },
+        {
+          "panel": "construction",
+          "toNextFrameMs": 97.79999999981374,
+          "error": false
+        },
+        {
+          "panel": "settings",
+          "toNextFrameMs": 58.6999999997206,
+          "error": false
+        }
+      ],
+      "moneyDrift": 5.7220458984375e-06,
+      "errors": []
+    },
+    {
+      "implementation": "optimized",
+      "routes": 48,
+      "initialTown": {
+        "population": 2000,
+        "households": 678,
+        "buildings": 713,
+        "total": 15493517
+      },
+      "initialNetwork": {
+        "routes": 48,
+        "depots": 6,
+        "drivers": 96,
+        "rides": 16,
+        "capacity": 2603,
+        "total": 15493517.000000091
+      },
+      "endNetwork": {
+        "routes": 48,
+        "operating": 48,
+        "drivers": 96,
+        "rides": 8,
+        "fares": 3450.200000000146,
+        "capacity": 2507,
+        "nodeCount": 144,
+        "treasury": 1353376.6958953473,
+        "valid": {
+          "ok": true,
+          "issues": [],
+          "total": 15493517.000009723,
+          "population": 1992,
+          "day": 386
+        }
+      },
+      "requestedSpeed": 64,
+      "elapsedSeconds": 8.03211954299968,
+      "simulatedDays": 311,
+      "measuredRate": 63.88724635544439,
+      "effectiveRate": 62.69999999999995,
+      "tickMedianMs": 12.699999999720603,
+      "tickP95Ms": 28.300000000279397,
+      "drawMedianMs": 2.2000000001862645,
+      "drawP95Ms": 38.200000000186265,
+      "rafP95Ms": 49.899999999999636,
+      "rafP99Ms": 66.70000000000073,
+      "ui": [
+        {
+          "panel": "economy",
+          "toNextFrameMs": 88.89999999990687,
+          "error": false
+        },
+        {
+          "panel": "citizens",
+          "toNextFrameMs": 72.39999999990687,
+          "error": false
+        },
+        {
+          "panel": "construction",
+          "toNextFrameMs": 75,
+          "error": false
+        },
+        {
+          "panel": "settings",
+          "toNextFrameMs": 47.700000000186265,
+          "error": false
+        }
+      ],
+      "moneyDrift": 7.795169949531555e-06,
+      "errors": []
+    }
+  ],
+  "graphics_tree_commit": "4dbf48d513ec3b9174af0a00050d851f0c05f522",
+  "engine_source_sha256": "cb9965525c56ab4df79584d4edf1afef7494162bfeba27dc274b385928e8fd72"
+}

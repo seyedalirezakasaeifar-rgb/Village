@@ -1,0 +1,14 @@
+"""Night compositor live RAF/throughput on the existing synthetic2,000-resident fixture."""
+from test_mobile_rendering import ROOT,html
+from playwright.sync_api import sync_playwright
+import ast,json,hashlib,time
+fixture=next(n.value for n in ast.walk(ast.parse((ROOT/'tests/test_v7_live_large_town.py').read_text())) if isinstance(n,ast.Constant) and isinstance(n.value,str) and 'while(g.people.length<2000' in n.value)
+source=(ROOT/'assets/game.js').read_text();sha=hashlib.sha256(source.encode()).hexdigest()
+def q(values,f):return sorted(values)[min(len(values)-1,int(len(values)*f))] if values else 0
+with sync_playwright() as pw:
+ b=pw.chromium.launch(executable_path='/usr/bin/chromium',args=['--no-sandbox','--disable-dev-shm-usage']);p=b.new_page(viewport={'width':844,'height':390});errors=[];p.on('pageerror',lambda e:errors.append(str(e)));p.set_content(html);p.add_script_tag(content=source);p.locator('#newTown').click();p.locator('#pause').click();town=p.evaluate(fixture);p.locator('#panelClose').click();p.evaluate('__townTest.capture({night:true,zoom:.85})');p.locator('#speedRange').fill('6');p.locator('#pause').click();p.wait_for_timeout(700);p.evaluate('()=>{const r=__townTest.perf();r.frames.length=0;r.ticks.length=0}');start=p.evaluate('__townTest.get()');t=time.monotonic()
+ raf=p.evaluate('''()=>new Promise(resolve=>{const times=[];let previous=0,start=performance.now();function frame(now){if(previous)times.push(now-previous);previous=now;if(now-start<8000)requestAnimationFrame(frame);else resolve(times)}requestAnimationFrame(frame)})''');elapsed=time.monotonic()-t;end=p.evaluate('__townTest.get()');perf=p.evaluate('()=>{const r=__townTest.perf();return{draw:r.frames,ticks:r.ticks,speed:r.effective}}');latency=p.evaluate('''()=>{const start=performance.now();document.querySelector('[data-panel=economy]').click();return new Promise(resolve=>requestAnimationFrame(()=>resolve(performance.now()-start)))}''');p.locator('#pause').click();assert 'Panel error' not in p.locator('#panelBody').inner_text();assert not errors,errors;b.close()
+row={'source_sha256':sha,'hostChromiumOnly':True,'physicalAndroid':False,'synthetic':town,'viewport':[844,390],'night':True,'zoom':.85,'seconds':elapsed,'days':end['day']-start['day'],'measuredSpeed':(end['day']-start['day'])*1.65/elapsed,'rafP95':q(raf,.95),'rafP99':q(raf,.99),'drawP95':q(perf['draw'],.95),'tickP95':q(perf['ticks'],.95),'indicatorSpeed':perf['speed'],'economyToNextFrame':latency,'cashDrift':end['total']-town['total'],'errors':errors}
+assert hashlib.sha256((ROOT/'assets/game.js').read_bytes()).hexdigest()==sha
+out=ROOT/'reports/provider-world';out.mkdir(parents=True,exist_ok=True);(out/'night-live-performance.json').write_text(json.dumps(row,indent=2)+'\n');print(row)
+assert row['measuredSpeed']>40 and row['rafP99']<500 and row['drawP95']<50 and latency<250 and abs(row['cashDrift'])<.1,row

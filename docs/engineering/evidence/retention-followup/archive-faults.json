@@ -1,0 +1,385 @@
+{
+  "source_sha256": "346992b501f8622b007dddc6bf75baadbf850f6211b8989c6c3ccfcdefc98207",
+  "checks": [
+    {
+      "grid": 128,
+      "schema": 8,
+      "originalPersonZero": {
+        "id": 0,
+        "hh": 0,
+        "deceased": false,
+        "movedAway": false,
+        "rosters": [
+          0
+        ]
+      },
+      "recordsRejected": [
+        "missingMember",
+        "duplicateMember",
+        "householdMismatch",
+        "missingHome",
+        "tileUsedAsHomeId",
+        "missingFirmBuilding",
+        "negativeStock",
+        "invalidStock",
+        "unknownStock",
+        "negativeDeposit",
+        "missingDepositBank",
+        "malformedBank",
+        "malformedLoan",
+        "negativeLoanBank",
+        "duplicateBuildingId",
+        "exhaustedIdCounter",
+        "duplicateHomeId",
+        "orphanWorker",
+        "duplicateWorker",
+        "missingOwner",
+        "missingTitleHolder",
+        "truncatedTiles",
+        "malformedProject",
+        "futureSchema",
+        "invalidDay"
+      ],
+      "truncatedRejected": 4,
+      "callerIndependent": true,
+      "atomicRNGAndTimeline": true,
+      "scenario": "settlement",
+      "ageDays": 0,
+      "historicalCounterexamples": [
+        {
+          "status": "deceased",
+          "legacy": false,
+          "people": 1,
+          "emptyEstate": false,
+          "validHouseholdAccepted": true,
+          "financialIdentityPreserved": true,
+          "invalidRosterAndHouseholdRejected": true
+        },
+        {
+          "status": "deceased",
+          "legacy": false,
+          "people": 3,
+          "emptyEstate": true,
+          "validHouseholdAccepted": true,
+          "financialIdentityPreserved": true,
+          "invalidRosterAndHouseholdRejected": true
+        },
+        {
+          "status": "deceased",
+          "legacy": true,
+          "people": 1,
+          "emptyEstate": false,
+          "validHouseholdAccepted": true,
+          "financialIdentityPreserved": true,
+          "invalidRosterAndHouseholdRejected": true
+        },
+        {
+          "status": "deceased",
+          "legacy": true,
+          "people": 3,
+          "emptyEstate": true,
+          "validHouseholdAccepted": true,
+          "financialIdentityPreserved": true,
+          "invalidRosterAndHouseholdRejected": true
+        },
+        {
+          "status": "movedAway",
+          "legacy": false,
+          "people": 1,
+          "emptyEstate": false,
+          "validHouseholdAccepted": true,
+          "financialIdentityPreserved": true,
+          "invalidRosterAndHouseholdRejected": true
+        },
+        {
+          "status": "movedAway",
+          "legacy": false,
+          "people": 3,
+          "emptyEstate": true,
+          "validHouseholdAccepted": true,
+          "financialIdentityPreserved": true,
+          "invalidRosterAndHouseholdRejected": true
+        },
+        {
+          "status": "movedAway",
+          "legacy": true,
+          "people": 1,
+          "emptyEstate": false,
+          "validHouseholdAccepted": true,
+          "financialIdentityPreserved": true,
+          "invalidRosterAndHouseholdRejected": true
+        },
+        {
+          "status": "movedAway",
+          "legacy": true,
+          "people": 3,
+          "emptyEstate": true,
+          "validHouseholdAccepted": true,
+          "financialIdentityPreserved": true,
+          "invalidRosterAndHouseholdRejected": true
+        }
+      ],
+      "replay": {
+        "days": 90,
+        "exactCanonical": true,
+        "cashDrift": -1.5776604413986206e-06,
+        "goodsError": 3.637978807091713e-12,
+        "population": 164
+      }
+    },
+    {
+      "grid": 128,
+      "schema": 8,
+      "originalPersonZero": {
+        "id": 0,
+        "hh": 0,
+        "deceased": false,
+        "movedAway": false,
+        "rosters": [
+          0
+        ]
+      },
+      "recordsRejected": [
+        "missingMember",
+        "duplicateMember",
+        "householdMismatch",
+        "missingHome",
+        "tileUsedAsHomeId",
+        "missingFirmBuilding",
+        "negativeStock",
+        "invalidStock",
+        "unknownStock",
+        "negativeDeposit",
+        "missingDepositBank",
+        "malformedBank",
+        "malformedLoan",
+        "negativeLoanBank",
+        "duplicateBuildingId",
+        "exhaustedIdCounter",
+        "duplicateHomeId",
+        "orphanWorker",
+        "duplicateWorker",
+        "missingOwner",
+        "missingTitleHolder",
+        "truncatedTiles",
+        "malformedProject",
+        "futureSchema",
+        "invalidDay"
+      ],
+      "truncatedRejected": 4,
+      "callerIndependent": true,
+      "atomicRNGAndTimeline": true,
+      "scenario": "regional",
+      "ageDays": 360,
+      "historicalCounterexamples": [
+        {
+          "status": "deceased",
+          "legacy": false,
+          "people": 1,
+          "emptyEstate": false,
+          "validHouseholdAccepted": true,
+          "financialIdentityPreserved": true,
+          "invalidRosterAndHouseholdRejected": true
+        },
+        {
+          "status": "deceased",
+          "legacy": false,
+          "people": 3,
+          "emptyEstate": true,
+          "validHouseholdAccepted": true,
+          "financialIdentityPreserved": true,
+          "invalidRosterAndHouseholdRejected": true
+        },
+        {
+          "status": "deceased",
+          "legacy": true,
+          "people": 1,
+          "emptyEstate": false,
+          "validHouseholdAccepted": true,
+          "financialIdentityPreserved": true,
+          "invalidRosterAndHouseholdRejected": true
+        },
+        {
+          "status": "deceased",
+          "legacy": true,
+          "people": 3,
+          "emptyEstate": true,
+          "validHouseholdAccepted": true,
+          "financialIdentityPreserved": true,
+          "invalidRosterAndHouseholdRejected": true
+        },
+        {
+          "status": "movedAway",
+          "legacy": false,
+          "people": 1,
+          "emptyEstate": false,
+          "validHouseholdAccepted": true,
+          "financialIdentityPreserved": true,
+          "invalidRosterAndHouseholdRejected": true
+        },
+        {
+          "status": "movedAway",
+          "legacy": false,
+          "people": 3,
+          "emptyEstate": true,
+          "validHouseholdAccepted": true,
+          "financialIdentityPreserved": true,
+          "invalidRosterAndHouseholdRejected": true
+        },
+        {
+          "status": "movedAway",
+          "legacy": true,
+          "people": 1,
+          "emptyEstate": false,
+          "validHouseholdAccepted": true,
+          "financialIdentityPreserved": true,
+          "invalidRosterAndHouseholdRejected": true
+        },
+        {
+          "status": "movedAway",
+          "legacy": true,
+          "people": 3,
+          "emptyEstate": true,
+          "validHouseholdAccepted": true,
+          "financialIdentityPreserved": true,
+          "invalidRosterAndHouseholdRejected": true
+        }
+      ],
+      "replay": {
+        "days": 90,
+        "exactCanonical": true,
+        "cashDrift": 4.824250936508179e-07,
+        "goodsError": 1.6880221664905548e-09,
+        "population": 702
+      }
+    },
+    {
+      "grid": 128,
+      "schema": 8,
+      "originalPersonZero": {
+        "id": 0,
+        "hh": 0,
+        "deceased": false,
+        "movedAway": true,
+        "rosters": []
+      },
+      "recordsRejected": [
+        "missingMember",
+        "duplicateMember",
+        "householdMismatch",
+        "missingHome",
+        "tileUsedAsHomeId",
+        "missingFirmBuilding",
+        "negativeStock",
+        "invalidStock",
+        "unknownStock",
+        "negativeDeposit",
+        "missingDepositBank",
+        "malformedBank",
+        "malformedLoan",
+        "negativeLoanBank",
+        "duplicateBuildingId",
+        "exhaustedIdCounter",
+        "duplicateHomeId",
+        "orphanWorker",
+        "duplicateWorker",
+        "missingOwner",
+        "missingTitleHolder",
+        "truncatedTiles",
+        "malformedProject",
+        "futureSchema",
+        "invalidDay"
+      ],
+      "truncatedRejected": 4,
+      "callerIndependent": true,
+      "atomicRNGAndTimeline": true,
+      "scenario": "hardtimes",
+      "ageDays": 720,
+      "historicalCounterexamples": [
+        {
+          "status": "deceased",
+          "legacy": false,
+          "people": 1,
+          "emptyEstate": false,
+          "validHouseholdAccepted": true,
+          "financialIdentityPreserved": true,
+          "invalidRosterAndHouseholdRejected": true
+        },
+        {
+          "status": "deceased",
+          "legacy": false,
+          "people": 3,
+          "emptyEstate": true,
+          "validHouseholdAccepted": true,
+          "financialIdentityPreserved": true,
+          "invalidRosterAndHouseholdRejected": true
+        },
+        {
+          "status": "deceased",
+          "legacy": true,
+          "people": 1,
+          "emptyEstate": false,
+          "validHouseholdAccepted": true,
+          "financialIdentityPreserved": true,
+          "invalidRosterAndHouseholdRejected": true
+        },
+        {
+          "status": "deceased",
+          "legacy": true,
+          "people": 3,
+          "emptyEstate": true,
+          "validHouseholdAccepted": true,
+          "financialIdentityPreserved": true,
+          "invalidRosterAndHouseholdRejected": true
+        },
+        {
+          "status": "movedAway",
+          "legacy": false,
+          "people": 1,
+          "emptyEstate": false,
+          "validHouseholdAccepted": true,
+          "financialIdentityPreserved": true,
+          "invalidRosterAndHouseholdRejected": true
+        },
+        {
+          "status": "movedAway",
+          "legacy": false,
+          "people": 3,
+          "emptyEstate": true,
+          "validHouseholdAccepted": true,
+          "financialIdentityPreserved": true,
+          "invalidRosterAndHouseholdRejected": true
+        },
+        {
+          "status": "movedAway",
+          "legacy": true,
+          "people": 1,
+          "emptyEstate": false,
+          "validHouseholdAccepted": true,
+          "financialIdentityPreserved": true,
+          "invalidRosterAndHouseholdRejected": true
+        },
+        {
+          "status": "movedAway",
+          "legacy": true,
+          "people": 3,
+          "emptyEstate": true,
+          "validHouseholdAccepted": true,
+          "financialIdentityPreserved": true,
+          "invalidRosterAndHouseholdRejected": true
+        }
+      ],
+      "replay": {
+        "days": 90,
+        "exactCanonical": true,
+        "cashDrift": -2.0172446966171265e-06,
+        "goodsError": 5.3660187404602766e-11,
+        "population": 164
+      }
+    }
+  ],
+  "historicalFixtures": [
+    "corporate-liquidity-trap.json",
+    "v60-distressed-town.json"
+  ]
+}

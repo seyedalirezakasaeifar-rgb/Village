@@ -1,0 +1,9 @@
+5241f7d5b28f307a72930ea31f8af8dddf7d65a7	refs/heads/codex/8-bridge-art
+133d2801d621fb63970eb05565a0ee3061d0aa5d	refs/heads/codex/8-bridge-art-current-public
+c68b9758846f7d5c3176842e4d6529661ea15d34	refs/heads/codex/8-bridge-integration-ca0c6d0
+bdddd6c7c7b086b9b2b09971cdb062890abb6e06	refs/heads/codex/8-bridge-showcase
+3362827c8f5aa407c236154c8447264fffec2765	refs/heads/codex/8-retail-proposal-reuse
+d7a9f97deeca3eb7e05956240a2177180fc80ad5	refs/heads/codex/8-urban-art
+42e1f6903b4a258a8ff56d9a2870ef526a676c64	refs/heads/codex/8-urban-evolution
+98a6f99618e27e7d30306a7f4c890ac019ef004a	refs/heads/codex/8-urban-validation
+b9858996002b6eb8c646134a814b019c53522d90	refs/heads/codex/bridge-current-public-regression

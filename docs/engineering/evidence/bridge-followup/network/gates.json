@@ -1,0 +1,36 @@
+{
+  "source_sha256": "8031901f1dca4e8b45d43d653e7657abff20f91f3bd5f2f823bd5c8a25e56a67",
+  "base": "c0f4f6b10704ce0468e508082015ae78c48a3128",
+  "gates": [
+    {
+      "test": "test_road_integrity",
+      "exit_code": 0,
+      "seconds": 13.57,
+      "log_sha256": "cc1ed4a36fec86710b000726949ccf27685560fb652bf5f641f21794f3b048cd"
+    },
+    {
+      "test": "test_annexation_networks",
+      "exit_code": 0,
+      "seconds": 2.57,
+      "log_sha256": "4827aa250b5585020277143d61aac246a31886889442fda253fecd94d6f88fe6"
+    },
+    {
+      "test": "test_annexation",
+      "exit_code": 1,
+      "seconds": 2.18,
+      "log_sha256": "fc59ff54153ca29f5bc9910dd7e9a67eb3db4466a9e0b5fef97ef8b02a5f7f5f"
+    },
+    {
+      "test": "test_port_freight",
+      "exit_code": 0,
+      "seconds": 4.29,
+      "log_sha256": "b1713805f182386fd45974bea0b8be969a79aaf357513b510b651ea026d3af0b"
+    },
+    {
+      "test": "test_logistics",
+      "exit_code": 0,
+      "seconds": 2.28,
+      "log_sha256": "4a0aafea3f501e7b4a259be3542a950e919d9a31ec0baf41335e4f2110427e7c"
+    }
+  ]
+}

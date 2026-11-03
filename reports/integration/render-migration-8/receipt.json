@@ -1,0 +1,727 @@
+{
+  "source_sha256": "3570ef6e14dbd08908232955768f355b198c1c869021289204825cd952d038ed",
+  "base_commit": "662ec6f3b0998ce3c3c560d5bef39e4e17a4bcc1",
+  "scope": "Combined render compositing and migration-aware district guidance acceptance",
+  "gates": {
+    "docs/previews/render-bug-audit/compositor-checks.json": {
+      "old": {
+        "channels": 464,
+        "max": 59
+      },
+      "fixed": {
+        "channels": 0,
+        "max": 0
+      },
+      "unchanged": true,
+      "underlayBytes": 3056640,
+      "source_sha256": "3570ef6e14dbd08908232955768f355b198c1c869021289204825cd952d038ed",
+      "errors": []
+    },
+    "docs/previews/render-bug-audit/bridge-checks.json": {
+      "found": {
+        "phase": 10.699999999999996,
+        "overlap": 183,
+        "oldWrong": 151,
+        "fixedWrong": 0
+      },
+      "unchanged": true,
+      "source_sha256": "3570ef6e14dbd08908232955768f355b198c1c869021289204825cd952d038ed"
+    },
+    "docs/previews/render-bug-audit/camera-checks.json": {
+      "checks": [
+        {
+          "zoom": 1.4,
+          "night": false,
+          "stable": true,
+          "bytes": 941904,
+          "viewportBytes": 941904
+        },
+        {
+          "zoom": 1.4,
+          "night": true,
+          "stable": true,
+          "bytes": 941904,
+          "viewportBytes": 941904
+        },
+        {
+          "zoom": 0.6,
+          "night": false,
+          "stable": true,
+          "bytes": 941904,
+          "viewportBytes": 941904
+        },
+        {
+          "zoom": 0.6,
+          "night": true,
+          "stable": true,
+          "bytes": 941904,
+          "viewportBytes": 941904
+        },
+        {
+          "zoom": 0.4,
+          "night": false,
+          "stable": true,
+          "bytes": 941904,
+          "viewportBytes": 941904
+        },
+        {
+          "zoom": 0.4,
+          "night": true,
+          "stable": true,
+          "bytes": 941904,
+          "viewportBytes": 941904
+        },
+        {
+          "zoom": 0.2,
+          "night": false,
+          "stable": true,
+          "bytes": 0,
+          "viewportBytes": 941904
+        },
+        {
+          "zoom": 0.2,
+          "night": true,
+          "stable": true,
+          "bytes": 0,
+          "viewportBytes": 941904
+        },
+        {
+          "zoom": 1.1,
+          "night": false,
+          "stable": true,
+          "bytes": 941904,
+          "viewportBytes": 941904
+        },
+        {
+          "zoom": 1.1,
+          "night": true,
+          "stable": true,
+          "bytes": 941904,
+          "viewportBytes": 941904
+        }
+      ],
+      "unchanged": true,
+      "assetOrigin": "http://127.0.0.1:40835/assets/index.html",
+      "source_sha256": "3570ef6e14dbd08908232955768f355b198c1c869021289204825cd952d038ed",
+      "errors": []
+    },
+    "docs/previews/paid-port-art/checks.json": {
+      "paidTransferRoute": true,
+      "underBridge": true,
+      "subdayDistance": 380.53811398905486,
+      "boundaryJump": 0.006342301899750807,
+      "stable": true,
+      "unchanged": true,
+      "far": 0,
+      "reduced": 0,
+      "actors": 3,
+      "paidSamples": 1,
+      "sampledLoads": 8,
+      "inspected": true,
+      "info": {
+        "cargo": "food",
+        "quantity": 120,
+        "journey": "Owned import \u00b7 Regional voyage"
+      },
+      "renderBenchMs": 0.56,
+      "source_sha256": "3570ef6e14dbd08908232955768f355b198c1c869021289204825cd952d038ed",
+      "errors": [],
+      "capture": "Actual reviewed imports; continuous normal-clock session after accelerated waiting for the local river leg. Camera follows visible cargo. Not an FPS benchmark.",
+      "frames": 32,
+      "seconds": 7.245622902002651
+    },
+    "reports/development-8.0/visual-lod.json": {
+      "source_sha256": "3570ef6e14dbd08908232955768f355b198c1c869021289204825cd952d038ed",
+      "rows": [
+        {
+          "zoom": 0.08,
+          "budget": {
+            "traffic": false,
+            "people": false,
+            "boats": false
+          },
+          "subpixelShadowsSkipped": true
+        },
+        {
+          "zoom": 0.2,
+          "budget": {
+            "traffic": false,
+            "people": false,
+            "boats": false
+          },
+          "subpixelShadowsSkipped": true
+        },
+        {
+          "zoom": 0.44,
+          "budget": {
+            "traffic": false,
+            "people": false,
+            "boats": true
+          },
+          "subpixelShadowsSkipped": false
+        }
+      ],
+      "nearbyVehicles": 9,
+      "day": 31,
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15493070.999999605,
+        "population": 167,
+        "day": 31
+      }
+    },
+    "reports/district-followthrough/controls.json": {
+      "newWorkJourney": {
+        "version": 1,
+        "direction": "river",
+        "started": 1,
+        "stage": 2,
+        "held": 0,
+        "lastDay": 36,
+        "completed": [
+          {
+            "stage": 0,
+            "day": 33
+          },
+          {
+            "stage": 1,
+            "day": 36
+          }
+        ],
+        "guide": true,
+        "visited": [
+          "agenda",
+          "overview"
+        ],
+        "review": null,
+        "baseline": {
+          "version": 1,
+          "day": 1,
+          "delivered": 0,
+          "agreements": [],
+          "districts": [],
+          "firms": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25
+          ],
+          "essentials": false,
+          "services": false
+        }
+      },
+      "existingPrerequisiteLabel": {
+        "stage": 0,
+        "day": 33,
+        "existingPrerequisite": true
+      },
+      "migrationAware": true,
+      "naturalVacancyAssessment": "Illustrative two adults, age30, skill0.45, health90. These are not actual applicants; no money, jobs, seats or school places are reserved. No funded reachable job remains after local jobseekers; Expected take-home pay does not cover rent, food, utilities and fares Take-home $0/day; essentials $23/day; surplus \u2212$23/day. rent: $0.00/day; food: $15.25/day; utilities: $4.59/day; commuting: $0.00/day; shopping: $3.49/day; propertyTax: $0.00/day; debtService: $0.00/day; privateFees: $0.00/day. Funded reachable offers: none after local jobseekers. Forecast care 68.5%, learning 0%. Outside Upland Cooperative: reference take-home $49/day, essentials $28/day. Outside wages/rent are a reference, not a foreign job offer. Any forecast private-school fees are included in essentials without assumed vouchers.",
+      "initialPlan": {
+        "parcel": "orchard-downs",
+        "metrics": {
+          "pop": 0,
+          "connected": 0,
+          "staffed": 0,
+          "fishery": false,
+          "wharf": false,
+          "care": 0,
+          "school": 0
+        },
+        "housing": {
+          "available": true,
+          "vacancies": 0,
+          "homes": []
+        },
+        "sites": [
+          {
+            "kind": "grocer",
+            "x": 43,
+            "y": 67,
+            "cells": [
+              8619
+            ],
+            "cost": 4300,
+            "business": true
+          },
+          {
+            "kind": "bakery",
+            "x": 42,
+            "y": 67,
+            "cells": [
+              8618
+            ],
+            "cost": 3600,
+            "business": true
+          },
+          {
+            "kind": "home",
+            "x": 42,
+            "y": 65,
+            "cells": [
+              8362
+            ],
+            "cost": 20000,
+            "distance": 2
+          },
+          {
+            "kind": "clinic",
+            "x": 41,
+            "y": 66,
+            "cells": [
+              8489
+            ],
+            "cost": 8000,
+            "distance": 2
+          },
+          {
+            "kind": "school",
+            "x": 44,
+            "y": 66,
+            "cells": [
+              8492,
+              8493,
+              8620,
+              8621
+            ],
+            "cost": 6900,
+            "distance": 3
+          }
+        ],
+        "missing": [],
+        "roadCost": 0,
+        "cost": 42800
+      },
+      "afterReviewedHousingPhase": {
+        "parcel": "orchard-downs",
+        "metrics": {
+          "pop": 0,
+          "connected": 1,
+          "staffed": 0,
+          "fishery": false,
+          "wharf": false,
+          "care": 0,
+          "school": 0
+        },
+        "housing": {
+          "available": true,
+          "vacancies": 1,
+          "homes": [
+            {
+              "building": 105,
+              "capacity": 1,
+              "households": [],
+              "occupied": 0,
+              "available": 1,
+              "overcrowded": false,
+              "reviewRequired": false,
+              "legacySharedTenants": [],
+              "reserved": false,
+              "underConstruction": false
+            }
+          ]
+        },
+        "sites": [
+          {
+            "kind": "grocer",
+            "x": 43,
+            "y": 67,
+            "cells": [
+              8619
+            ],
+            "cost": 4300,
+            "business": true
+          },
+          {
+            "kind": "bakery",
+            "x": 42,
+            "y": 67,
+            "cells": [
+              8618
+            ],
+            "cost": 3600,
+            "business": true
+          },
+          {
+            "kind": "clinic",
+            "x": 41,
+            "y": 66,
+            "cells": [
+              8489
+            ],
+            "cost": 8000,
+            "distance": 2
+          },
+          {
+            "kind": "school",
+            "x": 44,
+            "y": 66,
+            "cells": [
+              8492,
+              8493,
+              8620,
+              8621
+            ],
+            "cost": 6900,
+            "distance": 3
+          }
+        ],
+        "missing": [],
+        "roadCost": 0,
+        "cost": 22800
+      },
+      "errors": [],
+      "migrationPreviewDependency": null,
+      "source_sha256": "3570ef6e14dbd08908232955768f355b198c1c869021289204825cd952d038ed",
+      "controlledUnfundedAddress": "Illustrative two adults, age30, skill0.45, health90. These are not actual applicants; no money, jobs, seats or school places are reserved. No funded reachable job remains after local jobseekers; Expected take-home pay does not cover rent, food, utilities and fares Take-home $0/day; essentials $23/day; surplus \u2212$23/day. rent: $0.00/day; food: $15.26/day; utilities: $4.59/day; commuting: $0.00/day; shopping: $3.49/day; propertyTax: $0.00/day; debtService: $0.00/day; privateFees: $0.00/day. Funded reachable offers: none after local jobseekers. Forecast care 68.5%, learning 0%. Outside Upland Cooperative: reference take-home $49/day, essentials $28/day. Outside wages/rent are a reference, not a foreign job offer. Any forecast private-school fees are included in essentials without assumed vouchers.",
+      "unfundedVacancyPlan": {
+        "parcel": "orchard-downs",
+        "metrics": {
+          "pop": 0,
+          "connected": 1,
+          "staffed": 0,
+          "fishery": false,
+          "wharf": false,
+          "care": 0,
+          "school": 0
+        },
+        "housing": {
+          "available": true,
+          "vacancies": 1,
+          "homes": [
+            {
+              "building": 105,
+              "capacity": 1,
+              "households": [],
+              "occupied": 0,
+              "available": 1,
+              "overcrowded": false,
+              "reviewRequired": false,
+              "legacySharedTenants": [],
+              "reserved": false,
+              "underConstruction": false
+            }
+          ]
+        },
+        "sites": [
+          {
+            "kind": "grocer",
+            "x": 43,
+            "y": 67,
+            "cells": [
+              8619
+            ],
+            "cost": 4300,
+            "business": true
+          },
+          {
+            "kind": "bakery",
+            "x": 42,
+            "y": 67,
+            "cells": [
+              8618
+            ],
+            "cost": 3600,
+            "business": true
+          },
+          {
+            "kind": "clinic",
+            "x": 41,
+            "y": 66,
+            "cells": [
+              8489
+            ],
+            "cost": 8000,
+            "distance": 2
+          },
+          {
+            "kind": "school",
+            "x": 44,
+            "y": 66,
+            "cells": [
+              8492,
+              8493,
+              8620,
+              8621
+            ],
+            "cost": 6900,
+            "distance": 3
+          }
+        ],
+        "missing": [],
+        "roadCost": 0,
+        "cost": 22800
+      }
+    },
+    "reports/tenancy-archive/regression.json": {
+      "source_sha256": "3570ef6e14dbd08908232955768f355b198c1c869021289204825cd952d038ed",
+      "rows": [
+        {
+          "groups": [
+            {
+              "building": 58,
+              "households": [
+                272,
+                273
+              ]
+            },
+            {
+              "building": 64,
+              "households": [
+                281,
+                285
+              ]
+            },
+            {
+              "building": 70,
+              "households": [
+                306,
+                308
+              ]
+            },
+            {
+              "building": 85,
+              "households": [
+                245,
+                250
+              ]
+            },
+            {
+              "building": 86,
+              "households": [
+                180,
+                256
+              ]
+            },
+            {
+              "building": 113,
+              "households": [
+                321,
+                323
+              ]
+            }
+          ],
+          "preserved": true,
+          "idempotent": true
+        },
+        {
+          "versionGrowthRejected": true,
+          "unauthorizedOccupantsRejected": true,
+          "malformedRosterRejected": true,
+          "atomic": true,
+          "occupiedMunicipalHomePreserved": true,
+          "exactContinuationDays": 30
+        },
+        {
+          "unlistedArrivalRejected": true,
+          "departedRosterPrunedWithoutGrowth": true
+        }
+      ]
+    },
+    "reports/development-save-qa/composite.json": {
+      "source_sha256": "3570ef6e14dbd08908232955768f355b198c1c869021289204825cd952d038ed",
+      "controlledCatchment": true,
+      "result": {
+        "grid": 128,
+        "people": 1375,
+        "routes": 2,
+        "settledTickets": 1,
+        "fares": 4.550000000000001,
+        "cargo": 19,
+        "providerEscrow": 6000,
+        "mallEscrow": 28000,
+        "cashConserved": true,
+        "receiptsPreserved": true,
+        "faults": {
+          "grid": 128,
+          "schema": 8,
+          "recordsRejected": [
+            "missingMember",
+            "duplicateMember",
+            "householdMismatch",
+            "missingHome",
+            "tileUsedAsHomeId",
+            "missingFirmBuilding",
+            "negativeStock",
+            "invalidStock",
+            "unknownStock",
+            "negativeDeposit",
+            "missingDepositBank",
+            "malformedBank",
+            "malformedLoan",
+            "negativeLoanBank",
+            "duplicateBuildingId",
+            "exhaustedIdCounter",
+            "duplicateHomeId",
+            "orphanWorker",
+            "duplicateWorker",
+            "missingOwner",
+            "missingTitleHolder",
+            "truncatedTiles",
+            "malformedProject",
+            "futureSchema",
+            "invalidDay"
+          ],
+          "truncatedRejected": 4,
+          "callerIndependent": true,
+          "atomicRNGAndTimeline": true
+        }
+      }
+    },
+    "reports/release-tests.json": {
+      "source_sha256": "3570ef6e14dbd08908232955768f355b198c1c869021289204825cd952d038ed",
+      "determinism_and_continuation": {
+        "sameSeed": true,
+        "renderIndependent": true,
+        "continuedDays": 120,
+        "valid": {
+          "ok": true,
+          "issues": [],
+          "total": 15489571.999994356,
+          "population": 172,
+          "day": 301
+        }
+      },
+      "malformed_save_atomicity": {
+        "investorRejected": true,
+        "cargoRejected": true,
+        "futureRejected": true,
+        "townPreserved": true
+      },
+      "replicated_zoning": [
+        {
+          "seed": 42,
+          "zone": 0,
+          "population": 192,
+          "homes": 17,
+          "firms": 3,
+          "privateSpend": 494901,
+          "moneyDelta": -1.2569129467010498e-05,
+          "ms": 3440.5
+        },
+        {
+          "seed": 42,
+          "zone": 100,
+          "population": 177,
+          "homes": 0,
+          "firms": 1,
+          "privateSpend": 0,
+          "moneyDelta": -1.7305836081504822e-05,
+          "ms": 2265.7999999970198
+        },
+        {
+          "seed": 101,
+          "zone": 0,
+          "population": 221,
+          "homes": 21,
+          "firms": 8,
+          "privateSpend": 621891,
+          "moneyDelta": -1.55717134475708e-05,
+          "ms": 3178.2000000029802
+        },
+        {
+          "seed": 101,
+          "zone": 100,
+          "population": 183,
+          "homes": 0,
+          "firms": 2,
+          "privateSpend": 0,
+          "moneyDelta": -8.197501301765442e-06,
+          "ms": 2278.300000011921
+        },
+        {
+          "seed": 909,
+          "zone": 0,
+          "population": 211,
+          "homes": 21,
+          "firms": 5,
+          "privateSpend": 525844,
+          "moneyDelta": -1.1583790183067322e-05,
+          "ms": 2841.7999999970198
+        },
+        {
+          "seed": 909,
+          "zone": 100,
+          "population": 176,
+          "homes": 0,
+          "firms": 1,
+          "privateSpend": 0,
+          "moneyDelta": -1.2626871466636658e-05,
+          "ms": 2164.0999999940395
+        }
+      ],
+      "cargo_ownership": {
+        "consignments": 6,
+        "sampledUnits": 166.3792513597068,
+        "remaining": true,
+        "delayed": 1,
+        "cashConserved": true
+      },
+      "legacy_56_migration": {
+        "v": {
+          "ok": true,
+          "issues": [],
+          "total": 15430770,
+          "population": 169,
+          "day": 1
+        },
+        "after": {
+          "ok": true,
+          "issues": [],
+          "total": 15430769.999999383,
+          "population": 167,
+          "day": 31
+        },
+        "schema": 8
+      },
+      "true_pause": {
+        "identicalScreenshots": true,
+        "milliseconds": 500
+      },
+      "traffic_progress": {
+        "seconds": 1600,
+        "maximumWait": 0.9999999999999999,
+        "peak": 21,
+        "valid": true
+      },
+      "long_run_endurance": [],
+      "browser_errors": []
+    }
+  },
+  "screenshots": {
+    "mobile-night.png": "215871baf968e0c9b749a4a651d48ce653791df6eba75ef693a53d2d74d18064",
+    "mobile-day.png": "4450868071eae184ec86bb4ac2669802d205a9eede9b66821c9063ee06bbe3db",
+    "unfunded-address.png": "10a789b1c42830eabfbdd6af073905cf035510a450b21c20dac6fa279ee3fb2e",
+    "mobile-far.png": "401610a55d8665da7845d4274ebe83013f39dbc484b295a128a34cf9be23320b",
+    "district-plan.png": "6e04c11dec6ce2ba2cff56e31448ab4a4b0a8dda82fd7d67be9fd7241b12daea"
+  },
+  "limitations": [
+    "Chromium rendering and finite deterministic regressions; not physical Android frame-rate certification.",
+    "Current-source Android visual and animation review remains required.",
+    "Cooperative scheduling prototype is separate and not enabled here.",
+    "Long-session responsiveness findings remain open; these tests do not establish sustained smoothness."
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "source_sha256": "884d8087368dbb6ac0a058a5baee7296e47fcc79ea72db25b478ef50a7af0582",
+  "base": "ecbc945c4aeeb99d27d0cf7b7cd8ee63651af785",
+  "gates": [
+    {
+      "test": "test_road_bridge",
+      "exit_code": 0,
+      "seconds": 3.93,
+      "log_sha256": "67f51e7b2c31c99f4e91313ff002cb893f1abae2daf76ad6dd8cc4b13dda4442"
+    },
+    {
+      "test": "test_road_bridge_art",
+      "exit_code": 0,
+      "seconds": 2.63,
+      "log_sha256": "13d8549511ae40f8b24cb57e3a6b089f39a641296a0564d0523d95c1ff24cdf5"
+    },
+    {
+      "test": "test_bridge_state_conflicts",
+      "exit_code": 0,
+      "seconds": 3.64,
+      "log_sha256": "64f4c378b14724fcbb6466ef4db63fe8ec6befbf37b6d8b4f01a4d9784792c4d"
+    },
+    {
+      "test": "test_bridge_save_fence",
+      "exit_code": 0,
+      "seconds": 3.39,
+      "log_sha256": "d5dbebc24dd3d2b75d427807f05aac2b935e4e98298ade67e214b7401261521e"
+    },
+    {
+      "test": "test_annexation",
+      "exit_code": 0,
+      "seconds": 4.73,
+      "log_sha256": "9cf45f70dadb7f5b629e1f5c50c98ce86a808d922abecaf9fb2672ae96bc5f1d"
+    },
+    {
+      "test": "test_waterfront_mobile",
+      "exit_code": 0,
+      "seconds": 8.85,
+      "log_sha256": "67f442e1ba1b90aa61d12aae8551c0231e276d1eb87b8dbcfcb956fda355ddbe"
+    },
+    {
+      "test": "test_native_seed_continuity",
+      "exit_code": 0,
+      "seconds": 17.35,
+      "log_sha256": "fb1e283e9430ce013a8983253a876b61db09d508077ed6f41976cfe8e1fe604e"
+    }
+  ]
+}

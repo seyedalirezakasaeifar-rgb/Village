@@ -1,0 +1,58 @@
+{
+  "source_sha256": "78f4c3b5dc1a34313ff8752b6a6a5e85410a832b597b04fba4a0f1005ec62174",
+  "cases": [
+    {
+      "committedDaysAfterWork": 0,
+      "fullCanonicalStateEqual": true,
+      "excludedFields": [],
+      "bridge": {
+        "axis": "east-west",
+        "banks": [
+          1983,
+          1989
+        ],
+        "builtDay": 1,
+        "capital": 13450,
+        "cells": [
+          1984,
+          1985,
+          1986,
+          1987,
+          1988
+        ],
+        "condition": 100,
+        "id": 1,
+        "name": "East Meadow Causeway"
+      },
+      "traffic": 4,
+      "shipments": 1
+    },
+    {
+      "committedDaysAfterWork": 1,
+      "fullCanonicalStateEqual": true,
+      "excludedFields": [],
+      "bridge": {
+        "axis": "east-west",
+        "banks": [
+          1983,
+          1989
+        ],
+        "builtDay": 1,
+        "capital": 13450,
+        "cells": [
+          1984,
+          1985,
+          1986,
+          1987,
+          1988
+        ],
+        "condition": 100,
+        "id": 1,
+        "name": "East Meadow Causeway"
+      },
+      "traffic": 4,
+      "shipments": 19
+    }
+  ]
+}
+PASS immediate/committed bridge plus live freight full-state cold reload/Continue, including paid service receipts; no exclusions

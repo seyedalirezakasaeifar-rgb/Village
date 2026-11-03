@@ -1,0 +1,305 @@
+{
+  "newWorkJourney": {
+    "version": 1,
+    "direction": "river",
+    "started": 1,
+    "stage": 2,
+    "held": 0,
+    "lastDay": 36,
+    "completed": [
+      {
+        "stage": 0,
+        "day": 33
+      },
+      {
+        "stage": 1,
+        "day": 36
+      }
+    ],
+    "guide": true,
+    "visited": [
+      "agenda",
+      "overview"
+    ],
+    "review": null,
+    "baseline": {
+      "version": 1,
+      "day": 1,
+      "delivered": 0,
+      "agreements": [],
+      "districts": [],
+      "firms": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25
+      ],
+      "essentials": false,
+      "services": false
+    }
+  },
+  "existingPrerequisiteLabel": {
+    "stage": 0,
+    "day": 33,
+    "existingPrerequisite": true
+  },
+  "migrationAware": true,
+  "naturalVacancyAssessment": "Illustrative two adults, age30, skill0.45, health90. These are not actual applicants; no money, jobs, seats or school places are reserved. No funded reachable job remains after local jobseekers; Expected take-home pay does not cover rent, food, utilities and fares Take-home $0/day; essentials $23/day; surplus \u2212$23/day. rent: $0.00/day; food: $15.25/day; utilities: $4.59/day; commuting: $0.00/day; shopping: $3.49/day; propertyTax: $0.00/day; debtService: $0.00/day; privateFees: $0.00/day. Funded reachable offers: none after local jobseekers. Forecast care 68.5%, learning 0%. Outside Upland Cooperative: reference take-home $49/day, essentials $28/day. Outside wages/rent are a reference, not a foreign job offer. Any forecast private-school fees are included in essentials without assumed vouchers.",
+  "initialPlan": {
+    "parcel": "orchard-downs",
+    "metrics": {
+      "pop": 0,
+      "connected": 0,
+      "staffed": 0,
+      "fishery": false,
+      "wharf": false,
+      "care": 0,
+      "school": 0
+    },
+    "housing": {
+      "available": true,
+      "vacancies": 0,
+      "homes": []
+    },
+    "sites": [
+      {
+        "kind": "grocer",
+        "x": 43,
+        "y": 67,
+        "cells": [
+          8619
+        ],
+        "cost": 4300,
+        "business": true
+      },
+      {
+        "kind": "bakery",
+        "x": 42,
+        "y": 67,
+        "cells": [
+          8618
+        ],
+        "cost": 3600,
+        "business": true
+      },
+      {
+        "kind": "home",
+        "x": 42,
+        "y": 65,
+        "cells": [
+          8362
+        ],
+        "cost": 20000,
+        "distance": 2
+      },
+      {
+        "kind": "clinic",
+        "x": 41,
+        "y": 66,
+        "cells": [
+          8489
+        ],
+        "cost": 8000,
+        "distance": 2
+      },
+      {
+        "kind": "school",
+        "x": 44,
+        "y": 66,
+        "cells": [
+          8492,
+          8493,
+          8620,
+          8621
+        ],
+        "cost": 6900,
+        "distance": 3
+      }
+    ],
+    "missing": [],
+    "roadCost": 0,
+    "cost": 42800
+  },
+  "afterReviewedHousingPhase": {
+    "parcel": "orchard-downs",
+    "metrics": {
+      "pop": 0,
+      "connected": 1,
+      "staffed": 0,
+      "fishery": false,
+      "wharf": false,
+      "care": 0,
+      "school": 0
+    },
+    "housing": {
+      "available": true,
+      "vacancies": 1,
+      "homes": [
+        {
+          "building": 105,
+          "capacity": 1,
+          "households": [],
+          "occupied": 0,
+          "available": 1,
+          "overcrowded": false,
+          "reviewRequired": false,
+          "legacySharedTenants": [],
+          "reserved": false,
+          "underConstruction": false
+        }
+      ]
+    },
+    "sites": [
+      {
+        "kind": "grocer",
+        "x": 43,
+        "y": 67,
+        "cells": [
+          8619
+        ],
+        "cost": 4300,
+        "business": true
+      },
+      {
+        "kind": "bakery",
+        "x": 42,
+        "y": 67,
+        "cells": [
+          8618
+        ],
+        "cost": 3600,
+        "business": true
+      },
+      {
+        "kind": "clinic",
+        "x": 41,
+        "y": 66,
+        "cells": [
+          8489
+        ],
+        "cost": 8000,
+        "distance": 2
+      },
+      {
+        "kind": "school",
+        "x": 44,
+        "y": 66,
+        "cells": [
+          8492,
+          8493,
+          8620,
+          8621
+        ],
+        "cost": 6900,
+        "distance": 3
+      }
+    ],
+    "missing": [],
+    "roadCost": 0,
+    "cost": 22800
+  },
+  "errors": [],
+  "migrationPreviewDependency": null,
+  "source_sha256": "ac508646259dfe4f59bfa4dff20697865237ad9023992c692c00416e57e03292",
+  "controlledUnfundedAddress": "Illustrative two adults, age30, skill0.45, health90. These are not actual applicants; no money, jobs, seats or school places are reserved. No funded reachable job remains after local jobseekers; Expected take-home pay does not cover rent, food, utilities and fares Take-home $0/day; essentials $23/day; surplus \u2212$23/day. rent: $0.00/day; food: $15.26/day; utilities: $4.59/day; commuting: $0.00/day; shopping: $3.49/day; propertyTax: $0.00/day; debtService: $0.00/day; privateFees: $0.00/day. Funded reachable offers: none after local jobseekers. Forecast care 68.5%, learning 0%. Outside Upland Cooperative: reference take-home $49/day, essentials $28/day. Outside wages/rent are a reference, not a foreign job offer. Any forecast private-school fees are included in essentials without assumed vouchers.",
+  "unfundedVacancyPlan": {
+    "parcel": "orchard-downs",
+    "metrics": {
+      "pop": 0,
+      "connected": 1,
+      "staffed": 0,
+      "fishery": false,
+      "wharf": false,
+      "care": 0,
+      "school": 0
+    },
+    "housing": {
+      "available": true,
+      "vacancies": 1,
+      "homes": [
+        {
+          "building": 105,
+          "capacity": 1,
+          "households": [],
+          "occupied": 0,
+          "available": 1,
+          "overcrowded": false,
+          "reviewRequired": false,
+          "legacySharedTenants": [],
+          "reserved": false,
+          "underConstruction": false
+        }
+      ]
+    },
+    "sites": [
+      {
+        "kind": "grocer",
+        "x": 43,
+        "y": 67,
+        "cells": [
+          8619
+        ],
+        "cost": 4300,
+        "business": true
+      },
+      {
+        "kind": "bakery",
+        "x": 42,
+        "y": 67,
+        "cells": [
+          8618
+        ],
+        "cost": 3600,
+        "business": true
+      },
+      {
+        "kind": "clinic",
+        "x": 41,
+        "y": 66,
+        "cells": [
+          8489
+        ],
+        "cost": 8000,
+        "distance": 2
+      },
+      {
+        "kind": "school",
+        "x": 44,
+        "y": 66,
+        "cells": [
+          8492,
+          8493,
+          8620,
+          8621
+        ],
+        "cost": 6900,
+        "distance": 3
+      }
+    ],
+    "missing": [],
+    "roadCost": 0,
+    "cost": 22800
+  }
+}

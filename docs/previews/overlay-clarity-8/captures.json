@@ -1,0 +1,302 @@
+{
+  "fixture": "seed42; validated 2,000-resident upper-bound visual city; five actual simulated days produce five incident cases; low quality and reduced motion enabled",
+  "uiTextSize": "14px legend in enlarged-text check",
+  "before_sha256": "4a16cf2f4783d5aee515b8715c62fed9dbbf4576d3c18258c8c2ea13be3c615f",
+  "after_sha256": "6260809a99d39d3f3c8131bcd9e85343695617d5629950409cca1ba7ef2aa1aa",
+  "captures": [
+    {
+      "source": "before",
+      "viewport": [
+        844,
+        390
+      ],
+      "dpr": 1,
+      "overlay": "roads",
+      "night": false,
+      "legend": "",
+      "recentCases": 5,
+      "state": "paused; no changes during overlay render",
+      "errors": []
+    },
+    {
+      "source": "before",
+      "viewport": [
+        844,
+        390
+      ],
+      "dpr": 1,
+      "overlay": "business",
+      "night": true,
+      "legend": "",
+      "recentCases": 5,
+      "state": "paused; no changes during overlay render",
+      "errors": []
+    },
+    {
+      "source": "before",
+      "viewport": [
+        844,
+        390
+      ],
+      "dpr": 1,
+      "overlay": "hardship",
+      "night": true,
+      "legend": "",
+      "recentCases": 5,
+      "state": "paused; no changes during overlay render",
+      "errors": []
+    },
+    {
+      "source": "before",
+      "viewport": [
+        844,
+        390
+      ],
+      "dpr": 1,
+      "overlay": "crime",
+      "night": false,
+      "legend": "",
+      "recentCases": 5,
+      "state": "paused; no changes during overlay render",
+      "errors": []
+    },
+    {
+      "source": "before",
+      "viewport": [
+        844,
+        390
+      ],
+      "dpr": 1,
+      "overlay": "transit",
+      "night": false,
+      "legend": "",
+      "recentCases": 5,
+      "state": "paused; no changes during overlay render",
+      "errors": []
+    },
+    {
+      "source": "before",
+      "viewport": [
+        844,
+        390
+      ],
+      "dpr": 1,
+      "overlay": "neighbourhoods",
+      "night": false,
+      "legend": "",
+      "recentCases": 5,
+      "state": "paused; no changes during overlay render",
+      "errors": []
+    },
+    {
+      "source": "before",
+      "viewport": [
+        844,
+        390
+      ],
+      "dpr": 1,
+      "overlay": "schoolAccess",
+      "night": false,
+      "legend": "",
+      "recentCases": 5,
+      "state": "paused; no changes during overlay render",
+      "errors": []
+    },
+    {
+      "source": "after",
+      "viewport": [
+        844,
+        390
+      ],
+      "dpr": 1,
+      "overlay": "roads",
+      "night": false,
+      "legend": "ROAD \u00b7 circle + touches street \u00b7 square X no street edge",
+      "recentCases": 5,
+      "state": "paused; no changes during overlay render",
+      "errors": []
+    },
+    {
+      "source": "after",
+      "viewport": [
+        844,
+        390
+      ],
+      "dpr": 1,
+      "overlay": "business",
+      "night": true,
+      "legend": "BUSINESS \u00b7 circle + profitable \u00b7 square = no profit \u00b7 triangle X closed",
+      "recentCases": 5,
+      "state": "paused; no changes during overlay render",
+      "errors": []
+    },
+    {
+      "source": "after",
+      "viewport": [
+        844,
+        390
+      ],
+      "dpr": 1,
+      "overlay": "hardship",
+      "night": true,
+      "legend": "STRESS \u00b7 triangle ! higher \u00b7 circle dot lower",
+      "recentCases": 5,
+      "state": "paused; no changes during overlay render",
+      "errors": []
+    },
+    {
+      "source": "after",
+      "viewport": [
+        844,
+        390
+      ],
+      "dpr": 1,
+      "overlay": "crime",
+      "night": false,
+      "legend": "THEFT \u00b7 counted markers show actual sites from the last 30 days",
+      "recentCases": 5,
+      "state": "paused; no changes during overlay render",
+      "errors": []
+    },
+    {
+      "source": "after",
+      "viewport": [
+        844,
+        390
+      ],
+      "dpr": 1,
+      "overlay": "transit",
+      "night": false,
+      "legend": "TRANSIT \u00b7 solid line/square stop bus \u00b7 dashed line/circle metro",
+      "recentCases": 5,
+      "state": "paused; no changes during overlay render",
+      "errors": []
+    },
+    {
+      "source": "after",
+      "viewport": [
+        844,
+        390
+      ],
+      "dpr": 1,
+      "overlay": "neighbourhoods",
+      "night": false,
+      "legend": "DISTRICTS \u00b7 A agriculture \u00b7 C civic \u00b7 M mixed \u00b7 income band shown",
+      "recentCases": 5,
+      "state": "paused; no changes during overlay render",
+      "errors": []
+    },
+    {
+      "source": "after",
+      "viewport": [
+        844,
+        390
+      ],
+      "dpr": 1,
+      "overlay": "schoolAccess",
+      "night": false,
+      "legend": "SCHOOL REACH \u00b7 circle + everyone \u00b7 ! some \u00b7 X none",
+      "recentCases": 5,
+      "state": "paused; no changes during overlay render",
+      "errors": []
+    },
+    {
+      "source": "after",
+      "viewport": [
+        390,
+        844
+      ],
+      "dpr": 2,
+      "overlay": "roads",
+      "night": false,
+      "legend": "ROAD \u00b7 circle + touches street \u00b7 square X no street edge",
+      "recentCases": 5,
+      "state": "paused; no changes during overlay render",
+      "errors": []
+    },
+    {
+      "source": "after",
+      "viewport": [
+        390,
+        844
+      ],
+      "dpr": 2,
+      "overlay": "business",
+      "night": true,
+      "legend": "BUSINESS \u00b7 circle + profitable \u00b7 square = no profit \u00b7 triangle X closed",
+      "recentCases": 5,
+      "state": "paused; no changes during overlay render",
+      "errors": []
+    },
+    {
+      "source": "after",
+      "viewport": [
+        390,
+        844
+      ],
+      "dpr": 2,
+      "overlay": "hardship",
+      "night": true,
+      "legend": "STRESS \u00b7 triangle ! higher \u00b7 circle dot lower",
+      "recentCases": 5,
+      "state": "paused; no changes during overlay render",
+      "errors": []
+    },
+    {
+      "source": "after",
+      "viewport": [
+        390,
+        844
+      ],
+      "dpr": 2,
+      "overlay": "crime",
+      "night": false,
+      "legend": "THEFT \u00b7 counted markers show actual sites from the last 30 days",
+      "recentCases": 5,
+      "state": "paused; no changes during overlay render",
+      "errors": []
+    },
+    {
+      "source": "after",
+      "viewport": [
+        390,
+        844
+      ],
+      "dpr": 2,
+      "overlay": "transit",
+      "night": false,
+      "legend": "TRANSIT \u00b7 solid line/square stop bus \u00b7 dashed line/circle metro",
+      "recentCases": 5,
+      "state": "paused; no changes during overlay render",
+      "errors": []
+    },
+    {
+      "source": "after",
+      "viewport": [
+        390,
+        844
+      ],
+      "dpr": 2,
+      "overlay": "neighbourhoods",
+      "night": false,
+      "legend": "DISTRICTS \u00b7 A agriculture \u00b7 C civic \u00b7 M mixed \u00b7 income band shown",
+      "recentCases": 5,
+      "state": "paused; no changes during overlay render",
+      "errors": []
+    },
+    {
+      "source": "after",
+      "viewport": [
+        390,
+        844
+      ],
+      "dpr": 2,
+      "overlay": "schoolAccess",
+      "night": false,
+      "legend": "SCHOOL REACH \u00b7 circle + everyone \u00b7 ! some \u00b7 X none",
+      "recentCases": 5,
+      "state": "paused; no changes during overlay render",
+      "errors": []
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "candidate": "2d5df40e26d32eefc03c82fbcedcd51053ec7eb3",
+  "assembled_on": "4056c66e4ca15e5fb38d85516f841ff53c13fde2",
+  "source_sha256": "e98d0be5fd54eb9ba2f0b2f20d6fb48f3c452accf1d90868665c8603700586f3",
+  "day": 50682,
+  "reported_before_policy_edit": 194.51368011053546,
+  "actual_paid_to_households": 194.51368011053586,
+  "reported_after_same_day_policy_edit": 0,
+  "actual_paid_unchanged": 194.51368011053586,
+  "defect": "Historical payment attribution changes after policy enactment without advancing a day",
+  "candidate_only": true
+}
+CONFIRMED held candidate rewrites the reported prior pension payment after same-day policy enactment

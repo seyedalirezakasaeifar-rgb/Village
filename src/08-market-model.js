@@ -3,7 +3,7 @@ function policyNumber(value){return Number(value||0).toLocaleString('en-CA',{max
 // A stock-flow consistent operating model. Inventory purchases are assets;
 // cost of goods becomes expense when sold, rather than when a warehouse fills.
 function householdLiquidity(h){return h.cash+Object.values(h.deposits||{}).reduce((n,v)=>n+Math.max(0,v),0);}
-const SECTOR_WORKERS={farm:4,fishery:3,mill:3,bakery:3,grocer:2,forestry:3,sawmill:3,quarry:3,contractor:4,tavern:3,factory:7,warehouse:4,office:6,college:5,airport:6};
+const SECTOR_WORKERS={school:2,fire:2,farm:4,fishery:3,wharf:2,mill:3,bakery:3,grocer:2,forestry:3,sawmill:3,quarry:3,contractor:4,tavern:3,factory:7,warehouse:4,office:6,college:5,airport:6};
 function ensureMarketModel(){
  if(!G.market)G.market={version:2,cpi:100,inflation:0,baseFoodPrice:5.2,unmetFood:0,consumedFood:0,externalSales:0,imports:0,privateRestartCapital:0};
  G.market.version=2;for(const p of G.people)if(p.age>70&&p.job>=0){p.job=-1;p.retired=true;}
@@ -17,9 +17,8 @@ function ensureMarketModel(){
  }
 }
 function foodRetailTarget(f){
- const rivals=Math.max(1,G.firms.filter(s=>!s.closed&&s.kind==='grocer').length);
- const volume=Math.max(15,G.stats.population*1.6/rivals),cost=f.unitCost?.food||marketPrice('food');
- return (cost+workerIncome(f)*Math.max(1,f.jobs)/volume+.12)*(1.10+G.policy.businessRegulation*.0004);
+ const staff=Math.max(1,workingStaff(f).length),volume=Math.max(15,Math.min(reachableRetailDemand(f),staff*80)),cost=f.unitCost?.food||marketPrice('food');
+ return (cost+workerIncome(f)*staff/volume+.12)*(1.10+G.policy.businessRegulation*.0004);
 }
 function recordInventoryPurchase(f,good,qty,total){
  const held=(f.stock[good]||0)+pendingGoods(f,good);f.unitCost=f.unitCost||{};
@@ -34,7 +33,7 @@ function takeInventory(f,good,qty,sold=false){
 }
 function marketOutputPrice(f,good){return f.ask?.[good]||marketPrice(good);}
 function planEnterprise(f){
- if(f.closed)return;
+ if(f.closed)return;if(f.privateService){planPrivateService(f);return;}
  const wage=workerIncome(f),base=SECTOR_WORKERS[f.kind]||4,recipe=formulas[f.kind]?.out?formulas[f.kind]:null;
  if(f.kind==='grocer'){const target=foodRetailTarget(f);f.price=f.age<3?target:f.price*.93+target*.07;}
  if(recipe){
@@ -55,8 +54,8 @@ function planEnterprise(f){
  desired=clamp(desired,1,Math.ceil(base*f.scale*2));
  if(f.marginTrend<-.18&&f.cash<wage*Math.max(1,f.jobs)*60)desired=Math.min(desired,Math.max(1,f.jobs-1));
  if(desired>f.jobs&&f.cash<wage*(desired-f.jobs)*35+1800)desired=f.jobs;
- if(desired!==f.jobs){f.jobs+=Math.sign(desired-f.jobs);while(f.workers.length>f.jobs){const id=f.workers.pop();if(G.people[id])G.people[id].job=-1;}}
- if(f.marginTrend>.16&&f.cash>wage*f.jobs*100&&f.scale<2.2){const cost=1500+base*130,annualGain=f.revenueTrend*.015*360*(1-G.policy.profitTax/100);if(f.cash>cost+6000&&annualGain>cost*((G.policy.policyRate||0)/100+.08)){f.cash-=cost;G.region+=cost;f.scale+=.06;f.capex=(f.capex||0)+cost;}}
+ if(desired!==f.jobs){f.jobs+=Math.sign(desired-f.jobs);while(f.workers.length>f.jobs){const blocked=f.workers.findIndex(id=>!workerCanCommute(G.people[id],f)),id=f.workers.splice(blocked<0?f.workers.length-1:blocked,1)[0];if(G.people[id])G.people[id].job=-1;}}
+ if((f.kind!=='fishery'||!f.fishingWaterLimit)&&f.workers.some(id=>workerCanCommute(G.people[id],f))&&!f.pendingEquipment&&f.marginTrend>.16&&f.cash>wage*f.jobs*100&&f.scale<2.2&&(recipe?f.ratedOutput>0&&f.salesTrend*1.12>=f.ratedOutput&&(!recipe.inp||(f.stock[recipe.inp]||0)+pendingGoods(f,recipe.inp)>=recipe.amount*f.workers.length/base):f.jobs>=Math.ceil(base*f.scale*2)&&f.workers.length>=f.jobs)){const cost=1500+base*130,annualGain=f.revenueTrend*.015*360*(1-G.policy.profitTax/100);if(f.cash>cost+6000&&annualGain>cost*((G.policy.policyRate||0)/100+.08)){f.cash-=cost;G.region+=cost;f.pendingEquipment={gain:.06,cost,ordered:G.day,ready:G.day+30};f.capex=(f.capex||0)+cost;}}
  const unemployment=G.stats.unemployment||0;
  if(f.marginTrend>.18&&unemployment<9)f.wage=Math.min(80,f.wage*1.0015);
  else if(f.marginTrend<0)f.wage=Math.max(G.policy.minWage,f.wage*.998);
@@ -65,19 +64,34 @@ function enterpriseRevenue(f,amount){f.cash+=amount;if(marketOpen)f.revenue+=amo
 function serviceSales(f,amount){
  amount=Math.min(Math.max(0,G.region),Math.max(0,amount));G.region-=amount;f.cash+=amount;f.revenue+=amount;G.market.externalSales+=amount;return amount;
 }
-function fundedPublicPayroll(amount,share=.65){
+function fundedPublicPayroll(amount,share=.65,eligible=null,role=''){
  const paid=Math.max(0,Math.min(G.treasury,amount));G.treasury-=paid;G.cumulative.spending+=paid;
  let payroll=paid*share,spent=0,wage=Math.max(24,G.policy.minWage);
- const available=G.people.filter(p=>!p.deceased&&!p.movedAway&&p.age>=18&&p.age<=70&&p.job<0&&(p.publicIncome||0)<wage);
- for(const p of available){if(payroll<.001)break;const h=G.households[p.hh];if(!h?.people.length)continue;const pay=Math.min(payroll,wage-(p.publicIncome||0));const tax=pay*G.policy.incomeTax/100;h.cash+=pay-tax;h.income+=pay;h.wages=(h.wages||0)+pay;h.tax+=tax;h.incomeTax+=tax;transferTreasury(tax,'incomeTax');p.publicIncome=(p.publicIncome||0)+pay;p.publicWork=p.publicIncome>=wage*.5;payroll-=pay;spent+=pay;}
+ const available=G.people.filter(p=>!p.deceased&&!p.movedAway&&p.age>=18&&p.age<=70&&p.job<0&&(p.publicIncome||0)<wage&&(eligible?eligible(p):!p.previousPublicRole));
+ for(const p of available){if(payroll<.001)break;const h=G.households[p.hh];if(!h?.people.length)continue;const pay=Math.min(payroll,wage-(p.publicIncome||0));const tax=pay*G.policy.incomeTax/100;h.cash+=pay-tax;h.income+=pay;h.wages=(h.wages||0)+pay;h.tax+=tax;h.incomeTax+=tax;transferTreasury(tax,'incomeTax');p.publicIncome=(p.publicIncome||0)+pay;p.publicWork=p.publicIncome>=wage*.5;if(role)p.publicRole=role;payroll-=pay;spent+=pay;}
  G.region+=paid-spent;return amount>0?paid/amount:0;
+}
+// Explicit operating standards, expressed in the same resident capacities used
+// by the existing facilities. Five clinic teams cover 350 residents; ten school
+// staff cover 260. The public wage and existing 65% payroll share price the work;
+// remaining purchases pay regional staff/suppliers, including when locals work.
+const CIVIC_STANDARDS={health:{building:'clinic',capacity:350,staff:5},school:{building:'school',capacity:260,staff:10}};
+function purchaseCivicService(kind,authorized){
+ const standard=CIVIC_STANDARDS[kind],population=Math.max(0,G.stats.population),facilities=G.buildings.filter(b=>b.kind===standard.building&&isPublicFacility(b)).length;
+ const wage=Math.max(24,G.policy.minWage),required=population*standard.staff/standard.capacity*wage/.65;
+ const facilityCoverage=population?Math.min(1,facilities*standard.capacity/population):0;
+ const access=serviceAccess(kind),staffing=civicStaffCapacity(kind,authorized,access),requested=Math.min(Math.max(0,authorized),required*Math.min(access.coverage,staffing.coverage)),paid=requested*fundedPublicPayroll(requested,.65,p=>qualifiedForService(p,kind)&&civicCandidateSets.get(kind).has(p.id),kind);
+ const coverage=required?Math.min(access.coverage,paid/required):0;
+ const result={day:G.day,authorized,required,requested,paid,unspent:Math.max(0,authorized-paid),population,facilities,facilityCoverage,accessCoverage:access.coverage,accessLimit:access.limit,accessibleResidents:access.served,staffing,coverage,wage};
+ if(!G.serviceProvision)G.serviceProvision={};G.serviceProvision[kind]=result;
+ return coverage;
 }
 function restartViableEnterprise(){
  if(G.day%30!==0||G.region<70000)return;
  const open=G.firms.filter(f=>!f.closed),population=G.stats.population;
  const desired={grocer:Math.ceil(population/100),farm:Math.ceil(population/100),mill:Math.ceil(population/220),bakery:Math.ceil(population/140),office:Math.ceil(population/120),factory:Math.ceil(population/240),contractor:Math.ceil(population/180),tavern:Math.ceil(population/160),forestry:1,sawmill:1,quarry:1,warehouse:Math.ceil(population/300)};
  const counts={};for(const f of open)counts[f.kind]=(counts[f.kind]||0)+1;
- for(const f of G.firms){if(!f.closed||!readBuild(f.building)||G.day-(f.closedDay||0)<120||(counts[f.kind]||0)>=(desired[f.kind]||1))continue;
+ for(const f of G.firms){if(f.privateService||!f.closed||!readBuild(f.building)||G.day-(f.closedDay||0)<120||(counts[f.kind]||0)>=(desired[f.kind]||1))continue;
   // An investment must clear a return hurdle and afford the actual legal payroll.
   const base=SECTOR_WORKERS[f.kind]||3,wage=Math.max(G.policy.minWage,28),recipe=formulas[f.kind]?.out?formulas[f.kind]:null;
   const perWorkerRevenue=recipe?recipe.qty/base*marketPrice(recipe.out)-(recipe.amount||0)/base*marketPrice(recipe.inp):f.kind==='grocer'?65*(foodRetailTarget({...f,jobs:2})-marketPrice('food')):48;

@@ -1,0 +1,30 @@
+{
+  "source_sha256": "8031901f1dca4e8b45d43d653e7657abff20f91f3bd5f2f823bd5c8a25e56a67",
+  "authoritativeStateIncludingRNGAndTrafficEqual": true,
+  "excludedInvalidatedServiceCaches": [
+    "serviceProvision",
+    "privateServiceProvision"
+  ],
+  "bridge": {
+    "axis": "east-west",
+    "banks": [
+      1983,
+      1989
+    ],
+    "builtDay": 1,
+    "capital": 13450,
+    "cells": [
+      1984,
+      1985,
+      1986,
+      1987,
+      1988
+    ],
+    "condition": 100,
+    "id": 1,
+    "name": "East Meadow Causeway"
+  },
+  "traffic": 4,
+  "shipments": 19
+}
+PASS paid bridge plus live freight cold reload/Continue; authoritative model/RNG/traffic equal, service-cache invalidation explicit

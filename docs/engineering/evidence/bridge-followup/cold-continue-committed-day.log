@@ -1,0 +1,80 @@
+{
+  "source_sha256": "8031901f1dca4e8b45d43d653e7657abff20f91f3bd5f2f823bd5c8a25e56a67",
+  "changed": {
+    "privateServiceProvision": {
+      "before": {
+        "allocations": {},
+        "day": 2,
+        "fire": {},
+        "fireMembers": 0,
+        "memberships": 0,
+        "pupils": 0,
+        "school": {},
+        "tuition": 0,
+        "version": 1,
+        "vouchers": 0
+      },
+      "after": null
+    },
+    "serviceProvision": {
+      "before": {
+        "health": {
+          "accessCoverage": 1,
+          "accessLimit": 60,
+          "accessibleResidents": 171,
+          "authorized": 70,
+          "coverage": 0.665204678362573,
+          "day": 2,
+          "facilities": 1,
+          "facilityCoverage": 1,
+          "paid": 70,
+          "population": 171,
+          "requested": 70,
+          "required": 105.23076923076924,
+          "staffing": {
+            "coverage": 1,
+            "local": 4,
+            "needed": 2.442857142857143,
+            "pending": null,
+            "qualification": 0.7,
+            "regional": 0
+          },
+          "unspent": 0,
+          "wage": 28
+        },
+        "school": {
+          "accessCoverage": 0.9883040935672515,
+          "accessLimit": 40,
+          "accessibleResidents": 169,
+          "authorized": 90,
+          "coverage": 0.3176691729323309,
+          "day": 2,
+          "facilities": 1,
+          "facilityCoverage": 1,
+          "paid": 90,
+          "population": 171,
+          "requested": 90,
+          "required": 283.3136094674556,
+          "staffing": {
+            "coverage": 0.9692982456140351,
+            "local": 6.375,
+            "needed": 6.576923076923077,
+            "pending": null,
+            "qualification": 0.55,
+            "regional": 0
+          },
+          "unspent": 0,
+          "wage": 28
+        }
+      },
+      "after": null
+    }
+  },
+  "trafficBefore": 4,
+  "trafficAfter": 4
+}
+Traceback (most recent call last):
+  File "/workspace/core-recovery/tests/test_bridge_cold_continue.py", line 22, in <module>
+    assert before==after,'Bridge cold Continue changed canonical state'
+           ^^^^^^^^^^^^^
+AssertionError: Bridge cold Continue changed canonical state

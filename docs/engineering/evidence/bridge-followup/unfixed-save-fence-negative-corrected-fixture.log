@@ -1,0 +1,50 @@
+{
+  "source_sha256": "9972d3ca90bc5ae3ed04772c8bcdb9c2da178fd82a5c154c9c3862a81c698b50",
+  "cases": [
+    {
+      "kind": "build",
+      "accepted": true,
+      "unchanged": false,
+      "timelineUnchanged": true,
+      "treasuryDelta": -13450,
+      "saveResult": false,
+      "publicExport": true,
+      "reason": null
+    },
+    {
+      "kind": "repair",
+      "accepted": true,
+      "unchanged": false,
+      "timelineUnchanged": true,
+      "treasuryDelta": -4500,
+      "saveResult": false,
+      "publicExport": true,
+      "reason": null
+    },
+    {
+      "kind": "decommission",
+      "accepted": true,
+      "unchanged": false,
+      "timelineUnchanged": true,
+      "treasuryDelta": 2421,
+      "saveResult": false,
+      "publicExport": true,
+      "reason": null
+    },
+    {
+      "kind": "road-retirement",
+      "accepted": true,
+      "unchanged": false,
+      "timelineUnchanged": true,
+      "treasuryDelta": -50,
+      "saveResult": false,
+      "publicExport": true,
+      "reason": null
+    }
+  ]
+}
+Traceback (most recent call last):
+  File "/workspace/core-recovery/tests/test_bridge_save_fence.py", line 21, in <module>
+    assert all(not r['accepted'] and r['unchanged'] and r['timelineUnchanged'] and r['treasuryDelta']==0 and r['saveResult'] is False and r['publicExport'] for r in results),results
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: [{'kind': 'build', 'accepted': True, 'unchanged': False, 'timelineUnchanged': True, 'treasuryDelta': -13450, 'saveResult': False, 'publicExport': True, 'reason': None}, {'kind': 'repair', 'accepted': True, 'unchanged': False, 'timelineUnchanged': True, 'treasuryDelta': -4500, 'saveResult': False, 'publicExport': True, 'reason': None}, {'kind': 'decommission', 'accepted': True, 'unchanged': False, 'timelineUnchanged': True, 'treasuryDelta': 2421, 'saveResult': False, 'publicExport': True, 'reason': None}, {'kind': 'road-retirement', 'accepted': True, 'unchanged': False, 'timelineUnchanged': True, 'treasuryDelta': -50, 'saveResult': False, 'publicExport': True, 'reason': None}]

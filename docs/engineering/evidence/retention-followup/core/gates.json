@@ -1,0 +1,126 @@
+{
+  "source_sha256": "346992b501f8622b007dddc6bf75baadbf850f6211b8989c6c3ccfcdefc98207",
+  "base": "43d1fc0121afab18a329403b9280fa37384b3ad0",
+  "gates": [
+    {
+      "test": "test_cold_continue_canonical",
+      "exit_code": 0,
+      "seconds": 3.75,
+      "log_sha256": "9e0f9add16cae40597f8c6e4e931d857b12f95d5425dea1144acb480df597859"
+    },
+    {
+      "test": "test_native_archive_io",
+      "exit_code": 0,
+      "seconds": 0.97,
+      "log_sha256": "3a43b4e0a46c20721eb603470a2a99074cc40cf119ba441a656a5f1a9960f155"
+    },
+    {
+      "test": "test_native_back_recovery",
+      "exit_code": 0,
+      "seconds": 3.24,
+      "log_sha256": "c18b38ab0c6b06424ad218d3fbe26598cedfbccd8fb2327c074ff68535b3f5f9"
+    },
+    {
+      "test": "test_effective_wage_allocator_matrix",
+      "exit_code": 0,
+      "seconds": 22.24,
+      "log_sha256": "ca21994cd1f023fd313f009aaf5944e1fd38de40abc9f0b8c853596b1f7583d6"
+    },
+    {
+      "test": "test_save_adversarial",
+      "exit_code": 0,
+      "seconds": 26.84,
+      "log_sha256": "b7b7e49fe220dd629b4b35601f0c3b34e082628c80735c022ba036485c47eecd"
+    },
+    {
+      "test": "test_archive_schema",
+      "exit_code": 0,
+      "seconds": 1.72,
+      "log_sha256": "3744e3b5b1bb18cc0bbeaa5bb47324c265021b56c98cd0405b6ba7472102d160"
+    },
+    {
+      "test": "test_goods_precision",
+      "exit_code": 0,
+      "seconds": 3.33,
+      "log_sha256": "02d6e27dd3920dec79bcfa07771351aa1e524d76c34d30ca458d35b997ece6e7"
+    },
+    {
+      "test": "test_v7_model",
+      "exit_code": 0,
+      "seconds": 6.22,
+      "log_sha256": "bbfa224e77c81d3dee21282de7b2e205ff3b39a0e9f54431b180c8b14a2b28da"
+    },
+    {
+      "test": "test_release",
+      "exit_code": 0,
+      "seconds": 25.02,
+      "log_sha256": "9bf8b133fb6cdda538dcf01dcfde514f7081743224be40439b05d47f98d4b540"
+    },
+    {
+      "test": "test_save_queue",
+      "exit_code": 0,
+      "seconds": 3.65,
+      "log_sha256": "bb0ae1e7bd1574daa2e0ebcd066b3bdfabc4bf7714639f2979a3d76b449cb0d6"
+    },
+    {
+      "test": "test_save_chronology",
+      "exit_code": 0,
+      "seconds": 22.02,
+      "log_sha256": "030cbfcdee7aaf575dce6815a0b48d49897cca4a91b340b5d83d0884369843c9"
+    },
+    {
+      "test": "test_save_storage",
+      "exit_code": 0,
+      "seconds": 3.18,
+      "log_sha256": "03a6154ea2adbd95c7df92ece81e53d1e14dadfe56b70709623b39b0a0d3c505"
+    },
+    {
+      "test": "test_host_lifecycle",
+      "exit_code": 0,
+      "seconds": 3.24,
+      "log_sha256": "ab50c51923b56e7119afe6139bc4b79b8456971b99f81cc8ee0d03a461251004"
+    },
+    {
+      "test": "test_credit_cashflow",
+      "exit_code": 0,
+      "seconds": 2.08,
+      "log_sha256": "7e9bdb572827e4aafb6b7dd3f69fd443a447c8fe5533606ea544b38870d8c755"
+    },
+    {
+      "test": "test_household_markets",
+      "exit_code": 0,
+      "seconds": 3.48,
+      "log_sha256": "baff4683919c9d92c4d9915de75eb0bd3c0a53718a444d3f5d9f40edddde1402"
+    },
+    {
+      "test": "test_regional_trade",
+      "exit_code": 0,
+      "seconds": 3.09,
+      "log_sha256": "f0856c3e1eeb9f7d3f42338d4a3b5835229c172d889a673365f2f47177d5194e"
+    },
+    {
+      "test": "test_seed_sort_stability",
+      "exit_code": 0,
+      "seconds": 9.62,
+      "log_sha256": "757032bf08ad35c44aa4de0d46f0f7924a90e653cbccc516ea606647e8744a7b"
+    },
+    {
+      "test": "test_v7_default_starts",
+      "exit_code": 0,
+      "seconds": 26.65,
+      "log_sha256": "853498e26e5ac3688c0689b16b5460f3d2f4c35e1a3d21ac8eedc13e7b11cacc"
+    },
+    {
+      "test": "test_v7_liquidity",
+      "exit_code": 0,
+      "seconds": 35.61,
+      "log_sha256": "25caa839c22a26929ce5165c19d441913cdc24d88dfd6571a3fe1aa822b73a5e"
+    },
+    {
+      "test": "test_v7_scenarios",
+      "exit_code": 0,
+      "seconds": 134.37,
+      "log_sha256": "412bce8c85700474ba9bdd2fbc0113d59f8f86423df8b70c216de56bad2adf2c"
+    }
+  ]
+}

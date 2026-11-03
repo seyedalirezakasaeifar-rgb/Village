@@ -1,0 +1,15 @@
+{
+  "oldVisible": false,
+  "newVisible": true,
+  "old": {
+    "channels": 128,
+    "max": 16
+  },
+  "fixed": {
+    "channels": 0,
+    "max": 0
+  },
+  "unchanged": true,
+  "source_sha256": "4b3816a5af756f18705b34d87f985e00c308087e0e65299e97816a5344f087c6",
+  "fixture": "Render-only valid two-plot tower geometry; no town property or economic fields changed."
+}

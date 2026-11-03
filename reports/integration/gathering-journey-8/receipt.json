@@ -1,0 +1,296 @@
+{
+  "source_sha256": "8c7d3216d05355c6b15467c357bdc71f34e14d3714204f7a43c5e4cb8b03b26c",
+  "gates": {
+    "reports/civic-calendar-journey/controls.json": {
+      "source_sha256": "8c7d3216d05355c6b15467c357bdc71f34e14d3714204f7a43c5e4cb8b03b26c",
+      "openingTreasury": 90000,
+      "ordinaryReceiptsTreasury": 100533.80385418478,
+      "review": "Founders Commons: two after-shift evenings, 24 modelled places per evening. Preparation $228 goes to regional suppliers now; it cannot be refunded after cancellation. Municipal cash $98,034 \u2192 $97,806; preparation competes with actual service funding. Current walking-distance residents meeting food/health/leisure conditions: 64. A date is not an attendance guarantee. No admission fee, vendor sale, outside visitor money, happiness or education bonus is added. Shops continue their ordinary trading. Attendance is an aggregate local leisure model: no extra jobs, trips or transit seats are booked.",
+      "cancelledPreparation": {
+        "id": 1,
+        "venue": 105,
+        "name": "Founders Commons",
+        "x": 22,
+        "y": 24,
+        "start": 34,
+        "end": 35,
+        "capacity": 24,
+        "cost": 228,
+        "paid": 228,
+        "created": 32,
+        "lastDay": 32,
+        "status": "scheduled",
+        "visits": 0,
+        "participants": [],
+        "daily": [],
+        "reason": ""
+      },
+      "activeGathering": {
+        "id": 2,
+        "venue": 105,
+        "name": "Founders Commons",
+        "x": 22,
+        "y": 24,
+        "start": 34,
+        "end": 35,
+        "capacity": 24,
+        "cost": 228,
+        "paid": 228,
+        "created": 32,
+        "lastDay": 34,
+        "status": "active",
+        "visits": 24,
+        "participants": [
+          18,
+          132,
+          151,
+          19,
+          108,
+          139,
+          84,
+          107,
+          94,
+          85,
+          91,
+          128,
+          86,
+          0,
+          48,
+          73,
+          55,
+          62,
+          7,
+          66,
+          104,
+          102,
+          127,
+          119
+        ],
+        "daily": [
+          {
+            "day": 34,
+            "eligible": 64,
+            "attendance": 24
+          }
+        ],
+        "reason": ""
+      },
+      "completedGathering": {
+        "id": 2,
+        "venue": 105,
+        "name": "Founders Commons",
+        "x": 22,
+        "y": 24,
+        "start": 34,
+        "end": 35,
+        "capacity": 24,
+        "cost": 228,
+        "paid": 228,
+        "created": 32,
+        "lastDay": 36,
+        "status": "complete",
+        "visits": 48,
+        "participants": [
+          18,
+          132,
+          151,
+          19,
+          108,
+          139,
+          84,
+          107,
+          94,
+          85,
+          91,
+          128,
+          86,
+          0,
+          48,
+          73,
+          55,
+          62,
+          7,
+          66,
+          104,
+          102,
+          127,
+          119,
+          12,
+          143,
+          103,
+          68,
+          31,
+          78,
+          1,
+          167,
+          115,
+          30,
+          54,
+          168,
+          90,
+          116,
+          74,
+          163
+        ],
+        "daily": [
+          {
+            "day": 34,
+            "eligible": 64,
+            "attendance": 24
+          },
+          {
+            "day": 35,
+            "eligible": 64,
+            "attendance": 24
+          }
+        ],
+        "reason": ""
+      },
+      "failedDemolishedVenue": {
+        "id": 3,
+        "venue": 105,
+        "name": "Founders Commons",
+        "x": 22,
+        "y": 24,
+        "start": 39,
+        "end": 40,
+        "capacity": 24,
+        "cost": 228,
+        "paid": 228,
+        "created": 36,
+        "lastDay": 39,
+        "status": "failed",
+        "visits": 0,
+        "participants": [],
+        "daily": [],
+        "reason": "Venue or street access became unavailable; preparation was already spent."
+      },
+      "calendarHistoryText": "Civic calendar \u00b7 0 upcoming / active\n\nMake an actual square a place to meet. Preparation competes with public services and capital; there is no free-money reward. Gathering crowds are bounded visual samples, not extra economic agents.\n\nPrepare Square at 28, 26 \u00b7 $228\nFounders Commons \u00b7 days 39\u201340\n\nfailed \u00b7 preparation paid $228 \u00b7 0 modelled visits / 0 distinct local residents. Capacity 24 per evening. Venue or street access became unavailable; preparation was already spent. The original venue is gone; this is a paid historical record, not an available gathering site.\n\nVisit the recorded site\nFounders Commons \u00b7 days 34\u201335\n\ncomplete \u00b7 preparation paid $228 \u00b7 48 modelled visits / 40 distinct local residents. Capacity 24 per evening. The original venue is gone; this is a paid historical record, not an available gathering site.\n\nVisit the recorded site\nFounders Commons \u00b7 days 34\u201335\n\ncancelled \u00b7 preparation paid $228 \u00b7 0 modelled visits / 0 distinct local residents. Capacity 24 per evening. Cancelled by the mayor. Spent preparation is not refundable. The original venue is gone; this is a paid historical record, not an available gathering site.\n\nVisit the recorded site",
+      "newTownClearsCalendar": true,
+      "duplicateCanonicalCallbacksNoMutation": true,
+      "cooperativePrototype": "not present/enabled on base; canonical repeated-commit callback exercised",
+      "errors": []
+    },
+    "reports/release-tests.json": {
+      "source_sha256": "8c7d3216d05355c6b15467c357bdc71f34e14d3714204f7a43c5e4cb8b03b26c",
+      "determinism_and_continuation": {
+        "sameSeed": true,
+        "renderIndependent": true,
+        "continuedDays": 120,
+        "valid": {
+          "ok": true,
+          "issues": [],
+          "total": 15489571.999994356,
+          "population": 172,
+          "day": 301
+        }
+      },
+      "malformed_save_atomicity": {
+        "investorRejected": true,
+        "cargoRejected": true,
+        "futureRejected": true,
+        "townPreserved": true
+      },
+      "replicated_zoning": [
+        {
+          "seed": 42,
+          "zone": 0,
+          "population": 192,
+          "homes": 17,
+          "firms": 3,
+          "privateSpend": 494901,
+          "moneyDelta": -1.2569129467010498e-05,
+          "ms": 3216.2999999970198
+        },
+        {
+          "seed": 42,
+          "zone": 100,
+          "population": 177,
+          "homes": 0,
+          "firms": 1,
+          "privateSpend": 0,
+          "moneyDelta": -1.7305836081504822e-05,
+          "ms": 2165
+        },
+        {
+          "seed": 101,
+          "zone": 0,
+          "population": 221,
+          "homes": 21,
+          "firms": 8,
+          "privateSpend": 621891,
+          "moneyDelta": -1.55717134475708e-05,
+          "ms": 3049.800000011921
+        },
+        {
+          "seed": 101,
+          "zone": 100,
+          "population": 183,
+          "homes": 0,
+          "firms": 2,
+          "privateSpend": 0,
+          "moneyDelta": -8.197501301765442e-06,
+          "ms": 2235.5
+        },
+        {
+          "seed": 909,
+          "zone": 0,
+          "population": 211,
+          "homes": 21,
+          "firms": 5,
+          "privateSpend": 525844,
+          "moneyDelta": -1.1583790183067322e-05,
+          "ms": 2726.5
+        },
+        {
+          "seed": 909,
+          "zone": 100,
+          "population": 176,
+          "homes": 0,
+          "firms": 1,
+          "privateSpend": 0,
+          "moneyDelta": -1.2626871466636658e-05,
+          "ms": 2092.7999999970198
+        }
+      ],
+      "cargo_ownership": {
+        "consignments": 6,
+        "sampledUnits": 166.3792513597068,
+        "remaining": true,
+        "delayed": 1,
+        "cashConserved": true
+      },
+      "legacy_56_migration": {
+        "v": {
+          "ok": true,
+          "issues": [],
+          "total": 15469710,
+          "population": 169,
+          "day": 1
+        },
+        "after": {
+          "ok": true,
+          "issues": [],
+          "total": 15469709.999999098,
+          "population": 169,
+          "day": 31
+        },
+        "schema": 8
+      },
+      "true_pause": {
+        "identicalScreenshots": true,
+        "milliseconds": 500
+      },
+      "traffic_progress": {
+        "seconds": 1600,
+        "maximumWait": 0.9999999999999999,
+        "peak": 21,
+        "valid": true
+      },
+      "long_run_endurance": [],
+      "browser_errors": []
+    }
+  },
+  "cooperativeEnabled": false,
+  "artCohortReceipt": "reports/integration/gathering-art-8/receipt.json"
+}

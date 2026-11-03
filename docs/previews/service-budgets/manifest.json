@@ -1,0 +1,64 @@
+{
+  "source_sha256": "a9c9db83e912f84823c520e975c7572f153cc1f5363f17433dfa9c6572c6828c",
+  "files": {
+    "results.json": "a6d0927a23d4ab2ffff9f6da291827b11efead839b1c607a5cbc4eb780f1b188",
+    "budget-320x568.png": "7e500dcf8c0d428a2f93b620552ccfc2020cb92c726b9642a4fa7efac2822988",
+    "budget-estimate-320x568.png": "4abfbc45f1b27627d2900dae7fecd0a4c8d79b1f8ee09b4ef3c974602db98a5d",
+    "test_v7_policy_experiments.py.log": "3d7ee92db14bcd88ad78ebe3402345afcfd00ee2c37f542b9cc0eaf5b3bd62bc",
+    "budget-390x844.png": "a75e06f50dfb41fd956fb4751ae2d46f69b8eebe00a95527afd198fd89a9938f",
+    "budget-estimate-1280x850.png": "a11c69da50b3c4686cfcdf58b4e7a3bfea5f7dc185466db69bfc05534633a07c",
+    "budget-1280x850.png": "a11c69da50b3c4686cfcdf58b4e7a3bfea5f7dc185466db69bfc05534633a07c",
+    "test_review_workflows.py.log": "0936a00f8209ff031cd19768a6c19414c1743ab1d9670a2b861407bbe203a7fa",
+    "test_archive_schema.py.log": "3744e3b5b1bb18cc0bbeaa5bb47324c265021b56c98cd0405b6ba7472102d160",
+    "budget-estimate-390x844.png": "a41d9ac99aaf23f723acb026820403e28d676f83bd61cf929cbb357b7bf798a4",
+    "test_local_civic_services.py.log": "13be8b00b5793cf4a148aafd612a3fe78d6a3231684fe05fbb4245a7438e0ab1",
+    "test_service_provision.py.log": "5d9030b8106091c2116c83d519b8d83ebd5bad7b039b929d3d3b680592c2d911",
+    "policy-experiments.json": "be220b30a1fe67d5bd7bd5390eee89d103d8ccb002f887afff2500f2cfdc656e",
+    "test_service_market_viability.py.log": "1df0a6d4d5a1aaa314bd026815ea6232340630550942fe7478c425f081bcc58a"
+  },
+  "inputs": {
+    "assets/game.js": "a9c9db83e912f84823c520e975c7572f153cc1f5363f17433dfa9c6572c6828c",
+    "assets/index.html": "74b31e4eb780452505d1cd46296c87b477f0fd906322184724fb09a7a3e85185",
+    "assets/service-budget.css": "9101199bdd685e681fe551003cd9f8b1d5f38a1b63232c99f0199965053b197a",
+    "src/17-service-budget-plan.js": "076b3bd38bcf8f7889ccd2c0a4d9706f27d3df3460fb9b61d8d539b698b41ef0",
+    "src/98-service-budget-ui.js": "5cd7fb798ddb489b5a8ecf3a16d54f1d0fdc13e92121f5d769f4e2c2e0f712a7",
+    "tests/test_service_budget_authorization.py": "29cad6233873c559c7b040bd0ee64363e11c999330033c6ed4afde8102526efe"
+  },
+  "gates": [
+    {
+      "script": "test_service_budget_authorization.py",
+      "exit_code": 0,
+      "source_sha256": "a9c9db83e912f84823c520e975c7572f153cc1f5363f17433dfa9c6572c6828c"
+    },
+    {
+      "script": "test_local_civic_services.py",
+      "exit_code": 0,
+      "source_sha256": "a9c9db83e912f84823c520e975c7572f153cc1f5363f17433dfa9c6572c6828c"
+    },
+    {
+      "script": "test_service_market_viability.py",
+      "exit_code": 0,
+      "source_sha256": "a9c9db83e912f84823c520e975c7572f153cc1f5363f17433dfa9c6572c6828c"
+    },
+    {
+      "script": "test_review_workflows.py",
+      "exit_code": 0,
+      "source_sha256": "a9c9db83e912f84823c520e975c7572f153cc1f5363f17433dfa9c6572c6828c"
+    },
+    {
+      "script": "test_service_provision.py",
+      "exit_code": 0,
+      "source_sha256": "a9c9db83e912f84823c520e975c7572f153cc1f5363f17433dfa9c6572c6828c"
+    },
+    {
+      "script": "test_archive_schema.py",
+      "exit_code": 0,
+      "source_sha256": "a9c9db83e912f84823c520e975c7572f153cc1f5363f17433dfa9c6572c6828c"
+    },
+    {
+      "script": "test_v7_policy_experiments.py",
+      "exit_code": 0,
+      "source_sha256": "a9c9db83e912f84823c520e975c7572f153cc1f5363f17433dfa9c6572c6828c"
+    }
+  ]
+}

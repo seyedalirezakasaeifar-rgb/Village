@@ -1,0 +1,179 @@
+{
+  "source_sha256": "3af2f8355807bfa3c23482b25816f657ae618970dfeb4e38dc6c34aa3140115c",
+  "checkpoints": [
+    {
+      "archive": "regional-101-market.json.gz",
+      "before": {
+        "day": 2161,
+        "population": 1093,
+        "total": 15489571.99999905,
+        "issues": [],
+        "valid": {
+          "ok": true,
+          "issues": [],
+          "total": 15489571.99999905,
+          "population": 1093,
+          "day": 2161
+        }
+      },
+      "after": {
+        "day": 2221,
+        "population": 1093,
+        "total": 15489571.99999915,
+        "issues": [],
+        "valid": {
+          "ok": true,
+          "issues": [],
+          "total": 15489571.99999915,
+          "population": 1093,
+          "day": 2221
+        }
+      }
+    },
+    {
+      "archive": "regional-101-planned.json.gz",
+      "before": {
+        "day": 2161,
+        "population": 1123,
+        "total": 15489571.999992177,
+        "issues": [],
+        "valid": {
+          "ok": true,
+          "issues": [],
+          "total": 15489571.999992177,
+          "population": 1123,
+          "day": 2161
+        }
+      },
+      "after": {
+        "day": 2221,
+        "population": 1123,
+        "total": 15489571.999992207,
+        "issues": [],
+        "valid": {
+          "ok": true,
+          "issues": [],
+          "total": 15489571.999992207,
+          "population": 1123,
+          "day": 2221
+        }
+      }
+    },
+    {
+      "archive": "regional-42-market.json.gz",
+      "before": {
+        "day": 2161,
+        "population": 1159,
+        "total": 15493516.999995708,
+        "issues": [],
+        "valid": {
+          "ok": true,
+          "issues": [],
+          "total": 15493516.999995708,
+          "population": 1159,
+          "day": 2161
+        }
+      },
+      "after": {
+        "day": 2221,
+        "population": 1159,
+        "total": 15493516.999995805,
+        "issues": [],
+        "valid": {
+          "ok": true,
+          "issues": [],
+          "total": 15493516.999995805,
+          "population": 1159,
+          "day": 2221
+        }
+      }
+    },
+    {
+      "archive": "regional-42-planned.json.gz",
+      "before": {
+        "day": 2161,
+        "population": 1151,
+        "total": 15493517.00000481,
+        "issues": [],
+        "valid": {
+          "ok": true,
+          "issues": [],
+          "total": 15493517.00000481,
+          "population": 1151,
+          "day": 2161
+        }
+      },
+      "after": {
+        "day": 2221,
+        "population": 1151,
+        "total": 15493517.000004739,
+        "issues": [],
+        "valid": {
+          "ok": true,
+          "issues": [],
+          "total": 15493517.000004739,
+          "population": 1151,
+          "day": 2221
+        }
+      }
+    },
+    {
+      "archive": "regional-909-market.json.gz",
+      "before": {
+        "day": 2161,
+        "population": 1155,
+        "total": 15484591.000001699,
+        "issues": [],
+        "valid": {
+          "ok": true,
+          "issues": [],
+          "total": 15484591.000001699,
+          "population": 1155,
+          "day": 2161
+        }
+      },
+      "after": {
+        "day": 2221,
+        "population": 1155,
+        "total": 15484591.000001682,
+        "issues": [],
+        "valid": {
+          "ok": true,
+          "issues": [],
+          "total": 15484591.000001682,
+          "population": 1155,
+          "day": 2221
+        }
+      }
+    },
+    {
+      "archive": "regional-909-planned.json.gz",
+      "before": {
+        "day": 2161,
+        "population": 1136,
+        "total": 15484590.999996323,
+        "issues": [],
+        "valid": {
+          "ok": true,
+          "issues": [],
+          "total": 15484590.999996323,
+          "population": 1136,
+          "day": 2161
+        }
+      },
+      "after": {
+        "day": 2221,
+        "population": 1138,
+        "total": 15484590.999996174,
+        "issues": [],
+        "valid": {
+          "ok": true,
+          "issues": [],
+          "total": 15484590.999996174,
+          "population": 1138,
+          "day": 2221
+        }
+      }
+    }
+  ]
+}

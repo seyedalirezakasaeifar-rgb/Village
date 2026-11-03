@@ -1,0 +1,26 @@
+{
+  "source_sha256": "4f5d56286e1b57d70764de3183352e3c55d979f79f368cec491b0ff84739126a",
+  "cases": [
+    {
+      "flag": "simulationTickFailed",
+      "result": {
+        "ok": true,
+        "reason": "Farm relocated intact. Its fields, staff, stock and accounts continue at the new rural site; four housing units are under paid construction. Existing households are not moved."
+      },
+      "unchanged": false
+    },
+    {
+      "flag": "simulationTickActive",
+      "result": {
+        "ok": true,
+        "reason": "Farm relocated intact. Its fields, staff, stock and accounts continue at the new rural site; four housing units are under paid construction. Existing households are not moved."
+      },
+      "unchanged": false
+    }
+  ]
+}
+Traceback (most recent call last):
+  File "/tmp/check_growth_fence.py", line 12, in <module>
+    assert all(x['unchanged']and x['result']['ok']==False for x in rows),rows
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: [{'flag': 'simulationTickFailed', 'result': {'ok': True, 'reason': 'Farm relocated intact. Its fields, staff, stock and accounts continue at the new rural site; four housing units are under paid construction. Existing households are not moved.'}, 'unchanged': False}, {'flag': 'simulationTickActive', 'result': {'ok': True, 'reason': 'Farm relocated intact. Its fields, staff, stock and accounts continue at the new rural site; four housing units are under paid construction. Existing households are not moved.'}, 'unchanged': False}]

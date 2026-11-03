@@ -1,0 +1,54 @@
+[
+  {
+    "viewport": [
+      568,
+      320
+    ],
+    "purchases": [
+      {
+        "id": "east-meadow",
+        "price": 30606,
+        "owned": 1
+      },
+      {
+        "id": "county-ridge",
+        "price": 37368,
+        "owned": 2
+      },
+      {
+        "id": "river-reach",
+        "price": 32286,
+        "owned": 3
+      }
+    ],
+    "exactReload": true,
+    "exactReplayDays": 15,
+    "errors": []
+  },
+  {
+    "viewport": [
+      390,
+      844
+    ],
+    "purchases": [
+      {
+        "id": "east-meadow",
+        "price": 30606,
+        "owned": 1
+      },
+      {
+        "id": "county-ridge",
+        "price": 37368,
+        "owned": 2
+      },
+      {
+        "id": "river-reach",
+        "price": 32286,
+        "owned": 3
+      }
+    ],
+    "exactReload": true,
+    "exactReplayDays": 15,
+    "errors": []
+  }
+]

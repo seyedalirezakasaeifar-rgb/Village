@@ -1,0 +1,14 @@
+{
+  "source_sha256": "ad1125f3d98f04278071bae186fab945368ed42825b62004808642a3f89531e2",
+  "mockedMediaPromises": true,
+  "result": {
+    "staleRejectionIgnored": true,
+    "suspendDecks": 1,
+    "fadeStopped": true,
+    "retiredSourcesCleared": 3,
+    "activeDeckLimit": 2,
+    "resumedMediaErrorSurfaced": true,
+    "pendingHandoffPreserved": true,
+    "partialDurationIgnored": true
+  }
+}

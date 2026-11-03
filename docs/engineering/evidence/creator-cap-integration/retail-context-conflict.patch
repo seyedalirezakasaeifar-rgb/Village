@@ -1,0 +1,9 @@
+diff a/src/27-urban-evolution.js b/src/27-urban-evolution.js	(rejected hunks)
+@@ -166,6 +166,7 @@ function urbanFarmRenewal(demand){
+  u.renewals.unshift({day:G.day,action:'Farm relocated; four urban dwellings commissioned',cost:cost+(account?compensation:0)});u.renewals=u.renewals.slice(0,80);u.revision++;G.development.privateSpend=(G.development.privateSpend||0)+cost+(account?compensation:0);invalidateUrban();invalidateRoads(false);assignJobs();story('A farm moved to the agricultural belt with its existing workers, stocks and accounts. Paid construction is replacing its urban plot with housing.','good',b.id);return true;
+ }
+ function urbanRetailProposal(explicit=false,reviewedKey=null){
++ const capacityReason=creatorCapacityReason(0,0,1,true);if(capacityReason)return {ok:false,reason:capacityReason};
+  const preview=explicit==='preview';
+  const demand=cityDemand();if((!explicit&&G.autoBuild===false)||demand.residents<320||demand.confidence<42||G.projects.some(p=>p.retailCentre)||G.firms.some(f=>!f.closed&&f.retailCentre&&G.day-(f.openedDay||0)<360))return {ok:false,reason:'A retail centre needs at least 320 residents, investment confidence, and no recent competing centre.'};
+  const reviewRng=preview||!!reviewedKey?rngState:null,places=buildableCandidates('business'),net=graph(),popByBuilding=new Map(),search={vacant:0,permitted:0,connected:0,market:0,staffed:0,viable:0};for(const h of G.households)if(h.people.length)popByBuilding.set(h.home,(popByBuilding.get(h.home)||0)+h.people.length);

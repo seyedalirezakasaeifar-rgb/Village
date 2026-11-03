@@ -1,0 +1,32 @@
+{
+  "source_sha256": "47d2fae6866401ffe828142abc3bb550a9c96631c9643d01d2579bceead5bc6a",
+  "actualControls": true,
+  "origin": "HTTP assets",
+  "rows": [
+    {
+      "kind": "square",
+      "actors": 1,
+      "stable": true,
+      "far": 0,
+      "removed": true,
+      "unchanged": true,
+      "bytes": 5276160,
+      "cacheEntries": 1,
+      "width": 112,
+      "height": 172
+    },
+    {
+      "kind": "warehouse",
+      "actors": 0,
+      "stable": true,
+      "far": 0,
+      "removed": true,
+      "unchanged": true,
+      "bytes": 10331904,
+      "cacheEntries": 1,
+      "width": 184,
+      "height": 208
+    }
+  ],
+  "errors": []
+}

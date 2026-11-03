@@ -1,0 +1,7 @@
+PASS array/mutation oracle {'cases': ['late town', 'jobs', 'closure', 'income', 'condition', 'day', 'revision'], 'timing': [{'reference': 129.7999999988824, 'candidate': 169.30000000074506}, {'candidate': 172.19999999925494, 'reference': 82.90000000037253}, {'reference': 88.90000000037253, 'candidate': 148}, {'candidate': 111.30000000074506, 'reference': 82.79999999888241}, {'reference': 86, 'candidate': 111}, {'candidate': 110.40000000037253, 'reference': 81.5}], 'unchanged': True, 'buildings': 272, 'day': 721}
+PASS exact continuation 751
+PASS exact continuation 781
+PASS exact continuation 811
+PASS exact continuation 841
+PASS exact continuation 871
+PASS exact continuation 901

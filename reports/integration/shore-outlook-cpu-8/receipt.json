@@ -1,0 +1,2941 @@
+{
+  "source_sha256": "6326956a096ede9ae37bcfd1945b2133ee69a1a4f39d470786e385d24777e890",
+  "gates": {
+    "docs/previews/parcel-growth-outlook/result.json": {
+      "source_sha256": "6326956a096ede9ae37bcfd1945b2133ee69a1a4f39d470786e385d24777e890",
+      "baseline": {
+        "day": 1081,
+        "treasury": 615843.0258730656,
+        "region": 3747999.4086354044,
+        "total": 15493516.999995423,
+        "homes": 0,
+        "residents": 0,
+        "rng": 1844851347,
+        "valid": {
+          "ok": true,
+          "issues": [],
+          "total": 15493516.999995423,
+          "population": 886,
+          "day": 1081
+        }
+      },
+      "surveyWasReadOnly": true,
+      "outlook": {
+        "connectedRoads": "67 / 67",
+        "localLegalCottage": [
+          59,
+          14
+        ],
+        "currentGlobalCandidate": [
+          42,
+          33
+        ],
+        "sampleArrivalEligible": true,
+        "globalVacancies": 0,
+        "demand": 100,
+        "pressure": 65
+      },
+      "fundedHomePurchase": {
+        "site": [
+          59,
+          14
+        ],
+        "cost": 20000,
+        "newResidents": 2,
+        "treasuryAfter": 591906.5421634171
+      },
+      "cashConserved": true,
+      "exactThirtyDayReplay": true,
+      "final": {
+        "day": 1111,
+        "treasury": 591906.5421634171,
+        "region": 3625321.973213843,
+        "total": 15493516.999995971,
+        "homes": 1,
+        "residents": 2,
+        "rng": 929361780,
+        "valid": {
+          "ok": true,
+          "issues": [],
+          "total": 15493516.999995971,
+          "population": 888,
+          "day": 1111
+        }
+      },
+      "errors": []
+    },
+    "reports/art-direction/architecture-checks.json": {
+      "homes": [
+        {
+          "hash": 1778178614,
+          "count": 3340,
+          "bounds": [
+            21,
+            57,
+            91,
+            133
+          ],
+          "size": [
+            112,
+            172
+          ]
+        },
+        {
+          "hash": 1494577343,
+          "count": 3569,
+          "bounds": [
+            21,
+            51,
+            91,
+            133
+          ],
+          "size": [
+            112,
+            172
+          ]
+        },
+        {
+          "hash": 2833151990,
+          "count": 3256,
+          "bounds": [
+            21,
+            59,
+            91,
+            133
+          ],
+          "size": [
+            112,
+            172
+          ]
+        },
+        {
+          "hash": 1556877406,
+          "count": 3396,
+          "bounds": [
+            21,
+            56,
+            91,
+            133
+          ],
+          "size": [
+            112,
+            172
+          ]
+        },
+        {
+          "hash": 3542817463,
+          "count": 3719,
+          "bounds": [
+            21,
+            50,
+            91,
+            133
+          ],
+          "size": [
+            112,
+            172
+          ]
+        },
+        {
+          "hash": 1184271334,
+          "count": 2977,
+          "bounds": [
+            21,
+            62,
+            91,
+            133
+          ],
+          "size": [
+            112,
+            172
+          ]
+        }
+      ],
+      "sectors": [
+        {
+          "kind": "home",
+          "hash": 1556877406,
+          "count": 3396,
+          "bounds": [
+            21,
+            56,
+            91,
+            133
+          ],
+          "size": [
+            112,
+            172
+          ]
+        },
+        {
+          "kind": "apartment",
+          "hash": 616310718,
+          "count": 4605,
+          "bounds": [
+            21,
+            33,
+            91,
+            133
+          ],
+          "size": [
+            112,
+            172
+          ]
+        },
+        {
+          "kind": "tower",
+          "hash": 3046800835,
+          "count": 9362,
+          "bounds": [
+            21,
+            27,
+            91,
+            213
+          ],
+          "size": [
+            112,
+            252
+          ]
+        },
+        {
+          "kind": "office",
+          "hash": 1986284804,
+          "count": 5171,
+          "bounds": [
+            21,
+            31,
+            91,
+            133
+          ],
+          "size": [
+            112,
+            172
+          ]
+        },
+        {
+          "kind": "factory",
+          "hash": 984450887,
+          "count": 9621,
+          "bounds": [
+            23,
+            10,
+            163,
+            154
+          ],
+          "size": [
+            184,
+            208
+          ]
+        },
+        {
+          "kind": "warehouse",
+          "hash": 3264978099,
+          "count": 3711,
+          "bounds": [
+            21,
+            51,
+            91,
+            133
+          ],
+          "size": [
+            112,
+            172
+          ]
+        },
+        {
+          "kind": "sawmill",
+          "hash": 3932357533,
+          "count": 3026,
+          "bounds": [
+            21,
+            65,
+            91,
+            133
+          ],
+          "size": [
+            112,
+            172
+          ]
+        },
+        {
+          "kind": "grocer",
+          "hash": 935172069,
+          "count": 3503,
+          "bounds": [
+            21,
+            59,
+            91,
+            133
+          ],
+          "size": [
+            112,
+            172
+          ]
+        },
+        {
+          "kind": "bakery",
+          "hash": 2612918785,
+          "count": 3586,
+          "bounds": [
+            21,
+            50,
+            91,
+            133
+          ],
+          "size": [
+            112,
+            172
+          ]
+        },
+        {
+          "kind": "tavern",
+          "hash": 2919180773,
+          "count": 3440,
+          "bounds": [
+            21,
+            59,
+            91,
+            133
+          ],
+          "size": [
+            112,
+            172
+          ]
+        },
+        {
+          "kind": "townhall",
+          "hash": 4219670664,
+          "count": 4115,
+          "bounds": [
+            21,
+            39,
+            91,
+            133
+          ],
+          "size": [
+            112,
+            172
+          ]
+        },
+        {
+          "kind": "courthouse",
+          "hash": 2329118870,
+          "count": 4115,
+          "bounds": [
+            21,
+            39,
+            91,
+            133
+          ],
+          "size": [
+            112,
+            172
+          ]
+        },
+        {
+          "kind": "school",
+          "hash": 2168773827,
+          "count": 3954,
+          "bounds": [
+            21,
+            45,
+            91,
+            133
+          ],
+          "size": [
+            112,
+            172
+          ]
+        },
+        {
+          "kind": "college",
+          "hash": 2326743633,
+          "count": 3948,
+          "bounds": [
+            21,
+            45,
+            91,
+            133
+          ],
+          "size": [
+            112,
+            172
+          ]
+        },
+        {
+          "kind": "clinic",
+          "hash": 3768571109,
+          "count": 3548,
+          "bounds": [
+            21,
+            60,
+            91,
+            133
+          ],
+          "size": [
+            112,
+            172
+          ]
+        },
+        {
+          "kind": "bank",
+          "hash": 2332402915,
+          "count": 3716,
+          "bounds": [
+            21,
+            60,
+            91,
+            133
+          ],
+          "size": [
+            112,
+            172
+          ]
+        },
+        {
+          "kind": "police",
+          "hash": 1560194491,
+          "count": 3564,
+          "bounds": [
+            21,
+            60,
+            91,
+            133
+          ],
+          "size": [
+            112,
+            172
+          ]
+        },
+        {
+          "kind": "fire",
+          "hash": 372553045,
+          "count": 3919,
+          "bounds": [
+            21,
+            47,
+            91,
+            133
+          ],
+          "size": [
+            112,
+            172
+          ]
+        },
+        {
+          "kind": "park",
+          "hash": 3361325446,
+          "count": 2147,
+          "bounds": [
+            21,
+            71,
+            91,
+            133
+          ],
+          "size": [
+            112,
+            172
+          ]
+        },
+        {
+          "kind": "square",
+          "hash": 3555886404,
+          "count": 1784,
+          "bounds": [
+            21,
+            94,
+            91,
+            133
+          ],
+          "size": [
+            112,
+            172
+          ]
+        }
+      ],
+      "conditions": [
+        {
+          "hash": 1494577343,
+          "count": 3569,
+          "bounds": [
+            21,
+            51,
+            91,
+            133
+          ],
+          "size": [
+            112,
+            172
+          ]
+        },
+        {
+          "hash": 4130361251,
+          "count": 3569,
+          "bounds": [
+            21,
+            51,
+            91,
+            133
+          ],
+          "size": [
+            112,
+            172
+          ]
+        },
+        {
+          "hash": 3006324528,
+          "count": 3569,
+          "bounds": [
+            21,
+            51,
+            91,
+            133
+          ],
+          "size": [
+            112,
+            172
+          ]
+        }
+      ],
+      "night": {
+        "hash": 3492005850,
+        "count": 3569,
+        "bounds": [
+          21,
+          51,
+          91,
+          133
+        ],
+        "size": [
+          112,
+          172
+        ]
+      },
+      "day": {
+        "hash": 1494577343,
+        "count": 3569,
+        "bounds": [
+          21,
+          51,
+          91,
+          133
+        ],
+        "size": [
+          112,
+          172
+        ]
+      },
+      "plain": {
+        "hash": 1239303927,
+        "count": 9593,
+        "bounds": [
+          23,
+          10,
+          163,
+          154
+        ],
+        "size": [
+          184,
+          208
+        ]
+      },
+      "detailed": {
+        "hash": 984450887,
+        "count": 9621,
+        "bounds": [
+          23,
+          10,
+          163,
+          154
+        ],
+        "size": [
+          184,
+          208
+        ]
+      },
+      "groundTypes": [
+        123078705,
+        2395338843,
+        115700021,
+        2350228873
+      ],
+      "parcels": [
+        3716321305,
+        2308000674,
+        360913246,
+        3063907977,
+        3274185715
+      ],
+      "unchanged": true,
+      "source_sha256": "6326956a096ede9ae37bcfd1945b2133ee69a1a4f39d470786e385d24777e890",
+      "errors": []
+    },
+    "reports/visual-world/checks.json": {
+      "maxJump": 0.06783577010429095,
+      "hidden": 0,
+      "poseCalls": 0,
+      "unchanged": true,
+      "pausedStable": true,
+      "atlasBytes": 4744448,
+      "atlasSize": 63,
+      "renderBenchMs": {
+        "far": 0.36,
+        "town": 1.15,
+        "close": 1.03
+      },
+      "source_sha256": "6326956a096ede9ae37bcfd1945b2133ee69a1a4f39d470786e385d24777e890",
+      "errors": []
+    },
+    "reports/development-working-river/sprite-envelopes.json": {
+      "source_sha256": "6326956a096ede9ae37bcfd1945b2133ee69a1a4f39d470786e385d24777e890",
+      "items": 3835,
+      "pixelsCompared": 314163200,
+      "failures": [],
+      "atlas": 200,
+      "bytes": 17785344,
+      "oldBytes": 65536000,
+      "savedFraction": 0.7286171875,
+      "accountingExact": true,
+      "clearsCleanly": true,
+      "bounded": true
+    },
+    "docs/previews/camera-matrix/checks.json": {
+      "source_sha256": "6326956a096ede9ae37bcfd1945b2133ee69a1a4f39d470786e385d24777e890",
+      "cases": [
+        {
+          "index": 0,
+          "zoom": 1.6,
+          "night": false,
+          "quality": "low",
+          "reducedMotion": true,
+          "dpr": 1,
+          "camera": {
+            "x": 4447.7,
+            "y": 1004.3,
+            "zoom": 1.6
+          },
+          "pausedStable": true,
+          "coldStable": true,
+          "unchanged": true,
+          "oracle": {
+            "channels": 0,
+            "max": 0,
+            "actors": 0
+          },
+          "atlasBytes": 2468608,
+          "brownfieldBytes": 27648,
+          "repairBytes": 0,
+          "viewportBytes": 1100800,
+          "viewport": [
+            640,
+            360,
+            1
+          ],
+          "warmDrawMeanMs": 0.79
+        },
+        {
+          "index": 1,
+          "zoom": 0.4,
+          "night": true,
+          "quality": "high",
+          "reducedMotion": false,
+          "dpr": 1,
+          "camera": {
+            "x": 4596.7,
+            "y": 877.3,
+            "zoom": 0.4
+          },
+          "pausedStable": true,
+          "coldStable": true,
+          "unchanged": true,
+          "oracle": {
+            "channels": 0,
+            "max": 0,
+            "actors": 2,
+            "modes": [
+              "bus",
+              "bus"
+            ]
+          },
+          "atlasBytes": 8470784,
+          "brownfieldBytes": 27648,
+          "repairBytes": 1100800,
+          "viewportBytes": 1100800,
+          "viewport": [
+            640,
+            360,
+            1
+          ],
+          "warmDrawMeanMs": 4.03
+        },
+        {
+          "index": 2,
+          "zoom": 0.2,
+          "night": false,
+          "quality": "high",
+          "reducedMotion": false,
+          "dpr": 1,
+          "camera": {
+            "x": 5717.7,
+            "y": 804.3,
+            "zoom": 0.2
+          },
+          "pausedStable": true,
+          "coldStable": true,
+          "unchanged": true,
+          "oracle": {
+            "channels": 0,
+            "max": 0,
+            "actors": 0
+          },
+          "atlasBytes": 6771712,
+          "brownfieldBytes": 55296,
+          "repairBytes": 0,
+          "viewportBytes": 1100800,
+          "viewport": [
+            640,
+            360,
+            1
+          ],
+          "warmDrawMeanMs": 0.89
+        },
+        {
+          "index": 3,
+          "zoom": 0.65,
+          "night": true,
+          "quality": "high",
+          "reducedMotion": false,
+          "dpr": 1,
+          "camera": {
+            "x": 5835.7,
+            "y": 983.3,
+            "zoom": 0.65
+          },
+          "pausedStable": true,
+          "coldStable": true,
+          "unchanged": true,
+          "oracle": {
+            "channels": 0,
+            "max": 0,
+            "actors": 1,
+            "modes": [
+              "vehicle"
+            ]
+          },
+          "atlasBytes": 3617536,
+          "brownfieldBytes": 55296,
+          "repairBytes": 1100800,
+          "viewportBytes": 1100800,
+          "viewport": [
+            640,
+            360,
+            1
+          ],
+          "warmDrawMeanMs": 2.75
+        },
+        {
+          "index": 4,
+          "zoom": 1.15,
+          "night": false,
+          "quality": "low",
+          "reducedMotion": false,
+          "dpr": 1,
+          "camera": {
+            "x": 5696.7,
+            "y": 1702.3,
+            "zoom": 1.15
+          },
+          "pausedStable": true,
+          "coldStable": true,
+          "unchanged": true,
+          "oracle": {
+            "channels": 0,
+            "max": 0,
+            "actors": 2,
+            "modes": [
+              "elevated",
+              "vehicle"
+            ]
+          },
+          "atlasBytes": 689408,
+          "brownfieldBytes": 55296,
+          "repairBytes": 1100800,
+          "viewportBytes": 1100800,
+          "viewport": [
+            640,
+            360,
+            1
+          ],
+          "warmDrawMeanMs": 1.28
+        },
+        {
+          "index": 5,
+          "zoom": 0.32,
+          "night": true,
+          "quality": "high",
+          "reducedMotion": true,
+          "dpr": 1,
+          "camera": {
+            "x": 3937.7,
+            "y": 568.3,
+            "zoom": 0.32
+          },
+          "pausedStable": true,
+          "coldStable": true,
+          "unchanged": true,
+          "oracle": {
+            "channels": 0,
+            "max": 0,
+            "actors": 0
+          },
+          "atlasBytes": 6388480,
+          "brownfieldBytes": 55296,
+          "repairBytes": 0,
+          "viewportBytes": 1100800,
+          "viewport": [
+            640,
+            360,
+            1
+          ],
+          "warmDrawMeanMs": 1.68
+        },
+        {
+          "index": 6,
+          "zoom": 1.6,
+          "night": false,
+          "quality": "high",
+          "reducedMotion": false,
+          "dpr": 1,
+          "camera": {
+            "x": 4199.7,
+            "y": 567.3,
+            "zoom": 1.6
+          },
+          "pausedStable": true,
+          "coldStable": true,
+          "unchanged": true,
+          "oracle": {
+            "channels": 0,
+            "max": 0,
+            "actors": 1,
+            "modes": [
+              "vehicle"
+            ]
+          },
+          "atlasBytes": 1788928,
+          "brownfieldBytes": 55296,
+          "repairBytes": 1100800,
+          "viewportBytes": 1100800,
+          "viewport": [
+            640,
+            360,
+            1
+          ],
+          "warmDrawMeanMs": 2.53
+        },
+        {
+          "index": 7,
+          "zoom": 0.4,
+          "night": true,
+          "quality": "high",
+          "reducedMotion": false,
+          "dpr": 1,
+          "camera": {
+            "x": 5068.7,
+            "y": 782.3,
+            "zoom": 0.4
+          },
+          "pausedStable": true,
+          "coldStable": true,
+          "unchanged": true,
+          "oracle": {
+            "channels": 0,
+            "max": 0,
+            "actors": 2,
+            "modes": [
+              "bus",
+              "bus"
+            ]
+          },
+          "atlasBytes": 8291072,
+          "brownfieldBytes": 55296,
+          "repairBytes": 1100800,
+          "viewportBytes": 1100800,
+          "viewport": [
+            640,
+            360,
+            1
+          ],
+          "warmDrawMeanMs": 1.17
+        },
+        {
+          "index": 8,
+          "zoom": 0.2,
+          "night": false,
+          "quality": "low",
+          "reducedMotion": false,
+          "dpr": 1,
+          "camera": {
+            "x": 5906.7,
+            "y": 961.3,
+            "zoom": 0.2
+          },
+          "pausedStable": true,
+          "coldStable": true,
+          "unchanged": true,
+          "oracle": {
+            "channels": 0,
+            "max": 0,
+            "actors": 0
+          },
+          "atlasBytes": 6234368,
+          "brownfieldBytes": 55296,
+          "repairBytes": 0,
+          "viewportBytes": 1100800,
+          "viewport": [
+            640,
+            360,
+            1
+          ],
+          "warmDrawMeanMs": 0.86
+        },
+        {
+          "index": 9,
+          "zoom": 0.65,
+          "night": true,
+          "quality": "high",
+          "reducedMotion": false,
+          "dpr": 1,
+          "camera": {
+            "x": 5299.7,
+            "y": 1051.3,
+            "zoom": 0.65
+          },
+          "pausedStable": true,
+          "coldStable": true,
+          "unchanged": true,
+          "oracle": {
+            "channels": 0,
+            "max": 0,
+            "actors": 1,
+            "modes": [
+              "vehicle"
+            ]
+          },
+          "atlasBytes": 4710144,
+          "brownfieldBytes": 55296,
+          "repairBytes": 1100800,
+          "viewportBytes": 1100800,
+          "viewport": [
+            640,
+            360,
+            1
+          ],
+          "warmDrawMeanMs": 6.93
+        },
+        {
+          "index": 10,
+          "zoom": 1.15,
+          "night": false,
+          "quality": "high",
+          "reducedMotion": true,
+          "dpr": 1,
+          "camera": {
+            "x": 4584.7,
+            "y": 1338.3,
+            "zoom": 1.15
+          },
+          "pausedStable": true,
+          "coldStable": true,
+          "unchanged": true,
+          "oracle": {
+            "channels": 0,
+            "max": 0,
+            "actors": 0
+          },
+          "atlasBytes": 1143808,
+          "brownfieldBytes": 55296,
+          "repairBytes": 0,
+          "viewportBytes": 1100800,
+          "viewport": [
+            640,
+            360,
+            1
+          ],
+          "warmDrawMeanMs": 0.6
+        },
+        {
+          "index": 11,
+          "zoom": 0.32,
+          "night": true,
+          "quality": "high",
+          "reducedMotion": false,
+          "dpr": 1,
+          "camera": {
+            "x": 4630.7,
+            "y": 545.3,
+            "zoom": 0.32
+          },
+          "pausedStable": true,
+          "coldStable": true,
+          "unchanged": true,
+          "oracle": {
+            "channels": 0,
+            "max": 0,
+            "actors": 0
+          },
+          "atlasBytes": 7004928,
+          "brownfieldBytes": 55296,
+          "repairBytes": 1100800,
+          "viewportBytes": 1100800,
+          "viewport": [
+            640,
+            360,
+            1
+          ],
+          "warmDrawMeanMs": 1.4
+        },
+        {
+          "index": 0,
+          "zoom": 1.6,
+          "night": false,
+          "quality": "low",
+          "reducedMotion": true,
+          "dpr": 1,
+          "camera": {
+            "x": 4447.7,
+            "y": 1004.3,
+            "zoom": 1.6
+          },
+          "pausedStable": true,
+          "coldStable": true,
+          "unchanged": true,
+          "oracle": {
+            "channels": 0,
+            "max": 0,
+            "actors": 0
+          },
+          "atlasBytes": 3392256,
+          "brownfieldBytes": 27648,
+          "repairBytes": 0,
+          "viewportBytes": 1883808,
+          "viewport": [
+            844,
+            390,
+            2
+          ],
+          "warmDrawMeanMs": 1.29
+        },
+        {
+          "index": 1,
+          "zoom": 0.4,
+          "night": true,
+          "quality": "high",
+          "reducedMotion": false,
+          "dpr": 1.5,
+          "camera": {
+            "x": 4596.7,
+            "y": 877.3,
+            "zoom": 0.4
+          },
+          "pausedStable": true,
+          "coldStable": true,
+          "unchanged": true,
+          "oracle": {
+            "channels": 0,
+            "max": 0,
+            "actors": 2,
+            "modes": [
+              "bus",
+              "bus"
+            ]
+          },
+          "atlasBytes": 9701632,
+          "brownfieldBytes": 27648,
+          "repairBytes": 4243632,
+          "viewportBytes": 4243632,
+          "viewport": [
+            844,
+            390,
+            2
+          ],
+          "warmDrawMeanMs": 2.86
+        },
+        {
+          "index": 2,
+          "zoom": 0.2,
+          "night": false,
+          "quality": "high",
+          "reducedMotion": false,
+          "dpr": 1.5,
+          "camera": {
+            "x": 5717.7,
+            "y": 804.3,
+            "zoom": 0.2
+          },
+          "pausedStable": true,
+          "coldStable": true,
+          "unchanged": true,
+          "oracle": {
+            "channels": 0,
+            "max": 0,
+            "actors": 0
+          },
+          "atlasBytes": 7079936,
+          "brownfieldBytes": 55296,
+          "repairBytes": 0,
+          "viewportBytes": 4243632,
+          "viewport": [
+            844,
+            390,
+            2
+          ],
+          "warmDrawMeanMs": 1.54
+        },
+        {
+          "index": 3,
+          "zoom": 0.65,
+          "night": true,
+          "quality": "high",
+          "reducedMotion": false,
+          "dpr": 1.5,
+          "camera": {
+            "x": 5835.7,
+            "y": 983.3,
+            "zoom": 0.65
+          },
+          "pausedStable": true,
+          "coldStable": true,
+          "unchanged": true,
+          "oracle": {
+            "channels": 0,
+            "max": 0,
+            "actors": 1,
+            "modes": [
+              "vehicle"
+            ]
+          },
+          "atlasBytes": 4386048,
+          "brownfieldBytes": 55296,
+          "repairBytes": 4243632,
+          "viewportBytes": 4243632,
+          "viewport": [
+            844,
+            390,
+            2
+          ],
+          "warmDrawMeanMs": 2.7
+        },
+        {
+          "index": 4,
+          "zoom": 1.15,
+          "night": false,
+          "quality": "low",
+          "reducedMotion": false,
+          "dpr": 1,
+          "camera": {
+            "x": 5696.7,
+            "y": 1702.3,
+            "zoom": 1.15
+          },
+          "pausedStable": true,
+          "coldStable": true,
+          "unchanged": true,
+          "oracle": {
+            "channels": 0,
+            "max": 0,
+            "actors": 2,
+            "modes": [
+              "elevated",
+              "vehicle"
+            ]
+          },
+          "atlasBytes": 689408,
+          "brownfieldBytes": 55296,
+          "repairBytes": 1883808,
+          "viewportBytes": 1883808,
+          "viewport": [
+            844,
+            390,
+            2
+          ],
+          "warmDrawMeanMs": 1.51
+        },
+        {
+          "index": 5,
+          "zoom": 0.32,
+          "night": true,
+          "quality": "high",
+          "reducedMotion": true,
+          "dpr": 1.5,
+          "camera": {
+            "x": 3937.7,
+            "y": 568.3,
+            "zoom": 0.32
+          },
+          "pausedStable": true,
+          "coldStable": true,
+          "unchanged": true,
+          "oracle": {
+            "channels": 0,
+            "max": 0,
+            "actors": 0
+          },
+          "atlasBytes": 8388864,
+          "brownfieldBytes": 55296,
+          "repairBytes": 0,
+          "viewportBytes": 4243632,
+          "viewport": [
+            844,
+            390,
+            2
+          ],
+          "warmDrawMeanMs": 0.99
+        },
+        {
+          "index": 6,
+          "zoom": 1.6,
+          "night": false,
+          "quality": "high",
+          "reducedMotion": false,
+          "dpr": 1.5,
+          "camera": {
+            "x": 4199.7,
+            "y": 567.3,
+            "zoom": 1.6
+          },
+          "pausedStable": true,
+          "coldStable": true,
+          "unchanged": true,
+          "oracle": {
+            "channels": 0,
+            "max": 0,
+            "actors": 1,
+            "modes": [
+              "vehicle"
+            ]
+          },
+          "atlasBytes": 1893632,
+          "brownfieldBytes": 55296,
+          "repairBytes": 4243632,
+          "viewportBytes": 4243632,
+          "viewport": [
+            844,
+            390,
+            2
+          ],
+          "warmDrawMeanMs": 5.81
+        },
+        {
+          "index": 7,
+          "zoom": 0.4,
+          "night": true,
+          "quality": "high",
+          "reducedMotion": false,
+          "dpr": 1.5,
+          "camera": {
+            "x": 5068.7,
+            "y": 782.3,
+            "zoom": 0.4
+          },
+          "pausedStable": true,
+          "coldStable": true,
+          "unchanged": true,
+          "oracle": {
+            "channels": 0,
+            "max": 0,
+            "actors": 2,
+            "modes": [
+              "bus",
+              "bus"
+            ]
+          },
+          "atlasBytes": 9598976,
+          "brownfieldBytes": 55296,
+          "repairBytes": 4243632,
+          "viewportBytes": 4243632,
+          "viewport": [
+            844,
+            390,
+            2
+          ],
+          "warmDrawMeanMs": 1.84
+        },
+        {
+          "index": 8,
+          "zoom": 0.2,
+          "night": false,
+          "quality": "low",
+          "reducedMotion": false,
+          "dpr": 1,
+          "camera": {
+            "x": 5906.7,
+            "y": 961.3,
+            "zoom": 0.2
+          },
+          "pausedStable": true,
+          "coldStable": true,
+          "unchanged": true,
+          "oracle": {
+            "channels": 0,
+            "max": 0,
+            "actors": 0
+          },
+          "atlasBytes": 7311104,
+          "brownfieldBytes": 55296,
+          "repairBytes": 0,
+          "viewportBytes": 1883808,
+          "viewport": [
+            844,
+            390,
+            2
+          ],
+          "warmDrawMeanMs": 0.77
+        },
+        {
+          "index": 9,
+          "zoom": 0.65,
+          "night": true,
+          "quality": "high",
+          "reducedMotion": false,
+          "dpr": 1.5,
+          "camera": {
+            "x": 5299.7,
+            "y": 1051.3,
+            "zoom": 0.65
+          },
+          "pausedStable": true,
+          "coldStable": true,
+          "unchanged": true,
+          "oracle": {
+            "channels": 0,
+            "max": 0,
+            "actors": 1,
+            "modes": [
+              "vehicle"
+            ]
+          },
+          "atlasBytes": 6002176,
+          "brownfieldBytes": 55296,
+          "repairBytes": 4243632,
+          "viewportBytes": 4243632,
+          "viewport": [
+            844,
+            390,
+            2
+          ],
+          "warmDrawMeanMs": 4.28
+        },
+        {
+          "index": 10,
+          "zoom": 1.15,
+          "night": false,
+          "quality": "high",
+          "reducedMotion": true,
+          "dpr": 1.5,
+          "camera": {
+            "x": 4584.7,
+            "y": 1338.3,
+            "zoom": 1.15
+          },
+          "pausedStable": true,
+          "coldStable": true,
+          "unchanged": true,
+          "oracle": {
+            "channels": 0,
+            "max": 0,
+            "actors": 0
+          },
+          "atlasBytes": 1478656,
+          "brownfieldBytes": 55296,
+          "repairBytes": 0,
+          "viewportBytes": 4243632,
+          "viewport": [
+            844,
+            390,
+            2
+          ],
+          "warmDrawMeanMs": 0.63
+        },
+        {
+          "index": 11,
+          "zoom": 0.32,
+          "night": true,
+          "quality": "high",
+          "reducedMotion": false,
+          "dpr": 1.5,
+          "camera": {
+            "x": 4630.7,
+            "y": 545.3,
+            "zoom": 0.32
+          },
+          "pausedStable": true,
+          "coldStable": true,
+          "unchanged": true,
+          "oracle": {
+            "channels": 0,
+            "max": 0,
+            "actors": 0
+          },
+          "atlasBytes": 8698112,
+          "brownfieldBytes": 55296,
+          "repairBytes": 4243632,
+          "viewportBytes": 4243632,
+          "viewport": [
+            844,
+            390,
+            2
+          ],
+          "warmDrawMeanMs": 1.66
+        },
+        {
+          "index": 0,
+          "zoom": 1.6,
+          "night": false,
+          "quality": "low",
+          "reducedMotion": true,
+          "dpr": 1,
+          "camera": {
+            "x": 4447.7,
+            "y": 1004.3,
+            "zoom": 1.6
+          },
+          "pausedStable": true,
+          "coldStable": true,
+          "unchanged": true,
+          "oracle": {
+            "channels": 0,
+            "max": 0,
+            "actors": 0
+          },
+          "atlasBytes": 5295872,
+          "brownfieldBytes": 27648,
+          "repairBytes": 0,
+          "viewportBytes": 6113280,
+          "viewport": [
+            1280,
+            720,
+            3
+          ],
+          "warmDrawMeanMs": 1.63
+        },
+        {
+          "index": 1,
+          "zoom": 0.4,
+          "night": true,
+          "quality": "high",
+          "reducedMotion": false,
+          "dpr": 1.5,
+          "camera": {
+            "x": 4596.7,
+            "y": 877.3,
+            "zoom": 0.4
+          },
+          "pausedStable": true,
+          "coldStable": true,
+          "unchanged": true,
+          "oracle": {
+            "channels": 0,
+            "max": 0,
+            "actors": 3,
+            "modes": [
+              "bus",
+              "bus",
+              "bus"
+            ]
+          },
+          "atlasBytes": 10857472,
+          "brownfieldBytes": 27648,
+          "repairBytes": 13762560,
+          "viewportBytes": 13762560,
+          "viewport": [
+            1280,
+            720,
+            3
+          ],
+          "warmDrawMeanMs": 7.89
+        },
+        {
+          "index": 2,
+          "zoom": 0.2,
+          "night": false,
+          "quality": "high",
+          "reducedMotion": false,
+          "dpr": 1.5,
+          "camera": {
+            "x": 5717.7,
+            "y": 804.3,
+            "zoom": 0.2
+          },
+          "pausedStable": true,
+          "coldStable": true,
+          "unchanged": true,
+          "oracle": {
+            "channels": 0,
+            "max": 0,
+            "actors": 0
+          },
+          "atlasBytes": 8312832,
+          "brownfieldBytes": 55296,
+          "repairBytes": 0,
+          "viewportBytes": 13762560,
+          "viewport": [
+            1280,
+            720,
+            3
+          ],
+          "warmDrawMeanMs": 1.78
+        },
+        {
+          "index": 3,
+          "zoom": 0.65,
+          "night": true,
+          "quality": "high",
+          "reducedMotion": false,
+          "dpr": 1.5,
+          "camera": {
+            "x": 5835.7,
+            "y": 983.3,
+            "zoom": 0.65
+          },
+          "pausedStable": true,
+          "coldStable": true,
+          "unchanged": true,
+          "oracle": {
+            "channels": 0,
+            "max": 0,
+            "actors": 2,
+            "modes": [
+              "bus",
+              "vehicle"
+            ]
+          },
+          "atlasBytes": 6163200,
+          "brownfieldBytes": 55296,
+          "repairBytes": 13762560,
+          "viewportBytes": 13762560,
+          "viewport": [
+            1280,
+            720,
+            3
+          ],
+          "warmDrawMeanMs": 4.47
+        },
+        {
+          "index": 4,
+          "zoom": 1.15,
+          "night": false,
+          "quality": "low",
+          "reducedMotion": false,
+          "dpr": 1,
+          "camera": {
+            "x": 5696.7,
+            "y": 1702.3,
+            "zoom": 1.15
+          },
+          "pausedStable": true,
+          "coldStable": true,
+          "unchanged": true,
+          "oracle": {
+            "channels": 0,
+            "max": 0,
+            "actors": 2,
+            "modes": [
+              "elevated",
+              "vehicle"
+            ]
+          },
+          "atlasBytes": 996608,
+          "brownfieldBytes": 55296,
+          "repairBytes": 6113280,
+          "viewportBytes": 6113280,
+          "viewport": [
+            1280,
+            720,
+            3
+          ],
+          "warmDrawMeanMs": 2.57
+        },
+        {
+          "index": 5,
+          "zoom": 0.32,
+          "night": true,
+          "quality": "high",
+          "reducedMotion": true,
+          "dpr": 1.5,
+          "camera": {
+            "x": 3937.7,
+            "y": 568.3,
+            "zoom": 0.32
+          },
+          "pausedStable": true,
+          "coldStable": true,
+          "unchanged": true,
+          "oracle": {
+            "channels": 0,
+            "max": 0,
+            "actors": 0
+          },
+          "atlasBytes": 10466304,
+          "brownfieldBytes": 55296,
+          "repairBytes": 0,
+          "viewportBytes": 13762560,
+          "viewport": [
+            1280,
+            720,
+            3
+          ],
+          "warmDrawMeanMs": 1.05
+        },
+        {
+          "index": 6,
+          "zoom": 1.6,
+          "night": false,
+          "quality": "high",
+          "reducedMotion": false,
+          "dpr": 1.5,
+          "camera": {
+            "x": 4199.7,
+            "y": 567.3,
+            "zoom": 1.6
+          },
+          "pausedStable": true,
+          "coldStable": true,
+          "unchanged": true,
+          "oracle": {
+            "channels": 0,
+            "max": 0,
+            "actors": 1,
+            "modes": [
+              "vehicle"
+            ]
+          },
+          "atlasBytes": 2228480,
+          "brownfieldBytes": 55296,
+          "repairBytes": 13762560,
+          "viewportBytes": 13762560,
+          "viewport": [
+            1280,
+            720,
+            3
+          ],
+          "warmDrawMeanMs": 13.16
+        },
+        {
+          "index": 7,
+          "zoom": 0.4,
+          "night": true,
+          "quality": "high",
+          "reducedMotion": false,
+          "dpr": 1.5,
+          "camera": {
+            "x": 5068.7,
+            "y": 782.3,
+            "zoom": 0.4
+          },
+          "pausedStable": true,
+          "coldStable": true,
+          "unchanged": true,
+          "oracle": {
+            "channels": 0,
+            "max": 0,
+            "actors": 3,
+            "modes": [
+              "bus",
+              "bus",
+              "bus"
+            ]
+          },
+          "atlasBytes": 10934528,
+          "brownfieldBytes": 55296,
+          "repairBytes": 13762560,
+          "viewportBytes": 13762560,
+          "viewport": [
+            1280,
+            720,
+            3
+          ],
+          "warmDrawMeanMs": 3.2
+        },
+        {
+          "index": 8,
+          "zoom": 0.2,
+          "night": false,
+          "quality": "low",
+          "reducedMotion": false,
+          "dpr": 1,
+          "camera": {
+            "x": 5906.7,
+            "y": 961.3,
+            "zoom": 0.2
+          },
+          "pausedStable": true,
+          "coldStable": true,
+          "unchanged": true,
+          "oracle": {
+            "channels": 0,
+            "max": 0,
+            "actors": 0
+          },
+          "atlasBytes": 8621056,
+          "brownfieldBytes": 55296,
+          "repairBytes": 0,
+          "viewportBytes": 6113280,
+          "viewport": [
+            1280,
+            720,
+            3
+          ],
+          "warmDrawMeanMs": 1.28
+        },
+        {
+          "index": 9,
+          "zoom": 0.65,
+          "night": true,
+          "quality": "high",
+          "reducedMotion": false,
+          "dpr": 1.5,
+          "camera": {
+            "x": 5299.7,
+            "y": 1051.3,
+            "zoom": 0.65
+          },
+          "pausedStable": true,
+          "coldStable": true,
+          "unchanged": true,
+          "oracle": {
+            "channels": 0,
+            "max": 0,
+            "actors": 2,
+            "modes": [
+              "bus",
+              "vehicle"
+            ]
+          },
+          "atlasBytes": 9395456,
+          "brownfieldBytes": 55296,
+          "repairBytes": 13762560,
+          "viewportBytes": 13762560,
+          "viewport": [
+            1280,
+            720,
+            3
+          ],
+          "warmDrawMeanMs": 6.68
+        },
+        {
+          "index": 10,
+          "zoom": 1.15,
+          "night": false,
+          "quality": "high",
+          "reducedMotion": true,
+          "dpr": 1.5,
+          "camera": {
+            "x": 4584.7,
+            "y": 1338.3,
+            "zoom": 1.15
+          },
+          "pausedStable": true,
+          "coldStable": true,
+          "unchanged": true,
+          "oracle": {
+            "channels": 0,
+            "max": 0,
+            "actors": 0
+          },
+          "atlasBytes": 4080640,
+          "brownfieldBytes": 55296,
+          "repairBytes": 0,
+          "viewportBytes": 13762560,
+          "viewport": [
+            1280,
+            720,
+            3
+          ],
+          "warmDrawMeanMs": 0.54
+        },
+        {
+          "index": 11,
+          "zoom": 0.32,
+          "night": true,
+          "quality": "high",
+          "reducedMotion": false,
+          "dpr": 1.5,
+          "camera": {
+            "x": 4630.7,
+            "y": 545.3,
+            "zoom": 0.32
+          },
+          "pausedStable": true,
+          "coldStable": true,
+          "unchanged": true,
+          "oracle": {
+            "channels": 0,
+            "max": 0,
+            "actors": 0
+          },
+          "atlasBytes": 10697472,
+          "brownfieldBytes": 55296,
+          "repairBytes": 13762560,
+          "viewportBytes": 13762560,
+          "viewport": [
+            1280,
+            720,
+            3
+          ],
+          "warmDrawMeanMs": 6.75
+        }
+      ],
+      "network": {
+        "grid": 128,
+        "deeds": 21,
+        "relocatedHouseholds": 29,
+        "routes": [
+          1,
+          2,
+          3
+        ],
+        "capital": 191450,
+        "total": 15493517
+      },
+      "visualStates": {
+        "closed": 32,
+        "site": {
+          "assessed": true,
+          "acquired": true,
+          "funded": true
+        },
+        "redevelopment": true
+      },
+      "errors": [],
+      "fixture": "Authored 2000 residents, paid 21 deeds and three transit routes. Redevelopment demand is authored to reach the real paid project path. Oracle truck is a controlled render-only silhouette."
+    },
+    "reports/release-tests.json": {
+      "source_sha256": "6326956a096ede9ae37bcfd1945b2133ee69a1a4f39d470786e385d24777e890",
+      "determinism_and_continuation": {
+        "sameSeed": true,
+        "renderIndependent": true,
+        "continuedDays": 120,
+        "valid": {
+          "ok": true,
+          "issues": [],
+          "total": 15489571.999994356,
+          "population": 172,
+          "day": 301
+        }
+      },
+      "malformed_save_atomicity": {
+        "investorRejected": true,
+        "cargoRejected": true,
+        "futureRejected": true,
+        "townPreserved": true
+      },
+      "replicated_zoning": [
+        {
+          "seed": 42,
+          "zone": 0,
+          "population": 192,
+          "homes": 17,
+          "firms": 3,
+          "privateSpend": 494901,
+          "moneyDelta": -1.2569129467010498e-05,
+          "ms": 3101.0999999940395
+        },
+        {
+          "seed": 42,
+          "zone": 100,
+          "population": 177,
+          "homes": 0,
+          "firms": 1,
+          "privateSpend": 0,
+          "moneyDelta": -1.7305836081504822e-05,
+          "ms": 2149.199999988079
+        },
+        {
+          "seed": 101,
+          "zone": 0,
+          "population": 221,
+          "homes": 21,
+          "firms": 8,
+          "privateSpend": 621891,
+          "moneyDelta": -1.55717134475708e-05,
+          "ms": 3069.7999999970198
+        },
+        {
+          "seed": 101,
+          "zone": 100,
+          "population": 183,
+          "homes": 0,
+          "firms": 2,
+          "privateSpend": 0,
+          "moneyDelta": -8.197501301765442e-06,
+          "ms": 2109.5
+        },
+        {
+          "seed": 909,
+          "zone": 0,
+          "population": 211,
+          "homes": 21,
+          "firms": 5,
+          "privateSpend": 525844,
+          "moneyDelta": -1.1583790183067322e-05,
+          "ms": 2912.1000000089407
+        },
+        {
+          "seed": 909,
+          "zone": 100,
+          "population": 176,
+          "homes": 0,
+          "firms": 1,
+          "privateSpend": 0,
+          "moneyDelta": -1.2626871466636658e-05,
+          "ms": 2054.7999999970198
+        }
+      ],
+      "cargo_ownership": {
+        "consignments": 6,
+        "sampledUnits": 166.3792513597068,
+        "remaining": true,
+        "delayed": 1,
+        "cashConserved": true
+      },
+      "legacy_56_migration": {
+        "v": {
+          "ok": true,
+          "issues": [],
+          "total": 15438096,
+          "population": 169,
+          "day": 1
+        },
+        "after": {
+          "ok": true,
+          "issues": [],
+          "total": 15438095.999999065,
+          "population": 167,
+          "day": 31
+        },
+        "schema": 8
+      },
+      "true_pause": {
+        "identicalScreenshots": true,
+        "milliseconds": 500
+      },
+      "traffic_progress": {
+        "seconds": 1600,
+        "maximumWait": 0.9999999999999999,
+        "peak": 21,
+        "valid": true
+      },
+      "long_run_endurance": [],
+      "browser_errors": []
+    }
+  },
+  "fixedCpu": {
+    "source_sha256": "6326956a096ede9ae37bcfd1945b2133ee69a1a4f39d470786e385d24777e890",
+    "checkpoint_sha256": "ad6256fd85d4146fda9eeac0b16d5b182ed352c23bbd96af3b320553c29ce786",
+    "simulationOnly": true,
+    "audioPausedForMeasurement": true,
+    "physicalAndroid": false,
+    "runs": [
+      {
+        "ms": 5308.600000008941,
+        "day": 41861,
+        "valid": {
+          "ok": true,
+          "issues": [],
+          "total": 15493517.000209872,
+          "population": 774,
+          "day": 41861
+        },
+        "total": 15493517.000209872,
+        "goodsError": 3.655441105365753e-08,
+        "rng": 2674305115,
+        "model_sha256": "4a5787e476487a8d79a1e66574b4e6001079c3f01a35822a672ef8ddb7a7c985",
+        "exclusive": [
+          {
+            "function": "dailyEconomy",
+            "module": "30-economy.js",
+            "line": 2129,
+            "ms": 443.25800000000027
+          },
+          {
+            "function": "(program)",
+            "module": "",
+            "line": 0,
+            "ms": 292.8690000000002
+          },
+          {
+            "function": "tick",
+            "module": "50-clock.js",
+            "line": 3460,
+            "ms": 292.3620000000002
+          },
+          {
+            "function": "regionalQuote",
+            "module": "26-logistics.js",
+            "line": 1598,
+            "ms": 291.575
+          },
+          {
+            "function": "urbanDescriptor",
+            "module": "27-urban-evolution.js",
+            "line": 1792,
+            "ms": 251.327
+          },
+          {
+            "function": "urbanSpatial",
+            "module": "27-urban-evolution.js",
+            "line": 1763,
+            "ms": 211.789
+          },
+          {
+            "function": "buildableCandidates",
+            "module": "40-development.js",
+            "line": 2368,
+            "ms": 200.30999999999997
+          },
+          {
+            "function": "serviceAccess",
+            "module": "12-service-access.js",
+            "line": 704,
+            "ms": 195.19100000000003
+          },
+          {
+            "function": "seekPrivateServiceInvestment",
+            "module": "16-private-services.js",
+            "line": 1002,
+            "ms": 194.256
+          },
+          {
+            "function": "roadDistanceRow",
+            "module": "60-renderer.js",
+            "line": 3597,
+            "ms": 179.42100000000005
+          },
+          {
+            "function": "transitJourney",
+            "module": "46-transit-network.js",
+            "line": 3219,
+            "ms": 170.834
+          },
+          {
+            "function": "householdLiquidity",
+            "module": "08-market-model.js",
+            "line": 256,
+            "ms": 130.6719999999999
+          },
+          {
+            "function": "",
+            "module": "12-service-access.js",
+            "line": 706,
+            "ms": 115.71900000000001
+          },
+          {
+            "function": "recompute",
+            "module": "30-economy.js",
+            "line": 2275,
+            "ms": 93.02900000000001
+          },
+          {
+            "function": "urbanRetailProposal",
+            "module": "27-urban-evolution.js",
+            "line": 1922,
+            "ms": 85.55299999999994
+          },
+          {
+            "function": "logisticsDepots",
+            "module": "26-logistics.js",
+            "line": 1594,
+            "ms": 79.85400000000001
+          },
+          {
+            "function": "",
+            "module": "16-private-services.js",
+            "line": 989,
+            "ms": 79.218
+          },
+          {
+            "function": "fundedPublicPayroll",
+            "module": "08-market-model.js",
+            "line": 318,
+            "ms": 74.95899999999999
+          },
+          {
+            "function": "sharesRoadNetwork",
+            "module": "15-household-markets.js",
+            "line": 885,
+            "ms": 70.43900000000001
+          },
+          {
+            "function": "(garbage collector)",
+            "module": "",
+            "line": 0,
+            "ms": 69.49899999999998
+          },
+          {
+            "function": "workerCanCommute",
+            "module": "15-household-markets.js",
+            "line": 886,
+            "ms": 69.25899999999999
+          },
+          {
+            "function": "roadDistance",
+            "module": "60-renderer.js",
+            "line": 3620,
+            "ms": 65.93
+          },
+          {
+            "function": "migrationHousingStatus",
+            "module": "44-migration.js",
+            "line": 2946,
+            "ms": 58.161
+          },
+          {
+            "function": "privateServiceDay",
+            "module": "16-private-services.js",
+            "line": 984,
+            "ms": 57.955000000000005
+          },
+          {
+            "function": "regionBuy",
+            "module": "20-world.js",
+            "line": 1360,
+            "ms": 57.25299999999997
+          },
+          {
+            "function": "householdMarket",
+            "module": "15-household-markets.js",
+            "line": 863,
+            "ms": 56.068
+          },
+          {
+            "function": "maintainRoads",
+            "module": "60-renderer.js",
+            "line": 3511,
+            "ms": 55.70799999999999
+          },
+          {
+            "function": "regionalCapacity",
+            "module": "22-regional-markets.js",
+            "line": 1507,
+            "ms": 51.01299999999999
+          },
+          {
+            "function": "routeBetween",
+            "module": "60-renderer.js",
+            "line": 3563,
+            "ms": 48.80699999999999
+          },
+          {
+            "function": "graph",
+            "module": "60-renderer.js",
+            "line": 3542,
+            "ms": 46.65599999999998
+          },
+          {
+            "function": "charterRoadCount",
+            "module": "18-region-charter.js",
+            "line": 1142,
+            "ms": 46.56199999999998
+          },
+          {
+            "function": "transitOperatingDay",
+            "module": "46-transit-network.js",
+            "line": 3248,
+            "ms": 45.82199999999999
+          },
+          {
+            "function": "finalizeMarketBooks",
+            "module": "30-economy.js",
+            "line": 2237,
+            "ms": 44.45300000000001
+          },
+          {
+            "function": "groceryChoices",
+            "module": "15-household-markets.js",
+            "line": 877,
+            "ms": 42.144
+          },
+          {
+            "function": "canPlace",
+            "module": "20-world.js",
+            "line": 1304,
+            "ms": 41.922999999999995
+          },
+          {
+            "function": "bankDeposits",
+            "module": "10-finance.js",
+            "line": 396,
+            "ms": 41.34899999999999
+          },
+          {
+            "function": "coverage",
+            "module": "44-migration.js",
+            "line": 3002,
+            "ms": 41.05700000000001
+          },
+          {
+            "function": "incidents",
+            "module": "30-economy.js",
+            "line": 2252,
+            "ms": 31.269
+          },
+          {
+            "function": "ensureMarketModel",
+            "module": "08-market-model.js",
+            "line": 258,
+            "ms": 31.216999999999995
+          },
+          {
+            "function": "extendedCivicDay",
+            "module": "80-civic.js",
+            "line": 4871,
+            "ms": 30.269000000000005
+          }
+        ],
+        "inclusive": [
+          {
+            "function": "(root)",
+            "module": "",
+            "line": 0,
+            "ms": 5648.330999999998
+          },
+          {
+            "function": "window.__cpuMeasure",
+            "module": "99-instrumentation.js",
+            "line": 7639,
+            "ms": 5231.039999999981
+          },
+          {
+            "function": "",
+            "module": "",
+            "line": 1,
+            "ms": 5231.039999999981
+          },
+          {
+            "function": "evaluate",
+            "module": "",
+            "line": 284,
+            "ms": 5231.039999999981
+          },
+          {
+            "function": "step",
+            "module": "99-instrumentation.js",
+            "line": 7643,
+            "ms": 5228.443999999981
+          },
+          {
+            "function": "tick",
+            "module": "50-clock.js",
+            "line": 3460,
+            "ms": 5222.854999999981
+          },
+          {
+            "function": "dailyEconomy",
+            "module": "30-economy.js",
+            "line": 2129,
+            "ms": 2922.0800000000045
+          },
+          {
+            "function": "regionalQuote",
+            "module": "26a-port-logistics.js",
+            "line": 1703,
+            "ms": 710.9690000000004
+          },
+          {
+            "function": "regionalQuote",
+            "module": "26-logistics.js",
+            "line": 1598,
+            "ms": 673.7170000000003
+          },
+          {
+            "function": "seekPrivateServiceInvestment",
+            "module": "16-private-services.js",
+            "line": 1002,
+            "ms": 547.0920000000006
+          },
+          {
+            "function": "privateServiceInvestmentDay",
+            "module": "16-private-services.js",
+            "line": 1033,
+            "ms": 547.0920000000006
+          },
+          {
+            "function": "procurementLeadDays",
+            "module": "26-logistics.js",
+            "line": 1685,
+            "ms": 530.1980000000003
+          },
+          {
+            "function": "",
+            "module": "26-logistics.js",
+            "line": 1685,
+            "ms": 527.9600000000003
+          },
+          {
+            "function": "urbanDescriptor",
+            "module": "27-urban-evolution.js",
+            "line": 1792,
+            "ms": 472.7400000000004
+          },
+          {
+            "function": "urbanRentMultiplier",
+            "module": "27-urban-evolution.js",
+            "line": 1940,
+            "ms": 430.8960000000002
+          },
+          {
+            "function": "privateServiceDay",
+            "module": "16-private-services.js",
+            "line": 984,
+            "ms": 364.0550000000002
+          },
+          {
+            "function": "serviceAccess",
+            "module": "12-service-access.js",
+            "line": 704,
+            "ms": 358.89100000000036
+          },
+          {
+            "function": "logisticsDepots",
+            "module": "26-logistics.js",
+            "line": 1594,
+            "ms": 329.5470000000001
+          },
+          {
+            "function": "(program)",
+            "module": "",
+            "line": 0,
+            "ms": 292.8690000000002
+          },
+          {
+            "function": "extendedCivicDay",
+            "module": "80-civic.js",
+            "line": 4871,
+            "ms": 274.92200000000014
+          },
+          {
+            "function": "buildableCandidates",
+            "module": "40-development.js",
+            "line": 2368,
+            "ms": 273.23099999999994
+          },
+          {
+            "function": "workerCanCommute",
+            "module": "15-household-markets.js",
+            "line": 886,
+            "ms": 271.84000000000026
+          },
+          {
+            "function": "",
+            "module": "16-private-services.js",
+            "line": 989,
+            "ms": 254.60700000000008
+          },
+          {
+            "function": "systemsDay",
+            "module": "05-systems.js",
+            "line": 217,
+            "ms": 230.39100000000002
+          },
+          {
+            "function": "urbanSpatial",
+            "module": "27-urban-evolution.js",
+            "line": 1763,
+            "ms": 229.49600000000004
+          },
+          {
+            "function": "roadDistance",
+            "module": "60-renderer.js",
+            "line": 3620,
+            "ms": 224.84200000000016
+          },
+          {
+            "function": "civicTrainingDay",
+            "module": "13-civic-staffing.js",
+            "line": 792,
+            "ms": 223.7529999999999
+          },
+          {
+            "function": "occupyVacantHousing",
+            "module": "45-public-services.js",
+            "line": 3099,
+            "ms": 208.22799999999998
+          },
+          {
+            "function": "urbanEvolutionDay",
+            "module": "27-urban-evolution.js",
+            "line": 1939,
+            "ms": 203.98800000000003
+          },
+          {
+            "function": "transitJourney",
+            "module": "46-transit-network.js",
+            "line": 3219,
+            "ms": 190.79200000000006
+          },
+          {
+            "function": "regionBuy",
+            "module": "20-world.js",
+            "line": 1360,
+            "ms": 190.30200000000013
+          },
+          {
+            "function": "groceryChoices",
+            "module": "15-household-markets.js",
+            "line": 877,
+            "ms": 188.90100000000012
+          },
+          {
+            "function": "localCivicCoverage",
+            "module": "12-service-access.js",
+            "line": 770,
+            "ms": 186.6489999999999
+          },
+          {
+            "function": "roadDistanceRow",
+            "module": "60-renderer.js",
+            "line": 3597,
+            "ms": 182.74300000000005
+          },
+          {
+            "function": "fundCivicServices",
+            "module": "80-civic.js",
+            "line": 4867,
+            "ms": 173.383
+          },
+          {
+            "function": "addHouseholdAt",
+            "module": "40-development.js",
+            "line": 2749,
+            "ms": 168.50599999999997
+          },
+          {
+            "function": "urbanRetailProposal",
+            "module": "27-urban-evolution.js",
+            "line": 1922,
+            "ms": 160.22699999999995
+          },
+          {
+            "function": "recompute",
+            "module": "30-economy.js",
+            "line": 2275,
+            "ms": 154.96200000000007
+          },
+          {
+            "function": "purchaseCivicService",
+            "module": "08-market-model.js",
+            "line": 330,
+            "ms": 146.35600000000002
+          },
+          {
+            "function": "trade",
+            "module": "20-world.js",
+            "line": 1364,
+            "ms": 142.67999999999995
+          }
+        ]
+      },
+      {
+        "ms": 4897.70000000298,
+        "day": 41861,
+        "valid": {
+          "ok": true,
+          "issues": [],
+          "total": 15493517.000209872,
+          "population": 774,
+          "day": 41861
+        },
+        "total": 15493517.000209872,
+        "goodsError": 3.655441105365753e-08,
+        "rng": 2674305115,
+        "model_sha256": "4a5787e476487a8d79a1e66574b4e6001079c3f01a35822a672ef8ddb7a7c985",
+        "exclusive": [
+          {
+            "function": "dailyEconomy",
+            "module": "30-economy.js",
+            "line": 2129,
+            "ms": 418.61899999999997
+          },
+          {
+            "function": "serviceAccess",
+            "module": "12-service-access.js",
+            "line": 704,
+            "ms": 318.31100000000004
+          },
+          {
+            "function": "(program)",
+            "module": "",
+            "line": 0,
+            "ms": 281.371
+          },
+          {
+            "function": "tick",
+            "module": "50-clock.js",
+            "line": 3460,
+            "ms": 276.25999999999993
+          },
+          {
+            "function": "urbanDescriptor",
+            "module": "27-urban-evolution.js",
+            "line": 1792,
+            "ms": 241.08299999999994
+          },
+          {
+            "function": "buildableCandidates",
+            "module": "40-development.js",
+            "line": 2368,
+            "ms": 220.66800000000003
+          },
+          {
+            "function": "roadDistanceRow",
+            "module": "60-renderer.js",
+            "line": 3597,
+            "ms": 199.31799999999987
+          },
+          {
+            "function": "urbanSpatial",
+            "module": "27-urban-evolution.js",
+            "line": 1763,
+            "ms": 199.22100000000006
+          },
+          {
+            "function": "transitJourney",
+            "module": "46-transit-network.js",
+            "line": 3219,
+            "ms": 177.7129999999998
+          },
+          {
+            "function": "regionalQuote",
+            "module": "26-logistics.js",
+            "line": 1598,
+            "ms": 163.15299999999993
+          },
+          {
+            "function": "seekPrivateServiceInvestment",
+            "module": "16-private-services.js",
+            "line": 1002,
+            "ms": 149.89299999999992
+          },
+          {
+            "function": "recompute",
+            "module": "30-economy.js",
+            "line": 2275,
+            "ms": 111.34899999999999
+          },
+          {
+            "function": "fundedPublicPayroll",
+            "module": "08-market-model.js",
+            "line": 318,
+            "ms": 106.344
+          },
+          {
+            "function": "logisticsDepots",
+            "module": "26-logistics.js",
+            "line": 1594,
+            "ms": 103.32199999999997
+          },
+          {
+            "function": "regionBuy",
+            "module": "20-world.js",
+            "line": 1360,
+            "ms": 102.34799999999994
+          },
+          {
+            "function": "householdLiquidity",
+            "module": "08-market-model.js",
+            "line": 256,
+            "ms": 97.86100000000003
+          },
+          {
+            "function": "privateServiceDay",
+            "module": "16-private-services.js",
+            "line": 984,
+            "ms": 90.98500000000001
+          },
+          {
+            "function": "urbanRetailProposal",
+            "module": "27-urban-evolution.js",
+            "line": 1922,
+            "ms": 84.05100000000002
+          },
+          {
+            "function": "workerCanCommute",
+            "module": "15-household-markets.js",
+            "line": 886,
+            "ms": 64.94500000000002
+          },
+          {
+            "function": "",
+            "module": "16-private-services.js",
+            "line": 989,
+            "ms": 64.15100000000002
+          },
+          {
+            "function": "migrationHousingStatus",
+            "module": "44-migration.js",
+            "line": 2946,
+            "ms": 64.07300000000001
+          },
+          {
+            "function": "maintainRoads",
+            "module": "60-renderer.js",
+            "line": 3511,
+            "ms": 62.516999999999996
+          },
+          {
+            "function": "(garbage collector)",
+            "module": "",
+            "line": 0,
+            "ms": 60.40599999999999
+          },
+          {
+            "function": "finalizeMarketBooks",
+            "module": "30-economy.js",
+            "line": 2237,
+            "ms": 55.36399999999999
+          },
+          {
+            "function": "transitOperatingDay",
+            "module": "46-transit-network.js",
+            "line": 3248,
+            "ms": 55.35900000000001
+          },
+          {
+            "function": "addHouseholdAt",
+            "module": "40-development.js",
+            "line": 2749,
+            "ms": 50.486999999999995
+          },
+          {
+            "function": "groceryChoices",
+            "module": "15-household-markets.js",
+            "line": 877,
+            "ms": 50.369
+          },
+          {
+            "function": "roadDistance",
+            "module": "60-renderer.js",
+            "line": 3620,
+            "ms": 49.45100000000001
+          },
+          {
+            "function": "bankDeposits",
+            "module": "10-finance.js",
+            "line": 396,
+            "ms": 47.859
+          },
+          {
+            "function": "regionalCapacity",
+            "module": "22-regional-markets.js",
+            "line": 1507,
+            "ms": 47.144
+          },
+          {
+            "function": "sharesRoadNetwork",
+            "module": "15-household-markets.js",
+            "line": 885,
+            "ms": 46.415
+          },
+          {
+            "function": "graph",
+            "module": "60-renderer.js",
+            "line": 3542,
+            "ms": 45.974000000000004
+          },
+          {
+            "function": "routeBetween",
+            "module": "60-renderer.js",
+            "line": 3563,
+            "ms": 44.31200000000001
+          },
+          {
+            "function": "canPlace",
+            "module": "20-world.js",
+            "line": 1304,
+            "ms": 39.427
+          },
+          {
+            "function": "incidents",
+            "module": "30-economy.js",
+            "line": 2252,
+            "ms": 38.37200000000001
+          },
+          {
+            "function": "trade",
+            "module": "20-world.js",
+            "line": 1364,
+            "ms": 38.202
+          },
+          {
+            "function": "drawImage",
+            "module": "",
+            "line": 0,
+            "ms": 37.975
+          },
+          {
+            "function": "civicStaffCapacity",
+            "module": "13-civic-staffing.js",
+            "line": 778,
+            "ms": 35.025
+          },
+          {
+            "function": "evaluate",
+            "module": "16-private-services.js",
+            "line": 1009,
+            "ms": 34.654
+          },
+          {
+            "function": "extendedCivicDay",
+            "module": "80-civic.js",
+            "line": 4871,
+            "ms": 34.635000000000005
+          }
+        ],
+        "inclusive": [
+          {
+            "function": "(root)",
+            "module": "",
+            "line": 0,
+            "ms": 5260.108000000013
+          },
+          {
+            "function": "",
+            "module": "",
+            "line": 1,
+            "ms": 4834.378000000016
+          },
+          {
+            "function": "window.__cpuMeasure",
+            "module": "99-instrumentation.js",
+            "line": 7639,
+            "ms": 4833.262000000016
+          },
+          {
+            "function": "evaluate",
+            "module": "",
+            "line": 284,
+            "ms": 4833.262000000016
+          },
+          {
+            "function": "step",
+            "module": "99-instrumentation.js",
+            "line": 7643,
+            "ms": 4831.112000000016
+          },
+          {
+            "function": "tick",
+            "module": "50-clock.js",
+            "line": 3460,
+            "ms": 4829.978000000016
+          },
+          {
+            "function": "dailyEconomy",
+            "module": "30-economy.js",
+            "line": 2129,
+            "ms": 2725.183
+          },
+          {
+            "function": "regionalQuote",
+            "module": "26a-port-logistics.js",
+            "line": 1703,
+            "ms": 581.7310000000006
+          },
+          {
+            "function": "regionalQuote",
+            "module": "26-logistics.js",
+            "line": 1598,
+            "ms": 546.3230000000003
+          },
+          {
+            "function": "seekPrivateServiceInvestment",
+            "module": "16-private-services.js",
+            "line": 1002,
+            "ms": 510.8999999999998
+          },
+          {
+            "function": "privateServiceInvestmentDay",
+            "module": "16-private-services.js",
+            "line": 1033,
+            "ms": 510.8999999999998
+          },
+          {
+            "function": "urbanDescriptor",
+            "module": "27-urban-evolution.js",
+            "line": 1792,
+            "ms": 445.6999999999998
+          },
+          {
+            "function": "urbanRentMultiplier",
+            "module": "27-urban-evolution.js",
+            "line": 1940,
+            "ms": 406.7529999999999
+          },
+          {
+            "function": "procurementLeadDays",
+            "module": "26-logistics.js",
+            "line": 1685,
+            "ms": 403.13500000000016
+          },
+          {
+            "function": "privateServiceDay",
+            "module": "16-private-services.js",
+            "line": 984,
+            "ms": 387.54900000000004
+          },
+          {
+            "function": "logisticsDepots",
+            "module": "26-logistics.js",
+            "line": 1594,
+            "ms": 331.2569999999997
+          },
+          {
+            "function": "serviceAccess",
+            "module": "12-service-access.js",
+            "line": 704,
+            "ms": 318.31100000000004
+          },
+          {
+            "function": "(program)",
+            "module": "",
+            "line": 0,
+            "ms": 281.371
+          },
+          {
+            "function": "buildableCandidates",
+            "module": "40-development.js",
+            "line": 2368,
+            "ms": 277.36900000000014
+          },
+          {
+            "function": "extendedCivicDay",
+            "module": "80-civic.js",
+            "line": 4871,
+            "ms": 240.17599999999985
+          },
+          {
+            "function": "workerCanCommute",
+            "module": "15-household-markets.js",
+            "line": 886,
+            "ms": 234.5929999999999
+          },
+          {
+            "function": "",
+            "module": "16-private-services.js",
+            "line": 989,
+            "ms": 215.18499999999997
+          },
+          {
+            "function": "systemsDay",
+            "module": "05-systems.js",
+            "line": 217,
+            "ms": 214.77299999999988
+          },
+          {
+            "function": "urbanSpatial",
+            "module": "27-urban-evolution.js",
+            "line": 1763,
+            "ms": 213.3510000000001
+          },
+          {
+            "function": "groceryChoices",
+            "module": "15-household-markets.js",
+            "line": 877,
+            "ms": 210.47399999999985
+          },
+          {
+            "function": "",
+            "module": "26-logistics.js",
+            "line": 1685,
+            "ms": 207.43399999999997
+          },
+          {
+            "function": "roadDistanceRow",
+            "module": "60-renderer.js",
+            "line": 3597,
+            "ms": 200.39599999999987
+          },
+          {
+            "function": "regionBuy",
+            "module": "20-world.js",
+            "line": 1360,
+            "ms": 200.37499999999994
+          },
+          {
+            "function": "roadDistance",
+            "module": "60-renderer.js",
+            "line": 3620,
+            "ms": 197.49699999999996
+          },
+          {
+            "function": "transitJourney",
+            "module": "46-transit-network.js",
+            "line": 3219,
+            "ms": 194.75999999999976
+          },
+          {
+            "function": "occupyVacantHousing",
+            "module": "45-public-services.js",
+            "line": 3099,
+            "ms": 193.02399999999997
+          },
+          {
+            "function": "urbanEvolutionDay",
+            "module": "27-urban-evolution.js",
+            "line": 1939,
+            "ms": 190.67000000000004
+          },
+          {
+            "function": "civicTrainingDay",
+            "module": "13-civic-staffing.js",
+            "line": 792,
+            "ms": 187.89699999999993
+          },
+          {
+            "function": "trade",
+            "module": "20-world.js",
+            "line": 1364,
+            "ms": 178.63199999999992
+          },
+          {
+            "function": "localCivicCoverage",
+            "module": "12-service-access.js",
+            "line": 770,
+            "ms": 175.80299999999994
+          },
+          {
+            "function": "fundCivicServices",
+            "module": "80-civic.js",
+            "line": 4867,
+            "ms": 161.62799999999996
+          },
+          {
+            "function": "addHouseholdAt",
+            "module": "40-development.js",
+            "line": 2749,
+            "ms": 153.44399999999993
+          },
+          {
+            "function": "urbanRetailProposal",
+            "module": "27-urban-evolution.js",
+            "line": 1922,
+            "ms": 142.97299999999993
+          },
+          {
+            "function": "recompute",
+            "module": "30-economy.js",
+            "line": 2275,
+            "ms": 131.978
+          },
+          {
+            "function": "transitOperatingDay",
+            "module": "46-transit-network.js",
+            "line": 3248,
+            "ms": 130.5809999999999
+          }
+        ]
+      }
+    ]
+  },
+  "cooperativeEnabled": false
+}

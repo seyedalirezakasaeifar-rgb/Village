@@ -1,0 +1,42 @@
+{
+  "source_sha256": "dbbb77a80e54a8c02fa5d7da8af020ba6b8a24078270c39cd5d844bd236dd949",
+  "atomicArchiveFaults": [
+    "missingBridge",
+    "orphanDeck",
+    "duplicateCell",
+    "duplicateIdentity",
+    "badBank",
+    "badAxis",
+    "badCondition",
+    "futureBuild",
+    "unfundedCapital",
+    "missingDeed"
+  ],
+  "activeBus": {
+    "usesAll": true,
+    "reason": "Active passenger route Bus 1 uses this bridge. Replan or retire that route through Public Works first.",
+    "retiredRouteUnlocksDecommission": true
+  },
+  "workingWaterProtection": {
+    "shore": {
+      "x": 63,
+      "y": 14
+    },
+    "planningDenied": true,
+    "treasurySufficient": true,
+    "moneyConserved": true,
+    "reason": "No safe short span is ready from this bank. Need 1\u20135 water cells, owned water and roads on both banks, at least one bank already on the town network, no dock/fishing path through the work zone, and a useful new connection or shortcut."
+  },
+  "closed": {
+    "condition": 24.75,
+    "closed": true,
+    "roadDisconnected": true,
+    "waterIntact": true,
+    "moneyConserved": true,
+    "paid": 0
+  },
+  "repairCost": 6773,
+  "salvage": 2421,
+  "actualRepairCancelAndDecommissionControls": true
+}
+PASS bridge graph fault rejection, active transit conflict, unfunded closure, paid repair and conserved decommission

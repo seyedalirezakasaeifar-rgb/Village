@@ -1,0 +1,183 @@
+{
+  "baseSourceSha256": "3e262a51d4a95992c2b9df3f8205025ffdb1f05d6a5376a528ff75ddceedae8b",
+  "fixedSourceSha256": "d3ed25306c7c4754485d0691d04d9d4f9739dccafc1d2efbaa909762977a7081",
+  "hostSynchronousStartOnly": true,
+  "nativeOrColdAppStartupClaim": false,
+  "noOtherBenchmarksConcurrent": true,
+  "rows": [
+    {
+      "startMs": 321.6000000014901,
+      "roadCalls": 4,
+      "roadMs": [
+        1.3999999985098839,
+        0.09999999403953552,
+        2.2999999970197678,
+        0.10000000149011612
+      ],
+      "rng": 3224482224,
+      "repeat": 0,
+      "variant": "baseline"
+    },
+    {
+      "startMs": 325.5,
+      "roadCalls": 5,
+      "roadMs": [
+        1.2999999970197678,
+        0,
+        2.9000000059604645,
+        0,
+        1.7000000029802322
+      ],
+      "rng": 3224482224,
+      "repeat": 0,
+      "variant": "fixed"
+    },
+    {
+      "startMs": 308.69999999552965,
+      "roadCalls": 4,
+      "roadMs": [
+        1.7000000029802322,
+        0.19999999552965164,
+        2.7999999970197678,
+        0.10000000149011612
+      ],
+      "rng": 3224482224,
+      "repeat": 1,
+      "variant": "baseline"
+    },
+    {
+      "startMs": 305.3999999985099,
+      "roadCalls": 5,
+      "roadMs": [
+        1.1000000014901161,
+        0,
+        2.399999998509884,
+        0.09999999403953552,
+        1.7000000029802322
+      ],
+      "rng": 3224482224,
+      "repeat": 1,
+      "variant": "fixed"
+    },
+    {
+      "startMs": 314.6000000014901,
+      "roadCalls": 4,
+      "roadMs": [
+        1.1000000014901161,
+        0.10000000149011612,
+        2.3000000044703484,
+        0
+      ],
+      "rng": 3224482224,
+      "repeat": 2,
+      "variant": "baseline"
+    },
+    {
+      "startMs": 322.1000000014901,
+      "roadCalls": 5,
+      "roadMs": [
+        1.7999999970197678,
+        0.10000000149011612,
+        3.3000000044703484,
+        0.10000000149011612,
+        1.7000000029802322
+      ],
+      "rng": 3224482224,
+      "repeat": 2,
+      "variant": "fixed"
+    },
+    {
+      "startMs": 340.1000000014901,
+      "roadCalls": 4,
+      "roadMs": [
+        1.3000000044703484,
+        0.10000000149011612,
+        4.200000002980232,
+        0
+      ],
+      "rng": 3224482224,
+      "repeat": 3,
+      "variant": "baseline"
+    },
+    {
+      "startMs": 344.3999999985099,
+      "roadCalls": 5,
+      "roadMs": [
+        1.3999999985098839,
+        0,
+        3.399999998509884,
+        0.10000000149011612,
+        1.8999999985098839
+      ],
+      "rng": 3224482224,
+      "repeat": 3,
+      "variant": "fixed"
+    },
+    {
+      "startMs": 338.80000000447035,
+      "roadCalls": 4,
+      "roadMs": [
+        1.5,
+        0,
+        4.800000004470348,
+        0.10000000149011612
+      ],
+      "rng": 3224482224,
+      "repeat": 4,
+      "variant": "baseline"
+    },
+    {
+      "startMs": 320.1000000014901,
+      "roadCalls": 5,
+      "roadMs": [
+        1.1000000014901161,
+        0,
+        3,
+        0,
+        5.600000001490116
+      ],
+      "rng": 3224482224,
+      "repeat": 4,
+      "variant": "fixed"
+    },
+    {
+      "startMs": 326.69999999552965,
+      "roadCalls": 4,
+      "roadMs": [
+        1.5,
+        0,
+        3.399999998509884,
+        0.09999999403953552
+      ],
+      "rng": 3224482224,
+      "repeat": 5,
+      "variant": "baseline"
+    },
+    {
+      "startMs": 333.70000000298023,
+      "roadCalls": 5,
+      "roadMs": [
+        2.899999998509884,
+        0,
+        4.5,
+        0,
+        2.399999998509884
+      ],
+      "rng": 3224482224,
+      "repeat": 5,
+      "variant": "fixed"
+    }
+  ],
+  "summary": {
+    "baseline": {
+      "medianStartMs": 324.1499999985099,
+      "maxStartMs": 340.1000000014901,
+      "roadCallsPerStart": 4
+    },
+    "fixed": {
+      "medianStartMs": 323.80000000074506,
+      "maxStartMs": 344.3999999985099,
+      "roadCallsPerStart": 5
+    }
+  }
+}

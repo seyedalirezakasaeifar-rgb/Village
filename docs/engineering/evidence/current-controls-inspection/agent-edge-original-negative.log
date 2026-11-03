@@ -1,0 +1,42 @@
+/tmp/agent_edge_probe.py:12: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  diff=ImageChops.difference(Image.open(out/'actual.png').convert('RGB'),Image.open(out/'oracle.png').convert('RGB'));r['differentPixels']=sum(px!=(0,0,0)for px in diff.getdata());r['source_sha256']=hashlib.sha256(s.encode()).hexdigest();(out/'result.json').write_text(json.dumps(r,indent=2));print(json.dumps(r,indent=2));b.close()
+{
+  "item": {
+    "id": 101,
+    "x": 3850,
+    "y": 608
+  },
+  "actor": {
+    "id": 152,
+    "x": 3862.015,
+    "y": 620.7233
+  },
+  "camera": {
+    "x": 4058.8646428571424,
+    "y": 620.7233,
+    "zoom": 1.4
+  },
+  "worldLeft": 3856.0074999999997,
+  "centreOutside": true,
+  "actorInside": true,
+  "actualActors": [
+    {
+      "kind": "boat",
+      "id": null,
+      "building": null
+    },
+    {
+      "kind": "vehicle",
+      "id": 150,
+      "building": null
+    },
+    {
+      "kind": "workday",
+      "id": null,
+      "building": 102
+    }
+  ],
+  "modelUnchanged": true,
+  "differentPixels": 183,
+  "source_sha256": "dbbb77a80e54a8c02fa5d7da8af020ba6b8a24078270c39cd5d844bd236dd949"
+}

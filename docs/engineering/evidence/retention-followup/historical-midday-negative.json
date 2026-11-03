@@ -1,0 +1,26 @@
+{
+  "candidate_commit": "726d0a5a76512b6df8662d9c83f921b4a90d00b6",
+  "source_sha256": "f0ff265dfc580fd3b67181692f9cf334d863201ef4b152a11453d817f6cf3950",
+  "candidateOnly": true,
+  "controlledFinancialRiskFixture": true,
+  "storageWriterIntercepted": true,
+  "result": {
+    "captures": [
+      {
+        "day": 30,
+        "lastHistory": null,
+        "rng": 1148058720
+      }
+    ],
+    "day": 30,
+    "lastHistory": 30,
+    "rng": 1031083423,
+    "inbox": [
+      {
+        "title": "A household may leave: Hughes \u00b7 case 0",
+        "day": 30,
+        "retentionHousehold": 0
+      }
+    ]
+  }
+}

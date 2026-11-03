@@ -1,0 +1,19 @@
+{
+  "sourceSha256": "3e262a51d4a95992c2b9df3f8205025ffdb1f05d6a5376a528ff75ddceedae8b",
+  "completed": true,
+  "finalDay": 1101,
+  "daysElapsed": 20,
+  "cashDrift": 3.4086406230926514e-07,
+  "errors": [],
+  "strictFreshViewAccepted": true,
+  "stalePanelState": null,
+  "staleCargoPreview": null,
+  "rawArchiveRoundtripEqual": true,
+  "rawArchiveRoundtripDifferences": null,
+  "fullColdUiOracleEqual": true,
+  "actualUiOnly": true,
+  "fixtureRef": "01eeda3d2ff09822b9422721f75e97fabbc9958a",
+  "pinnedJourneyRef": "856f944b551296ebe3c61c862439a946c803dc21",
+  "expectStale": false,
+  "checkpoints": 26
+}

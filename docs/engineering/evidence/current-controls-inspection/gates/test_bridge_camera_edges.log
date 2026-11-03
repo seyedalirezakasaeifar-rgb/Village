@@ -1,0 +1,295 @@
+{
+  "source_sha256": "dbbb77a80e54a8c02fa5d7da8af020ba6b8a24078270c39cd5d844bd236dd949",
+  "cases": [
+    {
+      "zoom": 1.6,
+      "edge": "left",
+      "overlap": 1,
+      "intersects": true,
+      "admitted": true,
+      "coldStable": true
+    },
+    {
+      "zoom": 1.6,
+      "edge": "left",
+      "overlap": 8,
+      "intersects": true,
+      "admitted": true,
+      "coldStable": true
+    },
+    {
+      "zoom": 1.6,
+      "edge": "left",
+      "overlap": 24,
+      "intersects": true,
+      "admitted": true,
+      "coldStable": true
+    },
+    {
+      "zoom": 1.6,
+      "edge": "right",
+      "overlap": 1,
+      "intersects": true,
+      "admitted": true,
+      "coldStable": true
+    },
+    {
+      "zoom": 1.6,
+      "edge": "right",
+      "overlap": 8,
+      "intersects": true,
+      "admitted": true,
+      "coldStable": true
+    },
+    {
+      "zoom": 1.6,
+      "edge": "right",
+      "overlap": 24,
+      "intersects": true,
+      "admitted": true,
+      "coldStable": true
+    },
+    {
+      "zoom": 1.6,
+      "edge": "top",
+      "overlap": 1,
+      "intersects": true,
+      "admitted": true,
+      "coldStable": true
+    },
+    {
+      "zoom": 1.6,
+      "edge": "top",
+      "overlap": 8,
+      "intersects": true,
+      "admitted": true,
+      "coldStable": true
+    },
+    {
+      "zoom": 1.6,
+      "edge": "top",
+      "overlap": 24,
+      "intersects": true,
+      "admitted": true,
+      "coldStable": true
+    },
+    {
+      "zoom": 1.6,
+      "edge": "bottom",
+      "overlap": 1,
+      "intersects": true,
+      "admitted": true,
+      "coldStable": true
+    },
+    {
+      "zoom": 1.6,
+      "edge": "bottom",
+      "overlap": 8,
+      "intersects": true,
+      "admitted": true,
+      "coldStable": true
+    },
+    {
+      "zoom": 1.6,
+      "edge": "bottom",
+      "overlap": 24,
+      "intersects": true,
+      "admitted": true,
+      "coldStable": true
+    },
+    {
+      "zoom": 0.88,
+      "edge": "left",
+      "overlap": 1,
+      "intersects": true,
+      "admitted": true,
+      "coldStable": true
+    },
+    {
+      "zoom": 0.88,
+      "edge": "left",
+      "overlap": 8,
+      "intersects": true,
+      "admitted": true,
+      "coldStable": true
+    },
+    {
+      "zoom": 0.88,
+      "edge": "left",
+      "overlap": 24,
+      "intersects": true,
+      "admitted": true,
+      "coldStable": true
+    },
+    {
+      "zoom": 0.88,
+      "edge": "right",
+      "overlap": 1,
+      "intersects": true,
+      "admitted": true,
+      "coldStable": true
+    },
+    {
+      "zoom": 0.88,
+      "edge": "right",
+      "overlap": 8,
+      "intersects": true,
+      "admitted": true,
+      "coldStable": true
+    },
+    {
+      "zoom": 0.88,
+      "edge": "right",
+      "overlap": 24,
+      "intersects": true,
+      "admitted": true,
+      "coldStable": true
+    },
+    {
+      "zoom": 0.88,
+      "edge": "top",
+      "overlap": 1,
+      "intersects": true,
+      "admitted": true,
+      "coldStable": true
+    },
+    {
+      "zoom": 0.88,
+      "edge": "top",
+      "overlap": 8,
+      "intersects": true,
+      "admitted": true,
+      "coldStable": true
+    },
+    {
+      "zoom": 0.88,
+      "edge": "top",
+      "overlap": 24,
+      "intersects": true,
+      "admitted": true,
+      "coldStable": true
+    },
+    {
+      "zoom": 0.88,
+      "edge": "bottom",
+      "overlap": 1,
+      "intersects": true,
+      "admitted": true,
+      "coldStable": true
+    },
+    {
+      "zoom": 0.88,
+      "edge": "bottom",
+      "overlap": 8,
+      "intersects": true,
+      "admitted": true,
+      "coldStable": true
+    },
+    {
+      "zoom": 0.88,
+      "edge": "bottom",
+      "overlap": 24,
+      "intersects": true,
+      "admitted": true,
+      "coldStable": true
+    },
+    {
+      "zoom": 0.32,
+      "edge": "left",
+      "overlap": 1,
+      "intersects": true,
+      "admitted": true,
+      "coldStable": true
+    },
+    {
+      "zoom": 0.32,
+      "edge": "left",
+      "overlap": 8,
+      "intersects": true,
+      "admitted": true,
+      "coldStable": true
+    },
+    {
+      "zoom": 0.32,
+      "edge": "left",
+      "overlap": 24,
+      "intersects": true,
+      "admitted": true,
+      "coldStable": true
+    },
+    {
+      "zoom": 0.32,
+      "edge": "right",
+      "overlap": 1,
+      "intersects": true,
+      "admitted": true,
+      "coldStable": true
+    },
+    {
+      "zoom": 0.32,
+      "edge": "right",
+      "overlap": 8,
+      "intersects": true,
+      "admitted": true,
+      "coldStable": true
+    },
+    {
+      "zoom": 0.32,
+      "edge": "right",
+      "overlap": 24,
+      "intersects": true,
+      "admitted": true,
+      "coldStable": true
+    },
+    {
+      "zoom": 0.32,
+      "edge": "top",
+      "overlap": 1,
+      "intersects": true,
+      "admitted": true,
+      "coldStable": true
+    },
+    {
+      "zoom": 0.32,
+      "edge": "top",
+      "overlap": 8,
+      "intersects": true,
+      "admitted": true,
+      "coldStable": true
+    },
+    {
+      "zoom": 0.32,
+      "edge": "top",
+      "overlap": 24,
+      "intersects": true,
+      "admitted": true,
+      "coldStable": true
+    },
+    {
+      "zoom": 0.32,
+      "edge": "bottom",
+      "overlap": 1,
+      "intersects": true,
+      "admitted": true,
+      "coldStable": true
+    },
+    {
+      "zoom": 0.32,
+      "edge": "bottom",
+      "overlap": 8,
+      "intersects": true,
+      "admitted": true,
+      "coldStable": true
+    },
+    {
+      "zoom": 0.32,
+      "edge": "bottom",
+      "overlap": 24,
+      "intersects": true,
+      "admitted": true,
+      "coldStable": true
+    }
+  ],
+  "modelUnchanged": true
+}
+PASS 36 bridge viewport-edge admissions, paused cold redraws and unchanged model

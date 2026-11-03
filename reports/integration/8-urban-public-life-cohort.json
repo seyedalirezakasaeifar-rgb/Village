@@ -1,0 +1,2718 @@
+{
+  "source_sha256": "d90bb509173a803b75c3cdc432fea57ce2f1e2abbcb13b8886c56d8feaffe515",
+  "integration_base": "414fc4a453c0ea12b979d9a938cd05623b898729",
+  "product_commit": "5df54fa",
+  "worker_commits": [
+    "f40bda316b1f06cb523ce588e57359d5bb81c27f",
+    "98a6f99618e27e7d30306a7f4c890ac019ef004a",
+    "f9b968df7eea1d489ef07ef837355ba8087861a9",
+    "e27c8b47d30d389581c8f39129c7f9e43685081f",
+    "06a9ace5e92d08dc87da228a112276fd8d858479"
+  ],
+  "evidence": {
+    "core": {
+      "source_sha256": "d90bb509173a803b75c3cdc432fea57ce2f1e2abbcb13b8886c56d8feaffe515",
+      "determinism_and_continuation": {
+        "sameSeed": true,
+        "renderIndependent": true,
+        "continuedDays": 120,
+        "valid": {
+          "ok": true,
+          "issues": [],
+          "total": 15489571.999995582,
+          "population": 188,
+          "day": 301
+        }
+      },
+      "malformed_save_atomicity": {
+        "investorRejected": true,
+        "cargoRejected": true,
+        "futureRejected": true,
+        "townPreserved": true
+      },
+      "replicated_zoning": [
+        {
+          "seed": 42,
+          "zone": 0,
+          "population": 210,
+          "homes": 16,
+          "firms": 7,
+          "privateSpend": 486062,
+          "moneyDelta": -1.6868114471435547e-05,
+          "ms": 4824.5999999940395
+        },
+        {
+          "seed": 42,
+          "zone": 100,
+          "population": 182,
+          "homes": 0,
+          "firms": 1,
+          "privateSpend": 0,
+          "moneyDelta": -1.1816620826721191e-05,
+          "ms": 3846.0999999940395
+        },
+        {
+          "seed": 101,
+          "zone": 0,
+          "population": 222,
+          "homes": 21,
+          "firms": 7,
+          "privateSpend": 560318,
+          "moneyDelta": -1.2537464499473572e-05,
+          "ms": 4992.5
+        },
+        {
+          "seed": 101,
+          "zone": 100,
+          "population": 186,
+          "homes": 0,
+          "firms": 1,
+          "privateSpend": 0,
+          "moneyDelta": -4.675239324569702e-06,
+          "ms": 3663.2999999970198
+        },
+        {
+          "seed": 909,
+          "zone": 0,
+          "population": 211,
+          "homes": 19,
+          "firms": 5,
+          "privateSpend": 507601,
+          "moneyDelta": -1.5651807188987732e-05,
+          "ms": 4333.0999999940395
+        },
+        {
+          "seed": 909,
+          "zone": 100,
+          "population": 187,
+          "homes": 0,
+          "firms": 1,
+          "privateSpend": 0,
+          "moneyDelta": -1.2073665857315063e-05,
+          "ms": 3118.2000000029802
+        }
+      ],
+      "cargo_ownership": {
+        "consignments": 6,
+        "sampledUnits": 166.3792513597068,
+        "remaining": true,
+        "delayed": 1,
+        "cashConserved": true
+      },
+      "legacy_56_migration": {
+        "v": {
+          "ok": true,
+          "issues": [],
+          "total": 15443882,
+          "population": 169,
+          "day": 1
+        },
+        "after": {
+          "ok": true,
+          "issues": [],
+          "total": 15443881.99999906,
+          "population": 169,
+          "day": 31
+        },
+        "schema": 8
+      },
+      "true_pause": {
+        "identicalScreenshots": true,
+        "milliseconds": 500
+      },
+      "traffic_progress": {
+        "seconds": 1600,
+        "maximumWait": 0.9999999999999999,
+        "peak": 21,
+        "valid": true
+      },
+      "long_run_endurance": [],
+      "browser_errors": []
+    },
+    "saveCache": {
+      "source_sha256": "d90bb509173a803b75c3cdc432fea57ce2f1e2abbcb13b8886c56d8feaffe515",
+      "httpOrigin": true,
+      "expectedNegative": false,
+      "result": {
+        "day": 31,
+        "staffing": {
+          "firm": 0,
+          "oldJobs": 2,
+          "newJobs": 3,
+          "actualPlanEnterprise": true
+        },
+        "exact": true,
+        "changed": [],
+        "rentChanges": [],
+        "rngA": 633198347,
+        "rngB": 633198347,
+        "moneyDrift": -5.4016709327697754e-08,
+        "sourceDoesNotDependOnPresentation": true
+      }
+    },
+    "retailLabour": {
+      "source_sha256": "d90bb509173a803b75c3cdc432fea57ce2f1e2abbcb13b8886c56d8feaffe515",
+      "fixture": "Natural regional seed42 day1081 from 525e47d, no injected agents/cash/stocks.",
+      "results": {
+        "before": {
+          "initialLegacyFree": 9,
+          "initialGenuineJobseekers": 0,
+          "initial": {
+            "id": 88,
+            "staff": [],
+            "jobs": 1,
+            "wage": 28,
+            "cash": 15389.033429456756,
+            "net": -5.886666666666666,
+            "payroll": 0,
+            "price": 3.8248279387175637
+          },
+          "nextDay": {
+            "id": 88,
+            "staff": [],
+            "jobs": 1,
+            "wage": 28,
+            "cash": 15383.146762790091,
+            "net": -5.886666666666666,
+            "payroll": 0,
+            "price": 3.8248279387175637
+          },
+          "cashError": 2.60770320892334e-08,
+          "valid": {
+            "ok": true,
+            "issues": [],
+            "total": 15493517.000001818,
+            "population": 868,
+            "day": 1082
+          }
+        },
+        "after": {
+          "initialLegacyFree": 9,
+          "initialGenuineJobseekers": 0,
+          "initial": {
+            "id": 88,
+            "staff": [],
+            "jobs": 1,
+            "wage": 28,
+            "cash": 15389.033429456756,
+            "net": -5.886666666666666,
+            "payroll": 0,
+            "price": 3.8248279387175637
+          },
+          "nextDay": {
+            "id": 88,
+            "staff": [
+              623
+            ],
+            "jobs": 1,
+            "wage": 32.62,
+            "cash": 15651.434934427936,
+            "net": 24.3382301086621,
+            "payroll": 32.62,
+            "price": 3.8293151137175636
+          },
+          "cashError": 2.7939677238464355e-08,
+          "valid": {
+            "ok": true,
+            "issues": [],
+            "total": 15493517.00000182,
+            "population": 868,
+            "day": 1082
+          },
+          "day90": {
+            "id": 88,
+            "staff": [
+              623,
+              883
+            ],
+            "jobs": 2,
+            "wage": 32.35982183668192,
+            "cash": 19394.975297106084,
+            "net": 55.32289737199604,
+            "payroll": 64.71964367336383,
+            "price": 3.362222554791972
+          }
+        }
+      }
+    },
+    "reservedHomes": {
+      "source_sha256": "d90bb509173a803b75c3cdc432fea57ce2f1e2abbcb13b8886c56d8feaffe515",
+      "authoredScenario": "regional seed42",
+      "normalImmigrationAndPrivateDevelopment": true,
+      "samples": [
+        {
+          "day": 92,
+          "treasury": 378453.29369087744,
+          "total": 15493516.999998271,
+          "reserved": [
+            {
+              "id": 222,
+              "kind": "home",
+              "owner": -1,
+              "title": {
+                "kind": "municipal",
+                "id": 0
+              },
+              "hh": -1,
+              "occupied": []
+            }
+          ],
+          "pending": [],
+          "valid": {
+            "ok": true,
+            "issues": [],
+            "total": 15493516.999998271,
+            "population": 669,
+            "day": 92
+          }
+        },
+        {
+          "day": 182,
+          "treasury": 480317.89821837796,
+          "total": 15493516.999996025,
+          "reserved": [
+            {
+              "id": 222,
+              "kind": "home",
+              "owner": -1,
+              "title": {
+                "kind": "municipal",
+                "id": 0
+              },
+              "hh": -1,
+              "occupied": []
+            }
+          ],
+          "pending": [],
+          "valid": {
+            "ok": true,
+            "issues": [],
+            "total": 15493516.999996025,
+            "population": 686,
+            "day": 182
+          }
+        },
+        {
+          "day": 272,
+          "treasury": 578558.9265494547,
+          "total": 15493516.999992864,
+          "reserved": [
+            {
+              "id": 222,
+              "kind": "home",
+              "owner": -1,
+              "title": {
+                "kind": "municipal",
+                "id": 0
+              },
+              "hh": -1,
+              "occupied": []
+            }
+          ],
+          "pending": [],
+          "valid": {
+            "ok": true,
+            "issues": [],
+            "total": 15493516.999992864,
+            "population": 696,
+            "day": 272
+          }
+        },
+        {
+          "day": 362,
+          "treasury": 700663.8561577012,
+          "total": 15493516.999993809,
+          "reserved": [
+            {
+              "id": 222,
+              "kind": "home",
+              "owner": -1,
+              "title": {
+                "kind": "municipal",
+                "id": 0
+              },
+              "hh": -1,
+              "occupied": []
+            }
+          ],
+          "pending": [],
+          "valid": {
+            "ok": true,
+            "issues": [],
+            "total": 15493516.999993809,
+            "population": 723,
+            "day": 362
+          }
+        }
+      ]
+    },
+    "compositeSave": {
+      "source_sha256": "d90bb509173a803b75c3cdc432fea57ce2f1e2abbcb13b8886c56d8feaffe515",
+      "controlledCatchment": true,
+      "result": {
+        "grid": 128,
+        "people": 1375,
+        "routes": 2,
+        "settledTickets": 1,
+        "fares": 7.15,
+        "cargo": 18,
+        "providerEscrow": 6000,
+        "mallEscrow": 28000,
+        "cashConserved": true,
+        "receiptsPreserved": true,
+        "faults": {
+          "grid": 128,
+          "schema": 8,
+          "recordsRejected": [
+            "missingMember",
+            "duplicateMember",
+            "householdMismatch",
+            "missingHome",
+            "tileUsedAsHomeId",
+            "missingFirmBuilding",
+            "negativeStock",
+            "invalidStock",
+            "unknownStock",
+            "negativeDeposit",
+            "missingDepositBank",
+            "malformedBank",
+            "malformedLoan",
+            "negativeLoanBank",
+            "duplicateBuildingId",
+            "exhaustedIdCounter",
+            "duplicateHomeId",
+            "orphanWorker",
+            "duplicateWorker",
+            "missingOwner",
+            "missingTitleHolder",
+            "truncatedTiles",
+            "malformedProject",
+            "futureSchema",
+            "invalidDay"
+          ],
+          "truncatedRejected": 4,
+          "callerIndependent": true,
+          "atomicRNGAndTimeline": true
+        }
+      }
+    },
+    "publicLife": {
+      "source_sha256": "d90bb509173a803b75c3cdc432fea57ce2f1e2abbcb13b8886c56d8feaffe515",
+      "actualAlternativePurchases": [
+        {
+          "building": 103,
+          "x": 22,
+          "y": 29,
+          "name": "Copper & Cedar",
+          "kind": "square",
+          "started": 3,
+          "baseline": {
+            "day": 3,
+            "residents": 46,
+            "retailers": 4,
+            "staff": 32,
+            "sales": 0,
+            "handling": 0,
+            "school": 11.11111111111111
+          }
+        },
+        {
+          "building": 103,
+          "x": 22,
+          "y": 29,
+          "name": "Copper & Cedar",
+          "kind": "warehouse",
+          "started": 3,
+          "baseline": {
+            "day": 3,
+            "residents": 46,
+            "retailers": 4,
+            "staff": 32,
+            "sales": 0,
+            "handling": 0,
+            "school": 11.11111111111111
+          }
+        }
+      ],
+      "errors": []
+    },
+    "suppliers": {
+      "source_sha256": "d90bb509173a803b75c3cdc432fea57ce2f1e2abbcb13b8886c56d8feaffe515",
+      "initial": "Compare other suppliers and commodities \u00b7 including food\nRegional buyer \nUpland Cooperative\nGreyhaven Port\nIronridge Works\nCommodity the buyer seeks \ngrain\nflour\nfood\nLocal producer \nBaker & Sons Ltd.\nBaker & Sons Trading\nBaker & Sons Works\nVale Net & Line\n\nThe forecast supports fewer than ten additional units after retained stock, existing promises, handling and freight cash.\n\nHeld / retained units\n80 / 104\nAlready promised units\n0\nForecast / suggested units\n0 / 0\nFreight cash available\n$23,605\n\nBaker & Sons Ltd. \u2192 Greyhaven Port. Quote $3.81/unit; freight $0.20/unit. Suggested-size inventory margin $0 excludes future payroll, tax and disruption. 0 recent output/day, 21 usable dispatch days; standard deadline day 31. Food and other working reserves are retained. Priority dispatch can reduce stock for local buyers. Estimates assume current inputs, attendance, cash and routes persist.\n\nReview this supplier\u2019s food promise",
+      "after25Days": "Compare other suppliers and commodities \u00b7 including food\nRegional buyer \nUpland Cooperative\nGreyhaven Port\nIronridge Works\nCommodity the buyer seeks \ngrain\nflour\nfood\nLocal producer \nBaker & Sons Ltd.\nBaker & Sons Trading\nBaker & Sons Works\nVale Net & Line\n\nA forecast-sized review is available; future output and arrival remain uncertain.\n\nHeld / retained units\n496.08 / 112.31\nAlready promised units\n0\nForecast / suggested units\n2,520 / 200\nFreight cash available\n$22,870\n\nBaker & Sons Ltd. \u2192 Greyhaven Port. Quote $3.81/unit; freight $0.20/unit. Suggested-size inventory margin $416 excludes future payroll, tax and disruption. 129.16 recent output/day, 21 usable dispatch days; standard deadline day 56. Food and other working reserves are retained. Priority dispatch can reduce stock for local buyers. Estimates assume current inputs, attendance, cash and routes persist.\n\nReview this supplier\u2019s food promise",
+      "realFoodCommitment": {
+        "id": 137,
+        "name": "Greyhaven Port supply agreement",
+        "firm": 3,
+        "market": "port",
+        "good": "food",
+        "quantity": 200,
+        "delivered": 0,
+        "price": 3.812457254595668,
+        "deadline": 56,
+        "status": "active"
+      },
+      "settledFoodAgreement": {
+        "id": 137,
+        "name": "Greyhaven Port supply agreement",
+        "firm": 3,
+        "market": "port",
+        "good": "food",
+        "quantity": 200,
+        "delivered": 200,
+        "price": 3.812457254595668,
+        "deadline": 56,
+        "status": "fulfilled"
+      },
+      "errors": []
+    },
+    "publicArt": {
+      "source_sha256": "d90bb509173a803b75c3cdc432fea57ce2f1e2abbcb13b8886c56d8feaffe515",
+      "actualControls": true,
+      "origin": "HTTP assets",
+      "rows": [
+        {
+          "kind": "square",
+          "actors": 1,
+          "stable": true,
+          "far": 0,
+          "removed": true,
+          "unchanged": true,
+          "bytes": 5484544,
+          "cacheEntries": 1,
+          "width": 112,
+          "height": 172
+        },
+        {
+          "kind": "warehouse",
+          "actors": 0,
+          "stable": true,
+          "far": 0,
+          "removed": true,
+          "unchanged": true,
+          "bytes": 10387200,
+          "cacheEntries": 1,
+          "width": 184,
+          "height": 208
+        }
+      ],
+      "errors": []
+    },
+    "directProjections": {
+      "source_sha256": "d90bb509173a803b75c3cdc432fea57ce2f1e2abbcb13b8886c56d8feaffe515",
+      "reference_commit": "03cb546",
+      "histories": [
+        {
+          "scenario": "settlement",
+          "seed": 42,
+          "dense": false,
+          "direct": [
+            {
+              "pairs": 900,
+              "rankings": [
+                483,
+                483,
+                483
+              ],
+              "sites": 50,
+              "exclusions": 3,
+              "comparisonMs": 197.29999999701977
+            },
+            {
+              "pairs": 900,
+              "rankings": [
+                483,
+                483,
+                483
+              ],
+              "sites": 50,
+              "exclusions": 3,
+              "comparisonMs": 269.79999999701977
+            },
+            {
+              "pairs": 900,
+              "rankings": [
+                483,
+                483,
+                483
+              ],
+              "sites": 50,
+              "exclusions": 3,
+              "comparisonMs": 175.20000000298023
+            },
+            {
+              "pairs": 900,
+              "rankings": [
+                483,
+                483,
+                483
+              ],
+              "sites": 50,
+              "exclusions": 3,
+              "comparisonMs": 141.20000000298023
+            }
+          ]
+        },
+        {
+          "scenario": "settlement",
+          "seed": 101,
+          "dense": false,
+          "direct": [
+            {
+              "pairs": 900,
+              "rankings": [
+                486,
+                486,
+                486
+              ],
+              "sites": 50,
+              "exclusions": 3,
+              "comparisonMs": 174.40000000596046
+            },
+            {
+              "pairs": 900,
+              "rankings": [
+                486,
+                486,
+                486
+              ],
+              "sites": 50,
+              "exclusions": 3,
+              "comparisonMs": 151.79999999701977
+            },
+            {
+              "pairs": 900,
+              "rankings": [
+                486,
+                486,
+                486
+              ],
+              "sites": 50,
+              "exclusions": 3,
+              "comparisonMs": 158.5
+            },
+            {
+              "pairs": 900,
+              "rankings": [
+                486,
+                486,
+                486
+              ],
+              "sites": 50,
+              "exclusions": 3,
+              "comparisonMs": 104
+            }
+          ]
+        },
+        {
+          "scenario": "hardtimes",
+          "seed": 909,
+          "dense": false,
+          "direct": [
+            {
+              "pairs": 900,
+              "rankings": [
+                487,
+                487,
+                487
+              ],
+              "sites": 50,
+              "exclusions": 3,
+              "comparisonMs": 120.1000000089407
+            },
+            {
+              "pairs": 900,
+              "rankings": [
+                487,
+                487,
+                487
+              ],
+              "sites": 50,
+              "exclusions": 3,
+              "comparisonMs": 128.20000000298023
+            },
+            {
+              "pairs": 900,
+              "rankings": [
+                487,
+                487,
+                487
+              ],
+              "sites": 50,
+              "exclusions": 3,
+              "comparisonMs": 80
+            },
+            {
+              "pairs": 900,
+              "rankings": [
+                487,
+                487,
+                487
+              ],
+              "sites": 50,
+              "exclusions": 3,
+              "comparisonMs": 92.5
+            }
+          ]
+        },
+        {
+          "scenario": "regional",
+          "seed": 42,
+          "dense": true,
+          "direct": [
+            {
+              "pairs": 900,
+              "rankings": [
+                322,
+                322,
+                322
+              ],
+              "sites": 50,
+              "exclusions": 3,
+              "comparisonMs": 286.59999999403954
+            },
+            {
+              "pairs": 900,
+              "rankings": [
+                322,
+                322,
+                322
+              ],
+              "sites": 50,
+              "exclusions": 3,
+              "comparisonMs": 277.79999999701977
+            },
+            {
+              "pairs": 900,
+              "rankings": [
+                322,
+                322,
+                322
+              ],
+              "sites": 50,
+              "exclusions": 3,
+              "comparisonMs": 328.8999999910593
+            },
+            {
+              "pairs": 900,
+              "rankings": [
+                322,
+                322,
+                322
+              ],
+              "sites": 50,
+              "exclusions": 3,
+              "comparisonMs": 169.6000000089407
+            }
+          ]
+        }
+      ]
+    },
+    "denseModelOracle": {
+      "source_sha256": "d90bb509173a803b75c3cdc432fea57ce2f1e2abbcb13b8886c56d8feaffe515",
+      "reference_commit": "03cb546",
+      "histories": [
+        {
+          "scenario": "regional",
+          "seed": 42,
+          "dense": true,
+          "exactCheckpoints": [
+            31,
+            61,
+            91,
+            121,
+            151,
+            181,
+            211,
+            241,
+            271,
+            301,
+            331,
+            361
+          ],
+          "directPairs": {
+            "pairs": 1200,
+            "rankings": [
+              339,
+              339,
+              339
+            ],
+            "sites": 50,
+            "exclusions": 4,
+            "comparisonMs": 649.1000000089407
+          },
+          "reference": {
+            "times": [
+              0,
+              0.09999999403953552,
+              0,
+              0,
+              0
+            ],
+            "answers": [
+              "A private service site is already under construction.",
+              "A private service site is already under construction.",
+              "A private service site is already under construction.",
+              "A private service site is already under construction.",
+              "A private service site is already under construction."
+            ]
+          },
+          "optimized": {
+            "times": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "answers": [
+              "A private service site is already under construction.",
+              "A private service site is already under construction.",
+              "A private service site is already under construction.",
+              "A private service site is already under construction.",
+              "A private service site is already under construction."
+            ]
+          }
+        }
+      ]
+    },
+    "legacyLayout": {
+      "source_sha256": "d90bb509173a803b75c3cdc432fea57ce2f1e2abbcb13b8886c56d8feaffe515",
+      "simulatedUnsupportedCSS": [
+        "dvh",
+        "inset"
+      ],
+      "layouts": [
+        {
+          "viewport": [
+            640,
+            360
+          ],
+          "width": 640,
+          "height": 215,
+          "pixels": 137600
+        },
+        {
+          "viewport": [
+            844,
+            390
+          ],
+          "width": 844,
+          "height": 279,
+          "pixels": 235476
+        },
+        {
+          "viewport": [
+            360,
+            640
+          ],
+          "width": 360,
+          "height": 422,
+          "pixels": 151920
+        }
+      ],
+      "nativeCertification": false
+    },
+    "liveProfile": {
+      "source_sha256": "d90bb509173a803b75c3cdc432fea57ce2f1e2abbcb13b8886c56d8feaffe515",
+      "commit": "5df54faad44dc6ad1899aa95aa208c461dc2bce2",
+      "physicalAndroid": false,
+      "hostChromium": true,
+      "input": "trusted emulated touch pointer events",
+      "fixture": "synthetic 2000 residents; actual paid 48 routes, 21 deeds, paid cargo and two licensed private firms; treasury funded from existing region",
+      "rows": [
+        {
+          "mode": "near",
+          "seconds": 6.03510000000894,
+          "days": 226,
+          "measuredSpeed": 61.78853705811794,
+          "raf": {
+            "count": 244,
+            "totalMs": 6016.400000000001,
+            "medianMs": 16.699999999999818,
+            "p95Ms": 50,
+            "p99Ms": 100,
+            "maxMs": 133.39999999999964
+          },
+          "timerInput": {
+            "count": 69,
+            "totalMs": 1810.0,
+            "medianMs": 19.700000002980232,
+            "p95Ms": 81.29999999701977,
+            "p99Ms": 127.3999999910593,
+            "maxMs": 127.3999999910593
+          },
+          "trustedInputHandler": {
+            "count": 3,
+            "totalMs": 196.80000001192093,
+            "medianMs": 68.20000000298023,
+            "p95Ms": 78.20000000298023,
+            "p99Ms": 78.20000000298023,
+            "maxMs": 78.20000000298023
+          },
+          "trustedInputNextFrame": {
+            "count": 3,
+            "totalMs": 249.10000002384186,
+            "medianMs": 86.90000000596046,
+            "p95Ms": 96.30000001192093,
+            "p99Ms": 96.30000001192093,
+            "maxMs": 96.30000001192093
+          },
+          "components": {
+            "refreshMusic": {
+              "count": 11,
+              "totalMs": 0.29999999701976776,
+              "medianMs": 0,
+              "p95Ms": 0.10000000894069672,
+              "p99Ms": 0.10000000894069672,
+              "maxMs": 0.10000000894069672
+            },
+            "recompute": {
+              "count": 526,
+              "totalMs": 198.90000002086163,
+              "medianMs": 0.29999999701976776,
+              "p95Ms": 0.800000011920929,
+              "p99Ms": 1.9000000059604645,
+              "maxMs": 2.4000000059604645
+            },
+            "archivePayload": {
+              "count": 0,
+              "totalMs": 0,
+              "medianMs": 0,
+              "p95Ms": 0,
+              "p99Ms": 0,
+              "maxMs": 0
+            },
+            "persistSnapshot": {
+              "count": 0,
+              "totalMs": 0,
+              "medianMs": 0,
+              "p95Ms": 0,
+              "p99Ms": 0,
+              "maxMs": 0
+            },
+            "save": {
+              "count": 0,
+              "totalMs": 0,
+              "medianMs": 0,
+              "p95Ms": 0,
+              "p99Ms": 0,
+              "maxMs": 0
+            },
+            "updateHeader": {
+              "count": 26,
+              "totalMs": 40.70000006258488,
+              "medianMs": 1.300000011920929,
+              "p95Ms": 2.5,
+              "p99Ms": 5.4000000059604645,
+              "maxMs": 5.4000000059604645
+            },
+            "renderPanel": {
+              "count": 0,
+              "totalMs": 0,
+              "medianMs": 0,
+              "p95Ms": 0,
+              "p99Ms": 0,
+              "maxMs": 0
+            },
+            "trafficUpdate": {
+              "count": 270,
+              "totalMs": 17.099999979138374,
+              "medianMs": 0.09999999403953552,
+              "p95Ms": 0.20000000298023224,
+              "p99Ms": 0.4000000059604645,
+              "maxMs": 0.5999999940395355
+            },
+            "draw": {
+              "count": 113,
+              "totalMs": 699.5,
+              "medianMs": 2.2000000029802322,
+              "p95Ms": 27,
+              "p99Ms": 28.5,
+              "maxMs": 37.6000000089407
+            },
+            "hydrateSave": {
+              "count": 0,
+              "totalMs": 0,
+              "medianMs": 0,
+              "p95Ms": 0,
+              "p99Ms": 0,
+              "maxMs": 0
+            },
+            "dailyEconomy": {
+              "count": 251,
+              "totalMs": 3789.100000023842,
+              "medianMs": 12.299999997019768,
+              "p95Ms": 29.799999997019768,
+              "p99Ms": 36.400000005960464,
+              "maxMs": 61.6000000089407
+            },
+            "privateServiceInvestmentDay": {
+              "count": 251,
+              "totalMs": 106.99999998509884,
+              "medianMs": 0,
+              "p95Ms": 0,
+              "p99Ms": 0.09999999403953552,
+              "maxMs": 68.29999999701977
+            },
+            "districtProgrammeDay": {
+              "count": 251,
+              "totalMs": 0.29999999701976776,
+              "medianMs": 0,
+              "p95Ms": 0,
+              "p99Ms": 0.09999999403953552,
+              "maxMs": 0.10000000894069672
+            },
+            "urbanEvolutionDay": {
+              "count": 251,
+              "totalMs": 46.599999979138374,
+              "medianMs": 0,
+              "p95Ms": 0,
+              "p99Ms": 9.200000002980232,
+              "maxMs": 9.899999991059303
+            },
+            "tick": {
+              "count": 251,
+              "totalMs": 4947.899999931455,
+              "medianMs": 15.5,
+              "p95Ms": 39.5,
+              "p99Ms": 69.59999999403954,
+              "maxMs": 140.40000000596046
+            }
+          },
+          "heap": {
+            "usedSize": 56702116,
+            "totalSize": 120578048,
+            "embedderHeapUsedSize": 12478328,
+            "backingStorageSize": 15544325
+          },
+          "state": {
+            "day": 285,
+            "total": 15493517.000014525,
+            "valid": {
+              "ok": true,
+              "issues": [],
+              "total": 15493517.000014525,
+              "population": 1991,
+              "day": 285
+            },
+            "goodsError": 1.36969902087003e-09,
+            "deeds": 21,
+            "routes": 48,
+            "operating": 48,
+            "drivers": 96,
+            "providers": 5,
+            "providerStaff": 9,
+            "privateClients": 292,
+            "cargo": 58,
+            "atlas": 91,
+            "atlasBytes": 7304960,
+            "serviceCaches": 2,
+            "traffic": 29,
+            "observations": 29,
+            "loans": 0,
+            "history": 240,
+            "events": 160,
+            "transactions": 282,
+            "musicDecks": 1,
+            "musicTrack": 7,
+            "musicError": "",
+            "suspended": false,
+            "paused": false,
+            "requestedSpeed": 64,
+            "backlog": 5.6402424242424365
+          },
+          "ui": [
+            {
+              "panel": "citizens",
+              "toNextFrameMs": 175.5,
+              "error": false
+            },
+            {
+              "panel": "construction",
+              "toNextFrameMs": 152.09999999403954,
+              "error": false
+            },
+            {
+              "panel": "settings",
+              "toNextFrameMs": 116.59999999403954,
+              "error": false
+            }
+          ]
+        },
+        {
+          "mode": "far",
+          "seconds": 6.03279999999702,
+          "days": 231,
+          "measuredSpeed": 63.17961808781798,
+          "raf": {
+            "count": 288,
+            "totalMs": 6016.500000000002,
+            "medianMs": 16.700000000000728,
+            "p95Ms": 49.900000000001455,
+            "p99Ms": 83.20000000000073,
+            "maxMs": 150.09999999999854
+          },
+          "timerInput": {
+            "count": 70,
+            "totalMs": 1753.6000000685453,
+            "medianMs": 19,
+            "p95Ms": 78.59999999403954,
+            "p99Ms": 135.40000000596046,
+            "maxMs": 135.40000000596046
+          },
+          "trustedInputHandler": {
+            "count": 3,
+            "totalMs": 206.09999999403954,
+            "medianMs": 28.799999997019768,
+            "p95Ms": 148.70000000298023,
+            "p99Ms": 148.70000000298023,
+            "maxMs": 148.70000000298023
+          },
+          "trustedInputNextFrame": {
+            "count": 3,
+            "totalMs": 302.40000000596046,
+            "medianMs": 47.79999999701977,
+            "p95Ms": 208.90000000596046,
+            "p99Ms": 208.90000000596046,
+            "maxMs": 208.90000000596046
+          },
+          "components": {
+            "refreshMusic": {
+              "count": 11,
+              "totalMs": 0.10000000894069672,
+              "medianMs": 0,
+              "p95Ms": 0.10000000894069672,
+              "p99Ms": 0.10000000894069672,
+              "maxMs": 0.10000000894069672
+            },
+            "recompute": {
+              "count": 497,
+              "totalMs": 167.59999991953373,
+              "medianMs": 0.29999999701976776,
+              "p95Ms": 0.7999999970197678,
+              "p99Ms": 1.2999999970197678,
+              "maxMs": 4
+            },
+            "archivePayload": {
+              "count": 0,
+              "totalMs": 0,
+              "medianMs": 0,
+              "p95Ms": 0,
+              "p99Ms": 0,
+              "maxMs": 0
+            },
+            "persistSnapshot": {
+              "count": 0,
+              "totalMs": 0,
+              "medianMs": 0,
+              "p95Ms": 0,
+              "p99Ms": 0,
+              "maxMs": 0
+            },
+            "save": {
+              "count": 0,
+              "totalMs": 0,
+              "medianMs": 0,
+              "p95Ms": 0,
+              "p99Ms": 0,
+              "maxMs": 0
+            },
+            "updateHeader": {
+              "count": 25,
+              "totalMs": 33.20000000298023,
+              "medianMs": 1.2000000029802322,
+              "p95Ms": 2.0999999940395355,
+              "p99Ms": 2.4000000059604645,
+              "maxMs": 2.4000000059604645
+            },
+            "renderPanel": {
+              "count": 0,
+              "totalMs": 0,
+              "medianMs": 0,
+              "p95Ms": 0,
+              "p99Ms": 0,
+              "maxMs": 0
+            },
+            "trafficUpdate": {
+              "count": 307,
+              "totalMs": 0.3999999910593033,
+              "medianMs": 0,
+              "p95Ms": 0,
+              "p99Ms": 0.09999999403953552,
+              "maxMs": 0.10000000894069672
+            },
+            "draw": {
+              "count": 112,
+              "totalMs": 423.40000005066395,
+              "medianMs": 0.9000000059604645,
+              "p95Ms": 22.299999997019768,
+              "p99Ms": 34.30000001192093,
+              "maxMs": 39.099999994039536
+            },
+            "hydrateSave": {
+              "count": 0,
+              "totalMs": 0,
+              "medianMs": 0,
+              "p95Ms": 0,
+              "p99Ms": 0,
+              "maxMs": 0
+            },
+            "dailyEconomy": {
+              "count": 242,
+              "totalMs": 3442.3999999910593,
+              "medianMs": 12.200000002980232,
+              "p95Ms": 23.899999991059303,
+              "p99Ms": 43.900000005960464,
+              "maxMs": 46.8999999910593
+            },
+            "privateServiceInvestmentDay": {
+              "count": 242,
+              "totalMs": 110.60000002384186,
+              "medianMs": 0,
+              "p95Ms": 0,
+              "p99Ms": 0.10000000894069672,
+              "maxMs": 66
+            },
+            "districtProgrammeDay": {
+              "count": 242,
+              "totalMs": 0.40000002086162567,
+              "medianMs": 0,
+              "p95Ms": 0,
+              "p99Ms": 0.10000000894069672,
+              "maxMs": 0.10000000894069672
+            },
+            "urbanEvolutionDay": {
+              "count": 242,
+              "totalMs": 41.10000005364418,
+              "medianMs": 0,
+              "p95Ms": 0,
+              "p99Ms": 5.9000000059604645,
+              "maxMs": 10.599999994039536
+            },
+            "tick": {
+              "count": 242,
+              "totalMs": 4720.200000092387,
+              "medianMs": 15.899999991059303,
+              "p95Ms": 33.79999999701977,
+              "p99Ms": 53,
+              "maxMs": 154.6000000089407
+            }
+          },
+          "heap": {
+            "usedSize": 50539572,
+            "totalSize": 119656448,
+            "embedderHeapUsedSize": 5032696,
+            "backingStorageSize": 7770042
+          },
+          "state": {
+            "day": 625,
+            "total": 15493517.000019833,
+            "valid": {
+              "ok": true,
+              "issues": [],
+              "total": 15493517.000019833,
+              "population": 1999,
+              "day": 625
+            },
+            "goodsError": 4.891262506134808e-09,
+            "deeds": 21,
+            "routes": 48,
+            "operating": 48,
+            "drivers": 96,
+            "providers": 7,
+            "providerStaff": 13,
+            "privateClients": 356,
+            "cargo": 14,
+            "atlas": 131,
+            "atlasBytes": 12135936,
+            "serviceCaches": 2,
+            "traffic": 30,
+            "observations": 63,
+            "loans": 1,
+            "history": 240,
+            "events": 160,
+            "transactions": 613,
+            "musicDecks": 1,
+            "musicTrack": 7,
+            "musicError": "",
+            "suspended": false,
+            "paused": false,
+            "requestedSpeed": 64,
+            "backlog": 0.9316363636363526
+          },
+          "ui": [
+            {
+              "panel": "citizens",
+              "toNextFrameMs": 16.799999997019768,
+              "error": false
+            },
+            {
+              "panel": "construction",
+              "toNextFrameMs": 29.700000002980232,
+              "error": false
+            },
+            {
+              "panel": "settings",
+              "toNextFrameMs": 14.099999994039536,
+              "error": false
+            }
+          ]
+        }
+      ],
+      "fixtureState": {
+        "population": 2000,
+        "deeds": 21,
+        "grid": 128,
+        "routes": 48,
+        "providers": 2,
+        "cargo": 37,
+        "total": 15493517.000000132
+      },
+      "evolving": true,
+      "initialHeapAfterGC": {
+        "usedSize": 9995952,
+        "totalSize": 11395072,
+        "embedderHeapUsedSize": 2671376,
+        "backingStorageSize": 3476185
+      },
+      "soak": [],
+      "archiveRoundTripMs": 231.94125400914345,
+      "finalHeapAfterGC": {
+        "usedSize": 15011112,
+        "totalSize": 15982592,
+        "embedderHeapUsedSize": 4091696,
+        "backingStorageSize": 4198287
+      },
+      "errors": []
+    }
+  },
+  "sequences": {
+    "cacheOnly60": {
+      "source_sha256": "a3f53e54d9f0894d2bf2fbddc59676d8d0a4407fcb8171b28e009635b96c6dd0",
+      "seed": 8142026,
+      "status": "passed",
+      "elapsedSeconds": 61.67,
+      "operations": 44,
+      "operationCounts": {
+        "bootstrap": 1,
+        "step": 10,
+        "replay": 7,
+        "import": 3,
+        "adoption": 3,
+        "quota": 2,
+        "corruptStore": 2,
+        "bothDenied": 1,
+        "stale": 1,
+        "burst": 3,
+        "sameDay": 4,
+        "cargo": 2,
+        "cold": 4,
+        "finalCold": 1
+      },
+      "coldReloads": 14,
+      "errors": [],
+      "replayFailures": [],
+      "samples": [
+        {
+          "seconds": 2.81,
+          "day": 11,
+          "people": 1375,
+          "living": 1375,
+          "buildings": 108,
+          "households": 67,
+          "cargo": 153,
+          "contracts": 1,
+          "routes": 2,
+          "fares": 9.750000000000002,
+          "providers": 0,
+          "malls": 0,
+          "projects": 3,
+          "civic": {
+            "version": 1,
+            "serial": 3,
+            "lastDay": 11,
+            "active": {
+              "food": {
+                "id": 1,
+                "kind": "food",
+                "branch": "bridge",
+                "target": 1,
+                "started": 2,
+                "lastDay": 11,
+                "status": "active",
+                "orders": [],
+                "arrived": 0,
+                "firm": null,
+                "building": null,
+                "output": 0,
+                "sales": 0,
+                "net": 0,
+                "trainingScope": "all",
+                "trainingBaseline": 0,
+                "learning": 0,
+                "completed": null,
+                "proof": null
+              },
+              "skills": {
+                "id": 2,
+                "kind": "skills",
+                "branch": "private",
+                "target": 10,
+                "started": 2,
+                "lastDay": 11,
+                "status": "active",
+                "orders": [],
+                "arrived": 0,
+                "firm": null,
+                "building": null,
+                "output": 0,
+                "sales": 0,
+                "net": 0,
+                "trainingScope": "private",
+                "trainingBaseline": 0,
+                "learning": 0,
+                "completed": null,
+                "proof": null
+              },
+              "district": {
+                "id": 3,
+                "kind": "district",
+                "branch": "industry",
+                "target": "county-ridge",
+                "started": 2,
+                "lastDay": 11,
+                "status": "active",
+                "orders": [],
+                "arrived": 0,
+                "firm": null,
+                "building": null,
+                "output": 0,
+                "sales": 0,
+                "net": 0,
+                "trainingScope": "all",
+                "trainingBaseline": 0,
+                "learning": 0,
+                "completed": null,
+                "proof": null
+              }
+            },
+            "history": [],
+            "declined": []
+          },
+          "annexations": 21,
+          "valid": {
+            "ok": true,
+            "issues": [],
+            "total": 15493517.00000031,
+            "population": 1375,
+            "day": 11
+          },
+          "money": 15493517.00000031,
+          "goodsError": 1.8189894035458565e-12,
+          "bytes": 745614,
+          "pending": false,
+          "active": false
+        },
+        {
+          "seconds": 30.11,
+          "day": 70,
+          "people": 1375,
+          "living": 1375,
+          "buildings": 109,
+          "households": 67,
+          "cargo": 9,
+          "contracts": 1,
+          "routes": 2,
+          "fares": 65.64999999999995,
+          "providers": 1,
+          "malls": 1,
+          "projects": 1,
+          "civic": {
+            "version": 1,
+            "serial": 3,
+            "lastDay": 70,
+            "active": {
+              "food": {
+                "id": 1,
+                "kind": "food",
+                "branch": "bridge",
+                "target": 1,
+                "started": 2,
+                "lastDay": 70,
+                "status": "active",
+                "orders": [],
+                "arrived": 0,
+                "firm": null,
+                "building": null,
+                "output": 0,
+                "sales": 0,
+                "net": 0,
+                "trainingScope": "all",
+                "trainingBaseline": 0,
+                "learning": 0,
+                "completed": null,
+                "proof": null
+              },
+              "skills": {
+                "id": 2,
+                "kind": "skills",
+                "branch": "private",
+                "target": 10,
+                "started": 2,
+                "lastDay": 70,
+                "status": "active",
+                "orders": [],
+                "arrived": 0,
+                "firm": null,
+                "building": null,
+                "output": 0,
+                "sales": 0,
+                "net": 0,
+                "trainingScope": "private",
+                "trainingBaseline": 0,
+                "learning": 41.99999999999999,
+                "completed": null,
+                "proof": null
+              },
+              "district": {
+                "id": 3,
+                "kind": "district",
+                "branch": "industry",
+                "target": "county-ridge",
+                "started": 2,
+                "lastDay": 70,
+                "status": "active",
+                "orders": [],
+                "arrived": 0,
+                "firm": null,
+                "building": null,
+                "output": 0,
+                "sales": 0,
+                "net": 0,
+                "trainingScope": "all",
+                "trainingBaseline": 0,
+                "learning": 0,
+                "completed": null,
+                "proof": null
+              }
+            },
+            "history": [],
+            "declined": []
+          },
+          "annexations": 21,
+          "valid": {
+            "ok": true,
+            "issues": [],
+            "total": 15493517.000002772,
+            "population": 1375,
+            "day": 70
+          },
+          "money": 15493517.000002772,
+          "goodsError": 2.9103830456733704e-11,
+          "bytes": 702697,
+          "pending": false,
+          "active": false
+        },
+        {
+          "seconds": 61.67,
+          "day": 134,
+          "people": 1375,
+          "living": 1354,
+          "buildings": 110,
+          "households": 68,
+          "cargo": 75,
+          "contracts": 1,
+          "routes": 2,
+          "fares": 263.25000000000097,
+          "providers": 1,
+          "malls": 1,
+          "projects": 1,
+          "civic": {
+            "version": 1,
+            "serial": 3,
+            "lastDay": 134,
+            "active": {
+              "food": {
+                "id": 1,
+                "kind": "food",
+                "branch": "bridge",
+                "target": 1,
+                "started": 2,
+                "lastDay": 134,
+                "status": "active",
+                "orders": [],
+                "arrived": 0,
+                "firm": null,
+                "building": null,
+                "output": 0,
+                "sales": 0,
+                "net": 0,
+                "trainingScope": "all",
+                "trainingBaseline": 0,
+                "learning": 0,
+                "completed": null,
+                "proof": null
+              },
+              "skills": {
+                "id": 2,
+                "kind": "skills",
+                "branch": "private",
+                "target": 10,
+                "started": 2,
+                "lastDay": 134,
+                "status": "active",
+                "orders": [],
+                "arrived": 0,
+                "firm": null,
+                "building": null,
+                "output": 0,
+                "sales": 0,
+                "net": 0,
+                "trainingScope": "private",
+                "trainingBaseline": 0,
+                "learning": 201.60000000000022,
+                "completed": null,
+                "proof": null
+              },
+              "district": {
+                "id": 3,
+                "kind": "district",
+                "branch": "industry",
+                "target": "county-ridge",
+                "started": 2,
+                "lastDay": 134,
+                "status": "active",
+                "orders": [],
+                "arrived": 0,
+                "firm": null,
+                "building": null,
+                "output": 0,
+                "sales": 0,
+                "net": 0,
+                "trainingScope": "all",
+                "trainingBaseline": 0,
+                "learning": 0,
+                "completed": null,
+                "proof": null
+              }
+            },
+            "history": [],
+            "declined": []
+          },
+          "annexations": 21,
+          "valid": {
+            "ok": true,
+            "issues": [],
+            "total": 15493517.00000561,
+            "population": 1354,
+            "day": 134
+          },
+          "money": 15493517.00000561,
+          "goodsError": 7.275957614183426e-11,
+          "bytes": 784765,
+          "pending": false,
+          "active": false
+        }
+      ],
+      "replayOperations": [
+        {
+          "index": 2,
+          "seconds": 3.68,
+          "op": "replay",
+          "details": {
+            "days": 1,
+            "exact": true
+          }
+        },
+        {
+          "index": 13,
+          "seconds": 20.833,
+          "op": "replay",
+          "details": {
+            "days": 2,
+            "exact": true
+          }
+        },
+        {
+          "index": 16,
+          "seconds": 23.585,
+          "op": "replay",
+          "details": {
+            "days": 3,
+            "exact": true
+          }
+        },
+        {
+          "index": 24,
+          "seconds": 31.273,
+          "op": "replay",
+          "details": {
+            "days": 12,
+            "exact": true
+          }
+        },
+        {
+          "index": 31,
+          "seconds": 40.961,
+          "op": "replay",
+          "details": {
+            "days": 9,
+            "exact": true
+          }
+        },
+        {
+          "index": 39,
+          "seconds": 55.172,
+          "op": "replay",
+          "details": {
+            "days": 5,
+            "exact": true
+          }
+        },
+        {
+          "index": 42,
+          "seconds": 59.378,
+          "op": "replay",
+          "details": {
+            "days": 12,
+            "exact": true
+          }
+        }
+      ]
+    },
+    "combined60": {
+      "source_sha256": "d90bb509173a803b75c3cdc432fea57ce2f1e2abbcb13b8886c56d8feaffe515",
+      "seed": 8142026,
+      "status": "passed",
+      "elapsedSeconds": 63.11,
+      "operations": 35,
+      "operationCounts": {
+        "bootstrap": 1,
+        "step": 9,
+        "replay": 5,
+        "import": 2,
+        "adoption": 3,
+        "quota": 1,
+        "corruptStore": 1,
+        "bothDenied": 1,
+        "stale": 1,
+        "burst": 3,
+        "sameDay": 2,
+        "cargo": 2,
+        "cold": 3,
+        "finalCold": 1
+      },
+      "coldReloads": 9,
+      "errors": [],
+      "replayFailures": [],
+      "samples": [
+        {
+          "seconds": 5.46,
+          "day": 11,
+          "people": 1375,
+          "living": 1375,
+          "buildings": 108,
+          "households": 67,
+          "cargo": 153,
+          "contracts": 1,
+          "routes": 2,
+          "fares": 9.750000000000002,
+          "providers": 0,
+          "malls": 0,
+          "projects": 3,
+          "civic": {
+            "version": 1,
+            "serial": 3,
+            "lastDay": 11,
+            "active": {
+              "food": {
+                "id": 1,
+                "kind": "food",
+                "branch": "bridge",
+                "target": 1,
+                "started": 2,
+                "lastDay": 11,
+                "status": "active",
+                "orders": [],
+                "arrived": 0,
+                "firm": null,
+                "building": null,
+                "output": 0,
+                "sales": 0,
+                "net": 0,
+                "trainingScope": "all",
+                "trainingBaseline": 0,
+                "learning": 0,
+                "completed": null,
+                "proof": null
+              },
+              "skills": {
+                "id": 2,
+                "kind": "skills",
+                "branch": "private",
+                "target": 10,
+                "started": 2,
+                "lastDay": 11,
+                "status": "active",
+                "orders": [],
+                "arrived": 0,
+                "firm": null,
+                "building": null,
+                "output": 0,
+                "sales": 0,
+                "net": 0,
+                "trainingScope": "private",
+                "trainingBaseline": 0,
+                "learning": 0,
+                "completed": null,
+                "proof": null
+              },
+              "district": {
+                "id": 3,
+                "kind": "district",
+                "branch": "industry",
+                "target": "county-ridge",
+                "started": 2,
+                "lastDay": 11,
+                "status": "active",
+                "orders": [],
+                "arrived": 0,
+                "firm": null,
+                "building": null,
+                "output": 0,
+                "sales": 0,
+                "net": 0,
+                "trainingScope": "all",
+                "trainingBaseline": 0,
+                "learning": 0,
+                "completed": null,
+                "proof": null
+              }
+            },
+            "history": [],
+            "declined": []
+          },
+          "annexations": 21,
+          "valid": {
+            "ok": true,
+            "issues": [],
+            "total": 15493517.00000031,
+            "population": 1375,
+            "day": 11
+          },
+          "money": 15493517.00000031,
+          "goodsError": 1.8189894035458565e-12,
+          "bytes": 745645,
+          "pending": false,
+          "active": false
+        },
+        {
+          "seconds": 30.81,
+          "day": 26,
+          "people": 1375,
+          "living": 1375,
+          "buildings": 108,
+          "households": 67,
+          "cargo": 164,
+          "contracts": 1,
+          "routes": 2,
+          "fares": 29.25000000000001,
+          "providers": 0,
+          "malls": 0,
+          "projects": 2,
+          "civic": {
+            "version": 1,
+            "serial": 3,
+            "lastDay": 26,
+            "active": {
+              "food": {
+                "id": 1,
+                "kind": "food",
+                "branch": "bridge",
+                "target": 1,
+                "started": 2,
+                "lastDay": 26,
+                "status": "active",
+                "orders": [],
+                "arrived": 0,
+                "firm": null,
+                "building": null,
+                "output": 0,
+                "sales": 0,
+                "net": 0,
+                "trainingScope": "all",
+                "trainingBaseline": 0,
+                "learning": 0,
+                "completed": null,
+                "proof": null
+              },
+              "skills": {
+                "id": 2,
+                "kind": "skills",
+                "branch": "private",
+                "target": 10,
+                "started": 2,
+                "lastDay": 26,
+                "status": "active",
+                "orders": [],
+                "arrived": 0,
+                "firm": null,
+                "building": null,
+                "output": 0,
+                "sales": 0,
+                "net": 0,
+                "trainingScope": "private",
+                "trainingBaseline": 0,
+                "learning": 0,
+                "completed": null,
+                "proof": null
+              },
+              "district": {
+                "id": 3,
+                "kind": "district",
+                "branch": "industry",
+                "target": "county-ridge",
+                "started": 2,
+                "lastDay": 26,
+                "status": "active",
+                "orders": [],
+                "arrived": 0,
+                "firm": null,
+                "building": null,
+                "output": 0,
+                "sales": 0,
+                "net": 0,
+                "trainingScope": "all",
+                "trainingBaseline": 0,
+                "learning": 0,
+                "completed": null,
+                "proof": null
+              }
+            },
+            "history": [],
+            "declined": []
+          },
+          "annexations": 21,
+          "valid": {
+            "ok": true,
+            "issues": [],
+            "total": 15493517.000000825,
+            "population": 1375,
+            "day": 26
+          },
+          "money": 15493517.000000825,
+          "goodsError": 6.366462912410498e-12,
+          "bytes": 773245,
+          "pending": false,
+          "active": false
+        },
+        {
+          "seconds": 63.11,
+          "day": 111,
+          "people": 1375,
+          "living": 1354,
+          "buildings": 110,
+          "households": 68,
+          "cargo": 134,
+          "contracts": 1,
+          "routes": 2,
+          "fares": 187.85000000000034,
+          "providers": 1,
+          "malls": 1,
+          "projects": 1,
+          "civic": {
+            "version": 1,
+            "serial": 3,
+            "lastDay": 111,
+            "active": {
+              "food": {
+                "id": 1,
+                "kind": "food",
+                "branch": "bridge",
+                "target": 1,
+                "started": 2,
+                "lastDay": 111,
+                "status": "active",
+                "orders": [],
+                "arrived": 0,
+                "firm": null,
+                "building": null,
+                "output": 0,
+                "sales": 0,
+                "net": 0,
+                "trainingScope": "all",
+                "trainingBaseline": 0,
+                "learning": 0,
+                "completed": null,
+                "proof": null
+              },
+              "skills": {
+                "id": 2,
+                "kind": "skills",
+                "branch": "private",
+                "target": 10,
+                "started": 2,
+                "lastDay": 111,
+                "status": "active",
+                "orders": [],
+                "arrived": 0,
+                "firm": null,
+                "building": null,
+                "output": 0,
+                "sales": 0,
+                "net": 0,
+                "trainingScope": "private",
+                "trainingBaseline": 0,
+                "learning": 137.19999999999996,
+                "completed": null,
+                "proof": null
+              },
+              "district": {
+                "id": 3,
+                "kind": "district",
+                "branch": "industry",
+                "target": "county-ridge",
+                "started": 2,
+                "lastDay": 111,
+                "status": "active",
+                "orders": [],
+                "arrived": 0,
+                "firm": null,
+                "building": null,
+                "output": 0,
+                "sales": 0,
+                "net": 0,
+                "trainingScope": "all",
+                "trainingBaseline": 0,
+                "learning": 0,
+                "completed": null,
+                "proof": null
+              }
+            },
+            "history": [],
+            "declined": []
+          },
+          "annexations": 21,
+          "valid": {
+            "ok": true,
+            "issues": [],
+            "total": 15493517.000004956,
+            "population": 1354,
+            "day": 111
+          },
+          "money": 15493517.000004956,
+          "goodsError": 5.820766091346741e-11,
+          "bytes": 825905,
+          "pending": false,
+          "active": false
+        }
+      ],
+      "replayOperations": [
+        {
+          "index": 2,
+          "seconds": 6.422,
+          "op": "replay",
+          "details": {
+            "days": 1,
+            "exact": true
+          }
+        },
+        {
+          "index": 13,
+          "seconds": 29.714,
+          "op": "replay",
+          "details": {
+            "days": 2,
+            "exact": true
+          }
+        },
+        {
+          "index": 16,
+          "seconds": 33.066,
+          "op": "replay",
+          "details": {
+            "days": 3,
+            "exact": true
+          }
+        },
+        {
+          "index": 24,
+          "seconds": 41.689,
+          "op": "replay",
+          "details": {
+            "days": 12,
+            "exact": true
+          }
+        },
+        {
+          "index": 31,
+          "seconds": 55.137,
+          "op": "replay",
+          "details": {
+            "days": 9,
+            "exact": true
+          }
+        }
+      ]
+    },
+    "combined120": {
+      "source_sha256": "d90bb509173a803b75c3cdc432fea57ce2f1e2abbcb13b8886c56d8feaffe515",
+      "seed": 8142026,
+      "status": "passed",
+      "elapsedSeconds": 122.7,
+      "operations": 77,
+      "operationCounts": {
+        "bootstrap": 1,
+        "step": 20,
+        "replay": 11,
+        "import": 8,
+        "adoption": 5,
+        "quota": 2,
+        "corruptStore": 4,
+        "bothDenied": 1,
+        "stale": 2,
+        "burst": 7,
+        "sameDay": 7,
+        "cargo": 2,
+        "cold": 6,
+        "finalCold": 1
+      },
+      "coldReloads": 22,
+      "errors": [],
+      "replayFailures": [],
+      "samples": [
+        {
+          "seconds": 6.12,
+          "day": 11,
+          "people": 1375,
+          "living": 1375,
+          "buildings": 108,
+          "households": 67,
+          "cargo": 153,
+          "contracts": 1,
+          "routes": 2,
+          "fares": 9.750000000000002,
+          "providers": 0,
+          "malls": 0,
+          "projects": 3,
+          "civic": {
+            "version": 1,
+            "serial": 3,
+            "lastDay": 11,
+            "active": {
+              "food": {
+                "id": 1,
+                "kind": "food",
+                "branch": "bridge",
+                "target": 1,
+                "started": 2,
+                "lastDay": 11,
+                "status": "active",
+                "orders": [],
+                "arrived": 0,
+                "firm": null,
+                "building": null,
+                "output": 0,
+                "sales": 0,
+                "net": 0,
+                "trainingScope": "all",
+                "trainingBaseline": 0,
+                "learning": 0,
+                "completed": null,
+                "proof": null
+              },
+              "skills": {
+                "id": 2,
+                "kind": "skills",
+                "branch": "private",
+                "target": 10,
+                "started": 2,
+                "lastDay": 11,
+                "status": "active",
+                "orders": [],
+                "arrived": 0,
+                "firm": null,
+                "building": null,
+                "output": 0,
+                "sales": 0,
+                "net": 0,
+                "trainingScope": "private",
+                "trainingBaseline": 0,
+                "learning": 0,
+                "completed": null,
+                "proof": null
+              },
+              "district": {
+                "id": 3,
+                "kind": "district",
+                "branch": "industry",
+                "target": "county-ridge",
+                "started": 2,
+                "lastDay": 11,
+                "status": "active",
+                "orders": [],
+                "arrived": 0,
+                "firm": null,
+                "building": null,
+                "output": 0,
+                "sales": 0,
+                "net": 0,
+                "trainingScope": "all",
+                "trainingBaseline": 0,
+                "learning": 0,
+                "completed": null,
+                "proof": null
+              }
+            },
+            "history": [],
+            "declined": []
+          },
+          "annexations": 21,
+          "valid": {
+            "ok": true,
+            "issues": [],
+            "total": 15493517.00000031,
+            "population": 1375,
+            "day": 11
+          },
+          "money": 15493517.00000031,
+          "goodsError": 1.8189894035458565e-12,
+          "bytes": 745645,
+          "pending": false,
+          "active": false
+        },
+        {
+          "seconds": 30.8,
+          "day": 12,
+          "people": 1375,
+          "living": 1375,
+          "buildings": 108,
+          "households": 67,
+          "cargo": 165,
+          "contracts": 1,
+          "routes": 2,
+          "fares": 12.350000000000003,
+          "providers": 0,
+          "malls": 0,
+          "projects": 3,
+          "civic": {
+            "version": 1,
+            "serial": 3,
+            "lastDay": 12,
+            "active": {
+              "food": {
+                "id": 1,
+                "kind": "food",
+                "branch": "bridge",
+                "target": 1,
+                "started": 2,
+                "lastDay": 12,
+                "status": "active",
+                "orders": [],
+                "arrived": 0,
+                "firm": null,
+                "building": null,
+                "output": 0,
+                "sales": 0,
+                "net": 0,
+                "trainingScope": "all",
+                "trainingBaseline": 0,
+                "learning": 0,
+                "completed": null,
+                "proof": null
+              },
+              "skills": {
+                "id": 2,
+                "kind": "skills",
+                "branch": "private",
+                "target": 10,
+                "started": 2,
+                "lastDay": 12,
+                "status": "active",
+                "orders": [],
+                "arrived": 0,
+                "firm": null,
+                "building": null,
+                "output": 0,
+                "sales": 0,
+                "net": 0,
+                "trainingScope": "private",
+                "trainingBaseline": 0,
+                "learning": 0,
+                "completed": null,
+                "proof": null
+              },
+              "district": {
+                "id": 3,
+                "kind": "district",
+                "branch": "industry",
+                "target": "county-ridge",
+                "started": 2,
+                "lastDay": 12,
+                "status": "active",
+                "orders": [],
+                "arrived": 0,
+                "firm": null,
+                "building": null,
+                "output": 0,
+                "sales": 0,
+                "net": 0,
+                "trainingScope": "all",
+                "trainingBaseline": 0,
+                "learning": 0,
+                "completed": null,
+                "proof": null
+              }
+            },
+            "history": [],
+            "declined": []
+          },
+          "annexations": 21,
+          "valid": {
+            "ok": true,
+            "issues": [],
+            "total": 15493517.000000346,
+            "population": 1375,
+            "day": 12
+          },
+          "money": 15493517.000000346,
+          "goodsError": 1.8189894035458565e-12,
+          "bytes": 755515,
+          "pending": false,
+          "active": false
+        },
+        {
+          "seconds": 62.21,
+          "day": 117,
+          "people": 1375,
+          "living": 1354,
+          "buildings": 110,
+          "households": 68,
+          "cargo": 85,
+          "contracts": 1,
+          "routes": 2,
+          "fares": 202.15000000000046,
+          "providers": 1,
+          "malls": 1,
+          "projects": 1,
+          "civic": {
+            "version": 1,
+            "serial": 3,
+            "lastDay": 117,
+            "active": {
+              "food": {
+                "id": 1,
+                "kind": "food",
+                "branch": "bridge",
+                "target": 1,
+                "started": 2,
+                "lastDay": 117,
+                "status": "active",
+                "orders": [],
+                "arrived": 0,
+                "firm": null,
+                "building": null,
+                "output": 0,
+                "sales": 0,
+                "net": 0,
+                "trainingScope": "all",
+                "trainingBaseline": 0,
+                "learning": 0,
+                "completed": null,
+                "proof": null
+              },
+              "skills": {
+                "id": 2,
+                "kind": "skills",
+                "branch": "private",
+                "target": 10,
+                "started": 2,
+                "lastDay": 117,
+                "status": "active",
+                "orders": [],
+                "arrived": 0,
+                "firm": null,
+                "building": null,
+                "output": 0,
+                "sales": 0,
+                "net": 0,
+                "trainingScope": "private",
+                "trainingBaseline": 0,
+                "learning": 154.00000000000003,
+                "completed": null,
+                "proof": null
+              },
+              "district": {
+                "id": 3,
+                "kind": "district",
+                "branch": "industry",
+                "target": "county-ridge",
+                "started": 2,
+                "lastDay": 117,
+                "status": "active",
+                "orders": [],
+                "arrived": 0,
+                "firm": null,
+                "building": null,
+                "output": 0,
+                "sales": 0,
+                "net": 0,
+                "trainingScope": "all",
+                "trainingBaseline": 0,
+                "learning": 0,
+                "completed": null,
+                "proof": null
+              }
+            },
+            "history": [],
+            "declined": []
+          },
+          "annexations": 21,
+          "valid": {
+            "ok": true,
+            "issues": [],
+            "total": 15493517.00000517,
+            "population": 1354,
+            "day": 117
+          },
+          "money": 15493517.00000517,
+          "goodsError": 6.184563972055912e-11,
+          "bytes": 791597,
+          "pending": false,
+          "active": false
+        },
+        {
+          "seconds": 90.79,
+          "day": 159,
+          "people": 1375,
+          "living": 1354,
+          "buildings": 110,
+          "households": 68,
+          "cargo": 104,
+          "contracts": 1,
+          "routes": 2,
+          "fares": 365.95000000000186,
+          "providers": 1,
+          "malls": 1,
+          "projects": 0,
+          "civic": {
+            "version": 1,
+            "serial": 3,
+            "lastDay": 159,
+            "active": {
+              "food": {
+                "id": 1,
+                "kind": "food",
+                "branch": "bridge",
+                "target": 1,
+                "started": 2,
+                "lastDay": 159,
+                "status": "active",
+                "orders": [],
+                "arrived": 0,
+                "firm": null,
+                "building": null,
+                "output": 0,
+                "sales": 0,
+                "net": 0,
+                "trainingScope": "all",
+                "trainingBaseline": 0,
+                "learning": 0,
+                "completed": null,
+                "proof": null
+              },
+              "skills": {
+                "id": 2,
+                "kind": "skills",
+                "branch": "private",
+                "target": 10,
+                "started": 2,
+                "lastDay": 159,
+                "status": "active",
+                "orders": [],
+                "arrived": 0,
+                "firm": null,
+                "building": null,
+                "output": 0,
+                "sales": 0,
+                "net": 0,
+                "trainingScope": "private",
+                "trainingBaseline": 0,
+                "learning": 271.6000000000005,
+                "completed": null,
+                "proof": null
+              },
+              "district": {
+                "id": 3,
+                "kind": "district",
+                "branch": "industry",
+                "target": "county-ridge",
+                "started": 2,
+                "lastDay": 159,
+                "status": "active",
+                "orders": [],
+                "arrived": 0,
+                "firm": null,
+                "building": null,
+                "output": 0,
+                "sales": 0,
+                "net": 0,
+                "trainingScope": "all",
+                "trainingBaseline": 0,
+                "learning": 0,
+                "completed": null,
+                "proof": null
+              }
+            },
+            "history": [],
+            "declined": []
+          },
+          "annexations": 21,
+          "valid": {
+            "ok": true,
+            "issues": [],
+            "total": 15493517.000006316,
+            "population": 1354,
+            "day": 159
+          },
+          "money": 15493517.000006316,
+          "goodsError": 6.912159733474255e-11,
+          "bytes": 817982,
+          "pending": false,
+          "active": false
+        },
+        {
+          "seconds": 122.7,
+          "day": 225,
+          "people": 1375,
+          "living": 1333,
+          "buildings": 111,
+          "households": 68,
+          "cargo": 50,
+          "contracts": 1,
+          "routes": 2,
+          "fares": 583.0500000000006,
+          "providers": 1,
+          "malls": 1,
+          "projects": 1,
+          "civic": {
+            "version": 1,
+            "serial": 3,
+            "lastDay": 225,
+            "active": {
+              "food": {
+                "id": 1,
+                "kind": "food",
+                "branch": "bridge",
+                "target": 1,
+                "started": 2,
+                "lastDay": 225,
+                "status": "active",
+                "orders": [],
+                "arrived": 0,
+                "firm": null,
+                "building": null,
+                "output": 0,
+                "sales": 0,
+                "net": 0,
+                "trainingScope": "all",
+                "trainingBaseline": 0,
+                "learning": 0,
+                "completed": null,
+                "proof": null
+              },
+              "skills": {
+                "id": 2,
+                "kind": "skills",
+                "branch": "private",
+                "target": 10,
+                "started": 2,
+                "lastDay": 175,
+                "status": "complete",
+                "orders": [],
+                "arrived": 0,
+                "firm": null,
+                "building": null,
+                "output": 0,
+                "sales": 0,
+                "net": 0,
+                "trainingScope": "private",
+                "trainingBaseline": 0,
+                "learning": 316.40000000000066,
+                "completed": 175,
+                "proof": "Target family 316.4 paid learner-days \u00b7 4 fee-funded terms completed"
+              },
+              "district": {
+                "id": 3,
+                "kind": "district",
+                "branch": "industry",
+                "target": "county-ridge",
+                "started": 2,
+                "lastDay": 225,
+                "status": "active",
+                "orders": [],
+                "arrived": 0,
+                "firm": null,
+                "building": null,
+                "output": 0,
+                "sales": 0,
+                "net": 0,
+                "trainingScope": "all",
+                "trainingBaseline": 0,
+                "learning": 0,
+                "completed": null,
+                "proof": null
+              }
+            },
+            "history": [],
+            "declined": []
+          },
+          "annexations": 21,
+          "valid": {
+            "ok": true,
+            "issues": [],
+            "total": 15493517.000008069,
+            "population": 1333,
+            "day": 225
+          },
+          "money": 15493517.000008069,
+          "goodsError": 1.0913936421275139e-10,
+          "bytes": 808544,
+          "pending": false,
+          "active": false
+        }
+      ],
+      "replayOperations": [
+        {
+          "index": 2,
+          "seconds": 7.036,
+          "op": "replay",
+          "details": {
+            "days": 1,
+            "exact": true
+          }
+        },
+        {
+          "index": 13,
+          "seconds": 31.991,
+          "op": "replay",
+          "details": {
+            "days": 2,
+            "exact": true
+          }
+        },
+        {
+          "index": 16,
+          "seconds": 35.017,
+          "op": "replay",
+          "details": {
+            "days": 3,
+            "exact": true
+          }
+        },
+        {
+          "index": 24,
+          "seconds": 43.36,
+          "op": "replay",
+          "details": {
+            "days": 12,
+            "exact": true
+          }
+        },
+        {
+          "index": 31,
+          "seconds": 53.668,
+          "op": "replay",
+          "details": {
+            "days": 9,
+            "exact": true
+          }
+        },
+        {
+          "index": 39,
+          "seconds": 67.731,
+          "op": "replay",
+          "details": {
+            "days": 5,
+            "exact": true
+          }
+        },
+        {
+          "index": 42,
+          "seconds": 71.838,
+          "op": "replay",
+          "details": {
+            "days": 12,
+            "exact": true
+          }
+        },
+        {
+          "index": 44,
+          "seconds": 73.551,
+          "op": "replay",
+          "details": {
+            "days": 3,
+            "exact": true
+          }
+        },
+        {
+          "index": 46,
+          "seconds": 77.38,
+          "op": "replay",
+          "details": {
+            "days": 7,
+            "exact": true
+          }
+        },
+        {
+          "index": 56,
+          "seconds": 94.251,
+          "op": "replay",
+          "details": {
+            "days": 1,
+            "exact": true
+          }
+        },
+        {
+          "index": 59,
+          "seconds": 97.675,
+          "op": "replay",
+          "details": {
+            "days": 11,
+            "exact": true
+          }
+        }
+      ]
+    }
+  },
+  "gate_logs": {
+    "save-cache": "PASS exact three-day continuation {'day': 31, 'staffing': {'firm': 0, 'oldJobs': 2, 'newJobs': 3, 'actualPlanEnterprise': True}, 'exact': True, 'changed': [], 'rentChanges': [], 'rngA': 633198347, 'rngB': 633198347, 'moneyDrift': -5.4016709327697754e-08, 'sourceDoesNotDependOnPresentation': True}\n",
+    "public-life": "PASS same real site square/warehouse alternatives, exact costs, named actual property, cancel, continued settlement, visits, save/load and invalid coordinates\n",
+    "suppliers": "Compare other suppliers and commodities \u00b7 including food\nRegional buyer \nUpland Cooperative\nGreyhaven Port\nIronridge Works\nCommodity the buyer seeks \ngrain\nflour\nfood\nLocal producer \nBaker & Sons Ltd.\nBaker & Sons Trading\nBaker & Sons Works\nVale Net & Line\n\nThe forecast supports fewer than ten additional units after retained stock, existing promises, handling and freight cash.\n\nHeld / retained units\n80 / 104\nAlready promised units\n0\nForecast / suggested units\n0 / 0\nFreight cash available\n$23,605\n\nBaker & Sons Ltd. \u2192 Greyhaven Port. Quote $3.81/unit; freight $0.20/unit. Suggested-size inventory margin $0 excludes future payroll, tax and disruption. 0 recent output/day, 21 usable dispatch days; standard deadline day 31. Food and other working reserves are retained. Priority dispatch can reduce stock for local buyers. Estimates assume current inputs, attendance, cash and routes persist.\n\nReview this supplier\u2019s food promise\nCompare other suppliers and commodities \u00b7 including food\nRegional buyer \nUpland Cooperative\nGreyhaven Port\nIronridge Works\nCommodity the buyer seeks \ngrain\nflour\nfood\nLocal producer \nBaker & Sons Ltd.\nBaker & Sons Trading\nBaker & Sons Works\nVale Net & Line\n\nA forecast-sized review is available; future output and arrival remain uncertain.\n\nHeld / retained units\n496.08 / 112.31\nAlready promised units\n0\nForecast / suggested units\n2,520 / 200\nFreight cash available\n$22,870\n\nBaker & Sons Ltd. \u2192 Greyhaven Port. Quote $3.81/unit; freight $0.20/unit. Suggested-size inventory margin $416 excludes future payroll, tax and disruption. 129.16 recent output/day, 21 usable dispatch days; standard deadline day 56. Food and other working reserves are retained. Priority dispatch can reduce stock for local buyers. Estimates assume current inputs, attendance, cash and routes persist.\n\nReview this supplier\u2019s food promise\nPASS market/commodity/producer selection, real food reserve/forecast, cancel, stale-town review rejection and actual forecast-sized food commitment\n",
+    "public-art": "[{'kind': 'square', 'actors': 1, 'stable': True, 'far': 0, 'removed': True, 'unchanged': True, 'bytes': 5484544, 'cacheEntries': 1, 'width': 112, 'height': 172}, {'kind': 'warehouse', 'actors': 0, 'stable': True, 'far': 0, 'removed': True, 'unchanged': True, 'bytes': 10387200, 'cacheEntries': 1, 'width': 184, 'height': 208}]\n",
+    "retail": "{\n  \"before\": {\n    \"initialLegacyFree\": 9,\n    \"initialGenuineJobseekers\": 0,\n    \"initial\": {\n      \"id\": 88,\n      \"staff\": [],\n      \"jobs\": 1,\n      \"wage\": 28,\n      \"cash\": 15389.033429456756,\n      \"net\": -5.886666666666666,\n      \"payroll\": 0,\n      \"price\": 3.8248279387175637\n    },\n    \"nextDay\": {\n      \"id\": 88,\n      \"staff\": [],\n      \"jobs\": 1,\n      \"wage\": 28,\n      \"cash\": 15383.146762790091,\n      \"net\": -5.886666666666666,\n      \"payroll\": 0,\n      \"price\": 3.8248279387175637\n    },\n    \"cashError\": 2.60770320892334e-08,\n    \"valid\": {\n      \"ok\": true,\n      \"issues\": [],\n      \"total\": 15493517.000001818,\n      \"population\": 868,\n      \"day\": 1082\n    }\n  },\n  \"after\": {\n    \"initialLegacyFree\": 9,\n    \"initialGenuineJobseekers\": 0,\n    \"initial\": {\n      \"id\": 88,\n      \"staff\": [],\n      \"jobs\": 1,\n      \"wage\": 28,\n      \"cash\": 15389.033429456756,\n      \"net\": -5.886666666666666,\n      \"payroll\": 0,\n      \"price\": 3.8248279387175637\n    },\n    \"nextDay\": {\n      \"id\": 88,\n      \"staff\": [\n        623\n      ],\n      \"jobs\": 1,\n      \"wage\": 32.62,\n      \"cash\": 15651.434934427936,\n      \"net\": 24.3382301086621,\n      \"payroll\": 32.62,\n      \"price\": 3.8293151137175636\n    },\n    \"cashError\": 2.7939677238464355e-08,\n    \"valid\": {\n      \"ok\": true,\n      \"issues\": [],\n      \"total\": 15493517.00000182,\n      \"population\": 868,\n      \"day\": 1082\n    },\n    \"day90\": {\n      \"id\": 88,\n      \"staff\": [\n        623,\n        883\n      ],\n      \"jobs\": 2,\n      \"wage\": 32.35982183668192,\n      \"cash\": 19394.975297106084,\n      \"net\": 55.32289737199604,\n      \"payroll\": 64.71964367336383,\n      \"price\": 3.362222554791972\n    }\n  }\n}\n",
+    "reservations": "PASS actual reserved-home authorisation survives a year of normal immigration, household formation, private investment and save restore\n",
+    "boundaries": "PASS real planning control protects every site tile, preserving existing property and conserved survey payment\n",
+    "composite": "PASS composite records and atomic faults {'grid': 128, 'people': 1375, 'routes': 2, 'settledTickets': 1, 'fares': 7.15, 'cargo': 18, 'providerEscrow': 6000, 'mallEscrow': 28000, 'cashConserved': True, 'receiptsPreserved': True, 'faults': {'grid': 128, 'schema': 8, 'recordsRejected': ['missingMember', 'duplicateMember', 'householdMismatch', 'missingHome', 'tileUsedAsHomeId', 'missingFirmBuilding', 'negativeStock', 'invalidStock', 'unknownStock', 'negativeDeposit', 'missingDepositBank', 'malformedBank', 'malformedLoan', 'negativeLoanBank', 'duplicateBuildingId', 'exhaustedIdCounter', 'duplicateHomeId', 'orphanWorker', 'duplicateWorker', 'missingOwner', 'missingTitleHolder', 'truncatedTiles', 'malformedProject', 'futureSchema', 'invalidDay'], 'truncatedRejected': 4, 'callerIndependent': True, 'atomicRNGAndTimeline': True}}\n",
+    "projections": "PASS direct projections settlement 42 [{'pairs': 900, 'rankings': [483, 483, 483], 'sites': 50, 'exclusions': 3, 'comparisonMs': 197.29999999701977}, {'pairs': 900, 'rankings': [483, 483, 483], 'sites': 50, 'exclusions': 3, 'comparisonMs': 269.79999999701977}, {'pairs': 900, 'rankings': [483, 483, 483], 'sites': 50, 'exclusions': 3, 'comparisonMs': 175.20000000298023}, {'pairs': 900, 'rankings': [483, 483, 483], 'sites': 50, 'exclusions': 3, 'comparisonMs': 141.20000000298023}]\nPASS direct projections settlement 101 [{'pairs': 900, 'rankings': [486, 486, 486], 'sites': 50, 'exclusions': 3, 'comparisonMs': 174.40000000596046}, {'pairs': 900, 'rankings': [486, 486, 486], 'sites': 50, 'exclusions': 3, 'comparisonMs': 151.79999999701977}, {'pairs': 900, 'rankings': [486, 486, 486], 'sites': 50, 'exclusions': 3, 'comparisonMs': 158.5}, {'pairs': 900, 'rankings': [486, 486, 486], 'sites': 50, 'exclusions': 3, 'comparisonMs': 104}]\nPASS direct projections hardtimes 909 [{'pairs': 900, 'rankings': [487, 487, 487], 'sites': 50, 'exclusions': 3, 'comparisonMs': 120.1000000089407}, {'pairs': 900, 'rankings': [487, 487, 487], 'sites': 50, 'exclusions': 3, 'comparisonMs': 128.20000000298023}, {'pairs': 900, 'rankings': [487, 487, 487], 'sites': 50, 'exclusions': 3, 'comparisonMs': 80}, {'pairs': 900, 'rankings': [487, 487, 487], 'sites': 50, 'exclusions': 3, 'comparisonMs': 92.5}]\nPASS direct projections regional 42 [{'pairs': 900, 'rankings': [322, 322, 322], 'sites': 50, 'exclusions': 3, 'comparisonMs': 286.59999999403954}, {'pairs': 900, 'rankings': [322, 322, 322], 'sites': 50, 'exclusions': 3, 'comparisonMs': 277.79999999701977}, {'pairs': 900, 'rankings': [322, 322, 322], 'sites': 50, 'exclusions': 3, 'comparisonMs': 328.8999999910593}, {'pairs': 900, 'rankings': [322, 322, 322], 'sites': 50, 'exclusions': 3, 'comparisonMs': 169.6000000089407}]\nPASS exact proposal/RNG/accounts/goods/providers/projects histories under changing staffing, fees, public competition, vouchers and household budgets\n",
+    "core": "source_sha256 \"d90bb509173a803b75c3cdc432fea57ce2f1e2abbcb13b8886c56d8feaffe515\"\ndeterminism_and_continuation {\"sameSeed\": true, \"renderIndependent\": true, \"continuedDays\": 120, \"valid\": {\"ok\": true, \"issues\": [], \"total\": 15489571.999995582, \"population\": 188, \"day\": 301}}\nmalformed_save_atomicity {\"investorRejected\": true, \"cargoRejected\": true, \"futureRejected\": true, \"townPreserved\": true}\nreplicated_zoning [{\"seed\": 42, \"zone\": 0, \"population\": 210, \"homes\": 16, \"firms\": 7, \"privateSpend\": 486062, \"moneyDelta\": -1.6868114471435547e-05, \"ms\": 4824.5999999940395}, {\"seed\": 42, \"zone\": 100, \"population\": 182, \"homes\": 0, \"firms\": 1, \"privateSpend\": 0, \"moneyDelta\": -1.1816620826721191e-05, \"ms\": 3846.0999999940395}, {\"seed\": 101, \"zone\": 0, \"population\": 222, \"homes\": 21, \"firms\": 7, \"privateSpend\": 560318, \"moneyDelta\": -1.2537464499473572e-05, \"ms\": 4992.5}, {\"seed\": 101, \"zone\": 100, \"population\": 186, \"homes\": 0, \"firms\": 1, \"privateSpend\": 0, \"moneyDelta\": -4.675239324569702e-06, \"ms\": 3663.2999999970198}, {\"seed\": 909, \"zone\": 0, \"population\": 211, \"homes\": 19, \"firms\": 5, \"privateSpend\": 507601, \"moneyDelta\": -1.5651807188987732e-05, \"ms\": 4333.0999999940395}, {\"seed\": 909, \"zone\": 100, \"population\": 187, \"homes\": 0, \"firms\": 1, \"privateSpend\": 0, \"moneyDelta\": -1.2073665857315063e-05, \"ms\": 3118.2000000029802}]\ncargo_ownership {\"consignments\": 6, \"sampledUnits\": 166.3792513597068, \"remaining\": true, \"delayed\": 1, \"cashConserved\": true}\nlegacy_56_migration {\"v\": {\"ok\": true, \"issues\": [], \"total\": 15443882, \"population\": 169, \"day\": 1}, \"after\": {\"ok\": true, \"issues\": [], \"total\": 15443881.99999906, \"population\": 169, \"day\": 31}, \"schema\": 8}\ntrue_pause {\"identicalScreenshots\": true, \"milliseconds\": 500}\ntraffic_progress {\"seconds\": 1600, \"maximumWait\": 0.9999999999999999, \"peak\": 21, \"valid\": true}\nlong_run_endurance []\nbrowser_errors []\nPASS release gates\n",
+    "webview-api": "PASS rendering, charts, policy enactment, development and Council focus without Array.at/Object.hasOwn; not a full older-engine certification\n",
+    "webview-layout": "PASS visible nonzero map and usable drawer without dvh/inset [{'viewport': [640, 360], 'width': 640, 'height': 215, 'pixels': 137600}, {'viewport': [844, 390], 'width': 844, 'height': 279, 'pixels': 235476}, {'viewport': [360, 640], 'width': 360, 'height': 422, 'pixels': 151920}]\n",
+    "controls-http": "PASS touch placement/cost, inspection, pinch without construction, staged policy, speed slider and nonblocking election\n",
+    "model-oracle": "PASS regional 42 True 12 exact monthly checkpoints [{'times': [0, 0.09999999403953552, 0, 0, 0], 'answers': ['A private service site is already under construction.', 'A private service site is already under construction.', 'A private service site is already under construction.', 'A private service site is already under construction.', 'A private service site is already under construction.']}, {'times': [0, 0, 0, 0, 0], 'answers': ['A private service site is already under construction.', 'A private service site is already under construction.', 'A private service site is already under construction.', 'A private service site is already under construction.', 'A private service site is already under construction.']}]\nPASS exact proposal/RNG/accounts/goods/providers/projects histories under changing staffing, fees, public competition, vouchers and household budgets\n",
+    "live-profile": "near speed 61.8 rafP99 100 components [('refreshMusic', 0), ('recompute', 199), ('archivePayload', 0), ('persistSnapshot', 0), ('save', 0), ('updateHeader', 41), ('renderPanel', 0), ('trafficUpdate', 17), ('draw', 700), ('hydrateSave', 0), ('dailyEconomy', 3789), ('privateServiceInvestmentDay', 107), ('districtProgrammeDay', 0), ('urbanEvolutionDay', 47), ('tick', 4948)]\nfar speed 63.2 rafP99 83.2 components [('refreshMusic', 0), ('recompute', 168), ('archivePayload', 0), ('persistSnapshot', 0), ('save', 0), ('updateHeader', 33), ('renderPanel', 0), ('trafficUpdate', 0), ('draw', 423), ('hydrateSave', 0), ('dailyEconomy', 3442), ('privateServiceInvestmentDay', 111), ('districtProgrammeDay', 0), ('urbanEvolutionDay', 41), ('tick', 4720)]\nPASS bounded source-bound whole-session profile urban-public-life\n"
+  },
+  "current_media": {
+    "reports/integration/8-public-life-night.png": "45cd5b9170a11365a10712b4578013af50e497b0184e1c2a6f613f4fcc0929c5",
+    "reports/integration/8-public-life-agenda.png": "0b0fdbd361b911f6848faadea874e9a3bd565d7c490327be852c35a294024989",
+    "reports/integration/8-supplier-food.png": "c71b42e975a2d4cf98c20decd996d10d08c27ac5e52c3fa85fd4018a8c97b3b1"
+  },
+  "limitations": [
+    "No Android device performance claim",
+    "Partial older-WebView probes only",
+    "Short host frame/input sample; touch tails remain",
+    "Scalable service budgets and migration/legacy tenancy changes not yet integrated",
+    "No final APK or release claim"
+  ]
+}

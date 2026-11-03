@@ -1,0 +1,16 @@
+{
+  "source_sha256": "ad8161fcba0ea7c01ec5db58002025e5d2eb6a5ecd4e1d8d043de1e2d50fc29e",
+  "workerRef": null,
+  "exactWorkerHelperInjected": false,
+  "helper_sha256": null,
+  "result": {
+    "gridFrom": 80,
+    "gridTo": 128,
+    "tracksAndBusStopsRemapped": true,
+    "institutionIdsAndOffsetsPreserved": true,
+    "settledFarePreserved": true,
+    "inputIndependent": true,
+    "liveTownUnchanged": true,
+    "malformedImportAtomic": true
+  }
+}

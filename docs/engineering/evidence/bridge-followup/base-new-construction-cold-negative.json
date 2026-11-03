@@ -1,0 +1,94 @@
+{
+  "source_sha256": "346992b501f8622b007dddc6bf75baadbf850f6211b8989c6c3ccfcdefc98207",
+  "exactCanonical": false,
+  "trafficBefore": 4,
+  "trafficAfter": 4,
+  "legacyTradeDefaultStable": null,
+  "differences": [
+    {
+      "path": ".buildings.102.baseValue",
+      "missingBefore": true,
+      "missingAfter": false
+    },
+    {
+      "path": ".buildings.102.title",
+      "missingBefore": true,
+      "missingAfter": false
+    },
+    {
+      "path": ".buildings.103.baseValue",
+      "missingBefore": true,
+      "missingAfter": false
+    },
+    {
+      "path": ".stats.preparedness",
+      "before": 76,
+      "after": 75
+    },
+    {
+      "path": ".stats.approval",
+      "missingBefore": true,
+      "missingAfter": false
+    },
+    {
+      "path": ".firms.26.workingCapitalRaised",
+      "missingBefore": true,
+      "missingAfter": false
+    },
+    {
+      "path": ".firms.26.unitCost",
+      "missingBefore": true,
+      "missingAfter": false
+    },
+    {
+      "path": ".firms.26.marginTrend",
+      "missingBefore": true,
+      "missingAfter": false
+    },
+    {
+      "path": ".firms.26.ask",
+      "missingBefore": true,
+      "missingAfter": false
+    },
+    {
+      "path": ".firms.26.lossDays",
+      "missingBefore": true,
+      "missingAfter": false
+    },
+    {
+      "path": ".firms.26.creditScore",
+      "missingBefore": true,
+      "missingAfter": false
+    },
+    {
+      "path": ".firms.26.scale",
+      "missingBefore": true,
+      "missingAfter": false
+    },
+    {
+      "path": ".firms.26.revenueTrend",
+      "missingBefore": true,
+      "missingAfter": false
+    },
+    {
+      "path": ".firms.26.salesTrend",
+      "missingBefore": true,
+      "missingAfter": false
+    },
+    {
+      "path": ".firms.26.operating",
+      "missingBefore": true,
+      "missingAfter": false
+    },
+    {
+      "path": ".households.67.creditScore",
+      "missingBefore": true,
+      "missingAfter": false
+    },
+    {
+      "path": ".households.67.deposits",
+      "missingBefore": true,
+      "missingAfter": false
+    }
+  ]
+}

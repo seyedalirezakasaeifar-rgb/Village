@@ -1,0 +1,107 @@
+{
+  "base": "01eeda3d2ff09822b9422721f75e97fabbc9958a",
+  "runtimeCommit": "5b55df54eee34a66739c19e4500ec616257105a3",
+  "gameBundleSHA256": "9a0f9837671de4f2b4e0177a43a60c852bb5baa2cd09643d360cfc3f2d123c58",
+  "files": [
+    {
+      "path": "assets/game.js",
+      "sha256": "9a0f9837671de4f2b4e0177a43a60c852bb5baa2cd09643d360cfc3f2d123c58"
+    },
+    {
+      "path": "assets/index.html",
+      "sha256": "8e40493dcad4a40666cc0d3b3bf508b6e7bf23a5ce951605dff7dd5f0ce992b0"
+    },
+    {
+      "path": "assets/newfoundland-families.js",
+      "sha256": "207d24e6078e19b0fe56a4a30d16f0e6f5552bf7baf00b14f3b2f88bf1d0d757"
+    },
+    {
+      "path": "assets/newfoundland-kit.js",
+      "sha256": "79be3c5956bbcb3b9db5a9c84ce10be46892cee568e44e864b92d3ba926fae2c"
+    },
+    {
+      "path": "assets/newfoundland-specialized.js",
+      "sha256": "6941345479806d6bf28d444b1248e23d4194929cbaa2dc19282da6acaafaba78"
+    },
+    {
+      "path": "assets/newfoundland-workplaces.js",
+      "sha256": "9bb59f5ab1347328c2afb1818e29701e00b1da1bef649569f3b55dbc20bd619a"
+    },
+    {
+      "path": "assets/vendor/THREE-LICENSE.txt",
+      "sha256": "852e0e8699169bf9f6fdc6bda3e682d078dcbc738b5d33e74df594721bff271d"
+    },
+    {
+      "path": "assets/vendor/three-0.160.1.module.js",
+      "sha256": "76dea8151bc9352aef3528b4262e249b2604f62543828328db978d060d61a495"
+    },
+    {
+      "path": "assets/webgl-actors.js",
+      "sha256": "e7f761691a2edcc9ddb7937dad3d50464fb3ff73129ac8b22e418cbe1fb094cb"
+    },
+    {
+      "path": "assets/webgl-bridges.js",
+      "sha256": "74942b383da346235286d096f7e376a9c5b378993b135586c5df780c46a60ace"
+    },
+    {
+      "path": "assets/webgl-economy-facades.js",
+      "sha256": "a9eb09d198d19d3b6f268ee233949d7e63521eabb36c7e41d7c636a1805acacd"
+    },
+    {
+      "path": "assets/webgl-entry.js",
+      "sha256": "6be8f01b0726f27cbd472ef0d11f1e1a4bca04a3c433292538a23b40d5d72d14"
+    },
+    {
+      "path": "assets/webgl-map-overlay.js",
+      "sha256": "d4df7a9a75c7da788f87c9f22ad4e97e8f192a359b8103ef576045335f318cb2"
+    },
+    {
+      "path": "assets/webgl-materials.js",
+      "sha256": "1ec2ded334a92ec0397d9e2ebc4444d19eee5472df11abcc35dd7205504f1b04"
+    },
+    {
+      "path": "assets/webgl-quality-policy.js",
+      "sha256": "51a341506b5a5b9b942084027b77d5dcde46f6c2f3823a9a7d43724edeefb041"
+    },
+    {
+      "path": "assets/webgl-static-batch.js",
+      "sha256": "ef5927cf016acc06ec768f71e1beac5c12f21e6bf9ca9c034c155a68587fc292"
+    },
+    {
+      "path": "assets/webgl-taste.js",
+      "sha256": "041e8ef36c2841c67448d1aeb8904108b24e26b5406a1fb517f2b0c9805fa479"
+    },
+    {
+      "path": "assets/webgl-transit-geometry.js",
+      "sha256": "46a6e7308dcefbf8f9925b7c55d11b7cbff6d813fe38c1a5247cbdf7428433ee"
+    },
+    {
+      "path": "assets/webgl-view.js",
+      "sha256": "55164f63aed7f4e7809e07af32ca2d6db776be7ebaa0ebcdbdb036fc7eb22f79"
+    },
+    {
+      "path": "src/93-preferences.js",
+      "sha256": "b62d36f7d8ad3d2d77e4cb983cd092860856b682a5bfc1bf93600c941345aab5"
+    },
+    {
+      "path": "src/98-waterfront-art.js",
+      "sha256": "12fe4faf623ac2c186b709d6c65f434868419c67df56905a5dbf9e8a28e34885"
+    },
+    {
+      "path": "src/98zzzzz-transit-diorama.js",
+      "sha256": "39ad8ae5ad5537287786ee92349ae7fba20eb7c13913dd2004cda16d84e96a8e"
+    },
+    {
+      "path": "src/98zzzzzzzz-port-cargo-art.js",
+      "sha256": "94fcc9427e08035e09f58f9d70f868c5b9b77ee01b25120cb9d323da6310dc6b"
+    },
+    {
+      "path": "src/98zzzzzzzzz-region-locator.js",
+      "sha256": "ec9e2150951852c5fe61a8595fef50a22b1da5c74378447fdd3435ed0b0d004a"
+    },
+    {
+      "path": "src/98zzzzzzzzzzzzzzzzz-webgl-snapshot.js",
+      "sha256": "66d6045797c792d5fc438f2327af2adcc718d0df7027f8cb50e0e5190a17d731"
+    }
+  ]
+}

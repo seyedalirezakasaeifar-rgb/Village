@@ -1,0 +1,105 @@
+{
+  "schema": 1,
+  "offlineAndroidAssetRoot": "assets/",
+  "references": [
+    {
+      "path": "assets/music/a-borough-grows.ogg",
+      "origin": "music manifest",
+      "bytes": 2052553,
+      "sha256": "f66760ea1663b93251ffb9fc592e9ab25b1bd5ca22d9aa166fc1fea51b247662"
+    },
+    {
+      "path": "assets/music/after-the-rain.ogg",
+      "origin": "music manifest",
+      "bytes": 2002885,
+      "sha256": "6358e61316aa6227bb667ce312ed4aa659bcc919a8b224604007663e85d856c3"
+    },
+    {
+      "path": "assets/music/lamplit-windows.ogg",
+      "origin": "music manifest",
+      "bytes": 1491112,
+      "sha256": "9a9b21c3deb9bd972e7b997d6d6d42446a3e2d7da479090090e7899ff872c986"
+    },
+    {
+      "path": "assets/music/market-day.ogg",
+      "origin": "music manifest",
+      "bytes": 1747938,
+      "sha256": "8f43f2ab5e49872fd99b469e39eee70fd8613df2952a9bdf062177bc510aaea2"
+    },
+    {
+      "path": "assets/music/morning-ledger.ogg",
+      "origin": "music manifest",
+      "bytes": 1314198,
+      "sha256": "7d4757811e18762e1ca6d34a21480159af87a4a729d3199657343cec670f35c7"
+    },
+    {
+      "path": "assets/music/orchard-footpaths.ogg",
+      "origin": "music manifest",
+      "bytes": 1640709,
+      "sha256": "7e4d8f9051dfb4810b2d1b4452053261aa08577646b52daa973dc14e73506c52"
+    },
+    {
+      "path": "assets/music/quiet-river-reprise.ogg",
+      "origin": "music manifest",
+      "bytes": 2070124,
+      "sha256": "1c26c4b31191c805af3daa6cfe8192da4191e68a5db4ef6c8f372494687f9e84"
+    },
+    {
+      "path": "assets/music/rails-to-greyhaven.ogg",
+      "origin": "music manifest",
+      "bytes": 1698549,
+      "sha256": "3152612b1171b05d097aaba466a0be5f7a3dd3c2c7d48a0fe8b0fa04784b014a"
+    },
+    {
+      "path": "assets/music/river-and-road.ogg",
+      "origin": "music manifest",
+      "bytes": 1136597,
+      "sha256": "838a9c6877a4a5253b4861b9cf8db88a72e3e5c29760d6cae360d776b96883f8"
+    },
+    {
+      "path": "assets/music/waterline-work.ogg",
+      "origin": "music manifest",
+      "bytes": 1615385,
+      "sha256": "a537e8dc1b39fae2e9ee68f6f48a099a7f087532736a08b6a76c8e5c2b68dc85"
+    },
+    {
+      "path": "assets/sound/click.wav",
+      "origin": "effects controller",
+      "bytes": 3644,
+      "sha256": "f442b590c799bbcf972e69d1c1f172881cb5bf81116bf114bc015080d5057c91"
+    },
+    {
+      "path": "assets/sound/coin.wav",
+      "origin": "effects controller",
+      "bytes": 11564,
+      "sha256": "99edffa3814662def67c66a9401791043b5221a331ee6edf552d862703a7c7af"
+    },
+    {
+      "path": "assets/sound/rain.wav",
+      "origin": "effects controller",
+      "bytes": 576044,
+      "sha256": "8d5d04ed401b06df35d964915fcb0705b71f25d6460b7d789841138fadbe3e01"
+    },
+    {
+      "path": "assets/sound/save.wav",
+      "origin": "effects controller",
+      "bytes": 19244,
+      "sha256": "e94121e8f98c3343759ee0606aa23924396cef4445935f4be3267ae9e79b1d6d"
+    },
+    {
+      "path": "assets/sound/village.wav",
+      "origin": "effects controller",
+      "bytes": 576044,
+      "sha256": "5789b8988371c6720931a270c433690cdbce4f5dfb6ae7859f4c9b9ed8e857bb"
+    },
+    {
+      "path": "assets/sound/zone.wav",
+      "origin": "effects controller",
+      "bytes": 6284,
+      "sha256": "9d2e5ce6837c95bed60894c43c91f410a675d720369e8245d151653ca1a3541a"
+    }
+  ],
+  "externalOrAbsoluteMediaReferences": [],
+  "errors": [],
+  "status": "passed"
+}

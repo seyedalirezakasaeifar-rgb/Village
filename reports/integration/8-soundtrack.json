@@ -1,0 +1,349 @@
+{
+  "source_sha256": "23bd4570b62219ddc9f58a68007cb7c696569def326004fd4d1a198fcccd0fe1",
+  "score": {
+    "original": true,
+    "license": "CC0-1.0",
+    "sampleRate": 32000,
+    "tracks": [
+      {
+        "file": "morning-ledger.ogg",
+        "title": "Morning Ledger",
+        "bpm": 78,
+        "seconds": 201.92307692307693,
+        "sha256": "7d4757811e18762e1ca6d34a21480159af87a4a729d3199657343cec670f35c7",
+        "rms": 0.039730191230773926,
+        "peak": 0.1796487271785736
+      },
+      {
+        "file": "river-and-road.ogg",
+        "title": "River And Road",
+        "bpm": 92,
+        "seconds": 171.95652173913044,
+        "sha256": "838a9c6877a4a5253b4861b9cf8db88a72e3e5c29760d6cae360d776b96883f8",
+        "rms": 0.03875589370727539,
+        "peak": 0.17904743552207947
+      },
+      {
+        "file": "lamplit-windows.ogg",
+        "title": "Lamplit Windows",
+        "bpm": 70,
+        "seconds": 224.42857142857142,
+        "sha256": "9a9b21c3deb9bd972e7b997d6d6d42446a3e2d7da479090090e7899ff872c986",
+        "rms": 0.040101367980241776,
+        "peak": 0.17624618113040924
+      },
+      {
+        "file": "orchard-footpaths.ogg",
+        "title": "Orchard Footpaths",
+        "bpm": 72,
+        "seconds": 281.5,
+        "tags": [
+          "home",
+          "quiet"
+        ],
+        "bars": 112,
+        "beatsPerBar": 3,
+        "sections": [
+          "opening",
+          "response",
+          "return",
+          "bridge",
+          "open chorus",
+          "response",
+          "coda"
+        ],
+        "sha256": "7e4d8f9051dfb4810b2d1b4452053261aa08577646b52daa973dc14e73506c52",
+        "rms": 0.06498140841722488,
+        "peak": 0.3383198380470276
+      },
+      {
+        "file": "rails-to-greyhaven.ogg",
+        "title": "Rails to Greyhaven",
+        "bpm": 94,
+        "seconds": 287.45744680851067,
+        "tags": [
+          "trade",
+          "work"
+        ],
+        "bars": 112,
+        "beatsPerBar": 4,
+        "sections": [
+          "opening",
+          "response",
+          "return",
+          "bridge",
+          "open chorus",
+          "response",
+          "coda"
+        ],
+        "sha256": "3152612b1171b05d097aaba466a0be5f7a3dd3c2c7d48a0fe8b0fa04784b014a",
+        "rms": 0.06497924774885178,
+        "peak": 0.3305057883262634
+      },
+      {
+        "file": "waterline-work.ogg",
+        "title": "Work at the Waterline",
+        "bpm": 84,
+        "seconds": 275.7857142857143,
+        "tags": [
+          "water",
+          "trade"
+        ],
+        "bars": 128,
+        "beatsPerBar": 3,
+        "sections": [
+          "opening",
+          "response",
+          "return",
+          "bridge",
+          "open chorus",
+          "response",
+          "coda"
+        ],
+        "sha256": "a537e8dc1b39fae2e9ee68f6f48a099a7f087532736a08b6a76c8e5c2b68dc85",
+        "rms": 0.06498034298419952,
+        "peak": 0.3483453392982483
+      },
+      {
+        "file": "market-day.ogg",
+        "title": "The Long Market Day",
+        "bpm": 88,
+        "seconds": 306.95454545454544,
+        "tags": [
+          "market",
+          "home"
+        ],
+        "bars": 112,
+        "beatsPerBar": 4,
+        "sections": [
+          "opening",
+          "response",
+          "return",
+          "bridge",
+          "open chorus",
+          "response",
+          "coda"
+        ],
+        "sha256": "8f43f2ab5e49872fd99b469e39eee70fd8613df2952a9bdf062177bc510aaea2",
+        "rms": 0.0649850144982338,
+        "peak": 0.31536582112312317
+      },
+      {
+        "file": "after-the-rain.ogg",
+        "title": "Rooms after the Rain",
+        "bpm": 66,
+        "seconds": 379.6818181818182,
+        "tags": [
+          "evening",
+          "quiet"
+        ],
+        "bars": 104,
+        "beatsPerBar": 4,
+        "sections": [
+          "opening",
+          "response",
+          "return",
+          "bridge",
+          "open chorus",
+          "response",
+          "coda"
+        ],
+        "sha256": "6358e61316aa6227bb667ce312ed4aa659bcc919a8b224604007663e85d856c3",
+        "rms": 0.06498891860246658,
+        "peak": 0.2918384373188019
+      },
+      {
+        "file": "a-borough-grows.ogg",
+        "title": "A Borough Grows",
+        "bpm": 76,
+        "seconds": 355.1842105263158,
+        "tags": [
+          "growth",
+          "home"
+        ],
+        "bars": 112,
+        "beatsPerBar": 4,
+        "sections": [
+          "opening",
+          "response",
+          "return",
+          "bridge",
+          "open chorus",
+          "response",
+          "coda"
+        ],
+        "sha256": "f66760ea1663b93251ffb9fc592e9ab25b1bd5ca22d9aa166fc1fea51b247662",
+        "rms": 0.0649886280298233,
+        "peak": 0.3158566355705261
+      },
+      {
+        "file": "quiet-river-reprise.ogg",
+        "title": "The Quiet River",
+        "bpm": 64,
+        "seconds": 361.5,
+        "tags": [
+          "water",
+          "evening",
+          "quiet"
+        ],
+        "bars": 128,
+        "beatsPerBar": 3,
+        "sections": [
+          "opening",
+          "response",
+          "return",
+          "bridge",
+          "open chorus",
+          "response",
+          "coda"
+        ],
+        "sha256": "1c26c4b31191c805af3daa6cfe8192da4191e68a5db4ef6c8f372494687f9e84",
+        "rms": 0.06498505920171738,
+        "peak": 0.331936240196228
+      }
+    ]
+  },
+  "checks": {
+    "streamingAndDecode": {
+      "source_sha256": "23bd4570b62219ddc9f58a68007cb7c696569def326004fd4d1a198fcccd0fe1",
+      "selection": {
+        "pieces": 10,
+        "seconds": 2846.3730000000005,
+        "selections": 100,
+        "unique": 10,
+        "noRepeatWindow": 6,
+        "quietSelections": 340,
+        "livelyQuietSelections": 70,
+        "economicStateUnchanged": true
+      },
+      "decoded": [
+        {
+          "file": "morning-ledger",
+          "seconds": 201.9230612244898,
+          "channels": 2,
+          "rms": 0.03787365371340818,
+          "peak": 0.16390642523765564
+        },
+        {
+          "file": "river-and-road",
+          "seconds": 171.95648526077096,
+          "channels": 2,
+          "rms": 0.037119424516284284,
+          "peak": 0.15616197884082794
+        },
+        {
+          "file": "lamplit-windows",
+          "seconds": 224.42854875283447,
+          "channels": 2,
+          "rms": 0.038193175820898685,
+          "peak": 0.16171367466449738
+        },
+        {
+          "file": "orchard-footpaths",
+          "seconds": 281.5,
+          "channels": 2,
+          "rms": 0.06568775172242575,
+          "peak": 0.3268190026283264
+        },
+        {
+          "file": "rails-to-greyhaven",
+          "seconds": 287.4574149659864,
+          "channels": 2,
+          "rms": 0.06558222559927072,
+          "peak": 0.3315608501434326
+        },
+        {
+          "file": "waterline-work",
+          "seconds": 275.7856689342404,
+          "channels": 2,
+          "rms": 0.06552366565675237,
+          "peak": 0.3188609778881073
+        },
+        {
+          "file": "market-day",
+          "seconds": 306.95451247165533,
+          "channels": 2,
+          "rms": 0.06545272404251101,
+          "peak": 0.27421635389328003
+        },
+        {
+          "file": "after-the-rain",
+          "seconds": 379.68179138321995,
+          "channels": 2,
+          "rms": 0.06461697636582946,
+          "peak": 0.2822084426879883
+        },
+        {
+          "file": "a-borough-grows",
+          "seconds": 355.1841723356009,
+          "channels": 2,
+          "rms": 0.06463279697621793,
+          "peak": 0.28996220231056213
+        },
+        {
+          "file": "quiet-river-reprise",
+          "seconds": 361.5,
+          "channels": 2,
+          "rms": 0.06578278719973632,
+          "peak": 0.3030005693435669
+        }
+      ],
+      "realMediaPlayback": true,
+      "subjectiveListening": false,
+      "errors": []
+    },
+    "promiseRaces": {
+      "source_sha256": "23bd4570b62219ddc9f58a68007cb7c696569def326004fd4d1a198fcccd0fe1",
+      "mockedMediaPromises": true,
+      "result": {
+        "staleRejectionIgnored": true,
+        "suspendDecks": 1,
+        "fadeStopped": true,
+        "retiredSourcesCleared": 3,
+        "activeDeckLimit": 2
+      }
+    },
+    "independentEffects": {
+      "source_sha256": "23bd4570b62219ddc9f58a68007cb7c696569def326004fd4d1a198fcccd0fe1",
+      "mockedAudio": true,
+      "checks": [
+        "paid vs free council choice",
+        "mute stops effects and ambience",
+        "native suspend/resume",
+        "hidden document suppresses effects",
+        "visible resume ambience only"
+      ],
+      "errors": []
+    }
+  },
+  "earlyNativeBuild": {
+    "apk": "TownLedger-A-Trading-Town-8.0.0.apk",
+    "sha256": "1ecb9c23ea7b1ad533ff8937acd03615a2ba7999e03481326ce5fcf9f4a4d071",
+    "bytes": 5474087,
+    "package": "org.townledger.vale",
+    "version": "8.0.0",
+    "code": 22,
+    "pipeline": "javac + dx/d8 + aapt + zipalign + apksigner",
+    "signature": "development; not a store release key",
+    "physical_device_tested": false,
+    "source_commit": "525e47dd3967741fb59d2fd06921c1647a29a24a",
+    "source_sha256": "293fe306631099dfaacdd37e724d4c6e3b89991f56a1e15c50f872606f662c90",
+    "certificate_sha256": "52ae61b76c6cebd430dbdd0db54f8347e5dcd223e4146b4af92dfbdb0190650e",
+    "same_signer_as_711": true,
+    "packaged_assets_verified": true,
+    "current_audio_expansion_included": false,
+    "device_or_emulator_launched": false,
+    "host_checks": [
+      "ArchiveIO JVM",
+      "Back coordinator JVM and generated JS",
+      "browser host suspend/resume"
+    ],
+    "artifact": "artifacts/development/8.0.0-integration-525e47d/TownLedger-8.0.0-integration-525e47d.apk"
+  },
+  "remaining": [
+    "subjective audition unavailable",
+    "long-session media/native decoder memory",
+    "current soundtrack APK/native playback acceptance",
+    "physical Android performance"
+  ]
+}

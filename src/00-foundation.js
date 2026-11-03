@@ -1,6 +1,9 @@
 'use strict';
 // TownLedger: offline small-town economic policy laboratory. Separate Android WebView adaptation.
 (function(){
+// Negative indexing without requiring a recent Android WebView Array.at.
+function fromEnd(values,offset=1){return values[values.length-offset];}
+function owns(object,key){return Object.prototype.hasOwnProperty.call(object,key);}
 const ART_DATA={};
 const $=id=>document.getElementById(id), clamp=(x,a,b)=>Math.max(a,Math.min(b,x)),money=x=>(x<0?'−':'')+'$'+Math.round(Math.abs(x)).toLocaleString('en-CA');
 const fmt=x=>Number(x||0).toLocaleString('en-CA',{maximumFractionDigits:1});
@@ -8,8 +11,10 @@ const esc=x=>String(x==null?'':x).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;'
 const rn=(a,b)=>a+random()*(b-a),pick=a=>a[random()*a.length|0];
 const first=['Arthur','Alice','Thomas','Eleanor','Henry','Margaret','Jack','Edith','Charles','Emily','George','Rose','William','Florence','James','Clara','Robert','Agnes','Daniel','Ivy','Samuel','Hannah','Oliver','Mabel','Edward','Beatrice','Frederick','Ada','Joseph','Grace','Peter','Julia','Benjamin','Isabel'];
 const surnames=['Bennett','Parker','Sutton','Miller','Hughes','Clarke','Foster','Wright','Carter','Howard','Taylor','Moore','Campbell','Ward','Russell','Harris','Reed','Turner','Hill','Smith','Brooks','Davies','Morgan','Baker','Wilson','Grant'];
-const T=56, TW=72, TH=36, RW=T*TW+140,RH=T*TH+120;
+const T=128, TW=72, TH=36, RW=T*TW+140,RH=T*TH+120;
 const types={
+ transit_depot:{n:'Transit Depot',cost:9000,col:'#668f99',jobs:0,build:'Transit depot'},
+ elevated_station:{n:'Elevated Metro Station',cost:12500,col:'#70abb7',jobs:0,build:'Elevated station'},
  bank:{n:'Bank Branch',cost:0,col:'#a3b0a6',jobs:0},
  worksite:{n:'Private Construction Site',cost:0,col:'#c0a076',jobs:0},
  apartment:{n:'Apartment House',cost:0,col:'#b7ab91',jobs:0},
@@ -39,14 +44,20 @@ const types={
  courthouse:{n:'Magistrates Court',cost:8400,col:'#9a9887',jobs:0,build:'Court'},
  watchtower:{n:'Watchtower',cost:4900,col:'#879089',jobs:0,build:'Watchtower'},
  square:{n:'Market Square',cost:2500,col:'#aca486',jobs:0,build:'Market Square'},
+ wharf:{n:'River Cargo Wharf',cost:7600,col:'#819b98',jobs:2,build:'Cargo wharf'},
  fishery:{n:'River Fishery',cost:3500,col:'#75a5a2',jobs:7,build:'Fishery'},
  tavern:{n:'Village Tavern',cost:3200,col:'#b28c56',jobs:6,build:'Tavern'},
 };
 const goods={grain:2,flour:3,food:3.3,logs:2,timber:4,stone:3,manufactures:8.5};
 const formulas={farm:{out:'grain',qty:140,inp:null,amount:0},mill:{out:'flour',qty:175,inp:'grain',amount:105},bakery:{out:'food',qty:200,inp:'flour',amount:105},grocer:{out:null,qty:0,inp:'food',amount:0},forestry:{out:'logs',qty:170},sawmill:{out:'timber',qty:130,inp:'logs',amount:100},quarry:{out:'stone',qty:125},fishery:{out:'food',qty:130},factory:{out:'manufactures',qty:85,inp:'timber',amount:58}};
-const buildIcons={metro_station:'Ⓜ',repair:'↻',road:'═',home:'⌂',grocer:'▣',bakery:'♨',mill:'◈',farm:'❖',forestry:'♣',sawmill:'▥',quarry:'◆',contractor:'⚒',police:'♜',fire:'♨',clinic:'✚',park:'♣',school:'✎',courthouse:'⚖',watchtower:'♜',square:'◉',fishery:'≈',tavern:'♨',factory:'⚙',warehouse:'▤',office:'▦',college:'♜'};
-const buildCost={metro_station:18000,road:150,repair:135,home:20000,grocer:4300,bakery:3600,mill:4800,farm:3100,forestry:3000,sawmill:4100,quarry:3900,contractor:4400,police:7600,fire:6900,clinic:8000,park:550,school:6900,courthouse:8400,watchtower:4900,square:2500,fishery:3500,tavern:3200,factory:9800,warehouse:12000,office:14200,college:18000};
+const buildIcons={transit_depot:'▤',elevated_station:'E',metro_station:'Ⓜ',repair:'↻',road:'═',home:'⌂',grocer:'▣',bakery:'♨',mill:'◈',farm:'❖',forestry:'♣',sawmill:'▥',quarry:'◆',contractor:'⚒',police:'♜',fire:'♨',clinic:'✚',park:'♣',school:'✎',courthouse:'⚖',watchtower:'♜',square:'◉',wharf:'⚓',fishery:'≈',tavern:'♨',factory:'⚙',warehouse:'▤',office:'▦',college:'♜'};
+const buildCost={transit_depot:9000,elevated_station:12500,metro_station:18000,road:150,repair:135,home:20000,grocer:4300,bakery:3600,mill:4800,farm:3100,forestry:3000,sawmill:4100,quarry:3900,contractor:4400,police:7600,fire:6900,clinic:8000,park:550,school:6900,courthouse:8400,watchtower:4900,square:2500,wharf:7600,fishery:3500,tavern:3200,factory:9800,warehouse:12000,office:14200,college:18000};
+const PUBLIC_SERVICE_BUDGET_LIMIT=50000;
 const defs=[
+ ['privateServices','License new private schools and brigades',0,1,1,'','One permits entrepreneurial entry; zero stops new licenses without confiscating existing providers.'],
+ ['privateTuitionCap','Private tuition ceiling / learner / day',0,8,.25,'$','Maximum fee per equivalent learner-day. A low ceiling improves prices only if an operator can still cover qualified teaching and premises costs.'],
+ ['privateFireFeeCap','Private brigade membership ceiling / resident / day',0,2,.05,'$','Voluntary inspection, prevention and priority membership. Nonmembers still receive nearby emergency spillover; rescue is never sold at the burning doorstep.'],
+ ['serviceVoucherBudget','Targeted private-service vouchers / day',0,400,5,'$','Purchase otherwise unaffordable private teaching or brigade memberships for low-liquid-wealth families. Actual purchases only; unused authorization stays in the treasury.'],
  ['pensionDaily','Retirement pension / person / day',0,40,1,'$','Treasury-funded income for residents over 70. Benefits are shared proportionally if funds fall short; an ageing population raises the fiscal cost.'],
  ['policyRate','Policy interest rate (annual)',0,20,.25,'%','Benchmark set by the monetary authority. Bank funding, new and variable-rate credit, savings and investment hurdles adjust with a lag. Higher rates restrain borrowing and demand; lower rates do not make insolvent projects viable.'],
  ['incomeTax','Income tax',0,40,1,'%','Share of earnings paid by working residents to the town.'],
@@ -61,12 +72,12 @@ const defs=[
  ['defenseBudget','Fire and civil defence / day',0,800,10,'$','Maintains emergency preparedness. Stations improve response.'],
  ['aidBudget','Housing assistance / day',0,600,10,'$','Direct household transfers, prioritized by hardship and low savings.'],
  ['energyAidBudget','Heating assistance / day',0,400,10,'$','Pays energy bills for low-cash households, especially in winter.'],
- ['transitBudget','Commuter transit / day',0,250,10,'$','Supports journeys to work and improves access to jobs across the borough.'],
+ ['transitBudget','Commuter transit / day',0,250,10,'$','Legacy commuter support while no public routes exist. Public bus and elevated metro service is authorized separately in Public Works, with quoted fleet, staffing and daily costs.'],
  ['outreachBudget','Community outreach / day',0,300,10,'$','Local support services that reduce isolation and some risk factors.'],
  ['employmentSubsidy','Wage subsidy / worker / day',0,15,1,'$','Town reimburses employers per filled job, subject to available funds.'],
  ['importTariff','Import tariff',0,40,1,'%','Adds costs to imported food and industrial materials, producing revenue.'],
- ['healthBudget','Clinic & public health / day',0,500,10,'$','Fund preventive treatment, clinic equipment and household health.'],
- ['educationBudget','School & training / day',0,500,10,'$','Raises worker skill and increases business productivity gradually.'],
+ ['healthBudget','Clinic & public health / day',0,PUBLIC_SERVICE_BUDGET_LIMIT,1,'$','Fund preventive treatment, clinic equipment and household health.'],
+ ['educationBudget','School & training / day',0,PUBLIC_SERVICE_BUDGET_LIMIT,1,'$','Raises worker skill and increases business productivity gradually.'],
  ['roadBudget','Road maintenance / day',0,250,10,'$','Upkeep for roads and local access; poor service lowers trade efficiency.'],
  ['zoningRestriction','Building restrictions',0,100,5,'%','Higher restrictions slow private homebuilding, reducing housing supply.'],
  ['businessRegulation','Business compliance rules',0,100,5,'%','Safeguards can lower workplace incidents but add costs to local firms.'],
@@ -76,7 +87,8 @@ const defs=[
  ['depositGuarantee','Deposit insurance coverage',0,100,5,'%','When a bank fails, cover this share of otherwise lost deposits using available municipal funds.'],
  ['treasuryInvestment','Regional reserve investment share',0,100,5,'%','Share of surplus municipal cash available to buy outside-region securities when trade liquidity is low.']
 ];
-const defaults={policyRate:3,pensionDaily:16,incomeTax:12,profitTax:12,propertyTax:1.1,foodTax:4,utilityTax:2,commercialRate:.6,energyAidBudget:35,transitBudget:35,minWage:28,permitFee:250,policeBudget:180,defenseBudget:140,aidBudget:100,outreachBudget:40,employmentSubsidy:0,importTariff:0,healthBudget:70,educationBudget:90,roadBudget:25,zoningRestriction:25,businessRegulation:25,militiaBudget:25,bankReserve:12,lendingRules:35,depositGuarantee:0,treasuryInvestment:60,imports:true};
+const defaults={privateServices:1,privateTuitionCap:4,privateFireFeeCap:1,serviceVoucherBudget:0,policyRate:3,pensionDaily:16,incomeTax:12,profitTax:12,propertyTax:1.1,foodTax:4,utilityTax:2,commercialRate:.6,energyAidBudget:35,transitBudget:35,minWage:28,permitFee:250,policeBudget:180,defenseBudget:140,aidBudget:100,outreachBudget:40,employmentSubsidy:0,importTariff:0,healthBudget:70,educationBudget:90,roadBudget:25,zoningRestriction:25,businessRegulation:25,militiaBudget:25,bankReserve:12,lendingRules:35,depositGuarantee:0,treasuryInvestment:60,imports:true};
+let hostSuspended=false;
 let G=null,active='',buildMode='',selected=null,paused=false,speed=1,toastTimeout=0,chosenScenario='settlement',draftPolicy={},overlay='none',pendingEvent=null,previousDailyCash=0,autoSaveOK=true,filterPeople='all',filterFirms='all',citizenQuery='',constructionCategory='all',showTutorial=true,roadPainted=new Set(),roadBatchDirty=false;
 let bitmap=document.createElement('canvas');bitmap.width=RW;bitmap.height=RH;let bg=bitmap.getContext('2d',{alpha:false,willReadFrequently:false});
 const cv=$('view'),ctx=cv.getContext('2d',{alpha:false});let cw=1000,ch=600,dpr=1,cam={x:RW/2,y:RH/2,zoom:.68};let dirty=true,staticDirty=true;let vehicles=[];

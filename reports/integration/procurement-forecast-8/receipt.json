@@ -1,0 +1,5358 @@
+{
+  "source_sha256": "471b744f92d1e97ad505b44cc979929253a071fffb9fd3d1cf1058d8050317f9",
+  "gates": {
+    "reports/procurement-stress/results.json": {
+      "source_sha256": "471b744f92d1e97ad505b44cc979929253a071fffb9fd3d1cf1058d8050317f9",
+      "rows": [
+        {
+          "scenario": "settlement",
+          "mode": "normal",
+          "result": {
+            "opening": 169,
+            "admitted": true,
+            "originalReason": null,
+            "foodEligible": true,
+            "foodReason": null,
+            "final": [
+              {
+                "id": 140,
+                "name": "Greyhaven Port staged order \u00b7 1/2",
+                "firm": 7,
+                "market": "port",
+                "good": "grain",
+                "quantity": 50,
+                "delivered": 50,
+                "price": 2.4124840490018564,
+                "deadline": 41,
+                "status": "fulfilled",
+                "procurementGroup": 140,
+                "procurementStage": 0,
+                "dispatchFrom": 26
+              },
+              {
+                "id": 141,
+                "name": "Greyhaven Port staged order \u00b7 2/2",
+                "firm": 7,
+                "market": "port",
+                "good": "grain",
+                "quantity": 100,
+                "delivered": 100,
+                "price": 2.4124840490018564,
+                "deadline": 56,
+                "status": "fulfilled",
+                "procurementGroup": 140,
+                "procurementStage": 1,
+                "dispatchFrom": 41
+              }
+            ],
+            "stages": [
+              {
+                "day": 27,
+                "hardship": 0,
+                "foodStocks": 5343.086622373614,
+                "contracts": [
+                  {
+                    "id": 140,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 0,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "active",
+                    "procurementGroup": 140,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 141,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 0,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "active",
+                    "procurementGroup": 140,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": [
+                  {
+                    "id": 143,
+                    "stage": "collecting",
+                    "status": "collecting",
+                    "qty": 50
+                  }
+                ]
+              },
+              {
+                "day": 32,
+                "hardship": 0,
+                "foodStocks": 4968.035343875923,
+                "contracts": [
+                  {
+                    "id": 140,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 0,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "active",
+                    "procurementGroup": 140,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 141,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 0,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "active",
+                    "procurementGroup": 140,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": [
+                  {
+                    "id": 143,
+                    "stage": "outside",
+                    "status": "outside",
+                    "qty": 50
+                  }
+                ]
+              },
+              {
+                "day": 37,
+                "hardship": 0,
+                "foodStocks": 5118.337222924086,
+                "contracts": [
+                  {
+                    "id": 140,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 50,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "fulfilled",
+                    "procurementGroup": 140,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 141,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 0,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "active",
+                    "procurementGroup": 140,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": []
+              },
+              {
+                "day": 42,
+                "hardship": 0,
+                "foodStocks": 5122.678191565316,
+                "contracts": [
+                  {
+                    "id": 140,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 50,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "fulfilled",
+                    "procurementGroup": 140,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 141,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 0,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "active",
+                    "procurementGroup": 140,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": [
+                  {
+                    "id": 176,
+                    "stage": "collecting",
+                    "status": "collecting",
+                    "qty": 100
+                  }
+                ]
+              },
+              {
+                "day": 47,
+                "hardship": 0,
+                "foodStocks": 5787.013462712807,
+                "contracts": [
+                  {
+                    "id": 140,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 50,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "fulfilled",
+                    "procurementGroup": 140,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 141,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 100,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "fulfilled",
+                    "procurementGroup": 140,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": []
+              },
+              {
+                "day": 52,
+                "hardship": 0,
+                "foodStocks": 5034.869242749925,
+                "contracts": [
+                  {
+                    "id": 140,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 50,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "fulfilled",
+                    "procurementGroup": 140,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 141,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 100,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "fulfilled",
+                    "procurementGroup": 140,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": []
+              },
+              {
+                "day": 57,
+                "hardship": 0,
+                "foodStocks": 5507.706380015943,
+                "contracts": [
+                  {
+                    "id": 140,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 50,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "fulfilled",
+                    "procurementGroup": 140,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 141,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 100,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "fulfilled",
+                    "procurementGroup": 140,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": []
+              },
+              {
+                "day": 62,
+                "hardship": 0,
+                "foodStocks": 5166.8916444453735,
+                "contracts": [
+                  {
+                    "id": 140,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 50,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "fulfilled",
+                    "procurementGroup": 140,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 141,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 100,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "fulfilled",
+                    "procurementGroup": 140,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": []
+              },
+              {
+                "day": 67,
+                "hardship": 0,
+                "foodStocks": 5167.4314785121205,
+                "contracts": [
+                  {
+                    "id": 140,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 50,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "fulfilled",
+                    "procurementGroup": 140,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 141,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 100,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "fulfilled",
+                    "procurementGroup": 140,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": []
+              },
+              {
+                "day": 72,
+                "hardship": 0,
+                "foodStocks": 4938.508534017322,
+                "contracts": [
+                  {
+                    "id": 140,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 50,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "fulfilled",
+                    "procurementGroup": 140,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 141,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 100,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "fulfilled",
+                    "procurementGroup": 140,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": []
+              },
+              {
+                "day": 77,
+                "hardship": 0,
+                "foodStocks": 4093.6651710652395,
+                "contracts": [
+                  {
+                    "id": 140,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 50,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "fulfilled",
+                    "procurementGroup": 140,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 141,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 100,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "fulfilled",
+                    "procurementGroup": 140,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": []
+              },
+              {
+                "day": 82,
+                "hardship": 0,
+                "foodStocks": 4506.111787199408,
+                "contracts": [
+                  {
+                    "id": 140,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 50,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "fulfilled",
+                    "procurementGroup": 140,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 141,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 100,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "fulfilled",
+                    "procurementGroup": 140,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": []
+              }
+            ],
+            "cancellation": null,
+            "closure": null,
+            "roads": [],
+            "retention": {
+              "authorized": true,
+              "retained": true,
+              "cargoRetained": true,
+              "count": 24
+            },
+            "cashDrift": -1.1753290891647339e-06,
+            "goods": [
+              {
+                "good": "grain",
+                "opening": 960,
+                "produced": 42741,
+                "consumed": 15872.4,
+                "imports": 11020.853,
+                "exports": 34679.25407712717,
+                "stock": 4170.198922872839,
+                "error": 3.637978807091713e-12,
+                "price": 1.8589056113730673
+              },
+              {
+                "good": "flour",
+                "opening": 960,
+                "produced": 26454,
+                "consumed": 18463.2,
+                "imports": 3928.9139999999998,
+                "exports": 8612.13230360598,
+                "stock": 4267.5816963940215,
+                "error": 9.094947017729282e-13,
+                "price": 2.788358417059601
+              },
+              {
+                "good": "food",
+                "opening": 1920,
+                "produced": 39911,
+                "consumed": 24946.537754079123,
+                "imports": 3997.659,
+                "exports": 16103.191573356546,
+                "stock": 4778.929672564331,
+                "error": -1.8189894035458565e-12,
+                "price": 3.0671942587655607
+              },
+              {
+                "good": "logs",
+                "opening": 720,
+                "produced": 27302,
+                "consumed": 11692.307692307691,
+                "imports": 446.876,
+                "exports": 13920.472238163084,
+                "stock": 2856.096069529225,
+                "error": 4.547473508864641e-13,
+                "price": 1.8589056113730673
+              },
+              {
+                "good": "timber",
+                "opening": 720,
+                "produced": 15200,
+                "consumed": 5853.176470588235,
+                "imports": 420,
+                "exports": 8737.10856047267,
+                "stock": 1749.7149689390944,
+                "error": -4.547473508864641e-13,
+                "price": 3.7178112227461346
+              },
+              {
+                "good": "stone",
+                "opening": 720,
+                "produced": 10290,
+                "consumed": 35,
+                "imports": 66.4,
+                "exports": 9963.4584130893,
+                "stock": 1077.9415869106992,
+                "error": -4.547473508864641e-13,
+                "price": 2.788358417059601
+              },
+              {
+                "good": "manufactures",
+                "opening": 0,
+                "produced": 8490,
+                "consumed": 1567.3409132298968,
+                "imports": 0,
+                "exports": 6627.372782968121,
+                "stock": 295.28630380198143,
+                "error": -3.979039320256561e-13,
+                "price": 8.183392313258777
+              }
+            ],
+            "claims": []
+          },
+          "status": "complete"
+        },
+        {
+          "scenario": "settlement",
+          "mode": "cancel",
+          "result": {
+            "opening": 169,
+            "admitted": true,
+            "originalReason": null,
+            "foodEligible": true,
+            "foodReason": null,
+            "final": [
+              {
+                "id": 140,
+                "name": "Greyhaven Port staged order \u00b7 1/2",
+                "firm": 7,
+                "market": "port",
+                "good": "grain",
+                "quantity": 50,
+                "delivered": 50,
+                "price": 2.4124840490018564,
+                "deadline": 41,
+                "status": "fulfilled",
+                "procurementGroup": 140,
+                "procurementStage": 0,
+                "dispatchFrom": 26
+              },
+              {
+                "id": 141,
+                "name": "Greyhaven Port staged order \u00b7 2/2",
+                "firm": 7,
+                "market": "port",
+                "good": "grain",
+                "quantity": 100,
+                "delivered": 100,
+                "price": 2.4124840490018564,
+                "deadline": 56,
+                "status": "cancelled",
+                "procurementGroup": 140,
+                "procurementStage": 1,
+                "dispatchFrom": 41
+              }
+            ],
+            "stages": [
+              {
+                "day": 27,
+                "hardship": 0,
+                "foodStocks": 5343.086622373614,
+                "contracts": [
+                  {
+                    "id": 140,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 0,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "active",
+                    "procurementGroup": 140,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 141,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 0,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "active",
+                    "procurementGroup": 140,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": [
+                  {
+                    "id": 143,
+                    "stage": "collecting",
+                    "status": "collecting",
+                    "qty": 50
+                  }
+                ]
+              },
+              {
+                "day": 32,
+                "hardship": 0,
+                "foodStocks": 4968.035343875923,
+                "contracts": [
+                  {
+                    "id": 140,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 0,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "active",
+                    "procurementGroup": 140,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 141,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 0,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "active",
+                    "procurementGroup": 140,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": [
+                  {
+                    "id": 143,
+                    "stage": "outside",
+                    "status": "outside",
+                    "qty": 50
+                  }
+                ]
+              },
+              {
+                "day": 37,
+                "hardship": 0,
+                "foodStocks": 5118.337222924086,
+                "contracts": [
+                  {
+                    "id": 140,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 50,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "fulfilled",
+                    "procurementGroup": 140,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 141,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 0,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "active",
+                    "procurementGroup": 140,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": []
+              },
+              {
+                "day": 42,
+                "hardship": 0,
+                "foodStocks": 5122.678191565316,
+                "contracts": [
+                  {
+                    "id": 140,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 50,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "fulfilled",
+                    "procurementGroup": 140,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 141,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 0,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "active",
+                    "procurementGroup": 140,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": [
+                  {
+                    "id": 176,
+                    "stage": "collecting",
+                    "status": "collecting",
+                    "qty": 100
+                  }
+                ]
+              },
+              {
+                "day": 47,
+                "hardship": 0,
+                "foodStocks": 5787.013462712807,
+                "contracts": [
+                  {
+                    "id": 140,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 50,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "fulfilled",
+                    "procurementGroup": 140,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 141,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 100,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "cancelled",
+                    "procurementGroup": 140,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": []
+              },
+              {
+                "day": 52,
+                "hardship": 0,
+                "foodStocks": 5034.869242749925,
+                "contracts": [
+                  {
+                    "id": 140,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 50,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "fulfilled",
+                    "procurementGroup": 140,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 141,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 100,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "cancelled",
+                    "procurementGroup": 140,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": []
+              },
+              {
+                "day": 57,
+                "hardship": 0,
+                "foodStocks": 5507.706380015943,
+                "contracts": [
+                  {
+                    "id": 140,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 50,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "fulfilled",
+                    "procurementGroup": 140,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 141,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 100,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "cancelled",
+                    "procurementGroup": 140,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": []
+              },
+              {
+                "day": 62,
+                "hardship": 0,
+                "foodStocks": 5166.8916444453735,
+                "contracts": [
+                  {
+                    "id": 140,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 50,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "fulfilled",
+                    "procurementGroup": 140,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 141,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 100,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "cancelled",
+                    "procurementGroup": 140,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": []
+              },
+              {
+                "day": 67,
+                "hardship": 0,
+                "foodStocks": 5167.4314785121205,
+                "contracts": [
+                  {
+                    "id": 140,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 50,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "fulfilled",
+                    "procurementGroup": 140,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 141,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 100,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "cancelled",
+                    "procurementGroup": 140,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": []
+              },
+              {
+                "day": 72,
+                "hardship": 0,
+                "foodStocks": 4938.508534017322,
+                "contracts": [
+                  {
+                    "id": 140,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 50,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "fulfilled",
+                    "procurementGroup": 140,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 141,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 100,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "cancelled",
+                    "procurementGroup": 140,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": []
+              },
+              {
+                "day": 77,
+                "hardship": 0,
+                "foodStocks": 4093.6651710652395,
+                "contracts": [
+                  {
+                    "id": 140,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 50,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "fulfilled",
+                    "procurementGroup": 140,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 141,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 100,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "cancelled",
+                    "procurementGroup": 140,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": []
+              },
+              {
+                "day": 82,
+                "hardship": 0,
+                "foodStocks": 4506.111787199408,
+                "contracts": [
+                  {
+                    "id": 140,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 50,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "fulfilled",
+                    "procurementGroup": 140,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 141,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 100,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "cancelled",
+                    "procurementGroup": 140,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": []
+              }
+            ],
+            "cancellation": {
+              "cargoUnchanged": true,
+              "statuses": [
+                "fulfilled",
+                "cancelled"
+              ]
+            },
+            "closure": null,
+            "roads": [],
+            "retention": null,
+            "cashDrift": -1.1753290891647339e-06,
+            "goods": [
+              {
+                "good": "grain",
+                "opening": 960,
+                "produced": 42741,
+                "consumed": 15872.4,
+                "imports": 11020.853,
+                "exports": 34679.25407712717,
+                "stock": 4170.198922872839,
+                "error": 3.637978807091713e-12,
+                "price": 1.8589056113730673
+              },
+              {
+                "good": "flour",
+                "opening": 960,
+                "produced": 26454,
+                "consumed": 18463.2,
+                "imports": 3928.9139999999998,
+                "exports": 8612.13230360598,
+                "stock": 4267.5816963940215,
+                "error": 9.094947017729282e-13,
+                "price": 2.788358417059601
+              },
+              {
+                "good": "food",
+                "opening": 1920,
+                "produced": 39911,
+                "consumed": 24946.537754079123,
+                "imports": 3997.659,
+                "exports": 16103.191573356546,
+                "stock": 4778.929672564331,
+                "error": -1.8189894035458565e-12,
+                "price": 3.0671942587655607
+              },
+              {
+                "good": "logs",
+                "opening": 720,
+                "produced": 27302,
+                "consumed": 11692.307692307691,
+                "imports": 446.876,
+                "exports": 13920.472238163084,
+                "stock": 2856.096069529225,
+                "error": 4.547473508864641e-13,
+                "price": 1.8589056113730673
+              },
+              {
+                "good": "timber",
+                "opening": 720,
+                "produced": 15200,
+                "consumed": 5853.176470588235,
+                "imports": 420,
+                "exports": 8737.10856047267,
+                "stock": 1749.7149689390944,
+                "error": -4.547473508864641e-13,
+                "price": 3.7178112227461346
+              },
+              {
+                "good": "stone",
+                "opening": 720,
+                "produced": 10290,
+                "consumed": 35,
+                "imports": 66.4,
+                "exports": 9963.4584130893,
+                "stock": 1077.9415869106992,
+                "error": -4.547473508864641e-13,
+                "price": 2.788358417059601
+              },
+              {
+                "good": "manufactures",
+                "opening": 0,
+                "produced": 8490,
+                "consumed": 1567.3409132298968,
+                "imports": 0,
+                "exports": 6627.372782968121,
+                "stock": 295.28630380198143,
+                "error": -3.979039320256561e-13,
+                "price": 8.183392313258777
+              }
+            ],
+            "claims": []
+          },
+          "status": "complete"
+        },
+        {
+          "scenario": "settlement",
+          "mode": "closure",
+          "result": {
+            "opening": 169,
+            "admitted": true,
+            "originalReason": null,
+            "foodEligible": true,
+            "foodReason": null,
+            "final": [
+              {
+                "id": 140,
+                "name": "Greyhaven Port staged order \u00b7 1/2",
+                "firm": 7,
+                "market": "port",
+                "good": "grain",
+                "quantity": 50,
+                "delivered": 0,
+                "price": 2.4124840490018564,
+                "deadline": 41,
+                "status": "missed",
+                "procurementGroup": 140,
+                "procurementStage": 0,
+                "dispatchFrom": 26
+              },
+              {
+                "id": 141,
+                "name": "Greyhaven Port staged order \u00b7 2/2",
+                "firm": 7,
+                "market": "port",
+                "good": "grain",
+                "quantity": 100,
+                "delivered": 0,
+                "price": 2.4124840490018564,
+                "deadline": 56,
+                "status": "missed",
+                "procurementGroup": 140,
+                "procurementStage": 1,
+                "dispatchFrom": 41
+              }
+            ],
+            "stages": [
+              {
+                "day": 27,
+                "hardship": 0,
+                "foodStocks": 5343.086622373614,
+                "contracts": [
+                  {
+                    "id": 140,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 0,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "active",
+                    "procurementGroup": 140,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 141,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 0,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "active",
+                    "procurementGroup": 140,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": [
+                  {
+                    "id": 143,
+                    "stage": "collecting",
+                    "status": "collecting",
+                    "qty": 50
+                  }
+                ]
+              },
+              {
+                "day": 32,
+                "hardship": 0,
+                "foodStocks": 4888.035343875923,
+                "contracts": [
+                  {
+                    "id": 140,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 0,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "active",
+                    "procurementGroup": 140,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 141,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 0,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "active",
+                    "procurementGroup": 140,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": []
+              },
+              {
+                "day": 37,
+                "hardship": 0,
+                "foodStocks": 5038.337222924086,
+                "contracts": [
+                  {
+                    "id": 140,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 0,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "active",
+                    "procurementGroup": 140,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 141,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 0,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "active",
+                    "procurementGroup": 140,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": []
+              },
+              {
+                "day": 42,
+                "hardship": 0,
+                "foodStocks": 5042.678191565316,
+                "contracts": [
+                  {
+                    "id": 140,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 0,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "missed",
+                    "procurementGroup": 140,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 141,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 0,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "active",
+                    "procurementGroup": 140,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": []
+              },
+              {
+                "day": 47,
+                "hardship": 0,
+                "foodStocks": 5707.013462712807,
+                "contracts": [
+                  {
+                    "id": 140,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 0,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "missed",
+                    "procurementGroup": 140,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 141,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 0,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "active",
+                    "procurementGroup": 140,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": []
+              },
+              {
+                "day": 52,
+                "hardship": 0,
+                "foodStocks": 4954.869242749925,
+                "contracts": [
+                  {
+                    "id": 140,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 0,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "missed",
+                    "procurementGroup": 140,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 141,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 0,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "active",
+                    "procurementGroup": 140,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": []
+              },
+              {
+                "day": 57,
+                "hardship": 0,
+                "foodStocks": 5427.706380015943,
+                "contracts": [
+                  {
+                    "id": 140,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 0,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "missed",
+                    "procurementGroup": 140,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 141,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 0,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "missed",
+                    "procurementGroup": 140,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": []
+              },
+              {
+                "day": 62,
+                "hardship": 0,
+                "foodStocks": 5083.019878981743,
+                "contracts": [
+                  {
+                    "id": 140,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 0,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "missed",
+                    "procurementGroup": 140,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 141,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 0,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "missed",
+                    "procurementGroup": 140,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": []
+              },
+              {
+                "day": 67,
+                "hardship": 0,
+                "foodStocks": 5075.868933248027,
+                "contracts": [
+                  {
+                    "id": 140,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 0,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "missed",
+                    "procurementGroup": 140,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 141,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 0,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "missed",
+                    "procurementGroup": 140,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": []
+              },
+              {
+                "day": 72,
+                "hardship": 0,
+                "foodStocks": 5168.841241383529,
+                "contracts": [
+                  {
+                    "id": 140,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 0,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "missed",
+                    "procurementGroup": 140,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 141,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 0,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "missed",
+                    "procurementGroup": 140,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": []
+              },
+              {
+                "day": 77,
+                "hardship": 0,
+                "foodStocks": 4282.2816057055525,
+                "contracts": [
+                  {
+                    "id": 140,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 0,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "missed",
+                    "procurementGroup": 140,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 141,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 0,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "missed",
+                    "procurementGroup": 140,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": []
+              },
+              {
+                "day": 82,
+                "hardship": 0,
+                "foodStocks": 4682.002459481363,
+                "contracts": [
+                  {
+                    "id": 140,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 0,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "missed",
+                    "procurementGroup": 140,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 141,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 0,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "missed",
+                    "procurementGroup": 140,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": []
+              }
+            ],
+            "cancellation": null,
+            "closure": {
+              "loanApproved": true,
+              "loans": [
+                {
+                  "id": 1,
+                  "bankId": 0,
+                  "ownerType": "firm",
+                  "ownerId": 7,
+                  "original": 5000,
+                  "balance": 0,
+                  "rate": 0.093472,
+                  "spread": 0.063472,
+                  "fixedRate": false,
+                  "term": 360,
+                  "created": 28,
+                  "arrears": 0,
+                  "status": "repaid",
+                  "paid": 5000
+                }
+              ]
+            },
+            "roads": [],
+            "retention": null,
+            "cashDrift": -1.259148120880127e-06,
+            "goods": [
+              {
+                "good": "grain",
+                "opening": 960,
+                "produced": 42916,
+                "consumed": 15754.8,
+                "imports": 10102.363,
+                "exports": 34005.66665824123,
+                "stock": 4217.8963417587765,
+                "error": 2.7284841053187847e-12,
+                "price": 1.8589056113730673
+              },
+              {
+                "good": "flour",
+                "opening": 960,
+                "produced": 26258,
+                "consumed": 18496.8,
+                "imports": 3929.9139999999998,
+                "exports": 8904.995036364859,
+                "stock": 3746.1189636351405,
+                "error": -4.547473508864641e-13,
+                "price": 2.788358417059601
+              },
+              {
+                "good": "food",
+                "opening": 1920,
+                "produced": 39962,
+                "consumed": 25013.73775407912,
+                "imports": 3994.368,
+                "exports": 16129.689993587059,
+                "stock": 4732.9402523338185,
+                "error": 0,
+                "price": 3.0671942587655607
+              },
+              {
+                "good": "logs",
+                "opening": 720,
+                "produced": 27614,
+                "consumed": 11686.923076923076,
+                "imports": 446.876,
+                "exports": 14036.449480853229,
+                "stock": 3057.5034422236945,
+                "error": 9.094947017729282e-13,
+                "price": 1.8589056113730673
+              },
+              {
+                "good": "timber",
+                "opening": 720,
+                "produced": 15193,
+                "consumed": 5825.635294117647,
+                "imports": 420,
+                "exports": 8732.738134524927,
+                "stock": 1774.6265713574255,
+                "error": -2.2737367544323206e-13,
+                "price": 3.7178112227461346
+              },
+              {
+                "good": "stone",
+                "opening": 720,
+                "produced": 10258,
+                "consumed": 36.05,
+                "imports": 69.55,
+                "exports": 9958.4409126652,
+                "stock": 1053.0590873347974,
+                "error": -9.094947017729282e-13,
+                "price": 2.788358417059601
+              },
+              {
+                "good": "manufactures",
+                "opening": 0,
+                "produced": 8447,
+                "consumed": 1543.136908748471,
+                "imports": 0,
+                "exports": 6608.6726494696495,
+                "stock": 295.19044178188005,
+                "error": 3.410605131648481e-13,
+                "price": 8.183244191988106
+              }
+            ],
+            "claims": []
+          },
+          "status": "complete"
+        },
+        {
+          "scenario": "settlement",
+          "mode": "delay",
+          "result": {
+            "opening": 169,
+            "admitted": true,
+            "originalReason": null,
+            "foodEligible": true,
+            "foodReason": null,
+            "final": [
+              {
+                "id": 140,
+                "name": "Greyhaven Port staged order \u00b7 1/2",
+                "firm": 7,
+                "market": "port",
+                "good": "grain",
+                "quantity": 50,
+                "delivered": 50,
+                "price": 2.4124840490018564,
+                "deadline": 41,
+                "status": "fulfilled",
+                "procurementGroup": 140,
+                "procurementStage": 0,
+                "dispatchFrom": 26
+              },
+              {
+                "id": 141,
+                "name": "Greyhaven Port staged order \u00b7 2/2",
+                "firm": 7,
+                "market": "port",
+                "good": "grain",
+                "quantity": 100,
+                "delivered": 100,
+                "price": 2.4124840490018564,
+                "deadline": 56,
+                "status": "fulfilled",
+                "procurementGroup": 140,
+                "procurementStage": 1,
+                "dispatchFrom": 41
+              }
+            ],
+            "stages": [
+              {
+                "day": 27,
+                "hardship": 0,
+                "foodStocks": 5343.086622373614,
+                "contracts": [
+                  {
+                    "id": 140,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 0,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "active",
+                    "procurementGroup": 140,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 141,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 0,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "active",
+                    "procurementGroup": 140,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": [
+                  {
+                    "id": 143,
+                    "stage": "collecting",
+                    "status": "collecting",
+                    "qty": 50
+                  }
+                ]
+              },
+              {
+                "day": 32,
+                "hardship": 0,
+                "foodStocks": 4953.356061692834,
+                "contracts": [
+                  {
+                    "id": 140,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 0,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "active",
+                    "procurementGroup": 140,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 141,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 0,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "active",
+                    "procurementGroup": 140,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": [
+                  {
+                    "id": 143,
+                    "stage": "outside",
+                    "status": "outside",
+                    "qty": 50
+                  }
+                ]
+              },
+              {
+                "day": 37,
+                "hardship": 0,
+                "foodStocks": 5116.6699826418535,
+                "contracts": [
+                  {
+                    "id": 140,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 50,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "fulfilled",
+                    "procurementGroup": 140,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 141,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 0,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "active",
+                    "procurementGroup": 140,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": []
+              },
+              {
+                "day": 42,
+                "hardship": 0,
+                "foodStocks": 5121.667597288176,
+                "contracts": [
+                  {
+                    "id": 140,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 50,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "fulfilled",
+                    "procurementGroup": 140,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 141,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 0,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "active",
+                    "procurementGroup": 140,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": [
+                  {
+                    "id": 176,
+                    "stage": "collecting",
+                    "status": "collecting",
+                    "qty": 100
+                  }
+                ]
+              },
+              {
+                "day": 47,
+                "hardship": 0,
+                "foodStocks": 5784.3668603392325,
+                "contracts": [
+                  {
+                    "id": 140,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 50,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "fulfilled",
+                    "procurementGroup": 140,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 141,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 100,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "fulfilled",
+                    "procurementGroup": 140,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": []
+              },
+              {
+                "day": 52,
+                "hardship": 0,
+                "foodStocks": 5050.3460756026225,
+                "contracts": [
+                  {
+                    "id": 140,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 50,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "fulfilled",
+                    "procurementGroup": 140,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 141,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 100,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "fulfilled",
+                    "procurementGroup": 140,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": []
+              },
+              {
+                "day": 57,
+                "hardship": 0,
+                "foodStocks": 5524.1092055370345,
+                "contracts": [
+                  {
+                    "id": 140,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 50,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "fulfilled",
+                    "procurementGroup": 140,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 141,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 100,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "fulfilled",
+                    "procurementGroup": 140,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": []
+              },
+              {
+                "day": 62,
+                "hardship": 0,
+                "foodStocks": 5190.1036863411755,
+                "contracts": [
+                  {
+                    "id": 140,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 50,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "fulfilled",
+                    "procurementGroup": 140,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 141,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 100,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "fulfilled",
+                    "procurementGroup": 140,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": []
+              },
+              {
+                "day": 67,
+                "hardship": 0,
+                "foodStocks": 5192.774362974062,
+                "contracts": [
+                  {
+                    "id": 140,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 50,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "fulfilled",
+                    "procurementGroup": 140,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 141,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 100,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "fulfilled",
+                    "procurementGroup": 140,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": []
+              },
+              {
+                "day": 72,
+                "hardship": 0,
+                "foodStocks": 4957.734895115364,
+                "contracts": [
+                  {
+                    "id": 140,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 50,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "fulfilled",
+                    "procurementGroup": 140,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 141,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 100,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "fulfilled",
+                    "procurementGroup": 140,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": []
+              },
+              {
+                "day": 77,
+                "hardship": 0,
+                "foodStocks": 4106.572162363062,
+                "contracts": [
+                  {
+                    "id": 140,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 50,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "fulfilled",
+                    "procurementGroup": 140,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 141,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 100,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "fulfilled",
+                    "procurementGroup": 140,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": []
+              },
+              {
+                "day": 82,
+                "hardship": 0,
+                "foodStocks": 4525.533248999102,
+                "contracts": [
+                  {
+                    "id": 140,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 50,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "fulfilled",
+                    "procurementGroup": 140,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 141,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 100,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "fulfilled",
+                    "procurementGroup": 140,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": []
+              }
+            ],
+            "cancellation": null,
+            "closure": null,
+            "roads": [
+              {
+                "x": 21,
+                "y": 14
+              },
+              {
+                "x": 22,
+                "y": 13
+              }
+            ],
+            "retention": null,
+            "cashDrift": -1.560896635055542e-06,
+            "goods": [
+              {
+                "good": "grain",
+                "opening": 960,
+                "produced": 44313,
+                "consumed": 16368,
+                "imports": 11099.164,
+                "exports": 35470.7515100437,
+                "stock": 4533.412489956299,
+                "error": 2.7284841053187847e-12,
+                "price": 1.8608641762258757
+              },
+              {
+                "good": "flour",
+                "opening": 960,
+                "produced": 27280,
+                "consumed": 18711,
+                "imports": 3919.639,
+                "exports": 9298.6454415955,
+                "stock": 4149.993558404501,
+                "error": -9.094947017729282e-13,
+                "price": 2.7912962643388135
+              },
+              {
+                "good": "food",
+                "opening": 1920,
+                "produced": 40539,
+                "consumed": 24965.73775407912,
+                "imports": 4005.274,
+                "exports": 16697.03156560371,
+                "stock": 4801.504680317166,
+                "error": -2.7284841053187847e-12,
+                "price": 3.070425890772695
+              },
+              {
+                "good": "logs",
+                "opening": 720,
+                "produced": 28423,
+                "consumed": 12016.153846153846,
+                "imports": 446.876,
+                "exports": 14416.12378942382,
+                "stock": 3157.5983644223334,
+                "error": 4.547473508864641e-13,
+                "price": 1.8608641762258757
+              },
+              {
+                "good": "timber",
+                "opening": 720,
+                "produced": 15621,
+                "consumed": 6004.411764705883,
+                "imports": 420,
+                "exports": 8912.725690458105,
+                "stock": 1843.862544836012,
+                "error": -9.094947017729282e-13,
+                "price": 3.7217283524517515
+              },
+              {
+                "good": "stone",
+                "opening": 720,
+                "produced": 10666,
+                "consumed": 36.05,
+                "imports": 69.55,
+                "exports": 10319.41485091687,
+                "stock": 1100.0851490831287,
+                "error": -9.094947017729282e-13,
+                "price": 2.7912962643388135
+              },
+              {
+                "good": "manufactures",
+                "opening": 0,
+                "produced": 8709,
+                "consumed": 1578.2953874163936,
+                "imports": 0,
+                "exports": 6822.401227777699,
+                "stock": 308.30338480590694,
+                "error": -2.2737367544323206e-13,
+                "price": 8.191716213883213
+              }
+            ],
+            "claims": []
+          },
+          "status": "complete"
+        },
+        {
+          "scenario": "regional",
+          "mode": "normal",
+          "result": {
+            "opening": 657,
+            "admitted": true,
+            "originalReason": null,
+            "foodEligible": true,
+            "foodReason": null,
+            "final": [
+              {
+                "id": 656,
+                "name": "Greyhaven Port staged order \u00b7 1/2",
+                "firm": 7,
+                "market": "port",
+                "good": "grain",
+                "quantity": 50,
+                "delivered": 50,
+                "price": 2.4124840490018564,
+                "deadline": 41,
+                "status": "fulfilled",
+                "procurementGroup": 656,
+                "procurementStage": 0,
+                "dispatchFrom": 26
+              },
+              {
+                "id": 657,
+                "name": "Greyhaven Port staged order \u00b7 2/2",
+                "firm": 7,
+                "market": "port",
+                "good": "grain",
+                "quantity": 100,
+                "delivered": 100,
+                "price": 2.4124840490018564,
+                "deadline": 56,
+                "status": "fulfilled",
+                "procurementGroup": 656,
+                "procurementStage": 1,
+                "dispatchFrom": 41
+              }
+            ],
+            "stages": [
+              {
+                "day": 27,
+                "hardship": 0,
+                "foodStocks": 8888.47122252454,
+                "contracts": [
+                  {
+                    "id": 656,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 0,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "active",
+                    "procurementGroup": 656,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 657,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 0,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "active",
+                    "procurementGroup": 656,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": [
+                  {
+                    "id": 659,
+                    "stage": "collecting",
+                    "status": "collecting",
+                    "qty": 50
+                  }
+                ]
+              },
+              {
+                "day": 32,
+                "hardship": 0,
+                "foodStocks": 9180.246908809637,
+                "contracts": [
+                  {
+                    "id": 656,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 0,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "active",
+                    "procurementGroup": 656,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 657,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 0,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "active",
+                    "procurementGroup": 656,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": [
+                  {
+                    "id": 659,
+                    "stage": "outside",
+                    "status": "outside",
+                    "qty": 50
+                  }
+                ]
+              },
+              {
+                "day": 37,
+                "hardship": 0,
+                "foodStocks": 9261.491546478066,
+                "contracts": [
+                  {
+                    "id": 656,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 50,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "fulfilled",
+                    "procurementGroup": 656,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 657,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 0,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "active",
+                    "procurementGroup": 656,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": []
+              },
+              {
+                "day": 42,
+                "hardship": 0,
+                "foodStocks": 9318.523174267833,
+                "contracts": [
+                  {
+                    "id": 656,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 50,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "fulfilled",
+                    "procurementGroup": 656,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 657,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 0,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "active",
+                    "procurementGroup": 656,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": [
+                  {
+                    "id": 1049,
+                    "stage": "departing",
+                    "status": "departing",
+                    "qty": 100
+                  }
+                ]
+              },
+              {
+                "day": 47,
+                "hardship": 0,
+                "foodStocks": 10989.249822442665,
+                "contracts": [
+                  {
+                    "id": 656,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 50,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "fulfilled",
+                    "procurementGroup": 656,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 657,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 100,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "fulfilled",
+                    "procurementGroup": 656,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": []
+              },
+              {
+                "day": 52,
+                "hardship": 0,
+                "foodStocks": 12273.398909206893,
+                "contracts": [
+                  {
+                    "id": 656,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 50,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "fulfilled",
+                    "procurementGroup": 656,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 657,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 100,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "fulfilled",
+                    "procurementGroup": 656,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": []
+              },
+              {
+                "day": 57,
+                "hardship": 0,
+                "foodStocks": 14353.331566216102,
+                "contracts": [
+                  {
+                    "id": 656,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 50,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "fulfilled",
+                    "procurementGroup": 656,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 657,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 100,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "fulfilled",
+                    "procurementGroup": 656,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": []
+              },
+              {
+                "day": 62,
+                "hardship": 0,
+                "foodStocks": 15865.561608621234,
+                "contracts": [
+                  {
+                    "id": 656,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 50,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "fulfilled",
+                    "procurementGroup": 656,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 657,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 100,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "fulfilled",
+                    "procurementGroup": 656,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": []
+              },
+              {
+                "day": 67,
+                "hardship": 0,
+                "foodStocks": 13895.034534456601,
+                "contracts": [
+                  {
+                    "id": 656,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 50,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "fulfilled",
+                    "procurementGroup": 656,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 657,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 100,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "fulfilled",
+                    "procurementGroup": 656,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": []
+              },
+              {
+                "day": 72,
+                "hardship": 0,
+                "foodStocks": 16111.072381133237,
+                "contracts": [
+                  {
+                    "id": 656,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 50,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "fulfilled",
+                    "procurementGroup": 656,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 657,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 100,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "fulfilled",
+                    "procurementGroup": 656,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": []
+              },
+              {
+                "day": 77,
+                "hardship": 0,
+                "foodStocks": 15239.905615326254,
+                "contracts": [
+                  {
+                    "id": 656,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 50,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "fulfilled",
+                    "procurementGroup": 656,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 657,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 100,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "fulfilled",
+                    "procurementGroup": 656,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": []
+              },
+              {
+                "day": 82,
+                "hardship": 0,
+                "foodStocks": 15353.543045017923,
+                "contracts": [
+                  {
+                    "id": 656,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 50,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "fulfilled",
+                    "procurementGroup": 656,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 657,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 100,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "fulfilled",
+                    "procurementGroup": 656,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": []
+              }
+            ],
+            "cancellation": null,
+            "closure": null,
+            "roads": [],
+            "retention": {
+              "authorized": true,
+              "retained": true,
+              "cargoRetained": true,
+              "count": 24
+            },
+            "cashDrift": -5.308538675308228e-07,
+            "goods": [
+              {
+                "good": "grain",
+                "opening": 960,
+                "produced": 90069,
+                "consumed": 43683,
+                "imports": 26091.215,
+                "exports": 62316.77818995137,
+                "stock": 11120.436810048634,
+                "error": 5.4569682106375694e-12,
+                "price": 1.8605786902224553
+              },
+              {
+                "good": "flour",
+                "opening": 960,
+                "produced": 72805,
+                "consumed": 61563.6,
+                "imports": 12974.792,
+                "exports": 13715.046369716187,
+                "stock": 11461.14563028382,
+                "error": 7.275957614183426e-12,
+                "price": 2.7908680353336828
+              },
+              {
+                "good": "food",
+                "opening": 1920,
+                "produced": 130173,
+                "consumed": 84288.17936250483,
+                "imports": 11851.084,
+                "exports": 42220.12917792491,
+                "stock": 17435.775459569497,
+                "error": -7.566995918750763e-10,
+                "price": 3.069954838867051
+              },
+              {
+                "good": "logs",
+                "opening": 720,
+                "produced": 74566,
+                "consumed": 44605.38461538462,
+                "imports": 4232.917,
+                "exports": 25579.92292008773,
+                "stock": 9333.609464527659,
+                "error": 5.4569682106375694e-12,
+                "price": 1.8605786902224553
+              },
+              {
+                "good": "timber",
+                "opening": 720,
+                "produced": 57987,
+                "consumed": 35468.01176470588,
+                "imports": 5387.641,
+                "exports": 21335.30365835795,
+                "stock": 7291.325576936161,
+                "error": -6.366462912410498e-12,
+                "price": 3.7211573804449105
+              },
+              {
+                "good": "stone",
+                "opening": 720,
+                "produced": 22515,
+                "consumed": 130.54999999999998,
+                "imports": 1874.749,
+                "exports": 21104.33127937434,
+                "stock": 3874.867720625661,
+                "error": -4.547473508864641e-13,
+                "price": 2.7908680353336828
+              },
+              {
+                "good": "manufactures",
+                "opening": 0,
+                "produced": 51651,
+                "consumed": 6854.243701595742,
+                "imports": 0,
+                "exports": 44250.83240458751,
+                "stock": 545.9238938167466,
+                "error": 2.2737367544323206e-13,
+                "price": 8.041389795186864
+              }
+            ],
+            "claims": []
+          },
+          "status": "complete"
+        },
+        {
+          "scenario": "regional",
+          "mode": "cancel",
+          "result": {
+            "opening": 657,
+            "admitted": true,
+            "originalReason": null,
+            "foodEligible": true,
+            "foodReason": null,
+            "final": [
+              {
+                "id": 656,
+                "name": "Greyhaven Port staged order \u00b7 1/2",
+                "firm": 7,
+                "market": "port",
+                "good": "grain",
+                "quantity": 50,
+                "delivered": 50,
+                "price": 2.4124840490018564,
+                "deadline": 41,
+                "status": "fulfilled",
+                "procurementGroup": 656,
+                "procurementStage": 0,
+                "dispatchFrom": 26
+              },
+              {
+                "id": 657,
+                "name": "Greyhaven Port staged order \u00b7 2/2",
+                "firm": 7,
+                "market": "port",
+                "good": "grain",
+                "quantity": 100,
+                "delivered": 100,
+                "price": 2.4124840490018564,
+                "deadline": 56,
+                "status": "cancelled",
+                "procurementGroup": 656,
+                "procurementStage": 1,
+                "dispatchFrom": 41
+              }
+            ],
+            "stages": [
+              {
+                "day": 27,
+                "hardship": 0,
+                "foodStocks": 8888.47122252454,
+                "contracts": [
+                  {
+                    "id": 656,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 0,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "active",
+                    "procurementGroup": 656,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 657,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 0,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "active",
+                    "procurementGroup": 656,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": [
+                  {
+                    "id": 659,
+                    "stage": "collecting",
+                    "status": "collecting",
+                    "qty": 50
+                  }
+                ]
+              },
+              {
+                "day": 32,
+                "hardship": 0,
+                "foodStocks": 9180.246908809637,
+                "contracts": [
+                  {
+                    "id": 656,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 0,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "active",
+                    "procurementGroup": 656,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 657,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 0,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "active",
+                    "procurementGroup": 656,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": [
+                  {
+                    "id": 659,
+                    "stage": "outside",
+                    "status": "outside",
+                    "qty": 50
+                  }
+                ]
+              },
+              {
+                "day": 37,
+                "hardship": 0,
+                "foodStocks": 9261.491546478066,
+                "contracts": [
+                  {
+                    "id": 656,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 50,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "fulfilled",
+                    "procurementGroup": 656,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 657,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 0,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "active",
+                    "procurementGroup": 656,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": []
+              },
+              {
+                "day": 42,
+                "hardship": 0,
+                "foodStocks": 9318.523174267833,
+                "contracts": [
+                  {
+                    "id": 656,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 50,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "fulfilled",
+                    "procurementGroup": 656,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 657,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 0,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "active",
+                    "procurementGroup": 656,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": [
+                  {
+                    "id": 1049,
+                    "stage": "departing",
+                    "status": "departing",
+                    "qty": 100
+                  }
+                ]
+              },
+              {
+                "day": 47,
+                "hardship": 0,
+                "foodStocks": 10989.249822442665,
+                "contracts": [
+                  {
+                    "id": 656,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 50,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "fulfilled",
+                    "procurementGroup": 656,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 657,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 100,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "cancelled",
+                    "procurementGroup": 656,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": []
+              },
+              {
+                "day": 52,
+                "hardship": 0,
+                "foodStocks": 12273.398909206893,
+                "contracts": [
+                  {
+                    "id": 656,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 50,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "fulfilled",
+                    "procurementGroup": 656,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 657,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 100,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "cancelled",
+                    "procurementGroup": 656,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": []
+              },
+              {
+                "day": 57,
+                "hardship": 0,
+                "foodStocks": 14353.331566216102,
+                "contracts": [
+                  {
+                    "id": 656,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 50,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "fulfilled",
+                    "procurementGroup": 656,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 657,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 100,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "cancelled",
+                    "procurementGroup": 656,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": []
+              },
+              {
+                "day": 62,
+                "hardship": 0,
+                "foodStocks": 15865.561608621234,
+                "contracts": [
+                  {
+                    "id": 656,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 50,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "fulfilled",
+                    "procurementGroup": 656,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 657,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 100,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "cancelled",
+                    "procurementGroup": 656,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": []
+              },
+              {
+                "day": 67,
+                "hardship": 0,
+                "foodStocks": 13895.034534456601,
+                "contracts": [
+                  {
+                    "id": 656,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 50,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "fulfilled",
+                    "procurementGroup": 656,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 657,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 100,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "cancelled",
+                    "procurementGroup": 656,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": []
+              },
+              {
+                "day": 72,
+                "hardship": 0,
+                "foodStocks": 16111.072381133237,
+                "contracts": [
+                  {
+                    "id": 656,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 50,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "fulfilled",
+                    "procurementGroup": 656,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 657,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 100,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "cancelled",
+                    "procurementGroup": 656,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": []
+              },
+              {
+                "day": 77,
+                "hardship": 0,
+                "foodStocks": 15239.905615326254,
+                "contracts": [
+                  {
+                    "id": 656,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 50,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "fulfilled",
+                    "procurementGroup": 656,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 657,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 100,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "cancelled",
+                    "procurementGroup": 656,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": []
+              },
+              {
+                "day": 82,
+                "hardship": 0,
+                "foodStocks": 15353.543045017923,
+                "contracts": [
+                  {
+                    "id": 656,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 50,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "fulfilled",
+                    "procurementGroup": 656,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 657,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 100,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "cancelled",
+                    "procurementGroup": 656,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": []
+              }
+            ],
+            "cancellation": {
+              "cargoUnchanged": true,
+              "statuses": [
+                "fulfilled",
+                "cancelled"
+              ]
+            },
+            "closure": null,
+            "roads": [],
+            "retention": null,
+            "cashDrift": -5.308538675308228e-07,
+            "goods": [
+              {
+                "good": "grain",
+                "opening": 960,
+                "produced": 90069,
+                "consumed": 43683,
+                "imports": 26091.215,
+                "exports": 62316.77818995137,
+                "stock": 11120.436810048634,
+                "error": 5.4569682106375694e-12,
+                "price": 1.8605786902224553
+              },
+              {
+                "good": "flour",
+                "opening": 960,
+                "produced": 72805,
+                "consumed": 61563.6,
+                "imports": 12974.792,
+                "exports": 13715.046369716187,
+                "stock": 11461.14563028382,
+                "error": 7.275957614183426e-12,
+                "price": 2.7908680353336828
+              },
+              {
+                "good": "food",
+                "opening": 1920,
+                "produced": 130173,
+                "consumed": 84288.17936250483,
+                "imports": 11851.084,
+                "exports": 42220.12917792491,
+                "stock": 17435.775459569497,
+                "error": -7.566995918750763e-10,
+                "price": 3.069954838867051
+              },
+              {
+                "good": "logs",
+                "opening": 720,
+                "produced": 74566,
+                "consumed": 44605.38461538462,
+                "imports": 4232.917,
+                "exports": 25579.92292008773,
+                "stock": 9333.609464527659,
+                "error": 5.4569682106375694e-12,
+                "price": 1.8605786902224553
+              },
+              {
+                "good": "timber",
+                "opening": 720,
+                "produced": 57987,
+                "consumed": 35468.01176470588,
+                "imports": 5387.641,
+                "exports": 21335.30365835795,
+                "stock": 7291.325576936161,
+                "error": -6.366462912410498e-12,
+                "price": 3.7211573804449105
+              },
+              {
+                "good": "stone",
+                "opening": 720,
+                "produced": 22515,
+                "consumed": 130.54999999999998,
+                "imports": 1874.749,
+                "exports": 21104.33127937434,
+                "stock": 3874.867720625661,
+                "error": -4.547473508864641e-13,
+                "price": 2.7908680353336828
+              },
+              {
+                "good": "manufactures",
+                "opening": 0,
+                "produced": 51651,
+                "consumed": 6854.243701595742,
+                "imports": 0,
+                "exports": 44250.83240458751,
+                "stock": 545.9238938167466,
+                "error": 2.2737367544323206e-13,
+                "price": 8.041389795186864
+              }
+            ],
+            "claims": []
+          },
+          "status": "complete"
+        },
+        {
+          "scenario": "regional",
+          "mode": "closure",
+          "result": {
+            "opening": 657,
+            "admitted": true,
+            "originalReason": null,
+            "foodEligible": true,
+            "foodReason": null,
+            "final": [
+              {
+                "id": 656,
+                "name": "Greyhaven Port staged order \u00b7 1/2",
+                "firm": 7,
+                "market": "port",
+                "good": "grain",
+                "quantity": 50,
+                "delivered": 0,
+                "price": 2.4124840490018564,
+                "deadline": 41,
+                "status": "missed",
+                "procurementGroup": 656,
+                "procurementStage": 0,
+                "dispatchFrom": 26
+              },
+              {
+                "id": 657,
+                "name": "Greyhaven Port staged order \u00b7 2/2",
+                "firm": 7,
+                "market": "port",
+                "good": "grain",
+                "quantity": 100,
+                "delivered": 0,
+                "price": 2.4124840490018564,
+                "deadline": 56,
+                "status": "missed",
+                "procurementGroup": 656,
+                "procurementStage": 1,
+                "dispatchFrom": 41
+              }
+            ],
+            "stages": [
+              {
+                "day": 27,
+                "hardship": 0,
+                "foodStocks": 8888.47122252454,
+                "contracts": [
+                  {
+                    "id": 656,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 0,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "active",
+                    "procurementGroup": 656,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 657,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 0,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "active",
+                    "procurementGroup": 656,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": [
+                  {
+                    "id": 659,
+                    "stage": "collecting",
+                    "status": "collecting",
+                    "qty": 50
+                  }
+                ]
+              },
+              {
+                "day": 32,
+                "hardship": 0,
+                "foodStocks": 9100.246908809637,
+                "contracts": [
+                  {
+                    "id": 656,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 0,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "active",
+                    "procurementGroup": 656,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 657,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 0,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "active",
+                    "procurementGroup": 656,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": []
+              },
+              {
+                "day": 37,
+                "hardship": 0,
+                "foodStocks": 9480.331709035505,
+                "contracts": [
+                  {
+                    "id": 656,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 0,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "active",
+                    "procurementGroup": 656,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 657,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 0,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "active",
+                    "procurementGroup": 656,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": []
+              },
+              {
+                "day": 42,
+                "hardship": 0,
+                "foodStocks": 9377.047619915793,
+                "contracts": [
+                  {
+                    "id": 656,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 0,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "missed",
+                    "procurementGroup": 656,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 657,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 0,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "active",
+                    "procurementGroup": 656,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": []
+              },
+              {
+                "day": 47,
+                "hardship": 0,
+                "foodStocks": 10473.612298250282,
+                "contracts": [
+                  {
+                    "id": 656,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 0,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "missed",
+                    "procurementGroup": 656,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 657,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 0,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "active",
+                    "procurementGroup": 656,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": []
+              },
+              {
+                "day": 52,
+                "hardship": 0,
+                "foodStocks": 11782.617949518946,
+                "contracts": [
+                  {
+                    "id": 656,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 0,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "missed",
+                    "procurementGroup": 656,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 657,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 0,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "active",
+                    "procurementGroup": 656,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": []
+              },
+              {
+                "day": 57,
+                "hardship": 0,
+                "foodStocks": 14634.256098454074,
+                "contracts": [
+                  {
+                    "id": 656,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 0,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "missed",
+                    "procurementGroup": 656,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 657,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 0,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "missed",
+                    "procurementGroup": 656,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": []
+              },
+              {
+                "day": 62,
+                "hardship": 0,
+                "foodStocks": 15043.036116073825,
+                "contracts": [
+                  {
+                    "id": 656,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 0,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "missed",
+                    "procurementGroup": 656,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 657,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 0,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "missed",
+                    "procurementGroup": 656,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": []
+              },
+              {
+                "day": 67,
+                "hardship": 0,
+                "foodStocks": 14491.293572473958,
+                "contracts": [
+                  {
+                    "id": 656,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 0,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "missed",
+                    "procurementGroup": 656,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 657,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 0,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "missed",
+                    "procurementGroup": 656,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": []
+              },
+              {
+                "day": 72,
+                "hardship": 0,
+                "foodStocks": 15782.487039492376,
+                "contracts": [
+                  {
+                    "id": 656,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 0,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "missed",
+                    "procurementGroup": 656,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 657,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 0,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "missed",
+                    "procurementGroup": 656,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": []
+              },
+              {
+                "day": 77,
+                "hardship": 0,
+                "foodStocks": 15172.273425721109,
+                "contracts": [
+                  {
+                    "id": 656,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 0,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "missed",
+                    "procurementGroup": 656,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 657,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 0,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "missed",
+                    "procurementGroup": 656,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": []
+              },
+              {
+                "day": 82,
+                "hardship": 0,
+                "foodStocks": 15238.606550453856,
+                "contracts": [
+                  {
+                    "id": 656,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 0,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "missed",
+                    "procurementGroup": 656,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 657,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 0,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "missed",
+                    "procurementGroup": 656,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": []
+              }
+            ],
+            "cancellation": null,
+            "closure": {
+              "loanApproved": true,
+              "loans": [
+                {
+                  "id": 1,
+                  "bankId": 0,
+                  "ownerType": "firm",
+                  "ownerId": 7,
+                  "original": 5000,
+                  "balance": 0,
+                  "rate": 0.09408799999999998,
+                  "spread": 0.06408799999999998,
+                  "fixedRate": false,
+                  "term": 360,
+                  "created": 28,
+                  "arrears": 0,
+                  "status": "repaid",
+                  "paid": 5000
+                }
+              ]
+            },
+            "roads": [],
+            "retention": null,
+            "cashDrift": -3.688037395477295e-06,
+            "goods": [
+              {
+                "good": "grain",
+                "opening": 960,
+                "produced": 83903,
+                "consumed": 43256.4,
+                "imports": 26126.065,
+                "exports": 57037.01492781727,
+                "stock": 10695.650072182736,
+                "error": 1.8189894035458565e-12,
+                "price": 1.86082895648046
+              },
+              {
+                "good": "flour",
+                "opening": 960,
+                "produced": 72094,
+                "consumed": 61602.975,
+                "imports": 14410.226,
+                "exports": 14235.982510577614,
+                "stock": 11625.268489422386,
+                "error": 0,
+                "price": 2.7912434347206903
+              },
+              {
+                "good": "food",
+                "opening": 1920,
+                "produced": 130416,
+                "consumed": 84278.57893432569,
+                "imports": 12364.136,
+                "exports": 42390.866977563164,
+                "stock": 18030.69008811041,
+                "error": -7.312337402254343e-10,
+                "price": 3.070367778192759
+              },
+              {
+                "good": "logs",
+                "opening": 720,
+                "produced": 74767,
+                "consumed": 44496.153846153844,
+                "imports": 4232.917,
+                "exports": 25361.406509772896,
+                "stock": 9862.356644073261,
+                "error": 3.637978807091713e-12,
+                "price": 1.86082895648046
+              },
+              {
+                "good": "timber",
+                "opening": 720,
+                "produced": 57845,
+                "consumed": 35096.211764705884,
+                "imports": 5387.641,
+                "exports": 21871.86052939476,
+                "stock": 6984.568705899353,
+                "error": -5.4569682106375694e-12,
+                "price": 3.72165791296092
+              },
+              {
+                "good": "stone",
+                "opening": 720,
+                "produced": 22663,
+                "consumed": 130.2,
+                "imports": 1876.499,
+                "exports": 21437.97943949746,
+                "stock": 3691.31956050254,
+                "error": 0,
+                "price": 2.7912434347206903
+              },
+              {
+                "good": "manufactures",
+                "opening": 0,
+                "produced": 51107,
+                "consumed": 6807.128341716132,
+                "imports": 0,
+                "exports": 43691.65007032513,
+                "stock": 608.2215879587364,
+                "error": -1.0231815394945443e-12,
+                "price": 8.011509292777315
+              }
+            ],
+            "claims": []
+          },
+          "status": "complete"
+        },
+        {
+          "scenario": "regional",
+          "mode": "delay",
+          "result": {
+            "opening": 657,
+            "admitted": true,
+            "originalReason": null,
+            "foodEligible": true,
+            "foodReason": null,
+            "final": [
+              {
+                "id": 656,
+                "name": "Greyhaven Port staged order \u00b7 1/2",
+                "firm": 7,
+                "market": "port",
+                "good": "grain",
+                "quantity": 50,
+                "delivered": 50,
+                "price": 2.4124840490018564,
+                "deadline": 41,
+                "status": "fulfilled",
+                "procurementGroup": 656,
+                "procurementStage": 0,
+                "dispatchFrom": 26
+              },
+              {
+                "id": 657,
+                "name": "Greyhaven Port staged order \u00b7 2/2",
+                "firm": 7,
+                "market": "port",
+                "good": "grain",
+                "quantity": 100,
+                "delivered": 100,
+                "price": 2.4124840490018564,
+                "deadline": 56,
+                "status": "fulfilled",
+                "procurementGroup": 656,
+                "procurementStage": 1,
+                "dispatchFrom": 41
+              }
+            ],
+            "stages": [
+              {
+                "day": 27,
+                "hardship": 0,
+                "foodStocks": 8888.47122252454,
+                "contracts": [
+                  {
+                    "id": 656,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 0,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "active",
+                    "procurementGroup": 656,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 657,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 0,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "active",
+                    "procurementGroup": 656,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": [
+                  {
+                    "id": 659,
+                    "stage": "collecting",
+                    "status": "collecting",
+                    "qty": 50
+                  }
+                ]
+              },
+              {
+                "day": 32,
+                "hardship": 0,
+                "foodStocks": 9152.739369241848,
+                "contracts": [
+                  {
+                    "id": 656,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 0,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "active",
+                    "procurementGroup": 656,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 657,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 0,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "active",
+                    "procurementGroup": 656,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": [
+                  {
+                    "id": 659,
+                    "stage": "outside",
+                    "status": "outside",
+                    "qty": 50
+                  }
+                ]
+              },
+              {
+                "day": 37,
+                "hardship": 0,
+                "foodStocks": 9299.5479044765,
+                "contracts": [
+                  {
+                    "id": 656,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 50,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "fulfilled",
+                    "procurementGroup": 656,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 657,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 0,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "active",
+                    "procurementGroup": 656,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": []
+              },
+              {
+                "day": 42,
+                "hardship": 0,
+                "foodStocks": 9450.362284953382,
+                "contracts": [
+                  {
+                    "id": 656,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 50,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "fulfilled",
+                    "procurementGroup": 656,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 657,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 0,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "active",
+                    "procurementGroup": 656,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": [
+                  {
+                    "id": 1056,
+                    "stage": "departing",
+                    "status": "departing",
+                    "qty": 100
+                  }
+                ]
+              },
+              {
+                "day": 47,
+                "hardship": 0,
+                "foodStocks": 10655.947249043045,
+                "contracts": [
+                  {
+                    "id": 656,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 50,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "fulfilled",
+                    "procurementGroup": 656,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 657,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 100,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "fulfilled",
+                    "procurementGroup": 656,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": []
+              },
+              {
+                "day": 52,
+                "hardship": 0,
+                "foodStocks": 13345.119671460729,
+                "contracts": [
+                  {
+                    "id": 656,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 50,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "fulfilled",
+                    "procurementGroup": 656,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 657,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 100,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "fulfilled",
+                    "procurementGroup": 656,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": []
+              },
+              {
+                "day": 57,
+                "hardship": 0,
+                "foodStocks": 14513.383766496687,
+                "contracts": [
+                  {
+                    "id": 656,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 50,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "fulfilled",
+                    "procurementGroup": 656,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 657,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 100,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "fulfilled",
+                    "procurementGroup": 656,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": []
+              },
+              {
+                "day": 62,
+                "hardship": 0,
+                "foodStocks": 15635.850337030693,
+                "contracts": [
+                  {
+                    "id": 656,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 50,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "fulfilled",
+                    "procurementGroup": 656,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 657,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 100,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "fulfilled",
+                    "procurementGroup": 656,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": []
+              },
+              {
+                "day": 67,
+                "hardship": 0,
+                "foodStocks": 14195.873472104826,
+                "contracts": [
+                  {
+                    "id": 656,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 50,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "fulfilled",
+                    "procurementGroup": 656,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 657,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 100,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "fulfilled",
+                    "procurementGroup": 656,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": []
+              },
+              {
+                "day": 72,
+                "hardship": 0,
+                "foodStocks": 16212.82290661479,
+                "contracts": [
+                  {
+                    "id": 656,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 50,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "fulfilled",
+                    "procurementGroup": 656,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 657,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 100,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "fulfilled",
+                    "procurementGroup": 656,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": []
+              },
+              {
+                "day": 77,
+                "hardship": 0,
+                "foodStocks": 14685.83113700505,
+                "contracts": [
+                  {
+                    "id": 656,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 50,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "fulfilled",
+                    "procurementGroup": 656,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 657,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 100,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "fulfilled",
+                    "procurementGroup": 656,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": []
+              },
+              {
+                "day": 82,
+                "hardship": 0,
+                "foodStocks": 15598.763344662799,
+                "contracts": [
+                  {
+                    "id": 656,
+                    "name": "Greyhaven Port staged order \u00b7 1/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 50,
+                    "delivered": 50,
+                    "price": 2.4124840490018564,
+                    "deadline": 41,
+                    "status": "fulfilled",
+                    "procurementGroup": 656,
+                    "procurementStage": 0,
+                    "dispatchFrom": 26
+                  },
+                  {
+                    "id": 657,
+                    "name": "Greyhaven Port staged order \u00b7 2/2",
+                    "firm": 7,
+                    "market": "port",
+                    "good": "grain",
+                    "quantity": 100,
+                    "delivered": 100,
+                    "price": 2.4124840490018564,
+                    "deadline": 56,
+                    "status": "fulfilled",
+                    "procurementGroup": 656,
+                    "procurementStage": 1,
+                    "dispatchFrom": 41
+                  }
+                ],
+                "cargo": []
+              }
+            ],
+            "cancellation": null,
+            "closure": null,
+            "roads": [
+              {
+                "x": 21,
+                "y": 14
+              },
+              {
+                "x": 22,
+                "y": 13
+              }
+            ],
+            "retention": null,
+            "cashDrift": 7.431954145431519e-07,
+            "goods": [
+              {
+                "good": "grain",
+                "opening": 960,
+                "produced": 89566,
+                "consumed": 42844.2,
+                "imports": 26000.799,
+                "exports": 62449.21445963009,
+                "stock": 11233.384540369912,
+                "error": 9.094947017729282e-12,
+                "price": 1.8595667603971557
+              },
+              {
+                "good": "flour",
+                "opening": 960,
+                "produced": 71407,
+                "consumed": 61037.025,
+                "imports": 13233.314,
+                "exports": 13231.716929672782,
+                "stock": 11331.572070327218,
+                "error": 1.8189894035458565e-12,
+                "price": 2.789350140595734
+              },
+              {
+                "good": "food",
+                "opening": 1920,
+                "produced": 128972,
+                "consumed": 84284.4478776325,
+                "imports": 12049.229,
+                "exports": 41358.74517753796,
+                "stock": 17298.035944828785,
+                "error": -7.494236342608929e-10,
+                "price": 3.0682851546553067
+              },
+              {
+                "good": "logs",
+                "opening": 720,
+                "produced": 72357,
+                "consumed": 44345.38461538462,
+                "imports": 4592.917,
+                "exports": 24376.066108459545,
+                "stock": 8948.466276155843,
+                "error": 0,
+                "price": 1.8595667603971557
+              },
+              {
+                "good": "timber",
+                "opening": 720,
+                "produced": 57649,
+                "consumed": 35806.04705882353,
+                "imports": 5387.641,
+                "exports": 20723.71254241711,
+                "stock": 7226.881398759352,
+                "error": -7.275957614183426e-12,
+                "price": 3.7191335207943115
+              },
+              {
+                "good": "stone",
+                "opening": 720,
+                "produced": 22034,
+                "consumed": 132.29999999999998,
+                "imports": 1875.8,
+                "exports": 20664.02115436508,
+                "stock": 3833.478845634919,
+                "error": 4.547473508864641e-13,
+                "price": 2.789350140595734
+              },
+              {
+                "good": "manufactures",
+                "opening": 0,
+                "produced": 52142,
+                "consumed": 6855.199134615355,
+                "imports": 0,
+                "exports": 44732.51362791742,
+                "stock": 554.2872374672247,
+                "error": -1.2505552149377763e-12,
+                "price": 8.031142041863571
+              }
+            ],
+            "claims": []
+          },
+          "status": "complete"
+        }
+      ],
+      "errors": []
+    },
+    "reports/procurement/acceptance.json": {
+      "source_sha256": "471b744f92d1e97ad505b44cc979929253a071fffb9fd3d1cf1058d8050317f9",
+      "result": {
+        "historyCycles": 30,
+        "final": [
+          {
+            "id": 199,
+            "name": "Greyhaven Port staged order \u00b7 1/2",
+            "firm": 7,
+            "market": "port",
+            "good": "grain",
+            "quantity": 10,
+            "delivered": 10,
+            "price": 2.4124840490018564,
+            "deadline": 41,
+            "status": "fulfilled",
+            "procurementGroup": 199,
+            "procurementStage": 0,
+            "dispatchFrom": 26
+          },
+          {
+            "id": 200,
+            "name": "Greyhaven Port staged order \u00b7 2/2",
+            "firm": 7,
+            "market": "port",
+            "good": "grain",
+            "quantity": 10,
+            "delivered": 10,
+            "price": 2.4124840490018564,
+            "deadline": 56,
+            "status": "fulfilled",
+            "procurementGroup": 199,
+            "procurementStage": 1,
+            "dispatchFrom": 41
+          }
+        ],
+        "cashDrift": -1.1753290891647339e-06,
+        "goods": [
+          {
+            "good": "grain",
+            "opening": 960,
+            "produced": 42597,
+            "consumed": 15872.4,
+            "imports": 11020.853,
+            "exports": 34539.25407712717,
+            "stock": 4166.198922872839,
+            "error": 3.637978807091713e-12,
+            "price": 1.8589056113730673
+          },
+          {
+            "good": "flour",
+            "opening": 960,
+            "produced": 26454,
+            "consumed": 18463.2,
+            "imports": 3928.9139999999998,
+            "exports": 8612.13230360598,
+            "stock": 4267.5816963940215,
+            "error": 9.094947017729282e-13,
+            "price": 2.788358417059601
+          },
+          {
+            "good": "food",
+            "opening": 1920,
+            "produced": 39911,
+            "consumed": 24946.537754079123,
+            "imports": 3997.659,
+            "exports": 16103.191573356546,
+            "stock": 4778.929672564331,
+            "error": -1.8189894035458565e-12,
+            "price": 3.0671942587655607
+          },
+          {
+            "good": "logs",
+            "opening": 720,
+            "produced": 27302,
+            "consumed": 11692.307692307691,
+            "imports": 446.876,
+            "exports": 13920.472238163084,
+            "stock": 2856.096069529225,
+            "error": 4.547473508864641e-13,
+            "price": 1.8589056113730673
+          },
+          {
+            "good": "timber",
+            "opening": 720,
+            "produced": 15200,
+            "consumed": 5853.176470588235,
+            "imports": 420,
+            "exports": 8737.10856047267,
+            "stock": 1749.7149689390944,
+            "error": -4.547473508864641e-13,
+            "price": 3.7178112227461346
+          },
+          {
+            "good": "stone",
+            "opening": 720,
+            "produced": 10290,
+            "consumed": 35,
+            "imports": 66.4,
+            "exports": 9963.4584130893,
+            "stock": 1077.9415869106992,
+            "error": -4.547473508864641e-13,
+            "price": 2.788358417059601
+          },
+          {
+            "good": "manufactures",
+            "opening": 0,
+            "produced": 8490,
+            "consumed": 1567.3409132298968,
+            "imports": 0,
+            "exports": 6627.372782968121,
+            "stock": 295.28630380198143,
+            "error": -3.979039320256561e-13,
+            "price": 8.183392313258777
+          }
+        ],
+        "valid": {
+          "ok": true,
+          "issues": [],
+          "total": 15493516.999998318,
+          "population": 164,
+          "day": 96
+        }
+      },
+      "errors": []
+    },
+    "reports/civic-calendar/controls.json": {
+      "source_sha256": "471b744f92d1e97ad505b44cc979929253a071fffb9fd3d1cf1058d8050317f9",
+      "quotedPreparation": {
+        "ok": true,
+        "cost": 228,
+        "eligible": 46
+      },
+      "actualActiveEvent": {
+        "id": 1,
+        "venue": 103,
+        "name": "Willow Commons",
+        "x": 22,
+        "y": 29,
+        "start": 4,
+        "end": 5,
+        "capacity": 24,
+        "cost": 228,
+        "paid": 228,
+        "created": 3,
+        "lastDay": 4,
+        "status": "active",
+        "visits": 24,
+        "participants": [
+          90,
+          0,
+          91,
+          147,
+          30,
+          84,
+          67,
+          132,
+          112,
+          131,
+          119,
+          156,
+          151,
+          7,
+          78,
+          19,
+          111,
+          1,
+          13,
+          24,
+          55,
+          32,
+          68,
+          20
+        ],
+        "daily": [
+          {
+            "day": 4,
+            "eligible": 73,
+            "attendance": 24
+          }
+        ],
+        "reason": ""
+      },
+      "completedEvent": {
+        "version": 1,
+        "next": 2,
+        "events": [
+          {
+            "id": 1,
+            "venue": 103,
+            "name": "Willow Commons",
+            "x": 22,
+            "y": 29,
+            "start": 4,
+            "end": 5,
+            "capacity": 24,
+            "cost": 228,
+            "paid": 228,
+            "created": 3,
+            "lastDay": 6,
+            "status": "complete",
+            "visits": 48,
+            "participants": [
+              90,
+              0,
+              91,
+              147,
+              30,
+              84,
+              67,
+              132,
+              112,
+              131,
+              119,
+              156,
+              151,
+              7,
+              78,
+              19,
+              111,
+              1,
+              13,
+              24,
+              55,
+              32,
+              68,
+              20,
+              96,
+              79,
+              48,
+              159,
+              61,
+              163,
+              148,
+              136,
+              12,
+              6,
+              102,
+              127,
+              42,
+              49,
+              36,
+              155,
+              73,
+              115
+            ],
+            "daily": [
+              {
+                "day": 4,
+                "eligible": 73,
+                "attendance": 24
+              },
+              {
+                "day": 5,
+                "eligible": 68,
+                "attendance": 24
+              }
+            ],
+            "reason": ""
+          }
+        ]
+      },
+      "cancelRetainsPreparation": true,
+      "failedFundingAndStaleNoMutation": true,
+      "pausedPixelsStableAndActiveAnimation": true,
+      "errors": []
+    },
+    "reports/brownfield-player-path/results.json": {
+      "day": 209,
+      "remaining": 0,
+      "moneyError": -1.8347054719924927e-06,
+      "site": {
+        "id": 24,
+        "x": 25,
+        "y": 30,
+        "name": "Quarry Ltd.",
+        "kind": "quarry",
+        "wasClosed": false,
+        "formerWorkers": 4,
+        "formerJobs": 4,
+        "industrialAgeDays": 180,
+        "tiles": [
+          3865
+        ],
+        "assessment": 300,
+        "remediation": 3690,
+        "days": 26,
+        "clearance": 46498.845191205095,
+        "severance": 1748.845191205096,
+        "compensation": 42900,
+        "status": "ready",
+        "remaining": 0,
+        "assessedDay": 181,
+        "acquiredDay": 181,
+        "startedDay": 181,
+        "lastWorkDay": 209,
+        "readyDay": 209
+      },
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15493516.999997258,
+        "population": 666,
+        "day": 209
+      },
+      "parkAmenity": {
+        "before": 1.1428571939468384,
+        "after": 2.142857074737549
+      },
+      "reuseArms": [
+        "park",
+        "home",
+        "grocer"
+      ],
+      "capacity": [
+        {
+          "kind": "home",
+          "building": 242,
+          "households": 1,
+          "jobs": 0,
+          "workers": 0,
+          "revenue": 0,
+          "profit": 0,
+          "closed": false
+        },
+        {
+          "kind": "grocer",
+          "building": 242,
+          "households": 0,
+          "jobs": 1,
+          "workers": 1,
+          "revenue": 0,
+          "profit": -41.19133333333334,
+          "closed": false
+        }
+      ],
+      "source_sha256": "471b744f92d1e97ad505b44cc979929253a071fffb9fd3d1cf1058d8050317f9",
+      "actualControls": true,
+      "cancelNoMutation": true,
+      "insufficientCash": true,
+      "recipientCreditedNetIncludingLiquidation": 76557.313676361,
+      "blockedCandidates": [
+        {
+          "id": 32,
+          "reason": "This enterprise has paid cargo, crop works or an active trade contract. Settle those commitments before land assembly."
+        },
+        {
+          "id": 102,
+          "reason": "This enterprise has paid cargo, crop works or an active trade contract. Settle those commitments before land assembly."
+        },
+        {
+          "id": 142,
+          "reason": "This enterprise has paid cargo, crop works or an active trade contract. Settle those commitments before land assembly."
+        },
+        {
+          "id": 143,
+          "reason": "This enterprise has paid cargo, crop works or an active trade contract. Settle those commitments before land assembly."
+        },
+        {
+          "id": 144,
+          "reason": "This enterprise has paid cargo, crop works or an active trade contract. Settle those commitments before land assembly."
+        },
+        {
+          "id": 145,
+          "reason": "This enterprise has paid cargo, crop works or an active trade contract. Settle those commitments before land assembly."
+        },
+        {
+          "id": 146,
+          "reason": "This enterprise has paid cargo, crop works or an active trade contract. Settle those commitments before land assembly."
+        }
+      ],
+      "transportAndCargoPreserved": true,
+      "assessmentWithdrawal": true,
+      "treasuryBeforeAcquisition": 481890.55093302694,
+      "ordinaryDaysBeforeAcquisition": 180,
+      "originalWorkers": 4,
+      "severance": 1748.845191205096,
+      "regionalTitleFallback": true,
+      "errors": []
+    },
+    "reports/development-save-qa/composite.json": {
+      "source_sha256": "471b744f92d1e97ad505b44cc979929253a071fffb9fd3d1cf1058d8050317f9",
+      "controlledCatchment": true,
+      "result": {
+        "grid": 128,
+        "people": 1375,
+        "routes": 2,
+        "settledTickets": 1,
+        "fares": 3.25,
+        "cargo": 18,
+        "providerEscrow": 6000,
+        "mallEscrow": 28000,
+        "cashConserved": true,
+        "receiptsPreserved": true,
+        "faults": {
+          "grid": 128,
+          "schema": 8,
+          "recordsRejected": [
+            "missingMember",
+            "duplicateMember",
+            "householdMismatch",
+            "missingHome",
+            "tileUsedAsHomeId",
+            "missingFirmBuilding",
+            "negativeStock",
+            "invalidStock",
+            "unknownStock",
+            "negativeDeposit",
+            "missingDepositBank",
+            "malformedBank",
+            "malformedLoan",
+            "negativeLoanBank",
+            "duplicateBuildingId",
+            "exhaustedIdCounter",
+            "duplicateHomeId",
+            "orphanWorker",
+            "duplicateWorker",
+            "missingOwner",
+            "missingTitleHolder",
+            "truncatedTiles",
+            "malformedProject",
+            "futureSchema",
+            "invalidDay"
+          ],
+          "truncatedRejected": 4,
+          "callerIndependent": true,
+          "atomicRNGAndTimeline": true
+        }
+      }
+    }
+  },
+  "cooperativeEnabled": false
+}

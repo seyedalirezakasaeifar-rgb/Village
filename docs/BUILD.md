@@ -1,62 +1,66 @@
-# Reproducible source and Android builds
+# Build and verify TownLedger 7.1.1 candidate
 
-## Browser build
-
-Use Python 3 and Node.js:
-
-```sh
-python tools/assemble.py
-python -m http.server 8000 --directory assets
-```
-
-Open the local server in a browser. The delivered assets also work offline from a local file and in the Android host. Edit the ordered files in `src/`, then assemble; `assets/game.js` is generated. `release.json` supplies the runtime version metadata.
+Run `python3 tools/assemble.py` after editing the ordered `src/` modules. Python 3 and Node.js are required. Serve `assets/` with `python3 -m http.server 8000 --directory assets` for browser play.
 
 ## Android
 
-The executable host is `android/app/src/main/java/org/townledger/vale/MainActivity.java`; the manifest and original launcher vector are in `android/`. It opens only the bundled game, requests no application permissions, and uses the Android document picker for backup/import.
-
-A JDK providing `jdk.compiler`, an Android platform jar, aapt, zipalign, and d8 or dx are required. Signing uses apksigner. With a normal SDK:
+The validated pipeline uses the official Android SDK platform 36 and build-tools 36.0.0, Java 21 or later, Java 8 bytecode, d8, aapt, zipalign and apksigner. Install those SDK components with the SDK manager, then run:
 
 ```sh
-ANDROID_HOME=/path/to/android-sdk python build_apk.py
-ANDROID_HOME=/path/to/android-sdk python tests/verify_package.py
+ANDROID_HOME=/path/to/sdk TOWNLEDGER_KEYSTORE=/private/path/townledger-development.p12 python3 tools/build_android.py
+ANDROID_HOME=/path/to/sdk python3 tests/verify_package.py
 ```
 
-A distro tool root can instead be supplied with `TOWNLEDGER_ANDROID_TOOLS`; an explicit jar can be selected with `TOWNLEDGER_ANDROID_JAR`. The validated build used Ubuntu AOSP packages `aapt`, `dalvik-exchange`, `libandroid-23-java`, `zipalign`, `apksigner`, `libapksig-java` and their shared-library dependencies, plus JDK 17. The fallback compiles Java-7-compatible bytecode against the API-23 jar, then packages minimum API 24 and target API 36. No proprietary game assets or online build service are required.
+The script creates a development signer when the supplied path does not exist. Retain it privately for subsequent compatible builds. Its default development password is `android`; protect the file with filesystem permissions. Never commit it or put it in a source or delivery archive. For distribution, use an authorized release signing process. The original baseline key is unavailable; this build does not promise an in-place update from it.
+
+Current candidate output: `TownLedger-The-Working-City-7.1.1.apk` (created only when the build is run). Version, code and package come from `release.json`. The verifier checks exact assets, DEX integrity, manifest metadata, requested permissions, signatures and alignment. Reports under `reports/` are generated and ignored. Neither script installs or launches the APK.
+
+## Browser QA
+
+Install `requirements-test.txt` and provide Chromium at `/usr/bin/chromium` (older scripts also accept `TOWNLEDGER_BROWSER`). Run scripts individually; historical reference tests are not a pytest suite.
 
 ```sh
-TOWNLEDGER_ANDROID_TOOLS=/path/to/extracted-tool-root python build_apk.py
-TOWNLEDGER_ANDROID_TOOLS=/path/to/extracted-tool-root python tests/verify_package.py
+python3 tests/test_archive_schema.py
+python3 tests/test_mobile_rendering.py
+python3 tests/test_v7_live_large_town.py
+python3 tests/test_controls.py
+python3 tests/test_v7_contrast.py
+TOWNLEDGER_CORE_ONLY=1 python3 tests/test_release.py
+python3 tests/test_v7_scenarios.py
 ```
 
-Use `TOWNLEDGER_KEYSTORE=/private/path/development-signing.p12` to retain a signer. Otherwise a development keystore is generated under `build/`. The output is `TownLedger-The-Resilient-Vale-6.1.apk`. Private keys, compiled intermediates and machine-specific tool installations are excluded from the source archive.
+The first three load bundled HTML in Chromium directly and do not need file URL access. Older scripts use local file navigation; environments that forbid it need an approved local HTTP server adapter. Run performance measurements alone, without concurrent builds or simulation tests. Absolute timing assertions are host-specific; preserve the JSON and describe the host and scenario. Live performance uses an authored synthetic town and real requestAnimationFrame callbacks. It is not an Android FPS benchmark.
 
-The verifier checks DEX checksums, package/minimum/target/version metadata, icon resources, absence of requested permissions, exact packaged assets versus source, v2/v3 signatures and alignment. It does not install the app or prove hardware performance.
+## Immutable candidate acceptance
 
-## Tests
-
-Install the Python Playwright package and provide Chromium. Set `TOWNLEDGER_BROWSER` when Chromium is not `/usr/bin/chromium`.
+Run the complete46 gates and production build in one frozen pass:
 
 ```sh
-python -m pip install playwright
-TOWNLEDGER_BROWSER=/path/to/chromium python tests/test_release.py
-TOWNLEDGER_BROWSER=/path/to/chromium python tests/test_finance.py
-TOWNLEDGER_BROWSER=/path/to/chromium python tests/test_landmark_randomized.py
-TOWNLEDGER_BROWSER=/path/to/chromium python tests/test_2000_residents.py
-TOWNLEDGER_BROWSER=/path/to/chromium python tests/test_controls.py
-TOWNLEDGER_BROWSER=/path/to/chromium python tests/capture_release.py
+ANDROID_HOME=/path/to/sdk TOWNLEDGER_KEYSTORE=/private/path/stable-key.p12 TOWNLEDGER_USE_HTTP=1 python3 tools/qa_candidate.py
 ```
 
-`test_release.py` includes seeded replay, exact continuation, malformed-save rejection, replicated policy tests, blocked cargo, actual 5.6 migration, pause, long traffic progress and 50/25/10/5-year scenario runs. The original 5.6 assets required by its migration case are included under `reference/v5.6/`. Historical scripts are references, not active build entrypoints.
+The opt-in HTTP adapter serves only bundled current/historical game assets over127.0.0.1. It does not expose build outputs or signing keys. It is included in this source tree; no private environment shim is needed. For an individual file-navigation test, add `PYTHONPATH=tools/browser_http_adapter TOWNLEDGER_USE_HTTP=1`. Native source, test inputs, metadata and assets must remain unchanged during acceptance. Performance gates must run without another emulator/simulation competing for the host.
 
-`capture_release.py` checks the actual CSS at 1280×720 and 844×390, all navigation panels, policy review, 64× playback and genuine game captures. Its season comparison deliberately holds a town and camera fixed while varying the render month; the economy is not advanced between those four art captures.
+## Android 8.0 acceptance and SDK requirements
 
-## Version 6.1 regression checks
+Current native sources require a current platform jar (the acceptance build uses
+**Android API 36**). New platform types live behind runtime guards, but the Java
+compiler still needs their definitions. The historical API-23 distro jar noted
+above cannot compile the API-33 Back adapter. With distro AAPT/DEX/signing tools,
+set `TOWNLEDGER_ANDROID_JAR` to an official API-36 `android.jar`; normal SDK
+installations can use `ANDROID_HOME` with `platforms/android-36` and build tools.
+SDK versions are selected numerically.
 
-`test_v61_regressions.py` checks an actual stranded 6.0 town, historic bank-entry limits, cumulative bank-cost errors, persistent preferences and climate rules. `test_v61_performance.py` compares real wall-clock speed in 6.0 and 6.1, including synthetic CPU throttling. It is not an Android benchmark. `test_v61_vehicle_art.py` verifies four heading-dependent car and truck rasters. Set `TOWNLEDGER_CORE_ONLY=1` for the core part of `test_release.py`; run `run_endurance.py` separately to record each long scenario with its source hash.
+The filename follows `release.json`; the current checkpoint produces
+`TownLedger-A-Trading-Town-8.0.0.apk` (code 22, schema 8). The verifier checks the
+exact source assets, real DEX, minimum API 24 / target API 36, zero requested
+permissions, absence of private test classes/debug flags, signature and alignment.
+These checks do not establish device performance or installation compatibility
+with an unrelated certificate. A clean build's generated development signer
+cannot update the privately signed delivered game. The integration lead retains
+the persistent signer outside the repository.
 
-## Version 7.0
-
-The output is `TownLedger-The-Working-City-7.0.apk`; version 7.0.0 / code 14 / schema 5. The same signing material used for 6.0/6.1 is required to preserve update compatibility. The build script derives filenames and metadata from `release.json`.
-
-Current checks include `test_v7_model.py`, `test_v7_default_starts.py`, `test_v7_scenarios.py`, `test_v7_policy_experiments.py`, `test_v7_liquidity.py` and `test_v7_contrast.py`. The endurance harness records the source hash before opening the app and rejects changes during the run. Do not edit the assembled game while testing. `TOWNLEDGER_CORE_ONLY=1` runs the deterministic/save/stock/traffic gates separately from the long scenario suite.
+Reproducible scratch host/provider, actual system picker cancellation and full-game
+native probes are documented in [tests/android/README.md](../tests/android/README.md).
+Current receipts and the distinctions between native, host-browser and never-run
+stages are in [the native acceptance notes](engineering/NATIVE-RELEASE-8.md).

@@ -1,0 +1,72 @@
+{
+  "source_sha256": "346992b501f8622b007dddc6bf75baadbf850f6211b8989c6c3ccfcdefc98207",
+  "base": "43d1fc0121afab18a329403b9280fa37384b3ad0",
+  "gates": [
+    {
+      "test": "test_committed_day_save",
+      "exit_code": 0,
+      "seconds": 5.89,
+      "log_sha256": "0bdb1b943f362163e2c640680bcab9042abf7d0e62d60026131a8605eeacfcd6"
+    },
+    {
+      "test": "test_housing_retention_dilemma",
+      "exit_code": 0,
+      "seconds": 4.93,
+      "log_sha256": "f0c10eace3439482b530c94744e9ac42835e4bc95e6e8446b3b9c48921f83d54"
+    },
+    {
+      "test": "test_pending_review_flows",
+      "exit_code": 0,
+      "seconds": 4.54,
+      "log_sha256": "37c9b7e0ec93792103a1e28eec1a547162c3d14d949fe92005e2ba6ba35fc174"
+    },
+    {
+      "test": "test_policy_impact",
+      "exit_code": 0,
+      "seconds": 2.63,
+      "log_sha256": "53c4da895935eef5c37ac818b983b8b737e42f1f1cb57d47d7fbbfcb012cbdf4"
+    },
+    {
+      "test": "test_retention_midday_save",
+      "exit_code": 0,
+      "seconds": 2.63,
+      "log_sha256": "fd8a5350e3a193727644191843fa70a64bcc15765b904548a7a9e2ec2350330d"
+    },
+    {
+      "test": "test_school_placement_preview",
+      "exit_code": 0,
+      "seconds": 3.38,
+      "log_sha256": "9b2bffd175a0e21d68c0b42d9728ecbc2e117a1812b80d4f7ee287f7ffa1b0c2"
+    },
+    {
+      "test": "test_urban_assembly_disclosure",
+      "exit_code": 0,
+      "seconds": 5.65,
+      "log_sha256": "7802cb5ee86d9c445fe4b9faba60d056603d3a47850a9acadea9d47d5e6cc945"
+    },
+    {
+      "test": "test_retail_proposal_review",
+      "exit_code": 0,
+      "seconds": 5.8,
+      "log_sha256": "188d175a0a8f02e1eb38075a3f493490be72b9a8eac0c7460faebfe562923ea8"
+    },
+    {
+      "test": "test_brownfield_player_path",
+      "exit_code": 0,
+      "seconds": 17.0,
+      "log_sha256": "2e3cd8b093717406265c4ba6e4d77d88b64ae8715939ff3f337c7c7ad08f7703"
+    },
+    {
+      "test": "test_review_workflows",
+      "exit_code": 0,
+      "seconds": 15.0,
+      "log_sha256": "0936a00f8209ff031cd19768a6c19414c1743ab1d9670a2b861407bbe203a7fa"
+    },
+    {
+      "test": "test_controls",
+      "exit_code": 0,
+      "seconds": 6.23,
+      "log_sha256": "d58dc54e98f391d72db1585e872f0f6130de2ed4340fbf4ac3cf4ee577fab49c"
+    }
+  ]
+}

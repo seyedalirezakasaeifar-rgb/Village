@@ -1,0 +1,7 @@
+# Integrated rapid audio acceptance
+
+`tests/test_audio_rapid_controls.py` uses actual HTML audio assets on HTTP, trusted Next/mute/control clicks, range input, native suspend/resume, document hide/show, a current-media error followed by Retry, archive restore and new-town reset. Structured `page.evaluate` arguments avoid the prior harness quoting failure. No production audio code changed.
+
+Thirty-four snapshots pass, including music/effects independence, twelve rapid Next/volume/mute/resume sequences, zero-volume resume, final music mute and retry recovery. Deck count stays at most two. After requested boundary GC there are four retained media elements: one paused music source and the three ordinary effects/ambience elements. No retained music stream plays after final mute. The ambience may remain active because effects and music are independent controls. Existing deferred-promise races and effects lifecycle tests also pass; those two tests use mocks and are labelled separately in the receipt.
+
+Source-bound receipt: `reports/integration/audio-rapid-8/receipt.json`. This is bounded host real-media/control coverage, not subjective listening, hours of unaccelerated playback, native Android routing or thermal certification. It supplements rather than replaces the separately attributed frozen three-hour endurance report. No product failure was inferred from the abandoned quoting-broken harness.

@@ -1,0 +1,73 @@
+{
+  "source_sha256": "78f4c3b5dc1a34313ff8752b6a6a5e85410a832b597b04fba4a0f1005ec62174",
+  "cases": [
+    {
+      "zoom": 0.65,
+      "edge": "left",
+      "actorId": 152,
+      "building": 101,
+      "parentCentreOutside": true,
+      "actorCentreInside": true,
+      "actualActorPresent": true,
+      "modelUnchanged": true,
+      "differentPixels": 0
+    },
+    {
+      "zoom": 0.65,
+      "edge": "top",
+      "actorId": 150,
+      "building": 102,
+      "parentCentreOutside": true,
+      "actorCentreInside": true,
+      "actualActorPresent": true,
+      "modelUnchanged": true,
+      "differentPixels": 0
+    },
+    {
+      "zoom": 0.9,
+      "edge": "left",
+      "actorId": 152,
+      "building": 101,
+      "parentCentreOutside": true,
+      "actorCentreInside": true,
+      "actualActorPresent": true,
+      "modelUnchanged": true,
+      "differentPixels": 0
+    },
+    {
+      "zoom": 0.9,
+      "edge": "top",
+      "actorId": 150,
+      "building": 102,
+      "parentCentreOutside": true,
+      "actorCentreInside": true,
+      "actualActorPresent": true,
+      "modelUnchanged": true,
+      "differentPixels": 0
+    },
+    {
+      "zoom": 1.4,
+      "edge": "left",
+      "actorId": 152,
+      "building": 101,
+      "parentCentreOutside": true,
+      "actorCentreInside": true,
+      "actualActorPresent": true,
+      "modelUnchanged": true,
+      "differentPixels": 0
+    },
+    {
+      "zoom": 1.4,
+      "edge": "top",
+      "actorId": 150,
+      "building": 102,
+      "parentCentreOutside": true,
+      "actorCentreInside": true,
+      "actualActorPresent": true,
+      "modelUnchanged": true,
+      "differentPixels": 0
+    }
+  ],
+  "errors": [],
+  "scope": "Real staff frontage sampling; ordinary Canvas renderer, no mesh/style replacement or physical-device acceptance"
+}

@@ -1,0 +1,205 @@
+{
+  "source_sha256": "84ecbaef6b0ae999a9c5adcd49b9ba1678840cabfc36cf02b617c74a93d208a4",
+  "determinism_and_continuation": {
+    "sameSeed": true,
+    "renderIndependent": true,
+    "continuedDays": 120,
+    "valid": {
+      "ok": true,
+      "issues": [],
+      "total": 15489571.99999491,
+      "population": 177,
+      "day": 301
+    }
+  },
+  "malformed_save_atomicity": {
+    "investorRejected": true,
+    "cargoRejected": true,
+    "futureRejected": true,
+    "townPreserved": true
+  },
+  "replicated_zoning": [
+    {
+      "seed": 42,
+      "zone": 0,
+      "population": 192,
+      "homes": 17,
+      "firms": 3,
+      "privateSpend": 494901,
+      "moneyDelta": -1.2569129467010498e-05,
+      "ms": 3358.60000000149
+    },
+    {
+      "seed": 42,
+      "zone": 100,
+      "population": 177,
+      "homes": 0,
+      "firms": 1,
+      "privateSpend": 0,
+      "moneyDelta": -1.7305836081504822e-05,
+      "ms": 2225.5
+    },
+    {
+      "seed": 101,
+      "zone": 0,
+      "population": 225,
+      "homes": 22,
+      "firms": 7,
+      "privateSpend": 599329,
+      "moneyDelta": -1.3617798686027527e-05,
+      "ms": 3109.699999999255
+    },
+    {
+      "seed": 101,
+      "zone": 100,
+      "population": 177,
+      "homes": 0,
+      "firms": 1,
+      "privateSpend": 0,
+      "moneyDelta": -5.887821316719055e-06,
+      "ms": 2103.300000000745
+    },
+    {
+      "seed": 909,
+      "zone": 0,
+      "population": 185,
+      "homes": 15,
+      "firms": 3,
+      "privateSpend": 386747,
+      "moneyDelta": -8.67992639541626e-06,
+      "ms": 2399.699999999255
+    },
+    {
+      "seed": 909,
+      "zone": 100,
+      "population": 180,
+      "homes": 0,
+      "firms": 1,
+      "privateSpend": 0,
+      "moneyDelta": -4.0102750062942505e-06,
+      "ms": 2181.800000000745
+    }
+  ],
+  "cargo_ownership": {
+    "consignments": 6,
+    "sampledUnits": 166.3792513597068,
+    "remaining": true,
+    "delayed": 1,
+    "cashConserved": true
+  },
+  "legacy_56_migration": {
+    "v": {
+      "ok": true,
+      "issues": [],
+      "total": 15450710,
+      "population": 169,
+      "day": 1
+    },
+    "after": {
+      "ok": true,
+      "issues": [],
+      "total": 15450709.999999106,
+      "population": 167,
+      "day": 31
+    },
+    "schema": 8
+  },
+  "true_pause": {
+    "identicalScreenshots": true,
+    "milliseconds": 500
+  },
+  "traffic_progress": {
+    "seconds": 1600,
+    "maximumWait": 0.9999999999999999,
+    "peak": 21,
+    "valid": true
+  },
+  "long_run_endurance": [
+    {
+      "day": 18001,
+      "population": 1028,
+      "homes": 304,
+      "redevelopments": 18,
+      "towers": 9,
+      "airfields": 1,
+      "stations": 2,
+      "openFirms": 129,
+      "failures": 0,
+      "total": 15493516.999913607,
+      "peakDrift": 0.00018032267689704895,
+      "scenario": "settlement",
+      "seed": 42,
+      "years": 50,
+      "seconds": 580.3409290849995
+    },
+    {
+      "day": 9001,
+      "population": 388,
+      "homes": 160,
+      "redevelopments": 0,
+      "towers": 0,
+      "airfields": 0,
+      "stations": 2,
+      "openFirms": 61,
+      "failures": 0,
+      "total": 15489571.99986816,
+      "peakDrift": 0.00013177655637264252,
+      "scenario": "frontier",
+      "seed": 101,
+      "years": 25,
+      "seconds": 117.8567636680018
+    },
+    {
+      "day": 9001,
+      "population": 418,
+      "homes": 118,
+      "redevelopments": 2,
+      "towers": 0,
+      "airfields": 0,
+      "stations": 2,
+      "openFirms": 48,
+      "failures": 0,
+      "total": 15484590.999870496,
+      "peakDrift": 0.0001294650137424469,
+      "scenario": "industrial",
+      "seed": 909,
+      "years": 25,
+      "seconds": 87.6834608930003
+    },
+    {
+      "day": 3601,
+      "population": 262,
+      "homes": 49,
+      "redevelopments": 0,
+      "towers": 0,
+      "airfields": 0,
+      "stations": 0,
+      "openFirms": 33,
+      "failures": 0,
+      "total": 15493516.999875475,
+      "peakDrift": 0.0001244954764842987,
+      "scenario": "hardtimes",
+      "seed": 42,
+      "years": 10,
+      "seconds": 14.856643432001874
+    },
+    {
+      "day": 1801,
+      "population": 997,
+      "homes": 43,
+      "redevelopments": 13,
+      "towers": 12,
+      "airfields": 1,
+      "stations": 2,
+      "openFirms": 117,
+      "failures": 0,
+      "total": 15493517.000014283,
+      "peakDrift": 1.4271587133407593e-05,
+      "scenario": "regional",
+      "seed": 42,
+      "years": 5,
+      "seconds": 53.614279364999675
+    }
+  ],
+  "browser_errors": []
+}

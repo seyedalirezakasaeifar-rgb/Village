@@ -1,0 +1,72 @@
+{
+  "source_sha256": "c01a589b24d017caa8d6951bd5a059962ccf083e7a8aa44c7bd10bfc8514387f",
+  "controlledMetricFixture": true,
+  "directions": [
+    {
+      "direction": "exchange",
+      "completed": [
+        {
+          "stage": 0,
+          "day": 2
+        },
+        {
+          "stage": 1,
+          "day": 3
+        },
+        {
+          "stage": 2,
+          "day": 4
+        },
+        {
+          "stage": 3,
+          "day": 36
+        }
+      ],
+      "moneyDelta": 0
+    },
+    {
+      "direction": "river",
+      "completed": [
+        {
+          "stage": 0,
+          "day": 2
+        },
+        {
+          "stage": 1,
+          "day": 3
+        },
+        {
+          "stage": 2,
+          "day": 4
+        },
+        {
+          "stage": 3,
+          "day": 36
+        }
+      ],
+      "moneyDelta": 0
+    },
+    {
+      "direction": "community",
+      "completed": [
+        {
+          "stage": 0,
+          "day": 2
+        },
+        {
+          "stage": 1,
+          "day": 3
+        },
+        {
+          "stage": 2,
+          "day": 4
+        },
+        {
+          "stage": 3,
+          "day": 36
+        }
+      ],
+      "moneyDelta": 0
+    }
+  ]
+}

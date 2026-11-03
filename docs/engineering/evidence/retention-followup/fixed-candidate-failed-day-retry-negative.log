@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/workspace/core-recovery/tests/test_committed_day_save.py", line 119, in <module>
+    assert page.evaluate('__dayBoundary.manualSave()') is False, 'A later manual save must not bless the partially executed failed day'
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: A later manual save must not bless the partially executed failed day

@@ -1,0 +1,1 @@
+PASS million tiny quantities, analytical sum, finite roundoff bounds, exact archive, atomic invalid carry/counter rejection and legacy migration {'naiveError': 0.02384185791015625, 'compensatedError': 0, 'carry': -5.551115123125783e-12, 'valid': True}

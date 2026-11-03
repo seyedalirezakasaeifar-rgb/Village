@@ -1,0 +1,1 @@
+PASS 41 Save click attempts (one accepted while busy),40 direct requests, bounded snapshot queue; 2 indexed writes

@@ -1,0 +1,102 @@
+{
+  "source_sha256": "83f7369c1980c4db4b33b66348abfd9ffc5d39f2d23d79851679a2598bb49196",
+  "controlledFeeFixtures": true,
+  "providers": [
+    {
+      "kind": "school",
+      "sources": 189,
+      "finite": true,
+      "state": {
+        "independent": true,
+        "closed": false,
+        "active": true,
+        "connected": true,
+        "capacity": 32,
+        "clients": 32
+      },
+      "active": [
+        "teaching"
+      ],
+      "unpaid": [],
+      "unstaffed": [
+        "teaching"
+      ],
+      "closed": [],
+      "independent": true,
+      "appearance": "maintained:trading:false:independent",
+      "unchanged": true,
+      "stable": true,
+      "lights": 235476,
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15493516.99999998,
+        "population": 169,
+        "day": 2
+      }
+    },
+    {
+      "kind": "fire",
+      "sources": 196,
+      "finite": true,
+      "state": {
+        "independent": true,
+        "closed": false,
+        "active": true,
+        "connected": true,
+        "capacity": 180,
+        "clients": 166.19625637500002
+      },
+      "active": [
+        "readiness"
+      ],
+      "unpaid": [],
+      "unstaffed": [],
+      "closed": [],
+      "independent": true,
+      "appearance": "maintained:trading:false:independent",
+      "unchanged": true,
+      "stable": true,
+      "lights": 235476,
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15493516.999999981,
+        "population": 169,
+        "day": 2
+      }
+    }
+  ],
+  "rural": {
+    "rows": [
+      {
+        "kind": "farm",
+        "pixels": 9251,
+        "lights": 0
+      },
+      {
+        "kind": "forestry",
+        "pixels": 2639,
+        "lights": 0
+      },
+      {
+        "kind": "quarry",
+        "pixels": 1946,
+        "lights": 0
+      },
+      {
+        "kind": "wharf",
+        "pixels": 3130,
+        "lights": 0
+      },
+      {
+        "kind": "fishery",
+        "pixels": 2759,
+        "lights": 0
+      }
+    ],
+    "unchanged": true,
+    "seasons": false
+  },
+  "errors": []
+}

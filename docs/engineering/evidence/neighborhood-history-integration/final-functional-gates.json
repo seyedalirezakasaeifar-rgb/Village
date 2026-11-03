@@ -1,0 +1,289 @@
+{
+  "source_sha256": "84ecbaef6b0ae999a9c5adcd49b9ba1678840cabfc36cf02b617c74a93d208a4",
+  "base": "0c803faf08cff7ae6ec52c56d43d11465901df5f",
+  "MainActivity_sha256": "7283d9365de4efdf0633205c520c6c7b660f369420b3d4cb9e1612f9bcd2345d",
+  "parallelism": 3,
+  "timingScope": "Functional gates under shared host load; durations are not performance acceptance",
+  "gates": [
+    {
+      "test": "test_native_archive_io",
+      "path": "tests/test_native_archive_io.py",
+      "exit_code": 0,
+      "seconds": 1.32,
+      "log_sha256": "3a43b4e0a46c20721eb603470a2a99074cc40cf119ba441a656a5f1a9960f155"
+    },
+    {
+      "test": "test_native_back_recovery",
+      "path": "tests/test_native_back_recovery.py",
+      "exit_code": 0,
+      "seconds": 4.46,
+      "log_sha256": "c18b38ab0c6b06424ad218d3fbe26598cedfbccd8fb2327c074ff68535b3f5f9"
+    },
+    {
+      "test": "test_cold_continue_canonical",
+      "path": "tests/test_cold_continue_canonical.py",
+      "exit_code": 0,
+      "seconds": 4.93,
+      "log_sha256": "5290ea9b316ffd956691ce207bd27a1a3f462ad9090c25facd609d08c92d1e52"
+    },
+    {
+      "test": "test_archive_schema",
+      "path": "tests/test_archive_schema.py",
+      "exit_code": 0,
+      "seconds": 2.91,
+      "log_sha256": "3744e3b5b1bb18cc0bbeaa5bb47324c265021b56c98cd0405b6ba7472102d160"
+    },
+    {
+      "test": "test_goods_precision",
+      "path": "tests/test_goods_precision.py",
+      "exit_code": 0,
+      "seconds": 5.55,
+      "log_sha256": "02d6e27dd3920dec79bcfa07771351aa1e524d76c34d30ca458d35b997ece6e7"
+    },
+    {
+      "test": "test_v7_model",
+      "path": "tests/test_v7_model.py",
+      "exit_code": 0,
+      "seconds": 9.3,
+      "log_sha256": "9867f8a465b31f5d336a7db1cdb1436ecaf0cd0e50f6846b7a297ff8156db402"
+    },
+    {
+      "test": "test_save_queue",
+      "path": "tests/test_save_queue.py",
+      "exit_code": 0,
+      "seconds": 4.76,
+      "log_sha256": "bb0ae1e7bd1574daa2e0ebcd066b3bdfabc4bf7714639f2979a3d76b449cb0d6"
+    },
+    {
+      "test": "test_effective_wage_allocator_matrix",
+      "path": "tests/test_effective_wage_allocator_matrix.py",
+      "exit_code": 0,
+      "seconds": 37.32,
+      "log_sha256": "ca21994cd1f023fd313f009aaf5944e1fd38de40abc9f0b8c853596b1f7583d6"
+    },
+    {
+      "test": "test_save_adversarial",
+      "path": "tests/test_save_adversarial.py",
+      "exit_code": 0,
+      "seconds": 36.46,
+      "log_sha256": "b7b7e49fe220dd629b4b35601f0c3b34e082628c80735c022ba036485c47eecd"
+    },
+    {
+      "test": "test_save_storage",
+      "path": "tests/test_save_storage.py",
+      "exit_code": 0,
+      "seconds": 5.58,
+      "log_sha256": "03a6154ea2adbd95c7df92ece81e53d1e14dadfe56b70709623b39b0a0d3c505"
+    },
+    {
+      "test": "test_host_lifecycle",
+      "path": "tests/test_host_lifecycle.py",
+      "exit_code": 0,
+      "seconds": 5.94,
+      "log_sha256": "ab50c51923b56e7119afe6139bc4b79b8456971b99f81cc8ee0d03a461251004"
+    },
+    {
+      "test": "test_credit_cashflow",
+      "path": "tests/test_credit_cashflow.py",
+      "exit_code": 0,
+      "seconds": 3.35,
+      "log_sha256": "7e9bdb572827e4aafb6b7dd3f69fd443a447c8fe5533606ea544b38870d8c755"
+    },
+    {
+      "test": "test_household_markets",
+      "path": "tests/test_household_markets.py",
+      "exit_code": 0,
+      "seconds": 6.31,
+      "log_sha256": "baff4683919c9d92c4d9915de75eb0bd3c0a53718a444d3f5d9f40edddde1402"
+    },
+    {
+      "test": "test_regional_trade",
+      "path": "tests/test_regional_trade.py",
+      "exit_code": 0,
+      "seconds": 5.9,
+      "log_sha256": "aa5a50fb47eebd94c16ee6898d8a49ccacab6deeed844e649883fb29c5d61333"
+    },
+    {
+      "test": "test_save_chronology",
+      "path": "tests/test_save_chronology.py",
+      "exit_code": 0,
+      "seconds": 36.93,
+      "log_sha256": "030cbfcdee7aaf575dce6815a0b48d49897cca4a91b340b5d83d0884369843c9"
+    },
+    {
+      "test": "test_seed_sort_stability",
+      "path": "tests/test_seed_sort_stability.py",
+      "exit_code": 0,
+      "seconds": 17.9,
+      "log_sha256": "757032bf08ad35c44aa4de0d46f0f7924a90e653cbccc516ea606647e8744a7b"
+    },
+    {
+      "test": "test_v7_default_starts",
+      "path": "tests/test_v7_default_starts.py",
+      "exit_code": 0,
+      "seconds": 40.0,
+      "log_sha256": "f6d7de28807729df951c3ab8180173dbbcc04b77a5d1d72104f81f1815adf450"
+    },
+    {
+      "test": "test_v7_liquidity",
+      "path": "tests/test_v7_liquidity.py",
+      "exit_code": 0,
+      "seconds": 50.57,
+      "log_sha256": "fdd1bec88befe5dd3eae28ecde64982df59e28261f059237264e549dc7f86700"
+    },
+    {
+      "test": "test_urban_kernel",
+      "path": "tests/test_urban_kernel.py",
+      "exit_code": 0,
+      "seconds": 40.76,
+      "log_sha256": "c0196df43c3b01c80d35b4652d5bb827feb36349b30d758d8bb270026e2e322b"
+    },
+    {
+      "test": "test_district_independent_acceptance",
+      "path": "tests/test_district_independent_acceptance.py",
+      "exit_code": 0,
+      "seconds": 29.65,
+      "log_sha256": "8a5fa441819a97e3888befbd8439c686f512c2ac4b7610535439fe8ee742f97e"
+    },
+    {
+      "test": "test_service_access_population_invariance",
+      "path": "tests/test_service_access_population_invariance.py",
+      "exit_code": 0,
+      "seconds": 18.45,
+      "log_sha256": "36188da48f3a6280ffd0c7a1d58c7a8645bbd85f715c876f4363d83ae677b692"
+    },
+    {
+      "test": "test_retail_proposal_review",
+      "path": "tests/test_retail_proposal_review.py",
+      "exit_code": 0,
+      "seconds": 9.48,
+      "log_sha256": "188d175a0a8f02e1eb38075a3f493490be72b9a8eac0c7460faebfe562923ea8"
+    },
+    {
+      "test": "test_bridge_cold_continue",
+      "path": "tests/test_bridge_cold_continue.py",
+      "exit_code": 0,
+      "seconds": 8.71,
+      "log_sha256": "c9d2f74fcb91e0e9aaa90882f160c6ef83b75765068a33968191119d370f3428"
+    },
+    {
+      "test": "test_committed_day_save",
+      "path": "tests/test_committed_day_save.py",
+      "exit_code": 0,
+      "seconds": 8.99,
+      "log_sha256": "0bdb1b943f362163e2c640680bcab9042abf7d0e62d60026131a8605eeacfcd6"
+    },
+    {
+      "test": "test_repeated_expansion_controls",
+      "path": "tests/test_repeated_expansion_controls.py",
+      "exit_code": 0,
+      "seconds": 20.39,
+      "log_sha256": "11228c42eaff10d394b240276c79265192cc8b5a20c3add6805cd90aa1a4e599"
+    },
+    {
+      "test": "test_pending_review_flows",
+      "path": "tests/test_pending_review_flows.py",
+      "exit_code": 0,
+      "seconds": 7.19,
+      "log_sha256": "c95ea9403cb94615cd6edba3ead45d22bca289806f29ff3f856b9d62ad76d042"
+    },
+    {
+      "test": "test_modal_readability",
+      "path": "tests/test_modal_readability.py",
+      "exit_code": 0,
+      "seconds": 7.1,
+      "log_sha256": "63c3318d940766f57a56d63aefda75ad7a7eed0552270edeb546e0aa6f33f03f"
+    },
+    {
+      "test": "test_urban_profile_observation_contract",
+      "path": "tests/test_urban_profile_observation_contract.py",
+      "exit_code": 0,
+      "seconds": 14.94,
+      "log_sha256": "da69a75c86bc4d075e33d2a03ac1fdca93d85451552241d696dfd44d91179c80"
+    },
+    {
+      "test": "test_native_worker_archive_callbacks",
+      "path": "tests/test_native_worker_archive_callbacks.py",
+      "exit_code": 0,
+      "seconds": 0.9,
+      "log_sha256": "b7af8c2edd3d7e44d349ef2e3034e0a4f5e6c2a045a3e47e435bcd1de4d5b89a"
+    },
+    {
+      "test": "test_native_async_selection",
+      "path": "tests/test_native_async_selection.py",
+      "exit_code": 0,
+      "seconds": 7.49,
+      "log_sha256": "bd6780ed2326cd9274e212aeda9a4e5f6519f0958734b6ecce25815d293cc7da"
+    },
+    {
+      "test": "test_creator_cap_independent",
+      "path": "tests/test_creator_cap_independent.py",
+      "exit_code": 0,
+      "seconds": 9.46,
+      "log_sha256": "b9e1bdc79cfe598aa6bc8fca3c4ae07a5cb77ff5d8d95cbb67bf937a4aeced32"
+    },
+    {
+      "test": "test_regional_cargo_timing",
+      "path": "tests/test_regional_cargo_timing.py",
+      "exit_code": 0,
+      "seconds": 3.77,
+      "log_sha256": "1f87389bc072abc7f2fc364febdbd161a218dbbdf34385662540d2ecffe9c79f"
+    },
+    {
+      "test": "test_native_restore_back_dispatch",
+      "path": "tests/test_native_restore_back_dispatch.py",
+      "exit_code": 0,
+      "seconds": 0.98,
+      "log_sha256": "c3532bbfd4eee97f18f1c39209f806f815400b2a08e4869466960ce83410a165"
+    },
+    {
+      "test": "test_history_legacy_gap",
+      "path": "tests/test_history_legacy_gap.py",
+      "exit_code": 0,
+      "seconds": 10.05,
+      "log_sha256": "617d6862b901cbe77fc3b4207785bdbae2e6258fdf54ccb2a22e11bf167f3e41"
+    },
+    {
+      "test": "test_urban_growth_journey",
+      "path": "tests/test_urban_growth_journey.py",
+      "exit_code": 0,
+      "seconds": 46.97,
+      "log_sha256": "f426c4b2f04916de484d52777e071a594b1e3a6c9c641c4e01e9d93a314dfff3"
+    },
+    {
+      "test": "test_urban_neighborhood_pulse",
+      "path": "tests/test_urban_neighborhood_pulse.py",
+      "exit_code": 0,
+      "seconds": 15.62,
+      "log_sha256": "cb802b809578b68260df49221b68f06e76fd37f27ff4693a80fa17166307ba2d"
+    },
+    {
+      "test": "test_v7_scenarios",
+      "path": "tests/test_v7_scenarios.py",
+      "exit_code": 0,
+      "seconds": 180.41,
+      "log_sha256": "d511cd53ddb511fa7360ea9cbe666fa5a802c895d4fef97f7dbe2f258c573d0e"
+    },
+    {
+      "test": "creator_capacity_preflight",
+      "path": "tools/test_creator_capacity_preflight.py",
+      "exit_code": 0,
+      "seconds": 14.39,
+      "log_sha256": "7830d6070e94a7b2947477db53007e9414bf882304cef2dffb3f1e5b76b2537f"
+    },
+    {
+      "test": "test_growth_automatic_equivalence",
+      "path": "tests/test_growth_automatic_equivalence.py",
+      "exit_code": 0,
+      "seconds": 34.71,
+      "log_sha256": "c20df1f78242174dbb87406336c61564ce4d47ec29433682eabf2ccaf4dac290"
+    },
+    {
+      "test": "test_neighborhood_history_independent",
+      "path": "tests/test_neighborhood_history_independent.py",
+      "exit_code": 0,
+      "seconds": 56.28,
+      "log_sha256": "efa48df33fa68d740c2d7ca27d5b5e351eff1498008edfd211d786d29bfe1746"
+    }
+  ]
+}

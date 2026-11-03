@@ -1,0 +1,78 @@
+{
+  "reviewShownBeforeCapitalCommit": true,
+  "cancelReadOnly": true,
+  "staleQuoteRejected": true,
+  "ordinaryInvestorCommit": {
+    "id": 103,
+    "remaining": 65,
+    "escrow": 28000,
+    "staff": 8,
+    "wage": 28,
+    "x": 50,
+    "y": 28,
+    "footprint": [
+      3634,
+      3635,
+      3636,
+      3762,
+      3763,
+      3764
+    ]
+  },
+  "existingSmallGrocersPreserved": 4,
+  "titlesHouseholdsFieldsPreserved": true,
+  "footprintTiles": [
+    {
+      "id": 3634,
+      "land": 0,
+      "plan": "market",
+      "why": ""
+    },
+    {
+      "id": 3635,
+      "land": 0,
+      "plan": "market",
+      "why": ""
+    },
+    {
+      "id": 3636,
+      "land": 0,
+      "plan": "market",
+      "why": ""
+    },
+    {
+      "id": 3762,
+      "land": 0,
+      "plan": "market",
+      "why": ""
+    },
+    {
+      "id": 3763,
+      "land": 0,
+      "plan": "market",
+      "why": ""
+    },
+    {
+      "id": 3764,
+      "land": 0,
+      "plan": "market",
+      "why": ""
+    }
+  ],
+  "cashConserved": true,
+  "exactReplay": true,
+  "naturalSixYearCityBlocker": {
+    "ok": false,
+    "reason": "Connected legal sites do not have 180 residents within 24 road steps and enough uncrowded local demand under this shop-count competition screen. This screen is not a measure of staffed retail throughput: stocked nearby shops can still leave food needs unmet. Check local staffing and delivery capacity before assuming more housing is the answer.",
+    "search": {
+      "vacant": 39,
+      "permitted": 39,
+      "connected": 39,
+      "market": 0,
+      "staffed": 0,
+      "viable": 0
+    }
+  },
+  "blockedForecastReadOnly": true,
+  "errors": []
+}

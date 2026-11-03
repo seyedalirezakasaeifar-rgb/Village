@@ -24,6 +24,7 @@ function birthsAndGenerations(){
  if(G.day%90!==0||G.stats.population>=2000)return;
  let count=0;
  for(const h of G.households){
+  if(creatorCapacityReason(1))break;
   if(!h.people.length||h.people.length>=6||h.stress>48||G.day-(h.lastBirth||-720)<720)continue;
   const people=h.people.map(id=>G.people[id]).filter(p=>!p.deceased&&!p.movedAway),adults=people.filter(p=>p.age>=20&&p.age<=42);
   if(!adults.length||people.filter(p=>p.age<16).length>=2||!people.some(p=>p.job>=0))continue;
@@ -31,7 +32,7 @@ function birthsAndGenerations(){
   const security=clamp((savings/Math.max(1,h.people.length)-400)/3500,0,1),cost=clamp(1-(G.housingMarket.rentIndex-1)*.5,.35,1.15);
   if(random()>.085*security*cost)continue;
   const id=G.people.length,p={id,name:pick(first)+' '+h.name,age:0,skill:.05,health:94,hh:h.id,job:-1,life:80,last:[]};
-  G.people.push(p);h.people.push(id);h.lastBirth=G.day;count++;if(G.stats.population+count>=2000)break;
+  G.people.push(p);h.people.push(id);migrationRecord('birth',{household:h.id,person:id,people:1});h.lastBirth=G.day;count++;if(G.stats.population+count>=2000)break;
  }
  if(count)story(count+' '+(count===1?'child was':'children were')+' born in local households. Family finances, housing and confidence influence household formation.','good');
 }

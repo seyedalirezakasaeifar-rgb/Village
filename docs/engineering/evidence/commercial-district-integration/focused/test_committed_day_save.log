@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/workspace/core-recovery/tests/test_committed_day_save.py", line 116, in <module>
+    assert page.evaluate('__dayBoundary.inTickResults()') == [False]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

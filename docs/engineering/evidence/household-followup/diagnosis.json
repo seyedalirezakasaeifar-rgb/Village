@@ -1,0 +1,27 @@
+{
+  "day": 721,
+  "person": {
+    "id": 0,
+    "hh": 0,
+    "deceased": false,
+    "movedAway": true,
+    "job": -1
+  },
+  "original": {
+    "id": 0,
+    "members": [],
+    "home": -1,
+    "cash": 9.38128855803981
+  },
+  "target": {
+    "id": 1,
+    "members": [
+      3,
+      4,
+      5
+    ],
+    "home": 35
+  },
+  "rostersContaining": [],
+  "accepted": true
+}

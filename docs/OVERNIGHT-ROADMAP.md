@@ -1,0 +1,75 @@
+# Development roadmap through the overnight handoff
+
+Target handoff: 2026-10-31 14:50 UTC (07:50 Pacific). This is a sequence of useful release cycles, not a reason to delay completed work. Preserve 7.0.2 as a stable checkpoint and keep subsequent candidates on the draft branch. Do not label intermediate candidates as completed studio-quality releases.
+
+## Current cycle: controls, modal state, feedback and native feasibility
+
+Finish portrait time controls and all-tab reachability; Council defer/back/focus and import draft transactions; reduce full-world scenery upload stalls. Validate supported landscape and 360×640/390×844 browser layouts. Show scenario constraints and an observe/change/review loop. Bind each QA gate and package to immutable asset hashes. Try a software-only Android emulator and record exact installation/launch/lifecycle results.
+
+Acceptance: real clicks reach every tab and time control; topmost modal consumes Back/Escape; deferring retains correspondence without applying choices; trade changes occur only on enact; long-session save/restore preserves valid accounts. A candidate's evidence must match its delivered assets exactly.
+
+## Economic decisions and service capacity
+
+Investigate the service spending response with fixed-town, matched-seed spending staircases and a clear accounting model. Current inspection suggests health/school effectiveness uses the fraction of the proposed budget actually paid, not the amount purchased: a tiny fully funded allocation may receive the same service ratio as a substantial one. Verify this before changing coefficients. Model funded staffing/supplies and facility capacity, show unmet provision, and preserve explicit cash counterparties.
+
+Compare passive, targeted investment, austerity, closed trade, restrictive credit and recovery in all starts. Separate employment, fiscal room, household resilience, public health, education and safety. Use meaningful scenario ambitions and explain bottlenecks; avoid unemployment floors, forced collapse or circular recovery gates. Validate zero spending, underfunding, facility shortages, saturation and cash conservation. Do not interpret full employment alone as an engaging scenario.
+
+Acceptance: small spending buys proportionally limited service, spending has diminishing returns/capacity limits, unfunded promises do not provide full service, and choices produce understandable fiscal/service tradeoffs across multiple seeds without preventing recovery.
+
+## Map and interaction polish
+
+Review original art at phone size, zoom extremes, density changes, seasons/night, large text and reduced motion. Unify icons, status hierarchy, selection feedback, construction progress and tool cancellation. Trace vehicle/aircraft movement around junctions and runway phases; fix clipping, depth, abrupt transitions and misleading traffic feedback where observed. Reuse existing original art; avoid decorative churn.
+
+Acceptance: readable essential controls, no clipped/hit-blocked destinations, selected properties correspond to visible parcels, construction gestures cannot accidentally place while pinching or dismissing a modal, and decorative animations respect pause/reduced motion.
+
+## Saves, recovery and long sessions
+
+Exercise old fixtures, legacy migration, corrupted/truncated saves, invalid enums/IDs/ownership, denied storage, interrupted import, backup rotation and exact deterministic continuation. Test native document picker, background/resume, Back and update using the same signer if the emulator supports them. Retain private signing material outside source/deliverables.
+
+Acceptance: invalid archives leave the live town unchanged, successful restore preserves balances/ownership/cargo, backup recovery is intelligible, and lifecycle suspension saves without advancing offscreen time unexpectedly. Report unsupported native stages precisely.
+
+## Performance and final release gate
+
+Profile individual render stages, scene changes, camera movement and UI latency in large towns. Run one meaningful long playthrough per scenario plus targeted multi-seed stress; inspect memory/cache growth. Compare at fixed density/quality, and run timing experiments without competing emulator/build workloads.
+
+Freeze version and assets, then run the required sequential browser/economy/archive gates; build/sign, independently verify every packaged asset, and smoke the exact APK. Capture final screenshots and machine-readable source/evidence hashes. Deliver standalone APK, exact source, QA/changelog and screenshots in Library, plus the draft PR. Leave no stale results presented as final evidence.
+
+Final acceptance: documented evidence supports the gameplay loop, understandable consequences, resilient saves, accessible controls and bounded high-speed workload. State remaining hardware, balance and performance limitations; do not claim perfection or physical-device performance from software emulation.
+
+## Expanded player-visible upgrade requested during development
+
+The overnight target is a cohesive advancement beyond repairs. Treat these as substantial build phases with screenshots and playable before/after evidence, while keeping the accounting and controls intelligible.
+
+1. **A living illustrated town.** Develop an original miniature-town art direction: richer terrain and river edges, coherent roof/wall/paving materials, layered vegetation, storefront identity, windows and visible working/closed/under-construction states. Add controllable lighting and atmosphere with stable cached layers. Keep unwanted seasons/weather off by default. Produce fixed-camera comparisons at phone size and full density, not only zoomed promotional images.
+2. **Believable activity and motion.** Connect visible pedestrians, deliveries and building activity to actual jobs, sales, freight and opening state. Refine vehicle junction behavior, aircraft taxi/runway/takeoff/landing transitions, shadows and depth. Bound actor counts and update rates by quality tier and zoom. Reduced motion and pause must remain coherent; visual richness must survive the large-town timing gate.
+3. **A causally connected economy.** After the service purchase fix, strengthen income/age-dependent household baskets and resilience, firms' costs/prices/inventory/sales/working capital, wage and job matching, trade/credit/investment constraints and delayed training effects where current probes identify missing links. Use actual resource/cash counterparties. Show why demand, staffing, capacity or credit binds, with meaningful policy and scenario tradeoffs. Avoid claiming calibrated real-world forecasting from gameplay parameters.
+4. **A legible decision loop.** Make the player see a pressure, inspect a named household/firm or district, choose a focused response, observe delayed outcomes and review the consequence. Improve concise dashboards, explanations, scenario milestones and in-world feedback together with the deeper mechanics. Do not bury the upgrade in technical reports.
+5. **Release engineering alongside the upgrade.** Profile heavy layer updates, use bounded detail/actor tiers and memory limits, continue fault/migration/lifecycle testing, and test a leaner software emulator or explicitly document its resource failures. Finish with immutable artifact/evidence checks and a clear distinction between browser, emulated Android and physical-device results.
+
+Suggested next substantial phase after services: implement the original terrain/material/lighting and building-activity slice for one fixed-camera town, benchmark it, then extend to transport and the remaining world. Use that visible slice to guide the full art pass rather than accumulating unrelated effects.
+
+## Credit and physical-market development checkpoint
+
+Implemented observed-surplus/stressed-payment lending, household debt priority, impaired-portfolio quote spreads, funded 30-day equipment commissioning, reachable grocery choice and disrupted-work recovery. Corrected late business costs and daily household loss reporting. Services and credit now have tutorial/inspection links and dated explanations. See CREDIT-AND-MARKETS-DEVELOPMENT.md for mechanisms, tests and limits. No new APK/version in this slice.
+
+Next: make ambitions and scenario progression reflect the richer service/market constraints, review readable in-world decision feedback and long-session memory, then finish fault/native and frozen release QA. Healthy full employment alone is not a meaningful completion criterion.
+
+## Player-loop and workday checkpoint
+
+Five distinct three-chapter council programmes now connect sustained goals to actual report/actions, with explicit reset/completion semantics and a common-scale services/employment chart. Added bounded original production/civic workday scenes, tested all 60 Council choices and four severe inherited-credit-loss/guarantee recovery branches. Strict paused-image regression and unchanged header DOM checks remain. A timed browser/archive/menu/heap session is running before the next performance check. See COUNCIL-PROGRAMME-DEVELOPMENT.md. No APK/version change.
+
+After the timed run: inspect growth-adjusted heap/cache data and real-session faults, address any confirmed issue, then continue visual hierarchy/transport polish and native/save-fault work before final balance and immutable release QA.
+
+## Native and older-engine checkpoint
+
+The 20-minute real-RAF run and isolated performance check passed; programme notes now contain exact measurements. Implemented bounded worker-based native archive transport and suspend/resume boundaries, compiled/tested the Android host, and used a lower-resolution software emulator to find and fix the unsupported Object.hasOwn call in actual WebView 83. Native model/save/panel probes then passed. System UI ANR prevents a full interactive Android certification. See NATIVE-ARCHIVE-DEVELOPMENT.md. A scratch debug APK is not a release candidate.
+
+A further confirmed portability lead is the seeded founding-lot sort: its comparator consumes random numbers, so different engine sorting algorithms can produce different starting balances for the same seed. Replace the random comparator with precomputed seeded keys and test alternate stable sort algorithms before the next generation/balance pass. Continue the map's information hierarchy and responsive small-landscape controls afterward.
+
+## Map and founding checkpoint
+
+Fixed the confirmed random comparator with precomputed seeded lot ranks; all 15 start/seed combinations now match an alternate stable sort exactly. Reworked the map into two actionable summaries, made care/food constraints visible, added consistent vector navigation and fully reachable 568×320–844×390 landscape controls. Twelve frozen-asset development gates passed, including scenario and policy histories. See MAP-AND-SEEDS-DEVELOPMENT.md.
+
+## New mandatory player features, requested before sleep
+
+Next priorities are mayor-purchased substantial regional parcels and productive waterfront business/boat activity. Preserve a finite coherent region and existing-town rights; make a purchase visibly expand usable territory with an actual regional counterparty and confirmation. Reuse the existing road/service/trade accounting instead of making annexation magically provide infrastructure. Waterfront businesses must genuinely employ people and produce or move paid goods; boats/docks should show that work with bounded animation and pause/reduced-motion behavior. Test affordability, repeat purchase, boundaries, save migration, routes, capacity, delays and conserved goods/cash. These requirements are pending, not silently included in prior checkpoints.

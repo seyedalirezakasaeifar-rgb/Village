@@ -1,0 +1,694 @@
+{
+  "source_sha256": "f4ebc3b4b96312993434c5f0ff23902d1b4ce1dc70cde919c76baaa66fd82dcb",
+  "activePlay": {
+    "before": {
+      "trade": {
+        "source_sha256": "86c2fc99e053f4a924742b0a4879359a4947bd6437d82ce93fca2373de105223",
+        "day": 2183,
+        "decisions": 23,
+        "clicks": 98,
+        "schoolClosures": {
+          "30": 5,
+          "33": 5
+        },
+        "treasury": 717990.7182061316,
+        "employment": 99,
+        "schoolCoveragePercent": 28.315448254868354,
+        "cashDrift": -2.8945505619049072e-05,
+        "contracts": [
+          {
+            "id": 105,
+            "name": "Upland Cooperative supply agreement",
+            "firm": 13,
+            "market": "upland",
+            "good": "timber",
+            "quantity": 200,
+            "delivered": 200,
+            "price": 4.590165354403354,
+            "deadline": 43,
+            "status": "fulfilled"
+          },
+          {
+            "id": 1393,
+            "name": "Upland Cooperative supply agreement",
+            "firm": 26,
+            "market": "upland",
+            "good": "manufactures",
+            "quantity": 600,
+            "delivered": 599.999,
+            "price": 9.21188295004965,
+            "deadline": 395,
+            "status": "fulfilled"
+          },
+          {
+            "id": 2565,
+            "name": "Greyhaven Port supply agreement",
+            "firm": 6,
+            "market": "port",
+            "good": "flour",
+            "quantity": 200,
+            "delivered": 200,
+            "price": 2.9532616319045686,
+            "deadline": 758,
+            "status": "fulfilled"
+          }
+        ],
+        "errors": []
+      },
+      "community": {
+        "source_sha256": "86c2fc99e053f4a924742b0a4879359a4947bd6437d82ce93fca2373de105223",
+        "day": 2183,
+        "decisions": 23,
+        "clicks": 114,
+        "schoolClosures": {
+          "36": 2,
+          "41": 1
+        },
+        "treasury": 985722.4732333806,
+        "employment": 99,
+        "schoolCoveragePercent": 85.5483399318327,
+        "cashDrift": -6.881356239318848e-05,
+        "contracts": [],
+        "errors": []
+      }
+    },
+    "after": {
+      "trade": {
+        "source_sha256": "f4ebc3b4b96312993434c5f0ff23902d1b4ce1dc70cde919c76baaa66fd82dcb",
+        "day": 2183,
+        "decisions": 23,
+        "clicks": 98,
+        "schoolClosures": {
+          "30": 1
+        },
+        "treasury": 488139.6819950978,
+        "employment": 99,
+        "schoolCoveragePercent": 29.26150121065375,
+        "cashDrift": -5.5944547057151794e-05,
+        "contracts": [
+          {
+            "id": 105,
+            "name": "Upland Cooperative supply agreement",
+            "firm": 13,
+            "market": "upland",
+            "good": "timber",
+            "quantity": 200,
+            "delivered": 199.99900000000002,
+            "price": 4.590165354403354,
+            "deadline": 43,
+            "status": "fulfilled"
+          },
+          {
+            "id": 1369,
+            "name": "Upland Cooperative supply agreement",
+            "firm": 26,
+            "market": "upland",
+            "good": "manufactures",
+            "quantity": 600,
+            "delivered": 599.9999999999999,
+            "price": 9.119161616521065,
+            "deadline": 395,
+            "status": "fulfilled"
+          },
+          {
+            "id": 2405,
+            "name": "Greyhaven Port supply agreement",
+            "firm": 6,
+            "market": "port",
+            "good": "flour",
+            "quantity": 200,
+            "delivered": 200,
+            "price": 2.976012236361213,
+            "deadline": 758,
+            "status": "fulfilled"
+          }
+        ],
+        "errors": []
+      },
+      "community": {
+        "source_sha256": "f4ebc3b4b96312993434c5f0ff23902d1b4ce1dc70cde919c76baaa66fd82dcb",
+        "day": 2183,
+        "decisions": 22,
+        "clicks": 112,
+        "schoolClosures": {
+          "36": 1
+        },
+        "treasury": 1017569.1228626794,
+        "employment": 98,
+        "schoolCoveragePercent": 67.02898550724639,
+        "cashDrift": -8.165836334228516e-05,
+        "contracts": [],
+        "errors": []
+      }
+    }
+  },
+  "controlled": {
+    "service-market-viability": {
+      "source_sha256": "f4ebc3b4b96312993434c5f0ff23902d1b4ce1dc70cde919c76baaa66fd82dcb",
+      "controlledCompetition": {
+        "served": 139,
+        "own": 32,
+        "competing": 0,
+        "released": 9,
+        "poor": {
+          "clients": 0,
+          "capacity": 16,
+          "fee": 3,
+          "staff": 1,
+          "wage": 36,
+          "revenue": 0,
+          "payroll": 36,
+          "overhead": 4.641666666666667,
+          "profit": -40.641666666666666,
+          "net": -40.641666666666666
+        },
+        "tiny": {
+          "clients": 0,
+          "capacity": 16,
+          "fee": 3,
+          "staff": 1,
+          "wage": 36,
+          "revenue": 0,
+          "payroll": 36,
+          "overhead": 4.641666666666667,
+          "profit": -40.641666666666666,
+          "net": -40.641666666666666
+        },
+        "zeroPayrollExit": true,
+        "cashDrift": 0
+      },
+      "naturalThreeYearSeeds": [
+        {
+          "seed": 42,
+          "day": 1081,
+          "closed": [],
+          "maxSameProviderClosures": 0,
+          "providers": [
+            {
+              "id": 26,
+              "closed": false,
+              "clients": 46,
+              "staff": 3,
+              "cash": 26271.02002368668
+            },
+            {
+              "id": 30,
+              "closed": false,
+              "clients": 0,
+              "staff": 0,
+              "cash": 0
+            }
+          ],
+          "cashDrift": -2.7239322662353516e-05
+        },
+        {
+          "seed": 101,
+          "day": 1081,
+          "closed": [
+            {
+              "id": 28,
+              "day": 825
+            }
+          ],
+          "maxSameProviderClosures": 1,
+          "providers": [
+            {
+              "id": 26,
+              "closed": false,
+              "clients": 46,
+              "staff": 3,
+              "cash": 28462.726242572786
+            },
+            {
+              "id": 28,
+              "closed": true,
+              "clients": 0,
+              "staff": 0,
+              "cash": 0
+            }
+          ],
+          "cashDrift": -2.5935471057891846e-05
+        },
+        {
+          "seed": 909,
+          "day": 1081,
+          "closed": [],
+          "maxSameProviderClosures": 0,
+          "providers": [
+            {
+              "id": 26,
+              "closed": false,
+              "clients": 48,
+              "staff": 3,
+              "cash": 26554.803532616133
+            },
+            {
+              "id": 29,
+              "closed": false,
+              "clients": 2,
+              "staff": 1,
+              "cash": 7.46367094917506
+            },
+            {
+              "id": 34,
+              "closed": false,
+              "clients": 129.36865377533323,
+              "staff": 2,
+              "cash": 10883.525891905223
+            }
+          ],
+          "cashDrift": -2.3599714040756226e-05
+        }
+      ],
+      "errors": []
+    },
+    "contract-feasibility": {
+      "source_sha256": "f4ebc3b4b96312993434c5f0ff23902d1b4ce1dc70cde919c76baaa66fd82dcb",
+      "controlledSalesSignalOnly": true,
+      "rows": [
+        {
+          "seed": 42,
+          "initial": 80,
+          "reserve": 16,
+          "sentBeforeProduction": 64,
+          "delivered": 80,
+          "status": "fulfilled",
+          "riskyEstimate": 1476.349,
+          "riskySuggested": 1470,
+          "impossible": "missed",
+          "cashDrift": -8.866190910339355e-07,
+          "goodsError": 1.000444171950221e-11
+        },
+        {
+          "seed": 101,
+          "initial": 80,
+          "reserve": 16,
+          "sentBeforeProduction": 64,
+          "delivered": 80,
+          "status": "fulfilled",
+          "riskyEstimate": 1516.317,
+          "riskySuggested": 1510,
+          "impossible": "missed",
+          "cashDrift": -1.0468065738677979e-06,
+          "goodsError": 1.1823431123048067e-11
+        },
+        {
+          "seed": 909,
+          "initial": 80,
+          "reserve": 16,
+          "sentBeforeProduction": 64,
+          "delivered": 80,
+          "status": "fulfilled",
+          "riskyEstimate": 1493.05,
+          "riskySuggested": 1490,
+          "impossible": "missed",
+          "cashDrift": -1.1809170246124268e-06,
+          "goodsError": 3.637978807091713e-12
+        }
+      ],
+      "errors": []
+    },
+    "private-services": {
+      "source_sha256": "f4ebc3b4b96312993434c5f0ff23902d1b4ce1dc70cde919c76baaa66fd82dcb",
+      "controlledFixtures": true,
+      "rows": [
+        {
+          "matchedPublicControl": true,
+          "budget": 0,
+          "publicCoverage": 0,
+          "privatePupils": 0,
+          "cashDrift": -3.725290298461914e-08,
+          "valid": {
+            "ok": true,
+            "issues": [],
+            "total": 15493516.999999963,
+            "population": 169,
+            "day": 3
+          }
+        },
+        {
+          "matchedPublicControl": true,
+          "budget": 180,
+          "publicCoverage": 0.6428571428571429,
+          "privatePupils": 0,
+          "cashDrift": -3.725290298461914e-08,
+          "valid": {
+            "ok": true,
+            "issues": [],
+            "total": 15493516.999999963,
+            "population": 169,
+            "day": 3
+          }
+        },
+        {
+          "voucherBudget": 0,
+          "day": 2,
+          "staff": 2,
+          "clients": 31.999999999999996,
+          "capacity": 32,
+          "tuition": 96,
+          "vouchers": 0,
+          "total": 15493516.999999981,
+          "schoolPublicFacilities": 0,
+          "publicSchoolCoverage": 0,
+          "poorCoverage": 0,
+          "poorPrivate": 0,
+          "pupils": 31.999999999999996,
+          "learning": 0,
+          "response": 0,
+          "valid": {
+            "ok": true,
+            "issues": [],
+            "total": 15493516.999999981,
+            "population": 169,
+            "day": 2
+          }
+        },
+        {
+          "voucherBudget": 100,
+          "day": 2,
+          "staff": 2,
+          "clients": 32,
+          "capacity": 32,
+          "tuition": 58.7970051,
+          "vouchers": 37.2029949,
+          "total": 15493516.99999998,
+          "schoolPublicFacilities": 0,
+          "publicSchoolCoverage": 0,
+          "poorCoverage": 0.5333333333333332,
+          "poorPrivate": 0.5333333333333332,
+          "pupils": 32,
+          "learning": 0,
+          "response": 0,
+          "valid": {
+            "ok": true,
+            "issues": [],
+            "total": 15493516.99999998,
+            "population": 169,
+            "day": 2
+          }
+        },
+        {
+          "longTerm": true,
+          "day": 191,
+          "staff": 2,
+          "clients": 32,
+          "capacity": 32,
+          "tuition": 89.41893839999999,
+          "vouchers": 5.96126256,
+          "total": 15493516.999996545,
+          "schoolPublicFacilities": 0,
+          "publicSchoolCoverage": 0,
+          "poorCoverage": 0.28888888888888886,
+          "poorPrivate": 0.28888888888888886,
+          "pupils": 32,
+          "learning": 32,
+          "response": 0,
+          "valid": {
+            "ok": true,
+            "issues": [],
+            "total": 15493516.999996545,
+            "population": 174,
+            "day": 191
+          }
+        },
+        {
+          "recapitalization": "A provider has been recapitalized after sustained demand reviews.",
+          "snapshot": {
+            "day": 350,
+            "staff": 2,
+            "clients": 32,
+            "capacity": 32,
+            "tuition": 89.2125,
+            "vouchers": 5.9475,
+            "total": 15493516.999992855,
+            "schoolPublicFacilities": 0,
+            "publicSchoolCoverage": 0,
+            "poorCoverage": 0.3143111111111111,
+            "poorPrivate": 0.3143111111111111,
+            "pupils": 32,
+            "learning": 32,
+            "response": 0,
+            "valid": {
+              "ok": true,
+              "issues": [],
+              "total": 15493516.999992855,
+              "population": 175,
+              "day": 350
+            }
+          }
+        },
+        {
+          "zeroFeeExit": true,
+          "day": 601,
+          "closed": true
+        },
+        {
+          "fire": true,
+          "day": 2,
+          "staff": 2,
+          "clients": 166.19625637500002,
+          "capacity": 180,
+          "tuition": 124.31401019999991,
+          "vouchers": 8.642994900000001,
+          "total": 15493516.999999981,
+          "schoolPublicFacilities": 1,
+          "publicSchoolCoverage": 0,
+          "poorCoverage": 0,
+          "poorPrivate": 0,
+          "pupils": 0,
+          "learning": 0,
+          "response": 0.5974137931034483,
+          "valid": {
+            "ok": true,
+            "issues": [],
+            "total": 15493516.999999981,
+            "population": 169,
+            "day": 2
+          }
+        }
+      ],
+      "errors": []
+    },
+    "private-service-entry-school": {
+      "source_sha256": "f4ebc3b4b96312993434c5f0ff23902d1b4ce1dc70cde919c76baaa66fd82dcb",
+      "result": {
+        "total": 15493516.999998182,
+        "pending": [],
+        "providers": [
+          {
+            "id": 26,
+            "kind": "school",
+            "clients": 32,
+            "staff": 2,
+            "cash": 6990.844800000244,
+            "closed": null,
+            "owner": -1,
+            "publicFacility": false
+          }
+        ],
+        "valid": {
+          "ok": true,
+          "issues": [],
+          "total": 15493516.999998182,
+          "population": 171,
+          "day": 112
+        }
+      },
+      "cashDrift": -1.8011778593063354e-06,
+      "errors": []
+    },
+    "private-service-entry-fire": {
+      "source_sha256": "f4ebc3b4b96312993434c5f0ff23902d1b4ce1dc70cde919c76baaa66fd82dcb",
+      "result": {
+        "total": 15493516.999997927,
+        "pending": [],
+        "providers": [
+          {
+            "id": 26,
+            "kind": "fire",
+            "clients": 166.74668865301504,
+            "staff": 2,
+            "cash": 7001.7289784908535,
+            "closed": null,
+            "owner": -1,
+            "publicFacility": false
+          }
+        ],
+        "valid": {
+          "ok": true,
+          "issues": [],
+          "total": 15493516.999997927,
+          "population": 170,
+          "day": 112
+        }
+      },
+      "cashDrift": -2.0563602447509766e-06,
+      "errors": []
+    },
+    "regional-trade": {
+      "source_sha256": "f4ebc3b4b96312993434c5f0ff23902d1b4ce1dc70cde919c76baaa66fd82dcb",
+      "accounting": {
+        "importQty": 10,
+        "exportQty": 5,
+        "cashDrift": 0,
+        "goodsError": 0,
+        "delivered": 2,
+        "gateway": 27,
+        "valid": {
+          "ok": true,
+          "issues": [],
+          "total": 15514262,
+          "population": 169,
+          "day": 9
+        }
+      },
+      "day": 99,
+      "delivered": 349,
+      "contracts": [
+        {
+          "id": 3,
+          "name": "Upland Cooperative supply agreement",
+          "firm": 13,
+          "market": "upland",
+          "good": "timber",
+          "quantity": 200,
+          "delivered": 131.459,
+          "price": 4.590165354403354,
+          "deadline": 39,
+          "status": "missed"
+        }
+      ],
+      "errors": []
+    },
+    "service-cache": {
+      "source_sha256": "f4ebc3b4b96312993434c5f0ff23902d1b4ce1dc70cde919c76baaa66fd82dcb",
+      "households": 311,
+      "schoolAccessBuildCalls": 1,
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15493516.999999886,
+        "population": 657,
+        "day": 5
+      }
+    }
+  },
+  "hostLargeTown": {
+    "source_sha256": "f4ebc3b4b96312993434c5f0ff23902d1b4ce1dc70cde919c76baaa66fd82dcb",
+    "viewport": [
+      844,
+      390
+    ],
+    "synthetic": {
+      "population": 2000,
+      "households": 678,
+      "buildings": 713,
+      "total": 15493517
+    },
+    "requestedSpeed": 64,
+    "elapsedSeconds": 8.02379019199725,
+    "simulatedDays": 311,
+    "rafP50Ms": 16.699999999999818,
+    "rafP95Ms": 50,
+    "rafP99Ms": 133.39999999999964,
+    "rafOver50ms": 14,
+    "renderer": {
+      "drawCount": 132,
+      "drawMedianMs": 1.8999999985098839,
+      "drawP95Ms": 39.29999999701977,
+      "drawP99Ms": 47.600000001490116,
+      "tickMedianMs": 10.200000002980232,
+      "tickP95Ms": 27.399999998509884,
+      "actualSpeed": 66.5453472358843,
+      "backlogDays": 0.4164848484848414
+    },
+    "ui": [
+      {
+        "panel": "[data-panel=economy]",
+        "toNextFrameMs": 68.70000000298023,
+        "panelError": false
+      },
+      {
+        "panel": "[data-panel=citizens]",
+        "toNextFrameMs": 50.600000001490116,
+        "panelError": false
+      },
+      {
+        "panel": "[data-panel=businesses]",
+        "toNextFrameMs": 29.19999999552965,
+        "panelError": false
+      },
+      {
+        "panel": "[data-panel=settings]",
+        "toNextFrameMs": 36.600000001490116,
+        "panelError": false
+      }
+    ],
+    "foundingAndWarmup": {
+      "frames": [
+        246.80000000447035,
+        1.4000000059604645,
+        1.1000000014901161,
+        31.899999998509884,
+        1.5,
+        44.600000001490116,
+        2.5,
+        2.899999998509884,
+        1.7000000029802322,
+        1.5,
+        1.8000000044703484,
+        1.1999999955296516,
+        4.5999999940395355,
+        1.7999999970197678,
+        1.3999999985098839,
+        2.7000000029802322,
+        1.5999999940395355,
+        1.2000000029802322
+      ],
+      "ticks": [
+        45.600000001490116,
+        16.600000001490116,
+        10.5,
+        11.399999998509884,
+        14.100000001490116,
+        11.200000002980232,
+        8.300000004470348,
+        7.5,
+        13.899999998509884,
+        14,
+        8.899999998509884,
+        10.599999994039536,
+        10.799999997019768,
+        8.399999998509884,
+        7.600000001490116,
+        11.600000001490116,
+        9.300000004470348,
+        7.5,
+        6.399999998509884,
+        7,
+        6.600000001490116,
+        6.100000001490116,
+        7.899999998509884,
+        9.100000001490116,
+        7.200000002980232,
+        5.899999998509884,
+        7.600000001490116
+      ]
+    },
+    "moneyConservationDrift": 4.410743713378906e-06,
+    "errors": []
+  },
+  "passedLogs": [
+    "provider-forecast-controlled",
+    "provider-viability",
+    "contract-feasibility",
+    "provider-forecast-entry",
+    "provider-forecast-fire",
+    "viability-regional-trade",
+    "viability-logistics",
+    "viability-cache",
+    "viability-private-project",
+    "viability-core"
+  ]
+}

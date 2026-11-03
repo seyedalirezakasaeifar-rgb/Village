@@ -1,0 +1,28 @@
+// A viewport-sized overview of the existing committed static scene. No agent scans.
+const regionLocatorButton=document.createElement('button');regionLocatorButton.id='regionLocatorToggle';regionLocatorButton.type='button';regionLocatorButton.title='Regional locator';regionLocatorButton.setAttribute('aria-label','Show regional locator');regionLocatorButton.setAttribute('aria-expanded','false');regionLocatorButton.innerHTML='<svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5L9 3L15 5L21 3V19L15 21L9 19L3 21ZM9 3V19M15 5V21" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>';
+$('center').parentNode.appendChild(regionLocatorButton);
+const regionLocator=document.createElement('div');regionLocator.id='regionLocator';regionLocator.hidden=true;regionLocator.innerHTML='<canvas width="392" height="208" tabindex="0" role="button" aria-label="Regional map. Tap to move the camera; arrow keys pan the view."></canvas><span>REGION · tap to travel <i>● port　◆ station</i></span>';
+$('center').parentNode.parentNode.appendChild(regionLocator);
+const regionLocatorStyle=document.createElement('style');regionLocatorStyle.textContent='#regionLocator{position:absolute;right:12px;top:66px;width:198px;z-index:4;border:1px solid #a1ad89;background:#1a302aeF;padding:3px;border-radius:4px;color:#e7dfb8;box-shadow:0 2px 8px #0005}#regionLocator[hidden]{display:none}#regionLocator canvas{display:block;width:190px;height:101px;touch-action:none;cursor:crosshair}#regionLocator canvas:focus{outline:2px solid #f0cf7b}#regionLocator span{display:block;font:9px Arial;padding:4px 1px}#regionLocator i{font-style:normal;float:right;font-size:8px}@media(max-height:420px){#regionLocator{top:62px}}';document.head.appendChild(regionLocatorStyle);
+const regionLocatorBase=document.createElement('canvas');regionLocatorBase.width=392;regionLocatorBase.height=208;
+let regionLocatorRevision=-1,regionLocatorScene=null,regionLocatorMarks=[],regionLocatorBuilds=0;
+function updateRegionLocator(){
+ if(regionLocator.hidden||!bitmap.width)return;
+ const c=regionLocator.querySelector('canvas'),g=c.getContext('2d');
+ if(regionLocatorRevision!==groundRevision||regionLocatorScene!==displayItems){
+  const bg=regionLocatorBase.getContext('2d');bg.imageSmoothingEnabled=true;bg.drawImage(bitmap,0,0,regionLocatorBase.width,regionLocatorBase.height);
+  // displayItems is the renderer's retained static snapshot, not live household data.
+  regionLocatorMarks=displayItems.filter(a=>a.b&&['wharf','fishery','elevated_station','transit_depot'].includes(a.b.kind)).slice(0,96).map(a=>({x:a.x,y:a.y,port:['wharf','fishery'].includes(a.b.kind)}));
+  for(const a of displayItems)if(a.b){bg.fillStyle='#d8d4ac';bg.fillRect(a.x/RW*392-1,a.y/RH*208-1,2,2);}
+  regionLocatorRevision=groundRevision;regionLocatorScene=displayItems;regionLocatorBuilds++;
+ }
+ g.drawImage(regionLocatorBase,0,0);const sx=c.width/RW,sy=c.height/RH;
+ for(const a of regionLocatorMarks){g.fillStyle=a.port?'#f3d58b':'#def0db';g.beginPath();if(a.port)g.arc(a.x*sx,a.y*sy,3,0,Math.PI*2);else{g.moveTo(a.x*sx,a.y*sy-4);g.lineTo(a.x*sx+4,a.y*sy);g.lineTo(a.x*sx,a.y*sy+4);g.lineTo(a.x*sx-4,a.y*sy);g.closePath();}g.fill();}
+ const parcel=ANNEX_PARCELS.find(p=>p.id===parcelFocus);if(parcel){g.strokeStyle='#f6c65e';g.lineWidth=2;g.beginPath();for(const [i,q] of [[parcel.x,parcel.y],[parcel.x+parcel.w,parcel.y],[parcel.x+parcel.w,parcel.y+parcel.h],[parcel.x,parcel.y+parcel.h]].map(p=>iso(...p)).entries())i?g.lineTo(q[0]*sx,q[1]*sy):g.moveTo(q[0]*sx,q[1]*sy);g.closePath();g.stroke();}
+ const worldCorners=window.__webglTaste?.viewWorldCorners?.();if(worldCorners?.length===4){g.beginPath();for(let i=0;i<worldCorners.length;i++){const q=iso(worldCorners[i].x,worldCorners[i].z);i?g.lineTo(q[0]*sx,q[1]*sy):g.moveTo(q[0]*sx,q[1]*sy);}g.closePath();g.fillStyle='#fff5c019';g.fill();g.strokeStyle='#fff0b5';g.lineWidth=2;g.stroke();return;}
+ const w=cw/cam.zoom*sx,h=ch/cam.zoom*sy,x=cam.x*sx-w/2,y=cam.y*sy-h/2;g.fillStyle='#fff5c019';g.fillRect(x,y,w,h);g.strokeStyle='#18362b';g.lineWidth=4;g.strokeRect(x,y,w,h);g.strokeStyle='#fff0b5';g.lineWidth=2;g.strokeRect(x,y,w,h);
+}
+regionLocatorButton.onclick=()=>{regionLocator.hidden=!regionLocator.hidden;regionLocatorButton.setAttribute('aria-expanded',String(!regionLocator.hidden));regionLocatorButton.setAttribute('aria-label',regionLocator.hidden?'Show regional locator':'Hide regional locator');if(!regionLocator.hidden)updateRegionLocator();};
+const regionLocatorCanvas=regionLocator.querySelector('canvas');regionLocatorCanvas.addEventListener('pointerdown',e=>{e.preventDefault();e.stopPropagation();const r=regionLocatorCanvas.getBoundingClientRect();cam.x=clamp((e.clientX-r.left)/r.width,0,1)*RW;cam.y=clamp((e.clientY-r.top)/r.height,0,1)*RH;dirty=true;if(window.__webglTaste){const x=(cam.x-RW/2)/TW+(cam.y-32)/TH,y=(cam.y-32)/TH-(cam.x-RW/2)/TW;window.__webglTaste.focus(x,y,window.__webglTaste.cameraInfo().zoom);}updateRegionLocator();});
+regionLocatorCanvas.addEventListener('keydown',e=>{const moves={ArrowLeft:[-1,0],ArrowRight:[1,0],ArrowUp:[0,-1],ArrowDown:[0,1]},v=moves[e.key];if(e.key==='Escape'){regionLocatorButton.click();regionLocatorButton.focus();return;}if(!v)return;e.preventDefault();cam.x=clamp(cam.x+v[0]*cw/(cam.zoom*3),0,RW);cam.y=clamp(cam.y+v[1]*ch/(cam.zoom*3),0,RH);dirty=true;if(window.__webglTaste){const x=(cam.x-RW/2)/TW+(cam.y-32)/TH,y=(cam.y-32)/TH-(cam.x-RW/2)/TW;window.__webglTaste.focus(x,y,window.__webglTaste.cameraInfo().zoom);}updateRegionLocator();});
+const regionLocatorDrawBase=draw;draw=function(){regionLocatorDrawBase();updateRegionLocator();};

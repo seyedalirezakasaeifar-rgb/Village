@@ -1,0 +1,565 @@
+{
+  "source_sha256": "556e93e51c5ca55e0d099843be05afd0102f7ecd7b253b17d889d856eb336357",
+  "gates": {
+    "docs/previews/gathering-art/checks.json": {
+      "source_sha256": "556e93e51c5ca55e0d099843be05afd0102f7ecd7b253b17d889d856eb336357",
+      "scheduled": {
+        "status": "scheduled",
+        "attendance": 0,
+        "actors": 0,
+        "groundActors": true,
+        "stable": true,
+        "coldStable": true,
+        "unchanged": true,
+        "cacheBytes": 231168,
+        "cacheSize": 3
+      },
+      "checks": [
+        {
+          "viewport": [
+            640,
+            360,
+            1
+          ],
+          "zoom": 1.6,
+          "night": false,
+          "reduced": false,
+          "status": "active",
+          "attendance": 24,
+          "actors": 8,
+          "groundActors": true,
+          "stable": true,
+          "coldStable": true,
+          "unchanged": true,
+          "cacheBytes": 231168,
+          "cacheSize": 3,
+          "renderBenchMs": 1.47
+        },
+        {
+          "viewport": [
+            640,
+            360,
+            1
+          ],
+          "zoom": 1.6,
+          "night": true,
+          "reduced": false,
+          "status": "active",
+          "attendance": 24,
+          "actors": 8,
+          "groundActors": true,
+          "stable": true,
+          "coldStable": true,
+          "unchanged": true,
+          "cacheBytes": 385280,
+          "cacheSize": 5,
+          "renderBenchMs": 1.74
+        },
+        {
+          "viewport": [
+            640,
+            360,
+            1
+          ],
+          "zoom": 0.2,
+          "night": false,
+          "reduced": false,
+          "status": "active",
+          "attendance": 24,
+          "actors": 0,
+          "groundActors": true,
+          "stable": true,
+          "coldStable": true,
+          "unchanged": true,
+          "cacheBytes": 385280,
+          "cacheSize": 5,
+          "renderBenchMs": 0.49
+        },
+        {
+          "viewport": [
+            640,
+            360,
+            1
+          ],
+          "zoom": 1.1,
+          "night": false,
+          "reduced": true,
+          "status": "active",
+          "attendance": 24,
+          "actors": 0,
+          "groundActors": true,
+          "stable": true,
+          "coldStable": true,
+          "unchanged": true,
+          "cacheBytes": 539392,
+          "cacheSize": 7,
+          "renderBenchMs": 0.12
+        },
+        {
+          "viewport": [
+            844,
+            390,
+            2
+          ],
+          "zoom": 1.6,
+          "night": false,
+          "reduced": false,
+          "status": "active",
+          "attendance": 24,
+          "actors": 8,
+          "groundActors": true,
+          "stable": true,
+          "coldStable": true,
+          "unchanged": true,
+          "cacheBytes": 231168,
+          "cacheSize": 3,
+          "renderBenchMs": 2.94
+        },
+        {
+          "viewport": [
+            844,
+            390,
+            2
+          ],
+          "zoom": 1.6,
+          "night": true,
+          "reduced": false,
+          "status": "active",
+          "attendance": 24,
+          "actors": 8,
+          "groundActors": true,
+          "stable": true,
+          "coldStable": true,
+          "unchanged": true,
+          "cacheBytes": 385280,
+          "cacheSize": 5,
+          "renderBenchMs": 2.76
+        },
+        {
+          "viewport": [
+            844,
+            390,
+            2
+          ],
+          "zoom": 0.2,
+          "night": false,
+          "reduced": false,
+          "status": "active",
+          "attendance": 24,
+          "actors": 0,
+          "groundActors": true,
+          "stable": true,
+          "coldStable": true,
+          "unchanged": true,
+          "cacheBytes": 385280,
+          "cacheSize": 5,
+          "renderBenchMs": 0.59
+        },
+        {
+          "viewport": [
+            844,
+            390,
+            2
+          ],
+          "zoom": 1.1,
+          "night": false,
+          "reduced": true,
+          "status": "active",
+          "attendance": 24,
+          "actors": 0,
+          "groundActors": true,
+          "stable": true,
+          "coldStable": true,
+          "unchanged": true,
+          "cacheBytes": 539392,
+          "cacheSize": 7,
+          "renderBenchMs": 0.21
+        },
+        {
+          "viewport": [
+            1280,
+            720,
+            3
+          ],
+          "zoom": 1.6,
+          "night": false,
+          "reduced": false,
+          "status": "active",
+          "attendance": 24,
+          "actors": 8,
+          "groundActors": true,
+          "stable": true,
+          "coldStable": true,
+          "unchanged": true,
+          "cacheBytes": 231168,
+          "cacheSize": 3,
+          "renderBenchMs": 6.02
+        },
+        {
+          "viewport": [
+            1280,
+            720,
+            3
+          ],
+          "zoom": 1.6,
+          "night": true,
+          "reduced": false,
+          "status": "active",
+          "attendance": 24,
+          "actors": 8,
+          "groundActors": true,
+          "stable": true,
+          "coldStable": true,
+          "unchanged": true,
+          "cacheBytes": 385280,
+          "cacheSize": 5,
+          "renderBenchMs": 5.87
+        },
+        {
+          "viewport": [
+            1280,
+            720,
+            3
+          ],
+          "zoom": 0.2,
+          "night": false,
+          "reduced": false,
+          "status": "active",
+          "attendance": 24,
+          "actors": 0,
+          "groundActors": true,
+          "stable": true,
+          "coldStable": true,
+          "unchanged": true,
+          "cacheBytes": 385280,
+          "cacheSize": 5,
+          "renderBenchMs": 0.52
+        },
+        {
+          "viewport": [
+            1280,
+            720,
+            3
+          ],
+          "zoom": 1.1,
+          "night": false,
+          "reduced": true,
+          "status": "active",
+          "attendance": 24,
+          "actors": 0,
+          "groundActors": true,
+          "stable": true,
+          "coldStable": true,
+          "unchanged": true,
+          "cacheBytes": 539392,
+          "cacheSize": 7,
+          "renderBenchMs": 0.14
+        }
+      ],
+      "motion": {
+        "moves": true,
+        "sameSprite": true,
+        "zero": 0,
+        "unchanged": true
+      },
+      "finished": {
+        "status": "complete",
+        "attendance": 24,
+        "actors": 0,
+        "groundActors": true,
+        "stable": true,
+        "coldStable": true,
+        "unchanged": true,
+        "cacheBytes": 385280,
+        "cacheSize": 5
+      },
+      "finishedRenderBenchMs": 2.01,
+      "errors": []
+    },
+    "reports/civic-calendar/controls.json": {
+      "source_sha256": "556e93e51c5ca55e0d099843be05afd0102f7ecd7b253b17d889d856eb336357",
+      "quotedPreparation": {
+        "ok": true,
+        "cost": 228,
+        "eligible": 46
+      },
+      "actualActiveEvent": {
+        "id": 1,
+        "venue": 103,
+        "name": "Willow Commons",
+        "x": 22,
+        "y": 29,
+        "start": 4,
+        "end": 5,
+        "capacity": 24,
+        "cost": 228,
+        "paid": 228,
+        "created": 3,
+        "lastDay": 4,
+        "status": "active",
+        "visits": 24,
+        "participants": [
+          90,
+          0,
+          91,
+          147,
+          30,
+          84,
+          67,
+          132,
+          112,
+          131,
+          119,
+          156,
+          151,
+          7,
+          78,
+          19,
+          111,
+          1,
+          13,
+          24,
+          55,
+          32,
+          68,
+          20
+        ],
+        "daily": [
+          {
+            "day": 4,
+            "eligible": 73,
+            "attendance": 24
+          }
+        ],
+        "reason": ""
+      },
+      "completedEvent": {
+        "version": 1,
+        "next": 2,
+        "events": [
+          {
+            "id": 1,
+            "venue": 103,
+            "name": "Willow Commons",
+            "x": 22,
+            "y": 29,
+            "start": 4,
+            "end": 5,
+            "capacity": 24,
+            "cost": 228,
+            "paid": 228,
+            "created": 3,
+            "lastDay": 6,
+            "status": "complete",
+            "visits": 48,
+            "participants": [
+              90,
+              0,
+              91,
+              147,
+              30,
+              84,
+              67,
+              132,
+              112,
+              131,
+              119,
+              156,
+              151,
+              7,
+              78,
+              19,
+              111,
+              1,
+              13,
+              24,
+              55,
+              32,
+              68,
+              20,
+              96,
+              79,
+              48,
+              159,
+              61,
+              163,
+              148,
+              136,
+              12,
+              6,
+              102,
+              127,
+              42,
+              49,
+              36,
+              155,
+              73,
+              115
+            ],
+            "daily": [
+              {
+                "day": 4,
+                "eligible": 73,
+                "attendance": 24
+              },
+              {
+                "day": 5,
+                "eligible": 68,
+                "attendance": 24
+              }
+            ],
+            "reason": ""
+          }
+        ]
+      },
+      "cancelRetainsPreparation": true,
+      "failedFundingAndStaleNoMutation": true,
+      "pausedPixelsStableAndActiveAnimation": true,
+      "errors": []
+    },
+    "docs/previews/render-precision-audit/gathering-pedestrian/bridge-checks.json": {
+      "found": {
+        "phase": 11.699999999999992,
+        "overlap": 47,
+        "oldWrong": 45,
+        "fixedWrong": 0
+      },
+      "unchanged": true,
+      "source_sha256": "556e93e51c5ca55e0d099843be05afd0102f7ecd7b253b17d889d856eb336357"
+    },
+    "docs/previews/render-precision-audit/gathering-compositor/compositor-checks.json": {
+      "old": {
+        "channels": 332,
+        "max": 24
+      },
+      "fixed": {
+        "channels": 0,
+        "max": 0
+      },
+      "unchanged": true,
+      "underlayBytes": 550400,
+      "source_sha256": "556e93e51c5ca55e0d099843be05afd0102f7ecd7b253b17d889d856eb336357",
+      "errors": []
+    },
+    "reports/release-tests.json": {
+      "source_sha256": "556e93e51c5ca55e0d099843be05afd0102f7ecd7b253b17d889d856eb336357",
+      "determinism_and_continuation": {
+        "sameSeed": true,
+        "renderIndependent": true,
+        "continuedDays": 120,
+        "valid": {
+          "ok": true,
+          "issues": [],
+          "total": 15489571.999994356,
+          "population": 172,
+          "day": 301
+        }
+      },
+      "malformed_save_atomicity": {
+        "investorRejected": true,
+        "cargoRejected": true,
+        "futureRejected": true,
+        "townPreserved": true
+      },
+      "replicated_zoning": [
+        {
+          "seed": 42,
+          "zone": 0,
+          "population": 192,
+          "homes": 17,
+          "firms": 3,
+          "privateSpend": 494901,
+          "moneyDelta": -1.2569129467010498e-05,
+          "ms": 3488.2999999970198
+        },
+        {
+          "seed": 42,
+          "zone": 100,
+          "population": 177,
+          "homes": 0,
+          "firms": 1,
+          "privateSpend": 0,
+          "moneyDelta": -1.7305836081504822e-05,
+          "ms": 2269.5
+        },
+        {
+          "seed": 101,
+          "zone": 0,
+          "population": 221,
+          "homes": 21,
+          "firms": 8,
+          "privateSpend": 621891,
+          "moneyDelta": -1.55717134475708e-05,
+          "ms": 3455.5
+        },
+        {
+          "seed": 101,
+          "zone": 100,
+          "population": 183,
+          "homes": 0,
+          "firms": 2,
+          "privateSpend": 0,
+          "moneyDelta": -8.197501301765442e-06,
+          "ms": 2477.4000000059605
+        },
+        {
+          "seed": 909,
+          "zone": 0,
+          "population": 211,
+          "homes": 21,
+          "firms": 5,
+          "privateSpend": 525844,
+          "moneyDelta": -1.1583790183067322e-05,
+          "ms": 2955.5999999940395
+        },
+        {
+          "seed": 909,
+          "zone": 100,
+          "population": 176,
+          "homes": 0,
+          "firms": 1,
+          "privateSpend": 0,
+          "moneyDelta": -1.2626871466636658e-05,
+          "ms": 2426.3999999910593
+        }
+      ],
+      "cargo_ownership": {
+        "consignments": 6,
+        "sampledUnits": 166.3792513597068,
+        "remaining": true,
+        "delayed": 1,
+        "cashConserved": true
+      },
+      "legacy_56_migration": {
+        "v": {
+          "ok": true,
+          "issues": [],
+          "total": 15438997,
+          "population": 169,
+          "day": 1
+        },
+        "after": {
+          "ok": true,
+          "issues": [],
+          "total": 15438996.999999486,
+          "population": 167,
+          "day": 31
+        },
+        "schema": 8
+      },
+      "true_pause": {
+        "identicalScreenshots": true,
+        "milliseconds": 500
+      },
+      "traffic_progress": {
+        "seconds": 1600,
+        "maximumWait": 0.9999999999999999,
+        "peak": 21,
+        "valid": true
+      },
+      "long_run_endurance": [],
+      "browser_errors": []
+    }
+  },
+  "cooperativeEnabled": false
+}

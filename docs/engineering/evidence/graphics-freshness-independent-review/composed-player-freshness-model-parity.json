@@ -1,0 +1,42 @@
+{
+  "baseSourceSha256": "84ecbaef6b0ae999a9c5adcd49b9ba1678840cabfc36cf02b617c74a93d208a4",
+  "fixedSourceSha256": "037c92b56d4b736f2c9c2bb96a950ae194bc815d1a393d36b3634f4272521d94",
+  "setup": "Existing transit test conserves region/treasury cash and reassigns existing residents; no new people or money",
+  "actualUiClaim": false,
+  "excludedFields": [],
+  "assertedDerivedFormula": "stats.townBalance = treasury + publicReserve - debt",
+  "rows": [
+    {
+      "stage": "build",
+      "entireModelEqualAfterExactDerivedFormulaCorrection": true,
+      "rngEqual": true,
+      "totalMoneyEqual": true,
+      "baselineBalanceWasStale": true,
+      "fixedBalanceMatchesAccounts": true
+    },
+    {
+      "stage": "resize",
+      "entireModelEqualAfterExactDerivedFormulaCorrection": true,
+      "rngEqual": true,
+      "totalMoneyEqual": true,
+      "baselineBalanceWasStale": true,
+      "fixedBalanceMatchesAccounts": true
+    },
+    {
+      "stage": "retire",
+      "entireModelEqualAfterExactDerivedFormulaCorrection": true,
+      "rngEqual": true,
+      "totalMoneyEqual": true,
+      "baselineBalanceWasStale": true,
+      "fixedBalanceMatchesAccounts": true
+    },
+    {
+      "stage": "remove-site",
+      "entireModelEqualAfterExactDerivedFormulaCorrection": true,
+      "rngEqual": true,
+      "totalMoneyEqual": true,
+      "baselineBalanceWasStale": true,
+      "fixedBalanceMatchesAccounts": true
+    }
+  ]
+}

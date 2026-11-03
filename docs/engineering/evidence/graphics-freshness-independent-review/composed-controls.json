@@ -1,0 +1,20 @@
+{
+  "centerPick": {
+    "x": 26,
+    "y": 26,
+    "id": 3354,
+    "building": 1
+  },
+  "dragPick": {
+    "x": 20,
+    "y": 27,
+    "id": 3476
+  },
+  "zoomWheel": true,
+  "resizePortrait": true,
+  "stateInvariant": true,
+  "save": true,
+  "realRoadBuildAndLiveRefresh": true,
+  "disposeCanvasFallback": true,
+  "errors": []
+}

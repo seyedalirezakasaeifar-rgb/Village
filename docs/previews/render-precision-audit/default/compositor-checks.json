@@ -1,0 +1,14 @@
+{
+  "old": {
+    "channels": 509,
+    "max": 130
+  },
+  "fixed": {
+    "channels": 0,
+    "max": 0
+  },
+  "unchanged": true,
+  "underlayBytes": 3056640,
+  "source_sha256": "8031901f1dca4e8b45d43d653e7657abff20f91f3bd5f2f823bd5c8a25e56a67",
+  "errors": []
+}

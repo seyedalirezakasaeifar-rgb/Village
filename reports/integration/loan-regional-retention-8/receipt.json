@@ -1,0 +1,145 @@
+{
+  "source_sha256": "d37a2961cee82e4bb9a7921793f4c317432f383e3d888695bfa36f4ce6963fc2",
+  "gates": {
+    "reports/regional-loan-summary/after.json": {
+      "source_sha256": "d37a2961cee82e4bb9a7921793f4c317432f383e3d888695bfa36f4ce6963fc2",
+      "actualBankResolutionAndRepayment": true,
+      "syntheticHistoricalReceiptCount": 10000,
+      "result": {
+        "actualRepayment": true,
+        "syntheticHistoricalReceipts": 10000,
+        "newLoanId": 10001,
+        "priorMaximum": 10000,
+        "newArchiveImportable": true,
+        "retained": 1801,
+        "protectedClaimsPreserved": true,
+        "exactReplayDays": 30,
+        "summary": {
+          "version": 1,
+          "count": 8200,
+          "original": 820000,
+          "paid": 823286.4472956562,
+          "maxId": 8200,
+          "households": {
+            "1": {
+              "count": 8200,
+              "original": 820000,
+              "paid": 823286.4472956562
+            }
+          },
+          "firms": {},
+          "banks": {
+            "-1": {
+              "count": 8200,
+              "original": 820000,
+              "paid": 823286.4472956562
+            }
+          }
+        },
+        "moneyPreserved": true,
+        "malformedSummaryAtomicRejections": 4
+      }
+    },
+    "reports/loan-history/after.json": {
+      "source_sha256": "d37a2961cee82e4bb9a7921793f4c317432f383e3d888695bfa36f4ce6963fc2",
+      "result": {
+        "actualRepayment": true,
+        "syntheticHistoricalReceipts": 10000,
+        "newLoanId": 10001,
+        "priorMaximum": 10000,
+        "newArchiveImportable": true,
+        "retained": 1801,
+        "protectedClaimsPreserved": true,
+        "exactReplayDays": 30,
+        "summary": {
+          "version": 1,
+          "count": 8200,
+          "original": 820000,
+          "paid": 823286.4472956562,
+          "maxId": 8200,
+          "households": {
+            "1": {
+              "count": 8200,
+              "original": 820000,
+              "paid": 823286.4472956562
+            }
+          },
+          "firms": {},
+          "banks": {
+            "0": {
+              "count": 8200,
+              "original": 820000,
+              "paid": 823286.4472956562
+            }
+          }
+        },
+        "moneyPreserved": true,
+        "protectedCapacity": {
+          "protectedDefaults": 10000,
+          "claimsPreserved": true,
+          "explicitRefusal": true
+        }
+      }
+    },
+    "reports/development-save-qa/composite.json": {
+      "source_sha256": "d37a2961cee82e4bb9a7921793f4c317432f383e3d888695bfa36f4ce6963fc2",
+      "controlledCatchment": true,
+      "result": {
+        "grid": 128,
+        "people": 1375,
+        "routes": 2,
+        "settledTickets": 1,
+        "fares": 3.25,
+        "cargo": 18,
+        "providerEscrow": 6000,
+        "mallEscrow": 28000,
+        "cashConserved": true,
+        "receiptsPreserved": true,
+        "faults": {
+          "grid": 128,
+          "schema": 8,
+          "recordsRejected": [
+            "missingMember",
+            "duplicateMember",
+            "householdMismatch",
+            "missingHome",
+            "tileUsedAsHomeId",
+            "missingFirmBuilding",
+            "negativeStock",
+            "invalidStock",
+            "unknownStock",
+            "negativeDeposit",
+            "missingDepositBank",
+            "malformedBank",
+            "malformedLoan",
+            "negativeLoanBank",
+            "duplicateBuildingId",
+            "exhaustedIdCounter",
+            "duplicateHomeId",
+            "orphanWorker",
+            "duplicateWorker",
+            "missingOwner",
+            "missingTitleHolder",
+            "truncatedTiles",
+            "malformedProject",
+            "futureSchema",
+            "invalidDay"
+          ],
+          "truncatedRejected": 4,
+          "callerIndependent": true,
+          "atomicRNGAndTimeline": true
+        }
+      }
+    }
+  },
+  "before": {
+    "source_sha256": "6b39352db992b5a7cd8c8c6bcafbbb6fec6966f23d783a72efb80caf7cbeb456",
+    "actualBankResolutionAndRepayment": true,
+    "syntheticHistoricalReceiptCount": 10000,
+    "result": {
+      "newArchiveImportable": false,
+      "historicalImportRejectedBeforeCompaction": true,
+      "reason": "Regional creditor bankId=-1 rejected"
+    }
+  }
+}

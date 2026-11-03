@@ -1,0 +1,305 @@
+{
+  "source_sha256": "a6a1339050cbbe572ade5f430e1157fe88f37faf4ca1d1ed244566ee4cb1a9f6",
+  "cache": {
+    "changes": [
+      {
+        "key": "3:3",
+        "field": "bankDeposits",
+        "cached": 23858,
+        "fresh": 23859.5896
+      },
+      {
+        "key": "3:3",
+        "field": "financialActivity",
+        "cached": 23858,
+        "fresh": 23859.5896
+      },
+      {
+        "key": "2:3",
+        "field": "incomeBand",
+        "cached": "Middle income",
+        "fresh": "Higher income"
+      },
+      {
+        "key": "2:3",
+        "field": "perPersonIncome",
+        "cached": 20.473333333333333,
+        "fresh": 30.226629369543716
+      },
+      {
+        "key": "2:3",
+        "field": "rentBurden",
+        "cached": 0,
+        "fresh": 0.10692267835646194
+      },
+      {
+        "key": "2:1",
+        "field": "rentBurden",
+        "cached": 0,
+        "fresh": 0.1892821293173293
+      },
+      {
+        "key": "4:4",
+        "field": "perPersonIncome",
+        "cached": 21.35096774193548,
+        "fresh": 25.092234092535133
+      },
+      {
+        "key": "4:4",
+        "field": "rentBurden",
+        "cached": 0,
+        "fresh": 0.11381489618023048
+      },
+      {
+        "key": "1:3",
+        "field": "perPersonIncome",
+        "cached": 24.36,
+        "fresh": 25.166283521514718
+      },
+      {
+        "key": "1:3",
+        "field": "rentBurden",
+        "cached": 0,
+        "fresh": 0.1120698472819063
+      },
+      {
+        "key": "2:5",
+        "field": "rentBurden",
+        "cached": 0,
+        "fresh": 0.18519011752136752
+      },
+      {
+        "key": "4:3",
+        "field": "incomeBand",
+        "cached": "Middle income",
+        "fresh": "Higher income"
+      },
+      {
+        "key": "4:3",
+        "field": "perPersonIncome",
+        "cached": 23.055,
+        "fresh": 32.36149172357099
+      },
+      {
+        "key": "4:3",
+        "field": "rentBurden",
+        "cached": 0,
+        "fresh": 0.0598738172434708
+      },
+      {
+        "key": "3:2",
+        "field": "perPersonIncome",
+        "cached": 22.43619047619048,
+        "fresh": 24.929123430973043
+      },
+      {
+        "key": "3:2",
+        "field": "rentBurden",
+        "cached": 0,
+        "fresh": 0.15915063822598002
+      },
+      {
+        "key": "5:3",
+        "field": "perPersonIncome",
+        "cached": 22.272,
+        "fresh": 28.546137093313188
+      },
+      {
+        "key": "5:3",
+        "field": "rentBurden",
+        "cached": 0,
+        "fresh": 0.028595249329450855
+      },
+      {
+        "key": "3:4",
+        "field": "perPersonIncome",
+        "cached": 22.672307692307694,
+        "fresh": 24.518843769929312
+      },
+      {
+        "key": "3:4",
+        "field": "rentBurden",
+        "cached": 0,
+        "fresh": 0.17884040114807287
+      },
+      {
+        "key": "2:2",
+        "field": "perPersonIncome",
+        "cached": 16.97254901960784,
+        "fresh": 21.22992677094876
+      },
+      {
+        "key": "2:2",
+        "field": "rentBurden",
+        "cached": 0,
+        "fresh": 0.1761827270223816
+      },
+      {
+        "key": "4:2",
+        "field": "perPersonIncome",
+        "cached": 21.304444444444442,
+        "fresh": 25.503709372640945
+      },
+      {
+        "key": "4:2",
+        "field": "rentBurden",
+        "cached": 0,
+        "fresh": 0.09049923232795354
+      },
+      {
+        "key": "2:4",
+        "field": "perPersonIncome",
+        "cached": 21.258235294117647,
+        "fresh": 24.96157410863912
+      },
+      {
+        "key": "2:4",
+        "field": "rentBurden",
+        "cached": 0,
+        "fresh": 0.0999700597655149
+      },
+      {
+        "key": "5:2",
+        "field": "rentBurden",
+        "cached": 0,
+        "fresh": 0.22753050724637686
+      },
+      {
+        "key": "5:4",
+        "field": "rentBurden",
+        "cached": 0,
+        "fresh": 0.21579111138638382
+      },
+      {
+        "key": "3:5",
+        "field": "rentBurden",
+        "cached": 0,
+        "fresh": 0.21676680966365577
+      },
+      {
+        "key": "1:4",
+        "field": "rentBurden",
+        "cached": 0,
+        "fresh": 0.21159495708748616
+      },
+      {
+        "key": "4:5",
+        "field": "rentBurden",
+        "cached": 0,
+        "fresh": 0.3832684536876565
+      },
+      {
+        "key": "3:1",
+        "field": "rentBurden",
+        "cached": 0,
+        "fresh": 0.3151185580524344
+      },
+      {
+        "key": "4:1",
+        "field": "rentBurden",
+        "cached": 0,
+        "fresh": 0.23738709507678668
+      },
+      {
+        "key": "0:3",
+        "field": "rentBurden",
+        "cached": 0,
+        "fresh": 0.19502480400270963
+      },
+      {
+        "key": "6:3",
+        "field": "rentBurden",
+        "cached": 0,
+        "fresh": 0.44325220145745176
+      },
+      {
+        "key": "5:1",
+        "field": "rentBurden",
+        "cached": 0,
+        "fresh": 33.9671968
+      },
+      {
+        "key": "1:1",
+        "field": "rentBurden",
+        "cached": 0,
+        "fresh": 0.18125699618265628
+      },
+      {
+        "key": "5:5",
+        "field": "rentBurden",
+        "cached": 0,
+        "fresh": 33.5174516
+      },
+      {
+        "key": "6:2",
+        "field": "rentBurden",
+        "cached": 0,
+        "fresh": 1.0358273541666667
+      },
+      {
+        "key": "3:6",
+        "field": "rentBurden",
+        "cached": 0,
+        "fresh": 1.0204229458333334
+      },
+      {
+        "key": "6:4",
+        "field": "rentBurden",
+        "cached": 0,
+        "fresh": 1.03765365
+      }
+    ],
+    "modelUnchanged": true
+  },
+  "review": {
+    "key": "3:2",
+    "stages": [
+      {
+        "day": 721,
+        "observed": "Downtown mixed-use",
+        "archived": {
+          "name": "Review control",
+          "character": "Residential neighbourhood",
+          "since": 1,
+          "changed": 1,
+          "proposed": "Downtown mixed-use",
+          "proposedSince": 721
+        }
+      },
+      {
+        "day": 751,
+        "observed": "Downtown mixed-use",
+        "archived": {
+          "name": "Review control",
+          "character": "Residential neighbourhood",
+          "since": 1,
+          "changed": 1,
+          "proposed": "Downtown mixed-use",
+          "proposedSince": 721
+        }
+      },
+      {
+        "day": 781,
+        "observed": "Downtown mixed-use",
+        "archived": {
+          "name": "Review control",
+          "character": "Residential neighbourhood",
+          "since": 1,
+          "changed": 1,
+          "proposed": "Downtown mixed-use",
+          "proposedSince": 721
+        }
+      },
+      {
+        "day": 811,
+        "observed": "Downtown mixed-use",
+        "archived": {
+          "name": "Review control",
+          "character": "Residential neighbourhood",
+          "since": 1,
+          "changed": 811
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "source_sha256": "884d8087368dbb6ac0a058a5baee7296e47fcc79ea72db25b478ef50a7af0582",
+  "freshPublicConstruction": [
+    {
+      "kind": "farm-home",
+      "differences": [],
+      "moneyUnchanged": true,
+      "rngUnchanged": true,
+      "buildingIdentities": true,
+      "households": 68,
+      "farms": 6
+    },
+    {
+      "kind": "transit",
+      "differences": [],
+      "moneyUnchanged": true,
+      "rngUnchanged": true,
+      "buildingIdentities": true,
+      "households": 67,
+      "farms": 5
+    },
+    {
+      "kind": "repair",
+      "differences": [],
+      "moneyUnchanged": true,
+      "rngUnchanged": true,
+      "buildingIdentities": true,
+      "households": 67,
+      "farms": 5
+    }
+  ],
+  "validZeroAndLegacyDefaults": {
+    "validZerosPreserved": true,
+    "legacyDifferences": [],
+    "callerUnchanged": true
+  },
+  "committedServiceStates": [
+    {
+      "scenario": "settlement",
+      "days": 180,
+      "differences": [],
+      "moneyUnchanged": true,
+      "rngUnchanged": true,
+      "replayDifferences": [],
+      "privateMemberships": 0,
+      "publicPaid": 70
+    },
+    {
+      "scenario": "industrial",
+      "days": 360,
+      "differences": [],
+      "moneyUnchanged": true,
+      "rngUnchanged": true,
+      "replayDifferences": [],
+      "privateMemberships": 0,
+      "publicPaid": 70
+    }
+  ]
+}
+PASS fresh complete-state construction equality; validated paid service receipts preserved; 45-day complete-state replay with no excluded fields

@@ -1,0 +1,84 @@
+{
+  "source_sha256": "dbbb77a80e54a8c02fa5d7da8af020ba6b8a24078270c39cd5d844bd236dd949",
+  "fixture": "Natural regional seed42 day1081 from 525e47d, no injected agents/cash/stocks.",
+  "results": {
+    "before": {
+      "initialLegacyFree": 9,
+      "initialGenuineJobseekers": 0,
+      "initial": {
+        "id": 88,
+        "staff": [],
+        "jobs": 1,
+        "wage": 28,
+        "cash": 15389.033429456756,
+        "net": -5.886666666666666,
+        "payroll": 0,
+        "price": 3.8248279387175637
+      },
+      "nextDay": {
+        "id": 88,
+        "staff": [],
+        "jobs": 1,
+        "wage": 28,
+        "cash": 15383.146762790091,
+        "net": -5.886666666666666,
+        "payroll": 0,
+        "price": 3.8248279387175637
+      },
+      "cashError": 2.60770320892334e-08,
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15493517.000001818,
+        "population": 868,
+        "day": 1082
+      }
+    },
+    "after": {
+      "initialLegacyFree": 9,
+      "initialGenuineJobseekers": 0,
+      "initial": {
+        "id": 88,
+        "staff": [],
+        "jobs": 1,
+        "wage": 28,
+        "cash": 15389.033429456756,
+        "net": -5.886666666666666,
+        "payroll": 0,
+        "price": 3.8248279387175637
+      },
+      "nextDay": {
+        "id": 88,
+        "staff": [
+          623
+        ],
+        "jobs": 1,
+        "wage": 32.62,
+        "cash": 15651.434934427936,
+        "net": 24.3382301086621,
+        "payroll": 32.62,
+        "price": 3.8293151137175636
+      },
+      "cashError": 2.9802322387695312e-08,
+      "valid": {
+        "ok": true,
+        "issues": [],
+        "total": 15493517.000001822,
+        "population": 868,
+        "day": 1082
+      },
+      "day90": {
+        "id": 88,
+        "staff": [
+          623
+        ],
+        "jobs": 2,
+        "wage": 32.29510219300855,
+        "cash": 19110.31695189062,
+        "net": 25.133250325321384,
+        "payroll": 32.29510219300855,
+        "price": 3.3612459021358414
+      }
+    }
+  }
+}

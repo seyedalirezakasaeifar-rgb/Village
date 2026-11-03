@@ -1,0 +1,75 @@
+/workspace/core-recovery/tests/test_agent_viewport_edges.py:26: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  row['differentPixels']=sum(px!=(0,0,0)for px in ImageChops.difference(images['actual'],images['oracle']).getdata());rows.append(row)
+{
+  "source_sha256": "3af2f8355807bfa3c23482b25816f657ae618970dfeb4e38dc6c34aa3140115c",
+  "cases": [
+    {
+      "zoom": 0.65,
+      "edge": "left",
+      "actorId": 152,
+      "building": 101,
+      "parentCentreOutside": true,
+      "actorCentreInside": true,
+      "actualActorPresent": true,
+      "modelUnchanged": true,
+      "differentPixels": 0
+    },
+    {
+      "zoom": 0.65,
+      "edge": "top",
+      "actorId": 150,
+      "building": 102,
+      "parentCentreOutside": true,
+      "actorCentreInside": true,
+      "actualActorPresent": true,
+      "modelUnchanged": true,
+      "differentPixels": 0
+    },
+    {
+      "zoom": 0.9,
+      "edge": "left",
+      "actorId": 152,
+      "building": 101,
+      "parentCentreOutside": true,
+      "actorCentreInside": true,
+      "actualActorPresent": true,
+      "modelUnchanged": true,
+      "differentPixels": 0
+    },
+    {
+      "zoom": 0.9,
+      "edge": "top",
+      "actorId": 150,
+      "building": 102,
+      "parentCentreOutside": true,
+      "actorCentreInside": true,
+      "actualActorPresent": true,
+      "modelUnchanged": true,
+      "differentPixels": 0
+    },
+    {
+      "zoom": 1.4,
+      "edge": "left",
+      "actorId": 152,
+      "building": 101,
+      "parentCentreOutside": true,
+      "actorCentreInside": true,
+      "actualActorPresent": true,
+      "modelUnchanged": true,
+      "differentPixels": 0
+    },
+    {
+      "zoom": 1.4,
+      "edge": "top",
+      "actorId": 150,
+      "building": 102,
+      "parentCentreOutside": true,
+      "actorCentreInside": true,
+      "actualActorPresent": true,
+      "modelUnchanged": true,
+      "differentPixels": 0
+    }
+  ],
+  "errors": [],
+  "scope": "Real staff frontage sampling; ordinary Canvas renderer, no mesh/style replacement or physical-device acceptance"
+}

@@ -1,0 +1,389 @@
+{
+  "sourceSha256": "bd4c718d1e8d393fec94581590394267c7e13da711a99f683d2f5350b2c1ab78",
+  "fixtureSha256": "ad6256fd85d4146fda9eeac0b16d5b182ed352c23bbd96af3b320553c29ce786",
+  "hostChromium": true,
+  "physicalAndroid": false,
+  "towns": [
+    {
+      "name": "baseline-terminal",
+      "initial": {
+        "day": 41681,
+        "population": 778,
+        "people": 3108,
+        "buildings": 797,
+        "firms": 81,
+        "routes": 48
+      },
+      "speeds": [
+        {
+          "requested": 1,
+          "delivered": 0.8706090305899927,
+          "backlogDays": 0.9896969696969697,
+          "raf": {
+            "n": 444,
+            "p50Ms": 16.699999999999818,
+            "p95Ms": 16.700000000000728,
+            "p99Ms": 16.800000000000182,
+            "maxMs": 150
+          },
+          "tapToNextRaf": {
+            "n": 9,
+            "p50Ms": 30.800000000745058,
+            "p95Ms": 36.29999999888241,
+            "p99Ms": 36.29999999888241,
+            "maxMs": 36.29999999888241
+          },
+          "trustedTapCount": 9,
+          "requestedLabel": "1\u00d7",
+          "actualLabel": ""
+        },
+        {
+          "requested": 16,
+          "delivered": 15.907222048940096,
+          "backlogDays": 0.6940606060606208,
+          "raf": {
+            "n": 363,
+            "p50Ms": 16.69999999999891,
+            "p95Ms": 33.29999999999927,
+            "p99Ms": 66.60000000000036,
+            "maxMs": 300
+          },
+          "tapToNextRaf": {
+            "n": 8,
+            "p50Ms": 54.29999999888241,
+            "p95Ms": 70.40000000037253,
+            "p99Ms": 70.40000000037253,
+            "maxMs": 70.40000000037253
+          },
+          "trustedTapCount": 8,
+          "requestedLabel": "16\u00d7",
+          "actualLabel": "Actual 16\u00d7"
+        },
+        {
+          "requested": 32,
+          "delivered": 31.931586380042354,
+          "backlogDays": 0.6722424242424754,
+          "raf": {
+            "n": 361,
+            "p50Ms": 16.700000000000728,
+            "p95Ms": 33.30000000000291,
+            "p99Ms": 216.60000000000218,
+            "maxMs": 266.59999999999854
+          },
+          "tapToNextRaf": {
+            "n": 8,
+            "p50Ms": 47.59999999962747,
+            "p95Ms": 347.69999999925494,
+            "p99Ms": 347.69999999925494,
+            "maxMs": 347.69999999925494
+          },
+          "trustedTapCount": 8,
+          "requestedLabel": "32\u00d7",
+          "actualLabel": "Actual 37\u00d7"
+        },
+        {
+          "requested": 64,
+          "delivered": 52.080155961959235,
+          "backlogDays": 3.450666666666433,
+          "raf": {
+            "n": 237,
+            "p50Ms": 16.700000000004366,
+            "p95Ms": 33.400000000001455,
+            "p99Ms": 250,
+            "maxMs": 316.6999999999971
+          },
+          "tapToNextRaf": {
+            "n": 7,
+            "p50Ms": 99.5,
+            "p95Ms": 111.90000000037253,
+            "p99Ms": 111.90000000037253,
+            "maxMs": 111.90000000037253
+          },
+          "trustedTapCount": 7,
+          "requestedLabel": "64\u00d7",
+          "actualLabel": "Actual 57\u00d7"
+        }
+      ],
+      "pauseResponse": {
+        "before": {
+          "speed": 64,
+          "speedText": "64\u00d7",
+          "actualText": "",
+          "actual": 34.08755533694048,
+          "paused": true,
+          "day": 42189,
+          "backlog": 7,
+          "aria": "Resume simulation"
+        },
+        "after": {
+          "speed": 64,
+          "speedText": "64\u00d7",
+          "actualText": "",
+          "actual": 34.08755533694048,
+          "paused": true,
+          "day": 42189,
+          "backlog": 7,
+          "aria": "Resume simulation"
+        },
+        "dayDelta": 0,
+        "elapsedMs": 851.093930999923,
+        "backlogPreservedDays": 7
+      },
+      "errors": []
+    },
+    {
+      "name": "mid-session",
+      "initial": {
+        "day": 15561,
+        "population": 1848,
+        "people": 2346,
+        "buildings": 750,
+        "firms": 37,
+        "routes": 48
+      },
+      "speeds": [
+        {
+          "requested": 1,
+          "delivered": 0.867496484010505,
+          "backlogDays": 0.9796363636363633,
+          "raf": {
+            "n": 446,
+            "p50Ms": 16.699999999999818,
+            "p95Ms": 16.700000000000728,
+            "p99Ms": 16.800000000000182,
+            "maxMs": 149.9000000000001
+          },
+          "tapToNextRaf": {
+            "n": 9,
+            "p50Ms": 29.5,
+            "p95Ms": 38.19999999925494,
+            "p99Ms": 38.19999999925494,
+            "maxMs": 38.19999999925494
+          },
+          "trustedTapCount": 9,
+          "requestedLabel": "1\u00d7",
+          "actualLabel": ""
+        },
+        {
+          "requested": 16,
+          "delivered": 16.053662948446572,
+          "backlogDays": 0.9260606060605784,
+          "raf": {
+            "n": 390,
+            "p50Ms": 16.69999999999891,
+            "p95Ms": 16.799999999999272,
+            "p99Ms": 66.59999999999854,
+            "maxMs": 333.2999999999993
+          },
+          "tapToNextRaf": {
+            "n": 8,
+            "p50Ms": 42.600000001490116,
+            "p95Ms": 65.09999999962747,
+            "p99Ms": 65.09999999962747,
+            "maxMs": 65.09999999962747
+          },
+          "trustedTapCount": 8,
+          "requestedLabel": "16\u00d7",
+          "actualLabel": "Actual 13\u00d7"
+        },
+        {
+          "requested": 32,
+          "delivered": 32.0383968494909,
+          "backlogDays": 0.5301818181817891,
+          "raf": {
+            "n": 358,
+            "p50Ms": 16.700000000000728,
+            "p95Ms": 33.19999999999709,
+            "p99Ms": 200,
+            "maxMs": 233.29999999999927
+          },
+          "tapToNextRaf": {
+            "n": 9,
+            "p50Ms": 44.79999999888241,
+            "p95Ms": 55.100000001490116,
+            "p99Ms": 55.100000001490116,
+            "maxMs": 55.100000001490116
+          },
+          "trustedTapCount": 9,
+          "requestedLabel": "32\u00d7",
+          "actualLabel": "Actual 28\u00d7"
+        },
+        {
+          "requested": 64,
+          "delivered": 56.579113790637905,
+          "backlogDays": 6.647757575757462,
+          "raf": {
+            "n": 247,
+            "p50Ms": 16.700000000000728,
+            "p95Ms": 66.59999999999854,
+            "p99Ms": 216.6999999999971,
+            "maxMs": 266.7000000000007
+          },
+          "tapToNextRaf": {
+            "n": 7,
+            "p50Ms": 75.09999999962747,
+            "p95Ms": 305.2000000011176,
+            "p99Ms": 305.2000000011176,
+            "maxMs": 305.2000000011176
+          },
+          "trustedTapCount": 7,
+          "requestedLabel": "64\u00d7",
+          "actualLabel": "Actual 65\u00d7"
+        }
+      ],
+      "pauseResponse": {
+        "before": {
+          "speed": 64,
+          "speedText": "64\u00d7",
+          "actualText": "",
+          "actual": 64.92228998622872,
+          "paused": true,
+          "day": 16064,
+          "backlog": 5.049212121211945,
+          "aria": "Resume simulation"
+        },
+        "after": {
+          "speed": 64,
+          "speedText": "64\u00d7",
+          "actualText": "",
+          "actual": 64.92228998622872,
+          "paused": true,
+          "day": 16064,
+          "backlog": 5.049212121211945,
+          "aria": "Resume simulation"
+        },
+        "dayDelta": 0,
+        "elapsedMs": 864.3207590012025,
+        "backlogPreservedDays": 5.049212121211945
+      },
+      "errors": []
+    },
+    {
+      "name": "regional-grown-420d",
+      "initial": {
+        "day": 421,
+        "population": 701,
+        "people": 703,
+        "buildings": 255,
+        "firms": 99,
+        "routes": 0
+      },
+      "speeds": [
+        {
+          "requested": 1,
+          "delivered": 0.8652673807306308,
+          "backlogDays": 0.9896969696969752,
+          "raf": {
+            "n": 452,
+            "p50Ms": 16.69999999999891,
+            "p95Ms": 16.799999999999272,
+            "p99Ms": 16.80000000000291,
+            "maxMs": 66.70000000000073
+          },
+          "tapToNextRaf": {
+            "n": 9,
+            "p50Ms": 30.799999998882413,
+            "p95Ms": 35.70000000111759,
+            "p99Ms": 35.70000000111759,
+            "maxMs": 35.70000000111759
+          },
+          "trustedTapCount": 9,
+          "requestedLabel": "1\u00d7",
+          "actualLabel": ""
+        },
+        {
+          "requested": 16,
+          "delivered": 15.978462968700043,
+          "backlogDays": 0.9658181818181767,
+          "raf": {
+            "n": 435,
+            "p50Ms": 16.700000000000728,
+            "p95Ms": 16.799999999999272,
+            "p99Ms": 33.400000000001455,
+            "maxMs": 166.59999999999854
+          },
+          "tapToNextRaf": {
+            "n": 9,
+            "p50Ms": 42.59999999962747,
+            "p95Ms": 68.40000000037253,
+            "p99Ms": 68.40000000037253,
+            "maxMs": 68.40000000037253
+          },
+          "trustedTapCount": 9,
+          "requestedLabel": "16\u00d7",
+          "actualLabel": "Actual 15\u00d7"
+        },
+        {
+          "requested": 32,
+          "delivered": 31.985896802056185,
+          "backlogDays": 0.9638787878787483,
+          "raf": {
+            "n": 384,
+            "p50Ms": 16.69999999999709,
+            "p95Ms": 33.400000000001455,
+            "p99Ms": 83.29999999999927,
+            "maxMs": 116.70000000000073
+          },
+          "tapToNextRaf": {
+            "n": 9,
+            "p50Ms": 47.29999999888241,
+            "p95Ms": 204.60000000149012,
+            "p99Ms": 204.60000000149012,
+            "maxMs": 204.60000000149012
+          },
+          "trustedTapCount": 9,
+          "requestedLabel": "32\u00d7",
+          "actualLabel": "Actual 32\u00d7"
+        },
+        {
+          "requested": 64,
+          "delivered": 49.08092441460439,
+          "backlogDays": 6.939393939393939,
+          "raf": {
+            "n": 233,
+            "p50Ms": 33.299999999995634,
+            "p95Ms": 66.69999999999709,
+            "p99Ms": 133.39999999999418,
+            "maxMs": 150
+          },
+          "tapToNextRaf": {
+            "n": 7,
+            "p50Ms": 128.59999999962747,
+            "p95Ms": 230.2000000011176,
+            "p99Ms": 230.2000000011176,
+            "maxMs": 230.2000000011176
+          },
+          "trustedTapCount": 7,
+          "requestedLabel": "64\u00d7",
+          "actualLabel": "Actual 45\u00d7"
+        }
+      ],
+      "pauseResponse": {
+        "before": {
+          "speed": 64,
+          "speedText": "64\u00d7",
+          "actualText": "",
+          "actual": 45.44560299036009,
+          "paused": true,
+          "day": 932,
+          "backlog": 7,
+          "aria": "Resume simulation"
+        },
+        "after": {
+          "speed": 64,
+          "speedText": "64\u00d7",
+          "actualText": "",
+          "actual": 45.44560299036009,
+          "paused": true,
+          "day": 932,
+          "backlog": 7,
+          "aria": "Resume simulation"
+        },
+        "dayDelta": 0,
+        "elapsedMs": 847.2114639989741,
+        "backlogPreservedDays": 7
+      },
+      "errors": []
+    }
+  ]
+}

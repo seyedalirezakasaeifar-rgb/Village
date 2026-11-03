@@ -131,16 +131,20 @@ function setupScenario(){
  recompute();
 }
 function fundLocalService(amount){return fundedPublicPayroll(amount);}
+function fundCivicServices(){const P=G.policy;
+ const healthRatio=purchaseCivicService('health',P.healthBudget||0),schoolRatio=purchaseCivicService('school',P.educationBudget||0),roadRatio=fundLocalService(P.roadBudget||0),militiaRatio=fundLocalService(P.militiaBudget||0),transitRatio=G.actualServiceFunding?.transit||0;
+ G.actualServiceFunding=Object.assign(G.actualServiceFunding||{},{roads:roadRatio,health:healthRatio,school:schoolRatio,militia:militiaRatio,transit:transitRatio});
+}
 function extendedCivicDay(){
  let P=G.policy;
  let clinic=G.buildings.filter(b=>b.kind==='clinic').length,parks=G.buildings.filter(b=>b.kind==='park'||b.kind==='square').length,schools=G.buildings.filter(b=>b.kind==='school').length,watch=G.buildings.filter(b=>b.kind==='watchtower').length;
- const healthRatio=fundLocalService(P.healthBudget||0)*Math.min(1,clinic*350/Math.max(1,G.stats.population)),schoolRatio=fundLocalService(P.educationBudget||0)*Math.min(1,schools*260/Math.max(1,G.stats.population)),roadRatio=fundLocalService(P.roadBudget||0),militiaRatio=fundLocalService(P.militiaBudget||0),transitRatio=fundLocalService(P.transitBudget||0);
- G.actualServiceFunding=Object.assign(G.actualServiceFunding||{},{roads:roadRatio,health:healthRatio,school:schoolRatio,militia:militiaRatio,transit:transitRatio});
- G.health=clamp(G.health+(.021*(clinic+healthRatio*2)-.037- (G.stats.hardship||0)*.0002),25,99);
- G.education=clamp(G.education+.02*(schoolRatio*2)*(1+schools*.2)-.009,15,99);
+ const healthRatio=G.actualServiceFunding?.health||0,schoolRatio=G.actualServiceFunding?.school||0,roadRatio=G.actualServiceFunding?.roads||0,militiaRatio=G.actualServiceFunding?.militia||0,transitRatio=G.actualServiceFunding?.transit||0;
+ G.health=clamp(G.health+(.063*healthRatio-.037- (G.stats.hardship||0)*.0002),25,99);
+ G.education=clamp(G.education+.048*schoolRatio-.009,15,99);
+ civicTrainingDay(schoolRatio);
  G.stats.health=Math.round(G.health);G.stats.education=Math.round(G.education);
- if(G.day%3===0&&schoolRatio>.4){let p=pick(G.people.filter(p=>!p.deceased&&p.movedAway!==true));if(p){p.skill=clamp(p.skill+.018*schoolRatio,0,1.3)}}
- if(G.day%6===0){let p=pick(G.people.filter(p=>!p.deceased&&p.movedAway!==true));if(p){p.health=clamp(p.health+(healthRatio>.5?1.3:-.3)+rn(-.5,.5),10,100);if(p.health<25){const h=G.households[p.hh];if(h)h.stress=clamp(h.stress+1,0,100)}}}
+ if(G.day%3===0&&schoolRatio>0){let p=pick(G.people.filter(p=>!p.deceased&&p.movedAway!==true));if(p){p.skill=clamp(p.skill+.018*localCivicCoverage('school',p.hh),0,1.3)}}
+ if(G.day%6===0){let p=pick(G.people.filter(p=>!p.deceased&&p.movedAway!==true));if(p){p.health=clamp(p.health+(-.3+1.6*localCivicCoverage('health',p.hh))+rn(-.5,.5),10,100);if(p.health<25){const h=G.households[p.hh];if(h)h.stress=clamp(h.stress+1,0,100)}}}
  if(G.day%8===0&&parks>0){let h=pick(G.households);if(h)h.stress=clamp(h.stress-1.5,0,100)}
  const warmth=G.weather==='storm'?-.4:0;
  G.stats.wellbeing=Math.round(clamp(82-G.households.reduce((s,h)=>s+h.stress,0)/Math.max(1,G.households.length)*.46+parks*.5+G.health*.08+warmth,0,100));
@@ -150,8 +154,8 @@ function extendedCivicDay(){
  G.stats.propertyCosts=(2.15+P.zoningRestriction*.035);
  G.stats.realWages=Math.round(G.households.reduce((s,h)=>s+h.income-h.tax-h.rent-h.food,0)/Math.max(1,G.stats.population)*10)/10;
  G.stats.prosperity=Math.round(clamp(G.stats.employment*.5+G.stats.marketConfidence*.3+G.stats.wellbeing*.2,0,100));
- G.stats.roadService=Math.round(clamp((G.stats.roadCondition??75)*.65+roadRatio*23+transitRatio*12,0,100));
- G.stats.militia=Math.round(clamp(25+militiaRatio*40+(G.policy.militiaBudget||0)/30+watch*12,0,100));
+ G.stats.roadService=Math.round(clamp((G.stats.roadCondition??75)*.65+clamp((P.roadBudget||0)*roadRatio/Math.max(1,(graph().neighbors.size-(G.privateRoads||[]).length)*.045/.23),0,1)*23+clamp((P.transitBudget||0)*transitRatio/280,0,1)*12,0,100));
+ G.stats.militia=Math.round(clamp(25+militiaRatio*(P.militiaBudget||0)/30+watch*12,0,100));
 }
 function updateCouncilAndMissions(){
  const C=G.council,P=G.policy,s=G.stats;
@@ -181,6 +185,7 @@ function monthlyReview(){
  else if(G.stats.unemployment>30){story('Joblessness is above 30%; families are requesting employment assistance.','bad');}
  else if(G.stats.hardship<6&&G.stats.employment>75){story('The borough records a month of relatively steady work and low hardship.','good');}
  if(G.month===12)story('Year-end statements have been filed at the town hall.','neutral');
+ offerHousingRetentionDilemma();
 }
 function electionReview(){
  G.council.elections++;let approved=G.council.approval>=50;const stamp='Year '+G.year+' election: '+(approved?'Council retains public confidence':'Council loses majority support')+' ('+Math.round(G.council.approval)+'% approval).';story(stamp,approved?'good':'bad');G.journal.push({day:G.day,name:'Municipal election',message:stamp,baseline:{...G.stats,treasury:G.treasury}});
@@ -199,39 +204,92 @@ function offerCouncilEvent(interrupt=false){
  G.councilInbox=G.councilInbox.slice(0,7);
  story('A council petition is waiting: '+event.title+'. Review it in the Agenda when convenient.','neutral');
 }
+const HOUSING_RETENTION_PREFIX='A household may leave: ';
+function isHousingRetentionTitle(title){return typeof title==='string'&&title.startsWith(HOUSING_RETENTION_PREFIX);}
+function pendingRetentionBridge(household){return (G.councilArchive||[]).some(e=>e.retentionBridge===true&&e.retentionRecoveryPending===true&&e.retentionHousehold===household);}
+function housingRetentionAssessment(household){
+ const h=G.households[household];if(!h||!h.people.length||pendingRetentionBridge(household)||typeof migrationEmigrationAssessment!=='function')return null;
+ const a=migrationEmigrationAssessment(h);if(!a.eligible)return null;
+ const amount=Math.ceil(Math.min(3000,Math.max(1,-a.localSurplus*14)));
+ return {household:h.id,name:h.name,assessment:a,amount};
+}
+function housingRetentionEvent(entry){
+ const target=housingRetentionAssessment(entry?.retentionHousehold);if(!target)return null;
+ const {assessment:a,amount}=target,days=Math.max(0,Math.floor(a.spendable.spendable/Math.max(1,a.essentials)));
+ const currentSkills=G.civicProjects?.active?.skills;
+ const hasTrainingAdult=G.households[target.household].people.some(id=>{const p=G.people[id];return p&&!p.deceased&&!p.movedAway&&p.age>=16&&p.age<=70;});
+ const choices=[
+  {title:'Offer up to two weeks of household support',desc:'Transfer '+money(amount)+' from the municipal reserve to this family’s actual cash account. The quote is capped at $3,000, so severe gaps may receive less than two weeks. One bridge is available until this household’s underlying departure risk clears; it does not create a job or promise retention.',cost:amount,validate:()=>{const current=housingRetentionAssessment(target.household);return G.households[target.household]?.name===target.name&&current?.amount===amount;},apply:()=>{const h=G.households[target.household];if(h){h.cash+=amount;G.councilArchive=G.councilArchive||[];G.councilArchive.unshift({title:entry.title,day:G.day,retentionHousehold:h.id,retentionBridge:true,retentionBridgeAmount:amount,retentionRecoveryPending:true,response:'One-time household bridge paid'});trimCouncilArchive();story('Council transferred '+money(amount)+' to '+h.name+' as a one-time household bridge. No second bridge is available unless the underlying departure risk clears first. Their employment and moving choice remain their own.','neutral',-1,h.id);}}},
+ ];
+ if(hasTrainingAdult&&(!currentSkills||currentSkills.status==='complete'))choices.push({title:'Invest in lasting local options',desc:'Adopt the existing “Learning within reach” project for '+target.name+'. This costs no capital today; real school access, recurring public funds and a completed adult term are still required.',validate:()=>{const current=housingRetentionAssessment(target.household),h=G.households[target.household],adult=h?.people.some(id=>{const p=G.people[id];return p&&!p.deceased&&!p.movedAway&&p.age>=16&&p.age<=70;});return h?.name===target.name&&adult&&current?.amount===amount&&(!G.civicProjects?.active?.skills||G.civicProjects.active.skills.status==='complete');},apply:()=>{if(civicProjectStart('skills','network',target.household)){openCivicProjects('skills');story('Council adopted a funded teaching and adult-training pathway for '+target.name+'. Its delivery depends on actual staff, public purchases and completed training.','neutral',-1,target.household);}}});
+ else choices.push({title:'Protect the reserve; keep the family’s choice open',desc:currentSkills&&currentSkills.status==='active'?'No transfer while another learning project draws on the same staffing and service budget. The household may still move.':'No transfer; this household has no working-age learner eligible for the adult-training route. The family may still move.',validate:()=>{const current=housingRetentionAssessment(target.household);return G.households[target.household]?.name===target.name&&current?.amount===amount;},apply:()=>story('Council retained its reserve without adopting an unavailable or competing learning route. '+target.name+' remains free to decide whether to stay.','neutral',-1,target.household)});
+ return {type:'HOUSING & LIVELIHOODS',title:entry.title,text:`${target.name} has a verified household cash shortfall: local prospects ${money(a.localSurplus)}/day against ${money(a.essentials)}/day of essential costs, with about ${days} days of spendable essentials. The outside comparison is ${money(a.outside.surplus)}/day after carried obligations. Their departure is still voluntary; a bridge cannot guarantee they will stay. Review the actual household and employment options if you defer.`,choices};
+}
+function offerHousingRetentionDilemma(){
+ if(!G||G.day<30||G.stats.population<2)return false;
+ const inbox=G.councilInbox=Array.isArray(G.councilInbox)?G.councilInbox:[];
+ if(inbox.some(e=>isHousingRetentionTitle(e?.title)))return false;
+ for(const receipt of G.councilArchive||[])if(receipt.retentionBridge===true&&receipt.retentionRecoveryPending===true){const h=G.households[receipt.retentionHousehold];if(!h||!h.people.length||!migrationEmigrationAssessment(h).eligible)receipt.retentionRecoveryPending=false;}
+ const candidates=G.households.filter(h=>h.people.length).slice().sort((a,b)=>a.cash-b.cash||a.id-b.id).slice(0,8);
+ for(const h of candidates){
+  if(pendingRetentionBridge(h.id))continue;
+  const assessment=housingRetentionAssessment(h.id);if(!assessment)continue;
+  const title=HOUSING_RETENTION_PREFIX+h.name+' · case '+h.id;
+  if((G.recentCouncilEvents||[]).includes(title))continue;
+  inbox.unshift({title,day:G.day,retentionHousehold:h.id});inbox.splice(7);
+  G.recentCouncilEvents=(G.recentCouncilEvents||[]).concat(title).slice(-6);
+  story('A verified household budget is under pressure. The council has a voluntary retention choice in its inbox.','neutral',-1,h.id);save();return true;
+ }
+ return false;
+}
 function reviewCouncilInbox(index){
  const inbox=G.councilInbox||[],entry=inbox[index];if(!entry)return;
+ if(isHousingRetentionTitle(entry.title)){
+  const event=housingRetentionEvent(entry);if(!event){inbox.splice(index,1);save();story('The household’s financial outlook changed; its council review is no longer current.','neutral');if(active==='agenda')renderPanel('agenda');return;}
+  showCustomEvent(event.type,event.title,event.text,event.choices);save();if(active==='agenda')renderPanel('agenda');return;
+ }
  const found=COUNCIL_EVENTS.find(e=>e.title===entry.title);
- inbox.splice(index,1);
+ if(!found)inbox.splice(index,1);
  if(found)showCustomEvent(found.type,found.title,found.text,found.choices);
  else story('An archived council petition is no longer actionable.','neutral');
  save();if(active==='agenda')renderPanel('agenda');
 }
 
-function showCustomEvent(type,title,text,choices){pendingEvent={type,title,text,choices};
+let councilOpener=null;
+function closeCouncilDialog(defer=false){
+ const event=pendingEvent;pendingEvent=null;$('eventDialog').style.display='none';
+ if(defer&&event&&event.type!=='TOWN ARCHIVE'&&(COUNCIL_EVENTS.some(e=>e.title===event.title)||isHousingRetentionTitle(event.title))){G.councilInbox=G.councilInbox||[];if(!G.councilInbox.some(e=>e.title===event.title))G.councilInbox.unshift({title:event.title,day:G.day});}
+ if(active==='agenda')renderPanel(active);save();
+ const target=councilOpener?.isConnected?councilOpener:$('tabs').querySelector('[data-panel="agenda"]');target?.focus();councilOpener=null;
+}
+function directTransactionDialog(type){return ['REGIONAL EXCHANGE','REGIONAL ROADS','DISTRICT PLANNING','FIRST DELIVERY','TOWN DIRECTION','OBSERVED OUTCOMES','LOGISTICS CHOICE','CARGO RECOVERY','CIVIC PROJECT'].includes(type)}
+function showCustomEvent(type,title,text,choices){councilOpener=document.activeElement;pendingEvent={type,title,text,choices};
  $('eventEyebrow').textContent=type;$('eventTitle').textContent=title;$('eventText').textContent=text;
- $('eventChoices').innerHTML=choices.map((c,i)=>`<button data-event-choice="${i}" ${c.cost&&G.treasury<c.cost?'disabled':''}><strong>${esc(c.title)}</strong><small>${esc(c.desc||'')}${c.cost?' · Cost: '+money(c.cost):''}</small></button>`).join('');
- $('eventDialog').style.display='flex';
+ $('eventChoices').innerHTML=choices.map((c,i)=>`<button data-event-choice="${i}" ${c.cost>0?'data-sound="coin"':''} ${c.cost&&G.treasury<c.cost?'disabled':''}><strong>${esc(c.title)}</strong><small>${esc(c.desc||'')}${c.cost?' · Cost: '+money(c.cost):''}</small></button>`).join('');
+ if(type!=='TOWN ARCHIVE'&&(COUNCIL_EVENTS.some(e=>e.title===title)||isHousingRetentionTitle(title))){G.councilInbox=G.councilInbox||[];if(!G.councilInbox.some(e=>e.title===title))G.councilInbox.unshift({title,day:G.day});save();}
+ $('eventDialog').style.display='flex';$('eventDefer').textContent=(type==='TOWN ARCHIVE'||type==='LAND PURCHASE'||directTransactionDialog(type))?'CANCEL':'DECIDE LATER';$('eventChoices').querySelector('button:not([disabled])')?.focus();
 }
 $('eventChoices').addEventListener('click',e=>{
  const b=e.target.closest('button[data-event-choice]');if(!b||!pendingEvent)return;
  const evt=pendingEvent,c=evt.choices[+b.dataset.eventChoice];if(!c)return;
- if(evt.type==='TOWN ARCHIVE'){pendingEvent=null;$('eventDialog').style.display='none';c.apply();return;}
+ if(c.validate&&!c.validate()){toast('The household outlook or price changed. Review the current case again.');closeCouncilDialog(true);return;}
+ if(evt.type==='TOWN ARCHIVE'||evt.type==='LAND PURCHASE'){if(c.cost&&G.treasury<c.cost)return;closeCouncilDialog();c.apply();return;}
+ if(directTransactionDialog(evt.type)){closeCouncilDialog();c.apply();recompute();updateHeader();save();dirty=true;return;}
  const goodsBefore=stockTotals();const fundsBefore=totalMoney();if(c.cost){if(G.treasury<c.cost)return;G.treasury-=c.cost;G.region+=c.cost;G.cumulative.spending+=c.cost;}
  try{c.apply()}catch(ex){console.error('Council decision',ex)}
  const goodsAfter=stockTotals();for(const k of Object.keys(goods)){const delta=goodsAfter[k]-goodsBefore[k];goodsEntry(k,delta>=0?'imports':'consumed',Math.abs(delta));}
  const regionalFunding=totalMoney()-fundsBefore;G.region-=regionalFunding;if(Math.abs(regionalFunding)>.001)book(regionalFunding>0?'Regional capital':'Council settlement',regionalFunding>0?'Council decision beneficiaries':'Regional capital',Math.abs(regionalFunding),'Explicit council programme settlement');
  G.journal.push({day:G.day,name:evt.title,message:c.title+'. '+(c.desc||''),baseline:{...G.stats,treasury:G.treasury}});
- story('COUNCIL DECISION: '+c.title+' — '+evt.title,'neutral');pendingEvent=null;$('eventDialog').style.display='none';recompute();updateHeader();if(active)renderPanel(active);save();dirty=true;
+ story('COUNCIL DECISION: '+c.title+' — '+evt.title,'neutral');G.councilInbox=(G.councilInbox||[]).filter(e=>e.title!==evt.title);closeCouncilDialog();recompute();updateHeader();if(active)renderPanel(active);save();dirty=true;
 });
-function totalMoney(){return G.treasury+G.region+(G.investors||[]).reduce((n,a)=>n+a.cash,0)+(G.metro?.cash||0)+(G.banks||[]).reduce((n,b)=>n+b.cash,0)+G.households.reduce((n,h)=>n+h.cash,0)+G.firms.reduce((n,f)=>n+f.cash,0)}
-function investigateCases(){if(G.day%5!==0)return;const power=policePower();for(const item of G.cases.slice(0,30)){if(item.resolved||item.offender==null||item.loss<=0||G.day-item.day<3)continue;let age=G.day-item.day;if(age>50){item.resolved='cold';continue;}if(random()<(.025+power*.14)){let offender=G.households[item.offender];let victim=item.hid>=0?G.households[item.hid]:(G.firms[readBuild(item.bid)?.firm]);if(offender&&victim){let recovered=Math.min(offender.cash,item.loss*(.30+power*.45));if(recovered>0){offender.cash-=recovered;victim.cash+=recovered;}item.recovered=Math.round(recovered);item.resolved=true;story('Constabulary concluded an investigation; '+money(recovered)+' was recovered for the victim.','good',item.bid,item.hid);}}}}
+function totalMoney(){return (G.projects||[]).reduce((n,p)=>n+(p.serviceEscrow||0)+(p.urbanEscrow||0),0)+G.treasury+G.region+(G.investors||[]).reduce((n,a)=>n+a.cash,0)+(G.metro?.cash||0)+(G.banks||[]).reduce((n,b)=>n+b.cash,0)+G.households.reduce((n,h)=>n+h.cash,0)+G.firms.reduce((n,f)=>n+f.cash,0)}
+function investigateCases(){if(G.day%5!==0)return;const power=policePower();for(const item of G.cases.slice(0,30)){if(item.resolved||item.offender==null||item.loss<=0||G.day-item.day<3)continue;let age=G.day-item.day;if(age>50){item.resolved='cold';continue;}if(random()<(.025+power*.14)){let offender=G.households[item.offender];let victim=item.hid>=0?G.households[item.hid]:(G.firms[readBuild(item.bid)?.firm]);if(offender&&victim){let recovered=Math.min(offender.cash,item.loss*(.30+power*.45));if(recovered>0){offender.cash-=recovered;victim.cash+=recovered;if(item.hid<0){victim.revenue+=recovered;victim.nonSalesIncome=(victim.nonSalesIncome||0)+recovered;victim.recoveries=(victim.recoveries||0)+recovered;}else victim.recoveredLosses=(victim.recoveredLosses||0)+recovered;}item.recovered=Math.round(recovered);item.resolved=true;story('Constabulary concluded an investigation; '+money(recovered)+' was recovered for the victim.','good',item.bid,item.hid);}}}}
 function yearlyDemographics(){
  let deaths=0;
  for(const p of G.people){
   if(p.deceased||p.movedAway)continue;p.age++;if(p.age>70&&p.job>=0){const f=G.firms[p.job];if(f)f.workers=f.workers.filter(id=>id!==p.id);p.job=-1;p.retired=true;p.publicWork=false;}
   if(p.age>85&&(p.age>95||random()<.17)){
-   p.deceased=true;p.job=-1;
+   p.deceased=true;p.job=-1;migrationRecord('death',{household:p.hh,person:p.id,people:1});
    const h=G.households[p.hh];if(h)h.people=h.people.filter(id=>id!==p.id);
    for(const f of G.firms)f.workers=f.workers.filter(id=>id!==p.id);
    deaths++;
@@ -241,9 +299,9 @@ function yearlyDemographics(){
  // Vacant homes can receive a new household from outside town. Do not clone
  // an existing resident into two household rosters, and keep external cash balanced.
  for(const h of G.households){
-  if(h.people.length||!readBuild(h.home)||G.stats.population>=2000||G.region<1000||cityDemand().housingPressure<48)continue;
+  if(h.people.length||!readBuild(h.home)||G.stats.population>=2000||G.region<1000)continue;
   const building=readBuild(h.home),newHousehold=addHouseholdAt(building,900);
-  if(newHousehold){if(building.hh===h.id)building.hh=newHousehold.id;if(Array.isArray(building.units))building.units=building.units.map(id=>id===h.id?newHousehold.id:id);h.home=-1;story('A newcomer household rented an empty home; the former estate retains its balances and title.','neutral',building.id,newHousehold.id);}
+  if(newHousehold){migrationRegisterTenancy(newHousehold,building);migrationReleaseTenancy(h);story('A newcomer household rented an empty home; the former estate retains its balances and title.','neutral',building.id,newHousehold.id);}
 
  }
  assignJobs();
@@ -251,7 +309,14 @@ function yearlyDemographics(){
 
 function updateObjectiveMini(){if(!G)return;let m=AMBITIONS.find(m=>m.id===G.ambition)||AMBITIONS[0],days=G.ambitionDays[m.id]||0,p=m.progress(G);
  if(G.achievements.includes(m.id))p=1;else if(m.goal(G))p=Math.min(1,days/m.days);
- $('objectiveName').textContent=m.title;$('objectiveProgress').style.width=(100*clamp(p,0,1))+'%';
- const h=G.events[0];if(h){$('headline').textContent=h.text;}
- if(G.roadMetrics&&G.roadMetrics.connectedFirms<G.roadMetrics.totalFirms){$('headline').textContent='Road access warning: '+(G.roadMetrics.totalFirms-G.roadMetrics.connectedFirms)+' local businesses are cut off from town freight.';}
+ headerText('objectiveName',m.title);$('objectiveProgress').style.width=(100*clamp(p,0,1))+'%';
+ const h=G.events[0];if(h){headerText('headline',h.text);}
+ if(G.roadMetrics&&G.roadMetrics.connectedFirms<G.roadMetrics.totalFirms){headerText('headline','Road access warning: '+(G.roadMetrics.totalFirms-G.roadMetrics.connectedFirms)+' local businesses are cut off from town freight.');}
 }
+
+$('eventDefer').onclick=()=>closeCouncilDialog(true);
+$('eventDialog').addEventListener('keydown',e=>{
+ if(e.key!=='Tab'||!pendingEvent||$('helpDialog').style.display!=='none')return;
+ const controls=[...$('eventDialog').querySelectorAll('button:not([disabled]),select:not([disabled]),input:not([disabled]),textarea:not([disabled]),summary,[href],[tabindex]:not([tabindex="-1"])')].filter(el=>el.offsetParent!==null),first=controls[0],last=fromEnd(controls);
+ if(!first)return;if(e.shiftKey&&document.activeElement===first){last.focus();e.preventDefault();}else if(!e.shiftKey&&document.activeElement===last){first.focus();e.preventDefault();}
+});

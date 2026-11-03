@@ -1,0 +1,20 @@
+{
+  "graphicsHead": "3ba6c708e9c6bd3453e3125d3885e05ac8c66b2c",
+  "base": "01eeda3d2ff09822b9422721f75e97fabbc9958a",
+  "graphicsBundleSHA256": "9a0f9837671de4f2b4e0177a43a60c852bb5baa2cd09643d360cfc3f2d123c58",
+  "allOwnerManifestHashesMatch": true,
+  "changedExistingSourceOrNativeFiles": [
+    "src/93-preferences.js",
+    "src/98-waterfront-art.js",
+    "src/98zzzzz-transit-diorama.js",
+    "src/98zzzzzzzz-port-cargo-art.js",
+    "src/98zzzzzzzzz-region-locator.js"
+  ],
+  "nativeUnchanged": true,
+  "composedFreshnessCommit": "239bbbd3247fa6418a0b417211cad5fbe3da5c80",
+  "composedBundleSHA256": "037c92b56d4b736f2c9c2bb96a950ae194bc815d1a393d36b3634f4272521d94",
+  "noRefsUpdated": true,
+  "missingHistoricalNegativeOracle": "29dd12a required by tests/test_webgl_actor_options.mjs",
+  "actualPausedActorBrowserTestPassed": true,
+  "firstSettingsCaptureChangesOnlyExistingMayorJourneyVisit": true
+}

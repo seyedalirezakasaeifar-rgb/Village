@@ -1,0 +1,96 @@
+{
+  "source_sha256": "78f4c3b5dc1a34313ff8752b6a6a5e85410a832b597b04fba4a0f1005ec62174",
+  "base": "13633d49fa5815ce56ee9f7bbdf2af0c92ace4fe",
+  "gates": [
+    {
+      "test": "test_agent_viewport_edges",
+      "exit_code": 0,
+      "seconds": 4.93,
+      "log_sha256": "3912152156e3d5c99a49ef0740391de4a89c07b6826cb1f250f38a01c1b95362"
+    },
+    {
+      "test": "test_repeated_expansion_controls",
+      "exit_code": 0,
+      "seconds": 15.5,
+      "log_sha256": "7545375e65da2972f90c7881895f9ef80fc3b2664a4789b786a9bd2721463b7f"
+    },
+    {
+      "test": "test_modal_readability",
+      "exit_code": 0,
+      "seconds": 5.39,
+      "log_sha256": "a95433dfb7bdc16c2b2d443a668ba3e0b1cf9a56c7e073e5da06432225dc93e2"
+    },
+    {
+      "test": "test_overlay_legibility",
+      "exit_code": 0,
+      "seconds": 4.44,
+      "log_sha256": "ef0605ad76608debc68526a3ac8a41b85c0917121e1153d65afeb3c3fa7debd0"
+    },
+    {
+      "test": "test_annexation",
+      "exit_code": 0,
+      "seconds": 5.7,
+      "log_sha256": "9cf45f70dadb7f5b629e1f5c50c98ce86a808d922abecaf9fb2672ae96bc5f1d"
+    },
+    {
+      "test": "test_annexation_networks",
+      "exit_code": 0,
+      "seconds": 2.91,
+      "log_sha256": "4827aa250b5585020277143d61aac246a31886889442fda253fecd94d6f88fe6"
+    },
+    {
+      "test": "test_expanded_parcel_employment",
+      "exit_code": 0,
+      "seconds": 4.62,
+      "log_sha256": "1aed9f89ab8f4e04943569c9114dd07aec36f8fad65c6d88bef239bbff4140d1"
+    },
+    {
+      "test": "test_bridge_camera_edges",
+      "exit_code": 0,
+      "seconds": 3.89,
+      "log_sha256": "69dce63fdadaaef8f9faf6f0388f9f4da17a99d145c5f172eaf53e10ef62cace"
+    },
+    {
+      "test": "test_compositor_camera",
+      "exit_code": 0,
+      "seconds": 3.75,
+      "log_sha256": "19b293146e1f217176bd38406fc2bb36189f18b85f1ad29a909eadd672b7f7c3"
+    },
+    {
+      "test": "test_dynamic_camera_matrix",
+      "exit_code": 0,
+      "seconds": 36.98,
+      "log_sha256": "53e79bd3d6e5c26ab389b86c180ccbef971ae13bb99a9db909eeecd5f0e2977f"
+    },
+    {
+      "test": "test_bridge_cold_continue",
+      "exit_code": 0,
+      "seconds": 6.86,
+      "log_sha256": "a2b2bc58eab47daea20d36de3d623f3b3151d257979c3c8597cd96d71d32a049"
+    },
+    {
+      "test": "test_waterfront_player_journey",
+      "exit_code": 0,
+      "seconds": 14.31,
+      "log_sha256": "e81a139fc6fd56d1b0b01de3c2123c7382d6fb7868daf305726ba09eb8265636"
+    },
+    {
+      "test": "test_committed_day_save",
+      "exit_code": 0,
+      "seconds": 7.6,
+      "log_sha256": "0bdb1b943f362163e2c640680bcab9042abf7d0e62d60026131a8605eeacfcd6"
+    },
+    {
+      "test": "test_controls",
+      "exit_code": 0,
+      "seconds": 7.17,
+      "log_sha256": "d58dc54e98f391d72db1585e872f0f6130de2ed4340fbf4ac3cf4ee577fab49c"
+    },
+    {
+      "test": "test_native_import_busy_bridge",
+      "exit_code": 0,
+      "seconds": 1.69,
+      "log_sha256": "596984d36b677db4d4b7fc9da915d68435d7e6fc60c3a5a24b0b739ce372b2ed"
+    }
+  ]
+}

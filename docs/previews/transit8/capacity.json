@@ -1,0 +1,62 @@
+{
+  "source_sha256": "cb9965525c56ab4df79584d4edf1afef7494162bfeba27dc274b385928e8fd72",
+  "result": {
+    "funded": {
+      "stats": {
+        "operating": true,
+        "capacity": 199,
+        "reserved": 199,
+        "boardings": 199,
+        "demand": 300,
+        "denied": 101,
+        "staff": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "required": 4,
+        "status": "Operating",
+        "headway": 66.16,
+        "reliability": 1,
+        "expenses": 157,
+        "lastDemand": 0,
+        "lastDenied": 0
+      },
+      "assigned": 199,
+      "attending": 199,
+      "denied": 101,
+      "fares": 248.75,
+      "after": 1393421,
+      "before": 1393421,
+      "noTransit": 0
+    },
+    "repeated": true,
+    "disrupted": {
+      "capacity": 0,
+      "status": "Street, station or depot disconnected",
+      "poses": 0
+    },
+    "unfunded": {
+      "capacity": 0,
+      "assigned": 0,
+      "attending": 0
+    },
+    "parallel": {
+      "assigned": 300,
+      "denied": 0,
+      "second": 101
+    },
+    "transfers": {
+      "assigned": 300,
+      "twoLeg": 300,
+      "fares": 375,
+      "rides": 300,
+      "boardings": [
+        300,
+        300
+      ]
+    }
+  },
+  "passed": true
+}

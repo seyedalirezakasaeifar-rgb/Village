@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/workspace/core-recovery/tests/test_neighborhood_history_independent.py", line 27, in <module>
+    assert reference['expected']==current['expected']and current['archive']==expected,(scenario,elapsed)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ('settlement', 180)

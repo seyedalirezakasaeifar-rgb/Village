@@ -1,0 +1,24 @@
+{
+  "apk": "TownLedger-A-Trading-Town-8.0.0.apk",
+  "sha256": "1ecb9c23ea7b1ad533ff8937acd03615a2ba7999e03481326ce5fcf9f4a4d071",
+  "bytes": 5474087,
+  "package": "org.townledger.vale",
+  "version": "8.0.0",
+  "code": 22,
+  "pipeline": "javac + dx/d8 + aapt + zipalign + apksigner",
+  "signature": "development; not a store release key",
+  "physical_device_tested": false,
+  "source_commit": "525e47dd3967741fb59d2fd06921c1647a29a24a",
+  "source_sha256": "293fe306631099dfaacdd37e724d4c6e3b89991f56a1e15c50f872606f662c90",
+  "certificate_sha256": "52ae61b76c6cebd430dbdd0db54f8347e5dcd223e4146b4af92dfbdb0190650e",
+  "same_signer_as_711": true,
+  "packaged_assets_verified": true,
+  "current_audio_expansion_included": false,
+  "device_or_emulator_launched": false,
+  "host_checks": [
+    "ArchiveIO JVM",
+    "Back coordinator JVM and generated JS",
+    "browser host suspend/resume"
+  ],
+  "artifact": "artifacts/development/8.0.0-integration-525e47d/TownLedger-8.0.0-integration-525e47d.apk"
+}

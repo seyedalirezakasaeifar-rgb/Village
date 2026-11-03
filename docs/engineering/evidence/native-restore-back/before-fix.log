@@ -1,0 +1,10 @@
+Exception in thread "main" java.lang.AssertionError: unexpected async cancellation dispatch 1 expected 0
+	at org.townledger.vale.NativeRestoreBackDispatchTest.check(NativeRestoreBackDispatchTest.java:7)
+	at org.townledger.vale.NativeRestoreBackDispatchTest.main(NativeRestoreBackDispatchTest.java:9)
+Traceback (most recent call last):
+  File "/workspace/core-recovery/tests/test_native_restore_back_dispatch.py", line 27, in <module>
+    p=Path(tmp)/'NativeRestoreBackDispatchTest.java';p.write_text(harness);subprocess.run(['java','com.sun.tools.javac.Main','-d',tmp,str(ROOT/'android/app/src/main/java/org/townledger/vale/WorkerArchiveRequests.java'),str(p)],check=True);subprocess.run(['java','-cp',tmp,'org.townledger.vale.NativeRestoreBackDispatchTest'],check=True)
+                                                                                                                                                                                                                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['java', '-cp', '/tmp/tmpfajdmfcj', 'org.townledger.vale.NativeRestoreBackDispatchTest']' returned non-zero exit status 1.

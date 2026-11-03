@@ -1,0 +1,150 @@
+{
+  "base_commit": "09e1c3b2142dd96e722003eb55a76a70279ae043",
+  "source_sha256": "7346c074abb8f107a59afc410c0563ab03b2f675c6baa908e04b1ce35e9b35b4",
+  "tenancyPolicy": {
+    "version": 1,
+    "legacyField": "legacySharedTenants",
+    "fixedRosterOnly": true,
+    "archiveValidatorChanged": false,
+    "residentHouseholdsAtReturns": "household objects",
+    "helpers": "src/44-migration.js"
+  },
+  "regressionRows": 32,
+  "finalNaturalYears": 36,
+  "natural": [
+    {
+      "seed": 42,
+      "years": 30,
+      "openingPopulation": 175,
+      "closingPopulation": 472,
+      "employment": 100,
+      "hardship": 2,
+      "counts": {
+        "births": 239,
+        "immigration": 96,
+        "deaths": 20,
+        "emigration": 18,
+        "invalidHomeDays": 0,
+        "unregisteredHouseholdDays": 0,
+        "overCapacityBuildingDays": 0
+      },
+      "treasury": 3194127.4696480525,
+      "publicReserve": 3970387.8977239486
+    },
+    {
+      "seed": 101,
+      "years": 3,
+      "openingPopulation": 179,
+      "closingPopulation": 243,
+      "employment": 100,
+      "hardship": 0,
+      "counts": {
+        "births": 25,
+        "immigration": 39,
+        "deaths": 0,
+        "emigration": 0,
+        "invalidHomeDays": 0,
+        "unregisteredHouseholdDays": 0,
+        "overCapacityBuildingDays": 0
+      },
+      "treasury": 349132.782306923,
+      "publicReserve": 0
+    },
+    {
+      "seed": 909,
+      "years": 3,
+      "openingPopulation": 182,
+      "closingPopulation": 262,
+      "employment": 97,
+      "hardship": 0,
+      "counts": {
+        "births": 34,
+        "immigration": 46,
+        "deaths": 0,
+        "emigration": 0,
+        "invalidHomeDays": 0,
+        "unregisteredHouseholdDays": 0,
+        "overCapacityBuildingDays": 0
+      },
+      "treasury": 535685.4718076205,
+      "publicReserve": 0
+    }
+  ],
+  "maximumCashDrift": 0.00013613514602184296,
+  "maximumGoodsError": 2.803062670864165e-09,
+  "hostLive": {
+    "population": 2000,
+    "days": 311,
+    "seconds": 8.043618084999252,
+    "drawP95Ms": 19.09999999962747,
+    "tickP95Ms": 25.09999999962747,
+    "rafP99Ms": 183.29999999999927,
+    "maximumTestedUiNextFrameMs": 131.3999999994412,
+    "passedExistingGates": true,
+    "physicalAndroidCertified": false
+  },
+  "passed": [
+    "migration causal/estate/legacy regressions",
+    "exact warm/cold migration forecast",
+    "source population identity and no new tenancy violations",
+    "core deterministic/render-independent replay and 120-day continuation",
+    "malformed-save atomicity and supported archive migration",
+    "cargo/cash/goods accounting",
+    "upstream urban-cache exact-continuation regression",
+    "paid private-provider flows",
+    "seven responsive layouts",
+    "older-WebView API check",
+    "isolated 2000-resident live gates"
+  ],
+  "earlierEvidence": "Earlier phase results retain their own source hashes. Phase2 is not accepted: its immutable-source guard rejected a filesystem source update. It is retained as negative workflow evidence.",
+  "inputs": [
+    {
+      "path": "reports/migration-causality/regressions.json",
+      "sha256": "a1bc2cda81a77c273c303040256fb1f94279f42acbc52acfd88bd70c12453ce9"
+    },
+    {
+      "path": "reports/migration-causality-acceptance-soak/flows.json",
+      "sha256": "ca759ccc33610abb6d56240b50a010704fae07becbfcd9727e693e365c1519d3"
+    },
+    {
+      "path": "reports/release-tests.json",
+      "sha256": "5f2c29bd89a707fa36a0c9248fd0d9e9525f8f80a91b89c9045ca6b454209243"
+    },
+    {
+      "path": "reports/save-cache/after.json",
+      "sha256": "6a1f9e562f3ee24e65cca6bc0487ea95aaacbf3bff80ed932bd46687a32451f4"
+    },
+    {
+      "path": "reports/8.0.0/mobile-rendering.json",
+      "sha256": "942cc507f6bfbebde134b2697c2ba73fed19535c062e15cd71467499806bcd04"
+    },
+    {
+      "path": "reports/development-8.0/private-services.json",
+      "sha256": "83eb80372337d8ae612fede1568670cae03cd9c1b17db22a18143c30ca36155c"
+    },
+    {
+      "path": "reports/v7.0/live-large-town.json",
+      "sha256": "ed4cda270a34ad95c74e09b8ef6e7155e432b9aa2098b9bd7f1375a3df589347"
+    },
+    {
+      "path": "reports/migration-causality/quote-replay-before.json",
+      "sha256": "e88a44f1be17677c826e77e793557fcd2830df19eb18dfc976504969a7116f0b"
+    },
+    {
+      "path": "reports/migration-causality/phase1/natural-flows.json",
+      "sha256": "d91cb3dcbde03e19830e8c415e4a46223c4e09281b26383c2c591adb26ac87bb"
+    },
+    {
+      "path": "reports/migration-causality/phase1/regressions.json",
+      "sha256": "f84ee053a7b261dd952e3ce44562bf617d2aa81c2c603fcb0fc3b186224e2a54"
+    },
+    {
+      "path": "reports/migration-causality/phase2/intermediate-flows.json",
+      "sha256": "b73f5276c7c7f10b1dfdbe3032df80f227adecee7d54d963ce631b6bdfc44143"
+    },
+    {
+      "path": "reports/migration-causality/phase3/natural-flows.json",
+      "sha256": "20002d06de2b25b390df5b5540a46126a017ce3f93cdabec33b44386005b6012"
+    }
+  ]
+}

@@ -10,7 +10,7 @@ with sync_playwright() as pw:
  p.locator('[data-panel=banking]').click();p.locator('[data-open-monetary]').click();p.screenshot(path=str(O/'interest-policy-phone.png'));p.locator('#panelClose').click()
  p.set_viewport_size({'width':1280,'height':800});p.wait_for_timeout(400);p.evaluate("__townTest.reset('regional',42);__townTest.step(1800)");g=p.evaluate('JSON.parse(__townTest.save())');a=g.get('airport');print('Airport',a,flush=True)
  if a and a.get('firm') is not None:
-  terminal=next(bb for bb in g['buildings'] if bb['id']==a['building']);x=(terminal['x']-terminal['y'])*36+(56*72+140)/2;y=(terminal['x']+terminal['y'])*18+100
+  terminal=next(bb for bb in g['buildings'] if bb['id']==a['building']);x=(terminal['x']-terminal['y'])*36+(g['gridSize']*72+140)/2;y=(terminal['x']+terminal['y'])*18+100
   for phase,name in [(88,'parked'),(16,'takeoff'),(70,'landing')]:
    p.evaluate('(o)=>{const g=JSON.parse(__townTest.save());g.trafficState.clock=o.phase;__townTest.load(g);__townTest.capture({x:o.x,y:o.y,zoom:1.65});}',{'phase':phase,'x':x,'y':y});p.screenshot(path=str(O/f'airfield-{name}.png'))
  p.evaluate('__townTest.capture({zoom:.7})');p.screenshot(path=str(O/'regional-city.png'));assert not errors,errors;print('PASS captures, live panels and monetary navigation');b.close()

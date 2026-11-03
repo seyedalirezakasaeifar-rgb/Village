@@ -1,0 +1,291 @@
+{
+  "source_sha256": "e3ce8095e79bd66520f04afde8773d953c8593cb51939eec062c5aef79b1381f",
+  "gates": {
+    "reports/upgrade-matrix/matrix.json": {
+      "source_sha256": "e3ce8095e79bd66520f04afde8773d953c8593cb51939eec062c5aef79b1381f",
+      "rows": [
+        {
+          "case": "authentic-v60-distressed",
+          "archive_sha256": "f9b24c100c424a545003d893d1669abfd2d8db329ea96b9f5846da98bb1fc5f9",
+          "utf8Bytes": 1149025,
+          "schema": 4,
+          "release": "6.0.0",
+          "grid": 56.0,
+          "people": 1077,
+          "accepted": true,
+          "cashDrift": 0.0,
+          "identitiesAndPropertyPreserved": true,
+          "status": "pass"
+        },
+        {
+          "case": "authentic-corporate-liquidity",
+          "archive_sha256": "3626c9af016a9d004ab1284a3482106b40824b77ea81c568db733984112676fc",
+          "utf8Bytes": 942119,
+          "schema": 5,
+          "release": "7.0.0",
+          "grid": 56.0,
+          "people": 388,
+          "accepted": true,
+          "cashDrift": 0.0,
+          "identitiesAndPropertyPreserved": true,
+          "status": "pass"
+        },
+        {
+          "case": "current-fresh",
+          "archive_sha256": "a28e79151f15c5e9a490217216d8936bd35d5bbea7df01850453fdfdd3539fba",
+          "utf8Bytes": 135233,
+          "schema": 8,
+          "release": "8.0.0",
+          "grid": 128.0,
+          "people": 169,
+          "accepted": true,
+          "cashDrift": 0,
+          "identitiesAndPropertyPreserved": true,
+          "status": "pass"
+        },
+        {
+          "case": "current-8000-history",
+          "archive_sha256": "3e7975d2be1ddfce317d671002178726bd8f8bac94012b0d27652bbdf4689ae0",
+          "utf8Bytes": 1183756,
+          "schema": 8,
+          "release": "8.0.0",
+          "grid": 128.0,
+          "people": 8000,
+          "accepted": true,
+          "cashDrift": 0,
+          "identitiesAndPropertyPreserved": true,
+          "status": "pass"
+        },
+        {
+          "case": "supplied5.6",
+          "archive_sha256": "7dd92a0a5ed4c3bf92dbf0d36d4c223325975290c18050ac4ab57a05a1fb582a",
+          "utf8Bytes": 70051,
+          "schema": null,
+          "release": null,
+          "grid": 56.0,
+          "people": 169,
+          "accepted": true,
+          "cashDrift": 0,
+          "identitiesAndPropertyPreserved": true,
+          "status": "pass"
+        },
+        {
+          "case": "supplied6.0",
+          "archive_sha256": "5069f5552976f1f57c019cf0b5760101e5fa63ec051f5c92d30f53643db08763",
+          "utf8Bytes": 79059,
+          "schema": 4,
+          "release": "6.0.0",
+          "grid": 56.0,
+          "people": 169,
+          "accepted": true,
+          "cashDrift": 0,
+          "identitiesAndPropertyPreserved": true,
+          "status": "pass"
+        },
+        {
+          "case": "7.0.0",
+          "archive_sha256": "640ff21069fa4cb1eab598cd0f9c9c8e12c7ca16d4473f390758c8381cc7b6f3",
+          "utf8Bytes": 100109,
+          "schema": 5,
+          "release": "7.0.0",
+          "grid": 56.0,
+          "people": 169,
+          "accepted": true,
+          "cashDrift": 0,
+          "identitiesAndPropertyPreserved": true,
+          "status": "pass"
+        },
+        {
+          "case": "7.1.1",
+          "archive_sha256": "45fdbb22568aaa088a999b24cb73d8a915549fd5675800209d76a2f52aaa370b",
+          "utf8Bytes": 113677,
+          "schema": 6,
+          "release": "7.1.1",
+          "grid": 80.0,
+          "people": 169,
+          "accepted": true,
+          "cashDrift": 0,
+          "identitiesAndPropertyPreserved": true,
+          "status": "pass"
+        },
+        {
+          "case": "8-schema7",
+          "archive_sha256": "e1ede2c509450d6d56930dba14c2018846730a1255cb4909554be2be7b1ff352",
+          "utf8Bytes": 114548,
+          "schema": 7,
+          "release": "8.0.0",
+          "grid": 80.0,
+          "people": 169,
+          "accepted": true,
+          "cashDrift": 0,
+          "identitiesAndPropertyPreserved": true,
+          "status": "pass"
+        },
+        {
+          "case": "8-schema8",
+          "archive_sha256": "fee4555ff10162f8192aab86b9b92eeea2eec7f1da0934da8ddf34654e38b2b2",
+          "utf8Bytes": 134631,
+          "schema": 8,
+          "release": "8.0.0",
+          "grid": 128.0,
+          "people": 169,
+          "accepted": true,
+          "cashDrift": 0,
+          "identitiesAndPropertyPreserved": true,
+          "status": "pass"
+        },
+        {
+          "case": "g.schema=999",
+          "status": "pass",
+          "rejected": true,
+          "unchanged": true
+        },
+        {
+          "case": "g.schema=-1",
+          "status": "pass",
+          "rejected": true,
+          "unchanged": true
+        },
+        {
+          "case": "g.people[0].hh=999999",
+          "status": "pass",
+          "rejected": true,
+          "unchanged": true
+        },
+        {
+          "case": "interrupted adoption rollback",
+          "status": "pass",
+          "archiveAndRNGUnchanged": true
+        }
+      ],
+      "currentExportIdentity": {
+        "version": 3,
+        "schema": 8,
+        "release": "8.0.0",
+        "gridSize": 128
+      },
+      "payloadsRetained": false
+    },
+    "reports/release-tests.json": {
+      "source_sha256": "e3ce8095e79bd66520f04afde8773d953c8593cb51939eec062c5aef79b1381f",
+      "determinism_and_continuation": {
+        "sameSeed": true,
+        "renderIndependent": true,
+        "continuedDays": 120,
+        "valid": {
+          "ok": true,
+          "issues": [],
+          "total": 15489571.999994356,
+          "population": 172,
+          "day": 301
+        }
+      },
+      "malformed_save_atomicity": {
+        "investorRejected": true,
+        "cargoRejected": true,
+        "futureRejected": true,
+        "townPreserved": true
+      },
+      "replicated_zoning": [
+        {
+          "seed": 42,
+          "zone": 0,
+          "population": 192,
+          "homes": 17,
+          "firms": 3,
+          "privateSpend": 494901,
+          "moneyDelta": -1.2569129467010498e-05,
+          "ms": 3384.8999999910593
+        },
+        {
+          "seed": 42,
+          "zone": 100,
+          "population": 177,
+          "homes": 0,
+          "firms": 1,
+          "privateSpend": 0,
+          "moneyDelta": -1.7305836081504822e-05,
+          "ms": 2479.300000011921
+        },
+        {
+          "seed": 101,
+          "zone": 0,
+          "population": 221,
+          "homes": 21,
+          "firms": 8,
+          "privateSpend": 621891,
+          "moneyDelta": -1.55717134475708e-05,
+          "ms": 3260.7999999970198
+        },
+        {
+          "seed": 101,
+          "zone": 100,
+          "population": 183,
+          "homes": 0,
+          "firms": 2,
+          "privateSpend": 0,
+          "moneyDelta": -8.197501301765442e-06,
+          "ms": 2292.9000000059605
+        },
+        {
+          "seed": 909,
+          "zone": 0,
+          "population": 211,
+          "homes": 21,
+          "firms": 5,
+          "privateSpend": 525844,
+          "moneyDelta": -1.1583790183067322e-05,
+          "ms": 2879
+        },
+        {
+          "seed": 909,
+          "zone": 100,
+          "population": 176,
+          "homes": 0,
+          "firms": 1,
+          "privateSpend": 0,
+          "moneyDelta": -1.2626871466636658e-05,
+          "ms": 2168.300000011921
+        }
+      ],
+      "cargo_ownership": {
+        "consignments": 6,
+        "sampledUnits": 166.3792513597068,
+        "remaining": true,
+        "delayed": 1,
+        "cashConserved": true
+      },
+      "legacy_56_migration": {
+        "v": {
+          "ok": true,
+          "issues": [],
+          "total": 15432485,
+          "population": 169,
+          "day": 1
+        },
+        "after": {
+          "ok": true,
+          "issues": [],
+          "total": 15432484.999998957,
+          "population": 167,
+          "day": 31
+        },
+        "schema": 8
+      },
+      "true_pause": {
+        "identicalScreenshots": true,
+        "milliseconds": 500
+      },
+      "traffic_progress": {
+        "seconds": 1600,
+        "maximumWait": 0.9999999999999999,
+        "peak": 21,
+        "valid": true
+      },
+      "long_run_endurance": [],
+      "browser_errors": []
+    }
+  },
+  "optimizationReceipt": "reports/integration/urban-kernel-8/receipt.json",
+  "cooperativeEnabled": false
+}

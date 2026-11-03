@@ -1,1 +1,7 @@
-{"version": "7.0.0", "code": 14, "edition": "The Working City", "schema": 5, "package": "org.townledger.vale"}
+{
+  "version": "8.0.0",
+  "code": 22,
+  "edition": "A Trading Town",
+  "schema": 8,
+  "package": "org.townledger.vale"
+}

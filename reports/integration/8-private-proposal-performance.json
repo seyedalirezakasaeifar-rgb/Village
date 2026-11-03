@@ -1,0 +1,1738 @@
+{
+  "source_sha256": "f27ca5bdf091f392a91396d91ffba8c6461282c40ffd14f53807eff1fde844e7",
+  "base_commit": "03cb54675880a9b60c0c8d8de5dd0b671d0abff3",
+  "scope": "Per-review private-service projections and deterministic candidate geometry; every RNG draw/ranking retained",
+  "fixtures": {
+    "tests/fixtures/private-services-03cb546.js": "60a18c24ebeb86eeb6117263357039eaf71075fefa3fb4f063f05ad7f48cb6c7",
+    "tests/fixtures/development-03cb546.js": "5ff5aa98e7101f69b2eeb70f7d6dd201fb341589a4bda6325c7814eb17e55f0c"
+  },
+  "evidence": {
+    "oracle": {
+      "source_sha256": "f27ca5bdf091f392a91396d91ffba8c6461282c40ffd14f53807eff1fde844e7",
+      "reference_commit": "03cb546",
+      "histories": [
+        {
+          "scenario": "settlement",
+          "seed": 42,
+          "dense": false,
+          "exactCheckpoints": [
+            31,
+            61,
+            91,
+            121,
+            151,
+            181,
+            211,
+            241,
+            271,
+            301,
+            331,
+            361
+          ],
+          "directPairs": {
+            "pairs": 900,
+            "sites": 50,
+            "exclusions": 3,
+            "comparisonMs": 109.29999999701977
+          },
+          "reference": {
+            "times": [
+              0,
+              0,
+              0.10000000894069672,
+              0.10000000894069672,
+              0.10000000894069672
+            ],
+            "answers": [
+              "No proposal covers qualified payroll, operating costs and capital return from currently unserved, affordable customers. Existing providers, public coverage, family budgets, fees and actual vouchers affect viability.",
+              "No proposal covers qualified payroll, operating costs and capital return from currently unserved, affordable customers. Existing providers, public coverage, family budgets, fees and actual vouchers affect viability.",
+              "No proposal covers qualified payroll, operating costs and capital return from currently unserved, affordable customers. Existing providers, public coverage, family budgets, fees and actual vouchers affect viability.",
+              "No proposal covers qualified payroll, operating costs and capital return from currently unserved, affordable customers. Existing providers, public coverage, family budgets, fees and actual vouchers affect viability.",
+              "No proposal covers qualified payroll, operating costs and capital return from currently unserved, affordable customers. Existing providers, public coverage, family budgets, fees and actual vouchers affect viability."
+            ]
+          },
+          "optimized": {
+            "times": [
+              0.10000000894069672,
+              0.09999999403953552,
+              0.19999998807907104,
+              0,
+              0.10000000894069672
+            ],
+            "answers": [
+              "No proposal covers qualified payroll, operating costs and capital return from currently unserved, affordable customers. Existing providers, public coverage, family budgets, fees and actual vouchers affect viability.",
+              "No proposal covers qualified payroll, operating costs and capital return from currently unserved, affordable customers. Existing providers, public coverage, family budgets, fees and actual vouchers affect viability.",
+              "No proposal covers qualified payroll, operating costs and capital return from currently unserved, affordable customers. Existing providers, public coverage, family budgets, fees and actual vouchers affect viability.",
+              "No proposal covers qualified payroll, operating costs and capital return from currently unserved, affordable customers. Existing providers, public coverage, family budgets, fees and actual vouchers affect viability.",
+              "No proposal covers qualified payroll, operating costs and capital return from currently unserved, affordable customers. Existing providers, public coverage, family budgets, fees and actual vouchers affect viability."
+            ]
+          }
+        },
+        {
+          "scenario": "settlement",
+          "seed": 101,
+          "dense": false,
+          "exactCheckpoints": [
+            31,
+            61,
+            91,
+            121,
+            151,
+            181,
+            211,
+            241,
+            271,
+            301,
+            331,
+            361
+          ],
+          "directPairs": {
+            "pairs": 900,
+            "sites": 50,
+            "exclusions": 3,
+            "comparisonMs": 126.20000000298023
+          },
+          "reference": {
+            "times": [
+              54.900000005960464,
+              33.79999999701977,
+              23.5,
+              41.599999994039536,
+              29.799999997019768
+            ],
+            "answers": [
+              "No proposal covers qualified payroll, operating costs and capital return from currently unserved, affordable customers. Existing providers, public coverage, family budgets, fees and actual vouchers affect viability.",
+              "No proposal covers qualified payroll, operating costs and capital return from currently unserved, affordable customers. Existing providers, public coverage, family budgets, fees and actual vouchers affect viability.",
+              "No proposal covers qualified payroll, operating costs and capital return from currently unserved, affordable customers. Existing providers, public coverage, family budgets, fees and actual vouchers affect viability.",
+              "No proposal covers qualified payroll, operating costs and capital return from currently unserved, affordable customers. Existing providers, public coverage, family budgets, fees and actual vouchers affect viability.",
+              "No proposal covers qualified payroll, operating costs and capital return from currently unserved, affordable customers. Existing providers, public coverage, family budgets, fees and actual vouchers affect viability."
+            ]
+          },
+          "optimized": {
+            "times": [
+              38.29999999701977,
+              22.099999994039536,
+              20.900000005960464,
+              21.700000002980232,
+              25.799999997019768
+            ],
+            "answers": [
+              "No proposal covers qualified payroll, operating costs and capital return from currently unserved, affordable customers. Existing providers, public coverage, family budgets, fees and actual vouchers affect viability.",
+              "No proposal covers qualified payroll, operating costs and capital return from currently unserved, affordable customers. Existing providers, public coverage, family budgets, fees and actual vouchers affect viability.",
+              "No proposal covers qualified payroll, operating costs and capital return from currently unserved, affordable customers. Existing providers, public coverage, family budgets, fees and actual vouchers affect viability.",
+              "No proposal covers qualified payroll, operating costs and capital return from currently unserved, affordable customers. Existing providers, public coverage, family budgets, fees and actual vouchers affect viability.",
+              "No proposal covers qualified payroll, operating costs and capital return from currently unserved, affordable customers. Existing providers, public coverage, family budgets, fees and actual vouchers affect viability."
+            ]
+          }
+        },
+        {
+          "scenario": "hardtimes",
+          "seed": 909,
+          "dense": false,
+          "exactCheckpoints": [
+            31,
+            61,
+            91,
+            121,
+            151,
+            181,
+            211,
+            241,
+            271,
+            301,
+            331,
+            361
+          ],
+          "directPairs": {
+            "pairs": 900,
+            "sites": 50,
+            "exclusions": 3,
+            "comparisonMs": 187.1000000089407
+          },
+          "reference": {
+            "times": [
+              0.09999999403953552,
+              0,
+              0,
+              0,
+              0.09999999403953552
+            ],
+            "answers": [
+              "No proposal covers qualified payroll, operating costs and capital return from currently unserved, affordable customers. Existing providers, public coverage, family budgets, fees and actual vouchers affect viability.",
+              "No proposal covers qualified payroll, operating costs and capital return from currently unserved, affordable customers. Existing providers, public coverage, family budgets, fees and actual vouchers affect viability.",
+              "No proposal covers qualified payroll, operating costs and capital return from currently unserved, affordable customers. Existing providers, public coverage, family budgets, fees and actual vouchers affect viability.",
+              "No proposal covers qualified payroll, operating costs and capital return from currently unserved, affordable customers. Existing providers, public coverage, family budgets, fees and actual vouchers affect viability.",
+              "No proposal covers qualified payroll, operating costs and capital return from currently unserved, affordable customers. Existing providers, public coverage, family budgets, fees and actual vouchers affect viability."
+            ]
+          },
+          "optimized": {
+            "times": [
+              0.699999988079071,
+              0,
+              0.20000000298023224,
+              0,
+              0.10000000894069672
+            ],
+            "answers": [
+              "No proposal covers qualified payroll, operating costs and capital return from currently unserved, affordable customers. Existing providers, public coverage, family budgets, fees and actual vouchers affect viability.",
+              "No proposal covers qualified payroll, operating costs and capital return from currently unserved, affordable customers. Existing providers, public coverage, family budgets, fees and actual vouchers affect viability.",
+              "No proposal covers qualified payroll, operating costs and capital return from currently unserved, affordable customers. Existing providers, public coverage, family budgets, fees and actual vouchers affect viability.",
+              "No proposal covers qualified payroll, operating costs and capital return from currently unserved, affordable customers. Existing providers, public coverage, family budgets, fees and actual vouchers affect viability.",
+              "No proposal covers qualified payroll, operating costs and capital return from currently unserved, affordable customers. Existing providers, public coverage, family budgets, fees and actual vouchers affect viability."
+            ]
+          }
+        },
+        {
+          "scenario": "regional",
+          "seed": 42,
+          "dense": true,
+          "exactCheckpoints": [
+            31,
+            61,
+            91,
+            121,
+            151,
+            181,
+            211,
+            241,
+            271,
+            301,
+            331,
+            361
+          ],
+          "directPairs": {
+            "pairs": 1200,
+            "sites": 50,
+            "exclusions": 4,
+            "comparisonMs": 545.7000000029802
+          },
+          "reference": {
+            "times": [
+              0.09999999403953552,
+              0,
+              0,
+              0.10000000894069672,
+              0
+            ],
+            "answers": [
+              "A private service site is already under construction.",
+              "A private service site is already under construction.",
+              "A private service site is already under construction.",
+              "A private service site is already under construction.",
+              "A private service site is already under construction."
+            ]
+          },
+          "optimized": {
+            "times": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "answers": [
+              "A private service site is already under construction.",
+              "A private service site is already under construction.",
+              "A private service site is already under construction.",
+              "A private service site is already under construction.",
+              "A private service site is already under construction."
+            ]
+          }
+        }
+      ]
+    },
+    "direct": {
+      "source_sha256": "f27ca5bdf091f392a91396d91ffba8c6461282c40ffd14f53807eff1fde844e7",
+      "reference_commit": "03cb546",
+      "histories": [
+        {
+          "scenario": "settlement",
+          "seed": 42,
+          "dense": false,
+          "direct": [
+            {
+              "pairs": 900,
+              "rankings": [
+                483,
+                483,
+                483
+              ],
+              "sites": 50,
+              "exclusions": 3,
+              "comparisonMs": 115.40000000596046
+            },
+            {
+              "pairs": 900,
+              "rankings": [
+                483,
+                483,
+                483
+              ],
+              "sites": 50,
+              "exclusions": 3,
+              "comparisonMs": 158
+            },
+            {
+              "pairs": 900,
+              "rankings": [
+                483,
+                483,
+                483
+              ],
+              "sites": 50,
+              "exclusions": 3,
+              "comparisonMs": 120.8999999910593
+            },
+            {
+              "pairs": 900,
+              "rankings": [
+                483,
+                483,
+                483
+              ],
+              "sites": 50,
+              "exclusions": 3,
+              "comparisonMs": 111.19999998807907
+            }
+          ]
+        },
+        {
+          "scenario": "settlement",
+          "seed": 101,
+          "dense": false,
+          "direct": [
+            {
+              "pairs": 900,
+              "rankings": [
+                486,
+                486,
+                486
+              ],
+              "sites": 50,
+              "exclusions": 3,
+              "comparisonMs": 164.69999998807907
+            },
+            {
+              "pairs": 900,
+              "rankings": [
+                486,
+                486,
+                486
+              ],
+              "sites": 50,
+              "exclusions": 3,
+              "comparisonMs": 143.3999999910593
+            },
+            {
+              "pairs": 900,
+              "rankings": [
+                486,
+                486,
+                486
+              ],
+              "sites": 50,
+              "exclusions": 3,
+              "comparisonMs": 126
+            },
+            {
+              "pairs": 900,
+              "rankings": [
+                486,
+                486,
+                486
+              ],
+              "sites": 50,
+              "exclusions": 3,
+              "comparisonMs": 118.79999999701977
+            }
+          ]
+        },
+        {
+          "scenario": "hardtimes",
+          "seed": 909,
+          "dense": false,
+          "direct": [
+            {
+              "pairs": 900,
+              "rankings": [
+                487,
+                487,
+                487
+              ],
+              "sites": 50,
+              "exclusions": 3,
+              "comparisonMs": 119.79999999701977
+            },
+            {
+              "pairs": 900,
+              "rankings": [
+                487,
+                487,
+                487
+              ],
+              "sites": 50,
+              "exclusions": 3,
+              "comparisonMs": 166
+            },
+            {
+              "pairs": 900,
+              "rankings": [
+                487,
+                487,
+                487
+              ],
+              "sites": 50,
+              "exclusions": 3,
+              "comparisonMs": 95.40000000596046
+            },
+            {
+              "pairs": 900,
+              "rankings": [
+                487,
+                487,
+                487
+              ],
+              "sites": 50,
+              "exclusions": 3,
+              "comparisonMs": 76.3999999910593
+            }
+          ]
+        },
+        {
+          "scenario": "regional",
+          "seed": 42,
+          "dense": true,
+          "direct": [
+            {
+              "pairs": 900,
+              "rankings": [
+                322,
+                322,
+                322
+              ],
+              "sites": 50,
+              "exclusions": 3,
+              "comparisonMs": 253.20000000298023
+            },
+            {
+              "pairs": 900,
+              "rankings": [
+                322,
+                322,
+                322
+              ],
+              "sites": 50,
+              "exclusions": 3,
+              "comparisonMs": 320.20000000298023
+            },
+            {
+              "pairs": 900,
+              "rankings": [
+                322,
+                322,
+                322
+              ],
+              "sites": 50,
+              "exclusions": 3,
+              "comparisonMs": 239.20000000298023
+            },
+            {
+              "pairs": 900,
+              "rankings": [
+                322,
+                322,
+                322
+              ],
+              "sites": 50,
+              "exclusions": 3,
+              "comparisonMs": 144.6000000089407
+            }
+          ]
+        }
+      ]
+    },
+    "core": {
+      "source_sha256": "f27ca5bdf091f392a91396d91ffba8c6461282c40ffd14f53807eff1fde844e7",
+      "determinism_and_continuation": {
+        "sameSeed": true,
+        "renderIndependent": true,
+        "continuedDays": 120,
+        "valid": {
+          "ok": true,
+          "issues": [],
+          "total": 15489571.999995586,
+          "population": 188,
+          "day": 301
+        }
+      },
+      "malformed_save_atomicity": {
+        "investorRejected": true,
+        "cargoRejected": true,
+        "futureRejected": true,
+        "townPreserved": true
+      },
+      "replicated_zoning": [
+        {
+          "seed": 42,
+          "zone": 0,
+          "population": 210,
+          "homes": 16,
+          "firms": 7,
+          "privateSpend": 486062,
+          "moneyDelta": -1.6830861568450928e-05,
+          "ms": 3773.1000000089407
+        },
+        {
+          "seed": 42,
+          "zone": 100,
+          "population": 182,
+          "homes": 0,
+          "firms": 1,
+          "privateSpend": 0,
+          "moneyDelta": -1.1960044503211975e-05,
+          "ms": 2486.5999999940395
+        },
+        {
+          "seed": 101,
+          "zone": 0,
+          "population": 222,
+          "homes": 21,
+          "firms": 7,
+          "privateSpend": 560318,
+          "moneyDelta": -1.2546777725219727e-05,
+          "ms": 3362
+        },
+        {
+          "seed": 101,
+          "zone": 100,
+          "population": 186,
+          "homes": 0,
+          "firms": 1,
+          "privateSpend": 0,
+          "moneyDelta": -4.686415195465088e-06,
+          "ms": 2051.7999999970198
+        },
+        {
+          "seed": 909,
+          "zone": 0,
+          "population": 211,
+          "homes": 19,
+          "firms": 5,
+          "privateSpend": 507601,
+          "moneyDelta": -1.568533480167389e-05,
+          "ms": 3152.7999999970198
+        },
+        {
+          "seed": 909,
+          "zone": 100,
+          "population": 187,
+          "homes": 0,
+          "firms": 1,
+          "privateSpend": 0,
+          "moneyDelta": -1.2001022696495056e-05,
+          "ms": 2107.2000000029802
+        }
+      ],
+      "cargo_ownership": {
+        "consignments": 6,
+        "sampledUnits": 166.3792513597068,
+        "remaining": true,
+        "delayed": 1,
+        "cashConserved": true
+      },
+      "legacy_56_migration": {
+        "v": {
+          "ok": true,
+          "issues": [],
+          "total": 15470298,
+          "population": 169,
+          "day": 1
+        },
+        "after": {
+          "ok": true,
+          "issues": [],
+          "total": 15470297.999999395,
+          "population": 169,
+          "day": 31
+        },
+        "schema": 8
+      },
+      "true_pause": {
+        "identicalScreenshots": true,
+        "milliseconds": 500
+      },
+      "traffic_progress": {
+        "seconds": 1600,
+        "maximumWait": 0.9999999999999999,
+        "peak": 21,
+        "valid": true
+      },
+      "long_run_endurance": [],
+      "browser_errors": []
+    },
+    "school": {
+      "source_sha256": "f27ca5bdf091f392a91396d91ffba8c6461282c40ffd14f53807eff1fde844e7",
+      "result": {
+        "total": 15493516.999998055,
+        "pending": [],
+        "providers": [
+          {
+            "id": 26,
+            "kind": "school",
+            "clients": 32,
+            "staff": 2,
+            "cash": 6990.844800000258,
+            "closed": null,
+            "owner": -1,
+            "publicFacility": false
+          }
+        ],
+        "valid": {
+          "ok": true,
+          "issues": [],
+          "total": 15493516.999998055,
+          "population": 170,
+          "day": 112
+        }
+      },
+      "cashDrift": -1.9278377294540405e-06,
+      "errors": []
+    },
+    "fire": {
+      "source_sha256": "f27ca5bdf091f392a91396d91ffba8c6461282c40ffd14f53807eff1fde844e7",
+      "result": {
+        "total": 15493516.999998132,
+        "pending": [],
+        "providers": [
+          {
+            "id": 26,
+            "kind": "fire",
+            "clients": 166.7629310344827,
+            "staff": 2,
+            "cash": 7001.737182902634,
+            "closed": null,
+            "owner": -1,
+            "publicFacility": false
+          }
+        ],
+        "valid": {
+          "ok": true,
+          "issues": [],
+          "total": 15493516.999998132,
+          "population": 170,
+          "day": 112
+        }
+      },
+      "cashDrift": -1.8514692783355713e-06,
+      "errors": []
+    },
+    "viability": {
+      "source_sha256": "f27ca5bdf091f392a91396d91ffba8c6461282c40ffd14f53807eff1fde844e7",
+      "controlledCompetition": {
+        "served": 139,
+        "own": 32,
+        "competing": 0,
+        "released": 9,
+        "poor": {
+          "clients": 0,
+          "capacity": 16,
+          "fee": 3,
+          "staff": 1,
+          "wage": 36,
+          "revenue": 0,
+          "payroll": 36,
+          "overhead": 4.641666666666667,
+          "profit": -40.641666666666666,
+          "net": -40.641666666666666
+        },
+        "tiny": {
+          "clients": 0,
+          "capacity": 16,
+          "fee": 3,
+          "staff": 1,
+          "wage": 36,
+          "revenue": 0,
+          "payroll": 36,
+          "overhead": 4.641666666666667,
+          "profit": -40.641666666666666,
+          "net": -40.641666666666666
+        },
+        "zeroPayrollExit": true,
+        "cashDrift": 0
+      },
+      "naturalThreeYearSeeds": [
+        {
+          "seed": 42,
+          "day": 1081,
+          "closed": [],
+          "maxSameProviderClosures": 0,
+          "providers": [
+            {
+              "id": 26,
+              "closed": false,
+              "clients": 46,
+              "staff": 3,
+              "cash": 26584.887204396266
+            },
+            {
+              "id": 30,
+              "closed": false,
+              "clients": 0,
+              "staff": 0,
+              "cash": 0
+            },
+            {
+              "id": 34,
+              "closed": false,
+              "clients": 128.1367964368566,
+              "staff": 2,
+              "cash": 11677.063349894544
+            }
+          ],
+          "cashDrift": -3.3795833587646484e-05
+        },
+        {
+          "seed": 101,
+          "day": 1081,
+          "closed": [],
+          "maxSameProviderClosures": 0,
+          "providers": [
+            {
+              "id": 26,
+              "closed": false,
+              "clients": 48,
+              "staff": 3,
+              "cash": 26590.72932957112
+            },
+            {
+              "id": 28,
+              "closed": false,
+              "clients": 2,
+              "staff": 1,
+              "cash": 939.610464863309
+            },
+            {
+              "id": 32,
+              "closed": false,
+              "clients": 119.36654684021629,
+              "staff": 2,
+              "cash": 7631.11993198193
+            }
+          ],
+          "cashDrift": -2.662651240825653e-05
+        },
+        {
+          "seed": 909,
+          "day": 1081,
+          "closed": [
+            {
+              "id": 28,
+              "day": 1013
+            }
+          ],
+          "maxSameProviderClosures": 1,
+          "providers": [
+            {
+              "id": 26,
+              "closed": false,
+              "clients": 39,
+              "staff": 3,
+              "cash": 25423.99816099071
+            },
+            {
+              "id": 28,
+              "closed": true,
+              "clients": 0,
+              "staff": 0,
+              "cash": 0
+            }
+          ],
+          "cashDrift": -1.3364478945732117e-05
+        }
+      ],
+      "errors": []
+    },
+    "before": {
+      "source_sha256": "27ca5f1e1e5df352d38daf042d2de63b63024b8deed596c79e2f4679cc50947e",
+      "commit": "03cb54675880a9b60c0c8d8de5dd0b671d0abff3",
+      "physicalAndroid": false,
+      "hostChromium": true,
+      "input": "trusted emulated touch pointer events",
+      "fixture": "synthetic 2000 residents; actual paid 48 routes, 21 deeds, paid cargo and two licensed private firms; treasury funded from existing region",
+      "rows": [
+        {
+          "mode": "near",
+          "seconds": 6.023100000008941,
+          "days": 232,
+          "measuredSpeed": 63.5553120485185,
+          "raf": {
+            "count": 262,
+            "totalMs": 6016.4,
+            "medianMs": 16.699999999999818,
+            "p95Ms": 50,
+            "p99Ms": 116.69999999999982,
+            "maxMs": 233.29999999999927
+          },
+          "timerInput": {
+            "count": 66,
+            "totalMs": 1601.699999973178,
+            "medianMs": 17.80000001192093,
+            "p95Ms": 67.90000000596046,
+            "p99Ms": 107.29999999701977,
+            "maxMs": 107.29999999701977
+          },
+          "trustedInputHandler": {
+            "count": 3,
+            "totalMs": 139.2000000178814,
+            "medianMs": 48.900000005960464,
+            "p95Ms": 70.6000000089407,
+            "p99Ms": 70.6000000089407,
+            "maxMs": 70.6000000089407
+          },
+          "trustedInputNextFrame": {
+            "count": 3,
+            "totalMs": 194.60000002384186,
+            "medianMs": 51.400000005960464,
+            "p95Ms": 97.1000000089407,
+            "p99Ms": 97.1000000089407,
+            "maxMs": 97.1000000089407
+          },
+          "components": {
+            "refreshMusic": {
+              "count": 11,
+              "totalMs": 0.19999998807907104,
+              "medianMs": 0,
+              "p95Ms": 0.09999999403953552,
+              "p99Ms": 0.09999999403953552,
+              "maxMs": 0.09999999403953552
+            },
+            "recompute": {
+              "count": 522,
+              "totalMs": 198.3999999165535,
+              "medianMs": 0.29999999701976776,
+              "p95Ms": 0.9000000059604645,
+              "p99Ms": 1.9000000059604645,
+              "maxMs": 3.2999999970197678
+            },
+            "archivePayload": {
+              "count": 0,
+              "totalMs": 0,
+              "medianMs": 0,
+              "p95Ms": 0,
+              "p99Ms": 0,
+              "maxMs": 0
+            },
+            "persistSnapshot": {
+              "count": 0,
+              "totalMs": 0,
+              "medianMs": 0,
+              "p95Ms": 0,
+              "p99Ms": 0,
+              "maxMs": 0
+            },
+            "save": {
+              "count": 0,
+              "totalMs": 0,
+              "medianMs": 0,
+              "p95Ms": 0,
+              "p99Ms": 0,
+              "maxMs": 0
+            },
+            "updateHeader": {
+              "count": 25,
+              "totalMs": 42.79999993741512,
+              "medianMs": 1.5,
+              "p95Ms": 2.7999999970197678,
+              "p99Ms": 3.2999999970197678,
+              "maxMs": 3.2999999970197678
+            },
+            "renderPanel": {
+              "count": 0,
+              "totalMs": 0,
+              "medianMs": 0,
+              "p95Ms": 0,
+              "p99Ms": 0,
+              "maxMs": 0
+            },
+            "trafficUpdate": {
+              "count": 284,
+              "totalMs": 18.999999955296516,
+              "medianMs": 0,
+              "p95Ms": 0.20000000298023224,
+              "p99Ms": 0.5,
+              "maxMs": 0.7999999970197678
+            },
+            "draw": {
+              "count": 110,
+              "totalMs": 673.60000012815,
+              "medianMs": 2.199999988079071,
+              "p95Ms": 29.299999997019768,
+              "p99Ms": 37.5,
+              "maxMs": 41.400000005960464
+            },
+            "hydrateSave": {
+              "count": 0,
+              "totalMs": 0,
+              "medianMs": 0,
+              "p95Ms": 0,
+              "p99Ms": 0,
+              "maxMs": 0
+            },
+            "dailyEconomy": {
+              "count": 249,
+              "totalMs": 3262.800000116229,
+              "medianMs": 10.900000005960464,
+              "p95Ms": 25.900000005960464,
+              "p99Ms": 40.29999999701977,
+              "maxMs": 70.80000001192093
+            },
+            "privateServiceInvestmentDay": {
+              "count": 249,
+              "totalMs": 233.5,
+              "medianMs": 0,
+              "p95Ms": 0,
+              "p99Ms": 0.10000000894069672,
+              "maxMs": 124
+            },
+            "districtProgrammeDay": {
+              "count": 249,
+              "totalMs": 0.20000000298023224,
+              "medianMs": 0,
+              "p95Ms": 0,
+              "p99Ms": 0,
+              "maxMs": 0.10000000894069672
+            },
+            "urbanEvolutionDay": {
+              "count": 249,
+              "totalMs": 39.69999998807907,
+              "medianMs": 0,
+              "p95Ms": 0,
+              "p99Ms": 6.5,
+              "maxMs": 7.5
+            },
+            "tick": {
+              "count": 249,
+              "totalMs": 4549.300000071526,
+              "medianMs": 14,
+              "p95Ms": 35.3999999910593,
+              "p99Ms": 79.20000000298023,
+              "maxMs": 186.09999999403954
+            }
+          },
+          "heap": {
+            "usedSize": 64524044,
+            "totalSize": 152080384,
+            "embedderHeapUsedSize": 12312016,
+            "backingStorageSize": 16934180
+          },
+          "state": {
+            "day": 283,
+            "total": 15493517.000014462,
+            "valid": {
+              "ok": true,
+              "issues": [],
+              "total": 15493517.000014462,
+              "population": 1991,
+              "day": 283
+            },
+            "goodsError": 1.3496901374310255e-09,
+            "deeds": 21,
+            "routes": 48,
+            "operating": 48,
+            "drivers": 96,
+            "providers": 5,
+            "providerStaff": 9,
+            "privateClients": 292,
+            "cargo": 65,
+            "atlas": 95,
+            "atlasBytes": 7715840,
+            "serviceCaches": 2,
+            "traffic": 27,
+            "observations": 29,
+            "loans": 0,
+            "history": 240,
+            "events": 160,
+            "transactions": 282,
+            "musicDecks": 1,
+            "musicTrack": 8,
+            "musicError": "",
+            "suspended": false,
+            "paused": false,
+            "requestedSpeed": 64,
+            "backlog": 0.5604848484848786
+          },
+          "ui": [
+            {
+              "panel": "citizens",
+              "toNextFrameMs": 121.40000000596046,
+              "error": false
+            },
+            {
+              "panel": "construction",
+              "toNextFrameMs": 317.40000000596046,
+              "error": false
+            },
+            {
+              "panel": "settings",
+              "toNextFrameMs": 137.79999999701977,
+              "error": false
+            }
+          ]
+        },
+        {
+          "mode": "far",
+          "seconds": 6.03629999999702,
+          "days": 224,
+          "measuredSpeed": 61.229561155042404,
+          "raf": {
+            "count": 266,
+            "totalMs": 5999.799999999999,
+            "medianMs": 16.700000000000728,
+            "p95Ms": 50,
+            "p99Ms": 83.39999999999782,
+            "maxMs": 216.6999999999989
+          },
+          "timerInput": {
+            "count": 66,
+            "totalMs": 1877.3999999165535,
+            "medianMs": 17.5,
+            "p95Ms": 72.5,
+            "p99Ms": 138.59999999403954,
+            "maxMs": 138.59999999403954
+          },
+          "trustedInputHandler": {
+            "count": 3,
+            "totalMs": 79.50000001490116,
+            "medianMs": 27.900000005960464,
+            "p95Ms": 47.900000005960464,
+            "p99Ms": 47.900000005960464,
+            "maxMs": 47.900000005960464
+          },
+          "trustedInputNextFrame": {
+            "count": 3,
+            "totalMs": 149.70000000298023,
+            "medianMs": 44.5,
+            "p95Ms": 69,
+            "p99Ms": 69,
+            "maxMs": 69
+          },
+          "components": {
+            "refreshMusic": {
+              "count": 11,
+              "totalMs": 0.19999998807907104,
+              "medianMs": 0,
+              "p95Ms": 0.09999999403953552,
+              "p99Ms": 0.09999999403953552,
+              "maxMs": 0.09999999403953552
+            },
+            "recompute": {
+              "count": 469,
+              "totalMs": 185.799999833107,
+              "medianMs": 0.29999999701976776,
+              "p95Ms": 0.8999999910593033,
+              "p99Ms": 1.7999999970197678,
+              "maxMs": 3.800000011920929
+            },
+            "archivePayload": {
+              "count": 0,
+              "totalMs": 0,
+              "medianMs": 0,
+              "p95Ms": 0,
+              "p99Ms": 0,
+              "maxMs": 0
+            },
+            "persistSnapshot": {
+              "count": 0,
+              "totalMs": 0,
+              "medianMs": 0,
+              "p95Ms": 0,
+              "p99Ms": 0,
+              "maxMs": 0
+            },
+            "save": {
+              "count": 0,
+              "totalMs": 0,
+              "medianMs": 0,
+              "p95Ms": 0,
+              "p99Ms": 0,
+              "maxMs": 0
+            },
+            "updateHeader": {
+              "count": 22,
+              "totalMs": 39.599999994039536,
+              "medianMs": 1.7000000029802322,
+              "p95Ms": 2.800000011920929,
+              "p99Ms": 2.9000000059604645,
+              "maxMs": 2.9000000059604645
+            },
+            "renderPanel": {
+              "count": 0,
+              "totalMs": 0,
+              "medianMs": 0,
+              "p95Ms": 0,
+              "p99Ms": 0,
+              "maxMs": 0
+            },
+            "trafficUpdate": {
+              "count": 271,
+              "totalMs": 0.7000000029802322,
+              "medianMs": 0,
+              "p95Ms": 0,
+              "p99Ms": 0.10000000894069672,
+              "maxMs": 0.10000000894069672
+            },
+            "draw": {
+              "count": 105,
+              "totalMs": 462.0999999344349,
+              "medianMs": 1.0999999940395355,
+              "p95Ms": 22.5,
+              "p99Ms": 36.5,
+              "maxMs": 43.29999999701977
+            },
+            "hydrateSave": {
+              "count": 0,
+              "totalMs": 0,
+              "medianMs": 0,
+              "p95Ms": 0,
+              "p99Ms": 0,
+              "maxMs": 0
+            },
+            "dailyEconomy": {
+              "count": 228,
+              "totalMs": 3075.899999797344,
+              "medianMs": 11.099999994039536,
+              "p95Ms": 27.100000008940697,
+              "p99Ms": 35.79999999701977,
+              "maxMs": 43.79999999701977
+            },
+            "privateServiceInvestmentDay": {
+              "count": 228,
+              "totalMs": 281.90000000596046,
+              "medianMs": 0,
+              "p95Ms": 0,
+              "p99Ms": 0.10000000894069672,
+              "maxMs": 145
+            },
+            "districtProgrammeDay": {
+              "count": 228,
+              "totalMs": 0.5,
+              "medianMs": 0,
+              "p95Ms": 0,
+              "p99Ms": 0.09999999403953552,
+              "maxMs": 0.10000000894069672
+            },
+            "urbanEvolutionDay": {
+              "count": 228,
+              "totalMs": 52.80000001192093,
+              "medianMs": 0,
+              "p95Ms": 0,
+              "p99Ms": 7.800000011920929,
+              "maxMs": 13.399999991059303
+            },
+            "tick": {
+              "count": 228,
+              "totalMs": 4579.600000202656,
+              "medianMs": 15.400000005960464,
+              "p95Ms": 36.400000005960464,
+              "p99Ms": 50.70000000298023,
+              "maxMs": 223.09999999403954
+            }
+          },
+          "heap": {
+            "usedSize": 53380056,
+            "totalSize": 124764160,
+            "embedderHeapUsedSize": 4867952,
+            "backingStorageSize": 3714698
+          },
+          "state": {
+            "day": 602,
+            "total": 15493517.000022199,
+            "valid": {
+              "ok": true,
+              "issues": [],
+              "total": 15493517.000022199,
+              "population": 2000,
+              "day": 602
+            },
+            "goodsError": 4.711182555183768e-09,
+            "deeds": 21,
+            "routes": 48,
+            "operating": 48,
+            "drivers": 96,
+            "providers": 7,
+            "providerStaff": 13,
+            "privateClients": 356,
+            "cargo": 14,
+            "atlas": 134,
+            "atlasBytes": 12393728,
+            "serviceCaches": 2,
+            "traffic": 23,
+            "observations": 61,
+            "loans": 1,
+            "history": 240,
+            "events": 160,
+            "transactions": 616,
+            "musicDecks": 1,
+            "musicTrack": 8,
+            "musicError": "",
+            "suspended": false,
+            "paused": false,
+            "requestedSpeed": 64,
+            "backlog": 0.7120000000000314
+          },
+          "ui": [
+            {
+              "panel": "citizens",
+              "toNextFrameMs": 15.599999994039536,
+              "error": false
+            },
+            {
+              "panel": "construction",
+              "toNextFrameMs": 38.900000005960464,
+              "error": false
+            },
+            {
+              "panel": "settings",
+              "toNextFrameMs": 34.599999994039536,
+              "error": false
+            }
+          ]
+        }
+      ],
+      "fixtureState": {
+        "population": 2000,
+        "deeds": 21,
+        "grid": 128,
+        "routes": 48,
+        "providers": 2,
+        "cargo": 37,
+        "total": 15493517.000000132
+      },
+      "evolving": true,
+      "initialHeapAfterGC": {
+        "usedSize": 10602124,
+        "totalSize": 11722752,
+        "embedderHeapUsedSize": 2777120,
+        "backingStorageSize": 3451455
+      },
+      "soak": [],
+      "archiveRoundTripMs": 200.5536679935176,
+      "finalHeapAfterGC": {
+        "usedSize": 14787352,
+        "totalSize": 17022976,
+        "embedderHeapUsedSize": 3912032,
+        "backingStorageSize": 4238885
+      },
+      "errors": []
+    },
+    "after": {
+      "source_sha256": "f27ca5bdf091f392a91396d91ffba8c6461282c40ffd14f53807eff1fde844e7",
+      "commit": "03cb54675880a9b60c0c8d8de5dd0b671d0abff3",
+      "physicalAndroid": false,
+      "hostChromium": true,
+      "input": "trusted emulated touch pointer events",
+      "fixture": "synthetic 2000 residents; actual paid 48 routes, 21 deeds, paid cargo and two licensed private firms; treasury funded from existing region",
+      "rows": [
+        {
+          "mode": "near",
+          "seconds": 6.048899999991059,
+          "days": 219,
+          "measuredSpeed": 59.73813420630761,
+          "raf": {
+            "count": 232,
+            "totalMs": 6016.4,
+            "medianMs": 16.699999999999818,
+            "p95Ms": 66.69999999999891,
+            "p99Ms": 116.70000000000073,
+            "maxMs": 150
+          },
+          "timerInput": {
+            "count": 66,
+            "totalMs": 2288.900000050664,
+            "medianMs": 26.400000005960464,
+            "p95Ms": 97.40000000596046,
+            "p99Ms": 147.90000000596046,
+            "maxMs": 147.90000000596046
+          },
+          "trustedInputHandler": {
+            "count": 3,
+            "totalMs": 316.6000000089407,
+            "medianMs": 101.70000000298023,
+            "p95Ms": 115.79999999701977,
+            "p99Ms": 115.79999999701977,
+            "maxMs": 115.79999999701977
+          },
+          "trustedInputNextFrame": {
+            "count": 3,
+            "totalMs": 353.20000000298023,
+            "medianMs": 119.6000000089407,
+            "p95Ms": 129.79999999701977,
+            "p99Ms": 129.79999999701977,
+            "maxMs": 129.79999999701977
+          },
+          "components": {
+            "refreshMusic": {
+              "count": 11,
+              "totalMs": 0.10000000894069672,
+              "medianMs": 0,
+              "p95Ms": 0.10000000894069672,
+              "p99Ms": 0.10000000894069672,
+              "maxMs": 0.10000000894069672
+            },
+            "recompute": {
+              "count": 516,
+              "totalMs": 241.00000032782555,
+              "medianMs": 0.3999999910593033,
+              "p95Ms": 1,
+              "p99Ms": 2.5999999940395355,
+              "maxMs": 5.200000002980232
+            },
+            "archivePayload": {
+              "count": 0,
+              "totalMs": 0,
+              "medianMs": 0,
+              "p95Ms": 0,
+              "p99Ms": 0,
+              "maxMs": 0
+            },
+            "persistSnapshot": {
+              "count": 0,
+              "totalMs": 0,
+              "medianMs": 0,
+              "p95Ms": 0,
+              "p99Ms": 0,
+              "maxMs": 0
+            },
+            "save": {
+              "count": 0,
+              "totalMs": 0,
+              "medianMs": 0,
+              "p95Ms": 0,
+              "p99Ms": 0,
+              "maxMs": 0
+            },
+            "updateHeader": {
+              "count": 26,
+              "totalMs": 54.700000032782555,
+              "medianMs": 1.8999999910593033,
+              "p95Ms": 3.800000011920929,
+              "p99Ms": 7.4000000059604645,
+              "maxMs": 7.4000000059604645
+            },
+            "renderPanel": {
+              "count": 0,
+              "totalMs": 0,
+              "medianMs": 0,
+              "p95Ms": 0,
+              "p99Ms": 0,
+              "maxMs": 0
+            },
+            "trafficUpdate": {
+              "count": 260,
+              "totalMs": 20.499999970197678,
+              "medianMs": 0.09999999403953552,
+              "p95Ms": 0.20000000298023224,
+              "p99Ms": 0.5999999940395355,
+              "maxMs": 0.7000000029802322
+            },
+            "draw": {
+              "count": 109,
+              "totalMs": 713.4000000059605,
+              "medianMs": 2.6000000089406967,
+              "p95Ms": 29.299999997019768,
+              "p99Ms": 36.20000000298023,
+              "maxMs": 39.099999994039536
+            },
+            "hydrateSave": {
+              "count": 0,
+              "totalMs": 0,
+              "medianMs": 0,
+              "p95Ms": 0,
+              "p99Ms": 0,
+              "maxMs": 0
+            },
+            "dailyEconomy": {
+              "count": 246,
+              "totalMs": 3607.5000000447035,
+              "medianMs": 12.100000008940697,
+              "p95Ms": 28.5,
+              "p99Ms": 45.900000005960464,
+              "maxMs": 79.8999999910593
+            },
+            "privateServiceInvestmentDay": {
+              "count": 246,
+              "totalMs": 109.90000002086163,
+              "medianMs": 0,
+              "p95Ms": 0,
+              "p99Ms": 0.10000000894069672,
+              "maxMs": 62.400000005960464
+            },
+            "districtProgrammeDay": {
+              "count": 246,
+              "totalMs": 0.5,
+              "medianMs": 0,
+              "p95Ms": 0,
+              "p99Ms": 0.09999999403953552,
+              "maxMs": 0.10000000894069672
+            },
+            "urbanEvolutionDay": {
+              "count": 246,
+              "totalMs": 51.599999994039536,
+              "medianMs": 0,
+              "p95Ms": 0,
+              "p99Ms": 9,
+              "maxMs": 11
+            },
+            "tick": {
+              "count": 246,
+              "totalMs": 4969.300000011921,
+              "medianMs": 16.100000008940697,
+              "p95Ms": 39.5,
+              "p99Ms": 94.8999999910593,
+              "maxMs": 153.90000000596046
+            }
+          },
+          "heap": {
+            "usedSize": 60789624,
+            "totalSize": 138637312,
+            "embedderHeapUsedSize": 12545744,
+            "backingStorageSize": 15431611
+          },
+          "state": {
+            "day": 277,
+            "total": 15493517.000014346,
+            "valid": {
+              "ok": true,
+              "issues": [],
+              "total": 15493517.000014346,
+              "population": 1991,
+              "day": 277
+            },
+            "goodsError": 1.2732925824820995e-09,
+            "deeds": 21,
+            "routes": 48,
+            "operating": 48,
+            "drivers": 96,
+            "providers": 5,
+            "providerStaff": 9,
+            "privateClients": 292,
+            "cargo": 56,
+            "atlas": 92,
+            "atlasBytes": 7583488,
+            "serviceCaches": 2,
+            "traffic": 29,
+            "observations": 28,
+            "loans": 0,
+            "history": 240,
+            "events": 160,
+            "transactions": 282,
+            "musicDecks": 1,
+            "musicTrack": 6,
+            "musicError": "",
+            "suspended": false,
+            "paused": false,
+            "requestedSpeed": 64,
+            "backlog": 5.977212121212131
+          },
+          "ui": [
+            {
+              "panel": "citizens",
+              "toNextFrameMs": 131.3999999910593,
+              "error": false
+            },
+            {
+              "panel": "construction",
+              "toNextFrameMs": 150.40000000596046,
+              "error": false
+            },
+            {
+              "panel": "settings",
+              "toNextFrameMs": 113.79999999701977,
+              "error": false
+            }
+          ]
+        },
+        {
+          "mode": "far",
+          "seconds": 6.0295,
+          "days": 223,
+          "measuredSpeed": 61.024960610332535,
+          "raf": {
+            "count": 253,
+            "totalMs": 6016.5,
+            "medianMs": 16.700000000000728,
+            "p95Ms": 50,
+            "p99Ms": 116.60000000000036,
+            "maxMs": 200
+          },
+          "timerInput": {
+            "count": 66,
+            "totalMs": 2212.4000000208616,
+            "medianMs": 30.200000002980232,
+            "p95Ms": 76.70000000298023,
+            "p99Ms": 115.59999999403954,
+            "maxMs": 115.59999999403954
+          },
+          "trustedInputHandler": {
+            "count": 2,
+            "totalMs": 433.09999999403954,
+            "medianMs": 255.59999999403954,
+            "p95Ms": 255.59999999403954,
+            "p99Ms": 255.59999999403954,
+            "maxMs": 255.59999999403954
+          },
+          "trustedInputNextFrame": {
+            "count": 2,
+            "totalMs": 489.40000000596046,
+            "medianMs": 287.59999999403954,
+            "p95Ms": 287.59999999403954,
+            "p99Ms": 287.59999999403954,
+            "maxMs": 287.59999999403954
+          },
+          "components": {
+            "refreshMusic": {
+              "count": 11,
+              "totalMs": 0.4000000059604645,
+              "medianMs": 0,
+              "p95Ms": 0.10000000894069672,
+              "p99Ms": 0.10000000894069672,
+              "maxMs": 0.10000000894069672
+            },
+            "recompute": {
+              "count": 515,
+              "totalMs": 214.10000018775463,
+              "medianMs": 0.3999999910593033,
+              "p95Ms": 0.7999999970197678,
+              "p99Ms": 1.4000000059604645,
+              "maxMs": 2.3999999910593033
+            },
+            "archivePayload": {
+              "count": 0,
+              "totalMs": 0,
+              "medianMs": 0,
+              "p95Ms": 0,
+              "p99Ms": 0,
+              "maxMs": 0
+            },
+            "persistSnapshot": {
+              "count": 0,
+              "totalMs": 0,
+              "medianMs": 0,
+              "p95Ms": 0,
+              "p99Ms": 0,
+              "maxMs": 0
+            },
+            "save": {
+              "count": 0,
+              "totalMs": 0,
+              "medianMs": 0,
+              "p95Ms": 0,
+              "p99Ms": 0,
+              "maxMs": 0
+            },
+            "updateHeader": {
+              "count": 25,
+              "totalMs": 41.20000001788139,
+              "medianMs": 1.7000000029802322,
+              "p95Ms": 2.5999999940395355,
+              "p99Ms": 3,
+              "maxMs": 3
+            },
+            "renderPanel": {
+              "count": 0,
+              "totalMs": 0,
+              "medianMs": 0,
+              "p95Ms": 0,
+              "p99Ms": 0,
+              "maxMs": 0
+            },
+            "trafficUpdate": {
+              "count": 289,
+              "totalMs": 0.29999999701976776,
+              "medianMs": 0,
+              "p95Ms": 0,
+              "p99Ms": 0.09999999403953552,
+              "maxMs": 0.10000000894069672
+            },
+            "draw": {
+              "count": 112,
+              "totalMs": 504.1000000536442,
+              "medianMs": 1.2999999970197678,
+              "p95Ms": 26.400000005960464,
+              "p99Ms": 40.5,
+              "maxMs": 42
+            },
+            "hydrateSave": {
+              "count": 0,
+              "totalMs": 0,
+              "medianMs": 0,
+              "p95Ms": 0,
+              "p99Ms": 0,
+              "maxMs": 0
+            },
+            "dailyEconomy": {
+              "count": 251,
+              "totalMs": 3711.699999988079,
+              "medianMs": 12.5,
+              "p95Ms": 27,
+              "p99Ms": 38.69999998807907,
+              "maxMs": 60.20000000298023
+            },
+            "privateServiceInvestmentDay": {
+              "count": 251,
+              "totalMs": 127.39999997615814,
+              "medianMs": 0,
+              "p95Ms": 0,
+              "p99Ms": 0.09999999403953552,
+              "maxMs": 67.8999999910593
+            },
+            "districtProgrammeDay": {
+              "count": 251,
+              "totalMs": 0.29999999701976776,
+              "medianMs": 0,
+              "p95Ms": 0,
+              "p99Ms": 0.09999999403953552,
+              "maxMs": 0.10000000894069672
+            },
+            "urbanEvolutionDay": {
+              "count": 251,
+              "totalMs": 59.39999997615814,
+              "medianMs": 0,
+              "p95Ms": 0,
+              "p99Ms": 9.599999994039536,
+              "maxMs": 12.299999997019768
+            },
+            "tick": {
+              "count": 251,
+              "totalMs": 5336.00000013411,
+              "medianMs": 17.799999997019768,
+              "p95Ms": 37.20000000298023,
+              "p99Ms": 70.29999999701977,
+              "maxMs": 161.59999999403954
+            }
+          },
+          "heap": {
+            "usedSize": 57401484,
+            "totalSize": 129748992,
+            "embedderHeapUsedSize": 5076448,
+            "backingStorageSize": 7814273
+          },
+          "state": {
+            "day": 628,
+            "total": 15493517.000022678,
+            "valid": {
+              "ok": true,
+              "issues": [],
+              "total": 15493517.000022678,
+              "population": 2000,
+              "day": 628
+            },
+            "goodsError": 5.0367816584184766e-09,
+            "deeds": 21,
+            "routes": 48,
+            "operating": 48,
+            "drivers": 96,
+            "providers": 7,
+            "providerStaff": 13,
+            "privateClients": 356,
+            "cargo": 11,
+            "atlas": 131,
+            "atlasBytes": 12261376,
+            "serviceCaches": 2,
+            "traffic": 27,
+            "observations": 63,
+            "loans": 1,
+            "history": 240,
+            "events": 160,
+            "transactions": 616,
+            "musicDecks": 1,
+            "musicTrack": 6,
+            "musicError": "",
+            "suspended": false,
+            "paused": false,
+            "requestedSpeed": 64,
+            "backlog": 0.9241212121212458
+          },
+          "ui": [
+            {
+              "panel": "citizens",
+              "toNextFrameMs": 77.40000000596046,
+              "error": false
+            },
+            {
+              "panel": "construction",
+              "toNextFrameMs": 39.599999994039536,
+              "error": false
+            },
+            {
+              "panel": "settings",
+              "toNextFrameMs": 63.900000005960464,
+              "error": false
+            }
+          ]
+        }
+      ],
+      "fixtureState": {
+        "population": 2000,
+        "deeds": 21,
+        "grid": 128,
+        "routes": 48,
+        "providers": 2,
+        "cargo": 37,
+        "total": 15493517.000000132
+      },
+      "evolving": true,
+      "initialHeapAfterGC": {
+        "usedSize": 10567220,
+        "totalSize": 11984896,
+        "embedderHeapUsedSize": 2624008,
+        "backingStorageSize": 3454529
+      },
+      "soak": [],
+      "archiveRoundTripMs": 209.8377049987903,
+      "finalHeapAfterGC": {
+        "usedSize": 15007600,
+        "totalSize": 16764928,
+        "embedderHeapUsedSize": 4015224,
+        "backingStorageSize": 4242284
+      },
+      "errors": []
+    }
+  },
+  "known_save_negative": {
+    "source_sha256": "d10baa92372a252edec43d203fbdb568f6335a7667c39939741781bede6cf3ac",
+    "seed": 8142026,
+    "operations": 31,
+    "status": "failed",
+    "replayFailures": [
+      {
+        "replayDay": 102,
+        "days": 9,
+        "pending": false,
+        "different": [
+          "banks",
+          "cumulative",
+          "firms",
+          "goodsAccounts",
+          "goodsCompensation",
+          "history",
+          "households",
+          "market",
+          "observations",
+          "region",
+          "regionalTrade",
+          "stats",
+          "treasury",
+          "waterway"
+        ]
+      }
+    ]
+  },
+  "limitations": [
+    "Not Android device performance",
+    "No consistent whole-game frame/input tail improvement established",
+    "Known canonical save defect remains separate pending specialist fix f40bda3",
+    "No final APK or quality-completion claim"
+  ],
+  "fixture_normalization": "Development reference removes redundant trailing blank lines only; code unchanged."
+}

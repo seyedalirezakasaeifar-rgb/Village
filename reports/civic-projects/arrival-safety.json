@@ -1,0 +1,11 @@
+{
+  "source_sha256": "c01a589b24d017caa8d6951bd5a059962ccf083e7a8aa44c7bd10bfc8514387f",
+  "controlledReceiptFixture": true,
+  "cancelledRejected": true,
+  "missingRejected": true,
+  "returnedRejected": true,
+  "actualArrived": 180,
+  "legacyRecoveredOnce": true,
+  "cashDrift": 1.862645149230957e-09,
+  "goodsError": 0
+}

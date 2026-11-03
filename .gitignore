@@ -12,3 +12,4 @@ __pycache__/
 local.properties
 .gradle/
 node_modules/
+*.apk.idsig

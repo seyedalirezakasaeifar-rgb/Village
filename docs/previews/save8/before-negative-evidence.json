@@ -1,0 +1,22 @@
+{
+  "checkpoint": "525e47dd3967741fb59d2fd06921c1647a29a24a",
+  "source_sha256": "293fe306631099dfaacdd37e724d4c6e3b89991f56a1e15c50f872606f662c90",
+  "faultsAcceptedBeforeFix": [
+    "missingLivingMember",
+    "missingHome",
+    "missingFirmBuilding",
+    "negativeStock",
+    "negativeDeposit",
+    "negativeLoanBank",
+    "exhaustedIdCounter",
+    "orphanWorker",
+    "duplicateHome",
+    "missingOwner"
+  ],
+  "observedInvalidTownAfterImport": [
+    "Unhoused identity 0",
+    "Invalid commodity stock 0:grain",
+    "Commodity accounting grain:-140"
+  ],
+  "method": "Independent JSON clone of default founding archive; single-field faults passed to __townTest.load; running export/RNG compared before and after. No town saves are included."
+}

@@ -1,0 +1,1 @@
+PASS paid import/owned export transit, arrival exactly once, conserved cash/goods, actual contract controls,90day run, save validation {'importQty': 10, 'exportQty': 5, 'cashDrift': 0, 'goodsError': 0, 'delivered': 2, 'gateway': 27, 'valid': {'ok': True, 'issues': [], 'total': 15525312, 'population': 169, 'day': 13}}

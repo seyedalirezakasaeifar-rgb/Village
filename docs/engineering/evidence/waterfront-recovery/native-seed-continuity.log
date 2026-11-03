@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/workspace/core-recovery/tests/test_native_seed_continuity.py", line 12, in <module>
+    changed=[k for k in set(a)|set(z) if a.get(k)!=z.get(k)];assert not changed,{'scenario':case[0],'seed':case[1],'changed':changed}
+                                                                    ^^^^^^^^^^^
+AssertionError: {'scenario': 'settlement', 'seed': 42, 'changed': ['journal']}

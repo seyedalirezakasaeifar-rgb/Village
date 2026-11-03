@@ -1,0 +1,20 @@
+# Reviewed growth and stress integration
+
+Base is the correctness-approved `2e4ce5c8869a0483657ba3321d3e66e8954d780d` runtime, with documentation-only cost-review descendants through `ae0a7f5`. Ported only the growth runtime changes from `ba7149fcc3dc5837f479aa73831de80da512ba71`, plus the strengthened stress driver from `fb48ad1b8336b8f64b16cb4f5055b82abf8cea18`. The service population fix was already independently accepted; no branch tree replacement or new history schema was imported.
+
+Final growth source SHA-256: `00d5c943359757a561460b974bce86b12016629eebf9456678c699048d384c1b`.
+
+Independent review found and fixed two defects in the manual relocation path:
+
+* A valid farm proposal still paid and relocated while either a failed day or an active tick was flagged. The new manual entry guard rejects both atomically. Automatic simulation renewal retains its existing active-tick behavior. Source-bound negative and corrected results are preserved.
+* Immediately saving the new apartment worksite then loading added its missing `title` and `baseValue`. The manual creation path now initializes those two authoritative fields to the same regional title and original value used by the existing loader. No fields are omitted or normalized away in acceptance. Whole-state cold equality now passes immediately after actual approval and during construction, followed by complete 360-day equality through completion.
+
+The original farm review also called a sum of heterogeneous inventory quantities a dollar value. It now labels that sum as units across goods.
+
+The actual-control ordinary settlement journey spends existing treasury on four adjoining deeds, real roads and housing; a disabled third-deed button becomes affordable in place after six ordinary years. A reviewed residential farm renewal preserves enterprise/building identity, both workers, stock and all 17 active crop titles at a complete replacement site, then completes a paid four-unit apartment. The stronger automatic pressure rule still refuses the moderate-demand case. A separate compensated occupied-home assembly preserves people and reachable jobs, followed by a paid clinic. An atlas-edge home is 114 road steps from town hall, with clinic/school at 116/113 steps: expansion supplies no fictional service coverage. No cash, people, workers, stock, firms or crop titles are injected.
+
+The strengthened driver verifies cancel/read-only behavior, stale quote rejection, both manual tick fences, immediate and midconstruction complete cold equality, exact remaining work (36/40 funded workdays), and whole-state 360-day continuation with **zero excluded fields**, including traffic and visual state. The paired reference test additionally compares entire archives/RNG for four ordinary scenarios at seven checkpoints through 180 days: all 28 checkpoints are identical to the known correct reference when the new invitation is not used.
+
+Fresh growth-source checks: assembly, JavaScript syntax, ordinary/stress journey, automatic equivalence, and nine focused gates covering core release (`TOWNLEDGER_CORE_ONLY=1`), canonical cold Continue, adversarial/schema archives, independent urban kernel/district oracles, committed-day persistence and native host archive/back wrappers. The preserved earlier 30-gate pass on source `282c7d2…` is explicitly insufficient: the added immediate-cold oracle still rejected that source. Its logs remain in `rejected-cold-source-core-gates.json.gz`. An initial fence probe mistakenly accessed a lexical function from outside the game closure; its harness error is retained separately from the subsequently reproduced real mutation.
+
+Current journey details are in `docs/previews/urban8/district-growth-journey.json`; source-bound acceptance and negative evidence are in `evidence/urban-growth-integration/`. No Android device, renderer fidelity, worker, capacity codec, native async bridge, signing or release acceptance is claimed here. All experimental systems remain disabled or absent. The separate district cost review remains applicable to its exact reference source; no performance improvement is claimed by this growth feature.

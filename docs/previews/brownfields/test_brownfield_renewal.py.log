@@ -1,0 +1,47 @@
+{
+  "day": 23,
+  "remaining": 0,
+  "moneyError": -7.450580596923828e-07,
+  "site": {
+    "id": 24,
+    "x": 25,
+    "y": 30,
+    "name": "Quarry Ltd.",
+    "kind": "quarry",
+    "formerJobs": 3,
+    "industrialAgeDays": 0,
+    "tiles": [
+      3865
+    ],
+    "assessment": 300,
+    "remediation": 2250,
+    "days": 20,
+    "clearance": 44750,
+    "status": "ready",
+    "remaining": 0,
+    "assessedDay": 1,
+    "acquiredDay": 1,
+    "startedDay": 1,
+    "lastWorkDay": 23,
+    "readyDay": 23
+  },
+  "valid": {
+    "ok": true,
+    "issues": [],
+    "total": 15493516.999999255,
+    "population": 657,
+    "day": 23
+  },
+  "reuseArms": [
+    "park",
+    "home",
+    "grocer"
+  ],
+  "source_sha256": "3f803e035872ea3013bcd775bc0210fb32b4645760f8ddd2ca2060f94498b623",
+  "actualControls": true,
+  "cancelNoMutation": true,
+  "insufficientCash": true,
+  "recipientCredited": 44750,
+  "regionalTitleFallback": true,
+  "errors": []
+}

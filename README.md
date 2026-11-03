@@ -1,10 +1,31 @@
-# TownLedger 7.0 — The Working City
+# TownLedger 7.1.1 candidate — The Working City
+
+The 7.1.1/code21 candidate has a standalone [Android APK, matching source and QA bundle](artifacts/candidates/7.1.1/README.md). The complete 46-gate frozen pass, production package checks and native host recovery evidence are recorded with exact hashes. See the [changes](docs/CHANGELOG-7.1.1.md), [install/save guide](docs/INSTALL-AND-SAVES-7.1.1.md) and [QA scope](docs/QA-7.1.1.md). This remains a review candidate; physical-device FPS/full-game touch and the system picker are not certified.
+
+Development phase notes:
+
+- [Local services, staffing and training](docs/LOCAL-SERVICE-DEVELOPMENT.md)
+- [Credit, household budgets and physical markets](docs/CREDIT-AND-MARKETS-DEVELOPMENT.md)
+- [Council programmes and original workday animation](docs/COUNCIL-PROGRAMME-DEVELOPMENT.md)
+- [Native archives, lifecycle and older WebView](docs/NATIVE-ARCHIVE-DEVELOPMENT.md)
+- [Portable seeds and clearer phone controls](docs/MAP-AND-SEEDS-DEVELOPMENT.md)
+- [Mayor-purchased districts and productive waterfront](docs/REGION-AND-WATERFRONT-DEVELOPMENT.md)
+- [Survey navigation, working voyages and long-run accounting](docs/WATERFRONT-PLAY-DEVELOPMENT.md)
+- [Save chronology and failure recovery](docs/SAVE-CHRONOLOGY-DEVELOPMENT.md)
+- [Older WebView map layout](docs/OLDER-WEBVIEW-LAYOUT-DEVELOPMENT.md)
+- [Audio lifecycle and decision feedback](docs/AUDIO-INTEGRATION-DEVELOPMENT.md)
 
 An offline government and town-economy game. This release rebuilds the operating model, the starting towns, monetary controls, road generation, animation and interface palette.
 
-## Install
+## Current 7.1.1 source
 
-Install `TownLedger-The-Working-City-7.0.apk` over 6.0/6.1. Package `org.townledger.vale` and signing certificate are retained; version code is 14. Export a valued town before updating. Do not uninstall to update. Physical-device installation has not been tested here.
+The 80 × 80 region preserves the original town and offers five substantial outer districts for explicit mayoral purchase. Public Works previews costs and boundaries before a deed is acquired. Fisheries produce real food within shared water limits; staffed river wharves earn paid freight income when their routes beat regional road haulage. Original docks, working crews, fishing craft and cargo barges follow those businesses. Current archives use schema 6 and remap legacy 56 × 56 maps without taking their original property rights. The development APK has matching source assets, a verified signature and real Java DEX; native device certification remains incomplete.
+
+## Earlier signed checkpoint
+
+Version 7.0.5 (code 19, save schema 5) has a signed development APK built with the official Android SDK. Package assets, signature, DEX integrity and alignment were verified. Android installation and device gameplay have not been run. The new development signer differs from the older baseline; export and verify your town backup before uninstalling an older installation if Android refuses the update. The original private signing key is not included.
+
+This development slice makes health and school allocations purchase capacity-limited services, reports operating bottlenecks, and introduces original terrain/frontage/lighting/activity layers. See [phase notes](docs/MATERIALS-AND-JOURNEYS-7.0.5.md). It also improves large-town rendering at 64×, zoom-dependent street labels, high-density screen alignment, construction feedback and archive validation. See [QA and changes](docs/QA-7.0.5.md) for measurements and remaining limitations.
 
 New towns use a connected hierarchy of named through roads, collectors and local streets. Existing saves retain their buildings, roads and residents. Their economic rules migrate to schema 5. Keep an old export if you want to retain the prior simulation rules; older builds reject new schema-5 archives.
 
@@ -27,9 +48,11 @@ The government also sets a treasury-funded retirement pension. An ageing populat
 
 One high-contrast UI palette replaces conflicting legacy themes; drawers have more usable height; rate controls retain quarter-point precision. Roads use named connected blocks and readable hierarchy. Pedestrians walk, vehicles follow road tangents, and a recognizable twin turboprop taxis, takes off, climbs, approaches and lands on a cleared, marked runway. Aviation uses a 19-seat service and staffing/fuel costs.
 
+Escape now dismisses the open drawer or the topmost temporary Help/archive flow, matching Android Back. Drawer and dialog dismissal restore keyboard focus to their launcher; the Help/archive dialog is labeled and keeps Tab focus within the modal, and temporary archive screens restore the tutorial for its next opening.
+
 ## Build and evidence
 
-Run `python tools/assemble.py`; build with `python build_apk.py` and the tools in [docs/BUILD.md](docs/BUILD.md). Keep the original signer for future updates; keys and SDK binaries are excluded from the source archive.
+Run `python tools/assemble.py`; build with `python build_apk.py` and the tools in [docs/BUILD.md](docs/BUILD.md). Retain the original signer for update compatibility; private keys and SDK binaries are excluded from the source archive. Use the checkpoint manifest to identify the exact APK/source pair. Final acceptance and physical-device testing remain separate from compilation.
 
 Read [QA-REPORT-7.0.md](QA-REPORT-7.0.md), [docs/ECONOMY-7.0.md](docs/ECONOMY-7.0.md) and [docs/SAVES.md](docs/SAVES.md). Current evidence is in `reports/v7.0/`. Source modules share a closure and daily processing is synchronous; this is not a new native engine.
 

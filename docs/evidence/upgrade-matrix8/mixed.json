@@ -1,0 +1,50 @@
+{
+  "source_sha256": "34c6bec1cf880cb7c13bf0d5d08b42f2391735a782bbd7cfe2168fe5ba2f03b8",
+  "controlledCatchment": true,
+  "result": {
+    "grid": 128,
+    "people": 1375,
+    "routes": 2,
+    "settledTickets": 1,
+    "fares": 5.8500000000000005,
+    "cargo": 19,
+    "providerEscrow": 6000,
+    "mallEscrow": 28000,
+    "cashConserved": true,
+    "receiptsPreserved": true,
+    "faults": {
+      "grid": 128,
+      "schema": 8,
+      "recordsRejected": [
+        "missingMember",
+        "duplicateMember",
+        "householdMismatch",
+        "missingHome",
+        "tileUsedAsHomeId",
+        "missingFirmBuilding",
+        "negativeStock",
+        "invalidStock",
+        "unknownStock",
+        "negativeDeposit",
+        "missingDepositBank",
+        "malformedBank",
+        "malformedLoan",
+        "negativeLoanBank",
+        "duplicateBuildingId",
+        "exhaustedIdCounter",
+        "duplicateHomeId",
+        "orphanWorker",
+        "duplicateWorker",
+        "missingOwner",
+        "missingTitleHolder",
+        "truncatedTiles",
+        "malformedProject",
+        "futureSchema",
+        "invalidDay"
+      ],
+      "truncatedRejected": 4,
+      "callerIndependent": true,
+      "atomicRNGAndTimeline": true
+    }
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "source_sha256": "dbbb77a80e54a8c02fa5d7da8af020ba6b8a24078270c39cd5d844bd236dd949",
+  "base": "60ab7fe6cfc958f69a084a538c946672ff51eb8a",
+  "gates": [
+    {
+      "test": "test_retail_refusal_feedback",
+      "exit_code": 0,
+      "seconds": 3.61,
+      "log_sha256": "93b65abbf64f3db2439eca2b40bff0d41a62520cadc6dcf2c249cfb1536f34d0"
+    },
+    {
+      "test": "test_bridge_quote_steps",
+      "exit_code": 0,
+      "seconds": 5.15,
+      "log_sha256": "7a87995dcf466517fa01090448d7da33ecd38f3fcda1ddf6d72bc76b456025e4"
+    },
+    {
+      "test": "test_disclosure_model_equivalence",
+      "exit_code": 0,
+      "seconds": 22.93,
+      "log_sha256": "b931c533eff32cb1a5bd4a6b883b49702fd35943002eeaa6e480659517b3476a"
+    },
+    {
+      "test": "test_retail_proposal_review",
+      "exit_code": 0,
+      "seconds": 7.5,
+      "log_sha256": "188d175a0a8f02e1eb38075a3f493490be72b9a8eac0c7460faebfe562923ea8"
+    },
+    {
+      "test": "test_retail_labour_viability",
+      "exit_code": 0,
+      "seconds": 10.81,
+      "log_sha256": "0f04a7526da9edd9e033ef313f0ca1c0f49b4efb2b76e9e0a8dcb55be2e31db3"
+    },
+    {
+      "test": "test_road_bridge",
+      "exit_code": 0,
+      "seconds": 4.36,
+      "log_sha256": "67f51e7b2c31c99f4e91313ff002cb893f1abae2daf76ad6dd8cc4b13dda4442"
+    },
+    {
+      "test": "test_road_bridge_public_regression",
+      "exit_code": 0,
+      "seconds": 4.5,
+      "log_sha256": "946ac4623fc36e4f5617f525e7711b0f1fa78281ca9ae74706132ae8844ddcca"
+    },
+    {
+      "test": "test_bridge_state_conflicts",
+      "exit_code": 0,
+      "seconds": 3.94,
+      "log_sha256": "fe8d5686497b6ea8b62cd4d0c896b764d2b20b5d41b5af4cb8b7f90c11d41050"
+    },
+    {
+      "test": "test_bridge_save_fence",
+      "exit_code": 0,
+      "seconds": 3.99,
+      "log_sha256": "49e60a326793f44b7b89d8573a727d8b77cd9e4734e0dc537807944a73416179"
+    },
+    {
+      "test": "test_bridge_cold_continue",
+      "exit_code": 0,
+      "seconds": 7.24,
+      "log_sha256": "1109af6fe1dff1a187dee8971f236ef84db4460de7024c02a5c8e6e80bd21a52"
+    },
+    {
+      "test": "test_road_removal_network",
+      "exit_code": 0,
+      "seconds": 4.75,
+      "log_sha256": "023f5de7fd8b14dfdc0da7eec66833cc558ba93f8d36d5ff6dcbb318ac303f1d"
+    },
+    {
+      "test": "test_transit_network",
+      "exit_code": 0,
+      "seconds": 5.16,
+      "log_sha256": "82e613b60a02b99e0e8215936aa7a078e5f19e6cd0e643ce68fed1c398e72543"
+    },
+    {
+      "test": "test_committed_day_save",
+      "exit_code": 0,
+      "seconds": 6.63,
+      "log_sha256": "0bdb1b943f362163e2c640680bcab9042abf7d0e62d60026131a8605eeacfcd6"
+    }
+  ]
+}

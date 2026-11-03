@@ -1,0 +1,36 @@
+{
+  "source_sha256": "884d8087368dbb6ac0a058a5baee7296e47fcc79ea72db25b478ef50a7af0582",
+  "paidImportQuantity": 60,
+  "routeCrossesAllSpanTiles": true,
+  "openBridge": {
+    "closed": false,
+    "condition": 100,
+    "bounds": [
+      6394.739009663001,
+      1415.4780193260012,
+      6633.260990336999,
+      1573.5219806739988
+    ]
+  },
+  "baselineDrawMs": 0.51,
+  "bridgeDrawMs": 1.08,
+  "closedState": {
+    "closed": true,
+    "water": true
+  },
+  "actorDepth": {
+    "truck": true,
+    "bus": true,
+    "metro": false,
+    "boat": false,
+    "truckY": 1508,
+    "deckY": 1499,
+    "boatY": 1498
+  },
+  "coldRedraw": {
+    "differentChannels": 0,
+    "channels": 941904
+  },
+  "stateUnchanged": true,
+  "errors": []
+}

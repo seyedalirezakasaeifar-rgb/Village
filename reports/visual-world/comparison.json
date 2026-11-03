@@ -1,0 +1,15 @@
+{
+  "captures": [
+    {
+      "stage": "before",
+      "source_sha256": "ee4a1e11d1d1b9618189883fe021305f8eff391deae8ae4ae3e228169f3c73cf",
+      "errors": []
+    },
+    {
+      "stage": "after",
+      "source_sha256": "b9a73e58b5da6b133d19db0625b8a9085bd3b1766e2a320dcbbc83ab4f2d9371",
+      "errors": []
+    }
+  ],
+  "animation": "Controlled paid import visual timeline, camera following truck; host Chromium, not physical-device FPS."
+}

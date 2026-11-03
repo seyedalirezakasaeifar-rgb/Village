@@ -1,0 +1,25 @@
+{
+  "paidTransferRoute": true,
+  "underBridge": true,
+  "subdayDistance": 380.53811398905486,
+  "boundaryJump": 0.006342301899750807,
+  "stable": true,
+  "unchanged": true,
+  "far": 0,
+  "reduced": 0,
+  "actors": 3,
+  "paidSamples": 1,
+  "sampledLoads": 8,
+  "inspected": true,
+  "info": {
+    "cargo": "food",
+    "quantity": 120,
+    "journey": "Owned import \u00b7 Regional voyage"
+  },
+  "renderBenchMs": 0.72,
+  "source_sha256": "598dec8271e777e55e69c1462b61fa39a24071b2609d5a2390fc6e334e16e7a7",
+  "errors": [],
+  "capture": "Actual reviewed imports; continuous normal-clock session after accelerated waiting for the local river leg. Camera follows visible cargo. Not an FPS benchmark.",
+  "frames": 32,
+  "seconds": 6.4252645740016305
+}

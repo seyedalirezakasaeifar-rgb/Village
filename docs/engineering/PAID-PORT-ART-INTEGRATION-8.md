@@ -1,0 +1,11 @@
+# Paid-port art integration
+
+Integrated game-art-only `f98923a` onto the latest transit forecast/cache-release checkpoint `c1a7b84`, preserving all later district/native, budget and river settlement work. No trailer/media branch was merged. Quote, capacity, handling, ownership, recovery, archive and fare rules are unchanged.
+
+Real river consignments now use subday position interpolation, bounded coincident-load sampling, opposing-direction separation, sea-edge fade, under-bridge hiding, paused wakes and actual consignment inspection. Eight reviewed paid loads produce one sampled paid hull alongside existing fishing/spot-export actors. Hidden detail/reduced motion exits before cargo-query work. The current static river capture was inspected.
+
+Integration additionally corrected selection after water-to-road transfer: the highlight uses the active owned consignment's actual current path, with no stale river fallback while that road order exists. General freight/voyage labels remain accurate after a mode change. The controlled render probe temporarily substitutes the supported transfer state, checks the exact road polyline and restores every field; complete serialized town equality remains asserted.
+
+All five affected suites pass on the final source: paid-art continuity/inspection/pause/state purity/bridge/LOD, actual reviewed bulk orders and exact cold continuation with daily cash/goods validation, paid transfer/cancellation/closure/recovery/export/malformed-save cases, legacy full outward/return water motion, and visual LOD with aggregate economic advancement. Boundary displacement is0.0063423 world pixels in the controlled test. Paused samples are exactly stable; near sampled actors remain bounded and distant/reduced-motion paid queries are skipped.
+
+Source SHA256: `3d8e894a5fa3e3f5afd38b247bebacbd098d474e4162330349b07eeef0d612e0`. Source-bound receipts and current static image are in `reports/integration/8-paid-port-art-cohort.json`. Moving diagnostic capture remains outside Git; no final APK or release is produced. Forced paused-draw timing is not sustained gameplay or Android FPS. The ongoing late-session performance investigation and pending migration/legacy tenancy remain separate work.

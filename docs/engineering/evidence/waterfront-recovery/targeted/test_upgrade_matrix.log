@@ -1,0 +1,165 @@
+{
+  "source_sha256": "884d8087368dbb6ac0a058a5baee7296e47fcc79ea72db25b478ef50a7af0582",
+  "rows": [
+    {
+      "case": "authentic-v60-distressed",
+      "archive_sha256": "f9b24c100c424a545003d893d1669abfd2d8db329ea96b9f5846da98bb1fc5f9",
+      "utf8Bytes": 1149025,
+      "schema": 4,
+      "release": "6.0.0",
+      "grid": 56.0,
+      "people": 1077,
+      "accepted": true,
+      "cashDrift": 0.0,
+      "identitiesAndPropertyPreserved": true,
+      "status": "pass"
+    },
+    {
+      "case": "authentic-corporate-liquidity",
+      "archive_sha256": "3626c9af016a9d004ab1284a3482106b40824b77ea81c568db733984112676fc",
+      "utf8Bytes": 942119,
+      "schema": 5,
+      "release": "7.0.0",
+      "grid": 56.0,
+      "people": 388,
+      "accepted": true,
+      "cashDrift": 0.0,
+      "identitiesAndPropertyPreserved": true,
+      "status": "pass"
+    },
+    {
+      "case": "current-fresh",
+      "archive_sha256": "293258eac845a8ed42da844865f886287b8b9a8c3dd367811a64946632839c1f",
+      "utf8Bytes": 135514,
+      "schema": 8,
+      "release": "8.0.0",
+      "grid": 128.0,
+      "people": 169,
+      "accepted": true,
+      "cashDrift": 0,
+      "identitiesAndPropertyPreserved": true,
+      "status": "pass"
+    },
+    {
+      "case": "current-8000-history",
+      "archive_sha256": "af14de668587692e3a7e39a7d4b80de867a088b9aad2a7989492d36a4e8419eb",
+      "utf8Bytes": 1184037,
+      "schema": 8,
+      "release": "8.0.0",
+      "grid": 128.0,
+      "people": 8000,
+      "accepted": true,
+      "cashDrift": 0,
+      "identitiesAndPropertyPreserved": true,
+      "status": "pass"
+    },
+    {
+      "case": "supplied5.6",
+      "archive_sha256": "1a605c252755344e20a8b67cd1c033bab96935de49f0ac34ace1d2f79b234e07",
+      "utf8Bytes": 70087,
+      "schema": null,
+      "release": null,
+      "grid": 56.0,
+      "people": 169,
+      "accepted": true,
+      "cashDrift": 0,
+      "identitiesAndPropertyPreserved": true,
+      "status": "pass"
+    },
+    {
+      "case": "supplied6.0",
+      "archive_sha256": "5069f5552976f1f57c019cf0b5760101e5fa63ec051f5c92d30f53643db08763",
+      "utf8Bytes": 79059,
+      "schema": 4,
+      "release": "6.0.0",
+      "grid": 56.0,
+      "people": 169,
+      "accepted": true,
+      "cashDrift": 0,
+      "identitiesAndPropertyPreserved": true,
+      "status": "pass"
+    },
+    {
+      "case": "7.0.0",
+      "archive_sha256": "640ff21069fa4cb1eab598cd0f9c9c8e12c7ca16d4473f390758c8381cc7b6f3",
+      "utf8Bytes": 100109,
+      "schema": 5,
+      "release": "7.0.0",
+      "grid": 56.0,
+      "people": 169,
+      "accepted": true,
+      "cashDrift": 0,
+      "identitiesAndPropertyPreserved": true,
+      "status": "pass"
+    },
+    {
+      "case": "7.1.1",
+      "archive_sha256": "45fdbb22568aaa088a999b24cb73d8a915549fd5675800209d76a2f52aaa370b",
+      "utf8Bytes": 113677,
+      "schema": 6,
+      "release": "7.1.1",
+      "grid": 80.0,
+      "people": 169,
+      "accepted": true,
+      "cashDrift": 0,
+      "identitiesAndPropertyPreserved": true,
+      "status": "pass"
+    },
+    {
+      "case": "8-schema7",
+      "archive_sha256": "e1ede2c509450d6d56930dba14c2018846730a1255cb4909554be2be7b1ff352",
+      "utf8Bytes": 114548,
+      "schema": 7,
+      "release": "8.0.0",
+      "grid": 80.0,
+      "people": 169,
+      "accepted": true,
+      "cashDrift": 0,
+      "identitiesAndPropertyPreserved": true,
+      "status": "pass"
+    },
+    {
+      "case": "8-schema8",
+      "archive_sha256": "fee4555ff10162f8192aab86b9b92eeea2eec7f1da0934da8ddf34654e38b2b2",
+      "utf8Bytes": 134631,
+      "schema": 8,
+      "release": "8.0.0",
+      "grid": 128.0,
+      "people": 169,
+      "accepted": true,
+      "cashDrift": 0,
+      "identitiesAndPropertyPreserved": true,
+      "status": "pass"
+    },
+    {
+      "case": "g.schema=999",
+      "status": "pass",
+      "rejected": true,
+      "unchanged": true
+    },
+    {
+      "case": "g.schema=-1",
+      "status": "pass",
+      "rejected": true,
+      "unchanged": true
+    },
+    {
+      "case": "g.people[0].hh=999999",
+      "status": "pass",
+      "rejected": true,
+      "unchanged": true
+    },
+    {
+      "case": "interrupted adoption rollback",
+      "status": "pass",
+      "archiveAndRNGUnchanged": true
+    }
+  ],
+  "currentExportIdentity": {
+    "version": 3,
+    "schema": 8,
+    "release": "8.0.0",
+    "gridSize": 128
+  },
+  "payloadsRetained": false
+}

@@ -1,0 +1,299 @@
+{
+  "source_sha256": "9972d3ca90bc5ae3ed04772c8bcdb9c2da178fd82a5c154c9c3862a81c698b50",
+  "cases": [
+    {
+      "zoom": 1.6,
+      "edge": "left",
+      "overlap": 1,
+      "intersects": true,
+      "admitted": false,
+      "coldStable": true
+    },
+    {
+      "zoom": 1.6,
+      "edge": "left",
+      "overlap": 8,
+      "intersects": true,
+      "admitted": false,
+      "coldStable": true
+    },
+    {
+      "zoom": 1.6,
+      "edge": "left",
+      "overlap": 24,
+      "intersects": true,
+      "admitted": true,
+      "coldStable": true
+    },
+    {
+      "zoom": 1.6,
+      "edge": "right",
+      "overlap": 1,
+      "intersects": true,
+      "admitted": false,
+      "coldStable": true
+    },
+    {
+      "zoom": 1.6,
+      "edge": "right",
+      "overlap": 8,
+      "intersects": true,
+      "admitted": false,
+      "coldStable": true
+    },
+    {
+      "zoom": 1.6,
+      "edge": "right",
+      "overlap": 24,
+      "intersects": true,
+      "admitted": true,
+      "coldStable": true
+    },
+    {
+      "zoom": 1.6,
+      "edge": "top",
+      "overlap": 1,
+      "intersects": true,
+      "admitted": true,
+      "coldStable": true
+    },
+    {
+      "zoom": 1.6,
+      "edge": "top",
+      "overlap": 8,
+      "intersects": true,
+      "admitted": true,
+      "coldStable": true
+    },
+    {
+      "zoom": 1.6,
+      "edge": "top",
+      "overlap": 24,
+      "intersects": true,
+      "admitted": true,
+      "coldStable": true
+    },
+    {
+      "zoom": 1.6,
+      "edge": "bottom",
+      "overlap": 1,
+      "intersects": true,
+      "admitted": true,
+      "coldStable": true
+    },
+    {
+      "zoom": 1.6,
+      "edge": "bottom",
+      "overlap": 8,
+      "intersects": true,
+      "admitted": true,
+      "coldStable": true
+    },
+    {
+      "zoom": 1.6,
+      "edge": "bottom",
+      "overlap": 24,
+      "intersects": true,
+      "admitted": true,
+      "coldStable": true
+    },
+    {
+      "zoom": 0.88,
+      "edge": "left",
+      "overlap": 1,
+      "intersects": true,
+      "admitted": false,
+      "coldStable": true
+    },
+    {
+      "zoom": 0.88,
+      "edge": "left",
+      "overlap": 8,
+      "intersects": true,
+      "admitted": false,
+      "coldStable": true
+    },
+    {
+      "zoom": 0.88,
+      "edge": "left",
+      "overlap": 24,
+      "intersects": true,
+      "admitted": true,
+      "coldStable": true
+    },
+    {
+      "zoom": 0.88,
+      "edge": "right",
+      "overlap": 1,
+      "intersects": true,
+      "admitted": false,
+      "coldStable": true
+    },
+    {
+      "zoom": 0.88,
+      "edge": "right",
+      "overlap": 8,
+      "intersects": true,
+      "admitted": false,
+      "coldStable": true
+    },
+    {
+      "zoom": 0.88,
+      "edge": "right",
+      "overlap": 24,
+      "intersects": true,
+      "admitted": true,
+      "coldStable": true
+    },
+    {
+      "zoom": 0.88,
+      "edge": "top",
+      "overlap": 1,
+      "intersects": true,
+      "admitted": true,
+      "coldStable": true
+    },
+    {
+      "zoom": 0.88,
+      "edge": "top",
+      "overlap": 8,
+      "intersects": true,
+      "admitted": true,
+      "coldStable": true
+    },
+    {
+      "zoom": 0.88,
+      "edge": "top",
+      "overlap": 24,
+      "intersects": true,
+      "admitted": true,
+      "coldStable": true
+    },
+    {
+      "zoom": 0.88,
+      "edge": "bottom",
+      "overlap": 1,
+      "intersects": true,
+      "admitted": true,
+      "coldStable": true
+    },
+    {
+      "zoom": 0.88,
+      "edge": "bottom",
+      "overlap": 8,
+      "intersects": true,
+      "admitted": true,
+      "coldStable": true
+    },
+    {
+      "zoom": 0.88,
+      "edge": "bottom",
+      "overlap": 24,
+      "intersects": true,
+      "admitted": true,
+      "coldStable": true
+    },
+    {
+      "zoom": 0.32,
+      "edge": "left",
+      "overlap": 1,
+      "intersects": true,
+      "admitted": false,
+      "coldStable": true
+    },
+    {
+      "zoom": 0.32,
+      "edge": "left",
+      "overlap": 8,
+      "intersects": true,
+      "admitted": false,
+      "coldStable": true
+    },
+    {
+      "zoom": 0.32,
+      "edge": "left",
+      "overlap": 24,
+      "intersects": true,
+      "admitted": true,
+      "coldStable": true
+    },
+    {
+      "zoom": 0.32,
+      "edge": "right",
+      "overlap": 1,
+      "intersects": true,
+      "admitted": false,
+      "coldStable": true
+    },
+    {
+      "zoom": 0.32,
+      "edge": "right",
+      "overlap": 8,
+      "intersects": true,
+      "admitted": false,
+      "coldStable": true
+    },
+    {
+      "zoom": 0.32,
+      "edge": "right",
+      "overlap": 24,
+      "intersects": true,
+      "admitted": true,
+      "coldStable": true
+    },
+    {
+      "zoom": 0.32,
+      "edge": "top",
+      "overlap": 1,
+      "intersects": true,
+      "admitted": true,
+      "coldStable": true
+    },
+    {
+      "zoom": 0.32,
+      "edge": "top",
+      "overlap": 8,
+      "intersects": true,
+      "admitted": true,
+      "coldStable": true
+    },
+    {
+      "zoom": 0.32,
+      "edge": "top",
+      "overlap": 24,
+      "intersects": true,
+      "admitted": true,
+      "coldStable": true
+    },
+    {
+      "zoom": 0.32,
+      "edge": "bottom",
+      "overlap": 1,
+      "intersects": true,
+      "admitted": true,
+      "coldStable": true
+    },
+    {
+      "zoom": 0.32,
+      "edge": "bottom",
+      "overlap": 8,
+      "intersects": true,
+      "admitted": true,
+      "coldStable": true
+    },
+    {
+      "zoom": 0.32,
+      "edge": "bottom",
+      "overlap": 24,
+      "intersects": true,
+      "admitted": true,
+      "coldStable": true
+    }
+  ],
+  "modelUnchanged": true
+}
+Traceback (most recent call last):
+  File "/workspace/core-recovery/tests/test_bridge_camera_edges.py", line 13, in <module>
+    assert before==after and all(r['intersects'] and r['admitted'] and r['coldStable'] for r in rows),[r for r in rows if not(r['intersects'] and r['admitted'] and r['coldStable'])]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: [{'zoom': 1.6, 'edge': 'left', 'overlap': 1, 'intersects': True, 'admitted': False, 'coldStable': True}, {'zoom': 1.6, 'edge': 'left', 'overlap': 8, 'intersects': True, 'admitted': False, 'coldStable': True}, {'zoom': 1.6, 'edge': 'right', 'overlap': 1, 'intersects': True, 'admitted': False, 'coldStable': True}, {'zoom': 1.6, 'edge': 'right', 'overlap': 8, 'intersects': True, 'admitted': False, 'coldStable': True}, {'zoom': 0.88, 'edge': 'left', 'overlap': 1, 'intersects': True, 'admitted': False, 'coldStable': True}, {'zoom': 0.88, 'edge': 'left', 'overlap': 8, 'intersects': True, 'admitted': False, 'coldStable': True}, {'zoom': 0.88, 'edge': 'right', 'overlap': 1, 'intersects': True, 'admitted': False, 'coldStable': True}, {'zoom': 0.88, 'edge': 'right', 'overlap': 8, 'intersects': True, 'admitted': False, 'coldStable': True}, {'zoom': 0.32, 'edge': 'left', 'overlap': 1, 'intersects': True, 'admitted': False, 'coldStable': True}, {'zoom': 0.32, 'edge': 'left', 'overlap': 8, 'intersects': True, 'admitted': False, 'coldStable': True}, {'zoom': 0.32, 'edge': 'right', 'overlap': 1, 'intersects': True, 'admitted': False, 'coldStable': True}, {'zoom': 0.32, 'edge': 'right', 'overlap': 8, 'intersects': True, 'admitted': False, 'coldStable': True}]

@@ -1,0 +1,11 @@
+fatal: path 'tests/fixtures/generated-late-31987fc/terminal.json.gz' does not exist in '833afee35aa714919a38e420e74cee1f719315db'
+Traceback (most recent call last):
+  File "/workspace/core-recovery/tests/test_urban_kernel.py", line 6, in <module>
+    archive=gzip.decompress(subprocess.check_output(['git','show','833afee35aa714919a38e420e74cee1f719315db:tests/fixtures/generated-late-31987fc/terminal.json.gz'],cwd=ROOT)).decode()
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 466, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'show', '833afee35aa714919a38e420e74cee1f719315db:tests/fixtures/generated-late-31987fc/terminal.json.gz']' returned non-zero exit status 128.

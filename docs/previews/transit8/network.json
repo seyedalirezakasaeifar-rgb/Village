@@ -1,0 +1,105 @@
+{
+  "source_sha256": "cb9965525c56ab4df79584d4edf1afef7494162bfeba27dc274b385928e8fd72",
+  "passed": true,
+  "screenshots": [
+    "transit-network-desktop.png",
+    "transit-network-mobile.png"
+  ],
+  "opening_route": {
+    "version": 1,
+    "revision": 2,
+    "next": 2,
+    "routes": [
+      {
+        "id": 1,
+        "name": "Bus 1",
+        "mode": "bus",
+        "depot": 103,
+        "stops": [
+          2175,
+          2181,
+          2187,
+          2195,
+          2203
+        ],
+        "level": 2,
+        "vehicles": 2,
+        "path": [
+          2175,
+          2176,
+          2177,
+          2178,
+          2179,
+          2180,
+          2181,
+          2182,
+          2183,
+          2184,
+          2185,
+          2186,
+          2187,
+          2188,
+          2189,
+          2190,
+          2191,
+          2192,
+          2193,
+          2194,
+          2195,
+          2196,
+          2197,
+          2198,
+          2199,
+          2200,
+          2201,
+          2202,
+          2203
+        ],
+        "offsets": [
+          0,
+          6,
+          12,
+          20,
+          28
+        ],
+        "color": "#f0ad56",
+        "built": 1,
+        "capital": 13300,
+        "stats": {
+          "operating": true,
+          "capacity": 103,
+          "reserved": 8,
+          "boardings": 8,
+          "demand": 8,
+          "denied": 0,
+          "staff": [
+            3,
+            4,
+            6,
+            7
+          ],
+          "required": 4,
+          "status": "Operating",
+          "headway": 37.199999999999996,
+          "reliability": 1,
+          "expenses": 139.19,
+          "lastDemand": 0,
+          "lastDenied": 0
+        }
+      }
+    ],
+    "tracks": [],
+    "capital": 22300,
+    "fares": 5.2,
+    "expenses": 139.19,
+    "lastDay": 2,
+    "daily": {
+      "rides": 8,
+      "denied": 0,
+      "revenue": 5.2,
+      "expenses": 139.19,
+      "staff": 4
+    }
+  },
+  "browser_errors": []
+}

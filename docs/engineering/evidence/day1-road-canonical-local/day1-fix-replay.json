@@ -1,0 +1,33 @@
+{
+  "baseSourceSha256": "3e262a51d4a95992c2b9df3f8205025ffdb1f05d6a5376a528ff75ddceedae8b",
+  "fixedSourceSha256": "d3ed25306c7c4754485d0691d04d9d4f9739dccafc1d2efbaa909762977a7081",
+  "actualNewTownStartup": true,
+  "subsequentDirectQaSteps": true,
+  "initialOnlyDifference": "roadMetrics null to deterministic derived snapshot",
+  "rows": [
+    {
+      "day": 2,
+      "wholeModelRngMoneyRoutesExact": true,
+      "excludedFields": [],
+      "archiveHash": "55f55ff94ed1a5cf5aaf8bf10cb1f01d3a9a19985cf3382f7d2b6d4d96cc10f0"
+    },
+    {
+      "day": 31,
+      "wholeModelRngMoneyRoutesExact": true,
+      "excludedFields": [],
+      "archiveHash": "a6a5f92f0319067bcd8c61b0c1aaf621174de9afd46acd051c075992e7819ba4"
+    },
+    {
+      "day": 60,
+      "wholeModelRngMoneyRoutesExact": true,
+      "excludedFields": [],
+      "archiveHash": "838aff9216e9b3a3e0c484b9bf97b23c31ff9772ca7bc731b504ec41f5418e29"
+    },
+    {
+      "day": 120,
+      "wholeModelRngMoneyRoutesExact": true,
+      "excludedFields": [],
+      "archiveHash": "658a55cbfc574cb3e1d6bf2a057a4b0d73e074646a152c607379362323148c84"
+    }
+  ]
+}

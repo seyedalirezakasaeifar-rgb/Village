@@ -1,0 +1,8 @@
+{
+  "source_sha256": "4a8c523a9dda013810784dc3b9a2a116c0992c0b143ed2990eba781e4173c9c6",
+  "exactCanonical": true,
+  "trafficBefore": 4,
+  "trafficAfter": 4,
+  "legacyTradeDefaultStable": true,
+  "differences": []
+}

@@ -1,0 +1,266 @@
+{
+  "source_sha256": "2b2f14477099ee7a3c4a2f34bc590714c5163d4db358fee7f9bd7288e590b0d7",
+  "smallTown": {
+    "population": 169,
+    "required": 280,
+    "range": {
+      "min": 0,
+      "max": 500,
+      "step": 0.01,
+      "hardMax": 50000
+    },
+    "pure": true
+  },
+  "validation": {
+    "invalidEnact": 22,
+    "invalidArchives": 16,
+    "legacyMissing": true,
+    "higherBudgetRoundtrip": true
+  },
+  "regionalBefore": {
+    "day": 2161,
+    "population": 1151,
+    "treasury": 689121.0775496188,
+    "school": {
+      "kind": "school",
+      "population": 1151,
+      "wage": 28,
+      "full": 1906.9822485207098,
+      "reachable": 1906.9822485206978,
+      "combinedGap": 1730.9222915986152,
+      "facilities": 9,
+      "observed": true,
+      "access": 0.9999999999999937,
+      "publicCoverage": 0.2621943651483183,
+      "privateCoverage": 0.0923238572664577,
+      "combinedCoverage": 0.354518222414776,
+      "staffing": {
+        "local": 8,
+        "regional": 3.6071428571428577,
+        "needed": 44.26923076923077,
+        "coverage": 0.2621943651483183,
+        "pending": null,
+        "qualification": 0.55
+      },
+      "pendingDay": null
+    },
+    "outlook": {
+      "ceiling": 4007,
+      "currentNeed": 4007,
+      "dailyReceipts": 5930.331890226757,
+      "cash": 689121.0775496188,
+      "deficit": -1923.3318902267574,
+      "runway": null,
+      "estimates": {
+        "health": {
+          "kind": "health",
+          "population": 1151,
+          "wage": 28,
+          "full": 708.3076923076923,
+          "reachable": 708.3076923076923,
+          "combinedGap": 708.3076923076923,
+          "facilities": 7,
+          "observed": true,
+          "access": 1,
+          "publicCoverage": 0.6494352736750652,
+          "privateCoverage": 0,
+          "combinedCoverage": 0.6494352736750652,
+          "staffing": {
+            "local": 6,
+            "regional": 4.678571428571429,
+            "needed": 16.442857142857143,
+            "coverage": 0.6494352736750652,
+            "pending": null,
+            "qualification": 0.7
+          },
+          "pendingDay": null
+        },
+        "school": {
+          "kind": "school",
+          "population": 1151,
+          "wage": 28,
+          "full": 1906.9822485207098,
+          "reachable": 1906.9822485206978,
+          "combinedGap": 1730.9222915986152,
+          "facilities": 9,
+          "observed": true,
+          "access": 0.9999999999999937,
+          "publicCoverage": 0.2621943651483183,
+          "privateCoverage": 0.0923238572664577,
+          "combinedCoverage": 0.354518222414776,
+          "staffing": {
+            "local": 8,
+            "regional": 3.6071428571428577,
+            "needed": 44.26923076923077,
+            "coverage": 0.2621943651483183,
+            "pending": null,
+            "qualification": 0.55
+          },
+          "pendingDay": null
+        }
+      }
+    }
+  },
+  "regionalTrajectory": [
+    {
+      "day": 2162,
+      "population": 1151,
+      "treasury": 693006.1475467026,
+      "authorized": 1907,
+      "required": 1906.9822485207098,
+      "paid": 500.00000000000006,
+      "publicCoverage": 0.2621943651483183,
+      "privateCoverage": 0.09296486998135924,
+      "combined": 0.3551592351296775,
+      "staffing": {
+        "local": 8,
+        "regional": 3.6071428571428577,
+        "needed": 44.26923076923077,
+        "coverage": 0.2621943651483183,
+        "pending": {
+          "target": 36.26923076923049,
+          "day": 2192
+        },
+        "qualification": 0.55
+      },
+      "education": 67.60161632964119,
+      "cashError": 7.450580596923828e-09
+    },
+    {
+      "day": 2191,
+      "population": 1151,
+      "treasury": 698922.9344813598,
+      "authorized": 1907,
+      "required": 1906.9822485207098,
+      "paid": 500.00000000000006,
+      "publicCoverage": 0.2621943651483183,
+      "privateCoverage": 0.09040081912175305,
+      "combined": 0.3525951842700713,
+      "staffing": {
+        "local": 8,
+        "regional": 3.6071428571428577,
+        "needed": 44.26923076923077,
+        "coverage": 0.2621943651483183,
+        "pending": {
+          "target": 36.26923076923049,
+          "day": 2192
+        },
+        "qualification": 0.55
+      },
+      "education": 67.83229034723375,
+      "cashError": -3.725290298461914e-08
+    },
+    {
+      "day": 2192,
+      "population": 1151,
+      "treasury": 701770.8460143799,
+      "authorized": 1907,
+      "required": 1906.9822485207098,
+      "paid": 1906.9822485206978,
+      "publicCoverage": 0.9999999999999937,
+      "privateCoverage": 0,
+      "combined": 0.9999999999999937,
+      "staffing": {
+        "local": 8,
+        "regional": 36.26923076923049,
+        "needed": 44.26923076923077,
+        "coverage": 0.9999999999999938,
+        "pending": null,
+        "qualification": 0.55
+      },
+      "education": 67.87129034723375,
+      "cashError": -4.0978193283081055e-08
+    },
+    {
+      "day": 2222,
+      "population": 1151,
+      "treasury": 681702.4419020064,
+      "authorized": 1907,
+      "required": 1906.9822485207098,
+      "paid": 1906.9822485206978,
+      "publicCoverage": 0.9999999999999937,
+      "privateCoverage": 0,
+      "combined": 0.9999999999999937,
+      "staffing": {
+        "local": 8,
+        "regional": 36.26923076923049,
+        "needed": 44.26923076923077,
+        "coverage": 0.9999999999999938,
+        "pending": null,
+        "qualification": 0.55
+      },
+      "education": 69.0412903472338,
+      "cashError": -5.587935447692871e-08
+    },
+    {
+      "day": 2312,
+      "population": 1170,
+      "treasury": 643196.9241477784,
+      "authorized": 1907,
+      "required": 1938.4615384615383,
+      "paid": 1907,
+      "publicCoverage": 0.9837698412698413,
+      "privateCoverage": 0.0018865825532492152,
+      "combined": 0.9856564238230906,
+      "staffing": {
+        "local": 37,
+        "regional": 29.269642857142856,
+        "needed": 45,
+        "coverage": 1,
+        "pending": {
+          "target": 12.269642857142856,
+          "day": 2316
+        },
+        "qualification": 0.55
+      },
+      "education": 72.51078127350819,
+      "cashError": -4.731118679046631e-07
+    }
+  ],
+  "cashConstraint": {
+    "controlledCashFixture": true,
+    "authorized": 50000,
+    "paid": 0,
+    "coverage": 0,
+    "unused": 50000,
+    "negativeCashPreserved": -100,
+    "negativeRecommendation": 0,
+    "conserved": true
+  },
+  "screens": [
+    {
+      "width": 1280,
+      "control": {
+        "x": 861,
+        "right": 1243
+      },
+      "amountHeight": 44,
+      "minButtonHeight": 44,
+      "overflow": false,
+      "actualPresetAndEnact": true
+    },
+    {
+      "width": 390,
+      "control": {
+        "x": 27,
+        "right": 343
+      },
+      "amountHeight": 44,
+      "minButtonHeight": 44,
+      "overflow": false,
+      "actualPresetAndEnact": true
+    },
+    {
+      "width": 320,
+      "control": {
+        "x": 23,
+        "right": 277
+      },
+      "amountHeight": 44,
+      "minButtonHeight": 44,
+      "overflow": false,
+      "actualPresetAndEnact": true
+    }
+  ],
+  "errors": []
+}

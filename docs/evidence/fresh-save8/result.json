@@ -1,0 +1,65 @@
+{
+  "source_sha256": "9844d95fa547eddb95bb256d8442dc103867c174d4a270a3b399547727973580",
+  "cases": [
+    {
+      "scenario": "settlement",
+      "seed": 42,
+      "exact": true
+    },
+    {
+      "scenario": "settlement",
+      "seed": 101,
+      "exact": true
+    },
+    {
+      "scenario": "settlement",
+      "seed": 909,
+      "exact": true
+    },
+    {
+      "scenario": "regional",
+      "seed": 42,
+      "exact": true
+    },
+    {
+      "scenario": "regional",
+      "seed": 101,
+      "exact": true
+    },
+    {
+      "scenario": "regional",
+      "seed": 909,
+      "exact": true
+    },
+    {
+      "scenario": "hardtimes",
+      "seed": 42,
+      "exact": true
+    },
+    {
+      "scenario": "hardtimes",
+      "seed": 101,
+      "exact": true
+    },
+    {
+      "scenario": "hardtimes",
+      "seed": 909,
+      "exact": true
+    },
+    {
+      "scenario": "industrial",
+      "seed": 42,
+      "exact": true
+    },
+    {
+      "scenario": "industrial",
+      "seed": 101,
+      "exact": true
+    },
+    {
+      "scenario": "industrial",
+      "seed": 909,
+      "exact": true
+    }
+  ]
+}

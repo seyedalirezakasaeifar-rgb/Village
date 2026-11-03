@@ -1,5 +1,5 @@
 // Deterministic model services. Presentation has its own hash-based randomness.
-const RELEASE=Object.freeze({version:'6.0.0',code:12,edition:'Seasons of the Vale',schema:4});
+const RELEASE=Object.freeze({"version":"8.0.0","code":22,"edition":"A Trading Town","schema":8,"package":"org.townledger.vale"});
 let rngState=42,visualState=918273,simulationBusy=false;
 const perfStats={frames:[],ticks:[],effective:1,backlog:0,days:0,elapsed:0,errors:[]};
 function random(){rngState=(rngState+0x6D2B79F5)>>>0;let t=rngState;t=Math.imul(t^(t>>>15),t|1);t^=t+Math.imul(t^(t>>>7),t|61);return ((t^(t>>>14))>>>0)/4294967296;}
@@ -8,6 +8,7 @@ function hash(n){n=Math.imul((n^0x9e3779b9)>>>0,0x85ebca6b);n^=n>>>13;return (Ma
 function book(from,to,amount,reason,entity=-1){if(!(amount>0))return;G.transactions=G.transactions||[];G.transactions.push({day:G.day,from,to,amount,reason,entity});if(G.transactions.length>800)G.transactions.splice(0,G.transactions.length-800);}
 function ensureSystems(){
  if(!G)return;
+ ensureTransit();
  if(G.airport?.runway)for(const id of G.airport.runway)if(G.tiles[id]===3)G.tiles[id]=0;
  G.climateSeasons=G.climateSeasons===true;G.climateWeather=G.climateWeather===true;if(!G.climateWeather)G.weather='clear';G.nextLoanId=G.nextLoanId??0;G.schema=RELEASE.schema;G.release=RELEASE.version;G.development={fields:0,redevelopments:0,towers:0,airfields:0,...G.development};
  G.investors=G.investors||[{id:0,name:'Vale Property Partnership',cash:0,invested:0,spending:0}];
@@ -60,24 +61,30 @@ function housingMarketDay(force=false){
  if(listing){const price=listing.value*.92,buyer=living.find(h=>h.home===listing.id&&householdLiquidity(h)>price+5000)||living.find(h=>householdLiquidity(h)>price+5000);
   if(buyer){if(buyer.cash<price)for(const [id,amount] of Object.entries(buyer.deposits||{})){withdrawal(buyer,G.banks[+id],Math.min(amount,price-buyer.cash));if(buyer.cash>=price)break;}if(buyer.cash<price)return;buyer.cash-=price;G.investors[0].cash+=price;listing.owner=buyer.id;listing.title={kind:'household',id:buyer.id};G.housingMarket.transactions++;book(buyer.name+' household',G.investors[0].name,price,'Property title purchase; tenancy preserved',listing.id);}}
 }
+function trimCouncilArchive(){
+ const rows=G.councilArchive||[],unresolved=rows.filter(e=>e.retentionBridge===true&&e.retentionRecoveryPending===true),recent=rows.filter(e=>!(e.retentionBridge===true&&e.retentionRecoveryPending===true)).slice(0,40);
+ G.councilArchive=[...unresolved,...recent];
+}
 function expireCouncilLetters(){
  const keep=[];for(const item of G.councilInbox||[]){if(G.day-item.day>120){G.councilArchive.unshift({...item,closed:G.day,response:'No council action; existing policy retained'});}else keep.push(item);}
- G.councilInbox=keep;G.councilArchive=G.councilArchive.slice(0,40);
+ G.councilInbox=keep;trimCouncilArchive();
 }
 function recordObservation(){
  const hm=G.housingMarket||{},fs=G.firms.filter(f=>!f.closed),incomes=G.households.filter(h=>h.people.length).map(h=>(h.income-h.tax)/h.people.length).sort((a,b)=>a-b);
- const obs={day:G.day,population:G.stats.population,employment:G.stats.employment,hardship:G.stats.hardship,treasury:G.treasury,businesses:fs.length,construction:G.projects.length,rentIndex:hm.rentIndex,medianValue:hm.medianValue||0,vacancy:hm.vacancy||0,privateSpend:G.development.privateSpend||0,profit:fs.reduce((n,f)=>n+(f.netProfit||0),0),medianIncome:incomes[Math.floor(incomes.length/2)]||0,bankLiquidity:G.banks.reduce((n,b)=>n+b.cash,0),debt:G.loans.filter(l=>l.status==='active').reduce((n,l)=>n+l.balance,0)};
+ const obs={day:G.day,population:G.stats.population,employment:G.stats.employment,hardship:G.stats.hardship,treasury:G.treasury,businesses:fs.length,construction:G.projects.length,rentIndex:hm.rentIndex,medianValue:hm.medianValue||0,vacancy:hm.vacancy||0,privateSpend:G.development.privateSpend||0,profit:fs.reduce((n,f)=>n+(f.netProfit||0),0),medianIncome:incomes[Math.floor(incomes.length/2)]||0,medicalCoverage:G.serviceProvision?.health?.coverage||0,schoolCoverage:G.actualServiceFunding?.school||0,trainingCompletions:G.civicTrainingCompletions||0,unmetFood:G.market?.unmetFood||0,bankLiquidity:G.banks.reduce((n,b)=>n+b.cash,0),debt:G.loans.filter(l=>l.status==='active').reduce((n,l)=>n+l.balance,0)};
  G.observations.push(obs);if(G.observations.length>1200)G.observations.shift();
  for(const e of G.policyExperiments){if(!e.after&&G.day-e.day>=180)e.after={...obs};}
 }
 function validateTown(){
  const issues=[],claimed=new Set(),members=new Set(),workers=new Set();
- for(const b of G.buildings)for(const id of footprintOf(b)){if(claimed.has(id)||G.tiles[id]===1||G.tiles[id]===2||G.landUse?.[id])issues.push('Occupied footprint collision '+b.id+':'+id);claimed.add(id);}
+ for(const b of G.buildings)for(const id of footprintOf(b)){if(claimed.has(id)||G.tiles[id]===1||G.tiles[id]===2||G.tiles[id]===4||G.landUse?.[id])issues.push('Occupied footprint collision '+b.id+':'+id);claimed.add(id);}
+ const cropCounts={};for(const [key,code] of Object.entries(G.landUse||{})){const id=Number(key);if(!Number.isInteger(id)||id<0||id>=T*T||![1,2,3].includes(code)||G.tiles[id]!==0||claimed.has(id))issues.push('Reserved land collision '+key);if(code===1){const owner=G.fieldOwner?.[key];if(!Number.isInteger(owner)||G.firms[owner]?.kind!=='farm')issues.push('Invalid crop title '+key);else cropCounts[owner]=(cropCounts[owner]||0)+1;}}
+ for(const f of G.firms)if(f.kind==='farm'&&(G.fieldCount?.[f.id]||0)!==(cropCounts[f.id]||0))issues.push('Crop count mismatch '+f.id);
  for(const h of G.households){if(!Number.isFinite(h.cash)||h.cash<-.01)issues.push('Invalid household cash '+h.id);for(const id of h.people){if(members.has(id)||G.people[id]?.hh!==h.id||G.people[id]?.deceased||G.people[id]?.movedAway)issues.push('Household membership '+id);members.add(id);}}
  for(const p of G.people)if(!p.deceased&&!p.movedAway&&!members.has(p.id))issues.push('Unhoused identity '+p.id);
  for(const f of G.firms){if(!Number.isFinite(f.cash)||f.cash<-.01)issues.push('Invalid business cash '+f.id);for(const id of f.workers){if(workers.has(id)||G.people[id]?.job!==f.id)issues.push('Employment ownership '+id);workers.add(id);}}
  for(const b of G.banks)if(!Number.isFinite(b.cash)||b.cash<-.01)issues.push('Bank balance '+b.id);
- for(const v of traffic)for(let i=0;i<v.path.length;i++){if(G.tiles[v.path[i]]!==1)issues.push('Vehicle off road '+v.id);if(i&&Math.abs(v.path[i]%T-v.path[i-1]%T)+Math.abs((v.path[i]/T|0)-(v.path[i-1]/T|0))!==1)issues.push('Invalid route '+v.id);}
+ for(const v of traffic)for(let i=0;i<v.path.length;i++){if(!roadSurface(v.path[i]))issues.push('Vehicle off road '+v.id);if(i&&Math.abs(v.path[i]%T-v.path[i-1]%T)+Math.abs((v.path[i]/T|0)-(v.path[i-1]/T|0))!==1)issues.push('Invalid route '+v.id);}
  for(const f of G.firms)for(const [k,n] of Object.entries(f.stock))if(!Number.isFinite(n)||n<-.0001)issues.push('Invalid commodity stock '+f.id+':'+k);
  for(const row of goodsBalance())if(!Number.isFinite(row.error)||Math.abs(row.error)>.02)issues.push('Commodity accounting '+row.good+':'+row.error);
  return {ok:issues.length===0,issues,total:totalMoney(),population:G.stats.population,day:G.day};

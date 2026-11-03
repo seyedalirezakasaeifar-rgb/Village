@@ -1,0 +1,30 @@
+{
+  "source_sha256": "4440a8f5ec95acc77eb5640808f6052ba69cbf90d727a349d50ac647976e3d5b",
+  "initial": "Compare other suppliers and commodities \u00b7 including food\nRegional buyer \nUpland Cooperative\nGreyhaven Port\nIronridge Works\nCommodity the buyer seeks \ngrain\nflour\nfood\nLocal producer \nBaker & Sons Ltd.\nBaker & Sons Trading\nBaker & Sons Works\nVale Net & Line\n\nThe forecast supports fewer than ten additional units after retained stock, existing promises, handling and freight cash.\n\nHeld / retained units\n80 / 104\nAlready promised units\n0\nForecast / suggested units\n0 / 0\nFreight cash available\n$23,605\n\nBaker & Sons Ltd. \u2192 Greyhaven Port. Quote $3.81/unit; freight $0.20/unit. Suggested-size inventory margin $0 excludes future payroll, tax and disruption. 0 recent output/day, 21 usable dispatch days; standard deadline day 31. Food and other working reserves are retained. Priority dispatch can reduce stock for local buyers. Estimates assume current inputs, attendance, cash and routes persist.\n\nReview this supplier\u2019s food promise",
+  "after25Days": "Compare other suppliers and commodities \u00b7 including food\nRegional buyer \nUpland Cooperative\nGreyhaven Port\nIronridge Works\nCommodity the buyer seeks \ngrain\nflour\nfood\nLocal producer \nBaker & Sons Ltd.\nBaker & Sons Trading\nBaker & Sons Works\nVale Net & Line\n\nA forecast-sized review is available; future output and arrival remain uncertain.\n\nHeld / retained units\n496.08 / 112.31\nAlready promised units\n0\nForecast / suggested units\n2,520 / 200\nFreight cash available\n$22,870\n\nBaker & Sons Ltd. \u2192 Greyhaven Port. Quote $3.81/unit; freight $0.20/unit. Suggested-size inventory margin $416 excludes future payroll, tax and disruption. 129.16 recent output/day, 21 usable dispatch days; standard deadline day 56. Food and other working reserves are retained. Priority dispatch can reduce stock for local buyers. Estimates assume current inputs, attendance, cash and routes persist.\n\nReview this supplier\u2019s food promise",
+  "realFoodCommitment": {
+    "id": 137,
+    "name": "Greyhaven Port supply agreement",
+    "firm": 3,
+    "market": "port",
+    "good": "food",
+    "quantity": 200,
+    "delivered": 0,
+    "price": 3.812457254595668,
+    "deadline": 56,
+    "status": "active"
+  },
+  "settledFoodAgreement": {
+    "id": 137,
+    "name": "Greyhaven Port supply agreement",
+    "firm": 3,
+    "market": "port",
+    "good": "food",
+    "quantity": 200,
+    "delivered": 200,
+    "price": 3.812457254595668,
+    "deadline": 56,
+    "status": "fulfilled"
+  },
+  "errors": []
+}

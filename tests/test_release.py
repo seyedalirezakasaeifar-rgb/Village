@@ -22,7 +22,10 @@ with sync_playwright() as pw:
     page.locator('#newTown').click()
     page.locator('#panelClose').click()
     page.locator('#pause').click()
+    assert page.locator('#mapStatusContext').inner_text().startswith('Paused')
+    page.locator('#mapStatusToggle').click()
     assert page.locator('#pauseBanner').is_visible()
+    page.locator('#mapStatusToggle').click()
     record('determinism_and_continuation',page.evaluate('''()=>{
        function core(){const g=JSON.parse(__townTest.save());delete g.trafficState;delete g.visualState;return JSON.stringify(g,Object.keys(g).sort());}
        function normalized(){const g=JSON.parse(__townTest.save());delete g.trafficState;delete g.visualState;return g;}
@@ -60,7 +63,7 @@ with sync_playwright() as pw:
       const s=g.freight.find(s=>s.path.length>4);if(!s)throw Error('No routed shipment');
       const before=__townTest.get().total,qty=s.qty,freightId=s.id;
       const from=g.firms[s.from],site=g.buildings.find(b=>b.id===from.building);
-      const footprint=site.footprint||[site.y*56+site.x];for(const id of footprint){for(const [dx,dy] of [[1,0],[-1,0],[0,1],[0,-1]]){const n=id+dx+dy*56;if(g.tiles[n]===1)g.tiles[n]=0;}}
+      const footprint=site.footprint||[site.y*g.gridSize+site.x];for(const id of footprint){for(const [dx,dy] of [[1,0],[-1,0],[0,1],[0,-1]]){const n=id+dx+dy*g.gridSize;if(g.tiles[n]===1)g.tiles[n]=0;}}
       if(!__townTest.load(g))throw Error('Severed road town rejected');__townTest.step(1);
       const after=JSON.parse(__townTest.save());const held=after.freight.find(x=>x.id===freightId);
       // Alternative access may exist, so a delay is not guaranteed in this town.
@@ -84,6 +87,9 @@ with sync_playwright() as pw:
     first=page.screenshot()
     page.wait_for_timeout(500)
     second=page.screenshot()
+    if first!=second:
+        (reports/'pause-before.png').write_bytes(first);(reports/'pause-after.png').write_bytes(second)
+        record('pause_failure_state',page.evaluate('({view:__townTest.view(),state:__townTest.get()})'))
     assert first==second,'Paused view changed'
     record('true_pause',{'identicalScreenshots':True,'milliseconds':500})
     page.locator('#pause').click()

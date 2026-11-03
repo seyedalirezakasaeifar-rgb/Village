@@ -1,0 +1,33 @@
+{
+  "base": "ecbc945c4aeeb99d27d0cf7b7cd8ee63651af785",
+  "source_sha256": "8031901f1dca4e8b45d43d653e7657abff20f91f3bd5f2f823bd5c8a25e56a67",
+  "cases": [
+    {
+      "kind": "school",
+      "paid": 96,
+      "sameDayWholeStateUnchanged": false,
+      "paidBenefitBefore": 0.5333333333333332,
+      "paidBenefitAfter": 0.5333333333333332,
+      "paidBenefitPreserved": true,
+      "privateReceiptPreserved": false,
+      "publicReceiptPreserved": false,
+      "sameDayCashUnchanged": false,
+      "learningUnchanged": false,
+      "totalConserved": true
+    },
+    {
+      "kind": "fire",
+      "paid": 133.0522271074499,
+      "sameDayWholeStateUnchanged": false,
+      "paidBenefitBefore": 0.5974137931034483,
+      "paidBenefitAfter": 0.5974137931034483,
+      "paidBenefitPreserved": true,
+      "privateReceiptPreserved": false,
+      "publicReceiptPreserved": false,
+      "sameDayCashUnchanged": false,
+      "learningUnchanged": true,
+      "totalConserved": true
+    }
+  ]
+}
+CONFIRMED untouched base loses paid receipts and the same-day exactly-once cash guard

@@ -10,7 +10,14 @@ function weatherEnabled(){return G?.climateWeather===true;}
 function visualMonth(){return seasonsEnabled()?G.month:5;}
 function applyPresentationOptions(){
  document.body.classList.toggle('large-text',gameOptions.largeText);document.body.classList.toggle('hide-hints',!gameOptions.showHints);
- if(typeof atlas!=='undefined')atlas.clear();if(typeof fit==='function')fit();staticDirty=true;dirty=true;
+ if(typeof atlas!=='undefined')clearAtlas();if(typeof fit==='function')fit();staticDirty=true;dirty=true;
 }
 // Apply classes now; renderer initialization follows in the ordered bundle.
 document.body.classList.toggle('large-text',gameOptions.largeText);document.body.classList.toggle('hide-hints',!gameOptions.showHints);
+
+// Projected sprite sizes, not town population, determine whether individual
+// visual actors are useful. Economic freight, labour and services run elsewhere.
+function visualDetailBudget(){
+ const z=cam.zoom,limited=gameOptions.quality==='low'||fastRenderEnabled();
+ return {traffic:gameOptions.traffic&&!gameOptions.reducedMotion&&z>=(limited?.62:.45),people:gameOptions.effects&&!gameOptions.reducedMotion&&z>=(limited?.9:.62),boats:gameOptions.traffic&&gameOptions.effects&&!gameOptions.reducedMotion&&gameOptions.quality!=='low'&&z>=.32};
+}

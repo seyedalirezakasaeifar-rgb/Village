@@ -1,0 +1,463 @@
+{
+  "accepted_game_base": "03cb54675880a9b60c0c8d8de5dd0b671d0abff3",
+  "accepted_game_sha256": "27ca5f1e1e5df352d38daf042d2de63b63024b8deed596c79e2f4679cc50947e",
+  "latest_package_base": "31987fcbe108e9d9cb8ed7ce4155f51cd234ba62",
+  "latest_package_game_sha256": "d90bb509173a803b75c3cdc432fea57ce2f1e2abbcb13b8886c56d8feaffe515",
+  "latest_package_launched": false,
+  "environment": {
+    "android_api": 30,
+    "webview": "83.0.4103.120",
+    "emulator": "37.2.13",
+    "abi": "x86_64",
+    "acceleration": "TCG; no KVM",
+    "guest_cores": 2,
+    "guest_ram_mib": 2048,
+    "screen": [
+      640,
+      360
+    ],
+    "density_dpi": 160,
+    "host_audio_output": false,
+    "physical_device": false,
+    "boot_seconds": 382.708
+  },
+  "native_host_provider": {
+    "outcome": "PASS",
+    "progress": [
+      "Actual external ContentProvider import preserves Unicode and accepts BOM",
+      "Malformed provider UTF-8 does not reach game restore",
+      "Provider import over 8 MiB leaves live restore unchanged",
+      "Cancelled import releases archive busy state",
+      "Bridge export cancellation clears pending request",
+      "Cancelled export removes private prepared archive",
+      "Actual external provider export truncates previous larger document and preserves Unicode",
+      "Handled layer acknowledged without timeout or exit",
+      "Failed save does not finish Activity",
+      "Keep playing resumes renderer",
+      "Hung save timeout preserves Activity",
+      "Late saved acknowledgement cannot exit after timeout",
+      "Terminated only the app's WebView renderer through API29",
+      "Renderer termination retains host and offers recovery",
+      "Recreated view retains same-origin persistent data",
+      "Acknowledged successful save allows exit"
+    ],
+    "sha256": "0fe63929c2144bf18616238bb6fd2dd41c169c1bc7f1749cbea759dfe68884b7"
+  },
+  "actual_system_picker": {
+    "outcome": "PASS",
+    "progress": [
+      "Actual system import picker backgrounds native host",
+      "Actual system import cancellation resumes host and releases archive request",
+      "Actual system export cancellation survives Activity recreation and removes private prepared archive"
+    ],
+    "sha256": "5b00c7fda4328d071acc4be8f97cfc407d5c8f8992e496e544831bf03d024347"
+  },
+  "game_flow_prior_to_driver_failure": {
+    "outcome": "FAIL",
+    "progress": [
+      "Native input founds a valid town",
+      "Full game has visible nonzero native map",
+      "Native map contains rendered scene pixels",
+      "Three settlement economy days validate in actual native engine",
+      "Native overview panel opens",
+      "Native economy panel opens",
+      "Native community panel opens",
+      "Native agenda panel opens",
+      "Native policies panel opens",
+      "Native settings panel opens",
+      "Native Back dismisses topmost confirmation while retaining settings and town",
+      "Next native Back dismisses underlying drawer without exit",
+      "Native Vorbis soundtrack advances real media playback after explicit music control touch",
+      "Native pause holds a running simulation day",
+      "Native suspension parks observed map painting, Overview DOM and extra storage writes",
+      "Native pause stops soundtrack and effects media",
+      "Native resume avoids a backlog burst after suspension",
+      "Native resume restarts soundtrack",
+      "Native suspend and resume preserve the player's own pause preference",
+      "Native full-game archive roundtrip validates",
+      "Native soundtrack reports no decoder error after gesture playback"
+    ],
+    "sha256": "4c1caca94063c9731bdb41cb7b5c2fc1a585091630c07308e9f704ee2c8468f6"
+  },
+  "game_audio_lifecycle_large_city": {
+    "outcome": "PASS",
+    "progress": [
+      "Native input founds a valid town",
+      "Full game has visible nonzero native map",
+      "Native map contains rendered scene pixels",
+      "Native Vorbis soundtrack advances real media playback after explicit music control touch",
+      "Native pause holds a running simulation day",
+      "Native suspension parks observed map painting, Overview DOM and extra storage writes",
+      "Native pause stops soundtrack and effects media",
+      "Native resume avoids a backlog burst after suspension",
+      "Native resume restarts soundtrack",
+      "Native suspend and resume preserve the player's own pause preference",
+      "Native full-game archive roundtrip validates",
+      "Native soundtrack reports no decoder error after gesture playback",
+      "Native soundtrack crossfade runs two streaming media elements",
+      "Native crossfade retires and unloads previous media source",
+      "No captured full-game JavaScript errors",
+      "Synthetic 2000-resident archive prepared in native engine",
+      "Synthetic 2000-resident city loads in native engine",
+      "Native synthetic 2000-resident archive validates after loading",
+      "Soundtrack remains active with synthetic large city",
+      "Large city ready for external memory sample (30 seconds)"
+    ],
+    "sha256": "085efbfc6a8829dff3e128f0d1c2dfbabea440a3222ada9d21bdd207f7c913bd"
+  },
+  "memory": {
+    "peak_memory_tested": false,
+    "physical_device": false,
+    "stages": {
+      "map": {
+        "observed_utc": "2026-10-31T19:58:48.314411+00:00",
+        "snapshots": [
+          {
+            "pid": 5068,
+            "process": "com.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0",
+            "pss_kib": 142174,
+            "status": 0,
+            "attribution": "observed WebView sandbox; inspect process ownership before summing"
+          }
+        ],
+        "app_pss_kib": 93529,
+        "app_status": 0,
+        "sampling_seconds": 20.764
+      },
+      "crossfade": {
+        "observed_utc": "2026-10-31T20:01:09.715651+00:00",
+        "snapshots": [
+          {
+            "pid": 5068,
+            "process": "com.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0",
+            "pss_kib": 149223,
+            "status": 0,
+            "attribution": "observed WebView sandbox; inspect process ownership before summing"
+          }
+        ],
+        "app_pss_kib": 94484,
+        "app_status": 0,
+        "sampling_seconds": 27.338
+      },
+      "large-city": {
+        "observed_utc": "2026-10-31T20:02:58.392948+00:00",
+        "snapshots": [
+          {
+            "pid": 5068,
+            "process": "com.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0",
+            "pss_kib": 164799,
+            "status": 0,
+            "attribution": "observed WebView sandbox; inspect process ownership before summing"
+          }
+        ],
+        "app_pss_kib": 95270,
+        "app_status": 0,
+        "sampling_seconds": 22.416
+      }
+    }
+  },
+  "installed_payloads": {
+    "org.townledger.vale": {
+      "sha256": "72444b9f04d76d69dc0b882d2d5d555fa92f8ef61f107cb7029dcce63a7b466d",
+      "bytes": 18319552,
+      "dex_matches_rebuilt_target": true,
+      "manifest_matches_rebuilt_target": true,
+      "all_assets_match_accepted_source": true,
+      "game_sha256": "27ca5f1e1e5df352d38daf042d2de63b63024b8deed596c79e2f4679cc50947e"
+    },
+    "org.townledger.vale.tests": {
+      "sha256": "884d807c95d887da44beaf4588935800d84b5aba5a1b9b8d15f952298326a8af",
+      "bytes": 29009,
+      "matches_installed_test_build": true
+    }
+  },
+  "host_fixture_build": {
+    "source_commit": "9c0955e4807f29b18ed55f9ac95e00b0e28b726a",
+    "source_files": {
+      "android/app/src/main/java/org/townledger/vale/MainActivity.java": "5e4469e223d72d07eb87c7f60fd24c4f7144b53fbe0c1e3594c98435d631ec19",
+      "android/app/src/main/java/org/townledger/vale/BackNavigation.java": "5e6b38bd787ccdaa9006173d7c8ac82d208c90cc571d13ecc56e68af0f69b2ee",
+      "android/app/src/main/java/org/townledger/vale/ArchiveIO.java": "1f2d9a5ba00e535fb6dd08ab17e53d1817b70251d9579c80868ce7a08d256c56",
+      "tests/android/RecoveryHarness.java": "49f333bb1cf0a36f332d435f1d114329d8122d8aee9c33959d25ad8d4a733414",
+      "tests/android/ArchiveProvider.java": "7910cd8b7c53c2f50a619386742d118626084b345f395f29d3f1a98b765d9c73",
+      "assets/index.html": "e796abd935d70a1c1179e5a48f3ea5af0a4af6b6bca1b02bd1d372a7db0c2a0f"
+    },
+    "artifacts": {
+      "native-host-fixture.apk": "59c85d21990edb30d521b372fe6b58a3621659059f699e0359f68f71a4395a80",
+      "native-host-tests.apk": "a29dbe1da5ece48dc1c6365308aac331f4c364a221b0d282e14f768e2fdf5e42"
+    },
+    "sdk_platform": "android-36",
+    "build_tools": "36.0.0",
+    "run_status": "NOT RUN",
+    "production_signer_used": false
+  },
+  "game_fixture_build": {
+    "source_commit": "ccdbfb0ce79fb6bdbadac332b558c32d8228a886",
+    "source_files": {
+      "android/app/src/main/java/org/townledger/vale/MainActivity.java": "5e4469e223d72d07eb87c7f60fd24c4f7144b53fbe0c1e3594c98435d631ec19",
+      "android/app/src/main/java/org/townledger/vale/BackNavigation.java": "5e6b38bd787ccdaa9006173d7c8ac82d208c90cc571d13ecc56e68af0f69b2ee",
+      "android/app/src/main/java/org/townledger/vale/ArchiveIO.java": "1f2d9a5ba00e535fb6dd08ab17e53d1817b70251d9579c80868ce7a08d256c56",
+      "tests/android/FullGameHarness.java": "0d2383287aa5d8d4047d14402eb2a8ca806092199671c44c2773b6afef2d3253",
+      "tests/android/ArchiveProvider.java": "7910cd8b7c53c2f50a619386742d118626084b345f395f29d3f1a98b765d9c73",
+      "assets/civic7.css": "9f312ee6465076207d4bfeb01996f755b59a125df8a7d16b47592713549d511e",
+      "assets/game.js": "27ca5f1e1e5df352d38daf042d2de63b63024b8deed596c79e2f4679cc50947e",
+      "assets/index.html": "c45e152ac53f1818d41793b124cad7a5c9ff22d35bf184f17d7ed3dedcac5685",
+      "assets/style.css": "e666e2db01e419d7a65bb7050fb63f4c70a0d58348bdffa4ea7a54fbd8a67015",
+      "assets/vale.css": "6aaa9781eb11e5b0d205a720451d3fbc5384b92fb783e457d5d33f4a94be9bb9",
+      "assets/mayor8.css": "d91d6ea9c3801e630c315f2579afd97765b68c1b9749addc2da3b20bc30c7343",
+      "assets/sound/LICENSE.txt": "66435b1de18b054246e451607fdbfdbdea1e1f770fb214518bfb556f79cd591e",
+      "assets/sound/build.wav": "88377b20c3bbca59a8fcabafe837b6e07508bbdba36112c7f643deea943ba551",
+      "assets/sound/click.wav": "f442b590c799bbcf972e69d1c1f172881cb5bf81116bf114bc015080d5057c91",
+      "assets/sound/coin.wav": "99edffa3814662def67c66a9401791043b5221a331ee6edf552d862703a7c7af",
+      "assets/sound/error.wav": "b5d5ded784fb78f162ec098a741ef921c2f10113a13b0d76043966546bcbf0c5",
+      "assets/sound/rain.wav": "8d5d04ed401b06df35d964915fcb0705b71f25d6460b7d789841138fadbe3e01",
+      "assets/sound/save.wav": "e94121e8f98c3343759ee0606aa23924396cef4445935f4be3267ae9e79b1d6d",
+      "assets/sound/village.wav": "5789b8988371c6720931a270c433690cdbce4f5dfb6ae7859f4c9b9ed8e857bb",
+      "assets/sound/zone.wav": "9d2e5ce6837c95bed60894c43c91f410a675d720369e8245d151653ca1a3541a",
+      "assets/music/morning-ledger.ogg": "7d4757811e18762e1ca6d34a21480159af87a4a729d3199657343cec670f35c7",
+      "assets/music/score.json": "79309110e20b0848fec904e383575c80ba558f89b7ef3d41da4e9714ba7cf58f",
+      "assets/music/lamplit-windows.ogg": "9a9b21c3deb9bd972e7b997d6d6d42446a3e2d7da479090090e7899ff872c986",
+      "assets/music/after-the-rain.ogg": "6358e61316aa6227bb667ce312ed4aa659bcc919a8b224604007663e85d856c3",
+      "assets/music/river-and-road.ogg": "838a9c6877a4a5253b4861b9cf8db88a72e3e5c29760d6cae360d776b96883f8",
+      "assets/music/market-day.ogg": "8f43f2ab5e49872fd99b469e39eee70fd8613df2952a9bdf062177bc510aaea2",
+      "assets/music/a-borough-grows.ogg": "f66760ea1663b93251ffb9fc592e9ab25b1bd5ca22d9aa166fc1fea51b247662",
+      "assets/music/quiet-river-reprise.ogg": "1c26c4b31191c805af3daa6cfe8192da4191e68a5db4ef6c8f372494687f9e84",
+      "assets/music/rails-to-greyhaven.ogg": "3152612b1171b05d097aaba466a0be5f7a3dd3c2c7d48a0fe8b0fa04784b014a",
+      "assets/music/LICENSE.txt": "f88c31f721aae3852bafd50acf051b7eb23e54982cc065e674c7ba6adeb0a21b",
+      "assets/music/orchard-footpaths.ogg": "7e4d8f9051dfb4810b2d1b4452053261aa08577646b52daa973dc14e73506c52",
+      "assets/music/waterline-work.ogg": "a537e8dc1b39fae2e9ee68f6f48a099a7f087532736a08b6a76c8e5c2b68dc85"
+    },
+    "artifacts": {
+      "native-host-fixture.apk": "ebd30c075e6ef17f5430d597791ab89852b0371d2cdd9e3213a7250f6c865915",
+      "native-host-tests.apk": "884d807c95d887da44beaf4588935800d84b5aba5a1b9b8d15f952298326a8af"
+    },
+    "game_assets": true,
+    "asset_source": "assets",
+    "sdk_platform": "android-36",
+    "build_tools": "36.0.0",
+    "run_status": "NOT RUN",
+    "production_signer_used": false
+  },
+  "signers": {
+    "7.1.1": {
+      "certificate_sha256": "52ae61b76c6cebd430dbdd0db54f8347e5dcd223e4146b4af92dfbdb0190650e",
+      "verified": true
+    },
+    "early-8.0.0": {
+      "certificate_sha256": "52ae61b76c6cebd430dbdd0db54f8347e5dcd223e4146b4af92dfbdb0190650e",
+      "verified": true
+    },
+    "scratch-clean": {
+      "certificate_sha256": "6b9e5b10adcfe14f69f44ad0b93f534c2ebcc798598d1b607a2acd023effafc4",
+      "verified": true
+    }
+  },
+  "negative_evidence": [
+    {
+      "stage": "first streamed installation",
+      "outcome": "timed out; later package query confirmed installation; exact installed fixture and test APK hashes match their builds"
+    },
+    {
+      "stage": "first real picker probe",
+      "outcome": "FAIL while boot SystemUI ANR overlay covered the actual DocumentsUI; one ordinary Wait action removed it; subsequent import cancellation and export cancellation/recreation passed; no security settings changed"
+    },
+    {
+      "stage": "old dc0ddab regional founding plus 30-day combined JS call",
+      "game_sha256": "23bd4570b62219ddc9f58a68007cb7c696569def326004fd4d1a198fcccd0fe1",
+      "outcome": "90-second callback timeout; not a completed native throughput benchmark"
+    },
+    {
+      "stage": "initial soundtrack after expensive founding",
+      "outcome": "media remained paused at time zero; an explicit trusted Next control touch started real Vorbis playback; automatic initial gesture playback is not certified"
+    },
+    {
+      "stage": "crossfade driver",
+      "outcome": "driver re-clicked active Settings, closing the drawer, then targeted a hidden button at (0,0); corrected by ensuring Settings is visible and checking the real hit target; final native crossfade passed"
+    },
+    {
+      "stage": "combined synthetic large-town call",
+      "outcome": "90-second callback timeout; reset, construction and load split into separate bounded callbacks; final 2000-resident load, validation and audio memory sample passed"
+    }
+  ],
+  "limits": [
+    "No physical-device FPS, thermals, speaker/listening or peak-decoder-memory certification",
+    "API 24, 33 and 36 runtime paths not exercised; Java compiled against API 36",
+    "System picker cancellation/recreation was real; successful file selection and transfer through the picker UI was not exercised",
+    "Successful Unicode/BOM/truncation/bounded transfers used an actual separate Android ContentProvider with Activity-result delivery",
+    "Full process-death/game-Continue recovery is not certified; supported WebView renderer termination/storage recovery passed in the native host fixture",
+    "Synthetic 2000 residents were loaded and validated, not naturally grown or used for sustained native economic throughput",
+    "Actual native onPause made document.hidden true; still-visible suspension behavior also has separate host/performance-owner evidence",
+    "Latest d90bb509 package was built and verified only; actual Android game evidence remains bound to 27ca5f1e"
+  ],
+  "cleanup": {
+    "emulator_terminated_pids": [
+      3133
+    ],
+    "debug_forward_removed": true,
+    "new_emulator_attempts": false
+  },
+  "latest_clean_build": {
+    "apk": "TownLedger-A-Trading-Town-8.0.0.apk",
+    "sha256": "da5afa805e16bb40bc2efa711fb35306194c2b215ecddcab54f62b7b62af1b39",
+    "bytes": 18327883,
+    "package": "org.townledger.vale",
+    "version": "8.0.0",
+    "code": 22,
+    "pipeline": "javac + dx/d8 + aapt + zipalign + apksigner",
+    "signature": "generated development signer; not a store release key",
+    "physical_device_tested": false
+  },
+  "latest_clean_package_verification": {
+    "apk": "TownLedger-A-Trading-Town-8.0.0.apk",
+    "sha256": "da5afa805e16bb40bc2efa711fb35306194c2b215ecddcab54f62b7b62af1b39",
+    "bytes": 18327883,
+    "dexIntegrity": true,
+    "sourceAssetsMatch": true,
+    "assets": {
+      "assets/mayor8.css": "d91d6ea9c3801e630c315f2579afd97765b68c1b9749addc2da3b20bc30c7343",
+      "assets/civic7.css": "9f312ee6465076207d4bfeb01996f755b59a125df8a7d16b47592713549d511e",
+      "assets/game.js": "d90bb509173a803b75c3cdc432fea57ce2f1e2abbcb13b8886c56d8feaffe515",
+      "assets/vale.css": "6aaa9781eb11e5b0d205a720451d3fbc5384b92fb783e457d5d33f4a94be9bb9",
+      "assets/index.html": "c45e152ac53f1818d41793b124cad7a5c9ff22d35bf184f17d7ed3dedcac5685",
+      "assets/style.css": "e666e2db01e419d7a65bb7050fb63f4c70a0d58348bdffa4ea7a54fbd8a67015",
+      "assets/music/morning-ledger.ogg": "7d4757811e18762e1ca6d34a21480159af87a4a729d3199657343cec670f35c7",
+      "assets/music/score.json": "79309110e20b0848fec904e383575c80ba558f89b7ef3d41da4e9714ba7cf58f",
+      "assets/music/lamplit-windows.ogg": "9a9b21c3deb9bd972e7b997d6d6d42446a3e2d7da479090090e7899ff872c986",
+      "assets/music/after-the-rain.ogg": "6358e61316aa6227bb667ce312ed4aa659bcc919a8b224604007663e85d856c3",
+      "assets/music/river-and-road.ogg": "838a9c6877a4a5253b4861b9cf8db88a72e3e5c29760d6cae360d776b96883f8",
+      "assets/music/market-day.ogg": "8f43f2ab5e49872fd99b469e39eee70fd8613df2952a9bdf062177bc510aaea2",
+      "assets/music/a-borough-grows.ogg": "f66760ea1663b93251ffb9fc592e9ab25b1bd5ca22d9aa166fc1fea51b247662",
+      "assets/music/quiet-river-reprise.ogg": "1c26c4b31191c805af3daa6cfe8192da4191e68a5db4ef6c8f372494687f9e84",
+      "assets/music/rails-to-greyhaven.ogg": "3152612b1171b05d097aaba466a0be5f7a3dd3c2c7d48a0fe8b0fa04784b014a",
+      "assets/music/LICENSE.txt": "f88c31f721aae3852bafd50acf051b7eb23e54982cc065e674c7ba6adeb0a21b",
+      "assets/music/orchard-footpaths.ogg": "7e4d8f9051dfb4810b2d1b4452053261aa08577646b52daa973dc14e73506c52",
+      "assets/music/waterline-work.ogg": "a537e8dc1b39fae2e9ee68f6f48a099a7f087532736a08b6a76c8e5c2b68dc85",
+      "assets/sound/build.wav": "88377b20c3bbca59a8fcabafe837b6e07508bbdba36112c7f643deea943ba551",
+      "assets/sound/save.wav": "e94121e8f98c3343759ee0606aa23924396cef4445935f4be3267ae9e79b1d6d",
+      "assets/sound/rain.wav": "8d5d04ed401b06df35d964915fcb0705b71f25d6460b7d789841138fadbe3e01",
+      "assets/sound/click.wav": "f442b590c799bbcf972e69d1c1f172881cb5bf81116bf114bc015080d5057c91",
+      "assets/sound/village.wav": "5789b8988371c6720931a270c433690cdbce4f5dfb6ae7859f4c9b9ed8e857bb",
+      "assets/sound/error.wav": "b5d5ded784fb78f162ec098a741ef921c2f10113a13b0d76043966546bcbf0c5",
+      "assets/sound/coin.wav": "99edffa3814662def67c66a9401791043b5221a331ee6edf552d862703a7c7af",
+      "assets/sound/LICENSE.txt": "66435b1de18b054246e451607fdbfdbdea1e1f770fb214518bfb556f79cd591e",
+      "assets/sound/zone.wav": "9d2e5ce6837c95bed60894c43c91f410a675d720369e8245d151653ca1a3541a"
+    },
+    "badging": "package: name='org.townledger.vale' versionCode='22' versionName='8.0.0' platformBuildVersionName='16' platformBuildVersionCode='36' compileSdkVersion='36' compileSdkVersionCodename='16'\nsdkVersion:'24'\ntargetSdkVersion:'36'\napplication-label:'TownLedger: The Vale'\napplication-icon-160:'res/drawable/townledger.xml'\napplication: label='TownLedger: The Vale' icon='res/drawable/townledger.xml'\nlaunchable-activity: name='org.townledger.vale.MainActivity'  label='' icon=''\nfeature-group: label=''\n  uses-feature: name='android.hardware.faketouch'\n  uses-implied-feature: name='android.hardware.faketouch' reason='default feature for all apps'\n  uses-feature: name='android.hardware.screen.landscape'\n  uses-implied-feature: name='android.hardware.screen.landscape' reason='one or more activities have specified a landscape orientation'\nmain\nsupports-screens: 'small' 'normal' 'large' 'xlarge'\nsupports-any-density: 'true'\nlocales: '--_--'\ndensities: '160'\n",
+    "signatureVerification": "Verifies\nVerified using v1 scheme (JAR signing): false\nVerified using v2 scheme (APK Signature Scheme v2): true\nVerified using v3 scheme (APK Signature Scheme v3): true\nVerified using v3.1 scheme (APK Signature Scheme v3.1): false\nVerified using v4 scheme (APK Signature Scheme v4): false\nVerified for SourceStamp: false\nNumber of signers: 1\nSigner #1 certificate DN: CN=TownLedger Development, O=TownLedger, C=CA\nSigner #1 certificate SHA-256 digest: 6e0ce4146cdd87fc2ce8470751875e9550f20e368d117fb2adab13af92ba828b\nSigner #1 certificate SHA-1 digest: 38516aee25e3886a79ab85aae58b39f56a8e518f\nSigner #1 certificate MD5 digest: 08e65a11fec477e0ed91acf626d81cab\nSigner #1 key algorithm: RSA\nSigner #1 key size (bits): 3072\nSigner #1 public key SHA-256 digest: 7a1c5dd83a3c99fdaea8b4e38a28a968eec6861da793f564ca81f50cc815a724\nSigner #1 public key SHA-1 digest: f618a75b9ef05a07ec6477e9b88cb6163060dd66\nSigner #1 public key MD5 digest: 446fa577b67944817d69571842032d04\n",
+    "alignment": true,
+    "deviceInstallation": "NOT TESTED",
+    "frameRateOnAndroid": "NOT TESTED"
+  },
+  "latest_debug_build": {
+    "source_commit": "e021756e6ad7fb66f95b2ced237bc78a3739d650",
+    "source_files": {
+      "android/app/src/main/java/org/townledger/vale/MainActivity.java": "5e4469e223d72d07eb87c7f60fd24c4f7144b53fbe0c1e3594c98435d631ec19",
+      "android/app/src/main/java/org/townledger/vale/BackNavigation.java": "5e6b38bd787ccdaa9006173d7c8ac82d208c90cc571d13ecc56e68af0f69b2ee",
+      "android/app/src/main/java/org/townledger/vale/ArchiveIO.java": "1f2d9a5ba00e535fb6dd08ab17e53d1817b70251d9579c80868ce7a08d256c56",
+      "tests/android/FullGameHarness.java": "0d2383287aa5d8d4047d14402eb2a8ca806092199671c44c2773b6afef2d3253",
+      "tests/android/ArchiveProvider.java": "7910cd8b7c53c2f50a619386742d118626084b345f395f29d3f1a98b765d9c73",
+      "assets/civic7.css": "9f312ee6465076207d4bfeb01996f755b59a125df8a7d16b47592713549d511e",
+      "assets/game.js": "d90bb509173a803b75c3cdc432fea57ce2f1e2abbcb13b8886c56d8feaffe515",
+      "assets/index.html": "c45e152ac53f1818d41793b124cad7a5c9ff22d35bf184f17d7ed3dedcac5685",
+      "assets/style.css": "e666e2db01e419d7a65bb7050fb63f4c70a0d58348bdffa4ea7a54fbd8a67015",
+      "assets/vale.css": "6aaa9781eb11e5b0d205a720451d3fbc5384b92fb783e457d5d33f4a94be9bb9",
+      "assets/mayor8.css": "d91d6ea9c3801e630c315f2579afd97765b68c1b9749addc2da3b20bc30c7343",
+      "assets/sound/LICENSE.txt": "66435b1de18b054246e451607fdbfdbdea1e1f770fb214518bfb556f79cd591e",
+      "assets/sound/build.wav": "88377b20c3bbca59a8fcabafe837b6e07508bbdba36112c7f643deea943ba551",
+      "assets/sound/click.wav": "f442b590c799bbcf972e69d1c1f172881cb5bf81116bf114bc015080d5057c91",
+      "assets/sound/coin.wav": "99edffa3814662def67c66a9401791043b5221a331ee6edf552d862703a7c7af",
+      "assets/sound/error.wav": "b5d5ded784fb78f162ec098a741ef921c2f10113a13b0d76043966546bcbf0c5",
+      "assets/sound/rain.wav": "8d5d04ed401b06df35d964915fcb0705b71f25d6460b7d789841138fadbe3e01",
+      "assets/sound/save.wav": "e94121e8f98c3343759ee0606aa23924396cef4445935f4be3267ae9e79b1d6d",
+      "assets/sound/village.wav": "5789b8988371c6720931a270c433690cdbce4f5dfb6ae7859f4c9b9ed8e857bb",
+      "assets/sound/zone.wav": "9d2e5ce6837c95bed60894c43c91f410a675d720369e8245d151653ca1a3541a",
+      "assets/music/morning-ledger.ogg": "7d4757811e18762e1ca6d34a21480159af87a4a729d3199657343cec670f35c7",
+      "assets/music/score.json": "79309110e20b0848fec904e383575c80ba558f89b7ef3d41da4e9714ba7cf58f",
+      "assets/music/lamplit-windows.ogg": "9a9b21c3deb9bd972e7b997d6d6d42446a3e2d7da479090090e7899ff872c986",
+      "assets/music/after-the-rain.ogg": "6358e61316aa6227bb667ce312ed4aa659bcc919a8b224604007663e85d856c3",
+      "assets/music/river-and-road.ogg": "838a9c6877a4a5253b4861b9cf8db88a72e3e5c29760d6cae360d776b96883f8",
+      "assets/music/market-day.ogg": "8f43f2ab5e49872fd99b469e39eee70fd8613df2952a9bdf062177bc510aaea2",
+      "assets/music/a-borough-grows.ogg": "f66760ea1663b93251ffb9fc592e9ab25b1bd5ca22d9aa166fc1fea51b247662",
+      "assets/music/quiet-river-reprise.ogg": "1c26c4b31191c805af3daa6cfe8192da4191e68a5db4ef6c8f372494687f9e84",
+      "assets/music/rails-to-greyhaven.ogg": "3152612b1171b05d097aaba466a0be5f7a3dd3c2c7d48a0fe8b0fa04784b014a",
+      "assets/music/LICENSE.txt": "f88c31f721aae3852bafd50acf051b7eb23e54982cc065e674c7ba6adeb0a21b",
+      "assets/music/orchard-footpaths.ogg": "7e4d8f9051dfb4810b2d1b4452053261aa08577646b52daa973dc14e73506c52",
+      "assets/music/waterline-work.ogg": "a537e8dc1b39fae2e9ee68f6f48a099a7f087532736a08b6a76c8e5c2b68dc85"
+    },
+    "artifacts": {
+      "native-host-fixture.apk": "6deb2775b02c8039028a1fe56b33f6b94c970be1375caad9f9de76ac7dd44b95",
+      "native-host-tests.apk": "fd7316e39fedcbc9d3bb10e35bd6b5120bc5930d3d3485c0e598d5bec28193ee"
+    },
+    "game_assets": true,
+    "asset_source": "assets",
+    "sdk_platform": "android-36",
+    "build_tools": "36.0.0",
+    "run_status": "NOT RUN",
+    "production_signer_used": false
+  },
+  "accepted_source_native_java_unchanged_in_latest_package": true,
+  "additional_package_09": {
+    "base": "09e1c3b2142dd96e722003eb55a76a70279ae043",
+    "native_cleanup_applied": true,
+    "assets": {
+      "game_sha256": "7e730235c0fbd4275d4efc1e0ae39d28350d7d813cfa7f7eaba4332ab636ccfc",
+      "service_budget_css_sha256": "9101199bdd685e681fe551003cd9f8b1d5f38a1b63232c99f0199965053b197a",
+      "service_budget_css_in_apk": true,
+      "apk_sha256": "c55e999dc8b2b59c579ea0ec4625db78527a8c904ec4d72cf5d92d86f3a5c36a",
+      "bytes": 18336146,
+      "native_launched": false
+    },
+    "build": {
+      "apk": "TownLedger-A-Trading-Town-8.0.0.apk",
+      "sha256": "c55e999dc8b2b59c579ea0ec4625db78527a8c904ec4d72cf5d92d86f3a5c36a",
+      "bytes": 18336146,
+      "package": "org.townledger.vale",
+      "version": "8.0.0",
+      "code": 22,
+      "pipeline": "javac + dx/d8 + aapt + zipalign + apksigner",
+      "signature": "development; not a store release key",
+      "physical_device_tested": false
+    },
+    "verification": {
+      "apk": "TownLedger-A-Trading-Town-8.0.0.apk",
+      "sha256": "c55e999dc8b2b59c579ea0ec4625db78527a8c904ec4d72cf5d92d86f3a5c36a",
+      "bytes": 18336146,
+      "dexIntegrity": true,
+      "sourceAssetsMatch": true,
+      "assets": {
+        "assets/mayor8.css": "d91d6ea9c3801e630c315f2579afd97765b68c1b9749addc2da3b20bc30c7343",
+        "assets/civic7.css": "9f312ee6465076207d4bfeb01996f755b59a125df8a7d16b47592713549d511e",
+        "assets/service-budget.css": "9101199bdd685e681fe551003cd9f8b1d5f38a1b63232c99f0199965053b197a",
+        "assets/game.js": "7e730235c0fbd4275d4efc1e0ae39d28350d7d813cfa7f7eaba4332ab636ccfc",
+        "assets/vale.css": "6aaa9781eb11e5b0d205a720451d3fbc5384b92fb783e457d5d33f4a94be9bb9",
+        "assets/index.html": "74b31e4eb780452505d1cd46296c87b477f0fd906322184724fb09a7a3e85185",
+        "assets/style.css": "e666e2db01e419d7a65bb7050fb63f4c70a0d58348bdffa4ea7a54fbd8a67015",
+        "assets/music/morning-ledger.ogg": "7d4757811e18762e1ca6d34a21480159af87a4a729d3199657343cec670f35c7",
+        "assets/music/score.json": "79309110e20b0848fec904e383575c80ba558f89b7ef3d41da4e9714ba7cf58f",
+        "assets/music/lamplit-windows.ogg": "9a9b21c3deb9bd972e7b997d6d6d42446a3e2d7da479090090e7899ff872c986",
+        "assets/music/after-the-rain.ogg": "6358e61316aa6227bb667ce312ed4aa659bcc919a8b224604007663e85d856c3",
+        "assets/music/river-and-road.ogg": "838a9c6877a4a5253b4861b9cf8db88a72e3e5c29760d6cae360d776b96883f8",
+        "assets/music/market-day.ogg": "8f43f2ab5e49872fd99b469e39eee70fd8613df2952a9bdf062177bc510aaea2",
+        "assets/music/a-borough-grows.ogg": "f66760ea1663b93251ffb9fc592e9ab25b1bd5ca22d9aa166fc1fea51b247662",
+        "assets/music/quiet-river-reprise.ogg": "1c26c4b31191c805af3daa6cfe8192da4191e68a5db4ef6c8f372494687f9e84",
+        "assets/music/rails-to-greyhaven.ogg": "3152612b1171b05d097aaba466a0be5f7a3dd3c2c7d48a0fe8b0fa04784b014a",
+        "assets/music/LICENSE.txt": "f88c31f721aae3852bafd50acf051b7eb23e54982cc065e674c7ba6adeb0a21b",
+        "assets/music/orchard-footpaths.ogg": "7e4d8f9051dfb4810b2d1b4452053261aa08577646b52daa973dc14e73506c52",
+        "assets/music/waterline-work.ogg": "a537e8dc1b39fae2e9ee68f6f48a099a7f087532736a08b6a76c8e5c2b68dc85",
+        "assets/sound/build.wav": "88377b20c3bbca59a8fcabafe837b6e07508bbdba36112c7f643deea943ba551",
+        "assets/sound/save.wav": "e94121e8f98c3343759ee0606aa23924396cef4445935f4be3267ae9e79b1d6d",
+        "assets/sound/rain.wav": "8d5d04ed401b06df35d964915fcb0705b71f25d6460b7d789841138fadbe3e01",
+        "assets/sound/click.wav": "f442b590c799bbcf972e69d1c1f172881cb5bf81116bf114bc015080d5057c91",
+        "assets/sound/village.wav": "5789b8988371c6720931a270c433690cdbce4f5dfb6ae7859f4c9b9ed8e857bb",
+        "assets/sound/error.wav": "b5d5ded784fb78f162ec098a741ef921c2f10113a13b0d76043966546bcbf0c5",
+        "assets/sound/coin.wav": "99edffa3814662def67c66a9401791043b5221a331ee6edf552d862703a7c7af",
+        "assets/sound/LICENSE.txt": "66435b1de18b054246e451607fdbfdbdea1e1f770fb214518bfb556f79cd591e",
+        "assets/sound/zone.wav": "9d2e5ce6837c95bed60894c43c91f410a675d720369e8245d151653ca1a3541a"
+      },
+      "badging": "package: name='org.townledger.vale' versionCode='22' versionName='8.0.0' platformBuildVersionName='16' platformBuildVersionCode='36' compileSdkVersion='36' compileSdkVersionCodename='16'\nsdkVersion:'24'\ntargetSdkVersion:'36'\napplication-label:'TownLedger: The Vale'\napplication-icon-160:'res/drawable/townledger.xml'\napplication: label='TownLedger: The Vale' icon='res/drawable/townledger.xml'\nlaunchable-activity: name='org.townledger.vale.MainActivity'  label='' icon=''\nfeature-group: label=''\n  uses-feature: name='android.hardware.faketouch'\n  uses-implied-feature: name='android.hardware.faketouch' reason='default feature for all apps'\n  uses-feature: name='android.hardware.screen.landscape'\n  uses-implied-feature: name='android.hardware.screen.landscape' reason='one or more activities have specified a landscape orientation'\nmain\nsupports-screens: 'small' 'normal' 'large' 'xlarge'\nsupports-any-density: 'true'\nlocales: '--_--'\ndensities: '160'\n",
+      "signatureVerification": "Verifies\nVerified using v1 scheme (JAR signing): false\nVerified using v2 scheme (APK Signature Scheme v2): true\nVerified using v3 scheme (APK Signature Scheme v3): true\nVerified using v3.1 scheme (APK Signature Scheme v3.1): false\nVerified using v4 scheme (APK Signature Scheme v4): false\nVerified for SourceStamp: false\nNumber of signers: 1\nSigner #1 certificate DN: CN=TownLedger Development, O=TownLedger, C=CA\nSigner #1 certificate SHA-256 digest: e3079dc10b1b4784d99771256e56bbd7ccf0455495f6b4751ffffc8bdb281d7c\nSigner #1 certificate SHA-1 digest: 7fb47ca936d286e704aa2f018c2ae4998fc9235b\nSigner #1 certificate MD5 digest: 42fe03d2dae195214400c68fec0a8893\nSigner #1 key algorithm: RSA\nSigner #1 key size (bits): 3072\nSigner #1 public key SHA-256 digest: 8d312d5567c6f459fa63686fe4e1c41f2108fa58334fbf35a39b0f65e627455b\nSigner #1 public key SHA-1 digest: c9d13a0487b1dc4b0298ed007594c24f8bc0ec70\nSigner #1 public key MD5 digest: 3b5d4c576b84d6e362950b136d069887\n",
+      "alignment": true,
+      "deviceInstallation": "NOT TESTED",
+      "frameRateOnAndroid": "NOT TESTED"
+    }
+  }
+}

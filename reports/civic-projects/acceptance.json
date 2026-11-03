@@ -1,0 +1,41 @@
+{
+  "source_sha256": "6a770b26dc99ece160a4ef9883730f92498f4c0fdd20bbf217e533a3f878a798",
+  "based_on": "cae1bf426b0b1b534319415e3eacaa25972fa916",
+  "passed_test_invocations": [
+    "test_civic_projects.py",
+    "test_civic_project_recovery.py",
+    "test_civic_project_freight.py",
+    "test_civic_project_private.py",
+    "test_civic_project_legacy.py",
+    "test_mayor_journey.py",
+    "test_mayor_rules.py",
+    "test_council_programme.py",
+    "test_private_services.py",
+    "test_private_service_entry.py [school]",
+    "test_private_service_entry.py [fire]",
+    "test_status_deck.py",
+    "test_map_hierarchy.py",
+    "test_live_status.py",
+    "test_mobile_rendering.py",
+    "test_regional_trade.py",
+    "test_district_trade_choices.py"
+  ],
+  "test_invocation_count": 17,
+  "screenshots": {
+    "clear-map-390x844.png": "cf18a37964638cc8e2af292729bbf22a82cfb21ad792afb5fd1a92daf78e9aa7",
+    "clear-map-568x320.png": "25fc19fd617c6ca4971ecdbbb99b388b7c05b7821a3d06cffea7278495d83b37",
+    "clear-map-844x390.png": "92eb75d9d067793a99036a22cc8f5a5fea3c5e0f953a5a5c9e0a8b72d786acc1",
+    "landscape-gateway-survey.png": "090684e7d339202a6f7eab23d613a13791317c424df4a47ca56e58ed1f841442",
+    "landscape-working-project.png": "f82ffbfe6c8d99bad6f0169706e82ae4d5c9933d30b6d7af68af92c33654ae50",
+    "portrait-project-board.png": "e91e27d4f4df82469932825031087d0ee4596a4f05855eaf560fb6e936ef43f7"
+  },
+  "remaining_limits": [
+    "No physical Android/device certification or APK",
+    "No multi-hour human play-duration claim",
+    "Default-town long-run difficulty remains integration work"
+  ],
+  "notes": [
+    "Provider and counter fixtures are explicitly controlled; ordinary browser/control journeys are separate.",
+    "A hypothetical future lost/cancelled-cargo removal must use explicit successful-delivery notification."
+  ]
+}

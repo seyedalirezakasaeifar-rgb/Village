@@ -1,0 +1,70 @@
+INSTRUMENTATION_STATUS: progress=Native input founds a valid town
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: progress=Full game has visible nonzero native map
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: progress=Native map contains rendered scene pixels
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: progress=Three settlement economy days validate in actual native engine
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: progress=Native overview panel opens
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: progress=Native economy panel opens
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: progress=Native community panel opens
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: progress=Native agenda panel opens
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: progress=Native policies panel opens
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: progress=Native settings panel opens
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: progress=Native Back dismisses topmost confirmation while retaining settings and town
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: progress=Next native Back dismisses underlying drawer without exit
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: progress=Native Vorbis soundtrack advances real media playback after explicit music control touch
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: progress=Native pause holds a running simulation day
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: progress=Native suspension parks observed map painting, Overview DOM and extra storage writes
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: progress=Native pause stops soundtrack and effects media
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: progress=Native resume avoids a backlog burst after suspension
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: progress=Native resume restarts soundtrack
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: progress=Native suspend and resume preserve the player's own pause preference
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: progress=Native full-game archive roundtrip validates
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: progress=Native soundtrack reports no decoder error after gesture playback
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: progress=Native soundtrack crossfade runs two streaming media elements
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: progress=Native crossfade retires and unloads previous media source
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: progress=No captured full-game JavaScript errors
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: progress=Synthetic 2000-resident archive prepared in native engine
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: progress=Synthetic 2000-resident city loads in native engine
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: progress=Native synthetic 2000-resident archive validates after loading
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: progress=Soundtrack remains active with synthetic large city
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: progress=Large city ready for external memory sample (30 seconds)
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_RESULT: checks=[Native input founds a valid town, Full game has visible nonzero native map, Native map contains rendered scene pixels, Three settlement economy days validate in actual native engine, Native overview panel opens, Native economy panel opens, Native community panel opens, Native agenda panel opens, Native policies panel opens, Native settings panel opens, Native Back dismisses topmost confirmation while retaining settings and town, Next native Back dismisses underlying drawer without exit, Native Vorbis soundtrack advances real media playback after explicit music control touch, Native pause holds a running simulation day, Native suspension parks observed map painting, Overview DOM and extra storage writes, Native pause stops soundtrack and effects media, Native resume avoids a backlog burst after suspension, Native resume restarts soundtrack, Native suspend and resume preserve the player's own pause preference, Native full-game archive roundtrip validates, Native soundtrack reports no decoder error after gesture playback, Native soundtrack crossfade runs two streaming media elements, Native crossfade retires and unloads previous media source, No captured full-game JavaScript errors, Synthetic 2000-resident archive prepared in native engine, Synthetic 2000-resident city loads in native engine, Native synthetic 2000-resident archive validates after loading, Soundtrack remains active with synthetic large city]
+INSTRUMENTATION_RESULT: hiddenDuringNativeSuspension=true
+INSTRUMENTATION_RESULT: mapRasterColors=3315
+INSTRUMENTATION_RESULT: mediaAfterExplicitControl=[{"duration":379.681813,"error":null,"paused":true,"ready":4,"src":"file:///android_asset/music/after-the-rain.ogg","time":0},{"duration":18,"error":null,"paused":true,"ready":4,"src":"file:///android_asset/sound/village.wav","time":0},{"duration":0.24,"error":null,"paused":true,"ready":4,"src":"file:///android_asset/sound/coin.wav","time":0},{"duration":0.075,"error":null,"paused":true,"ready":4,"src":"file:///android_asset/sound/click.wav","time":0.075},{"duration":287.457438,"error":null,"paused":false,"ready":4,"src":"file:///android_asset/music/rails-to-greyhaven.ogg","time":0.064}]
+INSTRUMENTATION_RESULT: mediaBeforeExplicitControl=[{"duration":379.681813,"error":null,"paused":true,"ready":4,"src":"file:///android_asset/music/after-the-rain.ogg","time":0},{"duration":18,"error":null,"paused":true,"ready":4,"src":"file:///android_asset/sound/village.wav","time":0},{"duration":0.24,"error":null,"paused":true,"ready":4,"src":"file:///android_asset/sound/coin.wav","time":0},{"duration":0.075,"error":null,"paused":true,"ready":4,"src":"file:///android_asset/sound/click.wav","time":0.075}]
+INSTRUMENTATION_RESULT: musicStatus="Music & atmosphereTen original chamber pieces · about47 minutes. The next piece reflects the town’s activity and your preferred character, with six recent pieces held out. Changes take effect between pieces. Music and effects have separate controls.Rails to GreyhavenMUSIC ONNEXT PIECEMusic volume Music character Follow the townQuieter selectionsLivelier selectionsOriginal score & creditsOriginal melodies, arrangements and offline synthesis for TownLedger, dedicated under CC0. No borrowed recordings or samples.Morning Ledger · 3 minRiver And Road · 3 minLamplit Windows · 4 minOrchard Footpaths · 5 minRails to Greyhaven · 5 minWork at the Waterline · 5 minThe Long Market Day · 5 minRooms after the Rain · 6 minA Borough Grows · 6 minThe Quiet River · 6 minDisplay & accessibilityGraphics qualityPerformanceBalancedRich detailFrame-rate limit20 FPS30 FPS60 FPSStreet namesNamed streets and a visible road hierarchy.ONVisible trafficCommuters and trucks. Cargo and jobs continue when hidden.ONAtmospheric effectsSmoke, water shimmer and weather particles.ONGardens & landscape detailFlowers, fences, masonry and roof texture.ONReduced motionStop decorative movement and traffic animation.OFFLarger textLarger menu labels and reading text.OFFMap hintsShow the short map guidance below the town.ONClimate rulesSeasonal cycleOFF by default: green landscape and stable farm output all year. Saved with this town.OFFWeather eventsOFF by default: no storms or droughts. Saved with this town.OFFSavingAutosave interval15 seconds30 seconds1 minute2 minutesPausing or leaving the app also saves. At 64×, Balanced and Performance simplify ground detail and reduce map resolution; pause or choose Rich detail to restore full detail. At high speed, the map refreshes at up to 20 FPS to give the economy more CPU time. The speed indicator measures days actually completed; slower devices may run below the selected rate.Recover previous autosaveViews of the ValeEvening lightWhole boroughMarket districtFarm beltLand valuesRoad accessSession diagnosticsDraw CPU median / p95353.80 / 17768.30 msDaily simulation median / p950.00 / 0.00 msRequested / measured speed1× / 0.0×Queued simulation0.8 daysLargest cash ledger drift$0CPU timings in this session are not device FPS or a thermal measurement. Measured speed counts completed simulation days. CPU work and queued wall time are bounded to keep controls responsive.Your game and archiveEditionA Trading Town 8.0.0EngineOffline fixed-step economy + cached pixel canvasLiving residents169Construction completed0Town foundedsettlementAutomatic savingCheck backup exportSimulation speed1× (1–64×, dynamic workload cap)TURN OFF AMBIENCE & SOUNDSAVE NOWEXPORT BACKUPRESTORE BACKUPGAME MANUALSTART NEW TOWNSimulation principlesThe economy runs as real linked accounts: wages and purchases move money among firms, families, the town treasury and the external region. Goods have inventory; people have jobs; firms have expenses. Government services spend actual cash and provide observable benefits.Important: This is an experimental, self-contained Android adaptation. Policy coefficients are designed for gameplay, not calibrated forecasts of real municipal outcomes. Retain a text backup if you change devices or uninstall."
+INSTRUMENTATION_RESULT: outcome=PASS
+INSTRUMENTATION_RESULT: resumeDayReadMs=2110
+INSTRUMENTATION_RESULT: suspensionCounters={"dom":1,"paint":51,"writes":6}
+INSTRUMENTATION_RESULT: town={"achievements":[],"approval":65,"businesses":26,"cases":0,"day":1,"debt":0,"employment":5,"events":2,"firmCash":536792,"hardship":0,"hhCash":450297,"pending":false,"policy":{"aidBudget":100,"bankReserve":12,"businessRegulation":25,"commercialRate":0.6,"defenseBudget":140,"depositGuarantee":0,"educationBudget":90,"employmentSubsidy":0,"energyAidBudget":35,"foodTax":4,"healthBudget":70,"importTariff":0,"imports":true,"incomeTax":12,"lendingRules":35,"militiaBudget":25,"minWage":28,"outreachBudget":40,"pensionDaily":16,"permitFee":250,"policeBudget":180,"policyRate":3,"privateFireFeeCap":1,"privateServices":1,"privateTuitionCap":4,"profitTax":12,"propertyTax":1.1,"roadBudget":25,"serviceVoucherBudget":0,"transitBudget":35,"treasuryInvestment":60,"utilityTax":2,"zoningRestriction":25},"population":2000,"regional":14381480,"stats":{"approval":65,"businessCash":536792,"businesses":26,"cash":450297,"dailyCrime":0,"education":46,"employed":88,"employment":5,"hardship":0,"health":74,"income":0,"marketConfidence":60,"population":2000,"preparedness":76,"roadAccess":100,"safety":91,"townBalance":90000,"unemployment":95,"wellbeing":72,"workforce":1941},"total":15580992,"treasury":90000}
+INSTRUMENTATION_RESULT: userAgent=Mozilla/5.0 (Linux; Android 11; Android SDK built for x86_64 Build/RSR1.210722.013.A2; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/83.0.4103.120 Mobile Safari/537.36
+INSTRUMENTATION_CODE: -1

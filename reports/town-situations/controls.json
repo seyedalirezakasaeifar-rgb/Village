@@ -1,0 +1,51 @@
+{
+  "source_sha256": "2f271375c4f43e521ac83de19063547edaa2c0777e0033e5d7b3a54065d8d82e",
+  "recordedUnsuccessfulRoute": {
+    "key": "neighbourhood:2:4",
+    "kind": "neighbourhood",
+    "building": 96,
+    "firm": -1,
+    "household": 62,
+    "x": 20,
+    "y": 39,
+    "name": "Carter household",
+    "id": 2,
+    "choice": "bus",
+    "started": 3,
+    "baseline": {
+      "day": 3,
+      "treasury": 90208.42242217148,
+      "food": 59.17159763313611,
+      "school": 32.142857142857146,
+      "eligible": 2,
+      "home": 96,
+      "firmOpen": false,
+      "workers": 0,
+      "cash": 0,
+      "buildingPresent": true,
+      "queue": 0,
+      "jobs": 0,
+      "rides": 0,
+      "denied": 0
+    },
+    "observations": [
+      {
+        "day": 11,
+        "treasury": 88940.11627673353,
+        "food": 100,
+        "school": 32.142857142857146,
+        "eligible": 2,
+        "home": 96,
+        "firmOpen": false,
+        "workers": 0,
+        "cash": 0,
+        "buildingPresent": true,
+        "queue": 247.05499999999995,
+        "jobs": 0,
+        "rides": 0,
+        "denied": 0
+      }
+    ]
+  },
+  "errors": []
+}

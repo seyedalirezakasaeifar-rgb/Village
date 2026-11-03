@@ -1,0 +1,95 @@
+{
+  "source_sha256": "51e3ef71127d616960e8e4184fa0961813cdd63e626c7992e67dd1a61909776a",
+  "deeds": [
+    {
+      "id": "east-meadow",
+      "paid": 30606
+    },
+    {
+      "id": "county-ridge",
+      "paid": 37368
+    },
+    {
+      "id": "river-reach",
+      "paid": 32286
+    },
+    {
+      "id": "orchard-downs",
+      "paid": 37872
+    },
+    {
+      "id": "high-common",
+      "paid": 32328
+    },
+    {
+      "id": "belt-78-2",
+      "paid": 40224
+    }
+  ],
+  "laterVacantSurvey": {
+    "ok": true,
+    "x": 83,
+    "y": 7,
+    "key": "10:0",
+    "bx": 80,
+    "by": 0,
+    "cost": 600,
+    "reviewDay": 181,
+    "current": "market",
+    "owned": 48,
+    "fields": 0,
+    "farmEnterprises": 0,
+    "people": 0,
+    "homes": 0,
+    "jobs": 0,
+    "band": "No resident income",
+    "income": 0,
+    "rentBurden": 0,
+    "school": null,
+    "care": null,
+    "parcel": "belt-78-2",
+    "charter": null,
+    "crossesDeeds": true
+  },
+  "productiveFieldsBeforePermissionChange": 14,
+  "existingTitlesPeopleAndStocksPreserved": true,
+  "cooldownNoCharge": true,
+  "actualRevisionPaid": 1800.0,
+  "boundaryWarning": true,
+  "populatedSurvey": {
+    "ok": true,
+    "x": 20,
+    "y": 22,
+    "key": "2:2",
+    "bx": 16,
+    "by": 16,
+    "cost": 600,
+    "reviewDay": 271,
+    "current": "market",
+    "owned": 64,
+    "fields": 0,
+    "farmEnterprises": 0,
+    "people": 52,
+    "homes": 14,
+    "jobs": 25,
+    "band": "Middle income",
+    "income": 23.024408672684437,
+    "rentBurden": 0.195188695699643,
+    "school": 0.29851241720628025,
+    "care": 0.4314159292035373,
+    "parcel": null,
+    "charter": null,
+    "crossesDeeds": false
+  },
+  "mobileReviewNoHorizontalOverflow": true,
+  "reviewStartsAtHeading": true,
+  "valid": {
+    "ok": true,
+    "issues": [],
+    "total": 15493516.999999756,
+    "population": 678,
+    "day": 271
+  },
+  "day": 271,
+  "errors": []
+}

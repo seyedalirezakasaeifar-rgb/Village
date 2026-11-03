@@ -1,0 +1,17 @@
+{
+  "fixture": "tests/fixtures/retail-refusal-pending-project.json.gz",
+  "sha256": "901b418c73ad9f3422e31607b2c0971235b4770ba5f5fbe8000e761aadc62824",
+  "generated_on": "d2b7086187621ae8c3c147fc3c04764efaadf49d",
+  "scenario": "regional",
+  "seed": 42,
+  "day": 721,
+  "generator": "tools/audit_growth_journey.py",
+  "arguments": {
+    "TOWNLEDGER_URBAN_YEARS": "2",
+    "TOWNLEDGER_URBAN_ARMS": "market",
+    "TOWNLEDGER_URBAN_SEEDS": "42"
+  },
+  "grants": false,
+  "source_sha256": "2b2f14477099ee7a3c4a2f34bc590714c5163d4db358fee7f9bd7288e590b0d7",
+  "note": "Synthetic QA town from ordinary-resource audit, no user archive; complete raw save retained only for regression reproduction"
+}

@@ -1,0 +1,21 @@
+{
+  "source_sha256": "282c7d2953d3d7b84fa2e92bf67b17e4cd37db03a94cfea623892f4b09e0f8ee",
+  "cases": [
+    {
+      "flag": "simulationTickFailed",
+      "result": {
+        "ok": false,
+        "reason": "Recover the last committed town before authorizing farm relocation."
+      },
+      "unchanged": true
+    },
+    {
+      "flag": "simulationTickActive",
+      "result": {
+        "ok": false,
+        "reason": "Recover the last committed town before authorizing farm relocation."
+      },
+      "unchanged": true
+    }
+  ]
+}

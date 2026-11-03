@@ -1,0 +1,20 @@
+diff --git a/src/27-urban-evolution.js b/src/27-urban-evolution.js
+index 509b8cf..10de66e 100644
+--- a/src/27-urban-evolution.js
++++ b/src/27-urban-evolution.js
+@@ -41,8 +41,13 @@ function urbanSpatial(){
+  }
+  // Measure food-shop access using the same cached road-distance maps consumed
+  // by household purchasing. This is a reach snapshot, not a purchase promise.
+- const market=householdMarket(),localGrocers=G.firms.filter(f=>!f.closed&&f.kind==='grocer').map(f=>({firm:f,key:urbanBlockKey(readBuild(f.building)?.x??-100,readBuild(f.building)?.y??-100),distance:market.stores.get(f.id)?.distance}));
+- for(const [key,s] of Object.entries(profileStats))if(s.retailFirmIds.length){const stores=localGrocers.filter(v=>v.key===key&&v.distance),stocked=stores.filter(v=>workingStaff(v.firm).length>0&&(v.firm.stock.food||0)>0);for(const h of G.households){if(!h.people.length)continue;const port=net.portals.get(h.home);if(port==null)continue;const within=stores.some(v=>(v.distance.get(port)??Infinity)<=24);if(within){s.retailResidentsWithin24+=h.people.length;if(stocked.some(v=>(v.distance.get(port)??Infinity)<=24))s.retailStockedResidentsWithin24+=h.people.length;}}}
++ const market=householdMarket(),grocersByBlock=new Map(),customerHomes=[];
++ // Snapshot each customer portal once per observation. Reusing these primitive
++ // rows avoids repeating household/portal scans for every retail block; this
++ // cache still expires at every existing economic writer boundary.
++ for(const h of G.households){if(!h.people.length)continue;const port=net.portals.get(h.home);if(port!=null)customerHomes.push({port,residents:h.people.length});}
++ for(const f of G.firms){if(f.closed||f.kind!=='grocer')continue;const b=readBuild(f.building),key=urbanBlockKey(b?.x??-100,b?.y??-100),distance=market.stores.get(f.id)?.distance;if(!distance)continue;if(!grocersByBlock.has(key))grocersByBlock.set(key,[]);grocersByBlock.get(key).push({distance,stocked:workingStaff(f).length>0&&(f.stock.food||0)>0});}
++ for(const [key,s] of Object.entries(profileStats))if(s.retailFirmIds.length){const stores=grocersByBlock.get(key)||[];if(!stores.length)continue;for(const h of customerHomes){let within=false,stocked=false;for(const store of stores)if((store.distance.get(h.port)??Infinity)<=24){within=true;if(store.stocked){stocked=true;break;}}if(within){s.retailResidentsWithin24+=h.residents;if(stocked)s.retailStockedResidentsWithin24+=h.residents;}}}
+  const incomes=Object.values(blocks).filter(b=>b.residents).map(b=>b.income/b.residents).sort((a,b)=>a-b),median=incomes[Math.floor(incomes.length/2)]||15;
+  const occupied=Object.values(blocks).filter(b=>b.residents>=12),medianCenterDistance=urbanMedian(occupied.map(b=>profileStats[b.key]?.connectedProperties?profileStats[b.key].roadDistanceTotal/profileStats[b.key].connectedProperties:null)),medianHousingUnits=urbanMedian(occupied.map(b=>profileStats[b.key]?.housingUnits||null)),medianJobCapacity=urbanMedian(occupied.map(b=>b.jobs>0?b.jobs:null)),health=urbanServiceProfile('health'),school=urbanServiceProfile('school'),profiles={};
+  for(const b of Object.values(blocks)){

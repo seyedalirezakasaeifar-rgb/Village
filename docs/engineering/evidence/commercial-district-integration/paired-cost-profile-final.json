@@ -1,0 +1,187 @@
+{
+  "base": "848bf1bfb8fdddc3155ba5a7773348d28073ade4",
+  "base_source_sha256": "78f4c3b5dc1a34313ff8752b6a6a5e85410a832b597b04fba4a0f1005ec62174",
+  "source_sha256": "3af2f8355807bfa3c23482b25816f657ae618970dfeb4e38dc6c34aa3140115c",
+  "fixture": "765-person ordinary-resource regional seed42 day721",
+  "samples": [
+    {
+      "label": "base",
+      "repeat": 0,
+      "days": 20,
+      "wallMs": 705.2000000011176,
+      "tickCPUms": 703.4000000003725,
+      "coldSpatialBuilds": 20,
+      "spatialCalls": 6581,
+      "coldSpatialCPUms": 20.59999999590218,
+      "moneyError": 1.6763806343078613e-07,
+      "valid": true
+    },
+    {
+      "label": "candidate",
+      "repeat": 0,
+      "days": 20,
+      "wallMs": 690.8000000007451,
+      "tickCPUms": 686.3000000007451,
+      "coldSpatialBuilds": 21,
+      "spatialCalls": 6581,
+      "coldSpatialCPUms": 43.20000000484288,
+      "moneyError": 1.6763806343078613e-07,
+      "valid": true
+    },
+    {
+      "label": "candidate",
+      "repeat": 1,
+      "days": 20,
+      "wallMs": 602.9000000003725,
+      "tickCPUms": 599.7999999988824,
+      "coldSpatialBuilds": 21,
+      "spatialCalls": 6581,
+      "coldSpatialCPUms": 39.10000000335276,
+      "moneyError": 1.6763806343078613e-07,
+      "valid": true
+    },
+    {
+      "label": "base",
+      "repeat": 1,
+      "days": 20,
+      "wallMs": 577.9000000003725,
+      "tickCPUms": 576.3000000007451,
+      "coldSpatialBuilds": 20,
+      "spatialCalls": 6581,
+      "coldSpatialCPUms": 20.799999995157123,
+      "moneyError": 1.6763806343078613e-07,
+      "valid": true
+    },
+    {
+      "label": "base",
+      "repeat": 2,
+      "days": 20,
+      "wallMs": 599.3999999985099,
+      "tickCPUms": 597.5,
+      "coldSpatialBuilds": 20,
+      "spatialCalls": 6581,
+      "coldSpatialCPUms": 21.900000002235174,
+      "moneyError": 1.6763806343078613e-07,
+      "valid": true
+    },
+    {
+      "label": "candidate",
+      "repeat": 2,
+      "days": 20,
+      "wallMs": 633.2999999988824,
+      "tickCPUms": 629.6999999992549,
+      "coldSpatialBuilds": 21,
+      "spatialCalls": 6581,
+      "coldSpatialCPUms": 48.89999999664724,
+      "moneyError": 1.6763806343078613e-07,
+      "valid": true
+    },
+    {
+      "label": "base",
+      "repeat": 0,
+      "days": 30,
+      "wallMs": 962.4000000003725,
+      "tickCPUms": 960.4000000003725,
+      "coldSpatialBuilds": 32,
+      "spatialCalls": 14862,
+      "coldSpatialCPUms": 31.799999998882413,
+      "moneyError": 5.587935447692871e-07,
+      "valid": true
+    },
+    {
+      "label": "candidate",
+      "repeat": 0,
+      "days": 30,
+      "wallMs": 1080.0999999996275,
+      "tickCPUms": 1068.5999999996275,
+      "coldSpatialBuilds": 35,
+      "spatialCalls": 14862,
+      "coldSpatialCPUms": 89.49999999813735,
+      "moneyError": 5.587935447692871e-07,
+      "valid": true
+    },
+    {
+      "label": "candidate",
+      "repeat": 1,
+      "days": 30,
+      "wallMs": 1046.300000000745,
+      "tickCPUms": 1042.5,
+      "coldSpatialBuilds": 35,
+      "spatialCalls": 14862,
+      "coldSpatialCPUms": 78.49999999813735,
+      "moneyError": 5.587935447692871e-07,
+      "valid": true
+    },
+    {
+      "label": "base",
+      "repeat": 1,
+      "days": 30,
+      "wallMs": 936.1000000014901,
+      "tickCPUms": 934.7000000011176,
+      "coldSpatialBuilds": 32,
+      "spatialCalls": 14862,
+      "coldSpatialCPUms": 31.399999989196658,
+      "moneyError": 5.587935447692871e-07,
+      "valid": true
+    },
+    {
+      "label": "base",
+      "repeat": 2,
+      "days": 30,
+      "wallMs": 906.0999999996275,
+      "tickCPUms": 904.5,
+      "coldSpatialBuilds": 32,
+      "spatialCalls": 14862,
+      "coldSpatialCPUms": 32.19999999552965,
+      "moneyError": 5.587935447692871e-07,
+      "valid": true
+    },
+    {
+      "label": "candidate",
+      "repeat": 2,
+      "days": 30,
+      "wallMs": 979.3999999985099,
+      "tickCPUms": 976,
+      "coldSpatialBuilds": 35,
+      "spatialCalls": 14862,
+      "coldSpatialCPUms": 67.09999999962747,
+      "moneyError": 5.587935447692871e-07,
+      "valid": true
+    }
+  ],
+  "medians": [
+    {
+      "days": 20,
+      "label": "base",
+      "wallMs": 599.3999999985099,
+      "tickCPUms": 597.5,
+      "coldSpatialBuilds": 20,
+      "coldSpatialCPUms": 20.799999995157123
+    },
+    {
+      "days": 20,
+      "label": "candidate",
+      "wallMs": 633.2999999988824,
+      "tickCPUms": 629.6999999992549,
+      "coldSpatialBuilds": 21,
+      "coldSpatialCPUms": 43.20000000484288
+    },
+    {
+      "days": 30,
+      "label": "base",
+      "wallMs": 936.1000000014901,
+      "tickCPUms": 934.7000000011176,
+      "coldSpatialBuilds": 32,
+      "coldSpatialCPUms": 31.799999998882413
+    },
+    {
+      "days": 30,
+      "label": "candidate",
+      "wallMs": 1046.300000000745,
+      "tickCPUms": 1042.5,
+      "coldSpatialBuilds": 35,
+      "coldSpatialCPUms": 78.49999999813735
+    }
+  ],
+  "limits": "Alternating repeated host Chromium samples, same initial archive, seven-day warmups; synchronous test-step includes header update. No renderer/GPU/input/native/large-world/thermal certification."
+}

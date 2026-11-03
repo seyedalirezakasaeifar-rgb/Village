@@ -1,0 +1,35 @@
+{
+  "commit": "03cb54675880a9b60c0c8d8de5dd0b671d0abff3",
+  "source_sha256": "27ca5f1e1e5df352d38daf042d2de63b63024b8deed596c79e2f4679cc50947e",
+  "startedUTC": "2026-10-31T19:33:55.863390+00:00",
+  "dueUTC": "2026-10-31T22:33:55.863387+00:00",
+  "actualDurations": true,
+  "subjectiveListening": false,
+  "physicalAndroid": false,
+  "status": "passed",
+  "elapsedSeconds": 10800.95,
+  "distinctTracks": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "samples": 18,
+  "failures": [],
+  "nativeCallbacks": [
+    3600,
+    7200
+  ],
+  "backgroundReturns": [
+    1800,
+    5400,
+    9000
+  ],
+  "sourceUnchanged": true
+}

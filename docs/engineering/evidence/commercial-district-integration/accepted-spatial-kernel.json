@@ -1,0 +1,52 @@
+{
+  "source_sha256": "3af2f8355807bfa3c23482b25816f657ae618970dfeb4e38dc6c34aa3140115c",
+  "checkpoint_sha256": "119f367d1b00b548728c3f3921f58a01b1fbaf4d52e41474e7da2f279e157bc7",
+  "audit": {
+    "cases": [
+      "late town",
+      "jobs",
+      "closure",
+      "income",
+      "condition",
+      "day",
+      "revision"
+    ],
+    "timing": [
+      {
+        "reference": 358.09999999962747,
+        "candidate": 398
+      },
+      {
+        "candidate": 435,
+        "reference": 206.5
+      },
+      {
+        "reference": 258.59999999962747,
+        "candidate": 476.40000000037253
+      },
+      {
+        "candidate": 292.69999999925494,
+        "reference": 127.90000000037253
+      },
+      {
+        "reference": 109.60000000149012,
+        "candidate": 204.09999999962747
+      },
+      {
+        "candidate": 178.5,
+        "reference": 99.70000000111759
+      }
+    ],
+    "unchanged": true,
+    "buildings": 272,
+    "day": 721
+  },
+  "exactDays": [
+    751,
+    781,
+    811,
+    841,
+    871,
+    901
+  ]
+}

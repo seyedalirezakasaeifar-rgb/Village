@@ -1,0 +1,29 @@
+{
+  "source_sha256": "c482b89614ecb09bccf8a0ddfda8c944f740d01a1bed9da5cbb58764627a9781",
+  "assets": {
+    "assets/civic7.css": "1d025aa43c49752ecdadc641bc75723cffbb3c84b63c9085654043ecb6dc7e63",
+    "assets/style.css": "96b4f686a7125e05720bd2de246f2bfbd8f7610e344486b967e99882f45f3a0f",
+    "assets/game.js": "c482b89614ecb09bccf8a0ddfda8c944f740d01a1bed9da5cbb58764627a9781",
+    "assets/index.html": "d64e12cbf297beb3122b590b32103adf684cd268237228220c39546beb47c18c",
+    "assets/vale.css": "6aaa9781eb11e5b0d205a720451d3fbc5384b92fb783e457d5d33f4a94be9bb9",
+    "assets/sound/click.wav": "f442b590c799bbcf972e69d1c1f172881cb5bf81116bf114bc015080d5057c91",
+    "assets/sound/rain.wav": "8d5d04ed401b06df35d964915fcb0705b71f25d6460b7d789841138fadbe3e01",
+    "assets/sound/build.wav": "88377b20c3bbca59a8fcabafe837b6e07508bbdba36112c7f643deea943ba551",
+    "assets/sound/zone.wav": "9d2e5ce6837c95bed60894c43c91f410a675d720369e8245d151653ca1a3541a",
+    "assets/sound/error.wav": "b5d5ded784fb78f162ec098a741ef921c2f10113a13b0d76043966546bcbf0c5",
+    "assets/sound/LICENSE.txt": "66435b1de18b054246e451607fdbfdbdea1e1f770fb214518bfb556f79cd591e",
+    "assets/sound/village.wav": "5789b8988371c6720931a270c433690cdbce4f5dfb6ae7859f4c9b9ed8e857bb",
+    "assets/sound/coin.wav": "99edffa3814662def67c66a9401791043b5221a331ee6edf552d862703a7c7af",
+    "assets/sound/save.wav": "e94121e8f98c3343759ee0606aa23924396cef4445935f4be3267ae9e79b1d6d"
+  },
+  "capture": "Chromium 154, 844x390; settlement seed42 day6. River frames advance only the separate visual clock. Land images show actual preview and confirmation controls. No Android device claim.",
+  "screenshots": {
+    "regional-overview-844x390.png": "3528fff00da5ba495a803d7d66213283fec473cd89cbb4c7653644617eafd24c",
+    "river-workday-2-844x390.png": "7b2bf8714d14fd463df915249990d39824a42af76c2ca4f2971adf0afc9f50a6",
+    "east-meadow-owned-844x390.png": "a7e09830443b060f1f4494a203a896053867b0aa70ff28852b3031876d001c35",
+    "river-workday-1-844x390.png": "b9036087a54a3b79435b0df875f447a798713fd6bcbc2821cd8fa26a657f5a3e",
+    "deed-confirmation-844x390.png": "d4f502da73741354ba1f4df2948299ef2cba0dd91a4023522c0c6c760a76e7a7",
+    "east-meadow-survey-844x390.png": "8dc334b115543d93ecfe0794a4fc95ed1c218d957f2ff867311334a7dc444ca0",
+    "river-workday-0-844x390.png": "7a5bcab0ab6f919ee06e9358ee2845cc6733804c08340b6299a5f7e7c69e5c04"
+  }
+}

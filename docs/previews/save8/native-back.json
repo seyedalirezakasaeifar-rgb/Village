@@ -1,0 +1,13 @@
+{
+  "source_sha256": "17297afbea134d5259b60ba6db500af1444328b1a0f0c91e71b5b6c1460f8e54",
+  "back_java_sha256": "5e6b38bd787ccdaa9006173d7c8ac82d208c90cc571d13ecc56e68af0f69b2ee",
+  "activity_java_sha256": "a827a053dba39718f029b6c149307e0043a0ec21aef483f679778c68a50b33c1",
+  "checks": [
+    "JVM request/stale/timeout cancellation",
+    "actual generated JS closes topmost layer",
+    "awaits committed save before exit acknowledgement",
+    "denied stores retain town and return unsaved",
+    "renderer-loss API guarded and cleanup present"
+  ],
+  "deviceDialogsTested": false
+}

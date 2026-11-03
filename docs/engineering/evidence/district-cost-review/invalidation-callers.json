@@ -1,0 +1,542 @@
+{
+  "source_sha256": "3af2f8355807bfa3c23482b25816f657ae618970dfeb4e38dc6c34aa3140115c",
+  "limits": "Diagnostic stack capture only; not timed benchmark",
+  "events": [
+    {
+      "day": 722,
+      "type": "build",
+      "caller": [
+        "at urbanDescriptor",
+        "at urbanRentMultiplier"
+      ]
+    },
+    {
+      "day": 722,
+      "type": "invalidate",
+      "caller": [
+        "at loanPayments",
+        "at dailyEconomy"
+      ]
+    },
+    {
+      "day": 723,
+      "type": "build",
+      "caller": [
+        "at urbanDescriptor",
+        "at urbanRentMultiplier"
+      ]
+    },
+    {
+      "day": 723,
+      "type": "invalidate",
+      "caller": [
+        "at loanPayments",
+        "at dailyEconomy"
+      ]
+    },
+    {
+      "day": 724,
+      "type": "build",
+      "caller": [
+        "at urbanDescriptor",
+        "at urbanRentMultiplier"
+      ]
+    },
+    {
+      "day": 724,
+      "type": "invalidate",
+      "caller": [
+        "at loanPayments",
+        "at dailyEconomy"
+      ]
+    },
+    {
+      "day": 725,
+      "type": "build",
+      "caller": [
+        "at urbanDescriptor",
+        "at urbanRentMultiplier"
+      ]
+    },
+    {
+      "day": 725,
+      "type": "invalidate",
+      "caller": [
+        "at loanPayments",
+        "at dailyEconomy"
+      ]
+    },
+    {
+      "day": 726,
+      "type": "build",
+      "caller": [
+        "at urbanDescriptor",
+        "at urbanRentMultiplier"
+      ]
+    },
+    {
+      "day": 726,
+      "type": "invalidate",
+      "caller": [
+        "at loanPayments",
+        "at dailyEconomy"
+      ]
+    },
+    {
+      "day": 727,
+      "type": "build",
+      "caller": [
+        "at urbanDescriptor",
+        "at urbanRentMultiplier"
+      ]
+    },
+    {
+      "day": 727,
+      "type": "invalidate",
+      "caller": [
+        "at loanPayments",
+        "at dailyEconomy"
+      ]
+    },
+    {
+      "day": 728,
+      "type": "build",
+      "caller": [
+        "at urbanDescriptor",
+        "at urbanRentMultiplier"
+      ]
+    },
+    {
+      "day": 728,
+      "type": "invalidate",
+      "caller": [
+        "at loanPayments",
+        "at dailyEconomy"
+      ]
+    },
+    {
+      "day": 729,
+      "type": "build",
+      "caller": [
+        "at urbanDescriptor",
+        "at urbanRentMultiplier"
+      ]
+    },
+    {
+      "day": 729,
+      "type": "invalidate",
+      "caller": [
+        "at loanPayments",
+        "at dailyEconomy"
+      ]
+    },
+    {
+      "day": 730,
+      "type": "build",
+      "caller": [
+        "at urbanDescriptor",
+        "at urbanRentMultiplier"
+      ]
+    },
+    {
+      "day": 730,
+      "type": "invalidate",
+      "caller": [
+        "at loanPayments",
+        "at dailyEconomy"
+      ]
+    },
+    {
+      "day": 731,
+      "type": "build",
+      "caller": [
+        "at urbanDescriptor",
+        "at urbanRentMultiplier"
+      ]
+    },
+    {
+      "day": 731,
+      "type": "invalidate",
+      "caller": [
+        "at loanPayments",
+        "at dailyEconomy"
+      ]
+    },
+    {
+      "day": 732,
+      "type": "build",
+      "caller": [
+        "at urbanDescriptor",
+        "at urbanRentMultiplier"
+      ]
+    },
+    {
+      "day": 732,
+      "type": "invalidate",
+      "caller": [
+        "at loanPayments",
+        "at dailyEconomy"
+      ]
+    },
+    {
+      "day": 733,
+      "type": "build",
+      "caller": [
+        "at urbanDescriptor",
+        "at urbanRentMultiplier"
+      ]
+    },
+    {
+      "day": 733,
+      "type": "invalidate",
+      "caller": [
+        "at loanPayments",
+        "at dailyEconomy"
+      ]
+    },
+    {
+      "day": 734,
+      "type": "build",
+      "caller": [
+        "at urbanDescriptor",
+        "at urbanRentMultiplier"
+      ]
+    },
+    {
+      "day": 734,
+      "type": "invalidate",
+      "caller": [
+        "at loanPayments",
+        "at dailyEconomy"
+      ]
+    },
+    {
+      "day": 735,
+      "type": "build",
+      "caller": [
+        "at urbanDescriptor",
+        "at urbanRentMultiplier"
+      ]
+    },
+    {
+      "day": 735,
+      "type": "invalidate",
+      "caller": [
+        "at loanPayments",
+        "at dailyEconomy"
+      ]
+    },
+    {
+      "day": 736,
+      "type": "build",
+      "caller": [
+        "at urbanDescriptor",
+        "at urbanRentMultiplier"
+      ]
+    },
+    {
+      "day": 736,
+      "type": "invalidate",
+      "caller": [
+        "at loanPayments",
+        "at dailyEconomy"
+      ]
+    },
+    {
+      "day": 737,
+      "type": "build",
+      "caller": [
+        "at urbanDescriptor",
+        "at urbanRentMultiplier"
+      ]
+    },
+    {
+      "day": 737,
+      "type": "invalidate",
+      "caller": [
+        "at loanPayments",
+        "at dailyEconomy"
+      ]
+    },
+    {
+      "day": 738,
+      "type": "build",
+      "caller": [
+        "at urbanDescriptor",
+        "at urbanRentMultiplier"
+      ]
+    },
+    {
+      "day": 738,
+      "type": "invalidate",
+      "caller": [
+        "at loanPayments",
+        "at dailyEconomy"
+      ]
+    },
+    {
+      "day": 739,
+      "type": "build",
+      "caller": [
+        "at urbanDescriptor",
+        "at urbanRentMultiplier"
+      ]
+    },
+    {
+      "day": 739,
+      "type": "invalidate",
+      "caller": [
+        "at loanPayments",
+        "at dailyEconomy"
+      ]
+    },
+    {
+      "day": 740,
+      "type": "build",
+      "caller": [
+        "at urbanDescriptor",
+        "at urbanRentMultiplier"
+      ]
+    },
+    {
+      "day": 740,
+      "type": "invalidate",
+      "caller": [
+        "at loanPayments",
+        "at dailyEconomy"
+      ]
+    },
+    {
+      "day": 741,
+      "type": "build",
+      "caller": [
+        "at urbanDescriptor",
+        "at urbanRentMultiplier"
+      ]
+    },
+    {
+      "day": 741,
+      "type": "invalidate",
+      "caller": [
+        "at loanPayments",
+        "at dailyEconomy"
+      ]
+    },
+    {
+      "day": 742,
+      "type": "build",
+      "caller": [
+        "at urbanDescriptor",
+        "at urbanRentMultiplier"
+      ]
+    },
+    {
+      "day": 742,
+      "type": "invalidate",
+      "caller": [
+        "at loanPayments",
+        "at dailyEconomy"
+      ]
+    },
+    {
+      "day": 743,
+      "type": "build",
+      "caller": [
+        "at urbanDescriptor",
+        "at urbanRentMultiplier"
+      ]
+    },
+    {
+      "day": 743,
+      "type": "invalidate",
+      "caller": [
+        "at loanPayments",
+        "at dailyEconomy"
+      ]
+    },
+    {
+      "day": 744,
+      "type": "build",
+      "caller": [
+        "at urbanDescriptor",
+        "at urbanRentMultiplier"
+      ]
+    },
+    {
+      "day": 744,
+      "type": "invalidate",
+      "caller": [
+        "at loanPayments",
+        "at dailyEconomy"
+      ]
+    },
+    {
+      "day": 745,
+      "type": "build",
+      "caller": [
+        "at urbanDescriptor",
+        "at urbanRentMultiplier"
+      ]
+    },
+    {
+      "day": 745,
+      "type": "invalidate",
+      "caller": [
+        "at loanPayments",
+        "at dailyEconomy"
+      ]
+    },
+    {
+      "day": 746,
+      "type": "build",
+      "caller": [
+        "at urbanDescriptor",
+        "at urbanRentMultiplier"
+      ]
+    },
+    {
+      "day": 746,
+      "type": "invalidate",
+      "caller": [
+        "at loanPayments",
+        "at dailyEconomy"
+      ]
+    },
+    {
+      "day": 747,
+      "type": "build",
+      "caller": [
+        "at urbanDescriptor",
+        "at urbanRentMultiplier"
+      ]
+    },
+    {
+      "day": 747,
+      "type": "invalidate",
+      "caller": [
+        "at loanPayments",
+        "at dailyEconomy"
+      ]
+    },
+    {
+      "day": 748,
+      "type": "build",
+      "caller": [
+        "at urbanDescriptor",
+        "at urbanRentMultiplier"
+      ]
+    },
+    {
+      "day": 748,
+      "type": "invalidate",
+      "caller": [
+        "at loanPayments",
+        "at dailyEconomy"
+      ]
+    },
+    {
+      "day": 749,
+      "type": "build",
+      "caller": [
+        "at urbanDescriptor",
+        "at urbanRentMultiplier"
+      ]
+    },
+    {
+      "day": 749,
+      "type": "invalidate",
+      "caller": [
+        "at loanPayments",
+        "at dailyEconomy"
+      ]
+    },
+    {
+      "day": 750,
+      "type": "build",
+      "caller": [
+        "at urbanDescriptor",
+        "at urbanRentMultiplier"
+      ]
+    },
+    {
+      "day": 750,
+      "type": "invalidate",
+      "caller": [
+        "at loanPayments",
+        "at dailyEconomy"
+      ]
+    },
+    {
+      "day": 750,
+      "type": "build",
+      "caller": [
+        "at urbanDescriptor",
+        "at urbanPlacementReason"
+      ]
+    },
+    {
+      "day": 750,
+      "type": "build",
+      "caller": [
+        "at urbanDescriptor",
+        "at urbanPlacementReason"
+      ]
+    },
+    {
+      "day": 750,
+      "type": "build",
+      "caller": [
+        "at urbanDescriptor",
+        "at urbanPlacementReason"
+      ]
+    },
+    {
+      "day": 750,
+      "type": "invalidate",
+      "caller": [
+        "at withdrawal",
+        "at housingMarketDay"
+      ]
+    },
+    {
+      "day": 750,
+      "type": "build",
+      "caller": [
+        "at urbanDescriptor",
+        "at urbanRentMultiplier"
+      ]
+    },
+    {
+      "day": 750,
+      "type": "invalidate",
+      "caller": [
+        "at tick",
+        "at Object.step"
+      ]
+    },
+    {
+      "day": 751,
+      "type": "build",
+      "caller": [
+        "at urbanDescriptor",
+        "at urbanRentMultiplier"
+      ]
+    },
+    {
+      "day": 751,
+      "type": "invalidate",
+      "caller": [
+        "at loanPayments",
+        "at dailyEconomy"
+      ]
+    },
+    {
+      "day": 751,
+      "type": "build",
+      "caller": [
+        "at urbanDescriptor",
+        "at urbanPlacementReason"
+      ]
+    }
+  ]
+}

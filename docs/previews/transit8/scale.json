@@ -1,0 +1,20 @@
+{
+  "source_sha256": "cb9965525c56ab4df79584d4edf1afef7494162bfeba27dc274b385928e8fd72",
+  "result": {
+    "routes": 48,
+    "nodes": 768,
+    "times": [
+      48.5,
+      8,
+      5.899999999906868,
+      5.100000000093132,
+      4.100000000093132
+    ],
+    "poseMs": 0.021999999997206032,
+    "cacheStable": true,
+    "assigned": 2000,
+    "drivers": 192,
+    "denied": 0
+  },
+  "passed": true
+}

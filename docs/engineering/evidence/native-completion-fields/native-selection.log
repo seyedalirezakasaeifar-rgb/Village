@@ -1,0 +1,41 @@
+{
+  "source_sha256": "84ecbaef6b0ae999a9c5adcd49b9ba1678840cabfc36cf02b617c74a93d208a4",
+  "cases": [
+    {
+      "mode": "absent",
+      "methods": [
+        "syncExport",
+        "syncImport"
+      ],
+      "completeArchiveAndRngUnchanged": true,
+      "exportArchiveExact": true
+    },
+    {
+      "mode": "endpoint",
+      "methods": [
+        "asyncExport",
+        "asyncImport"
+      ],
+      "completeArchiveAndRngUnchanged": true,
+      "exportArchiveExact": null
+    },
+    {
+      "mode": "oldApk",
+      "methods": [
+        "syncExport",
+        "syncImport"
+      ],
+      "completeArchiveAndRngUnchanged": true,
+      "exportArchiveExact": true
+    },
+    {
+      "mode": "failed",
+      "methods": [
+        "syncImport"
+      ],
+      "completeArchiveAndRngUnchanged": true,
+      "exportArchiveExact": null
+    }
+  ],
+  "scope": "Injected Android interfaces verify browser dispatch only; no Worker, Android picker or durable native callback is emulated."
+}

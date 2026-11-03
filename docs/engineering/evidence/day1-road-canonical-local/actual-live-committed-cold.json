@@ -1,0 +1,11 @@
+{
+  "sourceSha256": "d3ed25306c7c4754485d0691d04d9d4f9739dccafc1d2efbaa909762977a7081",
+  "realUiControls": true,
+  "rafDisabledToFreezeCompletedDay": false,
+  "actualLiveDaysRequested": 5,
+  "dayBefore": 6,
+  "dayAfter": 6,
+  "excludedFields": [],
+  "differences": [],
+  "exact": true
+}

@@ -1,0 +1,28 @@
+{
+  "source_sha256": "aa6ade08ca4bf9966926663e33a0d37532067302908ab73506d6cf817b31c6f6",
+  "cases": [
+    {
+      "kind": "school",
+      "paid": 96,
+      "privateReceiptPreserved": false,
+      "publicReceiptPreserved": false,
+      "sameDayCashUnchanged": false,
+      "learningUnchanged": false,
+      "totalConserved": true
+    },
+    {
+      "kind": "fire",
+      "paid": 133.0522271074499,
+      "privateReceiptPreserved": false,
+      "publicReceiptPreserved": false,
+      "sameDayCashUnchanged": false,
+      "learningUnchanged": true,
+      "totalConserved": true
+    }
+  ]
+}
+Traceback (most recent call last):
+  File "/workspace/core-recovery/tests/test_service_receipt_continuation.py", line 10, in <module>
+    assert all(all(r[k] for k in ['privateReceiptPreserved','publicReceiptPreserved','sameDayCashUnchanged','learningUnchanged','totalConserved']) for r in rows),rows
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: [{'kind': 'school', 'paid': 96, 'privateReceiptPreserved': False, 'publicReceiptPreserved': False, 'sameDayCashUnchanged': False, 'learningUnchanged': False, 'totalConserved': True}, {'kind': 'fire', 'paid': 133.0522271074499, 'privateReceiptPreserved': False, 'publicReceiptPreserved': False, 'sameDayCashUnchanged': False, 'learningUnchanged': True, 'totalConserved': True}]

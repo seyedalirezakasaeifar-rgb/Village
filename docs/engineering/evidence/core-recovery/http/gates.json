@@ -1,0 +1,54 @@
+{
+  "source_sha256": "218de17d31e130f8f683ab1287307380eb2ec0689b06d39a9003ef26883a1fc7",
+  "base": "6c02aadf293513d022f7a3868b52abe050202880",
+  "gates": [
+    {
+      "test": "test_v7_model",
+      "exit_code": 1,
+      "seconds": 10.0,
+      "log_sha256": "a43f3439e134872473b4db0ea647871b723f63362208242cc00faf1a8e85371a"
+    },
+    {
+      "test": "test_release",
+      "exit_code": 0,
+      "seconds": 25.9,
+      "log_sha256": "a63e5f47f01ec1bddc737abb20a38425fa05ee9da873bf13b729a65b6151fa91"
+    },
+    {
+      "test": "test_save_queue",
+      "exit_code": 0,
+      "seconds": 3.94,
+      "log_sha256": "bb0ae1e7bd1574daa2e0ebcd066b3bdfabc4bf7714639f2979a3d76b449cb0d6"
+    },
+    {
+      "test": "test_save_chronology",
+      "exit_code": 0,
+      "seconds": 21.82,
+      "log_sha256": "030cbfcdee7aaf575dce6815a0b48d49897cca4a91b340b5d83d0884369843c9"
+    },
+    {
+      "test": "test_save_storage",
+      "exit_code": 1,
+      "seconds": 2.99,
+      "log_sha256": "90c7cac6dadfd3e002c1b47b8521ab979535abbf66557ab2eca1b4733b229241"
+    },
+    {
+      "test": "test_v7_default_starts",
+      "exit_code": 0,
+      "seconds": 26.99,
+      "log_sha256": "853498e26e5ac3688c0689b16b5460f3d2f4c35e1a3d21ac8eedc13e7b11cacc"
+    },
+    {
+      "test": "test_v7_liquidity",
+      "exit_code": 0,
+      "seconds": 35.54,
+      "log_sha256": "25caa839c22a26929ce5165c19d441913cdc24d88dfd6571a3fe1aa822b73a5e"
+    },
+    {
+      "test": "test_v7_scenarios",
+      "exit_code": 0,
+      "seconds": 131.27,
+      "log_sha256": "412bce8c85700474ba9bdd2fbc0113d59f8f86423df8b70c216de56bad2adf2c"
+    }
+  ]
+}

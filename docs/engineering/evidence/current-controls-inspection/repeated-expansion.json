@@ -1,0 +1,67 @@
+{
+  "source_sha256": "78f4c3b5dc1a34313ff8752b6a6a5e85410a832b597b04fba4a0f1005ec62174",
+  "results": [
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "purchases": [
+        {
+          "id": "east-meadow",
+          "price": 30606,
+          "owned": 1
+        },
+        {
+          "id": "county-ridge",
+          "price": 37368,
+          "owned": 2
+        },
+        {
+          "id": "river-reach",
+          "price": 32286,
+          "owned": 3
+        }
+      ],
+      "exactReload": true,
+      "exactReplayDays": 15,
+      "quoteReading": {
+        "scroll": 169,
+        "client": 75,
+        "scrollTopAfterRealWheel": 94
+      },
+      "errors": []
+    },
+    {
+      "viewport": [
+        390,
+        844
+      ],
+      "purchases": [
+        {
+          "id": "east-meadow",
+          "price": 30606,
+          "owned": 1
+        },
+        {
+          "id": "county-ridge",
+          "price": 37368,
+          "owned": 2
+        },
+        {
+          "id": "river-reach",
+          "price": 32286,
+          "owned": 3
+        }
+      ],
+      "exactReload": true,
+      "exactReplayDays": 15,
+      "quoteReading": {
+        "scroll": 223,
+        "client": 223,
+        "scrollTopAfterRealWheel": 0
+      },
+      "errors": []
+    }
+  ]
+}

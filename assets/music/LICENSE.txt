@@ -1,0 +1,10 @@
+TownLedger original chamber soundtrack — CC0-1.0
+
+All ten pieces listed in score.json contain original melodies, arrangements
+and additive synthesis authored for this project in tools/compose_music.py
+and tools/compose_extended_score.py. The seven longer arrangements include
+contrasting sections, original responses, bridges, codas and instrumentation.
+No external samples, recordings or borrowed melodies were used.
+To the extent permitted by law, the project dedicates these compositions,
+recordings and score generation code to the public domain under CC0 1.0:
+https://creativecommons.org/publicdomain/zero/1.0/

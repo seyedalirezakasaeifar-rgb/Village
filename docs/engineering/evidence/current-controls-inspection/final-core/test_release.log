@@ -1,0 +1,11 @@
+source_sha256 "78f4c3b5dc1a34313ff8752b6a6a5e85410a832b597b04fba4a0f1005ec62174"
+determinism_and_continuation {"sameSeed": true, "renderIndependent": true, "continuedDays": 120, "valid": {"ok": true, "issues": [], "total": 15489571.99999491, "population": 177, "day": 301}}
+malformed_save_atomicity {"investorRejected": true, "cargoRejected": true, "futureRejected": true, "townPreserved": true}
+replicated_zoning [{"seed": 42, "zone": 0, "population": 192, "homes": 17, "firms": 3, "privateSpend": 494901, "moneyDelta": -1.2569129467010498e-05, "ms": 3313.5}, {"seed": 42, "zone": 100, "population": 177, "homes": 0, "firms": 1, "privateSpend": 0, "moneyDelta": -1.7305836081504822e-05, "ms": 2018.699999999255}, {"seed": 101, "zone": 0, "population": 225, "homes": 22, "firms": 7, "privateSpend": 599329, "moneyDelta": -1.3617798686027527e-05, "ms": 3163.2999999988824}, {"seed": 101, "zone": 100, "population": 177, "homes": 0, "firms": 1, "privateSpend": 0, "moneyDelta": -5.887821316719055e-06, "ms": 2086}, {"seed": 909, "zone": 0, "population": 185, "homes": 15, "firms": 3, "privateSpend": 386747, "moneyDelta": -8.67992639541626e-06, "ms": 2379.5}, {"seed": 909, "zone": 100, "population": 180, "homes": 0, "firms": 1, "privateSpend": 0, "moneyDelta": -4.0102750062942505e-06, "ms": 2323}]
+cargo_ownership {"consignments": 6, "sampledUnits": 166.3792513597068, "remaining": true, "delayed": 1, "cashConserved": true}
+legacy_56_migration {"v": {"ok": true, "issues": [], "total": 15432635, "population": 169, "day": 1}, "after": {"ok": true, "issues": [], "total": 15432634.999999618, "population": 166, "day": 31}, "schema": 8}
+true_pause {"identicalScreenshots": true, "milliseconds": 500}
+traffic_progress {"seconds": 1600, "maximumWait": 0.9999999999999999, "peak": 21, "valid": true}
+long_run_endurance []
+browser_errors []
+PASS release gates

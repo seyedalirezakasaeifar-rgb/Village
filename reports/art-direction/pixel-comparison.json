@@ -1,0 +1,27 @@
+{
+  "mobile": {
+    "changedPixelsOver5": 78812,
+    "pixels": 235476,
+    "fraction": 0.335
+  },
+  "industry": {
+    "changedPixelsOver5": 185405,
+    "pixels": 496320,
+    "fraction": 0.374
+  },
+  "neighbourhood": {
+    "changedPixelsOver5": 171312,
+    "pixels": 496320,
+    "fraction": 0.345
+  },
+  "civic": {
+    "changedPixelsOver5": 216472,
+    "pixels": 496320,
+    "fraction": 0.436
+  },
+  "night": {
+    "changedPixelsOver5": 191414,
+    "pixels": 496320,
+    "fraction": 0.386
+  }
+}

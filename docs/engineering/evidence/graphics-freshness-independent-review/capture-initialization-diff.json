@@ -1,0 +1,19 @@
+{
+  "mayorJourney": {
+    "before": null,
+    "after": {
+      "version": 1,
+      "direction": "",
+      "started": 1,
+      "stage": 0,
+      "held": 0,
+      "lastDay": 1,
+      "completed": [],
+      "guide": true,
+      "visited": [
+        "settings"
+      ],
+      "review": null
+    }
+  }
+}

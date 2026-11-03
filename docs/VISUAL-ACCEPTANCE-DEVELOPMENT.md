@@ -1,0 +1,14 @@
+# Visual and player-feedback acceptance
+
+Reviewing actual recorded browser pixels found two more issues beyond model tests:
+
+- Evening/morning switches cleared sprite objects without clearing their recorded bytes. A first switch left12,632,320 accounted bytes in an empty cache. Repeated switches could exhaust the budget and repeatedly evict new sprites. All invalidation now uses one reset;12 light switches and a quality change preserve exact object/byte accounting and the48MiB bound, without changing the paused economic archive.
+- The map status refreshed only on an exact day-modulo condition. Fast batches could skip that condition, and pausing on another day left old care/school/firm figures visible. A screenshot showed41% care while the model had98%. Refresh now uses elapsed simulation days, town identity and pause/state changes; unchanged paused header calls perform no extra market scans. A regression covers skipped-day batches, and the actual player journey checks displayed figures against the current ledger.
+
+Brief feedback now sits at the map edge and cannot intercept touches; four mobile layouts verify it stays inside the map and leaves the centre clear. The real-origin player journey uses actual construction/policy controls and waits for simulation days rather than assuming host wall-time speed. It buys a district, paints its connection, opens fisheries/wharves/housing/services, observes staffed production/cargo and health purchases, inspects accounts and round-trips the archive.
+
+The30-minute real-origin64× persistence session completed1,801 seconds,41,625 simulation days and15 cold Continue cycles. It reached a3,291,104-byte archive, with maximum goods residual1.599e-8 and final cash drift about$0.000002; no JavaScript errors. Every physical exported field matched across each cold reload, excluding only explicit transient traffic/service/road caches and derived stats. That run belongs to immutable source `03ce31af...`, before later native-exit/cache/HUD changes.
+
+A separate2000-resident performance gate recorded56ms draw p95 while the64× soak was also running. The unchanged50ms gate then passed three isolated repetitions at35.2/33.7/35.1ms, with RAF p9533.3ms. The failed shared-load evidence is retained. This is host-browser evidence, not Android FPS; final performance acceptance must run without another simulation/emulator competing for the host.
+
+Current actual browser captures: [daylight](previews/visual-acceptance/waterfront-day.png), [evening](previews/visual-acceptance/waterfront-evening.png). Their [manifest](previews/visual-acceptance/evidence.json) records source/style/image hashes and the real-control journey. The on-map care/school/firm figures are now asserted against the current model before capture; no composited or generated screenshot content is used.

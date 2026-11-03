@@ -1,0 +1,128 @@
+{
+  "source_sha256": "86c2fc99e053f4a924742b0a4879359a4947bd6437d82ce93fca2373de105223",
+  "integrated_upstream": [
+    "0f30457f6b763c68e03b6e49661340831146a440",
+    "6255255ab034675ce899b1fee36be3b8f300d8eb",
+    "517e23fc3cc740bd9690b8369bd9f13a6f882ff1",
+    "b6237a1757a12352e2f9a46f691680ff634690eb"
+  ],
+  "exact_source_checks": [
+    "merged-logistics",
+    "queue-arrival-safety",
+    "merged-queue-core"
+  ],
+  "large_town": {
+    "source_sha256": "86c2fc99e053f4a924742b0a4879359a4947bd6437d82ce93fca2373de105223",
+    "viewport": [
+      844,
+      390
+    ],
+    "synthetic": {
+      "population": 2000,
+      "households": 678,
+      "buildings": 713,
+      "total": 15493517
+    },
+    "requestedSpeed": 64,
+    "elapsedSeconds": 8.041307434999908,
+    "simulatedDays": 305,
+    "rafP50Ms": 16.699999999999818,
+    "rafP95Ms": 50,
+    "rafP99Ms": 116.70000000000027,
+    "rafOver50ms": 17,
+    "renderer": {
+      "drawCount": 137,
+      "drawMedianMs": 1.6999999955296516,
+      "drawP95Ms": 40.69999999552965,
+      "drawP99Ms": 55.900000005960464,
+      "tickMedianMs": 10.5,
+      "tickP95Ms": 20.399999998509884,
+      "actualSpeed": 63.299232736572954,
+      "backlogDays": 0.9505454545455039
+    },
+    "ui": [
+      {
+        "panel": "[data-panel=economy]",
+        "toNextFrameMs": 83.70000000298023,
+        "panelError": false
+      },
+      {
+        "panel": "[data-panel=citizens]",
+        "toNextFrameMs": 59.29999999701977,
+        "panelError": false
+      },
+      {
+        "panel": "[data-panel=businesses]",
+        "toNextFrameMs": 35,
+        "panelError": false
+      },
+      {
+        "panel": "[data-panel=settings]",
+        "toNextFrameMs": 38.400000005960464,
+        "panelError": false
+      }
+    ],
+    "foundingAndWarmup": {
+      "frames": [
+        286.20000000298023,
+        0.8000000044703484,
+        0.7999999970197678,
+        31.899999998509884,
+        1.4000000059604645,
+        43.599999994039536,
+        3.4000000059604645,
+        3.5,
+        1.7999999970197678,
+        1.5,
+        2.3000000044703484,
+        1.7999999970197678,
+        1.3000000044703484,
+        1.3999999985098839,
+        1.5,
+        2.2000000029802322,
+        2.399999998509884
+      ],
+      "ticks": [
+        52.899999998509884,
+        25,
+        11.800000004470348,
+        14.900000005960464,
+        15.700000002980232,
+        12,
+        10.399999998509884,
+        8.900000005960464,
+        11.199999995529652,
+        13.299999997019768,
+        10.700000002980232,
+        11.100000001490116,
+        12.5,
+        10.799999997019768,
+        10.300000004470348,
+        15.300000004470348,
+        7.100000001490116,
+        19,
+        6,
+        7.200000002980232,
+        6.5,
+        6.800000004470348,
+        12.100000001490116,
+        14.800000004470348,
+        13.100000001490116,
+        10.900000005960464,
+        11.5
+      ]
+    },
+    "moneyConservationDrift": 4.6193599700927734e-06,
+    "errors": []
+  },
+  "additional_targeted_integration_checks": [
+    "paid44consignment project",
+    "civic project controls",
+    "provider art",
+    "district LOD",
+    "project recovery",
+    "private teaching project",
+    "status deck layouts"
+  ],
+  "scope": "Development checkpoint; additional checks preceded final archive bounds/overview-cache corrections. Host Chromium, not final Android performance or fun certification."
+}

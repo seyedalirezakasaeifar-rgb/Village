@@ -1,0 +1,605 @@
+{
+  "candidate": "23f0b19b82a24be898dac61c1094f69d60e30ed1",
+  "game_sha256": "bfe43741326367358e50bc5b7180b2dee5ec080133eefb002c5669dce02dab97",
+  "production_java_modified": false,
+  "environment": {
+    "android_api": 30,
+    "webview": "83.0.4103.120",
+    "serial": "emulator-5556",
+    "guest_cores": 4,
+    "guest_ram_mib": 3072,
+    "screen": [
+      640,
+      360
+    ],
+    "dpi": 160,
+    "acceleration": "TCG; no KVM",
+    "physical_device": false
+  },
+  "documents": {
+    "outcome": "PASS",
+    "progress": [
+      "Production bridge launched actual DocumentsUI create-document activity",
+      "Actual DocumentsUI Save selection completed production export and resumed host",
+      "Actual DocumentsUI Open selection imported exact Unicode bytes from the exported synthetic document",
+      "Successful system document roundtrip leaves host resumed and archive request idle"
+    ],
+    "sha256": "66c13cc48eb7dbb5122214faab16f6ec3f44c8db2e22699b6756bc5e669f08b2"
+  },
+  "game": {
+    "outcome": "PASS",
+    "progress": [
+      "Native input founds a valid town",
+      "Full game has visible nonzero native map",
+      "Native map contains rendered scene pixels",
+      "Three settlement economy days validate in actual native engine",
+      "Native overview panel opens",
+      "Native economy panel opens",
+      "Native community panel opens",
+      "Native agenda panel opens",
+      "Native policies panel opens",
+      "Native settings panel opens",
+      "Native Back dismisses topmost confirmation while retaining settings and town",
+      "Next native Back dismisses underlying drawer without exit",
+      "Native Vorbis soundtrack advances real media playback after explicit music control touch",
+      "Native pause holds a running simulation day",
+      "Native suspension parks observed map painting, Overview DOM and extra storage writes",
+      "Native pause stops soundtrack and effects media",
+      "Native resume avoids a backlog burst after suspension",
+      "Native resume restarts soundtrack",
+      "Native suspend and resume preserve the player's own pause preference",
+      "Native full-game archive roundtrip validates",
+      "Native soundtrack reports no decoder error after gesture playback",
+      "Native soundtrack crossfade runs two streaming media elements",
+      "Native crossfade retires and unloads previous media source",
+      "No captured full-game JavaScript errors",
+      "Synthetic 2000-resident archive prepared in native engine",
+      "Synthetic 2000-resident city loads in native engine",
+      "Native synthetic 2000-resident archive validates after loading",
+      "Soundtrack remains active with synthetic large city",
+      "Large city ready for external memory sample (30 seconds)"
+    ],
+    "sha256": "9ffaede39a17c379bda34b040035b65ab2ae91aa16dc372f7f4b35cf1bb449d8"
+  },
+  "process_death": {
+    "outcome": "FAIL",
+    "source_sha256": "bfe43741326367358e50bc5b7180b2dee5ec080133eefb002c5669dce02dab97",
+    "serial": "emulator-5556",
+    "input": "CDP trusted browser events; not physical touch",
+    "clock_control": "public host suspend bridge holds simulation around Continue to isolate persistence",
+    "physical_device": false,
+    "installed_apk_sha256": "a12972a478fd868bc9d11ee6e3e963214e0d91eb48515937b8ca918e3f7ed11c",
+    "stage": "Continue completed",
+    "initial_pid": "4486",
+    "old_pid": "4486",
+    "background_pid": "4486",
+    "process_gone": true,
+    "relaunched_pid": "4654",
+    "new_pid": "4654",
+    "actual_process_changed": true,
+    "before_sha256": "2577c32b8a6296f1c50e632a2a8ebeb2d446749cf43d1a39812973d7b61852ae",
+    "after_sha256": "1d0cb35b08c009346e7c148abd20ad57da6463bd1d7b37a166896453b7cd9e96",
+    "before_day": 1,
+    "after_day": 1,
+    "before_people": 169,
+    "after_people": 169,
+    "different_top_level_fields": [
+      "buildings",
+      "firms",
+      "recentCouncilEvents",
+      "stats"
+    ],
+    "error": "AssertionError('Recovered state differs; see hashes and differing fields (payloads not retained)')"
+  },
+  "process_death_field_differences": {
+    "saved_before_record_found": true,
+    "current_sha256": "1d0cb35b08c009346e7c148abd20ad57da6463bd1d7b37a166896453b7cd9e96",
+    "stored_candidates": [
+      {
+        "key": "townledger-v6-backup",
+        "sha256": "2577c32b8a6296f1c50e632a2a8ebeb2d446749cf43d1a39812973d7b61852ae",
+        "day": 1,
+        "people": 169
+      },
+      {
+        "key": "townledger-v6",
+        "sha256": "1d0cb35b08c009346e7c148abd20ad57da6463bd1d7b37a166896453b7cd9e96",
+        "day": 1,
+        "people": 169
+      }
+    ],
+    "differences": [
+      {
+        "path": ".buildings[100].baseValue",
+        "before": null,
+        "after": 35000,
+        "missing_before": true,
+        "missing_after": false
+      },
+      {
+        "path": ".buildings[100].title",
+        "before": null,
+        "after": {
+          "type": "dict",
+          "length": 2
+        },
+        "missing_before": true,
+        "missing_after": false
+      },
+      {
+        "path": ".buildings[101].baseValue",
+        "before": null,
+        "after": 76000,
+        "missing_before": true,
+        "missing_after": false
+      },
+      {
+        "path": ".buildings[101].title",
+        "before": null,
+        "after": {
+          "type": "dict",
+          "length": 2
+        },
+        "missing_before": true,
+        "missing_after": false
+      },
+      {
+        "path": ".firms[24].creditScore",
+        "before": null,
+        "after": 0.68,
+        "missing_before": true,
+        "missing_after": false
+      },
+      {
+        "path": ".firms[24].lossDays",
+        "before": null,
+        "after": 0,
+        "missing_before": true,
+        "missing_after": false
+      },
+      {
+        "path": ".firms[25].creditScore",
+        "before": null,
+        "after": 0.68,
+        "missing_before": true,
+        "missing_after": false
+      },
+      {
+        "path": ".firms[25].lossDays",
+        "before": null,
+        "after": 0,
+        "missing_before": true,
+        "missing_after": false
+      },
+      {
+        "path": ".privateServiceProvision",
+        "before": null,
+        "after": null,
+        "missing_before": true,
+        "missing_after": false
+      },
+      {
+        "path": ".recentCouncilEvents",
+        "before": null,
+        "after": {
+          "type": "list",
+          "length": 0
+        },
+        "missing_before": true,
+        "missing_after": false
+      },
+      {
+        "path": ".serviceProvision",
+        "before": null,
+        "after": null,
+        "missing_before": true,
+        "missing_after": false
+      },
+      {
+        "path": ".stats.approval",
+        "before": null,
+        "after": 65,
+        "missing_before": true,
+        "missing_after": false
+      },
+      {
+        "path": ".stats.businessCash",
+        "before": 490992,
+        "after": 536792
+      },
+      {
+        "path": ".stats.businesses",
+        "before": 24,
+        "after": 26
+      },
+      {
+        "path": ".stats.cash",
+        "before": 178220,
+        "after": 144797
+      },
+      {
+        "path": ".stats.employed",
+        "before": 83,
+        "after": 88
+      },
+      {
+        "path": ".stats.employment",
+        "before": 75,
+        "after": 80
+      },
+      {
+        "path": ".stats.unemployment",
+        "before": 25,
+        "after": 20
+      }
+    ],
+    "difference_count": 18,
+    "raw_save_payloads_retained": false
+  },
+  "host_day1_roundtrip": {
+    "source_sha256": "bfe43741326367358e50bc5b7180b2dee5ec080133eefb002c5669dce02dab97",
+    "host_browser_only": true,
+    "fresh_day1_roundtrip_equal": false,
+    "differences": [
+      {
+        "path": ".buildings[100].baseValue",
+        "before": null,
+        "after": 35000,
+        "missing_before": true,
+        "missing_after": false
+      },
+      {
+        "path": ".buildings[100].title",
+        "before": null,
+        "after": {
+          "type": "dict",
+          "length": 2
+        },
+        "missing_before": true,
+        "missing_after": false
+      },
+      {
+        "path": ".buildings[101].baseValue",
+        "before": null,
+        "after": 76000,
+        "missing_before": true,
+        "missing_after": false
+      },
+      {
+        "path": ".buildings[101].title",
+        "before": null,
+        "after": {
+          "type": "dict",
+          "length": 2
+        },
+        "missing_before": true,
+        "missing_after": false
+      },
+      {
+        "path": ".firms[24].creditScore",
+        "before": null,
+        "after": 0.68,
+        "missing_before": true,
+        "missing_after": false
+      },
+      {
+        "path": ".firms[24].lossDays",
+        "before": null,
+        "after": 0,
+        "missing_before": true,
+        "missing_after": false
+      },
+      {
+        "path": ".firms[25].creditScore",
+        "before": null,
+        "after": 0.68,
+        "missing_before": true,
+        "missing_after": false
+      },
+      {
+        "path": ".firms[25].lossDays",
+        "before": null,
+        "after": 0,
+        "missing_before": true,
+        "missing_after": false
+      },
+      {
+        "path": ".privateServiceProvision",
+        "before": null,
+        "after": null,
+        "missing_before": true,
+        "missing_after": false
+      },
+      {
+        "path": ".recentCouncilEvents",
+        "before": null,
+        "after": {
+          "type": "list",
+          "length": 0
+        },
+        "missing_before": true,
+        "missing_after": false
+      },
+      {
+        "path": ".roadMetrics",
+        "before": null,
+        "after": {
+          "type": "dict",
+          "length": 8
+        }
+      },
+      {
+        "path": ".serviceProvision",
+        "before": null,
+        "after": null,
+        "missing_before": true,
+        "missing_after": false
+      },
+      {
+        "path": ".stats.approval",
+        "before": null,
+        "after": 65,
+        "missing_before": true,
+        "missing_after": false
+      },
+      {
+        "path": ".stats.businessCash",
+        "before": 375341,
+        "after": 403503
+      },
+      {
+        "path": ".stats.businesses",
+        "before": 24,
+        "after": 26
+      },
+      {
+        "path": ".stats.cash",
+        "before": 127516,
+        "after": 103571
+      },
+      {
+        "path": ".stats.employed",
+        "before": 83,
+        "after": 88
+      },
+      {
+        "path": ".stats.employment",
+        "before": 75,
+        "after": 80
+      },
+      {
+        "path": ".stats.unemployment",
+        "before": 25,
+        "after": 20
+      }
+    ],
+    "difference_count": 19
+  },
+  "memory": {
+    "peak_memory_tested": false,
+    "physical_device": false,
+    "stages": {
+      "map": {
+        "observed_utc": "2026-10-31T21:36:38.828800+00:00",
+        "snapshots": [
+          {
+            "pid": 4326,
+            "process": "com.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0",
+            "pss_kib": 149971,
+            "status": 0,
+            "attribution": "observed WebView sandbox; inspect process ownership before summing"
+          }
+        ],
+        "app_pss_kib": 94267,
+        "app_status": 0,
+        "sampling_seconds": 12.064
+      },
+      "crossfade": {
+        "observed_utc": "2026-10-31T21:38:05.223261+00:00",
+        "snapshots": [
+          {
+            "pid": 4326,
+            "process": "com.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0",
+            "pss_kib": 160055,
+            "status": 0,
+            "attribution": "observed WebView sandbox; inspect process ownership before summing"
+          }
+        ],
+        "app_pss_kib": 92365,
+        "app_status": 0,
+        "sampling_seconds": 10.36
+      },
+      "large-city": {
+        "observed_utc": "2026-10-31T21:39:14.897006+00:00",
+        "snapshots": [
+          {
+            "pid": 4326,
+            "process": "com.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0",
+            "pss_kib": 167961,
+            "status": 0,
+            "attribution": "observed WebView sandbox; inspect process ownership before summing"
+          }
+        ],
+        "app_pss_kib": 93013,
+        "app_status": 0,
+        "sampling_seconds": 7.283
+      }
+    }
+  },
+  "installed_payloads": {
+    "org.townledger.vale": {
+      "apk_sha256": "a12972a478fd868bc9d11ee6e3e963214e0d91eb48515937b8ca918e3f7ed11c",
+      "bytes": 18340103,
+      "matches_built_apk": true,
+      "all_assets_match_source": true,
+      "game_sha256": "bfe43741326367358e50bc5b7180b2dee5ec080133eefb002c5669dce02dab97"
+    },
+    "org.townledger.vale.tests": {
+      "apk_sha256": "74c2fcf5f18bfd99c1a210960f812c537e4c20beae402f33049ebd9ef2bdb4ab",
+      "bytes": 29009,
+      "matches_built_apk": true
+    }
+  },
+  "package_build": {
+    "apk": "TownLedger-A-Trading-Town-8.0.0.apk",
+    "sha256": "6aede4f945f87ee658c64c848b9f4b36cbd88e5bbd580a692d1a907441ea26cd",
+    "bytes": 18340242,
+    "package": "org.townledger.vale",
+    "version": "8.0.0",
+    "code": 22,
+    "pipeline": "javac + dx/d8 + aapt + zipalign + apksigner",
+    "signature": "generated development signer; not a store release key",
+    "physical_device_tested": false
+  },
+  "package_verification": {
+    "apk": "TownLedger-A-Trading-Town-8.0.0.apk",
+    "sha256": "6aede4f945f87ee658c64c848b9f4b36cbd88e5bbd580a692d1a907441ea26cd",
+    "bytes": 18340242,
+    "dexIntegrity": true,
+    "sourceAssetsMatch": true,
+    "assets": {
+      "assets/civic7.css": "9f312ee6465076207d4bfeb01996f755b59a125df8a7d16b47592713549d511e",
+      "assets/game.js": "bfe43741326367358e50bc5b7180b2dee5ec080133eefb002c5669dce02dab97",
+      "assets/index.html": "74b31e4eb780452505d1cd46296c87b477f0fd906322184724fb09a7a3e85185",
+      "assets/style.css": "e666e2db01e419d7a65bb7050fb63f4c70a0d58348bdffa4ea7a54fbd8a67015",
+      "assets/vale.css": "6aaa9781eb11e5b0d205a720451d3fbc5384b92fb783e457d5d33f4a94be9bb9",
+      "assets/mayor8.css": "d91d6ea9c3801e630c315f2579afd97765b68c1b9749addc2da3b20bc30c7343",
+      "assets/service-budget.css": "9101199bdd685e681fe551003cd9f8b1d5f38a1b63232c99f0199965053b197a",
+      "assets/sound/LICENSE.txt": "66435b1de18b054246e451607fdbfdbdea1e1f770fb214518bfb556f79cd591e",
+      "assets/sound/build.wav": "88377b20c3bbca59a8fcabafe837b6e07508bbdba36112c7f643deea943ba551",
+      "assets/sound/click.wav": "f442b590c799bbcf972e69d1c1f172881cb5bf81116bf114bc015080d5057c91",
+      "assets/sound/coin.wav": "99edffa3814662def67c66a9401791043b5221a331ee6edf552d862703a7c7af",
+      "assets/sound/error.wav": "b5d5ded784fb78f162ec098a741ef921c2f10113a13b0d76043966546bcbf0c5",
+      "assets/sound/rain.wav": "8d5d04ed401b06df35d964915fcb0705b71f25d6460b7d789841138fadbe3e01",
+      "assets/sound/save.wav": "e94121e8f98c3343759ee0606aa23924396cef4445935f4be3267ae9e79b1d6d",
+      "assets/sound/village.wav": "5789b8988371c6720931a270c433690cdbce4f5dfb6ae7859f4c9b9ed8e857bb",
+      "assets/sound/zone.wav": "9d2e5ce6837c95bed60894c43c91f410a675d720369e8245d151653ca1a3541a",
+      "assets/music/morning-ledger.ogg": "7d4757811e18762e1ca6d34a21480159af87a4a729d3199657343cec670f35c7",
+      "assets/music/score.json": "79309110e20b0848fec904e383575c80ba558f89b7ef3d41da4e9714ba7cf58f",
+      "assets/music/lamplit-windows.ogg": "9a9b21c3deb9bd972e7b997d6d6d42446a3e2d7da479090090e7899ff872c986",
+      "assets/music/after-the-rain.ogg": "6358e61316aa6227bb667ce312ed4aa659bcc919a8b224604007663e85d856c3",
+      "assets/music/river-and-road.ogg": "838a9c6877a4a5253b4861b9cf8db88a72e3e5c29760d6cae360d776b96883f8",
+      "assets/music/market-day.ogg": "8f43f2ab5e49872fd99b469e39eee70fd8613df2952a9bdf062177bc510aaea2",
+      "assets/music/a-borough-grows.ogg": "f66760ea1663b93251ffb9fc592e9ab25b1bd5ca22d9aa166fc1fea51b247662",
+      "assets/music/quiet-river-reprise.ogg": "1c26c4b31191c805af3daa6cfe8192da4191e68a5db4ef6c8f372494687f9e84",
+      "assets/music/rails-to-greyhaven.ogg": "3152612b1171b05d097aaba466a0be5f7a3dd3c2c7d48a0fe8b0fa04784b014a",
+      "assets/music/LICENSE.txt": "f88c31f721aae3852bafd50acf051b7eb23e54982cc065e674c7ba6adeb0a21b",
+      "assets/music/orchard-footpaths.ogg": "7e4d8f9051dfb4810b2d1b4452053261aa08577646b52daa973dc14e73506c52",
+      "assets/music/waterline-work.ogg": "a537e8dc1b39fae2e9ee68f6f48a099a7f087532736a08b6a76c8e5c2b68dc85"
+    },
+    "badging": "package: name='org.townledger.vale' versionCode='22' versionName='8.0.0' platformBuildVersionName='16' platformBuildVersionCode='36' compileSdkVersion='36' compileSdkVersionCodename='16'\nsdkVersion:'24'\ntargetSdkVersion:'36'\napplication-label:'TownLedger: The Vale'\napplication-icon-160:'res/drawable/townledger.xml'\napplication: label='TownLedger: The Vale' icon='res/drawable/townledger.xml'\nlaunchable-activity: name='org.townledger.vale.MainActivity'  label='' icon=''\nfeature-group: label=''\n  uses-feature: name='android.hardware.faketouch'\n  uses-implied-feature: name='android.hardware.faketouch' reason='default feature for all apps'\n  uses-feature: name='android.hardware.screen.landscape'\n  uses-implied-feature: name='android.hardware.screen.landscape' reason='one or more activities have specified a landscape orientation'\nmain\nsupports-screens: 'small' 'normal' 'large' 'xlarge'\nsupports-any-density: 'true'\nlocales: '--_--'\ndensities: '160'\n",
+    "signatureVerification": "Verifies\nVerified using v1 scheme (JAR signing): false\nVerified using v2 scheme (APK Signature Scheme v2): true\nVerified using v3 scheme (APK Signature Scheme v3): true\nVerified using v3.1 scheme (APK Signature Scheme v3.1): false\nVerified using v4 scheme (APK Signature Scheme v4): false\nVerified for SourceStamp: false\nNumber of signers: 1\nSigner #1 certificate DN: CN=TownLedger Development, O=TownLedger, C=CA\nSigner #1 certificate SHA-256 digest: efcc9e62a1f908df7a51271061d887a1e9e227271a8a5478095627b17af0cbd5\nSigner #1 certificate SHA-1 digest: 3da02425c4175ba1b195e387ae3bf0b47762af27\nSigner #1 certificate MD5 digest: a72856d211ed4dda0fa73984f2c14c04\nSigner #1 key algorithm: RSA\nSigner #1 key size (bits): 3072\nSigner #1 public key SHA-256 digest: 8d9c82a2eff061081622060c7f4936078b0569ee0ed74643bda7c148b18f6cca\nSigner #1 public key SHA-1 digest: 95c886d19833120c7dfbfcc9867822f4403ca253\nSigner #1 public key MD5 digest: 227b66ac9a74844d731c1a4f7a45b9a6\n",
+    "alignment": true,
+    "deviceInstallation": "NOT TESTED",
+    "frameRateOnAndroid": "NOT TESTED"
+  },
+  "documents_build": {
+    "source_commit": "23f0b19b82a24be898dac61c1094f69d60e30ed1",
+    "source_files": {
+      "android/app/src/main/java/org/townledger/vale/MainActivity.java": "5e4469e223d72d07eb87c7f60fd24c4f7144b53fbe0c1e3594c98435d631ec19",
+      "android/app/src/main/java/org/townledger/vale/BackNavigation.java": "5e6b38bd787ccdaa9006173d7c8ac82d208c90cc571d13ecc56e68af0f69b2ee",
+      "android/app/src/main/java/org/townledger/vale/ArchiveIO.java": "1f2d9a5ba00e535fb6dd08ab17e53d1817b70251d9579c80868ce7a08d256c56",
+      "tests/android/DocumentsHarness.java": "ecaa3a66eb7da0c880383508a08a50daa0f2b2cb9a9e0cd372ab69f0628668cd",
+      "tests/android/ArchiveProvider.java": "7910cd8b7c53c2f50a619386742d118626084b345f395f29d3f1a98b765d9c73",
+      "assets/index.html": "e796abd935d70a1c1179e5a48f3ea5af0a4af6b6bca1b02bd1d372a7db0c2a0f"
+    },
+    "artifacts": {
+      "native-host-fixture.apk": "331983508523c65a19fc25e5fa14a34dd01377562bc32afef316cec7d42c3ac1",
+      "native-host-tests.apk": "aae4ed52547c60ef2ed9e62302cb5b6ed12e73ed7021d06b770ee1c758157380"
+    },
+    "game_assets": false,
+    "asset_source": "tests/android/host-page.html",
+    "sdk_platform": "android-36",
+    "build_tools": "36.0.0",
+    "run_status": "NOT RUN",
+    "production_signer_used": false
+  },
+  "game_build": {
+    "source_commit": "23f0b19b82a24be898dac61c1094f69d60e30ed1",
+    "source_files": {
+      "android/app/src/main/java/org/townledger/vale/MainActivity.java": "5e4469e223d72d07eb87c7f60fd24c4f7144b53fbe0c1e3594c98435d631ec19",
+      "android/app/src/main/java/org/townledger/vale/BackNavigation.java": "5e6b38bd787ccdaa9006173d7c8ac82d208c90cc571d13ecc56e68af0f69b2ee",
+      "android/app/src/main/java/org/townledger/vale/ArchiveIO.java": "1f2d9a5ba00e535fb6dd08ab17e53d1817b70251d9579c80868ce7a08d256c56",
+      "tests/android/FullGameHarness.java": "0d2383287aa5d8d4047d14402eb2a8ca806092199671c44c2773b6afef2d3253",
+      "tests/android/ArchiveProvider.java": "7910cd8b7c53c2f50a619386742d118626084b345f395f29d3f1a98b765d9c73",
+      "assets/civic7.css": "9f312ee6465076207d4bfeb01996f755b59a125df8a7d16b47592713549d511e",
+      "assets/game.js": "bfe43741326367358e50bc5b7180b2dee5ec080133eefb002c5669dce02dab97",
+      "assets/index.html": "74b31e4eb780452505d1cd46296c87b477f0fd906322184724fb09a7a3e85185",
+      "assets/style.css": "e666e2db01e419d7a65bb7050fb63f4c70a0d58348bdffa4ea7a54fbd8a67015",
+      "assets/vale.css": "6aaa9781eb11e5b0d205a720451d3fbc5384b92fb783e457d5d33f4a94be9bb9",
+      "assets/mayor8.css": "d91d6ea9c3801e630c315f2579afd97765b68c1b9749addc2da3b20bc30c7343",
+      "assets/service-budget.css": "9101199bdd685e681fe551003cd9f8b1d5f38a1b63232c99f0199965053b197a",
+      "assets/sound/LICENSE.txt": "66435b1de18b054246e451607fdbfdbdea1e1f770fb214518bfb556f79cd591e",
+      "assets/sound/build.wav": "88377b20c3bbca59a8fcabafe837b6e07508bbdba36112c7f643deea943ba551",
+      "assets/sound/click.wav": "f442b590c799bbcf972e69d1c1f172881cb5bf81116bf114bc015080d5057c91",
+      "assets/sound/coin.wav": "99edffa3814662def67c66a9401791043b5221a331ee6edf552d862703a7c7af",
+      "assets/sound/error.wav": "b5d5ded784fb78f162ec098a741ef921c2f10113a13b0d76043966546bcbf0c5",
+      "assets/sound/rain.wav": "8d5d04ed401b06df35d964915fcb0705b71f25d6460b7d789841138fadbe3e01",
+      "assets/sound/save.wav": "e94121e8f98c3343759ee0606aa23924396cef4445935f4be3267ae9e79b1d6d",
+      "assets/sound/village.wav": "5789b8988371c6720931a270c433690cdbce4f5dfb6ae7859f4c9b9ed8e857bb",
+      "assets/sound/zone.wav": "9d2e5ce6837c95bed60894c43c91f410a675d720369e8245d151653ca1a3541a",
+      "assets/music/morning-ledger.ogg": "7d4757811e18762e1ca6d34a21480159af87a4a729d3199657343cec670f35c7",
+      "assets/music/score.json": "79309110e20b0848fec904e383575c80ba558f89b7ef3d41da4e9714ba7cf58f",
+      "assets/music/lamplit-windows.ogg": "9a9b21c3deb9bd972e7b997d6d6d42446a3e2d7da479090090e7899ff872c986",
+      "assets/music/after-the-rain.ogg": "6358e61316aa6227bb667ce312ed4aa659bcc919a8b224604007663e85d856c3",
+      "assets/music/river-and-road.ogg": "838a9c6877a4a5253b4861b9cf8db88a72e3e5c29760d6cae360d776b96883f8",
+      "assets/music/market-day.ogg": "8f43f2ab5e49872fd99b469e39eee70fd8613df2952a9bdf062177bc510aaea2",
+      "assets/music/a-borough-grows.ogg": "f66760ea1663b93251ffb9fc592e9ab25b1bd5ca22d9aa166fc1fea51b247662",
+      "assets/music/quiet-river-reprise.ogg": "1c26c4b31191c805af3daa6cfe8192da4191e68a5db4ef6c8f372494687f9e84",
+      "assets/music/rails-to-greyhaven.ogg": "3152612b1171b05d097aaba466a0be5f7a3dd3c2c7d48a0fe8b0fa04784b014a",
+      "assets/music/LICENSE.txt": "f88c31f721aae3852bafd50acf051b7eb23e54982cc065e674c7ba6adeb0a21b",
+      "assets/music/orchard-footpaths.ogg": "7e4d8f9051dfb4810b2d1b4452053261aa08577646b52daa973dc14e73506c52",
+      "assets/music/waterline-work.ogg": "a537e8dc1b39fae2e9ee68f6f48a099a7f087532736a08b6a76c8e5c2b68dc85"
+    },
+    "artifacts": {
+      "native-host-fixture.apk": "a12972a478fd868bc9d11ee6e3e963214e0d91eb48515937b8ca918e3f7ed11c",
+      "native-host-tests.apk": "74c2fcf5f18bfd99c1a210960f812c537e4c20beae402f33049ebd9ef2bdb4ab"
+    },
+    "game_assets": true,
+    "asset_source": "assets",
+    "sdk_platform": "android-36",
+    "build_tools": "36.0.0",
+    "run_status": "NOT RUN",
+    "production_signer_used": false
+  },
+  "setup_negative_evidence": {
+    "reused_avd": {
+      "outcome": "SETUP FAILED BEFORE TEST EXECUTION",
+      "cause": "Android system_server IllegalStateException: Lost network stack; package service broke during install",
+      "device_install_retries_after_recovery": 1,
+      "native_candidate_launched": false,
+      "next_attempt": "one clean AVD with 4 guest cores / 3072 MiB; retain old AVD and private keys"
+    },
+    "clean_avd_health": {
+      "serial": "emulator-5556",
+      "network_stack": [
+        "1154 com.android.networkstack.process"
+      ],
+      "stable_samples": 3,
+      "wait_seconds": 238,
+      "guest_cores": 4,
+      "guest_ram_mib": 3072
+    },
+    "one_boot_anr_wait": {
+      "action": "one Wait on verified boot SystemUI ANR after instrumentation released UIAutomation",
+      "coordinates": [
+        320,
+        218
+      ],
+      "security_settings_changed": false,
+      "repeat_dismissals": false
+    },
+    "uiautomation_exclusivity": "A parallel uiautomator dump conflicted with Instrumentation; no parallel automation connection was used after diagnosis.",
+    "selector_adaptations": "Grid filenames were clipped in 640x360; list view and actual document-row accessibility activation replaced assumptions about clickable text ancestors."
+  },
+  "limits": [
+    "No physical-device FPS, thermals, speaker quality or peak-memory certification",
+    "Process death and valid Continue were observed, but full canonical equality failed with listed initialization/default/derived-stat differences; this is not relabeled PASS",
+    "No raw save payloads, signing keys or personal information retained in these reports",
+    "Initial founding media required an explicit Next gesture on this software emulator",
+    "Trailer compositor/shadow/SVG fixes are pending a later combined candidate and were not reviewed here",
+    "API 33+ Back runtime and phone/audio-route interruption remain untested"
+  ],
+  "emulator_preserved_for_next_candidate": true,
+  "build_receipt_note": "Embedded build receipts say NOT RUN because builders never assert runtime success. Separate documents/game receipts above record the completed native runs."
+}
